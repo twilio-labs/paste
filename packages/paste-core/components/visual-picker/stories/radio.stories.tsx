@@ -37,7 +37,7 @@ export const VerticalRadioGroup = (): React.ReactNode => {
       }}
     >
       <VisualPickerRadio id={useUID()} value="1" labelText="ACME Website">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -64,7 +64,7 @@ export const VerticalRadioGroup = (): React.ReactNode => {
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="2" labelText="ACME Website">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -91,7 +91,7 @@ export const VerticalRadioGroup = (): React.ReactNode => {
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="3" labelText="ACME Website">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -139,7 +139,7 @@ export const VerticalRadioGroupDisabledRadio = (): React.ReactNode => {
       }}
     >
       <VisualPickerRadio id={useUID()} value="1" labelText="ACME Website" disabled hasError>
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -166,7 +166,7 @@ export const VerticalRadioGroupDisabledRadio = (): React.ReactNode => {
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="2" labelText="ACME Website" disabled>
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -193,7 +193,7 @@ export const VerticalRadioGroupDisabledRadio = (): React.ReactNode => {
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="3" labelText="ACME Website">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -241,7 +241,7 @@ export const VerticalRadioGroupRadioError = (): React.ReactNode => {
       }}
     >
       <VisualPickerRadio id={useUID()} value="1" labelText="ACME Website">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -268,7 +268,7 @@ export const VerticalRadioGroupRadioError = (): React.ReactNode => {
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="2" hasError labelText="ACME Website">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -295,7 +295,7 @@ export const VerticalRadioGroupRadioError = (): React.ReactNode => {
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="3" labelText="ACME Website">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />

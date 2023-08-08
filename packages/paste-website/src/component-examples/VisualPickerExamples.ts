@@ -17,7 +17,7 @@ const VisualPickerExample = () => {
           value={value}
         >
           <VisualPickerRadio id={useUID()} value='1' labelText="my first site (website)">
-            <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+            <Box display="flex" justifyContent="space-between" alignItems="center">
               <MediaObject verticalAlign="center">
                 <MediaFigure spacing="space50">
                   <Avatar variant="entity" icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -44,7 +44,7 @@ const VisualPickerExample = () => {
             </Box>
           </VisualPickerRadio>
           <VisualPickerRadio id={useUID()} value='2' labelText="test site (website)">
-            <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+            <Box display="flex" justifyContent="space-between" alignItems="center">
               <MediaObject verticalAlign="center">
                 <MediaFigure spacing="space50">
                   <Avatar variant="entity" icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -70,7 +70,7 @@ const VisualPickerExample = () => {
             </Box>
           </VisualPickerRadio>
           <VisualPickerRadio id={useUID()} value='3' labelText="ACME (website)">
-            <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+            <Box display="flex" justifyContent="space-between" alignItems="center">
               <MediaObject verticalAlign="center">
                 <MediaFigure spacing="space50">
                   <Avatar variant="entity" icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -210,7 +210,7 @@ const VisualPickerExample = () => {
             helpText="The message will be sent to all recipients for each selected service."
         >
             <VisualPickerCheckbox id={useUID()} labelText="sms" checked={checked1} onChange={handleChange1}>
-              <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+              <Box display="flex" justifyContent="space-between" alignItems="center">
                 <MediaObject verticalAlign="center">
                   <MediaFigure spacing="space50">
                     <Avatar variant="entity" icon={SMSIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -235,7 +235,7 @@ const VisualPickerExample = () => {
               </Box>
             </VisualPickerCheckbox>
             <VisualPickerCheckbox id={useUID()} labelText="voice" checked={checked2} onChange={handleChange2}>
-              <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+              <Box display="flex" justifyContent="space-between" alignItems="center">
                 <MediaObject verticalAlign="center">
                   <MediaFigure spacing="space50">
                     <Avatar variant="entity" icon={VoiceCapableIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -260,7 +260,7 @@ const VisualPickerExample = () => {
               </Box>
             </VisualPickerCheckbox>
             <VisualPickerCheckbox id={useUID()} labelText="whatsapp" checked={checked3} onChange={handleChange3}>
-              <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+              <Box display="flex" justifyContent="space-between" alignItems="center">
                 <MediaObject verticalAlign="center">
                   <MediaFigure spacing="space50">
                     <Avatar variant="entity" icon={ProductVideoIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -285,7 +285,7 @@ const VisualPickerExample = () => {
               </Box>
             </VisualPickerCheckbox>
             <VisualPickerCheckbox id={useUID()} labelText="email" checked={checked4} onChange={handleChange4}>
-              <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+              <Box display="flex" justifyContent="space-between" alignItems="center">
                 <MediaObject verticalAlign="center">
                   <MediaFigure spacing="space50">
                     <Avatar variant="entity" icon={EmailIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -468,7 +468,7 @@ const VisualPickerExample = () => {
       value={value}
     >
       <VisualPickerRadio id={useUID()} value='1' labelText="my first site (website)">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar variant="entity" icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -495,7 +495,7 @@ const VisualPickerExample = () => {
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value='2' labelText="test site (website)">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar variant="entity" icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -521,7 +521,7 @@ const VisualPickerExample = () => {
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value='3' labelText="ACME (website)">
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar variant="entity" icon={CodeIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -578,7 +578,7 @@ const VisualPickerExample = () => {
       disabled
   >
       <VisualPickerCheckbox id={useUID()} labelText="sms" checked={checked1} onChange={handleChange1}>
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar variant="entity" icon={SMSIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -603,7 +603,7 @@ const VisualPickerExample = () => {
         </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox id={useUID()} labelText="voice" checked={checked2} onChange={handleChange2}>
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar variant="entity" icon={VoiceCapableIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -628,7 +628,7 @@ const VisualPickerExample = () => {
         </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox id={useUID()} labelText="whatsapp" checked={checked3} onChange={handleChange3}>
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar variant="entity" icon={ProductVideoIcon} size="sizeIcon90" name="code" color="decorative20" />
@@ -653,7 +653,7 @@ const VisualPickerExample = () => {
         </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox id={useUID()} labelText="email" checked={checked4} onChange={handleChange4}>
-        <Box width="size50" display="flex" justifyContent="space-between" alignItems="center">
+        <Box display="flex" justifyContent="space-between" alignItems="center">
           <MediaObject verticalAlign="center">
             <MediaFigure spacing="space50">
               <Avatar variant="entity" icon={EmailIcon} size="sizeIcon90" name="code" color="decorative20" />
