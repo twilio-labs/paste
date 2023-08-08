@@ -332,21 +332,21 @@ const Component = () => {
 
 #### Props
 
-| Prop              | Type                      | Description                                                                                 | Default  |
-| ----------------- | ------------------------- | ------------------------------------------------------------------------------------------- | -------- |
-| id                | `string`                  | Must provide an id to match with a label                                                    | null     |
-| aria-describedby? | `string`                  | Optional id to pair the input to its help text                                              | null     |
-| disabled?         | `boolean`                 | Disables the slider                                                                         | false    |
-| hasError?         | `boolean`                 | Shows error styling on the Slider                                                           | false    |
-| hideRangeLabels?  | `boolean`                 | Hides the min and max values that appear over the slider                                    | false    |
-| minValue?         | `number`                  | The smallest number in the slider range                                                     | 1        |
-| maxValue?         | `number`                  | The largest number in the slider range                                                      | 100      |
-| step?             | `number`                  | The incremented value as you drag along the range                                           | 1        |
-| numberFormatter   | `Intl.NumberFormatter`    | Used to format the value into i18n formats. Can return localized currencies and percentages |          |
-| value?            | `number`                  | The current selected value                                                                  | 1        |
-| onChange?         | `(value: number) => void` | Fired on every change as the thumb is dragged along the track                               |          |
-| onChangeEnd?      | `(value: number) => void` | Fired at the end of the dragging event once                                                 |          |
-| element?          | `string`                  | Overrides the default element name to apply unique styles with the Customization Provider   | 'SLIDER' |
+| Prop              | Type                                                                                                                         | Description                                                                                 | Default  |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | -------- |
+| id                | `string`                                                                                                                     | Must provide an id to match with a label                                                    | null     |
+| numberFormatter   | [`Intl.NumberFormatter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | Used to format the value into i18n formats. Can return localized currencies and percentages |          |
+| aria-describedby? | `string`                                                                                                                     | Optional id to pair the input to its help text                                              | null     |
+| disabled?         | `boolean`                                                                                                                    | Disables the slider                                                                         | false    |
+| hasError?         | `boolean`                                                                                                                    | Shows error styling on the Slider                                                           | false    |
+| hideRangeLabels?  | `boolean`                                                                                                                    | Hides the min and max values that appear over the slider                                    | false    |
+| minValue?         | `number`                                                                                                                     | The smallest number in the slider range                                                     | 1        |
+| maxValue?         | `number`                                                                                                                     | The largest number in the slider range                                                      | 100      |
+| step?             | `number`                                                                                                                     | The incremented value as you drag along the range                                           | 1        |
+| value?            | `number`                                                                                                                     | The current selected value                                                                  | 1        |
+| onChange?         | `(value: number) => void`                                                                                                    | Fired on every change as the thumb is dragged along the track                               |          |
+| onChangeEnd?      | `(value: number) => void`                                                                                                    | Fired at the end of the dragging event once                                                 |          |
+| element?          | `string`                                                                                                                     | Overrides the default element name to apply unique styles with the Customization Provider   | 'SLIDER' |
 
 <ChangelogRevealer>
   <Changelog />

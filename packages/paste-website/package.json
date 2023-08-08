@@ -109,6 +109,7 @@
     "@twilio-paste/style-props": "^8.0.1",
     "@twilio-paste/styling-library": "^2.0.1",
     "@twilio-paste/switch": "^4.0.0",
+    "@twilio-paste/slider": "^0.0.0",
     "@twilio-paste/syntax-highlighter-library": "^2.0.0",
     "@twilio-paste/table": "^7.0.1",
     "@twilio-paste/tabs": "^7.0.2",
