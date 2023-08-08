@@ -19,6 +19,7 @@ import {SITE_BREAKPOINTS, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONM
 const isProd = ENVIRONMENT_CONTEXT === 'production';
 
 const App = ({Component, pageProps}: AppProps): React.ReactElement => {
+  const router = useRouter();
   const localStorageKey = 'cookie-consent-accepted';
   const [theme, toggleMode, componentMounted] = useDarkMode();
   const [previewTheme, setPreviewTheme] = React.useState('twilio');
@@ -26,7 +27,13 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
 
   React.useEffect(() => {
     const cookiesAcceptedLocalStorage = SimpleStorage.get(localStorageKey);
-    setCookiesAccepted(cookiesAcceptedLocalStorage);
+    // was there a previous acceptance
+    let cookiesAcceptedMount = cookiesAcceptedLocalStorage;
+    // if in cypress or on the opengraph share image generator, always say we rejected the cookies to not show the banner
+    if (inCypress() || router.pathname === '/opengraph') {
+      cookiesAcceptedMount = 'false';
+    }
+    setCookiesAccepted(cookiesAcceptedMount);
     if (cookiesAcceptedLocalStorage === 'true') {
       datadogRum.init({
         applicationId: DATADOG_APPLICATION_ID,
@@ -50,7 +57,6 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
     }
   }, []);
 
-  const router = useRouter();
   React.useEffect(() => {
     const handleRouteChange = (url: URL): void => {
       gtag.pageview(url);
