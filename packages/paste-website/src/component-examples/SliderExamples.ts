@@ -3,27 +3,20 @@ const DefaultSliderExample = () => {
   const [value, setValue] = React.useState(0.75);
   const id = useUID();
 
-  const PercentFormatter = React.useMemo(() => {
-    return new Intl.NumberFormat('en-US', { style: 'percent' });
+  const numberFormatter = React.useMemo(() => {
+    return new Intl.NumberFormat('en-US');
   }, []);
 
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={id}>Volume</Label>
+        <Label htmlFor={id}>Brightness</Label>
         <Slider
           id={id}
+          numberFormatter={numberFormatter}
           value={value}
-          minValue={0}
-          maxValue={1}
-          step={0.01}
           onChange={(newValue) => setValue(newValue)}
-          numberFormatter={PercentFormatter}
         />
-        <HelpText>
-          I saw an ad yesterday that said “Radio for sale $1, volume is stuck on full blast”.
-          I said to myself “well, I can’t turn that down.”
-        </HelpText>
       </FormControl>
     </Form>
   );
@@ -36,10 +29,10 @@ render(
 
 export const disabledSlider = `
 const DisabledSliderExample = () => {
-  const [value, setValue] = React.useState(0.75);
+  const [value, setValue] = React.useState(0.5);
   const id = useUID();
 
-  const PercentFormatter = React.useMemo(() => {
+  const numberFormatter = React.useMemo(() => {
     return new Intl.NumberFormat('en-US', { style: 'percent' });
   }, []);
 
@@ -55,12 +48,8 @@ const DisabledSliderExample = () => {
           maxValue={1}
           step={0.01}
           onChange={(newValue) => setValue(newValue)}
-          numberFormatter={PercentFormatter}
+          numberFormatter={numberFormatter}
         />
-        <HelpText>
-          I saw an ad yesterday that said “Radio for sale $1, volume is stuck on full blast”.
-          I said to myself “well, I can’t turn that down.”
-        </HelpText>
       </FormControl>
     </Form>
   );
@@ -73,31 +62,33 @@ render(
 
 export const errorSlider = `
 const ErrorSliderExample = () => {
-  const [value, setValue] = React.useState(20);
+  const [value, setValue] = React.useState(0.2);
   const id = useUID();
+  const helpTextId = useUID();
 
-  const NumberFormatter = React.useMemo(() => {
-    return new Intl.NumberFormat('en-US');
+  const numberFormatter = React.useMemo(() => {
+    return new Intl.NumberFormat('en-US', { style: 'percent' });
   }, []);
 
-  const hasError = value > 10;
+  const hasError = value < 0.3;
 
   return (
     <Form>
       <FormControl>
-        <Label required htmlFor={id}>How many radios to purchase?</Label>
+        <Label required htmlFor={id}>Delivery alerts</Label>
         <Slider
           hasError={hasError}
           id={id}
+          aria-describedby={helpTextId}
           value={value}
           minValue={0}
-          maxValue={100}
-          step={1}
+          maxValue={1}
+          step={0.01}
           onChange={(newValue) => setValue(newValue)}
-          numberFormatter={NumberFormatter}
+          numberFormatter={numberFormatter}
         />
-        <HelpText variant={hasError ? "error" : "default"}>
-          {hasError ? "Too many radios! You can only buy 10 radios." : "The number of radios you've selected for purchase."}
+        <HelpText id={helpTextId} variant={hasError ? "error" : "default"}>
+          The delivery rate's threshold must be greater than 30%.
         </HelpText>
       </FormControl>
     </Form>
@@ -121,7 +112,7 @@ const CustomRangeSliderExample = () => {
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={id}>Screen brightness</Label>
+        <Label htmlFor={id}>Partition size</Label>
         <Slider
           id={id}
           value={value}
@@ -138,36 +129,6 @@ const CustomRangeSliderExample = () => {
 
 render(
   <CustomRangeSliderExample />
-)
-`.trim();
-
-export const customStepSlider = `
-const CustomStepSliderExample = () => {
-  const [value, setValue] = React.useState(32);
-  const id = useUID();
-
-  const NumberFormatter = React.useMemo(() => {
-    return new Intl.NumberFormat('en-US');
-  }, []);
-
-  return (
-    <Form>
-      <FormControl>
-        <Label htmlFor={id}>Player count</Label>
-        <Slider
-          id={id}
-          value={value}
-          step={25}
-          onChange={(newValue) => setValue(newValue)}
-          numberFormatter={NumberFormatter}
-        />
-      </FormControl>
-    </Form>
-  );
-};
-
-render(
-  <CustomStepSliderExample />
 )
 `.trim();
 
