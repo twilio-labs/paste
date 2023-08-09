@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/codemods",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "status": "production",
   "description": "A collection of codemods for maintaining projects built with Paste.",
   "author": "Twilio Inc.",
@@ -25,6 +25,6 @@
     "@babel/core": "^7.21.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@babel/preset-env": "^7.21.4",
-    "@twilio-paste/core": "^19.6.0"
+    "@twilio-paste/core": "^19.7.0"
   }
 }

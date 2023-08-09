@@ -1,5 +1,21 @@
 # @twilio-paste/sidebar
 
+## 0.5.1
+
+### Patch Changes
+
+- [`3c8e02a3d`](https://github.com/twilio-labs/paste/commit/3c8e02a3dc7c27c1fa337df4618b4236d5b6f305) [#3346](https://github.com/twilio-labs/paste/pull/3346) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] fixed an issue with overlay sidebars where the topbar would be over the sidebar when sidebar is expanded
+
+* [`4d1f7c65e`](https://github.com/twilio-labs/paste/commit/4d1f7c65e77e5e0bbf6c7422b46a477bdb932ee6) [#3360](https://github.com/twilio-labs/paste/pull/3360) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Improved types where Paste extends the base HTML element that a component is based on, so that the existing blocked styling properties are not exposed as valid properties for the component via Typescript. This leads to less confusion around what is supported by a Paste component.
+
+  Existing blocked component properties include:
+
+  - `className`
+  - `style`
+  - `color`
+
+- [`bb49609a7`](https://github.com/twilio-labs/paste/commit/bb49609a7a8f5dd3b18f240bd66a6a98ab2d6805) [#3332](https://github.com/twilio-labs/paste/pull/3332) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] `SidebarNavigationItem` now opens external links with the correct default `rel` and `target` attributes.
+
 ## 0.5.0
 
 ### Minor Changes

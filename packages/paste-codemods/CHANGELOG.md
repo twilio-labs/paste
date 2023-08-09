@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.8
+
+### Patch Changes
+
+- [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c) [#3350](https://github.com/twilio-labs/paste/pull/3350) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] new Visual Picker exports
+
 ## 0.3.7
 
 ### Patch Changes

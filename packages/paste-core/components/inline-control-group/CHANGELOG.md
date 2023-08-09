@@ -1,5 +1,21 @@
 # Change Log
 
+## 12.0.1
+
+### Patch Changes
+
+- [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c) [#3350](https://github.com/twilio-labs/paste/pull/3350) Thanks [@nkrantz](https://github.com/nkrantz)! - [Inline control group] add new `fieldStyleProps` property to enable overriding styles for visual picker
+
+* [`4d1f7c65e`](https://github.com/twilio-labs/paste/commit/4d1f7c65e77e5e0bbf6c7422b46a477bdb932ee6) [#3360](https://github.com/twilio-labs/paste/pull/3360) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Improved types where Paste extends the base HTML element that a component is based on, so that the existing blocked styling properties are not exposed as valid properties for the component via Typescript. This leads to less confusion around what is supported by a Paste component.
+
+  Existing blocked component properties include:
+
+  - `className`
+  - `style`
+  - `color`
+
+- [`1fe9f3286`](https://github.com/twilio-labs/paste/commit/1fe9f328696cbfdc9fa6e6b004bc19b90e59aeda) [#3370](https://github.com/twilio-labs/paste/pull/3370) Thanks [@nkrantz](https://github.com/nkrantz)! - [Inline control group] Adjust spacing for Visual Picker
+
 ## 12.0.0
 
 ### Major Changes

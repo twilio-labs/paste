@@ -1,5 +1,11 @@
 # Change Log
 
+## 15.0.4
+
+### Patch Changes
+
+- [`abf6c1912`](https://github.com/twilio-labs/paste/commit/abf6c19126a1e4fef5898c10354efe2141f27464) [#3347](https://github.com/twilio-labs/paste/pull/3347) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox] small fix for multiselect combobox listbox positioning now that it uses a portal
+
 ## 15.0.3
 
 ### Patch Changes
