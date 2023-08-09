@@ -125,7 +125,7 @@ const VisualPickerExample = () => {
                 <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
                   Basic plan
                 </Text>
-                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
                   Most basic option
                 </Text>
               </Box>
@@ -151,7 +151,7 @@ const VisualPickerExample = () => {
                 <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
                   Business plan
                 </Text>
-                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
                   Best for businesses
                 </Text>
               </Box>
@@ -177,7 +177,7 @@ const VisualPickerExample = () => {
                 <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
                   Pro plan
                 </Text>
-                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
                   For large businesses
                 </Text>
               </Box>
@@ -355,7 +355,7 @@ const VisualPickerExample = () => {
                 <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
                   SMS
                 </Text>
-                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
                   30 test recipients
                 </Text>
               </Box>
@@ -365,7 +365,7 @@ const VisualPickerExample = () => {
                 <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
                   Whatsapp
                 </Text>
-                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
                   15 test recipients
                 </Text>
               </Box>
@@ -375,7 +375,7 @@ const VisualPickerExample = () => {
                 <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
                   Email
                 </Text>
-                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
                   7 test recipients
                 </Text>
               </Box>
