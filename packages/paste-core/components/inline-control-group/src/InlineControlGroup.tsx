@@ -35,7 +35,7 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
     },
     ref
   ) => {
-    const isVisualPicker = fieldStyleProps !== null; // This prop is only used in Visual Picker
+    const isVisualPicker = Boolean(fieldStyleProps); // This prop is only used in Visual Picker
 
     return (
       <Box
