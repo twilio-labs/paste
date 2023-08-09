@@ -227,22 +227,29 @@ export const HorizontalCheckboxGroup = (): React.ReactNode => {
   return (
     <VisualPickerCheckboxGroup
       orientation="horizontal"
-      legend={
-        <Text as="span" color="currentColor">
-          This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
-        </Text>
-      }
+      legend="Which service(s) would you like to test?"
       name={`${useUID()}_horizontal`}
-      helpText="Help text should go here."
+      helpText="Select a service"
     >
       <VisualPickerCheckbox labelText="SQL" checked={checked1} onChange={handleChange1}>
-        <Box display="flex" rowGap="space80" flexDirection="column" alignItems="center" maxWidth="size40">
-          <Box width="100%">
-            <Text as="span" fontWeight="fontWeightBold" fontSize="fontSize60" lineHeight="lineHeight20">
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
               My company
             </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              My company will be directly sending and receiving messages.
+            </Text>
           </Box>
-          <Box display="flex" rowGap="space30" flexDirection="column" alignItems="center">
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
             <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
             <Text
               as="span"
@@ -254,25 +261,27 @@ export const HorizontalCheckboxGroup = (): React.ReactNode => {
               Your business
             </Text>
           </Box>
-          <Text
-            as="span"
-            fontWeight="fontWeightLight"
-            color="colorTextWeak"
-            lineHeight="lineHeight30"
-            fontSize="fontSize30"
-          >
-            My company will be directly sending and receiving messages.
-          </Text>
         </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox labelText="SQL" checked={checked2} onChange={handleChange2}>
-        <Box display="flex" rowGap="space80" flexDirection="column" alignItems="center" maxWidth="size40">
-          <Box width="100%">
-            <Text as="span" fontWeight="fontWeightBold" fontSize="fontSize60" lineHeight="lineHeight20">
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
               My customer&apos;s company
             </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              Independent Software Vendor, Reseller or Partner who uses WhatsApp for end clients.
+            </Text>
           </Box>
-          <Box display="flex" rowGap="space30" flexDirection="column" alignItems="center">
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
             <AvatarGroup variant="user" size="sizeIcon110">
               <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
               <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
@@ -288,15 +297,6 @@ export const HorizontalCheckboxGroup = (): React.ReactNode => {
               Your business
             </Text>
           </Box>
-          <Text
-            as="span"
-            fontWeight="fontWeightLight"
-            color="colorTextWeak"
-            lineHeight="lineHeight30"
-            fontSize="fontSize30"
-          >
-            Independent Software Vendor
-          </Text>
         </Box>
       </VisualPickerCheckbox>
     </VisualPickerCheckboxGroup>
@@ -311,29 +311,30 @@ export const HorizontalCheckboxGroupDisabledGroup = (): React.ReactNode => {
   return (
     <VisualPickerCheckboxGroup
       orientation="horizontal"
-      legend={
-        <Text as="span" color="currentColor">
-          This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
-        </Text>
-      }
-      name={`${useUID()}_disabled_group`}
-      helpText="Help text should go here."
+      legend="Which service(s) would you like to test?"
+      name={`${useUID()}_horizontal`}
+      helpText="Select a service"
       disabled
     >
       <VisualPickerCheckbox labelText="SQL" checked={checked1} onChange={handleChange1}>
-        <Box display="flex" rowGap="space80" flexDirection="column" alignItems="center" maxWidth="size40">
-          <Box width="100%">
-            <Text
-              as="span"
-              fontWeight="fontWeightBold"
-              fontSize="fontSize60"
-              lineHeight="lineHeight20"
-              color="colorTextWeak"
-            >
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60" color="colorTextWeak">
               My company
             </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
+              My company will be directly sending and receiving messages.
+            </Text>
           </Box>
-          <Box display="flex" rowGap="space30" flexDirection="column" alignItems="center">
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
             <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
             <Text
               as="span"
@@ -345,31 +346,27 @@ export const HorizontalCheckboxGroupDisabledGroup = (): React.ReactNode => {
               Your business
             </Text>
           </Box>
-          <Text
-            as="span"
-            fontWeight="fontWeightLight"
-            color="colorTextWeak"
-            lineHeight="lineHeight30"
-            fontSize="fontSize30"
-          >
-            My company will be directly sending and receiving messages.
-          </Text>
         </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox labelText="SQL" checked={checked2} onChange={handleChange2}>
-        <Box display="flex" rowGap="space80" flexDirection="column" alignItems="center" maxWidth="size40">
-          <Box width="100%">
-            <Text
-              as="span"
-              fontWeight="fontWeightBold"
-              fontSize="fontSize60"
-              lineHeight="lineHeight20"
-              color="colorTextWeak"
-            >
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60" color="colorTextWeak">
               My customer&apos;s company
             </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
+              Independent Software Vendor, Reseller or Partner who uses WhatsApp for end clients.
+            </Text>
           </Box>
-          <Box display="flex" rowGap="space30" flexDirection="column" alignItems="center">
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
             <AvatarGroup variant="user" size="sizeIcon110">
               <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
               <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
@@ -385,15 +382,6 @@ export const HorizontalCheckboxGroupDisabledGroup = (): React.ReactNode => {
               Your business
             </Text>
           </Box>
-          <Text
-            as="span"
-            fontWeight="fontWeightLight"
-            color="colorTextWeak"
-            lineHeight="lineHeight30"
-            fontSize="fontSize30"
-          >
-            Independent Software Vendor, Reseller or Partner who uses WhatsApp for end clients.
-          </Text>
         </Box>
       </VisualPickerCheckbox>
     </VisualPickerCheckboxGroup>
@@ -403,71 +391,82 @@ export const HorizontalCheckboxGroupDisabledGroup = (): React.ReactNode => {
 export const HorizontalCheckboxGroupGroupError = (): React.ReactNode => {
   const [checked1, setChecked1] = React.useState(false);
   const [checked2, setChecked2] = React.useState(false);
-  const [checked3, setChecked3] = React.useState(true);
   const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>): void => setChecked1(event.target.checked);
   const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>): void => setChecked2(event.target.checked);
-  const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>): void => setChecked3(event.target.checked);
   return (
     <VisualPickerCheckboxGroup
       orientation="horizontal"
-      legend={
-        <Text as="span" color="currentColor">
-          This is a Visual Picker Checkbox Group label with a <Anchor href="http://paste.twilio.com">link</Anchor>
-        </Text>
-      }
-      name={`${useUID()}_group_error`}
-      helpText="Help text should go here."
-      errorText="This is the error text."
+      legend="Which service(s) would you like to test?"
+      name={`${useUID()}_horizontal`}
+      helpText="Select a service"
+      errorText="Select a service"
     >
       <VisualPickerCheckbox labelText="SQL" checked={checked1} onChange={handleChange1}>
-        <Box maxWidth="size30">
-          <MediaObject verticalAlign="center">
-            <MediaFigure spacing="space50">
-              <Avatar size="sizeIcon90" name="B T" color="decorative20" />
-            </MediaFigure>
-            <MediaBody>
-              <Text as="div" fontWeight="fontWeightSemibold">
-                SQL
-              </Text>
-              <Text as="div" color="colorTextWeak">
-                Create any trait from your data warehouse by writing SQL.
-              </Text>
-            </MediaBody>
-          </MediaObject>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              My company
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              My company will be directly sending and receiving messages.
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
+            <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
+            <Text
+              as="span"
+              fontWeight="fontWeightBold"
+              color="colorTextWeak"
+              lineHeight="lineHeight40"
+              fontSize="fontSize30"
+            >
+              Your business
+            </Text>
+          </Box>
         </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox labelText="SQL" checked={checked2} onChange={handleChange2}>
-        <Box maxWidth="size30">
-          <MediaObject verticalAlign="center">
-            <MediaFigure spacing="space50">
-              <Avatar size="sizeIcon90" name="B T" color="decorative20" />
-            </MediaFigure>
-            <MediaBody>
-              <Text as="div" fontWeight="fontWeightSemibold">
-                SQL
-              </Text>
-              <Text as="div" color="colorTextWeak">
-                Create any trait from your data warehouse by writing SQL.
-              </Text>
-            </MediaBody>
-          </MediaObject>
-        </Box>
-      </VisualPickerCheckbox>
-      <VisualPickerCheckbox labelText="SQL" checked={checked3} onChange={handleChange3}>
-        <Box maxWidth="size30">
-          <MediaObject verticalAlign="center">
-            <MediaFigure spacing="space50">
-              <Avatar size="sizeIcon90" name="B T" color="decorative20" />
-            </MediaFigure>
-            <MediaBody>
-              <Text as="div" fontWeight="fontWeightSemibold">
-                SQL
-              </Text>
-              <Text as="div" color="colorTextWeak">
-                Create any trait from your data warehouse by writing SQL.
-              </Text>
-            </MediaBody>
-          </MediaObject>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              My customer&apos;s company
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              Independent Software Vendor, Reseller or Partner who uses WhatsApp for end clients.
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
+            <AvatarGroup variant="user" size="sizeIcon110">
+              <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
+              <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
+              <Avatar name="user" icon={UserIcon} size="sizeIcon110" />
+            </AvatarGroup>
+            <Text
+              as="span"
+              fontWeight="fontWeightBold"
+              color="colorTextWeak"
+              lineHeight="lineHeight40"
+              fontSize="fontSize30"
+            >
+              Your business
+            </Text>
+          </Box>
         </Box>
       </VisualPickerCheckbox>
     </VisualPickerCheckboxGroup>

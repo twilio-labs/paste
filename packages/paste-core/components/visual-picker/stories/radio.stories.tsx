@@ -330,11 +330,7 @@ export const HorizontalRadioGroup = (): React.ReactNode => {
   return (
     <VisualPickerRadioGroup
       orientation="horizontal"
-      legend={
-        <Text as="span" color="currentColor">
-          Select a plan
-        </Text>
-      }
+      legend="Select a plan"
       name={`${useUID()}_horizontal`}
       value={value}
       onChange={(newValue) => {
@@ -342,57 +338,87 @@ export const HorizontalRadioGroup = (): React.ReactNode => {
       }}
     >
       <VisualPickerRadio id={useUID()} value="1" labelText="30 USD per user per month">
-        <Box
-          width="size30"
-          height="size20"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-            $30
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              Basic plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              This is the Basic plan for basic people
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
+            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+              $30
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="2" labelText="150 USD per user per month">
-        <Box
-          width="size30"
-          height="size20"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-            $150
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              Business plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              This is the Business plan
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
+            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+              $150
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="3" labelText="500 USD per user per month">
-        <Box
-          width="size30"
-          height="size20"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-            $300
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              Pro plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              This is the Pro plan
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
+            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+              $300
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
         </Box>
       </VisualPickerRadio>
     </VisualPickerRadioGroup>
@@ -404,70 +430,96 @@ export const HorizontalRadioGroupDisabledGroup = (): React.ReactNode => {
   return (
     <VisualPickerRadioGroup
       orientation="horizontal"
-      legend={
-        <Text as="span" color="currentColor">
-          Select a plan
-        </Text>
-      }
-      name={`${useUID()}_disabled_group`}
-      disabled
+      legend="Select a plan"
+      name={`${useUID()}_horizontal`}
       value={value}
       onChange={(newValue) => {
         setValue(newValue);
       }}
+      disabled
     >
       <VisualPickerRadio id={useUID()} value="1" labelText="30 USD per user per month">
-        <Box
-          width="size30"
-          height="size20"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold" color="colorTextWeak">
-            $30
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60" color="colorTextWeak">
+              Basic plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
+              This is the Basic plan for basic people
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorderWeak"
+            padding="space60"
+          >
+            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold" color="colorTextWeak">
+              $30
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="2" labelText="150 USD per user per month">
-        <Box
-          width="size30"
-          height="size20"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold" color="colorTextWeak">
-            $150
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60" color="colorTextWeak">
+              Business plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
+              This is the Business plan
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorderWeak"
+            padding="space60"
+          >
+            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold" color="colorTextWeak">
+              $150
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="3" labelText="500 USD per user per month">
-        <Box
-          width="size30"
-          height="size20"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold" color="colorTextWeak">
-            $300
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60" color="colorTextWeak">
+              Pro plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30" color="colorTextWeak">
+              This is the Pro plan
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorderWeak"
+            padding="space60"
+          >
+            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold" color="colorTextWeak">
+              $300
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
         </Box>
       </VisualPickerRadio>
     </VisualPickerRadioGroup>
@@ -479,70 +531,96 @@ export const HorizontalRadioGroupGroupError = (): React.ReactNode => {
   return (
     <VisualPickerRadioGroup
       orientation="horizontal"
-      legend={
-        <Text as="span" color="currentColor">
-          Select a plan
-        </Text>
-      }
-      name={`${useUID()}_group_error`}
-      errorText="Please select an option before submitting."
+      legend="Select a plan"
+      name={`${useUID()}_horizontal`}
       value={value}
       onChange={(newValue) => {
         setValue(newValue);
       }}
+      errorText="Select a plan"
     >
       <VisualPickerRadio id={useUID()} value="1" labelText="30 USD per user per month">
-        <Box
-          width="size30"
-          height="size20"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-            $30
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              Basic plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              This is the Basic plan for basic people
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
+            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+              $30
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="2" labelText="150 USD per user per month">
-        <Box
-          width="size30"
-          height="size20"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-            $150
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              Business plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              This is the Business plan
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
+            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+              $150
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
         </Box>
       </VisualPickerRadio>
       <VisualPickerRadio id={useUID()} value="3" labelText="500 USD per user per month">
-        <Box
-          width="size30"
-          height="size20"
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-            $300
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              Pro plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              This is the Pro plan
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            borderStyle="solid"
+            borderColor="colorBorder"
+            padding="space60"
+          >
+            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+              $300
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
         </Box>
       </VisualPickerRadio>
     </VisualPickerRadioGroup>

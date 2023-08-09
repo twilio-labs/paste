@@ -112,11 +112,7 @@ const VisualPickerExample = () => {
           orientation="horizontal"
           name={useUID()}
           id={useUID()} 
-          legend={
-            <Text as="span" color="currentColor">
-              Select plan
-            </Text>
-          }
+          legend="Select a plan"
           onChange={(newValue) => {
             setValue(newValue);
           }}
@@ -124,60 +120,81 @@ const VisualPickerExample = () => {
           value={value}
         >
           <VisualPickerRadio id={useUID()} value='1' labelText="30 US dollars per user per month">
-            <Box
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              flexDirection="column"
-              rowGap="space50"
-              padding="space20"
-              paddingTop="space50"
-              paddingRight="space40"
-            >
-              <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-                $30
-              </Text>
-              <Text as="div" color="colorTextWeak">
-                USD/user/month *
-              </Text>
+            <Box display="flex" flexDirection="column" rowGap="space30">
+              <Box display="flex" flexDirection="column" rowGap="space30">
+                <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+                  Basic plan
+                </Text>
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+                  Most basic option
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                rowGap="space40"
+                paddingY="space50"
+              >
+                <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+                  $30
+                </Text>
+                <Text as="div" color="colorTextWeak">
+                  USD/user/month *
+                </Text>
+              </Box>
             </Box>
           </VisualPickerRadio>
           <VisualPickerRadio id={useUID()} value='2' labelText="150 US dollars per user per month">
-          <Box
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            flexDirection="column"
-            rowGap="space50"
-            padding="space20"
-            paddingTop="space50"
-            paddingRight="space40"
-          >
-            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-              $150
-            </Text>
-            <Text as="div" color="colorTextWeak">
-              USD/user/month *
-            </Text>
-          </Box>
+            <Box display="flex" flexDirection="column" rowGap="space30">
+              <Box display="flex" flexDirection="column" rowGap="space30">
+                <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+                  Business plan
+                </Text>
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+                  Best for businesses
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                rowGap="space40"
+                paddingY="space50"
+              >
+                <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+                  $150
+                </Text>
+                <Text as="div" color="colorTextWeak">
+                  USD/user/month *
+                </Text>
+              </Box>
+            </Box>
           </VisualPickerRadio>
           <VisualPickerRadio id={useUID()} value='3' labelText="300 US dollars per user per month">
-            <Box
-              display="flex"
-              justifyContent="center"
-              alignItems="center"
-              flexDirection="column"
-              rowGap="space50"
-              padding="space20"
-              paddingTop="space50"
-              paddingRight="space40"
-            >
-              <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-                $300
-              </Text>
-              <Text as="div" color="colorTextWeak">
-                USD/user/month *
-              </Text>
+            <Box display="flex" flexDirection="column" rowGap="space30">
+              <Box display="flex" flexDirection="column" rowGap="space30">
+                <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+                  Pro plan
+                </Text>
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+                  For large businesses
+                </Text>
+              </Box>
+              <Box
+                display="flex"
+                flexDirection="column"
+                alignItems="center"
+                rowGap="space40"
+                paddingY="space50"
+              >
+                <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+                  $300
+                </Text>
+                <Text as="div" color="colorTextWeak">
+                  USD/user/month *
+                </Text>
+              </Box>
             </Box>
           </VisualPickerRadio>
         </VisualPickerRadioGroup>
@@ -330,66 +347,35 @@ const VisualPickerExample = () => {
             orientation="horizontal"
             name={useUID()}
             id={useUID()} 
-            legend={
-              <Text as="span" color="currentColor">
-                Select a channel to test
-              </Text>
-            }
+            legend="Select a channel to test"
             helpText="The test message will only be sent to test recipients."
         >
             <VisualPickerCheckbox id={useUID()} labelText="sms" checked={checked1} onChange={handleChange1}>
-              <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                flexDirection="column"
-                rowGap="space50"
-                padding="space20"
-                paddingTop="space50"
-                paddingRight="space70"
-              >
-                <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+              <Box display="flex" flexDirection="column" rowGap="space30">
+                <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
                   SMS
                 </Text>
-                <Text as="div" color="colorTextWeak">
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
                   30 test recipients
                 </Text>
               </Box>
             </VisualPickerCheckbox>
             <VisualPickerCheckbox id={useUID()} labelText="whatsapp" checked={checked2} onChange={handleChange2}>
-              <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                flexDirection="column"
-                rowGap="space50"
-                padding="space20"
-                paddingTop="space50"
-                paddingRight="space70"
-              >
-                <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+              <Box display="flex" flexDirection="column" rowGap="space30">
+                <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
                   Whatsapp
                 </Text>
-                <Text as="div" color="colorTextWeak">
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
                   15 test recipients
                 </Text>
               </Box>
             </VisualPickerCheckbox>
             <VisualPickerCheckbox id={useUID()} labelText="email" checked={checked3} onChange={handleChange3}>
-              <Box
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                flexDirection="column"
-                rowGap="space50"
-                padding="space20"
-                paddingTop="space50"
-                paddingRight="space70"
-              >
-                <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+              <Box display="flex" flexDirection="column" rowGap="space30">
+                <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
                   Email
                 </Text>
-                <Text as="div" color="colorTextWeak">
+                <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
                   7 test recipients
                 </Text>
               </Box>
@@ -690,75 +676,95 @@ const VisualPickerExample = () => {
     const [value, setValue] = React.useState('1')
     return (
       <VisualPickerRadioGroup
-        orientation="horizontal"
-        name={useUID()}
-        id={useUID()} 
-        legend={
-          <Text as="span" color="currentColor">
-            Select a plan
-          </Text>
-        }
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        helpText="The new plan will take effect at the start of the upcoming cycle."
-        value={value}
-      >
-        <VisualPickerRadio id={useUID()} value='1' labelText="30 US dollars per user per month">
+      orientation="horizontal"
+      name={useUID()}
+      id={useUID()} 
+      legend="Select a plan"
+      onChange={(newValue) => {
+        setValue(newValue);
+      }}
+      helpText="The new plan will take effect at the start of the upcoming cycle."
+      value={value}
+    >
+      <VisualPickerRadio id={useUID()} value='1' labelText="30 US dollars per user per month">
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              Basic plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              This is the most basic option
+            </Text>
+          </Box>
           <Box
             display="flex"
-            justifyContent="center"
-            alignItems="center"
             flexDirection="column"
-            rowGap="space50"
-            padding="space20"
-            paddingTop="space50"
+            alignItems="center"
+            rowGap="space40"
+            paddingY="space50"
           >
-            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+            <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
               $30
             </Text>
             <Text as="div" color="colorTextWeak">
               USD/user/month *
             </Text>
           </Box>
-        </VisualPickerRadio>
-        <VisualPickerRadio id={useUID()} value='2' labelText="150 US dollars per user per month">
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-          padding="space20"
-          paddingTop="space50"
-        >
-          <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
-            $150
-          </Text>
-          <Text as="div" color="colorTextWeak">
-            USD/user/month *
-          </Text>
         </Box>
-        </VisualPickerRadio>
-        <VisualPickerRadio id={useUID()} value='3' labelText="300 US dollars per user per month" hasError>
+      </VisualPickerRadio>
+      <VisualPickerRadio id={useUID()} value='2' labelText="150 US dollars per user per month">
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              Business plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              This is best option for businesses
+            </Text>
+          </Box>
           <Box
             display="flex"
-            justifyContent="center"
-            alignItems="center"
             flexDirection="column"
-            rowGap="space50"
-            padding="space20"
-            paddingTop="space50"
+            alignItems="center"
+            rowGap="space40"
+            paddingY="space50"
           >
-            <Text as="div" fontSize="fontSize90" fontWeight="fontWeightSemibold">
+            <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+              $150
+            </Text>
+            <Text as="div" color="colorTextWeak">
+              USD/user/month *
+            </Text>
+          </Box>
+        </Box>
+      </VisualPickerRadio>
+      <VisualPickerRadio id={useUID()} value='3' labelText="300 US dollars per user per month" hasError>
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Box display="flex" flexDirection="column" rowGap="space30">
+            <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
+              Pro plan
+            </Text>
+            <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
+              This is best option for large businesses
+            </Text>
+          </Box>
+          <Box
+            display="flex"
+            flexDirection="column"
+            alignItems="center"
+            rowGap="space40"
+            paddingY="space50"
+          >
+            <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
               $300
             </Text>
             <Text as="div" color="colorTextWeak">
               USD/user/month *
             </Text>
           </Box>
-        </VisualPickerRadio>
-      </VisualPickerRadioGroup>
+        </Box>
+      </VisualPickerRadio>
+    </VisualPickerRadioGroup>
     );
 }
 render(
@@ -779,65 +785,36 @@ const VisualPickerExample = () => {
       orientation="horizontal"
       name={useUID()}
       id={useUID()} 
-      legend={
-        <Text as="span" color="currentColor">
-          Select a channel to test
-        </Text>
-      }
-      required
+      legend="Select a channel to test"
       helpText="The test message will only be sent to test recipients."
       errorText="Select a channel."
   >
       <VisualPickerCheckbox id={useUID()} labelText="sms" checked={checked1} onChange={handleChange1}>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-          padding="space20"
-          paddingTop="space50"
-        >
-          <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
             SMS
           </Text>
-          <Text as="div" color="colorTextWeak">
+          <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
             30 test recipients
           </Text>
         </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox id={useUID()} labelText="whatsapp" checked={checked2} onChange={handleChange2}>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-          padding="space20"
-          paddingTop="space50"
-        >
-          <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
             Whatsapp
           </Text>
-          <Text as="div" color="colorTextWeak">
+          <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
             15 test recipients
           </Text>
         </Box>
       </VisualPickerCheckbox>
       <VisualPickerCheckbox id={useUID()} labelText="email" checked={checked3} onChange={handleChange3}>
-        <Box
-          display="flex"
-          justifyContent="center"
-          alignItems="center"
-          flexDirection="column"
-          rowGap="space50"
-          padding="space20"
-          paddingTop="space50"
-        >
-          <Text as="div" fontSize="fontSize60" fontWeight="fontWeightSemibold">
+        <Box display="flex" flexDirection="column" rowGap="space30">
+          <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize60">
             Email
           </Text>
-          <Text as="div" color="colorTextWeak">
+          <Text as="span" fontWeight="fontWeightNormal" fontSize="fontSize30">
             7 test recipients
           </Text>
         </Box>
