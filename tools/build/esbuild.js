@@ -51,7 +51,7 @@ async function build(packageJson) {
      */
     mainFields: ['module', 'main'],
     // Fixes issues related to SSR (website builds)
-    platform: 'node',
+    platform: 'browser',
     bundle: true,
     /**
      * Sets the target environment so the code is changed into a format that

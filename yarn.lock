@@ -8734,20 +8734,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/dialog@npm:0.16.2":
-  version: 0.16.2
-  resolution: "@reach/dialog@npm:0.16.2"
+"@reach/dialog@npm:0.18.0":
+  version: 0.18.0
+  resolution: "@reach/dialog@npm:0.18.0"
   dependencies:
-    "@reach/portal": 0.16.2
-    "@reach/utils": 0.16.0
-    prop-types: ^15.7.2
-    react-focus-lock: ^2.5.2
-    react-remove-scroll: ^2.4.3
-    tslib: ^2.3.0
+    "@reach/polymorphic": 0.18.0
+    "@reach/portal": 0.18.0
+    "@reach/utils": 0.18.0
+    react-focus-lock: 2.5.2
+    react-remove-scroll: 2.4.3
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: 1478ad3c4c0a86c30b02f4360fb06ead5b2e894c5e6ab96523970d45272298e2e31cb5278f861e4f92a90bcab0a30f4bac5572ab534f56529145619e7675497f
+  checksum: c87fe1a7bee9c1acb9b149baa0bdf2fe4c3618883393f3062bf9e5c3bebd398dd7673799e962d3f1b6859957c40f6a3bf344666a8c78f97112fd970e314dbed5
   languageName: node
   linkType: hard
 
@@ -8758,30 +8757,34 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reach/portal@npm:0.16.2":
-  version: 0.16.2
-  resolution: "@reach/portal@npm:0.16.2"
-  dependencies:
-    "@reach/utils": 0.16.0
-    tiny-warning: ^1.0.3
-    tslib: ^2.3.0
+"@reach/polymorphic@npm:0.18.0":
+  version: 0.18.0
+  resolution: "@reach/polymorphic@npm:0.18.0"
   peerDependencies:
     react: ^16.8.0 || 17.x
-    react-dom: ^16.8.0 || 17.x
-  checksum: 7413dcd169cfb9854dd0d3a01f811ec19ef170558fcbd00118d676fc02c197d1c0bce1d1357508879d4775169561d103e13a8e4d74cc677eb0037cc7b04f7a1e
+  checksum: 0d62260a55c71e0dc95f38867f24b3d699e0bb7ea2273c6fa5a1fa3d804269e2deb63a458f1f1eb7b74c32bc0add3ab31a1c2668c1dee6b2837187876d3c4cc2
   languageName: node
   linkType: hard
 
-"@reach/utils@npm:0.16.0":
-  version: 0.16.0
-  resolution: "@reach/utils@npm:0.16.0"
+"@reach/portal@npm:0.18.0":
+  version: 0.18.0
+  resolution: "@reach/portal@npm:0.18.0"
   dependencies:
-    tiny-warning: ^1.0.3
-    tslib: ^2.3.0
+    "@reach/utils": 0.18.0
   peerDependencies:
     react: ^16.8.0 || 17.x
     react-dom: ^16.8.0 || 17.x
-  checksum: 36bc0eb41a71798eb6186b23de265ba709e51dae5bf214fb8505c66bb3f2e6a41bb2401457350436ba89ca9e3a50f93a04fe7c33d15648ce11e568a85622d770
+  checksum: bd54c694922ac8e8ae6ef515547214c1eb05fd7ce5514e1046fd3504e37aa440ba4fb62fdd8664fdcd47e9b865b3ee085b58942c0db667146da6eec2dc269fa3
+  languageName: node
+  linkType: hard
+
+"@reach/utils@npm:0.18.0":
+  version: 0.18.0
+  resolution: "@reach/utils@npm:0.18.0"
+  peerDependencies:
+    react: ^16.8.0 || 17.x
+    react-dom: ^16.8.0 || 17.x
+  checksum: eeda20a74c1db71e95680c622371c6efc46e2c767b28902bc43b580654436a34ec7f8b5f63c51a7c4cc8fd48c94066e3215496ba5a053c96e65c7a9bdcdc2687
   languageName: node
   linkType: hard
 
@@ -15000,7 +15003,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/modal-dialog-primitive@workspace:packages/paste-core/primitives/modal-dialog"
   dependencies:
-    "@reach/dialog": 0.16.2
+    "@reach/dialog": 0.18.0
     react: ^18.0.0
     react-dom: ^18.0.0
   peerDependencies:
@@ -16678,7 +16681,7 @@ __metadata:
   dependencies:
     react: ^18.0.0
     react-dom: ^18.0.0
-    react-uid: 2.3.1
+    react-uid: 2.3.3
   peerDependencies:
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -27725,12 +27728,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"focus-lock@npm:^0.10.2":
-  version: 0.10.2
-  resolution: "focus-lock@npm:0.10.2"
+"focus-lock@npm:^0.9.1":
+  version: 0.9.2
+  resolution: "focus-lock@npm:0.9.2"
   dependencies:
     tslib: ^2.0.3
-  checksum: 4be2cbc0217410413f617c03720df74c3c950983f5914aa8b82c6a7ce98fab873e22e5af0818f6832d1249f86ef33357c7dc344074a09206134657d1f53915d7
+  checksum: 7bb35e62c6308b3dd2f4559c9ffb126e2ef89db7b27602fa286c6f7e085f396bc9b34fb8ff0f1c2b409f479331e6a5344f6268f60ea71c300ca7dfd9c8827178
   languageName: node
   linkType: hard
 
@@ -40266,19 +40269,19 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-focus-lock@npm:^2.5.2":
-  version: 2.8.1
-  resolution: "react-focus-lock@npm:2.8.1"
+"react-focus-lock@npm:2.5.2":
+  version: 2.5.2
+  resolution: "react-focus-lock@npm:2.5.2"
   dependencies:
     "@babel/runtime": ^7.0.0
-    focus-lock: ^0.10.2
+    focus-lock: ^0.9.1
     prop-types: ^15.6.2
     react-clientside-effect: ^1.2.5
     use-callback-ref: ^1.2.5
     use-sidecar: ^1.0.5
   peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
-  checksum: 501c757b5dc742778389206c224d4f3a342008f3e4e2c346da40c0d2432642ccf555bdb2afc4ff6c0ac9f01b792ce9d1d3150fa43eceae4289174547b2412f51
+    react: ^16.8.0 || ^17.0.0
+  checksum: 520b12a4496be21b3228bbf938657f6c33f868e486a0cd355d8bec918129d2c1bf7aabecb20aecdb446a1fbdb61b16f680b5d15b998f544f1b5c0dc5c8914c40
   languageName: node
   linkType: hard
 
@@ -40409,9 +40412,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-remove-scroll@npm:^2.4.3":
-  version: 2.4.4
-  resolution: "react-remove-scroll@npm:2.4.4"
+"react-remove-scroll@npm:2.4.3":
+  version: 2.4.3
+  resolution: "react-remove-scroll@npm:2.4.3"
   dependencies:
     react-remove-scroll-bar: ^2.1.0
     react-style-singleton: ^2.1.0
@@ -40419,12 +40422,12 @@ fsevents@^1.2.7:
     use-callback-ref: ^1.2.3
     use-sidecar: ^1.0.1
   peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    "@types/react": ^16.8.0 || ^17.0.0
+    react: ^16.8.0 || ^17.0.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: c3b9c57122541d16824d40ed744f12743e4855525e61ea2a6c50b673c1e20dc3f4dc59994f461f03d60f994ad46db7137f691ed8f7801b99b170c48235545ef9
+  checksum: c2f4277ee953b3905b8500c72b6f509f5138dc6eff157ff1160f7810cb6934ee148d13aef7f9fa3f4ed12372cc4564347ed6b16083ff1e4d241708bb1b8bf5a7
   languageName: node
   linkType: hard
 
@@ -40647,18 +40650,18 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"react-uid@npm:2.3.1":
-  version: 2.3.1
-  resolution: "react-uid@npm:2.3.1"
+"react-uid@npm:2.3.3":
+  version: 2.3.3
+  resolution: "react-uid@npm:2.3.3"
   dependencies:
-    tslib: ^1.10.0
+    tslib: ^2.0.0
   peerDependencies:
-    "@types/react": ^16.8.0 || ^17.0.0
-    react: ^16.8.0 || ^17.0.0
+    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 271c244a99fa8de75042264e3060901c82941cf55cf9eece42acccbd55a1560cc244fd81183b1ed1ff5f9261425dfb6ba65b1c63cb1d603cb15720f494cf8712
+  checksum: d8f1a90043800d0d4854445534bdb997b71335eaca40017240a49aedadf1ea7f6c1b3fce150188d8ea726650e1cb4c7d7991c699d9713d16244bf4abb7fff12c
   languageName: node
   linkType: hard
 
@@ -44558,13 +44561,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tiny-warning@npm:^1.0.3":
-  version: 1.0.3
-  resolution: "tiny-warning@npm:1.0.3"
-  checksum: da62c4acac565902f0624b123eed6dd3509bc9a8d30c06e017104bedcf5d35810da8ff72864400ad19c5c7806fc0a8323c68baf3e326af7cb7d969f846100d71
-  languageName: node
-  linkType: hard
-
 "tinycolor2@npm:1.4.1, tinycolor2@npm:^1.4.1":
   version: 1.4.1
   resolution: "tinycolor2@npm:1.4.1"
@@ -44941,31 +44937,10 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.0.0, tslib@npm:^1.10.0, tslib@npm:^1.13.0, tslib@npm:^1.8.1, tslib@npm:^1.9.0, tslib@npm:^1.9.3":
-  version: 1.14.1
-  resolution: "tslib@npm:1.14.1"
-  checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2, tslib@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "tslib@npm:2.5.0"
-  checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.0.1, tslib@npm:^2.0.3, tslib@npm:^2.1.0, tslib@npm:^2.3.0":
-  version: 2.3.1
-  resolution: "tslib@npm:2.3.1"
-  checksum: de17a98d4614481f7fcb5cd53ffc1aaf8654313be0291e1bfaee4b4bb31a20494b7d218ff2e15017883e8ea9626599b3b0e0229c18383ba9dce89da2adf15cb9
-  languageName: node
-  linkType: hard
-
-"tslib@npm:^2.4.0":
-  version: 2.4.1
-  resolution: "tslib@npm:2.4.1"
-  checksum: 19480d6e0313292bd6505d4efe096a6b31c70e21cf08b5febf4da62e95c265c8f571f7b36fcc3d1a17e068032f59c269fab3459d6cd3ed6949eafecf64315fca
+"tslib@npm:2.6.1":
+  version: 2.6.1
+  resolution: "tslib@npm:2.6.1"
+  checksum: b0d176d176487905b66ae4d5856647df50e37beea7571c53b8d10ba9222c074b81f1410fb91da13debaf2cbc970663609068bdebafa844ea9d69b146527c38fe
   languageName: node
   linkType: hard
 
