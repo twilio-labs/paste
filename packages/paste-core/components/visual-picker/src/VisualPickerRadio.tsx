@@ -66,6 +66,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
         alignItems={visualPickerRadioGroupContext.orientation === 'vertical' ? 'center' : 'flex-start'}
         flexDirection="row"
         height="100%"
+        width="100%"
         backgroundColor={disabled || groupIsDisabled ? 'colorBackgroundWeak' : undefined}
         borderStyle="solid"
         borderColor={pickerBorderColor}
@@ -121,7 +122,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
             </Box>
           </BaseRadioCheckboxControl>
         </BaseRadioCheckboxLabel>
-        <Box element={`${element}_CONTENT`} id={helpTextId} paddingLeft="space50">
+        <Box element={`${element}_CONTENT`} id={helpTextId} paddingLeft="space50" width="100%">
           {children}
         </Box>
       </Box>
