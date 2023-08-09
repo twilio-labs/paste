@@ -103,6 +103,7 @@
     "@twilio-paste/side-modal": "^3.1.0",
     "@twilio-paste/sidebar": "^0.5.0",
     "@twilio-paste/skeleton-loader": "^5.0.0",
+    "@twilio-paste/slider": "^0.0.0",
     "@twilio-paste/spinner": "^13.0.0",
     "@twilio-paste/stack": "^7.0.0",
     "@twilio-paste/status": "^1.0.2",

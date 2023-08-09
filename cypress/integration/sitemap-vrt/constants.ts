@@ -80,6 +80,7 @@ export const SITEMAP = [
   '/components/status-menu/',
   '/components/spinner/',
   '/components/skeleton-loader/',
+  '/components/slider/',
   '/components/switch/',
   '/components/tabs/',
   '/components/toast/',
