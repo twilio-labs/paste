@@ -103,7 +103,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
           fontSize="fontSize30"
           lineHeight="lineHeight30"
           fontWeight="fontWeightSemibold"
-          color="colorTextWeak"
+          color={isDisabled ? 'colorTextWeaker' : 'colorTextWeak'}
         >
           <Box element={`${element}_RANGE_LABELS_MIN`}>
             <ScreenReaderOnly>{i18nMinRangeLabel}</ScreenReaderOnly>
