@@ -39,7 +39,7 @@ const DisabledSliderExample = () => {
   return (
     <Form>
       <FormControl>
-        <Label htmlFor={id}>Volume</Label>
+        <Label disabled htmlFor={id}>Volume</Label>
         <Slider
           disabled
           id={id}

@@ -6,6 +6,7 @@ export const meta = {
   slug: '/components/slider/',
 };
 
+import {RadioButtonGroup, RadioButton} from '@twilio-paste/radio-button-group';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
 import {Box} from '@twilio-paste/box';
 import {Input} from '@twilio-paste/input';
@@ -49,8 +50,8 @@ export const getStaticProps = async () => {
 
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  storybookUrl="/?path=/story/components-alert--"
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert"
+  storybookUrl="/?path=/story/components-slider--"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/slider"
   data={props.data}
 />
 
@@ -72,10 +73,10 @@ export const getStaticProps = async () => {
 
 A Slider allows a user to select a numerical value when:
 
-- immediate feedback is important
-- the value doesn’t need to be precise, especially when the act of choosing a
+- Immediate feedback is important.
+- The value doesn’t need to be precise, especially when the act of choosing a
   bigger or smaller value is more important than the value itself.
-- the value is in a defined range
+- The value is in a defined range.
 
 Slider uses [Adobe's Spectrum React-Aria useSlider](https://react-spectrum.adobe.com/react-aria/useSlider.html) under the hood.
 
@@ -100,6 +101,7 @@ Slider is a form element and follows the same accessibility guidelines as other 
 
 - Include a label on **all** form fields. Use one of 3 ways to label a form field:
   - Visible label with [Label](/components/label) (preferred)
+  - Visible label that's associated to the input with `aria-labelledby`
   - Label directly using `aria-label`
 - Each label must use the `htmlFor` prop that equals the `id` of the associated Input.
 - Provide clear identification of required fields in the label or at the start of a form.
@@ -107,7 +109,7 @@ Slider is a form element and follows the same accessibility guidelines as other 
 - Include inline [error Help Text](/components/help-text#error-help-text) on any field
   that errors to make it visually clear that the field changed.
 - If the input has associated help text, include the `aria-describedby` prop on the input.
-  This should match the `id` of the help text
+  This should match the `id` of the help text.
 
 ## Examples
 
@@ -162,7 +164,7 @@ Use a Slider with hidden range labels when the range is obvious or the labels ar
 ## When to use a Slider
 
 <DoDont>
-  <Do title="Do" body="Use a Slider for mid-sized, defined ranges, usually 1–100" center>
+  <Do title="Do" body="Use a Slider for mid-sized, defined ranges, usually 1–100." center>
     <Box width="80%">
       <Label>Opacity</Label>
       <Slider
@@ -267,17 +269,28 @@ Use a Slider with hidden range labels when the range is obvious or the labels ar
     body="Use a Radio Group or Radio Button Group to allow users to select a list of consecutive options with precision, whether they’re numerical or not."
     center
   >
-    <RadioGroup name="uncontrolled-protection-level-radio-group" legend="Protection level">
-      <Radio id={useUID()} value="lowest">
-        Basic protection
-      </Radio>
-      <Radio id={useUID()} value="existing">
-        Standard protection
-      </Radio>
-      <Radio id={useUID()} value="new" defaultChecked>
-        Max protection
-      </Radio>
-    </RadioGroup>
+    <Box display="grid" width="80%" gridTemplateColumns="1fr" rowGap="space60">
+      <RadioButtonGroup attached name="uncontroled-msg-limit-radio-button-group" legend="Maximum messages per month">
+        <RadioButton value="10">10</RadioButton>
+        <RadioButton value="50" defaultChecked>
+          50
+        </RadioButton>
+        <RadioButton value="100">100</RadioButton>
+        <RadioButton value="500">500</RadioButton>
+        <RadioButton value="500+">500+</RadioButton>
+      </RadioButtonGroup>
+      <RadioGroup name="uncontrolled-protection-level-radio-group" legend="Protection level">
+        <Radio id={useUID()} value="lowest">
+          Basic protection
+        </Radio>
+        <Radio id={useUID()} value="existing">
+          Standard protection
+        </Radio>
+        <Radio id={useUID()} value="new" defaultChecked>
+          Max protection
+        </Radio>
+      </RadioGroup>
+    </Box>
   </Do>
   <Dont
     title="Don't"
@@ -332,21 +345,22 @@ const Component = () => {
 
 #### Props
 
-| Prop              | Type                                                                                                                         | Description                                                                                 | Default  |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | -------- |
-| id                | `string`                                                                                                                     | Must provide an id to match with a label                                                    | null     |
-| numberFormatter   | [`Intl.NumberFormatter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | Used to format the value into i18n formats. Can return localized currencies and percentages |          |
-| aria-describedby? | `string`                                                                                                                     | Optional id to pair the input to its help text                                              | null     |
-| disabled?         | `boolean`                                                                                                                    | Disables the slider                                                                         | false    |
-| hasError?         | `boolean`                                                                                                                    | Shows error styling on the Slider                                                           | false    |
-| hideRangeLabels?  | `boolean`                                                                                                                    | Hides the min and max values that appear over the slider                                    | false    |
-| minValue?         | `number`                                                                                                                     | The smallest number in the slider range                                                     | 1        |
-| maxValue?         | `number`                                                                                                                     | The largest number in the slider range                                                      | 100      |
-| step?             | `number`                                                                                                                     | The incremented value as you drag along the range                                           | 1        |
-| value?            | `number`                                                                                                                     | The current selected value                                                                  | 1        |
-| onChange?         | `(value: number) => void`                                                                                                    | Fired on every change as the thumb is dragged along the track                               |          |
-| onChangeEnd?      | `(value: number) => void`                                                                                                    | Fired at the end of the dragging event once                                                 |          |
-| element?          | `string`                                                                                                                     | Overrides the default element name to apply unique styles with the Customization Provider   | 'SLIDER' |
+| Prop              | Type                                                                                                                         | Description                                                                                   | Default   |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------- |
+| id                | `string`                                                                                                                     | Must provide an id to match with a label                                                      | undefined |
+| numberFormatter   | [`Intl.NumberFormatter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | Used to format the value into i18n formats. Can return localized currencies and percentages   |           |
+| aria-describedby? | `string`                                                                                                                     | Optional id to pair the input to its help text                                                | undefined |
+| aria-labeledby?   | `string`                                                                                                                     | Optional id to pair the input to its label text (if not using a regular label with `htmlFor`) | undefined |
+| disabled?         | `boolean`                                                                                                                    | Disables the slider                                                                           | false     |
+| hasError?         | `boolean`                                                                                                                    | Shows error styling on the Slider                                                             | false     |
+| hideRangeLabels?  | `boolean`                                                                                                                    | Hides the min and max values that appear over the slider                                      | false     |
+| minValue?         | `number`                                                                                                                     | The smallest number in the slider range                                                       | 1         |
+| maxValue?         | `number`                                                                                                                     | The largest number in the slider range                                                        | 100       |
+| step?             | `number`                                                                                                                     | The incremented value as you drag along the range                                             | 1         |
+| value?            | `number`                                                                                                                     | The current selected value                                                                    | 1         |
+| onChange?         | `(value: number) => void`                                                                                                    | Fired on every change as the thumb is dragged along the track                                 |           |
+| onChangeEnd?      | `(value: number) => void`                                                                                                    | Fired at the end of the dragging event once                                                   |           |
+| element?          | `string`                                                                                                                     | Overrides the default element name to apply unique styles with the Customization Provider     | 'SLIDER'  |
 
 <ChangelogRevealer>
   <Changelog />
