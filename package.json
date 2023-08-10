@@ -214,7 +214,8 @@
   },
   "resolutions": {
     "csstype": "3.0.11",
-    "playwright": "1.28.1"
+    "playwright": "1.28.1",
+    "tslib": "2.6.1"
   },
   "husky": {
     "hooks": {
