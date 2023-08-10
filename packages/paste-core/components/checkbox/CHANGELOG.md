@@ -1,5 +1,19 @@
 # Change Log
 
+## 12.0.1
+
+### Patch Changes
+
+- [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c) [#3350](https://github.com/twilio-labs/paste/pull/3350) Thanks [@nkrantz](https://github.com/nkrantz)! - [Checkbox, Radio Group] export HiddenRadio, HiddenRadioState, HiddenCheckbox, and CheckboxIcon from package for use in Visual Picker package
+
+* [`4d1f7c65e`](https://github.com/twilio-labs/paste/commit/4d1f7c65e77e5e0bbf6c7422b46a477bdb932ee6) [#3360](https://github.com/twilio-labs/paste/pull/3360) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Improved types where Paste extends the base HTML element that a component is based on, so that the existing blocked styling properties are not exposed as valid properties for the component via Typescript. This leads to less confusion around what is supported by a Paste component.
+
+  Existing blocked component properties include:
+
+  - `className`
+  - `style`
+  - `color`
+
 ## 12.0.0
 
 ### Major Changes

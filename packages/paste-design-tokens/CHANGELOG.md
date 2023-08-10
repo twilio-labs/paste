@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.3.0
+
+### Minor Changes
+
+- [`176b7a5b6`](https://github.com/twilio-labs/paste/commit/176b7a5b6d0c2bbcdb5323d9afda12c57aa78bc2) [#3342](https://github.com/twilio-labs/paste/pull/3342) Thanks [@serifluous](https://github.com/serifluous)! - Add new brand colors as aliases, sun and accents
+
 ## 9.2.1
 
 ### Patch Changes
