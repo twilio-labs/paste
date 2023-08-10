@@ -1,5 +1,5 @@
 interface Window {
-  __Cypress__: boolean;
+  Cypress: boolean;
 }
 
 declare module "*.svg" {
