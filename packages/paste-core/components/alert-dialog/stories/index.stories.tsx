@@ -87,40 +87,72 @@ DestructiveAlertDialogStory.parameters = {
   },
 };
 
-export const DisabledButtonDestructiveAlertDialog = (): JSX.Element => {
+export const DisabledButtonDestructiveAlertDialog = ({dialogIsOpen = false}): JSX.Element => {
+  const [isOpen, setIsOpen] = React.useState(dialogIsOpen);
+  const [inputString, setInputString] = React.useState('');
+  const [inputHasError, setInputHasError] = React.useState(false);
   const [isDisabled, setIsDisabled] = React.useState(true);
+  const handleOpen = (): void => {
+    if (inputString !== '') setIsDisabled(false);
+    setIsOpen(true);
+  };
+  const handleDismiss = (): void => {
+    setIsDisabled(true);
+    setIsOpen(false);
+    setInputHasError(false);
+  };
+  const handleConfirm = (): void => {
+    if (inputString === 'Toyota TCB Automobile (Gevelsberg)') {
+      setIsOpen(false);
+      setInputString('');
+      setInputHasError(false);
+      setIsDisabled(true);
+    } else {
+      setInputHasError(true);
+    }
+  };
   const handleChange = (e): void => {
-    if (e.target.value === 'Toyota TCB Automobile (Gevelsberg)') setIsDisabled(false);
+    setInputString(e.target.value);
+    if (e.target.value !== '') setIsDisabled(false);
     else setIsDisabled(true);
   };
   return (
-    <AlertDialog
-      heading="Delete regulatory bundle"
-      isOpen
-      destructive
-      onConfirm={() => {}}
-      onConfirmLabel="Delete"
-      onDismiss={() => {}}
-      onDismissLabel="Cancel"
-      disableDestructive={isDisabled}
-    >
-      You&apos;re about to delete &quot;Toyota TCB Automobile (Gevelsberg)&quot; and all data associated with it. This
-      regulatory bundle will be deleted immediately. You can&apos;t undo this action.
-      <Box display="flex" flexDirection="column" rowGap="space30" marginY="space50">
-        <Label htmlFor="delete-input" required>
-          Regulatory bundle name
-        </Label>
-        <Input type="text" required aria-describedby="delete-help-text" onChange={(e) => handleChange(e)} />
-        <HelpText id="delete-help-text">
-          To confirm this deletion, please input the name of this regulatory bundle.
-        </HelpText>
-      </Box>
-    </AlertDialog>
+    <>
+      <Button variant="destructive" onClick={handleOpen}>
+        Delete object
+      </Button>
+      <AlertDialog
+        heading="Delete regulatory bundle"
+        isOpen={isOpen}
+        onConfirm={handleConfirm}
+        onConfirmLabel="Delete"
+        onDismiss={handleDismiss}
+        onDismissLabel="Cancel"
+        destructive
+        onConfirmDisabled={isDisabled}
+      >
+        You&apos;re about to delete &ldquo;Toyota TCB Automobile (Gevelsberg)&ldquo; and all data associated with it.
+        This regulatory bundle will be deleted immediately. You can&apos;t undo this action.
+        <Box display="flex" flexDirection="column" rowGap="space30" marginY="space50">
+          <Label htmlFor="delete-input" required>
+            Regulatory bundle name
+          </Label>
+          <Input
+            type="text"
+            required
+            id="delete-input"
+            aria-describedby="delete-help-text"
+            onChange={(e) => handleChange(e)}
+            hasError={inputHasError}
+            value={inputString}
+          />
+          <HelpText id="delete-help-text" variant={inputHasError ? 'error' : 'default'}>
+            To confirm this deletion, please input the name of this regulatory bundle.
+          </HelpText>
+        </Box>
+      </AlertDialog>
+    </>
   );
-};
-
-export const DisabledButtonDestructiveAlertDialogStory = (): React.ReactNode => {
-  return <DisabledButtonDestructiveAlertDialog />;
 };
 
 export const OpenAlertDialogFromButton = (): JSX.Element => {

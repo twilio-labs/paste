@@ -33,8 +33,8 @@ describe('Alert Dialog', () => {
     expect(button).toHaveStyleRule('background-color', 'rgb(214, 31, 31)');
   });
 
-  it('Should have a disabled destructive button style when the disableDestructive prop is included', () => {
-    render(<DisabledButtonDestructiveAlertDialog />, {wrapper: ThemeWrapper});
+  it('Should have a disabled destructive button style when the onConfirmDisabled prop is included', () => {
+    render(<DisabledButtonDestructiveAlertDialog dialogIsOpen />, {wrapper: ThemeWrapper});
     const button = screen.getByRole('button', {name: 'Delete'});
     expect(button).toHaveStyleRule('background-color', 'rgb(225, 227, 234)');
   });
@@ -59,7 +59,7 @@ describe('Alert Dialog', () => {
   });
 
   it('Should have correct attributes when button is disabled', () => {
-    render(<DisabledButtonDestructiveAlertDialog />);
+    render(<DisabledButtonDestructiveAlertDialog dialogIsOpen />, {wrapper: ThemeWrapper});
     expect(screen.getByRole('button', {name: 'Delete'})).toHaveAttribute('disabled');
   });
 
