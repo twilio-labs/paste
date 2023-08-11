@@ -168,6 +168,7 @@
   "SubMenuButton": "@twilio-paste/core/menu",
   "getComputedVariant": "@twilio-paste/core/menu",
   "useMenuState": "@twilio-paste/core/menu",
+  "Meter": "@twilio-paste/core/meter",
   "MinimizableDialog": "@twilio-paste/core/minimizable-dialog",
   "MinimizableDialogButton": "@twilio-paste/core/minimizable-dialog",
   "MinimizableDialogContainer": "@twilio-paste/core/minimizable-dialog",
