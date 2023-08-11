@@ -2,7 +2,7 @@
   "name": "vs-code-intellisense",
   "displayName": "Twilio Paste Intellisense",
   "description": "Intelligent Twilio Paste Design tooling for VS Code",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "license": "MIT",
   "publisher": "TwilioPaste",
@@ -81,7 +81,7 @@
     "test": "yarn pretest && node ./out/test/runTest.js"
   },
   "dependencies": {
-    "@twilio-paste/design-tokens": "^9.0.2",
+    "@twilio-paste/design-tokens": "^10.0.0",
     "base-64": "1.0.0",
     "lodash.camelcase": "4.3.0",
     "lodash.kebabcase": "4.1.1",
