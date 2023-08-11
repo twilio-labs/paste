@@ -7,6 +7,10 @@ import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHea
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+import {Box} from '@twilio-paste/box';
+import {Input} from '@twilio-paste/input';
+import {Label} from '@twilio-paste/label';
+import {HelpText} from '@twilio-paste/help-text';
 
 import {AlertDialog} from '../src';
 import {AlertDialogHeader} from '../src/AlertDialogHeader';
@@ -81,6 +85,42 @@ DestructiveAlertDialogStory.parameters = {
     // no need to a11y check customization
     disable: true,
   },
+};
+
+export const DisabledButtonDestructiveAlertDialog = (): JSX.Element => {
+  const [isDisabled, setIsDisabled] = React.useState(true);
+  const handleChange = (e): void => {
+    if (e.target.value === 'Toyota TCB Automobile (Gevelsberg)') setIsDisabled(false);
+    else setIsDisabled(true);
+  };
+  return (
+    <AlertDialog
+      heading="Delete regulatory bundle"
+      isOpen
+      destructive
+      onConfirm={() => {}}
+      onConfirmLabel="Delete"
+      onDismiss={() => {}}
+      onDismissLabel="Cancel"
+      disableDestructive={isDisabled}
+    >
+      You&apos;re about to delete &quot;Toyota TCB Automobile (Gevelsberg)&quot; and all data associated with it. This
+      regulatory bundle will be deleted immediately. You can&apos;t undo this action.
+      <Box display="flex" flexDirection="column" rowGap="space30" marginY="space50">
+        <Label htmlFor="delete-input" required>
+          Regulatory bundle name
+        </Label>
+        <Input type="text" required aria-describedby="delete-help-text" onChange={(e) => handleChange(e)} />
+        <HelpText id="delete-help-text">
+          To confirm this deletion, please input the name of this regulatory bundle.
+        </HelpText>
+      </Box>
+    </AlertDialog>
+  );
+};
+
+export const DisabledButtonDestructiveAlertDialogStory = (): React.ReactNode => {
+  return <DisabledButtonDestructiveAlertDialog />;
 };
 
 export const OpenAlertDialogFromButton = (): JSX.Element => {
