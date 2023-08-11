@@ -26,7 +26,7 @@ Before you begin there are some things that you will need to have installed, and
 2. **[Xcode Command Line Tools](https://developer.apple.com/xcode/)** - Used to build some Apple software and node packages.
 3. **[Homebrew](https://brew.sh/)** (optional)- A package manager for Mac software
    1. Follow the installation instructions on the [Homebrew website](https://brew.sh/)
-4. **NodeJS v16.13.x**- A JavaScript runtime for running JavaScript applications
+4. **NodeJS v20.5.x**- A JavaScript runtime for running JavaScript applications
    1. Node is preinstalled on Macs but you might need to manage the version that is installed.
 5. **[NVM](https://github.com/nvm-sh/nvm)** (optional) - A Node version manager that can help installing and managing Node versions on your machine
    1. Follow the [installation instructions on NVM](https://github.com/nvm-sh/nvm#installing-and-updating).
