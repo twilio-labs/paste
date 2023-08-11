@@ -7,6 +7,9 @@ export const meta = {
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
+import {HelpText} from '@twilio-paste/help-text';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Grid, Column} from '@twilio-paste/grid';
@@ -14,11 +17,18 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
+import {AlertDialog} from '@twilio-paste/alert-dialog';
+import {Button} from '@twilio-paste/button';
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import DeleteMediumSeverityImage from '../../../assets/images/patterns/delete-medium-severity.png';
 import DeleteHighSeverityImage from '../../../assets/images/patterns/delete-high-severity.png';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
+import {
+  LowSeverityExample,
+  MediumSeverityExample,
+  HighSeverityExample,
+} from '../../../component-examples/DeletePatternExamples.ts';
 
 export default DefaultLayout;
 
@@ -62,7 +72,7 @@ export const getStaticProps = async () => {
   <Column>
     <Card>
       <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="/components/modal">Modal</Anchor>
+        <Anchor href="/components/alert-dialog">Alert Dialog</Anchor>
       </Heading>
     </Card>
   </Column>
@@ -86,10 +96,10 @@ export const getStaticProps = async () => {
 // import all ingredients for the delete patterns
 
 import {​ Button } from "@twilio-paste/core/button";
-import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/core/modal";
+import { AlertDialog } from "@twilio-paste/core/alert-dialog";
 import { Input } from "@twilio-paste/core/input";
 import { Label } from "@twilio-paste/core/label";
-import { HelpText } from "@twilio-paste/core/help-text;
+import { HelpText } from "@twilio-paste/core/help-text";
 import { Toast } from "@twilio-paste/core/toast";
 ```
 
@@ -106,6 +116,8 @@ The delete action should:
 - Not usually be the primary action on the page. There are many variants of differing visual prominence to choose from to achieve the correct hierarchy for the delete action trigger.
 - Follow certain guidelines based on the [severity](#variations) of the deletion.
 
+According to the Paste [Word List](/foundations/content/word-list), the word "remove" should be used when the item being deleted is still available and/or the user can undo the action. Use "delete" when the action is permanent and the item is unretrievable.
+
 ## Variations
 
 ### Low-severity
@@ -114,57 +126,62 @@ A deletion is considered low-severity when it is trivial to undo the deletion or
 
 Low-severity deletions can be triggered by a single click and do not require further warning or confirmation.
 
+<LivePreview
+  scope={{
+    AlertDialog,
+    Button,
+  }}
+  noInline
+  showOverflow
+>
+  {LowSeverityExample}
+</LivePreview>
+
 ### Medium-severity
 
 A deletion is considered medium-severity when the action cannot be undone, and the data cannot be recreated easily. This pattern is also useful for bulk deletions of low- or medium-severity.
 
-For medium-severity deletions, show a confirmation modal that explains what is being deleted and the consequences of the deletion.
+For medium-severity deletions, show an [Alert Dialog](/components/alert-dialog) that explains what is being deleted and the consequences of the deletion.
 
-<ResponsiveImage src={DeleteMediumSeverityImage} alt="modal with a destrctive button to confirm deletion" />
-
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h5" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>Coming soon!</DisclosureContent>
-  </Disclosure>
-</Box>
+<LivePreview
+  scope={{
+    AlertDialog,
+    Button,
+  }}
+  noInline
+  showOverflow
+>
+  {MediumSeverityExample}
+</LivePreview>
 
 ### High-severity
 
 A deletion is considered high-severity when the action cannot be undone, and it would be very time-consuming, or perhaps impossible, to recreate the deleted data. An action that deletes a large amount of data or has significant downstream impact would also be considered a high-severity deletion.
 
-For high-severity deletions, show a confirmation modal that explains what is being deleted and the consequences of the deletion, and have the user manually confirm the deletion by typing the name of the object they are deleting.
+For high-severity deletions, show an [Alert Dialog](/components/alert-dialog) that explains what is being deleted and the consequences of the deletion, and have the user manually confirm the deletion by typing the name of the object they are deleting.
 
-<ResponsiveImage src={DeleteHighSeverityImage} alt="modal with an input and a destructive button to confirm deletion" />
-
-<Box marginBottom="space80">
-  <Disclosure variant="contained">
-    <DisclosureHeading as="h5" variant="heading50">
-      Show live example
-    </DisclosureHeading>
-    <DisclosureContent>Coming soon!</DisclosureContent>
-  </Disclosure>
-</Box>
+<LivePreview
+  scope={{
+    AlertDialog,
+    Button,
+    Box,
+    Label,
+    Input,
+    HelpText,
+  }}
+  noInline
+  showOverflow
+>
+  {HighSeverityExample}
+</LivePreview>
 
 ## Post-deletion
 
 After the user has deleted the object, navigate them to the index page, where they can see a list of all remaining objects, and show a success [Toast](/components/toast) informing them that the object has successfully been deleted. If it is possible to undo the deletion, give the user the option to do so, and tell them how long they have to undo the deletion if it is time-bound.
 
-If the delete action fails, keep the modal open and display an error [Toast](/components/toast) that explains what went wrong and how to try again.
+If the delete action fails, keep the Alert Dialog open and display an error [Toast](/components/toast) that explains what went wrong and how to try again.
 
 For more information, check out our [Notifications and Feedback patterns](/patterns/notifications-and-feedback).
-
-## Starter kits
-
-### CodeSandbox
-
-Coming soon
-
-### Figma
-
-Coming soon
 
 </content>
 
