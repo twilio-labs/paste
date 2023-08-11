@@ -1,3 +1,4 @@
+#!/bin/bash
 # Rather than compiling the types which end up taking a lot of time, we do this trick
 # where we copy the src file as the type file (since they look the same in the end).
 #
