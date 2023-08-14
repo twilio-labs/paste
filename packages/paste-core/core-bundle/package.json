@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "20.0.0",
+  "version": "20.0.1",
   "status": "production",
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
@@ -171,7 +171,7 @@
     "@twilio-paste/truncate": "^14.0.0",
     "@twilio-paste/types": "^6.0.0",
     "@twilio-paste/uid-library": "^2.0.0",
-    "@twilio-paste/user-dialog": "^2.0.0",
+    "@twilio-paste/user-dialog": "^2.0.1",
     "@twilio-paste/utils": "^5.0.0",
     "@twilio-paste/visual-picker": "^2.0.0"
   },

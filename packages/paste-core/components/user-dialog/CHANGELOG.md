@@ -1,5 +1,11 @@
 # @twilio-paste/user-dialog
 
+## 2.0.1
+
+### Patch Changes
+
+- [`81b4c3f18`](https://github.com/twilio-labs/paste/commit/81b4c3f18e581ae93ee18a55a755de6529333c53) [#3404](https://github.com/twilio-labs/paste/pull/3404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [User Dialog] Fix the positioning of the user dialog by adding back the passing down of calculted styles to Box
+
 ## 2.0.0
 
 ### Major Changes
