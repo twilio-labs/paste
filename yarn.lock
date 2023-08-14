@@ -13591,7 +13591,7 @@ __metadata:
     "@twilio-paste/truncate": ^14.0.0
     "@twilio-paste/types": ^6.0.0
     "@twilio-paste/uid-library": ^2.0.0
-    "@twilio-paste/user-dialog": ^2.0.0
+    "@twilio-paste/user-dialog": ^2.0.1
     "@twilio-paste/utils": ^5.0.0
     "@twilio-paste/visual-picker": ^2.0.0
     "@types/react": ^18.0.27
@@ -16685,7 +16685,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/user-dialog@^2.0.0, @twilio-paste/user-dialog@workspace:packages/paste-core/components/user-dialog":
+"@twilio-paste/user-dialog@^2.0.0, @twilio-paste/user-dialog@^2.0.1, @twilio-paste/user-dialog@workspace:packages/paste-core/components/user-dialog":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/user-dialog@workspace:packages/paste-core/components/user-dialog"
   dependencies:
