@@ -16988,7 +16988,6 @@ __metadata:
     react-visibility-sensor: 5.1.1
     remark-gfm: ^3.0.1
     rollbar: ^2.25.0
-    sharp: ^0.31.3
     typescript: ^4.9.4
     unist-util-visit-esm: "npm:unist-util-visit@^4.1.2"
     use-resize-observer: ^9.1.0
@@ -22649,16 +22648,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"color-string@npm:^1.9.0":
-  version: 1.9.1
-  resolution: "color-string@npm:1.9.1"
-  dependencies:
-    color-name: ^1.0.0
-    simple-swizzle: ^0.2.2
-  checksum: c13fe7cff7885f603f49105827d621ce87f4571d78ba28ef4a3f1a104304748f620615e6bf065ecd2145d0d9dad83a3553f52bb25ede7239d18e9f81622f1cc5
-  languageName: node
-  linkType: hard
-
 "color-support@npm:^1.1.2, color-support@npm:^1.1.3":
   version: 1.1.3
   resolution: "color-support@npm:1.1.3"
@@ -22685,16 +22674,6 @@ __metadata:
     color-convert: ^1.9.1
     color-string: ^1.5.4
   checksum: d52a77ae239e1cdb55d9920e73d730df69a05cec9cb5d9b83a3e311b23009fd4053f4a88e7f6152207db498838f10e3ba4b1661a64a3acb41a50b14944214f26
-  languageName: node
-  linkType: hard
-
-"color@npm:^4.2.3":
-  version: 4.2.3
-  resolution: "color@npm:4.2.3"
-  dependencies:
-    color-convert: ^2.0.1
-    color-string: ^1.9.0
-  checksum: 0579629c02c631b426780038da929cca8e8d80a40158b09811a0112a107c62e10e4aad719843b791b1e658ab4e800558f2e87ca4522c8b32349d497ecb6adeb4
   languageName: node
   linkType: hard
 
@@ -24466,7 +24445,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.1":
+"detect-libc@npm:^2.0.0":
   version: 2.0.1
   resolution: "detect-libc@npm:2.0.1"
   checksum: ccb05fcabbb555beb544d48080179c18523a343face9ee4e1a86605a8715b4169f94d663c21a03c310ac824592f2ba9a5270218819bb411ad7be578a527593d7
@@ -36260,15 +36239,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"node-addon-api@npm:^5.0.0":
-  version: 5.1.0
-  resolution: "node-addon-api@npm:5.1.0"
-  dependencies:
-    node-gyp: latest
-  checksum: 2508bd2d2981945406243a7bd31362fc7af8b70b8b4d65f869c61731800058fb818cc2fd36c8eac714ddd0e568cc85becf5e165cebbdf7b5024d5151bbc75ea1
-  languageName: node
-  linkType: hard
-
 "node-cleanup@npm:^2.1.2":
   version: 2.1.2
   resolution: "node-cleanup@npm:2.1.2"
@@ -39340,7 +39310,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"prebuild-install@npm:^7.0.1, prebuild-install@npm:^7.1.1":
+"prebuild-install@npm:^7.0.1":
   version: 7.1.1
   resolution: "prebuild-install@npm:7.1.1"
   dependencies:
@@ -42565,23 +42535,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.31.3":
-  version: 0.31.3
-  resolution: "sharp@npm:0.31.3"
-  dependencies:
-    color: ^4.2.3
-    detect-libc: ^2.0.1
-    node-addon-api: ^5.0.0
-    node-gyp: latest
-    prebuild-install: ^7.1.1
-    semver: ^7.3.8
-    simple-get: ^4.0.1
-    tar-fs: ^2.1.1
-    tunnel-agent: ^0.6.0
-  checksum: 29fd1dfbc616c6389f53f366cec342b4353d9f2a37e98952ca273db38dca57dfa0f336322d6d763f0fae876042ead22fd86ffe26d70c32ade2458d421db60d04
-  languageName: node
-  linkType: hard
-
 "shebang-command@npm:^1.2.0":
   version: 1.2.0
   resolution: "shebang-command@npm:1.2.0"
@@ -42704,7 +42657,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"simple-get@npm:^4.0.0, simple-get@npm:^4.0.1":
+"simple-get@npm:^4.0.0":
   version: 4.0.1
   resolution: "simple-get@npm:4.0.1"
   dependencies:
