@@ -24,9 +24,7 @@ export interface UserDialogUserTextProps extends HTMLPasteProps<'div'> {
   element?: BoxProps['element'];
 }
 
-export interface UserDialogPopoverProps extends HTMLPasteProps<'div'> {
-  element?: BoxProps['element'];
-}
+export type UserDialogPopoverProps = BoxProps;
 
 export type UserDialogStateReturn = NonModalDialogPrimitiveStateReturn;
 
