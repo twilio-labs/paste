@@ -40,6 +40,7 @@
     "/packages/paste-core/components/display-heading",
     "/packages/paste-core/components/display-pill-group",
     "/packages/paste-libraries/dropdown",
+    "/packages/paste-core/components/editable-code-block",
     "/packages/paste-core/components/file-picker",
     "/packages/paste-core/components/file-uploader",
     "/packages/paste-core/layout/flex",
