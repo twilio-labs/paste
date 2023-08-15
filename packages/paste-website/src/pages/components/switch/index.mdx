@@ -71,13 +71,11 @@ export const getStaticProps = async () => {
 
 ### About Switch
 
-A Switch is an interactive binary control. It should be used in forms when an "on/off" or "yes/no" input is needed. Use label
-text to describe the purpose of the Switch. The label text shouldn't change when the state of the Switch changes. Help text
-can also be used to provide additional guidance.
+A Switch is an interactive binary control. It should be used in forms when an "on/off" or "yes/no" input is needed. 
 
-When using Switch, be sure to provide immediate results that indicate confirmation of the interaction. Users shouldn't need to perform an additional action (such as a "Submit" button) to confirm or save their Switch input. For example, when a user turns on a "Receive notifications" Switch, they should start receiving notifications immediately upon performing the action.
+Use Switch when the interaction result is **immediate**. Users shouldn't need to perform an additional action (like use a "Save" or "Submit" button) to confirm Switch input. For example, when a user turns on a "Receive notifications" Switch, they should start receiving notifications immediately upon performing the action.
 
-Use a [Checkbox](/components/checkbox) to present a user with a binary (e.g. on/off) choice that is part of a form. A checkbox should not be used to apply a user's choice instantly. In that case, such as enabling a system feature, you should consider using the Switch component.
+Use a [Checkbox](/components/checkbox) to present a user with a single binary choice that is part of a form or otherwise requires a user to take an additional action to confirm input. 
 
 <Blockquote
   name="Nielsen Norman Group"
@@ -189,6 +187,14 @@ If interactivity is dependent on another action, make that clear using help text
 <LivePreview scope={{Switch}} noInline>
   {disabledOnSwitch}
 </LivePreview>
+
+## Composition notes
+
+Switch label text should indicate what the Switch does when it is **on**, but should not describe the state itself. ("enabled", "disabled"). Label text shouldn't change when the state of the Switch changes. 
+
+Switch labels should be concise and put the most important information in the first few words. Avoid making the label a question.
+
+Use [Help Text](/components/help-text) for additional information, like any notable implications of turning on the Switch.
 
 ## Usage Guide
 
