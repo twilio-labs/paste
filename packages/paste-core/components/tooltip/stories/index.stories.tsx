@@ -40,8 +40,8 @@ export default {
   excludeStories: ['StateHookExample'],
   component: Tooltip,
   parameters: {
-    // Sets a delay for the component's stories
-    chromatic: {delay: 3000, diffThreshold: 0.3},
+    // default diffThreshold is 0.063
+    chromatic: {delay: 3000, diffThreshold: 0.2},
   },
 };
 

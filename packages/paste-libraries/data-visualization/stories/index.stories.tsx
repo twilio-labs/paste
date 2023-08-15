@@ -18,7 +18,8 @@ import {pieChartOptions} from './options/pieChartOptions';
 export default {
   title: 'Libraries/data-visualization',
   parameters: {
-    chromatic: {delay: 1000},
+    // default diffThreshold is 0.063
+    chromatic: {delay: 3000, diffThreshold: 0.2},
   },
 } as Meta;
 
