@@ -263,7 +263,7 @@ A users icon is recommended.
 
 ### Decorative
 
-Use the Decorative Badge to highlight attributes that do not have a strictly semantic meaning (like warning, error, or success)
+Use the decorative Badge to highlight attributes that do not have a strictly semantic meaning (like warning, error, or success)
 but would benefit from the visual affordance of differently-colored Badges. Icons are optional, and should appear before the text.
 
 <LivePreview scope={{Box, Badge, SMSCapableIcon, MMSCapableIcon, VoiceCapableIcon, FaxCapableIcon}} language="jsx">
@@ -290,7 +290,7 @@ but would benefit from the visual affordance of differently-colored Badges. Icon
 
 ### Counter
 
-Use the Counter Badge should be used to visually highlight a count in a UI.
+Use the counter Badge should be used to visually highlight a count in a UI.
 For example, the number of pending invitations or the number of errors.
 Counter Badges are limited to Neutral and Error variants, and the error variant should always include an error icon.
 
@@ -323,7 +323,7 @@ To do so, add an `href` prop and set `as="a"` on the Badge.
 
 ### Badge with button functionality
 
-A Badge can also be used to trigger an in-page action, such as showing a [Popover](/components/popover) or [Modal Dialog](/components/modal).
+A Badge can also be used to trigger an in-page action, such as showing a [Popover](/components/popover) or [Modal](/components/modal).
 To do so, provide an `onClick` event handler and set `as="button"` on the Badge.
 Refer to the [PopoverBadgeButton](/components/popover/#popoverbadgebutton) section
 of the Popover docs to add a Popover to a Badge.
@@ -354,7 +354,7 @@ of the Popover docs to add a Popover to a Badge.
 
 ### Small Badges
 
-Use small Badges only when vertical density is a concern. The guidelines for using variants in a small Badge are the same as in their default size.
+Use a small Badge only when vertical density is a concern. The guidelines for using variants in a small Badge are the same as in their default size.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
