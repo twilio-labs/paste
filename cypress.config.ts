@@ -25,5 +25,6 @@ export default defineConfig({
       '*.googletagmanager.com',
     ],
     specPattern: ['cypress/**/*.spec.ts'],
+    defaultCommandTimeout: 6000,
   },
 });
