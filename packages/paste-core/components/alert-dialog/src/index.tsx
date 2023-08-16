@@ -34,6 +34,7 @@ export interface AlertDialogProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 
   onConfirmLabel: string;
   onDismiss: () => void;
   onDismissLabel: string;
+  onConfirmDisabled?: boolean;
 }
 
 export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
@@ -48,6 +49,7 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
       onConfirmLabel,
       onDismiss,
       onDismissLabel,
+      onConfirmDisabled,
       ...props
     },
     ref
@@ -86,6 +88,7 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
                     onDismissLabel={onDismissLabel}
                     onConfirm={onConfirm}
                     onConfirmLabel={onConfirmLabel}
+                    onConfirmDisabled={onConfirmDisabled}
                   />
                 </Box>
               </ModalDialogOverlay>
