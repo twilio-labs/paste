@@ -4,4 +4,6 @@ export {
   useSliderThumb,
   // Progress bar
   useProgressBar,
+  // Meter
+  useMeter,
 } from 'react-aria';
