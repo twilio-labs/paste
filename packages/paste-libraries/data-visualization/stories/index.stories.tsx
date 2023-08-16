@@ -4,6 +4,7 @@ import {Stack} from '@twilio-paste/stack';
 /* eslint-disable import/no-extraneous-dependencies */
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
+import merge from 'deepmerge';
 /* eslint-enable */
 
 import {usePasteHighchartsTheme} from '../src';
@@ -23,68 +24,88 @@ export default {
   },
 } as Meta;
 
+const disableAnimationOptions = {
+  chart: {
+    animation: false,
+  },
+  plotOptions: {
+    series: {
+      animation: false,
+    },
+  },
+  drilldown: {
+    animation: false,
+  },
+};
+
 export const LineChart: StoryFn = () => {
-  const themedLineChartOptions = usePasteHighchartsTheme(lineChartOptions);
+  const disabledAnimationOptions = merge(lineChartOptions, disableAnimationOptions);
+  const themedLineChartOptions = usePasteHighchartsTheme(disabledAnimationOptions);
 
   return (
     <Stack orientation="vertical" spacing="space100">
       <HighchartsReact highcharts={Highcharts} options={themedLineChartOptions} />
-      <HighchartsReact highcharts={Highcharts} options={lineChartOptions} />
+      <HighchartsReact highcharts={Highcharts} options={disabledAnimationOptions} />
     </Stack>
   );
 };
 
 export const LineChartWithAnnotations: StoryFn = () => {
-  const themedLineChartWithAnnotationsOptions = usePasteHighchartsTheme(lineChartWithAnnotationsOptions);
+  const disabledAnimationOptions = merge(lineChartWithAnnotationsOptions, disableAnimationOptions);
+  const themedLineChartWithAnnotationsOptions = usePasteHighchartsTheme(disabledAnimationOptions);
 
   return (
     <Stack orientation="vertical" spacing="space100">
       <HighchartsReact highcharts={Highcharts} options={themedLineChartWithAnnotationsOptions} />
-      <HighchartsReact highcharts={Highcharts} options={lineChartWithAnnotationsOptions} />
+      <HighchartsReact highcharts={Highcharts} options={disabledAnimationOptions} />
     </Stack>
   );
 };
 
 export const TimeSeries: StoryFn = () => {
-  const themedTimeSeriesChartOptions = usePasteHighchartsTheme(timeSeriesOptions);
+  const disabledAnimationOptions = merge(timeSeriesOptions, disableAnimationOptions);
+  const themedTimeSeriesChartOptions = usePasteHighchartsTheme(disabledAnimationOptions);
 
   return (
     <Stack orientation="vertical" spacing="space100">
       <HighchartsReact highcharts={Highcharts} options={themedTimeSeriesChartOptions} />
-      <HighchartsReact highcharts={Highcharts} options={timeSeriesOptions} />
+      <HighchartsReact highcharts={Highcharts} options={disabledAnimationOptions} />
     </Stack>
   );
 };
 
 export const ColumnChart: StoryFn = () => {
-  const themedColumnChartOptions = usePasteHighchartsTheme(columnChartOptions);
+  const disabledAnimationOptions = merge(columnChartOptions, disableAnimationOptions);
+  const themedColumnChartOptions = usePasteHighchartsTheme(disabledAnimationOptions);
 
   return (
     <Stack orientation="vertical" spacing="space100">
       <HighchartsReact highcharts={Highcharts} options={themedColumnChartOptions} />
-      <HighchartsReact highcharts={Highcharts} options={columnChartOptions} />
+      <HighchartsReact highcharts={Highcharts} options={disabledAnimationOptions} />
     </Stack>
   );
 };
 
 export const BasicAreaChart: StoryFn = () => {
-  const themedBasicAreaChartOptions = usePasteHighchartsTheme(basicAreaChartOptions);
+  const disabledAnimationOptions = merge(basicAreaChartOptions, disableAnimationOptions);
+  const themedBasicAreaChartOptions = usePasteHighchartsTheme(disabledAnimationOptions);
 
   return (
     <Stack orientation="vertical" spacing="space100">
       <HighchartsReact highcharts={Highcharts} options={themedBasicAreaChartOptions} />
-      <HighchartsReact highcharts={Highcharts} options={basicAreaChartOptions} />
+      <HighchartsReact highcharts={Highcharts} options={disabledAnimationOptions} />
     </Stack>
   );
 };
 
 export const PieChart: StoryFn = () => {
-  const themedPieChartOptions = usePasteHighchartsTheme(pieChartOptions);
+  const disabledAnimationOptions = merge(pieChartOptions, disableAnimationOptions);
+  const themedPieChartOptions = usePasteHighchartsTheme(disabledAnimationOptions);
 
   return (
     <Stack orientation="vertical" spacing="space100">
       <HighchartsReact highcharts={Highcharts} options={themedPieChartOptions} />
-      <HighchartsReact highcharts={Highcharts} options={pieChartOptions} />
+      <HighchartsReact highcharts={Highcharts} options={disabledAnimationOptions} />
     </Stack>
   );
 };
