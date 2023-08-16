@@ -40,7 +40,6 @@ export default {
   excludeStories: ['StateHookExample'],
   component: Tooltip,
   parameters: {
-    // default diffThreshold is 0.063
     chromatic: {delay: 3000, diffThreshold: 0.2},
   },
 };
