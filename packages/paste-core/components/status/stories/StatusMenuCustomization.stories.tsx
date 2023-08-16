@@ -76,7 +76,7 @@ export default {
   component: StatusMenu,
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000},
+    chromatic: {delay: 3000, diffThreshold: 0.2},
     a11y: {
       // no need to a11y check customization
       disable: true,

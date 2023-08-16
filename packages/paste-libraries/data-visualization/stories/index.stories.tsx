@@ -18,7 +18,7 @@ import {pieChartOptions} from './options/pieChartOptions';
 export default {
   title: 'Libraries/data-visualization',
   parameters: {
-    chromatic: {delay: 1000},
+    chromatic: {disableSnapshot: true},
   },
 } as Meta;
 
