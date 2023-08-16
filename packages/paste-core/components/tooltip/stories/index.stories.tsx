@@ -206,6 +206,10 @@ export const CustomizedTooltip: StoryFn = (_args, {parameters: {isTestEnvironmen
 
 CustomizedTooltip.storyName = 'Customized Tooltip';
 CustomizedTooltip.parameters = {
+  parameters: {
+    // default diffThreshold is 0.063
+    chromatic: {delay: 3000, diffThreshold: 0.2},
+  },
   a11y: {
     // no need to a11y check customization
     disable: true,
