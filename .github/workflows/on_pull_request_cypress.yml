@@ -37,10 +37,10 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
 
-      - name: Setup Node.js 16.13
+      - name: Setup Node.js 20.5
         uses: actions/setup-node@v3
         with:
-          node-version: 16.13.x
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path

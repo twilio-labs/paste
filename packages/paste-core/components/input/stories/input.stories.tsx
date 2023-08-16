@@ -22,12 +22,14 @@ export default {
 
 export const DefaultInput = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input');
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         value={value}
@@ -38,7 +40,7 @@ export const DefaultInput = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -47,6 +49,7 @@ DefaultInput.storyName = 'Input';
 
 export const InputInverse = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
@@ -55,6 +58,7 @@ export const InputInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         value={value}
@@ -66,7 +70,9 @@ export const InputInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -75,6 +81,7 @@ InputInverse.storyName = 'Input - Inverse';
 
 export const InputRequired = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input - Required');
   return (
     <>
@@ -83,6 +90,7 @@ export const InputRequired = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         required
@@ -94,7 +102,7 @@ export const InputRequired = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -103,6 +111,7 @@ InputRequired.storyName = 'Input - Required';
 
 export const InputRequiredInverse = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input - Required');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
@@ -111,6 +120,7 @@ export const InputRequiredInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         required
@@ -123,7 +133,9 @@ export const InputRequiredInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -132,12 +144,14 @@ InputRequiredInverse.storyName = 'Input - Required inverse';
 
 export const InputError = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input - Error');
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         hasError
@@ -158,12 +172,14 @@ InputError.storyName = 'Input - Error';
 
 export const InputReallyLongError = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Email address');
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="email"
         placeholder="Placeholder"
         hasError
@@ -175,7 +191,7 @@ export const InputReallyLongError = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText variant="error">
+      <HelpText id={helpTextUid} variant="error">
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
@@ -189,6 +205,7 @@ InputReallyLongError.storyName = 'Input - Really Long Error';
 
 export const InputErrorInverse = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
@@ -197,6 +214,7 @@ export const InputErrorInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         hasError
@@ -209,7 +227,9 @@ export const InputErrorInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="error_inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="error_inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -218,6 +238,7 @@ InputErrorInverse.storyName = 'Input - Error inverse';
 
 export const InputReallyLongErrorInverse = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Email address');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
@@ -226,6 +247,7 @@ export const InputReallyLongErrorInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="email"
         placeholder="Placeholder"
         hasError
@@ -238,7 +260,7 @@ export const InputReallyLongErrorInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="error_inverse">
+      <HelpText id={helpTextUid} variant="error_inverse">
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
@@ -252,6 +274,7 @@ InputReallyLongErrorInverse.storyName = 'Input - Really Long Error inverse';
 
 export const InputDisabled = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input - Disabled');
   return (
     <>
@@ -260,6 +283,7 @@ export const InputDisabled = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         disabled
         value={value}
@@ -270,7 +294,7 @@ export const InputDisabled = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -279,6 +303,8 @@ InputDisabled.storyName = 'Input - Disabled';
 
 export const InputDisabledInverse = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
+
   const [value, setValue] = React.useState('Input - Disabled');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
@@ -287,6 +313,7 @@ export const InputDisabledInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         disabled
@@ -299,7 +326,9 @@ export const InputDisabledInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -308,12 +337,14 @@ InputDisabledInverse.storyName = 'Input - Disabled inverse';
 
 export const InputReadOnly = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input - ReadOnly');
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         readOnly
         value={value}
@@ -324,7 +355,7 @@ export const InputReadOnly = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -333,6 +364,7 @@ InputReadOnly.storyName = 'Input - ReadOnly';
 
 export const InputReadOnlyInverse = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
@@ -341,6 +373,7 @@ export const InputReadOnlyInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         readOnly
@@ -353,7 +386,9 @@ export const InputReadOnlyInverse = (): React.ReactNode => {
         onBlur={action('handleBlur')}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -407,12 +442,14 @@ InputHiddenInverse.storyName = 'Input - Hidden inverse';
 
 export const InputInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input - ReadOnly');
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         value={value}
         onChange={(event) => {
@@ -432,7 +469,7 @@ export const InputInsertBeforeAndAfter = (): React.ReactNode => {
           </Anchor>
         }
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -441,6 +478,7 @@ InputInsertBeforeAndAfter.storyName = 'Input - insert before and after';
 
 export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input - ReadOnly');
   return (
     <>
@@ -449,6 +487,7 @@ export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         value={value}
         onChange={(event) => {
@@ -469,7 +508,7 @@ export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         }
         disabled
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
@@ -478,6 +517,7 @@ InputDisabledInsertBeforeAndAfter.storyName = 'Input - Disabled insert before an
 
 export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
@@ -486,6 +526,7 @@ export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         value={value}
@@ -507,7 +548,9 @@ export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
           </Anchor>
         }
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -516,6 +559,7 @@ InputInsertBeforeAndAfterInverse.storyName = 'Input - insert before and after in
 
 export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input');
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
@@ -524,6 +568,7 @@ export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         value={value}
@@ -546,7 +591,9 @@ export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
         }
         disabled
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
@@ -555,12 +602,14 @@ InputDisabledInsertBeforeAndAfterInverse.storyName = 'Input - Disabled insert be
 
 export const InputNumberError = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   const [value, setValue] = React.useState('Input - Number Error');
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="number"
         placeholder="Placeholder"
         hasError
@@ -572,7 +621,9 @@ export const InputNumberError = (): React.ReactNode => {
         onFocus={action('handleFocus')}
         onBlur={action('handleBlur')}
       />
-      <HelpText variant="error">Not a number error. Should have no box-shadow.</HelpText>
+      <HelpText id={helpTextUid} variant="error">
+        Not a number error. Should have no box-shadow.
+      </HelpText>
     </>
   );
 };
@@ -711,19 +762,20 @@ TestNumberInput.storyName = 'Number Input - Test';
 
 export const UncontrolledNumberInput = (): React.ReactNode => {
   const uid = useUID();
+  const helpTextUid = useUID();
   return (
     <>
       <Label htmlFor={uid}>Reload amount</Label>
       <Input
-        aria-describedby="reload_amount_help"
         id={uid}
+        aria-describedby={helpTextUid}
         name="reload_amount"
         type="number"
         defaultValue="0"
         min="0"
         max="1000"
       />
-      <HelpText id="reload_amount_help">Maximum amount is $1,000.</HelpText>
+      <HelpText id={helpTextUid}>Maximum amount is $1,000.</HelpText>
     </>
   );
 };

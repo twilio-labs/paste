@@ -30,11 +30,13 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
       orientation = 'vertical',
       required,
       i18nRequiredLabel,
-      fieldStyleProps, // Only used in Visual Picker
+      fieldStyleProps,
       ...props
     },
     ref
   ) => {
+    const isVisualPicker = Boolean(fieldStyleProps); // This prop is only used in Visual Picker
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -58,13 +60,17 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
           {legend}
         </Label>
         {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
-        <Box element={`${element}_SET`} marginRight="space20">
-          <Box display={fieldStyleProps && orientation === 'horizontal' ? 'inline-flex' : 'block'}>
+        <Box element={`${element}_SET`} marginRight={isVisualPicker ? undefined : 'space20'}>
+          <Box
+            display={isVisualPicker && orientation === 'horizontal' ? 'inline-flex' : 'block'} // Sets equal heights for horizontal Visual Pickers
+            width={isVisualPicker ? '100%' : undefined} // Allows vertical Visual Pickers to take up the full width of the container
+          >
             {React.Children.map(children, (child, index) => {
               return (
                 <Box
                   element={`${element}_FIELD`}
                   display={orientation === 'horizontal' ? 'inline-block' : 'block'}
+                  flexBasis={isVisualPicker ? '50%' : undefined} // Makes horizontal Visual Pickers grow to fill the width of the container
                   marginTop={
                     fieldStyleProps?.marginTop
                       ? // eslint-disable-next-line unicorn/no-nested-ternary
@@ -73,13 +79,9 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
                         : fieldStyleProps?.marginTop
                       : 'space40'
                   }
-                  marginRight={
-                    fieldStyleProps?.marginRight
-                      ? fieldStyleProps?.marginRight
-                      : // eslint-disable-next-line unicorn/no-nested-ternary
-                      orientation === 'horizontal'
-                      ? 'space70'
-                      : null
+                  marginRight={orientation === 'horizontal' && !isVisualPicker ? 'space70' : null}
+                  marginLeft={
+                    isVisualPicker && orientation === 'horizontal' ? (index === 0 ? 'space0' : 'space30') : 'space0' // Sets spacing between horizontal Visual Pickers except for the first one
                   }
                 >
                   {child}
