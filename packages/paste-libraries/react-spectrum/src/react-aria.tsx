@@ -1,1 +1,7 @@
-export {useSlider, useSliderThumb} from 'react-aria';
+export {
+  // Slider
+  useSlider,
+  useSliderThumb,
+  // Progress bar
+  useProgressBar,
+} from 'react-aria';
