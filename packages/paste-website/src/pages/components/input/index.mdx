@@ -267,12 +267,16 @@ Use a read-only form field when a field's value can't be changed, but users shou
 
 ## Composition notes
 
-<LivePreview scope={{Input, Label}} language="jsx">
-  {`<>
-  <Label htmlFor="name">Name</Label>
-  <Input id="name" name="name" type="text" onChange={()=>{}}/>
-</>`}
-</LivePreview>
+### Labels and Help Text
+
+Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
+
+- Use [Help Text](/components/help-text) to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
+- Avoid articles (like "a" and "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
+
+To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
+
+Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
 ### Positioning form fields
 
@@ -292,17 +296,6 @@ Stack form fields vertically with `$space-80` spacing between each field.
 </LivePreview>
 
 Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place form fields horizontally.
-
-### Labels and Help Text
-
-Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
-
-- Use [Help Text](/components/help-text) to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
-- Avoid articles (like "a" and "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
-
-To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
-
-Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
 ### Required field indicator
 
