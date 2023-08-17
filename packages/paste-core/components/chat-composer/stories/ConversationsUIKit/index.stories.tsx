@@ -6,7 +6,7 @@ import {
   MinimizableDialogHeader,
   MinimizableDialogContent,
 } from '@twilio-paste/minimizable-dialog';
-import {AutoScrollPlugin, $getRoot, ClearEditorPlugin} from '@twilio-paste/lexical-library';
+import {$getRoot, ClearEditorPlugin} from '@twilio-paste/lexical-library';
 import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
 import {Box} from '@twilio-paste/box';
 import type {StoryFn} from '@storybook/react';
@@ -60,7 +60,6 @@ const ComposerAttachmentExample: React.FC = () => (
 );
 
 export const ConversationsUIKitExample: StoryFn = () => {
-  const scrollRef = React.createRef<HTMLDivElement>();
   const {chats, push} = useChatLogger(
     {
       content: (
@@ -121,6 +120,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
   };
 
   const submitMessage = (): void => {
+    if (message === '') return;
     push(createNewMessage(message));
   };
 
@@ -132,11 +132,10 @@ export const ConversationsUIKitExample: StoryFn = () => {
       <MinimizableDialog aria-label="Live chat">
         <MinimizableDialogHeader>Live chat</MinimizableDialogHeader>
         <MinimizableDialogContent>
-          <Box overflowY="scroll" maxHeight="size50" tabIndex={0}>
+          <Box overflow="hidden" overflowY="scroll" maxHeight="size50" tabIndex={0}>
             <ChatLogger chats={chats} />
           </Box>
           <Box
-            ref={scrollRef}
             borderStyle="solid"
             borderWidth="borderWidth0"
             borderTopWidth="borderWidth10"
@@ -159,7 +158,6 @@ export const ConversationsUIKitExample: StoryFn = () => {
               placeholder="Type here..."
               onChange={handleComposerChange}
             >
-              <AutoScrollPlugin scrollRef={scrollRef} />
               <ClearEditorPlugin />
               <SendButtonPlugin onClick={submitMessage} />
               <EnterKeySubmitPlugin onKeyDown={submitMessage} />

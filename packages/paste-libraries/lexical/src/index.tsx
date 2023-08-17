@@ -16,7 +16,7 @@ export {
   COMMAND_PRIORITY_LOW,
   COMMAND_PRIORITY_EDITOR,
 } from 'lexical';
-export type {EditorState, EditorThemeClasses} from 'lexical';
+export type {EditorState, EditorThemeClasses, LexicalEditor} from 'lexical';
 
 export {AutoLinkNode} from '@lexical/link';
 export {LexicalComposer} from '@lexical/react/LexicalComposer';
@@ -31,7 +31,6 @@ export {LinkPlugin} from '@lexical/react/LexicalLinkPlugin';
 export {TablePlugin} from '@lexical/react/LexicalTablePlugin';
 export {AutoLinkPlugin} from '@lexical/react/LexicalAutoLinkPlugin';
 export {AutoFocusPlugin} from '@lexical/react/LexicalAutoFocusPlugin';
-export {AutoScrollPlugin} from '@lexical/react/LexicalAutoScrollPlugin';
 export {ClearEditorPlugin} from '@lexical/react/LexicalClearEditorPlugin';
 export {useLexicalComposerContext} from '@lexical/react/LexicalComposerContext';
 

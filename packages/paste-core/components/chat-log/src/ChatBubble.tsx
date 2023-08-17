@@ -41,6 +41,7 @@ export const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
         element={element}
         ref={ref}
         variant={variant}
+        whiteSpace="pre-wrap"
         {...bubbleVariantStyles[variant]}
         {...safelySpreadBoxProps(props)}
       >

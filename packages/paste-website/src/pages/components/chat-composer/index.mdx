@@ -24,21 +24,25 @@ import {
   ChatLogger,
 } from '@twilio-paste/chat-log';
 import {ChatComposer} from '@twilio-paste/chat-composer';
-import {AutoScrollPlugin} from '@twilio-paste/lexical-library';
+import Changelog from '@twilio-paste/chat-composer/CHANGELOG.md';
 import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
+import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
 import {HelpText} from '@twilio-paste/help-text';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Button} from '@twilio-paste/button';
 import {ButtonGroup} from '@twilio-paste/button-group';
 import {Stack} from '@twilio-paste/stack';
-import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
+import {$getRoot, $createParagraphNode, $createTextNode, ClearEditorPlugin} from '@twilio-paste/lexical-library';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
   ChatDialogExample,
   RichTextExample,
   MaxHeightExample,
-} from '../../../component-examples/ChatComposerExamples.ts';
+  SendButtonPlugin,
+  EnterKeySubmitPlugin,
+  createNewMessage,
+} from '../../../component-examples/ChatComposerExamples';
 import packageJson from '@twilio-paste/chat-composer/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -142,14 +146,14 @@ Set a rich text value using one of the Lexical formatting APIs such as [`toggleF
 
 ### With Chat Log
 
-Use Chat Composer alongside other Paste components such as [Chat Log](/components/chat-log) to build more complex chat UI. This example also makes use of a Lexical
-plugin `AutoScrollPlugin`.
+Use Chat Composer alongside other Paste components such as [Chat Log](/components/chat-log) to build more complex chat UI.
 
 <LivePreview
   noInline
   language="jsx"
   scope={{
     Box,
+    ChatLogger,
     ChatLog,
     ChatBookend,
     ChatBookendItem,
@@ -163,13 +167,93 @@ plugin `AutoScrollPlugin`.
     ChatAttachmentLink,
     ChatMessageMetaItem,
     ChatComposer,
-    AutoScrollPlugin,
     Button,
     SendIcon,
+    SendButtonPlugin,
+    EnterKeySubmitPlugin,
+    createNewMessage,
+    $getRoot,
+    useChatLogger,
+    DownloadIcon,
+    ClearEditorPlugin,
   }}
 >
   {ChatDialogExample}
 </LivePreview>
+
+### Adding interactivity with Plugins
+
+In the above example we make use of three Lexical Plugins, `ClearEditorPlugin` that is provided by Lexical, and two custom plugins `SendButtonPlugin` and `EnterKeySubmitPlugin`. We also keep track of the content provided to the composer via the `onChange` handler. Together we can add custom interactivity such as:
+
+- Clear the editor on button click using `ClearEditorPlugin`
+- Submit on enter key press using `EnterKeySubmitPlugin`
+- Submit on button click using `SendButtonPlugin`
+
+Plugins are functions that must be children of the `ChatComposer` component, so that they can access the Composer context.
+
+#### `onChange` event handler
+
+The `onChange` handler provided to the `ChatComposer` takes three arguments, the first of which is the [`editorState`](https://lexical.dev/docs/concepts/editor-state#understanding-the-editor-state). This allows us to read the current content of the editor using the utilities provided by Lexical.
+
+`$getRoot` is a utility to access the composer root [`ElementNode`](https://lexical.dev/docs/api/classes/lexical.ElementNode). We can then get the text content of the editor everytime it is updated, and store it in our component state for later use.
+
+```js
+const handleComposerChange = (editorState: EditorState): void => {
+  editorState.read(() => {
+    const text = $getRoot().getTextContent();
+    setMessage(text);
+  });
+};
+```
+
+#### `ClearEditorPlugin`
+
+The `ClearEditorPlugin` supplied by Lexical allows you to build functionality into the composer that will clear the composer content when a certain action is performed.
+
+When passed as a child to `ChatComposer` it will automatically register a `CLEAR_EDITOR_COMMAND`. You can then dispatch this command from elsewhere to clear the composer content. As example, we created two plugins; `SendButtonPlugin` and `EnterKeySubmitPlugin` which both dispatch the `CLEAR_EDITOR_COMMAND`, and clear the composer content as a result.
+
+```jsx
+<ChatComposer onChange={handleComposerChange}>
+  <ClearEditorPlugin />
+</ChatComposer>
+```
+
+#### Custom plugins
+
+`SendButtonPlugin` and `EnterKeySubmitPlugin` are two custom plugins that submit a user message and clear the composer content. They first must be passed to the `ChatComposer` as a child.
+
+```jsx
+<ChatComposer onChange={handleComposerChange}>
+  <ClearEditorPlugin />
+  <EnterKeySubmitPlugin />
+  <SendButtonPlugin />
+</ChatComposer>
+```
+
+Once "registered" as children of `ChatComposer`, the plugins gain access to the composer context and can dispatch commands. They can also return JSX to be rendered into the composer. Take the `SendButtonPlugin` as an example:
+
+```jsx
+export const SendButtonPlugin = ({onClick}: {onClick: () => void}): JSX.Element => {
+  // get the editor from the composer context
+  const [editor] = useLexicalComposerContext();
+
+  // an event handler called from custom UI can the interact with the editor to perform certain actions
+  const handleSend = (): void => {
+    onClick();
+    editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
+  };
+
+  return (
+    <Box position="absolute" top="space30" right="space30">
+      <Button variant="primary_icon" size="reset" onClick={handleSend}>
+        <SendIcon decorative={false} title="Send message" />
+      </Button>
+    </Box>
+  );
+};
+```
+
+Here we're rendering a button that when clicked can call a callback function, and dispatch the `CLEAR_EDITOR_COMMAND` for the `ClearEditorPlugin` respond to. We use it to add a new chat message in the chat log, and then clear the composer ready for the next message to be typed.
 
 ## Usage Guide
 
@@ -202,15 +286,15 @@ export const BasicChatComposer = () => (
 
 #### Props
 
-| Prop            | Type                                                        | Description                                                                               | Default           |
-| --------------- | ----------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------- |
-| `config`        | `LexicalComposerProps['initialConfig']`                     | Configuration provided to the Lexical Composer                                            |                   |
-| `children?`     | `LexicalComposerProps['children]`                           | Children provided to the Lexical Composer (i.e. Lexical plugins)                          |                   |
-| `element?`      | `string`                                                    | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_COMPOSER'` |
-| `placeholder?`  | `string` or `JSX.Element`                                   | Placeholder content for the Chat Composer                                                 |                   |
-| `onChange?`     | `(editorState: EditorState, editor: LexicalEditor) => void` | Callback invoked when changes occurs within the Chat Composer                             |                   |
-| `initialValue?` | `string`                                                    | Initial value for the Chat Composer                                                       |                   |
-| `maxHeight?`    | `string`                                                    | Maximum height for the Chat Composer                                                      |                   |
+| Prop            | Type                                                                                       | Description                                                                               | Default           |
+| --------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | ----------------- |
+| `config`        | `LexicalComposerProps['initialConfig']`                                                    | Configuration provided to the Lexical Composer                                            |                   |
+| `children?`     | `LexicalComposerProps['children]`                                                          | Children provided to the Lexical Composer (i.e. Lexical plugins)                          |                   |
+| `element?`      | `string`                                                                                   | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_COMPOSER'` |
+| `placeholder?`  | `string` or `JSX.Element`                                                                  | Placeholder content for the Chat Composer                                                 |                   |
+| `onChange?`     | `onChange?: (editorState: EditorState, editor: LexicalEditor, tags: Set<string>) => void;` | Callback invoked when changes occurs within the Chat Composer                             |                   |
+| `initialValue?` | `string`                                                                                   | Initial value for the Chat Composer                                                       |                   |
+| `maxHeight?`    | `string`                                                                                   | Maximum height for the Chat Composer                                                      |                   |
 
 ### Figma
 
