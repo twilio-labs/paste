@@ -216,6 +216,10 @@ An input for entering search strings. It may include an icon in supporting brows
 
 An input for entering a telephone number. It displays a telephone keypad in some devices with dynamic keypads.
 
+#### url
+
+An input for entering a URL. The input value is [automatically validated](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url#value) to ensure that it's either empty or a properly-formatted URL before the form can be submitted.
+
 ### Input with number functionality
 
 Use an Input with number functionality by setting `type="number"`. Users can change the numeric value by entering a number,
@@ -596,24 +600,24 @@ const Component = () => (
 
 All the valid HTML attributes for `input` are supported including the following props:
 
-| Prop               | Type                                                             | Description                                                                                                       | Default           |
-| ------------------ | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------- |
-| id?                | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`.                                                    | null              |
-| type               | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                                                             | null              |
-| name?              | string                                                           | Sets the name of the input.                                                                                       | null              |
-| value?             | string                                                           | Sets the value of the input.                                                                                      | null              |
-| placeholder?       | string                                                           | Sets the placeholder of the input.                                                                                | null              |
-| disabled?          | boolean                                                          | Disables the input.                                                                                               | false             |
-| readOnly?          | boolean                                                          | Sets the input to readonly.                                                                                       | false             |
-| required?          | boolean                                                          | Sets the input as required.                                                                                       | false             |
-| hasError?          | boolean                                                          | Sets the input to an error state.                                                                                 | false             |
-| onChange?          | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                                                   | null              |
-| onFocus?           | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                                                   | null              |
-| onBlur?            | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                                                   | null              |
-| variant?           | 'default', 'inverse'                                             |                                                                                                                   | 'default'         |
-| element?           | `string`                                                         | Overrides the default element name to apply unique styles with the Customization Provider                         | 'INPUT'           |
-| i18nStepUpLabel?   | `string`                                                         | Provides an accessible label for the increment button on inputs of type "number" when using non-English languages | 'step value up'   |
-| i18nStepDownLabel? | `string`                                                         | Provides an accessible label for the decrement button on inputs of type "number" when using non-English languages | 'step value down' |
+| Prop               | Type                                                                    | Description                                                                                                       | Default           |
+| ------------------ | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------- |
+| id?                | string                                                                  | Sets the id of the input. Should match the htmlFor of `Label`.                                                    | null              |
+| type               | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'url' | Sets the type of the input. Required.                                                                             | null              |
+| name?              | string                                                                  | Sets the name of the input.                                                                                       | null              |
+| value?             | string                                                                  | Sets the value of the input.                                                                                      | null              |
+| placeholder?       | string                                                                  | Sets the placeholder of the input.                                                                                | null              |
+| disabled?          | boolean                                                                 | Disables the input.                                                                                               | false             |
+| readOnly?          | boolean                                                                 | Sets the input to readonly.                                                                                       | false             |
+| required?          | boolean                                                                 | Sets the input as required.                                                                                       | false             |
+| hasError?          | boolean                                                                 | Sets the input to an error state.                                                                                 | false             |
+| onChange?          | `(event: React.MouseEvent<HTMLElement>)`                                |                                                                                                                   | null              |
+| onFocus?           | `(event: React.MouseEvent<HTMLElement>)`                                |                                                                                                                   | null              |
+| onBlur?            | `(event: React.MouseEvent<HTMLElement>)`                                |                                                                                                                   | null              |
+| variant?           | 'default', 'inverse'                                                    |                                                                                                                   | 'default'         |
+| element?           | `string`                                                                | Overrides the default element name to apply unique styles with the Customization Provider                         | 'INPUT'           |
+| i18nStepUpLabel?   | `string`                                                                | Provides an accessible label for the increment button on inputs of type "number" when using non-English languages | 'step value up'   |
+| i18nStepDownLabel? | `string`                                                                | Provides an accessible label for the decrement button on inputs of type "number" when using non-English languages | 'step value down' |
 
 <ChangelogRevealer>
   <Changelog />
