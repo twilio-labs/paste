@@ -28,12 +28,7 @@ import {
   HistoryPlugin,
 } from '@twilio-paste/lexical-library';
 import {StylingGlobals} from '@twilio-paste/styling-library';
-import type {
-  LexicalComposerProps,
-  ContentEditableProps,
-  EditorState,
-  LexicalEditor,
-} from '@twilio-paste/lexical-library';
+import type {LexicalComposerProps, ContentEditableProps, OnChangeFunction} from '@twilio-paste/lexical-library';
 import merge from 'deepmerge';
 
 import {chatComposerLexicalStyles} from './styles';
@@ -48,7 +43,7 @@ export interface ChatComposerProps extends Omit<ContentEditableProps, 'style' | 
   maxHeight?: BoxStyleProps['maxHeight'];
   initialValue?: string;
   disabled?: boolean;
-  onChange?: (editorState: EditorState, editor: LexicalEditor, tags: Set<string>) => void;
+  onChange?: OnChangeFunction;
 }
 
 export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
