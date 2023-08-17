@@ -75,6 +75,23 @@ props:
     value: "{!palette-gray-0}"
     comment: Strongest primary text.
 
+  # destructive
+  color-text-destructive:
+    value: "{!palette-red-50}"
+    comment: Destructive text.
+  color-text-destructive-weak:
+    value: "{!palette-gray-80}"
+    comment: Weak shade of destructive text.
+  color-text-destructive-strong:
+    value: "{!palette-red-30}"
+    comment: Strong shade of destructive text.
+  color-text-destructive-stronger:
+    value: "{!palette-red-10}"
+    comment: Stronger shade of destructive text.
+  color-text-destructive-strongest:
+    value: "{!palette-gray-0}"
+    comment: Strongest shade of destructive text.
+
   # status
   color-text-error-weak:
     value: "{!palette-red-50}"
