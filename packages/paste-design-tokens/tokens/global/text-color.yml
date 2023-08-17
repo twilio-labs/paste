@@ -245,7 +245,7 @@ props:
   # destructive
   color-text-destructive:
     value: "{!palette-red-60}"
-    comment: Destructive text
+    comment: Destructive text.
     text_contrast_pairing:
       - color-background
       - color-background-body

@@ -236,18 +236,13 @@ describe('Menu', () => {
       expect(renderedRadioboxMenuItem2.getAttribute('aria-checked')).toEqual('true');
     });
 
-    it('should have the correct styles for the menu item', () => {
+    it('should have the correct styles for the default and destructive menu item', () => {
       render(<MenuMock />);
       const renderedMenuItem = screen.getByTestId('example-menu-item');
+      const renderedDestructiveMenuItem = screen.getByTestId('example-destructive-menu-item');
 
       expect(renderedMenuItem).toHaveStyleRule('color', 'colorText');
-    });
-
-    it('should have the correct styles for the destructive menu item', () => {
-      render(<MenuMock />);
-      const renderedMenuItem = screen.getByTestId('example-destructive-menu-item');
-
-      expect(renderedMenuItem).toHaveStyleRule('color', 'colorTextDestructive');
+      expect(renderedDestructiveMenuItem).toHaveStyleRule('color', 'colorTextDestructive');
     });
   });
 });

@@ -79,18 +79,62 @@ props:
   color-text-destructive:
     value: "{!palette-red-50}"
     comment: Destructive text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-neutral-weakest
+      - color-background-warning-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-destructive-weak:
     value: "{!palette-gray-80}"
     comment: Weak shade of destructive text.
   color-text-destructive-strong:
     value: "{!palette-red-30}"
     comment: Strong shade of destructive text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-destructive-stronger:
     value: "{!palette-red-10}"
     comment: Stronger shade of destructive text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
   color-text-destructive-strongest:
     value: "{!palette-gray-0}"
     comment: Strongest shade of destructive text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
 
   # status
   color-text-error-weak:
