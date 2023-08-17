@@ -68,66 +68,32 @@ export const getStaticProps = async () => {
 
 ### About Input
 
-Use an input when you want to allow a user to enter a single line of text. By default, text inputs allow users to enter any type of text (letters, numbers, and symbols).
+Use an Input when you want to allow a user to enter a single line of text. By default, text inputs allow users to enter any type of text (letters, numbers, and symbols).
 You can set the input to more [specific types](#input-types) if needed. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.
 
 ### Accessibility
 
-<UnorderedList>
-  <ListItem>
-    Include a visible label on <strong>all</strong> form fields.
-  </ListItem>
-  <ListItem>
-    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
-    associated input.
-  </ListItem>
-  <ListItem>
-    Don't use placeholder text as a replacement for labels. It can be used to provide an example to users, but will
-    disappear from the field when a user enters text. It's also not broadly supported by assistive technologies and
-    won't display in older browsers.
-  </ListItem>
-  <ListItem>
-    Use one of 3 ways to label a form field:
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Visible label with <Anchor href="/components/label">Label</Anchor> (preferred)
-      </ListItem>
-      <ListItem>
-        Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode>
-      </ListItem>
-      <ListItem>
-        Label directly using <inlineCode>aria-label</inlineCode>
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Provide clear identification of required fields in the label or at the start of a form. If you use the required
-    field indicator, include the form key at the start of the form.
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Include inline error text with the error icon on any field that errors to make it visually clear that the field
-    changed.
-  </ListItem>
-  <ListItem>
-    If the input has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode> prop on
-    the input. This should match the <inlineCode>id</inlineCode> of the help or error text.
-  </ListItem>
-</UnorderedList>
+- Include a visible label on **all** form fields.
+- Each label must use the `htmlFor` prop that equals the `id` of the associated input.
+- Avoid placeholder text. It disappears from the field when the user enters text, isn't broadly supported by assistive technologies, and doesn't display in older browsers. 
+- Use 1 of 3 ways to label a form field:
+    - Visible label with [Label](/components/label) (preferred)
+    - Visible label that's associated to the input with `aria-labelledby`
+    - Label directly using `aria-label`
+- Provide clear identification of required fields in the label or at the start of a form. If you use the required field indicator, include the form key at the start of the form.
+    - Use the `required` prop to programatically indicate they are required to browsers.
+- Use [Help Text](/components/help-text) and an error icon to show [inline error text](/patterns/error-state) on any field that errors to make it visually clear that the field changed.
+- If the Input has associated help text or error text, include the `aria-describedby` prop on the input. This should match the `id` of the help or error text.
 
 ## Examples
 
 ### Input
 
-The input component should include the base input, along with supporting elements to compose an input field that gives users the context they need to successfully fill it out.
+The Input component should include the base input, along with supporting elements to compose an input field that gives users the context they need to successfully fill it out.
 
-- **Label** — A label should be included for every form field and provide a short title for its associated input.
-- **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
-- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful.
+- **[Label](/components/label)** — Every form field should have a label. The label should indicate what should be entered into field.
+- **Required field indicator** — If most of the inputs on a form are optional, indicate the few that are required with text or a required indicator.
+- [**Help Text**](/components/help-text) — Text that's placed below the field to help users prevent an error and describes what makes the form field successful.
 
 <Callout variant="neutral" marginY="space70">
   <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
@@ -137,7 +103,7 @@ The input component should include the base input, along with supporting element
     need to match.
   </CalloutText>
   <CalloutText>
-    If the input has any associated help text, the input should also use the <inlineCode>aria-describedby</inlineCode>{' '}
+    If the Input has associated Help Text, the Input should also use the <inlineCode>aria-describedby</inlineCode>{' '}
     prop that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text
     ties directly to the input.
   </CalloutText>
@@ -154,7 +120,7 @@ The input component should include the base input, along with supporting element
 ### Input with add-ons (prefix/suffix text or icons)
 
 - **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
-- **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, clearing a field) or in rare cases, provide further context to what value should be entered to make a field's purpose more immediately visible (_e.g._, a search icon).
+- **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (like clearing a field) or in rare cases, provide further context to what value should be entered to make a field's purpose more immediately visible (like a search icon).
 
 <LivePreview scope={{Input, Label, HelpText, Text}} language="jsx">
   {`<>
@@ -237,8 +203,8 @@ It displays a numeric keypad in some devices with dynamic keypads.
   countries or credit card numbers.
 </Blockquote>
 
-In most cases, include a default value that the user can change and would not cause harm if accidentally used. Use Help
-Text to explain what inputs are accepted, like minimum or maximum values or step intervals, especially if there's no default value.
+In most cases, include a default value that the user can change and would not cause harm if accidentally used. Use [Help
+Text](/components/help-text) to explain what inputs are accepted, like minimum or maximum values or step intervals, especially if there's no default value.
 Help Text should also include any important contextual information about what the number input represents.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
@@ -267,7 +233,7 @@ Provide translated strings for the 'increment' and 'decrement' button labels to 
 
 Change a form field to its error state and use [Help Text](/components/help-text) to add an inline error if the value entered doesn't pass validation requirements.
 
-A Help Text inline error is placed below the field to inform a user of any errors in their value. Change the Help Text to `variant=“error”` and add error copy before the original help text copy.
+An error Help Text is placed below the field to inform a user of any errors in their value. Change the Help Text to `variant=“error”` and add error copy before the original help text copy. Review the [error state pattern](/patterns/error-state) for guidance on writing error messages.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -305,14 +271,16 @@ Use a read-only form field when a field's value can't be changed, but users shou
 
 ## Composition notes
 
-An input field must have at least a label and an input.
+### Labels and Help Text
 
-<LivePreview scope={{Input, Label}} language="jsx">
-  {`<>
-  <Label htmlFor="name">Name</Label>
-  <Input id="name" name="name" type="text" onChange={()=>{}}/>
-</>`}
-</LivePreview>
+Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
+
+- Use [Help Text](/components/help-text) to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
+- Avoid articles (like "a" and "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
+
+To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
+
+Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
 ### Positioning form fields
 
@@ -333,20 +301,9 @@ Stack form fields vertically with `$space-80` spacing between each field.
 
 Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place form fields horizontally.
 
-### Labels and help text
-
-Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
-
-- Use help text to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
-- Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
-
-To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
-
-Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
-
 ### Required field indicator
 
-Use required indicators to show users which fields they must fill out.
+Use text or required indicators to show users which fields they must fill out.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -376,11 +333,6 @@ For additional guidance on how to compose error messages, refer to the [error st
 
 - **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
 - **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
-- **Placeholder** — Use a placeholder when you want to give an example of the type of data a user should enter, mainly to help with recall. For example, when asking for links to social media profiles, you could give examples of a few social media sites. Placeholders should be used in addition to the label and not as a replacement since they'll disappear when a user begins entering their own value. If you need to show supporting instructions, use help text instead.
-
-## When to use an input
-
-Use an input when users are expected to enter less than a single line of text, or text that's shorter than a sentence.
 
 <DoDont>
   <Do title="Do" body="Use an input to encourage short text entry." center>
@@ -438,7 +390,6 @@ Use an input when users are expected to enter less than a single line of text, o
         id="email_do"
         name="email_do"
         type="email"
-        placeholder="example@twilio.com"
         onChange={() => {}}
       />
       <HelpText id="email_do_help_text">Use your work email address.</HelpText>
@@ -482,7 +433,7 @@ Use an input when users are expected to enter less than a single line of text, o
 <DoDont>
   <Do
     title="Do"
-    body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
+    body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or use a popover instead."
     center
   >
     <Box width="100%" padding="space60">
