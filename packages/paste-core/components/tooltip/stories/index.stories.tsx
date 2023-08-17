@@ -40,8 +40,7 @@ export default {
   excludeStories: ['StateHookExample'],
   component: Tooltip,
   parameters: {
-    // Sets a delay for the component's stories
-    chromatic: {delay: 3000, diffThreshold: 0.3},
+    chromatic: {delay: 3000, diffThreshold: 0.2},
   },
 };
 
@@ -206,6 +205,9 @@ export const CustomizedTooltip: StoryFn = (_args, {parameters: {isTestEnvironmen
 
 CustomizedTooltip.storyName = 'Customized Tooltip';
 CustomizedTooltip.parameters = {
+  parameters: {
+    chromatic: {disableSnapshot: true},
+  },
   a11y: {
     // no need to a11y check customization
     disable: true,

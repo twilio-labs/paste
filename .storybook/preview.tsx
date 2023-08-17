@@ -261,4 +261,6 @@ export const parameters = {
   viewport: {
     viewports: INITIAL_VIEWPORTS,
   },
+  // Notifies Chromatic to pause the animations when they finish for all stories.
+  chromatic: {pauseAnimationAtEnd: true},
 };
