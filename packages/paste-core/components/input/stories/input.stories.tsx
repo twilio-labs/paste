@@ -3,6 +3,7 @@ import type {StoryFn} from '@storybook/react';
 import {useUID} from '@twilio-paste/uid-library';
 import {action} from '@storybook/addon-actions';
 import {Anchor} from '@twilio-paste/anchor';
+import {Form, FormControl} from '@twilio-paste/form';
 import {useTheme} from '@twilio-paste/theme';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -23,25 +24,31 @@ export default {
 export const DefaultInput = (): React.ReactNode => {
   const uid = useUID();
   const helpTextUid = useUID();
-  const [value, setValue] = React.useState('Input');
+  const [value, setValue] = React.useState('');
   return (
-    <>
-      <Label htmlFor={uid}>Label</Label>
-      <Input
-        id={uid}
-        aria-describedby={helpTextUid}
-        type="text"
-        placeholder="Placeholder"
-        value={value}
-        onChange={(event) => {
-          setValue(event.target.value);
-          action('handleChange');
-        }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
-      />
-      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
-    </>
+    <Form>
+      <FormControl>
+        <Label required htmlFor={uid}>
+          Website
+        </Label>
+        <Input
+          id={uid}
+          aria-describedby={helpTextUid}
+          type="url"
+          pattern="https://.*"
+          required
+          placeholder="https://twilio.com"
+          value={value}
+          onChange={(event) => {
+            setValue(event.target.value);
+            action('handleChange');
+          }}
+          onFocus={action('handleFocus')}
+          onBlur={action('handleBlur')}
+        />
+        <HelpText id={helpTextUid}>The URL to your personal homepage.</HelpText>
+      </FormControl>
+    </Form>
   );
 };
 
