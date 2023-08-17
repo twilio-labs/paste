@@ -169,7 +169,7 @@ Warning Help Text can be used to:
 - Preemptively warn a user before an action is taken that may result in an undesired effect (e.g., “You have entered an external email. Use your work email address.”).
 - Help a user avoid a potential issue.
 
-Warning Help Text should provide actionable feedback to help a user take corrective action, if possible.
+Warning Help Text should explain the possible issue, what to do, and what happens if they don't.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -185,6 +185,8 @@ Success Help Text should be used to:
 
 - Confirm an action has completed.
 - Inform a user that a process has started or is in progress (e.g., “Valid work email address.”).
+
+Avoid using the word "successfully" when composing success Help Text—it's redundant.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>

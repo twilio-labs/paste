@@ -1,5 +1,11 @@
 # @twilio-paste/syntax-highlighter-library
 
+## 3.0.0
+
+### Major Changes
+
+- [`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603) [#3395](https://github.com/twilio-labs/paste/pull/3395) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Modified the compile target of our JavaScript bundles from `node` to `browser` to minimize the risk of clashing with RequireJS. This is marked as a major out of an abundance of caution. You shouldn't need to do anything but we wanted you to be aware of the change on the off chance it has unintended consequences
+
 ## 2.0.0
 
 ### Major Changes

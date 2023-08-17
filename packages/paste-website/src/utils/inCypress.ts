@@ -1,7 +1,7 @@
 import {hasWindowObject} from './RouteUtils';
 
 export const inCypress = (): boolean => {
-  if (hasWindowObject() && window.__Cypress__) {
+  if (hasWindowObject() && window.Cypress) {
     return true;
   }
   return false;

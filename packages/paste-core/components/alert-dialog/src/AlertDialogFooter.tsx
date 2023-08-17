@@ -12,11 +12,21 @@ export interface AlertDialogFooterProps extends HTMLPasteProps<'div'>, Pick<BoxP
   onConfirmLabel: string;
   onDismiss: () => void;
   onDismissLabel: string;
+  onConfirmDisabled?: boolean;
 }
 
 export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFooterProps>(
   (
-    {destructive, element = 'ALERT_DIALOG_FOOTER', onConfirm, onConfirmLabel, onDismiss, onDismissLabel, ...props},
+    {
+      destructive,
+      element = 'ALERT_DIALOG_FOOTER',
+      onConfirm,
+      onConfirmLabel,
+      onDismiss,
+      onDismissLabel,
+      onConfirmDisabled = false,
+      ...props
+    },
     ref
   ) => {
     const primaryVariant = destructive ? 'destructive' : 'primary';
@@ -38,7 +48,7 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
           <Button variant="secondary" onClick={onDismiss}>
             {onDismissLabel}
           </Button>
-          <Button variant={primaryVariant} onClick={onConfirm}>
+          <Button variant={primaryVariant} onClick={onConfirm} disabled={destructive && onConfirmDisabled}>
             {onConfirmLabel}
           </Button>
         </Stack>

@@ -11,11 +11,12 @@ import type {UserDialogProps, UserDialogPopoverProps, UserDialogButtonProps} fro
 import {UserDialogContext} from './UserDialogContainer';
 
 // styled popover for UserDialog Non Modal Dialog Primitive
-const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProps>((props, ref) => {
+const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProps>(({style, ...props}, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
       ref={ref}
+      style={style}
       boxShadow="shadow"
       borderWidth="borderWidth10"
       borderColor="colorBorderWeaker"

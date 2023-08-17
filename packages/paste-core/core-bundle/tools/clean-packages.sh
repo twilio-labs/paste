@@ -1,3 +1,4 @@
+#!/bin/bash
 # Removes all the built package folders and their package.json files.
 #
 # 1- Print the .gitignore file

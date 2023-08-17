@@ -7,6 +7,10 @@ import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHea
 import {Paragraph} from '@twilio-paste/paragraph';
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
+import {Box} from '@twilio-paste/box';
+import {Input} from '@twilio-paste/input';
+import {Label} from '@twilio-paste/label';
+import {HelpText} from '@twilio-paste/help-text';
 
 import {AlertDialog} from '../src';
 import {AlertDialogHeader} from '../src/AlertDialogHeader';
@@ -81,6 +85,74 @@ DestructiveAlertDialogStory.parameters = {
     // no need to a11y check customization
     disable: true,
   },
+};
+
+export const DisabledButtonDestructiveAlertDialog = ({dialogIsOpen = false}): JSX.Element => {
+  const [isOpen, setIsOpen] = React.useState(dialogIsOpen);
+  const [inputString, setInputString] = React.useState('');
+  const [inputHasError, setInputHasError] = React.useState(false);
+  const [isDisabled, setIsDisabled] = React.useState(true);
+  const handleOpen = (): void => {
+    if (inputString !== '') setIsDisabled(false);
+    setIsOpen(true);
+  };
+  const handleDismiss = (): void => {
+    setIsDisabled(true);
+    setIsOpen(false);
+    setInputHasError(false);
+  };
+  const handleConfirm = (): void => {
+    if (inputString === 'Toyota TCB Automobile (Gevelsberg)') {
+      setIsOpen(false);
+      setInputString('');
+      setInputHasError(false);
+      setIsDisabled(true);
+    } else {
+      setInputHasError(true);
+    }
+  };
+  const handleChange = (e): void => {
+    setInputString(e.target.value);
+    if (e.target.value !== '') setIsDisabled(false);
+    else setIsDisabled(true);
+  };
+  return (
+    <>
+      <Button variant="destructive" onClick={handleOpen}>
+        Delete object
+      </Button>
+      <AlertDialog
+        heading="Delete regulatory bundle"
+        isOpen={isOpen}
+        onConfirm={handleConfirm}
+        onConfirmLabel="Delete"
+        onDismiss={handleDismiss}
+        onDismissLabel="Cancel"
+        destructive
+        onConfirmDisabled={isDisabled}
+      >
+        You&apos;re about to delete &ldquo;Toyota TCB Automobile (Gevelsberg)&ldquo; and all data associated with it.
+        This regulatory bundle will be deleted immediately. You can&apos;t undo this action.
+        <Box display="flex" flexDirection="column" rowGap="space30" marginY="space50">
+          <Label htmlFor="delete-input" required>
+            Regulatory bundle name
+          </Label>
+          <Input
+            type="text"
+            required
+            id="delete-input"
+            aria-describedby="delete-help-text"
+            onChange={(e) => handleChange(e)}
+            hasError={inputHasError}
+            value={inputString}
+          />
+          <HelpText id="delete-help-text" variant={inputHasError ? 'error' : 'default'}>
+            To confirm this deletion, please input the name of this regulatory bundle.
+          </HelpText>
+        </Box>
+      </AlertDialog>
+    </>
+  );
 };
 
 export const OpenAlertDialogFromButton = (): JSX.Element => {

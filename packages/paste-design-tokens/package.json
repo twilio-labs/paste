@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/design-tokens",
-  "version": "9.2.1",
+  "version": "10.0.0",
   "description": "Paste Design System Tokens package with a number of different formats for Web, Mobile, and Sketch.",
   "main": "dist/tokens.common.js",
   "module": "dist/tokens.es6.js",

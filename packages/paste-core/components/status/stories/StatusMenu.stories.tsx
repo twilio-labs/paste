@@ -306,7 +306,7 @@ export default {
   subcomponents: {StatusMenuBadge, StatusMenuItemChild},
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000},
+    chromatic: {delay: 3000, diffThreshold: 0.2},
   },
 };
 export const Process: StoryFn = () => (

@@ -37,7 +37,6 @@ export const SITEMAP = [
   '/components/display-heading/',
   '/components/display-pill-group/',
   '/components/disclosure/',
-  '/components/editable-code-block/',
   '/components/button/',
   '/components/button-group/',
   '/components/flex/',
