@@ -243,7 +243,7 @@ props:
     comment: Strongest primary text.
 
   # destructive
-    color-text-destructive:
+  color-text-destructive:
     value: "{!palette-red-60}"
     comment: Destructive text
     text_contrast_pairing:

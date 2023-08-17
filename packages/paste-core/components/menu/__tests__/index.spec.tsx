@@ -50,6 +50,9 @@ const MenuMock: React.FC<React.PropsWithChildren<{groupRef?: React.Ref<HTMLDivEl
         <MenuItem {...menu} onClick={handleClickMock} data-testid="example-menu-item">
           About Visual Studio Code
         </MenuItem>
+        <MenuItem {...menu} variant="destructive" data-testid="example-destructive-menu-item">
+          Destructive item
+        </MenuItem>
         <MenuItem {...menu}>Check for Updates...</MenuItem>
         <MenuSeparator {...menu} data-testid="example-menu-separator" />
         <MenuItem {...menu} as={PreferencesMenu} />
@@ -231,6 +234,20 @@ describe('Menu', () => {
       // the second radio menu item should be checked and the first should be unchecked
       expect(renderedRadioMenuItem.getAttribute('aria-checked')).toEqual('false');
       expect(renderedRadioboxMenuItem2.getAttribute('aria-checked')).toEqual('true');
+    });
+
+    it('should have the correct styles for the menu item', () => {
+      render(<MenuMock />);
+      const renderedMenuItem = screen.getByTestId('example-menu-item');
+
+      expect(renderedMenuItem).toHaveStyleRule('color', 'colorText');
+    });
+
+    it('should have the correct styles for the destructive menu item', () => {
+      render(<MenuMock />);
+      const renderedMenuItem = screen.getByTestId('example-destructive-menu-item');
+
+      expect(renderedMenuItem).toHaveStyleRule('color', 'colorTextDestructive');
     });
   });
 });

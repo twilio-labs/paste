@@ -22,7 +22,7 @@ const baseVariantStyles: MenuItemVariantStyles = {
     },
   },
   [MenuItemVariants.DESTRUCTIVE]: {
-    color: 'colorTextLinkDestructive',
+    color: 'colorTextDestructive',
     _hover: {
       backgroundColor: 'colorBackgroundDestructiveWeakest',
       borderColor: 'colorBorderDestructive',

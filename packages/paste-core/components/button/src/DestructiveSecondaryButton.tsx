@@ -12,11 +12,11 @@ import {DirectButtonPropTypes} from './proptypes';
  * global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextLinkDestructive',
+  color: 'colorTextDestructive',
   backgroundColor: 'colorBackgroundBody',
   boxShadow: 'shadowBorderWeak',
   _hover: {
-    color: 'colorTextLinkDestructive',
+    color: 'colorTextDestructive',
     backgroundColor: 'colorBackgroundBody',
     boxShadow: 'shadowBorderDestructive',
   },
@@ -24,14 +24,14 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
     boxShadow: 'shadowFocusShadowBorder',
   },
   _active: {
-    color: 'colorTextLinkDestructive',
+    color: 'colorTextDestructive',
     backgroundColor: 'colorBackgroundDestructiveWeakest',
     boxShadow: 'shadowBorderDestructive',
   },
 });
 
 const baseLoadingStyles: BoxStyleProps = {
-  color: 'colorTextLinkDestructive',
+  color: 'colorTextDestructive',
   backgroundColor: 'colorBackgroundBody',
   boxShadow: 'shadowBorderWeak',
 };

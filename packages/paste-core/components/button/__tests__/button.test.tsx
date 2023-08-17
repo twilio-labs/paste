@@ -417,7 +417,7 @@ describe('Button', () => {
       const button = getByTestId('destructive-icon-styles');
 
       expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
+      expect(button).toHaveStyleRule('color', 'colorTextDestructive');
     });
 
     it('should have the correct styles for the destructive_secondary variant', () => {
@@ -429,7 +429,7 @@ describe('Button', () => {
 
       const button = getByTestId('destructive_secondary-styles');
       expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
+      expect(button).toHaveStyleRule('color', 'colorTextDestructive');
       expect(button).toHaveStyleRule('background-color', 'colorBackgroundBody');
       expect(button).toHaveStyleRule('box-shadow', 'shadowBorderWeak');
 
