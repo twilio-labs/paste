@@ -113,32 +113,33 @@ Common form components include [Buttons](/components/button), [Comboboxes](/comp
 Designing a good form requires making decisions about composition, sequence, form elements, copy, and feedback.
 
 - Forms often have a header, with a [Heading](/components/heading) and [Paragraph](/components/paragraph) that explains the purpose of the form or form section. The header can also include additional contextual components like [Alerts](/components/alert) or [Callouts](/components/alert) for expressing errors or other important information.
-- Forms can include [Form Actions](/components/form#form-actions), often with a primary Button ordered first, then a secondary Button second.
-- More complex forms should be split into sections, known as fieldsets. [Form sections](/components/form#sections) are separated with a Separator. Sections often have their own header, with a Heading, known as a legend, and can also include a Paragraph to explain the section.
+- Forms can include [form actions](/components/form#form-actions), often with a primary Button ordered first, then a secondary Button second.
+- More complex forms should be split into sections, known as fieldsets. [Form sections](/components/form#sections) are separated with a [Separator](/components/separator). Sections often have their own header, with a Heading, known as a legend, and can also include a Paragraph to explain the section.
 
 ### Accessibility
 
 #### Order
 
-- Order forms logically, in sequential order, following the natural flow of the user's language preference. Typically top to bottom, and left to right for Latin-based languages.
+- Order forms sequentially, following the natural flow of the user's language preference. Typically top to bottom, and left to right for Latin-based languages.
 - Only use a single Form per page.
 - Don’t use CSS to control element order. Form elements should be displayed in the same order in the HTML as they appear on screen, as screen readers announce form elements in the order they appear in the HTML.
 
 #### Content
 
-- Provide accessible and clear labels, placeholder text, and help text.
+- Provide accessible and clear [Labels](/components/label) and [Help Text](/components/help-text).
   - Labels should clearly describe the value being requested.
-  - Don't use placeholder text as a replacement for labels. It can be used to provide an example to users, but will disappear from the field when a user enters text. It's also not broadly supported by assistive technologies and won't display in older browsers.
-  - Labels should not run onto two lines.
+  - Labels should be short and succinct, generally 1-3 words.
+  - Help Text is optional. Use it to describe what makes the form field successful and help users avoid errors.
+  - Avoid placeholder text. It is not broadly supported by assistive technologies, does not display in older browsers, and disappears from the field when a user enters text. 
 - Use fieldsets and legends.
-  - When you need to group related form elements, use [a Form Section](/components/form#sections), which renders a HTML fieldset. To add clarity to the section, use a Form Section Heading, which renders a HTML legend, to clearly describe the group. It should be concise and descriptive.
-  - You can have nested Form Sections if applicable.
+  - When you need to group related form elements, use a [form section](/components/form#sections), which renders a HTML fieldset. To add clarity to the section, use a form section Heading, which renders a HTML legend, to clearly describe the group. It should be concise and descriptive.
+  - You can have nested form sections if applicable.
   - Embed multiple fieldsets and legends for more complex forms.
-- Provide clear and timely feedback for form inputs using validation, inline Help Text messaging, or Toasts.
+- Use Help Text for [form validation errors](/patterns/error-state#when-to-use-which-component). For successful submissions, use a [Toast](/components/toast)
 
 #### Composition
 
-- Don’t make the user repeat information, e.g. asking for users to input a shipping address and billing address if the address is the same information.
+- Don’t make the user repeat information. For example, asking for users to input a shipping address and billing address if the address is the same information.
 - Mark all required form elements as required.
 - Consider breaking long forms into smaller sections or pages, as they can place more cognitive load on the user.
 - Follow best practices for accessibility for each component used within the Form.
@@ -171,7 +172,7 @@ This example combines all of the separate features of the Form component into on
 
 ### Single column
 
-It is recommended to use a single-column layout in Forms because it is easier to read. To learn more, check out some [research on form readability](https://baymard.com/blog/avoid-multi-column-forms). Horizontal layouts can create problems for people who rely on the structural layout of the page. [Read more on single column vs. multi-column layouts](/components/form#single-column-vs-multiple-columns).
+Single-column layouts are easier to read. To learn more, check out some [research on form readability](https://baymard.com/blog/avoid-multi-column-forms). Horizontal layouts can create problems for people who rely on the structural layout of the page. [Read more on single column vs. multi-column layouts](/components/form#single-column-vs-multiple-columns).
 
 <LivePreview
   scope={{
@@ -196,7 +197,7 @@ It is recommended to use a single-column layout in Forms because it is easier to
 
 ### 2 column
 
-Layouts with more than 1 column should only be used when it would be clearer and prevent users from inputting incorrect information. Reserve 2-column layouts for when inputs are organized linearly or as a coherent entity — like dates, first and last name, or, ZIP, city, and state or credit card details fields. [Read more on single column vs. multi-column layouts](/components/form#single-column-vs-multiple-columns).
+Use more than 1 column only when it is clearer than a single column and prevents users from inputting incorrect information. Reserve 2-column layouts for when inputs are organized linearly or as a coherent entity, like dates, first and last name, or, ZIP, city, and state or credit card details fields. [Read more on single column vs. multi-column layouts](/components/form#single-column-vs-multiple-columns).
 
 <LivePreview
   scope={{
@@ -220,11 +221,7 @@ Layouts with more than 1 column should only be used when it would be clearer and
 
 ### Horizontal layouts
 
-Forms support horizontal alignment of components, however, this layout should follow these guidelines:
-
-- Options are placed next to each other, in logical order.
-- If the label is longer than 3 words/20 characters, consider using a vertically-stacked layout.
-- If the form element’s content is too long, use a single-column, vertical layout.
+Use a horizontal layout when options can be placed next to each other in a logical order and the labels for each element are shorter than 3 words.
 
 <LivePreview
   scope={{
@@ -248,7 +245,11 @@ Forms support horizontal alignment of components, however, this layout should fo
 
 ### Sections
 
-Use sections to group related content or steps within a form for users to input. A section is separated using a [Separator](/components/separator), with `$space-90` above and below it. Sections can also include a section heading and description, if applicable. If a form element doesn’t belong to any of the sections, make sure there’s enough spacing between to signal that the form element is separate doesn’t belong to the section, with at least `$space-130`.
+Use sections to group related content or steps within a Form. A section is separated using a [Separator](/components/separator), with `$space-90` above and below it. 
+
+Section headings and descriptions are optional.
+
+If a form element doesn’t belong to a form sections, make sure there's at least `$space-130` between the form element and surrounding sections.
 
 <LivePreview
   scope={{
@@ -278,7 +279,7 @@ Use sections to group related content or steps within a form for users to input.
 
 ### Form actions
 
-A form can include form actions if placed within a page or page section. Using form actions helps keep the form elements left aligned for better scannability of the content and its related actions. Don't prevent form submission by disabling the submit button.
+A Form can include form actions if placed within a page or page section. Using form actions helps keep the form elements left-aligned for better scannability of the content and its related actions. Don't prevent form submission by disabling the submit button. Use [error messages](/patterns/error-state) to explain what information is missing or incorrect.
 
 <LivePreview scope={{FormActions, Button}} language="jsx" noInline>
   {formActionsExample}
@@ -290,7 +291,7 @@ Use validation and [error messaging](/components/form#errors) to indicate when a
 
 Validate form fields on form submission. Validating a form field when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
-Don't prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use error messages to explain what information is missing or incorrect.
+Don't prevent form submission by disabling the submit button. Assistive technologies cannot detect disabled buttons. Use error messages to explain what information is missing or incorrect.
 
 #### Errors
 
@@ -298,7 +299,7 @@ Use [Help Text](/components/help-text) to show inline error messaging that infor
 
 If there are multiple errors, use Help Text to show inline error messages and a [Callout to show an error summary](/components/callout#callout-with-a-list). Place the Callout below the form title or section title, if applicable, and above the form elements.
 
-If your form lives within a Modal or Side Modal and has a form action to submit or save the information, we suggest closing the modal on submit, then display a Toast that indicates the action was successful or experienced a system error.
+If the Form lives within a [Modal](/components/modal) or [Side Modal](/components/side-modal) and has a form action to submit or save the information, we suggest closing the Modal on submit, then display a Toast that indicates the action was successful or experienced a system error.
 
 Error messaging for required fields should explain how to resolve the error and not reiterate that the field is required. The required field indicator is sufficient. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
@@ -423,7 +424,8 @@ Make required and optional fields distinguishable. Try to avoid optional input f
 
 - If most of the inputs on a form are required, indicate the few that are optional.
 - If most of the inputs on a form are optional, indicate the few that are required.
-- When indicating what form fields are either required or optional, text is the most clear. However, the required symbol is relatively well understood to mean required. If you do use the required symbol to indicate required fields, you'll see a "Required" title on the symbol. If you're building for other languages, use the `i18nLabel` prop to translate the "Required" title.
+
+Text is the clearest way to indicate whether a field is required or optional. However, the required symbol is relatively well understood. If you use the required symbol to indicate required fields, you'll see a "Required" title on the symbol. If you're building for other languages, use the `i18nLabel` prop to translate the "Required" title.
 
 ## When to use Forms
 
