@@ -310,15 +310,13 @@ To do so, either set `href` with a valid url to go to a new page, or set the `on
 
 ### Composing menu items
 
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h4">Note</CalloutHeading>
-  <CalloutText>
-    Menu item content is composible however you want. We'll have more complete best practice guidelines soon, but in the
-    meantime here are some example compositions using Paste components.
-  </CalloutText>
-</Callout>
+Menu item labels should be concise, usually fewer than 20 characters. 
 
-Use the `variant` prop in `MenuItem` to use a default or destructive item. We recommend naming the menu item as something commonly understood as a destructive (e.g., "Delete" or "Cancel").
+Use words that are familiar to users so it's immediately clear what the menu item does.
+
+Each menu item should be constructed similarly so they are "parallel." For example, the menu items "Edit" and "Copy" are parallel.
+
+Use the `variant` prop in `MenuItem` to use a default or destructive item. 
 
 <LivePreview
   scope={{

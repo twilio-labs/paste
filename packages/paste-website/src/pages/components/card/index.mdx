@@ -72,16 +72,13 @@ export const getStaticProps = async () => {
 
 ### About Cards
 
-Cards are specifically-styled containers that group relatable content and actions. Card is an extremely
-flexible container that does not require specific components inside of it. You can compose a Card to support your use case,
-but elements such as [Heading](/components/heading), [Paragraph](/components/paragraph), and [Button](/components/button) or [Anchor](/components/anchor) are commonly used.
-See [When to use a Card](#when-to-use-a-card) and [Examples](#examples) for common Card patterns and dos/donts.
+Cards are specifically-styled containers that group related content and actions. Cards are a great tool for placing a concise amount of related information together in one object, much like a business card or baseball card in real life.
 
-A Card does not handle any interactive events such as hover, click, or focus, though children
-composed inside of it may commonly have event handlers.
+Card is an extremely flexible container that does not require specific components inside of it. You can compose a Card to support your use case, but elements such as [Heading](/components/heading), [Paragraph](/components/paragraph), and [Button](/components/button) or [Anchor](/components/anchor) are commonly used.
 
-Acknowledging the flexibility of Card component, there are several [non-negotiable properties](#anatomy)
-of a Card that differentiate it from a more basic page-layout element, such as [Box](/primitives/box) including background color, border width, border radius, and border color.
+A Card does not handle any interactive events such as hover, click, or focus, though children composed inside of it may commonly have event handlers.
+
+Acknowledging the flexibility of Card component, there are several [non-negotiable properties](#anatomy) of a Card that differentiate it from a more basic page-layout element, such as [Box](/primitives/box) including background color, border width, border radius, and border color.
 
 ### Card vs. Box
 
@@ -166,15 +163,15 @@ Card using Box or Flex.
 </Card>;`}
 </LivePreview>
 
-## Composing a Card
+## Composition notes
 
-### When to use a Card
+When a Card contains text content, use the following guidelines:
 
-Cards are a great tool for relating a concise amount of related information together in one object, much like a business card or baseball card in real life.
+- Use a [Heading](/components/heading) to highlight the most important information.
+- Use a [Paragraph](/components/paragraph) to add additional context. Do not repeat the information in the header. Front-load the most critical information.
+- When presenting multiple Cards of equal weight on a single page, structure each Card's content similarly.
 
-For example, you might use a single Card as a summary for a feature whose call to action encourages a user to dive deeper. Alternatively, multiple Cards on a single page with hierarchy of equal weights could be used to highlight multiple choices or paths a user can take.
-
-Ultimately, Card is a very flexible component that can fit a variety of needs. If you feel that you have a unique use case or are limited by the Card implementation, please visit Design System Office Hours to see how we can help address your needs.
+## Do and don't
 
 <DoDont>
   <Do

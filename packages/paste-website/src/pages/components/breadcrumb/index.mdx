@@ -65,7 +65,7 @@ export const getStaticProps = async () => {
 
 Breadcrumb navigation helps the user understand their location in an app or website by providing a trail back to the top level of the website.
 
-Breadcrumbs are listed in order and represent the hierarchy of the page in the product. They will include links to parent pages and can optionally show the current page.
+Breadcrumbs are listed in order and represent the hierarchy of the page in the product. Do not include the current page in the hierarchy unless there is no page header on the current page. 
 
 <Callout variant="warning" marginY="space70">
   <CalloutHeading as="h4">Using Breadcrumb in Console products</CalloutHeading>
@@ -99,7 +99,9 @@ The Breadcrumb component uses [Anchors](/components/anchor) to link back to pare
 
 ### Breadcrumb with unlinked page
 
-Use a Breadcrumb with an unlinked page when there's a parent page that customers can't return to, but showing the navigation hierarchy of the current page still helps a customer with their workflow. However this should **not** be used to show the current page, especially if there is a visible page heading directly below the Breadcrumb.
+Always show the full IA hierarchy of the current page, even if one of the parent pages cannot be navigated to. When a parent page cannot be navigated to, use an unlinked Breadcrumb. 
+
+Do not use an unlinked Breadcrumb to display the name of the current page in the Breadcrumb. The current page's header provides a clearer indication to the user of where they are in the product.
 
 To show an unlinked page, use a `BreadcrumbItem` with no `href`.
 
@@ -156,7 +158,13 @@ our BreadcrumbItem component creates links using [Anchor](/components/anchor) un
 
 ---
 
-## When to use Breadcrumb
+## Composition notes
+
+Keep breadcrumb text short, ideally less than 15 characters. When the linked page has a longer title, follow [the truncation guidance](#breadcrumb-with-truncation).
+
+Do not include the current page in the navigation, since the page header provides a clearer indication to the user of where they are in the product.
+
+## Do and don't
 
 <DoDont>
   <Do title="Do" body="Add a slash between two BreadcrumbItems." center>
@@ -183,7 +191,7 @@ our BreadcrumbItem component creates links using [Anchor](/components/anchor) un
   </Do>
   <Dont
     title="Don't"
-    body="Avoid using an unlinked BreadcrumbItem, especially if there's already a visible heading on the page. Exceptions can be made when there are parent pages that customers can't return to, but still need to actively reference."
+    body="Do not include the current page in the navigation trail, unless the current page doesn't have a header."
     center
   >
     <Breadcrumb>
