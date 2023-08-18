@@ -67,6 +67,11 @@ props:
     value: "#310C0C"
     comment: Strongest shade of destructive link text to be used in interactions
 
+  # destructive
+  color-text-destructive:
+    value: "{!palette-red-65}"
+    comment: Destructive text.
+
   # status
   color-text-error-weak:
     value: "#D14343"
@@ -149,4 +154,3 @@ props:
   color-text-user:
     value: "#6D2ED1"
     comment: Text color for user avatar.
-    

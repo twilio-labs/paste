@@ -16,7 +16,7 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   backgroundColor: 'colorBackgroundDestructive',
   boxShadow: 'shadowBorderDestructive',
   _hover: {
-    color: 'colorTextLinkDestructive',
+    color: 'colorTextDestructive',
     backgroundColor: 'colorBackgroundBody',
     boxShadow: 'shadowBorderDestructive',
   },
@@ -24,14 +24,14 @@ const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
     boxShadow: 'shadowFocus',
   },
   _active: {
-    color: 'colorTextLinkDestructive',
+    color: 'colorTextDestructive',
     backgroundColor: 'colorBackgroundDestructiveWeakest',
     boxShadow: 'shadowBorderDestructive',
   },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextLinkDestructive',
+  color: 'colorTextDestructive',
   backgroundColor: 'colorBackgroundBody',
   boxShadow: 'shadowBorderWeak',
 });

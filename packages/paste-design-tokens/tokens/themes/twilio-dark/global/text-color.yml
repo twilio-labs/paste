@@ -9,6 +9,11 @@ props:
     value: "{!palette-red-30}"
     comment: Stronger shade of destructive link text to be used in interactions.
 
+  # destructive
+  color-text-destructive-stronger:
+    value: "{!palette-red-30}"
+    comment: Stronger shade of destructive text.
+
   # status
   color-text-neutral:
     value: "{!palette-blue-40}"

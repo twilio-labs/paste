@@ -9,6 +9,11 @@ props:
     value: "{!palette-red-65}"
     comment: Destructive link text.
 
+  # destructive
+  color-text-destructive:
+    value: "{!palette-red-65}"
+    comment: Destructive text.
+
   # status
   color-text-error:
     value: "{!palette-red-65}"
