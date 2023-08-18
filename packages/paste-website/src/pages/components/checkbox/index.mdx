@@ -318,16 +318,18 @@ If the selected options don't pass the group validation requirements, display an
 
 ## Composition notes
 
-### Checkbox labels, legends and help text
+### Checkbox labels, legends, and help text
 
-Checkboxes and checkbox groups must have a visible label.
-
-Use concise, descriptive language to describe the requested value or group.
-
-- Use help text to provide additional context about the option if needed.
+Checkboxes and Checkbox Groups must have a visible label.
+- Aim for no more than 3 words. If the label must be longer and space is limited, wrap the label. 
+- Structure each checkbox label similarly. For example, make each checkbox a noun.
 - Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
 
-Use [Help Text](/components/help-text) to give additional context and provide enough information to avoid errors.
+Checkbox labels should reflect what happens if the box is checked. Avoid situations where the user must check a box to negate something. For example, "Don't send message."
+
+Avoid constructing the legend and label text to read as a sentence. 
+
+Use [Help Text](/components/help-text) to give additional context and provide enough information to avoid errors. Consider using Help Text to indicate to users that they can select multiple options. Limit Help Text to 1-2 sentences.
 
 To support internationalization, avoid starting a sentence with the legend and using the field to finish it since sentence structures vary across languages. For example, use "Phone Number capabilities", not "Phone Number capabilities include:".
 
@@ -337,11 +339,7 @@ Validate form fields on form submission. Don't validate each item in a group, tr
 
 Use inline error text to explain how to fix an error. Because space is typically limited, focus the error text on how users can fix the issue. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
-## When to use a Checkbox and Checkbox Group
-
-Use a checkbox when users are required to make a binary choice. Use a checkbox group when more than one checkbox is related to one another.
-
-There is no maximum number of checkboxes you can have in a group, but consider using another component when you have more than 6 options. Some alternatives might be a [Select](https://paste.twilio.design/components/select/) or [Combobox](https://paste.twilio.design/components/combobox/).
+## Do and don't
 
 <DoDont>
   <Do title="Do" body="Use checkboxes to enable multiple choice." />

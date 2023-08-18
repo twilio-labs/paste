@@ -137,26 +137,25 @@ It can be used in a wide variety of situations, such as labeling Beta product fe
 or an attribute such as “Inbound” or “Outbound”. A Badge can also be used to show a count,
 such as the number of new messages.
 
-A Badge should contain text content and can optionally contain an Icon.
-Text length should be kept short.
+A Badge should contain text content and can optionally contain an [Icon](/components/icon).
+Text length should be kept short, generally 1-3 words.
 
 ### Accessibility
 
-- Ensure that Badge text is clear enough to understand immediately without having to rely on color to communicate meaning.
-- For Status Badges, the inclusion of an icon is recommended to further reinforce the meaning.
+- Ensure that Badge text can be understood immediately, so the user does not have to rely on color to communicate meaning.
+- For Status Badges, it's recommended to include an icon to reinforce meaning.
 
 ## Examples
 
 ### Variants
 
-Badges variants such as `success` and `warning` should be used in cases where the Badge is intended to communicate a specific,
-semantic attribute, such as “warning” or “new”. These Badges should generally have an Icon that
+Use Badge variants such as `success` and `warning` when the Badge is intended to communicate a specific,
+semantic attribute, such as “warning” or “new”. These Badges should generally have an [Icon](/components/icon) that
 should be prefixed before the text.
 
 #### Neutral
 
-Use the Neutral Badge to highlight neutral attributes of an object. When using the Neutral Badge,
-the inclusion of an Information icon is optional.
+Use the neutral Badge to highlight neutral attributes of an object. An information icon is optional.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -173,8 +172,7 @@ the inclusion of an Information icon is optional.
 
 #### Warning
 
-Use the Warning Badge to highlight attributes of an object that the user must be made aware of to avoid incurring an
-impending error. When using the Warning Badge, it is recommended that you include a Warning icon.
+Use the warning Badge to highlight attributes of an object that the user must be made aware of to avoid incurring an error. A warning icon is recommended.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -191,10 +189,9 @@ impending error. When using the Warning Badge, it is recommended that you includ
 
 #### Error Badge
 
-Use the Error Badge to highlight attributes of an object that the user must be made aware of because they are considered
-to be in a bad or broken state and should be addressed. When using the Error Badge, it is recommended that you include an Error icon.
+Use the error Badge to highlight attributes of an object that signal to the user that they object is in bad or broken state. An error icon is recommended.
 
-Do not use an Error Badge unless there is additional guidance elsewhere on the page that explains to the user how to fix the broken state.
+Do not use an error Badge unless there is additional guidance elsewhere on the page that explains to the user how to fix the broken state.
 
 For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
@@ -213,8 +210,8 @@ For additional guidance on how to compose error messages, refer to the [error st
 
 #### Success Badge
 
-Use the Success Badge to highlight attributes of an object that were completed or would be considered to be in a good
-state. When using the Success Badge, it is recommended that you include a Success icon.
+Use the success Badge to highlight attributes of an object that were completed or are considered to be in a good
+state. A success icon is recommended.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -231,8 +228,7 @@ state. When using the Success Badge, it is recommended that you include a Succes
 
 #### New Badge
 
-Use the New Badge to highlight an object that is new, beta, pilot, or experimental.
-When using the New Badge, it is recommended that you include a New icon.
+Use the new Badge to highlight an object that is new, beta, pilot, or experimental. A new icon is recommended. 
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -249,8 +245,8 @@ When using the New Badge, it is recommended that you include a New icon.
 
 #### Subaccount Badge
 
-The Subaccount Badge is reserved for specific use cases only. Consult with the Console team before implementing this variant.
-When using the Subaccount Badge, it is recommended that you include a Users icon.
+The subaccount Badge is reserved for specific use cases only. Consult with the Console team before implementing this variant.
+A users icon is recommended.
 
 <LivePreview scope={{Box, Badge, UsersIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -267,9 +263,8 @@ When using the Subaccount Badge, it is recommended that you include a Users icon
 
 ### Decorative
 
-Use Decorative Badges to highlight attributes that do not have a strictly semantic meaning (like warning, error, or success)
-but would benefit from the visual affordance of differently-colored Badges. Decorative Badges can have an optional Icon that,
-when used, should be prefixed before the text.
+Use the decorative Badge to highlight attributes that do not have a strictly semantic meaning (like warning, error, or success)
+but would benefit from the visual affordance of differently-colored Badges. Icons are optional, and should appear before the text.
 
 <LivePreview scope={{Box, Badge, SMSCapableIcon, MMSCapableIcon, VoiceCapableIcon, FaxCapableIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -295,9 +290,9 @@ when used, should be prefixed before the text.
 
 ### Counter
 
-Counter Badges should be used to visually highlight a count in a UI.
+Use the counter Badge should be used to visually highlight a count in a UI.
 For example, the number of pending invitations or the number of errors.
-Counter Badges are limited to Neutral and Error variants, and the error variant will always include an error icon.
+Counter Badges are limited to Neutral and Error variants, and the error variant should always include an error icon.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -328,7 +323,7 @@ To do so, add an `href` prop and set `as="a"` on the Badge.
 
 ### Badge with button functionality
 
-A Badge can also be used to trigger an in-page action, such as showing a Popover or Modal Dialog.
+A Badge can also be used to trigger an in-page action, such as showing a [Popover](/components/popover) or [Modal](/components/modal).
 To do so, provide an `onClick` event handler and set `as="button"` on the Badge.
 Refer to the [PopoverBadgeButton](/components/popover/#popoverbadgebutton) section
 of the Popover docs to add a Popover to a Badge.
@@ -359,7 +354,7 @@ of the Popover docs to add a Popover to a Badge.
 
 ### Small Badges
 
-Use small Badges sparingly, only when needed for vertical density. Guidelines for using variants in small Badge are the same as in their default size.
+Use a small Badge only when vertical density is a concern. The guidelines for using variants in a small Badge are the same as in their default size.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
@@ -387,11 +382,15 @@ Use small Badges sparingly, only when needed for vertical density. Guidelines fo
 
 ---
 
-## Composition Notes
+## Composition notes
 
 Use a Badge when you want to add a label to a piece of UI for quick identification and navigation.
 
-Badge labels should be one to three words, or numbers.
+Badge labels should be 1-3 words and ideally less than 20 characters. Badge labels can also be numbers. 
+
+Use sentence case for Badge labels. Do not wrap Badge text to more than one line.
+
+Use the same grammatical construction for a set of Badges. For example, if a set of Badges highlights statuses, make each Badge an adjective. 
 
 ### Use cases
 
@@ -477,7 +476,7 @@ Badge labels should be one to three words, or numbers.
 
 ---
 
-### Do &amp; Don't
+### Do and don't
 
 <DoDont>
   <Do title="Do" body="Use Badge to highlight an attribute of an object for quick identification.">
@@ -499,7 +498,7 @@ Badge labels should be one to three words, or numbers.
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use 1-3 words as Badge text.">
+  <Do title="Do" body="Use 1-3 words and sentence case for Badge text.">
     <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
       <Badge variant="new" as="span">
         <NewIcon title="New Badge component" size="sizeIcon10" />
