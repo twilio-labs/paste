@@ -3,7 +3,7 @@ import {type BoxProps, Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
 import {Text} from '@twilio-paste/text';
 import type {HTMLPasteProps} from '@twilio-paste/types';
-import {useMeter} from 'react-aria';
+import {useMeter} from '@twilio-paste/react-spectrum-library';
 
 export interface MeterProps extends HTMLPasteProps<'meter'>, Pick<BoxProps, 'element'> {
   minValue?: number;
@@ -35,7 +35,6 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(({element = 'METER'
     <Box as="div" {...meterProps} role="meter" maxWidth="size30" element={`${element}_WRAPPER`}>
       <Box display="flex" justifyContent="space-between" element={`${element}_LABEL_WRAPPER`}>
         {label && (
-          // @ts-expect-error Using `aria-labelledby` on Label instead of the required `htmlFor`
           <Label {...labelProps} as="div" element={`${element}_LABEL`}>
             {label}
           </Label>

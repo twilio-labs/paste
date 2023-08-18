@@ -15537,6 +15537,7 @@ __metadata:
     "@twilio-paste/icons": ^12.0.0
     "@twilio-paste/label": ^13.0.0
     "@twilio-paste/media-object": ^10.0.0
+    "@twilio-paste/react-spectrum-library": ^2.0.0
     "@twilio-paste/screen-reader-only": ^13.0.0
     "@twilio-paste/style-props": ^9.0.0
     "@twilio-paste/styling-library": ^3.0.0
@@ -15548,7 +15549,6 @@ __metadata:
     "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
-    react-aria: ^3.27.0
     react-dom: ^18.0.0
     typescript: ^4.9.4
   peerDependencies:
@@ -15560,6 +15560,7 @@ __metadata:
     "@twilio-paste/icons": ^12.0.0
     "@twilio-paste/label": ^13.0.0
     "@twilio-paste/media-object": ^10.0.0
+    "@twilio-paste/react-spectrum-library": ^2.0.0
     "@twilio-paste/screen-reader-only": ^13.0.0
     "@twilio-paste/style-props": ^9.0.0
     "@twilio-paste/styling-library": ^3.0.0
@@ -15571,7 +15572,6 @@ __metadata:
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
     react: ^18.0.0
-    react-aria: ^3.27.0
     react-dom: ^18.0.0
   languageName: unknown
   linkType: soft
