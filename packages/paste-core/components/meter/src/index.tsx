@@ -1,56 +1,57 @@
 import * as React from 'react';
-import {type BoxProps, Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {type BoxProps, Box} from '@twilio-paste/box';
+import {Label} from '@twilio-paste/label';
+import {Text} from '@twilio-paste/text';
 import type {HTMLPasteProps} from '@twilio-paste/types';
+import {useMeter} from 'react-aria';
 
 export interface MeterProps extends HTMLPasteProps<'meter'>, Pick<BoxProps, 'element'> {
-  children: NonNullable<React.ReactNode>;
-  ariaLabelledby: string;
-  min?: number;
-  low?: number;
-  max?: number;
-  high?: number;
+  minValue?: number;
+  maxValue?: number;
   value?: number;
-  optimum?: number;
+  label: string;
+  showValueLabel?: boolean;
+  formatOptions?: Intl.NumberFormatOptions; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options
+  valueLabel?: string;
+  /*
+   * The following props don't exist on the react-aria useMeter hook but do exist on the HTML meter element.
+   * They can be added back into the Paste Meter API depending on the spec & designs.
+   *
+   * low?: number;
+   * high?: number;
+   * optimum?: number;
+   */
 }
 
-const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
-  ({element = 'METER', ariaLabelledby, children, min = 0, max = 1, value = 0, ...props}, ref) => {
-    const meterWidthInPixels = 296; // size30
-    const barWidthInPixels = meterWidthInPixels / ((max - min) / value);
+const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(({element = 'METER', ...props}, ref) => {
+  const {label, showValueLabel = Boolean(label), value = 0, minValue = 0, maxValue = 100} = props;
+  const {meterProps, labelProps} = useMeter(props);
 
-    return (
-      <>
-        <Box
-          {...safelySpreadBoxProps(props)}
-          as="div"
-          role="meter"
-          element={element}
-          ref={ref}
-          aria-labelledby={ariaLabelledby}
-          width="size30"
-          height="size10"
-          backgroundColor="colorBackgroundWeak"
-          borderStyle="solid"
-          borderWidth="borderWidth10"
-          borderColor="colorBorder"
-          borderRadius="borderRadiusPill"
-        >
-          <Box
-            element={`${element}_BAR`}
-            borderWidth="borderWidth10"
-            backgroundColor="colorBackgroundAvailable"
-            height="size10"
-            width={barWidthInPixels}
-            borderTopLeftRadius="borderRadiusPill"
-            borderBottomLeftRadius="borderRadiusPill"
-          />
-          <ScreenReaderOnly>{children}</ScreenReaderOnly>
-        </Box>
-      </>
-    );
-  }
-);
+  // Calculate the width of the bar as a percentage
+  const percentage = (value - minValue) / (maxValue - minValue);
+  const barWidth = `${Math.round(percentage * 100)}%`;
+
+  return (
+    <Box as="div" {...meterProps} role="meter" maxWidth="size30" element={`${element}_WRAPPER`}>
+      <Box display="flex" justifyContent="space-between" element={`${element}_LABEL_WRAPPER`}>
+        {label && (
+          // @ts-expect-error Using `aria-labelledby` on Label instead of the required `htmlFor`
+          <Label {...labelProps} as="div" element={`${element}_LABEL`}>
+            {label}
+          </Label>
+        )}
+        {showValueLabel && (
+          <Text as="span" element={`${element}_VALUE_LABEL`}>
+            {meterProps['aria-valuetext']}
+          </Text>
+        )}
+      </Box>
+      <Box height="10px" backgroundColor="colorBackground" element={element} ref={ref}>
+        <Box width={barWidth} height="10px" backgroundColor="colorBackgroundAvailable" element={`${element}_BAR`} />
+      </Box>
+    </Box>
+  );
+});
 
 Meter.displayName = 'Meter';
 

@@ -24,7 +24,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "react-aria": "3.26.0",
+    "react-aria": "^3.27.0",
     "react-stately": "3.24.0"
   },
   "peerDependencies": {
