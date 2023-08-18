@@ -1,7 +1,17 @@
 import PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
 
-export type InputBoxTypes = 'text' | 'email' | 'hidden' | 'number' | 'password' | 'search' | 'tel' | 'date' | 'time';
+export type InputBoxTypes =
+  | 'text'
+  | 'email'
+  | 'hidden'
+  | 'number'
+  | 'password'
+  | 'search'
+  | 'tel'
+  | 'date'
+  | 'time'
+  | 'url';
 export type Variants = 'default' | 'inverse';
 
 export interface FauxInputProps {

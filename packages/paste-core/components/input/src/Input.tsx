@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {useMergeRefs} from '@twilio-paste/utils';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
@@ -256,24 +255,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 
 Input.displayName = 'Input';
-
-Input.propTypes = {
-  disabled: PropTypes.bool,
-  element: PropTypes.string,
-  hasError: PropTypes.bool,
-  id: PropTypes.string,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  placeholder: PropTypes.string,
-  readOnly: PropTypes.bool,
-  required: PropTypes.bool,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date', 'time'])
-    .isRequired as any,
-  value: PropTypes.string,
-};
 
 export {Input};
 export type {InputBoxTypes as InputTypes};
