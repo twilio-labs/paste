@@ -68,6 +68,10 @@ export const MaxHeightExample = `const MaxHeightExample = () => {
 
 render(<MaxHeightExample />)`.trim();
 
+function getRandomInt(max: number): number {
+  return Math.floor(Math.random() * max);
+}
+
 export const createNewMessage = (message: string): Omit<Chat, 'id'> => {
   const time = new Date().toLocaleString('en-US', {
     hour: 'numeric',
@@ -75,10 +79,12 @@ export const createNewMessage = (message: string): Omit<Chat, 'id'> => {
     hour12: true,
   });
 
+  const messageDirection = getRandomInt(2) === 1 ? 'inbound' : 'outbound';
+
   return {
-    variant: 'outbound',
+    variant: messageDirection,
     content: (
-      <ChatMessage variant="outbound">
+      <ChatMessage variant={messageDirection}>
         <ChatBubble>{message}</ChatBubble>
         <ChatMessageMeta aria-label={`said by you at ${time}`}>
           <ChatMessageMetaItem>{time}</ChatMessageMetaItem>
@@ -182,6 +188,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
 
   const [mounted, setMounted] = React.useState(false);
   const loggerRef = React.useRef(null);
+  const scrollerRef = React.useRef(null);
 
   React.useEffect(() => {
     setMounted(true);
@@ -189,9 +196,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
 
   React.useEffect(() => {
     if (!mounted || !loggerRef.current) return;
-    const chatItems = loggerRef.current?.querySelectorAll('[role="listitem"]');
-    const lastItem = chatItems?.[chatItems.length - 1];
-    lastItem?.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'start'});
+    scrollerRef.current?.scrollTo({top: loggerRef.current.scrollHeight, behavior: 'smooth'});
   }, [chats, mounted]);
 
   const handleComposerChange = (editorState) => {
@@ -208,7 +213,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
 
   return (
     <Box>
-      <Box overflow="hidden" overflowY="scroll" maxHeight="size50" tabIndex={0}>
+      <Box ref={scrollerRef} overflowX="hidden" overflowY="scroll" maxHeight="size50" tabIndex={0}>
         <ChatLogger ref={loggerRef} chats={chats} />
       </Box>
       <Box

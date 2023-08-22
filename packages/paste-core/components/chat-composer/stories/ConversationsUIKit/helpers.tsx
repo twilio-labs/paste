@@ -11,6 +11,10 @@ import {
   KEY_ENTER_COMMAND,
 } from '@twilio-paste/lexical-library';
 
+function getRandomInt(max): number {
+  return Math.floor(Math.random() * max);
+}
+
 export const createNewMessage = (message: string): Omit<Chat, 'id'> => {
   const time = new Date().toLocaleString('en-US', {
     hour: 'numeric',
@@ -18,10 +22,12 @@ export const createNewMessage = (message: string): Omit<Chat, 'id'> => {
     hour12: true,
   });
 
+  const messageDirection = getRandomInt(2) === 1 ? 'inbound' : 'outbound';
+
   return {
-    variant: 'outbound',
+    variant: messageDirection,
     content: (
-      <ChatMessage variant="outbound">
+      <ChatMessage variant={messageDirection}>
         <ChatBubble>{message}</ChatBubble>
         <ChatMessageMeta aria-label={`said by you at ${time}`}>
           <ChatMessageMetaItem>{time}</ChatMessageMetaItem>

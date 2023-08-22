@@ -113,6 +113,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
   const [message, setMessage] = React.useState('');
   const [mounted, setMounted] = React.useState(false);
   const loggerRef = React.useRef<HTMLDivElement>(null);
+  const scrollerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     setMounted(true);
@@ -120,9 +121,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
 
   React.useEffect(() => {
     if (!mounted || !loggerRef.current) return;
-    const chatItems = loggerRef.current?.querySelectorAll('[role="listitem"]');
-    const lastItem = chatItems?.[chatItems.length - 1];
-    lastItem?.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'start'});
+    scrollerRef.current?.scrollTo({top: loggerRef.current.scrollHeight, behavior: 'smooth'});
   }, [chats, mounted]);
 
   const handleComposerChange = (editorState: EditorState): void => {
@@ -145,7 +144,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
       <MinimizableDialog aria-label="Live chat">
         <MinimizableDialogHeader>Live chat</MinimizableDialogHeader>
         <MinimizableDialogContent>
-          <Box overflow="hidden" overflowY="scroll" maxHeight="size50" tabIndex={0}>
+          <Box ref={scrollerRef} overflowX="hidden" overflowY="scroll" maxHeight="size50" tabIndex={0}>
             <ChatLogger ref={loggerRef} chats={chats} />
           </Box>
           <Box
