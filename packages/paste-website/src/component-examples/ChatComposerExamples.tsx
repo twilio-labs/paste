@@ -180,6 +180,20 @@ export const ChatDialogExample = `const ChatDialog = () => {
   );
   const [message, setMessage] = React.useState('');
 
+  const [mounted, setMounted] = React.useState(false);
+  const loggerRef = React.useRef(null);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (!mounted || !loggerRef.current) return;
+    const chatItems = loggerRef.current?.querySelectorAll('[role="listitem"]');
+    const lastItem = chatItems?.[chatItems.length - 1];
+    lastItem?.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'start'});
+  }, [chats, mounted]);
+
   const handleComposerChange = (editorState) => {
     editorState.read(() => {
       const text = $getRoot().getTextContent();
@@ -195,7 +209,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
   return (
     <Box>
       <Box overflow="hidden" overflowY="scroll" maxHeight="size50" tabIndex={0}>
-        <ChatLogger chats={chats} />
+        <ChatLogger ref={loggerRef} chats={chats} />
       </Box>
       <Box
         borderStyle="solid"

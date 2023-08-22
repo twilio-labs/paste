@@ -19,9 +19,7 @@ const buildTransitionX = (chat: Chat): number => {
   return 0;
 };
 
-const ChatLogger: React.FC<ChatLoggerProps> = ({chats}) => {
-  const loggerRef = React.useRef<HTMLDivElement>(null);
-
+const ChatLogger = React.forwardRef<HTMLDivElement, ChatLoggerProps>(({chats, ...props}, ref) => {
   const transitions = useTransition(chats, {
     keys: (chat: Chat) => chat.id,
     from: (chat: Chat): StyleProps => ({opacity: 0, x: buildTransitionX(chat)}),
@@ -34,12 +32,6 @@ const ChatLogger: React.FC<ChatLoggerProps> = ({chats}) => {
     },
   });
 
-  React.useEffect(() => {
-    const chatItems = loggerRef.current?.querySelectorAll('[role="listitem"]');
-    const lastItem = chatItems?.[chatItems.length - 1];
-    lastItem?.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'start'});
-  }, [chats]);
-
   const animatedChats = useReducedMotion()
     ? chats.map((chat) => React.cloneElement(chat.content, {key: chat.id}))
     : transitions((styles: StyleProps, chat: Chat, {key}: {key: string}) => (
@@ -48,8 +40,12 @@ const ChatLogger: React.FC<ChatLoggerProps> = ({chats}) => {
         </AnimatedChat>
       ));
 
-  return <ChatLog ref={loggerRef}>{animatedChats}</ChatLog>;
-};
+  return (
+    <ChatLog {...props} ref={ref}>
+      {animatedChats}
+    </ChatLog>
+  );
+});
 
 ChatLogger.displayName = 'ChatLogger';
 

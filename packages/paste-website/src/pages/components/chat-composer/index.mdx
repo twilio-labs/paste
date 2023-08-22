@@ -197,7 +197,7 @@ The `onChange` handler provided to the `ChatComposer` takes 3 arguments, the fir
 
 `$getRoot` is a utility to access the composer root [`ElementNode`](https://lexical.dev/docs/api/classes/lexical.ElementNode). We can then get the text content of the editor everytime it is updated, and store it in our component state for later use.
 
-```js
+```jsx
 const handleComposerChange = (editorState: EditorState): void => {
   editorState.read(() => {
     const text = $getRoot().getTextContent();
@@ -298,18 +298,7 @@ export const BasicChatComposer = () => (
 
 ### Figma
 
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="span">Figma usage guidelines coming soon</CalloutHeading>
-  <CalloutText>
-    You can find the Chat Composer components in{' '}
-    <Anchor
-      href="https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=15140%3A99225&t=mNw9lFc5iiTDSIZ7-0"
-      showExternal
-    >
-      the Paste Components library.
-    </Anchor>
-  </CalloutText>
-</Callout>
+You can find the Chat Composer components in [the Conversations UI Kit section of the Paste Components library](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/Paste-Components?type=design&node-id=15140-99225&mode=design&t=6zHUtRXfN2GWTR0g-0)
 
 <ChangelogRevealer>
   <Changelog />

@@ -111,6 +111,19 @@ export const ConversationsUIKitExample: StoryFn = () => {
     }
   );
   const [message, setMessage] = React.useState('');
+  const [mounted, setMounted] = React.useState(false);
+  const loggerRef = React.useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  React.useEffect(() => {
+    if (!mounted || !loggerRef.current) return;
+    const chatItems = loggerRef.current?.querySelectorAll('[role="listitem"]');
+    const lastItem = chatItems?.[chatItems.length - 1];
+    lastItem?.scrollIntoView({behavior: 'smooth', block: 'nearest', inline: 'start'});
+  }, [chats, mounted]);
 
   const handleComposerChange = (editorState: EditorState): void => {
     editorState.read(() => {
@@ -133,7 +146,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
         <MinimizableDialogHeader>Live chat</MinimizableDialogHeader>
         <MinimizableDialogContent>
           <Box overflow="hidden" overflowY="scroll" maxHeight="size50" tabIndex={0}>
-            <ChatLogger chats={chats} />
+            <ChatLogger ref={loggerRef} chats={chats} />
           </Box>
           <Box
             borderStyle="solid"
