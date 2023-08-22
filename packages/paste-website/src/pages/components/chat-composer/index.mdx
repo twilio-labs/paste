@@ -181,9 +181,9 @@ Use Chat Composer alongside other Paste components such as [Chat Log](/component
   {ChatDialogExample}
 </LivePreview>
 
-### Adding interactivity with Plugins
+### Adding interactivity with plugins
 
-In the above example we make use of three Lexical Plugins, `ClearEditorPlugin` that is provided by Lexical, and two custom plugins `SendButtonPlugin` and `EnterKeySubmitPlugin`. We also keep track of the content provided to the composer via the `onChange` handler. Together we can add custom interactivity such as:
+In the above example, we're using 3 Lexical plugins: `ClearEditorPlugin` that is provided by Lexical, and 2 custom plugins, `SendButtonPlugin` and `EnterKeySubmitPlugin`. We also keep track of the content provided to the composer via the `onChange` handler. Together we can add custom interactivity such as:
 
 - Clear the editor on button click using `ClearEditorPlugin`
 - Submit on enter key press using `EnterKeySubmitPlugin`
@@ -193,7 +193,7 @@ Plugins are functions that must be children of the `ChatComposer` component, so 
 
 #### `onChange` event handler
 
-The `onChange` handler provided to the `ChatComposer` takes three arguments, the first of which is the [`editorState`](https://lexical.dev/docs/concepts/editor-state#understanding-the-editor-state). This allows us to read the current content of the editor using the utilities provided by Lexical.
+The `onChange` handler provided to the `ChatComposer` takes 3 arguments, the first of which is the [`editorState`](https://lexical.dev/docs/concepts/editor-state#understanding-the-editor-state). This allows us to read the current content of the editor using the utilities provided by Lexical.
 
 `$getRoot` is a utility to access the composer root [`ElementNode`](https://lexical.dev/docs/api/classes/lexical.ElementNode). We can then get the text content of the editor everytime it is updated, and store it in our component state for later use.
 
@@ -210,7 +210,7 @@ const handleComposerChange = (editorState: EditorState): void => {
 
 The `ClearEditorPlugin` supplied by Lexical allows you to build functionality into the composer that will clear the composer content when a certain action is performed.
 
-When passed as a child to `ChatComposer` it will automatically register a `CLEAR_EDITOR_COMMAND`. You can then dispatch this command from elsewhere to clear the composer content. As example, we created two plugins; `SendButtonPlugin` and `EnterKeySubmitPlugin` which both dispatch the `CLEAR_EDITOR_COMMAND`, and clear the composer content as a result.
+When passed as a child to `ChatComposer`, it will automatically register a `CLEAR_EDITOR_COMMAND`. You can then dispatch this command from elsewhere to clear the composer content. In the example, we created 2 plugins: `SendButtonPlugin` and `EnterKeySubmitPlugin` which both dispatch the `CLEAR_EDITOR_COMMAND`, and clear the composer content as a result.
 
 ```jsx
 <ChatComposer onChange={handleComposerChange}>
@@ -220,7 +220,7 @@ When passed as a child to `ChatComposer` it will automatically register a `CLEAR
 
 #### Custom plugins
 
-`SendButtonPlugin` and `EnterKeySubmitPlugin` are two custom plugins that submit a user message and clear the composer content. They first must be passed to the `ChatComposer` as a child.
+`SendButtonPlugin` and `EnterKeySubmitPlugin` are custom plugins that submit a user message and clear the composer content. They first must be passed to the `ChatComposer` as a child.
 
 ```jsx
 <ChatComposer onChange={handleComposerChange}>
