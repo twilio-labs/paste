@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {
@@ -29,7 +28,7 @@ import {
   HistoryPlugin,
 } from '@twilio-paste/lexical-library';
 import {StylingGlobals} from '@twilio-paste/styling-library';
-import type {LexicalComposerProps, OnChangeFunction, ContentEditableProps} from '@twilio-paste/lexical-library';
+import type {LexicalComposerProps, ContentEditableProps, OnChangeFunction} from '@twilio-paste/lexical-library';
 import merge from 'deepmerge';
 
 import {chatComposerLexicalStyles} from './styles';
@@ -37,29 +36,14 @@ import {AutoLinkPlugin} from './AutoLinkPlugin';
 import {PlaceholderWrapper} from './PlaceholderWrapper';
 import {baseConfig, renderInitialText} from './helpers';
 
-export interface ChatComposerProps extends ContentEditableProps {
+export interface ChatComposerProps extends Omit<ContentEditableProps, 'style' | 'className' | 'onChange'> {
   children?: LexicalComposerProps['children'];
   config: LexicalComposerProps['initialConfig'];
   element?: BoxProps['element'];
-  placeholder?: string | JSX.Element;
-  onChange?: OnChangeFunction;
   maxHeight?: BoxStyleProps['maxHeight'];
   initialValue?: string;
   disabled?: boolean;
-
-  /** Mapped to ariaOwneeID on the Lexical ContentEditable component.  */
-  ariaOwns?: ContentEditableProps['ariaOwneeID'];
-  /** Mapped to ariaActiveDescendantID on the Lexical ContentEditable component.  */
-  ariaActiveDescendant?: ContentEditableProps['ariaActiveDescendantID'];
-
-  /** Paste doesn't support using inline styles, use CustomizationProvider instead. */
-  style?: never;
-  /** Paste doesn't support using class names, use CustomizationProvider instead. */
-  className?: never;
-  /** Use ariaOwns instead because it is the name of the actual aria attribute. */
-  ariaOwneeID?: never;
-  /** Use ariaActiveDescendant instead because it is the name of the actual aria attribute. */
-  ariaActiveDescendantID?: never;
+  onChange?: OnChangeFunction;
 }
 
 export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
@@ -72,8 +56,6 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       initialValue,
       config,
       maxHeight,
-      ariaOwns,
-      ariaActiveDescendant,
       disabled,
       ...props
     },
@@ -109,14 +91,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         <LexicalComposer initialConfig={merge(baseConfigWithEditorState, config)}>
           <>
             <RichTextPlugin
-              contentEditable={
-                <ContentEditable
-                  {...props}
-                  ariaActiveDescendantID={ariaActiveDescendant}
-                  ariaOwneeID={ariaOwns}
-                  className="paste-chat-composer-content-editable"
-                />
-              }
+              contentEditable={<ContentEditable {...props} className="paste-chat-composer-content-editable" />}
               placeholder={<PlaceholderWrapper element={`${element}_PLACEHOLDER_WRAPPER`} placeholder={placeholder} />}
               ErrorBoundary={ErrorBoundary}
             />
@@ -132,51 +107,3 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
 );
 
 ChatComposer.displayName = 'ChatComposer';
-
-ChatComposer.propTypes = {
-  children: PropTypes.element,
-  onChange: PropTypes.func,
-  element: PropTypes.string,
-  config: PropTypes.shape({
-    onError: PropTypes.func.isRequired,
-    namespace: PropTypes.string.isRequired,
-    editorState: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    theme: PropTypes.object as any,
-  }).isRequired,
-  placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
-  initialValue: PropTypes.string,
-  maxHeight: PropTypes.oneOf([
-    'size0',
-    'size10',
-    'size20',
-    'size30',
-    'size40',
-    'size50',
-    'size60',
-    'size70',
-    'size80',
-    'size90',
-    'size100',
-    'size110',
-    'size120',
-  ]),
-  ariaActiveDescendant: PropTypes.string,
-  ariaAutoComplete: PropTypes.string,
-  ariaControls: PropTypes.string,
-  ariaDescribedBy: PropTypes.string,
-  ariaExpanded: PropTypes.bool,
-  ariaLabel: PropTypes.string,
-  ariaLabelledBy: PropTypes.string,
-  ariaMultiline: PropTypes.bool,
-  ariaOwns: PropTypes.string,
-  ariaRequired: PropTypes.string,
-  autoCapitalize: PropTypes.bool,
-  autoComplete: PropTypes.bool,
-  autoCorrect: PropTypes.bool,
-  id: PropTypes.string,
-  readOnly: PropTypes.bool,
-  role: PropTypes.string,
-  spellCheck: PropTypes.bool,
-  tabIndex: PropTypes.number,
-  testid: PropTypes.string,
-};

@@ -19,7 +19,7 @@ const buildTransitionX = (chat: Chat): number => {
   return 0;
 };
 
-const ChatLogger: React.FC<ChatLoggerProps> = ({chats}) => {
+const ChatLogger = React.forwardRef<HTMLDivElement, ChatLoggerProps>(({chats, ...props}, ref) => {
   const transitions = useTransition(chats, {
     keys: (chat: Chat) => chat.id,
     from: (chat: Chat): StyleProps => ({opacity: 0, x: buildTransitionX(chat)}),
@@ -40,8 +40,12 @@ const ChatLogger: React.FC<ChatLoggerProps> = ({chats}) => {
         </AnimatedChat>
       ));
 
-  return <ChatLog>{animatedChats}</ChatLog>;
-};
+  return (
+    <ChatLog {...props} ref={ref}>
+      {animatedChats}
+    </ChatLog>
+  );
+});
 
 ChatLogger.displayName = 'ChatLogger';
 
