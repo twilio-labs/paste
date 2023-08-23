@@ -77,7 +77,7 @@ const HomeHero = (): JSX.Element => {
                   <NewIcon decorative />
                   New
                 </Badge>
-                <NewComponentBannerText>Our Figma library updated with variables,</NewComponentBannerText>
+                <NewComponentBannerText>Our Figma library now updated with variables,</NewComponentBannerText>
                 <NewComponentBannerLink
                   href="https://www.figma.com/community/file/1207476064127503112/Twilio-Paste-Components"
                   onClick={() =>
