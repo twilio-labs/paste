@@ -118,9 +118,9 @@ BaseRadioCheckboxControl.propTypes = {
   disabled: PropTypes.bool,
 };
 
-export interface BaseRadioCheckboxLabelProps extends LabelProps {
+export type BaseRadioCheckboxLabelProps = LabelProps & {
   children: NonNullable<React.ReactNode>;
-}
+};
 const BaseRadioCheckboxLabel = React.forwardRef<HTMLLabelElement, BaseRadioCheckboxLabelProps>(
   ({children, ...props}, ref) => {
     return (

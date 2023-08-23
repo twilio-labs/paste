@@ -1,6 +1,3 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
-
 import * as React from 'react';
 import {type BoxProps, Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
