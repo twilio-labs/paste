@@ -5,7 +5,7 @@ import {Theme} from '@twilio-paste/theme';
 import {ProgressBar} from '../src';
 
 describe('ProgressBar', () => {
-  describe.only('base usage', () => {
+  describe('base usage', () => {
     it('should render correctly with all aria attributes', () => {
       const {rerender} = render(
         <Theme.Provider theme="twilio">
@@ -53,7 +53,11 @@ describe('ProgressBar', () => {
 
   describe('Customization', () => {
     it('should set DEFAULT data-paste-element attribute', (): void => {
-      render(<ProgressBar id="test-progress-bar" value={33} minValue={20} maxValue={120} />);
+      render(
+        <Theme.Provider theme="twilio">
+          <ProgressBar id="test-progress-bar" aria-label="test-aria-label" value={33} minValue={20} maxValue={120} />
+        </Theme.Provider>
+      );
 
       const progressBar = screen.getByRole('progressbar');
 
@@ -61,8 +65,19 @@ describe('ProgressBar', () => {
       expect(progressBar.firstChild).toHaveAttribute('data-paste-element', 'PROGRESS_BAR_FILL');
     });
 
-    it('should set CUSTOM data-paste-element attribute', (): void => {
-      render(<ProgressBar element="PROGGER" id="test-progress-bar" value={33} minValue={20} maxValue={120} />);
+    it('should set DEFAULT data-paste-element attribute', (): void => {
+      render(
+        <Theme.Provider theme="twilio">
+          <ProgressBar
+            element="PROGGER"
+            id="test-progress-bar"
+            aria-label="test-aria-label"
+            value={33}
+            minValue={20}
+            maxValue={120}
+          />
+        </Theme.Provider>
+      );
 
       const progressBar = screen.getByRole('progressbar');
 
