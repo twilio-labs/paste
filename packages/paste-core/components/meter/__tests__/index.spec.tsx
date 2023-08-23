@@ -28,13 +28,17 @@ describe('Meter', () => {
     it('should set default data-paste-element attribute on meter', () => {
       render(<Customized />);
       const meterOne = screen.getByTestId('meter_one');
-      expect(meterOne).toHaveAttribute('data-paste-element', 'METER_WRAPPER');
+      expect(meterOne).toHaveAttribute('data-paste-element', 'METER');
+      const meterLabelOne = screen.getByTestId('meter_label_one');
+      expect(meterLabelOne).toHaveAttribute('data-paste-element', 'METER_LABEL');
     });
 
     it('should set custom data-paste-element attribute on meter', () => {
       render(<Customized />);
       const meterTwo = screen.getByTestId('meter_two');
-      expect(meterTwo).toHaveAttribute('data-paste-element', 'FOO_WRAPPER');
+      expect(meterTwo).toHaveAttribute('data-paste-element', 'FOO');
+      const meterLabelTwo = screen.getByTestId('meter_label_two');
+      expect(meterLabelTwo).toHaveAttribute('data-paste-element', 'FOO_LABEL');
     });
   });
 });
