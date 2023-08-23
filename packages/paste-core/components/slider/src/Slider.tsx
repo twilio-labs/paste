@@ -13,7 +13,7 @@ export interface SliderProps {
   element?: BoxProps['element'];
   id: string;
   'aria-describedby'?: string;
-  'aria-labeledby'?: string;
+  'aria-labelledby'?: string;
   disabled?: boolean;
   hasError?: boolean;
   hideRangeLabels?: boolean;
@@ -140,7 +140,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
               <input
                 ref={mergedInputRef}
                 {...inputProps}
-                aria-labelledby={props['aria-labeledby']}
+                aria-labelledby={props['aria-labelledby']}
                 aria-describedby={props['aria-describedby']}
                 id={inputProps.id?.replace('-0', '')}
                 onFocus={() => setFocused(true)}
