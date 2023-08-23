@@ -26,7 +26,7 @@ const baseConfig = {
 
 describe('ChatComposer', () => {
   it('should render with placeholder text', () => {
-    render(<ChatComposer testid="my-composer" placeholder="Type here.." config={baseConfig} />);
+    render(<ChatComposer data-testid="my-composer" placeholder="Type here.." config={baseConfig} />);
     expect(screen.getByRole('textbox')).toBeDefined();
     expect(screen.getByText('Type here..')).toBeDefined();
   });
@@ -34,7 +34,7 @@ describe('ChatComposer', () => {
   it('should pass props to the content editable', async () => {
     render(
       <ChatComposer
-        testid="my-composer"
+        data-testid="my-composer"
         ariaLabel="Feedback"
         ariaDescribedBy="foo"
         ariaOwns="foo"
