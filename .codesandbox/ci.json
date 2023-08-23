@@ -70,6 +70,7 @@
     "/packages/paste-core/components/paragraph",
     "/packages/paste-core/components/popover",
     "/packages/paste-core/components/product-switcher",
+    "/packages/paste-core/components/progress-bar",
     "/packages/paste-core/components/progress-steps",
     "/packages/paste-core/components/radio-button-group",
     "/packages/paste-core/components/radio-group",
