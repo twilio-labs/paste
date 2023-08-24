@@ -1,5 +1,41 @@
 # Change Log
 
+## 20.1.0
+
+### Minor Changes
+
+- [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90) [#3426](https://github.com/twilio-labs/paste/pull/3426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat Log] Better handling of user generated text with line breaks and forward Refs to the ChatLogger component for better control over displaying chat messages
+
+* [`feeaa90fa`](https://github.com/twilio-labs/paste/commit/feeaa90fa4fff395ffc8a817f4ca358713d5d9be) [#3421](https://github.com/twilio-labs/paste/pull/3421) Thanks [@TheSisb](https://github.com/TheSisb)! - [React Spectrum Library] export the `useProgressBar` hook and the `useMeter` hook
+
+- [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90) [#3426](https://github.com/twilio-labs/paste/pull/3426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Lexical Library] Update lexical to version v0.12.0 This includes some breaking changes as listed in their [Changelog](https://github.com/facebook/lexical/releases)
+
+* [`48c8d8271`](https://github.com/twilio-labs/paste/commit/48c8d82714f1e54d072644348c68f0a74fa790f9) [#3402](https://github.com/twilio-labs/paste/pull/3402) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert Dialog] Add prop `onConfirmDisabled` to allow for the confirm button on destructive Alert Dialogs to be conditionally disabled. This interaction is primarily for use in the High Severity Delete Pattern.
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - - [design-tokens] Add colorTextDestructive tokens
+
+* [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90) [#3426](https://github.com/twilio-labs/paste/pull/3426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat-Composer] updates to accomodate the new version of Lexical
+
+### Patch Changes
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - [Menu] Update destructive Menu items to use the new `colorTextDestructive` token
+
+* [`2a1f8b954`](https://github.com/twilio-labs/paste/commit/2a1f8b954cdfc12cf40b7f5cd633d0b9ea9e882d) [#3425](https://github.com/twilio-labs/paste/pull/3425) Thanks [@TheSisb](https://github.com/TheSisb)! - [Input, Input Box] allow passing `type="url"` to the Input component for convenient browser validation.
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - [Button] Update `variant="destructive"` Buttons to use the new `colorTextDestructive` token
+
+- Updated dependencies [[`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90), [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8), [`feeaa90fa`](https://github.com/twilio-labs/paste/commit/feeaa90fa4fff395ffc8a817f4ca358713d5d9be), [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90), [`2a1f8b954`](https://github.com/twilio-labs/paste/commit/2a1f8b954cdfc12cf40b7f5cd633d0b9ea9e882d), [`48c8d8271`](https://github.com/twilio-labs/paste/commit/48c8d82714f1e54d072644348c68f0a74fa790f9), [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8), [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8), [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90)]:
+  - @twilio-paste/chat-log@5.1.0
+  - @twilio-paste/menu@14.0.1
+  - @twilio-paste/react-spectrum-library@2.1.0
+  - @twilio-paste/lexical-library@4.0.0
+  - @twilio-paste/input@9.0.1
+  - @twilio-paste/input-box@10.0.1
+  - @twilio-paste/alert-dialog@9.1.0
+  - @twilio-paste/design-tokens@10.1.0
+  - @twilio-paste/button@14.0.1
+  - @twilio-paste/chat-composer@5.0.0
+
 ## 20.0.1
 
 ### Patch Changes

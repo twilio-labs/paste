@@ -1,5 +1,11 @@
 # Change Log
 
+## 14.0.1
+
+### Patch Changes
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - [Menu] Update destructive Menu items to use the new `colorTextDestructive` token
+
 ## 14.0.0
 
 ### Major Changes

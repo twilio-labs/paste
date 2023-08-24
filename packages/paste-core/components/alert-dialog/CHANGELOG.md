@@ -1,5 +1,11 @@
 # @twilio-paste/alert-dialog
 
+## 9.1.0
+
+### Minor Changes
+
+- [`48c8d8271`](https://github.com/twilio-labs/paste/commit/48c8d82714f1e54d072644348c68f0a74fa790f9) [#3402](https://github.com/twilio-labs/paste/pull/3402) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert Dialog] Add prop `onConfirmDisabled` to allow for the confirm button on destructive Alert Dialogs to be conditionally disabled. This interaction is primarily for use in the High Severity Delete Pattern.
+
 ## 9.0.0
 
 ### Major Changes
