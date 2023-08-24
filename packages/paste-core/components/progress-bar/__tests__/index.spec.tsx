@@ -21,7 +21,6 @@ describe('ProgressBar', () => {
              */
             aria-label="X"
             value={33}
-            minValue={20}
             maxValue={120}
           />
           <HelpText id="test-description">Downloading more ram</HelpText>
@@ -30,13 +29,14 @@ describe('ProgressBar', () => {
 
       const progressBar = screen.getByRole('progressbar');
       expect(progressBar).toBeInTheDocument();
-      expect(progressBar).toHaveAttribute('aria-valuemin', '20');
+      expect(progressBar).toHaveAttribute('aria-valuemin', '0');
       expect(progressBar).toHaveAttribute('aria-valuemax', '120');
       expect(progressBar).toHaveAttribute('aria-valuenow', '33');
-      expect(progressBar).toHaveAttribute('aria-valuetext', '13%');
+      expect(progressBar).toHaveAttribute('aria-valuetext', '28%');
       expect(progressBar).toHaveAttribute('id', 'test-progress-bar');
       expect(progressBar).toHaveAttribute('aria-describedby', 'test-description');
       expect(progressBar).toHaveAttribute('aria-labelledby', `test-progress-bar${LABEL_SUFFIX}`);
+      expect(progressBar).toHaveAttribute('aria-label', `X`);
 
       // New render to test other conditions
       rerender(
@@ -51,14 +51,13 @@ describe('ProgressBar', () => {
              */
             aria-label="X"
             value={50}
-            minValue={20}
             maxValue={120}
           />
           <HelpText id="test-description">Downloading more ram</HelpText>
         </Theme.Provider>
       );
       expect(progressBar).toHaveAttribute('aria-valuenow', '50');
-      expect(progressBar).toHaveAttribute('aria-valuetext', '30%');
+      expect(progressBar).toHaveAttribute('aria-valuetext', '42%');
     });
   });
 
@@ -67,7 +66,7 @@ describe('ProgressBar', () => {
       render(
         <Theme.Provider theme="twilio">
           <div id="labelledby">Download progress</div>
-          <ProgressBar id="test-progress-bar" aria-labelledby="labelledby" value={33} minValue={20} maxValue={120} />
+          <ProgressBar id="test-progress-bar" aria-labelledby="labelledby" value={33} maxValue={120} />
         </Theme.Provider>
       );
 
@@ -85,7 +84,6 @@ describe('ProgressBar', () => {
             id="test-progress-bar"
             aria-label="test-aria-label"
             value={33}
-            minValue={20}
             maxValue={120}
           />
         </Theme.Provider>

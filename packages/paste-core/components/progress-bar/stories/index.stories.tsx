@@ -106,7 +106,7 @@ export const CustomRange = (): React.ReactNode => {
       <Form>
         <FormControl>
           <ProgressBarLabel htmlFor={progressBarId}>Friends coming to your birthday</ProgressBarLabel>
-          <ProgressBar id={progressBarId} value={21} minValue={5} maxValue={30} />
+          <ProgressBar id={progressBarId} value={21} maxValue={30} />
         </FormControl>
       </Form>
     </Box>
@@ -124,7 +124,6 @@ export const CustomValueText = (): React.ReactNode => {
           <ProgressBar
             id={progressBarId}
             value={21}
-            minValue={5}
             maxValue={30}
             valueLabel="21 friends accepted"
             formatOptions={{maximumFractionDigits: 0, minimumFractionDigits: 0}}

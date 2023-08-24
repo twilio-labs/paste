@@ -25,7 +25,10 @@ export interface ProgressBarProps extends HTMLPasteProps<'progress'> {
   'aria-labelledby'?: string;
   value?: number;
   valueLabel?: string;
-  minValue?: number;
+  /**
+   * Minimum value of the progress bar is always set to 0 per the spec.
+   */
+  minValue?: never;
   maxValue?: number;
   isIndeterminate?: boolean;
   /**
@@ -38,19 +41,19 @@ export interface ProgressBarProps extends HTMLPasteProps<'progress'> {
 export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((props, ref) => {
   const {progressBarProps} = useProgressBar(props);
 
-  const {element = 'PROGRESS_BAR', value = 0, minValue = 0, maxValue = 100, isIndeterminate = false} = props;
+  const {element = 'PROGRESS_BAR', value = 0, maxValue = 100, isIndeterminate = false} = props;
 
   const springConfig = React.useMemo(() => {
     if (!isIndeterminate) {
-      const clampedValue = Math.min(Math.max(value, minValue), maxValue);
-      const percentage = (clampedValue - minValue) / (maxValue - minValue);
-      return {width: `${Math.round(percentage * 100)}%`, config: {tension: 280, friction: 60}};
+      const clampedValue = Math.min(Math.max(value, 0), maxValue);
+      const percentage = Math.round((clampedValue / maxValue) * 100);
+      return {width: `${percentage}%`, config: {tension: 280, friction: 60}};
     }
 
     return {
       width: '10%',
     };
-  }, [isIndeterminate, value, minValue, maxValue]);
+  }, [isIndeterminate, value, maxValue]);
 
   const style = useSpring(springConfig);
 
