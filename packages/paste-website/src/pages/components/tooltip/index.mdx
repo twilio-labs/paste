@@ -202,15 +202,13 @@ For full details on how to use the state hook, and what props to provide it, fol
 
 ## Composition notes
 
-Tooltips should contain only information that is useful additional context or guidance for the user. Furthermore, Tooltips are easily overlooked and disappear when not focused on, so consider whether the information may be better served by another component.
+Tooltips can only contain text content, and should contain only information that is useful additional context or guidance for the user. If you need to include an [Anchor](/components/anchor) or icons, use a [Popover](/components/popover) instead.
 
-Never put information essential to task completion in a Tooltip. Use [Help Text](/components/help-text), which is persistent and more obvious, for essential information.
+Never put information essential to task completion in a Tooltip. Furthermore, Tooltips are easily overlooked and disappear when not focused on, so consider whether the information may be better served by another component. Use [Help Text](/components/help-text), which is persistent and more obvious, for essential information.
 
-Do not use a Tooltip on a disabled [Button](/components/button) to explain why the button is unavailable. The disabled button isn't focusable. 
+Do not use a Tooltip on a disabled [Button](/components/button) to explain why the button is unavailable. The disabled button isn't focusable.
 
-Similarly, do not including an [Anchor](/components/anchor) in Tooltip content because an Anchor isn't focusable. If you need to include a link, use a [Popover](/components/popover) instead.
-
-Use full sentences and punctuation. Include no more than 3 lines of text. Avoid titles and icons.
+Use full sentences and punctuation. Include no more than 3 lines of text.
 
 ## Do and don't
 
@@ -226,8 +224,8 @@ Use full sentences and punctuation. Include no more than 3 lines of text. Avoid 
 <DoDont>
   <Do title="Do" body="Use Tooltips only on focusable elements." preview={false} />
   <Dont
-    title="Don't use Tooltips on non-focusable elements, like icons and disabled buttons."
-    body="Don't use ."
+    title="Don't"
+    body="Don't use Tooltips on non-focusable elements, like icons and disabled buttons."
     preview={false}
   />
 </DoDont>
