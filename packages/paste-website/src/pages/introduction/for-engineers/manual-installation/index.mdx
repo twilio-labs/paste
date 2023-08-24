@@ -56,15 +56,23 @@ To start using Paste, you must first install the following third party dependenc
     <TBody>
       <Tr>
         <Td>react</Td>
-        <Td>{Package.dependencies['react']}</Td>
+        <Td>{CorePkgJson.peerDependencies['react']}</Td>
       </Tr>
       <Tr>
         <Td>react-dom</Td>
-        <Td>{Package.dependencies['react-dom']}</Td>
+        <Td>{CorePkgJson.peerDependencies['react-dom']}</Td>
+      </Tr>
+      <Tr>
+        <Td>@types/react</Td>
+        <Td>{CorePkgJson.peerDependencies['@types/react']}</Td>
+      </Tr>
+      <Tr>
+        <Td>@types/react-dom</Td>
+        <Td>{CorePkgJson.peerDependencies['@types/react-dom']}</Td>
       </Tr>
       <Tr>
         <Td>prop-types</Td>
-        <Td>{Package.dependencies['prop-types']}</Td>
+        <Td>{CorePkgJson.peerDependencies['prop-types']}</Td>
       </Tr>
     </TBody>
   </Table>
@@ -72,21 +80,13 @@ To start using Paste, you must first install the following third party dependenc
 
 Install them in your project folder using either of these terminal commands:
 
-```shell
+```bash
 # yarn
 yarn add react react-dom prop-types
 
 # npm
 npm install react react-dom prop-types
 ```
-
-<Callout variant="warning" marginY="space70">
-  <CalloutHeading as="h2">A special callout on @types/react</CalloutHeading>
-  <CalloutText>
-    @types/react is bundled with Paste Core. To ensure you are using the correct version of @types/react, please do not
-    install it in your project. If you have already installed it, please remove it.
-  </CalloutText>
-</Callout>
 
 ## Paste Packages
 
@@ -116,7 +116,7 @@ A key distinction with Paste Core is that we _include_ - not _bundle_ - all of P
   </Table>
 </Box>
 
-```shell
+```bash
 # yarn
 yarn add @twilio-paste/core @twilio-paste/icons
 
@@ -160,9 +160,9 @@ Fonts for our out of the box themes are available via the Twilio CDN and publish
 
 The **best and most performant way** to load the fonts is to include the following snippet in the `<head />` of your web page.
 
-```
+```html
 <link rel="preconnect" href="https://assets.twilio.com" crossorigin />
-<link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/1.5.1/fonts.css">
+<link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/1.5.1/fonts.css" />
 ```
 
 <Callout variant="neutral" marginY="space70">
@@ -206,7 +206,7 @@ It can sometimes be helpful to test Paste components without animation. To disab
 
 Jest will often complain about using the esModules versions (`/esm/`) of Paste Icons, since it perfers the commonJS version. You'll often see an error similar to:
 
-```
+```bash
 Test suite failed to run
   unknown: Unexpected token (1:660)
     This usually means that you are trying to import a file which
@@ -219,7 +219,7 @@ In order to fix these Jest errors, you'll need to configure Jest to correctly ha
 You can use the `transformIgnorePatterns` option to tell Jest to not transform Paste Icons, which allows Jest to transpile these files. More
 information about `transformIgnorePatterns` can be found by [reading the Jest documentation](https://jestjs.io/docs/en/configuration#transformignorepatterns-arraystring).
 
-```js
+```javascript
 // jest.config.js
 {
   "transformIgnorePatterns": [
