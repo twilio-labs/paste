@@ -72,7 +72,7 @@ This will start an interactive wizard, and then run the specified transform.
 
 Converts old-style core imports to the new unbarreled style. (i.e.: `import {Button} from '@twilio-paste/core'` becomes `import {Button} from '@twilio-paste/core/button'`)
 
-```sh
+```bash
 npx @twilio-paste/codemods barreled-to-unbarreled <path>
 ```
 
@@ -80,7 +80,7 @@ npx @twilio-paste/codemods barreled-to-unbarreled <path>
 
 To pass more options directly to jscodeshift, use `--jscodeshift="..."`. For example:
 
-```sh
+```bash
 npx @twilio-paste/codemods --jscodeshift="--run-in-band --verbose=2"
 ```
 
@@ -91,7 +91,7 @@ See [all available jscodeshift options](https://github.com/facebook/jscodeshift#
 Options to [recast](https://github.com/benjamn/recast)'s printer can be provided
 through jscodeshift's `printOptions` command line argument
 
-```sh
+```bash
 npx @twilio-paste/codemods <transform> <path> --jscodeshift="--printOptions='{\"quote\":\"double\"}'"
 ```
 
