@@ -5,9 +5,8 @@ import {useUID} from '@twilio-paste/uid-library';
 import {Form, FormControl} from '@twilio-paste/form';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
 
-import {ProgressBar} from '../src';
+import {ProgressBar, ProgressBarLabel} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -43,7 +42,7 @@ export const Default = (): React.ReactNode => {
     <Box maxWidth="600px">
       <Form>
         <FormControl>
-          <Label htmlFor={progressBarId}>Downloading more ram</Label>
+          <ProgressBarLabel htmlFor={progressBarId}>Downloading more ram</ProgressBarLabel>
           <ProgressBar id={progressBarId} aria-describedby={helpTextId} value={value} />
           <HelpText id={helpTextId}>
             Increasing your ram helps your computer run faster. {NumberFormatter.format(value)}% complete.
@@ -72,7 +71,7 @@ export const Indeterminate = (): React.ReactNode => {
     <Box maxWidth="600px">
       <Form>
         <FormControl>
-          <Label htmlFor={progressBarId}>Downloading more ram</Label>
+          <ProgressBarLabel htmlFor={progressBarId}>Downloading more ram</ProgressBarLabel>
           <ProgressBar id={progressBarId} aria-describedby={helpTextId} isIndeterminate />
           <HelpText id={helpTextId}>Increasing your ram helps your computer run faster.</HelpText>
         </FormControl>
@@ -88,11 +87,11 @@ export const LabelingApproaches = (): React.ReactNode => {
     <Box maxWidth="600px">
       <Form>
         <FormControl>
-          <Box id={labelId}>Using aria-labelledby demo</Box>
+          <Box id={labelId}>Using aria-labelledby</Box>
           <ProgressBar aria-labelledby={labelId} value={30} />
 
-          <Box marginTop="space40">Using aria-label demo</Box>
-          <ProgressBar aria-label="Custom Label" value={50} />
+          <Box marginTop="space40">Using aria-label</Box>
+          <ProgressBar aria-label="Using aria-label" value={50} />
         </FormControl>
       </Form>
     </Box>
@@ -100,14 +99,14 @@ export const LabelingApproaches = (): React.ReactNode => {
 };
 
 export const CustomRange = (): React.ReactNode => {
-  const labelId = useUID();
+  const progressBarId = useUID();
 
   return (
     <Box maxWidth="600px">
       <Form>
         <FormControl>
-          <Box id={labelId}>Friends who accepted your birthday invite</Box>
-          <ProgressBar aria-labelledby={labelId} value={21} minValue={5} maxValue={30} />
+          <ProgressBarLabel htmlFor={progressBarId}>Friends coming to your birthday</ProgressBarLabel>
+          <ProgressBar id={progressBarId} value={21} minValue={5} maxValue={30} />
         </FormControl>
       </Form>
     </Box>
@@ -115,15 +114,15 @@ export const CustomRange = (): React.ReactNode => {
 };
 
 export const CustomValueText = (): React.ReactNode => {
-  const labelId = useUID();
+  const progressBarId = useUID();
 
   return (
     <Box maxWidth="600px">
       <Form>
         <FormControl>
-          <Box id={labelId}>Friends who accepted your birthday invite</Box>
+          <ProgressBarLabel htmlFor={progressBarId}>Friends coming to your birthday</ProgressBarLabel>
           <ProgressBar
-            aria-labelledby={labelId}
+            id={progressBarId}
             value={21}
             minValue={5}
             maxValue={30}

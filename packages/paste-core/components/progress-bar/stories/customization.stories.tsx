@@ -7,7 +7,7 @@ import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
-import {ProgressBar} from '../src';
+import {ProgressBar, ProgressBarLabel} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -20,6 +20,7 @@ export const CustomizationWrapper: React.FC<React.PropsWithChildren<{isTestEnvir
   isTestEnvironment,
 }): React.ReactElement => {
   const progressBarId = useUID();
+  const customProgressBarId = useUID();
   const helpTextId = useUID();
   const [value, setValue] = React.useState<number>(0);
   const [rerun, setRerun] = React.useState<number>(1);
@@ -49,6 +50,9 @@ export const CustomizationWrapper: React.FC<React.PropsWithChildren<{isTestEnvir
         PROGRESS_BAR: {
           backgroundColor: 'colorBackgroundPrimaryWeakest',
         },
+        PROGRESS_BAR_LABEL: {
+          fontSize: 'fontSize50',
+        },
         PROGRESS_BAR_FILL: {
           borderRadius: 'borderRadius0',
           backgroundColor: 'colorBackgroundBrand',
@@ -56,6 +60,9 @@ export const CustomizationWrapper: React.FC<React.PropsWithChildren<{isTestEnvir
 
         PROGGER: {
           backgroundColor: 'colorBackgroundPrimaryWeakest',
+        },
+        PROGGER_LABEL: {
+          fontSize: 'fontSize50',
         },
         PROGGER_FILL: {
           borderRadius: 'borderRadius0',
@@ -66,7 +73,7 @@ export const CustomizationWrapper: React.FC<React.PropsWithChildren<{isTestEnvir
       <Box maxWidth="600px">
         <Form>
           <FormControl>
-            <Label htmlFor={progressBarId}>Downloading more ram</Label>
+            <ProgressBarLabel htmlFor={progressBarId}>Downloading more ram</ProgressBarLabel>
             <ProgressBar id={progressBarId} aria-describedby={helpTextId} value={value} />
             <HelpText id={helpTextId}>
               Increasing your ram helps your computer run faster. {NumberFormatter.format(value)}% complete.
@@ -74,13 +81,10 @@ export const CustomizationWrapper: React.FC<React.PropsWithChildren<{isTestEnvir
           </FormControl>
 
           <FormControl>
-            <Box>Custom element name</Box>
-            <ProgressBar
-              element="PROGGER"
-              aria-label="Custom Element progress bar"
-              aria-describedby={helpTextId}
-              value={value}
-            />
+            <ProgressBarLabel element="PROGGER_LABEL" htmlFor={customProgressBarId}>
+              Custom element name
+            </ProgressBarLabel>
+            <ProgressBar element="PROGGER" id={customProgressBarId} aria-describedby={helpTextId} value={value} />
           </FormControl>
 
           <Button

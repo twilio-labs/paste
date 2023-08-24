@@ -1,8 +1,11 @@
 import * as React from 'react';
 import {Box, type BoxProps} from '@twilio-paste/box';
+import type {HTMLPasteProps} from '@twilio-paste/types';
 import {useProgressBar} from '@twilio-paste/react-spectrum-library';
 import {animated, useSpring} from '@twilio-paste/animation-library';
 import {keyframes} from '@twilio-paste/styling-library';
+
+import {LABEL_SUFFIX} from './constants';
 
 const AnimatedBox = animated(Box);
 const IndeterminateKeyframes = keyframes`
@@ -14,7 +17,7 @@ const IndeterminateKeyframes = keyframes`
   }
 `;
 
-export interface ProgressBarProps {
+export interface ProgressBarProps extends HTMLPasteProps<'progress'> {
   element?: BoxProps['element'];
   id?: string;
   'aria-label'?: string;
@@ -51,11 +54,22 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((p
 
   const style = useSpring(springConfig);
 
+  /*
+   * Since ProgressBar isn't a form element, we cannot use htmlFor from the regular label
+   * so we create a ProgressBarLabel component that behaves like a regular form Label
+   * but leverages aria-labelledby instead of htmlFor transparently.
+   */
+  let labelledBy = props['aria-labelledby'];
+  if (labelledBy == null && props.id != null) {
+    labelledBy = `${props.id}${LABEL_SUFFIX}`;
+  }
+
   return (
     <Box
       ref={ref}
       element={element}
       {...progressBarProps}
+      aria-labelledby={labelledBy}
       height="16px"
       width="100%"
       backgroundColor="colorBackgroundWeak"

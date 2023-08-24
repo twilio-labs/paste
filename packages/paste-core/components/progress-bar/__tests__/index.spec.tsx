@@ -2,22 +2,24 @@ import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 
-import {ProgressBar} from '../src';
+import {LABEL_SUFFIX} from '../src/constants';
+import {ProgressBar, ProgressBarLabel} from '../src';
+import {HelpText} from '@twilio-paste/help-text';
 
 describe('ProgressBar', () => {
   describe('base usage', () => {
     it('should render correctly with all aria attributes', () => {
       const {rerender} = render(
         <Theme.Provider theme="twilio">
+          <ProgressBarLabel htmlFor="test-progress-bar">Download progress</ProgressBarLabel>
           <ProgressBar
             id="test-progress-bar"
-            aria-label="test-aria-label"
-            aria-labelledby="test-labelledby"
             aria-describedby="test-description"
             value={33}
             minValue={20}
             maxValue={120}
           />
+          <HelpText id="test-description">Downloading more ram</HelpText>
         </Theme.Provider>
       );
 
@@ -28,22 +30,21 @@ describe('ProgressBar', () => {
       expect(progressBar).toHaveAttribute('aria-valuenow', '33');
       expect(progressBar).toHaveAttribute('aria-valuetext', '13%');
       expect(progressBar).toHaveAttribute('id', 'test-progress-bar');
-      expect(progressBar).toHaveAttribute('aria-label', 'test-aria-label');
       expect(progressBar).toHaveAttribute('aria-describedby', 'test-description');
-      expect(progressBar).toHaveAttribute('aria-labelledby', 'test-progress-bar test-labelledby');
+      expect(progressBar).toHaveAttribute('aria-labelledby', `test-progress-bar${LABEL_SUFFIX}`);
 
       // New render to test other conditions
       rerender(
         <Theme.Provider theme="twilio">
+          <ProgressBarLabel htmlFor="test-progress-bar">Download progress</ProgressBarLabel>
           <ProgressBar
             id="test-progress-bar"
-            aria-label="test-aria-label"
-            aria-labelledby="test-labelledby"
             aria-describedby="test-description"
             value={50}
             minValue={20}
             maxValue={120}
           />
+          <HelpText id="test-description">Downloading more ram</HelpText>
         </Theme.Provider>
       );
       expect(progressBar).toHaveAttribute('aria-valuenow', '50');
