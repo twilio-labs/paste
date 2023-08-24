@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.1.0
+
+### Minor Changes
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - - [design-tokens] Add colorTextDestructive tokens
+
 ## 10.0.0
 
 ### Major Changes

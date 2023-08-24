@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.0.1
+
+### Patch Changes
+
+- [`2a1f8b954`](https://github.com/twilio-labs/paste/commit/2a1f8b954cdfc12cf40b7f5cd633d0b9ea9e882d) [#3425](https://github.com/twilio-labs/paste/pull/3425) Thanks [@TheSisb](https://github.com/TheSisb)! - [Input, Input Box] allow passing `type="url"` to the Input component for convenient browser validation.
+
 ## 9.0.0
 
 ### Major Changes

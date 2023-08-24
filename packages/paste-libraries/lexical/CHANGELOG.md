@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.0
+
+### Major Changes
+
+- [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90) [#3426](https://github.com/twilio-labs/paste/pull/3426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Lexical Library] Update lexical to version v0.12.0 This includes some breaking changes as listed in their [Changelog](https://github.com/facebook/lexical/releases)
+
 ## 3.0.0
 
 ### Major Changes
