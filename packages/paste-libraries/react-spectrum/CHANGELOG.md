@@ -1,5 +1,11 @@
 # @twilio-paste/react-spectrum-library
 
+## 2.1.0
+
+### Minor Changes
+
+- [`feeaa90fa`](https://github.com/twilio-labs/paste/commit/feeaa90fa4fff395ffc8a817f4ca358713d5d9be) [#3421](https://github.com/twilio-labs/paste/pull/3421) Thanks [@TheSisb](https://github.com/TheSisb)! - [React Spectrum Library] export the `useProgressBar` hook and the `useMeter` hook
+
 ## 2.0.0
 
 ### Major Changes

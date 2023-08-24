@@ -1,5 +1,16 @@
 # @twilio-paste/chat-composer
 
+## 5.0.0
+
+### Minor Changes
+
+- [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90) [#3426](https://github.com/twilio-labs/paste/pull/3426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat-Composer] updates to accomodate the new version of Lexical
+
+### Patch Changes
+
+- Updated dependencies [[`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90)]:
+  - @twilio-paste/lexical-library@4.0.0
+
 ## 4.0.0
 
 ### Major Changes

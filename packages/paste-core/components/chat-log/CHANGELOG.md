@@ -1,5 +1,11 @@
 # @twilio-paste/chat-log
 
+## 5.1.0
+
+### Minor Changes
+
+- [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90) [#3426](https://github.com/twilio-labs/paste/pull/3426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat Log] Better handling of user generated text with line breaks and forward Refs to the ChatLogger component for better control over displaying chat messages
+
 ## 5.0.0
 
 ### Major Changes
