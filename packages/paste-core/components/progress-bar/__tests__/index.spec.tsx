@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {render, screen} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+import {HelpText} from '@twilio-paste/help-text';
 
 import {LABEL_SUFFIX} from '../src/constants';
 import {ProgressBar, ProgressBarLabel} from '../src';
-import {HelpText} from '@twilio-paste/help-text';
 
 describe('ProgressBar', () => {
   describe('base usage', () => {
@@ -15,6 +15,11 @@ describe('ProgressBar', () => {
           <ProgressBar
             id="test-progress-bar"
             aria-describedby="test-description"
+            /*
+             * test doesnt understand we have aria-labelledby internally,
+             * so we need to add this label to remove the logspam
+             */
+            aria-label="X"
             value={33}
             minValue={20}
             maxValue={120}
@@ -40,6 +45,11 @@ describe('ProgressBar', () => {
           <ProgressBar
             id="test-progress-bar"
             aria-describedby="test-description"
+            /*
+             * test doesnt understand we have aria-labelledby internally,
+             * so we need to add this label to remove the logspam
+             */
+            aria-label="X"
             value={50}
             minValue={20}
             maxValue={120}
@@ -56,7 +66,8 @@ describe('ProgressBar', () => {
     it('should set DEFAULT data-paste-element attribute', (): void => {
       render(
         <Theme.Provider theme="twilio">
-          <ProgressBar id="test-progress-bar" aria-label="test-aria-label" value={33} minValue={20} maxValue={120} />
+          <div id="labelledby">Download progress</div>
+          <ProgressBar id="test-progress-bar" aria-labelledby="labelledby" value={33} minValue={20} maxValue={120} />
         </Theme.Provider>
       );
 
@@ -66,7 +77,7 @@ describe('ProgressBar', () => {
       expect(progressBar.firstChild).toHaveAttribute('data-paste-element', 'PROGRESS_BAR_FILL');
     });
 
-    it('should set DEFAULT data-paste-element attribute', (): void => {
+    it('should set CUSTOM data-paste-element attribute', (): void => {
       render(
         <Theme.Provider theme="twilio">
           <ProgressBar
