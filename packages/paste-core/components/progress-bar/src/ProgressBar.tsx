@@ -70,10 +70,10 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((p
       element={element}
       {...progressBarProps}
       aria-labelledby={labelledBy}
-      height="16px"
+      height="20px"
       width="100%"
       backgroundColor="colorBackgroundWeak"
-      borderRadius="borderRadius30"
+      borderRadius="borderRadiusPill"
       position="relative"
       overflow="hidden"
     >
@@ -87,7 +87,7 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((p
         backgroundImage={
           isIndeterminate
             ? 'linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent)'
-            : 'linear-gradient(to bottom, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.05))'
+            : 'none'
         }
         animation={isIndeterminate ? `${IndeterminateKeyframes} 3s linear infinite` : undefined}
       />
