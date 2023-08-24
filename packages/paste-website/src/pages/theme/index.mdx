@@ -67,7 +67,7 @@ the theme object to any descendant components in the tree. For that reason, we r
 application at the root level with the Paste `ThemeProvider`. This allows all sub-components to retrieve
 the correct token value for the supplied theme.
 
-```js
+```javascript
 import {Theme} from '@twilio-paste/theme';
 
 <Theme.Provider theme="default">
@@ -104,7 +104,7 @@ By using the `Theme.Provider`, when you create a custom component using Styling-
 
 This is the preferred method.
 
-```js
+```javascript
 import {styled, css} from '@twilio-paste/styling-library';
 
 const custom = styled.div(
@@ -131,7 +131,7 @@ If you are not using Styled Components or want to access the values of tokens in
 
 Paste Theme provides `Theme.Consumer` - a React Context Consumer for the theme. It takes a function as a child, which provides the theme object as an argument.
 
-```js
+```javascript
 import {Theme} from '@twilio-paste/theme';
 
 <Theme.Consumer>
@@ -145,7 +145,7 @@ import {Theme} from '@twilio-paste/theme';
 
 Paste Theme provides a React Hook called `useTheme` which returns the theme object from the React Context via the Theme Provider.
 
-```js
+```javascript
 import React from 'react';
 import {useTheme} from '@twilio-paste/theme';
 
@@ -159,7 +159,7 @@ const HookExampleComponent = (): React.ReactElement => {
 
 Paste also provides a HoC to be able to access the theme object.
 
-```js
+```javascript
 import React from 'react';
 import {withTheme} from '@twilio-paste/theme';
 
