@@ -13611,12 +13611,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/cra-template@workspace:packages/paste-cra-template":
-  version: 0.0.0-use.local
-  resolution: "@twilio-paste/cra-template@workspace:packages/paste-cra-template"
-  languageName: unknown
-  linkType: soft
-
 "@twilio-paste/customization@^8.0.0, @twilio-paste/customization@workspace:packages/paste-customization":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/customization@workspace:packages/paste-customization"
@@ -15068,9 +15062,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/nextjs-template@workspace:packages/paste-nextjs-template":
+"@twilio-paste/nextjs-template@workspace:templates/paste-nextjs-template":
   version: 0.0.0-use.local
-  resolution: "@twilio-paste/nextjs-template@workspace:packages/paste-nextjs-template"
+  resolution: "@twilio-paste/nextjs-template@workspace:templates/paste-nextjs-template"
   dependencies:
     "@twilio-paste/core": ^20.0.0
     "@twilio-paste/icons": ^12.0.0

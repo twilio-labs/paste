@@ -92,7 +92,6 @@ export const getChangesetsFromFiles = (fileList: string[]) =>
 
 export const IGNORE_LIST = [
   'paste-website',
-  'paste-cra-template',
   'paste-nextjs-template',
   'paste-theme-designer',
   'paste-color-contrast-utils',
