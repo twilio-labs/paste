@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import type {ButtonProps} from '@twilio-paste/button';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
@@ -17,11 +17,5 @@ const FilePickerButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 FilePickerButton.displayName = 'FilePickerButton';
-
-FilePickerButton.propTypes = {
-  element: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-};
 
 export {FilePickerButton};

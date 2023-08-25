@@ -1,7 +1,6 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import type {MarginProps, Space} from '@twilio-paste/style-props';
-import {ResponsiveProp} from '@twilio-paste/style-props';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import type {ColumnProps, GridProps} from './types';
@@ -84,13 +83,5 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
 );
 
 Grid.displayName = 'Grid';
-
-Grid.propTypes = {
-  as: PropTypes.string as any,
-  children: PropTypes.node.isRequired,
-  equalColumnHeights: PropTypes.bool,
-  element: PropTypes.string,
-  vertical: ResponsiveProp(PropTypes.bool),
-};
 
 export {Grid};

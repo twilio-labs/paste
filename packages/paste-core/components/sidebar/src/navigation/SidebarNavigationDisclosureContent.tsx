@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {DisclosurePrimitiveContent} from '@twilio-paste/disclosure-primitive';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
@@ -35,9 +35,5 @@ const SidebarNavigationDisclosureContent = React.forwardRef<HTMLDivElement, Side
 );
 
 SidebarNavigationDisclosureContent.displayName = 'SidebarNavigationDisclosureContent';
-SidebarNavigationDisclosureContent.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
 
 export {SidebarNavigationDisclosureContent};

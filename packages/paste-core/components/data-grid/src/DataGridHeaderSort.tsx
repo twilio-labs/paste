@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
@@ -70,8 +70,3 @@ export const DataGridHeaderSort: React.FC<React.PropsWithChildren<DataGridHeader
 };
 
 DataGridHeaderSort.displayName = 'DataGridHeaderSort';
-DataGridHeaderSort.propTypes = {
-  direction: PropTypes.oneOf<SortDirection>(['ascending', 'descending', 'none']).isRequired,
-  onClick: PropTypes.func,
-  element: PropTypes.string,
-};

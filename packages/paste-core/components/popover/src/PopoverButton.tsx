@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Button} from '@twilio-paste/button';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 
@@ -23,13 +23,6 @@ const PopoverButton = React.forwardRef<HTMLButtonElement, PopoverButtonProps>(
     );
   }
 );
-
-PopoverButton.propTypes = {
-  id: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  toggle: PropTypes.func,
-  element: PropTypes.string,
-};
 
 PopoverButton.displayName = 'PopoverButton';
 export {PopoverButton};

@@ -1,0 +1,75 @@
+---
+'@twilio-paste/codemods': patch
+'@twilio-paste/account-switcher': major
+'@twilio-paste/alert': major
+'@twilio-paste/alert-dialog': major
+'@twilio-paste/anchor': major
+'@twilio-paste/avatar': major
+'@twilio-paste/badge': major
+'@twilio-paste/base-radio-checkbox': major
+'@twilio-paste/breadcrumb': major
+'@twilio-paste/button': major
+'@twilio-paste/button-group': major
+'@twilio-paste/callout': major
+'@twilio-paste/card': major
+'@twilio-paste/chat-log': major
+'@twilio-paste/checkbox': major
+'@twilio-paste/code-block': major
+'@twilio-paste/combobox': major
+'@twilio-paste/data-grid': major
+'@twilio-paste/date-picker': major
+'@twilio-paste/description-list': major
+'@twilio-paste/detail-text': major
+'@twilio-paste/disclosure': major
+'@twilio-paste/display-heading': major
+'@twilio-paste/editable-code-block': major
+'@twilio-paste/file-picker': major
+'@twilio-paste/file-uploader': major
+'@twilio-paste/form': major
+'@twilio-paste/heading': major
+'@twilio-paste/help-text': major
+'@twilio-paste/in-page-navigation': major
+'@twilio-paste/inline-code': major
+'@twilio-paste/input-box': major
+'@twilio-paste/label': major
+'@twilio-paste/list': major
+'@twilio-paste/menu': major
+'@twilio-paste/minimizable-dialog': major
+'@twilio-paste/modal': major
+'@twilio-paste/pagination': major
+'@twilio-paste/paragraph': major
+'@twilio-paste/popover': major
+'@twilio-paste/product-switcher': major
+'@twilio-paste/progress-steps': major
+'@twilio-paste/radio-button-group': major
+'@twilio-paste/radio-group': major
+'@twilio-paste/screen-reader-only': major
+'@twilio-paste/select': major
+'@twilio-paste/separator': major
+'@twilio-paste/side-modal': major
+'@twilio-paste/sidebar': major
+'@twilio-paste/spinner': major
+'@twilio-paste/status': major
+'@twilio-paste/switch': major
+'@twilio-paste/table': major
+'@twilio-paste/tabs': major
+'@twilio-paste/textarea': major
+'@twilio-paste/time-picker': major
+'@twilio-paste/toast': major
+'@twilio-paste/tooltip': major
+'@twilio-paste/topbar': major
+'@twilio-paste/truncate': major
+'@twilio-paste/user-dialog': major
+'@twilio-paste/core': major
+'@twilio-paste/aspect-ratio': major
+'@twilio-paste/flex': major
+'@twilio-paste/grid': major
+'@twilio-paste/media-object': major
+'@twilio-paste/stack': major
+'@twilio-paste/sibling-box': major
+'@twilio-paste/style-props': major
+---
+
+Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+**ACTION NEEDED**: None. This should be 100% backwards compatible.

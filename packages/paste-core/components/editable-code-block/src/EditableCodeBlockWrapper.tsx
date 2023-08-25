@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
@@ -28,8 +28,3 @@ export const EditableCodeBlockWrapper = React.forwardRef<HTMLDivElement, Editabl
 );
 
 EditableCodeBlockWrapper.displayName = 'EditableCodeBlockWrapper';
-
-EditableCodeBlockWrapper.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

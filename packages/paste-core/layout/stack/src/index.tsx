@@ -1,9 +1,8 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {useUIDSeed} from '@twilio-paste/uid-library';
 import type {ResponsiveValue} from '@twilio-paste/styling-library';
 import type {LayoutProps, FlexboxProps, MarginProps, SpaceOptions} from '@twilio-paste/style-props';
-import {isSpaceTokenProp, ResponsiveProp} from '@twilio-paste/style-props';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
@@ -107,11 +106,5 @@ const Stack = React.forwardRef<HTMLDivElement, StackProps>(
 );
 
 Stack.displayName = 'Stack';
-
-Stack.propTypes = {
-  orientation: ResponsiveProp(PropTypes.oneOf(['horizontal', 'vertical'])).isRequired,
-  spacing: isSpaceTokenProp,
-  element: PropTypes.string,
-};
 
 export {Stack};

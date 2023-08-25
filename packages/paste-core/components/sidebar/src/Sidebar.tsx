@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps, type BoxProps} from '@twilio-paste/box';
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {useTheme} from '@twilio-paste/theme';
@@ -132,15 +132,3 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   }
 );
 Sidebar.displayName = 'Sidebar';
-Sidebar.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  collapsed: PropTypes.bool,
-  variant: PropTypes.oneOf(['default', 'compact', 'hidden']).isRequired,
-  mainContentSkipLinkID: PropTypes.string,
-  sidebarNavigationSkipLinkID: PropTypes.string,
-  topbarSkipLinkID: PropTypes.string,
-  i18nMainContentSkipLinkText: PropTypes.string,
-  i18nNavigationSkipLinkText: PropTypes.string,
-  i18nTopbarSkipLinkText: PropTypes.string,
-};

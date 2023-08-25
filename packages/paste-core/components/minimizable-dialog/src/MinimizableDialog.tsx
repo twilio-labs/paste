@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import type {BoxProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {StyledBase} from '@twilio-paste/theme';
@@ -61,9 +61,3 @@ export const MinimizableDialog = React.forwardRef<HTMLDivElement, MinimizableDia
 );
 
 MinimizableDialog.displayName = 'MinimizableDialog';
-
-MinimizableDialog.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};

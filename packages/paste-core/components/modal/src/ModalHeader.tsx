@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -35,10 +35,5 @@ const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(
   }
 );
 ModalHeader.displayName = 'ModalHeader';
-
-ModalHeader.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
 
 export {ModalHeader};

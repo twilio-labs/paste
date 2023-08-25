@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 
@@ -36,11 +36,5 @@ const ModalFooterActions = React.forwardRef<HTMLDivElement, ModalFooterActionsPr
   }
 );
 ModalFooterActions.displayName = 'ModalFooterActions';
-
-ModalFooterActions.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  justify: PropTypes.oneOf(['start', 'end'] as Justify[]),
-};
 
 export {ModalFooterActions};

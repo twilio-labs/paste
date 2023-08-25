@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Tabs} from '@twilio-paste/tabs';
@@ -34,8 +34,3 @@ export const CodeBlockWrapper = React.forwardRef<HTMLDivElement, CodeBlockWrappe
 );
 
 CodeBlockWrapper.displayName = 'CodeBlockWrapper';
-
-CodeBlockWrapper.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

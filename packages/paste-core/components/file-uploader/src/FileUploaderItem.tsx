@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -110,14 +110,3 @@ export const FileUploaderItem = React.forwardRef<HTMLLIElement, FileUploaderItem
 );
 
 FileUploaderItem.displayName = 'FileUploaderItem';
-
-FileUploaderItem.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-  fileIcon: PropTypes.node,
-  i18nButtonText: PropTypes.string,
-  i18nErrorText: PropTypes.string,
-  i18nLoadingText: PropTypes.string,
-  onButtonClick: PropTypes.func,
-  variant: PropTypes.oneOf(['default', 'error', 'loading']),
-};

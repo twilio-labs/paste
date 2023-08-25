@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Badge} from '@twilio-paste/badge';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 
@@ -36,12 +36,6 @@ const PopoverBadgeButton = React.forwardRef<HTMLButtonElement, PopoverBadgeButto
     );
   }
 );
-
-PopoverBadgeButton.propTypes = {
-  id: PropTypes.string,
-  toggle: PropTypes.func,
-  element: PropTypes.string,
-};
 
 PopoverBadgeButton.displayName = 'PopoverBadgeButton';
 export {PopoverBadgeButton};

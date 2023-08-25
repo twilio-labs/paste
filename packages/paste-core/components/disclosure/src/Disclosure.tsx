@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {useDisclosurePrimitiveState} from '@twilio-paste/disclosure-primitive';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
@@ -39,11 +39,6 @@ const Disclosure = React.forwardRef<HTMLDivElement, DisclosureProps>(
   }
 );
 Disclosure.displayName = 'Disclosure';
-Disclosure.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'contained'] as DisclosureVariants[]),
-};
 
 export {Disclosure};
 

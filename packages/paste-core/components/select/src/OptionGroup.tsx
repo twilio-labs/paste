@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
@@ -32,13 +32,5 @@ const OptionGroup = React.forwardRef<HTMLOptGroupElement, OptionGroupProps>(
 );
 
 OptionGroup.displayName = 'OptionGroup';
-
-if (process.env.NODE_ENV === 'development') {
-  OptionGroup.propTypes = {
-    label: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-    element: PropTypes.string,
-  };
-}
 
 export {OptionGroup};

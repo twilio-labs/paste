@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import type {BoxProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -80,15 +80,6 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
     );
   }
 );
-
-Popover.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  i18nDismissLabel: PropTypes.string,
-  initialFocusRef: PropTypes.object as any,
-  width: PropTypes.oneOf(['size10', 'size20', 'size30', 'size40', 'size50'] as WidthOptions[]),
-};
 
 Popover.displayName = 'Popover';
 export {Popover};

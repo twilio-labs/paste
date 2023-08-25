@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ChevronDisclosureIcon} from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
 import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
@@ -93,11 +93,5 @@ const SidebarNavigationDisclosureHeading = React.forwardRef<HTMLDivElement, Side
   }
 );
 SidebarNavigationDisclosureHeading.displayName = 'SidebarNavigationDisclosureHeading';
-SidebarNavigationDisclosureHeading.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-  selected: PropTypes.bool,
-  icon: PropTypes.node,
-};
 
 export {SidebarNavigationDisclosureHeading};

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {styled, css} from '@twilio-paste/styling-library';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
@@ -116,9 +116,5 @@ const SiblingBox = React.forwardRef<HTMLSpanElement, React.PropsWithChildren<Sib
 );
 
 SiblingBox.displayName = 'SiblingBox';
-
-SiblingBox.propTypes = {
-  type: PropTypes.oneOf(['checkbox', 'radio', 'file']),
-};
 
 export {SiblingBox};

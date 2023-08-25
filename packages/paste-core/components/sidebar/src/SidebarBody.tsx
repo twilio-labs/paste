@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
@@ -27,7 +27,3 @@ export const SidebarBody = React.forwardRef<HTMLDivElement, SidebarBodyProps>(
   }
 );
 SidebarBody.displayName = 'SidebarBody';
-SidebarBody.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};

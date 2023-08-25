@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
@@ -36,10 +36,5 @@ export const SidebarHeaderLabel = React.forwardRef<HTMLButtonElement, SidebarHea
     );
   }
 );
-
-SidebarHeaderLabel.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};
 
 SidebarHeaderLabel.displayName = 'SidebarHeaderLabel';

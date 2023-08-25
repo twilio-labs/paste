@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
@@ -29,11 +29,6 @@ const MinimizableDialogContent = React.forwardRef<HTMLDivElement, MinimizableDia
     );
   }
 );
-
-MinimizableDialogContent.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};
 
 MinimizableDialogContent.displayName = 'MinimizableDialogContent';
 export {MinimizableDialogContent};

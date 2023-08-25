@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {css, styled} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
 import {safelySpreadBoxProps, Box, getCustomElementStyles} from '@twilio-paste/box';
@@ -141,16 +141,5 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   }
 );
 Modal.displayName = 'Modal';
-
-Modal.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  isOpen: PropTypes.bool.isRequired,
-  onDismiss: PropTypes.func.isRequired,
-  allowPinchZoom: PropTypes.bool,
-  size: PropTypes.oneOf(['default', 'wide'] as Sizes[]).isRequired,
-  initialFocusRef: PropTypes.object as any,
-  ariaLabelledby: PropTypes.string.isRequired,
-};
 
 export {Modal};

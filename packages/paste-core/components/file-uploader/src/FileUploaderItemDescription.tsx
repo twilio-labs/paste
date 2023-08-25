@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import type {BoxElementProps} from '@twilio-paste/box';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import type {TextStyleProps} from '@twilio-paste/text';
@@ -46,8 +46,3 @@ export const FileUploaderItemDescription = React.forwardRef<HTMLElement, FileUpl
 );
 
 FileUploaderItemDescription.displayName = 'FileUploaderItemDescription';
-
-FileUploaderItemDescription.propTypes = {
-  children: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};

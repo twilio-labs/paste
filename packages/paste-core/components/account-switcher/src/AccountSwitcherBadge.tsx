@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {MenuBadge, MenuBadgePropTypes} from '@twilio-paste/menu';
+import {MenuBadge} from '@twilio-paste/menu';
 import type {MenuBadgeProps} from '@twilio-paste/menu';
 
 export interface AccountSwitcherBadgeProps extends Omit<MenuBadgeProps, 'variant'> {
@@ -16,8 +16,5 @@ const AccountSwitcherBadge = React.forwardRef<HTMLButtonElement, AccountSwitcher
   }
 );
 
-// omit variant from MenuBadgePropTypes because it conflicts with AccountSwitcherBadge
-const {variant, ...accountSwitcherPropTypes} = MenuBadgePropTypes;
 AccountSwitcherBadge.displayName = 'AccountSwitcherBadge';
-AccountSwitcherBadge.propTypes = accountSwitcherPropTypes;
 export {AccountSwitcherBadge};

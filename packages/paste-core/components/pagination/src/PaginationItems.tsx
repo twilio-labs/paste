@@ -4,7 +4,6 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import {ULStyles, LIStyles} from './styles';
 import type {PaginationItemsProps} from './types';
-import {PaginationItemsPropTypes} from './proptypes';
 
 const PaginationItems = React.forwardRef<HTMLUListElement, PaginationItemsProps>(
   ({children, element = 'PAGINATION_ITEMS', ...props}, ref) => {
@@ -38,7 +37,5 @@ const PaginationItems = React.forwardRef<HTMLUListElement, PaginationItemsProps>
 );
 
 PaginationItems.displayName = 'PaginationItems';
-
-PaginationItems.propTypes = PaginationItemsPropTypes;
 
 export {PaginationItems};

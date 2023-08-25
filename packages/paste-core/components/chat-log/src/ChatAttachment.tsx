@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import type {BoxElementProps} from '@twilio-paste/box';
 import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
@@ -34,11 +34,5 @@ const ChatAttachment = React.forwardRef<HTMLDivElement, ChatAttachmentProps>(
 );
 
 ChatAttachment.displayName = 'ChatAttachment';
-
-ChatAttachment.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  attachmentIcon: PropTypes.node.isRequired,
-};
 
 export {ChatAttachment};

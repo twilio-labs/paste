@@ -1,8 +1,7 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import {isMaxWidthTokenProp} from '@twilio-paste/style-props';
 
 export interface FormProps extends Omit<React.ComponentPropsWithRef<'form'>, 'children'> {
   element?: BoxProps['element'];
@@ -28,9 +27,3 @@ export const Form = React.forwardRef<HTMLDivElement, FormProps>(
 );
 
 Form.displayName = 'Form';
-
-Form.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-  maxWidth: isMaxWidthTokenProp,
-};

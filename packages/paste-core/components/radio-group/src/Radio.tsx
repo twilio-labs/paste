@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
@@ -199,20 +199,5 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
 );
 
 Radio.displayName = 'Radio';
-
-if (process.env.NODE_ENV === 'development') {
-  Radio.propTypes = {
-    id: PropTypes.string,
-    value: PropTypes.string,
-    name: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    hasError: PropTypes.bool,
-    helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    onChange: PropTypes.func,
-    children: PropTypes.node.isRequired,
-    element: PropTypes.string,
-  };
-}
 
 export {Radio, HiddenRadio, type HiddenRadioState};

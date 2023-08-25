@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
 import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
 import {Text} from '@twilio-paste/text';
@@ -45,12 +44,5 @@ const MenuGroup = React.forwardRef<HTMLDivElement, MenuGroupProps>(
   }
 );
 
-export const MenuGroupPropTypes = {
-  label: PropTypes.string.isRequired,
-  icon: PropTypes.element,
-  element: PropTypes.string,
-};
-
 MenuGroup.displayName = 'MenuGroup';
-MenuGroup.propTypes = MenuGroupPropTypes;
 export {MenuGroup};

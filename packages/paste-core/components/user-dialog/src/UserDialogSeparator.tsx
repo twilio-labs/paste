@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Separator, type SeparatorProps} from '@twilio-paste/separator';
 import {Box} from '@twilio-paste/box';
 
@@ -14,7 +14,3 @@ export const UserDialogSeparator = React.forwardRef<
   );
 });
 UserDialogSeparator.displayName = 'UserDialogSeparator';
-
-UserDialogSeparator.propTypes = {
-  element: PropTypes.string,
-};

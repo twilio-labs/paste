@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles, ToggleIconButtonStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
@@ -64,9 +63,7 @@ const SecondaryIconButton = React.forwardRef<HTMLButtonElement, DirectButtonProp
 SecondaryIconButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  SecondaryIconButton.propTypes = DirectButtonPropTypes;
-}
+
 SecondaryIconButton.displayName = 'SecondaryIconButton';
 
 export {SecondaryIconButton};

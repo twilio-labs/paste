@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import type {BoxProps} from '@twilio-paste/box';
@@ -31,11 +31,6 @@ export const CalloutList = React.forwardRef<HTMLElement, CalloutListProps>(
 );
 
 CalloutList.displayName = 'CalloutList';
-CalloutList.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-  as: PropTypes.oneOf(['ul', 'ol'] as AsTags[]).isRequired,
-};
 
 export interface CalloutListItemProps extends Partial<Omit<HTMLLIElement, 'children'>> {
   children?: React.ReactNode;
@@ -51,7 +46,3 @@ export const CalloutListItem = React.forwardRef<HTMLLIElement, CalloutListItemPr
 );
 
 CalloutListItem.displayName = 'CalloutListItem';
-CalloutListItem.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

@@ -2,8 +2,6 @@ import * as React from 'react';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 
 import type {PaginationLabelProps} from './types';
-import {PaginationLabelPropTypes} from './proptypes';
-
 const PaginationLabel = React.forwardRef<HTMLDivElement, PaginationLabelProps>(
   ({children, element = 'PAGINATION_LABEL', ...props}, ref) => {
     return (
@@ -24,7 +22,5 @@ const PaginationLabel = React.forwardRef<HTMLDivElement, PaginationLabelProps>(
 );
 
 PaginationLabel.displayName = 'PaginationLabel';
-
-PaginationLabel.propTypes = PaginationLabelPropTypes;
 
 export {PaginationLabel};

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {MenuPrimitiveItemCheckbox} from '@twilio-paste/menu-primitive';
 
 import type {MenuItemCheckboxProps} from './types';
@@ -16,18 +16,5 @@ const MenuItemCheckbox = React.forwardRef<HTMLDivElement, MenuItemCheckboxProps>
   }
 );
 
-export const MenuItemCheckboxPropTypes = {
-  href: PropTypes.string,
-  variant: PropTypes.oneOf(Object.values(MenuItemVariants)),
-  disabled: PropTypes.bool,
-  id: PropTypes.string,
-  onClick: PropTypes.func,
-  element: PropTypes.string,
-  value: PropTypes.string,
-  checked: PropTypes.bool,
-  name: PropTypes.string,
-};
-
 MenuItemCheckbox.displayName = 'MenuItemCheckbox';
-MenuItemCheckbox.propTypes = MenuItemCheckboxPropTypes;
 export {MenuItemCheckbox};

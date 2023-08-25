@@ -1,7 +1,6 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ThPropTypes} from '@twilio-paste/table';
 import type {ThProps as TableThProps} from '@twilio-paste/table';
 
 export interface ThProps extends TableThProps {
@@ -45,7 +44,3 @@ export const Th = React.forwardRef<HTMLTableCellElement, ThProps>(
 );
 
 Th.displayName = 'Th';
-Th.propTypes = {
-  ...ThPropTypes,
-  onClick: PropTypes.func,
-};

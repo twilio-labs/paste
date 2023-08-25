@@ -1,9 +1,9 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {Space} from '@twilio-paste/style-props';
-import {isMarginTokenProp} from '@twilio-paste/style-props';
+
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
 type Orientation = 'horizontal' | 'vertical';
@@ -41,12 +41,5 @@ const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>(
 );
 
 Separator.displayName = 'Separator';
-
-Separator.propTypes = {
-  element: PropTypes.string,
-  orientation: PropTypes.oneOf(['horizontal', 'vertical'] as Orientation[]).isRequired,
-  horizontalSpacing: isMarginTokenProp,
-  verticalSpacing: isMarginTokenProp,
-};
 
 export {Separator};

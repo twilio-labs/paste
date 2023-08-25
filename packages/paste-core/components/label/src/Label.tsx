@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
@@ -108,17 +108,5 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
 );
 
 Label.displayName = 'Label';
-
-Label.propTypes = {
-  as: PropTypes.oneOf(['label', 'legend', 'div']),
-  disabled: PropTypes.bool,
-  element: PropTypes.string,
-  htmlFor: PropTypes.string,
-  marginBottom: PropTypes.oneOf(['space0']),
-  required: PropTypes.bool,
-  i18nRequiredLabel: PropTypes.string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  variant: PropTypes.oneOf(['default', 'inverse']) as any,
-};
 
 export {Label};

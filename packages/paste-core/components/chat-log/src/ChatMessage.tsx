@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps, BoxElementProps} from '@twilio-paste/box';
 
@@ -48,9 +48,3 @@ export const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
 );
 
 ChatMessage.displayName = 'ChatMessage';
-
-ChatMessage.propTypes = {
-  children: PropTypes.node,
-  variant: PropTypes.oneOf(['inbound', 'outbound'] as MessageVariants[]).isRequired,
-  element: PropTypes.string,
-};

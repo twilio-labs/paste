@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
@@ -77,14 +77,6 @@ const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
     );
   }
 );
-
-if (process.env.NODE_ENV === 'development') {
-  Tooltip.propTypes = {
-    children: PropTypes.element.isRequired,
-    text: PropTypes.string.isRequired,
-    element: PropTypes.string,
-  };
-}
 
 Tooltip.displayName = 'Tooltip';
 export {Tooltip};

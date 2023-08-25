@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import {UploadToCloudIcon} from '@twilio-paste/icons/esm/UploadToCloudIcon';
@@ -204,16 +204,3 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
 );
 
 FileUploaderDropzone.displayName = 'FileUploaderDropzone';
-
-FileUploaderDropzone.propTypes = {
-  acceptedMimeTypes: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-  children: PropTypes.node,
-  element: PropTypes.string,
-  onDragEnter: PropTypes.func,
-  onDragEnd: PropTypes.func,
-  onDragLeave: PropTypes.func,
-  onDragOver: PropTypes.func,
-  onDragStart: PropTypes.func,
-  onDrop: PropTypes.func,
-  onInputChange: PropTypes.func,
-};

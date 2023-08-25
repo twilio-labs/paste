@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
@@ -122,16 +122,5 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
 );
 
 FilePicker.displayName = 'FilePicker';
-
-FilePicker.propTypes = {
-  accept: PropTypes.string,
-  children: PropTypes.element.isRequired,
-  element: PropTypes.string,
-  disabled: PropTypes.bool,
-  i18nNoSelectionText: PropTypes.string,
-  required: PropTypes.bool,
-  onChange: PropTypes.func,
-  name: PropTypes.string,
-};
 
 export {FilePicker};

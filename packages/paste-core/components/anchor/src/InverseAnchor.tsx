@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 
-import {AnchorPropTypes} from './proptypes';
 import type {AnchorProps} from './types';
 
 const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, ref) => (
@@ -34,9 +33,5 @@ const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
 ));
 
 InverseAnchor.displayName = 'InverseAnchor';
-
-if (process.env.NODE_ENV === 'development') {
-  InverseAnchor.propTypes = AnchorPropTypes;
-}
 
 export {InverseAnchor};

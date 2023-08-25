@@ -3,7 +3,6 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import {TableContext} from './TableContext';
 import type {TrProps} from './types';
-import {TrPropTypes} from './proptypes';
 
 const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
   ({element = 'TR', verticalAlign = 'middle', ...props}, ref) => {
@@ -23,6 +22,5 @@ const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
 );
 
 Tr.displayName = 'Tr';
-Tr.propTypes = TrPropTypes;
 
 export {Tr};

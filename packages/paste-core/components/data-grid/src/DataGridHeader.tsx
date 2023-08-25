@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 
 import {DataGridCell} from './DataGridCell';
 import type {ThProps} from './table/Th';
@@ -19,7 +18,3 @@ export const DataGridHeader: React.FC<React.PropsWithChildren<ThProps>> = ({
 };
 
 DataGridHeader.displayName = 'DataGridHeader';
-DataGridHeader.propTypes = {
-  element: PropTypes.string,
-  colSpan: PropTypes.number,
-};

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
@@ -28,10 +28,5 @@ const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({children, ..
   );
 });
 Truncate.displayName = 'Truncate';
-
-Truncate.propTypes = {
-  children: PropTypes.node.isRequired,
-  title: PropTypes.string.isRequired,
-};
 
 export {Truncate};

@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextLinkDestructive',
@@ -54,9 +53,6 @@ const DestructiveLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonPr
 DestructiveLinkButton.defaultProps = {
   as: 'a' as keyof JSX.IntrinsicElements,
 };
-if (process.env.NODE_ENV === 'development') {
-  DestructiveLinkButton.propTypes = DirectButtonPropTypes;
-}
 DestructiveLinkButton.displayName = 'DestructiveLinkButton';
 
 export {DestructiveLinkButton};

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {ButtonProps} from '@twilio-paste/button';
@@ -97,10 +97,5 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
   }
 );
 SidebarNavigationItem.displayName = 'SidebarNavigationItem';
-SidebarNavigationItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  selected: PropTypes.bool,
-};
 
 export {SidebarNavigationItem};

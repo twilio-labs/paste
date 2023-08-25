@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
@@ -33,11 +33,5 @@ const SideModalFooterActions = React.forwardRef<HTMLDivElement, SideModalFooterA
 );
 
 SideModalFooterActions.displayName = 'SideModalFooterActions';
-
-SideModalFooterActions.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  justifyContent: PropTypes.oneOf(['flex-start', 'flex-end', 'space-between'] as JustifyOptions[]),
-};
 
 export {SideModalFooterActions};

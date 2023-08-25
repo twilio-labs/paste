@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Button} from '@twilio-paste/button';
 import {Box, type BoxProps} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
@@ -48,12 +48,5 @@ export const SidebarCollapseButton = React.forwardRef<HTMLButtonElement, Sidebar
     );
   }
 );
-
-SidebarCollapseButton.propTypes = {
-  i18nCollapseLabel: PropTypes.string.isRequired,
-  i18nExpandLabel: PropTypes.string.isRequired,
-  element: PropTypes.string,
-  onClick: PropTypes.func,
-};
 
 SidebarCollapseButton.displayName = 'SidebarCollapseButton';

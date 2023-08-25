@@ -1,7 +1,6 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {safelySpreadTextProps} from '@twilio-paste/text';
-import {isMarginTokenProp} from '@twilio-paste/style-props';
 
 import {List} from './List';
 import type {OrderedListProps} from './types';
@@ -25,11 +24,5 @@ const OrderedList = React.forwardRef<HTMLOListElement, OrderedListProps>(
 );
 
 OrderedList.displayName = 'OrderedList';
-
-OrderedList.propTypes = {
-  element: PropTypes.string,
-  marginTop: isMarginTokenProp,
-  marginBottom: isMarginTokenProp,
-};
 
 export {OrderedList};

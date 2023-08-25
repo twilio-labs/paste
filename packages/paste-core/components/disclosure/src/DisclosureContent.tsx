@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {DisclosurePrimitiveContent} from '@twilio-paste/disclosure-primitive';
@@ -78,9 +78,5 @@ const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProp
 );
 
 DisclosureContent.displayName = 'DisclosureContent';
-DisclosureContent.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
 
 export {DisclosureContent};

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -51,11 +51,5 @@ const InlineCode = React.forwardRef<HTMLDivElement, InlineCodeProps>(
 );
 
 InlineCode.displayName = 'InlineCode';
-
-InlineCode.propTypes = {
-  children: PropTypes.string.isRequired,
-  element: PropTypes.string,
-  variant: PropTypes.oneOf(['default', 'minimal']),
-};
 
 export {InlineCode};

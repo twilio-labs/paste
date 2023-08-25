@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Anchor} from '@twilio-paste/anchor';
 import type {AnchorProps} from '@twilio-paste/anchor';
 import type {BoxElementProps} from '@twilio-paste/box';
@@ -30,10 +30,5 @@ const ChatAttachmentLink = React.forwardRef<HTMLAnchorElement, ChatAttachmentLin
 );
 
 ChatAttachmentLink.displayName = 'ChatAttachmentLink';
-
-ChatAttachmentLink.propTypes = {
-  children: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};
 
 export {ChatAttachmentLink};

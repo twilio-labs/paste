@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {TBody} from '@twilio-paste/table';
 import type {TBodyProps} from '@twilio-paste/table';
 
@@ -14,6 +14,3 @@ export const DataGridBody = React.forwardRef<HTMLTableSectionElement, TBodyProps
   }
 );
 DataGridBody.displayName = 'DataGridBody';
-DataGridBody.propTypes = {
-  element: PropTypes.string,
-};

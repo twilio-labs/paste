@@ -12,7 +12,6 @@ import {ErrorToast} from './ErrorToast';
 import {NeutralToast} from './NeutralToast';
 import {SuccessToast} from './SuccessToast';
 import {WarningToast} from './WarningToast';
-import {ToastPropTypes} from './propTypes';
 import type {ToastProps, ToastVariants} from './types';
 import {ToastVariantObject} from './constants';
 
@@ -131,7 +130,5 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
 );
 
 Toast.displayName = 'Toast';
-
-Toast.propTypes = ToastPropTypes;
 
 export {Toast};

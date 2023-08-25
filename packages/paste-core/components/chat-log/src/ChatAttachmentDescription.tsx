@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import type {BoxElementProps} from '@twilio-paste/box';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 
@@ -30,10 +30,5 @@ const ChatAttachmentDescription = React.forwardRef<HTMLElement, ChatAttachmentDe
 );
 
 ChatAttachmentDescription.displayName = 'ChatAttachmentDescription';
-
-ChatAttachmentDescription.propTypes = {
-  children: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};
 
 export {ChatAttachmentDescription};

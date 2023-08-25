@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {MenuPrimitiveItemRadio} from '@twilio-paste/menu-primitive';
 
 import type {MenuItemRadioProps} from './types';
@@ -16,18 +16,5 @@ const MenuItemRadio = React.forwardRef<HTMLDivElement, MenuItemRadioProps>(
   }
 );
 
-export const MenuItemRadioPropTypes = {
-  href: PropTypes.string,
-  variant: PropTypes.oneOf([Object.values(MenuItemVariants)]),
-  disabled: PropTypes.bool,
-  id: PropTypes.string,
-  onClick: PropTypes.func,
-  element: PropTypes.string,
-  value: PropTypes.string,
-  checked: PropTypes.bool,
-  name: PropTypes.string,
-};
-
 MenuItemRadio.displayName = 'MenuItemRadio';
-MenuItemRadio.propTypes = MenuItemRadioPropTypes;
 export {MenuItemRadio};

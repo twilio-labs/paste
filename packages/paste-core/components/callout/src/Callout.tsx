@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
@@ -8,7 +8,6 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
-import {isMarginTokenProp} from '@twilio-paste/style-props';
 
 type CalloutVariants = 'neutral' | 'warning' | 'error' | 'success' | 'new';
 
@@ -96,12 +95,3 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
 );
 
 Callout.displayName = 'Callout';
-
-Callout.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-  variant: PropTypes.oneOf(['neutral', 'warning', 'error', 'success', 'new', 'default'] as CalloutVariants[])
-    .isRequired,
-  i18nLabel: PropTypes.string,
-  marginY: isMarginTokenProp,
-};

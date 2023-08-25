@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Heading} from '@twilio-paste/heading';
 import type {HeadingProps} from '@twilio-paste/heading';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
@@ -22,9 +22,3 @@ export const FormSectionHeading = React.forwardRef<HTMLLegendElement, FormSectio
 );
 
 FormSectionHeading.displayName = 'FormSectionHeading';
-
-FormSectionHeading.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-  variant: PropTypes.oneOf(['heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60']),
-};

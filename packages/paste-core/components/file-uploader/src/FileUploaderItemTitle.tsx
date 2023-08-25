@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import type {BoxElementProps} from '@twilio-paste/box';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 
@@ -28,8 +28,3 @@ export const FileUploaderItemTitle = React.forwardRef<HTMLElement, FileUploaderI
 );
 
 FileUploaderItemTitle.displayName = 'FileUploaderItemTitle';
-
-FileUploaderItemTitle.propTypes = {
-  children: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};

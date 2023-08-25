@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {useTransition, animated} from '@twilio-paste/animation-library';
 import {Box, safelySpreadBoxProps, type BoxProps} from '@twilio-paste/box';
 import {StyledBase} from '@twilio-paste/theme';
@@ -87,9 +87,3 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
 );
 
 SideModal.displayName = 'SideModal';
-
-SideModal.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};

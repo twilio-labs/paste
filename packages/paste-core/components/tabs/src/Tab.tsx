@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {TabPrimitive} from '@twilio-paste/tabs-primitive';
@@ -163,12 +163,6 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...t
     </TabPrimitive>
   );
 });
-
-Tab.propTypes = {
-  id: PropTypes.string,
-  focusable: PropTypes.bool,
-  disabled: PropTypes.bool,
-};
 
 Tab.displayName = 'Tab';
 

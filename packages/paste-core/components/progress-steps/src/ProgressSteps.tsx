@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -42,8 +42,3 @@ export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps
   }
 );
 ProgressSteps.displayName = 'ProgressSteps';
-ProgressSteps.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-  orientation: PropTypes.oneOf(['horizontal', 'vertical']),
-};

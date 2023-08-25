@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {THead} from '@twilio-paste/table';
 import type {THeadProps} from '@twilio-paste/table';
 
@@ -15,6 +15,3 @@ export const DataGridHead = React.forwardRef<HTMLTableSectionElement, THeadProps
 );
 
 DataGridHead.displayName = 'DataGridHead';
-DataGridHead.propTypes = {
-  element: PropTypes.string,
-};

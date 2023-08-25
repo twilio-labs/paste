@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
@@ -219,20 +219,5 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   }
 );
 Checkbox.displayName = 'Checkbox';
-
-Checkbox.propTypes = {
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  hasError: PropTypes.bool,
-  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  id: PropTypes.string,
-  indeterminate: PropTypes.bool,
-  isSelectAll: PropTypes.bool,
-  isSelectAllChild: PropTypes.bool,
-  element: PropTypes.string,
-  defaultChecked: PropTypes.bool,
-};
 
 export {Checkbox, HiddenCheckbox, CheckboxIcon};

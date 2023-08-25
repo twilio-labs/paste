@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
@@ -52,9 +51,7 @@ const DestructiveIconButton = React.forwardRef<HTMLButtonElement, DirectButtonPr
 DestructiveIconButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  DestructiveIconButton.propTypes = DirectButtonPropTypes;
-}
+
 DestructiveIconButton.displayName = 'DestructiveIconButton';
 
 export {DestructiveIconButton};

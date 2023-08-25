@@ -1,10 +1,9 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import {ProgressCurrentIcon} from './icons/ProgressCurrentIcon';
 import type {ProgressStepCurrentProps} from './types';
-import {ProgressStepPropTypes} from './propTypes';
 
 export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStepCurrentProps>(
   ({element = 'PROGRESS_STEP_CURRENT', as = 'div', children, i18nCurrentLabel = 'Current', ...props}, ref) => {
@@ -45,4 +44,3 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
   }
 );
 ProgressStepCurrent.displayName = 'ProgressStepCurrent';
-ProgressStepCurrent.propTypes = {...ProgressStepPropTypes, i18nCurrentLabel: PropTypes.string};

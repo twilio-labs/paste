@@ -1,8 +1,8 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
-import {isMarginTokenProp} from '@twilio-paste/style-props';
+
 import type {Space} from '@twilio-paste/style-props';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
@@ -32,11 +32,5 @@ const MediaFigure = React.forwardRef<HTMLElement, MediaFigureProps>(
 );
 
 MediaFigure.displayName = 'MediaFigure';
-
-MediaFigure.propTypes = {
-  align: PropTypes.oneOf(['start', 'end']),
-  children: PropTypes.node.isRequired,
-  spacing: isMarginTokenProp,
-};
 
 export {MediaFigure};

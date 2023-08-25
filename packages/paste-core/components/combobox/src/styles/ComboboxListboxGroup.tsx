@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
@@ -61,11 +61,5 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
 );
 
 ComboboxListboxGroup.displayName = 'ComboboxListboxGroup';
-
-ComboboxListboxGroup.propTypes = {
-  children: PropTypes.node.isRequired,
-  groupName: PropTypes.string,
-  element: PropTypes.string,
-};
 
 export {ComboboxListboxGroup};

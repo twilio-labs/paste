@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {BackgroundColor, BorderColor} from '@twilio-paste/style-props';
@@ -57,12 +57,5 @@ const Prefix = React.forwardRef<HTMLDivElement, PrefixProps>(
 );
 
 Prefix.displayName = 'Prefix';
-
-Prefix.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string.isRequired,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  variant: PropTypes.oneOf(['default', 'inverse']) as any,
-};
 
 export {Prefix};

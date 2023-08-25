@@ -1,8 +1,7 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {styled, css} from '@twilio-paste/styling-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {TrPropTypes} from '@twilio-paste/table';
 import type {TrProps as TableTrProps} from '@twilio-paste/table';
 
 export interface TrProps extends TableTrProps {
@@ -42,9 +41,3 @@ export const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
 );
 
 Tr.displayName = 'Tr';
-Tr.propTypes = {
-  ...TrPropTypes,
-  role: PropTypes.string.isRequired,
-  selected: PropTypes.bool,
-  striped: PropTypes.bool.isRequired,
-};

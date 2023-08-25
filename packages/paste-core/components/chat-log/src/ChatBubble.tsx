@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps, BoxElementProps} from '@twilio-paste/box';
 
@@ -52,8 +52,3 @@ export const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
 );
 
 ChatBubble.displayName = 'ChatBubble';
-
-ChatBubble.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

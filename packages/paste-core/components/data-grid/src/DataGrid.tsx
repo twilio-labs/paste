@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {useUID} from '@twilio-paste/uid-library';
 import {useCompositeState, Composite} from '@twilio-paste/reakit-library';
 import {Table} from '@twilio-paste/table';
@@ -155,7 +155,3 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
 );
 
 DataGrid.displayName = 'DataGrid';
-DataGrid.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  element: PropTypes.string,
-};

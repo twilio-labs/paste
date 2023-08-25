@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
@@ -129,14 +129,5 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
 );
 
 Select.displayName = 'Select';
-
-if (process.env.NODE_ENV === 'development') {
-  Select.propTypes = {
-    id: PropTypes.string,
-    hasError: PropTypes.bool,
-    onChange: PropTypes.func,
-    element: PropTypes.string,
-  };
-}
 
 export {Select};

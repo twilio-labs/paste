@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Separator} from '@twilio-paste/separator';
@@ -42,8 +42,3 @@ export const UserDialogUserInfo = React.forwardRef<HTMLDivElement, UserDialogUse
   }
 );
 UserDialogUserInfo.displayName = 'UserDialogUserInfo';
-
-UserDialogUserInfo.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};

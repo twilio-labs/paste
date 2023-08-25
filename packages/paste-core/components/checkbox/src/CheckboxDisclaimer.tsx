@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box} from '@twilio-paste/box';
 import {HelpText} from '@twilio-paste/help-text';
 
@@ -32,11 +32,5 @@ const CheckboxDisclaimer = React.forwardRef<HTMLInputElement, CheckboxDisclaimer
 );
 
 CheckboxDisclaimer.displayName = 'CheckboxDisclaimer';
-
-CheckboxDisclaimer.propTypes = {
-  children: PropTypes.node.isRequired,
-  errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  element: PropTypes.string,
-};
 
 export {CheckboxDisclaimer};

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Label} from '@twilio-paste/label';
 import type {LabelProps} from '@twilio-paste/label';
 
@@ -23,8 +23,3 @@ export const FileUploaderLabel = React.forwardRef<HTMLLabelElement, FileUploader
 );
 
 FileUploaderLabel.displayName = 'FileUploaderLabel';
-
-FileUploaderLabel.propTypes = {
-  children: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};

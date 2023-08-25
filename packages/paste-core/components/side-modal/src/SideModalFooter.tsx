@@ -1,5 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
+
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
@@ -27,10 +27,5 @@ const SideModalFooter = React.forwardRef<HTMLDivElement, SideModalFooterProps>(
   }
 );
 SideModalFooter.displayName = 'SideModalFooter';
-
-SideModalFooter.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
 
 export {SideModalFooter};

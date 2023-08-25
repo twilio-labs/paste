@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles, ToggleStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 /*
  * defensively resetting interaction color from over zealous legacy
@@ -93,9 +92,7 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
 SecondaryButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  SecondaryButton.propTypes = DirectButtonPropTypes;
-}
+
 SecondaryButton.displayName = 'SecondaryButton';
 
 export {SecondaryButton};
