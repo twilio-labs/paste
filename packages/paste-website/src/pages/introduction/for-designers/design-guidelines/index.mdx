@@ -5,14 +5,7 @@ export const meta = {
 };
 
 import {Anchor} from '@twilio-paste/anchor';
-import {Badge} from '@twilio-paste/badge';
-import {Box} from '@twilio-paste/box';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Text} from '@twilio-paste/text';
-import {ResponsiveImage} from '../../../../components/ResponsiveImage';
-import TokenStyles from '../../../../assets/images/design-guidelines/token-styles.png';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../../utils/api';
 
@@ -62,129 +55,16 @@ The following are the main libraries we recommend you have enabled for each Figm
 
 #### Paste libraries
 
-<UnorderedList>
-  <ListItem>
-    <Box display="inline">
-      <Box display="inline-block" verticalAlign="middle">
-        <Badge as="span" variant="new">
-          <NewIcon decorative />
-          New
-        </Badge>
-      </Box>
-      {` `}
-      <Anchor
-        href="https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BWIP%5D-Paste-Components?node-id=3015%3A46646&t=2Fe524au9O9rlWZU-1"
-        showExternal
-      >
-        Paste Components
-      </Anchor>
-      <Text display="inline">
-        {` `} includes the latest updated components that use the updated design language themes. All new components and
-        component updates will be made in this library.
-      </Text>
-    </Box>
-  </ListItem>
-  <ListItem>
-    <Box display="inline">
-      <Box display="inline-block" verticalAlign="middle">
-        <Badge as="span" variant="new">
-          <NewIcon decorative />
-          New
-        </Badge>
-      </Box>
-      {` `}
-      <Anchor
-        href="https://www.figma.com/file/U0oTLE09SGK7svnr818HYT/%5BWIP%5D-Paste-Twilio-Theme?node-id=3558%3A32533&t=PYbe5AovStxUbEjF-1"
-        showExternal
-      >
-        Twilio Paste Theme
-      </Anchor>
-      <Text display="inline">
-        {` `} includes the newest design language token updates (color, text, and shadow styles), needed for the Paste
-        Components library.
-      </Text>
-    </Box>
-  </ListItem>
-  <ListItem>
-    <Box display="inline">
-      <Box display="inline-block" verticalAlign="middle">
-        <Badge as="span" variant="new">
-          <NewIcon decorative />
-          New
-        </Badge>
-      </Box>
-      {` `}
-      <Anchor href="https://www.figma.com/file/TxxQS4sUuxDiTDUsIWRsFT/Paste-Twilio-Dark-Theme" showExternal>
-        Twilio Paste Dark Theme
-      </Anchor>
-      <Text display="inline">{` `}includes the newest token updates for the dark theme.</Text>
-    </Box>
-  </ListItem>
-  <ListItem>
-    <Anchor href="https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns" showExternal>
-      Paste Patterns
-    </Anchor>
-  </ListItem>
-  <ListItem>
-    <Anchor href="https://www.figma.com/file/XeA9WNBcoojrdJbiz5Nj5q/Brand-Illustrations" showExternal>
-      Brand Illustrations
-    </Anchor>
-    {` `}includes illustrations for empty states, sections, etc
-  </ListItem>
-  <ListItem>
-    <Anchor href="https://www.figma.com/file/GfY11A2VW638eFK48nDtdE/Asset-Documentation" showExternal>
-      Asset Documentation
-    </Anchor>
-    {` `}includes helpful utilities for marking up designs, like sticky notes and cursors
-  </ListItem>
-  <ListItem>
-    <Anchor href="https://www.figma.com/file/RfZYRjUH56rZ0qe0veqRJA/File-and-Cover-Sheet-Template" showExternal>
-      File and Cover Sheet Template
-    </Anchor>
-  </ListItem>
-</UnorderedList>
+- [Paste Components](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BWIP%5D-Paste-Components?node-id=3015%3A46646&t=2Fe524au9O9rlWZU-1) includes the latest components, design tokens (color, text, shadows, spacing, and sizing) in twilio, twilio-dark, default, and evergreen themes. Also [available as a Figma Community file](https://www.figma.com/community/file/1207476064127503112/Twilio-Paste-Components).
+- [Paste Patterns & Templates](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns-%26-Templates?type=design&mode=design&t=1bbtpztf0NFxL6kb-0)
+- [Brand Illustrations](https://www.figma.com/file/XeA9WNBcoojrdJbiz5Nj5q/Brand-Illustrations) includes illustrations for empty states, marketing highlights, etc
+- [Asset Documentation](https://www.figma.com/file/GfY11A2VW638eFK48nDtdE/Asset-Documentation) includes helpful utilities for marking up designs, like sticky notes and cursors
 
-<Callout variant="neutral">
-  <CalloutHeading as="h5">👉 Our recommendations for using the new Figma libraries</CalloutHeading>
-  <CalloutText>
-    Use the new libraries for net-new designs, rather than trying to swap older design files to the new libraries, as
-    things could be detached and our new components library has some updated structuring.
-  </CalloutText>
-</Callout>
+#### Twilio community libraries
 
-<Box paddingBottom="space70" />
-
-#### Product-specific libraries
-
-- [Console Library](https://www.figma.com/file/vvdKgsO8OLcn7Q6FmuhWtl/Console-Library) for teams with Console projects (managed by the Console team)
-- [Evergreen Paste Components](https://www.figma.com/file/zq39AEOAd7EvvB1gvL8wjE/%5BNEW%5D-Evergreen-Paste-Components?t=LqMbG6udvN37EeWy-6), [Paste Evergreen Theme](https://www.figma.com/file/nqTRnOvgtvJyGw5loSAZWr/%5BWIP%5D-Paste-Evergreen-Theme?t=yTgj99DMtixcB9l5-6), [Evergreen Paste Patterns](https://www.figma.com/file/kfIKmexsAIaU3gjdnBVY17/Evergreen-Paste-Patterns?t=Cw7YRtCJ0ILxlKD4-6) includes components, tokens, and patterns that look like Evergreen. You can use this library until your product migrates to the Paste Components library.
-
----
-
-## Using themes
-
-Paste uses 2 theme libraries.
-
-- [Paste Twilio Theme](https://www.figma.com/file/U0oTLE09SGK7svnr818HYT/%5BWIP%5D-Paste-Twilio-Theme?node-id=3558%3A32533&t=PYbe5AovStxUbEjF-1)
-- [Paste Twilio Dark Theme](https://www.figma.com/file/TxxQS4sUuxDiTDUsIWRsFT/Paste-Twilio-Dark-Theme)
-
-When you have a theme library linked, you'll have access to:
-
-- Text styles (font families, font weights, and font sizes)
-- Color styles (fill and stroke for background, border, and text colors)
-- Effect styles (drop shadows, etc.)
-
-<ResponsiveImage src={TokenStyles} alt="Menu in Figma when you can navigate through tokens for the Default theme" />
-
----
-
-## Using components
-
-Components are UI elements that can be reused across your designs. They help you create and manage consistent designs across projects.
-
-You can drag and drop components into your project via the Assets panel on the left, and swap to different variants for a given component via the Design panel on the right.
-
-Check out our [tips and tricks](https://www.figma.com/file/WiJFrYa9YpIcFUmT06gTn0/Working-with-Figma?node-id=155%3A126) for more helpful hints about using the Paste Components library.
+- [Console Library](https://www.figma.com/file/vvdKgsO8OLcn7Q6FmuhWtl/Console-Library) for teams with Console projects, managed by the Console team.
+- [Segment Design Library](https://www.figma.com/file/4tOxLhDIMO2MYvF925RQKc/Segment-Design-Library?type=design&mode=design&t=UNWt1yAShGOocSFf-0) for teams with Segment projects, managed by the Segment team.
+- [File and Cover Sheet Template](https://www.figma.com/file/RfZYRjUH56rZ0qe0veqRJA/File-and-Cover-Sheet-Template)
 
 ---
 
@@ -204,6 +84,19 @@ We demarcate changes with hints which you can see in the description of each upd
 ## Fonts
 
 Fonts in Paste are preloaded into Figma so you don't need to download or install any font files.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h2">A special note on Twilio Sans</CalloutHeading>
+  <CalloutText>
+    Only Twilio applications are licensed to use Twilio Sans. If you are not building an application for Twilio, please
+    use the default and dark themes which use an open source font called{' '}
+      <Anchor
+        href="https://rsms.me/inter/" 
+        showExternal>
+        Inter
+      </Anchor>.
+  </CalloutText>
+</Callout>
 
 ### Twilio Sans Text
 
