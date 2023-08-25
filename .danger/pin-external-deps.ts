@@ -33,12 +33,14 @@ export const getUnpinnedExternalDeps = (deps: Record<string, string>): string[] 
  * @param {string[]} pkgJSONFiles
  * @return {*}  {string[]}
  */
-export const getUnPinnedExternalDepsFromPackageJSONFiles = (pkgJSONFiles: string[]): string[] => {
-  const unPinnedExternalDeps: string[] = [];
+export const getUnPinnedExternalDepsFromPackageJSONFiles = (
+  pkgJSONFiles: string[]
+): Array<{dep: string; name: string}> => {
+  const unPinnedExternalDeps: Array<{dep: string; name: string}> = [];
   pkgJSONFiles.forEach((pkgJSON) => {
     const fileContent = fs.readFileSync(pkgJSON).toString();
-    const {dependencies} = JSON.parse(fileContent);
-    getUnpinnedExternalDeps(dependencies).forEach((dep) => unPinnedExternalDeps.push(dep));
+    const {name, dependencies} = JSON.parse(fileContent);
+    getUnpinnedExternalDeps(dependencies).forEach((dep) => unPinnedExternalDeps.push({dep, name}));
   });
   return unPinnedExternalDeps;
 };
@@ -57,10 +59,12 @@ export default () => {
     const unpinnedExternalDeps = getUnPinnedExternalDepsFromPackageJSONFiles(packageJSONsChanged);
 
     if (unpinnedExternalDeps.length > 0) {
+      let locationString = ``;
+      unpinnedExternalDeps.forEach(({dep, name}) => {
+        locationString += `* ${name} - ${dep}\n`;
+      });
       fail(
-        `There are some package.json files in this PR that contain unpinned external package libraries. Please pin your external package libraries by removing the ^ from the beginning of the version number. See: ${JSON.stringify(
-          unpinnedExternalDeps
-        )}`
+        `There are some package.json files in this PR that contain unpinned external package libraries. Please pin your external package libraries by removing the ^ from the beginning of the version number. See:\n\n${locationString}`
       );
     }
   }
