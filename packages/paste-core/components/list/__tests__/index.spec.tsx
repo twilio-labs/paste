@@ -32,8 +32,8 @@ describe('Ordered List', () => {
     it('should set list style type styles to combat css reset stylesheets', () => {
       render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <OrderedList data-testID="ordered-list">Children</OrderedList>
-          <UnorderedList data-testID="unordered-list">Children</UnorderedList>
+          <OrderedList data-testid="ordered-list">Children</OrderedList>
+          <UnorderedList data-testid="unordered-list">Children</UnorderedList>
         </CustomizationProvider>
       );
       const renderedOrderedList = screen.getByTestId('ordered-list');
