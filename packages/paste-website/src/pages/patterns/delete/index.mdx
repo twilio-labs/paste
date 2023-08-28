@@ -21,6 +21,7 @@ import {AlertDialog} from '@twilio-paste/alert-dialog';
 import {Button} from '@twilio-paste/button';
 import {Toaster, useToaster} from '@twilio-paste/toast';
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import DeleteMediumSeverityImage from '../../../assets/images/patterns/delete-medium-severity.png';
 import DeleteHighSeverityImage from '../../../assets/images/patterns/delete-high-severity.png';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -30,7 +31,7 @@ import {
   MediumSeverityExample,
   HighSeverityExample,
   PostDeletionExample,
-} from '../../../component-examples/DeletePatternExamples.ts';
+} from '../../../component-examples/DeletePatternExamples';
 
 export default DefaultLayout;
 
@@ -123,7 +124,7 @@ Medium and high severity delete confirmations are displayed using an [Alert Dial
 
 Delete messages should follow the [Confirmation pattern](/patterns/confirmation).
 
-Avoid using negative contractions like can’t or won’t, since user comprehension can suffer in stressful scenarios.
+Avoid using negative contractions like can't or won't, since user comprehension can suffer in stressful scenarios.
 
 ## Severity
 
@@ -214,31 +215,24 @@ If the deletion fails, display an error Toast that follows the [error state patt
 
 <DoDont>
   <Do title="Do" body="Use an Alert Dialog for deletion confirmations." preview={false} />
-  <Dont title="Don't" body="Don’t use a Modalfor deletion confirmations." preview={false} />
+  <Dont title="Don't" body="Don't use a Modalfor deletion confirmations." preview={false} />
 </DoDont>
-
-{' '}
 
 <DoDont>
   <Do
     title="Do"
-    body="Show confirmations for deletions that can’t be undone, are bulk actions, or involve objects that would be hard to recreate."
+    body="Show confirmations for deletions that can't be undone, are bulk actions, or involve objects that would be hard to recreate."
     preview={false}
   />
   <Dont
     title="Don't"
-    body="Don’t make the user confirm low-severity deletions that can be easily reversed."
+    body="Don't make the user confirm low-severity deletions that can be easily reversed."
     preview={false}
   />
 </DoDont>
 
 <DoDont>
-  <Do
-  title="Do"
-  body="Use the Confirmation pattern to structure deletion message content."
-  preview={false}
-  />
-
+  <Do title="Do" body="Use the Confirmation pattern to structure deletion message content." preview={false} />
 </DoDont>
 
 </content>
