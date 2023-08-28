@@ -1,0 +1,54 @@
+export const meta = {
+  title: 'Anchor - API',
+  package: '@twilio-paste/anchor',
+  description: 'The anchor can be used to hyperlink to another URL. It accepts both internal and external URLs.',
+  slug: '/components/anchor/api',
+};
+
+import Changelog from '@twilio-paste/anchor/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/anchor/package.json';
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentAPI} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Anchor');
+  const componentAPI = getComponentAPI('@twilio-paste/anchor');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentAPI,
+      mdxHeadings,
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/anchor',
+        storybookUrl: '/?path=/story/components-anchor--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/anchor - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Anchor} from '@twilio-paste/core/anchor';
+
+const Component = () => <Anchor href="https://paste.twilio.design">Go to Paste</Anchor>;
+```
+
+## Props
+
+<PropsTable componentAPI={props.componentAPI} />

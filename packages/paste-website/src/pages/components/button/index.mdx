@@ -10,7 +10,6 @@ import {Stack} from '@twilio-paste/stack';
 import {Box} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import Changelog from '@twilio-paste/button/CHANGELOG.md';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
@@ -23,10 +22,10 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {ToggleExample} from '../../../component-examples/ButtonExamples';
 import packageJson from '@twilio-paste/button/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -38,24 +37,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button',
+        storybookUrl: '/?path=/story/components-Button--',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button"
-  storybookUrl="/?path=/story/components-button--primary-button"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Button}} language="jsx">
   {`<Button variant="primary">
@@ -595,60 +585,3 @@ Pair text with an icon only if the icon clarifies the meaning of the Button. Use
     preview={false}
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/button - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Button} from '@twilio-paste/core/button';
-
-const Component = () => (
-  <Button variant="secondary" size="small" onClick={() => {}}>
-    Submit
-  </Button>
-);
-```
-
-#### Props
-
-All the valid HTML attributes for `Button` are supported including the following props:
-
-| Prop                   | Type                                     | Description                                                                                                                                                                          | Default                                |
-| ---------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
-| as?                    | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                                                                                                  | 'button'                               |
-| disabled?              | `boolean`                                | Prevent actions from firing on this Button                                                                                                                                           | false                                  |
-| fullWidth              | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                                                                               | false                                  |
-| href?                  | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                                          | null                                   |
-| loading?               | `boolean`                                | Prevent actions and show a loading spinner                                                                                                                                           | false                                  |
-| size?                  | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset', 'rounded_small'                                                                                                                   | 'default'                              |
-| type?                  | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).                                                                     | 'button'                               |
-| variant?               | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset', 'primary_icon', 'secondary_icon', 'destructive_icon' | 'primary'                              |
-| i18nExternalLinkLabel? | `string`                                 | Title for `showExternal` icon                                                                                                                                                        | '(link takes you to an external page)' |
-| pressed?               | `boolean`                                | Sets the aria-pressed attribute. Must be used with 'secondary' or 'secondary_icon' variants.                                                                                         |                                        |
-| onClick?               | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseDown?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseUp?             | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseEnter?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseLeave?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onFocus?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onBlur?                | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| element?               | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider                                                                                            | 'BUTTON'                               |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

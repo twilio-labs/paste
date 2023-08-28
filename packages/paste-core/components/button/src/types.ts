@@ -11,7 +11,7 @@ export type ButtonSizes =
   | 'rounded_small'
   | 'circle'
   | 'circle_small';
-export type ButtonVariants =
+type ButtonBaseVariants =
   | 'primary'
   | 'primary_icon'
   | 'secondary'
@@ -22,8 +22,9 @@ export type ButtonVariants =
   | 'destructive_secondary'
   | 'link'
   | 'inverse_link'
-  | 'inverse'
-  | 'reset';
+  | 'inverse';
+type ButtonResetVariant = 'reset';
+export type ButtonVariants = ButtonResetVariant | ButtonBaseVariants;
 export type ButtonStates = 'disabled' | 'loading' | 'default';
 export type ButtonTabIndexes = 0 | -1;
 
@@ -34,30 +35,70 @@ export interface ButtonContentsProps {
 }
 
 export interface DirectButtonProps extends HTMLPasteProps<'button'>, Pick<BoxProps, 'element'> {
+  /**
+   * The HTML tag to replace the default `<button>` tag.
+   * @default button
+   */
   as?: keyof JSX.IntrinsicElements;
   buttonState: ButtonStates;
   children: React.ReactNode;
+  /**
+   * Prevent actions from firing on this Button
+   * @default false
+   */
   disabled?: boolean;
+  /**
+   * Sets the Button width to 100% of the parent container.
+   * @default false
+   */
   fullWidth?: boolean;
+  /**
+   * A URL to route to. Must use as="a" for this prop to work.
+   * @default null
+   */
   href?: string;
+  /**
+   * Sets the aria-pressed attribute. Must be used with 'secondary' or 'secondary_icon' variants.
+   * @default false
+   */
   pressed?: boolean;
+  /**
+   * @default default
+   */
   size: ButtonSizes;
   tabIndex?: ButtonTabIndexes;
   target?: string;
+  /**
+   * If the Button is inside a <form>: use 'submit'. Otherwise use 'button' (default).
+   * @default button
+   */
   type?: ButtonTypes;
+  /**
+   * @default primary
+   */
   variant: ButtonVariants;
 }
 
 type BaseVariantsButtonProps = {
-  variant?: Omit<ButtonVariants, 'reset'>;
+  variant?: ButtonBaseVariants;
 };
-type ResetVariantButtonProps = BoxStyleProps & {
-  variant?: 'reset';
+type ResetVariantButtonProps = Omit<BoxStyleProps, 'size'> & {
+  variant?: ButtonResetVariant;
 };
 
-export type ButtonProps = (BaseVariantsButtonProps | ResetVariantButtonProps) &
-  Omit<DirectButtonProps, 'buttonState' | 'i18nExternalLinkLabel' | 'loading' | 'size'> & {
-    i18nExternalLinkLabel?: string;
-    loading?: boolean;
-    size?: DirectButtonProps['size'];
-  };
+export type ButtonProps = Omit<DirectButtonProps, 'buttonState' | 'i18nExternalLinkLabel' | 'loading' | 'size'> & {
+  /**
+   * Title for showExternal icon
+   * @default (link takes you to an external page)
+   */
+  i18nExternalLinkLabel?: string;
+  /**
+   * Prevent actions and show a loading spinner
+   * @default false
+   */
+  loading?: boolean;
+  /**
+   * @default default
+   */
+  size?: ButtonSizes;
+} & (BaseVariantsButtonProps | ResetVariantButtonProps);

@@ -1,13 +1,12 @@
 import * as React from 'react';
 import Head from 'next/head';
 import {useRouter} from 'next/router';
-import {Box} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
 
 import {SiteWrapper} from '../components/site-wrapper';
 import {PasteMDXProvider} from '../components/paste-mdx-provider';
 import {SiteMetaDefaults} from '../constants';
 import type {NavigationQuery} from '../context/NavigationContext';
+import {PageContentWrapper} from '../components/PageContentWrapper';
 
 interface DefaultLayoutProps {
   children?: React.ReactElement;
@@ -25,23 +24,6 @@ const componentOverrides = {
   h1: () => null,
 };
 
-const SiteMain: React.FC<React.PropsWithChildren<HTMLPasteProps<'div'>>> = ({children, ...props}) => {
-  return (
-    <Box
-      element="SITE_MAIN"
-      paddingTop={['space100', 'space140', 'space200']}
-      paddingX={['space70', 'space200', 'space200']}
-      backgroundColor="colorBackgroundBody"
-      marginX="auto"
-      maxWidth="size100"
-      boxSizing="content-box"
-      {...props}
-    >
-      {children}
-    </Box>
-  );
-};
-
 const DefaultLayout: React.FC<React.PropsWithChildren<DefaultLayoutProps>> = ({children, meta, navigationData}) => {
   const pageTitle = meta.title ? `${meta.title} - ${SiteMetaDefaults.TITLE}` : SiteMetaDefaults.TITLE;
   const pageDescription = meta.description || SiteMetaDefaults.DESCRIPTION;
@@ -54,9 +36,9 @@ const DefaultLayout: React.FC<React.PropsWithChildren<DefaultLayoutProps>> = ({c
         <link rel="canonical" href={`https://paste.twilio.design${router.pathname}`} />
         <meta key="description" name="description" content={pageDescription} />
       </Head>
-      <SiteMain>
+      <PageContentWrapper>
         <PasteMDXProvider componentOverrides={meta.package ? componentOverrides : {}}>{children}</PasteMDXProvider>
-      </SiteMain>
+      </PageContentWrapper>
     </SiteWrapper>
   );
 };

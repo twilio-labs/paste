@@ -1,0 +1,80 @@
+export const meta = {
+  title: 'Table - API',
+  package: '@twilio-paste/table',
+  description: 'Tables are used to display information that is meant to be compared across columns and rows.',
+  slug: '/components/table/api',
+};
+
+import Changelog from '@twilio-paste/table/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/table/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentAPI} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Table');
+  const componentAPI = getComponentAPI('@twilio-paste/table');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentAPI,
+      mdxHeadings,
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/table',
+        storybookUrl: '/?path=/story/components-table--default-table',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/table - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/core/table';
+
+const TableExample: React.FC = () => {
+  return (
+    <Table tableLayout="fixed" variant="default" striped>
+      <THead>
+        <Tr verticalAlign="middle">
+          <Th width="size40" textAlign="left">
+            Column 1
+          </Th>
+          <Th>Column 2</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>Content</Td>
+          <Td>Content</Td>
+        </Tr>
+      </TBody>
+      <TFoot>
+        <Tr>
+          <Td>Content</Td>
+          <Td>Content</Td>
+        </Tr>
+      </TFoot>
+    </Table>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentAPI={props.componentAPI} />

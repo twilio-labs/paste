@@ -5899,6 +5899,46 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild-kit/cjs-loader@npm:^2.4.2":
+  version: 2.4.2
+  resolution: "@esbuild-kit/cjs-loader@npm:2.4.2"
+  dependencies:
+    "@esbuild-kit/core-utils": ^3.0.0
+    get-tsconfig: ^4.4.0
+  checksum: e346e339bfc7eff5c52c270fd0ec06a7f2341b624adfb69f84b7d83f119c35070420906f2761a0b4604e0a0ec90e35eaf12544585476c428ed6d6ee3b250c0fe
+  languageName: node
+  linkType: hard
+
+"@esbuild-kit/core-utils@npm:^3.0.0":
+  version: 3.2.2
+  resolution: "@esbuild-kit/core-utils@npm:3.2.2"
+  dependencies:
+    esbuild: ~0.18.20
+    source-map-support: ^0.5.21
+  checksum: c2822ff9953475ab55f4c0b2e84721c4ddfe835c5cd9f58adf74bfc2d3f71ea8414b661ddd590815d284330a436e966586916a0e41501e730d11877e5c07d2c8
+  languageName: node
+  linkType: hard
+
+"@esbuild-kit/core-utils@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "@esbuild-kit/core-utils@npm:3.3.0"
+  dependencies:
+    esbuild: ~0.18.20
+    source-map-support: ^0.5.21
+  checksum: fc39137b8b68fa5b415bfa1096419ee7186bd2ef2fdca8fc2aa20959cec609a10e422201f6263f295c0746b4bd0ca1efceffe9c715a5a8b91a82c19d1b8e34c7
+  languageName: node
+  linkType: hard
+
+"@esbuild-kit/esm-loader@npm:^2.6.3":
+  version: 2.6.3
+  resolution: "@esbuild-kit/esm-loader@npm:2.6.3"
+  dependencies:
+    "@esbuild-kit/core-utils": ^3.3.0
+    get-tsconfig: ^4.7.0
+  checksum: 60264538da15d8ac0a43b0700fae9025ac2cca5b2b8d02bb182fd9911dad1a71efbd9e2e4c16d4ab3c8348b790891acb8accce24034b48c2a45b9c7da25d8cac
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-arm64@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/android-arm64@npm:0.17.17"
@@ -5916,6 +5956,13 @@ __metadata:
 "@esbuild/android-arm64@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/android-arm64@npm:0.18.19"
+  conditions: os=android & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@esbuild/android-arm64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/android-arm64@npm:0.18.20"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
@@ -5948,6 +5995,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/android-arm@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/android-arm@npm:0.18.20"
+  conditions: os=android & cpu=arm
+  languageName: node
+  linkType: hard
+
 "@esbuild/android-x64@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/android-x64@npm:0.17.17"
@@ -5965,6 +6019,13 @@ __metadata:
 "@esbuild/android-x64@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/android-x64@npm:0.18.19"
+  conditions: os=android & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/android-x64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/android-x64@npm:0.18.20"
   conditions: os=android & cpu=x64
   languageName: node
   linkType: hard
@@ -5990,6 +6051,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/darwin-arm64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/darwin-arm64@npm:0.18.20"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/darwin-x64@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/darwin-x64@npm:0.17.17"
@@ -6007,6 +6075,13 @@ __metadata:
 "@esbuild/darwin-x64@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/darwin-x64@npm:0.18.19"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/darwin-x64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/darwin-x64@npm:0.18.20"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -6032,6 +6107,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/freebsd-arm64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/freebsd-arm64@npm:0.18.20"
+  conditions: os=freebsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/freebsd-x64@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/freebsd-x64@npm:0.17.17"
@@ -6049,6 +6131,13 @@ __metadata:
 "@esbuild/freebsd-x64@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/freebsd-x64@npm:0.18.19"
+  conditions: os=freebsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/freebsd-x64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/freebsd-x64@npm:0.18.20"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
@@ -6074,6 +6163,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-arm64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/linux-arm64@npm:0.18.20"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-arm@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/linux-arm@npm:0.17.17"
@@ -6095,6 +6191,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-arm@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/linux-arm@npm:0.18.20"
+  conditions: os=linux & cpu=arm
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-ia32@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/linux-ia32@npm:0.17.17"
@@ -6112,6 +6215,13 @@ __metadata:
 "@esbuild/linux-ia32@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/linux-ia32@npm:0.18.19"
+  conditions: os=linux & cpu=ia32
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-ia32@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/linux-ia32@npm:0.18.20"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
@@ -6144,6 +6254,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-loong64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/linux-loong64@npm:0.18.20"
+  conditions: os=linux & cpu=loong64
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-mips64el@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/linux-mips64el@npm:0.17.17"
@@ -6161,6 +6278,13 @@ __metadata:
 "@esbuild/linux-mips64el@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/linux-mips64el@npm:0.18.19"
+  conditions: os=linux & cpu=mips64el
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-mips64el@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/linux-mips64el@npm:0.18.20"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
@@ -6186,6 +6310,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-ppc64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/linux-ppc64@npm:0.18.20"
+  conditions: os=linux & cpu=ppc64
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-riscv64@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/linux-riscv64@npm:0.17.17"
@@ -6203,6 +6334,13 @@ __metadata:
 "@esbuild/linux-riscv64@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/linux-riscv64@npm:0.18.19"
+  conditions: os=linux & cpu=riscv64
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-riscv64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/linux-riscv64@npm:0.18.20"
   conditions: os=linux & cpu=riscv64
   languageName: node
   linkType: hard
@@ -6228,6 +6366,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/linux-s390x@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/linux-s390x@npm:0.18.20"
+  conditions: os=linux & cpu=s390x
+  languageName: node
+  linkType: hard
+
 "@esbuild/linux-x64@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/linux-x64@npm:0.17.17"
@@ -6245,6 +6390,13 @@ __metadata:
 "@esbuild/linux-x64@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/linux-x64@npm:0.18.19"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/linux-x64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/linux-x64@npm:0.18.20"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
@@ -6270,6 +6422,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/netbsd-x64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/netbsd-x64@npm:0.18.20"
+  conditions: os=netbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@esbuild/openbsd-x64@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/openbsd-x64@npm:0.17.17"
@@ -6287,6 +6446,13 @@ __metadata:
 "@esbuild/openbsd-x64@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/openbsd-x64@npm:0.18.19"
+  conditions: os=openbsd & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/openbsd-x64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/openbsd-x64@npm:0.18.20"
   conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
@@ -6312,6 +6478,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/sunos-x64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/sunos-x64@npm:0.18.20"
+  conditions: os=sunos & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@esbuild/win32-arm64@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/win32-arm64@npm:0.17.17"
@@ -6329,6 +6502,13 @@ __metadata:
 "@esbuild/win32-arm64@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/win32-arm64@npm:0.18.19"
+  conditions: os=win32 & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@esbuild/win32-arm64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/win32-arm64@npm:0.18.20"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -6354,6 +6534,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@esbuild/win32-ia32@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/win32-ia32@npm:0.18.20"
+  conditions: os=win32 & cpu=ia32
+  languageName: node
+  linkType: hard
+
 "@esbuild/win32-x64@npm:0.17.17":
   version: 0.17.17
   resolution: "@esbuild/win32-x64@npm:0.17.17"
@@ -6371,6 +6558,13 @@ __metadata:
 "@esbuild/win32-x64@npm:0.18.19":
   version: 0.18.19
   resolution: "@esbuild/win32-x64@npm:0.18.19"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@esbuild/win32-x64@npm:0.18.20":
+  version: 0.18.20
+  resolution: "@esbuild/win32-x64@npm:0.18.20"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -12543,6 +12737,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12599,6 +12794,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12645,6 +12841,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -12698,6 +12895,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -12740,6 +12938,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     react-is: 18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -12836,6 +13035,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -12921,6 +13121,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12962,6 +13163,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13004,6 +13206,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
@@ -13050,6 +13253,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13090,6 +13294,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13176,6 +13381,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -13376,6 +13582,7 @@ __metadata:
     is-git-clean: 1.1.0
     jscodeshift: 0.11.0
     meow: 8.0.0
+    tsx: ^3.12.10
   bin:
     codemods: ./bin/paste-codemod.js
   languageName: unknown
@@ -13401,6 +13608,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/dropdown-library": ^3.0.0
     prop-types: ^15.7.2
@@ -13602,7 +13810,8 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
-    ts-node: ^10.0.0
+    tsx: ^3.12.10
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/icons": ^12.0.0
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
@@ -13630,6 +13839,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -13675,6 +13885,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -13763,6 +13974,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -13888,6 +14100,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     prop-types: ^15.7.2
@@ -13921,6 +14134,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14006,6 +14220,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14073,6 +14288,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14132,6 +14348,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14236,6 +14453,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14277,6 +14495,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14397,6 +14616,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -14435,6 +14655,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14475,7 +14696,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
-    ts-node: ^10.0.0
+    tsx: ^3.12.10
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14556,6 +14777,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14646,6 +14868,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14691,6 +14914,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14739,6 +14963,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14794,6 +15019,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -14819,6 +15045,7 @@ __metadata:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -14844,6 +15071,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14908,6 +15136,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14964,6 +15193,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15016,6 +15246,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -15050,6 +15281,7 @@ __metadata:
     "@reach/dialog": 0.16.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -15085,6 +15317,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -15137,6 +15370,7 @@ __metadata:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -15165,6 +15399,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15204,6 +15439,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -15645,6 +15881,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15686,6 +15923,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15725,6 +15963,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15811,6 +16050,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -15871,6 +16111,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -15920,6 +16161,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -16004,6 +16246,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -16043,6 +16286,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -16271,6 +16515,8 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -16296,6 +16542,7 @@ __metadata:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -16403,6 +16650,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -16494,6 +16742,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -16598,6 +16847,7 @@ __metadata:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -16629,6 +16879,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -16684,6 +16935,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -16735,6 +16987,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -16813,6 +17066,7 @@ __metadata:
     prop-types: ^15.7.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -17070,6 +17324,7 @@ __metadata:
     highcharts-react-official: ^3.1.0
     lodash: 4.17.21
     lottie-web: ^5.7.4
+    markdown-to-jsx: ^7.3.2
     mdast-util-to-string: ^3.1.1
     next: ^13.1.6
     pretty-format: ^28.1.0
@@ -22824,7 +23079,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"colors@npm:1.4.0, colors@npm:^1.1.2, colors@npm:^1.4.0":
+"colors@npm:1.4.0, colors@npm:^1.1.2":
   version: 1.4.0
   resolution: "colors@npm:1.4.0"
   checksum: 98aa2c2418ad87dedf25d781be69dc5fc5908e279d9d30c34d8b702e586a0474605b3a189511482b9d5ed0d20c867515d22749537f7bc546256c6014f3ebdcec
@@ -26044,6 +26299,83 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild@npm:~0.18.20":
+  version: 0.18.20
+  resolution: "esbuild@npm:0.18.20"
+  dependencies:
+    "@esbuild/android-arm": 0.18.20
+    "@esbuild/android-arm64": 0.18.20
+    "@esbuild/android-x64": 0.18.20
+    "@esbuild/darwin-arm64": 0.18.20
+    "@esbuild/darwin-x64": 0.18.20
+    "@esbuild/freebsd-arm64": 0.18.20
+    "@esbuild/freebsd-x64": 0.18.20
+    "@esbuild/linux-arm": 0.18.20
+    "@esbuild/linux-arm64": 0.18.20
+    "@esbuild/linux-ia32": 0.18.20
+    "@esbuild/linux-loong64": 0.18.20
+    "@esbuild/linux-mips64el": 0.18.20
+    "@esbuild/linux-ppc64": 0.18.20
+    "@esbuild/linux-riscv64": 0.18.20
+    "@esbuild/linux-s390x": 0.18.20
+    "@esbuild/linux-x64": 0.18.20
+    "@esbuild/netbsd-x64": 0.18.20
+    "@esbuild/openbsd-x64": 0.18.20
+    "@esbuild/sunos-x64": 0.18.20
+    "@esbuild/win32-arm64": 0.18.20
+    "@esbuild/win32-ia32": 0.18.20
+    "@esbuild/win32-x64": 0.18.20
+  dependenciesMeta:
+    "@esbuild/android-arm":
+      optional: true
+    "@esbuild/android-arm64":
+      optional: true
+    "@esbuild/android-x64":
+      optional: true
+    "@esbuild/darwin-arm64":
+      optional: true
+    "@esbuild/darwin-x64":
+      optional: true
+    "@esbuild/freebsd-arm64":
+      optional: true
+    "@esbuild/freebsd-x64":
+      optional: true
+    "@esbuild/linux-arm":
+      optional: true
+    "@esbuild/linux-arm64":
+      optional: true
+    "@esbuild/linux-ia32":
+      optional: true
+    "@esbuild/linux-loong64":
+      optional: true
+    "@esbuild/linux-mips64el":
+      optional: true
+    "@esbuild/linux-ppc64":
+      optional: true
+    "@esbuild/linux-riscv64":
+      optional: true
+    "@esbuild/linux-s390x":
+      optional: true
+    "@esbuild/linux-x64":
+      optional: true
+    "@esbuild/netbsd-x64":
+      optional: true
+    "@esbuild/openbsd-x64":
+      optional: true
+    "@esbuild/sunos-x64":
+      optional: true
+    "@esbuild/win32-arm64":
+      optional: true
+    "@esbuild/win32-ia32":
+      optional: true
+    "@esbuild/win32-x64":
+      optional: true
+  bin:
+    esbuild: bin/esbuild
+  checksum: 5d253614e50cdb6ec22095afd0c414f15688e7278a7eb4f3720a6dd1306b0909cf431e7b9437a90d065a31b1c57be60130f63fe3e8d0083b588571f31ee6ec7b
+  languageName: node
+  linkType: hard
+
 "escalade@npm:^3.1.1":
   version: 3.1.1
   resolution: "escalade@npm:3.1.1"
@@ -28522,6 +28854,15 @@ fsevents@^1.2.7:
     call-bind: ^1.0.2
     get-intrinsic: ^1.1.1
   checksum: 9ceff8fe968f9270a37a1f73bf3f1f7bda69ca80f4f80850670e0e7b9444ff99323f7ac52f96567f8b5f5fbe7ac717a0d81d3407c7313e82810c6199446a5247
+  languageName: node
+  linkType: hard
+
+"get-tsconfig@npm:^4.4.0, get-tsconfig@npm:^4.7.0":
+  version: 4.7.0
+  resolution: "get-tsconfig@npm:4.7.0"
+  dependencies:
+    resolve-pkg-maps: ^1.0.0
+  checksum: 44536925720acc2f133d26301d5626405d8fe33066625484ff309bb6fb7f3310dc0bb202f862805f21a791e38a9870c6dddb013d1443dd5d745d91ad1946254a
   languageName: node
   linkType: hard
 
@@ -33231,7 +33572,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"jsonc-parser@npm:3.2.0, jsonc-parser@npm:^3.0.0":
+"jsonc-parser@npm:3.2.0":
   version: 3.2.0
   resolution: "jsonc-parser@npm:3.2.0"
   checksum: 946dd9a5f326b745aa326d48a7257e3f4a4b62c5e98ec8e49fa2bdd8d96cef7e6febf1399f5c7016114fd1f68a1c62c6138826d5d90bc650448e3cf0951c53c7
@@ -34532,13 +34873,6 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"lunr@npm:^2.3.9":
-  version: 2.3.9
-  resolution: "lunr@npm:2.3.9"
-  checksum: 176719e24fcce7d3cf1baccce9dd5633cd8bdc1f41ebe6a180112e5ee99d80373fe2454f5d4624d437e5a8319698ca6837b9950566e15d2cae5f2a543a3db4b8
-  languageName: node
-  linkType: hard
-
 "lz-string@npm:^1.4.4":
   version: 1.4.4
   resolution: "lz-string@npm:1.4.4"
@@ -34801,12 +35135,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"marked@npm:~2.0.3":
-  version: 2.0.7
-  resolution: "marked@npm:2.0.7"
-  bin:
-    marked: bin/marked
-  checksum: 529c514a485482b6d5a6d10ba547df5971cbfbd68e7780885d73f54ad3d6bfad936b535dec97f62705348e6ea0ea6eb0c5c640d38324efd9124323973ddae2c2
+"markdown-to-jsx@npm:^7.3.2":
+  version: 7.3.2
+  resolution: "markdown-to-jsx@npm:7.3.2"
+  peerDependencies:
+    react: ">= 0.14.0"
+  checksum: 8885c6343b71570b0a7ec16cd85a49b853a830234790ee7430e2517ea5d8d361ff138bd52147f650790f3e7b3a28a15c755fc16f8856dd01ddf09a6161782e06
   languageName: node
   linkType: hard
 
@@ -38186,9 +38520,8 @@ fsevents@^1.2.7:
     storybook: 7.2.0
     terser: ^5.14.2
     theo: ^8.1.5
-    ts-node: ^10.0.0
     tslib: ^2.0.3
-    typedoc: ^0.20.24
+    tsx: ^3.12.10
     typescript: ^4.9.4
     ui-box: ^5.4.0
     unist-util-visit-esm: "npm:unist-util-visit@^4.1.2"
@@ -39755,7 +40088,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"progress@npm:^2.0.1, progress@npm:^2.0.3":
+"progress@npm:^2.0.1":
   version: 2.0.3
   resolution: "progress@npm:2.0.3"
   checksum: f67403fe7b34912148d9252cb7481266a354bd99ce82c835f79070643bb3c6583d10dbcfda4d41e04bbc1d8437e9af0fb1e1f2135727878f5308682a579429b7
@@ -41723,6 +42056,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"resolve-pkg-maps@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "resolve-pkg-maps@npm:1.0.0"
+  checksum: 1012afc566b3fdb190a6309cc37ef3b2dcc35dff5fa6683a9d00cd25c3247edfbc4691b91078c97adc82a29b77a2660c30d791d65dab4fc78bfc473f60289977
+  languageName: node
+  linkType: hard
+
 "resolve-url-loader@npm:^4.0.0":
   version: 4.0.0
   resolution: "resolve-url-loader@npm:4.0.0"
@@ -42747,19 +43087,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"shelljs@npm:^0.8.4":
-  version: 0.8.4
-  resolution: "shelljs@npm:0.8.4"
-  dependencies:
-    glob: ^7.0.0
-    interpret: ^1.0.0
-    rechoir: ^0.6.2
-  bin:
-    shjs: bin/shjs
-  checksum: 27f83206ef6a4f5b74a493726c3e6b4c3e07a9c2aac94c5e692d800a61353c18a8234967bd8523b1346abe718beb563843687fb57f466529ba06db3cae6f0bb3
-  languageName: node
-  linkType: hard
-
 "shelljs@npm:^0.8.5":
   version: 0.8.5
   resolution: "shelljs@npm:0.8.5"
@@ -42770,17 +43097,6 @@ resolve@^2.0.0-next.3:
   bin:
     shjs: bin/shjs
   checksum: 7babc46f732a98f4c054ec1f048b55b9149b98aa2da32f6cf9844c434b43c6251efebd6eec120937bd0999e13811ebd45efe17410edb3ca938f82f9381302748
-  languageName: node
-  linkType: hard
-
-"shiki@npm:^0.9.3":
-  version: 0.9.15
-  resolution: "shiki@npm:0.9.15"
-  dependencies:
-    jsonc-parser: ^3.0.0
-    vscode-oniguruma: ^1.6.1
-    vscode-textmate: 5.2.0
-  checksum: 58d1e3e106320252b67c63dc1269c4b834152e9c675a06a4565ec41db1c93aea2dd94e22640d7ec99334cb47cd41b914642d936577143b689ef2a0db7d938c13
   languageName: node
   linkType: hard
 
@@ -43195,7 +43511,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.19, source-map-support@npm:~0.5.20":
+"source-map-support@npm:^0.5.16, source-map-support@npm:^0.5.21, source-map-support@npm:^0.5.6, source-map-support@npm:~0.5.12, source-map-support@npm:~0.5.19, source-map-support@npm:~0.5.20":
   version: 0.5.21
   resolution: "source-map-support@npm:0.5.21"
   dependencies:
@@ -45030,7 +45346,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.0.0, ts-node@npm:^10.6.0":
+"ts-node@npm:^10.6.0":
   version: 10.7.0
   resolution: "ts-node@npm:10.7.0"
   dependencies:
@@ -45154,6 +45470,23 @@ resolve@^2.0.0-next.3:
   peerDependencies:
     typescript: ">=2.8.0 || >= 3.2.0-dev || >= 3.3.0-dev || >= 3.4.0-dev || >= 3.5.0-dev || >= 3.6.0-dev || >= 3.6.0-beta || >= 3.7.0-dev || >= 3.7.0-beta"
   checksum: 1843f4c1b2e0f975e08c4c21caa4af4f7f65a12ac1b81b3b8489366826259323feb3fc7a243123453d2d1a02314205a7634e048d4a8009921da19f99755cdc48
+  languageName: node
+  linkType: hard
+
+"tsx@npm:^3.12.10":
+  version: 3.12.10
+  resolution: "tsx@npm:3.12.10"
+  dependencies:
+    "@esbuild-kit/cjs-loader": ^2.4.2
+    "@esbuild-kit/core-utils": ^3.3.0
+    "@esbuild-kit/esm-loader": ^2.6.3
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    tsx: dist/cli.js
+  checksum: 84fbbdbb90a05ecc764aee92fbe234b45939ccba34a08298fcec2bb9cb2ecb7676b21e676dd12681279490a7ac55bb81897ce503775cbcce0f76703eb282bb37
   languageName: node
   linkType: hard
 
@@ -45346,36 +45679,6 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typedoc-default-themes@npm:^0.12.10":
-  version: 0.12.10
-  resolution: "typedoc-default-themes@npm:0.12.10"
-  checksum: 4c19a0fecdf24777bd153c6ae4a4f2b23c95521a83483cdbee89aaeef985d7e37f2665b37d55f809ef36d0eb4433a921209dc45a1055791d81464bffeea77dfd
-  languageName: node
-  linkType: hard
-
-"typedoc@npm:^0.20.24":
-  version: 0.20.37
-  resolution: "typedoc@npm:0.20.37"
-  dependencies:
-    colors: ^1.4.0
-    fs-extra: ^9.1.0
-    handlebars: ^4.7.7
-    lodash: ^4.17.21
-    lunr: ^2.3.9
-    marked: ~2.0.3
-    minimatch: ^3.0.0
-    progress: ^2.0.3
-    shelljs: ^0.8.4
-    shiki: ^0.9.3
-    typedoc-default-themes: ^0.12.10
-  peerDependencies:
-    typescript: 3.9.x || 4.0.x || 4.1.x || 4.2.x
-  bin:
-    typedoc: bin/typedoc
-  checksum: fa2abdfe59fdb3d70c34d99a4728dc7a327b62b6dd46d973c231452b3dac4daf4809bfc22aca1be077ea9a90c6d732ec2814dd7016695a5a7a42285f15c52864
-  languageName: node
-  linkType: hard
-
 "typeof-article@npm:^0.1.1":
   version: 0.1.1
   resolution: "typeof-article@npm:0.1.1"
@@ -45427,11 +45730,11 @@ typescript@^4.9.4:
 
 "typescript@patch:typescript@>=3 < 6#~builtin<compat/typescript>":
   version: 5.1.6
-  resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=85af82"
+  resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 21e88b0a0c0226f9cb9fd25b9626fb05b4c0f3fddac521844a13e1f30beb8f14e90bd409a9ac43c812c5946d714d6e0dee12d5d02dfc1c562c5aacfa1f49b606
+  checksum: f53bfe97f7c8b2b6d23cf572750d4e7d1e0c5fff1c36d859d0ec84556a827b8785077bc27676bf7e71fae538e517c3ecc0f37e7f593be913d884805d931bc8be
   languageName: node
   linkType: hard
 
@@ -45457,11 +45760,11 @@ typescript@^4.9.4:
 
 "typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
   version: 4.9.4
-  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=23ec76"
+  resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=289587"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 3e2ab0772908676d9b9cb83398c70003a3b08e1c6b3b122409df9f4b520f2fdaefa20c3d7d57dce283fed760ac94b3ce94d4a7fa875127b67852904425a1f0dc
+  checksum: 2160f7ad975c59b2f5816817d3916be1d156c5688a7517602b3b640c5015e740f4ba933996ac85371d68f7bbdd41602150fb8b68334122ac637fdb5418085e7a
   languageName: node
   linkType: hard
 
@@ -46581,20 +46884,6 @@ typescript@^4.9.4:
   bin:
     vsce: vsce
   checksum: 0c7b195fc6c60af9da01f950feff3e42f2ebee51d52c239b9bbeac39abe97a68886b28cafc60fdc9d927a1b618f7736b5e4d44042b84230a53f8798fb1903d1e
-  languageName: node
-  linkType: hard
-
-"vscode-oniguruma@npm:^1.6.1":
-  version: 1.7.0
-  resolution: "vscode-oniguruma@npm:1.7.0"
-  checksum: 53519d91d90593e6fb080260892e87d447e9b200c4964d766772b5053f5699066539d92100f77f1302c91e8fc5d9c772fbe40fe4c90f3d411a96d5a9b1e63f42
-  languageName: node
-  linkType: hard
-
-"vscode-textmate@npm:5.2.0":
-  version: 5.2.0
-  resolution: "vscode-textmate@npm:5.2.0"
-  checksum: 5449b42d451080f6f3649b66948f4b5ee4643c4e88cfe3558a3b31c84c78060cfdd288c4958c1690eaa5cd65d09992fa6b7c3bef9d4aa72b3651054a04624d20
   languageName: node
   linkType: hard
 

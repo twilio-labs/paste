@@ -19,6 +19,7 @@ import type {CodeblockProps} from '../codeblock';
 import {Codeblock} from '../codeblock';
 import {AnchoredHeading} from '../Heading';
 import {Pre} from '../Typography';
+import {PropsTable} from '../PropsTables';
 // Shortcode imports
 import {GenericHeader} from '../shortcodes/generic-header';
 import {NormalizedPatternHeader} from '../shortcodes/normalized-pattern-header';
@@ -67,6 +68,7 @@ const shortcodes = {
   CalloutList,
   CalloutListItem,
   CalloutText,
+  PropsTable,
 };
 
 const MDXPoviderComponents = {
@@ -106,10 +108,10 @@ const MDXPoviderComponents = {
   img: (props: React.ComponentProps<'img'>): React.ReactElement => <img style={{maxWidth: '100%'}} {...props} />, // eslint-disable-line jsx-a11y/alt-text
   sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
   content: (props: HTMLPasteProps<'div'>): React.ReactElement => (
-    <Box as="div" maxWidth="size70" minWidth="0" {...props} />
+    <Box element="CONTENT" as="div" maxWidth="size70" minWidth="0" {...props} />
   ),
   contentwrapper: (props: HTMLPasteProps<'input'>): React.ReactElement => (
-    <Box as="div" display={['block', 'block', 'flex']} {...props} />
+    <Box element="CONTENT_WRAPPER" as="div" display={['block', 'block', 'flex']} {...props} />
   ),
   contentspacer: (props: HTMLPasteProps<'input'>): React.ReactElement => (
     <Box as="div" marginBottom="space70" {...props} />

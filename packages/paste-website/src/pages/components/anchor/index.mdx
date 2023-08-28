@@ -11,13 +11,12 @@ import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
 import AnchorDont from '../../../assets/images/anchor-dont-1@4x.png';
 import packageJson from '@twilio-paste/anchor/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -29,24 +28,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/anchor',
+        storybookUrl: '/?path=/story/components-anchor--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/anchor"
-  storybookUrl="/?path=/story/components-anchor--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Anchor}} language="jsx">
   {`<Anchor href="/components">
@@ -159,47 +149,3 @@ There are many different ways you can achieve this based on the router you are u
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/anchor - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Anchor} from '@twilio-paste/core/anchor';
-
-const Component = () => <Anchor href="https://paste.twilio.design">Go to Paste</Anchor>;
-```
-
-#### Props
-
-| Prop                  | Type                                     | Description                                                                                             | Default                                |
-| --------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| href?                 | string                                   | A URL to route to. Required.                                                                            | null                                   |
-| rel?                  | string                                   | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten. | false                                  |
-| showExternal?         | boolean                                  | Shows the link external icon.                                                                           | false                                  |
-| tabindex?             | AnchorTabIndexes                         | '0', '-1'                                                                                               | null                                   |
-| target?               | AnchorTargets                            | '\_self', '\_blank', '\_parent', '\_top'. If external href, defaults to '\_blank'. Can be overwritten.  | null                                   |
-| variant?              | AnchorVariants                           | 'default', 'inverse'                                                                                    | 'default'                              |
-| onClick?              | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                         | null                                   |
-| onFocus?              | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null                                   |
-| onBlur?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null                                   |
-| i18nExternalLinkLabel | string                                   | Title for `showExternal` icon                                                                           | '(link takes you to an external page)' |
-| element?              | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider               | 'ANCHOR'                               |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

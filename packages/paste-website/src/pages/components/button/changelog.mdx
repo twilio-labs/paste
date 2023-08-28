@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Button - Changelog',
+  package: '@twilio-paste/button',
+  description: 'A Button communicates that users can trigger an action.',
+  slug: '/components/button/changelog',
+};
+
+import Changelog from '@twilio-paste/button/CHANGELOG.md';
+import packageJson from '@twilio-paste/button/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Button');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button',
+        storybookUrl: '/?path=/story/components-Button--',
+      },
+    },
+  };
+};
+
+<Changelog />

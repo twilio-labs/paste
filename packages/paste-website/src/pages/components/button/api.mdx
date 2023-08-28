@@ -1,0 +1,59 @@
+export const meta = {
+  title: 'Button - API',
+  package: '@twilio-paste/button',
+  description: 'A Button communicates that users can trigger an action.',
+  slug: '/components/button/api',
+};
+
+import Changelog from '@twilio-paste/button/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/button/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentAPI} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Button');
+  const componentAPI = getComponentAPI('@twilio-paste/button');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentAPI,
+      mdxHeadings,
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button',
+        storybookUrl: '/?path=/story/components-Button--',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/button - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Button} from '@twilio-paste/core/button';
+
+const Component = () => (
+  <Button variant="secondary" size="small" onClick={() => {}}>
+    Submit
+  </Button>
+);
+```
+
+## Props
+
+<PropsTable componentAPI={props.componentAPI} />

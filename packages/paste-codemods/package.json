@@ -10,7 +10,7 @@
   },
   "bin": "./bin/paste-codemod.js",
   "scripts": {
-    "build": "ts-node ./tools/create-package-mappings.ts"
+    "build": "tsx ./tools/create-package-mappings.ts"
   },
   "dependencies": {
     "chalk": "4.1.2",
@@ -25,6 +25,7 @@
     "@babel/core": "^7.21.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@babel/preset-env": "^7.21.4",
-    "@twilio-paste/core": "^20.3.0"
+    "@twilio-paste/core": "^20.3.0",
+    "tsx": "^3.12.10"
   }
 }

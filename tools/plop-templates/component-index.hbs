@@ -1,25 +1,2 @@
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import type {BoxProps} from '@twilio-paste/box';
-
-export interface {{pascalCase component-name}}Props extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
-  children?: React.ReactNode;
-  element?: BoxProps['element'];
-}
-
-const {{pascalCase component-name}} = React.forwardRef<HTMLDivElement, {{pascalCase component-name}}Props>(({element = "{{constantCase component-name}}", ...props}, ref) => {
-  return (
-    <div ref={ref}>
-      {props.children}
-    </div>
-  );
-});
-
-{{pascalCase component-name}}.displayName = '{{pascalCase component-name}}';
-
-{{pascalCase component-name}}.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};
-
-{{export component-name}};
+export {{{pascalCase component-name}}} from './{{pascalCase component-name}}'
+export type {{{pascalCase component-name}}Props} from './{{pascalCase component-name}}'
