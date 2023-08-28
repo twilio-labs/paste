@@ -17,7 +17,6 @@ For usage guidelines, please see our [documentation website](https://paste.twili
 Clone the repo then run the following commands from within the repo's folder:
 
 ```
-yarn # bootstraps the repo and downloads packages
 yarn build # builds all of Paste
 ```
 

@@ -110,7 +110,7 @@
     "/packages/paste-core/components/visual-picker"
   ],
   "sandboxes": [
-    "/packages/paste-nextjs-template",
+    "/templates/paste-nextjs-template",
     "/packages/paste-token-contrast-checker"
   ]
 }

@@ -9,6 +9,7 @@
     "packages": [
       "apps/**/*",
       "packages/**/*",
+      "templates/**/*",
       "!packages/paste-core/core-bundle/**/*"
     ]
   },
@@ -61,14 +62,14 @@
     "start:test:storybook": "start-server-and-test 'NODE_ENV=test yarn start:storybook' http://localhost:9001 'yarn test:storybook'",
     "serve:website": "yarn workspace @twilio-paste/website start",
     "package-size-action-build": "yarn build",
-    "prettier": "prettier --list-different '{.storybook,packages}/**/*.{ts,tsx}'",
-    "prettier-clean": "prettier --write '{.storybook,packages}/**/*.{ts,tsx}'",
+    "prettier": "prettier --list-different '{.storybook,packages,templates}/**/*.{ts,tsx}'",
+    "prettier-clean": "prettier --write '{.storybook,packages,templates}/**/*.{ts,tsx}'",
     "lint": "yarn pre-test && yarn lint:repo && yarn lint:core && yarn lint:website && yarn lint:remix && yarn lint:contrast-checker && yarn lint:nextjs-template && yarn lint:vscode-intellisense",
     "lint:core": "eslint -c .eslintrc.core.js --ext .tsx,.ts ./packages/{paste-color-contrast-utils,paste-core,paste-customization,paste-design-tokens,paste-icons,paste-libraries,paste-style-props,paste-theme,paste-types,paste-utils}/**/src",
     "lint:website": "eslint -c ./packages/paste-website/.eslintrc --ext .tsx,.ts ./packages/paste-website",
     "lint:remix": "eslint -c ./packages/paste-theme-designer/.eslintrc.json --ext .tsx,.ts ./packages/paste-theme-designer",
     "lint:contrast-checker": "eslint -c ./packages/paste-token-contrast-checker/.eslintrc.json --ext .tsx,.ts ./packages/paste-token-contrast-checker",
-    "lint:nextjs-template": "eslint -c ./packages/paste-nextjs-template/.eslintrc.json --ext .tsx,.ts ./packages/paste-nextjs-template",
+    "lint:nextjs-template": "eslint -c ./templates/paste-nextjs-template/.eslintrc.json --ext .tsx,.ts ./templates/paste-nextjs-template",
     "lint:vscode-intellisense": "eslint -c ./apps/vs-code-intellisense/.eslintrc.json --ext .tsx,.ts ./apps/vs-code-intellisense",
     "lint:repo": "eslint -c .eslintrc.repo.js --ext .tsx,.ts .",
     "type-check": "yarn nx run-many --target=tsc",

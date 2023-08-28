@@ -226,83 +226,77 @@ For example, our Button depends on our Box package. Box depends on Theme, and Th
 
 We use [Nx](https://nx.dev/) and [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to link all the internal dependencies together whilst working locally.
 
-All packages and projects that rely on the latest version of components, live under the packages directory.
+All packages and projects that rely on the latest version of components, live under the packages, apps, and templates directory.
 
 <table>
   <tr>
-   <td>paste-core
+   <td>packages/paste-core
    </td>
    <td>All React components, split into layout, primitives, and components
    </td>
   </tr>
   <tr>
-   <td>paste-codemods
+   <td>packages/paste-codemods
    </td>
    <td><a href="https://github.com/facebook/codemod">Codemods</a> that allow the Paste team to write scripts that can be run on a consuming code base, that automatically make code changes.
    </td>
   </tr>
   <tr>
-   <td>paste-cra-template
-   </td>
-   <td>A create-react-app template to get started with Paste
-   </td>
-  </tr>
-  <tr>
-   <td>paste-customization
+   <td>packages/paste-customization
    </td>
    <td>Customization provider will allow customers to change the look and feel of their Paste apps
    </td>
   </tr>
   <tr>
-   <td>paste-design-tokens
+   <td>packages/paste-design-tokens
    </td>
    <td>Paste Design Language
    </td>
   </tr>
   <tr>
-   <td>paste-icons
+   <td>packages/paste-icons
    </td>
    <td>Paste icons
    </td>
   </tr>
   <tr>
-   <td>paste-libraries
+   <td>packages/paste-libraries
    </td>
    <td>Third party libraries that Paste uses
    </td>
   </tr>
   <tr>
-   <td>paste-nextjs-template
+   <td>templates/paste-nextjs-template
    </td>
    <td>A create-next-app template to get started with Paste
    </td>
   </tr>
   <tr>
-   <td>paste-style-props
+   <td>packages/paste-style-props
    </td>
    <td>Paste style props
    </td>
   </tr>
   <tr>
-   <td>paste-theme
+   <td>packages/paste-theme
    </td>
    <td>Paste theme provider and default themes
    </td>
   </tr>
   <tr>
-   <td>paste-theme-designer
+   <td>packages/paste-theme-designer
    </td>
    <td>A web app to help Paste consumers design a custom theme
    </td>
   </tr>
   <tr>
-   <td>paste-types
+   <td>packages/paste-types
    </td>
    <td>Typescript types for the Paste project
    </td>
   </tr>
   <tr>
-   <td>paste-website
+   <td>packages/paste-website
    </td>
    <td>Paste documentation site
    </td>
