@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import {DefaultFilterGroup} from '../src/component-examples/filter-group/components/DefaultFilterGroup';
 import {CustomDateFilterGroup} from '../src/component-examples/filter-group/components/CustomDateFilterGroup';
 import {STATIC_TABLE_DATA} from '../src/component-examples/filter-group/constants';

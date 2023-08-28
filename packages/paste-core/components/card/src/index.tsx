@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {PaddingProps} from '@twilio-paste/style-props';
-
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
 /** element identifier from BoxProps for customization */

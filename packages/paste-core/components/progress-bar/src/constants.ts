@@ -1,1 +1,0 @@
-export const LABEL_SUFFIX = 'PROGRESS_BAR_LABEL';
