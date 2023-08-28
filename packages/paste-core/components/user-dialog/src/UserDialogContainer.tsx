@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {useNonModalDialogPrimitiveState} from '@twilio-paste/non-modal-dialog-primitive';
 import type {
   NonModalDialogPrimitiveStateReturn,

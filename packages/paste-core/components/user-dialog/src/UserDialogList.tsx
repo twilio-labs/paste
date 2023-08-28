@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {ListboxPrimitiveInitialState, ListboxPrimitiveStateReturn} from '@twilio-paste/listbox-primitive';
 import {useListboxPrimitiveState, ListboxPrimitive} from '@twilio-paste/listbox-primitive';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';

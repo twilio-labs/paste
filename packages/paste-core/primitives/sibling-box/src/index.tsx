@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {styled, css} from '@twilio-paste/styling-library';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';

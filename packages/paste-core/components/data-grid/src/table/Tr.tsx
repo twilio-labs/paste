@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {styled, css} from '@twilio-paste/styling-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {TrProps as TableTrProps} from '@twilio-paste/table';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {TFoot} from '@twilio-paste/table';
 import type {TFootProps} from '@twilio-paste/table';
 

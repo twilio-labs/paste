@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {Separator} from '@twilio-paste/separator';

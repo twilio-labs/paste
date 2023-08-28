@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Button} from '@twilio-paste/button';
 import type {ButtonProps} from '@twilio-paste/button';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';

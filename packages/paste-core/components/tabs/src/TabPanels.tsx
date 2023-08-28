@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -20,7 +19,6 @@ const TabPanels = React.forwardRef<HTMLDivElement, TabPanelsProps>(({children, e
     </Box>
   );
 });
-
 
 TabPanels.displayName = 'TabPanels';
 export {TabPanels};

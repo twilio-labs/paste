@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {InputProps} from '@twilio-paste/input';
 import {Input} from '@twilio-paste/input';
 

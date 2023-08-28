@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {Orientation} from './types';
 
 interface ProgressStepsState {

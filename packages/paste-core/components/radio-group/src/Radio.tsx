@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {useUID} from '@twilio-paste/uid-library';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';

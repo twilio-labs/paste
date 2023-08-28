@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {ChevronDisclosureIcon} from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
 import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';

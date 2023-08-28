@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {BoxElementProps} from '@twilio-paste/box';
 import {CompositeItem} from '@twilio-paste/reakit-library';
 import {useMutationObservable} from '@twilio-paste/utils';

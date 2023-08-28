@@ -1,4 +1,4 @@
-import { TBodyPropTypes, Table } from '@twilio-paste/core/table';
+import { Table } from '@twilio-paste/core/table';
 import { MediaObject } from '@twilio-paste/core/media-object';
 import { Label } from '@twilio-paste/core/label';
 import { Button, Button as Stuffin } from '@twilio-paste/core/button';

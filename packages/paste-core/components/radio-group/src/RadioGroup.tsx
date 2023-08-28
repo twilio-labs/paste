@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {InlineControlGroup} from '@twilio-paste/inline-control-group';
 import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
 

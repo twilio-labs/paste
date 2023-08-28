@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {useUIDSeed} from '@twilio-paste/uid-library';
 import type {ResponsiveValue} from '@twilio-paste/styling-library';
 import type {LayoutProps, FlexboxProps, MarginProps, SpaceOptions} from '@twilio-paste/style-props';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {TBody} from '@twilio-paste/table';
 import type {TBodyProps} from '@twilio-paste/table';
 

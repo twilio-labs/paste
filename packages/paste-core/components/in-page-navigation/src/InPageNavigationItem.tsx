@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {secureExternalLink} from '@twilio-paste/anchor';

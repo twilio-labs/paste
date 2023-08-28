@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {useUID} from '@twilio-paste/uid-library';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {IconWrapper} from '@twilio-paste/icons/esm/helpers/IconWrapper';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Text} from '@twilio-paste/text';
 
 import type {UserDialogUserTextProps} from './types';

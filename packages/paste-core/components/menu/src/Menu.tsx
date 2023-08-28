@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {BoxElementProps} from '@twilio-paste/box';
 import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
 import {MenuPrimitive} from '@twilio-paste/menu-primitive';

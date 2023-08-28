@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {SiteBody} from './SiteBody';
 import {NavigationContext} from '../../context/NavigationContext';
 import type {NavigationQuery} from '../../context/NavigationContext';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {useVirtual} from 'react-virtual';
 import {useUID} from '@twilio-paste/uid-library';
 import {useWindowSize} from '@twilio-paste/utils';

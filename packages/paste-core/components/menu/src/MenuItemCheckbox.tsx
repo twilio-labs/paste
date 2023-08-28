@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {MenuPrimitiveItemCheckbox} from '@twilio-paste/menu-primitive';
 
 import type {MenuItemCheckboxProps} from './types';

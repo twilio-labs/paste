@@ -31,7 +31,7 @@ export const DefaultElementName: StoryFn = () => {
           name="product"
           value="twilio"
           checked={product === 'twilio'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('twilio');
           }}
           productName="Twilio"
@@ -43,7 +43,7 @@ export const DefaultElementName: StoryFn = () => {
           name="product"
           value="segment"
           checked={product === 'segment'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('segment');
           }}
           productName="Segment"
@@ -55,7 +55,7 @@ export const DefaultElementName: StoryFn = () => {
           name="product"
           value="flex"
           checked={product === 'flex'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('flex');
           }}
           productName="Flex"
@@ -67,7 +67,7 @@ export const DefaultElementName: StoryFn = () => {
           name="product"
           value="sendgrid"
           checked={product === 'sendgrid'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('sendgrid');
           }}
           productName="SendGrid"
@@ -79,7 +79,7 @@ export const DefaultElementName: StoryFn = () => {
           name="product"
           value="admin"
           checked={product === 'admin'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('admin');
           }}
           productName="Console Admin"
@@ -110,7 +110,7 @@ export const CustomElementName: StoryFn = () => {
           name="product"
           value="twilio"
           checked={product === 'twilio'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('twilio');
           }}
           productName="Twilio"
@@ -123,7 +123,7 @@ export const CustomElementName: StoryFn = () => {
           name="product"
           value="segment"
           checked={product === 'segment'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('segment');
           }}
           productName="Segment"
@@ -136,7 +136,7 @@ export const CustomElementName: StoryFn = () => {
           name="product"
           value="flex"
           checked={product === 'flex'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('flex');
           }}
           productName="Flex"
@@ -149,7 +149,7 @@ export const CustomElementName: StoryFn = () => {
           name="product"
           value="sendgrid"
           checked={product === 'sendgrid'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('sendgrid');
           }}
           productName="SendGrid"
@@ -162,7 +162,7 @@ export const CustomElementName: StoryFn = () => {
           name="product"
           value="admin"
           checked={product === 'admin'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('admin');
           }}
           productName="Console Admin"

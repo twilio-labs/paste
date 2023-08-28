@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {BoxProps} from '@twilio-paste/box';
 
 import {FieldWrapper} from './FauxInput';

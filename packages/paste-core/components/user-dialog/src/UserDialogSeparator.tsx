@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Separator, type SeparatorProps} from '@twilio-paste/separator';
 import {Box} from '@twilio-paste/box';
 

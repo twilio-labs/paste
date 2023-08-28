@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {useDisclosurePrimitiveState} from '@twilio-paste/disclosure-primitive';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Box} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Badge} from '@twilio-paste/badge';

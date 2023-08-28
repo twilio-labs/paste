@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Badge} from '@twilio-paste/badge';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 

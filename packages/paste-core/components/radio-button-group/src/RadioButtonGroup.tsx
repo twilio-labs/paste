@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
 import {HelpText} from '@twilio-paste/help-text';

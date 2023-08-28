@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {BoxProps} from '@twilio-paste/box';
 import {Tab} from '@twilio-paste/tabs';
 import type {TabProps} from '@twilio-paste/tabs';

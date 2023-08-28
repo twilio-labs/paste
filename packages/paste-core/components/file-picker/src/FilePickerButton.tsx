@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {ButtonProps} from '@twilio-paste/button';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';

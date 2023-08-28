@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Avatar} from '@twilio-paste/avatar';
 import {Button} from '@twilio-paste/button';

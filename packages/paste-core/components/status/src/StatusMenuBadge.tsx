@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {MenuBadgeContent} from '@twilio-paste/menu';
 import type {MenuBadgeProps} from '@twilio-paste/menu';
 

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {MarginProps, Space} from '@twilio-paste/style-props';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 

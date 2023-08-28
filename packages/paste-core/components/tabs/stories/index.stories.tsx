@@ -66,8 +66,6 @@ export const HorizontalTabs = (): JSX.Element => {
     </Tabs>
   );
 };
-// @ts-expect-error story
-HorizontalTabs.storyName = 'Horizontal Tabs';
 
 export const FittedTabs = (): JSX.Element => {
   const selectedId = useUID();
@@ -122,8 +120,6 @@ export const FittedTabs = (): JSX.Element => {
     </Tabs>
   );
 };
-// @ts-expect-error story
-FittedTabs.storyName = 'Fitted Tabs';
 
 export const VerticalTabs = (): JSX.Element => {
   const selectedId = useUID();
@@ -178,8 +174,6 @@ export const VerticalTabs = (): JSX.Element => {
     </Tabs>
   );
 };
-// @ts-expect-error story
-VerticalTabs.storyName = 'Vertical Tabs';
 
 export const HorizontalInverseTabs = (): JSX.Element => {
   const selectedId = useUID();
@@ -224,8 +218,6 @@ export const HorizontalInverseTabs = (): JSX.Element => {
     </Box>
   );
 };
-// @ts-expect-error story
-HorizontalInverseTabs.storyName = 'Horizontal Inverse Tabs';
 
 export const InverseFittedTabs = (): JSX.Element => {
   const selectedId = useUID();
@@ -270,8 +262,6 @@ export const InverseFittedTabs = (): JSX.Element => {
     </Box>
   );
 };
-// @ts-expect-error story
-InverseFittedTabs.storyName = 'Inverse Fitted Tabs';
 
 export const VerticalInverseTabs = (): JSX.Element => {
   const selectedId = useUID();
@@ -321,8 +311,6 @@ export const VerticalInverseTabs = (): JSX.Element => {
     </Box>
   );
 };
-// @ts-expect-error story
-VerticalInverseTabs.storyName = 'Vertical Inverse Tabs';
 
 const useButtonClickTabState = (uniqueBaseID: string): TabStateReturn => {
   const tab = useTabState();
@@ -359,8 +347,6 @@ export const StateHookTabs = (): JSX.Element => {
     </Tabs>
   );
 };
-// @ts-expect-error story
-StateHookTabs.storyName = 'State hook example';
 
 export const CenterAlignTabTest = (): JSX.Element => {
   return (
@@ -382,8 +368,6 @@ export const CenterAlignTabTest = (): JSX.Element => {
     </Tabs>
   );
 };
-// @ts-expect-error story
-CenterAlignTabTest.storyName = 'Testing Center Alignment';
 
 export const CustomHorizontalTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
   const currentTheme = useTheme();

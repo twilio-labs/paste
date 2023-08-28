@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {UseDarkModeReturn} from '../hooks/useDarkMode';
 
 type DarkModeContextValue = {

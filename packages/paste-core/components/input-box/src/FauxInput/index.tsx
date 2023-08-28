@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {DefaultFauxInput} from './DefaultFauxInput';
 import {InverseFauxInput} from './InverseFauxInput';
 import type {FauxInputProps} from '../types';

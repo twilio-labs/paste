@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {SyntaxHighlighter} from '@twilio-paste/syntax-highlighter-library';
 import type {SnippetLanguages} from '@twilio-paste/syntax-highlighter-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';

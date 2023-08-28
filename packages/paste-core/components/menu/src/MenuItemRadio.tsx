@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {MenuPrimitiveItemRadio} from '@twilio-paste/menu-primitive';
 
 import type {MenuItemRadioProps} from './types';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Box} from '@twilio-paste/box';
 import type {TextProps} from '@twilio-paste/text';
 import {Text} from '@twilio-paste/text';

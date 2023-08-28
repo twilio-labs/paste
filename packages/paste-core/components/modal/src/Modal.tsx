@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {css, styled} from '@twilio-paste/styling-library';
 import {useTransition, animated} from '@twilio-paste/animation-library';
 import {safelySpreadBoxProps, Box, getCustomElementStyles} from '@twilio-paste/box';

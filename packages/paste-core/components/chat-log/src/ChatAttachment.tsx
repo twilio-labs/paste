@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {BoxElementProps} from '@twilio-paste/box';
 import {Box} from '@twilio-paste/box';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';

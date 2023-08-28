@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {useSpring, animated} from '@twilio-paste/animation-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {DisclosurePrimitiveContent} from '@twilio-paste/disclosure-primitive';

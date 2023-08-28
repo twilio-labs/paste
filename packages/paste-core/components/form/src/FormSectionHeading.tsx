@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Heading} from '@twilio-paste/heading';
 import type {HeadingProps} from '@twilio-paste/heading';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';

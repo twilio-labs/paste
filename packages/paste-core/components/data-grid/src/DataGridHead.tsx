@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {THead} from '@twilio-paste/table';
 import type {THeadProps} from '@twilio-paste/table';
 

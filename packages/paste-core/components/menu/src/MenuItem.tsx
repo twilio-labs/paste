@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {MenuPrimitiveItem} from '@twilio-paste/menu-primitive';
 
 import type {MenuItemProps} from './types';

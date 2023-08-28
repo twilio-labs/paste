@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {useUID} from '@twilio-paste/uid-library';
 import {useCompositeState, Composite} from '@twilio-paste/reakit-library';
 import {Table} from '@twilio-paste/table';

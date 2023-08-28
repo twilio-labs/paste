@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {useTransition, animated} from '@twilio-paste/animation-library';
 import {Box, safelySpreadBoxProps, type BoxProps} from '@twilio-paste/box';
 import {StyledBase} from '@twilio-paste/theme';

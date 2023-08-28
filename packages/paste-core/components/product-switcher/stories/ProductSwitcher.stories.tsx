@@ -24,7 +24,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           name="product"
           value="twilio"
           checked={product === 'twilio'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('twilio');
           }}
           productName="Twilio"
@@ -36,7 +36,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           name="product"
           value="segment"
           checked={product === 'segment'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('segment');
           }}
           productName="Segment"
@@ -48,7 +48,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           name="product"
           value="flex"
           checked={product === 'flex'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('flex');
           }}
           productName="Flex"
@@ -60,7 +60,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           name="product"
           value="sendgrid"
           checked={product === 'sendgrid'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('sendgrid');
           }}
           productName="SendGrid"
@@ -72,7 +72,7 @@ export const ProductSwitcherMenu: StoryFn = () => {
           name="product"
           value="admin"
           checked={product === 'admin'}
-          onChange={(e) => {
+          onChange={() => {
             setProduct('admin');
           }}
           productName="Console Admin"

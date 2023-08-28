@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Button} from '@twilio-paste/button';
 import {Box, type BoxProps} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';

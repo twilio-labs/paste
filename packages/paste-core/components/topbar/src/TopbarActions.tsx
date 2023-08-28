@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 import type {ResponsiveValue} from '@twilio-paste/styling-library';

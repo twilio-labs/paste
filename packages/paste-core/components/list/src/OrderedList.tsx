@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {safelySpreadTextProps} from '@twilio-paste/text';
 
 import {List} from './List';

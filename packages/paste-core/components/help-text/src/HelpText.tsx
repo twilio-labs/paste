@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';

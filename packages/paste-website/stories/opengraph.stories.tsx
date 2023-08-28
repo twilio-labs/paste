@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {GraphImageWrapper} from '../src/components/open-graph-card/GraphImageWrapper';
 import {GraphImageHero} from '../src/components/open-graph-card/GraphImageHero';
 import {GraphImageDetails} from '../src/components/open-graph-card/GraphImageDetails';

@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextProps} from '@twilio-paste/help-text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
