@@ -1,6 +1,7 @@
 import {CustomizationProvider} from '@twilio-paste/customization';
 import {useTheme} from '@twilio-paste/theme';
 import {useUID} from '@twilio-paste/uid-library';
+import {HelpText} from '@twilio-paste/help-text';
 import * as React from 'react';
 
 import {Meter, MeterLabel} from '../src';
@@ -21,14 +22,9 @@ export const Default = (): React.ReactElement => {
   );
 };
 
-export const HiddenValueLabel = (): React.ReactElement => {
+export const HiddenValueLabelAriaLabel = (): React.ReactElement => {
   const meterId = useUID();
-  return (
-    <>
-      <MeterLabel htmlFor={meterId}>Fuel level</MeterLabel>
-      <Meter id={meterId} value={33} showValueLabel={false} />
-    </>
-  );
+  return <Meter aria-label="Fuel level" id={meterId} value={33} showValueLabel={false} />;
 };
 
 export const FormattedValueLabel = (): React.ReactElement => {
@@ -41,12 +37,25 @@ export const FormattedValueLabel = (): React.ReactElement => {
   );
 };
 
-export const CustomValueLabel = (): React.ReactElement => {
+export const CustomValueLabelCustomLabel = (): React.ReactElement => {
+  const labelId = useUID();
   const meterId = useUID();
   return (
     <>
+      <legend id={labelId}>Storage space used</legend>
+      <Meter aria-labelledby={labelId} id={meterId} value={54} minValue={0} maxValue={60} valueLabel="54 of 60GB" />
+    </>
+  );
+};
+
+export const WithHelpText = (): React.ReactElement => {
+  const meterId = useUID();
+  const helpTextId = useUID();
+  return (
+    <>
       <MeterLabel htmlFor={meterId}>Storage space used</MeterLabel>
-      <Meter id={meterId} value={54} minValue={0} maxValue={60} valueLabel="54 of 60GB" />
+      <Meter id={meterId} value={54} minValue={0} maxValue={60} valueLabel="54 of 60GB" aria-describedby={helpTextId} />
+      <HelpText id={helpTextId}>Helpful text</HelpText>
     </>
   );
 };
@@ -59,7 +68,6 @@ export const Customized = (): React.ReactElement => {
     <CustomizationProvider
       theme={theme}
       elements={{
-        METER_LABEL_WRAPPER: {borderStyle: 'solid', borderColor: 'colorBorderDestructiveStrong'},
         METER_LABEL: {color: 'colorTextErrorStrongest'},
         METER: {
           borderStyle: 'solid',
@@ -72,7 +80,6 @@ export const Customized = (): React.ReactElement => {
         METER_BAR: {backgroundColor: 'colorBackgroundDestructiveStrongest', borderRadius: 'borderRadiusPill'},
         METER_FILL: {backgroundColor: 'colorBackgroundDecorative30Weakest', borderRadius: 'borderRadiusPill'},
 
-        FOO_LABEL_WRAPPER: {borderStyle: 'solid', borderColor: 'colorBorderDestructiveStrong'},
         FOO_LABEL: {color: 'colorTextErrorStrongest'},
         FOO: {
           borderStyle: 'solid',

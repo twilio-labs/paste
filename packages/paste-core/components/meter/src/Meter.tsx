@@ -4,7 +4,7 @@ import {Text} from '@twilio-paste/text';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 import {useMeter} from '@twilio-paste/react-spectrum-library';
 
-export const labelIdSuffix = 'LABEL';
+import {LABEL_SUFFIX} from './constants';
 
 export interface MeterProps extends HTMLPasteProps<'meter'>, Pick<BoxProps, 'element'> {
   minValue?: number;
@@ -14,6 +14,9 @@ export interface MeterProps extends HTMLPasteProps<'meter'>, Pick<BoxProps, 'ele
   showValueLabel?: boolean;
   formatOptions?: Intl.NumberFormatOptions; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options
   valueLabel?: string;
+  'aria-label'?: string;
+  'aria-describedby'?: string;
+  'aria-labelledby'?: string;
   /*
    * The following props don't exist on the react-aria useMeter hook but do exist on the HTML meter element.
    * They can be added back into the Paste Meter API depending on the finalized spec & designs.
@@ -32,6 +35,16 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(({element = 'METER'
   const percentage = (value - minValue) / (maxValue - minValue);
   const fillWidth = `${Math.round(percentage * 100)}%`;
 
+  /*
+   * Since ProgressBar isn't a form element, we cannot use htmlFor from the regular label
+   * so we create a ProgressBarLabel component that behaves like a regular form Label
+   * but leverages aria-labelledby instead of htmlFor transparently.
+   */
+  let labelledBy = props['aria-labelledby'];
+  if (labelledBy == null && props['aria-label'] == null && id != null) {
+    labelledBy = `${id}${LABEL_SUFFIX}`;
+  }
+
   return (
     <Box
       as="div"
@@ -41,7 +54,7 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(({element = 'METER'
       maxWidth="size30"
       position="relative"
       element={element}
-      aria-labelledby={`${id}${labelIdSuffix}`}
+      aria-labelledby={labelledBy}
     >
       <Box
         display="flex"
