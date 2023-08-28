@@ -12,6 +12,7 @@
 '@twilio-paste/button-group': major
 '@twilio-paste/callout': major
 '@twilio-paste/card': major
+'@twilio-paste/chat-composer': major
 '@twilio-paste/chat-log': major
 '@twilio-paste/checkbox': major
 '@twilio-paste/code-block': major
@@ -30,6 +31,7 @@
 '@twilio-paste/help-text': major
 '@twilio-paste/in-page-navigation': major
 '@twilio-paste/inline-code': major
+'@twilio-paste/input': major
 '@twilio-paste/input-box': major
 '@twilio-paste/label': major
 '@twilio-paste/list': major
@@ -48,6 +50,7 @@
 '@twilio-paste/separator': major
 '@twilio-paste/side-modal': major
 '@twilio-paste/sidebar': major
+'@twilio-paste/skeleton-loader': major
 '@twilio-paste/spinner': major
 '@twilio-paste/status': major
 '@twilio-paste/switch': major
@@ -66,8 +69,18 @@
 '@twilio-paste/grid': major
 '@twilio-paste/media-object': major
 '@twilio-paste/stack': major
+'@twilio-paste/box': major
+'@twilio-paste/combobox-primitive': major
+'@twilio-paste/disclosure-primitive': major
 '@twilio-paste/sibling-box': major
+'@twilio-paste/text': major
+'@twilio-paste/customization': major
+'@twilio-paste/design-tokens': major
+'@twilio-paste/lexical-library': major
+'@twilio-paste/react-spectrum-library': major
+'@twilio-paste/nextjs-template': major
 '@twilio-paste/style-props': major
+'@twilio-paste/token-contrast-checker': major
 ---
 
 Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
