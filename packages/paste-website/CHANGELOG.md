@@ -1,5 +1,20 @@
 # @twilio-paste/website
 
+## 2.23.35
+
+### Patch Changes
+
+- Updated dependencies [[`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90), [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8), [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90), [`2a1f8b954`](https://github.com/twilio-labs/paste/commit/2a1f8b954cdfc12cf40b7f5cd633d0b9ea9e882d), [`48c8d8271`](https://github.com/twilio-labs/paste/commit/48c8d82714f1e54d072644348c68f0a74fa790f9), [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8), [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8), [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90)]:
+  - @twilio-paste/chat-log@5.1.0
+  - @twilio-paste/menu@14.0.1
+  - @twilio-paste/lexical-library@4.0.0
+  - @twilio-paste/input@9.0.1
+  - @twilio-paste/input-box@10.0.1
+  - @twilio-paste/alert-dialog@9.1.0
+  - @twilio-paste/design-tokens@10.1.0
+  - @twilio-paste/button@14.0.1
+  - @twilio-paste/chat-composer@5.0.0
+
 ## 2.23.34
 
 ### Patch Changes

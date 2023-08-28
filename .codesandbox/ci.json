@@ -61,6 +61,7 @@
     "/packages/paste-core/layout/media-object",
     "/packages/paste-core/components/menu",
     "/packages/paste-core/primitives/menu",
+    "/packages/paste-core/components/meter",
     "/packages/paste-core/components/minimizable-dialog",
     "/packages/paste-core/components/modal",
     "/packages/paste-core/primitives/modal-dialog",

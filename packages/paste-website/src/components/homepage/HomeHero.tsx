@@ -77,14 +77,14 @@ const HomeHero = (): JSX.Element => {
                   <NewIcon decorative />
                   New
                 </Badge>
-                <NewComponentBannerText>The Navigation UI Kit,</NewComponentBannerText>
+                <NewComponentBannerText>Our Figma library now updated with variables,</NewComponentBannerText>
                 <NewComponentBannerLink
-                  href="/patterns/navigation"
+                  href="https://www.figma.com/community/file/1207476064127503112/Twilio-Paste-Components"
                   onClick={() =>
                     event({
                       category: 'Hero',
                       action: 'click-new-banner',
-                      label: 'Navigation page',
+                      label: 'Figma Community with variables',
                     })
                   }
                 >
