@@ -248,6 +248,24 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       [items, selectedItems, highlightedIndex]
     );
 
+    /*
+     * If we press the enter key in a form, it will attempt to submit the form
+     * but if this is a required field and there are no selected items, we don't want
+     * to submit the form
+     */
+
+    const {onKeyDown} = props;
+    const handleKeyDown = React.useCallback(
+      (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.code === 'Enter' && required && selectedItems.length === 0) {
+          // Don't submit the form
+          event.preventDefault();
+        }
+        onKeyDown?.(event);
+      },
+      [required, selectedItems, onKeyDown]
+    );
+
     // FIX: a11y issue where `aria-expanded` isn't being set until the dropdown opens the very first time
     const comboboxProps = getComboboxProps({
       disabled,
@@ -332,9 +350,9 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
               // we spread props into `getInputProps` so that Downshift handles events correctly
               {...getInputProps({
                 ...getDropdownProps({ref, preventKeyAction: isOpen}),
-                disabled,
-                required,
                 ...props,
+                disabled,
+                onKeyDown: handleKeyDown,
               })}
               aria-describedby={helpTextId}
               element={`${element}_ELEMENT`}
