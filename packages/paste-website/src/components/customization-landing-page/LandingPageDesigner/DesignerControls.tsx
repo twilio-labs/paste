@@ -35,7 +35,7 @@ export const DesignerControls = (): JSX.Element => {
     >
       <Box as="fieldset" border="none" padding="space0" margin="space0">
         <Stack orientation="vertical" spacing="space40">
-          <Label htmlFor="" as="legend" marginBottom="space0">
+          <Label as="legend" marginBottom="space0">
             Text styles
           </Label>
           <div>
@@ -90,7 +90,7 @@ export const DesignerControls = (): JSX.Element => {
       <Separator orientation="horizontal" verticalSpacing="space80" />
       <Box as="fieldset" border="none" padding="space0" margin="space0">
         <Stack orientation="vertical" spacing="space40">
-          <Label htmlFor="" as="legend" marginBottom="space0">
+          <Label as="legend" marginBottom="space0">
             Background styles
           </Label>
           <ColorTokenInput
@@ -119,7 +119,7 @@ export const DesignerControls = (): JSX.Element => {
       <Separator orientation="horizontal" verticalSpacing="space80" />
       <Box as="fieldset" border="none" padding="space0" margin="space0">
         <Stack orientation="vertical" spacing="space40">
-          <Label htmlFor="" as="legend" marginBottom="space0">
+          <Label as="legend" marginBottom="space0">
             Border styles
           </Label>
           <UnitTokenInput

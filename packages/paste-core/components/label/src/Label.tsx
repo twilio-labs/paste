@@ -9,16 +9,37 @@ import type {HTMLPasteProps} from '@twilio-paste/types';
 import {RequiredDot} from './RequiredDot';
 
 export type LabelVariants = 'default' | 'inverse';
-export interface LabelProps extends HTMLPasteProps<'label'>, Pick<BoxProps, 'element'> {
-  as?: 'label' | 'legend' | 'div';
+type LabelBaseProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
-  htmlFor: string | undefined;
   marginBottom?: 'space0';
   required?: boolean;
   variant?: LabelVariants;
   i18nRequiredLabel?: string;
-}
+};
+type LabelElementProps = HTMLPasteProps<'label'> & {
+  as?: 'label';
+  /**
+   * You must specify the 'htmlFor' prop to associate the label with an input.
+   */
+  htmlFor: string | undefined;
+};
+type LabelLegendElementProps = HTMLPasteProps<'legend'> & {
+  as?: 'legend';
+  /**
+   * You cannot apply htmlFor to a legend element.
+   */
+  htmlFor?: never;
+};
+type LabelDivElementProps = HTMLPasteProps<'div'> & {
+  as?: 'div';
+  /**
+   * You cannot apply htmlFor to a div element.
+   */
+  htmlFor?: never;
+};
+
+export type LabelProps = LabelBaseProps & (LabelElementProps | LabelLegendElementProps | LabelDivElementProps);
 
 const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
   (
