@@ -15,7 +15,7 @@ export const ReactCard = (): JSX.Element => {
         <Paragraph>You can add Paste to any React-based UI, including Next.js and Create React App.</Paragraph>
       </ProjectCardBody>
       <Paragraph marginBottom="space0">
-        <Anchor href="https://github.com/twilio-labs/paste/tree/main/packages/paste-nextjs-template" showExternal>
+        <Anchor href="https://github.com/twilio-labs/paste/tree/main/templates/paste-nextjs-template" showExternal>
           Try our Next.js Starter Kit
         </Anchor>
       </Paragraph>

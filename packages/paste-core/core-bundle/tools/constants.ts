@@ -6,19 +6,13 @@ import type {PackageShape} from './types';
  * Adding the website package for redundancy only, because
  * it's a private package and won't be included anyways
  */
-const BLOCKLIST = [
-  '@twilio-paste/core',
-  '@twilio-paste/icons',
-  '@twilio-paste/website',
-  '@twilio-paste/codemods',
-  '@twilio-paste/cra-template',
-];
+const BLOCKLIST = ['@twilio-paste/core', '@twilio-paste/icons', '@twilio-paste/website', '@twilio-paste/codemods'];
 
 const BASE_CODESANDBOX_CI = {
   buildCommand: 'build',
   node: '16',
   packages: ['/packages/paste-icons', '/packages/paste-core/core-bundle'],
-  sandboxes: ['/packages/paste-nextjs-template', '/packages/paste-token-contrast-checker'],
+  sandboxes: ['/templates/paste-nextjs-template', '/packages/paste-token-contrast-checker'],
 };
 
 const PACKAGES_ROOT_PATH = join(__dirname, '../../../..');
