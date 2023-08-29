@@ -11,7 +11,6 @@ const IGNORE_LIST = [
   '@twilio-paste/icons',
   '@twilio-paste/website',
   '@twilio-paste/codemods',
-  '@twilio-paste/cra-template',
   '@twilio-paste/nextjs-template',
   '@twilio-paste/theme-designer',
   '@twilio-paste/color-contrast-utils',

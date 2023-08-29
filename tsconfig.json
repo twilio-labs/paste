@@ -28,6 +28,7 @@
   },
   "include": [
     "packages/**/*",
+    "templates/**/*",
     "performance-benchmarks/**/*",
     "dangerfile.ts",
     ".danger/**/*",

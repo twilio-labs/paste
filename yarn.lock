@@ -13549,6 +13549,7 @@ __metadata:
     "@twilio-paste/media-object": ^10.0.0
     "@twilio-paste/menu": ^14.0.1
     "@twilio-paste/menu-primitive": ^2.0.0
+    "@twilio-paste/meter": ^0.0.0
     "@twilio-paste/minimizable-dialog": ^4.0.0
     "@twilio-paste/modal": ^16.0.0
     "@twilio-paste/modal-dialog-primitive": ^2.0.0
@@ -13608,12 +13609,6 @@ __metadata:
     prop-types: ^15.7.2
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
-  languageName: unknown
-  linkType: soft
-
-"@twilio-paste/cra-template@workspace:packages/paste-cra-template":
-  version: 0.0.0-use.local
-  resolution: "@twilio-paste/cra-template@workspace:packages/paste-cra-template"
   languageName: unknown
   linkType: soft
 
@@ -14943,6 +14938,56 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@twilio-paste/meter@^0.0.0, @twilio-paste/meter@workspace:packages/paste-core/components/meter":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/meter@workspace:packages/paste-core/components/meter"
+  dependencies:
+    "@twilio-paste/animation-library": ^2.0.0
+    "@twilio-paste/box": ^10.0.0
+    "@twilio-paste/color-contrast-utils": ^5.0.0
+    "@twilio-paste/customization": ^8.0.0
+    "@twilio-paste/design-tokens": ^10.0.0
+    "@twilio-paste/icons": ^12.0.0
+    "@twilio-paste/label": ^13.0.0
+    "@twilio-paste/media-object": ^10.0.0
+    "@twilio-paste/react-spectrum-library": ^2.0.0
+    "@twilio-paste/screen-reader-only": ^13.0.0
+    "@twilio-paste/style-props": ^9.0.0
+    "@twilio-paste/styling-library": ^3.0.0
+    "@twilio-paste/text": ^10.0.0
+    "@twilio-paste/theme": ^11.0.0
+    "@twilio-paste/types": ^6.0.0
+    "@twilio-paste/uid-library": ^2.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
+    prop-types: ^15.7.2
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  peerDependencies:
+    "@twilio-paste/animation-library": ^2.0.0
+    "@twilio-paste/box": ^10.0.0
+    "@twilio-paste/color-contrast-utils": ^5.0.0
+    "@twilio-paste/customization": ^8.0.0
+    "@twilio-paste/design-tokens": ^10.0.0
+    "@twilio-paste/icons": ^12.0.0
+    "@twilio-paste/label": ^13.0.0
+    "@twilio-paste/media-object": ^10.0.0
+    "@twilio-paste/react-spectrum-library": ^2.0.0
+    "@twilio-paste/screen-reader-only": ^13.0.0
+    "@twilio-paste/style-props": ^9.0.0
+    "@twilio-paste/styling-library": ^3.0.0
+    "@twilio-paste/text": ^10.0.0
+    "@twilio-paste/theme": ^11.0.0
+    "@twilio-paste/types": ^6.0.0
+    "@twilio-paste/uid-library": ^2.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
+    prop-types: ^15.7.2
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
 "@twilio-paste/minimizable-dialog@^4.0.0, @twilio-paste/minimizable-dialog@workspace:packages/paste-core/components/minimizable-dialog":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/minimizable-dialog@workspace:packages/paste-core/components/minimizable-dialog"
@@ -15068,9 +15113,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/nextjs-template@workspace:packages/paste-nextjs-template":
+"@twilio-paste/nextjs-template@workspace:templates/paste-nextjs-template":
   version: 0.0.0-use.local
-  resolution: "@twilio-paste/nextjs-template@workspace:packages/paste-nextjs-template"
+  resolution: "@twilio-paste/nextjs-template@workspace:templates/paste-nextjs-template"
   dependencies:
     "@twilio-paste/core": ^20.0.0
     "@twilio-paste/icons": ^12.0.0

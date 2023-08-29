@@ -5,10 +5,10 @@ import type {LabelProps} from '@twilio-paste/label';
 
 import {FileUploaderContext} from './FileUploaderContext';
 
-export interface FileUploaderLabelProps extends Omit<React.ComponentPropsWithRef<'label'>, 'children'> {
+export type FileUploaderLabelProps = Omit<React.ComponentPropsWithRef<'label'>, 'children'> & {
   children: LabelProps['children'];
   element?: LabelProps['element'];
-}
+};
 
 export const FileUploaderLabel = React.forwardRef<HTMLLabelElement, FileUploaderLabelProps>(
   ({children, element = 'FILE_UPLOADER_LABEL', ...props}, ref) => {
