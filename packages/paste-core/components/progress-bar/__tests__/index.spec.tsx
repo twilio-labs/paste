@@ -12,17 +12,7 @@ describe('ProgressBar', () => {
       const {rerender} = render(
         <Theme.Provider theme="twilio">
           <ProgressBarLabel htmlFor="test-progress-bar">Download progress</ProgressBarLabel>
-          <ProgressBar
-            id="test-progress-bar"
-            aria-describedby="test-description"
-            /*
-             * test doesnt understand we have aria-labelledby internally,
-             * so we need to add this label to remove the logspam
-             */
-            aria-label="X"
-            value={33}
-            maxValue={120}
-          />
+          <ProgressBar id="test-progress-bar" aria-describedby="test-description" value={33} maxValue={120} />
           <HelpText id="test-description">Downloading more ram</HelpText>
         </Theme.Provider>
       );
@@ -36,7 +26,7 @@ describe('ProgressBar', () => {
       expect(progressBar).toHaveAttribute('id', 'test-progress-bar');
       expect(progressBar).toHaveAttribute('aria-describedby', 'test-description');
       expect(progressBar).toHaveAttribute('aria-labelledby', `test-progress-bar${LABEL_SUFFIX}`);
-      expect(progressBar).toHaveAttribute('aria-label', `X`);
+      expect(progressBar).not.toHaveAttribute('aria-label');
 
       // New render to test other conditions
       rerender(
@@ -58,6 +48,15 @@ describe('ProgressBar', () => {
       );
       expect(progressBar).toHaveAttribute('aria-valuenow', '50');
       expect(progressBar).toHaveAttribute('aria-valuetext', '42%');
+    });
+
+    it('should render correctly with aria-label', () => {
+      render(<ProgressBar id="test-progress-bar" aria-label="Cool progress" />);
+
+      const progressBar = screen.getByRole('progressbar');
+      expect(progressBar).toBeInTheDocument();
+      expect(progressBar).toHaveAttribute('aria-label', 'Cool progress');
+      expect(progressBar).not.toHaveAttribute('aria-labelledby');
     });
   });
 
