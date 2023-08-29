@@ -164,7 +164,7 @@ export const Reset = (): React.ReactNode => (
       </Button>
     </Heading>
     <Heading variant="heading20" as="h1">
-      <Button variant="reset" size="reset" disabled>
+      <Button variant="reset" size="reset" backgroundColor="colorBackground">
         Example using reset button in composition
       </Button>
     </Heading>

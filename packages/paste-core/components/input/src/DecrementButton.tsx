@@ -1,12 +1,14 @@
 import * as React from 'react';
 import type {BoxProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
+import {Button, type ButtonProps} from '@twilio-paste/button';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
 export interface DecrementButtonProps extends HTMLPasteProps<'button'> {
   i18nStepDownLabel?: string;
   element?: BoxProps['element'];
+  // Button component restricts tabIndex values
+  tabIndex?: ButtonProps['tabIndex'];
 }
 
 export const DecrementButton = React.forwardRef<HTMLButtonElement, DecrementButtonProps>(
@@ -19,7 +21,6 @@ export const DecrementButton = React.forwardRef<HTMLButtonElement, DecrementButt
         variant="reset"
         size="reset"
         type="button"
-        // @ts-expect-error remove when Reset Button types extends BoxProps
         borderRadius="borderRadius20"
         backgroundColor="colorBackground"
         marginRight="space30"
