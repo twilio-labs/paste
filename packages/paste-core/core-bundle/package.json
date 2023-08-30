@@ -137,6 +137,7 @@
     "@twilio-paste/paragraph": "^10.0.0",
     "@twilio-paste/popover": "^13.0.0",
     "@twilio-paste/product-switcher": "^2.0.0",
+    "@twilio-paste/progress-bar": "^0.0.0",
     "@twilio-paste/progress-steps": "^2.0.0",
     "@twilio-paste/radio-button-group": "^4.0.0",
     "@twilio-paste/radio-group": "^13.0.0",
