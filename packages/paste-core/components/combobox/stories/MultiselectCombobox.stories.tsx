@@ -66,6 +66,31 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
 };
 MultiselectComboboxBasic.storyName = 'Basic';
 
+export const BottomOfScreen = (): React.ReactNode => {
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
+  return (
+    <>
+      <Box height="size70" width="size70" />
+      <MultiselectCombobox
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
+        items={filteredItems}
+        onInputValueChange={({inputValue: newInputValue = ''}) => {
+          setInputValue(newInputValue);
+        }}
+        onSelectedItemsChange={(selectedItems: string[]) => {
+          // eslint-disable-next-line no-console
+          console.log(selectedItems);
+        }}
+      />
+    </>
+  );
+};
+BottomOfScreen.storyName = 'Bottom of screen';
+
 /*
  * Basic - Inverse
  */
