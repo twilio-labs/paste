@@ -47,6 +47,7 @@ export const Flex: React.FC<React.PropsWithChildren<{collapsed: boolean; setColl
   return (
     <Box minWidth="1200px">
       <Sidebar
+        aria-label={id}
         sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
         topbarSkipLinkID={topbarSkipLinkID}
         mainContentSkipLinkID={mainContentSkipLinkID}

@@ -58,6 +58,7 @@ export const Console: React.FC<React.PropsWithChildren<{collapsed: boolean; setC
     <Box minWidth="1200px">
       {/* Can be placed anywhere - position fixed */}
       <Sidebar
+        aria-label={id}
         collapsed={collapsed}
         variant="compact"
         sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
