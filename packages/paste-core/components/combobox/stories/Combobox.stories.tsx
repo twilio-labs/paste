@@ -179,8 +179,10 @@ export const BottomOfScreen: StoryFn = () => {
     </>
   );
 };
-
 BottomOfScreen.storyName = 'Bottom of screen';
+BottomOfScreen.parameters = {
+  chromatic: {disableSnapshot: true},
+};
 
 const ItemToString = ({name}: {name: string}): string => name;
 

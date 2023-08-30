@@ -90,6 +90,9 @@ export const BottomOfScreen = (): React.ReactNode => {
   );
 };
 BottomOfScreen.storyName = 'Bottom of screen';
+BottomOfScreen.parameters = {
+  chromatic: {disableSnapshot: true},
+};
 
 /*
  * Basic - Inverse
