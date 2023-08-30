@@ -17,6 +17,8 @@ describe('Slider', () => {
         <Theme.Provider theme="twilio">
           <Slider
             id="test-slider"
+            aria-label="test-label"
+            aria-labelledby="test-labelledby"
             aria-describedby="test-description"
             value={0.5}
             minValue={0}
@@ -41,6 +43,8 @@ describe('Slider', () => {
       expect(input).toHaveAttribute('tabindex', '0');
       expect(input).toHaveAttribute('id', 'test-slider');
       expect(input).toHaveAttribute('aria-describedby', 'test-description');
+      expect(input).toHaveAttribute('aria-labelledby', 'test-labelledby');
+      expect(input).not.toHaveAttribute('aria-label');
 
       // Fires events correctly
       fireEvent.keyDown(input, {key: 'ArrowDown', code: 'ArrowDown'});

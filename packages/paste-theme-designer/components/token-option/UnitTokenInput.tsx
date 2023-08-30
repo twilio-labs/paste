@@ -29,8 +29,8 @@ function validateInput(value: string, unit: string): string {
   if (value === '') {
     return 'Missing value.';
   }
-  if (!value.includes(unit)) {
-    return `Missing unit: ${unit}`;
+  if (!value.endsWith(unit)) {
+    return `Value must end with unit: "${unit}"`;
   }
 
   const valueWithoutUnit = value.replace(unit, '');
@@ -62,7 +62,7 @@ export const UnitTokenInput: React.FC<React.PropsWithChildren<UnitTokenInputProp
       <Input
         id={inputId}
         aria-describedby={errorText ? errorId : undefined}
-        type="number"
+        type="text"
         value={localValue}
         onChange={(event) => {
           const {value} = event.target;
