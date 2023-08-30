@@ -153,9 +153,8 @@ DefaultCombobox.storyName = 'Combobox';
 export const BottomOfScreen: StoryFn = () => {
   return (
     <>
-      <Box height="size70" width="size70" />
+      <Box height="size50" width="100%" />
       <Combobox
-        initialIsOpen
         items={iconItems}
         labelText="Choose a component:"
         helpText="This is the help text"

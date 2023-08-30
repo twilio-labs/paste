@@ -72,9 +72,8 @@ export const BottomOfScreen = (): React.ReactNode => {
 
   return (
     <>
-      <Box height="size70" width="size70" />
+      <Box height="size50" width="100%" />
       <MultiselectCombobox
-        initialIsOpen
         labelText="Choose a Paste Component"
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
