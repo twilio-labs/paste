@@ -2,6 +2,7 @@ import * as React from 'react';
 import {render, screen, fireEvent} from '@testing-library/react';
 import type {RenderOptions} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
+import {Form} from '@twilio-paste/form';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
 
@@ -80,24 +81,30 @@ function getFilteredGroupedItems(inputValue: string): GroupedItem[] {
   return filter(groupedItems, (item: GroupedItem) => item.label.toLowerCase().includes(lowerCasedInputValue));
 }
 
+const onSubmitMock = jest.fn();
+const onKeyDownMock = jest.fn();
+
 const GroupedMultiselectComboboxMock: React.FC<Partial<MultiselectComboboxProps>> = (props) => {
   const [inputValue, setInputValue] = React.useState('');
   const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
 
   return (
-    <MultiselectCombobox
-      groupItemsBy="group"
-      items={filteredItems}
-      itemToString={(item: GroupedItem) => (item ? item.label : '')}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
-        setInputValue(newInputValue);
-      }}
-      labelText="Choose a component:"
-      helpText="This is group"
-      initialIsOpen
-      optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
-      {...props}
-    />
+    <Form onSubmit={onSubmitMock}>
+      <MultiselectCombobox
+        selectedItemsLabelText="Selected Paste components"
+        groupItemsBy="group"
+        items={filteredItems}
+        itemToString={(item: GroupedItem) => (item ? item.label : '')}
+        onInputValueChange={({inputValue: newInputValue = ''}) => {
+          setInputValue(newInputValue);
+        }}
+        labelText="Choose a component:"
+        helpText="This is group"
+        initialIsOpen
+        optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
+        {...props}
+      />
+    </Form>
   );
 };
 
@@ -130,7 +137,7 @@ describe('MultiselectCombobox', () => {
       expect(renderedTextbox.getAttribute('aria-controls')).toEqual(dropdownListbox.id);
       expect(renderedTextbox.getAttribute('aria-describedby')).not.toEqual('');
       expect(renderedTextbox.getAttribute('aria-labelledby')).toEqual(document.querySelector('label')!.id);
-      expect(renderedTextbox.getAttribute('required')).toEqual('');
+      expect(renderedTextbox.getAttribute('required')).toEqual(null);
 
       // unique option ids
       const renderedOptions = screen.getAllByRole('option');
@@ -166,6 +173,27 @@ describe('MultiselectCombobox', () => {
       const renderedOptions = screen.getAllByRole('option');
       fireEvent.click(renderedOptions[0]);
       expect(renderedTextbox.getAttribute('value')).toEqual('');
+    });
+
+    it('should handle required correctly', async () => {
+      render(<MultiselectComboboxMock initialIsOpen={false} required onKeyDown={onKeyDownMock} />, {
+        wrapper: ThemeWrapper,
+      });
+
+      // Open the combobox
+      const renderedCombobox = screen.getByRole('combobox');
+      fireEvent.click(renderedCombobox);
+
+      // Focus the textbox
+      const renderedTextbox = screen.getByRole('textbox');
+      renderedTextbox.focus();
+
+      expect(onKeyDownMock).toHaveBeenCalledTimes(0);
+      fireEvent.keyDown(renderedTextbox, {key: 'Enter', code: 'Enter'});
+      expect(onKeyDownMock).toHaveBeenCalledTimes(1);
+
+      // No form submit
+      expect(onSubmitMock).toHaveBeenCalledTimes(0);
     });
   });
 
