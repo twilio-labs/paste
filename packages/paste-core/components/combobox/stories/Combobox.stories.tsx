@@ -155,6 +155,7 @@ export const BottomOfScreen: StoryFn = () => {
     <>
       <Box height="size70" width="size70" />
       <Combobox
+        initialIsOpen
         items={iconItems}
         labelText="Choose a component:"
         helpText="This is the help text"
