@@ -67,19 +67,28 @@ Use an Alert to notify a user about high-priority or time-sensitive changes in t
 
 Use an Alert for one of these types of information:
 
-- **Neutral or general information.** Use this in most cases where you are notifying a user of a change.
-- **Warning.** Use this for critical information that will help a user avoid an issue.
-- **Error.** Use this for critical information that's preventing a user from continuing a flow and if there's action required on their end to resolve the issue.
+- **Neutral or general information.** Usually information about a change users need to know about.
+- **Warning.** Critical information that will help a user avoid an issue.
+- **Error.** Critical information that's preventing a user from continuing a flow and if there's action required on their end to resolve the issue.
+
+<Blockquote
+  name="Nielsen Norman Group"
+  source="Indicators, Validations, and Notifications"
+  sourceUrl="https://www.nngroup.com/articles/indicators-validations-notifications/"
+>
+  A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because it
+  will disrupt their current task and be irrelevant to their current needs.
+</Blockquote>
 
 ### Accessibility
 
 - Pass in `role="alert"` or `role="status"` through [props](#props). Otherwise, the default role is `status` for neutral alerts and `alert` for warning and error alerts.
 - Screen readers announce error and warning alert text immediately. Alerts that persist across multiple pages announce themselves repeatedly which may become annoying. Consider making alerts in these cases dismissible.
-- Render an alert only when it's needed. Assistive technologies will be able to read a visually hidden element. Don't visually hide an alert and then make it visible through client-side code.
+- Show an alert only when it's needed. Assistive technologies will be able to read a visually hidden element. Don't visually hide an alert and then make it visible through client-side code.
 
-The Alert uses multiple methods to indicate the alert type.
-- **Icon.**  The icon visually indicates the alert type, and announces the type to a screenreader.
-- **Color.** Each alert type is a different color.
+Alert uses multiple methods to indicate type.
+- **Icon.**  An icon visually indicates the type, and announces the type to a screenreader.
+- **Color.** Each type is a different color.
 
 ## Examples
 
@@ -108,20 +117,11 @@ The Alert uses multiple methods to indicate the alert type.
 
 ### Neutral
 
-Use a neutral alert to notify a user of a change that's relevant for them to achieve their current goal. Don't use an alert to communicate general promotional information.
+Use a neutral Alert to notify a user of a change that's relevant for them to achieve their current goal. Don't use it to communicate general promotional information.
 
-In most cases, a neutral alert should be dismissible (_i.e._, have a close button) and should be assigned `role="status"`.
+In most cases, a neutral Alert should be dismissible (_i.e._, have a close button) and should be assigned `role="status"`.
 
 You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for neutral alerts.
-
-<Blockquote
-  name="Nielsen Norman Group"
-  source="Indicators, Validations, and Notifications"
-  sourceUrl="https://www.nngroup.com/articles/indicators-validations-notifications/"
->
-  A notification sent irrespective of the current user goal would likely be ignored, and may even annoy users because it
-  will disrupt their current task and be irrelevant to their current needs.
-</Blockquote>
 
 <LivePreview scope={{Alert, Text, Anchor}} language="jsx">
   {`<Alert variant="neutral">
@@ -135,7 +135,7 @@ Use a warning Alert to help a user avoid an issue.
 
 A warning Alert should provide explain the possible issue, what to do, and what happens if they don't. If the user can take an immediate action, provide a way to do it. 
 
-Be cautious about using a warning alert because they can be stressful for a user to see. In most cases, a warning alert should be assigned `role="alert"`.
+Be cautious about using a warning Alert because they can be stressful for a user to see. In most cases, a warning Alert should be assigned `role="alert"`.
 
 You may use [the Text primitive](/primitives/text) as a child of Alert, but if you do, be sure to pass `color="inherit"` for warning alerts.
 
@@ -195,11 +195,11 @@ For an `error` variant, for example, set the `i18nErrorLabel` prop.
 
 ## Composition notes
 
-Keep alert content brief by placing only the highest priority information in an alert. A good rule of thumb is to keep alert text to a single line in a desktop-sized container, or [limit it to 90 characters](https://practicaltypography.com/responsive-web-design.html).
+Keep content brief by placing only the highest priority information in an Alert. A good rule of thumb is to keep text to a single line in a desktop-sized container, or [limit it to 90 characters](https://practicaltypography.com/responsive-web-design.html).
 
-Compose an alert with:
+Compose an Alert with:
 
-- **Title (optional).** Bold the text at the beginning of the alert. The title should be concise and convey the essence of the issue.
+- **Title (optional).** Bold the text at the beginning of the Alert. The title should be concise and convey the essence of the issue.
 - **Body text.** Use the default text style. Limit body text to 1-2 sentences and do not repeat information contained in a title. Explain what happened, and if something is wrong, how to fix it. When possible, include what happens if they don't take action. If the resolution requires going to a different page, include an [Anchor](/components/anchor). Use [Buttons](/components/button) sparingly, since they may compete with other [Buttons](/components/button) on the screen. Only use a small [Button](/components/button) if it will trigger an action.
 - **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
 
@@ -233,22 +233,22 @@ Alert
 
 ### Placement and behavior
 
-Place an alert where it makes the most contextual sense. Don't cover other UI elements with an alert.
+Place an Alert where it makes the most contextual sense. Don't cover other UI elements.
 
-In general, the persistence and behavior on scroll of an alert should match the element it's scoped to. For example, if an alert is scoped to a navigation bar that is sticky on scroll and persists across several pages, the alert should similarly be sticky and persist across several pages. However, don't persist the alert across too many pages in a user session since it may lose its interruptive intent.
+In general, the persistence and behavior on scroll of an Alert should match the element it's scoped to. For example, if an Alert is scoped to a navigation bar that is sticky on scroll and persists across several pages, the Alert should similarly be sticky and persist across several pages. However, don't persist the Alert across too many pages in a user session since it may lose its interruptive intent.
 
 ## Do & Don't
 
 <DoDont>
   <Do
     title="Do"
-    body="Use only 1 Alert per page. Use 2 Alerts only if absolutely necessary and if the Alerts are placed in different containers. Be sure to add 0.5rem spacing if using 2 Alerts."
+    body="Use only one Alert per page. Use two Alerts only if absolutely necessary and if the Alerts are placed in different containers. Be sure to add 0.5rem spacing if using two Alerts."
   >
     <Alert variant="error">
       Your account balance is low and your credit card has expired. As a result we have suspended your account
     </Alert>
   </Do>
-  <Dont title="Don't" body="Don't use more than 2 Alerts per page.">
+  <Dont title="Don't" body="Don't use more than two Alerts per page.">
     <Alert variant="error">Your credit card has expired</Alert>
     <Alert variant="warning">Your account balance is low</Alert>
     <Alert variant="error">Your account is suspended</Alert>

@@ -114,11 +114,11 @@ The delete pattern should be used when a user is destroying an object. It is cri
 
 The delete action should:
 
-- Be initiated by a destructive Button.
+- Be initiated by a destructive [Button](/components/button).
 - Rarely be the primary action on the page. There are many variants of differing visual prominence to choose from to achieve the correct hierarchy for the delete action trigger.
 - Follow guidelines based on the [severity](#variations) of the deletion.
 
-Medium and high severity delete confirmations are displayed using an [Alert Dialog[(/components/alert-dialog)], since it requires the user to interact with the component.
+Medium and high severity delete confirmations are displayed using an [Alert Dialog](/components/alert-dialog), since it requires the user to interact with the component.
 
 ## Composition
 
@@ -215,7 +215,7 @@ If the deletion fails, display an error Toast that follows the [error state patt
 
 <DoDont>
   <Do title="Do" body="Use an Alert Dialog for deletion confirmations." preview={false} />
-  <Dont title="Don't" body="Don't use a Modalfor deletion confirmations." preview={false} />
+  <Dont title="Don't" body="Don't use a Modal for deletion confirmations." preview={false} />
 </DoDont>
 
 <DoDont>
