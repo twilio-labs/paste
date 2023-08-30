@@ -67,18 +67,18 @@ export interface GenericThemeShape {
     [key in SizingKeys]: any;
   }>;
   iconSizes: Partial<{
-    sizeIcon05: typeof sizings['sizeIcon05'];
-    sizeIcon10: typeof sizings['sizeIcon10'];
-    sizeIcon20: typeof sizings['sizeIcon20'];
-    sizeIcon30: typeof sizings['sizeIcon30'];
-    sizeIcon40: typeof sizings['sizeIcon40'];
-    sizeIcon50: typeof sizings['sizeIcon50'];
-    sizeIcon60: typeof sizings['sizeIcon60'];
-    sizeIcon70: typeof sizings['sizeIcon70'];
-    sizeIcon80: typeof sizings['sizeIcon80'];
-    sizeIcon90: typeof sizings['sizeIcon90'];
-    sizeIcon100: typeof sizings['sizeIcon100'];
-    sizeIcon110: typeof sizings['sizeIcon110'];
+    sizeIcon05: any;
+    sizeIcon10: any;
+    sizeIcon20: any;
+    sizeIcon30: any;
+    sizeIcon40: any;
+    sizeIcon50: any;
+    sizeIcon60: any;
+    sizeIcon70: any;
+    sizeIcon80: any;
+    sizeIcon90: any;
+    sizeIcon100: any;
+    sizeIcon110: any;
   }>;
   lineHeights: Partial<{
     [key in LineHeightsKeys]: any;
