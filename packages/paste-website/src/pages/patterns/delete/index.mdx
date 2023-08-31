@@ -21,6 +21,7 @@ import {AlertDialog} from '@twilio-paste/alert-dialog';
 import {Button} from '@twilio-paste/button';
 import {Toaster, useToaster} from '@twilio-paste/toast';
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import DeleteMediumSeverityImage from '../../../assets/images/patterns/delete-medium-severity.png';
 import DeleteHighSeverityImage from '../../../assets/images/patterns/delete-high-severity.png';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -30,7 +31,7 @@ import {
   MediumSeverityExample,
   HighSeverityExample,
   PostDeletionExample,
-} from '../../../component-examples/DeletePatternExamples.ts';
+} from '../../../component-examples/DeletePatternExamples';
 
 export default DefaultLayout;
 
@@ -101,7 +102,7 @@ import {​ Button } from "@twilio-paste/core/button";
 import { AlertDialog } from "@twilio-paste/core/alert-dialog";
 import { Input } from "@twilio-paste/core/input";
 import { Label } from "@twilio-paste/core/label";
-import { HelpText } from "@twilio-paste/core/help-text";
+import { HelpText } from "@twilio-paste/core/help-text;
 import { Toast } from "@twilio-paste/core/toast";
 ```
 
@@ -109,24 +110,29 @@ import { Toast } from "@twilio-paste/core/toast";
 
 ### General
 
-The delete pattern should be utilized when a user is destroying an object. It is critical to communicate delete actions to our users in a consistent way, considering deletions come with significant consequences and often cannot be undone.
+The delete pattern should be used when a user is destroying an object. It is critical to communicate delete actions to our users in a consistent way, considering deletions come with significant consequences and often cannot be undone.
 
 The delete action should:
 
-- Be triggered by a destructive Button.
-- Generally be placed at the bottom of an [Object Details](/patterns/object-details) page.
-- Not usually be the primary action on the page. There are many variants of differing visual prominence to choose from to achieve the correct hierarchy for the delete action trigger.
-- Follow certain guidelines based on the [severity](#variations) of the deletion.
+- Be initiated by a destructive [Button](/components/button).
+- Rarely be the primary action on the page. There are many variants of differing visual prominence to choose from to achieve the correct hierarchy for the delete action trigger.
+- Follow guidelines based on the [severity](#variations) of the deletion.
 
-According to the Paste [Word List](/foundations/content/word-list), the word "remove" should be used when the item being deleted is still available and/or the user can undo the action. Use "delete" when the action is permanent and the item is unretrievable.
+Medium and high severity delete confirmations are displayed using an [Alert Dialog](/components/alert-dialog), since it requires the user to interact with the component.
 
-## Variations
+## Composition
+
+Delete messages should follow the [Confirmation pattern](/patterns/confirmation).
+
+Avoid using negative contractions like can't or won't, since user comprehension can suffer in stressful scenarios.
+
+## Severity
 
 ### Low-severity
 
-A deletion is considered low-severity when it is trivial to undo the deletion or recreate the deleted data.
+A deletion is considered low-severity when users can easily undo the deletion or recreate the deleted data.
 
-Low-severity deletions can be triggered by a single click and do not require further warning or confirmation.
+Warning or confirmation messages are not necessary for low-severity deletions.
 
 <LivePreview
   scope={{
@@ -141,9 +147,12 @@ Low-severity deletions can be triggered by a single click and do not require fur
 
 ### Medium-severity
 
-A deletion is considered medium-severity when the action cannot be undone, and the data cannot be recreated easily. This pattern is also useful for bulk deletions of low- or medium-severity.
+A deletion is considered medium-severity if either of the following are true:
 
-For medium-severity deletions, show an [Alert Dialog](/components/alert-dialog) that explains what is being deleted and the consequences of the deletion.
+- The user action cannot undo the deletion or easily recreate the data.
+- The user is performing a bulk deletion of low- or medium-severity.
+
+Show a [confirmation](/patterns/confirmation) message that explains what is being deleted and the consequences of the deletion.
 
 <LivePreview
   scope={{
@@ -158,9 +167,13 @@ For medium-severity deletions, show an [Alert Dialog](/components/alert-dialog) 
 
 ### High-severity
 
-A deletion is considered high-severity when the action cannot be undone, and it would be very time-consuming, or perhaps impossible, to recreate the deleted data. An action that deletes a large amount of data or has significant downstream impact would also be considered a high-severity deletion.
+A deletion is considered high-severity if any of the following are true:
 
-For high-severity deletions, show an [Alert Dialog](/components/alert-dialog) that explains what is being deleted and the consequences of the deletion, and have the user manually confirm the deletion by typing the name of the object they are deleting.
+- The user action cannot undo the action and recreating the deleted data would be highly time consuming or impossible.
+- The user is deleting a large a large amount of data that is not recoverable.
+- The deletion will have significant downstream impact.
+
+Show a [confirmation](/patterns/confirmation) message that explains what is being deleted and the consequences of the deletion, and have the user manually confirm the deletion by entering the name of the object they are deleting.
 
 <LivePreview
   scope={{
@@ -177,13 +190,13 @@ For high-severity deletions, show an [Alert Dialog](/components/alert-dialog) th
   {HighSeverityExample}
 </LivePreview>
 
-## Post-deletion
+## After deletion
 
-After the user has deleted the object, navigate them to the index page, where they can see a list of all remaining objects, and show a success [Toast](/components/toast) informing them that the object has successfully been deleted. If it is possible to undo the deletion, give the user the option to do so, and tell them how long they have to undo the deletion if it is time-bound.
+After the user deletes the object, navigate them to the original page where they can see a list of all remaining objects.
 
-If the delete action fails, keep the Alert Dialog open and display an error [Toast](/components/toast) that explains what went wrong and how to try again.
+If the delete is successful, show a success [Toast](/components/toast). If the user can undo the deletion, give the user the option to do so in the toast and remove any automatic time out settings. If the undo option is time-bound, tell the user how long they have to undo the deletion.
 
-For more information, check out our [Notifications and Feedback patterns](/patterns/notifications-and-feedback).
+If the deletion fails, display an error Toast that follows the [error state pattern](/patterns/error-state).
 
 <LivePreview
   scope={{
@@ -197,6 +210,30 @@ For more information, check out our [Notifications and Feedback patterns](/patte
 >
   {PostDeletionExample}
 </LivePreview>
+
+## Do and don't
+
+<DoDont>
+  <Do title="Do" body="Use an Alert Dialog for deletion confirmations." preview={false} />
+  <Dont title="Don't" body="Don't use a Modal for deletion confirmations." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Show confirmations for deletions that can't be undone, are bulk actions, or involve objects that would be hard to recreate."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don't make the user confirm low-severity deletions that can be easily reversed."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use the Confirmation pattern to structure deletion message content." preview={false} />
+</DoDont>
 
 </content>
 

@@ -1,71 +1,71 @@
 export const LowSeverityExample = `
-  const LowSeverityDelete = () => {
-    return (
-      <Button variant="destructive_link">Remove</Button>
-    )
-  }
-  
-  render(
-    <LowSeverityDelete />
+const LowSeverityDelete = () => {
+  return (
+    <Button variant="destructive_link">Remove</Button>
   )
+}
+
+render(
+  <LowSeverityDelete />
+)
 `.trim();
 
 export const MediumSeverityExample = `
-  const MediumSeverityDelete = () => {
-    const [isOpen, setIsOpen] = React.useState(false);
-    const handleOpen = () => setIsOpen(true);
-    const handleClose = () => setIsOpen(false);
-    return (
-      <>
-        <Button variant="destructive" onClick={handleOpen}>Delete</Button>
-        <AlertDialog
-          heading="Delete from regulatory bundle?"
-          isOpen={isOpen}
-          onConfirm={handleClose}
-          onConfirmLabel="Delete"
-          onDismiss={handleClose}
-          onDismissLabel="Cancel"
-          destructive
-        >
-          You're about to delete "Plan A Productions, LLC" from this regulatory bundle. This does not impact any other regulatory bundles.
-        </AlertDialog>
-      </>
-    )
-  }
-  render(
-    <MediumSeverityDelete />
+const MediumSeverityDelete = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+  return (
+    <>
+      <Button variant="destructive" onClick={handleOpen}>Delete</Button>
+      <AlertDialog
+        heading="Delete from regulatory bundle?"
+        isOpen={isOpen}
+        onConfirm={handleClose}
+        onConfirmLabel="Delete"
+        onDismiss={handleClose}
+        onDismissLabel="Cancel"
+        destructive
+      >
+        You're about to delete "Plan A Productions, LLC" from this regulatory bundle. This does not impact any other regulatory bundles.
+      </AlertDialog>
+    </>
   )
+}
+render(
+  <MediumSeverityDelete />
+)
 `.trim();
 
 export const HighSeverityExample = `
-  const HighSeverityDelete = () => {
-    const [isDisabled, setIsDisabled] = React.useState(true);
-    const [isOpen, setIsOpen] = React.useState(false);
-    const [inputString, setInputString] = React.useState('');
-    const [inputHasError, setInputHasError] = React.useState(false);
-    const handleOpen = () => {
-        if (inputString !== '') setIsDisabled(false);
-        setIsOpen(true);
-      };
-    const handleDismiss = () => {
-        setIsDisabled(true)
-        setIsOpen(false)
-    };
-    const handleConfirm = () => {
-        if (inputString === 'Toyota TCB Automobile (Gevelsberg)') {
-            setIsOpen(false)
-            setInputString('')
-            setInputHasError(false)
-        }
-        else {
-            setInputHasError(true)
-        }
-    };
-    const handleChange = (e) => {
-        setInputString(e.target.value)
-        if (e.target.value !== '') setIsDisabled(false);
-        else setIsDisabled(true);
-    };
+const HighSeverityDelete = () => {
+  const [isDisabled, setIsDisabled] = React.useState(true);
+  const [isOpen, setIsOpen] = React.useState(false);
+  const [inputString, setInputString] = React.useState('');
+  const [inputHasError, setInputHasError] = React.useState(false);
+  const handleOpen = () => {
+    if (inputString !== '') setIsDisabled(false);
+    setIsOpen(true);
+  };
+  const handleDismiss = () => {
+    setIsDisabled(true)
+    setIsOpen(false)
+  };
+  const handleConfirm = () => {
+    if (inputString === 'Toyota TCB Automobile (Gevelsberg)') {
+      setIsOpen(false)
+      setInputString('')
+      setInputHasError(false)
+    }
+    else {
+      setInputHasError(true)
+    }
+  };
+  const handleChange = (e) => {
+    setInputString(e.target.value)
+    if (e.target.value !== '') setIsDisabled(false);
+    else setIsDisabled(true);
+  };
 
   return (
     <>
@@ -96,7 +96,7 @@ export const HighSeverityExample = `
 }
 
 render(
-<HighSeverityDelete />
+  <HighSeverityDelete />
 )
 `.trim();
 
@@ -111,9 +111,9 @@ export const PostDeletionExample = `
   const handleConfirm = () => {
     setIsOpen(false)
     toaster.push({
-        message: '"Plan A Productions, LLC" was deleted. To undo deletion, return to the regulatory bundle overview.',
-        variant: 'success',
-      })
+      message: '"Plan A Productions, LLC" was deleted. To undo deletion, return to the regulatory bundle overview.',
+      variant: 'success',
+    })
   }
   return (
     <>
@@ -134,6 +134,6 @@ export const PostDeletionExample = `
   )
 }
 render(
-<MediumSeverityDelete />
+  <MediumSeverityDelete />
 )
 `.trim();
