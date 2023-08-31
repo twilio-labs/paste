@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.0.2
+
+### Patch Changes
+
+- [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068) [#3454](https://github.com/twilio-labs/paste/pull/3454) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Input] increment and decrement button types corrected for tabIndex
+
 ## 9.0.1
 
 ### Patch Changes
