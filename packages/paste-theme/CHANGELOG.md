@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.0.1
+
+### Patch Changes
+
+- [`611a2daaf`](https://github.com/twilio-labs/paste/commit/611a2daafbdd142da60afa6cc280824e4ab54ce6) [#3456](https://github.com/twilio-labs/paste/pull/3456) Thanks [@nkrantz](https://github.com/nkrantz)! - [Theme] Change the type of sizeIcon tokens in the GenericThemeShape to be `any`. Previously they were incorrectly typed as the value of the token in the Twilio theme, which was preventing consumers from passing custom icon sizes using the Customization Provider.
+
 ## 11.0.0
 
 ### Major Changes
