@@ -74,7 +74,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/badge"
-  storybookUrl="/?path=/story/components-badge--"
+  storybookUrl="/?path=/story/components-badge--all-badges"
   data={props.data}
 />
 
@@ -228,7 +228,7 @@ state. A success icon is recommended.
 
 #### New Badge
 
-Use the new Badge to highlight an object that is new, beta, pilot, or experimental. A new icon is recommended. 
+Use the new Badge to highlight an object that is new, beta, pilot, or experimental. A new icon is recommended.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -386,11 +386,11 @@ Use a small Badge only when vertical density is a concern. The guidelines for us
 
 Use a Badge when you want to add a label to a piece of UI for quick identification and navigation.
 
-Badge labels should be 1-3 words and ideally less than 20 characters. Badge labels can also be numbers. 
+Badge labels should be 1-3 words and ideally less than 20 characters. Badge labels can also be numbers.
 
 Use sentence case for Badge labels. Do not wrap Badge text to more than one line.
 
-Use the same grammatical construction for a set of Badges. For example, if a set of Badges highlights statuses, make each Badge an adjective. 
+Use the same grammatical construction for a set of Badges. For example, if a set of Badges highlights statuses, make each Badge an adjective.
 
 ### Use cases
 

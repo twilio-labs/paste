@@ -72,7 +72,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/menu"
-  storybookUrl="/?path=/story/components-menu--"
+  storybookUrl="/?path=/story/components-menu--default"
   data={props.data}
 />
 
@@ -310,13 +310,13 @@ To do so, either set `href` with a valid url to go to a new page, or set the `on
 
 ### Composing menu items
 
-Menu item labels should be concise, usually fewer than 20 characters. 
+Menu item labels should be concise, usually fewer than 20 characters.
 
 Use words that are familiar to users so it's immediately clear what the menu item does.
 
 Each menu item should be constructed similarly so they are "parallel." For example, the menu items "Edit" and "Copy" are parallel.
 
-Use the `variant` prop in `MenuItem` to use a default or destructive item. 
+Use the `variant` prop in `MenuItem` to use a default or destructive item.
 
 <LivePreview
   scope={{
