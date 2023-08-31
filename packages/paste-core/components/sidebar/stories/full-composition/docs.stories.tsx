@@ -49,6 +49,7 @@ export const Docs: StoryFn = () => {
     <Box minWidth="1200px">
       {/* Can be placed anywhere - position fixed */}
       <Sidebar
+        aria-label={id}
         sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
         topbarSkipLinkID={topbarSkipLinkID}
         mainContentSkipLinkID={mainContentSkipLinkID}
@@ -107,8 +108,8 @@ export const Docs: StoryFn = () => {
       {/* Must wrap content area */}
       <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
         <Topbar id={topbarSkipLinkID}>
-          <TopbarActions justify="start">
-            <InPageNavigation aria-label="Product" marginBottom="space0">
+          <TopbarActions justify="start" aria-label={topbarSkipLinkID}>
+            <InPageNavigation aria-label={`Product ${topbarSkipLinkID}`} marginBottom="space0">
               <InPageNavigationItem href="#" currentPage>
                 Messaging
               </InPageNavigationItem>

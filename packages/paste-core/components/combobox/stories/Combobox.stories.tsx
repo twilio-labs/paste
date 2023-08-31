@@ -150,6 +150,40 @@ export const DefaultCombobox: StoryFn = () => {
 
 DefaultCombobox.storyName = 'Combobox';
 
+export const BottomOfScreen: StoryFn = () => {
+  return (
+    <>
+      <Box height="size50" width="100%" />
+      <Combobox
+        items={iconItems}
+        labelText="Choose a component:"
+        helpText="This is the help text"
+        optionTemplate={(item: IconItems) => (
+          <MediaObject verticalAlign="center">
+            {item.iconLeft ? (
+              <MediaFigure spacing="space20">
+                <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+              </MediaFigure>
+            ) : null}
+
+            <MediaBody>{item.label}</MediaBody>
+            {item.iconRight ? (
+              <MediaFigure spacing="space20">
+                <InformationIcon decorative={false} size="sizeIcon20" title="information" />
+              </MediaFigure>
+            ) : null}
+          </MediaObject>
+        )}
+        itemToString={(item: IconItems) => (item ? String(item.label) : '')}
+      />
+    </>
+  );
+};
+BottomOfScreen.storyName = 'Bottom of screen';
+BottomOfScreen.parameters = {
+  chromatic: {disableSnapshot: true},
+};
+
 const ItemToString = ({name}: {name: string}): string => name;
 
 export const VirtualizedCombobox: StoryFn = () => {

@@ -57,6 +57,7 @@ export const Segment: React.FC<React.PropsWithChildren<{collapsed: boolean; setC
     <Box minWidth="1200px">
       {/* Can be placed anywhere - position fixed */}
       <Sidebar
+        aria-label={id}
         sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
         topbarSkipLinkID={topbarSkipLinkID}
         mainContentSkipLinkID={mainContentSkipLinkID}

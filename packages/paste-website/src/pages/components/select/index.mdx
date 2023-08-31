@@ -86,71 +86,29 @@ At its most basic, a Select has an options list that’s styled according to the
 
 Use a Select when:
 
-<UnorderedList>
-  <ListItem>You need a native picker experience, especially on mobile devices.</ListItem>
-  <ListItem>
-    Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (<em>e.g.</em>,
-    alphabetical list of states or countries).
-  </ListItem>
-  <ListItem>You need the component to work out-of-the-box across all operating systems and browsers.</ListItem>
-</UnorderedList>
+- You need a native picker experience, especially on mobile devices.
+- Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options, like an alphabetical list of states or countries.
+- You need the component to work out-of-the-box across all operating systems and browsers.
 
 Use a [Combobox](/components/combobox) when:
 
-<UnorderedList>
-  <ListItem>You need a Twilio-styled options list.</ListItem>
-  <ListItem>
-    You need to show more than text in an option (<em>e.g.</em>, text paired with an icon).
-  </ListItem>
-  <ListItem>
-    Users would benefit from typeahead functionality (<em>e.g.</em>, autocomplete, search). For example, typeahead may
-    be useful when users need to select from a list of more than 10 options.
-  </ListItem>
-  <ListItem>You need to lazy load a much longer list of options to improve page load performance.</ListItem>
-</UnorderedList>
+- You need a Twilio-styled options list.
+- You need to show more than text in an option, like text paired with an icon.
+- Users would benefit from typeahead functionality. For example, typeahead may be useful when users need to select from a list of more than 10 options.
+- You need to lazy load a much longer list of options to improve page load performance.
 
 ### Accessibility
 
-<UnorderedList>
-  <ListItem>
-    Include a visible label on <strong>all</strong> form fields.
-  </ListItem>
-  <ListItem>
-    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
-    associated input.
-  </ListItem>
-  <ListItem>
-    Use one of 3 ways to label a form field:
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Visible label with <Anchor href="#formlabel-props">Label</Anchor> (preferred)
-      </ListItem>
-      <ListItem>
-        Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode>
-      </ListItem>
-      <ListItem>
-        Label directly using <inlineCode>aria-label</inlineCode>
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Provide clear identification of required fields in the label or at the start of a form. If you use the required
-    field indicator, include the form key at the start of the form.
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Include inline error text with the error icon on any field that errors to make it visually clear that the field
-    changed.
-  </ListItem>
-  <ListItem>
-    If the input has assicated help text or error text, include the <inlineCode>aria-describedby</inlineCode> prop on
-    the input. This should match the <inlineCode>id</inlineCode> of the help or error text.
-  </ListItem>
-</UnorderedList>
+- Include a visible label on **all** form fields.
+- Each label must use the `htmlFor` prop that equals the `id` of the associated input.
+- Label a form field using one of these methods:
+  - Visible label with [Label](/components/label) (preferred)
+  - Visible label that's associated to the input with `aria-labelledby`
+  - Label directly using `aria-label`
+- Provide clear identification of required fields in the label or at the start of a form. If you use the required field indicator, include the form key at the start of the form.
+  - Use the `required` prop to programatically indicate they are required to browsers.
+- Include inline error text with the error icon on any field that errors to make it visually clear that the field changed.
+- If the input has assicated help text or error text, include the `aria-describedby` prop on the input. This should match the `id` of the help or error text.
 
 ## Examples
 
@@ -423,7 +381,7 @@ To support internationalization, avoid starting a sentence with the label and us
 
 Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
-If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead.
+If you need to use more than two sentences to explain a field, link out to supporting docs or trigger a popover instead.
 
 ### Required or optional field identifier
 

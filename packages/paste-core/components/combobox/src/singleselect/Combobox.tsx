@@ -11,7 +11,6 @@ import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextVariants} from '@twilio-paste/help-text';
 import type {InputVariants} from '@twilio-paste/input';
 import {Portal} from '@twilio-paste/reakit-library';
-import {useRect} from '@radix-ui/react-use-rect';
 
 import {ComboboxInputSelect} from '../styles/ComboboxInputSelect';
 import {ComboboxInputWrapper} from '../styles/ComboboxInputWrapper';
@@ -19,6 +18,7 @@ import {ComboboxListbox} from '../styles/ComboboxListbox';
 import {ComboboxItems} from '../ComboboxItems';
 import type {ComboboxProps} from '../types';
 import {extractPropsFromState} from './extractPropsFromState';
+import {ListBoxPositioner} from '../ListboxPositioner';
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
@@ -75,7 +75,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
 
     // gets the dimensions of the inputBox to position the listbox
     const inputBoxRef = React.useRef<HTMLDivElement>(null);
-    const inputBoxDimensions = useRect(inputBoxRef.current);
 
     const {
       getComboboxProps,
@@ -183,15 +182,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
           </ComboboxInputWrapper>
         </InputBox>
         <Portal>
-          <Box
-            position="fixed"
-            top={inputBoxDimensions?.bottom}
-            left={inputBoxDimensions?.left}
-            right={inputBoxDimensions?.right}
-            width={inputBoxDimensions?.width}
-            zIndex="zIndex90"
-            display={isOpen ? 'block' : 'none'}
-          >
+          <ListBoxPositioner inputBoxRef={inputBoxRef} dropdownBoxRef={parentRef}>
             <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ref: parentRef})}>
               <ComboboxItems
                 ref={scrollToIndexRef}
@@ -208,7 +199,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
                 emptyState={emptyState}
               />
             </ComboboxListbox>
-          </Box>
+          </ListBoxPositioner>
         </Portal>
         {helpText && (
           <HelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)}>
