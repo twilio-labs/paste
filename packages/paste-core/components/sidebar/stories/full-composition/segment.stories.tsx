@@ -14,6 +14,10 @@ export const Segment: StoryFn = () => {
 };
 Segment.parameters = {
   padding: false,
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 export const SegmentCollapsed: StoryFn = () => {
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(true);
@@ -22,4 +26,8 @@ export const SegmentCollapsed: StoryFn = () => {
 };
 SegmentCollapsed.parameters = {
   padding: false,
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

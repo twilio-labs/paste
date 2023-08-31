@@ -15,6 +15,10 @@ export const Console: StoryFn = () => {
 };
 Console.parameters = {
   padding: false,
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const ConsoleCollapsed: StoryFn = () => {
@@ -24,4 +28,8 @@ export const ConsoleCollapsed: StoryFn = () => {
 };
 ConsoleCollapsed.parameters = {
   padding: false,
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

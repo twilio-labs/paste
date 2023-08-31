@@ -220,7 +220,7 @@ export const TokensList = (): JSX.Element => {
                   {sentenceCase(tokenCategory)}
                 </AnchoredHeading>
                 {sectionIntro}
-                <Box marginBottom="space130" data-cy="tokens-table-container">
+                <Box as="ul" padding="space0" marginBottom="space130" data-cy="tokens-table-container">
                   {categoryTokens ? (
                     categoryTokens.map(({name, value, altValue, comment}) => (
                       <TokenCard
