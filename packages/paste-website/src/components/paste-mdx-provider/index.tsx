@@ -13,6 +13,7 @@ import {Separator} from '@twilio-paste/separator';
 import type {SeparatorProps} from '@twilio-paste/separator';
 import {Table, THead, TBody, TFoot, Tr, Th, Td} from '@twilio-paste/table';
 import {InlineCode} from '@twilio-paste/inline-code';
+import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '@twilio-paste/callout';
 
 import type {CodeblockProps} from '../codeblock';
 import {Codeblock} from '../codeblock';
@@ -29,6 +30,7 @@ import {StoryPreview} from '../shortcodes/StoryPreview';
 import {ArticleHeader} from '../shortcodes/ArticleHeader';
 import {ArticleContent, ArticleAside} from '../shortcodes/ArticleLayouts';
 import {NormalizedComponentHeader} from '../shortcodes/normalized-component-header';
+import {DoDont, Do, Dont} from '../DoDont';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -57,6 +59,14 @@ const shortcodes = {
   ArticleAside,
   NormalizedComponentHeader,
   StoryPreview,
+  DoDont,
+  Do,
+  Dont,
+  Callout,
+  CalloutHeading,
+  CalloutList,
+  CalloutListItem,
+  CalloutText,
 };
 
 const MDXPoviderComponents = {

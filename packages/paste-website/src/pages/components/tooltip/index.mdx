@@ -67,7 +67,7 @@ export const getStaticProps = async () => {
 ### About Tooltip
 
 The Tooltip component is a popup that displays text related to an element when the element is focused via
-the keyboard or on mouse hover. Tooltip follows the
+the keyboard or on mouse hover. They should never contain information essential to task completion, or be used for an error. Tooltip follows the
 [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
 
 ### Tooltip compared to Popover
@@ -86,15 +86,13 @@ the keyboard or on mouse hover. Tooltip follows the
 
 ### Accessibility
 
-A tooltip **must only** be placed on a **natively focusable** HTML element. Good candidates include a [Paste Button](/components/button) or a [Paste Anchor](/components/anchor) if the tip also links to a help article.
-
-**Do not** place tooltips on non-focusable elements, like an icon.
+A tooltip must be placed on **only a natively focusable HTML element**, like an enabled [Button](/components/button) or an [Anchor](/components/anchor). **Do not** place tooltips on non-focusable elements, like an icon, or disabled components, like a button. Keyboard users cannot focus on disabled components.
 
 If your tooltip wraps a natively focusable HTML element that includes only an icon, make sure you set the prop `decorative={false}`, and
 give the icon a title. The title of the icon should be the accessible name for the button action, like "Delete phone number". The tooltip provides the additional context, like "You can delete phone numbers every 7 days".
 This ensures the icon and tooltip are accessible to screen readers. Refer to the [focusable element example](#focusable-element) for implementation.
 
-When the user focuses an element with a tooltip, their focus stays on the element. Focus never goes inside the tooltip.
+When the user focuses an element with a tooltip, their focus stays on the element. Since focus never goes inside the tooltip, do not use additional components, like an [Anchor](/components/anchor), within the Tooltip. 
 
 ## Examples
 
@@ -202,9 +200,51 @@ For full details on how to use the state hook, and what props to provide it, fol
   {StateHookTabsExample}
 </LivePreview>
 
-## Anatomy
+## Composition notes
 
-### Tooltip
+Tooltips can only contain text content, and should contain only information that is useful additional context or guidance for the user. If you need to include an [Anchor](/components/anchor) or icons, use a [Popover](/components/popover) instead.
+
+Never put information essential to task completion in a Tooltip. Furthermore, Tooltips are easily overlooked and disappear when not focused on, so consider whether the information may be better served by another component. Use [Help Text](/components/help-text), which is persistent and more obvious, for essential information.
+
+Do not use a Tooltip on a disabled [Button](/components/button) to explain why the button is unavailable. The disabled button isn't focusable.
+
+Use full sentences and punctuation. Include no more than three lines of text.
+
+## Do and don't
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Tooltips to provide additional helpful information or guidance."
+    preview={false}
+  />
+  <Dont title="Don't" body="Don't use Tooltips for information essential to task completion." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Tooltips only on focusable elements." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don't use Tooltips on non-focusable elements, like icons and disabled buttons."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Include only text in Tooltip content."
+    preview={false}
+  />
+  <Dont 
+  title="Don't" 
+  body="Don't include links in Tooltip content." 
+  preview={false} 
+  />
+
+</DoDont>
+
+## Anatomy
 
 | Property         | Default token                 | Modifiable? |
 | ---------------- | ----------------------------- | ----------- |
