@@ -4,7 +4,7 @@ import {DetailText} from '@twilio-paste/detail-text';
 
 export const ImageCaption: React.FC<React.PropsWithChildren> = ({children}) => (
   <Box marginBottom="space110">
-    <DetailText>
+    <DetailText marginTop="space0">
       {children}
     </DetailText>
   </Box>
