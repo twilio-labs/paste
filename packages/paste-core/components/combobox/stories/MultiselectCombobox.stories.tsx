@@ -7,6 +7,7 @@ import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import filter from 'lodash/filter';
+import {Form} from '@twilio-paste/form';
 import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 import {Button} from '@twilio-paste/button';
 import {useUID} from '@twilio-paste/uid-library';
@@ -64,6 +65,34 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
   );
 };
 MultiselectComboboxBasic.storyName = 'Basic';
+
+export const BottomOfScreen = (): React.ReactNode => {
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
+  return (
+    <>
+      <Box height="size50" width="100%" />
+      <MultiselectCombobox
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
+        items={filteredItems}
+        onInputValueChange={({inputValue: newInputValue = ''}) => {
+          setInputValue(newInputValue);
+        }}
+        onSelectedItemsChange={(selectedItems: string[]) => {
+          // eslint-disable-next-line no-console
+          console.log(selectedItems);
+        }}
+      />
+    </>
+  );
+};
+BottomOfScreen.storyName = 'Bottom of screen';
+BottomOfScreen.parameters = {
+  chromatic: {disableSnapshot: true},
+};
 
 /*
  * Basic - Inverse
@@ -186,21 +215,29 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   return (
-    <MultiselectCombobox
-      required
-      labelText="Choose a Paste Component"
-      selectedItemsLabelText="Selected Paste components"
-      helpText="Paste components are the building blocks of your product UI."
-      items={filteredItems}
-      initialSelectedItems={['Alert', 'Anchor']}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
-        setInputValue(newInputValue);
-      }}
-      onSelectedItemsChange={(selectedItems: string[]) => {
+    <Form
+      onSubmit={(event) => {
+        event.preventDefault();
         // eslint-disable-next-line no-console
-        console.log(selectedItems);
+        console.log('The form was submit');
       }}
-    />
+    >
+      <MultiselectCombobox
+        required
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
+        items={filteredItems}
+        initialSelectedItems={['Alert', 'Anchor']}
+        onInputValueChange={({inputValue: newInputValue = ''}) => {
+          setInputValue(newInputValue);
+        }}
+        onSelectedItemsChange={(selectedItems: string[]) => {
+          // eslint-disable-next-line no-console
+          console.log(selectedItems);
+        }}
+      />
+    </Form>
   );
 };
 MultiselectComboboxRequired.storyName = 'Basic - Required';

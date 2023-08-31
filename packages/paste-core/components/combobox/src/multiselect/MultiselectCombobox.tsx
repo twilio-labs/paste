@@ -12,8 +12,8 @@ import {FormPillGroup, FormPill, useFormPillState} from '@twilio-paste/form-pill
 import {useComboboxPrimitive, useMultiSelectPrimitive} from '@twilio-paste/combobox-primitive';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
 import {Portal} from '@twilio-paste/reakit-library';
-import {useRect} from '@radix-ui/react-use-rect';
 
+import {ListBoxPositioner} from '../ListboxPositioner';
 import {GrowingInput} from './GrowingInput';
 import {ComboboxListbox} from '../styles/ComboboxListbox';
 import {ComboboxItems} from '../ComboboxItems';
@@ -61,7 +61,6 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
 
     // gets the dimensions of the inputBox to position the listbox
     const inputBoxRef = React.useRef<HTMLDivElement>(null);
-    const inputBoxDimensions = useRect(inputBoxRef.current);
 
     const onSelectedItemsChange = React.useCallback(
       (changes: any) => {
@@ -248,6 +247,24 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       [items, selectedItems, highlightedIndex]
     );
 
+    /*
+     * If we press the enter key in a form, it will attempt to submit the form
+     * but if this is a required field and there are no selected items, we don't want
+     * to submit the form
+     */
+
+    const {onKeyDown} = props;
+    const handleKeyDown = React.useCallback(
+      (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.code === 'Enter' && required && selectedItems.length === 0) {
+          // Don't submit the form
+          event.preventDefault();
+        }
+        onKeyDown?.(event);
+      },
+      [required, selectedItems, onKeyDown]
+    );
+
     // FIX: a11y issue where `aria-expanded` isn't being set until the dropdown opens the very first time
     const comboboxProps = getComboboxProps({
       disabled,
@@ -332,9 +349,9 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
               // we spread props into `getInputProps` so that Downshift handles events correctly
               {...getInputProps({
                 ...getDropdownProps({ref, preventKeyAction: isOpen}),
-                disabled,
-                required,
                 ...props,
+                disabled,
+                onKeyDown: handleKeyDown,
               })}
               aria-describedby={helpTextId}
               element={`${element}_ELEMENT`}
@@ -345,14 +362,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
           </Box>
         </InputBox>
         <Portal>
-          <Box
-            position="fixed"
-            top={inputBoxDimensions?.bottom}
-            left={inputBoxDimensions?.left}
-            right={inputBoxDimensions?.right}
-            width={inputBoxDimensions?.width}
-            zIndex="zIndex90"
-          >
+          <ListBoxPositioner inputBoxRef={inputBoxRef} dropdownBoxRef={parentRef}>
             <ComboboxListbox
               {...getMenuProps({ref: parentRef})}
               element={`${element}_LISTBOX`}
@@ -375,7 +385,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                 emptyState={emptyState}
               />
             </ComboboxListbox>
-          </Box>
+          </ListBoxPositioner>
         </Portal>
         {helpText && (
           <HelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)} element={`${element}_HELP_TEXT`}>

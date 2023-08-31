@@ -1,4 +1,4 @@
-import type {BoxProps} from '@twilio-paste/box';
+import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
 type ButtonTypes = 'submit' | 'button' | 'reset';
@@ -34,32 +34,30 @@ export interface ButtonContentsProps {
 }
 
 export interface DirectButtonProps extends HTMLPasteProps<'button'>, Pick<BoxProps, 'element'> {
-  size: ButtonSizes;
-  children: React.ReactNode;
   as?: keyof JSX.IntrinsicElements;
+  buttonState: ButtonStates;
+  children: React.ReactNode;
+  disabled?: boolean;
   fullWidth?: boolean;
   href?: string;
-  tabIndex?: ButtonTabIndexes;
-  disabled?: boolean;
-  type?: ButtonTypes;
-  buttonState: ButtonStates;
-  variant: ButtonVariants;
   pressed?: boolean;
+  size: ButtonSizes;
+  tabIndex?: ButtonTabIndexes;
   target?: string;
+  type?: ButtonTypes;
+  variant: ButtonVariants;
 }
 
-export interface ButtonProps extends HTMLPasteProps<'button'>, Pick<BoxProps, 'element'> {
-  variant: ButtonVariants;
-  size?: ButtonSizes;
-  as?: keyof JSX.IntrinsicElements;
-  fullWidth?: boolean;
-  href?: string;
-  tabIndex?: ButtonTabIndexes;
-  disabled?: boolean;
-  type?: ButtonTypes;
-  loading?: boolean;
-  children: React.ReactNode;
-  i18nExternalLinkLabel?: string;
-  pressed?: boolean;
-  target?: string;
-}
+type BaseVariantsButtonProps = {
+  variant?: Omit<ButtonVariants, 'reset'>;
+};
+type ResetVariantButtonProps = BoxStyleProps & {
+  variant?: 'reset';
+};
+
+export type ButtonProps = (BaseVariantsButtonProps | ResetVariantButtonProps) &
+  Omit<DirectButtonProps, 'buttonState' | 'i18nExternalLinkLabel' | 'loading' | 'size'> & {
+    i18nExternalLinkLabel?: string;
+    loading?: boolean;
+    size?: DirectButtonProps['size'];
+  };

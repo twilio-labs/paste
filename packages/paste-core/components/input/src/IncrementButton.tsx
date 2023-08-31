@@ -1,12 +1,14 @@
 import * as React from 'react';
 import type {BoxProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
+import {Button, type ButtonProps} from '@twilio-paste/button';
 import {ChevronUpIcon} from '@twilio-paste/icons/esm/ChevronUpIcon';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
 export interface IncrementButtonProps extends HTMLPasteProps<'button'> {
   i18nStepUpLabel?: string;
   element?: BoxProps['element'];
+  // Button component restricts tabIndex values
+  tabIndex?: ButtonProps['tabIndex'];
 }
 
 export const IncrementButton = React.forwardRef<HTMLButtonElement, IncrementButtonProps>(
@@ -19,7 +21,6 @@ export const IncrementButton = React.forwardRef<HTMLButtonElement, IncrementButt
         variant="reset"
         size="reset"
         type="button"
-        // @ts-expect-error remove when Reset Button types extends BoxProps
         borderRadius="borderRadius20"
         backgroundColor="colorBackground"
         marginRight="space30"
