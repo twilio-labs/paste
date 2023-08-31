@@ -155,8 +155,4 @@ export const Docs: StoryFn = () => {
 /* eslint-enable react/jsx-max-depth */
 Docs.parameters = {
   padding: false,
-  a11y: {
-    // no need to a11y check customization
-    disable: true,
-  },
 };

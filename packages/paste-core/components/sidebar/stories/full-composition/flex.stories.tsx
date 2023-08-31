@@ -15,10 +15,6 @@ export const Flex: StoryFn = () => {
 };
 Flex.parameters = {
   padding: false,
-  a11y: {
-    // no need to a11y check customization
-    disable: true,
-  },
 };
 
 export const FlexExpanded: StoryFn = () => {
@@ -28,8 +24,4 @@ export const FlexExpanded: StoryFn = () => {
 };
 FlexExpanded.parameters = {
   padding: false,
-  a11y: {
-    // no need to a11y check customization
-    disable: true,
-  },
 };
