@@ -207,6 +207,7 @@
   "ProductSwitcherItem": "@twilio-paste/core/product-switcher",
   "useProductSwitcherState": "@twilio-paste/core/product-switcher",
   "ProgressBar": "@twilio-paste/core/progress-bar",
+  "ProgressBarLabel": "@twilio-paste/core/progress-bar",
   "ProgressStepComplete": "@twilio-paste/core/progress-steps",
   "ProgressStepCurrent": "@twilio-paste/core/progress-steps",
   "ProgressStepError": "@twilio-paste/core/progress-steps",
