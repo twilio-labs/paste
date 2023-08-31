@@ -1,5 +1,13 @@
 # Change Log
 
+## 16.0.1
+
+### Patch Changes
+
+- [`e6ebb11f7`](https://github.com/twilio-labs/paste/commit/e6ebb11f71ee930a0cc5fb7256f750ff5caa8498) [#3450](https://github.com/twilio-labs/paste/pull/3450) Thanks [@TheSisb](https://github.com/TheSisb)! - [MultiselectCombobox] fix bug where passing `required` would block form submit events. `required` now only blocks the submit event if no items are selected rather than when the input box is blank.
+
+* [`29b6b7b65`](https://github.com/twilio-labs/paste/commit/29b6b7b65ced04ee9f7ac3361fdd5c60025f21bf) [#3459](https://github.com/twilio-labs/paste/pull/3459) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Now opens the dropdown menu upwards when positioned towards the bottom of the viewport.
+
 ## 16.0.0
 
 ### Major Changes

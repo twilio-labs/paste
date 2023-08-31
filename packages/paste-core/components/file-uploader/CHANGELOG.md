@@ -1,5 +1,11 @@
 # @twilio-paste/file-uploader
 
+## 4.0.1
+
+### Patch Changes
+
+- [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2) [#3430](https://github.com/twilio-labs/paste/pull/3430) Thanks [@nkrantz](https://github.com/nkrantz)! - Slightly improved Label component types
+
 ## 4.0.0
 
 ### Major Changes

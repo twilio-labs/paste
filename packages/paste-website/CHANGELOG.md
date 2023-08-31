@@ -1,5 +1,20 @@
 # @twilio-paste/website
 
+## 2.23.36
+
+### Patch Changes
+
+- Updated dependencies [[`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068), [`611a2daaf`](https://github.com/twilio-labs/paste/commit/611a2daafbdd142da60afa6cc280824e4ab54ce6), [`e6ebb11f7`](https://github.com/twilio-labs/paste/commit/e6ebb11f71ee930a0cc5fb7256f750ff5caa8498), [`29b6b7b65`](https://github.com/twilio-labs/paste/commit/29b6b7b65ced04ee9f7ac3361fdd5c60025f21bf), [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068), [`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608), [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2), [`91f78b19e`](https://github.com/twilio-labs/paste/commit/91f78b19eb91d8a2410070ef99d946670d9df3b5)]:
+  - @twilio-paste/input@9.0.2
+  - @twilio-paste/theme@11.0.1
+  - @twilio-paste/combobox@16.0.1
+  - @twilio-paste/button@14.0.2
+  - @twilio-paste/slider@2.0.1
+  - @twilio-paste/base-radio-checkbox@13.0.1
+  - @twilio-paste/file-uploader@4.0.1
+  - @twilio-paste/label@13.0.1
+  - @twilio-paste/icons@12.1.0
+
 ## 2.23.35
 
 ### Patch Changes

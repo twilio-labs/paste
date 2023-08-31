@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.1.0
+
+### Minor Changes
+
+- [`91f78b19e`](https://github.com/twilio-labs/paste/commit/91f78b19eb91d8a2410070ef99d946670d9df3b5) [#3451](https://github.com/twilio-labs/paste/pull/3451) Thanks [@TheSisb](https://github.com/TheSisb)! - [Icons] add `DeliveredIcon` and `SentIcon`
+
 ## 12.0.0
 
 ### Major Changes
