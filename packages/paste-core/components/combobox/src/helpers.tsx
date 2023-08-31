@@ -1,6 +1,7 @@
 import type {HelpTextVariants} from '@twilio-paste/help-text';
 import type {InputVariants} from '@twilio-paste/input';
 import groupBy from 'lodash/groupBy';
+import type {BoxStyleProps} from '@twilio-paste/box';
 
 import type {Item} from './types';
 
@@ -38,4 +39,15 @@ export const getHelpTextVariant = (variant: InputVariants, hasError: boolean | u
     return 'inverse';
   }
   return 'default';
+};
+
+export const visuallyHiddenStyles: BoxStyleProps = {
+  clip: 'rect(0 0 0 0)',
+  height: '1px',
+  margin: 'spaceNegative10',
+  overflow: 'hidden',
+  padding: 'space0',
+  position: 'absolute',
+  whiteSpace: 'nowrap',
+  width: '1px',
 };
