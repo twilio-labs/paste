@@ -74,7 +74,8 @@ export const getUnpublishedPackageNames = (touchedFiles: string[], publicPackage
       filePath.includes('/src/') ||
       filePath.includes('/paste-design-tokens/tokens/') ||
       filePath.includes('/paste-design-tokens/formatters/') ||
-      filePath.includes('/paste-design-tokens/types/')
+      filePath.includes('/paste-design-tokens/types/') ||
+      filePath.includes('/paste-codemods/')
     ) {
       uniquePackages.add(packageName);
     }
