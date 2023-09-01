@@ -4,7 +4,7 @@ import {Text} from '@twilio-paste/text';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 
 interface PackageStatusProps {
-  status: string;
+  status?: string;
   label: string;
 }
 

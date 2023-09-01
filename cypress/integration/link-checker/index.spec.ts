@@ -1,7 +1,7 @@
 /**
  * USAGE:
  * 1. yarn build:website
- * 2. yarn start:website
+ * 2. yarn serve:website
  * 3. yarn run cyprus open
  * 4. Click the link-checker test in the cyprus window that pops up
  *

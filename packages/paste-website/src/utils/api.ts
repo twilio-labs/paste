@@ -30,13 +30,13 @@ export type PastePackages = {
 export type Feature = {
   Feature: string;
   status: string;
-  Figma: string;
-  'Design committee review': string;
-  'Engineer committee review': string;
-  Documentation: boolean;
+  Figma?: string;
+  'Design committee review'?: string;
+  'Engineer committee review'?: string;
+  Documentation?: boolean;
   'Component Category': string;
-  Code: string;
-  'Product suitability': string[];
+  Code?: string;
+  'Product suitability'?: string[];
 };
 
 export type Release = {
