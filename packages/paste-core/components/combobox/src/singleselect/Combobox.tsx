@@ -19,6 +19,7 @@ import {ComboboxItems} from '../ComboboxItems';
 import type {ComboboxProps} from '../types';
 import {extractPropsFromState} from './extractPropsFromState';
 import {ListBoxPositioner} from '../ListboxPositioner';
+import {visuallyHiddenStyles} from '../helpers';
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {
@@ -145,11 +146,11 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
 
     return (
       <Box position="relative" element={`${element}_WRAPPER`}>
-        {!hideVisibleLabel && (
+        <Box {...(hideVisibleLabel && {...visuallyHiddenStyles})}>
           <Label disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
             {labelText}
           </Label>
-        )}
+        </Box>
         <InputBox
           disabled={disabled}
           element={element}
@@ -166,8 +167,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
               {...getInputProps({disabled, required, ref, ...props})}
               {...(!autocomplete ? {onChange: (event: React.ChangeEvent) => event.preventDefault()} : undefined)}
               autocomplete={autocomplete}
-              aria-describedby={helpTextId}
-              aria-label={hideVisibleLabel ? labelText : null}
+              aria-describedby={helpText != null ? helpTextId : null}
               element={`${element}_ELEMENT`}
             />
             {!autocomplete && (

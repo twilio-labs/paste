@@ -1,5 +1,11 @@
 # @twilio-paste/slider
 
+## 2.0.1
+
+### Patch Changes
+
+- [`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608) [#3435](https://github.com/twilio-labs/paste/pull/3435) Thanks [@TheSisb](https://github.com/TheSisb)! - [Slider] corrected a typo on the `aria-labelledby` prop
+
 ## 2.0.0
 
 ### Major Changes

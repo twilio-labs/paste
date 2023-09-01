@@ -1,5 +1,41 @@
 # Change Log
 
+## 20.2.0
+
+### Minor Changes
+
+- [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2) [#3430](https://github.com/twilio-labs/paste/pull/3430) Thanks [@nkrantz](https://github.com/nkrantz)! - [Meter] Create Meter package. Meter is a visual representation of a numerical value within a known range.
+
+### Patch Changes
+
+- [`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608) [#3435](https://github.com/twilio-labs/paste/pull/3435) Thanks [@TheSisb](https://github.com/TheSisb)! - [Progress Bar] add new Progress Bar package. A Progress Bar visually displays the progression/duration of a system operation such as downloading, uploading, or processing information.
+
+* [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068) [#3454](https://github.com/twilio-labs/paste/pull/3454) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Input] increment and decrement button types corrected for tabIndex
+
+- [`611a2daaf`](https://github.com/twilio-labs/paste/commit/611a2daafbdd142da60afa6cc280824e4ab54ce6) [#3456](https://github.com/twilio-labs/paste/pull/3456) Thanks [@nkrantz](https://github.com/nkrantz)! - [Theme] Change the type of sizeIcon tokens in the GenericThemeShape to be `any`. Previously they were incorrectly typed as the value of the token in the Twilio theme, which was preventing consumers from passing custom icon sizes using the Customization Provider.
+
+* [`e6ebb11f7`](https://github.com/twilio-labs/paste/commit/e6ebb11f71ee930a0cc5fb7256f750ff5caa8498) [#3450](https://github.com/twilio-labs/paste/pull/3450) Thanks [@TheSisb](https://github.com/TheSisb)! - [MultiselectCombobox] fix bug where passing `required` would block form submit events. `required` now only blocks the submit event if no items are selected rather than when the input box is blank.
+
+- [`29b6b7b65`](https://github.com/twilio-labs/paste/commit/29b6b7b65ced04ee9f7ac3361fdd5c60025f21bf) [#3459](https://github.com/twilio-labs/paste/pull/3459) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Now opens the dropdown menu upwards when positioned towards the bottom of the viewport.
+
+* [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068) [#3454](https://github.com/twilio-labs/paste/pull/3454) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] improved reset variant typing to allow style props enabling the creation of custom buttons
+
+- [`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608) [#3435](https://github.com/twilio-labs/paste/pull/3435) Thanks [@TheSisb](https://github.com/TheSisb)! - [Slider] corrected a typo on the `aria-labelledby` prop
+
+* [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2) [#3430](https://github.com/twilio-labs/paste/pull/3430) Thanks [@nkrantz](https://github.com/nkrantz)! - Slightly improved Label component types
+
+* Updated dependencies [[`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608), [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068), [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2), [`611a2daaf`](https://github.com/twilio-labs/paste/commit/611a2daafbdd142da60afa6cc280824e4ab54ce6), [`e6ebb11f7`](https://github.com/twilio-labs/paste/commit/e6ebb11f71ee930a0cc5fb7256f750ff5caa8498), [`29b6b7b65`](https://github.com/twilio-labs/paste/commit/29b6b7b65ced04ee9f7ac3361fdd5c60025f21bf), [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068), [`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608), [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2)]:
+  - @twilio-paste/progress-bar@1.0.0
+  - @twilio-paste/input@9.0.2
+  - @twilio-paste/meter@1.0.0
+  - @twilio-paste/theme@11.0.1
+  - @twilio-paste/combobox@16.0.1
+  - @twilio-paste/button@14.0.2
+  - @twilio-paste/slider@2.0.1
+  - @twilio-paste/base-radio-checkbox@13.0.1
+  - @twilio-paste/file-uploader@4.0.1
+  - @twilio-paste/label@13.0.1
+
 ## 20.1.0
 
 ### Minor Changes
