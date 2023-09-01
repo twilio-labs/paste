@@ -36,7 +36,7 @@ export type Feature = {
   Documentation: boolean;
   'Component Category': string;
   Code: string;
-  'Product suitability': string;
+  'Product suitability': string[];
 };
 
 export type Release = {
@@ -71,15 +71,14 @@ export type ArticleData = {
   title: string;
 };
 
-export const getNavigationData = async (): Promise<PastePackages> => {
-  const data = fs.readFileSync(path.resolve(process.cwd(), 'data/nav-data.json'), 'utf8');
-  return JSON.parse(data);
-};
-
 export const getAllComponents = async (categories: string[]): Promise<Feature[]> => {
   const data = fs.readFileSync(path.resolve(process.cwd(), 'data/feature-data.json'), 'utf8');
 
   return JSON.parse(data).filter((item: Feature) => categories.includes(item['Component Category'] || ''));
+};
+
+export const getNavigationData = async (): Promise<Feature[]> => {
+  return getAllComponents(['component', 'layout', 'pattern', 'primitive']);
 };
 
 export const getFeature = async (feature: string): Promise<Feature> => {
@@ -90,6 +89,12 @@ export const getFeature = async (feature: string): Promise<Feature> => {
 
 export const getAllFeatures = async (): Promise<Feature[]> => {
   const data = fs.readFileSync(path.resolve(process.cwd(), 'data/feature-data.json'), 'utf8');
+
+  return JSON.parse(data);
+};
+
+export const getAllPackages = async (): Promise<PastePackages> => {
+  const data = fs.readFileSync(path.resolve(process.cwd(), 'data/package-data.json'), 'utf8');
 
   return JSON.parse(data);
 };

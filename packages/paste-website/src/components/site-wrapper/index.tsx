@@ -14,7 +14,7 @@ const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({child
      * TODO: move to server components and app directory to remove this provider.
      * Removes the need for page level getNavigationData() in getStaticProps. Do it once for the whole app, not everypage
      */
-    <NavigationContext.Provider value={{...navigationData}}>
+    <NavigationContext.Provider value={navigationData}>
       <SiteBody>{children}</SiteBody>
     </NavigationContext.Provider>
   );

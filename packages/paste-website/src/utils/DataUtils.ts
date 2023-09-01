@@ -1,25 +1,24 @@
 import camelCase from 'lodash/camelCase';
 import mapKeys from 'lodash/mapKeys';
 
-import {getHumanizedNameFromPackageName, getNameFromPackageName} from './RouteUtils';
+import {getHumanizedNameFromPackageName} from './RouteUtils';
 import {sentenceCase} from './SentenceCase';
+import type {Feature} from './api';
 
 export type ApiData = Record<string, any>;
 
-type MutationFunction = (data: ApiData) => ApiData;
-
-const KEYS_TO_FLATTEN = new Set([
-  'allAirtable',
-  'allPasteComponent',
-  'allPasteDesignTokensPackage',
-  'allPasteLayout',
-  'allPasteLibraries',
-  'allPastePattern',
-  'allPastePrimitive',
-  'allPasteThemePackage',
-]);
-
-const shouldFlatten = (key: string): boolean => KEYS_TO_FLATTEN.has(key);
+type NavItem = {
+  name: string;
+  packageName?: string;
+  packageStatus: string;
+  slug: string;
+};
+type NavData = {
+  allPasteComponent: NavItem[];
+  allPastePrimitive: NavItem[];
+  allPasteLayout: NavItem[];
+  allPastePattern: NavItem[];
+};
 
 export const getNormalizedHeaderData = (data: ApiData): ApiData => {
   const {name: packageName, version, description, status, Figma, ...rest} = data;
@@ -35,51 +34,55 @@ export const getNormalizedHeaderData = (data: ApiData): ApiData => {
   };
 };
 
-const getNavigationDataMutation = (key: string): MutationFunction => {
-  switch (key) {
-    case 'allPasteComponent':
-    case 'allPasteLayout':
-    case 'allPastePrimitive': {
-      return ({name, status}: ApiData): ApiData => ({
-        name: getHumanizedNameFromPackageName(name),
-        packageName: name,
-        slug: getNameFromPackageName(name),
-        packageStatus: status,
-      });
-    }
+const getKebabCaseFeatureName = (name: string): string => name.toLowerCase().replace(/\s/g, '-');
 
-    case 'allPastePattern': {
-      return ({status, Feature}: ApiData): ApiData => {
-        return {
-          name: Feature,
-          packageStatus: status,
-          slug: Feature.toLowerCase().replace(/\s/g, '-'),
-        };
-      };
-    }
-
-    default:
-      return (data: ApiData) => data;
-  }
+const mutateFeatureToPackage = ({Feature: FeatureName, status}: Feature): NavItem => {
+  const formattedName = getKebabCaseFeatureName(FeatureName);
+  return {
+    name: FeatureName,
+    packageName: `@twilio-paste/${formattedName}`,
+    packageStatus: status,
+    slug: formattedName,
+  };
+};
+const mutateFeatureToPattern = ({Feature: FeatureName, status}: Feature): NavItem => {
+  const formattedName = getKebabCaseFeatureName(FeatureName);
+  return {
+    name: FeatureName,
+    packageStatus: status,
+    slug: formattedName,
+  };
 };
 
-export const getNormalizedNavigationData = (data: ApiData): ApiData => {
-  const queryKeys = Object.keys(data);
-  const normalizedData: Record<string, ApiData> = {};
+export const getNormalizedNavigationData = (data: Feature[]): NavData => {
+  // split features into categories
+  const normalizedData: NavData = {
+    allPasteComponent: [],
+    allPasteLayout: [],
+    allPastePrimitive: [],
+    allPastePattern: [],
+  };
 
-  queryKeys.forEach((currentKey) => {
-    if (shouldFlatten(currentKey)) {
-      const dataFragment = data[currentKey];
-      const mutateOperation = getNavigationDataMutation(currentKey);
-      let res: Array<ApiData> = [];
+  if (data.length === 0) return normalizedData;
 
-      dataFragment.forEach((currentPackage: ApiData) => {
-        const mutatedData = mutateOperation(currentPackage);
-        res = [...res, mutatedData];
-      });
-      normalizedData[currentKey] = res;
+  data.forEach((feature: Feature) => {
+    // only display nav items for components that have docs
+    if (!feature.Documentation) return;
+
+    switch (feature['Component Category']) {
+      case 'component':
+        normalizedData.allPasteComponent.push(mutateFeatureToPackage(feature));
+        break;
+      case 'layout':
+        normalizedData.allPasteLayout.push(mutateFeatureToPackage(feature));
+        break;
+      case 'primitive':
+        normalizedData.allPastePrimitive.push(mutateFeatureToPackage(feature));
+        break;
+      case 'pattern':
+        normalizedData.allPastePattern.push(mutateFeatureToPattern(feature));
+        break;
     }
   });
-
   return normalizedData;
 };
