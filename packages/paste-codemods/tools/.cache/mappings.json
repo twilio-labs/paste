@@ -77,6 +77,7 @@
   "ComboboxListboxOption": "@twilio-paste/core/combobox",
   "MultiselectCombobox": "@twilio-paste/core/combobox",
   "useCombobox": "@twilio-paste/core/combobox",
+  "useMultiselectCombobox": "@twilio-paste/core/combobox",
   "DataGrid": "@twilio-paste/core/data-grid",
   "DataGridBody": "@twilio-paste/core/data-grid",
   "DataGridCell": "@twilio-paste/core/data-grid",

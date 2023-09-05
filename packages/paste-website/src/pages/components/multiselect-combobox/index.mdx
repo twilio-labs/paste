@@ -9,7 +9,7 @@ export const meta = {
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {MultiselectCombobox} from '@twilio-paste/combobox';
+import {MultiselectCombobox, useMultiselectCombobox} from '@twilio-paste/combobox';
 import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
@@ -37,6 +37,7 @@ import {
   errorExample,
   emptyStateExample,
   maxHeightExample,
+  stateHookExample,
 } from '../../../component-examples/MultiselectComboboxExamples';
 import packageJson from '@twilio-paste/combobox/package.json';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -204,6 +205,57 @@ it resizes vertically, you can provide a `maxHeight` prop.
 
 <LivePreview scope={{MultiselectCombobox, Box, Text}} noInline language="jsx" showOverflow>
   {maxHeightExample}
+</LivePreview>
+
+### useMultiselectCombobox state hook
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h5">Power user move!</CalloutHeading>
+  <CalloutText>
+    Only use this property if you are a power user. It's very easy to break your implementation and unfortunately the
+    Paste team will not be able to debug this for you. Proceed with extreme caution.
+  </CalloutText>
+</Callout>
+
+In addition to being a controlled component, the Multiselect Combobox comes with the option
+of "hooking" into the internal state by using the state hook originally provided by
+[Downshift](https://github.com/downshift-js/downshift/tree/master/src/hooks/useCombobox).
+
+Rather than the state be internal to the component, you can use the `useMultiselectCombobox`
+hook and pass the returned state to `MultiselectCombobox` as the `state` prop.
+
+This allows you to destructure certain returned props from the state hook,
+including action methods like `reset`.
+
+An example use case of this might be programmatically providing the user a way to
+clear or reset the Multiselect Combobox of its previous selections.
+
+It should be noted that when doing so, the `state` prop takes precident over the
+[other properties](#state-props) that affect the state or initial state of the
+`MultiselectCombobox`. They will be ignored in favour of them being provided as
+arguments to the `useMultiselectCombobox` hook.
+
+For full details on how to use the state hook, and what props to provide it,
+follow the [Combobox Primitive documentation](/primitives/combobox-primitive#usemultiselectprimitive-control-props).
+It's the same hook, just renamed.
+
+<LivePreview
+  scope={{
+    Button,
+    useMultiselectCombobox,
+    MultiselectCombobox,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    AttachIcon,
+    Box,
+    filter,
+  }}
+  noInline
+  language="jsx"
+  showOverflow
+>
+  {stateHookExample}
 </LivePreview>
 
 ## States
