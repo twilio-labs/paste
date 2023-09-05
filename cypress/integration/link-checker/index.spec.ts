@@ -31,6 +31,8 @@ describe('Broken link checker', () => {
     const VISITED_LINKS = new Set();
     const baseUrl = Cypress.env('CYPRESS_BASE_URL');
 
+    console.log('baseUrl', baseUrl);
+
     function crawlPageLinks(pagePath: string) {
       // If the page is visited already, skip recrawling it
       if (VISITED_LINKS.has(pagePath)) return;
@@ -67,6 +69,6 @@ describe('Broken link checker', () => {
     }
 
     // Start the recursive crawl on the homepage path
-    crawlPageLinks('/');
+    crawlPageLinks(`${baseUrl}`);
   });
 });
