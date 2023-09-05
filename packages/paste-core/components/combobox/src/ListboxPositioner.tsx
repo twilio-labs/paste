@@ -16,6 +16,7 @@ export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({inputBoxRef
   const dropdownBoxHeight = dropdownBoxDimensions?.height;
 
   const styles = React.useMemo((): BoxStyleProps => {
+    // If it's closed, return an empty object
     if (dropdownBoxHeight == null || inputBoxDimensions == null || dropdownBoxHeight === 0) {
       return {};
     }
@@ -25,7 +26,10 @@ export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({inputBoxRef
      * 1- Dropdown height is bigger than window height
      *   - Then show at the top of the viewport
      * 2- Dropdown height + inputbox bottom is bigger than viewport height
-     *   - Show upwards
+     *   2.1- inputbox top - Dropdown height is < 0 (offscreen topwise)
+     *     - Show downwards
+     *   2.2- else
+     *     - Show upwards
      * 3- Dropdown height + inputbox bottom is smaller than viewport height
      *   - Show downwards
      */
@@ -39,7 +43,10 @@ export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({inputBoxRef
           width: inputBoxDimensions?.width,
         };
       }
-      if (dropdownBoxHeight + inputBoxDimensions?.bottom >= windowHeight) {
+      if (
+        dropdownBoxHeight + inputBoxDimensions?.bottom >= windowHeight &&
+        inputBoxDimensions?.top - dropdownBoxHeight > 0
+      ) {
         return {
           position: 'fixed',
           // 6px to account for border things, should be fine on all themes
