@@ -58,6 +58,10 @@
   to = '/components/icon/:splat'
 
 [[redirects]]
+  from = '/components/icons/*'
+  to = '/components/icon/:splat'
+
+[[redirects]]
   from = '/layout/*'
   to = '/components/:splat'
 

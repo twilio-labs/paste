@@ -26,6 +26,14 @@ const shouldVisitLink = (link) => {
 };
 
 describe('Broken link checker', () => {
+  before(() => {
+    /**
+     * Trick cypress into getting a baseURL https://docs.cypress.io/api/commands/request#Arguments
+     * If you don't visit a page first a request will try and figure it out and it doesn't seem to be able
+     * to pick up the --baseURL flag we're setting in CI
+     */
+    cy.visit('/');
+  });
   it('recursively check all website links for any broken links', () => {
     const VISITED_LINKS = new Set();
 
