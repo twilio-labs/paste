@@ -2,7 +2,7 @@
  * USAGE:
  * 1. yarn build:website
  * 2. yarn serve:website
- * 3. yarn test:website-gui
+ * 3. yarn cypress open
  * 4. Click the link-checker test in the cyprus window that pops up
  *
  * Doesn't work on the `yarn start:website` command because
