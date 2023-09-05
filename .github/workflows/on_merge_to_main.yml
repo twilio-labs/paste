@@ -230,3 +230,4 @@ jobs:
         env:
           PERCY_PARALLEL_NONCE: ${{ needs.percy-batch-id.outputs.result }}
           PERCY_PARALLEL_TOTAL: 3
+          CYPRESS_BASE_URL: ${{ steps.waitForDeployment.outputs.url }}

@@ -15,12 +15,12 @@ const IGNORE_LIST = [];
 /*
  * This function determines whether the link should be visited in our crawl
  */
-const shouldVisitLink = (link) => {
+const shouldVisitLink = (link, baseUrl) => {
   // We should never have a `//` in a url other than the one in `http://`
   const passesDoubleSlashTest = link.split('//')[2] == null;
   const passesIrrelevantTest = !link.includes('page-data') && !link.includes('socket.io');
-  const passesHostTest =
-    link.includes('//localhost:') || link.includes('netlify.app') || link.includes('twilio.design');
+  // does it include the baseUrl the site is running on, or a production link url including Storybook
+  const passesHostTest = link.includes(baseUrl) || link.includes('paste-storybook.twilio.design');
   const passesIgnoreTest = !IGNORE_LIST.some((ignoreItem) => link.includes(ignoreItem));
 
   return passesDoubleSlashTest && passesIrrelevantTest && passesHostTest && passesIgnoreTest;
@@ -29,6 +29,7 @@ const shouldVisitLink = (link) => {
 describe('Broken link checker', () => {
   it('recursively check all website links for any broken links', () => {
     const VISITED_LINKS = new Set();
+    const baseUrl = Cypress.env('CYPRESS_BASE_URL');
 
     function crawlPageLinks(pagePath: string) {
       // If the page is visited already, skip recrawling it
@@ -58,7 +59,7 @@ describe('Broken link checker', () => {
             // Remove the hash to prevent checking the same actual link multiple times
             const link = href.split('#')[0];
 
-            if (shouldVisitLink(link)) {
+            if (shouldVisitLink(link, baseUrl)) {
               crawlPageLinks(link);
             }
           });
