@@ -233,7 +233,7 @@ describe('danger utils', () => {
       ).toEqual(['@twilio-paste/style-props', '@twilio-paste/alert-dialog']);
     });
 
-    it('should return the design-tokens package with even though no src files are updated', () => {
+    it('should return the design-tokens and codemods package with even though no src files are updated', () => {
       expect(
         getUnpublishedPackageNames(
           [
@@ -241,6 +241,7 @@ describe('danger utils', () => {
             'packages/paste-style-props/src/index.ts',
             'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
             'packages/paste-design-tokens/tokens/themes/evergreen/global/background-color.yml',
+            'packages/paste-codemods/tools/.cache/mappings.json',
             'yarn.lock',
             '.changeset/pretty-cameras-burn.md',
           ],
@@ -263,9 +264,15 @@ describe('danger utils', () => {
               private: false,
               location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-design-tokens',
             },
+            {
+              name: '@twilio-paste/codemods',
+              version: '3.1.0',
+              private: false,
+              location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-codemods',
+            },
           ]
         )
-      ).toEqual(['@twilio-paste/style-props', '@twilio-paste/design-tokens']);
+      ).toEqual(['@twilio-paste/style-props', '@twilio-paste/design-tokens', '@twilio-paste/codemods']);
     });
   });
 
