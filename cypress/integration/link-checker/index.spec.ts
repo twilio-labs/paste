@@ -31,13 +31,15 @@ describe('Broken link checker', () => {
     const VISITED_LINKS = new Set();
     const baseUrl = Cypress.env('CYPRESS_BASE_URL');
 
-    console.log('baseUrl', baseUrl);
+    cy.log(`[LINK CHECKER]: Link checking starting on ${baseUrl}`);
 
     function crawlPageLinks(pagePath: string) {
       // If the page is visited already, skip recrawling it
       if (VISITED_LINKS.has(pagePath)) return;
       // Add the link to the list of visited links
       VISITED_LINKS.add(pagePath);
+
+      cy.log(`[LINK CHECKER]: Link checking ${pagePath}`);
 
       // This requests the page and only retrieves the body content,
       // so it omits the need to wait for the JS to execute.

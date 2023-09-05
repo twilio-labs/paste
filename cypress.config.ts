@@ -6,7 +6,7 @@ export default defineConfig({
     baseUrl: 'http://localhost:3000',
     env: {
       USE_CYPRESS_VRT: process.env.USE_CYPRESS_VRT,
-      CYPRESS_BASE_URL: 'http://localhost:3000',
+      CYPRESS_BASE_URL: process.env.CYPRESS_BASE_URL,
     },
     viewportWidth: 1440,
     viewportHeight: 1440,
