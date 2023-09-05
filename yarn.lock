@@ -12508,8 +12508,8 @@ __metadata:
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -15357,8 +15357,8 @@ __metadata:
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -15448,8 +15448,8 @@ __metadata:
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -16933,8 +16933,8 @@ __metadata:
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
