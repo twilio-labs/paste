@@ -4,6 +4,8 @@ import type {
   UseComboboxPrimitiveProps,
   UseComboboxPrimitiveState,
   UseComboboxPrimitiveReturnValue,
+  UseMultiSelectPrimitiveReturnValue,
+  UseMultiSelectPrimitiveStateChange,
 } from '@twilio-paste/combobox-primitive';
 import type {InputVariants, InputProps} from '@twilio-paste/input';
 import type {VirtualItem} from 'react-virtual';
@@ -97,10 +99,11 @@ export interface MultiselectComboboxProps
     | 'hideVisibleLabel'
   > {
   initialSelectedItems?: any[];
-  onSelectedItemsChange?: (newSelectedItems: any[]) => void;
+  onSelectedItemsChange?: (newSelectedItems: UseMultiSelectPrimitiveStateChange<Item>) => void;
   selectedItemsLabelText: string;
   i18nKeyboardControls?: string;
   maxHeight?: BoxStyleProps['maxHeight'];
+  state?: UseMultiSelectPrimitiveReturnValue<Item>;
 }
 
 export interface ComboboxItemsProps

@@ -534,3 +534,94 @@ render(
   <MultiselectComboboxExample />
 )
 `.trim();
+
+export const stateHookExample = `
+const groupedItems = [
+  {group: 'Components', label: 'Alert'},
+  {group: 'Components', label: 'Anchor'},
+  {group: 'Components', label: 'Button'},
+  {group: 'Components', label: 'Card'},
+  {group: 'Components', label: 'Heading'},
+  {group: 'Components', label: 'List'},
+  {group: 'Components', label: 'Modal'},
+  {group: 'Components', label: 'Paragraph'},
+  {group: 'Primitives', label: 'Box'},
+  {group: 'Primitives', label: 'Text'},
+  {group: 'Primitives', label: 'Non-modal dialog'},
+  {group: 'Layout', label: 'Grid'},
+  {label: 'Design Tokens'},
+];
+
+function getFilteredGroupedItems(inputValue) {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+  return filter(groupedItems, (item) => item.label.toLowerCase().includes(lowerCasedInputValue));
+}
+
+const SampleEmptyState = () => (
+  <Box paddingY="space40" paddingX="space50">
+    <Text as="span" fontStyle="italic" color="colorTextWeak">
+      No results found
+    </Text>
+  </Box>
+);
+
+const MultiselectComboboxExample = () => {
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
+
+  const onSelectedItemsChange = React.useCallback((selectedItems) => {
+    console.log(selectedItems);
+  }, []);
+
+  const state = useMultiselectCombobox({
+    initialSelectedItems: filteredItems.slice(0, 2),
+    onSelectedItemsChange,
+  });
+
+  return (
+    <>
+      <Box marginBottom="space40">
+        <Button variant="primary" onClick={() => state.setSelectedItems([])}>
+          Clear selection
+        </Button>
+      </Box>
+      <MultiselectCombobox
+        state={state}
+        groupItemsBy="group"
+        items={filteredItems}
+        emptyState={SampleEmptyState}
+        inputValue={inputValue}
+        itemToString={(item) => (item ? item.label : '')}
+        onInputValueChange={({inputValue = ''}) => {
+          setInputValue(newInputValue);
+        }}
+        onSelectedItemsChange={onSelectedItemsChange}
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
+        initialIsOpen
+        optionTemplate={(item) => {
+          return <div>{item.label}</div>;
+        }}
+        groupLabelTemplate={(groupName) => {
+          if (groupName === 'Components') {
+            return (
+              <MediaObject verticalAlign="center">
+                <MediaFigure spacing="space20">
+                  <AttachIcon color="colorTextIcon" decorative={false} title="icon" />
+                </MediaFigure>
+                <MediaBody>{groupName}</MediaBody>
+              </MediaObject>
+            );
+          }
+          return groupName;
+        }}
+      />
+    </>
+  );
+}
+
+render(
+  <MultiselectComboboxExample />
+)
+`.trim();

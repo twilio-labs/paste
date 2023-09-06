@@ -14,7 +14,7 @@ import {
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 
 import {SidebarCategoryRoutes} from '../../../constants';
-import {filteredComponents, alphabetizeComponents} from '../../../utils/componentFilters';
+import {alphabetizeComponents} from '../../../utils/componentFilters';
 import {getNormalizedNavigationData} from '../../../utils/DataUtils';
 import {useNavigationContext} from '../../../context/NavigationContext';
 import {SidebarAnchor} from './SidebarAnchor';
@@ -56,14 +56,16 @@ const NavigationDisclosure: React.FC<
 
 const SiteSidebarNavigation = (): JSX.Element => {
   // TODO: move to a server component in the App directory
-  const data = useNavigationContext();
+  const navigationData = useNavigationContext();
 
-  const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);
+  // take airtable feature data and mutate it into navigation data
+  const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} =
+    getNormalizedNavigationData(navigationData);
 
-  const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon', slug: 'icons'}];
-  const filteredComponentSidebarItems = allComponentSidebarItems.filter(filteredComponents).sort(alphabetizeComponents);
+  const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout];
+  const filteredComponentSidebarItems = allComponentSidebarItems.sort(alphabetizeComponents);
 
-  const filteredPrimitives = allPastePrimitive?.filter(filteredComponents).sort(alphabetizeComponents);
+  const filteredPrimitives = allPastePrimitive?.sort(alphabetizeComponents);
 
   return (
     <SidebarNavigation aria-label="main" hierarchical>

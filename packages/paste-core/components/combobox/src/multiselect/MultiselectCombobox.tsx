@@ -9,15 +9,16 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {FormPillGroup, FormPill, useFormPillState} from '@twilio-paste/form-pill-group';
-import {useComboboxPrimitive, useMultiSelectPrimitive} from '@twilio-paste/combobox-primitive';
+import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
 import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
 import {Portal} from '@twilio-paste/reakit-library';
 
-import {ListBoxPositioner} from '../ListboxPositioner';
 import {GrowingInput} from './GrowingInput';
-import {ComboboxListbox} from '../styles/ComboboxListbox';
+import {extractPropsFromState} from './extractPropsFromState';
+import {ListBoxPositioner} from '../ListboxPositioner';
 import {ComboboxItems} from '../ComboboxItems';
-import type {Item, MultiselectComboboxProps} from '../types';
+import {ComboboxListbox} from '../styles/ComboboxListbox';
+import type {MultiselectComboboxProps} from '../types';
 import {getHelpTextVariant} from '../helpers';
 
 export const MultiselectCombobox = React.forwardRef<HTMLInputElement, MultiselectComboboxProps>(
@@ -27,6 +28,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       disabled,
       hasError,
       helpText,
+      state,
       initialSelectedItems = [],
       disabledItems,
       inputValue,
@@ -80,7 +82,8 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       // Action prop that adds the item to the selection. Best used in useSelect and useCombobox prop onStateChange or onSelectedItemChange
       addSelectedItem,
       selectedItems,
-    } = useMultiSelectPrimitive<Item>({
+    } = extractPropsFromState({
+      state,
       initialSelectedItems,
       onSelectedItemsChange,
     });
@@ -252,7 +255,6 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
      * but if this is a required field and there are no selected items, we don't want
      * to submit the form
      */
-
     const {onKeyDown} = props;
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -265,7 +267,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       [required, selectedItems, onKeyDown]
     );
 
-    // FIX: a11y issue where `aria-expanded` isn't being set until the dropdown opens the very first time
+    // Fix the a11y issue where `aria-expanded` isn't being set until the dropdown opens the very first time
     const comboboxProps = getComboboxProps({
       disabled,
       role: 'combobox',

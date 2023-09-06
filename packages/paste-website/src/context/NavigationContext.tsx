@@ -1,16 +1,8 @@
 import * as React from 'react';
 
-import type {Package} from '../utils/api';
+import type {Feature} from '../utils/api';
 
-export interface NavigationQuery {
-  allPasteComponent: Package[];
-  allPastePrimitive: Package[];
-  allPasteLayout: Package[];
-  allPastePattern: {
-    Feature: string;
-    status: string;
-  }[];
-}
+export type NavigationQuery = Feature[];
 
 export const NavigationContext = React.createContext<NavigationQuery | null>(null);
 

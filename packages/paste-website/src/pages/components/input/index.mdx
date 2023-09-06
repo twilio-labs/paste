@@ -44,7 +44,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input"
-  storybookUrl="/?path=/story/components-input--"
+  storybookUrl="/?path=/story/components-input--default-input"
   data={props.data}
 />
 
@@ -75,13 +75,13 @@ You can set the input to more [specific types](#input-types) if needed. It is us
 
 - Include a visible label on **all** form fields.
 - Each label must use the `htmlFor` prop that equals the `id` of the associated input.
-- Avoid placeholder text. It disappears from the field when the user enters text, isn't broadly supported by assistive technologies, and doesn't display in older browsers. 
+- Avoid placeholder text. It disappears from the field when the user enters text, isn't broadly supported by assistive technologies, and doesn't display in older browsers.
 - Use 1 of 3 ways to label a form field:
-    - Visible label with [Label](/components/label) (preferred)
-    - Visible label that's associated to the input with `aria-labelledby`
-    - Label directly using `aria-label`
+  - Visible label with [Label](/components/label) (preferred)
+  - Visible label that's associated to the input with `aria-labelledby`
+  - Label directly using `aria-label`
 - Provide clear identification of required fields in the label or at the start of a form. If you use the required field indicator, include the form key at the start of the form.
-    - Use the `required` prop to programatically indicate they are required to browsers.
+  - Use the `required` prop to programatically indicate they are required to browsers.
 - Use [Help Text](/components/help-text) and an error icon to show [inline error text](/patterns/error-state) on any field that errors to make it visually clear that the field changed.
 - If the Input has associated help text or error text, include the `aria-describedby` prop on the input. This should match the `id` of the help or error text.
 
@@ -103,9 +103,9 @@ The Input component should include the base input, along with supporting element
     need to match.
   </CalloutText>
   <CalloutText>
-    If the Input has associated Help Text, the Input should also use the <inlineCode>aria-describedby</inlineCode>{' '}
-    prop that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text
-    ties directly to the input.
+    If the Input has associated Help Text, the Input should also use the <inlineCode>aria-describedby</inlineCode> prop
+    that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text ties
+    directly to the input.
   </CalloutText>
 </Callout>
 
@@ -385,13 +385,7 @@ For additional guidance on how to compose error messages, refer to the [error st
   <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="email_do">Email address</Label>
-      <Input
-        aria-describedby="email_do_help_text"
-        id="email_do"
-        name="email_do"
-        type="email"
-        onChange={() => {}}
-      />
+      <Input aria-describedby="email_do_help_text" id="email_do" name="email_do" type="email" onChange={() => {}} />
       <HelpText id="email_do_help_text">Use your work email address.</HelpText>
     </Box>
   </Do>

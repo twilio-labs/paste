@@ -13,7 +13,7 @@ const StorybookIcon = React.memo(
   ({title = 'Github Icon', decorative = true, className, color, size}: StorybookIconProps) => {
     const uid = useUID();
     return (
-      <div style={{color, width: size, height: size}} className={className}>
+      <span style={{color, width: size, height: size}} className={className}>
         <svg
           role="img"
           aria-hidden={decorative}
@@ -40,7 +40,7 @@ const StorybookIcon = React.memo(
             mask={`url(#b${uid})`}
           />
         </svg>
-      </div>
+      </span>
     );
   }
 );

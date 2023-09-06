@@ -1,12 +1,13 @@
 import * as React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
+import {render, act, screen, fireEvent} from '@testing-library/react';
 import type {RenderOptions} from '@testing-library/react';
 import {Theme} from '@twilio-paste/theme';
 import {Form} from '@twilio-paste/form';
+import {Button} from '@twilio-paste/button';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
 
-import {MultiselectCombobox} from '../src';
+import {MultiselectCombobox, useMultiselectCombobox} from '../src';
 import type {MultiselectComboboxProps} from '../src';
 
 const items = [
@@ -38,6 +39,7 @@ const MultiselectComboboxMock: React.FC<Partial<MultiselectComboboxProps>> = (pr
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
   return (
     <MultiselectCombobox
+      selectedItemsLabelText="Selected books:"
       labelText="Choose a book:"
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
@@ -46,7 +48,7 @@ const MultiselectComboboxMock: React.FC<Partial<MultiselectComboboxProps>> = (pr
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: string[]) => {
+      onSelectedItemsChange={() => {
         // eslint-disable-next-line no-console
         // console.log(selectedItems);
       }}
@@ -105,6 +107,40 @@ const GroupedMultiselectComboboxMock: React.FC<Partial<MultiselectComboboxProps>
         {...props}
       />
     </Form>
+  );
+};
+
+const StateHookMock: React.FC<Partial<MultiselectComboboxProps>> = (props) => {
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
+
+  const state = useMultiselectCombobox<any>({
+    initialSelectedItems: filteredItems.slice(0, 2),
+    onSelectedItemsChange: props.onSelectedItemsChange,
+  });
+
+  return (
+    <>
+      <Button variant="primary" onClick={() => state.setSelectedItems([])}>
+        Clear
+      </Button>
+      <MultiselectCombobox
+        state={state}
+        groupItemsBy="group"
+        items={filteredItems}
+        inputValue={inputValue}
+        itemToString={(item: GroupedItem) => (item ? item.label : '')}
+        onInputValueChange={({inputValue: newInputValue = ''}) => {
+          setInputValue(newInputValue);
+        }}
+        onSelectedItemsChange={props.onSelectedItemsChange}
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
+        initialIsOpen
+        optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
+      />
+    </>
   );
 };
 
@@ -278,6 +314,26 @@ describe('MultiselectCombobox', () => {
       fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
       expect(mockSelectedItemsChangeFn).toHaveBeenCalledTimes(3);
       expect(mockSelectedItemsChangeFn.mock.results[2].value).toEqual([{group: 'Components', label: 'Button'}]);
+    });
+  });
+
+  describe('Inversion of control', () => {
+    it('allows clearing selected items from an external button click', () => {
+      const mockSelectedItemsChangeFn = jest.fn((selectedItems) => selectedItems);
+      render(<StateHookMock onSelectedItemsChange={mockSelectedItemsChangeFn} />, {
+        wrapper: ThemeWrapper,
+      });
+
+      const pillGroup = screen.getAllByRole('listbox')[0];
+      expect(pillGroup?.childNodes.length).toBe(2);
+
+      act(() => {
+        screen.getByRole('button', {name: 'Clear'}).click();
+      });
+
+      expect(pillGroup?.childNodes.length).toBe(0);
+      expect(mockSelectedItemsChangeFn).toHaveBeenCalledTimes(1);
+      expect(mockSelectedItemsChangeFn.mock.results[0].value).toEqual({activeIndex: -1, selectedItems: [], type: 10});
     });
   });
 });

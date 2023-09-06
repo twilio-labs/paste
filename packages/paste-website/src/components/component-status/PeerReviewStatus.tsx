@@ -4,8 +4,8 @@ import {Text} from '@twilio-paste/text';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 
 interface PeerReviewStatusProps {
-  designStatus: string;
-  engineerStatus: string;
+  designStatus?: string;
+  engineerStatus?: string;
 }
 
 const PeerReviewStatus: React.FC<React.PropsWithChildren<PeerReviewStatusProps>> = ({designStatus, engineerStatus}) => {

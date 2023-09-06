@@ -8,7 +8,7 @@ import {GraphImageHero} from '../../components/open-graph-card/GraphImageHero';
 import {GraphImageDetails} from '../../components/open-graph-card/GraphImageDetails';
 import type {PackageData} from '../../components/open-graph-card/types';
 import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
-import {getNavigationData, getAllFeatures} from '../../utils/api';
+import {getAllFeatures, getAllPackages} from '../../utils/api';
 import type {Feature, Package, PastePackages} from '../../utils/api';
 
 /*
@@ -32,7 +32,7 @@ const EMPTY_PACKAGE_DATA = {
   'Engineer committee review': '',
   Code: '',
   'Component Category': '',
-  'Product suitability': '',
+  'Product suitability': [''],
   type: '',
 };
 
@@ -123,7 +123,7 @@ const OpenGraphCard = ({data}: InferGetStaticPropsType<typeof getStaticProps>): 
 };
 
 export const getStaticProps: GetStaticProps<{data: PastePackages & {allAirtable: Feature[]}}> = async () => {
-  const navigationData = await getNavigationData();
+  const navigationData = await getAllPackages();
   const features = await getAllFeatures();
 
   return {

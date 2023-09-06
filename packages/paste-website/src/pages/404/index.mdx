@@ -6,21 +6,23 @@ export const meta = {
 
 import {Error404} from '../../components/empty-state/Error404';
 import DefaultLayout from '../../layouts/DefaultLayout';
-import {getNavigationData} from '../../utils/api';
+import {getNavigationData, getAllPackages} from '../../utils/api';
 
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
+  const packageData = await getAllPackages();
   return {
     props: {
       navigationData,
+      packageData,
     },
   };
 };
 
 <Error404
-  componentList={props.navigationData.allPasteComponent}
-  layoutList={props.navigationData.allPasteLayout}
-  primitiveList={props.navigationData.allPastePrimitive}
+  componentList={props.packageData.allPasteComponent}
+  layoutList={props.packageData.allPasteLayout}
+  primitiveList={props.packageData.allPastePrimitive}
 />

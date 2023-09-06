@@ -87,6 +87,8 @@ jobs:
           parallel: true
           group: "Paste Actions Parallel"
           config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
+        env:
+          CYPRESS_BASE_URL: ${{ steps.waitForDeployment.outputs.url }}
 
       - name: Cypress run with site VRT
         uses: cypress-io/github-action@v4
@@ -102,3 +104,4 @@ jobs:
           USE_CYPRESS_VRT: true
           PERCY_PARALLEL_NONCE: ${{ needs.percy-batch-id.outputs.result }}
           PERCY_PARALLEL_TOTAL: 3
+          CYPRESS_BASE_URL: ${{ steps.waitForDeployment.outputs.url }}

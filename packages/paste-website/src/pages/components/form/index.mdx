@@ -67,7 +67,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form"
-  storybookUrl="/?path=/story/components-form--"
+  storybookUrl="/?path=/story/components-form--default"
   data={props.data}
   description={meta.description}
 />
@@ -130,7 +130,7 @@ Designing a good form requires making decisions about composition, sequence, for
   - Labels should clearly describe the value being requested.
   - Labels should be short and succinct, generally 1-3 words.
   - Help Text is optional. Use it to describe what makes the form field successful and help users avoid errors.
-  - Avoid placeholder text. It is not broadly supported by assistive technologies, does not display in older browsers, and disappears from the field when a user enters text. 
+  - Avoid placeholder text. It is not broadly supported by assistive technologies, does not display in older browsers, and disappears from the field when a user enters text.
 - Use fieldsets and legends.
   - When you need to group related form elements, use a [form section](/components/form#sections), which renders a HTML fieldset. To add clarity to the section, use a form section Heading, which renders a HTML legend, to clearly describe the group. It should be concise and descriptive.
   - You can have nested form sections if applicable.
@@ -245,7 +245,7 @@ Use a horizontal layout when options can be placed next to each other in a logic
 
 ### Sections
 
-Use sections to group related content or steps within a Form. A section is separated using a [Separator](/components/separator), with `$space-90` above and below it. 
+Use sections to group related content or steps within a Form. A section is separated using a [Separator](/components/separator), with `$space-90` above and below it.
 
 Section headings and descriptions are optional.
 

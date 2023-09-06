@@ -43,7 +43,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/textarea"
-  storybookUrl="/?path=/story/components-textarea--"
+  storybookUrl="/?path=/story/components-textarea--textarea"
   data={props.data}
 />
 
@@ -75,11 +75,11 @@ A Textarea allows for any text to be entered and can't be restricted as other [i
 - Each label must use the `htmlFor` prop that equals the `id` of the associated textarea.
 - Avoid placeholder text. It's not broadly supported by assistive technologies, doesn't display in older browsers, and dissapears from the field when a user enters text.
 - Use 1 of 3 ways to label a form field:
-    - Visible label with [Label](/components/label) (preferred)
-    - Visible label that's associated to the textarea with `aria-labelledby`
-    - Label directly using `aria-label`
+  - Visible label with [Label](/components/label) (preferred)
+  - Visible label that's associated to the textarea with `aria-labelledby`
+  - Label directly using `aria-label`
 - Provide clear identification of required fields in the label or at the start of a form. If you use the required field indicator, include the form key at the start of the form.
-    - Use the `required` prop to programatically indicate they are required to browsers.
+  - Use the `required` prop to programatically indicate they are required to browsers.
 - Use [Help Text](/components/help-text) and an error icon to show [inline error text](/patterns/error-state) on any field that errors to make it visually clear that the field changed.
 - If the textarea has associated help text or error text, include the `aria-describedby` prop on the textarea. This should match the `id` of the help or error text.
 
