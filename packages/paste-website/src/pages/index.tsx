@@ -10,7 +10,7 @@ import {GetStarted} from '../components/homepage/GetStarted';
 import {Experiment} from '../components/homepage/Experiment';
 import {PopularComponentsAndPatterns} from '../components/homepage/Popular';
 import {getNavigationData} from '../utils/api';
-import type {PastePackages} from '../utils/api';
+import type {Feature} from '../utils/api';
 
 const Homepage = ({navigationData}: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
   /*
@@ -41,7 +41,7 @@ const Homepage = ({navigationData}: InferGetStaticPropsType<typeof getStaticProp
   );
 };
 
-export const getStaticProps: GetStaticProps<{navigationData: PastePackages}> = async () => {
+export const getStaticProps: GetStaticProps<{navigationData: Feature[]}> = async () => {
   const navigationData = await getNavigationData();
 
   return {

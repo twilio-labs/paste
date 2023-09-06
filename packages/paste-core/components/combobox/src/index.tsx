@@ -1,4 +1,7 @@
-export {useComboboxPrimitive as useCombobox} from '@twilio-paste/combobox-primitive';
+export {
+  useComboboxPrimitive as useCombobox,
+  useMultiSelectPrimitive as useMultiselectCombobox,
+} from '@twilio-paste/combobox-primitive';
 export type {
   UseComboboxPrimitiveState as UseComboboxState,
   UseComboboxPrimitiveStateChange as UseComboboxStateChange,

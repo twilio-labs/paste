@@ -50,7 +50,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/switch"
-  storybookUrl="/?path=/story/components-switch--"
+  storybookUrl="/?path=/story/components-switch--default-switch"
   data={props.data}
   description={meta.description}
 />
@@ -71,11 +71,11 @@ export const getStaticProps = async () => {
 
 ### About Switch
 
-A Switch is an interactive binary control. It should be used in forms when an "on/off" or "yes/no" input is needed. 
+A Switch is an interactive binary control. It should be used in forms when an "on/off" or "yes/no" input is needed.
 
 Use Switch when the interaction result is **immediate**. Users shouldn't need to perform an additional action (like use a "Save" or "Submit" button) to confirm Switch input. For example, when a user turns on a "Receive notifications" Switch, they should start receiving notifications immediately upon performing the action.
 
-Use a [Checkbox](/components/checkbox) to present a user with a single binary choice that is part of a form or otherwise requires a user to take an additional action to confirm input. 
+Use a [Checkbox](/components/checkbox) to present a user with a single binary choice that is part of a form or otherwise requires a user to take an additional action to confirm input.
 
 <Blockquote
   name="Nielsen Norman Group"
@@ -190,7 +190,7 @@ If interactivity is dependent on another action, make that clear using help text
 
 ## Composition notes
 
-Switch label text should indicate what the Switch does when it is **on**, but should not describe the state itself ("enabled", "disabled"). Label text shouldn't change when the state of the Switch changes. 
+Switch label text should indicate what the Switch does when it is **on**, but should not describe the state itself ("enabled", "disabled"). Label text shouldn't change when the state of the Switch changes.
 
 Switch labels should be concise and put the most important information in the first few words. Avoid making the label a question.
 

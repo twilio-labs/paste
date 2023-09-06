@@ -137,7 +137,7 @@ yarn prettier
 To use Prettier to fix your code you can run:
 
 ```bash
-yarn prettier:fix
+yarn prettier-clean
 ```
 
 To run our end-to-end tests you must first make sure you have built the website and run:

@@ -44,7 +44,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox"
-  storybookUrl="/?path=/story/components-checkbox--"
+  storybookUrl="/?path=/story/components-checkbox--default-checkbox"
   data={props.data}
 />
 
@@ -321,13 +321,14 @@ If the selected options don't pass the group validation requirements, display an
 ### Checkbox labels, legends, and help text
 
 Checkboxes and Checkbox Groups must have a visible label.
-- Aim for no more than 3 words. If the label must be longer and space is limited, wrap the label. 
+
+- Aim for no more than 3 words. If the label must be longer and space is limited, wrap the label.
 - Structure each checkbox label similarly. For example, make each checkbox a noun.
 - Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
 
 Checkbox labels should reflect what happens if the box is checked. Avoid situations where the user must check a box to negate something. For example, "Don't send message."
 
-Avoid constructing the legend and label text to read as a sentence. 
+Avoid constructing the legend and label text to read as a sentence.
 
 Use [Help Text](/components/help-text) to give additional context and provide enough information to avoid errors. Consider using Help Text to indicate to users that they can select multiple options. Limit Help Text to 1-2 sentences.
 

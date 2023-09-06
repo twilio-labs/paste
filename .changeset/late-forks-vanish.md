@@ -3,4 +3,8 @@
 '@twilio-paste/core': patch
 ---
 
-[Codemods] Include new ProgressBar Exports
+[Codemods] Include new mappings:
+
+- `ProgressBar`
+- `useMultiselectCombobox`
+- `useMultiSelectPrimitive`

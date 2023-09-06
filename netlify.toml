@@ -55,7 +55,11 @@
 # COMPONENTS/
 [[redirects]]
   from = '/icons/*'
-  to = '/components/icons/:splat'
+  to = '/components/icon/:splat'
+
+[[redirects]]
+  from = '/components/icons/*'
+  to = '/components/icon/:splat'
 
 [[redirects]]
   from = '/layout/*'

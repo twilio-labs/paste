@@ -12,7 +12,7 @@ import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 import {Button} from '@twilio-paste/button';
 import {useUID} from '@twilio-paste/uid-library';
 
-import {MultiselectCombobox} from '../src';
+import {MultiselectCombobox, useMultiselectCombobox} from '../src';
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
   template: (index?: number | undefined) => TemplateResult
@@ -57,7 +57,7 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: string[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -81,7 +81,7 @@ export const BottomOfScreen = (): React.ReactNode => {
         onInputValueChange={({inputValue: newInputValue = ''}) => {
           setInputValue(newInputValue);
         }}
-        onSelectedItemsChange={(selectedItems: string[]) => {
+        onSelectedItemsChange={(selectedItems) => {
           // eslint-disable-next-line no-console
           console.log(selectedItems);
         }}
@@ -112,7 +112,7 @@ export const MultiselectComboboxInverse = (): React.ReactNode => {
         onInputValueChange={({inputValue: newInputValue = ''}) => {
           setInputValue(newInputValue);
         }}
-        onSelectedItemsChange={(selectedItems: string[]) => {
+        onSelectedItemsChange={(selectedItems) => {
           // eslint-disable-next-line no-console
           console.log(selectedItems);
         }}
@@ -140,7 +140,7 @@ export const MultiselectComboboxDisabled = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: string[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -169,7 +169,7 @@ export const MultiselectComboboxDisabledInverseRequired = (): React.ReactNode =>
         onInputValueChange={({inputValue: newInputValue = ''}) => {
           setInputValue(newInputValue);
         }}
-        onSelectedItemsChange={(selectedItems: string[]) => {
+        onSelectedItemsChange={(selectedItems) => {
           // eslint-disable-next-line no-console
           console.log(selectedItems);
         }}
@@ -198,7 +198,7 @@ export const MultiselectComboboxError = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: string[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -232,7 +232,7 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
         onInputValueChange={({inputValue: newInputValue = ''}) => {
           setInputValue(newInputValue);
         }}
-        onSelectedItemsChange={(selectedItems: string[]) => {
+        onSelectedItemsChange={(selectedItems) => {
           // eslint-disable-next-line no-console
           console.log(selectedItems);
         }}
@@ -259,7 +259,7 @@ export const MultiselectComboboxInitialSelectedItems = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: string[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -325,7 +325,7 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: Book[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -371,7 +371,7 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: Book[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -405,7 +405,7 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: Book[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -441,7 +441,7 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: Book[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -490,7 +490,7 @@ export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: GroupedItem[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -541,7 +541,7 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
       onInputValueChange={({inputValue: newInputValue = ''}) => {
         setInputValue(newInputValue);
       }}
-      onSelectedItemsChange={(selectedItems: GroupedItem[]) => {
+      onSelectedItemsChange={(selectedItems) => {
         // eslint-disable-next-line no-console
         console.log(selectedItems);
       }}
@@ -571,6 +571,63 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
 
 MultiselectComboboxEmptyState.storyName = 'with empty state';
 
+export const MultiselectComboboxStateHook = (): React.ReactNode => {
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
+
+  const onSelectedItemsChange = React.useCallback((selectedItems) => {
+    // eslint-disable-next-line no-console
+    console.log(selectedItems);
+  }, []);
+
+  const state = useMultiselectCombobox<any>({
+    initialSelectedItems: filteredItems.slice(0, 2),
+    onSelectedItemsChange,
+  });
+
+  return (
+    <>
+      <Button variant="primary" onClick={() => state.setSelectedItems([])}>
+        Clear
+      </Button>
+      <MultiselectCombobox
+        state={state}
+        groupItemsBy="group"
+        items={filteredItems}
+        emptyState={SampleEmptyState}
+        inputValue={inputValue}
+        itemToString={(item: GroupedItem) => (item ? item.label : '')}
+        onInputValueChange={({inputValue: newInputValue = ''}) => {
+          setInputValue(newInputValue);
+        }}
+        onSelectedItemsChange={onSelectedItemsChange}
+        labelText="Choose a Paste Component"
+        selectedItemsLabelText="Selected Paste components"
+        helpText="Paste components are the building blocks of your product UI."
+        initialIsOpen
+        optionTemplate={(item: GroupedItem) => {
+          return <div>{item.label}</div>;
+        }}
+        groupLabelTemplate={(groupName: string) => {
+          if (groupName === 'Components') {
+            return (
+              <MediaObject verticalAlign="center">
+                <MediaFigure spacing="space20">
+                  <AttachIcon color="colorTextIcon" decorative={false} title="icon" />
+                </MediaFigure>
+                <MediaBody>{groupName}</MediaBody>
+              </MediaObject>
+            );
+          }
+          return groupName;
+        }}
+      />
+    </>
+  );
+};
+
+MultiselectComboboxStateHook.storyName = 'with state hook';
+
 export const MultiselectComboboxInModal: StoryFn = () => {
   const [modalIsOpen, setModalIsOpen] = React.useState(true);
   const handleOpen = (): void => setModalIsOpen(true);
@@ -599,7 +656,7 @@ export const MultiselectComboboxInModal: StoryFn = () => {
             onInputValueChange={({inputValue: newInputValue = ''}) => {
               setInputValue(newInputValue);
             }}
-            onSelectedItemsChange={(selectedItems: string[]) => {
+            onSelectedItemsChange={(selectedItems) => {
               // eslint-disable-next-line no-console
               console.log(selectedItems);
             }}

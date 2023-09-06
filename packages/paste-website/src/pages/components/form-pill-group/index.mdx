@@ -71,7 +71,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form-pill-group"
-  storybookUrl="/?path=/story/components-form-pill-group--"
+  storybookUrl="/?path=/story/components-form-pill-group--basic"
   data={props.data}
   description={meta.description}
 />
@@ -142,7 +142,7 @@ This Form Pill example shows the basic static component that's exported by Paste
 
 Interaction states on Form Pills need to be managed separately as shown in the examples after this one by using the `useFormPillState` hook. The returned state should be spread onto each component. This will provide you with some internal state management and keyboard navigation.
 
-A Form Pill can have an optional [Avatar](/components/avatar) or [Icon](/components/icons) placed before the text.
+A Form Pill can have an optional [Avatar](/components/avatar) or [Icon](/components/icon) placed before the text.
 
 <LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
   {basicExample}
@@ -278,7 +278,7 @@ We recommend placing the Avatar ahead of the pill text. Use no more than one bef
 
 ### Adding an icon
 
-A Form Pill can have an optional [Icon](/components/icons). We recommend placing the Icon ahead of the pill text. Use no more than one before or after the text.
+A Form Pill can have an optional [Icon](/components/icon). We recommend placing the Icon ahead of the pill text. Use no more than one before or after the text.
 
 <LivePreview
   scope={{
@@ -434,7 +434,7 @@ Form Pill Group is available in the Paste Components Figma library. It has 1 bas
 
 In code, when there are more pills than the max width, they will wrap to the next row. To accomplish the same behavior in Figma, please use the `Row count` property to select a number of rows, or place multiple Form Pill Group components under one another.
 
-Form Pill Group also contains other Paste components as nested components, including [Avatar](/components/avatar) and [Icon](/components/icons).
+Form Pill Group also contains other Paste components as nested components, including [Avatar](/components/avatar) and [Icon](/components/icon).
 
 #### Properties
 

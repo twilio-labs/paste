@@ -40,7 +40,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb"
-  storybookUrl="/?path=/story/components-breadcrumb--"
+  storybookUrl="/?path=/story/components-breadcrumb--anchors"
   data={props.data}
 />
 
@@ -65,7 +65,7 @@ export const getStaticProps = async () => {
 
 Breadcrumb navigation helps the user understand their location in an app or website by providing a trail back to the top level of the website.
 
-Breadcrumbs are listed in order and represent the hierarchy of the page in the product. Do not include the current page in the hierarchy unless there is no page header on the current page. 
+Breadcrumbs are listed in order and represent the hierarchy of the page in the product. Do not include the current page in the hierarchy unless there is no page header on the current page.
 
 <Callout variant="warning" marginY="space70">
   <CalloutHeading as="h4">Using Breadcrumb in Console products</CalloutHeading>
@@ -99,7 +99,7 @@ The Breadcrumb component uses [Anchors](/components/anchor) to link back to pare
 
 ### Breadcrumb with unlinked page
 
-Always show the full IA hierarchy of the current page, even if one of the parent pages cannot be navigated to. When a parent page cannot be navigated to, use an unlinked Breadcrumb. 
+Always show the full IA hierarchy of the current page, even if one of the parent pages cannot be navigated to. When a parent page cannot be navigated to, use an unlinked Breadcrumb.
 
 Do not use an unlinked Breadcrumb to display the name of the current page in the Breadcrumb. The current page's header provides a clearer indication to the user of where they are in the product.
 
