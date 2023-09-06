@@ -77,7 +77,7 @@ const getAllPackages = async () => {
     }
   });
 
-  await fs.writeFile(path.join(dataPath, 'nav-data.json'), JSON.stringify(data, null, 2), 'utf8');
+  await fs.writeFile(path.join(dataPath, 'package-data.json'), JSON.stringify(data, null, 2), 'utf8');
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type

@@ -9,7 +9,7 @@ import {LikeTwilio} from '../../components/customization-landing-page/LikeTwilio
 import {WhyPaste} from '../../components/customization-landing-page/WhyPaste';
 import {ReadyToGetStarted} from '../../components/customization-landing-page/ReadyToGetStarted';
 import {getNavigationData} from '../../utils/api';
-import type {PastePackages} from '../../utils/api';
+import type {Feature} from '../../utils/api';
 
 export interface CustomizationLandingPageProps {
   navigationData: InferGetStaticPropsType<typeof getStaticProps>;
@@ -33,7 +33,7 @@ const CustomizationLandingPage = ({
   );
 };
 
-export const getStaticProps: GetStaticProps<{navigationData: PastePackages}> = async () => {
+export const getStaticProps: GetStaticProps<{navigationData: Feature[]}> = async () => {
   const navigationData = await getNavigationData();
   return {
     props: {

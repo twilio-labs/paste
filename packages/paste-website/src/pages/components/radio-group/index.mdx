@@ -48,7 +48,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group"
-  storybookUrl="/?path=/story/components-radio--"
+  storybookUrl="/?path=/story/components-radio--radio-default"
   data={props.data}
 />
 
@@ -76,7 +76,7 @@ Radio groups should:
 
 - Include at least two or more options.
 - Allow users to select only one option.
-- Include at most 6 options. If there's a chance the Radio might later expand to include more than 6 options, use a [Select](https://paste.twilio.design/components/select) instead.
+- Include at most 6 options. If there's a chance the Radio might later expand to include more than 6 options, use a [Select](/components/select) instead.
 - List options in an order that is contextual.
 
 #### Best practices
@@ -130,7 +130,7 @@ Apply a pre-selected value only if:
 
 For additional guidance on whether to use a default selection, check out [this article from the Nielsen Norman Group](https://www.nngroup.com/articles/radio-buttons-default-selection/).
 
-If you do apply a pre-selected value, make the first option the default option. 
+If you do apply a pre-selected value, make the first option the default option.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {disabledPreSelectedExample}
@@ -156,10 +156,9 @@ Use the required dot to denote a required field. The required dot appears before
 
 ### Horizontal alignment
 
-Use horizontal alignment sparingly, as the options are harder to scan.  Use labels that are 3 words or less, or less than 20 characters.
+Use horizontal alignment sparingly, as the options are harder to scan. Use labels that are 3 words or less, or less than 20 characters.
 
-Place options next to each other with appropriate spacing. Avoid letting options run onto two lines. 
-
+Place options next to each other with appropriate spacing. Avoid letting options run onto two lines.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {horizontalExample}
@@ -207,10 +206,10 @@ If the selected items don't pass the group validation requirements, use [Help Te
 
 For required field errors, consider the following formats depending on the use case:
 
-| Situation                                     | Recommended phrasing            |
-| --------------------------------------------- | ------------------------------- |
+| Situation                                    | Recommended phrasing            |
+| -------------------------------------------- | ------------------------------- |
 | When the option being selected is not a noun | Select an option.               |
-| When the option to be selected is a noun      | Select a [noun in group label]. |
+| When the option to be selected is a noun     | Select a [noun in group label]. |
 
 For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
@@ -238,8 +237,7 @@ If using [Help Text](/components/help-text) for radio options, include it for ea
 
 ### Validation
 
-Validate the group on form submission. Don't validate each item in the group, treat validation on the group as a whole.
----
+## Validate the group on form submission. Don't validate each item in the group, treat validation on the group as a whole.
 
 ## Usage guide
 

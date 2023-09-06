@@ -46,7 +46,7 @@ export const getStaticProps = async () => {
 <NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.COMPONENTS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/toast"
-  storybookUrl="/?path=/story/components-toast--"
+  storybookUrl="/?path=/story/components-toast--neutral"
   data={props.data}
 />
 
@@ -71,7 +71,7 @@ export const getStaticProps = async () => {
 Use a Toast to respond to a user action. The type of Toast you use depends on the situation:
 
 - **Success.** Confirm a successful or completed action.
-- **Warning.** Help a user avoid a future issue that might happen based on their action. 
+- **Warning.** Help a user avoid a future issue that might happen based on their action.
 - **Error.** Communicate an issue that's preventing a user from completing their current action.
 - **Neutral.** Let a user know that an asynchronous process has been triggered based on their action, especially if they have to wait for the process to finish before continuing a workflow. This could include a large download or a request that's been sent to a third party.
 
@@ -256,8 +256,8 @@ Occasionally, it's helpful to embed a link or action in a success Toast.
 
 - **Undo**: Provide an "undo" action if it's easily and safely reversible and you can take the user back to the previous state. For example, offer an undo action if:
 
-    - A user submitted a short form that updates something. Undoing the action can take them back to their filled form with any sensitive fields cleared.
-    - A user deleted non-sensitive information we'd want them to easily retrieve.
+  - A user submitted a short form that updates something. Undoing the action can take them back to their filled form with any sensitive fields cleared.
+  - A user deleted non-sensitive information we'd want them to easily retrieve.
 
 You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for success Toasts.
 
