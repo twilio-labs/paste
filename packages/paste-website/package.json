@@ -83,6 +83,7 @@
     "@twilio-paste/media-object": "^10.0.0",
     "@twilio-paste/menu": "^14.0.1",
     "@twilio-paste/menu-primitive": "^2.0.0",
+    "@twilio-paste/meter": "^1.0.0",
     "@twilio-paste/minimizable-dialog": "^4.0.0",
     "@twilio-paste/modal": "^16.0.0",
     "@twilio-paste/modal-dialog-primitive": "^2.0.0",
