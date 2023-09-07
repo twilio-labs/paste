@@ -94,27 +94,6 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
 
   return (
     <Box element={element}>
-      {/* Create a container for the optional min and max values */}
-      {!hideRangeLabels && (
-        <Box
-          element={`${element}_RANGE_LABELS`}
-          display="flex"
-          justifyContent="space-between"
-          fontSize="fontSize30"
-          lineHeight="lineHeight30"
-          fontWeight="fontWeightSemibold"
-          color="colorTextWeak"
-        >
-          <Box element={`${element}_RANGE_LABELS_MIN`}>
-            <ScreenReaderOnly>{i18nMinRangeLabel}</ScreenReaderOnly>
-            {remappedProps.numberFormatter.format(minValue)}
-          </Box>
-          <Box element={`${element}_RANGE_LABELS_MAX`}>
-            <ScreenReaderOnly>{i18nMaxRangeLabel}</ScreenReaderOnly>
-            {remappedProps.numberFormatter.format(maxValue)}
-          </Box>
-        </Box>
-      )}
       {/* The track element holds the visible track line and the thumb */}
       <Box
         {...trackProps}
@@ -150,6 +129,27 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
           </SliderThumb>
         </SliderTrack>
       </Box>
+      {/* Create a container for the optional min and max values */}
+      {!hideRangeLabels && (
+        <Box
+          element={`${element}_RANGE_LABELS`}
+          display="flex"
+          justifyContent="space-between"
+          fontSize="fontSize30"
+          lineHeight="lineHeight30"
+          fontWeight="fontWeightNormal"
+          color="colorTextWeak"
+        >
+          <Box element={`${element}_RANGE_LABELS_MIN`}>
+            <ScreenReaderOnly>{i18nMinRangeLabel}</ScreenReaderOnly>
+            {remappedProps.numberFormatter.format(minValue)}
+          </Box>
+          <Box element={`${element}_RANGE_LABELS_MAX`}>
+            <ScreenReaderOnly>{i18nMaxRangeLabel}</ScreenReaderOnly>
+            {remappedProps.numberFormatter.format(maxValue)}
+          </Box>
+        </Box>
+      )}
     </Box>
   );
 });
