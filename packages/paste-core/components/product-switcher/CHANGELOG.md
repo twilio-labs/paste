@@ -1,5 +1,11 @@
 # @twilio-paste/product-switcher
 
+## 2.0.1
+
+### Patch Changes
+
+- [`0b5f37e96`](https://github.com/twilio-labs/paste/commit/0b5f37e960683ed832c467a9d21d7f11e763a77b) [#3472](https://github.com/twilio-labs/paste/pull/3472) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [account-switcher, product-switcher, progress-steps, visual-picker] Corrected the React and React-dom peer dependency versions to include React 16 and 17
+
 ## 2.0.0
 
 ### Major Changes

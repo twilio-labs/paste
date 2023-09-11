@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.4.1
+
+### Patch Changes
+
+- [`455172f9e`](https://github.com/twilio-labs/paste/commit/455172f9edc0837dc778b6b7203151fb169a5766) [#3461](https://github.com/twilio-labs/paste/pull/3461) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] Include new mappings:
+
+  - `ProgressBar`
+  - `useMultiselectCombobox`
+  - `useMultiSelectPrimitive`
+
+* [`554c23006`](https://github.com/twilio-labs/paste/commit/554c2300695839c29fd17717ecddb3732e32e111) [#3463](https://github.com/twilio-labs/paste/pull/3463) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] New export from Meter package: MeterLabel
+
 ## 0.4.0
 
 ### Minor Changes

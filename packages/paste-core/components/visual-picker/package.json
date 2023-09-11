@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/visual-picker",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "category": "interaction",
   "status": "production",
   "description": "Visual Picker is a stylistically enhanced checkbox or radio selection element.",
