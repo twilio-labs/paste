@@ -18,6 +18,7 @@ type NavData = {
   allPastePrimitive: NavItem[];
   allPasteLayout: NavItem[];
   allPastePattern: NavItem[];
+  allPastePageTemplate: NavItem[];
 };
 
 export const getNormalizedHeaderData = (data: ApiData): ApiData => {
@@ -61,6 +62,7 @@ export const getNormalizedNavigationData = (data: Feature[]): NavData => {
     allPasteLayout: [],
     allPastePrimitive: [],
     allPastePattern: [],
+    allPastePageTemplate: [],
   };
 
   if (data.length === 0) return normalizedData;
@@ -81,6 +83,9 @@ export const getNormalizedNavigationData = (data: Feature[]): NavData => {
         break;
       case 'pattern':
         normalizedData.allPastePattern.push(mutateFeatureToPattern(feature));
+        break;
+      case 'page template':
+        normalizedData.allPastePageTemplate.push(mutateFeatureToPackage(feature));
         break;
     }
   });

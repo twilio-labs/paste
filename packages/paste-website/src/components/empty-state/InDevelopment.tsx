@@ -11,15 +11,20 @@ import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
 interface InDevelopmentProps {
   type?: 'component' | 'primitive' | 'layout';
   name: string;
+  showBreadcrumb?: boolean;
 }
 
-const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({type, name}) => {
+const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({type, showBreadcrumb = true, name}) => {
   return (
     <>
-      <Breadcrumb>
-        <BreadcrumbItem href="/">Home</BreadcrumbItem>
-        <BreadcrumbItem href={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>
-      </Breadcrumb>
+      {showBreadcrumb ? (
+        <Breadcrumb>
+          <BreadcrumbItem href="/">Home</BreadcrumbItem>
+          <BreadcrumbItem href={SidebarCategoryRoutes.COMPONENTS}>Components</BreadcrumbItem>
+        </Breadcrumb>
+      ) : (
+        <></>
+      )}
       <Heading as="h1" variant="heading10">
         {getHumanizedNameFromPackageName(name)}
       </Heading>

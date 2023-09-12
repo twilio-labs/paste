@@ -31,7 +31,11 @@ interface NormalizedPatternHeaderProps extends GenericHeaderProps {
   data: ApiData;
 }
 
-const NormalizedPatternHeader: React.FC<React.PropsWithChildren<NormalizedPatternHeaderProps>> = ({data, ...props}) => {
+const NormalizedPatternHeader: React.FC<React.PropsWithChildren<NormalizedPatternHeaderProps>> = ({
+  data,
+  categoryRoute = SidebarCategoryRoutes.PATTERNS,
+  ...props
+}) => {
   const normalizedData = getNormalizedHeaderData(data);
   const {
     name,
@@ -48,7 +52,7 @@ const NormalizedPatternHeader: React.FC<React.PropsWithChildren<NormalizedPatter
       <GenericHeader
         name={name}
         description={description}
-        categoryRoute={SidebarCategoryRoutes.PATTERNS}
+        categoryRoute={categoryRoute}
         packageStatus={packageStatus}
         designCommitteeReview={designCommitteeReview}
         engineerCommitteeReview={engineerCommitteeReview}

@@ -1,0 +1,55 @@
+export const meta = {
+  title: 'Meter',
+  package: '@twilio-paste/meter',
+  description: 'Meter is a visual representation of a numerical value within a known range.',
+  slug: '/components/meter/',
+};
+
+import Changelog from '@twilio-paste/progress-bar/CHANGELOG.md';
+import packageJson from '@twilio-paste/progress-bar/package.json';
+
+import {InDevelopment} from '../../../components/empty-state/InDevelopment';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Progress bar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  storybookUrl="/?path=/story/components-progressbar--default"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/progress-bar"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<InDevelopment showBreadcrumb={false} />
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>
