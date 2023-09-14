@@ -1,5 +1,36 @@
 # Change Log
 
+## 20.3.0
+
+### Minor Changes
+
+- [`4d5dc6842`](https://github.com/twilio-labs/paste/commit/4d5dc684258f3f5766b402f988191572aaf42848) [#3470](https://github.com/twilio-labs/paste/pull/3470) Thanks [@TheSisb](https://github.com/TheSisb)! - [MultiSelect Combobox] allow inversion of control with the internal state so that consumers can manage the selectedItems array themselves. This enables functionality like clearing the selectedItems through an external Button.
+
+### Patch Changes
+
+- [`554c23006`](https://github.com/twilio-labs/paste/commit/554c2300695839c29fd17717ecddb3732e32e111) [#3463](https://github.com/twilio-labs/paste/pull/3463) Thanks [@nkrantz](https://github.com/nkrantz)! - [Meter] Finalize designs of Meter component, bump to Production status, and add documentation.
+
+* [`f6320be83`](https://github.com/twilio-labs/paste/commit/f6320be83fd744aee1c677da1dbaed1e1c89b5ce) [#3462](https://github.com/twilio-labs/paste/pull/3462) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [combobox]: improve the way combobox handles hidden labels and conditional help text related aria attributes for improved accessibility
+
+- [`80decbe21`](https://github.com/twilio-labs/paste/commit/80decbe21966080f987f4567b459b0eb5b36e150) [#3478](https://github.com/twilio-labs/paste/pull/3478) Thanks [@nkrantz](https://github.com/nkrantz)! - [Slider] Update designs to reflect generic Paste value bar design with min and max value labels below the visual bar.
+
+* [`455172f9e`](https://github.com/twilio-labs/paste/commit/455172f9edc0837dc778b6b7203151fb169a5766) [#3461](https://github.com/twilio-labs/paste/pull/3461) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] Include new mappings:
+
+  - `ProgressBar`
+  - `useMultiselectCombobox`
+  - `useMultiSelectPrimitive`
+
+- [`0b5f37e96`](https://github.com/twilio-labs/paste/commit/0b5f37e960683ed832c467a9d21d7f11e763a77b) [#3472](https://github.com/twilio-labs/paste/pull/3472) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [account-switcher, product-switcher, progress-steps, visual-picker] Corrected the React and React-dom peer dependency versions to include React 16 and 17
+
+- Updated dependencies [[`554c23006`](https://github.com/twilio-labs/paste/commit/554c2300695839c29fd17717ecddb3732e32e111), [`f6320be83`](https://github.com/twilio-labs/paste/commit/f6320be83fd744aee1c677da1dbaed1e1c89b5ce), [`80decbe21`](https://github.com/twilio-labs/paste/commit/80decbe21966080f987f4567b459b0eb5b36e150), [`4d5dc6842`](https://github.com/twilio-labs/paste/commit/4d5dc684258f3f5766b402f988191572aaf42848), [`0b5f37e96`](https://github.com/twilio-labs/paste/commit/0b5f37e960683ed832c467a9d21d7f11e763a77b)]:
+  - @twilio-paste/meter@1.0.1
+  - @twilio-paste/combobox@16.1.0
+  - @twilio-paste/slider@2.0.2
+  - @twilio-paste/account-switcher@2.0.1
+  - @twilio-paste/product-switcher@2.0.1
+  - @twilio-paste/progress-steps@2.0.1
+  - @twilio-paste/visual-picker@2.0.1
+
 ## 20.2.0
 
 ### Minor Changes

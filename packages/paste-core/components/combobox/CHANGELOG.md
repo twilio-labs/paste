@@ -1,5 +1,15 @@
 # Change Log
 
+## 16.1.0
+
+### Minor Changes
+
+- [`4d5dc6842`](https://github.com/twilio-labs/paste/commit/4d5dc684258f3f5766b402f988191572aaf42848) [#3470](https://github.com/twilio-labs/paste/pull/3470) Thanks [@TheSisb](https://github.com/TheSisb)! - [MultiSelect Combobox] allow inversion of control with the internal state so that consumers can manage the selectedItems array themselves. This enables functionality like clearing the selectedItems through an external Button.
+
+### Patch Changes
+
+- [`f6320be83`](https://github.com/twilio-labs/paste/commit/f6320be83fd744aee1c677da1dbaed1e1c89b5ce) [#3462](https://github.com/twilio-labs/paste/pull/3462) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [combobox]: improve the way combobox handles hidden labels and conditional help text related aria attributes for improved accessibility
+
 ## 16.0.1
 
 ### Patch Changes

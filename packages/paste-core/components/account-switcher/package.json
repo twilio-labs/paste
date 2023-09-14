@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/account-switcher",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "category": "navigation",
   "status": "production",
   "description": "An Account Switcher is a stylized Menu Badge with a list of actions related to a user's accounts.",

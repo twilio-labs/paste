@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/slider",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "category": "user input",
   "status": "production",
   "description": "A Slider is a draggable input that allows a user to select an imprecise numerical value within a range.",
