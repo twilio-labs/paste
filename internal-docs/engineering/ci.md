@@ -21,7 +21,7 @@
   - [Github Actions (main branch)](#github-actions-main-branch)
     - [Version or Publish](#version-or-publish)
 
-CI/CD are automated tools that we use to deploy Paste packages. We deploy all Paste packages, the documentation site, the theme designer, NextJS template in this manner.
+CI/CD are automated tools that we use to deploy Paste packages. We deploy all Paste packages, the documentation site, the theme designer, and NextJS template in this manner.
 
 **Continuous Integration (CI)** processes run our builds and tests on all pull requests.
 
