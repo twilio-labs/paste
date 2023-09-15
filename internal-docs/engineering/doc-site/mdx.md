@@ -66,7 +66,7 @@ export const meta = {
   slug: '/components/anchor/api',
 };
 
-import Changelog from '@twilio-paste/table/CHANGELOG.md';
+import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
 import packageJson from '@twilio-paste/anchor/package.json';
 
 import {SidebarCategoryRoutes} from '../../../constants';

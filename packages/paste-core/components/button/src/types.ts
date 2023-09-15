@@ -34,10 +34,10 @@ export interface ButtonContentsProps {
   variant?: ButtonVariants;
 }
 
-export interface DirectButtonProps extends HTMLPasteProps<'button'>, Pick<BoxProps, 'element'> {
+export interface DirectButtonProps extends HTMLPasteProps<'button'> {
   /**
    * The HTML tag to replace the default `<button>` tag.
-   * @default button
+   * @default 'button'
    */
   as?: keyof JSX.IntrinsicElements;
   buttonState: ButtonStates;
@@ -47,6 +47,14 @@ export interface DirectButtonProps extends HTMLPasteProps<'button'>, Pick<BoxPro
    * @default false
    */
   disabled?: boolean;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'BUTTON'
+   * @type {BoxProps['element']}
+   * @memberof DirectButtonProps
+   */
+  element?: BoxProps['element'];
   /**
    * Sets the Button width to 100% of the parent container.
    * @default false
@@ -63,18 +71,18 @@ export interface DirectButtonProps extends HTMLPasteProps<'button'>, Pick<BoxPro
    */
   pressed?: boolean;
   /**
-   * @default default
+   * @default 'default'
    */
   size: ButtonSizes;
   tabIndex?: ButtonTabIndexes;
   target?: string;
   /**
-   * If the Button is inside a <form>: use 'submit'. Otherwise use 'button' (default).
-   * @default button
+   * Use at least one `submit` button per `<form>`. Outside of forms use `button` (default).
+   * @default 'button'
    */
   type?: ButtonTypes;
   /**
-   * @default primary
+   * @default 'primary'
    */
   variant: ButtonVariants;
 }
@@ -89,7 +97,7 @@ type ResetVariantButtonProps = Omit<BoxStyleProps, 'size'> & {
 export type ButtonProps = Omit<DirectButtonProps, 'buttonState' | 'i18nExternalLinkLabel' | 'loading' | 'size'> & {
   /**
    * Title for showExternal icon
-   * @default (link takes you to an external page)
+   * @default '(link takes you to an external page)'
    */
   i18nExternalLinkLabel?: string;
   /**
@@ -98,7 +106,7 @@ export type ButtonProps = Omit<DirectButtonProps, 'buttonState' | 'i18nExternalL
    */
   loading?: boolean;
   /**
-   * @default default
+   * @default 'default'
    */
   size?: ButtonSizes;
 } & (BaseVariantsButtonProps | ResetVariantButtonProps);

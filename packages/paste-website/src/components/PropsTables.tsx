@@ -6,7 +6,6 @@ import {Heading} from '@twilio-paste/heading';
 import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {RequiredDot} from '@twilio-paste/label';
-import {Separator} from '@twilio-paste/separator';
 import {InlineCode} from '@twilio-paste/inline-code';
 
 import {
@@ -74,7 +73,17 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
       {Object.keys(props).map((propName) => {
         const prop: ComponentAPIPropDetails = props[propName];
         return (
-          <React.Fragment key={propName}>
+          <Box
+            key={propName}
+            borderBottomStyle="solid"
+            borderBottomColor="colorBorderWeaker"
+            borderBottomWidth="borderWidth10"
+            marginBottom="space120"
+            paddingBottom="space90"
+            _last={{
+              marginBottom: 'space50',
+            }}
+          >
             <Box marginBottom="space60">
               <Box
                 as="h4"
@@ -123,8 +132,7 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
                 <PropPair term="Default" description={<PropType>{prop.defaultValue}</PropType>} />
               ) : null}
             </Box>
-            <Separator orientation="horizontal" verticalSpacing="space120" />
-          </React.Fragment>
+          </Box>
         );
       })}
     </Box>
@@ -139,7 +147,7 @@ const PropsTable: React.FC<PropsTableProps> = ({componentAPI}) => {
     <>
       {Object.keys(propsTable).map((componentName) => {
         return (
-          <Box marginY="space200" key={componentName}>
+          <Box marginTop="space90" marginBottom="space200" key={componentName}>
             <Heading as="h3" variant="heading30" key={componentName}>
               {componentName}
             </Heading>

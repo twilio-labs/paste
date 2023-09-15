@@ -10,7 +10,7 @@ export interface AnchorProps extends HTMLPasteProps<'a'>, LayoutProps, SpaceProp
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
-   * @default ANCHOR
+   * @default 'ANCHOR'
    * @type {BoxProps['element']}
    * @memberof AnchorProps
    */
@@ -57,7 +57,7 @@ export interface AnchorProps extends HTMLPasteProps<'a'>, LayoutProps, SpaceProp
    */
   target?: AnchorTargets;
   /**
-   * Sets the stylist Anchor variant
+   * Sets the styled Anchor variant
    *
    * @default 'default'
    * @type {AnchorVariants}
@@ -67,7 +67,7 @@ export interface AnchorProps extends HTMLPasteProps<'a'>, LayoutProps, SpaceProp
   /**
    * Title for `showExternal` icon
    *
-   * @default (link takes you to an external page)
+   * @default '(link takes you to an external page)'
    * @type {string}
    * @memberof AnchorProps
    */

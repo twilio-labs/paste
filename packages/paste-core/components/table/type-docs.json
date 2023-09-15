@@ -3580,7 +3580,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "THEAD",
+      "defaultValue": "'THEAD'",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name ('THEAD') to apply unique styles with the Customization Provider."
@@ -5207,7 +5207,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "TABLE",
+      "defaultValue": "'TABLE'",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name ('TABLE') to apply unique styles with the Customization Provider."
@@ -6874,7 +6874,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "TD",
+      "defaultValue": "'TD'",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name ('TD') to apply unique styles with the Customization Provider."
@@ -8518,7 +8518,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "TH",
+      "defaultValue": "'TH'",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name ('TH') to apply unique styles with the Customization Provider."
@@ -10133,7 +10133,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "TR",
+      "defaultValue": "'TR'",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name ('TR') to apply unique styles with the Customization Provider."

@@ -23,7 +23,7 @@ export interface TableProps extends HTMLPasteProps<'table'> {
   /**
    * Overrides the default element name ('TABLE') to apply unique styles with the Customization Provider.
    *
-   * @default TABLE
+   * @default 'TABLE'
    * @type {BoxProps['element']}
    * @memberof TableProps
    */
@@ -71,7 +71,7 @@ export interface THeadProps extends HTMLPasteProps<'thead'> {
   /**
    * Overrides the default element name ('THEAD') to apply unique styles with the Customization Provider.
    *
-   * @default THEAD
+   * @default 'THEAD'
    * @type {BoxProps['element']}
    * @memberof THeadProps
    */
@@ -100,7 +100,7 @@ export interface TrProps extends HTMLPasteProps<'tr'> {
   /**
    * Overrides the default element name ('TR') to apply unique styles with the Customization Provider.
    *
-   * @default TR
+   * @default 'TR'
    * @type {BoxProps['element']}
    * @memberof TrProps
    */
@@ -118,7 +118,7 @@ export interface ThProps extends HTMLPasteProps<'th'> {
   /**
    * Overrides the default element name ('TH') to apply unique styles with the Customization Provider.
    *
-   * @default TH
+   * @default 'TH'
    * @type {BoxProps['element']}
    * @memberof ThProps
    */
@@ -143,7 +143,7 @@ export interface TdProps extends HTMLPasteProps<'td'> {
   /**
    * Overrides the default element name ('TD') to apply unique styles with the Customization Provider.
    *
-   * @default TD
+   * @default 'TD'
    * @type {BoxProps['element']}
    * @memberof TdProps
    */

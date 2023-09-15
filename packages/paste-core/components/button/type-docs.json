@@ -2,7 +2,7 @@
   "Button": {
     "variant": {
       "type": "| \"link\"\n  | \"reset\"\n  | \"primary\"\n  | \"primary_icon\"\n  | \"secondary\"\n  | \"secondary_icon\"\n  | \"destructive\"\n  | \"destructive_icon\"\n  | \"destructive_link\"\n  | \"destructive_secondary\"\n  | \"inverse_link\"\n  | \"inverse\"",
-      "defaultValue": "primary",
+      "defaultValue": "'primary'",
       "required": true,
       "externalProp": false
     },
@@ -356,7 +356,7 @@
     },
     "as": {
       "type": "keyof IntrinsicElements",
-      "defaultValue": "button",
+      "defaultValue": "'button'",
       "required": false,
       "externalProp": false,
       "description": "The HTML tag to replace the default `<button>` tag."
@@ -442,10 +442,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "'BUTTON'",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "form": {
       "type": "string",
@@ -505,7 +505,7 @@
     },
     "i18nExternalLinkLabel": {
       "type": "string",
-      "defaultValue": "(link takes you to an external page)",
+      "defaultValue": "'(link takes you to an external page)'",
       "required": false,
       "externalProp": false,
       "description": "Title for showExternal icon"
@@ -1626,7 +1626,7 @@
     },
     "size": {
       "type": "ButtonSizes",
-      "defaultValue": "default",
+      "defaultValue": "'default'",
       "required": false,
       "externalProp": false
     },
@@ -1680,10 +1680,10 @@
     },
     "type": {
       "type": "ButtonTypes",
-      "defaultValue": "button",
+      "defaultValue": "'button'",
       "required": false,
       "externalProp": false,
-      "description": "If the Button is inside a <form>: use 'submit'. Otherwise use 'button' (default)."
+      "description": "Use at least one `submit` button per `<form>`. Outside of forms use `button` (default)."
     },
     "typeof": {
       "type": "string",

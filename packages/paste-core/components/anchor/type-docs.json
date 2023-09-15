@@ -441,7 +441,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "ANCHOR",
+      "defaultValue": "'ANCHOR'",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
@@ -466,7 +466,7 @@
     },
     "i18nExternalLinkLabel": {
       "type": "string",
-      "defaultValue": "(link takes you to an external page)",
+      "defaultValue": "'(link takes you to an external page)'",
       "required": false,
       "externalProp": false,
       "description": "Title for `showExternal` icon"
@@ -1808,7 +1808,7 @@
       "defaultValue": "'default'",
       "required": false,
       "externalProp": false,
-      "description": "Sets the stylist Anchor variant"
+      "description": "Sets the styled Anchor variant"
     },
     "verticalAlign": {
       "type": "VerticalAlign<0 | (string & {})> | (VerticalAlign<0 | (string & {})> | null | undefined)[] | { [x: string]: VerticalAlign<0 | (string & {})> | undefined; [x: number]: VerticalAlign<...> | undefined; }",
