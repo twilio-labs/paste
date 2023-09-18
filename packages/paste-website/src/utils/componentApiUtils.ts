@@ -15,8 +15,8 @@ export type ComponentApi = {
 };
 export type GroupedComponentApi = {
   [componentName: string]: {
-    externalProps: ComponentApiProp;
-    internalProps: ComponentApiProp;
+    externalProps?: ComponentApiProp;
+    internalProps?: ComponentApiProp;
   };
 };
 

@@ -56,5 +56,5 @@ export default {
 };
 
 export const PropsTableDefault: StoryFn = () => {
-  return <PropsTable componentAPI={MockComponentAPI} />;
+  return <PropsTable componentApi={MockComponentAPI} />;
 };

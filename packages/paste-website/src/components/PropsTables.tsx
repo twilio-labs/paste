@@ -146,13 +146,14 @@ const PropsTable: React.FC<PropsTableProps> = ({componentApi}) => {
   return (
     <>
       {Object.keys(propsTable).map((componentName) => {
+        const {internalProps, externalProps} = propsTable[componentName];
         return (
           <Box marginTop="space90" marginBottom="space200" key={componentName}>
             <AnchoredHeading as="h3" variant="heading30" existingSlug={componentName.toLowerCase()}>
               {componentName}
             </AnchoredHeading>
-            {propsTable[componentName].internalProps && <PropsList props={propsTable[componentName].internalProps} />}
-            {propsTable[componentName].externalProps && (
+            {internalProps && <PropsList props={internalProps} />}
+            {externalProps && (
               <Disclosure>
                 <DisclosureHeading as="h4" variant="heading40">
                   Inherited props
@@ -163,7 +164,7 @@ const PropsTable: React.FC<PropsTableProps> = ({componentApi}) => {
                     available properties. Below is a list of the props this component has inherited and are also
                     available to use.
                   </Paragraph>
-                  <PropsList props={propsTable[componentName].externalProps} />
+                  <PropsList props={externalProps} />
                 </DisclosureContent>
               </Disclosure>
             )}
