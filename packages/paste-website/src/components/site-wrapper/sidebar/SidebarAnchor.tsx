@@ -17,7 +17,7 @@ const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({c
   return (
     <Link href={href} {...props} legacyBehavior passHref>
       {/* @ts-expect-error using nextjs passHref means that we can't satisfy the nav item href required prop */}
-      <SidebarNavigationItem onClick={onClick} selected={pathnameWithoutTrailingSlash.includes(href)}>
+      <SidebarNavigationItem onClick={onClick} selected={pathnameWithoutTrailingSlash === href}>
         {children}
       </SidebarNavigationItem>
     </Link>
