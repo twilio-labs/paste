@@ -72,8 +72,10 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
             display="flex"
             flexDirection="row"
             justifyContent="space-between"
+            columnGap="space20"
             marginTop="space20"
             aria-hidden="true"
+            overflowWrap="anywhere"
             element={`${element}_MIN_MAX_WRAPPER`}
           >
             {minLabel ? (
@@ -84,7 +86,13 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
               <span />
             )}
             {maxLabel ? (
-              <Text as="span" color="colorTextWeak" fontWeight="fontWeightNormal" element={`${element}_MAX`}>
+              <Text
+                as="span"
+                color="colorTextWeak"
+                fontWeight="fontWeightNormal"
+                textAlign="end"
+                element={`${element}_MAX`}
+              >
                 {maxLabel}
               </Text>
             ) : (

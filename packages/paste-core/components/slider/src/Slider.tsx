@@ -135,16 +135,18 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
           element={`${element}_RANGE_LABELS`}
           display="flex"
           justifyContent="space-between"
+          columnGap="space20"
           fontSize="fontSize30"
           lineHeight="lineHeight30"
           fontWeight="fontWeightNormal"
           color="colorTextWeak"
+          overflowWrap="anywhere"
         >
           <Box element={`${element}_RANGE_LABELS_MIN`}>
             <ScreenReaderOnly>{i18nMinRangeLabel}</ScreenReaderOnly>
             {remappedProps.numberFormatter.format(minValue)}
           </Box>
-          <Box element={`${element}_RANGE_LABELS_MAX`}>
+          <Box element={`${element}_RANGE_LABELS_MAX`} textAlign="end">
             <ScreenReaderOnly>{i18nMaxRangeLabel}</ScreenReaderOnly>
             {remappedProps.numberFormatter.format(maxValue)}
           </Box>
