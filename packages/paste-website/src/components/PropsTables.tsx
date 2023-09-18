@@ -2,23 +2,23 @@ import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
 import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {RequiredDot} from '@twilio-paste/label';
 import {InlineCode} from '@twilio-paste/inline-code';
 
 import {
-  type ComponentAPIPropDetails,
-  type ComponentAPIProp,
-  type GroupedComponentAPI,
+  type ComponentApiPropDetails,
+  type ComponentApiProp,
+  type GroupedComponentApi,
 } from '../utils/componentApiUtils';
+import {AnchoredHeading} from './Heading';
 
 export interface PropsTableProps {
-  componentAPI: GroupedComponentAPI;
+  componentApi: GroupedComponentApi;
 }
 export interface PropsListProps {
-  props: ComponentAPIProp;
+  props: ComponentApiProp;
 }
 export interface PropPairProps {
   term: React.ReactNode;
@@ -71,7 +71,7 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
   return (
     <Box>
       {Object.keys(props).map((propName) => {
-        const prop: ComponentAPIPropDetails = props[propName];
+        const prop: ComponentApiPropDetails = props[propName];
         return (
           <Box
             key={propName}
@@ -140,17 +140,17 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
 };
 PropsList.displayName = 'PropsList';
 
-const PropsTable: React.FC<PropsTableProps> = ({componentAPI}) => {
-  const propsTable = React.useMemo(() => componentAPI, [componentAPI]);
+const PropsTable: React.FC<PropsTableProps> = ({componentApi}) => {
+  const propsTable = React.useMemo(() => componentApi, [componentApi]);
 
   return (
     <>
       {Object.keys(propsTable).map((componentName) => {
         return (
           <Box marginTop="space90" marginBottom="space200" key={componentName}>
-            <Heading as="h3" variant="heading30" key={componentName}>
+            <AnchoredHeading as="h3" variant="heading30" existingSlug={componentName.toLowerCase()}>
               {componentName}
-            </Heading>
+            </AnchoredHeading>
             {propsTable[componentName].internalProps && <PropsList props={propsTable[componentName].internalProps} />}
             {propsTable[componentName].externalProps && (
               <Disclosure>

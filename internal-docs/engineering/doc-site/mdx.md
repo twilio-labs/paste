@@ -78,7 +78,7 @@ export default ComponentPageLayout;
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
   const feature = await getFeature('Anchor');
-  const componentAPI = getComponentAPI('@twilio-paste/anchor');
+  const {componentAPI, componentApiTocData} = getComponentAPI('@twilio-paste/anchor');
   return {
     props: {
       data: {
@@ -86,7 +86,7 @@ export const getStaticProps = async () => {
         ...feature,
       },
       componentAPI,
-      mdxHeadings,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
       navigationData,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,

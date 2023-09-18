@@ -6,7 +6,12 @@ import {globby} from 'globby-esm';
 import groupBy from 'lodash/groupBy';
 
 import {roadmapTable} from './airtable.mjs';
-import {groupPropsByExternal, type GroupedComponentAPI, getPathFromPackageName} from './componentApiUtils';
+import {
+  groupPropsByExternal,
+  type GroupedComponentApi,
+  getPathFromPackageName,
+  getTocDataFromComponentApi,
+} from './componentApiUtils';
 
 export type Package = {
   name: string;
@@ -118,10 +123,13 @@ export const getRoadmap = async (): Promise<{[release: string]: Release[]}> => {
   return releases;
 };
 
-export const getComponentAPI = (packageName: string): GroupedComponentAPI => {
+export const getComponentApi = (
+  packageName: string
+): {componentApi: GroupedComponentApi; componentApiTocData: {value: string; depth: number}[]} => {
   const pathToPackage = getPathFromPackageName(packageName);
   const data = fs.readFileSync(path.resolve(pathToPackage, 'type-docs.json'), 'utf8');
-  return groupPropsByExternal(JSON.parse(data));
+  const JSONData = JSON.parse(data);
+  return {componentApi: groupPropsByExternal(JSONData), componentApiTocData: getTocDataFromComponentApi(JSONData)};
 };
 
 export const getArticles = async (): Promise<ArticleData[]> => {

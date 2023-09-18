@@ -1,7 +1,7 @@
 export const meta = {
   title: 'Table - API',
   package: '@twilio-paste/table',
-  description: 'Tables are used to display information that is meant to be compared across columns and rows.',
+  description: 'A Table is a collection of information displayed across columns and rows.',
   slug: '/components/table/api',
 };
 
@@ -10,22 +10,22 @@ import packageJson from '@twilio-paste/table/package.json';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData, getComponentAPI} from '../../../utils/api';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
   const feature = await getFeature('Table');
-  const componentAPI = getComponentAPI('@twilio-paste/table');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/table');
   return {
     props: {
       data: {
         ...packageJson,
         ...feature,
       },
-      componentAPI,
-      mdxHeadings,
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
       navigationData,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
@@ -77,4 +77,4 @@ const TableExample: React.FC = () => {
 
 ## Props
 
-<PropsTable componentAPI={props.componentAPI} />
+<PropsTable componentApi={props.componentApi} />

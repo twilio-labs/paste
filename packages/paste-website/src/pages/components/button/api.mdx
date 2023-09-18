@@ -1,7 +1,7 @@
 export const meta = {
   title: 'Button - API',
   package: '@twilio-paste/button',
-  description: 'A Button communicates that users can trigger an action.',
+  description: 'A Button is a clickable element which communicates that users can trigger an action.',
   slug: '/components/button/api',
 };
 
@@ -10,22 +10,22 @@ import packageJson from '@twilio-paste/button/package.json';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
-import {getFeature, getNavigationData, getComponentAPI} from '../../../utils/api';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
 
 export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
   const feature = await getFeature('Button');
-  const componentAPI = getComponentAPI('@twilio-paste/button');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/button');
   return {
     props: {
       data: {
         ...packageJson,
         ...feature,
       },
-      componentAPI,
-      mdxHeadings,
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
       navigationData,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
@@ -56,4 +56,4 @@ const Component = () => (
 
 ## Props
 
-<PropsTable componentAPI={props.componentAPI} />
+<PropsTable componentApi={props.componentApi} />

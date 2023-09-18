@@ -1,22 +1,22 @@
 import PackageCache from '../../../../tools/.cache/packages.json';
 
-export type ComponentAPIPropDetails = {
+export type ComponentApiPropDetails = {
   type: string;
   defaultValue?: string | boolean | null;
   required: boolean;
   description?: string;
   externalProp?: boolean;
 };
-export type ComponentAPIProp = {
-  [propName: string]: ComponentAPIPropDetails;
+export type ComponentApiProp = {
+  [propName: string]: ComponentApiPropDetails;
 };
-export type ComponentAPI = {
-  [componentName: string]: ComponentAPIProp;
+export type ComponentApi = {
+  [componentName: string]: ComponentApiProp;
 };
-export type GroupedComponentAPI = {
+export type GroupedComponentApi = {
   [componentName: string]: {
-    externalProps: ComponentAPIProp;
-    internalProps: ComponentAPIProp;
+    externalProps: ComponentApiProp;
+    internalProps: ComponentApiProp;
   };
 };
 
@@ -30,13 +30,13 @@ export const getPathFromPackageName = (packageName: string): string => {
   return packagePath;
 };
 
-export function groupPropsByExternal(api: ComponentAPI): GroupedComponentAPI {
-  const newApi: GroupedComponentAPI = {};
+export function groupPropsByExternal(api: ComponentApi): GroupedComponentApi {
+  const newApi: GroupedComponentApi = {};
 
   Object.keys(api).forEach((componentName) => {
     const component = api[componentName];
-    const internalProps: ComponentAPIProp = {};
-    const externalProps: ComponentAPIProp = {};
+    const internalProps: ComponentApiProp = {};
+    const externalProps: ComponentApiProp = {};
 
     Object.keys(component).forEach((propName) => {
       const prop = component[propName];
@@ -54,4 +54,13 @@ export function groupPropsByExternal(api: ComponentAPI): GroupedComponentAPI {
   });
 
   return newApi;
+}
+
+export function getTocDataFromComponentApi(api: ComponentApi): {value: string; depth: number}[] {
+  return Object.keys(api).map((componentName) => {
+    return {
+      value: componentName,
+      depth: 3,
+    };
+  });
 }

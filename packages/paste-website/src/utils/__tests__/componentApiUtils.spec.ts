@@ -1,6 +1,6 @@
 import {
-  type ComponentAPI,
-  type GroupedComponentAPI,
+  type ComponentApi,
+  type GroupedComponentApi,
   getPathFromPackageName,
   groupPropsByExternal,
 } from '../componentApiUtils';
@@ -40,7 +40,7 @@ describe('getPathFromPackageName', () => {
 
 describe('groupPropsByExternal', () => {
   it('should group props by external', () => {
-    const api: ComponentAPI = {
+    const api: ComponentApi = {
       Button: {
         onClick: {
           type: 'function',
@@ -71,7 +71,7 @@ describe('groupPropsByExternal', () => {
       },
     };
 
-    const expected: GroupedComponentAPI = {
+    const expected: GroupedComponentApi = {
       Button: {
         internalProps: {
           children: {
