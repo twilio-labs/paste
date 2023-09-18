@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 export interface {{pascalCase component-name}}Props extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
   children?: React.ReactNode;
   /**
-   * Documentation the Component API with TsDoc comments in this format.
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   * @default '{constantCase component-name}'
+   * @type {BoxProps['element']}
+   * @memberof {{pascalCase component-name}}Props
    */
   element?: BoxProps['element'];
 }
