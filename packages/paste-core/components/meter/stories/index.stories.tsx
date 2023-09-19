@@ -135,7 +135,15 @@ export const Wrapped = (): React.ReactElement => {
       <MeterLabel htmlFor={meterId} valueLabel="54,730 is the current value of this Meter">
         Storage space used on this account that belongs to you
       </MeterLabel>
-      <Meter id={meterId} value={54730} minValue={0} maxValue={600000} aria-describedby={helpTextId} />
+      <Meter
+        id={meterId}
+        value={54730}
+        minValue={0}
+        maxValue={600000}
+        aria-describedby={helpTextId}
+        minLabel="000000000000GB"
+        maxLabel="100000000000GB"
+      />
       <HelpText id={helpTextId}>Helpful text</HelpText>
     </Box>
   );
