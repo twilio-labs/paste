@@ -175,6 +175,34 @@ export const HiddenRangeLabels = (): React.ReactNode => {
   );
 };
 
+export const Wrapped = (): React.ReactNode => {
+  const [value, setValue] = React.useState<number>(0.75);
+  const sliderId = useUID();
+  const helpTextId = useUID();
+
+  return (
+    <Form maxWidth="size20">
+      <FormControl>
+        <Label htmlFor={sliderId}>Volume</Label>
+        <Slider
+          id={sliderId}
+          aria-describedby={helpTextId}
+          value={value}
+          minValue={10000000}
+          maxValue={100000000000}
+          step={0.01}
+          onChange={(newValue) => setValue(newValue)}
+          numberFormatter={PercentFormatter}
+        />
+        <HelpText id={helpTextId}>
+          I saw an ad yesterday that said “Radio for sale $1, volume is stuck on full blast”. I said to myself “well, I
+          can’t turn that down.”
+        </HelpText>
+      </FormControl>
+    </Form>
+  );
+};
+
 export const CustomizedSlider = (): React.ReactNode => {
   const activeTheme = useTheme();
   const [value, setValue] = React.useState<number>(32);
