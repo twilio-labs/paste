@@ -1,0 +1,233 @@
+export const meta = {
+  title: 'Meter',
+  package: '@twilio-paste/meter',
+  description: 'Meter is a visual representation of a numerical value within a known range.',
+  slug: '/components/meter/',
+};
+
+import {Box} from '@twilio-paste/box';
+import {Meter, MeterLabel} from '@twilio-paste/meter';
+import {HelpText} from '@twilio-paste/help-text';
+import {useUID} from '@twilio-paste/uid-library';
+import Changelog from '@twilio-paste/meter/CHANGELOG.md';
+import packageJson from '@twilio-paste/meter/package.json';
+
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {defaultMeter, minMaxMeter, hiddenValueLabel} from '../../../component-examples/MeterExamples';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Meter');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+  storybookUrl="/?path=/story/components-meter--"
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/meter"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview scope={{Meter, MeterLabel, HelpText, useUID, Box}} language="jsx" noInline>
+  {defaultMeter}
+</LivePreview>
+
+## Guidelines
+
+### About Meter
+
+A Meter is a visual representation to indicate how full something is.
+
+### Meter vs. Progress Bar
+
+A Meter represents a bucket that can be empty, full, or somewhere in between. Use a Meter when you need to show capacity. For example, use a Meter to show how much data is being used or how many emails were sent successfully.
+
+A Progress Bar (coming soon!) represents **only** task completion, like a file upload or filling out a form. If you’re not displaying progress on a particular task, use a Meter.
+
+### Accessibility
+
+A label is required when using Meter. Use one of these options:
+
+- Visible label using `MeterLabel`, with `htmlFor` set equal to the `id` of the Meter (preferred)
+- Visible label that's associated to the Meter with `aria-labelledby`
+- Label directly using `aria-label`
+
+## Examples
+
+### Default
+
+Use a Meter to communicate an amount of something within a range, like number of emails delivered. Use the `valueLabel` prop on the `MeterLabel` component to display the current value being represented by the Meter.
+
+Consider what type of value would be most useful for a user to see (for example, “50%” vs. “5,000 of 10,000”). Avoid using multiple formats to represent the same value (for example, "5,000 of 10,000 (50%)").
+
+<LivePreview scope={{Meter, MeterLabel, HelpText, useUID, Box}} language="jsx" noInline>
+  {defaultMeter}
+</LivePreview>
+
+### Min and max values
+
+Meter has a default value of 0, a default minimum value of 0, and a default maximum value of 100.
+
+Passing `minValue` and `maxValue` to Meter allow you to set a non 0-100 scale. Use `minLabel` and `maxLabel` to display minimum and maximum values below the Meter. If using a non 0-100 scale, displaying min and max labels is required.
+
+<LivePreview scope={{Meter, MeterLabel, HelpText, useUID, Box}} language="jsx" noInline>
+  {minMaxMeter}
+</LivePreview>
+
+## Composition notes
+
+The Meter label should communicate what the Meter is measuring. Where possible, avoid a label that wraps onto two lines.
+
+A Meter almost always will include a numerical value, the value label. When using the `valueLabel` prop, consider what type of value would be most useful for a user to see. For example, choose either “50%” or “5,000 of 10,000”, not both.
+
+Use Help Text to offer additional information to contextualize or help the user understand the Meter.
+
+## When to use a Meter
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a Meter when a user needs to understand a measurement within a range (like how much data has been used)."
+    center
+  >
+    <Box width="80%">
+      <MeterLabel htmlFor="do1">Data usage</MeterLabel>
+      <Meter id="do1" value={79} />
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don't use a Meter to represent a path with a completion point (like uploading a file or filling out a form)."
+    center
+  >
+    <Box width="80%">
+      <MeterLabel htmlFor="dont1">File upload status</MeterLabel>
+      <Meter id="dont1" value={23} />
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="When using a custom value label, use only the format that is the most useful for a user to know."
+    center
+  >
+    <Box width="80%">
+      <MeterLabel htmlFor="do2" valueLabel="$1,259">
+        Balance
+      </MeterLabel>
+      <Meter
+        id="do2"
+        aria-describedby="help"
+        value={1259}
+        minValue={0}
+        maxValue={1500}
+        minLabel="$0"
+        maxLabel="$1,500"
+      />
+      <HelpText id="help">Complete balance due at the end of the billing cycle.</HelpText>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don't show multiple formats of the same value when possible." center>
+    <Box width="80%">
+      <MeterLabel htmlFor="dont2" valueLabel="$1,259 of $1,500 (84%)">
+        Balance
+      </MeterLabel>
+      <Meter
+        id="dont2"
+        aria-describedby="help2"
+        value={1259}
+        minValue={0}
+        maxValue={1500}
+        minLabel="$0"
+        maxLabel="$1,500"
+      />
+      <HelpText id="help2">Complete balance of $1,500 due at the end of the billing cycle.</HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+
+## Usage Guide
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/core - or - yarn add @twilio-paste/meter
+```
+
+#### Usage
+
+```jsx
+import {Meter, MeterLabel} from '@twilio-paste/core/meter';
+import {HelpText} from '@twilio-paste/core/help-text'
+import {useUID} from '@twilio-paste/core/uid-library'
+
+const Component = () => {
+  const meterId = useUID();
+  const helpTextId = useUID(); // Help text is optional
+
+  return (
+    <>
+      <MeterLabel htmlFor={meterId} valueLabel="50%">Label</Label>
+      <Meter id={meterId} value={50} aria-describedby={helpTextId} />
+      <HelpText id={helpTextId}>Help text</HelpText>
+    </>
+  );
+};
+```
+
+#### Meter props
+
+| Prop              | Type     | Description                                                                                        | Default |
+| ----------------- | -------- | -------------------------------------------------------------------------------------------------- | ------- |
+| id                | `string` | Must provide an ID to match with a label                                                           |         |
+| aria-describedby? | `string` | Optional ID to pair the Meter to its help text                                                     |         |
+| aria-labelledby?  | `string` | Optional ID to pair the Meter to its label text (if not using a regular MeterLabel with `htmlFor`) |         |
+| aria-label?       | `string` | Label text of the Meter (if not using a regular MeterLabel with `htmlFor` or `aria-labelledby`)    |         |
+| minValue?         | `number` | Minimum value of the Meter                                                                         | 0       |
+| maxValue?         | `number` | Maximum valuae of the Meter                                                                        | 100     |
+| value?            | `number` | The current value                                                                                  | 0       |
+| minLabel?         | `string` | Label displayed for min value. Only shown when this prop is passed.                                |         |
+| maxLabel?         | `string` | Label displayed for max value. Only shown when this prop is passed.                                |         |
+| element?          | `string` | Overrides the default element name to apply unique styles with the Customization Provider          | 'METER' |
+
+#### MeterLabel props
+
+| Prop        | Type     | Description                                                                               | Default       |
+| ----------- | -------- | ----------------------------------------------------------------------------------------- | ------------- |
+| valueLabel? | `string` | Custom value label of the Meter                                                           |               |
+| children    | `string` | Label text                                                                                |               |
+| htmlFor     | `string` | Pass the id of the associated Meter                                                       |               |
+| element?    | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'METER_LABEL' |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

@@ -12468,7 +12468,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@twilio-paste/account-switcher@^2.0.0, @twilio-paste/account-switcher@workspace:packages/paste-core/components/account-switcher":
+"@twilio-paste/account-switcher@^2.0.1, @twilio-paste/account-switcher@workspace:packages/paste-core/components/account-switcher":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/account-switcher@workspace:packages/paste-core/components/account-switcher"
   dependencies:
@@ -12528,8 +12528,8 @@ __metadata:
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -13388,7 +13388,7 @@ __metadata:
     "@babel/core": ^7.21.4
     "@babel/plugin-proposal-object-rest-spread": ^7.20.7
     "@babel/preset-env": ^7.21.4
-    "@twilio-paste/core": ^20.2.0
+    "@twilio-paste/core": ^20.3.0
     chalk: 4.1.2
     execa: 3.2.0
     globby: "npm:globby@10.0.1"
@@ -13429,7 +13429,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/combobox@^16.0.1, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
+"@twilio-paste/combobox@^16.1.0, @twilio-paste/combobox@workspace:packages/paste-core/components/combobox":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/combobox@workspace:packages/paste-core/components/combobox"
   dependencies:
@@ -13507,11 +13507,11 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/core@^20.0.0, @twilio-paste/core@^20.2.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
+"@twilio-paste/core@^20.0.0, @twilio-paste/core@^20.3.0, @twilio-paste/core@workspace:packages/paste-core/core-bundle":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/core@workspace:packages/paste-core/core-bundle"
   dependencies:
-    "@twilio-paste/account-switcher": ^2.0.0
+    "@twilio-paste/account-switcher": ^2.0.1
     "@twilio-paste/alert": ^14.0.0
     "@twilio-paste/alert-dialog": ^9.1.0
     "@twilio-paste/anchor": ^12.0.0
@@ -13533,7 +13533,7 @@ __metadata:
     "@twilio-paste/code-block": ^4.0.0
     "@twilio-paste/code-editor-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
-    "@twilio-paste/combobox": ^16.0.1
+    "@twilio-paste/combobox": ^16.1.0
     "@twilio-paste/combobox-primitive": ^2.0.0
     "@twilio-paste/customization": ^8.0.0
     "@twilio-paste/data-grid": ^8.0.0
@@ -13569,7 +13569,7 @@ __metadata:
     "@twilio-paste/media-object": ^10.0.0
     "@twilio-paste/menu": ^14.0.1
     "@twilio-paste/menu-primitive": ^2.0.0
-    "@twilio-paste/meter": ^1.0.0
+    "@twilio-paste/meter": ^1.0.1
     "@twilio-paste/minimizable-dialog": ^4.0.0
     "@twilio-paste/modal": ^16.0.0
     "@twilio-paste/modal-dialog-primitive": ^2.0.0
@@ -13577,9 +13577,9 @@ __metadata:
     "@twilio-paste/pagination": ^7.0.0
     "@twilio-paste/paragraph": ^10.0.0
     "@twilio-paste/popover": ^13.0.0
-    "@twilio-paste/product-switcher": ^2.0.0
+    "@twilio-paste/product-switcher": ^2.0.1
     "@twilio-paste/progress-bar": ^1.0.0
-    "@twilio-paste/progress-steps": ^2.0.0
+    "@twilio-paste/progress-steps": ^2.0.1
     "@twilio-paste/radio-button-group": ^4.0.0
     "@twilio-paste/radio-group": ^13.0.0
     "@twilio-paste/react-spectrum-library": ^2.1.0
@@ -13592,7 +13592,7 @@ __metadata:
     "@twilio-paste/side-modal": ^4.0.0
     "@twilio-paste/sidebar": ^1.0.0
     "@twilio-paste/skeleton-loader": ^6.0.0
-    "@twilio-paste/slider": ^2.0.1
+    "@twilio-paste/slider": ^2.0.2
     "@twilio-paste/spinner": ^14.0.0
     "@twilio-paste/stack": ^8.0.0
     "@twilio-paste/status": ^2.0.0
@@ -13616,7 +13616,7 @@ __metadata:
     "@twilio-paste/uid-library": ^2.0.0
     "@twilio-paste/user-dialog": ^2.0.1
     "@twilio-paste/utils": ^5.0.0
-    "@twilio-paste/visual-picker": ^2.0.0
+    "@twilio-paste/visual-picker": ^2.0.1
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
     prop-types: ^15.7.2
@@ -14959,7 +14959,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/meter@^1.0.0, @twilio-paste/meter@workspace:packages/paste-core/components/meter":
+"@twilio-paste/meter@^1.0.1, @twilio-paste/meter@workspace:packages/paste-core/components/meter":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/meter@workspace:packages/paste-core/components/meter"
   dependencies:
@@ -15317,7 +15317,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/product-switcher@2.0.0, @twilio-paste/product-switcher@^2.0.0, @twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher":
+"@twilio-paste/product-switcher@2.0.1, @twilio-paste/product-switcher@^2.0.1, @twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/product-switcher@workspace:packages/paste-core/components/product-switcher"
   dependencies:
@@ -15377,8 +15377,8 @@ __metadata:
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -15432,7 +15432,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/progress-steps@^2.0.0, @twilio-paste/progress-steps@workspace:packages/paste-core/components/progress-steps":
+"@twilio-paste/progress-steps@^2.0.1, @twilio-paste/progress-steps@workspace:packages/paste-core/components/progress-steps":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/progress-steps@workspace:packages/paste-core/components/progress-steps"
   dependencies:
@@ -15468,8 +15468,8 @@ __metadata:
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -15958,7 +15958,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/slider@^2.0.1, @twilio-paste/slider@workspace:packages/paste-core/components/slider":
+"@twilio-paste/slider@^2.0.2, @twilio-paste/slider@workspace:packages/paste-core/components/slider":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/slider@workspace:packages/paste-core/components/slider"
   dependencies:
@@ -16893,7 +16893,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/visual-picker@^2.0.0, @twilio-paste/visual-picker@workspace:packages/paste-core/components/visual-picker":
+"@twilio-paste/visual-picker@^2.0.1, @twilio-paste/visual-picker@workspace:packages/paste-core/components/visual-picker":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/visual-picker@workspace:packages/paste-core/components/visual-picker"
   dependencies:
@@ -16953,8 +16953,8 @@ __metadata:
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
     "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     prop-types: ^15.7.2
-    react: ^18.0.0
-    react-dom: ^18.0.0
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
   linkType: soft
 
@@ -16974,7 +16974,7 @@ __metadata:
     "@next/mdx": ^13.1.6
     "@sparticuz/chromium": ^110.0.0
     "@testing-library/react": ^13.4.0
-    "@twilio-paste/account-switcher": ^2.0.0
+    "@twilio-paste/account-switcher": ^2.0.1
     "@twilio-paste/alert": ^14.0.0
     "@twilio-paste/alert-dialog": ^9.1.0
     "@twilio-paste/anchor": ^12.0.0
@@ -16995,7 +16995,7 @@ __metadata:
     "@twilio-paste/clipboard-copy-library": ^3.0.0
     "@twilio-paste/code-block": ^4.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
-    "@twilio-paste/combobox": ^16.0.1
+    "@twilio-paste/combobox": ^16.1.0
     "@twilio-paste/combobox-primitive": ^2.0.0
     "@twilio-paste/customization": ^8.0.0
     "@twilio-paste/data-grid": ^8.0.0
@@ -17030,6 +17030,7 @@ __metadata:
     "@twilio-paste/media-object": ^10.0.0
     "@twilio-paste/menu": ^14.0.1
     "@twilio-paste/menu-primitive": ^2.0.0
+    "@twilio-paste/meter": ^1.0.1
     "@twilio-paste/minimizable-dialog": ^4.0.0
     "@twilio-paste/modal": ^16.0.0
     "@twilio-paste/modal-dialog-primitive": ^2.0.0
@@ -17037,8 +17038,8 @@ __metadata:
     "@twilio-paste/pagination": ^7.0.0
     "@twilio-paste/paragraph": ^10.0.0
     "@twilio-paste/popover": ^13.0.0
-    "@twilio-paste/product-switcher": 2.0.0
-    "@twilio-paste/progress-steps": ^2.0.0
+    "@twilio-paste/product-switcher": 2.0.1
+    "@twilio-paste/progress-steps": ^2.0.1
     "@twilio-paste/radio-button-group": ^4.0.0
     "@twilio-paste/radio-group": ^13.0.0
     "@twilio-paste/react-textarea-autosize-library": ^3.0.0
@@ -17050,7 +17051,7 @@ __metadata:
     "@twilio-paste/side-modal": ^4.0.0
     "@twilio-paste/sidebar": ^1.0.0
     "@twilio-paste/skeleton-loader": ^6.0.0
-    "@twilio-paste/slider": ^2.0.1
+    "@twilio-paste/slider": ^2.0.2
     "@twilio-paste/spinner": ^14.0.0
     "@twilio-paste/stack": ^8.0.0
     "@twilio-paste/status": ^2.0.0
@@ -17074,7 +17075,7 @@ __metadata:
     "@twilio-paste/uid-library": ^2.0.0
     "@twilio-paste/user-dialog": ^2.0.0
     "@twilio-paste/utils": ^5.0.0
-    "@twilio-paste/visual-picker": ^2.0.0
+    "@twilio-paste/visual-picker": ^2.0.1
     "@types/airtable": ^0.10.1
     "@types/gtag.js": ^0.0.12
     "@types/lodash": ^4.14.182

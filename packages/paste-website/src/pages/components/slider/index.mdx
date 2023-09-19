@@ -18,6 +18,7 @@ import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {Form, FormControl} from '@twilio-paste/form';
 import {useUID} from '@twilio-paste/uid-library';
+import {Meter, MeterLabel} from '@twilio-paste/meter';
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -80,7 +81,7 @@ A Slider allows a user to select a numerical value when:
 
 Slider uses [Adobe's Spectrum React-Aria useSlider](https://react-spectrum.adobe.com/react-aria/useSlider.html) under the hood.
 
-### Slider vs. number Input vs. Meter
+### Slider vs. number Input
 
 Both Sliders and [number Inputs](/components/input#input-with-number-functionality) are form
 fields that take numerical values. Because the mouse and touch interaction on a Slider is less
@@ -90,10 +91,6 @@ selecting image opacity or audio volume.
 If the user needs to select an exact value, use a [number Input](/components/input#input-with-number-functionality)
 instead. If you want to let users select between consecutive values, you can
 also use a [Radio Button Group](/components/radio-button-group).
-
-In cases where visually showing the size of a numerical value is important and
-it’s not enough to show it as text, use a [number Input](/components/input#input-with-number-functionality)
-paired with a Meter (component to come!) instead.
 
 ### Accessibility
 
@@ -137,9 +134,6 @@ For additional guidance on how to compose error messages, refer to the
 ### Disabled
 
 Use a disabled Slider to show users that they can't interact with the Slider.
-
-If you want to show a value that can't be edited, use a Meter (to come) or
-consider another way of showing static information.
 
 <LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
   {disabledSlider}
@@ -214,10 +208,19 @@ Use a Slider with hidden range labels when the range is obvious or the labels ar
 <DoDont>
   <Do
     title="Do"
-    body="Use a Meter (to come!) when you need to visually show the size of a numerical value, but don’t want the bar to be interactive."
+    body="Use a Meter when you need to visually show the size of a numerical value, but don’t want the bar to be interactive."
     center
   >
-    Coming soon!
+    <Box width="80%">
+      <MeterLabel htmlFor="meter">Current balance</MeterLabel>
+      <Meter
+        id="meter"
+        value={8673}
+        minValue={0}
+        maxValue={10000}
+        formatOptions={{style: 'currency', currency: 'JPY'}}
+      />
+    </Box>
   </Do>
   <Dont
     title="Don't"
@@ -225,7 +228,7 @@ Use a Slider with hidden range labels when the range is obvious or the labels ar
     center
   >
     <Box width="80%">
-      <Label>Auto-reload amount</Label>
+      <Label>Current balance</Label>
       <Slider
         disabled
         value={8673}
@@ -233,32 +236,6 @@ Use a Slider with hidden range labels when the range is obvious or the labels ar
         maxValue={10000}
         numberFormatter={new Intl.NumberFormat('ja-JP', {style: 'currency', currency: 'JPY'})}
       />
-    </Box>
-  </Dont>
-</DoDont>
-
-<DoDont>
-  <Do
-    title="Do"
-    body="Pair a Meter and number Input when you need to visually show the size of a numerical value and you need to allow input."
-    center
-  >
-    Coming soon!
-  </Do>
-  <Dont
-    title="Don't"
-    body="Don’t use a Slider when you need to visually show the size of a numerical value and you need to allow input."
-    center
-  >
-    <Box display="grid" width="80%" gridTemplateColumns="1fr 1fr" columnGap="space60">
-      <div>
-        <Label>Branch 1</Label>
-        <Input type="number" value={80} />
-      </div>
-      <div>
-        <Label>Branch 1</Label>
-        <Slider value={80} numberFormatter={new Intl.NumberFormat('en-US')} />
-      </div>
     </Box>
   </Dont>
 </DoDont>
@@ -350,7 +327,7 @@ const Component = () => {
 | id                | `string`                                                                                                                     | Must provide an id to match with a label                                                      | undefined |
 | numberFormatter   | [`Intl.NumberFormatter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | Used to format the value into i18n formats. Can return localized currencies and percentages   |           |
 | aria-describedby? | `string`                                                                                                                     | Optional id to pair the input to its help text                                                | undefined |
-| aria-labeledby?   | `string`                                                                                                                     | Optional id to pair the input to its label text (if not using a regular label with `htmlFor`) | undefined |
+| aria-labelledby?  | `string`                                                                                                                     | Optional id to pair the input to its label text (if not using a regular label with `htmlFor`) | undefined |
 | disabled?         | `boolean`                                                                                                                    | Disables the slider                                                                           | false     |
 | hasError?         | `boolean`                                                                                                                    | Shows error styling on the Slider                                                             | false     |
 | hideRangeLabels?  | `boolean`                                                                                                                    | Hides the min and max values that appear over the slider                                      | false     |

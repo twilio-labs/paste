@@ -1,8 +1,8 @@
 {
   "name": "@twilio-paste/meter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "category": "data display",
-  "status": "alpha",
+  "status": "production",
   "description": "Meter is a visual representation of a numerical value within a known range.",
   "author": "Twilio Inc.",
   "license": "MIT",

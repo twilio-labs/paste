@@ -1,5 +1,11 @@
 # @twilio-paste/slider
 
+## 2.0.2
+
+### Patch Changes
+
+- [`80decbe21`](https://github.com/twilio-labs/paste/commit/80decbe21966080f987f4567b459b0eb5b36e150) [#3478](https://github.com/twilio-labs/paste/pull/3478) Thanks [@nkrantz](https://github.com/nkrantz)! - [Slider] Update designs to reflect generic Paste value bar design with min and max value labels below the visual bar.
+
 ## 2.0.1
 
 ### Patch Changes

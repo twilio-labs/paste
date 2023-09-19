@@ -9,73 +9,93 @@ import {LABEL_SUFFIX} from './constants';
 export interface MeterProps extends HTMLPasteProps<'meter'>, Pick<BoxProps, 'element'> {
   minValue?: number;
   maxValue?: number;
+  minLabel?: string;
+  maxLabel?: string;
   value?: number;
   id: string;
-  showValueLabel?: boolean;
-  formatOptions?: Intl.NumberFormatOptions; // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options
-  valueLabel?: string;
   'aria-label'?: string;
   'aria-describedby'?: string;
   'aria-labelledby'?: string;
-  /*
-   * The following props don't exist on the react-aria useMeter hook but do exist on the HTML meter element.
-   * They can be added back into the Paste Meter API depending on the finalized spec & designs.
-   *
-   * low?: number;
-   * high?: number;
-   * optimum?: number;
-   */
 }
 
-const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(({element = 'METER', id, ...props}, ref) => {
-  const {value = 0, minValue = 0, maxValue = 100, showValueLabel = true} = props;
-  const {meterProps} = useMeter(props);
+const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
+  ({element = 'METER', id, minLabel, maxLabel, ...props}, ref) => {
+    const {value = 0, minValue = 0, maxValue = 100} = props;
+    const {meterProps} = useMeter(props);
 
-  // Calculate the width of the bar as a percentage
-  const percentage = (value - minValue) / (maxValue - minValue);
-  const fillWidth = `${Math.round(percentage * 100)}%`;
+    // Calculate the width of the bar as a percentage
+    const percentage = (value - minValue) / (maxValue - minValue);
+    const fillWidth = `${Math.round(percentage * 100)}%`;
 
-  /*
-   * Since ProgressBar isn't a form element, we cannot use htmlFor from the regular label
-   * so we create a ProgressBarLabel component that behaves like a regular form Label
-   * but leverages aria-labelledby instead of htmlFor transparently.
-   */
-  let labelledBy = props['aria-labelledby'];
-  if (labelledBy == null && props['aria-label'] == null && id != null) {
-    labelledBy = `${id}${LABEL_SUFFIX}`;
-  }
+    /*
+     * Since Meter isn't a form element, we cannot use htmlFor from the regular Label
+     * so we created a MeterLabel component that behaves like a regular form Label
+     * but leverages aria-labelledby instead of htmlFor under the hood.
+     * `aria-labelledby` and `aria-label` can still be passed for custom labelling options.
+     */
+    let labelledBy = props['aria-labelledby'];
+    if (labelledBy == null && props['aria-label'] == null && id != null) {
+      labelledBy = `${id}${LABEL_SUFFIX}`;
+    }
 
-  return (
-    <Box
-      as="div"
-      {...meterProps}
-      role="meter"
-      id={id}
-      maxWidth="size30"
-      position="relative"
-      element={element}
-      aria-labelledby={labelledBy}
-    >
+    return (
       <Box
-        display="flex"
-        width="fit-content"
-        position="absolute"
-        right="0"
-        top="spaceNegative70"
-        element={`${element}_VALUE_LABEL_WRAPPER`}
+        as="div"
+        {...meterProps}
+        role="meter"
+        id={id}
+        ref={ref}
+        width="100%"
+        position="relative"
+        element={element}
+        aria-labelledby={labelledBy}
       >
-        {showValueLabel && (
-          <Text as="span" element={`${element}_VALUE_LABEL`}>
-            {meterProps['aria-valuetext']}
-          </Text>
+        <Box
+          height="10px"
+          backgroundColor="colorBackgroundStrong"
+          borderRadius="borderRadiusPill"
+          element={`${element}_BAR`}
+        >
+          <Box
+            width={fillWidth}
+            height="10px"
+            backgroundColor="colorBackgroundPrimaryStronger"
+            borderTopLeftRadius="borderRadiusPill"
+            borderBottomLeftRadius="borderRadiusPill"
+            borderTopRightRadius={fillWidth === '100%' ? 'borderRadiusPill' : 'borderRadius10'}
+            borderBottomRightRadius={fillWidth === '100%' ? 'borderRadiusPill' : 'borderRadius10'}
+            element={`${element}_FILL`}
+          />
+        </Box>
+        {(minLabel || maxLabel) && (
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="space-between"
+            marginTop="space20"
+            aria-hidden="true"
+            element={`${element}_MIN_MAX_WRAPPER`}
+          >
+            {minLabel ? (
+              <Text as="span" color="colorTextWeak" fontWeight="fontWeightNormal" element={`${element}_MIN`}>
+                {minLabel}
+              </Text>
+            ) : (
+              <span />
+            )}
+            {maxLabel ? (
+              <Text as="span" color="colorTextWeak" fontWeight="fontWeightNormal" element={`${element}_MAX`}>
+                {maxLabel}
+              </Text>
+            ) : (
+              <span />
+            )}
+          </Box>
         )}
       </Box>
-      <Box height="10px" backgroundColor="colorBackground" element={`${element}_BAR`} ref={ref}>
-        <Box width={fillWidth} height="10px" backgroundColor="colorBackgroundAvailable" element={`${element}_FILL`} />
-      </Box>
-    </Box>
-  );
-});
+    );
+  }
+);
 
 Meter.displayName = 'Meter';
 

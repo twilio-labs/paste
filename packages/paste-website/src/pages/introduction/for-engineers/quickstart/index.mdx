@@ -36,7 +36,7 @@ export const getStaticProps = async () => {
 
 <content>
 
-The quickest way to get started with Paste is to bootstrap a new React app using one of our templates for popular React frameworks, [Next.js](https://nextjs.org/) and [Create React App](https://create-react-app.dev/). Both approaches will create a new React app with Paste installed and ready for development.
+The quickest way to get started with Paste is to bootstrap a new React app using our template for [Next.js](https://nextjs.org/). This will create a new React app with Paste installed and ready for development.
 
 ## Create an App
 
@@ -70,36 +70,6 @@ When you create the project, Paste is used in 2 files:
 - `yarn start`: runs the project in production mode, need to run `yarn build` first
 
 To read more in depth about how `create-next-app` works, check out [their documentation](https://nextjs.org/docs/api-reference/create-next-app).
-
-### Using create-react-app
-
-[`create-react-app`](https://create-react-app.dev/) initializes a new React project with minimal configuration.
-
-Paste has a pre-made template for `create-react-app` that comes with `@twilio-paste/core` and `@twilio-paste/icons` as dependencies and uses TypeScript.
-
-To create a new `create-react-app` app using the Paste template execute the following command:
-
-```bash
-yarn create react-app --template @twilio-paste my-paste-app
-cd my-paste-app
-yarn start
-```
-
-This starts your project in development mode and it can be seen at `http://localhost:3000`.
-
-When you create the project, Paste is used in a few places:
-
-- `src/App.tsx`: creates an `App` component, which wraps all pages. This is where the Paste [`<Theme.Provider>`](/theme/#theme-provider) is added which enables any child component to use tokens.
-- `src/components`: a directory with 2 sample components that use Paste components.
-- `src/pages/`: a directory with 3 sample pages that use Paste components.
-
-#### Scripts
-
-- `yarn start`: runs project in development mode, with hot reloading
-- `yarn build`: creates a production build of the project
-- `yarn test`: runs tests in watcher mode
-
-To read more in depth about how `create-react-app` works, check out [their documentation](https://create-react-app.dev/docs/getting-started/).
 
 ## Usage
 

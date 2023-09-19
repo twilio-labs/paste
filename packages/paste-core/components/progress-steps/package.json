@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/progress-steps",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "category": "data display",
   "status": "production",
   "description": "Progress Steps can be a presentational or interactive component and shows users an outline of a complex multi-step task.",
@@ -38,8 +38,8 @@
     "@types/react": "^16.8.6 || ^17.0.2 || ^18.0.27",
     "@types/react-dom": "^16.8.6 || ^17.0.2 || ^18.0.10",
     "prop-types": "^15.7.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",

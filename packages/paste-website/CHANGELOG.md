@@ -1,5 +1,18 @@
 # @twilio-paste/website
 
+## 2.23.37
+
+### Patch Changes
+
+- Updated dependencies [[`554c23006`](https://github.com/twilio-labs/paste/commit/554c2300695839c29fd17717ecddb3732e32e111), [`f6320be83`](https://github.com/twilio-labs/paste/commit/f6320be83fd744aee1c677da1dbaed1e1c89b5ce), [`80decbe21`](https://github.com/twilio-labs/paste/commit/80decbe21966080f987f4567b459b0eb5b36e150), [`4d5dc6842`](https://github.com/twilio-labs/paste/commit/4d5dc684258f3f5766b402f988191572aaf42848), [`0b5f37e96`](https://github.com/twilio-labs/paste/commit/0b5f37e960683ed832c467a9d21d7f11e763a77b)]:
+  - @twilio-paste/meter@1.0.1
+  - @twilio-paste/combobox@16.1.0
+  - @twilio-paste/slider@2.0.2
+  - @twilio-paste/account-switcher@2.0.1
+  - @twilio-paste/product-switcher@2.0.1
+  - @twilio-paste/progress-steps@2.0.1
+  - @twilio-paste/visual-picker@2.0.1
+
 ## 2.23.36
 
 ### Patch Changes
