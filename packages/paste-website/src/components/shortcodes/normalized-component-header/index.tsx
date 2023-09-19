@@ -6,7 +6,7 @@ import type {GenericHeaderProps} from '../generic-header';
 import {getNormalizedHeaderData} from '../../../utils/DataUtils';
 import type {ApiData} from '../../../utils/DataUtils';
 
-interface NormalizedComponentHeaderProps extends GenericHeaderProps {
+interface NormalizedComponentHeaderProps extends Partial<GenericHeaderProps> {
   data: ApiData;
 }
 

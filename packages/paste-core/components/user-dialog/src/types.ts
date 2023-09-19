@@ -34,7 +34,8 @@ export interface UserDialogProps extends HTMLPasteProps<'div'>, NonModalDialogPr
   'aria-label': string;
 }
 
-export type UserDialogButtonProps = Omit<ButtonProps, 'variant'> & NonModalDialogDisclosurePrimitiveProps;
+export type UserDialogButtonProps = Omit<ButtonProps, 'variant'> &
+  Omit<NonModalDialogDisclosurePrimitiveProps, 'color'>;
 
 export interface UserDialogContainerProps extends NonModalDialogPrimitivePopoverInitialState {
   children: NonNullable<React.ReactNode>;

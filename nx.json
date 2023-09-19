@@ -14,6 +14,7 @@
         "cacheableOperations": [
           "build",
           "build:js",
+          "build:typedocs",
           "tsc",
           "build:types",
           "build:codemods",
@@ -46,6 +47,10 @@
         "{projectRoot}/json",
         "{projectRoot}/types"
       ]
+    },
+    "build:typedocs": {
+      "dependsOn": ["^build:typedocs", "^tsc"],
+      "outputs": ["{projectRoot}/type-docs.json"]
     },
     "tsc": {
       "dependsOn": ["^tsc"],

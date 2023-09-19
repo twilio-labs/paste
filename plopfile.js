@@ -53,6 +53,11 @@ module.exports = function (plop) {
       },
       {
         type: 'add',
+        path: 'packages/paste-core/{{component-type}}/{{kebabCase component-name}}/src/{{pascalCase component-name}}.tsx',
+        templateFile: 'tools/plop-templates/component-component.hbs',
+      },
+      {
+        type: 'add',
         path: 'packages/paste-core/{{component-type}}/{{kebabCase component-name}}/__tests__/index.spec.tsx',
         templateFile: 'tools/plop-templates/component-tests.hbs',
       },

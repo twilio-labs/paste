@@ -1,0 +1,25 @@
+import * as React from 'react';
+import PropTypes from 'prop-types';
+
+export interface {{pascalCase component-name}}Props extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
+  children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   * @default '{constantCase component-name}'
+   * @type {BoxProps['element']}
+   * @memberof {{pascalCase component-name}}Props
+   */
+  element?: BoxProps['element'];
+}
+
+const {{pascalCase component-name}} = React.forwardRef<HTMLDivElement, {{pascalCase component-name}}Props>(({element = "{{constantCase component-name}}", ...props}, ref) => {
+  return (
+    <div ref={ref}>
+      {props.children}
+    </div>
+  );
+});
+
+{{pascalCase component-name}}.displayName = '{{pascalCase component-name}}';
+
+{{export component-name}};

@@ -64,10 +64,10 @@
     "build:dev": "yarn clean && yarn generate-packages && yarn compile:dev && yarn build:types",
     "build:js": "yarn clean && yarn generate-packages && yarn compile",
     "build:types": "./tools/build-types.sh",
-    "generate-packages": "ts-node ./tools/generate.ts",
+    "generate-packages": "tsx ./tools/generate.ts",
     "clean": "yarn clean:packages && rm -rf ./dist && rm -rf tsconfig.tsbuildinfo && rm -rf .rpt2_cache",
     "clean:packages": "./tools/clean-packages.sh",
-    "compile": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx' && ts-node ./tools/minify",
+    "compile": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx' && tsx ./tools/minify",
     "compile:dev": "babel ./src/*.tsx --out-dir ./dist --extensions '.tsx'"
   },
   "dependencies": {
@@ -192,6 +192,7 @@
     "prop-types": "^15.7.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "ts-node": "^10.0.0"
+    "tsx": "^3.12.10",
+    "typescript": "^4.9.4"
   }
 }

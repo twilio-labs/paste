@@ -88,7 +88,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   ].includes(categoryRoute);
 
   return (
-    <Box>
+    <Box element="PAGE_HEADER">
       {openGraphServiceUrl && shouldHavePreview && (
         <Head>
           <meta property="og:image" content={openGraphServiceUrl} />

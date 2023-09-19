@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Table - Changelog',
+  package: '@twilio-paste/table',
+  description: 'A Table is a collection of information displayed across columns and rows.',
+  slug: '/components/table/changelog',
+};
+
+import Changelog from '@twilio-paste/table/CHANGELOG.md';
+import packageJson from '@twilio-paste/table/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Table');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/table',
+        storybookUrl: '/?path=/story/components-table--default-table',
+      },
+    },
+  };
+};
+
+<Changelog />

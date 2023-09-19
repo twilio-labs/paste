@@ -1,7 +1,7 @@
 export const meta = {
   title: 'Table',
   package: '@twilio-paste/table',
-  description: 'Tables are used to display information that is meant to be compared across columns and rows.',
+  description: 'A Table is a collection of information displayed across columns and rows.',
   slug: '/components/table/',
 };
 
@@ -22,16 +22,15 @@ import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
 import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
 import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import {DetailText} from '@twilio-paste/detail-text';
-import Changelog from '@twilio-paste/table/CHANGELOG.md';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {SiteLink} from '../../../components/SiteLink';
 import packageJson from '@twilio-paste/table/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -43,24 +42,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/table',
+        storybookUrl: '/?path=/story/components-table--default-table',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/table"
-  storybookUrl="/?path=/story/components-table--default-table"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Table, THead, TBody, Tr, Th, Td, Text}} language="jsx">
   {`<Table>
@@ -1185,144 +1175,3 @@ and email addresses.
   <Do title="Do" body="Include supporting text when providing a status in a table row." preview={false} />
   <Dont title="Don't" body="Don't use color as the only indicator of status in a table row." preview={false} />
 </DoDont>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/table - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/core/table';
-
-const TableExample: React.FC = () => {
-  return (
-    <Table tableLayout="fixed" variant="default" striped>
-      <THead>
-        <Tr verticalAlign="middle">
-          <Th width="size40" textAlign="left">
-            Column 1
-          </Th>
-          <Th>Column 2</Th>
-        </Tr>
-      </THead>
-      <TBody>
-        <Tr>
-          <Td>Content</Td>
-          <Td>Content</Td>
-        </Tr>
-      </TBody>
-      <TFoot>
-        <Tr>
-          <Td>Content</Td>
-          <Td>Content</Td>
-        </Tr>
-      </TFoot>
-    </Table>
-  );
-};
-```
-
-#### Props
-
-##### Table
-
-All the valid HTML attributes for `table` are supported including the following props:
-
-###### `striped?: boolean`
-
-Sets a background color for even rows within the table.
-
-###### `tableLayout?: "auto" | "fixed"`
-
-Sets the `table-layout` style of the Table. Defaults to `auto`.
-
-###### `variant?: "default" | "borderless"`
-
-Sets the `border` style of the Table. Defaults to `default`.
-
-###### `scrollHorizontally?: boolean`
-
-Sets the table to scroll horizontally on small screens.
-
-###### `noWrap?: boolean`
-
-Sets the table cells to not line wrap.
-
-###### `isActionable?: boolean`
-
-Sets the table to visually display the actionable state of an interactive table. Mainly used for Data Grid.
-
-###### `element?: string`
-
-Overrides the default element name ('TABLE') to apply unique styles with the Customization Provider.
-
-##### THead Props
-
-All the valid HTML attributes for the `thead` element are supported including the following:
-
-###### `stickyHeader?: boolean`
-
-Makes the table head stick to the top of the window as the user scrolls a long table
-
-###### `top?: string | number`
-
-Allows manual control of the top offset, used in conjunction with `stickyHeader`
-
-###### `element?: string`
-
-Overrides the default element name ('THEAD') to apply unique styles with the Customization Provider.
-
-##### Tr Props
-
-All the valid HTML attributes for `tr` are supported including the following props:
-
-###### `verticalAlign?: "top" | "middle" | "bottom"`
-
-Sets the vertical alignment of the content within the Table row. Defaults to `middle`.
-
-###### `element?: string`
-
-Overrides the default element name ('TR') to apply unique styles with the Customization Provider.
-
-##### Th Props
-
-All the valid HTML attributes for `th` are supported including the following props:
-
-###### `textAlign?: "left" | "center" | "right"`
-
-Sets the text alignment of the content within the Table cell. Defaults to `left`.
-
-###### `width?: WidthOptions`
-
-Sets the width of a Table cell.
-
-###### `element?: string`
-
-Overrides the default element name ('TH') to apply unique styles with the Customization Provider.
-
-##### Td Props
-
-All the valid HTML attributes for `td` are supported including the following props:
-
-###### `textAlign?: "left" | "center" | "right"`
-
-Sets the text alignment of the content within the Table cell. Defaults to `left`.
-
-###### `element?: string`
-
-Overrides the default element name ('TD') to apply unique styles with the Customization Provider.
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

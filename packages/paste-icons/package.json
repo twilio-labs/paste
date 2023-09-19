@@ -19,9 +19,9 @@
     "build:js": "NODE_ENV=development node build.js && yarn list-icons",
     "clean": "rm -rf ./esm && rm -rf ./cjs && rm -rf ./types",
     "tsc": "tsc",
-    "list-icons": "ts-node ./tools/cli.ts list-icons",
-    "convert-new": "ts-node ./tools/cli.ts convert-new",
-    "convert": "ts-node ./tools/cli.ts convert"
+    "list-icons": "tsx ./tools/cli.ts list-icons",
+    "convert-new": "tsx ./tools/cli.ts convert-new",
+    "convert": "tsx ./tools/cli.ts convert"
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",
@@ -57,6 +57,6 @@
     "prop-types": "^15.7.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "ts-node": "^10.0.0"
+    "tsx": "^3.12.10"
   }
 }
