@@ -21,10 +21,10 @@ import Changelog from '@twilio-paste/grid/CHANGELOG.md';
 import {TwilioIcon} from '../../../components/icons/TwilioIcon';
 import {TWILIO_RED} from '../../../constants';
 import packageJson from '@twilio-paste/grid/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -36,24 +36,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/grid',
+        storybookUrl: '/?path=/story/layout-grid--grid-12-column-and-gutter-support',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/grid"
-  storybookUrl="/?path=/story/layout-grid--grid-12-column-and-gutter-support"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Grid, Column, Card, Heading, Paragraph}} language="jsx">
   {`<Grid gutter="space30">
@@ -622,50 +613,3 @@ Since the grid is sized to the full width of its parent container, you may not w
     </Box>
   </Dont>
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/grid - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Grid, Column} from '@twilio-paste/core/grid';
-
-const Component = () => (
-  <Grid>
-    <Column>Foo</Column>
-  </Grid>
-);
-```
-
-#### Grid Props
-
-| Prop                | Type                                         | Description                                                                                                                         | Default |
-| ------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| equalColumnHeights? | `boolean`                                    | Sets the height of columns in a row to be equal.                                                                                    |         |
-| gutter?             | `ResponsiveValue<keyof ThemeShape['space']>` | Sets the spacing on both sides of a Column. Use a spacing token that represents half of the total space you need between 2 Columns. |         |
-| vertical?           | `boolean, ResponsiveValue<boolean>`          | Stacks the Columns                                                                                                                  |         |
-
-#### Column Props
-
-| Prop    | Type                              | Description                                                            | Default |
-| ------- | --------------------------------- | ---------------------------------------------------------------------- | ------- |
-| span?   | `number, ResponsiveValue<number>` | Sets the width of Columns (how many columns a column can span)         |         |
-| offset? | `number, ResponsiveValue<number>` | Sets the left margin of a Column (how many columns a column is offset) |         |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

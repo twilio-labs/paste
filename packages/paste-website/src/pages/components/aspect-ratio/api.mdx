@@ -1,0 +1,63 @@
+export const meta = {
+  title: 'Aspect Ratio - API',
+  package: '@twilio-paste/aspect-ratio',
+  description:
+    'The Aspect Ratio layout component is used to embed images, video, media, components, or other HTML elements. It prevents skewing, cropping, etc.',
+  slug: '/components/aspect-ratio/api',
+};
+
+import Changelog from '@twilio-paste/aspect-ratio/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/aspect-ratio/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Aspect Ratio');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/aspect-ratio');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/aspect-ratio',
+        storybookUrl: '/?path=/story/layout-aspect-ratio--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/aspect-ratio - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {AspectRatio} from '@twilio-paste/core/aspect-ratio';
+import {Box} from '@twilio-paste/core/box';
+
+const Component = () => (
+  <AspectRatio ratio="4:3">
+    <Box position="absolute" top={0} right={0} bottom={0} right={0}>
+      Test
+    </Box>
+  </AspectRatio>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

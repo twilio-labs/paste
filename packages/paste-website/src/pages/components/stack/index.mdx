@@ -15,12 +15,11 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/stack/CHANGELOG.md';
 import packageJson from '@twilio-paste/stack/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -32,24 +31,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/stack',
+        storybookUrl: '/?path=/story/layout-stack--default-stack',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/stack"
-  storybookUrl="/?path=/story/layout-stack--default-stack"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Box, Stack}} language="jsx">
   {`<Stack orientation="horizontal" spacing="space60">
@@ -130,41 +120,3 @@ values to change the orientation based on the screen sizes supported by your [th
   </Card>
 </Stack>`}
 </LivePreview>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/stack
-```
-
-#### Usage
-
-```jsx
-import {Stack} from '@twilio-paste/core/stack';
-
-<Stack orientation="vertical" spacing="space40">
-  Foo
-</Stack>;
-```
-
-#### Props
-
-| Prop        | Type                                      | Description                                                                               | Default |
-| ----------- | ----------------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| orientation | ResponsiveValue<'horizontal', 'vertical'> |                                                                                           | null    |
-| spacing     | [Spacing](/tokens/list/#spacings)         |                                                                                           | null    |
-| element?    | `string`                                  | Overrides the default element name to apply unique styles with the Customization Provider | 'STACK' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -9,14 +9,13 @@ export const meta = {
 import {Anchor} from '@twilio-paste/anchor';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
-import Changelog from '@twilio-paste/aspect-ratio/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import packageJson from '@twilio-paste/aspect-ratio/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -28,25 +27,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/aspect-ratio',
+        storybookUrl: '/?path=/story/layout-aspect-ratio--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/aspect-ratio"
-  storybookUrl="/?path=/story/layout-aspect-ratio--default"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{AspectRatio, Box}} language="jsx">
   {`<Box
@@ -157,44 +146,3 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
     preview={false}
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/aspect-ratio - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {AspectRatio} from '@twilio-paste/core/aspect-ratio';
-import {Box} from '@twilio-paste/core/box';
-
-const Component = () => (
-  <AspectRatio ratio="4:3">
-    <Box position="absolute" top={0} right={0} bottom={0} right={0}>
-      Test
-    </Box>
-  </AspectRatio>
-);
-```
-
-#### Props
-
-| Prop  | Type   | Description                                                                                               | Default |
-| ----- | ------ | --------------------------------------------------------------------------------------------------------- | ------- |
-| ratio | string | Determines the aspect ratio of the element. Use a colon separated number pattern (width:height). Required | 4:3     |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,0 +1,61 @@
+export const meta = {
+  title: 'Media Object - Layout',
+  package: '@twilio-paste/media-object',
+  description:
+    'Media Object is a layout utility that allows an image or figure to be positioned horizontally next to some form of content.',
+  slug: '/components/media-object/api',
+};
+
+import Changelog from '@twilio-paste/media-object/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/media-object/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Media Object');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/media-object');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/media-object',
+        storybookUrl: '/?path=/story/layout-media-object--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/media-object
+```
+
+## Usage
+
+```jsx
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/core/media-object';
+
+const Component = (props) => (
+  <MediaObject verticalAlign="center">
+    <MediaFigure spacing="space40">...</MediaFigure>
+    <MediaBody>...</MediaBody>
+  </MediaObject>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

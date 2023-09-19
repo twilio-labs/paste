@@ -3,7 +3,15 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface MediaBodyProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as' | 'element'> {
+export interface MediaBodyProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as'> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MEDIA_BODY'
+   * @type {BoxProps['element']}
+   * @memberof MediaBodyProps
+   */
+  element?: BoxProps['element'];
   children: NonNullable<React.ReactNode>;
 }
 

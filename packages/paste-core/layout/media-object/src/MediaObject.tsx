@@ -3,10 +3,22 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface MediaObjectProps
-  extends HTMLPasteProps<'div'>,
-    Pick<BoxProps, 'as' | 'element' | 'marginTop' | 'marginBottom'> {
+export interface MediaObjectProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as' | 'marginTop' | 'marginBottom'> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MEDIA_OBJECT'
+   * @type {BoxProps['element']}
+   * @memberof MediaObjectProps
+   */
+  element?: BoxProps['element'];
   children: NonNullable<React.ReactNode>;
+  /**
+   * Aligns the figure and body
+   *
+   * @type {('center' | 'top')}
+   * @memberof MediaObjectProps
+   */
   verticalAlign?: 'center' | 'top';
 }
 

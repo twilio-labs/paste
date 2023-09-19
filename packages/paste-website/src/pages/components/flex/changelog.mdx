@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Flex - Changelog',
+  package: '@twilio-paste/flex',
+  description:
+    'Flex is a layout component that allows you to build flexbox based elements and layouts. These flexible elements and layouts allow your components to adapt to the available space or screen size.',
+  slug: '/components/flex/changelog',
+};
+
+import Changelog from '@twilio-paste/flex/CHANGELOG.md';
+import packageJson from '@twilio-paste/flex/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Flex');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/flex',
+        storybookUrl: '/?path=/story/layout-flex--flex-options',
+      },
+    },
+  };
+};
+
+<Changelog />

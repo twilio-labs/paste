@@ -19,13 +19,29 @@ export type Basis = ResponsiveValue<BasisOptions>;
 export type WrapOptions = boolean;
 export type Wrap = ResponsiveValue<WrapOptions>;
 
-export interface FlexProps
-  extends Omit<LayoutProps, 'verticalAlign'>,
-    MarginProps,
-    PaddingProps,
-    Pick<BoxProps, 'element'> {
+export interface FlexProps extends Omit<LayoutProps, 'verticalAlign'>, MarginProps, PaddingProps {
+  /**
+   *
+   * @default 'div'
+   * @type {keyof JSX.IntrinsicElements}
+   * @memberof FlexProps
+   */
   as?: keyof JSX.IntrinsicElements;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FLEX'
+   * @type {BoxProps['element']}
+   * @memberof FlexProps
+   */
+  element?: BoxProps['element'];
   children?: React.ReactNode;
+  /**
+   *
+   * @default 'flex'
+   * @type {Display}
+   * @memberof FlexProps
+   */
   display?: Display;
   vertical?: Vertical;
   vAlignContent?: VerticalAlign;

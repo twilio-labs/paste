@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Grid - Layout',
+  package: '@twilio-paste/grid',
+  description: 'The grid component controls the visual layout and spacing between elements on a page or in containers.',
+  slug: '/components/grid/changelog',
+};
+
+import Changelog from '@twilio-paste/grid/CHANGELOG.md';
+import packageJson from '@twilio-paste/grid/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Grid');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/grid',
+        storybookUrl: '/?path=/story/layout-grid--grid-12-column-and-gutter-support',
+      },
+    },
+  };
+};
+
+<Changelog />
