@@ -5,7 +5,7 @@
       "defaultValue": null,
       "required": true,
       "externalProp": false,
-      "description": "Determines the aspect ratio of the element. Use a colon separated number pattern (width:height)."
+      "description": "Determines the aspect ratio of the element. Use a colon-separated number pattern (width:height)."
     }
   }
 }
