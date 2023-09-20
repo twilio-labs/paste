@@ -10,6 +10,9 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Anchor} from '@twilio-paste/anchor';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {InlineCode} from '@twilio-paste/inline-code';
+
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import System from '../../../assets/images/system.png';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../utils/api';
 
@@ -41,6 +44,14 @@ export const getStaticProps = async () => {
 <content>
 
 Paste is a design system used to build accessible, cohesive, and high-quality customer experiences at Twilio. Paste supports Product Designers and Engineers with tooling and assets that help them build customer UIs in Figma and React.
+
+## What's a design system?
+
+Design systems are much more than just component libraries. Paste combines Twilio’s design language, via our foundations on typography, color, layout, and spacing, with content design guidelines, accessible functional primitives, themes, and interactive UI components—everything you need to create high quality, accessible software applications. It ensures each product resonates with our customers, and presents Twilio in a consistent and cohesive way, that is backed by customer research.
+
+<ResponsiveImage src={System} alt="System hierarchy chart" />
+
+[Themes](/theme) in Paste are built on top of [design tokens](/tokens) and define what style each token represents in that theme. When a theme is paired with functional [primitives](/primitives) like Box and Text, they create themed Paste [components](/components) like Heading, Card, and Button. [Patterns](/patterns), like empty state, are composed using a group of components. Multiple patterns are then used to compose full [page templates](/page-templates) like an objects list.
 
 ## Paste is...
 

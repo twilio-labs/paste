@@ -1,0 +1,104 @@
+export const meta = {
+  title: 'Object details',
+  description:
+    'The Object details page template allows customers to view and take action on properties of a single object.',
+  slug: '/page-templates/object-details/',
+};
+
+import {ObjectDetailsIngredients} from '../../../components/ingredients/ObjectDetailsIngredients';
+import {SidebarCategoryRoutes} from '../../../constants';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Object details');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<NormalizedPatternHeader
+  description={meta.description}
+  name={meta.title}
+  data={props.data}
+  categoryRoute={SidebarCategoryRoutes.PAGE_TEMPLATES}
+/>
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## About Object details
+
+Object details give customers a primarily read-only view of the properties of an object, such as a message log or sent email.
+
+If the customer is primarily editing information, use the [Settings](/page-templates/settings) page instead.
+
+## Accessibility
+
+A well-structured [document hierarchy](https://www.w3.org/WAI/tutorials/page-structure/) helps provide efficient in-page navigation for keyboard users, assistive technologies, and mobile web users.
+
+Proper hierarchy allows users to skip directly to content that is most relevant to them. This is especially important on an Object details page where there may be many different types of information and customers are more likely to skim through.
+
+To structure a page:
+
+- Use [Headings](/components/heading) to organize the page.
+- Use Headings in sequential order. For example, don’t place an H4 directly after an H2.
+- Use sentence case for headers (“Message date” not “Message Date”).
+- Use a [Description List](/components/description-list) to define relationships between a property and its label.
+- Use [Tables](/components/table) to organize data that are meant to be compared.
+
+## Ingredients
+
+<ObjectDetailsIngredients />
+
+## How to use this template
+
+### Page header
+
+At the top of the page, add a page heading using the format “[Object name] details” for a generic object, or the name of the object if it’s unique or set by the customer. For example, “Call details” or “test audience.”
+
+The full header should be responsive to the width of the browser window. Heading and Paragraph should have a max width of `$size-80`.
+
+### Body
+
+Object details should allow a customer to easily scan for the information they’re looking for. Show an overview of an object’s details with a [Description List](/components/description-list). If there are more than 6 properties, divide the properties into 2 columns.
+
+Below this, group more detailed properties into sections on the page or, if necessary, into [Tabs](/components/tabs).
+
+Use customer research to inform how to order the content sections on a details page. Show customers the most relevant information first. Use sentence case for property labels (“End time” not “End Time”).
+
+The body should be full width and responsive to the size of the window, while Headings, Paragraphs, and Description Lists should have a max width of `$size-80`.
+
+## Starter kits
+
+### CodeSandbox
+
+Coming soon
+
+### Figma
+
+Add the “[Paste Patterns & Templates](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns-%26-Templates?type=design&node-id=1-4&mode=design&t=dC1B5k0lVIB0JIuX-0)” library to your file.
+
+## Related discussions
+
+- [Label Value styling](https://github.com/twilio-labs/paste/discussions/528)
+
+</content>
+
+</contentwrapper>

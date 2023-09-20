@@ -66,6 +66,7 @@ export const SidebarCategoryRoutes = {
   ROADMAP: '/roadmap',
   BLOG: '/blog',
   THEME: '/theme',
+  PAGE_TEMPLATES: '/page-templates',
 };
 
 export const PackageStatus = {

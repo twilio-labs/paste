@@ -59,7 +59,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
   const navigationData = useNavigationContext();
 
   // take airtable feature data and mutate it into navigation data
-  const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} =
+  const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern, allPastePageTemplate} =
     getNormalizedNavigationData(navigationData);
 
   const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout];
@@ -188,6 +188,14 @@ const SiteSidebarNavigation = (): JSX.Element => {
         <SidebarAnchor href={SidebarCategoryRoutes.PATTERNS}>Overview</SidebarAnchor>
         {allPastePattern.map(({name, slug}: {[key: string]: string}) => (
           <SidebarAnchor href={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
+            {name}
+          </SidebarAnchor>
+        ))}
+      </NavigationDisclosure>
+      <NavigationDisclosure buttonText="Page templates" categoryRoute={SidebarCategoryRoutes.PAGE_TEMPLATES}>
+        <SidebarAnchor href={SidebarCategoryRoutes.PAGE_TEMPLATES}>Overview</SidebarAnchor>
+        {allPastePageTemplate.map(({name, slug}: {[key: string]: string}) => (
+          <SidebarAnchor href={`${SidebarCategoryRoutes.PAGE_TEMPLATES}/${slug}`} key={slug}>
             {name}
           </SidebarAnchor>
         ))}

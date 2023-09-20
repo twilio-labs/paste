@@ -42,6 +42,18 @@ const getAllPatterns = async () => {
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
+const getAllPageTemplates = async () => {
+  const patterns = await systemTable
+    .select({
+      filterByFormula: 'AND({Component Category} = "page_template", Documentation, status, status != "in development")',
+      sort: [{field: 'Feature'}],
+      fields: ['Feature', 'status'],
+    })
+    .all();
+  return patterns.map(({fields}) => fields);
+};
+
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 const getAllPackages = async () => {
   const root = path.resolve(process.cwd(), '../');
   const packages = await globby(['**/package.json', '!**/node_modules', '!**/core-bundle/**'], {
@@ -55,6 +67,7 @@ const getAllPackages = async () => {
     allPastePrimitive: [],
     allPasteThemePackage: [],
     allPastePattern: [],
+    allPastePageTemplate: [],
   };
 
   packages.forEach(async (packageJson) => {
@@ -69,6 +82,9 @@ const getAllPackages = async () => {
 
   const patterns = await getAllPatterns();
   data.allPastePattern = [...patterns];
+
+  const pageTemplates = await getAllPageTemplates();
+  data.allPastePageTemplate = [...pageTemplates];
 
   await fs.mkdir(dataPath, {recursive: true}, (err) => {
     if (err) {
