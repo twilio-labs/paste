@@ -20,7 +20,7 @@ const IconAnchor: React.FC<React.PropsWithChildren<{href: string; icon: React.Re
   icon,
   children,
 }) => (
-  <Anchor href={href}>
+  <Anchor href={href} display="flex">
     <Box as="span" display="flex" alignItems="center" columnGap="space20">
       <Box as="span" display="inline-block">
         {icon}
