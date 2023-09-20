@@ -57,6 +57,7 @@ const NavigationDisclosure: React.FC<
 const SiteSidebarNavigation = (): JSX.Element => {
   // TODO: move to a server component in the App directory
   const navigationData = useNavigationContext();
+  const pathname = useLocationPathname();
 
   // take airtable feature data and mutate it into navigation data
   const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern, allPastePageTemplate} =
@@ -214,6 +215,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
       >
         <SidebarAnchor href={SidebarCategoryRoutes.COMPONENTS}>Overview</SidebarAnchor>
         {filteredComponentSidebarItems.map(({name, slug}: {[key: string]: string}) => {
+          const selected = pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/${slug}`);
           if (name === 'Icon') {
             return (
               <NavigationDisclosure
@@ -249,8 +251,16 @@ const SiteSidebarNavigation = (): JSX.Element => {
                   })
                 }
               >
-                <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/combobox`}>Singleselect</SidebarAnchor>
-                <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/multiselect-combobox`}>
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/combobox`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/combobox`)}
+                >
+                  Singleselect
+                </SidebarAnchor>
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/multiselect-combobox`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/multiselect-combobox`)}
+                >
                   Multiselect
                 </SidebarAnchor>
               </NavigationDisclosure>
@@ -270,8 +280,18 @@ const SiteSidebarNavigation = (): JSX.Element => {
                   })
                 }
               >
-                <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/status-badge`}>Status Badge</SidebarAnchor>
-                <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/status-menu`}>Status Menu</SidebarAnchor>
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/status-badge`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/status-badge`)}
+                >
+                  Status Badge
+                </SidebarAnchor>
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/status-menu`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/status-menu`)}
+                >
+                  Status Menu
+                </SidebarAnchor>
               </NavigationDisclosure>
             );
           }
@@ -289,15 +309,23 @@ const SiteSidebarNavigation = (): JSX.Element => {
                   })
                 }
               >
-                <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar`}>Sidebar Container</SidebarAnchor>
-                <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar-navigation`}>
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/sidebar`)}
+                >
+                  Sidebar Container
+                </SidebarAnchor>
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar-navigation`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/sidebar-navigation`)}
+                >
                   Sidebar Navigation
                 </SidebarAnchor>
               </NavigationDisclosure>
             );
           }
           return (
-            <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
+            <SidebarAnchor selected={selected} href={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
               {name}
             </SidebarAnchor>
           );
@@ -315,11 +343,14 @@ const SiteSidebarNavigation = (): JSX.Element => {
         }
       >
         <SidebarAnchor href={SidebarCategoryRoutes.PRIMITIVES}>Overview</SidebarAnchor>
-        {filteredPrimitives.map(({name, slug}: {[key: string]: string}) => (
-          <SidebarAnchor href={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
-            {name}
-          </SidebarAnchor>
-        ))}
+        {filteredPrimitives.map(({name, slug}: {[key: string]: string}) => {
+          const selected = pathname.includes(`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`);
+          return (
+            <SidebarAnchor selected={selected} href={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
+              {name}
+            </SidebarAnchor>
+          );
+        })}
       </NavigationDisclosure>
       <NavigationDisclosure
         buttonText="Tokens"

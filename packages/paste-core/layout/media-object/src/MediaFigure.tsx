@@ -4,9 +4,23 @@ import type {BoxProps} from '@twilio-paste/box';
 import type {Space} from '@twilio-paste/style-props';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
-export interface MediaFigureProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as' | 'element'> {
+export interface MediaFigureProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as'> {
   align?: 'start' | 'end';
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MEDIA_FIGURE'
+   * @type {BoxProps['element']}
+   * @memberof MediaFigureProps
+   */
+  element?: BoxProps['element'];
   children: NonNullable<React.ReactNode>;
+  /**
+   * Space between the figure and body
+   *
+   * @type {Space}
+   * @memberof MediaFigureProps
+   */
   spacing?: Space;
 }
 

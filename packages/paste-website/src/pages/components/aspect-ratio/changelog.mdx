@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Aspect Ratio - Changelog',
+  package: '@twilio-paste/aspect-ratio',
+  description:
+    'The Aspect Ratio layout component is used to embed images, video, media, components, or other HTML elements. It prevents skewing, cropping, etc.',
+  slug: '/components/aspect-ratio/changelog',
+};
+
+import Changelog from '@twilio-paste/aspect-ratio/CHANGELOG.md';
+import packageJson from '@twilio-paste/aspect-ratio/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Aspect Ratio');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/aspect-ratio',
+        storybookUrl: '/?path=/story/layout-aspect-ratio--default',
+      },
+    },
+  };
+};
+
+<Changelog />

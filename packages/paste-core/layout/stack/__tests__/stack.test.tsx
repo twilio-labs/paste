@@ -4,7 +4,7 @@ import {Card} from '@twilio-paste/card';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
 import type {StackOrientation} from '../src';
-import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src';
+import {getStackDisplay, getStackStyles, getStackChildMargins, Stack} from '../src/Stack';
 
 describe('Stack Unit Tests', () => {
   const mockHorizontalOrientation = 'horizontal';

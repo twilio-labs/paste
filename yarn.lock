@@ -12886,6 +12886,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14386,6 +14387,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14506,6 +14508,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14976,6 +14979,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -16146,6 +16150,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0

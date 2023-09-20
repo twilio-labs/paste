@@ -18,12 +18,11 @@ import {subMenuExample} from '../../../component-examples/MenuExamples.ts';
 import {Blockquote} from '../../../components/Blockquote';
 import {SidebarCategoryRoutes, TWILIO_RED} from '../../../constants';
 import {PasteIcon} from '../../../components/icons/PasteIcon';
-import Changelog from '@twilio-paste/media-object/CHANGELOG.md';
 import packageJson from '@twilio-paste/media-object/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -35,24 +34,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/media-object',
+        storybookUrl: '/?path=/story/layout-media-object--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/media-object"
-  storybookUrl="/?path=/story/layout-media-object--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{PasteIcon, Text, MediaObject, MediaFigure, MediaBody, TWILIO_RED}} language="jsx">
   {`<MediaObject verticalAlign="center">
@@ -295,62 +285,3 @@ The `MediaObject` acts as the outer wrapper of the pattern. The `MediaFigure` is
 The content of a `MediaFigure` and `MediaBody` is entirely up to you.
 
 The size of `MediaFigure` is determined by the content that is placed inside of it. `MediaBody` will fill the remaining space in the row.
-
----
-
-## Usage Guide
-
-### Installation
-
-```bash
-yarn add @twilio-paste/media-object
-```
-
-### Usage
-
-```jsx
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/core/media-object';
-
-const Component = (props) => (
-  <MediaObject verticalAlign="center">
-    <MediaFigure spacing="space40">...</MediaFigure>
-    <MediaBody>...</MediaBody>
-  </MediaObject>
-);
-```
-
-### API
-
-#### MediaObject Props
-
-| Prop          | Type                              | Description                                                                               | Default        |
-| ------------- | --------------------------------- | ----------------------------------------------------------------------------------------- | -------------- |
-| as            | keyof JSX.IntrinsicElements       |                                                                                           | 'span'         |
-| marginBottom  | [Spacing](/tokens/list/#spacings) |                                                                                           | null           |
-| marginTop     | [Spacing](/tokens/list/#spacings) |                                                                                           | null           |
-| verticalAlign | `center`, `top`                   | Aligns the figure and body                                                                | null           |
-| element?      | `string`                          | Overrides the default element name to apply unique styles with the Customization Provider | 'MEDIA_OBJECT' |
-
-#### MediaFigure Props
-
-| Prop     | Type                              | Description                                                                               | Default        |
-| -------- | --------------------------------- | ----------------------------------------------------------------------------------------- | -------------- |
-| align    | `start`, `end`                    |                                                                                           | 'start'        |
-| as       | keyof JSX.IntrinsicElements       |                                                                                           | 'span'         |
-| spacing  | [Spacing](/tokens/list/#spacings) | Space between the figure and body                                                         | null           |
-| element? | `string`                          | Overrides the default element name to apply unique styles with the Customization Provider | 'MEDIA_FIGURE' |
-
-#### MediaBody Props
-
-| Prop     | Type                        | Description                                                                               | Default      |
-| -------- | --------------------------- | ----------------------------------------------------------------------------------------- | ------------ |
-| as       | keyof JSX.IntrinsicElements |                                                                                           | 'span'       |
-| element? | `string`                    | Overrides the default element name to apply unique styles with the Customization Provider | 'MEDIA_BODY' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>
