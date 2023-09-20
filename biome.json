@@ -1,0 +1,62 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.2.2/schema.json",
+  "files": {
+    "maxSize": 5242880,
+    "ignore": [
+      "node_modules",
+      "bower_components",
+      "dist",
+      "bin",
+      "__testfixtures__",
+      "__fixtures__",
+      "packages/paste-icons/cjs",
+      "packages/paste-icons/esm",
+      "packages/paste-icons/json",
+      "packages/paste-theme-designer/public",
+      "packages/paste-theme-designer/out",
+      "packages/paste-token-contrast-checker/public",
+      ".cache",
+      ".next",
+      ".yarn",
+      "packages/**/dist/*",
+      "tsconfig.build.tsbuildinfo",
+      "**/*.d.ts",
+      ".codesandbox/ci.json",
+      "build.icon-list.js",
+      "**/*.hbs"
+    ]
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "suspicious": {
+        "noExplicitAny": "off"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentSize": 2,
+    "lineWidth": 120
+  },
+  "javascript": {
+    "formatter": {
+      "indentStyle": "space",
+      "indentSize": 2,
+      "lineWidth": 120,
+      "quoteStyle": "single"
+    }
+  },
+  "json": {
+    "formatter": {
+      "indentStyle": "space",
+      "indentSize": 2,
+      "lineWidth": 120
+    }
+  }
+}
