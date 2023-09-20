@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Button} from '@twilio-paste/button';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
 import type {ButtonProps} from '@twilio-paste/button';
@@ -22,13 +21,6 @@ const MinimizableDialogButton = React.forwardRef<HTMLButtonElement, MinimizableD
     );
   }
 );
-
-MinimizableDialogButton.propTypes = {
-  id: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  toggle: PropTypes.func,
-  element: PropTypes.string,
-};
 
 MinimizableDialogButton.displayName = 'MinimizableDialogButton';
 export {MinimizableDialogButton};

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Button} from '@twilio-paste/button';
 import type {ButtonProps} from '@twilio-paste/button';
 import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
@@ -21,12 +20,6 @@ const SideModalButton = React.forwardRef<HTMLButtonElement, SideModalButtonProps
     );
   }
 );
-
-SideModalButton.propTypes = {
-  id: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
 
 SideModalButton.displayName = 'SideModalButton';
 export {SideModalButton};

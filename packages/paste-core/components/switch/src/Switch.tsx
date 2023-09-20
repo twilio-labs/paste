@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {Text} from '@twilio-paste/text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
@@ -216,18 +215,5 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
   }
 );
 Switch.displayName = 'Switch';
-
-Switch.propTypes = {
-  disabled: PropTypes.bool,
-  element: PropTypes.string,
-  id: PropTypes.string,
-  children: PropTypes.node.isRequired,
-  name: PropTypes.string,
-  onChange: PropTypes.func,
-  hasError: PropTypes.bool,
-  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  defaultChecked: PropTypes.bool,
-  checked: PropTypes.bool,
-};
 
 export {Switch};

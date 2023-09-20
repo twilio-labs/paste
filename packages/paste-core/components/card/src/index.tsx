@@ -1,9 +1,7 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {PaddingProps} from '@twilio-paste/style-props';
-import {isPaddingTokenProp} from '@twilio-paste/style-props';
 import type {HTMLPasteProps} from '@twilio-paste/types';
 
 /** element identifier from BoxProps for customization */
@@ -36,15 +34,6 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
     );
   }
 );
-
-Card.propTypes = {
-  element: PropTypes.string,
-  padding: isPaddingTokenProp,
-  paddingTop: isPaddingTokenProp,
-  paddingRight: isPaddingTokenProp,
-  paddingBottom: isPaddingTokenProp,
-  paddingLeft: isPaddingTokenProp,
-};
 
 Card.displayName = 'Card';
 

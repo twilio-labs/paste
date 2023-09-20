@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {InlineControlGroup} from '@twilio-paste/inline-control-group';
 import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
 
@@ -65,13 +64,5 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
 );
 
 RadioGroup.displayName = 'RadioGroup';
-
-RadioGroup.propTypes = {
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  value: PropTypes.string,
-  element: PropTypes.string,
-  i18nRequiredLabel: PropTypes.string,
-};
 
 export {RadioGroup};

@@ -4,7 +4,6 @@ import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 
 import {DefaultAnchor} from './DefaultAnchor';
 import {InverseAnchor} from './InverseAnchor';
-import {AnchorPropTypes} from './proptypes';
 import type {AnchorProps} from './types';
 
 const AnchorVariants = {
@@ -111,8 +110,6 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
 );
 
 Anchor.displayName = 'Anchor';
-
-Anchor.propTypes = AnchorPropTypes;
 
 export {Anchor};
 

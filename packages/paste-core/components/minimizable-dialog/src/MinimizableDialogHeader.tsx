@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {ChevronUpIcon} from '@twilio-paste/icons/esm/ChevronUpIcon';
@@ -86,12 +85,5 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
 );
 
 MinimizableDialogHeader.displayName = 'MinimizableDialogHeader';
-
-MinimizableDialogHeader.propTypes = {
-  children: PropTypes.node,
-  i18nDismissLabel: PropTypes.string,
-  i18nMinimizeLabel: PropTypes.string,
-  element: PropTypes.string,
-};
 
 export {MinimizableDialogHeader};

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Box} from '@twilio-paste/box';
@@ -45,13 +44,6 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
     return <Box element={elementName}>{returnValue}</Box>;
   }
 );
-
-Tabs.propTypes = {
-  element: PropTypes.string,
-  selectedId: PropTypes.string,
-  orientation: PropTypes.oneOf(['horizontal', 'vertical', undefined]),
-  variant: PropTypes.oneOf(['fitted', 'inverse', 'inverse_fitted', null]),
-};
 
 Tabs.displayName = 'Tabs';
 export {Tabs};

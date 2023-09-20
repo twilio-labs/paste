@@ -1,17 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {
-  ResponsiveProp,
-  isWidthTokenProp,
-  isMinWidthTokenProp,
-  isMaxWidthTokenProp,
-  isHeightTokenProp,
-  isMinHeightTokenProp,
-  isMaxHeightTokenProp,
-  isPaddingTokenProp,
-  isMarginTokenProp,
-} from '@twilio-paste/style-props';
 import type {FlexboxProps} from '@twilio-paste/style-props';
 
 import type {FlexProps} from './types';
@@ -138,40 +126,6 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
 Flex.displayName = 'Flex';
 Flex.defaultProps = {
   display: 'flex',
-};
-
-Flex.propTypes = {
-  as: PropTypes.string as any,
-  display: ResponsiveProp(PropTypes.oneOf(['flex', 'inline-flex'])),
-  element: PropTypes.string,
-  vertical: ResponsiveProp(PropTypes.bool),
-  vAlignContent: ResponsiveProp(PropTypes.oneOf(['top', 'center', 'bottom', 'stretch'])),
-  hAlignContent: ResponsiveProp(PropTypes.oneOf(['left', 'center', 'right', 'around', 'between'])),
-  grow: ResponsiveProp(PropTypes.oneOfType([PropTypes.bool, PropTypes.number])),
-  shrink: ResponsiveProp(PropTypes.oneOfType([PropTypes.bool, PropTypes.number])),
-  basis: ResponsiveProp(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
-  wrap: ResponsiveProp(PropTypes.bool),
-  width: isWidthTokenProp,
-  minWidth: isMinWidthTokenProp,
-  maxWidth: isMaxWidthTokenProp,
-  height: isHeightTokenProp,
-  minHeight: isMinHeightTokenProp,
-  maxHeight: isMaxHeightTokenProp,
-  size: isWidthTokenProp,
-  margin: isMarginTokenProp,
-  marginTop: isMarginTokenProp,
-  marginRight: isMarginTokenProp,
-  marginBottom: isMarginTokenProp,
-  marginLeft: isMarginTokenProp,
-  marginX: isMarginTokenProp,
-  marginY: isMarginTokenProp,
-  padding: isPaddingTokenProp,
-  paddingTop: isPaddingTokenProp,
-  paddingRight: isPaddingTokenProp,
-  paddingBottom: isPaddingTokenProp,
-  paddingLeft: isPaddingTokenProp,
-  paddingX: isPaddingTokenProp,
-  paddingY: isPaddingTokenProp,
 };
 
 export {Flex};

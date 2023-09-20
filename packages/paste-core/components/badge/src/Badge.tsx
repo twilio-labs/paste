@@ -4,7 +4,6 @@ import {secureExternalLink} from '@twilio-paste/anchor';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 
 import type {BadgeProps} from './types';
-import {BadgePropTypes} from './propTypes';
 import {useResizeChildIcons} from './hooks';
 import {badgeBaseStyles, badgeVariantStyles, badgeAnchorStyles, getBadgeButtonStyles} from './styles';
 
@@ -42,5 +41,3 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
 );
 
 Badge.displayName = 'Badge';
-
-Badge.propTypes = BadgePropTypes;

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {ListboxPrimitiveItem} from '@twilio-paste/listbox-primitive';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
@@ -59,7 +58,3 @@ export const UserDialogListItem = React.forwardRef<HTMLButtonElement, UserDialog
   }
 );
 UserDialogListItem.displayName = 'UserDialogListItem';
-
-UserDialogListItem.propTypes = {
-  element: PropTypes.string,
-};

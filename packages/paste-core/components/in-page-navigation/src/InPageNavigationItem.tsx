@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {secureExternalLink} from '@twilio-paste/anchor';
@@ -112,12 +111,5 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
 );
 
 InPageNavigationItem.displayName = 'InPageNavigationItem';
-
-InPageNavigationItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  currentPage: PropTypes.bool,
-  href: PropTypes.string.isRequired,
-};
 
 export {InPageNavigationItem};

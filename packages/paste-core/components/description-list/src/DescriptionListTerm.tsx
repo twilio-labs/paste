@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -29,10 +28,5 @@ const DescriptionListTerm = React.forwardRef<HTMLElement, DescriptionListTermPro
 );
 
 DescriptionListTerm.displayName = 'DescriptionListTerm';
-
-DescriptionListTerm.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};
 
 export {DescriptionListTerm};

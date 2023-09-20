@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
-import {ToastPropTypes} from './propTypes';
 import type {ToastProps} from './types';
 
 const NeutralToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'TOAST', variant, ...props}, ref) => {
@@ -27,7 +26,5 @@ const NeutralToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'T
 });
 
 NeutralToast.displayName = 'NeutralToast';
-
-NeutralToast.propTypes = ToastPropTypes;
 
 export {NeutralToast};

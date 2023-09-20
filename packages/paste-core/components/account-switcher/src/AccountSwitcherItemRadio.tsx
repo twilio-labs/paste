@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {MenuItemRadio, MenuItemRadioPropTypes} from '@twilio-paste/menu';
+import {MenuItemRadio} from '@twilio-paste/menu';
 import type {MenuItemRadioProps} from '@twilio-paste/menu';
 
 export interface AccountSwitcherItemRadioProps extends MenuItemRadioProps {
@@ -17,5 +17,4 @@ const AccountSwitcherItemRadio = React.forwardRef<HTMLDivElement, AccountSwitche
 );
 
 AccountSwitcherItemRadio.displayName = 'AccountSwitcherItemRadio';
-AccountSwitcherItemRadio.propTypes = MenuItemRadioPropTypes;
 export {AccountSwitcherItemRadio};

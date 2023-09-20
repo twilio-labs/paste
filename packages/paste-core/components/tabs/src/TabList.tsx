@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {TabPrimitiveList} from '@twilio-paste/tabs-primitive';
@@ -62,13 +61,6 @@ const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, eleme
     </TabPrimitiveList>
   );
 });
-
-TabList.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  focusable: PropTypes.bool,
-  disabled: PropTypes.bool,
-  element: PropTypes.string,
-};
 
 TabList.displayName = 'TabList';
 export {TabList};

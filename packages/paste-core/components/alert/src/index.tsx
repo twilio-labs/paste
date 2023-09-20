@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
 import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
@@ -146,17 +145,5 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   }
 );
 Alert.displayName = 'Alert';
-
-Alert.propTypes = {
-  children: PropTypes.node.isRequired,
-  onDismiss: PropTypes.func,
-  role: PropTypes.string,
-  variant: PropTypes.oneOf(Object.values(AlertVariants)).isRequired,
-  element: PropTypes.string,
-  i18nDismissLabel: PropTypes.string,
-  i18nErrorLabel: PropTypes.string,
-  i18nNeutralLabel: PropTypes.string,
-  i18nWarningLabel: PropTypes.string,
-};
 
 export {Alert};

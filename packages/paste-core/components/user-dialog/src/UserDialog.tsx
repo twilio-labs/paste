@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Avatar} from '@twilio-paste/avatar';
 import {Button} from '@twilio-paste/button';
@@ -93,9 +92,3 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
   }
 );
 UserDialog.displayName = 'UserDialog';
-
-UserDialog.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};

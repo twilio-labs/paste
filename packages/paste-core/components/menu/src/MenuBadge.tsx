@@ -1,10 +1,9 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {Badge, BadgeVariants} from '@twilio-paste/badge';
+import {Badge} from '@twilio-paste/badge';
 import type {BadgeProps} from '@twilio-paste/badge';
-import {Button, ButtonPropTypes} from '@twilio-paste/button';
+import {Button} from '@twilio-paste/button';
 import type {ButtonProps} from '@twilio-paste/button';
 import {MenuPrimitiveButton} from '@twilio-paste/menu-primitive';
 import type {MenuPrimitiveButtonProps} from '@twilio-paste/menu-primitive';
@@ -51,13 +50,6 @@ const MenuBadge = React.forwardRef<HTMLButtonElement, MenuBadgeProps>(
   }
 );
 
-export const MenuBadgePropTypes = {
-  ...ButtonPropTypes,
-  i18nButtonLabel: PropTypes.string.isRequired,
-  variant: PropTypes.oneOf(Object.values(BadgeVariants)).isRequired,
-};
-
 MenuBadge.displayName = 'MenuBadge';
-MenuBadge.propTypes = MenuBadgePropTypes;
 
 export {MenuBadge};

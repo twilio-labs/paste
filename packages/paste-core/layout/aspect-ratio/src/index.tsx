@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import {styled} from '@twilio-paste/styling-library';
 
@@ -55,12 +54,5 @@ const AspectRatio = React.forwardRef<HTMLDivElement, AspectRatioProps>((props, r
 });
 
 AspectRatio.displayName = 'AspectRatio';
-
-if (process.env.NODE_ENV === 'development') {
-  AspectRatio.propTypes = {
-    children: PropTypes.node.isRequired,
-    ratio: PropTypes.string.isRequired,
-  };
-}
 
 export {AspectRatio};

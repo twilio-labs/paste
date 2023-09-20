@@ -3,7 +3,6 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 
 import type {PaginationNumberProps} from './types';
-import {PaginationNumberPropTypes} from './proptypes';
 import {handleLinkValidation} from './utils';
 
 const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberProps>(
@@ -68,7 +67,5 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
 );
 
 PaginationNumber.displayName = 'PaginationNumber';
-
-PaginationNumber.propTypes = PaginationNumberPropTypes;
 
 export {PaginationNumber};

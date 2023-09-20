@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -30,8 +29,3 @@ export const FileUploaderDropzoneText = React.forwardRef<HTMLDivElement, FileUpl
 );
 
 FileUploaderDropzoneText.displayName = 'FileUploaderDropzoneText';
-
-FileUploaderDropzoneText.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

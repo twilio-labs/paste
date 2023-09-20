@@ -5,7 +5,6 @@ import {Box} from '@twilio-paste/box';
 
 import {Toast} from './Toast';
 import {ToastPortal} from './ToastPortal';
-import {ToasterPropTypes} from './propTypes';
 import type {ToasterProps} from './types';
 
 export const AnimatedToast = animated(Box);
@@ -131,7 +130,5 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({toasts, pop, 
 };
 
 Toaster.displayName = 'Toaster';
-
-Toaster.propTypes = ToasterPropTypes;
 
 export {Toaster};

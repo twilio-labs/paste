@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Box} from '@twilio-paste/box';
 
 import type {PaginationArrowIconWrapperProps} from '../types';
-import {PaginationArrowIconWrapperPropTypes} from '../proptypes';
 
 const PaginationArrowIconWrapper: React.FC<React.PropsWithChildren<PaginationArrowIconWrapperProps>> = ({
   children,
@@ -29,7 +28,5 @@ const PaginationArrowIconWrapper: React.FC<React.PropsWithChildren<PaginationArr
 };
 
 PaginationArrowIconWrapper.displayName = 'PaginationArrowIconWrapper';
-
-PaginationArrowIconWrapper.propTypes = PaginationArrowIconWrapperPropTypes;
 
 export {PaginationArrowIconWrapper};

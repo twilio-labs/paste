@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
 import {HelpText} from '@twilio-paste/help-text';
@@ -98,13 +97,5 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
 );
 
 RadioButtonGroup.displayName = 'RadioButtonGroup';
-
-RadioButtonGroup.propTypes = {
-  name: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
-  value: PropTypes.string,
-  element: PropTypes.string,
-  i18nRequiredLabel: PropTypes.string,
-};
 
 export {RadioButtonGroup};

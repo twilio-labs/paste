@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Button} from '@twilio-paste/button';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps, BoxStyleProps} from '@twilio-paste/box';
@@ -73,12 +72,5 @@ const ComposerAttachmentCard = React.forwardRef<HTMLDivElement, ComposerAttachme
 );
 
 ComposerAttachmentCard.displayName = 'ComposerAttachmentCard';
-
-ComposerAttachmentCard.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  i18nDismissLabel: PropTypes.string,
-  onDismiss: PropTypes.func,
-};
 
 export {ComposerAttachmentCard};

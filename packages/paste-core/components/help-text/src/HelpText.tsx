@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
@@ -100,10 +99,5 @@ const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(
 );
 
 HelpText.displayName = 'HelpText';
-
-HelpText.propTypes = {
-  marginTop: PropTypes.oneOf(['space0']),
-  element: PropTypes.string,
-};
 
 export {HelpText};

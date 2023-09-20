@@ -1,11 +1,9 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {IconWrapper} from '@twilio-paste/icons/esm/helpers/IconWrapper';
 import type {IconWrapperProps} from '@twilio-paste/icons/esm/helpers/IconWrapper';
 import {useTheme} from '@twilio-paste/theme';
-import {isIconSizeTokenProp} from '@twilio-paste/style-props';
 
 import {StyledCircleTrack, AnimatedStyledCircle, StyledSvg} from './styled';
 import {circleGeometry} from './constants';
@@ -58,12 +56,5 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
 );
 
 Spinner.displayName = 'Spinner';
-
-Spinner.propTypes = {
-  title: PropTypes.string,
-  delay: PropTypes.number,
-  element: PropTypes.string,
-  size: isIconSizeTokenProp,
-};
 
 export {Spinner};

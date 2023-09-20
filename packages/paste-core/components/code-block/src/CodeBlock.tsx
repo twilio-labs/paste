@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {SyntaxHighlighter} from '@twilio-paste/syntax-highlighter-library';
 import type {SnippetLanguages} from '@twilio-paste/syntax-highlighter-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
@@ -122,32 +121,3 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
 );
 
 CodeBlock.displayName = 'CodeBlock';
-
-CodeBlock.propTypes = {
-  code: PropTypes.string.isRequired,
-  element: PropTypes.string,
-  language: PropTypes.oneOf([
-    'javascript',
-    'jsx',
-    'csharp',
-    'php',
-    'ruby',
-    'python',
-    'java',
-    'json',
-    'c',
-    'bash',
-    'shell-session',
-    'go',
-    'groovy',
-  ] as SnippetLanguages[]).isRequired,
-  showLineNumbers: PropTypes.bool,
-  wrapLines: PropTypes.bool,
-  maxLines: PropTypes.number,
-  externalLink: PropTypes.string,
-  i18nCopyLabelBefore: PropTypes.string,
-  i18nCopyLabelAfter: PropTypes.string,
-  i18nLinkLabel: PropTypes.string,
-  variant: PropTypes.oneOf(['multi-line', 'single-line'] as CodeBlockVariants[]),
-  copyTextFormatter: PropTypes.func,
-};

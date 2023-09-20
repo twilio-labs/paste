@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {safelySpreadBoxProps, Box} from '@twilio-paste/box';
 import {MenuPrimitive} from '@twilio-paste/menu-primitive';
@@ -33,12 +32,6 @@ const Menu = React.forwardRef<HTMLDivElement, MenuProps>(({element = 'MENU', ...
   return <MenuPrimitive {...props} element={element} as={StyledMenu} ref={ref} />;
 });
 
-export const MenuPropTypes = {
-  element: PropTypes.string,
-  hideOnClickOutside: PropTypes.bool,
-  disabled: PropTypes.bool,
-};
-
 Menu.displayName = 'Menu';
-Menu.propTypes = MenuPropTypes;
+
 export {Menu};

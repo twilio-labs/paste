@@ -1,10 +1,8 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {isValidElementType} from 'react-is';
 import {Text} from '@twilio-paste/text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxStyleProps} from '@twilio-paste/box';
-import {isIconSizeTokenProp} from '@twilio-paste/style-props';
 
 import {getComputedTokenNames, getInitialsFromName} from './utils';
 import type {AvatarProps, AvatarContentProps, ColorVariants, AvatarVariants} from './types';
@@ -122,22 +120,3 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 );
 
 Avatar.displayName = 'Avatar';
-
-Avatar.propTypes = {
-  size: isIconSizeTokenProp,
-  name: PropTypes.string.isRequired,
-  element: PropTypes.string,
-  src: PropTypes.string,
-  color: PropTypes.oneOf([
-    'default',
-    'decorative10',
-    'decorative20',
-    'decorative30',
-    'decorative40',
-  ] as ColorVariants[]),
-  variant: PropTypes.oneOf(['user', 'entity'] as AvatarVariants[]),
-  icon: (props) => {
-    if (typeof props.icon !== 'function') new Error('[Paste Avatar]: icon prop must be a Paste Icon');
-    return null;
-  },
-};

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {useUID} from '@twilio-paste/uid-library';
@@ -42,8 +41,3 @@ export const FormSection = React.forwardRef<HTMLFieldSetElement, FormSectionProp
 );
 
 FormSection.displayName = 'FormSection';
-
-FormSection.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

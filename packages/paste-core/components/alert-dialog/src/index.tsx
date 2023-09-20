@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {useTransition} from '@twilio-paste/animation-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
@@ -100,15 +99,3 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
 );
 
 AlertDialog.displayName = 'AlertDialog';
-
-AlertDialog.propTypes = {
-  children: PropTypes.node.isRequired,
-  destructive: PropTypes.bool,
-  element: PropTypes.string,
-  heading: PropTypes.string.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  onConfirm: PropTypes.func.isRequired,
-  onConfirmLabel: PropTypes.string.isRequired,
-  onDismiss: PropTypes.func.isRequired,
-  onDismissLabel: PropTypes.string.isRequired,
-};

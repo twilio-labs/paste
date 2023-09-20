@@ -13,7 +13,6 @@
     "@twilio-paste/core": "^20.0.0",
     "@twilio-paste/icons": "^12.0.0",
     "next": "^13.1.6",
-    "prop-types": "^15.7.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

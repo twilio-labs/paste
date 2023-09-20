@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextPrimary',
@@ -48,9 +47,7 @@ const LinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
 LinkButton.defaultProps = {
   as: 'a',
 };
-if (process.env.NODE_ENV === 'development') {
-  LinkButton.propTypes = DirectButtonPropTypes;
-}
+
 LinkButton.displayName = 'LinkButton';
 
 export {LinkButton};

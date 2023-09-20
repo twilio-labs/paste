@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {MenuButton, MenuButtonPropTypes} from '@twilio-paste/menu';
+import {MenuButton} from '@twilio-paste/menu';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import type {MenuButtonProps} from '@twilio-paste/menu';
 import {ProductSwitcherIcon} from '@twilio-paste/icons/esm/ProductSwitcherIcon';
@@ -19,8 +19,5 @@ const ProductSwitcherButton = React.forwardRef<HTMLButtonElement, ProductSwitche
   }
 );
 
-// omit variant and size from MenuButtonPropTypes as we set them intenrally
-const {variant, size, ...productSwitcherButtonPropTypes} = MenuButtonPropTypes;
 ProductSwitcherButton.displayName = 'ProductSwitcherButton';
-ProductSwitcherButton.propTypes = productSwitcherButtonPropTypes;
 export {ProductSwitcherButton};

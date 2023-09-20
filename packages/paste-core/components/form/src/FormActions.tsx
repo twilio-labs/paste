@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -25,8 +24,3 @@ export const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
 );
 
 FormActions.displayName = 'FormActions';
-
-FormActions.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

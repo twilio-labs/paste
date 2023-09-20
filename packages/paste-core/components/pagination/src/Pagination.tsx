@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import type {PaginationProps} from './types';
-import {PaginationPropTypes} from './proptypes';
 
 const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
   ({children, element = 'PAGINATION', label, ...props}, ref) => {
@@ -15,7 +14,5 @@ const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
 );
 
 Pagination.displayName = 'Pagination';
-
-Pagination.propTypes = PaginationPropTypes;
 
 export {Pagination};

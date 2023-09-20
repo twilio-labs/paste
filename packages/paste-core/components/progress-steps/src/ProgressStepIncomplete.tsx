@@ -1,10 +1,8 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import {ProgressIncompleteIcon} from './icons/ProgressIncompleteIcon';
 import type {ProgressStepIncompleteProps} from './types';
-import {ProgressStepPropTypes} from './propTypes';
 
 export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressStepIncompleteProps>(
   (
@@ -56,8 +54,3 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
   }
 );
 ProgressStepIncomplete.displayName = 'ProgressStepIncomplete';
-ProgressStepIncomplete.propTypes = {
-  ...ProgressStepPropTypes,
-  i18nIncompleteLabel: PropTypes.string,
-  disabled: PropTypes.bool,
-};

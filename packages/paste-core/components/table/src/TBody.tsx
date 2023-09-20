@@ -4,7 +4,6 @@ import type {BoxStyleProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 
 import type {TBodyProps} from './types';
-import {TBodyPropTypes} from './proptypes';
 
 const bodyCellStyles: BoxStyleProps = {
   borderBottomWidth: 'borderWidth0',
@@ -29,6 +28,5 @@ const TBody = React.forwardRef<HTMLTableSectionElement, TBodyProps>(({element = 
 });
 
 TBody.displayName = 'TBody';
-TBody.propTypes = TBodyPropTypes;
 
 export {TBody};

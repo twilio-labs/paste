@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {HelpText} from '@twilio-paste/help-text';
 import type {HelpTextProps} from '@twilio-paste/help-text';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
@@ -26,8 +25,3 @@ export const FileUploaderErrorText = React.forwardRef<HTMLDivElement, FileUpload
 );
 
 FileUploaderErrorText.displayName = 'FileUploaderErrorText';
-
-FileUploaderErrorText.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

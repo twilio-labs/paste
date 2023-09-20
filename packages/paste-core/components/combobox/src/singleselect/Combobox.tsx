@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {useVirtual} from 'react-virtual';
 import {useUID} from '@twilio-paste/uid-library';
 import {useWindowSize} from '@twilio-paste/utils';
@@ -212,23 +211,5 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
 );
 
 Combobox.displayName = 'Combobox';
-
-Combobox.propTypes = {
-  autocomplete: PropTypes.bool,
-  element: PropTypes.string,
-  groupItemsBy: PropTypes.string,
-  helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  initialIsOpen: PropTypes.bool,
-  initialSelectedItem: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-  items: PropTypes.arrayOf(PropTypes.any).isRequired,
-  itemToString: PropTypes.func,
-  labelText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  onHighlightedIndexChange: PropTypes.func,
-  onInputValueChange: PropTypes.func,
-  onIsOpenChange: PropTypes.func,
-  onSelectedItemChange: PropTypes.func,
-  optionTemplate: PropTypes.func,
-  selectedItem: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
-};
 
 export {Combobox};

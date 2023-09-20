@@ -2,7 +2,6 @@ import * as React from 'react';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 import type {ThProps} from './types';
-import {ThPropTypes} from './proptypes';
 
 const Th = React.forwardRef<HTMLTableCellElement, ThProps>(
   ({element = 'TH', textAlign = 'left', width, ...props}, ref) => {
@@ -34,6 +33,5 @@ const Th = React.forwardRef<HTMLTableCellElement, ThProps>(
 );
 
 Th.displayName = 'Th';
-Th.propTypes = ThPropTypes;
 
 export {Th};

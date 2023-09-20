@@ -3,7 +3,6 @@ import * as React from 'react';
 import {DefaultFauxInput} from './DefaultFauxInput';
 import {InverseFauxInput} from './InverseFauxInput';
 import type {FauxInputProps} from '../types';
-import {FauxInputPropTypes} from '../types';
 
 const FauxInputVariants = {
   default: DefaultFauxInput,
@@ -31,7 +30,5 @@ const FieldWrapper = React.forwardRef<HTMLDivElement, FauxInputProps>(
 );
 
 FieldWrapper.displayName = 'FieldWrapper';
-
-FieldWrapper.propTypes = FauxInputPropTypes;
 
 export {FieldWrapper};

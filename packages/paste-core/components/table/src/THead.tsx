@@ -4,7 +4,6 @@ import {styled, css} from '@twilio-paste/styling-library';
 import type {BoxProps} from '@twilio-paste/box';
 
 import type {THeadProps} from './types';
-import {THeadPropTypes} from './proptypes';
 
 const getStickyStyles = ({stickyHeader}: {stickyHeader: THeadProps['stickyHeader']}): Partial<BoxProps> => {
   if (!stickyHeader) return {};
@@ -41,6 +40,5 @@ const THead = React.forwardRef<HTMLTableSectionElement, THeadProps>(
 );
 
 THead.displayName = 'THead';
-THead.propTypes = THeadPropTypes;
 
 export {THead};

@@ -5,7 +5,6 @@ import {ArrowBackIcon} from '@twilio-paste/icons/esm/ArrowBackIcon';
 import {PaginationArrowButton} from './PaginationArrowButton';
 import {PaginationArrowIconWrapper} from './PaginationArrowIconWrapper';
 import type {PaginationArrowProps} from '../types';
-import {PaginationArrowPropTypes} from '../proptypes';
 
 const PaginationBackArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
   (
@@ -48,7 +47,5 @@ const PaginationBackArrow = React.forwardRef<HTMLButtonElement, PaginationArrowP
 );
 
 PaginationBackArrow.displayName = 'PaginationBackArrow';
-
-PaginationBackArrow.propTypes = PaginationArrowPropTypes;
 
 export {PaginationBackArrow};
