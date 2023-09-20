@@ -80,7 +80,7 @@ export interface ColumnProps extends HTMLPasteProps<'div'>, ColumnStyleProps {
    */
   offset?: ColumnOffset;
   /**
-   * Sets the width of Columns (how many columns a column can span)
+   * Sets the width of a column by defining the number of columns that column can span
    *
    * @type {ColumnSpan}
    * @memberof ColumnProps

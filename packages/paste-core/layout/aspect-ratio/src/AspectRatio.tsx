@@ -4,7 +4,7 @@ import {styled} from '@twilio-paste/styling-library';
 
 export interface AspectRatioProps {
   /**
-   * Determines the aspect ratio of the element. Use a colon separated number pattern (width:height).
+   * Determines the aspect ratio of the element. Use a colon-separated number pattern (width:height).
    *
    * @type {string}
    * @memberof AspectRatioProps
@@ -25,7 +25,7 @@ const handlePropValidation = ({ratio}: AspectRatioProps): void => {
   }
 
   if (!isCorrectPattern(ratio)) {
-    throw new Error(`[Paste: AspectRatio] 'ratio' is invalid. Use a colon separated number pattern (4:3).`);
+    throw new Error(`[Paste: AspectRatio] 'ratio' is invalid. Use a colon-separated number pattern (4:3).`);
   }
 };
 
