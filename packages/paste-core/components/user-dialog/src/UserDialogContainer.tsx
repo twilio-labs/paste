@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {useNonModalDialogPrimitiveState} from '@twilio-paste/non-modal-dialog-primitive';
 import type {
   NonModalDialogPrimitiveStateReturn,
@@ -35,15 +34,6 @@ export const UserDialogContainer: React.FC<UserDialogContainerProps> = ({
   );
 };
 UserDialogContainer.displayName = 'UserDialogContainer';
-
-UserDialogContainer.propTypes = {
-  name: PropTypes.string.isRequired,
-  src: PropTypes.string,
-  icon: (props) => {
-    if (typeof props.icon !== 'function') new Error('[Paste User Dialog]: icon prop must be a Paste Icon');
-    return null;
-  },
-};
 
 export const useUserDialogState = (
   props?: NonModalDialogPrimitivePopoverInitialState

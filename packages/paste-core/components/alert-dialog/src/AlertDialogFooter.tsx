@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -58,12 +57,3 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
 );
 
 AlertDialogFooter.displayName = 'AlertDialogFooter';
-
-AlertDialogFooter.propTypes = {
-  destructive: PropTypes.bool,
-  element: PropTypes.string,
-  onConfirm: PropTypes.func.isRequired,
-  onConfirmLabel: PropTypes.string.isRequired,
-  onDismiss: PropTypes.func.isRequired,
-  onDismissLabel: PropTypes.string.isRequired,
-};

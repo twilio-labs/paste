@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps, BoxElementProps} from '@twilio-paste/box';
 import {Anchor} from '@twilio-paste/anchor';
@@ -85,15 +84,6 @@ const BreadcrumbItem = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, Bre
 
 BreadcrumbItem.displayName = 'BreadcrumbItem';
 
-if (process.env.NODE_ENV === 'development') {
-  BreadcrumbItem.propTypes = {
-    children: PropTypes.node.isRequired,
-    element: PropTypes.string,
-    href: PropTypes.string as PropTypes.Validator<string>,
-    last: PropTypes.bool,
-  };
-}
-
 export interface BreadcrumbProps extends HTMLPasteProps<'nav'> {
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps['element'];
@@ -127,10 +117,5 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
 );
 
 Breadcrumb.displayName = 'Breadcrumb';
-
-Breadcrumb.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
 
 export {Breadcrumb, BreadcrumbItem};

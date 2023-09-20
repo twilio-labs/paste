@@ -22,14 +22,7 @@
   },
   "Paste React component with props file outline": {
     "prefix": "prindexp",
-    "body": [
-      "import * as React from 'react';",
-      "import PropTypes from 'prop-types';",
-      "import {Box} from '@twilio-paste/box';",
-      "",
-      "${1:prfcp}",
-      ""
-    ],
+    "body": ["import * as React from 'react';", "import {Box} from '@twilio-paste/box';", "", "${1:prfcp}", ""],
     "description": "Create an component with props file starter"
   },
   "Paste React Function Component With Props": {
@@ -46,10 +39,6 @@
       "}",
       "",
       "${1:ComponentName}.displayName = '${1:ComponentName}';",
-      "",
-      "${1:ComponentName}.propTypes = {",
-      "  children: PropTypes.node.isRequired,",
-      "};",
       "",
       "export {${1:ComponentName}};"
     ],
@@ -69,10 +58,6 @@
       "})",
       "",
       "${1:ComponentName}.displayName = '${1:ComponentName}';",
-      "",
-      "${1:ComponentName}.propTypes = {",
-      "  children: PropTypes.node.isRequired,",
-      "};",
       "",
       "export {${1:ComponentName}};"
     ],
@@ -112,10 +97,6 @@
       "`",
       "",
       "Styled${1:ComponentName}.displayName = 'Styled${1:ComponentName}';",
-      "",
-      "Styled${1:ComponentName}.propTypes = {",
-      "  children: PropTypes.node.isRequired,",
-      "};",
       "",
       "export {Styled${1:ComponentName}};"
     ],

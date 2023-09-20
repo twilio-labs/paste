@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {CompositeGroup} from '@twilio-paste/reakit-library';
 
@@ -27,7 +26,3 @@ export const DataGridRow = React.forwardRef<HTMLTableRowElement, DataGridRowProp
 );
 
 DataGridRow.displayName = 'DataGridRow';
-DataGridRow.propTypes = {
-  selected: PropTypes.bool,
-  element: PropTypes.string,
-};

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Heading} from '@twilio-paste/heading';
 import type {HeadingProps} from '@twilio-paste/heading';
 import type {BoxElementProps} from '@twilio-paste/box';
@@ -19,11 +18,5 @@ const ModalHeading = React.forwardRef<HTMLHeadingElement, ModalHeadingProps>(
   }
 );
 ModalHeading.displayName = 'ModalHeading';
-
-ModalHeading.propTypes = {
-  children: PropTypes.node.isRequired,
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6']),
-  element: PropTypes.string,
-};
 
 export {ModalHeading};

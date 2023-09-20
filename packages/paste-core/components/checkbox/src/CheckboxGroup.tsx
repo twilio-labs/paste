@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {InlineControlGroup} from '@twilio-paste/inline-control-group';
 import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
 
@@ -74,19 +73,5 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
 );
 
 CheckboxGroup.displayName = 'CheckboxGroup';
-
-if (process.env.NODE_ENV === 'development') {
-  CheckboxGroup.propTypes = {
-    isSelectAll: PropTypes.bool,
-    name: PropTypes.string.isRequired,
-    element: PropTypes.string,
-    onChange: PropTypes.func,
-    disabled: PropTypes.bool,
-    errorText: PropTypes.string,
-    helpText: PropTypes.string,
-    orientation: PropTypes.oneOf(['vertical', 'horizontal']),
-    i18nRequiredLabel: PropTypes.string,
-  };
-}
 
 export {CheckboxGroup};

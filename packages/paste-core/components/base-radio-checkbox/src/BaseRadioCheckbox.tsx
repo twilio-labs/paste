@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {TextProps} from '@twilio-paste/text';
 import {Text} from '@twilio-paste/text';
@@ -113,10 +112,6 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
   }
 );
 BaseRadioCheckboxControl.displayName = 'BaseRadioCheckboxControl';
-BaseRadioCheckboxControl.propTypes = {
-  children: PropTypes.node.isRequired,
-  disabled: PropTypes.bool,
-};
 
 export type BaseRadioCheckboxLabelProps = LabelProps & {
   children: NonNullable<React.ReactNode>;
@@ -133,9 +128,6 @@ const BaseRadioCheckboxLabel = React.forwardRef<HTMLLabelElement, BaseRadioCheck
   }
 );
 BaseRadioCheckboxLabel.displayName = 'BaseRadioCheckboxLabel';
-BaseRadioCheckboxLabel.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export interface BaseRadioCheckboxLabelTextProps extends Omit<TextProps, 'as'>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
@@ -150,10 +142,6 @@ const BaseRadioCheckboxLabelText = React.forwardRef<HTMLSpanElement, BaseRadioCh
   }
 );
 BaseRadioCheckboxLabelText.displayName = 'BaseRadioCheckboxLabelText';
-BaseRadioCheckboxLabelText.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
 
 export interface BaseRadioCheckboxHelpTextProps extends Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
@@ -171,10 +159,5 @@ const BaseRadioCheckboxHelpText = React.forwardRef<HTMLSpanElement, BaseRadioChe
   }
 );
 BaseRadioCheckboxHelpText.displayName = 'BaseRadioCheckboxHelpText';
-BaseRadioCheckboxHelpText.propTypes = {
-  children: PropTypes.node.isRequired,
-  helpTextId: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};
 
 export {BaseRadioCheckboxHelpText, BaseRadioCheckboxControl, BaseRadioCheckboxLabel, BaseRadioCheckboxLabelText};

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import type {TextProps} from '@twilio-paste/text';
 import type {HTMLPasteProps} from '@twilio-paste/types';
@@ -30,10 +29,5 @@ const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
 );
 
 Paragraph.displayName = 'Paragraph';
-
-Paragraph.propTypes = {
-  element: PropTypes.string,
-  marginBottom: PropTypes.oneOf(['space0']) as PropTypes.Validator<'space0' | null | undefined> | undefined,
-};
 
 export {Paragraph};

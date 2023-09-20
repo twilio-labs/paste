@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   fontWeight: 'inherit',
@@ -39,9 +38,7 @@ const ResetButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
 ResetButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  ResetButton.propTypes = DirectButtonPropTypes;
-}
+
 ResetButton.displayName = 'ResetButton';
 
 export {ResetButton};

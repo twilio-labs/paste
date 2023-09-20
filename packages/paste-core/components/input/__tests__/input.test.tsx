@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {fireEvent, render, screen} from '@testing-library/react';
+import {act, render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import {CustomizationProvider} from '@twilio-paste/customization';
 
@@ -107,7 +107,9 @@ describe('Input event handlers', () => {
     expect(onFocusMock).toHaveBeenCalledTimes(1);
     RenderedInput.blur();
     expect(onBlurMock).toHaveBeenCalledTimes(1);
-    userEvent.type(RenderedInput, 'foo');
+    act(() => {
+      userEvent.type(RenderedInput, 'foo');
+    });
     expect(onChangeMock).toHaveBeenCalledTimes(3);
   });
 });
@@ -224,16 +226,22 @@ describe('Number Input', () => {
   it('increase button hides when hit max', () => {
     const {getByRole} = render(<NumberInput />);
     const IncreaseButton = getByRole('button', {name: 'step value up'});
-    userEvent.click(IncreaseButton);
+    act(() => {
+      userEvent.click(IncreaseButton);
+    });
     expect(getByRole('spinbutton').value).toBe('1');
-    userEvent.click(IncreaseButton);
+    act(() => {
+      userEvent.click(IncreaseButton);
+    });
     expect(getByRole('spinbutton').value).toBe('2');
     expect(IncreaseButton).not.toBeInTheDocument();
   });
   it('decrease button hides when hit min', () => {
     const {getByRole} = render(<NumberInput />);
     const DecreaseButton = getByRole('button', {name: 'step value down'});
-    userEvent.click(DecreaseButton);
+    act(() => {
+      userEvent.click(DecreaseButton);
+    });
     expect(getByRole('spinbutton').value).toBe('-1');
     expect(DecreaseButton).not.toBeInTheDocument();
   });

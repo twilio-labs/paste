@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 import type {ResponsiveValue} from '@twilio-paste/styling-library';
@@ -32,11 +31,5 @@ const TopbarActions = React.forwardRef<HTMLDivElement, TopbarActionsProps>(
   }
 );
 TopbarActions.displayName = 'TopbarActions';
-
-TopbarActions.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  justify: PropTypes.oneOf(['start', 'end'] as Justify[]),
-};
 
 export {TopbarActions};

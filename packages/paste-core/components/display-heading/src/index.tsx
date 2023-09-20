@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import type {TextProps, TextStyleProps} from '@twilio-paste/text';
 import type {HTMLPasteProps} from '@twilio-paste/types';
@@ -68,14 +67,5 @@ const DisplayHeading = React.forwardRef<HTMLHeadingElement, DisplayHeadingProps>
 );
 
 DisplayHeading.displayName = 'DisplayHeading';
-
-DisplayHeading.propTypes = {
-  element: PropTypes.string,
-  as: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'span'] as AsTags[]).isRequired,
-  marginBottom: PropTypes.oneOf(['space0']) as PropTypes.Validator<'space0' | null | undefined> | undefined,
-  variant: PropTypes.oneOf(['displayHeading10', 'displayHeading20', 'displayHeading30'] as DisplayHeadingVariants[])
-    .isRequired,
-  display: PropTypes.string,
-};
 
 export {DisplayHeading};

@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
@@ -65,9 +64,7 @@ const InverseButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
 InverseButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  InverseButton.propTypes = DirectButtonPropTypes;
-}
+
 InverseButton.displayName = 'InverseButton';
 
 export {InverseButton};

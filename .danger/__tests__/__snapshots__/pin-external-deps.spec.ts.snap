@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`pin external dependencies check getUnPinnedExternalDepsFromPackageJSONFiles() should return an array of all the unpinned external deps across every provided package.json file 1`] = `
+Array [
+  Object {
+    "dep": "lodash",
+    "name": "mock-package",
+  },
+]
+`;
+
+exports[`pin external dependencies check getUnPinnedExternalDepsFromPackageJSONFiles() should return an array of all the unpinned external deps across every provided package.json file 2`] = `
+Array [
+  Object {
+    "dep": "csstype",
+    "name": "mock-package-2",
+  },
+  Object {
+    "dep": "lodash",
+    "name": "mock-package-2",
+  },
+]
+`;
+
+exports[`pin external dependencies check getUnPinnedExternalDepsFromPackageJSONFiles() should return an array of all the unpinned external deps across every provided package.json file 3`] = `Array []`;
+
+exports[`pin external dependencies check getUnPinnedExternalDepsFromPackageJSONFiles() should return an array of all the unpinned external deps across every provided package.json file 4`] = `
+Array [
+  Object {
+    "dep": "lodash",
+    "name": "mock-package",
+  },
+]
+`;
+
+exports[`pin external dependencies check getUnPinnedExternalDepsFromPackageJSONFiles() should return an array of all the unpinned external deps across every provided package.json file 5`] = `
+Array [
+  Object {
+    "dep": "lodash",
+    "name": "mock-package",
+  },
+  Object {
+    "dep": "csstype",
+    "name": "mock-package-2",
+  },
+  Object {
+    "dep": "lodash",
+    "name": "mock-package-2",
+  },
+]
+`;

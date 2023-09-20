@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
@@ -31,9 +30,3 @@ export const AlertDialogHeader = React.forwardRef<HTMLHeadElement, AlertDialogHe
 );
 
 AlertDialogHeader.displayName = 'AlertDialogHeader';
-
-AlertDialogHeader.propTypes = {
-  children: PropTypes.string.isRequired,
-  headingID: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};

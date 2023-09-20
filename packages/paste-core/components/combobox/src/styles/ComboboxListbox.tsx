@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -50,10 +49,5 @@ const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>
 );
 
 ComboboxListbox.displayName = 'ComboboxListbox';
-
-ComboboxListbox.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
 
 export {ComboboxListbox};

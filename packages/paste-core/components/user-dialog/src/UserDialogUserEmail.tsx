@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Text} from '@twilio-paste/text';
 
 import type {UserDialogUserTextProps} from './types';
@@ -23,8 +22,3 @@ export const UserDialogUserEmail = React.forwardRef<HTMLDivElement, UserDialogUs
   }
 );
 UserDialogUserEmail.displayName = 'UserDialogEmail';
-
-UserDialogUserEmail.propTypes = {
-  children: PropTypes.string.isRequired,
-  element: PropTypes.string,
-};

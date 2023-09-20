@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
   color: 'colorTextInverse',
@@ -49,9 +48,7 @@ const InverseLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>
 InverseLinkButton.defaultProps = {
   as: 'a',
 };
-if (process.env.NODE_ENV === 'development') {
-  InverseLinkButton.propTypes = DirectButtonPropTypes;
-}
+
 InverseLinkButton.displayName = 'InverseLinkButton';
 
 export {InverseLinkButton};

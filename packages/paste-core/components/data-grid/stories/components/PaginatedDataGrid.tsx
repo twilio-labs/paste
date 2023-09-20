@@ -75,15 +75,18 @@ const DataGridPagination: React.FC<React.PropsWithChildren<DataGridPaginationPro
   const uniqueLandmarkIdentifier = useUID();
   const goToNextPage = React.useCallback(() => {
     onPageChange(Math.min(currentPage + 1, pageCount));
-  }, [currentPage, pageCount]);
+  }, [currentPage, pageCount, onPageChange]);
 
   const goToPreviousPage = React.useCallback(() => {
     onPageChange(Math.max(currentPage - 1, 1));
-  }, [currentPage]);
+  }, [currentPage, onPageChange]);
 
-  const goToPage = React.useCallback((pageNumber: number) => {
-    onPageChange(pageNumber);
-  }, []);
+  const goToPage = React.useCallback(
+    (pageNumber: number) => {
+      onPageChange(pageNumber);
+    },
+    [onPageChange]
+  );
 
   const paginationState = calculatePaginationState(currentPage, pageCount);
 

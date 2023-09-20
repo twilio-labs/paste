@@ -16,24 +16,24 @@ describe('pin external dependencies check', () => {
   });
   describe('getUnPinnedExternalDepsFromPackageJSONFiles()', () => {
     it('should return an array of all the unpinned external deps across every provided package.json file', () => {
-      expect(getUnPinnedExternalDepsFromPackageJSONFiles(['./.danger/__fixtures__/mock_package/package.json'])).toEqual(
-        ['lodash']
-      );
+      expect(
+        getUnPinnedExternalDepsFromPackageJSONFiles(['./.danger/__fixtures__/mock_package/package.json'])
+      ).toMatchSnapshot();
 
       expect(
         getUnPinnedExternalDepsFromPackageJSONFiles(['./.danger/__fixtures__/mock_package_2/package.json'])
-      ).toEqual(['csstype', 'lodash']);
+      ).toMatchSnapshot();
 
       expect(
         getUnPinnedExternalDepsFromPackageJSONFiles(['./.danger/__fixtures__/mock_package_3/package.json'])
-      ).toEqual([]);
+      ).toMatchSnapshot();
 
       expect(
         getUnPinnedExternalDepsFromPackageJSONFiles([
           './.danger/__fixtures__/mock_package/package.json',
           './.danger/__fixtures__/mock_package_3/package.json',
         ])
-      ).toEqual(['lodash']);
+      ).toMatchSnapshot();
 
       expect(
         getUnPinnedExternalDepsFromPackageJSONFiles([
@@ -41,7 +41,7 @@ describe('pin external dependencies check', () => {
           './.danger/__fixtures__/mock_package_2/package.json',
           './.danger/__fixtures__/mock_package_3/package.json',
         ])
-      ).toEqual(['lodash', 'csstype', 'lodash']);
+      ).toMatchSnapshot();
     });
   });
 

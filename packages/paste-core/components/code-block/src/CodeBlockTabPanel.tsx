@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
 import {TabPanel} from '@twilio-paste/tabs';
 
@@ -19,8 +18,3 @@ export const CodeBlockTabPanel = React.forwardRef<HTMLDivElement, CodeBlockTabPa
 );
 
 CodeBlockTabPanel.displayName = 'CodeBlockTabPanel';
-
-CodeBlockTabPanel.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

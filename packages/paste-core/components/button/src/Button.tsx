@@ -14,7 +14,6 @@ import type {
   ButtonVariants,
   ButtonStates,
 } from './types';
-import {ButtonPropTypes} from './proptypes';
 import {PrimaryButton} from './PrimaryButton';
 import {PrimaryIconButton} from './PrimaryIconButton';
 import {SecondaryButton} from './SecondaryButton';
@@ -289,8 +288,6 @@ Button.defaultProps = {
   type: 'button',
   variant: 'primary',
 };
-
-Button.propTypes = ButtonPropTypes;
 
 Button.displayName = 'Button';
 

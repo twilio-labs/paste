@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {BoxProps} from '@twilio-paste/box';
 
 import {FieldWrapper} from './FauxInput';
@@ -68,19 +67,5 @@ const InputBox = React.forwardRef<HTMLDivElement, React.PropsWithChildren<InputB
 );
 
 InputBox.displayName = 'InputBox';
-
-InputBox.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  hasError: PropTypes.bool,
-  insertAfter: PropTypes.node,
-  insertBefore: PropTypes.node,
-  readOnly: PropTypes.bool,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date', 'time']) as any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  variant: PropTypes.oneOf(['default', 'inverse']) as any,
-};
 
 export {InputBox};

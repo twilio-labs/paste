@@ -10,5 +10,3 @@ export * from './typography';
 
 // TS types
 export * from './types';
-// PropTypes
-export * from './proptypes';

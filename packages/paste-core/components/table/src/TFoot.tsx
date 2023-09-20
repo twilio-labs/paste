@@ -4,7 +4,6 @@ import type {BoxStyleProps} from '@twilio-paste/box';
 import {styled, css} from '@twilio-paste/styling-library';
 
 import type {TFootProps} from './types';
-import {TFootPropTypes} from './proptypes';
 
 const footerCellStyles: BoxStyleProps = {
   borderBottomWidth: 'borderWidth0',
@@ -36,6 +35,5 @@ const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({element = 
 });
 
 TFoot.displayName = 'TFoot';
-TFoot.propTypes = TFootPropTypes;
 
 export {TFoot};

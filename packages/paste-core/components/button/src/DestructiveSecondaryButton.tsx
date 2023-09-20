@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles, DestructiveSecondaryToggleStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 /*
  * defensively resetting interaction color from over zealous legacy
@@ -83,9 +82,6 @@ const DestructiveSecondaryButton = React.forwardRef<HTMLButtonElement, DirectBut
 DestructiveSecondaryButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  DestructiveSecondaryButton.propTypes = DirectButtonPropTypes;
-}
 DestructiveSecondaryButton.displayName = 'DestructiveSecondaryButton';
 
 export {DestructiveSecondaryButton};

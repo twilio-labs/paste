@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import TextareaAutosize from '@twilio-paste/react-textarea-autosize-library';
 import {styled, css} from '@twilio-paste/styling-library';
 import {safelySpreadBoxProps, getCustomElementStyles} from '@twilio-paste/box';
@@ -122,19 +121,5 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
 );
 
 TextArea.displayName = 'TextArea';
-
-TextArea.propTypes = {
-  disabled: PropTypes.bool,
-  element: PropTypes.string,
-  hasError: PropTypes.bool,
-  id: PropTypes.string,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  placeholder: PropTypes.string,
-  readOnly: PropTypes.bool,
-  required: PropTypes.bool,
-};
 
 export {TextArea};

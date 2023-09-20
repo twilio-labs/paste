@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {useUID} from '@twilio-paste/uid-library';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
@@ -120,17 +119,5 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
 );
 
 RadioButton.displayName = 'RadioButton';
-
-RadioButton.propTypes = {
-  id: PropTypes.string,
-  value: PropTypes.string,
-  name: PropTypes.string,
-  checked: PropTypes.bool,
-  disabled: PropTypes.bool,
-  hasError: PropTypes.bool,
-  onChange: PropTypes.func,
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
 
 export {RadioButton};

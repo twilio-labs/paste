@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -24,7 +23,3 @@ export const CalloutText = React.forwardRef<HTMLParagraphElement, CalloutTextPro
 );
 
 CalloutText.displayName = 'CalloutText';
-CalloutText.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};

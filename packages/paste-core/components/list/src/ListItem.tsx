@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 
 import type {ListItemProps} from './types';
@@ -24,9 +23,5 @@ const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(({children, elem
 });
 
 ListItem.displayName = 'ListItem';
-
-ListItem.propTypes = {
-  element: PropTypes.string,
-};
 
 export {ListItem};

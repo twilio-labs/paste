@@ -8,13 +8,11 @@
   "peerDependencies": {
     "@twilio-paste/design-tokens": "^8.0.0",
     "@twilio-paste/styling-library": "^1.0.0",
-    "@twilio-paste/theme": "^8.0.0",
-    "prop-types": "^15.7.2"
+    "@twilio-paste/theme": "^8.0.0"
   },
   "devDependencies": {
     "@twilio-paste/design-tokens": "^8.0.0",
     "@twilio-paste/styling-library": "^1.0.2",
-    "@twilio-paste/theme": "^8.0.0",
-    "prop-types": "^15.7.2"
+    "@twilio-paste/theme": "^8.0.0"
   }
 }

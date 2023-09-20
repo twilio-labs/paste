@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {ListboxPrimitiveInitialState, ListboxPrimitiveStateReturn} from '@twilio-paste/listbox-primitive';
 import {useListboxPrimitiveState, ListboxPrimitive} from '@twilio-paste/listbox-primitive';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
@@ -32,10 +31,6 @@ export const UserDialogList = React.forwardRef<HTMLDivElement, UserDialogListPro
   );
 });
 UserDialogList.displayName = 'UserDialogList';
-
-UserDialogList.propTypes = {
-  element: PropTypes.string,
-};
 
 export const useUserDialogListState = (props?: ListboxPrimitiveInitialState): ListboxPrimitiveStateReturn => {
   return useListboxPrimitiveState({...props, orientation: 'vertical'});

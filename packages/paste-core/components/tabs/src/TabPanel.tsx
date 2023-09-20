@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {TabPrimitivePanel} from '@twilio-paste/tabs-primitive';
@@ -39,14 +38,6 @@ const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(
     );
   }
 );
-
-if (process.env.NODE_ENV === 'development') {
-  TabPanel.propTypes = {
-    element: PropTypes.string,
-    id: PropTypes.string,
-    tabId: PropTypes.string,
-  };
-}
 
 TabPanel.displayName = 'TabPanel';
 export {TabPanel};

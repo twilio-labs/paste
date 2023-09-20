@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {MenuPrimitiveItem} from '@twilio-paste/menu-primitive';
 
 import type {MenuItemProps} from './types';
@@ -16,15 +15,6 @@ const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
   }
 );
 
-export const MenuItemPropTypes = {
-  href: PropTypes.string,
-  variant: PropTypes.oneOf(Object.values(MenuItemVariants)),
-  disabled: PropTypes.bool,
-  id: PropTypes.string,
-  onClick: PropTypes.func,
-  element: PropTypes.string,
-};
-
 MenuItem.displayName = 'MenuItem';
-MenuItem.propTypes = MenuItemPropTypes;
+
 export {MenuItem};

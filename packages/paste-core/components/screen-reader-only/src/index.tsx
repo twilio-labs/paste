@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -33,12 +32,5 @@ const ScreenReaderOnly = React.forwardRef<HTMLElement, ScreenReaderOnlyProps>(
   }
 );
 ScreenReaderOnly.displayName = 'ScreenReaderOnly';
-
-if (process.env.NODE_ENV === 'development') {
-  ScreenReaderOnly.propTypes = {
-    children: PropTypes.node.isRequired,
-    id: PropTypes.string,
-  };
-}
 
 export {ScreenReaderOnly};

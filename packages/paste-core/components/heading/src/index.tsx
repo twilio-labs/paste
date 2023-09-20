@@ -3,7 +3,6 @@ import type {TextStyleProps} from '@twilio-paste/text';
 import {Text, safelySpreadTextProps} from '@twilio-paste/text';
 
 import type {HeadingVariants, HeadingProps, AsTags} from './types';
-import {HeadingPropTypes} from './PropTypes';
 
 function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space0'): TextStyleProps {
   switch (headingVariant) {
@@ -85,7 +84,5 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
 
 Heading.displayName = 'Heading';
 
-Heading.propTypes = HeadingPropTypes;
-
 export type {HeadingProps, HeadingVariants, AsTags as asTags};
-export {Heading, HeadingPropTypes};
+export {Heading};

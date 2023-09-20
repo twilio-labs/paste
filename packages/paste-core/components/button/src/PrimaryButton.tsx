@@ -5,7 +5,6 @@ import merge from 'deepmerge';
 
 import {SizeStyles, BaseStyles} from './styles';
 import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
@@ -65,9 +64,7 @@ const PrimaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
 PrimaryButton.defaultProps = {
   as: 'button',
 };
-if (process.env.NODE_ENV === 'development') {
-  PrimaryButton.propTypes = DirectButtonPropTypes;
-}
+
 PrimaryButton.displayName = 'PrimaryButton';
 
 export {PrimaryButton};

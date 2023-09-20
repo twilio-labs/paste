@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import type {BoxElementProps} from '@twilio-paste/box';
 import {CompositeItem} from '@twilio-paste/reakit-library';
 import {useMutationObservable} from '@twilio-paste/utils';
@@ -98,8 +97,3 @@ export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> 
 };
 
 DataGridCell.displayName = 'DataGridCell';
-DataGridCell.propTypes = {
-  as: PropTypes.oneOf<CellType>(['th', 'td']),
-  element: PropTypes.string,
-  colSpan: PropTypes.number,
-};

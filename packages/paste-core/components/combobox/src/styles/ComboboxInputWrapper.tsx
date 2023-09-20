@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 
 export interface ComboboxInputWrapperProps {
@@ -17,11 +16,5 @@ const ComboboxInputWrapper = React.forwardRef<HTMLDivElement, ComboboxInputWrapp
 );
 
 ComboboxInputWrapper.displayName = 'ComboboxInputWrapper';
-
-if (process.env.NODE_ENV === 'development') {
-  ComboboxInputWrapper.propTypes = {
-    children: PropTypes.node.isRequired,
-  };
-}
 
 export {ComboboxInputWrapper};

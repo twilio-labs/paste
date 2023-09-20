@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxElementProps} from '@twilio-paste/box';
 
@@ -27,8 +26,3 @@ export const ChatMessageMetaItem = React.forwardRef<HTMLDivElement, ChatMessageM
 );
 
 ChatMessageMetaItem.displayName = 'ChatMessageMetaItem';
-
-ChatMessageMetaItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};

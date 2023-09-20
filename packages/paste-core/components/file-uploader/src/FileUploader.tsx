@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {useUID} from '@twilio-paste/uid-library';
@@ -30,12 +29,3 @@ export const FileUploader = React.forwardRef<HTMLDivElement, FileUploaderProps>(
 );
 
 FileUploader.displayName = 'FileUploader';
-
-FileUploader.propTypes = {
-  children: PropTypes.node,
-  disabled: PropTypes.bool,
-  element: PropTypes.string,
-  id: PropTypes.string,
-  name: PropTypes.string.isRequired,
-  required: PropTypes.bool,
-};

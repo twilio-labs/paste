@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 
@@ -31,10 +30,3 @@ export const DetailText = React.forwardRef<HTMLDivElement, DetailTextProps>(
 );
 
 DetailText.displayName = 'DetailText';
-
-DetailText.propTypes = {
-  as: PropTypes.string as any,
-  children: PropTypes.node,
-  element: PropTypes.string,
-  marginTop: PropTypes.oneOf(['space0', 'space30']),
-};

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import type {BackgroundColor, TextColor} from '@twilio-paste/style-props';
@@ -91,10 +90,5 @@ const InputChevronWrapper = React.forwardRef<HTMLDivElement, React.PropsWithChil
 );
 
 InputChevronWrapper.displayName = 'InputChevronWrapper';
-
-InputChevronWrapper.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string.isRequired,
-};
 
 export {InputChevronWrapper, getInputChevronIconColor};

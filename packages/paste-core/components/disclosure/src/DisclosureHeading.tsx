@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {useTheme} from '@twilio-paste/theme';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Heading, HeadingPropTypes} from '@twilio-paste/heading';
+import {Heading} from '@twilio-paste/heading';
 import {ChevronDisclosureIcon} from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
 import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
 import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
@@ -198,6 +198,5 @@ const DisclosureHeading: React.FC<React.PropsWithChildren<DisclosureHeadingProps
 };
 
 DisclosureHeading.displayName = 'DisclosureHeading';
-DisclosureHeading.propTypes = HeadingPropTypes;
 
 export {DisclosureHeading};

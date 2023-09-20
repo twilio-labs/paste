@@ -5,7 +5,6 @@ import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import {PaginationLabel} from './PaginationLabel';
 import {ULStyles, LIStyles} from './styles';
 import type {PaginationNumbersProps} from './types';
-import {PaginationNumbersPropTypes} from './proptypes';
 
 const PaginationNumbers = React.forwardRef<HTMLUListElement, PaginationNumbersProps>(
   ({children, element = 'PAGINATION_NUMBERS', pageLabel, ...props}, ref) => {
@@ -53,7 +52,5 @@ const PaginationNumbers = React.forwardRef<HTMLUListElement, PaginationNumbersPr
 );
 
 PaginationNumbers.displayName = 'PaginationNumbers';
-
-PaginationNumbers.propTypes = PaginationNumbersPropTypes;
 
 export {PaginationNumbers};

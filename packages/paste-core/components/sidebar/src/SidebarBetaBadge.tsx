@@ -1,5 +1,4 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
 import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
 import type {BoxProps} from '@twilio-paste/box';
 import {badgeBaseStyles, useResizeChildIcons} from '@twilio-paste/badge';
@@ -42,10 +41,3 @@ export const SidebarBetaBadge = React.forwardRef<HTMLElement, SidebarBetaBadgePr
 );
 
 SidebarBetaBadge.displayName = 'SidebarBetaBadge';
-
-SidebarBetaBadge.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-  as: PropTypes.oneOf(['span', 'button']).isRequired,
-  onClick: PropTypes.func,
-};

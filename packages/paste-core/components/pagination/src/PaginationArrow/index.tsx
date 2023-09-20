@@ -3,7 +3,6 @@ import * as React from 'react';
 import {PaginationBackArrow} from './PaginationBackArrow';
 import {PaginationForwardArrow} from './PaginationForwardArrow';
 import type {PaginationArrowProps} from '../types';
-import {PaginationArrowPropTypes} from '../proptypes';
 import {handleLinkValidation} from '../utils';
 
 const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
@@ -105,7 +104,5 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
 );
 
 PaginationArrow.displayName = 'PaginationArrow';
-
-PaginationArrow.propTypes = PaginationArrowPropTypes;
 
 export {PaginationArrow};
