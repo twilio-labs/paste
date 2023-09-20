@@ -31,6 +31,10 @@ export type PastePackages = {
     Feature: string;
     status: string;
   }[];
+  allPastePageTemplate: {
+    Feature: string;
+    status: string;
+  }[];
 };
 
 export type Feature = {
@@ -84,7 +88,7 @@ export const getAllComponents = async (categories: string[]): Promise<Feature[]>
 };
 
 export const getNavigationData = async (): Promise<Feature[]> => {
-  return getAllComponents(['component', 'layout', 'pattern', 'primitive']);
+  return getAllComponents(['component', 'layout', 'pattern', 'primitive', 'page template']);
 };
 
 export const getFeature = async (feature: string): Promise<Feature> => {

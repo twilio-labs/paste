@@ -1,0 +1,50 @@
+export const meta = {
+  title: 'Wizard',
+  description: 'A Wizard flow guides customers through complicated tasks to reach a goal.',
+  slug: '/page-templates/wizard/',
+};
+
+import {InDevelopment} from '../../../components/empty-state/InDevelopment';
+import {SidebarCategoryRoutes} from '../../../constants';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Wizard');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<NormalizedPatternHeader
+  description={meta.description}
+  name={meta.title}
+  data={props.data}
+  categoryRoute={SidebarCategoryRoutes.PAGE_TEMPLATES}
+/>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<InDevelopment showBreadcrumb={false} />
+
+</content>
+
+</contentwrapper>

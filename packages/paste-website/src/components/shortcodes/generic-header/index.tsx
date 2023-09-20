@@ -6,6 +6,7 @@ import {Stack} from '@twilio-paste/stack';
 import {Text} from '@twilio-paste/text';
 import {Heading} from '@twilio-paste/heading';
 import {useTheme} from '@twilio-paste/theme';
+import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/breadcrumb';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 
 import {PackageStatusLegend} from '../package-status-legend';
@@ -96,7 +97,13 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
       )}
       {shouldShowBreadcrumbs && (
         <Box marginBottom="space50">
-          {isFoundations ? <>{categoryName}</> : <Anchor href={categoryRoute}>{categoryName}</Anchor>}
+          <Breadcrumb>
+            {isFoundations ? (
+              <BreadcrumbItem>{categoryName}</BreadcrumbItem>
+            ) : (
+              <BreadcrumbItem href={categoryRoute}>{categoryName}</BreadcrumbItem>
+            )}
+          </Breadcrumb>
         </Box>
       )}
       <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">

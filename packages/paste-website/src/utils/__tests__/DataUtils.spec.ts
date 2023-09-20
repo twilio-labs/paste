@@ -70,13 +70,30 @@ const mockNavData = [
     'Component Category': 'component',
     Code: 'yes',
   },
+  {
+    Feature: 'Settings',
+    status: 'production',
+    Figma: 'yes',
+    'Design committee review': 'no',
+    'Engineer committee review': 'no',
+    Documentation: true,
+    'Component Category': 'page template',
+    Code: 'not applicable',
+    'Product suitability': ['Console', 'Flex', 'SendGrid'],
+  },
 ];
 
 describe('getNormalizedNavigationData', () => {
   test('should return an empty object if the input data is empty', () => {
     const data: [] = [];
     const result = getNormalizedNavigationData(data);
-    expect(result).toEqual({allPasteComponent: [], allPasteLayout: [], allPastePrimitive: [], allPastePattern: []});
+    expect(result).toEqual({
+      allPasteComponent: [],
+      allPasteLayout: [],
+      allPastePrimitive: [],
+      allPastePattern: [],
+      allPastePageTemplate: [],
+    });
   });
 
   test('should flatten and mutate the input data correctly for allPasteComponent', () => {
@@ -114,6 +131,14 @@ describe('getNormalizedNavigationData', () => {
           slug: 'combobox-primitive',
         },
       ],
+      allPastePageTemplate: [
+        {
+          name: 'Settings',
+          packageName: '@twilio-paste/settings',
+          packageStatus: 'production',
+          slug: 'settings',
+        },
+      ],
     });
   });
 
@@ -131,6 +156,12 @@ describe('getNormalizedNavigationData', () => {
       },
     ];
     const result = getNormalizedNavigationData(data);
-    expect(result).toEqual({allPasteComponent: [], allPasteLayout: [], allPastePrimitive: [], allPastePattern: []});
+    expect(result).toEqual({
+      allPasteComponent: [],
+      allPasteLayout: [],
+      allPastePrimitive: [],
+      allPastePattern: [],
+      allPastePageTemplate: [],
+    });
   });
 });

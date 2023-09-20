@@ -1,0 +1,56 @@
+export const meta = {
+  title: 'Page templates',
+  description: 'overview page',
+  slug: '/page-templates/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Text} from '@twilio-paste/text';
+import {Separator} from '@twilio-paste/separator';
+import {SiteLink} from '../../components/SiteLink.tsx';
+import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
+import {SidebarCategoryRoutes} from '../../constants';
+import {ComponentOverviewTable} from '../../components/component-overview-table';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getAllComponents, getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const components = await getAllComponents(['page template']);
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      componentList: components,
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<Breadcrumb>
+  <BreadcrumbItem href="/">Home</BreadcrumbItem>
+</Breadcrumb>
+<Heading as="h1" variant="heading10">
+  {meta.title}
+</Heading>
+
+</content>
+
+---
+
+## What is a page template?
+
+Page templates bring a collection of [components](/components) and [patterns](/patterns) together into recommended full-page layouts to drive further cohesion across our platforms.
+
+Their purpose is more for inspiration rather than being strict spacing guidelines to align all pages. However, some templates will still have user experience guidelines to follow to create the ideal flow for customers.
+
+Paste page templates are product- and platform-agnostic, but subsystems and specific platforms may find it useful to create their own page templates for specific customer use cases.
+
+For more information about how Paste is built and where page templates fit into that hierarchy, read [About Paste](/introduction/about-paste#whats-a-design-system).
+
+<ComponentOverviewTable categoryRoute={SidebarCategoryRoutes.PAGE_TEMPLATES} componentsList={props.componentList} />
