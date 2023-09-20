@@ -41,7 +41,7 @@ describe('handlePropValidation function', () => {
           <p>This is the AspectRatio utility without a valid ratio.</p>
         </AspectRatio>
       )
-    ).toThrow(`[Paste: AspectRatio] 'ratio' is invalid. Use a colon separated number pattern (4:3).`);
+    ).toThrow(`[Paste: AspectRatio] 'ratio' is invalid. Use a colon-separated number pattern (4:3).`);
   });
 
   it('should throw no errors if passed ratio prop is valid', () => {
