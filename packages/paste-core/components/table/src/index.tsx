@@ -6,4 +6,3 @@ export {Tr} from './Tr';
 export {Td} from './Td';
 export {Th} from './Th';
 export type {TBodyProps, TFootProps, THeadProps, TableProps, TdProps, ThProps, TrProps} from './types';
-export * from './proptypes';

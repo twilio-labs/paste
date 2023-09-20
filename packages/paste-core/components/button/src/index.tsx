@@ -4,4 +4,3 @@ export {
   ToggleStyles as ButtonToggleStyles,
   DestructiveSecondaryToggleStyles as DestructiveSecondaryButtonToggleStyles,
 } from './styles';
-export * from './proptypes';

@@ -1,8 +1,0 @@
-{
-  "name": "@twilio-paste-core/progress-bar",
-  "version": "0.0.0",
-  "private": true,
-  "sideEffects": false,
-  "main": "../dist/progress-bar.js",
-  "types": "../dist/progress-bar.d.ts"
-}
