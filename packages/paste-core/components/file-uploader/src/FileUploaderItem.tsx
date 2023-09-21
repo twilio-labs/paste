@@ -12,6 +12,13 @@ import type { FileUploaderItemContextProps } from "./FileUploaderItemContext";
 
 export interface FileUploaderItemProps extends Omit<React.ComponentPropsWithRef<"li">, "children"> {
   children?: BoxProps["children"];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FILE_UPLOADER_ITEM'
+   * @type {BoxProps['element']}
+   * @memberof FileUploaderItemProps
+   */
   element?: BoxProps["element"];
   variant?: FileUploaderItemContextProps["variant"];
   fileIcon?: NonNullable<React.ReactNode>;

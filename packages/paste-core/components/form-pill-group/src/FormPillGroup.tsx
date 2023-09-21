@@ -9,6 +9,13 @@ import * as React from "react";
 export interface FormPillGroupProps
   extends Omit<CompositeProps, "unstable_virtual" | "unstable_moves" | "unstable_system" | "wrapElement" | "wrap"> {
   "aria-label": string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_PILL_GROUP'
+   * @type {BoxElementProps['element']}
+   * @memberof FormPillGroupProps
+   */
   element?: BoxElementProps["element"];
   children: React.ReactNode;
   i18nKeyboardControls?: string;

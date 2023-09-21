@@ -9,7 +9,15 @@ import { FormPillButton } from "./FormPillButton";
 import { PillCloseIcon } from "./PillCloseIcon";
 import type { PillVariant } from "./types";
 
-interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, "element"> {
+export interface FormPillProps extends CompositeStateReturn {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_PILL'
+   * @type {BoxProps['element']}
+   * @memberof FormPillProps
+   */
+  element?: BoxProps["element"];
   selected?: boolean;
   disabled?: boolean;
   children: React.ReactNode;

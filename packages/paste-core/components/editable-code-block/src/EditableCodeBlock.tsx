@@ -47,6 +47,13 @@ export interface EditableCodeBlockProps
    * If we do, we can uncomment these easily in the future since the work is already done.
    */
   // monacoOptions?: CodeEditorProps['options'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'EDITABLE_CODE_BLOCK'
+   * @type {BoxProps['element']}
+   * @memberof EditableCodeBlockProps
+   */
   element?: BoxProps["element"];
   minimap?: boolean;
   lineNumbers?: "on" | "off";

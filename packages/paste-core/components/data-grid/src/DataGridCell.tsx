@@ -15,6 +15,13 @@ import { ensureFocus, isCell, updateTabIndexForActionable } from "./utils";
 type CellType = "th" | "td";
 export interface DataGridCellProps extends Pick<TdProps, "textAlign"> {
   as?: CellType;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID_CELL'
+   * @type {BoxElementProps['element']}
+   * @memberof DataGridCellProps
+   */
   element?: BoxElementProps["element"];
   colSpan?: number;
 }

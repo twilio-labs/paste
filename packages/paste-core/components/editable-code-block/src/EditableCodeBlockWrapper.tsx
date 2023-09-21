@@ -13,6 +13,13 @@ const StyledEditableCodeBlockWrapper = styled(Box)(
 
 export interface EditableCodeBlockWrapperProps {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'EDITABLE_CODE_BLOCK_WRAPPER'
+   * @type {BoxProps['element']}
+   * @memberof EditableCodeBlockWrapperProps
+   */
   element?: BoxProps["element"];
 }
 

@@ -28,9 +28,15 @@ const containedHoverStyles: BoxStyleProps = {
   borderColor: "colorBorderWeak",
 };
 
-export interface DisclosureContentProps
-  extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps>,
-    Pick<BoxProps, "element"> {
+export interface DisclosureContentProps extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DISCLOSURE_CONTENT'
+   * @type {BoxProps['element']}
+   * @memberof DisclosureContentProps
+   */
+  element?: BoxProps["element"];
   children: NonNullable<React.ReactNode>;
 }
 

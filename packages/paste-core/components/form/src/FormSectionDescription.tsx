@@ -5,6 +5,13 @@ import * as React from "react";
 import { FormSectionContext } from "./FormSectionContext";
 
 export interface FormSectionDescriptionProps extends Omit<React.ComponentPropsWithRef<"div">, "children" | "id"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_SECTION_DESCRIPTION'
+   * @type {BoxProps['element']}
+   * @memberof FormSectionDescriptionProps
+   */
   element?: BoxProps["element"];
   children: React.ReactNode;
 }

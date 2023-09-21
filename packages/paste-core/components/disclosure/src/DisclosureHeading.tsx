@@ -157,9 +157,16 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
 StyledDisclosureHeading.displayName = "StyledDisclosureHeading";
 
 export interface DisclosureHeadingProps
-  extends Omit<DisclosurePrimitiveProps, "baseId" | "toggle" | keyof BoxStyleProps>,
-    Pick<BoxProps, "element"> {
+  extends Omit<DisclosurePrimitiveProps, "baseId" | "toggle" | keyof BoxStyleProps> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DISCLOSURE_HEADING'
+   * @type {BoxProps['element']}
+   * @memberof DisclosureHeadingProps
+   */
+  element?: BoxProps["element"];
   as: HeadingProps["as"];
   marginBottom?: HeadingProps["marginBottom"];
   variant: HeadingProps["variant"];

@@ -12,6 +12,13 @@ export interface FileUploaderDropzoneProps
     "children" | "onChange" | "onDragEnter" | "onDragLeave" | "onDrop" | "onDragStart" | "onDragEnd" | "onDragOver"
   > {
   acceptedMimeTypes: string[];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FILE_UPLOADER_DROPZONE'
+   * @type {BoxProps['element']}
+   * @memberof FileUploaderDropzoneProps
+   */
   element?: BoxProps["element"];
   children?: React.ReactNode;
   onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;

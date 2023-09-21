@@ -8,6 +8,13 @@ import { Tr } from "./table/Tr";
 export interface DataGridRowProps {
   children: NonNullable<React.ReactNode>;
   selected?: boolean;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID_ROW'
+   * @type {BoxElementProps['element']}
+   * @memberof DataGridRowProps
+   */
   element?: BoxElementProps["element"];
 }
 

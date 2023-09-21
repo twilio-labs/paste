@@ -22,6 +22,13 @@ export const StyledDescriptionListSet = styled.div(
 
 export interface DescriptionSetListProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DESCRIPTION_LIST_SET'
+   * @type {BoxProps['element']}
+   * @memberof DescriptionSetListProps
+   */
   element?: BoxProps["element"];
 }
 

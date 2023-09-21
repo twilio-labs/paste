@@ -7,9 +7,17 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-export interface FilePickerProps extends HTMLPasteProps<"input">, Pick<BoxProps, "element"> {
+export interface FilePickerProps extends HTMLPasteProps<"input"> {
   accept?: string;
   children: React.ReactElement;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FILEPICKER'
+   * @type {BoxProps['element']}
+   * @memberof FilePickerProps
+   */
+  element?: BoxProps["element"];
   disabled?: boolean;
   i18nNoSelectionText?: string;
   required?: boolean;

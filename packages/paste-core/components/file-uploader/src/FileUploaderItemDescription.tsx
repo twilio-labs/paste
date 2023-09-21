@@ -8,6 +8,13 @@ import type { FileUploaderItemContextProps } from "./FileUploaderItemContext";
 
 export interface FileUploaderItemDescriptionProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
   children: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FILE_UPLOADER_ITEM_DESCRIPTION'
+   * @type {BoxElementProps['element']}
+   * @memberof FileUploaderItemDescriptionProps
+   */
   element?: BoxElementProps["element"];
 }
 

@@ -5,6 +5,13 @@ import type { HeadingProps } from "@twilio-paste/heading";
 import * as React from "react";
 
 export interface FormSectionHeadingProps extends Omit<React.ComponentPropsWithRef<"legend">, "children"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_SECTION_HEADING'
+   * @type {BoxProps['element']}
+   * @memberof FormSectionHeadingProps
+   */
   element?: BoxProps["element"];
   children: React.ReactNode;
   variant?: HeadingProps["variant"];

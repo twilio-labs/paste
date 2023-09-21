@@ -32,6 +32,14 @@ const DataGridHeaderSortIcon: React.FC<React.PropsWithChildren<DataGridHeaderSor
 DataGridHeaderSortIcon.displayName = "DataGridHeaderSortIcon";
 
 export interface DataGridHeaderSortProps extends DataGridHeaderSortIconProps {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID_HEADER_SORT'
+   * @type {BoxProps['element']}
+   * @memberof DataGridHeaderSortProps
+   */
+  element?: BoxProps["element"];
   onClick?: () => void;
   i18nAscendingLabel?: string;
   i18nDescendingLabel?: string;

@@ -7,6 +7,13 @@ import { FileUploaderContext } from "./FileUploaderContext";
 
 export interface FileUploaderProps extends Omit<React.ComponentPropsWithRef<"div">, "children" | "onChange"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FILE_UPLOADER'
+   * @type {BoxProps['element']}
+   * @memberof FileUploaderProps
+   */
   element?: BoxProps["element"];
   disabled?: boolean;
   id?: string;

@@ -3,6 +3,13 @@ import type { BoxProps } from "@twilio-paste/box";
 import * as React from "react";
 
 export interface FormActionsProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_ACTIONS'
+   * @type {BoxProps['element']}
+   * @memberof FormActionsProps
+   */
   element?: BoxProps["element"];
   children: React.ReactNode;
 }

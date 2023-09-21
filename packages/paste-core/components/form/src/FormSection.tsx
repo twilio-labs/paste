@@ -6,6 +6,13 @@ import * as React from "react";
 import { FormSectionContext } from "./FormSectionContext";
 
 export interface FormSectionProps extends Omit<React.ComponentPropsWithRef<"fieldset">, "children"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_SECTION'
+   * @type {BoxProps['element']}
+   * @memberof FormSectionProps
+   */
   element?: BoxProps["element"];
   children: React.ReactNode;
 }

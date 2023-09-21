@@ -7,7 +7,15 @@ import * as React from "react";
 import { DisclosureContext } from "./DisclosureContext";
 import type { DisclosureStateReturn, DisclosureVariants } from "./types";
 
-export interface DisclosureProps extends DisclosurePrimitiveInitialState, Pick<BoxProps, "element"> {
+export interface DisclosureProps extends DisclosurePrimitiveInitialState {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DISCLOSURE'
+   * @type {BoxProps['element']}
+   * @memberof DisclosureProps
+   */
+  element?: BoxProps["element"];
   children: NonNullable<React.ReactNode>;
   state?: DisclosureStateReturn;
   variant?: DisclosureVariants;

@@ -1,9 +1,17 @@
 import { Box, type BoxProps, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { asTags } from "@twilio-paste/heading";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface EditableCodeBlockHeaderProps extends Partial<Omit<HTMLHeadingElement, "children">> {
+export interface EditableCodeBlockHeaderProps extends HTMLPasteProps<"h1" | "h2" | "h3" | "h4" | "h5" | "h6"> {
   children: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'EDITABLE_CODE_BLOCK_HEADER'
+   * @type {BoxProps['element']}
+   * @memberof EditableCodeBlockHeaderProps
+   */
   element?: BoxProps["element"];
   as?: asTags;
 }

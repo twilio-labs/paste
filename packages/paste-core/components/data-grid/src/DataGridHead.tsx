@@ -2,6 +2,16 @@ import { THead } from "@twilio-paste/table";
 import type { THeadProps } from "@twilio-paste/table";
 import * as React from "react";
 
+export type DataGridHeadProps = THeadProps & {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID_HEAD'
+   * @type {THeadProps['element']}
+   */
+  element?: THeadProps["element"];
+};
+
 /**
  * DataGrid head wrapper component.
  *

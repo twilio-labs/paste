@@ -1,10 +1,18 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 export interface DisplayPillGroupProps extends HTMLPasteProps<"ol"> {
   "aria-label": string;
-  element?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DISPLAY_PILL_GROUP'
+   * @type {BoxElementProps['element']}
+   * @memberof DisplayPillGroupProps
+   */
+  element?: BoxElementProps["element"];
   children: React.ReactNode;
 }
 

@@ -4,6 +4,13 @@ import * as React from "react";
 
 export interface DescriptionListDetailsProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DESCRIPTION_LIST_DETAILS'
+   * @type {BoxProps['element']}
+   * @memberof DescriptionListDetailsProps
+   */
   element?: BoxProps["element"];
 }
 
