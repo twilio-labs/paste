@@ -1,9 +1,20 @@
+**/*.ts
+**/*.tsx
+**/*.js
+**/*.jsx
+**/*.json
+**/*.jsonc
+**/*.css
+**/*.md
+**/*.mdx
+
 node_modules
 bower_components
 dist
 bin
 __testfixtures__
 
+packages/paste-design-tokens/docs
 packages/paste-icons/cjs
 packages/paste-icons/esm
 packages/paste-icons/json
