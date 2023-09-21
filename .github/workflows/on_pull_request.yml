@@ -258,8 +258,8 @@ jobs:
       - name: Run tests
         run: yarn test
 
-  prettier:
-    name: Prettier checks
+  format:
+    name: Code format checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -300,13 +300,8 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Build packages
-        run: yarn build
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-
-      - name: Run prettier
-        run: yarn prettier
+      - name: Run BiomeJS + Prettier format for their respective files
+        run: yarn format:ci
 
   chromatic:
     name: Component Visual regression tests
