@@ -17170,7 +17170,6 @@ __metadata:
     date-fns: 2.21.3
     deepmerge: 4.2.2
     dotenv: ^16.0.0
-    faiss-node: ^0.4.1
     globby-esm: "npm:globby@^13.1.3"
     highcharts: ^9.3.3
     highcharts-react-official: ^3.1.0
@@ -27522,18 +27521,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"faiss-node@npm:^0.4.1":
-  version: 0.4.1
-  resolution: "faiss-node@npm:0.4.1"
-  dependencies:
-    bindings: ^1.5.0
-    node-addon-api: ^6.0.0
-    node-gyp: latest
-    prebuild-install: ^7.1.1
-  checksum: 9e889021e4aac5d9c9e56deb78dd9712470fb4cd95273c9752d92eda06857aa97025895e895de8a177ea9696e4446ba005949f231a77ff826a46218e60dbfa4a
-  languageName: node
-  linkType: hard
-
 "falsey@npm:^0.3.2":
   version: 0.3.2
   resolution: "falsey@npm:0.3.2"
@@ -37041,7 +37028,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"node-addon-api@npm:^6.0.0, node-addon-api@npm:^6.1.0":
+"node-addon-api@npm:^6.1.0":
   version: 6.1.0
   resolution: "node-addon-api@npm:6.1.0"
   dependencies:
