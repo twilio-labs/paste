@@ -1,9 +1,9 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
 import { ProductEmailAPIIcon } from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import * as React from 'react';
 
 import { ProductSwitcher, ProductSwitcherButton, ProductSwitcherItem, useProductSwitcherState } from '../src';
 

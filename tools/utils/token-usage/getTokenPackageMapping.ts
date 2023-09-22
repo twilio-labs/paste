@@ -1,9 +1,9 @@
 import path from 'path';
 
-import camelCase from 'lodash/camelCase';
-import { fileSearch } from 'search-in-file';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import tokenJson from '@twilio-paste/design-tokens/dist/tokens.json';
+import camelCase from 'lodash/camelCase';
+import { fileSearch } from 'search-in-file';
 
 import { convertFilePathsToPackageNames } from './convertFilePathsToPackageNames';
 import type { TokenPackageMap } from './types';

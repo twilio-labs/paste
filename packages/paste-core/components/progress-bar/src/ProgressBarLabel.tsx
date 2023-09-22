@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { type BoxProps } from '@twilio-paste/box';
 import { Label } from '@twilio-paste/label';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { LABEL_SUFFIX } from './constants';
 

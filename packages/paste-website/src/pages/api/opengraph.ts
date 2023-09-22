@@ -5,6 +5,8 @@
  * https://github.com/ireade/netlify-puppeteer-screenshot-demo
  */
 
+import chromium from '@sparticuz/chromium';
+import type { NextApiRequest, NextApiResponse } from 'next';
 /*
  * Note
  * The maximum execution timeout is 10
@@ -13,8 +15,6 @@
  * or 900 seconds (Enterprise plan).
  */
 import puppeteer from 'puppeteer-core';
-import chromium from '@sparticuz/chromium';
-import type { NextApiRequest, NextApiResponse } from 'next';
 import Rollbar from 'rollbar';
 
 import { logger } from '../../functions-utils/logger';

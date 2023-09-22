@@ -1,13 +1,13 @@
-import * as React from 'react';
-import Link from 'next/link';
-import { Text } from '@twilio-paste/core/text';
 import { Box } from '@twilio-paste/core/box';
-import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/core/media-object';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/core/media-object';
 import { styled } from '@twilio-paste/core/styling-library';
+import { Text } from '@twilio-paste/core/text';
 import { useTheme } from '@twilio-paste/core/theme';
+import Link from 'next/link';
+import * as React from 'react';
 
-import { PasteIconInverse } from './PasteIconInverse';
 import { BetaBadge } from './BetaBadge';
+import { PasteIconInverse } from './PasteIconInverse';
 
 const StyledA = styled(Link)`
   text-decoration: none;

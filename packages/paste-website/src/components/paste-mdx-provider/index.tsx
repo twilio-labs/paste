@@ -1,37 +1,37 @@
-import * as React from 'react';
 import { MDXProvider } from '@mdx-js/react';
-import { styled } from '@twilio-paste/styling-library';
-import type { HTMLPasteProps } from '@twilio-paste/types';
 import { Anchor, isExternalUrl } from '@twilio-paste/anchor';
 import type { AnchorProps } from '@twilio-paste/anchor';
 import { Box } from '@twilio-paste/box';
+import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from '@twilio-paste/callout';
 import { Heading } from '@twilio-paste/heading';
 import type { HeadingProps } from '@twilio-paste/heading';
+import { InlineCode } from '@twilio-paste/inline-code';
+import { ListItem, OrderedList, UnorderedList } from '@twilio-paste/list';
 import { Paragraph } from '@twilio-paste/paragraph';
-import { OrderedList, UnorderedList, ListItem } from '@twilio-paste/list';
 import { Separator } from '@twilio-paste/separator';
 import type { SeparatorProps } from '@twilio-paste/separator';
-import { Table, THead, TBody, TFoot, Tr, Th, Td } from '@twilio-paste/table';
-import { InlineCode } from '@twilio-paste/inline-code';
-import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from '@twilio-paste/callout';
+import { styled } from '@twilio-paste/styling-library';
+import { TBody, TFoot, THead, Table, Td, Th, Tr } from '@twilio-paste/table';
+import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
+import { Do, DoDont, Dont } from '../DoDont';
+import { AnchoredHeading } from '../Heading';
+import { PropsTable } from '../PropsTables';
+import { Pre } from '../Typography';
 import type { CodeblockProps } from '../codeblock';
 import { Codeblock } from '../codeblock';
-import { AnchoredHeading } from '../Heading';
-import { Pre } from '../Typography';
-import { PropsTable } from '../PropsTables';
+import { ArticleHeader } from '../shortcodes/ArticleHeader';
+import { ArticleAside, ArticleContent } from '../shortcodes/ArticleLayouts';
+import { ChangelogRevealer } from '../shortcodes/ChangelogRevealer';
+import { PageAside } from '../shortcodes/PageAside';
+import { StoryPreview } from '../shortcodes/StoryPreview';
 // Shortcode imports
 import { GenericHeader } from '../shortcodes/generic-header';
-import { NormalizedPatternHeader } from '../shortcodes/normalized-pattern-header';
 import { LivePreview } from '../shortcodes/live-preview';
-import { TableOfContents } from '../shortcodes/table-of-contents';
-import { PageAside } from '../shortcodes/PageAside';
-import { ChangelogRevealer } from '../shortcodes/ChangelogRevealer';
-import { StoryPreview } from '../shortcodes/StoryPreview';
-import { ArticleHeader } from '../shortcodes/ArticleHeader';
-import { ArticleContent, ArticleAside } from '../shortcodes/ArticleLayouts';
 import { NormalizedComponentHeader } from '../shortcodes/normalized-component-header';
-import { DoDont, Do, Dont } from '../DoDont';
+import { NormalizedPatternHeader } from '../shortcodes/normalized-pattern-header';
+import { TableOfContents } from '../shortcodes/table-of-contents';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;

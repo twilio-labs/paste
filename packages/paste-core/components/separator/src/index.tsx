@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import type { Space } from '@twilio-paste/style-props';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 type Orientation = 'horizontal' | 'vertical';
 

@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
-import { render, fireEvent, screen } from '@testing-library/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Button } from '@twilio-paste/button';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Box } from '@twilio-paste/box';
-import { Label } from '@twilio-paste/label';
-import { Input } from '@twilio-paste/input';
+import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { Heading } from '@twilio-paste/heading';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
 import { Paragraph } from '@twilio-paste/paragraph';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from '../src';
 

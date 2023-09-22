@@ -1,11 +1,11 @@
 /* eslint-disable import/no-mutable-exports */
 import path from 'path';
 
+import { getMinimalPackageList } from '../utils/token-usage/getMinimalPackageList';
 import { getTokenPackageMapping } from '../utils/token-usage/getTokenPackageMapping';
 import { getUnusedTokenList } from '../utils/token-usage/getUnusedTokenList';
-import { getMinimalPackageList } from '../utils/token-usage/getMinimalPackageList';
-import { writeToFile } from '../utils/writeToFile';
 import type { TokenPackageMap } from '../utils/token-usage/types';
+import { writeToFile } from '../utils/writeToFile';
 
 const CACHE_FILE_PATH = path.join(__dirname, '../.cache/token-usage.json');
 

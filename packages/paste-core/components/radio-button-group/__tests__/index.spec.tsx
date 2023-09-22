@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { screen, render, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { Attached } from '../stories/index.stories';
 import { RadioButton, RadioButtonGroup } from '../src';
 import type { RadioButtonProps } from '../src';
+import { Attached } from '../stories/index.stories';
 
 describe('RadioButton', () => {
   const renderRadioButton = (props: Partial<RadioButtonProps> = {}): ReturnType<typeof render> =>

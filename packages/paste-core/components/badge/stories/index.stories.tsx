@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { Heading } from '@twilio-paste/heading';
-import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
-import { WarningIcon } from '@twilio-paste/icons/esm/WarningIcon';
-import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
 import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
 import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
+import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
 import { UsersIcon } from '@twilio-paste/icons/esm/UsersIcon';
-import { styled, css } from '@twilio-paste/styling-library';
+import { WarningIcon } from '@twilio-paste/icons/esm/WarningIcon';
+import { css, styled } from '@twilio-paste/styling-library';
+import * as React from 'react';
 
 import { Badge } from '../src';
 

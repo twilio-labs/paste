@@ -1,9 +1,9 @@
-import * as React from 'react';
 import type { BoxProps } from '@twilio-paste/box';
-import { Flex } from '@twilio-paste/flex';
 import { Box } from '@twilio-paste/box';
+import { Flex } from '@twilio-paste/flex';
 import { useTabPrimitiveState } from '@twilio-paste/tabs-primitive';
 import type { TabPrimitiveInitialState, TabPrimitiveStateReturn } from '@twilio-paste/tabs-primitive';
+import * as React from 'react';
 
 import { TabsContext } from './TabsContext';
 import type { Variants } from './types';

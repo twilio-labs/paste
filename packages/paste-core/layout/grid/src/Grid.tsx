@@ -1,9 +1,9 @@
-import * as React from 'react';
-import type { MarginProps, Space } from '@twilio-paste/style-props';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { MarginProps, Space } from '@twilio-paste/style-props';
+import * as React from 'react';
 
 import type { ColumnProps, GridProps } from './types';
-import { getOuterGutterPull, getSpacing, getResponsiveSpacing } from './utils';
+import { getOuterGutterPull, getResponsiveSpacing, getSpacing } from './utils';
 
 export const getGutterStyles = (
   gutter?: Space,

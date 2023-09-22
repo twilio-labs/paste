@@ -1,19 +1,19 @@
-import Image from 'next/image';
 import { Box } from '@twilio-paste/box';
-import { Heading } from '@twilio-paste/heading';
 import { DisplayHeading } from '@twilio-paste/display-heading';
 import { Column, Grid } from '@twilio-paste/grid';
+import { Heading } from '@twilio-paste/heading';
+import Image from 'next/image';
 
-import { LandingPageSection, LandingPageSectionContent } from './LandingPageLayoutUtils';
-import { ReasonBlock } from './ReasonBlock';
+import { DoodleLoopArrowLarge } from '../../assets/illustrations/DoodleLoopArrowLarge';
+import WhyPasteMobile from '../../assets/images/customization/why-paste-mobile.png';
+import WhyPasteImg from '../../assets/images/customization/why-paste.png';
+import { useDarkModeContext } from '../../context/DarkModeContext';
+import { useSlantedSkew } from '../SlantedBackgroundGradient';
 import { A11yIcon } from '../icons/A11yIcon';
 import { CustomizableIcon } from '../icons/CustomizableIcon';
 import { ThemableIcon } from '../icons/ThemableIcon';
-import { useSlantedSkew } from '../SlantedBackgroundGradient';
-import { DoodleLoopArrowLarge } from '../../assets/illustrations/DoodleLoopArrowLarge';
-import { useDarkModeContext } from '../../context/DarkModeContext';
-import WhyPasteMobile from '../../assets/images/customization/why-paste-mobile.png';
-import WhyPasteImg from '../../assets/images/customization/why-paste.png';
+import { LandingPageSection, LandingPageSectionContent } from './LandingPageLayoutUtils';
+import { ReasonBlock } from './ReasonBlock';
 
 const WhyPasteTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();

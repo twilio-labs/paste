@@ -1,7 +1,7 @@
-import * as React from 'react';
+import type { BoxElementProps } from '@twilio-paste/box';
 import { Heading } from '@twilio-paste/heading';
 import type { HeadingProps } from '@twilio-paste/heading';
-import type { BoxElementProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 export interface ModalHeadingProps extends Omit<HeadingProps, 'marginBottom' | 'variant' | 'as'> {
   children: NonNullable<React.ReactNode>;

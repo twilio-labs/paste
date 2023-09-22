@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Button } from '@twilio-paste/button';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import { ButtonGroup } from '../src';
 import { Unattached } from '../stories/index.stories';

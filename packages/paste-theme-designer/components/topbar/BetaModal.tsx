@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/core/uid-library';
-import { Modal, ModalHeader, ModalHeading, ModalBody } from '@twilio-paste/core/modal';
-import { AspectRatio } from '@twilio-paste/core/aspect-ratio';
-import { Paragraph } from '@twilio-paste/core/paragraph';
-import type { ModalProps } from '@twilio-paste/core/modal';
 import { Anchor } from '@twilio-paste/core/anchor';
+import { AspectRatio } from '@twilio-paste/core/aspect-ratio';
+import { Modal, ModalBody, ModalHeader, ModalHeading } from '@twilio-paste/core/modal';
+import type { ModalProps } from '@twilio-paste/core/modal';
+import { Paragraph } from '@twilio-paste/core/paragraph';
+import { useUID } from '@twilio-paste/core/uid-library';
+import * as React from 'react';
 
 export type BetaModalProps = Pick<ModalProps, 'isOpen' | 'onDismiss'>;
 

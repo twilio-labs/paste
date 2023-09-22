@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useTheme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { Stack } from '@twilio-paste/stack';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { OrderedList, UnorderedList, ListItem } from '../src';
+import { ListItem, OrderedList, UnorderedList } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

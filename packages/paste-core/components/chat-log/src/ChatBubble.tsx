@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxStyleProps, BoxElementProps } from '@twilio-paste/box';
+import type { BoxElementProps, BoxStyleProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 import { MessageVariantContext } from './MessageVariantContext';
 import type { MessageVariants } from './MessageVariantContext';

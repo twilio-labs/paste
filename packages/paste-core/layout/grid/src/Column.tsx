@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { Space } from '@twilio-paste/style-props';
+import * as React from 'react';
 
 import type { ColumnProps, ColumnStyleProps } from './types';
-import { getStackedColumns, getColumnOffset, getColumnSpan, getColumnPadding } from './utils';
+import { getColumnOffset, getColumnPadding, getColumnSpan, getStackedColumns } from './utils';
 
 export const getColumnStyles = ({
   count,

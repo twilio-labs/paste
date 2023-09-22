@@ -1,25 +1,25 @@
-import * as React from 'react';
 import {
-  styled,
-  compose,
-  layout,
-  space,
   background,
-  typography,
   border,
   boxShadow,
-  position,
+  compose,
+  createShouldForwardProp,
   flexbox,
   grid,
-  createShouldForwardProp,
+  layout,
+  position,
   props as defaultStylingProps,
+  space,
+  styled,
+  typography,
 } from '@twilio-paste/styling-library';
 import type { StyledComponent } from '@twilio-paste/styling-library';
+import * as React from 'react';
 
-import type { BoxProps, StyledBoxProps } from './types';
-import { getPseudoStyles, PasteStyleProps, getCustomElementStyles } from './StyleFunctions';
 import { customStyleProps } from './CustomStyleProps';
 import { PseudoPropStyles } from './PseudoPropStyles';
+import { PasteStyleProps, getCustomElementStyles, getPseudoStyles } from './StyleFunctions';
+import type { BoxProps, StyledBoxProps } from './types';
 
 const coreVersionNumberPlaceholder: string = '[VI]{{inject}}[/VI]';
 

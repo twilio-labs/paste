@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
+import * as React from 'react';
 
 export const CookieConsent: React.FC<{ onAccept: () => void; onReject: () => void }> = ({ onAccept, onReject }) => {
   return (

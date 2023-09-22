@@ -7,10 +7,10 @@ import groupBy from 'lodash/groupBy';
 
 import { roadmapTable } from './airtable.mjs';
 import {
-  groupPropsByExternal,
   type GroupedComponentApi,
   getPathFromPackageName,
   getTocDataFromComponentApi,
+  groupPropsByExternal,
 } from './componentApiUtils';
 
 export type Package = {

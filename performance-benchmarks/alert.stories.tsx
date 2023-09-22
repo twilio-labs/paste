@@ -1,7 +1,7 @@
-import * as React from 'react';
 import type { Story } from '@storybook/react';
 import { Alert } from '@twilio-paste/alert';
 import { Alert as EgAlert } from 'evergreen-ui';
+import * as React from 'react';
 
 export default {
   title: 'Performance/Alert',

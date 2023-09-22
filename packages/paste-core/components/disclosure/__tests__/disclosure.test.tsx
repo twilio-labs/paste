@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Theme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState } from '../src';
 import type { DisclosureHeadingProps, DisclosureProps } from '../src';

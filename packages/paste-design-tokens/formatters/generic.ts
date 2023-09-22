@@ -1,10 +1,10 @@
 import type { ImmutableStyleMap } from 'theo';
 
 import type { DesignToken, GenericDesignToken } from '../types';
-import { getTokenCategories } from '../utils/getTokenCategories';
 import { formatGroupTokensWithTemplate } from '../utils/formatGroupTokensWithTemplate';
-import { rgbToHex } from '../utils/rgbToHex';
+import { getTokenCategories } from '../utils/getTokenCategories';
 import { remToPx } from '../utils/remToPx';
+import { rgbToHex } from '../utils/rgbToHex';
 
 export const categoryTemplate = (categoryName: string, props: DesignToken[]): string => {
   const tokenPairs = props.map(({ category, ...rest }) => rest);

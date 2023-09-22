@@ -1,4 +1,3 @@
-import * as React from 'react';
 import {
   AccountSwitcher,
   AccountSwitcherBadge,
@@ -8,6 +7,7 @@ import {
   AccountSwitcherSeparator,
   useAccountSwitcherState,
 } from '@twilio-paste/account-switcher';
+import * as React from 'react';
 
 export const AccountSwitcherMenu: React.FC = () => {
   const accountSwitcher = useAccountSwitcherState();

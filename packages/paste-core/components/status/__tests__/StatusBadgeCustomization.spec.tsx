@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { makeBadge, getStyles } from '../stories/StatusBadgeCustomization.stories';
+import { getStyles, makeBadge } from '../stories/StatusBadgeCustomization.stories';
 
 const makeCustomizationWrapper = (element: string | undefined = 'STATUS_BADGE'): RenderOptions['wrapper'] =>
   function Wrapper({ children }) {

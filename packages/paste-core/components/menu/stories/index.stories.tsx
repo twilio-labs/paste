@@ -1,24 +1,24 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
-import { Stack } from '@twilio-paste/stack';
-import { Text } from '@twilio-paste/text';
-import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/media-object';
 import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
-import { ProductVoiceIcon } from '@twilio-paste/icons/esm/ProductVoiceIcon';
 import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
 import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
+import { ProductVoiceIcon } from '@twilio-paste/icons/esm/ProductVoiceIcon';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import {
   Menu,
   MenuButton,
-  SubMenuButton,
   MenuGroup,
   MenuItem,
-  MenuSeparator,
-  useMenuState,
   MenuItemCheckbox,
   MenuItemRadio,
+  MenuSeparator,
+  SubMenuButton,
+  useMenuState,
 } from '../src';
 
 const PlainMenu: React.FC<React.PropsWithChildren<unknown>> = () => {

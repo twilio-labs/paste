@@ -1,14 +1,14 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import * as React from 'react';
 import {
   DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
   DataGridBody,
   DataGridCell,
+  DataGridHead,
+  DataGridHeader,
+  DataGridRow,
 } from '@twilio-paste/data-grid';
+import * as React from 'react';
 
 import { TABLE_HEADERS } from '../constants';
 import { formatDate, formatDateTime } from '../helpers';

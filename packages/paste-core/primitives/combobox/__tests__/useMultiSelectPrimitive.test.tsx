@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { render, fireEvent, screen, act, renderHook } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { useUIDSeed } from '@twilio-paste/uid-library';
+import { act, fireEvent, render, renderHook, screen } from '@testing-library/react';
 import type { FireObject } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import type {
-  UseMultipleSelectionGetSelectedItemPropsOptions,
   UseMultipleSelectionGetDropdownProps,
+  UseMultipleSelectionGetSelectedItemPropsOptions,
 } from '@twilio-paste/dropdown-library';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { useMultiSelectPrimitive, useComboboxPrimitive } from '../src';
+import { useComboboxPrimitive, useMultiSelectPrimitive } from '../src';
 import type { UseComboboxPrimitiveProps, UseMultiSelectPrimitiveProps } from '../src';
 
 const { stateChangeTypes } = useMultiSelectPrimitive;

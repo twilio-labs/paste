@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Text, safelySpreadTextProps } from '@twilio-paste/text';
 import type { TextProps } from '@twilio-paste/text';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 export interface ParagraphProps extends HTMLPasteProps<'p'>, Pick<TextProps, 'element'> {
   id?: never;

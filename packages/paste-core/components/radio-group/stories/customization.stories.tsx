@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useUID } from '@twilio-paste/uid-library';
 import { Anchor } from '@twilio-paste/anchor';
-import { Text } from '@twilio-paste/text';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { useTheme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { Radio, RadioGroup } from '../src';
 

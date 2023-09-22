@@ -1,8 +1,8 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
 import { Label } from '@twilio-paste/label';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { GrowingInput } from '../src/multiselect/GrowingInput';
 

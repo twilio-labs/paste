@@ -1,7 +1,7 @@
 import type { BoxStyleProps } from '@twilio-paste/box';
 import merge from 'deepmerge';
 
-import type { ButtonStates, ButtonSizes } from './types';
+import type { ButtonSizes, ButtonStates } from './types';
 
 const ResetStyles: BoxStyleProps = {
   appearance: 'none',

@@ -1,17 +1,17 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
 import { Box } from '@twilio-paste/box';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
+import * as React from 'react';
 
 import { Avatar } from '../src';
 import {
-  getCorrespondingLineHeightFromSizeToken,
+  getComputedTokenNames,
   getCorrespondingFontSizeFromSizeToken,
   getCorrespondingIconSizeFromSizeToken,
-  getComputedTokenNames,
-  getInitialsFromName,
+  getCorrespondingLineHeightFromSizeToken,
   getGroupSpacing,
+  getInitialsFromName,
 } from '../src/utils';
 
 describe('Avatar', () => {

@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { secureExternalLink } from '@twilio-paste/anchor';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
+import * as React from 'react';
 
-import type { BadgeProps } from './types';
 import { useResizeChildIcons } from './hooks';
-import { badgeBaseStyles, badgeVariantStyles, badgeAnchorStyles, getBadgeButtonStyles } from './styles';
+import { badgeAnchorStyles, badgeBaseStyles, badgeVariantStyles, getBadgeButtonStyles } from './styles';
+import type { BadgeProps } from './types';
 
 export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
   ({ as, href, variant, size = 'default', children, element = 'BADGE', ...props }, ref) => {

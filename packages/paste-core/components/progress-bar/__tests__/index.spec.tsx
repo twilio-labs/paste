@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
 import { HelpText } from '@twilio-paste/help-text';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { LABEL_SUFFIX } from '../src/constants';
 import { ProgressBar, ProgressBarLabel } from '../src';
+import { LABEL_SUFFIX } from '../src/constants';
 
 describe('ProgressBar', () => {
   describe('base usage', () => {

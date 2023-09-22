@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
 import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { GrowingInput } from '../src/multiselect/GrowingInput';
 

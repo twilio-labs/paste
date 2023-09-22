@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Box, type BoxStyleProps } from '@twilio-paste/box';
 import { useRect } from '@radix-ui/react-use-rect';
+import { Box, type BoxStyleProps } from '@twilio-paste/box';
 import { useWindowSize } from '@twilio-paste/utils';
+import * as React from 'react';
 
 interface ListBoxPositionerProps {
   children: React.ReactNode;

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { UnorderedList, ListItem } from '@twilio-paste/list';
 import { Anchor } from '@twilio-paste/anchor';
+import { ListItem, UnorderedList } from '@twilio-paste/list';
+import * as React from 'react';
 
-import { Ingredients, Required, Related } from './Ingredients';
+import { Ingredients, Related, Required } from './Ingredients';
 
 const ObjectDetailsIngredients: React.FC = () => {
   return (

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { useUIDSeed } from '@twilio-paste/uid-library';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { ULStyles, LIStyles } from './styles';
+import { LIStyles, ULStyles } from './styles';
 import type { PaginationItemsProps } from './types';
 
 const PaginationItems = React.forwardRef<HTMLUListElement, PaginationItemsProps>(

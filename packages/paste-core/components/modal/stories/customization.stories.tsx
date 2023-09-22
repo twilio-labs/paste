@@ -1,12 +1,12 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useUID } from '@twilio-paste/uid-library';
+import { Button } from '@twilio-paste/button';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
-import { Button } from '@twilio-paste/button';
 import { Heading } from '@twilio-paste/heading';
 import { Paragraph } from '@twilio-paste/paragraph';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import type { ModalProps } from '../src';
 import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from '../src';

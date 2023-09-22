@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
 import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
 import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
 import { MultiselectCombobox } from '../src';
 

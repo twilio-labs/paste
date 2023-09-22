@@ -1,8 +1,8 @@
-import * as React from 'react';
 import type { BoxProps } from '@twilio-paste/box';
 import { Button, type ButtonProps } from '@twilio-paste/button';
 import { ChevronUpIcon } from '@twilio-paste/icons/esm/ChevronUpIcon';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 export interface IncrementButtonProps extends HTMLPasteProps<'button'> {
   i18nStepUpLabel?: string;

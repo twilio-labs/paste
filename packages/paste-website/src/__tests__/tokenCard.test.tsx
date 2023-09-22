@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Theme } from '@twilio-paste/theme';
 import { render, screen } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { TokenCard } from '../components/tokens-list/token-card';
 

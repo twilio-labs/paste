@@ -1,17 +1,17 @@
-import * as React from 'react';
-import type { StoryFn } from '@storybook/react';
-import { useUID } from '@twilio-paste/uid-library';
 import { action } from '@storybook/addon-actions';
+import type { StoryFn } from '@storybook/react';
 import { Anchor } from '@twilio-paste/anchor';
-import { Form, FormControl } from '@twilio-paste/form';
-import { useTheme } from '@twilio-paste/theme';
 import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Form, FormControl } from '@twilio-paste/form';
+import { HelpText } from '@twilio-paste/help-text';
 import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
 import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
 import { Stack } from '@twilio-paste/stack';
-import { CustomizationProvider } from '@twilio-paste/customization';
+import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { Input } from '../src';
 

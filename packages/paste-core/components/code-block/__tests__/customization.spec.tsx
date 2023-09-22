@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { CustomizationProvider } from '@twilio-paste/customization';
 import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import {
   CodeBlock,
-  CodeBlockWrapper,
   CodeBlockHeader,
-  CodeBlockTabList,
   CodeBlockTab,
+  CodeBlockTabList,
   CodeBlockTabPanel,
+  CodeBlockWrapper,
 } from '../src';
 
 const jsCode = `(num) => num + 1`;

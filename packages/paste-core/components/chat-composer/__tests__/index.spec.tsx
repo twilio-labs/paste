@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { screen, render, waitFor, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { $getRoot, $createParagraphNode, $createTextNode } from '@twilio-paste/lexical-library';
+import { $createParagraphNode, $createTextNode, $getRoot } from '@twilio-paste/lexical-library';
 import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { ChatComposer } from '../src';
 

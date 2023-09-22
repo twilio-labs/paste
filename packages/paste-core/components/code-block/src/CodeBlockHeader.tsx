@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import type { asTags } from '@twilio-paste/heading';
+import * as React from 'react';
 
 export interface CodeBlockHeaderProps extends Partial<Omit<HTMLHeadingElement, 'children'>> {
   children: string;

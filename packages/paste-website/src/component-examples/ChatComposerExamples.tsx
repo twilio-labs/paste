@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem } from '@twilio-paste/chat-log';
-import type { Chat } from '@twilio-paste/chat-log';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
+import { ChatBubble, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from '@twilio-paste/chat-log';
+import type { Chat } from '@twilio-paste/chat-log';
 import { SendIcon } from '@twilio-paste/icons/esm/SendIcon';
 import {
-  useLexicalComposerContext,
   CLEAR_EDITOR_COMMAND,
   COMMAND_PRIORITY_HIGH,
   KEY_ENTER_COMMAND,
+  useLexicalComposerContext,
 } from '@twilio-paste/lexical-library';
+import * as React from 'react';
 
 export const RichTextExample = `const RichTextExample = () => {
   return (

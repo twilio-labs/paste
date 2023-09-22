@@ -1,5 +1,5 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
+import * as React from 'react';
 
 import { HamburgerToggle } from '../src/components/site-wrapper/site-header/HamburgerToggle';
 

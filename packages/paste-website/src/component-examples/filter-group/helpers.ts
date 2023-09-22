@@ -1,9 +1,9 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import { format, isBefore, isAfter, add } from 'date-fns';
+import { add, format, isAfter, isBefore } from 'date-fns';
 import type { Duration } from 'date-fns';
 
-import type { RoomTypes, DateRanges, DateTimeRanges } from './types';
+import type { DateRanges, DateTimeRanges, RoomTypes } from './types';
 
 export const formatDate = (date: Date): string => format(date, 'yyyy-MM-dd');
 export const formatDateTime = (date: Date): string => format(date, "HH:mm:ss 'UTC' yyyy-MM-dd");

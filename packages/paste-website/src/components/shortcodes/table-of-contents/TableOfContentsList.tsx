@@ -1,6 +1,6 @@
+import { styled, themeGet } from '@twilio-paste/styling-library';
 import Scrollspy from 'react-scrollspy';
 import type { ScrollspyProps } from 'react-scrollspy';
-import { styled, themeGet } from '@twilio-paste/styling-library';
 
 export const TableOfContentsList: React.FC<React.PropsWithChildren<ScrollspyProps>> = styled(Scrollspy)`
   position: sticky;

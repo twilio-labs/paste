@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type { BoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 import { FieldWrapper } from './FauxInput';
+import { InputBoxContext } from './InputBoxContext';
 import { Prefix } from './Prefix';
 import { Suffix } from './Suffix';
 import type { InputBoxTypes, Variants } from './types';
-import { InputBoxContext } from './InputBoxContext';
 
 export interface InputBoxProps {
   children: NonNullable<React.ReactNode>;

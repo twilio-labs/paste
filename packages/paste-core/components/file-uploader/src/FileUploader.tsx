@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { FileUploaderContext } from './FileUploaderContext';
 

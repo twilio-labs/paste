@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxElementProps } from '@twilio-paste/box';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import * as React from 'react';
 
-import { pillStyles, hoverPillStyles } from './FormPill.styles';
+import { hoverPillStyles, pillStyles } from './FormPill.styles';
 import type { PillVariant } from './types';
 
 interface FormPillStylesProps {

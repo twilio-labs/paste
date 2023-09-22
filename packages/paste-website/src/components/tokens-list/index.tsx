@@ -1,25 +1,25 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
-import DefaultThemeTokens from '@twilio-paste/design-tokens/dist/tokens.generic';
-import DarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
-import TwilioThemeTokens from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.generic';
-import TwilioDarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.generic';
-import EvergreenThemeTokens from '@twilio-paste/design-tokens/dist/themes/evergreen/tokens.generic';
 import { useClipboard } from '@twilio-paste/clipboard-copy-library';
+import DarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
+import EvergreenThemeTokens from '@twilio-paste/design-tokens/dist/themes/evergreen/tokens.generic';
+import TwilioDarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.generic';
+import TwilioThemeTokens from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.generic';
+import DefaultThemeTokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import kebabCase from 'lodash/kebabCase';
+import * as React from 'react';
 
-import { AnchoredHeading } from '../Heading';
-import { trackTokenFilterString, filterTokenList, getTokenExampleColors, getTokenContrastPairs } from './helpers';
-import type { Tokens, TokenExampleColors } from './types';
 import type { Themes } from '../../types';
+import { SimpleStorage } from '../../utils/SimpleStorage';
+import { AnchoredHeading } from '../Heading';
 import { PageAside } from '../shortcodes/PageAside';
 import { NoTokensFound } from './NoTokensFound';
-import { TokenCard } from './token-card';
-import { TokensListFilter } from './TokensListFilter';
-import { SimpleStorage } from '../../utils/SimpleStorage';
-import { sectionIntros } from './sectionIntros';
 import { ScrollToTopLink } from './ScrollToTopLink';
+import { TokensListFilter } from './TokensListFilter';
+import { filterTokenList, getTokenContrastPairs, getTokenExampleColors, trackTokenFilterString } from './helpers';
+import { sectionIntros } from './sectionIntros';
+import { TokenCard } from './token-card';
+import type { TokenExampleColors, Tokens } from './types';
 
 const sentenceCase = (catName: string): string => {
   return catName

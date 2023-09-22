@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { Heading } from '@twilio-paste/heading';
 import { Stack } from '@twilio-paste/stack';
-import { CustomizationProvider } from '@twilio-paste/customization';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { PlainDataGrid } from './PlainDataGrid';
 

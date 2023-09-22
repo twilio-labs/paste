@@ -1,5 +1,4 @@
-import * as React from 'react';
-import kebabCase from 'lodash/kebabCase';
+import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
 import {
   SidebarNavigation,
   SidebarNavigationDisclosure,
@@ -7,19 +6,20 @@ import {
   type SidebarNavigationDisclosureContentProps,
   SidebarNavigationDisclosureHeading,
   type SidebarNavigationDisclosureHeadingProps,
-  useSidebarNavigationDisclosureState,
   SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationSeparator,
+  useSidebarNavigationDisclosureState,
 } from '@twilio-paste/sidebar';
-import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
+import kebabCase from 'lodash/kebabCase';
+import * as React from 'react';
 
 import { SidebarCategoryRoutes } from '../../../constants';
-import { alphabetizeComponents } from '../../../utils/componentFilters';
-import { getNormalizedNavigationData } from '../../../utils/DataUtils';
 import { useNavigationContext } from '../../../context/NavigationContext';
-import { SidebarAnchor } from './SidebarAnchor';
 import { event } from '../../../lib/gtag';
+import { getNormalizedNavigationData } from '../../../utils/DataUtils';
 import { useLocationPathname } from '../../../utils/RouteUtils';
+import { alphabetizeComponents } from '../../../utils/componentFilters';
+import { SidebarAnchor } from './SidebarAnchor';
 
 const CY_BASE = 'sidebar-disclosure';
 

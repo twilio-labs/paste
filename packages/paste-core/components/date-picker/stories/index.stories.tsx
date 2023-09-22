@@ -1,14 +1,14 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
 import { Anchor } from '@twilio-paste/anchor';
 import { Box } from '@twilio-paste/box';
-import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
-import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
 import { Combobox } from '@twilio-paste/combobox';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { HelpText } from '@twilio-paste/help-text';
+import { Label } from '@twilio-paste/label';
 import { Stack } from '@twilio-paste/stack';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { DatePicker, formatReturnDate } from '../src';
 import type { DatePickerProps } from '../src';

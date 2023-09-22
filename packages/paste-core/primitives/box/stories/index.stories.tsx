@@ -1,13 +1,13 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useTheme } from '@twilio-paste/theme';
-import type { ThemeShape } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { Separator } from '@twilio-paste/separator';
 import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import type { ThemeShape } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { Box } from '../src';
 import { CustomizableBoxExample } from '../__fixtures__/CustomizableBox';
+import { Box } from '../src';
 
 const demoString = `I'm some text in a box`;
 

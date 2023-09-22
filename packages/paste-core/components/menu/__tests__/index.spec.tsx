@@ -1,16 +1,16 @@
-import * as React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import * as React from 'react';
 
 import {
-  useMenuState,
   Menu,
-  MenuItem,
   MenuButton,
   MenuGroup,
-  MenuSeparator,
+  MenuItem,
   MenuItemCheckbox,
   MenuItemRadio,
+  MenuSeparator,
+  useMenuState,
 } from '../src';
 import type { MenuButtonProps } from '../src';
 

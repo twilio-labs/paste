@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { Avatar } from '@twilio-paste/avatar';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
-import { NonModalDialogPrimitive, NonModalDialogDisclosurePrimitive } from '@twilio-paste/non-modal-dialog-primitive';
 import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { NonModalDialogDisclosurePrimitive, NonModalDialogPrimitive } from '@twilio-paste/non-modal-dialog-primitive';
 import { StyledBase } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import type { UserDialogProps, UserDialogPopoverProps, UserDialogButtonProps } from './types';
 import { UserDialogContext } from './UserDialogContainer';
+import type { UserDialogButtonProps, UserDialogPopoverProps, UserDialogProps } from './types';
 
 // styled popover for UserDialog Non Modal Dialog Primitive
 const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProps>(({ style, ...props }, ref) => {

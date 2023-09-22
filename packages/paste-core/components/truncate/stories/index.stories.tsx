@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { Anchor } from '@twilio-paste/anchor';
 import { Box } from '@twilio-paste/box';
 import { Text } from '@twilio-paste/text';
-import { Anchor } from '@twilio-paste/anchor';
+import * as React from 'react';
 
 import { Truncate } from '../src';
 

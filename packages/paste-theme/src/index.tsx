@@ -1,6 +1,6 @@
-import { ThemeProvider, StyledBase } from './themeProvider';
-import type { ThemeProviderProps } from './themeProvider';
 import { ThemeConsumer } from './themeConsumer';
+import { StyledBase, ThemeProvider } from './themeProvider';
+import type { ThemeProviderProps } from './themeProvider';
 
 const Theme = {
   Provider: ThemeProvider,

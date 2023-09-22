@@ -1,23 +1,23 @@
-import * as React from 'react';
 import {
   boxShadow,
   compose,
+  createShouldForwardProp,
   display,
   overflow,
   position,
+  props as stylingProps,
   space,
   styled,
   typography,
   verticalAlign,
-  createShouldForwardProp,
-  props as stylingProps,
 } from '@twilio-paste/styling-library';
 import type { StyledComponent } from '@twilio-paste/styling-library';
+import * as React from 'react';
 
-import type { TextProps, StyledTextProps } from './types';
-import { getPseudoStyles, PasteStyleProps, getCustomElementStyles } from './StyleFunctions';
 import { customStyleProps } from './CustomStyleProps';
 import { PseudoPropStyles } from './PseudoPropStyles';
+import { PasteStyleProps, getCustomElementStyles, getPseudoStyles } from './StyleFunctions';
+import type { StyledTextProps, TextProps } from './types';
 
 const coreVersionNumberPlaceholder: string = '[VI]{{inject}}[/VI]';
 

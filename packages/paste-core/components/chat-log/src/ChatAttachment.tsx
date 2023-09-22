@@ -1,8 +1,8 @@
-import * as React from 'react';
 import type { BoxElementProps } from '@twilio-paste/box';
 import { Box } from '@twilio-paste/box';
-import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
 import { Stack } from '@twilio-paste/stack';
+import * as React from 'react';
 
 import { MessageVariantContext } from './MessageVariantContext';
 

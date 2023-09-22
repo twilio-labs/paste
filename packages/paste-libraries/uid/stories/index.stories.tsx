@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
-import { Paragraph } from '@twilio-paste/paragraph';
+import { HelpText } from '@twilio-paste/help-text';
 import { Input } from '@twilio-paste/input';
 import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
+import { Paragraph } from '@twilio-paste/paragraph';
+import * as React from 'react';
 
-import { useUID, useUIDSeed, UIDFork } from '../src';
+import { UIDFork, useUID, useUIDSeed } from '../src';
 
 const SignupForm: React.FC<React.PropsWithChildren<{ emailId: string; passwordId: string }>> = ({
   emailId,

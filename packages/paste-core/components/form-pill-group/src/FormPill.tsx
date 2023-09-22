@@ -1,13 +1,13 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { CompositeItem } from '@twilio-paste/reakit-library';
 import type { CompositeStateReturn } from '@twilio-paste/reakit-library';
+import * as React from 'react';
 
-import { PillCloseIcon } from './PillCloseIcon';
-import { FormPillButton } from './FormPillButton';
-import type { PillVariant } from './types';
 import { selectedWrapperStyles, wrapperStyles } from './FormPill.styles';
+import { FormPillButton } from './FormPillButton';
+import { PillCloseIcon } from './PillCloseIcon';
+import type { PillVariant } from './types';
 
 interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> {
   selected?: boolean;

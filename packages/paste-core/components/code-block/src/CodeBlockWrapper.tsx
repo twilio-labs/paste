@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { Tabs } from '@twilio-paste/tabs';
 import type { TabStateReturn } from '@twilio-paste/tabs';
+import * as React from 'react';
 
 export interface CodeBlockTabStateReturn extends TabStateReturn {
   [key: string]: any;

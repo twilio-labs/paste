@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
+import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
 import { Stack } from '@twilio-paste/stack';
 import { Text } from '@twilio-paste/text';
-import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
+import * as React from 'react';
 
 import { AssetStatus } from './AssetStatus';
 import { PeerReviewStatus } from './PeerReviewStatus';

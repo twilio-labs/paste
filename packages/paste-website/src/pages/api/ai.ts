@@ -1,3 +1,4 @@
+import path from 'path';
 /**
  * API endpoint for querying our doc site with ChatGPT4
  *
@@ -7,20 +8,19 @@
  *
  * Please set these in your .env file and on your deployment boxes configuration.
  */
-import {fileURLToPath} from 'url';
-import path from 'path';
+import { fileURLToPath } from 'url';
 
-import {loadQAStuffChain} from 'langchain/chains';
-import {OpenAIEmbeddings} from 'langchain/embeddings/openai';
-import {ChatOpenAI} from 'langchain/chat_models/openai';
-import {FaissStore} from 'langchain/vectorstores/faiss';
-import type {NextApiRequest, NextApiResponse} from 'next';
+import { loadQAStuffChain } from 'langchain/chains';
+import { ChatOpenAI } from 'langchain/chat_models/openai';
+import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
+import { FaissStore } from 'langchain/vectorstores/faiss';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
-  const {question, secret} = req.body;
+  const { question, secret } = req.body;
   // Exit early if the required params aren't provided
   if (!question || secret !== process.env.OPENAI_API_SECRET) {
-    res.status(200).send({answer: 'Please provide a question'});
+    res.status(200).send({ answer: 'Please provide a question' });
     return;
   }
 
@@ -63,9 +63,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       question,
     });
 
-    res.status(200).send({answer});
+    res.status(200).send({ answer });
   } catch (error) {
-    res.status(500).send({error});
+    res.status(500).send({ error });
   }
 }
 

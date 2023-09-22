@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import type { CustomTheme } from './types/CustomTheme';
 

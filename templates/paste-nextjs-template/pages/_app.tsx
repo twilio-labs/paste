@@ -1,5 +1,5 @@
-import type { AppProps, NextWebVitalsMetric } from 'next/app';
 import { Theme } from '@twilio-paste/core/theme';
+import type { AppProps, NextWebVitalsMetric } from 'next/app';
 
 const MyApp: React.FC<React.PropsWithChildren<AppProps>> = ({ Component, pageProps }) => {
   return (

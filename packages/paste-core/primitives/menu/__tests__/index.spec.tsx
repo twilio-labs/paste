@@ -1,12 +1,12 @@
+import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
 
 import {
-  useMenuPrimitiveState,
   MenuPrimitive,
-  MenuPrimitiveItem,
   MenuPrimitiveButton,
+  MenuPrimitiveItem,
   MenuPrimitiveSeparator,
+  useMenuPrimitiveState,
 } from '../src';
 import type { MenuPrimitiveButtonProps } from '../src';
 

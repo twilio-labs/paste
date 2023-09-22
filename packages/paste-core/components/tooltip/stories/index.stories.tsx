@@ -1,15 +1,15 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Anchor } from '@twilio-paste/anchor';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
 import { Stack } from '@twilio-paste/stack';
 import { Text } from '@twilio-paste/text';
 import { Theme, useTheme } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { useTooltipState, Tooltip } from '../src';
+import { Tooltip, useTooltipState } from '../src';
 
 export const StateHookExample = (): JSX.Element => {
   const tooltip = useTooltipState();

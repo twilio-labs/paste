@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { render } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { DisplayPillGroup, DisplayPill } from '../src';
-import { Basic } from '../stories/index.stories';
+import { DisplayPill, DisplayPillGroup } from '../src';
 import { CustomDisplayPillGroup } from '../stories/customization.stories';
+import { Basic } from '../stories/index.stories';
 
 describe('DisplayPillGroup', () => {
   // Verifies that the correct aria attributes and semantics are met

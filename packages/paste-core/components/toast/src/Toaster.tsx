@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { useTransition, animated, useReducedMotion } from '@twilio-paste/animation-library';
-import { useTheme } from '@twilio-paste/theme';
+import { animated, useReducedMotion, useTransition } from '@twilio-paste/animation-library';
 import { Box } from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Toast } from './Toast';
 import { ToastPortal } from './ToastPortal';

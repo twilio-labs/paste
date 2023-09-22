@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
-import shell from 'shelljs';
 import chalk from 'chalk';
+import shell from 'shelljs';
 
 export async function removeYarnLockfile(): Promise<void> {
   // eslint-disable-next-line no-console

@@ -1,4 +1,4 @@
-import { getPseudoStyles, getCustomElementStyles } from '../src/StyleFunctions';
+import { getCustomElementStyles, getPseudoStyles } from '../src/StyleFunctions';
 
 describe('Text StyleFunctions', () => {
   /*

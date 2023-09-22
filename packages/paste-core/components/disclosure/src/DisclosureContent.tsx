@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { useSpring, animated } from '@twilio-paste/animation-library';
+import { animated, useSpring } from '@twilio-paste/animation-library';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { DisclosurePrimitiveContent } from '@twilio-paste/disclosure-primitive';
 import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import { DisclosurePrimitiveContent } from '@twilio-paste/disclosure-primitive';
 import type { DisclosurePrimitiveContentProps } from '@twilio-paste/disclosure-primitive';
+import * as React from 'react';
 
 import { DisclosureContext } from './DisclosureContext';
 

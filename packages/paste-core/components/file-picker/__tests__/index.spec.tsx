@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { fireEvent, render, screen } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
 import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { Default, Disabled, Required, Customized } from '../stories/index.stories';
+import { Customized, Default, Disabled, Required } from '../stories/index.stories';
 
 const ThemeWrapper: RenderOptions['wrapper'] = ({ children }) => (
   <Theme.Provider theme="default">{children}</Theme.Provider>

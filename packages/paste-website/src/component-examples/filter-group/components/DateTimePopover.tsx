@@ -1,18 +1,18 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import * as React from 'react';
 import { ErrorMessage } from '@hookform/error-message';
-import { useUID } from '@twilio-paste/uid-library';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import { DatePicker } from '@twilio-paste/date-picker';
 import { Heading } from '@twilio-paste/heading';
 import { HelpText } from '@twilio-paste/help-text';
+import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
 import { Label } from '@twilio-paste/label';
-import { PopoverContainer, Popover, PopoverButton, usePopoverState } from '@twilio-paste/popover';
+import { Popover, PopoverButton, PopoverContainer, usePopoverState } from '@twilio-paste/popover';
 import { Text } from '@twilio-paste/text';
 import { TimePicker } from '@twilio-paste/time-picker';
-import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import type { DateTimePopoverProps } from '../types';
 

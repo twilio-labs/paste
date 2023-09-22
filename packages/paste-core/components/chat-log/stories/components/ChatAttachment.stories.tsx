@@ -1,17 +1,17 @@
-import * as React from 'react';
+import type { StoryFn } from '@storybook/react';
+import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
 import { Spinner } from '@twilio-paste/spinner';
 import { Stack } from '@twilio-paste/stack';
-import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
-import type { StoryFn } from '@storybook/react';
+import * as React from 'react';
 
 import {
+  ChatAttachment,
+  ChatAttachmentDescription,
+  ChatAttachmentLink,
+  ChatBubble,
   ChatLog,
   ChatMessage,
-  ChatBubble,
-  ChatAttachment,
   ComposerAttachmentCard,
-  ChatAttachmentLink,
-  ChatAttachmentDescription,
 } from '../../src';
 
 // eslint-disable-next-line import/no-default-export

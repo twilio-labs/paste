@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 import { SITE_TOPBAR_HEIGHT } from '../../constants';
-import { TableOfContents } from './table-of-contents';
 import { FeedbackPopover } from './feedback-popover';
+import { TableOfContents } from './table-of-contents';
 
 type ToCHeading = {
   value: string;

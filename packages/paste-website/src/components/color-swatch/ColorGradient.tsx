@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { styled, themeGet } from '@twilio-paste/styling-library';
-import DefaultRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.raw.json';
-import DarkRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.raw.json';
 import { Box } from '@twilio-paste/box';
+import DarkRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.raw.json';
+import DefaultRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.raw.json';
+import { styled, themeGet } from '@twilio-paste/styling-library';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { useDarkModeContext } from '../../context/DarkModeContext';
 import type { Themes } from '../../types';

@@ -1,14 +1,14 @@
-import type { ResponsiveValue } from '@twilio-paste/styling-library';
 import type { Margin, Padding, Space, SpaceOptions } from '@twilio-paste/style-props';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
 
 import type {
+  ColumnMinWidth,
   ColumnOffset,
   ColumnOffsetOptions,
+  ColumnPadding,
   ColumnProps,
   ColumnSpanOptions,
-  ColumnMinWidth,
   ColumnWidthSpan,
-  ColumnPadding,
 } from './types';
 
 type Vertical = ResponsiveValue<boolean>;

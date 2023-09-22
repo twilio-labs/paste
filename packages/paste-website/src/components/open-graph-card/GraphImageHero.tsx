@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/media-object';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
 import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
 import { Logo } from '../../assets/Logo';
 import type { PackageData } from './types';

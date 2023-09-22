@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
 import { Anchor } from '@twilio-paste/anchor';
 import { Text } from '@twilio-paste/text';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { Switch, SwitchGroup } from '../src';
 

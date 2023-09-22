@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Box, safelySpreadBoxProps, type BoxProps, type BoxStyleProps } from '@twilio-paste/box';
-import { Label } from '@twilio-paste/label';
+import { Box, type BoxProps, type BoxStyleProps, safelySpreadBoxProps } from '@twilio-paste/box';
 import { HelpText } from '@twilio-paste/help-text';
+import { Label } from '@twilio-paste/label';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 export interface InlineControlGroupProps
   extends Pick<BoxProps, 'element'>,

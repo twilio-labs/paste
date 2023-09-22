@@ -1,25 +1,25 @@
-import * as React from 'react';
-import { Button } from '@twilio-paste/button';
-import { Box } from '@twilio-paste/box';
-import { useTheme } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
 import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { useTheme } from '@twilio-paste/theme';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import {
   Sidebar,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
-  SidebarCollapseButton,
-  SidebarFooter,
-  SidebarPushContentWrapper,
-  SidebarOverlayContentWrapper,
   SidebarBetaBadge,
   SidebarBody,
+  SidebarCollapseButton,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
   SidebarNavigation,
+  SidebarOverlayContentWrapper,
+  SidebarPushContentWrapper,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

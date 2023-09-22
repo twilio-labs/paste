@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { render } from '@testing-library/react';
 import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { usePasteHighchartsTheme } from '../src';
 import { lineChartOptions } from '../stories/options/lineChartOptions';

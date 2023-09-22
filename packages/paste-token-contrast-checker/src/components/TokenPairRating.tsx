@@ -1,13 +1,13 @@
-import * as React from 'react';
-import type { BackgroundColorOptions, BorderColorOptions, TextColorOptions } from '@twilio-paste/core/style-props';
-import { useUIDSeed } from '@twilio-paste/core/uid-library';
 import { Box } from '@twilio-paste/core/box';
-import { Truncate } from '@twilio-paste/core/truncate';
 import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/core/media-object';
-import { SuccessIcon } from '@twilio-paste/icons/cjs/SuccessIcon';
+import type { BackgroundColorOptions, BorderColorOptions, TextColorOptions } from '@twilio-paste/core/style-props';
+import { Truncate } from '@twilio-paste/core/truncate';
+import { useUIDSeed } from '@twilio-paste/core/uid-library';
 import { ErrorIcon } from '@twilio-paste/icons/cjs/ErrorIcon';
 import { InformationIcon } from '@twilio-paste/icons/cjs/InformationIcon';
+import { SuccessIcon } from '@twilio-paste/icons/cjs/SuccessIcon';
 import camelCase from 'lodash/camelCase';
+import * as React from 'react';
 
 interface ContrastRatioProps {
   ratio: number;

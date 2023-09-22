@@ -1,15 +1,15 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import type { ThemeShape } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { BoxExample } from './BoxExample';
-import { TextExample } from './TextExample';
+import type { TokenExampleProps } from '../../types';
 import { BorderExample } from './BorderExample';
+import { BoxExample } from './BoxExample';
+import { IconSizeExample } from './IconSizeExample';
 import { LineHeightExample } from './LineHeightExample';
 import { SpacingExample } from './SpacingExample';
 import { TextColorExample } from './TextColorExample';
-import { IconSizeExample } from './IconSizeExample';
-import type { TokenExampleProps } from '../../types';
+import { TextExample } from './TextExample';
 
 export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> = ({
   category,

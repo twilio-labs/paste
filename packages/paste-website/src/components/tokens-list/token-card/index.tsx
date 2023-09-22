@@ -1,16 +1,16 @@
-import * as React from 'react';
-import camelCase from 'lodash/camelCase';
 import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
 import { Button } from '@twilio-paste/button';
-import { Tooltip, useTooltipState } from '@twilio-paste/tooltip';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { CopyIcon } from '@twilio-paste/icons/esm/CopyIcon';
-import { styled, css } from '@twilio-paste/styling-library';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { css, styled } from '@twilio-paste/styling-library';
+import { Text } from '@twilio-paste/text';
+import { Tooltip, useTooltipState } from '@twilio-paste/tooltip';
+import camelCase from 'lodash/camelCase';
+import * as React from 'react';
 
-import { TokenExample } from './token-example';
 import type { TokenCardProps } from '../types';
 import { AccessiblePairing } from './AccessiblePairing';
+import { TokenExample } from './token-example';
 
 const TokenCardContent = styled.dl(
   css({

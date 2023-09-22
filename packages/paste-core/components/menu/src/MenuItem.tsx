@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { MenuPrimitiveItem } from '@twilio-paste/menu-primitive';
+import * as React from 'react';
 
-import type { MenuItemProps } from './types';
 import { MenuGroupContext } from './MenuGroup';
-import { MenuItemVariants } from './constants';
 import { StyledMenuItem, getComputedVariant } from './MenuItem.styles';
+import { MenuItemVariants } from './constants';
+import type { MenuItemProps } from './types';
 
 const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
   ({ as = StyledMenuItem, variant: _variant, element = 'MENU_ITEM', ...props }, ref) => {

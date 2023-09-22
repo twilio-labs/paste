@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { badgeBaseStyles, badgeVariantStyles } from '@twilio-paste/badge';
 import type { BadgeBaseProps, BadgeSpanProps } from '@twilio-paste/badge';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 import { StatusObject } from './constants';
 import type { StatusBadgeVariants } from './types';

@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { ThemeContext } from '@twilio-paste/styling-library';
+import * as React from 'react';
 
 import type { ThemeShape } from './types/themes';
 

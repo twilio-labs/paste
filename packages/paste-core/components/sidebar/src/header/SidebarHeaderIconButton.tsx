@@ -1,7 +1,7 @@
-import * as React from 'react';
+import type { BoxProps } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import type { ButtonProps } from '@twilio-paste/button';
-import type { BoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 export interface SidebarHeaderIconButtonProps extends Omit<ButtonProps, 'size' | 'variant'> {
   children: NonNullable<React.ReactNode>;

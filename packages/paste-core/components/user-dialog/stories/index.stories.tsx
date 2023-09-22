@@ -1,27 +1,27 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
-import { ThemeIcon } from '@twilio-paste/icons/esm/ThemeIcon';
-import { TranslationIcon } from '@twilio-paste/icons/esm/TranslationIcon';
-import { Button } from '@twilio-paste/button';
-import { Box } from '@twilio-paste/box';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
-import { useUID } from '@twilio-paste/uid-library';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Badge } from '@twilio-paste/badge';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { ThemeIcon } from '@twilio-paste/icons/esm/ThemeIcon';
+import { TranslationIcon } from '@twilio-paste/icons/esm/TranslationIcon';
+import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import {
-  useUserDialogState,
   UserDialog,
-  UserDialogUserInfo,
-  UserDialogUserName,
-  UserDialogUserEmail,
   UserDialogContainer,
   UserDialogList,
   UserDialogListItem,
-  useUserDialogListState,
   UserDialogSeparator,
+  UserDialogUserEmail,
+  UserDialogUserInfo,
+  UserDialogUserName,
+  useUserDialogListState,
+  useUserDialogState,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

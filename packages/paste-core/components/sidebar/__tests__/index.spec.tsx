@@ -1,20 +1,20 @@
-import * as React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Box } from '@twilio-paste/box';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import {
   Sidebar,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
+  SidebarBetaBadge,
   SidebarCollapseButton,
   SidebarFooter,
-  SidebarPushContentWrapper,
+  SidebarHeader,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
   SidebarOverlayContentWrapper,
-  SidebarBetaBadge,
+  SidebarPushContentWrapper,
 } from '../src';
 import type { SidebarProps } from '../src';
 

@@ -1,6 +1,6 @@
-import type { SizingData } from './getSizingData';
 import { forceHiddenStyles } from './forceHiddenStyles';
 import { getHeight } from './getHeight';
+import type { SizingData } from './getSizingData';
 
 /*
  * TODO: use labelled tuples once they are avaiable:

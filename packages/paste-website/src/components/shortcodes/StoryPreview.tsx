@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import { CodeBlock, CodeBlockWrapper } from '@twilio-paste/code-block';
+import * as React from 'react';
 
 export interface StoryPreviewProps {
   storyID: string;

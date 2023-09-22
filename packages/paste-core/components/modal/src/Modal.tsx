@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { css, styled } from '@twilio-paste/styling-library';
-import { useTransition, animated } from '@twilio-paste/animation-library';
-import { safelySpreadBoxProps, Box, getCustomElementStyles } from '@twilio-paste/box';
+import { animated, useTransition } from '@twilio-paste/animation-library';
+import { Box, getCustomElementStyles, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxElementProps } from '@twilio-paste/box';
+import { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay } from '@twilio-paste/modal-dialog-primitive';
+import { css, styled } from '@twilio-paste/styling-library';
 import { pasteBaseStyles } from '@twilio-paste/theme';
-import { ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent } from '@twilio-paste/modal-dialog-primitive';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { ModalContext } from './ModalContext';
 

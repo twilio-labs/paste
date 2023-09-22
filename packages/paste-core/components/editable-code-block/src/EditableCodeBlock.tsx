@@ -1,18 +1,18 @@
-import * as React from 'react';
 import { Box, type BoxProps } from '@twilio-paste/box';
-import { useTheme } from '@twilio-paste/theme';
 import {
   CodeEditor,
   CodeEditorPasteTheme,
   type CodeEditorProps,
   type Editor,
-  type Monaco,
-  type IRange,
   type IMarkdownString,
+  type IRange,
+  type Monaco,
 } from '@twilio-paste/code-editor-library';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { Spinner } from '@twilio-paste/spinner';
 import { StylingGlobals } from '@twilio-paste/styling-library';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 const EditableCodeblockLoadingMessage: React.FC<{ i18nLoadingLabel: string }> = ({ i18nLoadingLabel }) => (
   <>

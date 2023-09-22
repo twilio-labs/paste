@@ -1,22 +1,22 @@
-import * as React from 'react';
-import Image from 'next/image';
-import { useTheme } from '@twilio-paste/theme';
+import { Anchor } from '@twilio-paste/anchor';
 import { AspectRatio } from '@twilio-paste/aspect-ratio';
 import { Box } from '@twilio-paste/box';
-import { Anchor } from '@twilio-paste/anchor';
 import { DisplayHeading } from '@twilio-paste/display-heading';
 import { Paragraph } from '@twilio-paste/paragraph';
+import { useTheme } from '@twilio-paste/theme';
 import { useWindowSize } from '@twilio-paste/utils';
+import Image from 'next/image';
+import * as React from 'react';
 
 import { DoodleArrow } from '../../assets/illustrations/DoodleArrow';
-import { DoodleZigzag } from '../../assets/illustrations/DoodleZigzag';
 import { DoodleCloud } from '../../assets/illustrations/DoodleCloud';
 import { DoodleLoopLarge } from '../../assets/illustrations/DoodleLoopLarge';
-import { SlantedBackgroundGradient } from '../SlantedBackgroundGradient';
-import { ExperimentMobileButton } from './ExperimentMobileButton';
+import { DoodleZigzag } from '../../assets/illustrations/DoodleZigzag';
+import CodesandboxMobile from '../../assets/images/home/codesandbox-mobile.png';
 import { SITE_CONTENT_MAX_WIDTH } from '../../constants';
 import { event } from '../../lib/gtag';
-import CodesandboxMobile from '../../assets/images/home/codesandbox-mobile.png';
+import { SlantedBackgroundGradient } from '../SlantedBackgroundGradient';
+import { ExperimentMobileButton } from './ExperimentMobileButton';
 
 interface ExperimentProps {
   showIframe: boolean;

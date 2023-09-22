@@ -1,17 +1,17 @@
-import * as React from 'react';
-import { fireEvent, act, render, screen } from '@testing-library/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import {
   SideModal,
-  SideModalButton,
-  SideModalHeader,
-  SideModalHeading,
-  SideModalContainer,
   SideModalBody,
+  SideModalButton,
+  SideModalContainer,
   SideModalFooter,
   SideModalFooterActions,
+  SideModalHeader,
+  SideModalHeading,
 } from '../src';
 
 const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (

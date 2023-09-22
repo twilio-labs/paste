@@ -1,25 +1,25 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import * as React from 'react';
-import { useForm, useFormState } from 'react-hook-form';
-import isEqual from 'lodash/isEqual';
-import { useUID } from '@twilio-paste/uid-library';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
-import { Input } from '@twilio-paste/input';
-import { Label } from '@twilio-paste/label';
-import { Select, Option } from '@twilio-paste/select';
-import { Separator } from '@twilio-paste/separator';
+import { ExportIcon } from '@twilio-paste/icons/esm/ExportIcon';
 import { FilterIcon } from '@twilio-paste/icons/esm/FilterIcon';
 import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
-import { ExportIcon } from '@twilio-paste/icons/esm/ExportIcon';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { Option, Select } from '@twilio-paste/select';
+import { Separator } from '@twilio-paste/separator';
+import { useUID } from '@twilio-paste/uid-library';
+import isEqual from 'lodash/isEqual';
+import * as React from 'react';
+import { useForm, useFormState } from 'react-hook-form';
 
-import { DATE_TIME_RANGES, ROOM_TYPES, FORM_DEFAULT_VALUES } from '../constants';
-import type { FilterGroupDateTimeProps, DateTimeFormValues } from '../types';
+import { DATE_TIME_RANGES, FORM_DEFAULT_VALUES, ROOM_TYPES } from '../constants';
 import { filterByDateTimeRange, filterByRoomType, filterBySearchString, isEndDateBeforeStartDate } from '../helpers';
-import { SampleDataGrid } from './SampleDataGrid';
-import { EmptyState } from './EmptyState';
+import type { DateTimeFormValues, FilterGroupDateTimeProps } from '../types';
 import { DateTimePopover } from './DateTimePopover';
+import { EmptyState } from './EmptyState';
+import { SampleDataGrid } from './SampleDataGrid';
 
 // Note: update the codesandboxes if update this
 export const CustomDateFilterGroup: React.FC<React.PropsWithChildren<FilterGroupDateTimeProps>> = ({ data }) => {

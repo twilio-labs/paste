@@ -1,10 +1,10 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { Heading } from '@twilio-paste/heading';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { Stack } from '@twilio-paste/stack';
-import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Card } from '../src';
 

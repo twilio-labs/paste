@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps, BoxElementProps } from '@twilio-paste/box';
 import { Anchor } from '@twilio-paste/anchor';
 import type { AnchorProps } from '@twilio-paste/anchor';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxElementProps, BoxProps } from '@twilio-paste/box';
 import { Text, safelySpreadTextProps } from '@twilio-paste/text';
-import { useUIDSeed } from '@twilio-paste/uid-library';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 const BreadcrumbSeparator: React.FC<React.PropsWithChildren<{ element: BoxElementProps['element'] }>> = ({
   element,

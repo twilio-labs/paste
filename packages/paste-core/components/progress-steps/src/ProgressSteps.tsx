@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
-import type { Orientation } from './types';
 import { ProgressStepsContext } from './ProgressStepsContext';
+import type { Orientation } from './types';
 
 const VerticalStyles: BoxProps = {
   flexDirection: 'column',

@@ -1,14 +1,14 @@
-import * as React from 'react';
-import type { StoryFn } from '@storybook/react';
 import { action } from '@storybook/addon-actions';
+import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
-import { Stack } from '@twilio-paste/stack';
-import { Heading } from '@twilio-paste/heading';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Heading } from '@twilio-paste/heading';
+import { Stack } from '@twilio-paste/stack';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Anchor } from '../src';
-import type { AnchorTargets, AnchorTabIndexes } from '../src/types';
+import type { AnchorTabIndexes, AnchorTargets } from '../src/types';
 
 // eslint-disable-next-line import/no-default-export
 export default {

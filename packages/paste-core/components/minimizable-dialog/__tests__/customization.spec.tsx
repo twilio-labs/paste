@@ -1,13 +1,13 @@
-import * as React from 'react';
 import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import {
   MinimizableDialog,
   MinimizableDialogButton,
-  MinimizableDialogHeader,
   MinimizableDialogContainer,
   MinimizableDialogContent,
+  MinimizableDialogHeader,
 } from '../src';
 
 const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (

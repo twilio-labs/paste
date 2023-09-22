@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
 import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
+import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
 interface PeerReviewStatusProps {
   designStatus?: string;

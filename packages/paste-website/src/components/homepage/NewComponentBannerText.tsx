@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
 const NewComponentBannerText: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (

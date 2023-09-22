@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { CustomizationProvider } from '@twilio-paste/customization';
 import { render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { PlainDataGrid } from '../stories/components/PlainDataGrid';
 import { customElementStyles } from '../stories/components/CustomizableDataGrid';
+import { PlainDataGrid } from '../stories/components/PlainDataGrid';
 
 describe('Data Grid Customization', () => {
   it('can be customized generically', () => {

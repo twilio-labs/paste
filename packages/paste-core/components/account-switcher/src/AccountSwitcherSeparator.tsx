@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { MenuSeparator } from '@twilio-paste/menu';
 import type { MenuSeparatorProps } from '@twilio-paste/menu';
+import * as React from 'react';
 
 export type AccountSwitcherSeparatorProps = MenuSeparatorProps;
 

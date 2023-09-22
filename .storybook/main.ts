@@ -1,7 +1,7 @@
+import path from 'path';
 import type { StorybookConfig } from '@storybook/react-vite';
 import { mergeConfig } from 'vite';
 import turbosnap from 'vite-plugin-turbosnap';
-import path from 'path';
 const config: StorybookConfig = {
   stories: [
     '../packages/**/*.stories.@(js|jsx|ts|tsx|mdx)',

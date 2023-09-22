@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { useUIDSeed } from '@twilio-paste/uid-library';
-import type { ResponsiveValue } from '@twilio-paste/styling-library';
-import type { LayoutProps, FlexboxProps, MarginProps, SpaceOptions } from '@twilio-paste/style-props';
 import type { BoxElementProps } from '@twilio-paste/box';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { FlexboxProps, LayoutProps, MarginProps, SpaceOptions } from '@twilio-paste/style-props';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 type StackChildMargins = Pick<MarginProps, 'marginRight' | 'marginBottom'>;
 type DisplayOptions = 'block' | 'flex';

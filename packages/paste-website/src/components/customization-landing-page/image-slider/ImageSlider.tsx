@@ -1,15 +1,15 @@
-import * as React from 'react';
-import type { MutableRefObject, LegacyRef } from 'react';
 import { Box } from '@twilio-paste/box';
 import { useUIDSeed } from '@twilio-paste/uid-library';
 import Image from 'next/image';
+import * as React from 'react';
+import type { LegacyRef, MutableRefObject } from 'react';
 
-import { SVGThumb } from './SVGThumb';
-import { DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE } from './constants';
-import { convertPositionToInputValue, clampValueToRange } from './utils';
-import { useSvgResize } from './useSvgResize';
 import HeroBack from '../../../assets/images/customization/hero-back.png';
 import HeroFront from '../../../assets/images/customization/hero-front.png';
+import { SVGThumb } from './SVGThumb';
+import { DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE } from './constants';
+import { useSvgResize } from './useSvgResize';
+import { clampValueToRange, convertPositionToInputValue } from './utils';
 
 const INPUT_ID = 'input-range-id';
 const CLIP_PATH_ID = 'clip-path-id';

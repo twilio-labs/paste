@@ -1,16 +1,16 @@
-import * as React from 'react';
-import { useTheme } from '@twilio-paste/theme';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { Heading } from '@twilio-paste/heading';
-import { ChevronDisclosureIcon } from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
-import { DisclosurePrimitive } from '@twilio-paste/disclosure-primitive';
 import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
-import type { HeadingProps } from '@twilio-paste/heading';
+import { DisclosurePrimitive } from '@twilio-paste/disclosure-primitive';
 import type { DisclosurePrimitiveProps } from '@twilio-paste/disclosure-primitive';
+import { Heading } from '@twilio-paste/heading';
+import type { HeadingProps } from '@twilio-paste/heading';
+import { ChevronDisclosureIcon } from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { DisclosureContext } from './DisclosureContext';
-import type { DisclosureVariants } from './types';
 import { IconSizeFromHeading } from './constants';
+import type { DisclosureVariants } from './types';
 
 const baseContainedStyles: BoxStyleProps = {
   borderWidth: 'borderWidth10',

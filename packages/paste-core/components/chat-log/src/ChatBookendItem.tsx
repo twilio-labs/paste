@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxElementProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 export interface ChatBookendItemProps {
   children?: React.ReactNode;

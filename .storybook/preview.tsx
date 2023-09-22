@@ -1,13 +1,13 @@
-import React from 'react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import isChromatic from 'chromatic';
+import { Box } from '@twilio-paste/box';
+import { Column, Grid } from '@twilio-paste/grid';
+import { Stack } from '@twilio-paste/stack';
 import { StylingGlobals } from '@twilio-paste/styling-library';
 import { Theme } from '@twilio-paste/theme';
-import { Box } from '@twilio-paste/box';
-import { Stack } from '@twilio-paste/stack';
-import { Grid, Column } from '@twilio-paste/grid';
-import { RenderPerformanceProfiler } from './RenderPerformanceProfiler';
+import isChromatic from 'chromatic';
+import React from 'react';
 import { SITE_BREAKPOINTS } from '../packages/paste-website/src/constants';
+import { RenderPerformanceProfiler } from './RenderPerformanceProfiler';
 
 // disable animations in test environments
 const isTestEnvironment = isChromatic() || process.env.NODE_ENV === 'test';

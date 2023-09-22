@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import { styled } from '@twilio-paste/styling-library';
+import * as React from 'react';
 
 export interface AspectRatioProps {
   /**

@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Badge } from '@twilio-paste/badge';
 import { NonModalDialogDisclosurePrimitive } from '@twilio-paste/non-modal-dialog-primitive';
+import * as React from 'react';
 
-import type { PopoverBadgeButtonProps, ButtonBadgeProps } from './types';
 import { PopoverContext } from './PopoverContext';
+import type { ButtonBadgeProps, PopoverBadgeButtonProps } from './types';
 
 const ButtonBadge = React.forwardRef<HTMLButtonElement, ButtonBadgeProps>(function ButtonBadge(
   { children, ...props },

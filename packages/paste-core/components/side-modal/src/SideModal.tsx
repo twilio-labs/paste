@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { useTransition, animated } from '@twilio-paste/animation-library';
-import { Box, safelySpreadBoxProps, type BoxProps } from '@twilio-paste/box';
-import { StyledBase } from '@twilio-paste/theme';
+import { animated, useTransition } from '@twilio-paste/animation-library';
+import { Box, type BoxProps, safelySpreadBoxProps } from '@twilio-paste/box';
 import { NonModalDialogPrimitive } from '@twilio-paste/non-modal-dialog-primitive';
+import { StyledBase } from '@twilio-paste/theme';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { SideModalContext } from './SideModalContext';
 

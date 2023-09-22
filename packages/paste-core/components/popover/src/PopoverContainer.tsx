@@ -1,9 +1,9 @@
-import * as React from 'react';
 import type {
-  NonModalDialogPrimitiveStateReturn,
   NonModalDialogPrimitivePopoverInitialState,
+  NonModalDialogPrimitiveStateReturn,
 } from '@twilio-paste/non-modal-dialog-primitive';
 import { useNonModalDialogPrimitiveState } from '@twilio-paste/non-modal-dialog-primitive';
+import * as React from 'react';
 
 import { PopoverContext } from './PopoverContext';
 

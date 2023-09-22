@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxStyleProps, BoxProps } from '@twilio-paste/box';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
 import { TabPrimitive } from '@twilio-paste/tabs-primitive';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { TabsContext } from './TabsContext';
 import type { Orientation, Variants } from './types';

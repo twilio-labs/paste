@@ -1,11 +1,11 @@
+import { Box } from '@twilio-paste/box';
+import find from 'lodash/find';
 import * as React from 'react';
 import type { VirtualItem } from 'react-virtual';
-import find from 'lodash/find';
-import { Box } from '@twilio-paste/box';
 
-import { ComboboxListboxOption } from './styles/ComboboxListboxOption';
+import { getGroupedItems, getIndexedItems } from './helpers';
 import { ComboboxListboxGroup } from './styles/ComboboxListboxGroup';
-import { getIndexedItems, getGroupedItems } from './helpers';
+import { ComboboxListboxOption } from './styles/ComboboxListboxOption';
 import type { ComboboxItemsProps } from './types';
 
 const ComboboxItems: React.FC<

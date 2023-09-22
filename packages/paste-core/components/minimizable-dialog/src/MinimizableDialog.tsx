@@ -1,9 +1,9 @@
-import * as React from 'react';
 import type { BoxProps } from '@twilio-paste/box';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { StyledBase } from '@twilio-paste/theme';
 import { NonModalDialogPrimitive } from '@twilio-paste/non-modal-dialog-primitive';
+import { StyledBase } from '@twilio-paste/theme';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { MinimizableDialogContext } from './MinimizableDialogContext';
 import type { MinimizableDialogContextProps } from './MinimizableDialogContext';

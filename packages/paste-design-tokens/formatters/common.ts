@@ -2,9 +2,9 @@ import camelCase from 'lodash/camelCase';
 import type { ImmutableStyleMap } from 'theo';
 
 import type { DesignToken } from '../types';
-import { getTokenCategories } from '../utils/getTokenCategories';
-import { formatSingleTokensWithTemplate } from '../utils/formatSingleTokensWithTemplate';
 import { formatGroupTokensWithTemplate } from '../utils/formatGroupTokensWithTemplate';
+import { formatSingleTokensWithTemplate } from '../utils/formatSingleTokensWithTemplate';
+import { getTokenCategories } from '../utils/getTokenCategories';
 
 export const tokenTemplate = ({ name, value }: { name: string; value: string }): string =>
   `const ${camelCase(name)} = "${value.replace(/"/g, '\\"')}";`;

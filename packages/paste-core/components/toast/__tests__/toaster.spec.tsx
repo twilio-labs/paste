@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { fireEvent, render, screen, waitFor, renderHook, act } from '@testing-library/react';
-import { loremIpsum } from 'lorem-ipsum';
+import { act, fireEvent, render, renderHook, screen, waitFor } from '@testing-library/react';
 import { Button } from '@twilio-paste/button';
 import { Theme } from '@twilio-paste/theme';
+import { loremIpsum } from 'lorem-ipsum';
+import * as React from 'react';
 
-import { Toaster } from '../src/Toaster';
 import type { ToasterProps, ToasterToast } from '../src';
 import { useToaster } from '../src';
+import { Toaster } from '../src/Toaster';
 import { ToastVariantObject } from '../src/constants';
 
 jest.useFakeTimers();

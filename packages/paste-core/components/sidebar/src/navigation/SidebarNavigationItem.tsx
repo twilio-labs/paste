@@ -1,20 +1,20 @@
-import * as React from 'react';
+import { secureExternalLink } from '@twilio-paste/anchor';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import type { ButtonProps } from '@twilio-paste/button';
-import { secureExternalLink } from '@twilio-paste/anchor';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { SidebarContext } from '../SidebarContext';
+import { SidebarNavigationContext } from './SidebarNavigationContext';
 import { SidebarNavigationDisclosureContext } from './SidebarNavigationDisclosureContext';
 import {
-  sidebarNavigationItemStyles,
-  sidebarNavigationItemNestedStyles,
-  sidebarNavigationItemSelectedStyles,
   sidebarNavigationItemCollapsedStyles,
   sidebarNavigationItemHierarchicalStyles,
+  sidebarNavigationItemNestedStyles,
+  sidebarNavigationItemSelectedStyles,
+  sidebarNavigationItemStyles,
 } from './styles';
-import { SidebarNavigationContext } from './SidebarNavigationContext';
 
 export interface SidebarNavigationItemProps extends HTMLPasteProps<'a'> {
   href: ButtonProps['href'];

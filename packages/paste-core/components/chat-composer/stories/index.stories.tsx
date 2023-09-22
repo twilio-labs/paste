@@ -1,11 +1,11 @@
-import * as React from 'react';
-import type { EditorState } from '@twilio-paste/lexical-library';
-import { $getRoot, $createParagraphNode, $createTextNode } from '@twilio-paste/lexical-library';
 import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
-import { SendIcon } from '@twilio-paste/icons/esm/SendIcon';
 import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
+import { SendIcon } from '@twilio-paste/icons/esm/SendIcon';
+import type { EditorState } from '@twilio-paste/lexical-library';
+import { $createParagraphNode, $createTextNode, $getRoot } from '@twilio-paste/lexical-library';
+import * as React from 'react';
 
 import { ChatComposer } from '../src';
 import type { ChatComposerProps } from '../src';

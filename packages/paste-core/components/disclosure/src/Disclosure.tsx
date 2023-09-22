@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { useDisclosurePrimitiveState } from '@twilio-paste/disclosure-primitive';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
+import { useDisclosurePrimitiveState } from '@twilio-paste/disclosure-primitive';
 import type { DisclosurePrimitiveInitialState } from '@twilio-paste/disclosure-primitive';
+import * as React from 'react';
 
 import { DisclosureContext } from './DisclosureContext';
-import type { DisclosureVariants, DisclosureStateReturn } from './types';
+import type { DisclosureStateReturn, DisclosureVariants } from './types';
 
 export interface DisclosureProps extends DisclosurePrimitiveInitialState, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;

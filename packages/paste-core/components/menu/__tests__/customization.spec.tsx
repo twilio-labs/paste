@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { initStyles, BaseMenu } from '../stories/customization.stories';
+import { BaseMenu, initStyles } from '../stories/customization.stories';
 
 const PASTE_ELEMENT = 'data-paste-element';
 

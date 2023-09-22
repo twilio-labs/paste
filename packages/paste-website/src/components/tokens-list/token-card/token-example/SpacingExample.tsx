@@ -1,6 +1,6 @@
-import * as React from 'react';
-import type { Properties } from 'csstype';
 import { remToPx } from '@twilio-paste/theme';
+import type { Properties } from 'csstype';
+import * as React from 'react';
 
 interface SpacingExampleProps {
   tokenName: string;

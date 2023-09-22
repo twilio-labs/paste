@@ -1,7 +1,7 @@
 import { resolve } from 'path';
 
-import shell from 'shelljs';
 import chalk from 'chalk';
+import shell from 'shelljs';
 
 const TSCONFIG_BUILDINFO_REGEX = /tsconfig(\.build)?\.tsbuildinfo$/;
 const PACKAGES_DIR = resolve(__dirname, '../../packages');

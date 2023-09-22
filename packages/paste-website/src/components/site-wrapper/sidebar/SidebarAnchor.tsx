@@ -1,6 +1,6 @@
-import * as React from 'react';
-import Link from 'next/link';
 import { SidebarNavigationItem } from '@twilio-paste/sidebar';
+import Link from 'next/link';
+import * as React from 'react';
 
 import { useLocationPathname } from '../../../utils/RouteUtils';
 

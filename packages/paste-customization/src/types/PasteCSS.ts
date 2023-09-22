@@ -1,10 +1,4 @@
 import type {
-  SystemStyleObject,
-  SystemCssProperties,
-  CSSPseudoSelectorProps,
-  CSSSelectorObject,
-} from '@twilio-paste/styling-library';
-import type {
   BackgroundProps,
   BorderProps,
   FlexboxProps,
@@ -14,6 +8,12 @@ import type {
   SpaceProps,
   TypographyProps,
 } from '@twilio-paste/style-props';
+import type {
+  CSSPseudoSelectorProps,
+  CSSSelectorObject,
+  SystemCssProperties,
+  SystemStyleObject,
+} from '@twilio-paste/styling-library';
 
 type AllStyleProps = BackgroundProps &
   BorderProps &

@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import * as React from 'react';
 
 import type { TokenContextProps } from '../../context/TokenContext';
 import { ColorTokenInput } from './ColorTokenInput';
-import { UnitTokenInput } from './UnitTokenInput';
 import { FontTokenInput } from './FontTokenInput';
 import { TextTokenInput } from './TextTokenInput';
+import { UnitTokenInput } from './UnitTokenInput';
 
 type OptionsListProps = {
   bucket: keyof GenericTokensShape;

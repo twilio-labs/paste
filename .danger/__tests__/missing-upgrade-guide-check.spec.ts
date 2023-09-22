@@ -1,4 +1,4 @@
-import missingUpgradeGuideCheck, { UPGRADE_GUIDE_PAGE_FILE, FAIL_MESSAGE } from '../missing-upgrade-guide-check';
+import missingUpgradeGuideCheck, { FAIL_MESSAGE, UPGRADE_GUIDE_PAGE_FILE } from '../missing-upgrade-guide-check';
 declare const global: any;
 
 describe('missingUpgradeGuideCheck()', () => {

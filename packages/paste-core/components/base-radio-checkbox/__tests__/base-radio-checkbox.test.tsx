@@ -1,13 +1,13 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { CheckboxCheckIcon } from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import * as React from 'react';
 
 import {
   BaseRadioCheckboxControl,
+  BaseRadioCheckboxHelpText,
   BaseRadioCheckboxLabel,
   BaseRadioCheckboxLabelText,
-  BaseRadioCheckboxHelpText,
 } from '../src/BaseRadioCheckbox';
 
 describe('Base radio checkbox HTML attributes', () => {

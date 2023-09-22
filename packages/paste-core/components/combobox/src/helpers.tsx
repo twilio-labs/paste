@@ -1,7 +1,7 @@
+import type { BoxStyleProps } from '@twilio-paste/box';
 import type { HelpTextVariants } from '@twilio-paste/help-text';
 import type { InputVariants } from '@twilio-paste/input';
 import groupBy from 'lodash/groupBy';
-import type { BoxStyleProps } from '@twilio-paste/box';
 
 import type { Item } from './types';
 

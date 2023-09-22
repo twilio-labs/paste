@@ -1,5 +1,5 @@
-import shell from 'shelljs';
 import chalk from 'chalk';
+import shell from 'shelljs';
 
 export async function removeNodeModules(): Promise<void> {
   // eslint-disable-next-line no-console

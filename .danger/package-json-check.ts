@@ -1,7 +1,7 @@
-import { getPackJsonsFromFiles } from './utils';
 // you kind of have to treat Danger plugins as global?
 // https://danger.systems/js/usage/extending-danger.html#writing-your-plugin
 import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL';
+import { getPackJsonsFromFiles } from './utils';
 declare const danger: DangerDSLType;
 export declare function warn(message: string): void;
 

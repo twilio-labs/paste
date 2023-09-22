@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import type { IconSizeOptions, TextColorOptions } from '@twilio-paste/style-props';
-import { DefaultTheme, useTheme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
-import { Stack } from '@twilio-paste/stack';
-import { Text } from '@twilio-paste/text';
 import { Flex } from '@twilio-paste/flex';
+import { Stack } from '@twilio-paste/stack';
+import type { IconSizeOptions, TextColorOptions } from '@twilio-paste/style-props';
+import { Text } from '@twilio-paste/text';
+import { DefaultTheme, useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { CopyIcon } from '../src/CopyIcon';
 

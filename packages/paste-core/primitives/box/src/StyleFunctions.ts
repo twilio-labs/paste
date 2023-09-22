@@ -1,11 +1,11 @@
+import type { PasteCustomCSS } from '@twilio-paste/customization';
 import { css, system } from '@twilio-paste/styling-library';
 import type { CSSObject, Config } from '@twilio-paste/styling-library';
-import type { PasteCustomCSS } from '@twilio-paste/customization';
 import merge from 'deepmerge';
 
+import { customStyleProps } from './CustomStyleProps';
 import { PseudoPropStyles } from './PseudoPropStyles';
 import type { StyledBoxProps } from './types';
-import { customStyleProps } from './CustomStyleProps';
 
 export const PasteStyleProps = system(customStyleProps as Config);
 

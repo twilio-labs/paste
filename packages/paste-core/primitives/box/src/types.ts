@@ -1,6 +1,8 @@
+import type { CustomTheme } from '@twilio-paste/customization';
 import type {
   BackgroundProps,
   BorderProps,
+  CSSProps,
   FlexboxProps,
   GridProps,
   LayoutProps,
@@ -8,9 +10,7 @@ import type {
   ShadowProps,
   SpaceProps,
   TypographyProps,
-  CSSProps,
 } from '@twilio-paste/style-props';
-import type { CustomTheme } from '@twilio-paste/customization';
 
 import type { PseudoPropStyles } from './PseudoPropStyles';
 

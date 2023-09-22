@@ -1,10 +1,10 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
 import { Card } from '@twilio-paste/card';
-import { useTheme, DefaultTheme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { IconSize, TextColorOptions } from '@twilio-paste/style-props';
+import { DefaultTheme, useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Spinner } from '../src';
 

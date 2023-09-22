@@ -1,42 +1,42 @@
-import * as React from 'react';
-import { Button } from '@twilio-paste/button';
 import { Box } from '@twilio-paste/box';
-import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import { Button } from '@twilio-paste/button';
 import { ProductConnectionsIcon } from '@twilio-paste/icons/esm/ProductConnectionsIcon';
-import { ProductReverseETLIcon } from '@twilio-paste/icons/esm/ProductReverseETLIcon';
+import { ProductEngageIcon } from '@twilio-paste/icons/esm/ProductEngageIcon';
+import { ProductHomeIcon } from '@twilio-paste/icons/esm/ProductHomeIcon';
 import { ProductPrivacyIcon } from '@twilio-paste/icons/esm/ProductPrivacyIcon';
 import { ProductProtocolsIcon } from '@twilio-paste/icons/esm/ProductProtocolsIcon';
-import { ProductEngageIcon } from '@twilio-paste/icons/esm/ProductEngageIcon';
+import { ProductReverseETLIcon } from '@twilio-paste/icons/esm/ProductReverseETLIcon';
+import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
 import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
-import { ProductHomeIcon } from '@twilio-paste/icons/esm/ProductHomeIcon';
+import { Topbar, TopbarActions } from '@twilio-paste/topbar';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
 import { useUID } from '@twilio-paste/uid-library';
-import { Topbar, TopbarActions } from '@twilio-paste/topbar';
+import * as React from 'react';
 
 import {
   Sidebar,
+  SidebarBetaBadge,
   SidebarBody,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
   SidebarCollapseButton,
   SidebarFooter,
-  SidebarPushContentWrapper,
+  SidebarHeader,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
   SidebarNavigation,
   SidebarNavigationDisclosure,
-  SidebarNavigationDisclosureHeadingWrapper,
-  SidebarNavigationDisclosureHeading,
   SidebarNavigationDisclosureContent,
+  SidebarNavigationDisclosureHeading,
+  SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationItem,
-  SidebarBetaBadge,
+  SidebarPushContentWrapper,
 } from '../../../src';
+import { AppSwitcher } from './AppSwitcher';
+import { NotificationsDialog } from './NotificationsDialog';
 import { SearchBox } from './SearchBox';
 import { SupportMenu } from './SupportMenu';
-import { NotificationsDialog } from './NotificationsDialog';
-import { AppSwitcher } from './AppSwitcher';
+import { UpgradeBadge } from './UpgradeBadge';
 import { UserDialogExample } from './UserDialogSegment';
 import { WorkspaceSwitcherMenu } from './WorkspaceSwitcher';
-import { UpgradeBadge } from './UpgradeBadge';
 
 // eslint-disable-next-line import/no-default-export
 export default {

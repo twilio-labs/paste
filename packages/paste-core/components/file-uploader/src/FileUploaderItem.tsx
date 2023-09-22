@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
-import { Spinner } from '@twilio-paste/spinner';
-import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
-import { DeleteIcon } from '@twilio-paste/icons/esm/DeleteIcon';
 import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
+import { DeleteIcon } from '@twilio-paste/icons/esm/DeleteIcon';
+import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
+import { Spinner } from '@twilio-paste/spinner';
+import * as React from 'react';
 
 import { FileUploaderItemContext } from './FileUploaderItemContext';
 import type { FileUploaderItemContextProps } from './FileUploaderItemContext';

@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { ColorSwatch, ColorSwatchText } from '../src/components/color-swatch/ColorSwatch';
 import { ColorGradient, ColorGradientRainbow } from '../src/components/color-swatch/ColorGradient';
+import { ColorSwatch, ColorSwatchText } from '../src/components/color-swatch/ColorSwatch';
 import { DarkModeContext } from '../src/context/DarkModeContext';
 
 export const BasicBackgroundColorSwatch = (): React.ReactNode => (

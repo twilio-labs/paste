@@ -1,25 +1,25 @@
-import * as React from 'react';
 import { render } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import { AgentIcon } from '../src/AgentIcon';
+import { filterBuiltFiles } from '../tools/actions/convertAllAction';
+import { normalizeSourceFiles } from '../tools/actions/convertNewAction';
+import { getIconNames } from '../tools/actions/listIconsAction';
 import { buildListTemplate } from '../tools/templates/buildListTemplate';
 import { createIconsFilesObject, jsonTemplate } from '../tools/templates/jsonTemplate';
 import { reactIconTemplate } from '../tools/templates/reactIconTemplate';
 import {
-  getOutputComponentName,
-  pascalCaseWordSplitter,
   cleanFileName,
-  normalizeFileName,
-  removeTsxExtension,
-  getInputPath,
-  getReactOutputPath,
   getBuildFileName,
+  getInputPath,
+  getOutputComponentName,
+  getReactOutputPath,
   maybeHandleError,
+  normalizeFileName,
+  pascalCaseWordSplitter,
+  removeTsxExtension,
 } from '../tools/utils';
-import { getIconNames } from '../tools/actions/listIconsAction';
-import { normalizeSourceFiles } from '../tools/actions/convertNewAction';
-import { filterBuiltFiles } from '../tools/actions/convertAllAction';
 
 describe('Icons', () => {
   describe('HTML attributes', () => {

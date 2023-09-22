@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Anchor } from '@twilio-paste/core/anchor';
 import { Stack } from '@twilio-paste/core/stack';
 import { Text } from '@twilio-paste/core/text';
 import { Toast } from '@twilio-paste/core/toast';
+import * as React from 'react';
 
 const ToastPreview = (): JSX.Element => {
   return (

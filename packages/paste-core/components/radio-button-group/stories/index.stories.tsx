@@ -1,10 +1,10 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useUID } from '@twilio-paste/uid-library';
 import { Anchor } from '@twilio-paste/anchor';
-import { Text } from '@twilio-paste/text';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Text } from '@twilio-paste/text';
 import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { RadioButton, RadioButtonGroup } from '../src';
 import type { RadioButtonGroupProps } from '../src';

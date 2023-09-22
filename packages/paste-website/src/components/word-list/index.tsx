@@ -1,11 +1,11 @@
+import { TBody, THead, Table, Td, Th, Tr } from '@twilio-paste/table';
 import * as React from 'react';
-import { Table, TBody, Td, Th, THead, Tr } from '@twilio-paste/table';
 
-import { EmptyState } from './EmptyState';
 import wordsList from '../../data/word-list.json';
-import { filterWordList } from './utils';
-import type { WordListShape } from './types';
+import { EmptyState } from './EmptyState';
 import { WordFilter } from './WordFilter';
+import type { WordListShape } from './types';
+import { filterWordList } from './utils';
 
 const WordsList: React.FC = () => {
   const [filterString, setFilterString] = React.useState('');

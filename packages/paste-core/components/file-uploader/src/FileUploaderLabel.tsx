@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Label } from '@twilio-paste/label';
 import type { LabelProps } from '@twilio-paste/label';
+import * as React from 'react';
 
 import { FileUploaderContext } from './FileUploaderContext';
 

@@ -1,20 +1,20 @@
-import * as React from 'react';
-import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
-import { Stack } from '@twilio-paste/stack';
-import { Heading } from '@twilio-paste/heading';
 import { Anchor } from '@twilio-paste/anchor';
-import { Truncate } from '@twilio-paste/truncate';
+import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
+import { Heading } from '@twilio-paste/heading';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import { Truncate } from '@twilio-paste/truncate';
+import * as React from 'react';
 
 import {
   DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
   DataGridBody,
   DataGridCell,
   DataGridFoot,
+  DataGridHead,
+  DataGridHeader,
+  DataGridRow,
 } from '../../src';
 
 export const DataGridLayouts = (): React.ReactNode => {

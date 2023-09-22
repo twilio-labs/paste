@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { MenuPrimitiveSeparator } from '@twilio-paste/menu-primitive';
 import { Separator } from '@twilio-paste/separator';
 import type { SeparatorProps } from '@twilio-paste/separator';
-import { MenuPrimitiveSeparator } from '@twilio-paste/menu-primitive';
+import * as React from 'react';
 
 import type { MenuSeparatorProps } from './types';
 

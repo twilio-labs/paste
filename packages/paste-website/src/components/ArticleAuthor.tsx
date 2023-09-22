@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
-import { Stack } from '@twilio-paste/stack';
-import { Avatar } from '@twilio-paste/avatar';
 import { Anchor } from '@twilio-paste/anchor';
+import { Avatar } from '@twilio-paste/avatar';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
 export interface ArticleAuthorProps {
   author: string;

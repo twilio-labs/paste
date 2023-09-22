@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Menu } from '@twilio-paste/menu';
 import type { MenuProps } from '@twilio-paste/menu';
+import * as React from 'react';
 
 export interface ProductSwitcherProps extends MenuProps {
   children: NonNullable<React.ReactNode>;

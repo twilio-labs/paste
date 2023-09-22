@@ -1,9 +1,9 @@
-import * as React from 'react';
 import type { BoxElementProps } from '@twilio-paste/box';
 import { CompositeGroup } from '@twilio-paste/reakit-library';
+import * as React from 'react';
 
-import { Tr } from './table/Tr';
 import { DataGridContext } from './DataGridContext';
+import { Tr } from './table/Tr';
 
 export interface DataGridRowProps {
   children: NonNullable<React.ReactNode>;

@@ -1,9 +1,9 @@
-import * as React from 'react';
-import kebabCase from 'lodash/kebabCase';
 import { Box } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { Text } from '@twilio-paste/text';
 import type { TextProps } from '@twilio-paste/text';
+import kebabCase from 'lodash/kebabCase';
+import * as React from 'react';
 
 interface ColorSwatchTextProps extends Pick<TextProps, 'color' | 'fontSize' | 'fontFamily' | 'margin' | 'aria-hidden'> {
   children: string;

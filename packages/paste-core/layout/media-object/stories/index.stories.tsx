@@ -1,13 +1,13 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { Text } from '@twilio-paste/text';
 import { Box } from '@twilio-paste/box';
-import { Truncate } from '@twilio-paste/truncate';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Text } from '@twilio-paste/text';
 import { useTheme } from '@twilio-paste/theme';
 import type { ThemeShape } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
+import { Truncate } from '@twilio-paste/truncate';
+import * as React from 'react';
 
-import { MediaObject, MediaFigure, MediaBody } from '../src';
+import { MediaBody, MediaFigure, MediaObject } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

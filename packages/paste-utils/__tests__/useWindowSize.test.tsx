@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { renderHook, act } from '@testing-library/react';
+import { act, renderHook } from '@testing-library/react';
 import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { useWindowSize } from '../src/hooks/useWindowSize';
 

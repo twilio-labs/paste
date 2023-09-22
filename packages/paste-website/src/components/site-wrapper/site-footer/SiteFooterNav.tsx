@@ -1,12 +1,12 @@
-import { useTheme } from '@twilio-paste/theme';
 import { Anchor } from '@twilio-paste/anchor';
 import { Box } from '@twilio-paste/box';
 import { Stack } from '@twilio-paste/stack';
+import { useTheme } from '@twilio-paste/theme';
 
-import { SiteFooterHeader } from './SiteFooterHeader';
-import TwilioLogo from '../../icons/TwilioLogo';
-import { STORYBOOK_DOMAIN, REMIX_DOMAIN, FIGMA_PROFILE_URL } from '../../../constants';
+import { FIGMA_PROFILE_URL, REMIX_DOMAIN, STORYBOOK_DOMAIN } from '../../../constants';
 import { event } from '../../../lib/gtag';
+import TwilioLogo from '../../icons/TwilioLogo';
+import { SiteFooterHeader } from './SiteFooterHeader';
 
 const SiteFooterNav = (): JSX.Element => {
   const theme = useTheme();

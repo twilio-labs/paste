@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import { HelpText } from '@twilio-paste/help-text';
+import * as React from 'react';
 
 import { Checkbox } from './Checkbox';
 import type { CheckboxProps } from './Checkbox';

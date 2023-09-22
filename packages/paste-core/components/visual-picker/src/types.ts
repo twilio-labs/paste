@@ -1,7 +1,7 @@
 import { type BoxProps } from '@twilio-paste/box';
+import { type CheckboxProps } from '@twilio-paste/checkbox';
 import { type InlineControlGroupProps } from '@twilio-paste/inline-control-group';
 import { type RadioProps } from '@twilio-paste/radio-group';
-import { type CheckboxProps } from '@twilio-paste/checkbox';
 
 export interface VisualPickerCheckboxGroupProps extends InlineControlGroupProps {
   orientation?: 'horizontal' | 'vertical';

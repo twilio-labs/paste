@@ -1,12 +1,12 @@
+import camelCase from 'lodash.camelcase';
+import kebabCase from 'lodash.kebabcase';
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
 import * as vscode from 'vscode';
-import camelCase from 'lodash.camelcase';
-import kebabCase from 'lodash.kebabcase';
 
 import { pasteTokenAttributes } from './tokens';
 import { PasteToken } from './types';
-import { getColorPreview, getThemeSetting, getThemeTokens, remToPx, isColorCategory } from './utils';
+import { getColorPreview, getThemeSetting, getThemeTokens, isColorCategory, remToPx } from './utils';
 
 const DIVIDER = `___\n`;
 

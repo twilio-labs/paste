@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
-import { useUID } from '@twilio-paste/uid-library';
-import { Theme } from '@twilio-paste/theme';
 import { Label } from '@twilio-paste/label';
+import { Theme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { Select, Option, SelectElement } from '../src';
+import { Option, Select, SelectElement } from '../src';
 import type { SelectProps } from '../src';
 import { createAttributeMap } from '../test-utils';
 

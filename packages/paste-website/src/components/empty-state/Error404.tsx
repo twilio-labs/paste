@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { useRouter } from 'next/router';
+import * as React from 'react';
 
+import { PackageStatus, SidebarCategoryRoutes } from '../../constants';
 import { InDevelopment } from './InDevelopment';
 import { NotFound } from './NotFound';
-import { SidebarCategoryRoutes, PackageStatus } from '../../constants';
 
 interface Error404Props {
   componentList: { name: string; status: string }[];

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 export interface FormProps extends Omit<React.ComponentPropsWithRef<'form'>, 'children'> {
   element?: BoxProps['element'];

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { MenuItem } from '@twilio-paste/menu';
 import type { MenuItemProps } from '@twilio-paste/menu';
+import * as React from 'react';
 
 export type StatusMenuItemProps = MenuItemProps;
 

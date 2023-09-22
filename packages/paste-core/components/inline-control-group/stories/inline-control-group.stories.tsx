@@ -1,10 +1,10 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
-import { Grid, Column } from '@twilio-paste/grid';
-import { Paragraph } from '@twilio-paste/paragraph';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Column, Grid } from '@twilio-paste/grid';
+import { Paragraph } from '@twilio-paste/paragraph';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { InlineControlGroup } from '../src';
 import type { InlineControlGroupProps } from '../src';

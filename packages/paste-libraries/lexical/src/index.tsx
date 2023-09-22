@@ -1,7 +1,7 @@
-import ErrorBoundary from '@lexical/react/LexicalErrorBoundary';
 import type { LexicalComposer } from '@lexical/react/LexicalComposer';
-import type { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 import type { ContentEditable } from '@lexical/react/LexicalContentEditable';
+import ErrorBoundary from '@lexical/react/LexicalErrorBoundary';
+import type { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin';
 
 export {
   $getRoot,

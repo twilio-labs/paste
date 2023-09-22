@@ -1,8 +1,8 @@
+import { render, screen } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore react import is flagged as unused by tsx but required when running the tests
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
 
 import { PackageStatusLegend } from '../components/shortcodes/package-status-legend';
 

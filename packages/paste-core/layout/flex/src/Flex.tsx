@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { FlexboxProps } from '@twilio-paste/style-props';
+import * as React from 'react';
 
+import { getBasis, getGrow, getShrink, getVertical, getWrap, hAlignToProps, vAlignToProps } from './helpers';
 import type { FlexProps } from './types';
-import { getGrow, getShrink, getBasis, getVertical, getWrap, hAlignToProps, vAlignToProps } from './helpers';
 
 const getFlexStyles = (props: FlexProps): FlexboxProps => {
   const styles: FlexboxProps = {

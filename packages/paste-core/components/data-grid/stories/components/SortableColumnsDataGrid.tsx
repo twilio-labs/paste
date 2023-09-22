@@ -1,18 +1,18 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
 import {
   DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
-  DataGridHeaderSort,
   DataGridBody,
   DataGridCell,
   DataGridFoot,
+  DataGridHead,
+  DataGridHeader,
+  DataGridHeaderSort,
+  DataGridRow,
 } from '../../src';
 import type { SortDirection } from '../../src';
-import { TableHeaderData, TableBodyData } from './constants';
+import { TableBodyData, TableHeaderData } from './constants';
 
 // Sorting function
 const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId: number): number => {

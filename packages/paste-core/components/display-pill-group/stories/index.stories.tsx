@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { Avatar } from '@twilio-paste/avatar';
 import { Box } from '@twilio-paste/box';
 import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
-import { Avatar } from '@twilio-paste/avatar';
+import * as React from 'react';
 
-import { DisplayPillGroup } from '../src/DisplayPillGroup';
 import { DisplayPill } from '../src/DisplayPill';
+import { DisplayPillGroup } from '../src/DisplayPillGroup';
 
 export const Basic = (): JSX.Element => {
   return (

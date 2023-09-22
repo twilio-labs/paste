@@ -1,6 +1,4 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useTheme } from '@twilio-paste/theme';
 import { Box } from '@twilio-paste/box';
 import { Card } from '@twilio-paste/card';
 import { CustomizationProvider } from '@twilio-paste/customization';
@@ -8,6 +6,8 @@ import { Heading } from '@twilio-paste/heading';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { Stack } from '@twilio-paste/stack';
 import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Separator } from '../src';
 

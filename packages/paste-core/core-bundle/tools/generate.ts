@@ -2,15 +2,15 @@ import sortBy from 'lodash/sortBy';
 
 import { CORE_BUNDLE_INDEX_PATH, CORE_BUNDLE_PACKAGE_PATH } from './constants';
 import {
-  getRepoPackages,
-  writeToFile,
+  createCodeSandboxCIjson,
+  createGitIgnore,
+  createRelativePackageFolders,
   generateIndexFromPackageList,
   generateUnbarreledExports,
   generateVersionedDependencyList,
   getCoreRelevantPackages,
-  createRelativePackageFolders,
-  createGitIgnore,
-  createCodeSandboxCIjson,
+  getRepoPackages,
+  writeToFile,
 } from './utils';
 
 // Main

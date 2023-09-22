@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { OrderedList, UnorderedList, ListItem } from '../src';
+import { ListItem, OrderedList, UnorderedList } from '../src';
 
 describe('Ordered List', () => {
   describe('Render', () => {

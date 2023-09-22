@@ -1,12 +1,12 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
 import { Box } from '@twilio-paste/box';
-import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { ProcessSuccessIcon } from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails } from '../src';
+import { DescriptionList, DescriptionListDetails, DescriptionListSet, DescriptionListTerm } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -1,47 +1,47 @@
-import * as React from 'react';
-import { Button } from '@twilio-paste/button';
-import { Box } from '@twilio-paste/box';
 import type { StoryFn } from '@storybook/react';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
 import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
-// ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import { useUID } from '@twilio-paste/uid-library';
+import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
+import { ProductConnectionsIcon } from '@twilio-paste/icons/esm/ProductConnectionsIcon';
+import { ProductContactCenterAdminIcon } from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
+import { ProductContactCenterQueuesIcon } from '@twilio-paste/icons/esm/ProductContactCenterQueuesIcon';
+import { ProductContactCenterTasksIcon } from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
+import { ProductContactCenterTeamsIcon } from '@twilio-paste/icons/esm/ProductContactCenterTeamsIcon';
+import { ProductEngageIcon } from '@twilio-paste/icons/esm/ProductEngageIcon';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { ProductHomeIcon } from '@twilio-paste/icons/esm/ProductHomeIcon';
+import { ProductPrivacyIcon } from '@twilio-paste/icons/esm/ProductPrivacyIcon';
+import { ProductProtocolsIcon } from '@twilio-paste/icons/esm/ProductProtocolsIcon';
+import { ProductReverseETLIcon } from '@twilio-paste/icons/esm/ProductReverseETLIcon';
+import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
+import { ProductUsageIcon } from '@twilio-paste/icons/esm/ProductUsageIcon';
 // import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from '@twilio-paste/menu';
-import { ProductContactCenterTasksIcon } from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
-import { ProductContactCenterAdminIcon } from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
-import { ProductContactCenterTeamsIcon } from '@twilio-paste/icons/esm/ProductContactCenterTeamsIcon';
-import { ProductPrivacyIcon } from '@twilio-paste/icons/esm/ProductPrivacyIcon';
-import { ProductUsageIcon } from '@twilio-paste/icons/esm/ProductUsageIcon';
-import { ProductContactCenterQueuesIcon } from '@twilio-paste/icons/esm/ProductContactCenterQueuesIcon';
-import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import { ProductHomeIcon } from '@twilio-paste/icons/esm/ProductHomeIcon';
-import { ProductConnectionsIcon } from '@twilio-paste/icons/esm/ProductConnectionsIcon';
-import { ProductReverseETLIcon } from '@twilio-paste/icons/esm/ProductReverseETLIcon';
-import { ProductProtocolsIcon } from '@twilio-paste/icons/esm/ProductProtocolsIcon';
-import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
-import { ProductEngageIcon } from '@twilio-paste/icons/esm/ProductEngageIcon';
-import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
+// ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import {
   Sidebar,
+  SidebarBetaBadge,
   SidebarBody,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
   SidebarCollapseButton,
   SidebarFooter,
-  SidebarPushContentWrapper,
-  SidebarBetaBadge,
+  SidebarHeader,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
   SidebarNavigation,
   SidebarNavigationDisclosure,
-  SidebarNavigationDisclosureHeadingWrapper,
-  SidebarNavigationDisclosureHeading,
   SidebarNavigationDisclosureContent,
-  SidebarNavigationItem,
-  useSidebarNavigationDisclosureState,
+  SidebarNavigationDisclosureHeading,
+  SidebarNavigationDisclosureHeadingWrapper,
   type SidebarNavigationDisclosureInitialState,
   type SidebarNavigationDisclosureStateReturn,
+  SidebarNavigationItem,
+  SidebarPushContentWrapper,
+  useSidebarNavigationDisclosureState,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

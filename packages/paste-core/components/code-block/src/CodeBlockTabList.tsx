@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { TabList } from '@twilio-paste/tabs';
 import type { TabListProps } from '@twilio-paste/tabs';
+import * as React from 'react';
 
 export interface CodeBlockTabListProps extends Omit<TabListProps, 'aria-label'> {
   element?: BoxProps['element'];

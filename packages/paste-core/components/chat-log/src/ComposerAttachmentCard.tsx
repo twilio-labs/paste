@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Button } from '@twilio-paste/button';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxElementProps, BoxStyleProps } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
 import { ClearIcon } from '@twilio-paste/icons/esm/ClearIcon';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import * as React from 'react';
 
 /*
  *These style props are specific to our ClearIcon use case in ComposerAttachmentCard.

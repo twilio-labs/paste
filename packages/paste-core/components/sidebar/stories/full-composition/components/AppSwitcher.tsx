@@ -1,14 +1,14 @@
-import * as React from 'react';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { ProductEmailAPIIcon } from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
 import {
   ProductSwitcher,
   ProductSwitcherButton,
   ProductSwitcherItem,
   useProductSwitcherState,
 } from '@twilio-paste/product-switcher';
-import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
-import { ProductEmailAPIIcon } from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+import * as React from 'react';
 
 export const AppSwitcher: React.FC = () => {
   const productSwitcher = useProductSwitcherState();

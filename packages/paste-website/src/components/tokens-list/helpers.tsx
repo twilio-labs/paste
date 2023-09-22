@@ -1,8 +1,8 @@
 import type { Properties } from 'csstype';
 import debounce from 'lodash/debounce';
 
-import type { Token, Tokens, TokenExampleColors, TokensShape } from './types';
 import { event } from '../../lib/gtag';
+import type { Token, TokenExampleColors, Tokens, TokensShape } from './types';
 
 export const trackTokenFilterString = debounce((filter: string): void => {
   if (filter !== '') {

@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { secureExternalLink } from '@twilio-paste/anchor';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { SelectedIcon } from '@twilio-paste/icons/esm/SelectedIcon';
+import * as React from 'react';
 
-import type { MenuItemProps, MenuItemVariantStyles, MenuItemVariant } from './types';
 import { MenuItemVariants } from './constants';
+import type { MenuItemProps, MenuItemVariant, MenuItemVariantStyles } from './types';
 
 const baseVariantStyles: MenuItemVariantStyles = {
   [MenuItemVariants.DEFAULT]: {

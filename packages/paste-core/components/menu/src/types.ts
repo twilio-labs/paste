@@ -1,12 +1,12 @@
-import type { ValueOf } from '@twilio-paste/types';
 import type { BoxElementProps, BoxStyleProps } from '@twilio-paste/box';
 import type {
-  MenuPrimitiveItemProps,
   MenuPrimitiveItemCheckboxProps,
+  MenuPrimitiveItemProps,
   MenuPrimitiveItemRadioProps,
   MenuPrimitiveProps,
   MenuPrimitiveSeparatorProps,
 } from '@twilio-paste/menu-primitive';
+import type { ValueOf } from '@twilio-paste/types';
 
 import type { MenuItemVariants } from './constants';
 

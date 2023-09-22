@@ -1,7 +1,7 @@
+import { act, renderHook } from '@testing-library/react';
 import * as React from 'react';
-import { renderHook, act } from '@testing-library/react';
 
-import { useChatLogger, ChatBubble, ChatMessage } from '../src';
+import { ChatBubble, ChatMessage, useChatLogger } from '../src';
 
 const chat = {
   id: 'custom-id-123',

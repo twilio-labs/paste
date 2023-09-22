@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { Box, safelySpreadBoxProps, type BoxProps } from '@twilio-paste/box';
-import { useSpring, animated } from '@twilio-paste/animation-library';
+import { animated, useSpring } from '@twilio-paste/animation-library';
+import { Box, type BoxProps, safelySpreadBoxProps } from '@twilio-paste/box';
 import { useTheme } from '@twilio-paste/theme';
-import { useWindowSize } from '@twilio-paste/utils';
-import { useUID } from '@twilio-paste/uid-library';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import { useUID } from '@twilio-paste/uid-library';
+import { useWindowSize } from '@twilio-paste/utils';
+import * as React from 'react';
 
 import { SidebarContext } from './SidebarContext';
-import type { Variants } from './types';
 import { SidebarSkipLinks, type SidebarSkipLinksProps } from './SidebarSkipLinks';
+import type { Variants } from './types';
 
 const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box

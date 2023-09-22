@@ -1,15 +1,15 @@
 import * as gulp from 'gulp';
-import * as theo from 'theo';
-import gulpTheo from 'gulp-theo';
 import gulpif from 'gulp-if';
 import terser from 'gulp-terser';
+import gulpTheo from 'gulp-theo';
+import * as theo from 'theo';
 
-import { sketchpaletteTokenFormat } from './formatters/sketchpalette';
-import { genericDTsTemplate } from './formatters/generic.d.ts';
-import { genericJsTokenFormat } from './formatters/generic';
-import { es6TokenFormat } from './formatters/es6';
-import { dTSTokenFormat } from './formatters/d.ts';
 import { commonTokenFormat } from './formatters/common';
+import { dTSTokenFormat } from './formatters/d.ts';
+import { es6TokenFormat } from './formatters/es6';
+import { genericJsTokenFormat } from './formatters/generic';
+import { genericDTsTemplate } from './formatters/generic.d.ts';
+import { sketchpaletteTokenFormat } from './formatters/sketchpalette';
 
 // Browsersync isn't typed correctly so we import the old way
 const browserSync = require('browser-sync');

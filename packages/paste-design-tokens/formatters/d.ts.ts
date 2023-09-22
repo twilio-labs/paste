@@ -2,9 +2,9 @@ import camelCase from 'lodash/camelCase';
 import type { ImmutableStyleMap } from 'theo';
 
 import type { DesignToken } from '../types';
-import { getTokenCategories } from '../utils/getTokenCategories';
-import { formatSingleTokensWithTemplate } from '../utils/formatSingleTokensWithTemplate';
 import { formatGroupTokensWithTemplate } from '../utils/formatGroupTokensWithTemplate';
+import { formatSingleTokensWithTemplate } from '../utils/formatSingleTokensWithTemplate';
+import { getTokenCategories } from '../utils/getTokenCategories';
 import { isNumeric } from '../utils/isNumeric';
 
 export const tokenTemplate = ({ name, value }: { name: string; value: string }): string =>

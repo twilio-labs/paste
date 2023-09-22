@@ -1,6 +1,6 @@
-import * as fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import * as fs from 'fs/promises';
 
 import { globby } from 'globby-esm';
 

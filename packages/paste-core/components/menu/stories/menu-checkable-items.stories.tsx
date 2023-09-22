@@ -1,27 +1,27 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
+import { BoldIcon } from '@twilio-paste/icons/esm/BoldIcon';
 import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
-import { UnorderedListIcon } from '@twilio-paste/icons/esm/UnorderedListIcon';
 import { DataBarChartIcon } from '@twilio-paste/icons/esm/DataBarChartIcon';
 import { DataLineChartIcon } from '@twilio-paste/icons/esm/DataLineChartIcon';
 import { DataPieChartIcon } from '@twilio-paste/icons/esm/DataPieChartIcon';
 import { DataTableIcon } from '@twilio-paste/icons/esm/DataTableIcon';
-import { BoldIcon } from '@twilio-paste/icons/esm/BoldIcon';
-import { UnderlineIcon } from '@twilio-paste/icons/esm/UnderlineIcon';
 import { ItalicIcon } from '@twilio-paste/icons/esm/ItalicIcon';
 import { StrikethroughIcon } from '@twilio-paste/icons/esm/StrikethroughIcon';
+import { UnderlineIcon } from '@twilio-paste/icons/esm/UnderlineIcon';
+import { UnorderedListIcon } from '@twilio-paste/icons/esm/UnorderedListIcon';
+import * as React from 'react';
 
 import {
   Menu,
   MenuButton,
-  MenuItemCheckbox,
-  SubMenuButton,
   MenuGroup,
   MenuItem,
-  MenuSeparator,
-  useMenuState,
+  MenuItemCheckbox,
   MenuItemRadio,
+  MenuSeparator,
+  SubMenuButton,
+  useMenuState,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { styled, themeGet } from '@twilio-paste/styling-library';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxElementProps } from '@twilio-paste/box';
-import type { LayoutProps, BorderRadiusProps } from '@twilio-paste/style-props';
+import type { BorderRadiusProps, LayoutProps } from '@twilio-paste/style-props';
+import { styled, themeGet } from '@twilio-paste/styling-library';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { SkeletonLoaderKeyframes } from './keyframes';
 

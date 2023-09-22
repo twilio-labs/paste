@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
 import type { RenderOptions } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { Default, AriaLabel, Customized } from '../stories/index.stories';
+import { AriaLabel, Customized, Default } from '../stories/index.stories';
 
 const ThemeWrapper: RenderOptions['wrapper'] = ({ children }) => (
   <Theme.Provider theme="default">{children}</Theme.Provider>

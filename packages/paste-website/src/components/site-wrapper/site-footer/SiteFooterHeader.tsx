@@ -1,6 +1,6 @@
-import { useTheme } from '@twilio-paste/theme';
 import { Box } from '@twilio-paste/box';
 import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
 
 import HeartDoodleIcon from '../../icons/HeartDoodleIcon';
 

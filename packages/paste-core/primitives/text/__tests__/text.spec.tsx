@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { Text } from '../src';
 import { CustomizableTextExample } from '../__fixtures__/CustomizableText';
+import { Text } from '../src';
 
 describe('as', () => {
   it('should render as a provided HTML element', (): void => {

@@ -1,22 +1,22 @@
-import * as React from 'react';
-import debounce from 'lodash/debounce';
-import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
-import { Composite, useCompositeState } from '@twilio-paste/reakit-library';
-import { Box } from '@twilio-paste/box';
-import { Grid, Column } from '@twilio-paste/grid';
-import { Label } from '@twilio-paste/label';
-import { Input } from '@twilio-paste/input';
-import { Heading } from '@twilio-paste/heading';
-import { Card } from '@twilio-paste/card';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { UnorderedList, ListItem } from '@twilio-paste/list';
 import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Card } from '@twilio-paste/card';
+import { Column, Grid } from '@twilio-paste/grid';
+import { Heading } from '@twilio-paste/heading';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { ListItem, UnorderedList } from '@twilio-paste/list';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Composite, useCompositeState } from '@twilio-paste/reakit-library';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import debounce from 'lodash/debounce';
+import * as React from 'react';
 
-import type { IconObject, IconComponent, IconsListProps, GroupedList } from './types';
-import { IconCard } from './IconCard';
-import { SiteLink } from '../SiteLink';
-import { IconListItem } from './IconListItem';
 import { event } from '../../lib/gtag';
+import { SiteLink } from '../SiteLink';
+import { IconCard } from './IconCard';
+import { IconListItem } from './IconListItem';
+import type { GroupedList, IconComponent, IconObject, IconsListProps } from './types';
 
 const { icons: iconsJson } = require('@twilio-paste/icons/json/icons.json');
 

@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { Theme } from '@twilio-paste/theme';
-import { useRouter } from 'next/router';
 import type { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useRouter } from 'next/router';
+import * as React from 'react';
 
-import { GraphImageWrapper } from '../../components/open-graph-card/GraphImageWrapper';
-import { GraphImageHero } from '../../components/open-graph-card/GraphImageHero';
 import { GraphImageDetails } from '../../components/open-graph-card/GraphImageDetails';
+import { GraphImageHero } from '../../components/open-graph-card/GraphImageHero';
+import { GraphImageWrapper } from '../../components/open-graph-card/GraphImageWrapper';
 import type { PackageData } from '../../components/open-graph-card/types';
 import { getHumanizedNameFromPackageName } from '../../utils/RouteUtils';
 import { getAllFeatures, getAllPackages } from '../../utils/api';

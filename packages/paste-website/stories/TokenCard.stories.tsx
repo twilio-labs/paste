@@ -1,9 +1,9 @@
-import * as React from 'react';
+import type { Meta, StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
 import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
 import { useTheme } from '@twilio-paste/theme';
-import { Box } from '@twilio-paste/box';
 import camelCase from 'lodash/camelCase';
-import type { StoryFn, Meta } from '@storybook/react';
+import * as React from 'react';
 
 import { TokenCard } from '../src/components/tokens-list/token-card';
 

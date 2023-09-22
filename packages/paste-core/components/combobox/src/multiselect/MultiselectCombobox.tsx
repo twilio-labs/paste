@@ -1,25 +1,25 @@
+import { Box } from '@twilio-paste/box';
+import { useComboboxPrimitive } from '@twilio-paste/combobox-primitive';
+import { FormPill, FormPillGroup, useFormPillState } from '@twilio-paste/form-pill-group';
+import { HelpText } from '@twilio-paste/help-text';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '@twilio-paste/input-box';
+import { Label } from '@twilio-paste/label';
+import { Portal } from '@twilio-paste/reakit-library';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { useUID } from '@twilio-paste/uid-library';
+import { useWindowSize } from '@twilio-paste/utils';
+import includes from 'lodash/includes';
 import * as React from 'react';
 import { useVirtual } from 'react-virtual';
-import includes from 'lodash/includes';
-import { useWindowSize } from '@twilio-paste/utils';
-import { useUID } from '@twilio-paste/uid-library';
-import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
-import { Box } from '@twilio-paste/box';
-import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { FormPillGroup, FormPill, useFormPillState } from '@twilio-paste/form-pill-group';
-import { useComboboxPrimitive } from '@twilio-paste/combobox-primitive';
-import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '@twilio-paste/input-box';
-import { Portal } from '@twilio-paste/reakit-library';
 
-import { GrowingInput } from './GrowingInput';
-import { extractPropsFromState } from './extractPropsFromState';
-import { ListBoxPositioner } from '../ListboxPositioner';
 import { ComboboxItems } from '../ComboboxItems';
+import { ListBoxPositioner } from '../ListboxPositioner';
+import { getHelpTextVariant } from '../helpers';
 import { ComboboxListbox } from '../styles/ComboboxListbox';
 import type { MultiselectComboboxProps } from '../types';
-import { getHelpTextVariant } from '../helpers';
+import { GrowingInput } from './GrowingInput';
+import { extractPropsFromState } from './extractPropsFromState';
 
 export const MultiselectCombobox = React.forwardRef<HTMLInputElement, MultiselectComboboxProps>(
   (

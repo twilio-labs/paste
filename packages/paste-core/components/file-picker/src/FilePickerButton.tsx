@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { Box } from '@twilio-paste/box';
 import type { ButtonProps } from '@twilio-paste/button';
 import { Button } from '@twilio-paste/button';
-import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
 const FilePickerButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, element, disabled, ...props }, ref) => {

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { RadioButton, RadioButtonGroup } from '@twilio-paste/radio-button-group';
-import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { Box } from '@twilio-paste/box';
+import { RadioButton, RadioButtonGroup } from '@twilio-paste/radio-button-group';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { usePreviewThemeContext } from '../../../context/PreviewThemeContext';
 

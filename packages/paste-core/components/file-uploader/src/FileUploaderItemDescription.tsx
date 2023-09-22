@@ -1,7 +1,7 @@
-import * as React from 'react';
 import type { BoxElementProps } from '@twilio-paste/box';
 import { Text, safelySpreadTextProps } from '@twilio-paste/text';
 import type { TextStyleProps } from '@twilio-paste/text';
+import * as React from 'react';
 
 import { FileUploaderItemContext } from './FileUploaderItemContext';
 import type { FileUploaderItemContextProps } from './FileUploaderItemContext';

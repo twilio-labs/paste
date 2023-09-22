@@ -1,6 +1,6 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import { Topbar } from '../src';
 

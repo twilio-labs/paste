@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Box } from '@twilio-paste/box';
 import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
 import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import * as React from 'react';
 
-import { SidebarHeader, SidebarHeaderLabel, SidebarHeaderIconButton } from '../src';
+import { SidebarHeader, SidebarHeaderIconButton, SidebarHeaderLabel } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

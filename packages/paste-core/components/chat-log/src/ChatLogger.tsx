@@ -1,6 +1,6 @@
-import * as React from 'react';
+import { animated, useReducedMotion, useTransition } from '@twilio-paste/animation-library';
 import { Box } from '@twilio-paste/box';
-import { useTransition, animated, useReducedMotion } from '@twilio-paste/animation-library';
+import * as React from 'react';
 
 import { ChatLog } from './ChatLog';
 import type { Chat } from './useChatLogger';

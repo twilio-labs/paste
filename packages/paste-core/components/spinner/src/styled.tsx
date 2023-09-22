@@ -1,7 +1,7 @@
 import { styled } from '@twilio-paste/styling-library';
 
-import { SvgKeyframes, CircleKeyframes } from './keyframes';
 import { circleCircumference } from './constants';
+import { CircleKeyframes, SvgKeyframes } from './keyframes';
 
 export const StyledCircleTrack = styled.circle({
   transformOrigin: 'center',

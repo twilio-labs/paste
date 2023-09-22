@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import { Stack } from '@twilio-paste/stack';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 export interface AlertDialogFooterProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
   destructive?: boolean;

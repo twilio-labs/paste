@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { MenuBadgeContent } from '@twilio-paste/menu';
 import type { MenuBadgeProps } from '@twilio-paste/menu';
+import * as React from 'react';
 
 import { StatusBadge } from './StatusBadge';
 import type { StatusBadgeProps } from './StatusBadge';

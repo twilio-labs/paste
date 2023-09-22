@@ -1,6 +1,6 @@
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import type { LayoutProps, SpaceProps } from '@twilio-paste/style-props';
 import type { BoxProps } from '@twilio-paste/box';
+import type { LayoutProps, SpaceProps } from '@twilio-paste/style-props';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export type AnchorTabIndexes = 0 | -1;
 export type AnchorTargets = '_self' | '_blank' | '_parent' | '_top';

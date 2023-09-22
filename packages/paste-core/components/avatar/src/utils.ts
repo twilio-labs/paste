@@ -1,10 +1,10 @@
 import type {
-  IconSizeOptions,
-  LineHeightOptions,
+  FontSize,
   FontSizeOptions,
   IconSize,
+  IconSizeOptions,
   LineHeight,
-  FontSize,
+  LineHeightOptions,
   SpaceOptions,
 } from '@twilio-paste/style-props';
 

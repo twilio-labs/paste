@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
+import * as React from 'react';
 
-import { Customized } from '../stories/label.stories';
 import { Label, RequiredDot } from '../src';
+import { Customized } from '../stories/label.stories';
 
 describe('Label for prop', () => {
   const initialProps = {

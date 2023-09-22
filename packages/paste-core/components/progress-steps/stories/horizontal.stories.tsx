@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import {
-  ProgressSteps,
   ProgressStepComplete,
   ProgressStepCurrent,
   ProgressStepError,
   ProgressStepIncomplete,
   ProgressStepSeparator,
+  ProgressSteps,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

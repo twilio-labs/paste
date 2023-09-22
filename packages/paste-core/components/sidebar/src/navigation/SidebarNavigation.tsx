@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
-import { styled, css } from '@twilio-paste/styling-library';
+import { css, styled } from '@twilio-paste/styling-library';
 import type { ThemeShape } from '@twilio-paste/theme';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { SidebarContext } from '../SidebarContext';
 import { SidebarNavigationContext } from './SidebarNavigationContext';

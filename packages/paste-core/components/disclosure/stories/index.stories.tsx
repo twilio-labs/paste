@@ -1,13 +1,13 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useTheme } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
 import { Box } from '@twilio-paste/box';
-import { Stack } from '@twilio-paste/stack';
-import { Truncate } from '@twilio-paste/truncate';
-import { Paragraph } from '@twilio-paste/paragraph';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { ProductInternetOfThingsIcon } from '@twilio-paste/icons/esm/ProductInternetOfThingsIcon';
-import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/media-object';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Stack } from '@twilio-paste/stack';
+import { useTheme } from '@twilio-paste/theme';
+import { Truncate } from '@twilio-paste/truncate';
+import * as React from 'react';
 
 import { Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState } from '../src';
 import type { DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants } from '../src';

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Combobox } from '@twilio-paste/combobox';
 import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
+import * as React from 'react';
 
 export const SearchBox: React.FC = () => {
   return (

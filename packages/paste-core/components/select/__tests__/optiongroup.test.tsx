@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { OptionGroup, Option } from '../src';
+import { Option, OptionGroup } from '../src';
 import type { OptionGroupProps } from '../src';
 import { createAttributeMap } from '../test-utils';
 

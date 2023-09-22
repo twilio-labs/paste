@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { Button } from '@twilio-paste/core/button';
-import { useUID } from '@twilio-paste/core/uid-library';
-import { TextArea } from '@twilio-paste/core/textarea';
-import { useToaster, Toaster } from '@twilio-paste/core/toast';
-import { generateTokensFromTheme } from '@twilio-paste/core/theme';
-import { Modal, ModalHeading, ModalHeader, ModalBody, ModalFooter, ModalFooterActions } from '@twilio-paste/core/modal';
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from '@twilio-paste/core/modal';
 import type { ModalProps } from '@twilio-paste/core/modal';
+import { TextArea } from '@twilio-paste/core/textarea';
+import { generateTokensFromTheme } from '@twilio-paste/core/theme';
+import { Toaster, useToaster } from '@twilio-paste/core/toast';
+import { useUID } from '@twilio-paste/core/uid-library';
+import * as React from 'react';
 
 import { TokenContext } from '../../../context/TokenContext';
 

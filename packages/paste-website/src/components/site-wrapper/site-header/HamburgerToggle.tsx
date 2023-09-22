@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { styled, themeGet } from '@twilio-paste/styling-library';
 import { Box } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import type { TextColorOptions } from '@twilio-paste/style-props';
+import { styled, themeGet } from '@twilio-paste/styling-library';
+import * as React from 'react';
 
 interface HamburgerToggleProps {
   toggled: boolean;

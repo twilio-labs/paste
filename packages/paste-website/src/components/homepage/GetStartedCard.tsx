@@ -1,7 +1,7 @@
+import { animated, useSpring } from '@twilio-paste/animation-library';
+import { Card } from '@twilio-paste/card';
 import * as React from 'react';
 import VisibilitySensor from 'react-visibility-sensor';
-import { Card } from '@twilio-paste/card';
-import { useSpring, animated } from '@twilio-paste/animation-library';
 
 const AnimatedCard = animated(Card);
 interface GetStartedCardProps {

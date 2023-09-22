@@ -1,7 +1,7 @@
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
+import type { ThemeShape } from '@twilio-paste/theme';
 // https://styled-system.com/api/#typography
 import type { Properties } from 'csstype';
-import type { ThemeShape } from '@twilio-paste/theme';
-import type { ResponsiveValue } from '@twilio-paste/styling-library';
 
 // Tokens
 export type FontFamilyOptions = keyof ThemeShape['fonts'] | 'inherit';

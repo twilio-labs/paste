@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { safelySpreadTextProps } from '@twilio-paste/text';
+import * as React from 'react';
 
 import { List } from './List';
 import type { UnorderedListProps } from './types';

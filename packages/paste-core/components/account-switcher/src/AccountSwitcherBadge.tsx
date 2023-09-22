@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { MenuBadge } from '@twilio-paste/menu';
 import type { MenuBadgeProps } from '@twilio-paste/menu';
+import * as React from 'react';
 
 export interface AccountSwitcherBadgeProps extends Omit<MenuBadgeProps, 'variant'> {
   children: NonNullable<React.ReactNode>;

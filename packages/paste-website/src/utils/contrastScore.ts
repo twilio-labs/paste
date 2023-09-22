@@ -1,5 +1,5 @@
-import type { Properties } from 'csstype';
 import Color from 'color';
+import type { Properties } from 'csstype';
 
 enum ContrastRatingScores {
   Fail = 'Fail',

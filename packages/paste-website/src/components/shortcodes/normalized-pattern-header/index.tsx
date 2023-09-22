@@ -1,15 +1,15 @@
-import * as React from 'react';
-import merge from 'deepmerge';
+import { Badge } from '@twilio-paste/badge';
 import { Box } from '@twilio-paste/box';
 import { Stack } from '@twilio-paste/stack';
 import { Text } from '@twilio-paste/text';
-import { Badge } from '@twilio-paste/badge';
+import merge from 'deepmerge';
+import * as React from 'react';
 
-import { GenericHeader } from '../generic-header';
-import type { GenericHeaderProps } from '../generic-header';
 import { SidebarCategoryRoutes } from '../../../constants';
 import { getNormalizedHeaderData } from '../../../utils/DataUtils';
 import type { ApiData } from '../../../utils/DataUtils';
+import { GenericHeader } from '../generic-header';
+import type { GenericHeaderProps } from '../generic-header';
 
 const PackageValue: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (

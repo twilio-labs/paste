@@ -1,10 +1,10 @@
-import * as React from 'react';
-import TextareaAutosize from '@twilio-paste/react-textarea-autosize-library';
-import { styled, css } from '@twilio-paste/styling-library';
-import { safelySpreadBoxProps, getCustomElementStyles } from '@twilio-paste/box';
+import { getCustomElementStyles, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { InputBox } from '@twilio-paste/input-box';
+import TextareaAutosize from '@twilio-paste/react-textarea-autosize-library';
+import { css, styled } from '@twilio-paste/styling-library';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 export type TextAreaVariants = 'default' | 'inverse';
 

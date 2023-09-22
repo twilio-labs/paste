@@ -1,18 +1,18 @@
-import * as React from 'react';
-import filter from 'lodash/filter';
-import uniq from 'lodash/uniq';
-import { render, screen, fireEvent, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
+import userEvent from '@testing-library/user-event';
+import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
-import { Box } from '@twilio-paste/box';
+import { Theme } from '@twilio-paste/theme';
+import filter from 'lodash/filter';
+import uniq from 'lodash/uniq';
+import * as React from 'react';
 import type { useVirtual as _useVirtual } from 'react-virtual';
 
-import { useCombobox, Combobox } from '../src';
+import { Combobox, useCombobox } from '../src';
+import { getGroupedItems, getIndexedItems } from '../src/helpers';
 import type { ComboboxProps } from '../src/types';
-import { getIndexedItems, getGroupedItems } from '../src/helpers';
 
 type UseVirtual = typeof _useVirtual;
 

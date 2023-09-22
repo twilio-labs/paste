@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import { PaginationBackArrow } from './PaginationBackArrow';
-import { PaginationForwardArrow } from './PaginationForwardArrow';
 import type { PaginationArrowProps } from '../types';
 import { handleLinkValidation } from '../utils';
+import { PaginationBackArrow } from './PaginationBackArrow';
+import { PaginationForwardArrow } from './PaginationForwardArrow';
 
 const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
   (

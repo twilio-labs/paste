@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import { Column, Grid } from '../src';
 import { getColumnStyles } from '../src/Column';
@@ -8,9 +8,9 @@ import {
   getColumnOffset,
   getColumnSpan,
   getOuterGutterPull,
-  getStackedColumns,
-  getSpacing,
   getResponsiveSpacing,
+  getSpacing,
+  getStackedColumns,
 } from '../src/utils';
 
 describe('Grid', () => {

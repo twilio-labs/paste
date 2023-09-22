@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
 import type { BoxElementProps } from '@twilio-paste/box';
 import { IconWrapper } from '@twilio-paste/icons/esm/helpers/IconWrapper';
 import type { IconWrapperProps } from '@twilio-paste/icons/esm/helpers/IconWrapper';
 import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { StyledCircleTrack, AnimatedStyledCircle, StyledSvg } from './styled';
 import { circleGeometry } from './constants';
+import { AnimatedStyledCircle, StyledCircleTrack, StyledSvg } from './styled';
 
 export interface SpinnerProps extends IconWrapperProps {
   title?: string;

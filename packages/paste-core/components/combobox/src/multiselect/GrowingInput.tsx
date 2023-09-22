@@ -1,7 +1,7 @@
-import * as React from 'react';
 import type { BoxProps } from '@twilio-paste/box';
 import { Box } from '@twilio-paste/box';
 import { InputElement } from '@twilio-paste/input';
+import * as React from 'react';
 
 interface GrowingInputProps {
   initialValue?: string;

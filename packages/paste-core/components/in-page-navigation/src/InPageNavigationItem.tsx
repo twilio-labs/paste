@@ -1,8 +1,8 @@
-import * as React from 'react';
-import type { BoxStyleProps, BoxProps } from '@twilio-paste/box';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { secureExternalLink } from '@twilio-paste/anchor';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { InPageNavigationContext } from './InPageNavigationContext';
 

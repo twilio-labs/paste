@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { render, fireEvent, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { useFormPillState, FormPillGroup, FormPill } from '../src';
-import { Basic, SelectableAndDismissable } from '../stories/index.stories';
+import { FormPill, FormPillGroup, useFormPillState } from '../src';
 import { CustomFormPillGroup } from '../stories/customization.stories';
+import { Basic, SelectableAndDismissable } from '../stories/index.stories';
 
 const CustomElementFormPillGroup = (): JSX.Element => {
   const pillState = useFormPillState();
