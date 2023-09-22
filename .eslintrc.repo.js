@@ -24,7 +24,7 @@ module.exports = {
       {
         // when linting the repo globally, local packages are not installed, so we need to
         // manually tell eslint where to look for them
-        packageDir: [path.join(__dirname, './'), ...cachedPackages.map((package) => package.location)],
+        packageDir: [path.join(__dirname, './'), ...cachedPackages.map((pkg) => pkg.location)],
       },
     ],
   },
