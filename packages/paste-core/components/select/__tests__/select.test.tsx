@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {render, fireEvent, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useUID} from '@twilio-paste/uid-library';
-import {Theme} from '@twilio-paste/theme';
-import {Label} from '@twilio-paste/label';
+import { render, fireEvent, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useUID } from '@twilio-paste/uid-library';
+import { Theme } from '@twilio-paste/theme';
+import { Label } from '@twilio-paste/label';
 
-import {Select, Option, SelectElement} from '../src';
-import type {SelectProps} from '../src';
-import {createAttributeMap} from '../test-utils';
+import { Select, Option, SelectElement } from '../src';
+import type { SelectProps } from '../src';
+import { createAttributeMap } from '../test-utils';
 
 const onChangeMock: jest.Mock = jest.fn();
 
@@ -47,7 +47,11 @@ const ExampleSelect: React.FC<React.PropsWithChildren<ExampleSelectProps>> = ({
 
 const initTestId = (prefix?: string): string => `${prefix ? `${prefix}-` : ''}select-wrapper`;
 
-const MockWrappedSelect: React.FC<React.PropsWithChildren<ExampleSelectProps>> = ({children, dataPrefix, ...props}) => {
+const MockWrappedSelect: React.FC<React.PropsWithChildren<ExampleSelectProps>> = ({
+  children,
+  dataPrefix,
+  ...props
+}) => {
   return (
     <Theme.Provider theme="default" data-testid={initTestId(dataPrefix)}>
       <ExampleSelect dataPrefix={dataPrefix} {...props}>
@@ -73,17 +77,17 @@ describe('Select', () => {
   };
 
   it('should have the correct accessibility attributes on the container', () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">test</Option>
-      </MockWrappedSelect>
+      </MockWrappedSelect>,
     );
     expect(getByTestId('select').getAttribute('aria-invalid')).toEqual('false');
 
-    const {getByTestId: getByTestIdWithError} = render(
+    const { getByTestId: getByTestIdWithError } = render(
       <MockWrappedSelect {...defaultProps} dataPrefix="has-error" hasError>
         <Option value="option-1">test</Option>
-      </MockWrappedSelect>
+      </MockWrappedSelect>,
     );
     expect(getByTestIdWithError('has-error-select').getAttribute('aria-invalid')).toEqual('true');
   });
@@ -100,10 +104,10 @@ describe('Select', () => {
       draggable: true,
       accessKey: 't e s t',
     };
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <MockWrappedSelect {...defaultProps} {...nativeAttributes}>
         <Option value="option-1">test</Option>
-      </MockWrappedSelect>
+      </MockWrappedSelect>,
     );
     const attributeMap = createAttributeMap(getByTestId('select'));
 
@@ -118,10 +122,10 @@ describe('Select', () => {
   });
 
   it('should filter blocklisted props', () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <MockWrappedSelect {...defaultProps} dataPrefix="blocklisted" {...blockListedPropsMap}>
         <Option value="option-1">test</Option>
-      </MockWrappedSelect>
+      </MockWrappedSelect>,
     );
     const selectAttributesMap = createAttributeMap(getByTestId('blocklisted-select'));
 
@@ -136,10 +140,10 @@ describe('Select', () => {
       ...blockListedPropsMap,
       multiple: true,
     };
-    const {getByTestId: getByTestIdWithMultiple} = render(
+    const { getByTestId: getByTestIdWithMultiple } = render(
       <MockWrappedSelect {...defaultProps} dataPrefix="blocklisted-multiple" {...multipleRenderProps}>
         <Option value="option-1">test</Option>
-      </MockWrappedSelect>
+      </MockWrappedSelect>,
     );
 
     const selectMultipleAttributesMap = createAttributeMap(getByTestIdWithMultiple('blocklisted-multiple-select'));
@@ -154,30 +158,30 @@ describe('Select', () => {
   });
 
   it('should call onChange when an option is selected', () => {
-    const {getByDisplayValue} = render(
+    const { getByDisplayValue } = render(
       <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">Option 1</Option>
         <Option data-testid="option-2" value="option-2">
           Option 2
         </Option>
-      </MockWrappedSelect>
+      </MockWrappedSelect>,
     );
-    fireEvent.change(getByDisplayValue('Option 1'), {target: {value: 'option-2'}});
+    fireEvent.change(getByDisplayValue('Option 1'), { target: { value: 'option-2' } });
 
     expect(onChangeMock).toHaveBeenCalled();
   });
 
   it('should set data-not-selectize="true" on the select element for console bootstrap overrides', () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <MockWrappedSelect {...defaultProps}>
         <Option value="option-1">test</Option>
-      </MockWrappedSelect>
+      </MockWrappedSelect>,
     );
     expect(getByTestId('select').getAttribute('data-not-selectize')).toEqual('true');
   });
 
   it('should render with margin: space0', () => {
-    const {getByTestId} = render(<SelectElement data-testid="select-margin">child</SelectElement>);
+    const { getByTestId } = render(<SelectElement data-testid="select-margin">child</SelectElement>);
     expect(getByTestId('select-margin')).toHaveStyleRule('margin', 'space0');
   });
 
@@ -186,11 +190,11 @@ describe('Select', () => {
       render(
         <MockWrappedSelect {...defaultProps} dataPrefix="default-data-attribute" hasError>
           <Option value="option-1">test</Option>
-        </MockWrappedSelect>
+        </MockWrappedSelect>,
       );
 
       expect(screen.getByTestId('default-data-attribute-select').getAttribute('data-paste-element')).toEqual(
-        'SELECT_ELEMENT'
+        'SELECT_ELEMENT',
       );
     });
 
@@ -198,17 +202,17 @@ describe('Select', () => {
       render(
         <MockWrappedSelect {...defaultProps} dataPrefix="unique-data-attribute" element="UNIQUE_NAME" hasError>
           <Option value="option-1">test</Option>
-        </MockWrappedSelect>
+        </MockWrappedSelect>,
       );
 
       expect(screen.getByTestId('unique-data-attribute-select').getAttribute('data-paste-element')).toEqual(
-        'UNIQUE_NAME_ELEMENT'
+        'UNIQUE_NAME_ELEMENT',
       );
     });
   });
 
   describe('Customization', () => {
-    const CustomizationWrapper: React.FC<React.PropsWithChildren<{children: React.ReactNode}>> = ({children}) => (
+    const CustomizationWrapper: React.FC<React.PropsWithChildren<{ children: React.ReactNode }>> = ({ children }) => (
       <CustomizationProvider
         theme={TestTheme}
         elements={{
@@ -285,7 +289,7 @@ describe('Select', () => {
               <Option value="option-1">test</Option>
             </ExampleSelect>
           </div>
-        </CustomizationWrapper>
+        </CustomizationWrapper>,
       );
 
       const nodeNamedSelect = screen.getByTestId('custom-styles-select-wrapper').lastChild as ChildNode;
@@ -315,7 +319,7 @@ describe('Select', () => {
               <Option value="option-1">test</Option>
             </ExampleSelect>
           </div>
-        </CustomizationWrapper>
+        </CustomizationWrapper>,
       );
 
       const nodeNamedSelect = screen.getByTestId('custom-styles-select-wrapper').lastChild as ChildNode;
@@ -345,7 +349,7 @@ describe('Select', () => {
               <Option value="option-1">test</Option>
             </ExampleSelect>
           </div>
-        </CustomizationWrapper>
+        </CustomizationWrapper>,
       );
 
       const nodeNamedSelect = screen.getByTestId('custom-styles-unique-name-select-wrapper').lastChild as ChildNode;
@@ -375,7 +379,7 @@ describe('Select', () => {
               <Option value="option-1">test</Option>
             </ExampleSelect>
           </div>
-        </CustomizationWrapper>
+        </CustomizationWrapper>,
       );
 
       const nodeNamedSelect = screen.getByTestId('custom-styles-unique-name-select-wrapper').lastChild as ChildNode;

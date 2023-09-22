@@ -17,7 +17,7 @@ import {
   colorSchemes,
 } from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.es6';
 
-import {generateThemeFromTokens} from '../../generateThemeFromTokens';
+import { generateThemeFromTokens } from '../../generateThemeFromTokens';
 
 export const TwilioDarkTheme = generateThemeFromTokens({
   backgroundColors,

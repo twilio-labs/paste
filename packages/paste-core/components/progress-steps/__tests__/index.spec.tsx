@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
 import {
   ProgressSteps,
@@ -10,11 +10,11 @@ import {
   ProgressStepError,
   ProgressStepIncomplete,
 } from '../src';
-import {Divs, Buttons, Anchors} from '../stories/horizontal.stories';
+import { Divs, Buttons, Anchors } from '../stories/horizontal.stories';
 
 describe('ProgressSteps', () => {
   it('should render divs correctly', () => {
-    const {queryAllByText, getAllByRole} = render(<Divs />);
+    const { queryAllByText, getAllByRole } = render(<Divs />);
     const [completeIcon, completeLabel] = queryAllByText('Completed');
     const [incompleteIcon, incompleteLabel] = queryAllByText('Incomplete');
     const [errorIcon, errorLabel] = queryAllByText('Error');
@@ -40,16 +40,16 @@ describe('ProgressSteps', () => {
   });
 
   it('should render buttons correctly', () => {
-    const {getByRole} = render(<Buttons />);
-    const signupLabel = getByRole('button', {name: 'Completed Sign up'});
+    const { getByRole } = render(<Buttons />);
+    const signupLabel = getByRole('button', { name: 'Completed Sign up' });
 
     expect(signupLabel?.tagName).toEqual('BUTTON');
     expect(signupLabel?.getAttribute('type')).toEqual('button');
   });
 
   it('should render anchors correctly', () => {
-    const {getByRole} = render(<Anchors />);
-    const signupLabel = getByRole('link', {name: 'Completed Sign up'});
+    const { getByRole } = render(<Anchors />);
+    const signupLabel = getByRole('link', { name: 'Completed Sign up' });
 
     expect(signupLabel?.tagName).toEqual('A');
     expect(signupLabel?.getAttribute('href')).toEqual('#');
@@ -57,11 +57,11 @@ describe('ProgressSteps', () => {
 
   describe('element naming', () => {
     it('should set all default element names', async () => {
-      const {getByRole} = render(<Buttons />);
-      const signupLabel = getByRole('button', {name: 'Completed Sign up'});
-      const validateEmail = getByRole('button', {name: 'Error Validate email'});
-      const completeProfile = getByRole('button', {name: 'Current Complete profile'});
-      const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
+      const { getByRole } = render(<Buttons />);
+      const signupLabel = getByRole('button', { name: 'Completed Sign up' });
+      const validateEmail = getByRole('button', { name: 'Error Validate email' });
+      const completeProfile = getByRole('button', { name: 'Current Complete profile' });
+      const addFriends = getByRole('button', { name: 'Incomplete Add friends' });
       const wrapper = getByRole('list');
 
       expect(signupLabel?.dataset.pasteElement).toEqual('PROGRESS_STEP_COMPLETE');
@@ -73,7 +73,7 @@ describe('ProgressSteps', () => {
   });
   describe('custom element naming', () => {
     it('should set all custom element names', async () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <CustomizationProvider
           disableAnimations
           theme={TestTheme}
@@ -128,12 +128,12 @@ describe('ProgressSteps', () => {
               Start event
             </ProgressStepIncomplete>
           </ProgressSteps>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
-      const signupLabel = getByRole('link', {name: 'Completed Sign up'});
-      const validateEmail = getByRole('button', {name: 'Error Validate email'});
-      const completeProfile = getByRole('button', {name: 'Current Complete profile'});
-      const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
+      const signupLabel = getByRole('link', { name: 'Completed Sign up' });
+      const validateEmail = getByRole('button', { name: 'Error Validate email' });
+      const completeProfile = getByRole('button', { name: 'Current Complete profile' });
+      const addFriends = getByRole('button', { name: 'Incomplete Add friends' });
       const wrapper = getByRole('list');
 
       expect(signupLabel?.dataset.pasteElement).toEqual('STEP_COMPLETE');

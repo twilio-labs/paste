@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
-import {Heading} from '@twilio-paste/heading';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {TextArea} from '@twilio-paste/textarea';
-import {useUID} from '@twilio-paste/uid-library';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { ChatIcon } from '@twilio-paste/icons/esm/ChatIcon';
+import { Heading } from '@twilio-paste/heading';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { TextArea } from '@twilio-paste/textarea';
+import { useUID } from '@twilio-paste/uid-library';
 
 import {
   SideModal,

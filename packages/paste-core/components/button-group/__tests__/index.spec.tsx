@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {Button} from '@twilio-paste/button';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {ButtonGroup} from '../src';
-import {Unattached} from '../stories/index.stories';
+import { ButtonGroup } from '../src';
+import { Unattached } from '../stories/index.stories';
 
 describe('ButtonGroup', () => {
   it('should render a group visibly into document', () => {
@@ -27,7 +27,7 @@ describe('ButtonGroup', () => {
       <ButtonGroup aria-label="test">
         <Button variant="secondary">Pick me</Button>
         <Button variant="secondary">Or me</Button>
-      </ButtonGroup>
+      </ButtonGroup>,
     );
     const btnGroup = screen.getByRole('group');
     expect(btnGroup).toHaveAttribute('aria-label', 'test');
@@ -52,11 +52,11 @@ describe('ButtonGroup customization', () => {
       <CustomizationProvider
         theme={TestTheme}
         elements={{
-          BUTTON_GROUP: {backgroundColor: 'colorBackgroundAvailable'},
+          BUTTON_GROUP: { backgroundColor: 'colorBackgroundAvailable' },
         }}
       >
         <Unattached />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const btnGroup = screen.getByRole('group');
@@ -68,11 +68,11 @@ describe('ButtonGroup customization', () => {
       <CustomizationProvider
         theme={TestTheme}
         elements={{
-          MY_BUTTON_GROUP: {backgroundColor: 'colorBackgroundAvailable'},
+          MY_BUTTON_GROUP: { backgroundColor: 'colorBackgroundAvailable' },
         }}
       >
         <Unattached element="MY_BUTTON_GROUP" />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const btnGroup = screen.getByRole('group');

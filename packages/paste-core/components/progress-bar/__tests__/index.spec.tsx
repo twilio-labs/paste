@@ -1,20 +1,20 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
-import {HelpText} from '@twilio-paste/help-text';
+import { render, screen } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import { HelpText } from '@twilio-paste/help-text';
 
-import {LABEL_SUFFIX} from '../src/constants';
-import {ProgressBar, ProgressBarLabel} from '../src';
+import { LABEL_SUFFIX } from '../src/constants';
+import { ProgressBar, ProgressBarLabel } from '../src';
 
 describe('ProgressBar', () => {
   describe('base usage', () => {
     it('should render correctly with all aria attributes', () => {
-      const {rerender} = render(
+      const { rerender } = render(
         <Theme.Provider theme="twilio">
           <ProgressBarLabel htmlFor="test-progress-bar">Download progress</ProgressBarLabel>
           <ProgressBar id="test-progress-bar" aria-describedby="test-description" value={33} maxValue={120} />
           <HelpText id="test-description">Downloading more ram</HelpText>
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const progressBar = screen.getByRole('progressbar');
@@ -44,7 +44,7 @@ describe('ProgressBar', () => {
             maxValue={120}
           />
           <HelpText id="test-description">Downloading more ram</HelpText>
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       expect(progressBar).toHaveAttribute('aria-valuenow', '50');
       expect(progressBar).toHaveAttribute('aria-valuetext', '42%');
@@ -66,7 +66,7 @@ describe('ProgressBar', () => {
         <Theme.Provider theme="twilio">
           <div id="labelledby">Download progress</div>
           <ProgressBar id="test-progress-bar" aria-labelledby="labelledby" value={33} maxValue={120} />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const progressBar = screen.getByRole('progressbar');
@@ -85,7 +85,7 @@ describe('ProgressBar', () => {
             value={33}
             maxValue={120}
           />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const progressBar = screen.getByRole('progressbar');

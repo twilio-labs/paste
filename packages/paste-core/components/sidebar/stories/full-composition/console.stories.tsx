@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 
-import {Console as ConsoleComposition} from './components/Console';
+import { Console as ConsoleComposition } from './components/Console';
 
 // eslint-disable-next-line import/no-default-export
 export default {

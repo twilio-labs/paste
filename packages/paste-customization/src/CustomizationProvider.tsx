@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
-import {StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
-import {pasteGlobalStyles, StyledBase, DefaultTheme, DarkTheme} from '@twilio-paste/theme';
+import { useReducedMotion, Globals as AnimatedGlobals } from '@twilio-paste/animation-library';
+import { StylingGlobals, ThemeProvider as StyledThemeProvider } from '@twilio-paste/styling-library';
+import { pasteGlobalStyles, StyledBase, DefaultTheme, DarkTheme } from '@twilio-paste/theme';
 
-import {createCustomTheme} from './utils';
-import type {CustomizationProviderProps} from './types';
+import { createCustomTheme } from './utils';
+import type { CustomizationProviderProps } from './types';
 
 /**
  * The customization provider can be used to wrap a Paste applications and customize the
@@ -45,12 +45,12 @@ const CustomizationProvider: React.FC<React.PropsWithChildren<CustomizationProvi
         elements: elements || {},
         customBreakpoints,
       }),
-    [baseTheme, customBreakpoints, elements, theme]
+    [baseTheme, customBreakpoints, elements, theme],
   );
 
   return (
     <StyledThemeProvider theme={customTheme}>
-      <StylingGlobals styles={pasteGlobalStyles({theme: customTheme})} />
+      <StylingGlobals styles={pasteGlobalStyles({ theme: customTheme })} />
       <StyledBase {...props} />
     </StyledThemeProvider>
   );
@@ -58,4 +58,4 @@ const CustomizationProvider: React.FC<React.PropsWithChildren<CustomizationProvi
 
 CustomizationProvider.displayName = 'PasteCustomizationProvider';
 
-export {CustomizationProvider};
+export { CustomizationProvider };

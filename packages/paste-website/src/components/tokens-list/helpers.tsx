@@ -1,8 +1,8 @@
-import type {Properties} from 'csstype';
+import type { Properties } from 'csstype';
 import debounce from 'lodash/debounce';
 
-import type {Token, Tokens, TokenExampleColors, TokensShape} from './types';
-import {event} from '../../lib/gtag';
+import type { Token, Tokens, TokenExampleColors, TokensShape } from './types';
+import { event } from '../../lib/gtag';
 
 export const trackTokenFilterString = debounce((filter: string): void => {
   if (filter !== '') {
@@ -65,7 +65,7 @@ export const getTokenExampleColors = (tokens: Tokens): TokenExampleColors => {
 };
 
 export const getTokenContrastPairs = (Tokens: TokensShape): Record<string, string[]> => {
-  const {tokens} = Tokens;
+  const { tokens } = Tokens;
   const tokensWithPairs: Record<string, string[]> = {};
   const tokenCategories = tokens ? (Object.keys(tokens) as [keyof typeof tokens]) : [];
   tokenCategories.forEach((tokenCatgory) => {

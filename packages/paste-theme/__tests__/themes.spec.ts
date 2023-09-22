@@ -1,4 +1,4 @@
-import {DefaultTheme, SendGridTheme} from '../src';
+import { DefaultTheme, SendGridTheme } from '../src';
 
 describe('Default theme', () => {
   it('should match the snapshot', () => {

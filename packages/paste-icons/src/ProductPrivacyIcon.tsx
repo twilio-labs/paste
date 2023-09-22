@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductPrivacyIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ProductPrivacyIconProps extends IconWrapperProps {
 }
 
 const ProductPrivacyIcon = React.forwardRef<HTMLElement, ProductPrivacyIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProductPrivacyIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -42,8 +42,8 @@ const ProductPrivacyIcon = React.forwardRef<HTMLElement, ProductPrivacyIconProps
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProductPrivacyIcon.displayName = 'ProductPrivacyIcon';
-export {ProductPrivacyIcon};
+export { ProductPrivacyIcon };

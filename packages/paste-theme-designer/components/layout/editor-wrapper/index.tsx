@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/core/box';
-import {Button} from '@twilio-paste/core/button';
+import { Box } from '@twilio-paste/core/box';
+import { Button } from '@twilio-paste/core/button';
 
-import {TokenSelector} from './TokenSelector';
-import {TopBar} from '../../topbar';
-import {Preview} from '../../preview';
-import {ExportModal} from './ExportModal';
-import {ImportModal} from './ImportModal';
-import {SITE_MASTHEAD_HEIGHT} from '../../../constants';
+import { TokenSelector } from './TokenSelector';
+import { TopBar } from '../../topbar';
+import { Preview } from '../../preview';
+import { ExportModal } from './ExportModal';
+import { ImportModal } from './ImportModal';
+import { SITE_MASTHEAD_HEIGHT } from '../../../constants';
 
 const EditorWrapper: React.FC<React.PropsWithChildren> = (props) => {
   const [isExportOpen, setExportOpen] = React.useState(false);
@@ -56,4 +56,4 @@ const EditorWrapper: React.FC<React.PropsWithChildren> = (props) => {
   );
 };
 
-export {EditorWrapper};
+export { EditorWrapper };

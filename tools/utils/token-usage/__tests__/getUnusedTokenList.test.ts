@@ -1,4 +1,4 @@
-const {getUnusedTokenList} = require('../getUnusedTokenList');
+const { getUnusedTokenList } = require('../getUnusedTokenList');
 
 describe('getUnusedTokenList', () => {
   const tokenPackageMap = {

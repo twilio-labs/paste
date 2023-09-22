@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import {DataGridCell} from './DataGridCell';
-import type {ThProps} from './table/Th';
+import { DataGridCell } from './DataGridCell';
+import type { ThProps } from './table/Th';
 
 /**
  * DataGrid header (th) component.

@@ -1,4 +1,4 @@
-const {convertFilePathsToPackageNames} = require('../convertFilePathsToPackageNames');
+const { convertFilePathsToPackageNames } = require('../convertFilePathsToPackageNames');
 
 describe('convertFilePathsToPackageNames', () => {
   it('converts filepaths to packagenames', () => {

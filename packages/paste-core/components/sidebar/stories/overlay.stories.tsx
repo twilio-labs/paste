@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import type {StoryFn} from '@storybook/react';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { Button } from '@twilio-paste/button';
+import { Box } from '@twilio-paste/box';
+import type { StoryFn } from '@storybook/react';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
 import {
   Sidebar,

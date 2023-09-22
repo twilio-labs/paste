@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
 import {
   ProgressSteps,
@@ -18,7 +18,7 @@ export default {
   component: ProgressSteps,
 };
 
-export const DefaultElementNames: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const DefaultElementNames: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -71,7 +71,7 @@ export const DefaultElementNames: StoryFn = (_args, {parameters: {isTestEnvironm
   );
 };
 
-export const CustomElementNames: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomElementNames: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

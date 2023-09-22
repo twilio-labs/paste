@@ -1,18 +1,18 @@
 import * as React from 'react';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
-import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
-import {PauseIcon} from '@twilio-paste/icons/esm/PauseIcon';
-import {PlayIcon} from '@twilio-paste/icons/esm/PlayIcon';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Stack} from '@twilio-paste/stack';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {isRenderingOnServer} from '@twilio-paste/animation-library';
+import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
+import { CheckboxCheckIcon } from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import { BoldIcon } from '@twilio-paste/icons/esm/BoldIcon';
+import { PauseIcon } from '@twilio-paste/icons/esm/PauseIcon';
+import { PlayIcon } from '@twilio-paste/icons/esm/PlayIcon';
+import { Box } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
+import { Stack } from '@twilio-paste/stack';
+import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { isRenderingOnServer } from '@twilio-paste/animation-library';
 
-import {Button} from '../src';
-import type {ButtonVariants, ButtonSizes} from '../src/types';
+import { Button } from '../src';
+import type { ButtonVariants, ButtonSizes } from '../src/types';
 
 const ButtonSizeOptions = [
   'default',
@@ -25,7 +25,7 @@ const ButtonSizeOptions = [
   'circle_small',
 ];
 
-const AllSizeOptions: React.FC<React.PropsWithChildren<{variant: ButtonVariants}>> = ({variant}) => {
+const AllSizeOptions: React.FC<React.PropsWithChildren<{ variant: ButtonVariants }>> = ({ variant }) => {
   const allButtons: React.ReactNode[] = [];
 
   ButtonSizeOptions.forEach((size, index) => {
@@ -105,7 +105,7 @@ const AllSizeOptions: React.FC<React.PropsWithChildren<{variant: ButtonVariants}
               </Stack>
             </Box>
           )}
-      </>
+      </>,
     );
   });
 
@@ -201,7 +201,7 @@ export const ButtonAsAnchor = (): React.ReactNode => {
   );
 };
 
-const IconSizeOptions: React.FC<React.PropsWithChildren<{variant: ButtonVariants}>> = ({variant}) => {
+const IconSizeOptions: React.FC<React.PropsWithChildren<{ variant: ButtonVariants }>> = ({ variant }) => {
   return (
     <Stack orientation="vertical" spacing="space60">
       <Box>

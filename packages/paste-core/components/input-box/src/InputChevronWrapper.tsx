@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {BackgroundColor, TextColor} from '@twilio-paste/style-props';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { BackgroundColor, TextColor } from '@twilio-paste/style-props';
 
-import type {Variants} from './types';
-import {useInputBoxContext} from './InputBoxContext';
+import type { Variants } from './types';
+import { useInputBoxContext } from './InputBoxContext';
 
 type StateOptions = 'default' | 'disabled' | 'readOnly';
 
@@ -12,7 +12,7 @@ const getChevronWrapperState = (disabled: boolean, readOnly: boolean): StateOpti
   // eslint-disable-next-line unicorn/no-nested-ternary
   disabled ? 'disabled' : readOnly ? 'readOnly' : 'default';
 
-const IconColors: {[variant in Variants]: {[key in StateOptions]: TextColor}} = {
+const IconColors: { [variant in Variants]: { [key in StateOptions]: TextColor } } = {
   default: {
     default: 'colorTextIcon',
     disabled: 'colorTextWeaker',
@@ -36,12 +36,12 @@ const IconColors: {[variant in Variants]: {[key in StateOptions]: TextColor}} = 
 const getInputChevronIconColor = (
   variant: Variants | undefined = 'default',
   disabled: boolean | undefined = false,
-  readOnly: boolean | undefined = false
+  readOnly: boolean | undefined = false,
 ): TextColor => {
   return IconColors[variant][getChevronWrapperState(disabled, readOnly)];
 };
 
-const BackgroundColorStyles: {[variant: string]: {[key: string]: BackgroundColor}} = {
+const BackgroundColorStyles: { [variant: string]: { [key: string]: BackgroundColor } } = {
   default: {
     default: 'colorBackground',
     disabled: 'colorBackground',
@@ -64,8 +64,8 @@ export interface InputChevronWrapperProps {
 }
 
 const InputChevronWrapper = React.forwardRef<HTMLDivElement, React.PropsWithChildren<InputChevronWrapperProps>>(
-  ({children, element = 'CHEVRON_WRAPPER'}, ref) => {
-    const {disabled, readOnly, variant} = useInputBoxContext();
+  ({ children, element = 'CHEVRON_WRAPPER' }, ref) => {
+    const { disabled, readOnly, variant } = useInputBoxContext();
 
     return (
       <Box
@@ -86,9 +86,9 @@ const InputChevronWrapper = React.forwardRef<HTMLDivElement, React.PropsWithChil
         {children}
       </Box>
     );
-  }
+  },
 );
 
 InputChevronWrapper.displayName = 'InputChevronWrapper';
 
-export {InputChevronWrapper, getInputChevronIconColor};
+export { InputChevronWrapper, getInputChevronIconColor };

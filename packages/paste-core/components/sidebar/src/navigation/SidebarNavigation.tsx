@@ -1,20 +1,20 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {styled, css} from '@twilio-paste/styling-library';
-import type {ThemeShape} from '@twilio-paste/theme';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { styled, css } from '@twilio-paste/styling-library';
+import type { ThemeShape } from '@twilio-paste/theme';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {SidebarContext} from '../SidebarContext';
-import {SidebarNavigationContext} from './SidebarNavigationContext';
+import { SidebarContext } from '../SidebarContext';
+import { SidebarNavigationContext } from './SidebarNavigationContext';
 
 /**
  * This wrapper applies styles that customize the scrollbar and its track,
  * as well as using a gradient to fade out the top and bottom of the sidebar
  * only when they are scrolled out of view
  */
-const SidebarNavigationWrapper = styled.nav(({theme}: {theme: ThemeShape}) => {
-  const {colorBackgroundInverse, colorBackgroundInverseStronger} = theme.backgroundColors;
+const SidebarNavigationWrapper = styled.nav(({ theme }: { theme: ThemeShape }) => {
+  const { colorBackgroundInverse, colorBackgroundInverseStronger } = theme.backgroundColors;
 
   return css({
     overflowScrolling: 'touch',
@@ -55,8 +55,8 @@ export interface SidebarNavigationProps extends HTMLPasteProps<'div'> {
 }
 
 export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigationProps>(
-  ({element = 'SIDEBAR_NAVIGATION', hideItemsOnCollapse = false, hierarchical = false, children, ...props}, ref) => {
-    const {collapsed, sidebarNavigationSkipLinkID} = React.useContext(SidebarContext);
+  ({ element = 'SIDEBAR_NAVIGATION', hideItemsOnCollapse = false, hierarchical = false, children, ...props }, ref) => {
+    const { collapsed, sidebarNavigationSkipLinkID } = React.useContext(SidebarContext);
 
     return (
       <SidebarNavigationContext.Provider
@@ -85,6 +85,6 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
         </Box>
       </SidebarNavigationContext.Provider>
     );
-  }
+  },
 );
 SidebarNavigation.displayName = 'SidebarNavigation';

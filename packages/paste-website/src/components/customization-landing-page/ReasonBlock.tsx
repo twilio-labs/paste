@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Text} from '@twilio-paste/text';
-import {Anchor} from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Text } from '@twilio-paste/text';
+import { Anchor } from '@twilio-paste/anchor';
 
 export type ReasonBlockProps = {
   icon: React.ReactNode;

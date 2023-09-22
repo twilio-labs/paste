@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {CompositeItem} from '@twilio-paste/reakit-library';
-import {useMutationObservable} from '@twilio-paste/utils';
+import type { BoxElementProps } from '@twilio-paste/box';
+import { CompositeItem } from '@twilio-paste/reakit-library';
+import { useMutationObservable } from '@twilio-paste/utils';
 import isElement from 'lodash/isElement';
 
-import {DataGridContext} from './DataGridContext';
-import {updateTabIndexForActionable, isCell, ensureFocus} from './utils';
-import {Td} from './table/Td';
-import {Th} from './table/Th';
-import type {TdProps} from './table/Td';
+import { DataGridContext } from './DataGridContext';
+import { updateTabIndexForActionable, isCell, ensureFocus } from './utils';
+import { Td } from './table/Td';
+import { Th } from './table/Th';
+import type { TdProps } from './table/Td';
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 
@@ -71,7 +71,7 @@ export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> 
         }
       });
     },
-    [dataGridState.actionable]
+    [dataGridState.actionable],
   );
   useMutationObservable(cellRef.current, onListMutation);
 

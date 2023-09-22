@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Anchor} from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Anchor } from '@twilio-paste/anchor';
 
-import type {SiteLinkProps} from '../SiteLink';
-import {SiteLink} from '../SiteLink';
+import type { SiteLinkProps } from '../SiteLink';
+import { SiteLink } from '../SiteLink';
 
 export interface NewComponentBannerAnchorProps {
   children: NonNullable<React.ReactNode>;
@@ -39,4 +39,4 @@ const NewComponentBannerLink: React.FC<React.PropsWithChildren<NewComponentBanne
   );
 };
 
-export {NewComponentBannerLink};
+export { NewComponentBannerLink };

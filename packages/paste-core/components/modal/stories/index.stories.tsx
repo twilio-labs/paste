@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Button} from '@twilio-paste/button';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Flex} from '@twilio-paste/flex';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
-import {Select, Option} from '@twilio-paste/select';
-import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
-import {Tooltip} from '@twilio-paste/tooltip';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Label} from '@twilio-paste/label';
-import {Input} from '@twilio-paste/input';
+import { useUID } from '@twilio-paste/uid-library';
+import { Button } from '@twilio-paste/button';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Flex } from '@twilio-paste/flex';
+import { Text } from '@twilio-paste/text';
+import { Box } from '@twilio-paste/box';
+import { Select, Option } from '@twilio-paste/select';
+import { Popover, PopoverContainer, PopoverButton } from '@twilio-paste/popover';
+import { Tooltip } from '@twilio-paste/tooltip';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { Label } from '@twilio-paste/label';
+import { Input } from '@twilio-paste/input';
 
-import type {ModalProps} from '../src';
+import type { ModalProps } from '../src';
 import {
   Modal,
   ModalBody,
@@ -27,7 +27,7 @@ import {
 } from '../src';
 
 type ModalTriggerProps = Pick<ModalProps, 'size'>;
-const ModalTrigger: React.FC<React.PropsWithChildren<ModalTriggerProps>> = ({size}) => {
+const ModalTrigger: React.FC<React.PropsWithChildren<ModalTriggerProps>> = ({ size }) => {
   const [isOpen, setIsOpen] = React.useState(true);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
@@ -67,7 +67,7 @@ const ModalTrigger: React.FC<React.PropsWithChildren<ModalTriggerProps>> = ({siz
 export default {
   title: 'Components/Modal',
   component: Modal,
-  subcomponents: {ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading},
+  subcomponents: { ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading },
 };
 
 export const Default = (): React.ReactNode => {
@@ -75,7 +75,7 @@ export const Default = (): React.ReactNode => {
 };
 
 Default.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -87,7 +87,7 @@ export const Wide = (): React.ReactNode => {
 };
 
 Wide.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -132,7 +132,7 @@ export const FooterActions = (): React.ReactNode => {
 
 FooterActions.storyName = 'Footer actions';
 FooterActions.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -177,7 +177,7 @@ export const LeftAlignedFooterActions = (): React.ReactNode => {
 
 LeftAlignedFooterActions.storyName = 'Left aligned footer actions';
 LeftAlignedFooterActions.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -225,7 +225,7 @@ export const DirectionalFooterActions = (): React.ReactNode => {
 
 DirectionalFooterActions.storyName = 'Directional footer actions';
 DirectionalFooterActions.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -270,7 +270,7 @@ export const ExtremelyLongHeading = (): React.ReactNode => {
 
 ExtremelyLongHeading.storyName = 'Extremely long heading';
 ExtremelyLongHeading.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -409,7 +409,7 @@ export const OverflowingBodyContent = (): React.ReactNode => {
 
 OverflowingBodyContent.storyName = 'Overflowing body content';
 OverflowingBodyContent.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -460,7 +460,7 @@ export const HeaderContent = (): React.ReactNode => {
 
 HeaderContent.storyName = 'Header content';
 HeaderContent.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -509,7 +509,7 @@ export const i18nProp = (): React.ReactNode => {
 
 i18nProp.storyName = 'i18n prop';
 i18nProp.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -569,7 +569,7 @@ export const CustomInitialFocusElement = (): React.ReactNode => {
 
 CustomInitialFocusElement.storyName = 'Custom initial focus element';
 CustomInitialFocusElement.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -615,7 +615,7 @@ export const TooltipInModal = (): React.ReactNode => {
 
 TooltipInModal.storyName = 'Tooltip in modal';
 TooltipInModal.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -673,7 +673,7 @@ export const PopoverInModal = (): React.ReactNode => {
 
 PopoverInModal.storyName = 'Popover in modal';
 PopoverInModal.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -697,7 +697,7 @@ export const ModalDialogVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
   const onDismiss = NOOP;
   return (
-    <ModalContext.Provider value={{onDismiss}}>
+    <ModalContext.Provider value={{ onDismiss }}>
       <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
@@ -727,7 +727,7 @@ export const WideModalDialogVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
   const onDismiss = NOOP;
   return (
-    <ModalContext.Provider value={{onDismiss}}>
+    <ModalContext.Provider value={{ onDismiss }}>
       <ModalDialogContent aria-labelledby={modalHeadingID} size="wide">
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
@@ -758,7 +758,7 @@ export const LeftAlignedFooterActionsVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
 
   return (
-    <ModalContext.Provider value={{onDismiss}}>
+    <ModalContext.Provider value={{ onDismiss }}>
       <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
@@ -789,7 +789,7 @@ export const DirectionalFooterActionsVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
 
   return (
-    <ModalContext.Provider value={{onDismiss}}>
+    <ModalContext.Provider value={{ onDismiss }}>
       <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
@@ -823,7 +823,7 @@ export const ExtremelyLongHeadingVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
 
   return (
-    <ModalContext.Provider value={{onDismiss}}>
+    <ModalContext.Provider value={{ onDismiss }}>
       <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
@@ -855,7 +855,7 @@ export const OverflowingBodyContentVRT = (): React.ReactNode => {
 
   return (
     <Box height="500px">
-      <ModalContext.Provider value={{onDismiss}}>
+      <ModalContext.Provider value={{ onDismiss }}>
         <ModalDialogContent aria-labelledby={modalHeadingID}>
           <ModalHeader>
             <ModalHeading as="h3" id={modalHeadingID}>
@@ -981,7 +981,7 @@ export const HeaderContentVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
 
   return (
-    <ModalContext.Provider value={{onDismiss}}>
+    <ModalContext.Provider value={{ onDismiss }}>
       <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
@@ -1017,7 +1017,7 @@ export const ModalDialogTooltipVRT = (): React.ReactNode => {
   const modalHeadingID = useUID();
   const onDismiss = NOOP;
   return (
-    <ModalContext.Provider value={{onDismiss}}>
+    <ModalContext.Provider value={{ onDismiss }}>
       <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>
@@ -1048,7 +1048,7 @@ export const ModalDialogPopoverVRT = (): React.ReactNode => {
   const nameButtonRef: React.RefObject<HTMLButtonElement> = React.createRef();
   const onDismiss = NOOP;
   return (
-    <ModalContext.Provider value={{onDismiss}}>
+    <ModalContext.Provider value={{ onDismiss }}>
       <ModalDialogContent aria-labelledby={modalHeadingID}>
         <ModalHeader>
           <ModalHeading as="h3" id={modalHeadingID}>

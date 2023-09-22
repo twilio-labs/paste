@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Box} from '@twilio-paste/box';
+import { Anchor } from '@twilio-paste/anchor';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Box } from '@twilio-paste/box';
 
-import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
-import {SidebarCategoryRoutes} from '../../constants';
-import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
+import { Breadcrumb, BreadcrumbItem } from '../breadcrumb';
+import { SidebarCategoryRoutes } from '../../constants';
+import { getHumanizedNameFromPackageName } from '../../utils/RouteUtils';
 
 interface InDevelopmentProps {
   type?: 'component' | 'primitive' | 'layout';
@@ -14,7 +14,11 @@ interface InDevelopmentProps {
   showBreadcrumb?: boolean;
 }
 
-const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({type, showBreadcrumb = true, name}) => {
+const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({
+  type,
+  showBreadcrumb = true,
+  name,
+}) => {
   return (
     <>
       {showBreadcrumb ? (
@@ -42,4 +46,4 @@ const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({t
   );
 };
 
-export {InDevelopment};
+export { InDevelopment };

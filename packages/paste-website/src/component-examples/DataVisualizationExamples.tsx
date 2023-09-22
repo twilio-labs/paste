@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {ThemeContext, styled, themeGet} from '@twilio-paste/styling-library';
-import type {ThemeShape} from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { ThemeContext, styled, themeGet } from '@twilio-paste/styling-library';
+import type { ThemeShape } from '@twilio-paste/theme';
 
-import {ColorSwatchText} from '../components/color-swatch/ColorSwatch';
-import {ImageCaption} from '../components/ImageCaption';
-import {StyledSwatchGrid} from './ColorsFoundationExamples';
-import {inCypress} from '../utils/inCypress';
+import { ColorSwatchText } from '../components/color-swatch/ColorSwatch';
+import { ImageCaption } from '../components/ImageCaption';
+import { StyledSwatchGrid } from './ColorsFoundationExamples';
+import { inCypress } from '../utils/inCypress';
 
 interface TokenData {
   name: string;
@@ -14,7 +14,7 @@ interface TokenData {
 }
 
 // Need to use styled div because the data-viz names aren't valid backgroundColors on Box
-const StyledSwatch = styled.div<{backgroundColor: string}>`
+const StyledSwatch = styled.div<{ backgroundColor: string }>`
   position: relative;
   border-radius: ${themeGet('radii.borderRadius20')};
   background-color: ${(props) => props.backgroundColor};
@@ -26,18 +26,18 @@ export const DataVizColorSwatches = (): JSX.Element => {
 
   // Adapted from the usePasteHighchartsTheme hook
   const dataVizTokenValues: TokenData[] = React.useMemo(() => {
-    const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+    const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
     const tokenNames = Object.keys(context.dataVisualization) as Array<keyof ThemeShape['dataVisualization']>;
 
     const sortedTokenNames = tokenNames.sort((a, b) => collator.compare(a, b));
 
-    return sortedTokenNames.map((name) => ({name, value: context.dataVisualization[name]}));
+    return sortedTokenNames.map((name) => ({ name, value: context.dataVisualization[name] }));
   }, [context]);
 
   return (
     <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
       <StyledSwatchGrid numberColumns={5}>
-        {dataVizTokenValues.map(({name, value}) => (
+        {dataVizTokenValues.map(({ name, value }) => (
           <Box as="li" listStyleType="none" key={`${name}-${value}`}>
             <StyledSwatch backgroundColor={value} />
             <ColorSwatchText>{name}</ColorSwatchText>
@@ -63,8 +63,8 @@ export const LineChartCaption = (): JSX.Element => (
 );
 
 export const LineChartOptions = {
-  title: {text: 'Solar Employment Growth by Sector, 2010-2016'},
-  subtitle: {text: 'Source: thesolarfoundation.com'},
+  title: { text: 'Solar Employment Growth by Sector, 2010-2016' },
+  subtitle: { text: 'Source: thesolarfoundation.com' },
   chart: {
     // this controls animation of updates, to disable animation on initial render you have to disable animation on the series
     animation: !inCypress(),

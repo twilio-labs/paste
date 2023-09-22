@@ -1,4 +1,4 @@
-import {css} from '@twilio-paste/styling-library';
+import { css } from '@twilio-paste/styling-library';
 
 export const pasteBaseStyles = css({
   color: 'colorText',

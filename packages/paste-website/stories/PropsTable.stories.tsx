@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 
-import {PropsTable} from '../src/components/PropsTables';
+import { PropsTable } from '../src/components/PropsTables';
 
 const MockComponentAPI = {
   TBody: {

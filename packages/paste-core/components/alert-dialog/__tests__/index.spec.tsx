@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import type {RenderOptions} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
+import { render, screen } from '@testing-library/react';
+import type { RenderOptions } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
 
 import {
   AlertDialogWithTwoActions,
@@ -9,7 +9,7 @@ import {
   DisabledButtonDestructiveAlertDialog,
 } from '../stories/index.stories';
 
-const ThemeWrapper: RenderOptions['wrapper'] = ({children}) => (
+const ThemeWrapper: RenderOptions['wrapper'] = ({ children }) => (
   <Theme.Provider theme="default">{children}</Theme.Provider>
 );
 
@@ -28,14 +28,14 @@ describe('Alert Dialog', () => {
   });
 
   it('Should have a destructive button style when the destructive prop is included', () => {
-    render(<DestructiveAlertDialog />, {wrapper: ThemeWrapper});
-    const button = screen.getByRole('button', {name: 'Delete'});
+    render(<DestructiveAlertDialog />, { wrapper: ThemeWrapper });
+    const button = screen.getByRole('button', { name: 'Delete' });
     expect(button).toHaveStyleRule('background-color', 'rgb(214, 31, 31)');
   });
 
   it('Should have a disabled destructive button style when the onConfirmDisabled prop is included', () => {
-    render(<DisabledButtonDestructiveAlertDialog dialogIsOpen />, {wrapper: ThemeWrapper});
-    const button = screen.getByRole('button', {name: 'Delete'});
+    render(<DisabledButtonDestructiveAlertDialog dialogIsOpen />, { wrapper: ThemeWrapper });
+    const button = screen.getByRole('button', { name: 'Delete' });
     expect(button).toHaveStyleRule('background-color', 'rgb(225, 227, 234)');
   });
 
@@ -49,18 +49,18 @@ describe('Alert Dialog', () => {
     expect(screen.getByRole('alertdialog')).toBeTruthy();
     expect(screen.getByRole('alertdialog').getAttribute('aria-modal')).toEqual('true');
     expect(screen.getByRole('alertdialog').getAttribute('aria-labelledby')).toEqual(
-      screen.getByRole('heading').getAttribute('id')
+      screen.getByRole('heading').getAttribute('id'),
     );
     expect(screen.getByRole('alertdialog').getAttribute('aria-describedby')).toEqual(
       screen
         .getByText('Are you sure you want to submit this application? No information can be changed after submitting.')
-        .getAttribute('id')
+        .getAttribute('id'),
     );
   });
 
   it('Should have correct attributes when button is disabled', () => {
-    render(<DisabledButtonDestructiveAlertDialog dialogIsOpen />, {wrapper: ThemeWrapper});
-    expect(screen.getByRole('button', {name: 'Delete'})).toHaveAttribute('disabled');
+    render(<DisabledButtonDestructiveAlertDialog dialogIsOpen />, { wrapper: ThemeWrapper });
+    expect(screen.getByRole('button', { name: 'Delete' })).toHaveAttribute('disabled');
   });
 
   it('Should have the initial focus land on the first focusable item', () => {

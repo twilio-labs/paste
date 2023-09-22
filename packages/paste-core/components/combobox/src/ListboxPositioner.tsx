@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box, type BoxStyleProps} from '@twilio-paste/box';
-import {useRect} from '@radix-ui/react-use-rect';
-import {useWindowSize} from '@twilio-paste/utils';
+import { Box, type BoxStyleProps } from '@twilio-paste/box';
+import { useRect } from '@radix-ui/react-use-rect';
+import { useWindowSize } from '@twilio-paste/utils';
 
 interface ListBoxPositionerProps {
   children: React.ReactNode;
@@ -9,8 +9,8 @@ interface ListBoxPositionerProps {
   dropdownBoxRef: React.RefObject<HTMLElement>;
 }
 
-export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({inputBoxRef, dropdownBoxRef, ...props}) => {
-  const {height: windowHeight} = useWindowSize();
+export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({ inputBoxRef, dropdownBoxRef, ...props }) => {
+  const { height: windowHeight } = useWindowSize();
   const inputBoxDimensions = useRect(inputBoxRef.current);
   const dropdownBoxDimensions = useRect(dropdownBoxRef.current);
   const dropdownBoxHeight = dropdownBoxDimensions?.height;

@@ -1,20 +1,20 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
-import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
+import { useUID } from '@twilio-paste/uid-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { CheckboxCheckIcon } from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import { MinusIcon } from '@twilio-paste/icons/esm/MinusIcon';
 import {
   BaseRadioCheckboxControl,
   BaseRadioCheckboxLabel,
   BaseRadioCheckboxLabelText,
   BaseRadioCheckboxHelpText,
 } from '@twilio-paste/base-radio-checkbox';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {RequiredDot} from '@twilio-paste/label';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import { RequiredDot } from '@twilio-paste/label';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {CheckboxContext} from './CheckboxContext';
+import { CheckboxContext } from './CheckboxContext';
 
 const selectAllStyleProps = {
   paddingTop: 'space20',
@@ -84,7 +84,7 @@ const CheckboxIcon: React.FC<{
   indeterminate: boolean | undefined;
   checked: boolean | undefined;
   element: BoxProps['element'];
-}> = ({checked, element, indeterminate}) => {
+}> = ({ checked, element, indeterminate }) => {
   if (indeterminate) {
     return <MinusIcon element={element} decorative color="inherit" size="sizeIcon10" />;
   }
@@ -117,11 +117,11 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
       onChange,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (checked != null && defaultChecked != null) {
       throw new Error(
-        `[Paste Checkbox] Do not provide both 'defaultChecked' and 'checked' to Checkbox at the same time. Please consider if you want this component to be controlled or uncontrolled.`
+        `[Paste Checkbox] Do not provide both 'defaultChecked' and 'checked' to Checkbox at the same time. Please consider if you want this component to be controlled or uncontrolled.`,
       );
     }
 
@@ -150,7 +150,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           checkboxGroupContext.onChange(event);
         }
       },
-      [onChange, checkboxGroupContext.onChange]
+      [onChange, checkboxGroupContext.onChange],
     );
 
     // Prioritizing direct props values over whatever CheckboxGroupContext passes down
@@ -215,8 +215,8 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         )}
       </Box>
     );
-  }
+  },
 );
 Checkbox.displayName = 'Checkbox';
 
-export {Checkbox, HiddenCheckbox, CheckboxIcon};
+export { Checkbox, HiddenCheckbox, CheckboxIcon };

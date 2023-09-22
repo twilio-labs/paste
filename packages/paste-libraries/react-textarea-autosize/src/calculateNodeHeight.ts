@@ -1,6 +1,6 @@
-import type {SizingData} from './getSizingData';
-import {forceHiddenStyles} from './forceHiddenStyles';
-import {getHeight} from './getHeight';
+import type { SizingData } from './getSizingData';
+import { forceHiddenStyles } from './forceHiddenStyles';
+import { getHeight } from './getHeight';
 
 /*
  * TODO: use labelled tuples once they are avaiable:
@@ -14,10 +14,10 @@ export function calculateNodeHeight(
   sizingData: SizingData,
   value: string,
   minRows = 1,
-  maxRows = 999
+  maxRows = 999,
 ): CalculatedNodeHeights {
-  const {paddingSize, borderSize, sizingStyle} = sizingData;
-  const {boxSizing} = sizingStyle;
+  const { paddingSize, borderSize, sizingStyle } = sizingData;
+  const { boxSizing } = sizingStyle;
 
   if (hiddenTextarea == null) return [0, 0];
 

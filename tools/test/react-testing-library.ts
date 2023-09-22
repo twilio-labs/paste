@@ -21,4 +21,4 @@ if (!renderHook) {
   actHook = rhtl.act;
 }
 
-export {renderHook, actHook};
+export { renderHook, actHook };

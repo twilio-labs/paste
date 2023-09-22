@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render as testRender, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render as testRender, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {InlineControlGroup} from '../src';
+import { InlineControlGroup } from '../src';
 
 const defaultGroupProps = {
   legend: 'This is a group legend',
@@ -12,19 +12,19 @@ const defaultGroupProps = {
 
 describe('InlineControlGroup', () => {
   it('should render', () => {
-    const {container} = testRender(
+    const { container } = testRender(
       <InlineControlGroup {...defaultGroupProps}>
         <div />
-      </InlineControlGroup>
+      </InlineControlGroup>,
     );
     expect(container.querySelector('fieldset')).not.toBeNull();
   });
 
   it('should render a legend', () => {
-    const {getByText} = testRender(
+    const { getByText } = testRender(
       <InlineControlGroup {...defaultGroupProps}>
         <div />
-      </InlineControlGroup>
+      </InlineControlGroup>,
     );
     expect(getByText('This is a group legend')).not.toBeNull();
   });
@@ -33,7 +33,7 @@ describe('InlineControlGroup', () => {
     testRender(
       <InlineControlGroup {...defaultGroupProps} required>
         <div />
-      </InlineControlGroup>
+      </InlineControlGroup>,
     );
 
     const fieldset = screen.getByRole('group');
@@ -44,20 +44,20 @@ describe('InlineControlGroup', () => {
 
   it('renders a helpText message when helpText prop is present', () => {
     const helpText = 'I am a helpText message';
-    const {getByText} = testRender(
+    const { getByText } = testRender(
       <InlineControlGroup {...defaultGroupProps} helpText={helpText}>
         <div />
-      </InlineControlGroup>
+      </InlineControlGroup>,
     );
     expect(getByText(helpText)).toBeDefined();
   });
 
   it('renders an errorText message when errorText prop is present', () => {
     const errorText = 'I am an errorText message';
-    const {getByText} = testRender(
+    const { getByText } = testRender(
       <InlineControlGroup {...defaultGroupProps} errorText={errorText}>
         <div />
-      </InlineControlGroup>
+      </InlineControlGroup>,
     );
     expect(getByText(errorText)).toBeDefined();
   });
@@ -65,21 +65,21 @@ describe('InlineControlGroup', () => {
 
 describe('Customization', () => {
   it('Should set a default element data attribute for Inline Control Group', (): void => {
-    const {container} = testRender(
+    const { container } = testRender(
       <InlineControlGroup data-testid="inline-control-group" {...defaultGroupProps} errorText="error">
         <div />
-      </InlineControlGroup>
+      </InlineControlGroup>,
     );
     expect(screen.getByTestId('inline-control-group')).toHaveAttribute('data-paste-element', 'INLINE_CONTROL_GROUP');
     expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_SET"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_FIELD"]')).toBeInTheDocument();
     expect(
-      container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')
+      container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]'),
     ).toBeInTheDocument();
   });
 
   it('Should set a custom element data attribute for custom named Inline Control Group', (): void => {
-    const {container} = testRender(
+    const { container } = testRender(
       <InlineControlGroup
         element="MY_INLINE_CONTROL_GROUP"
         data-testid="inline-control-group"
@@ -87,56 +87,56 @@ describe('Customization', () => {
         errorText="error"
       >
         <div />
-      </InlineControlGroup>
+      </InlineControlGroup>,
     );
     expect(screen.getByTestId('inline-control-group')).toHaveAttribute('data-paste-element', 'MY_INLINE_CONTROL_GROUP');
     expect(container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_SET"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_FIELD"]')).toBeInTheDocument();
     expect(
-      container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')
+      container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]'),
     ).toBeInTheDocument();
   });
 
   it('Should add custom styling to default Inline Control Group', (): void => {
-    const {container} = testRender(
+    const { container } = testRender(
       <CustomizationProvider
         theme={TestTheme}
         elements={{
-          INLINE_CONTROL_GROUP: {margin: 'space60'},
-          INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},
-          INLINE_CONTROL_GROUP_FIELD: {color: 'colorTextSuccess'},
-          INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
+          INLINE_CONTROL_GROUP: { margin: 'space60' },
+          INLINE_CONTROL_GROUP_SET: { marginLeft: 'space60' },
+          INLINE_CONTROL_GROUP_FIELD: { color: 'colorTextSuccess' },
+          INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: { marginTop: 'space60' },
         }}
       >
         <InlineControlGroup data-testid="inline-control-group" {...defaultGroupProps} errorText="error">
           <div />
         </InlineControlGroup>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('inline-control-group')).toHaveStyleRule('margin', '1.25rem');
     expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_SET"]')).toHaveStyleRule(
       'margin-left',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_FIELD"]')).toHaveStyleRule(
       'color',
-      'rgb(14, 124, 58)'
+      'rgb(14, 124, 58)',
     );
     expect(container.querySelector('[data-paste-element="INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-top',
-      '1.25rem'
+      '1.25rem',
     );
   });
 
   it('Should add custom styling to custom named Inline Control Group', (): void => {
-    const {container} = testRender(
+    const { container } = testRender(
       <CustomizationProvider
         theme={TestTheme}
         elements={{
-          MY_INLINE_CONTROL_GROUP: {margin: 'space60'},
-          MY_INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},
-          MY_INLINE_CONTROL_GROUP_FIELD: {color: 'colorTextSuccess'},
-          MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
+          MY_INLINE_CONTROL_GROUP: { margin: 'space60' },
+          MY_INLINE_CONTROL_GROUP_SET: { marginLeft: 'space60' },
+          MY_INLINE_CONTROL_GROUP_FIELD: { color: 'colorTextSuccess' },
+          MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: { marginTop: 'space60' },
         }}
       >
         <InlineControlGroup
@@ -147,19 +147,19 @@ describe('Customization', () => {
         >
           <div />
         </InlineControlGroup>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('inline-control-group')).toHaveStyleRule('margin', '1.25rem');
     expect(container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_SET"]')).toHaveStyleRule(
       'margin-left',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_FIELD"]')).toHaveStyleRule(
       'color',
-      'rgb(14, 124, 58)'
+      'rgb(14, 124, 58)',
     );
     expect(
-      container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]')
+      container.querySelector('[data-paste-element="MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER"]'),
     ).toHaveStyleRule('margin-top', '1.25rem');
   });
 });

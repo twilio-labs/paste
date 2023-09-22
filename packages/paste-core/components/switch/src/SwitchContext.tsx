@@ -15,4 +15,4 @@ const SwitchContext = React.createContext<SwitchContextValue>({
   onChange: () => {},
 });
 
-export {SwitchContext};
+export { SwitchContext };

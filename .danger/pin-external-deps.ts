@@ -1,6 +1,6 @@
-import {DangerDSLType} from 'danger/distribution/dsl/DangerDSL';
+import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL';
 import fs from 'fs';
-import {getPackJsonsFromFiles} from './utils';
+import { getPackJsonsFromFiles } from './utils';
 
 // you kind of have to treat Danger plugins as global?
 // https://danger.systems/js/usage/extending-danger.html#writing-your-plugin
@@ -34,13 +34,13 @@ export const getUnpinnedExternalDeps = (deps: Record<string, string>): string[] 
  * @return {*}  {string[]}
  */
 export const getUnPinnedExternalDepsFromPackageJSONFiles = (
-  pkgJSONFiles: string[]
-): Array<{dep: string; name: string}> => {
-  const unPinnedExternalDeps: Array<{dep: string; name: string}> = [];
+  pkgJSONFiles: string[],
+): Array<{ dep: string; name: string }> => {
+  const unPinnedExternalDeps: Array<{ dep: string; name: string }> = [];
   pkgJSONFiles.forEach((pkgJSON) => {
     const fileContent = fs.readFileSync(pkgJSON).toString();
-    const {name, dependencies} = JSON.parse(fileContent);
-    getUnpinnedExternalDeps(dependencies).forEach((dep) => unPinnedExternalDeps.push({dep, name}));
+    const { name, dependencies } = JSON.parse(fileContent);
+    getUnpinnedExternalDeps(dependencies).forEach((dep) => unPinnedExternalDeps.push({ dep, name }));
   });
   return unPinnedExternalDeps;
 };
@@ -60,11 +60,11 @@ export default () => {
 
     if (unpinnedExternalDeps.length > 0) {
       let locationString = ``;
-      unpinnedExternalDeps.forEach(({dep, name}) => {
+      unpinnedExternalDeps.forEach(({ dep, name }) => {
         locationString += `* ${name} - ${dep}\n`;
       });
       fail(
-        `There are some package.json files in this PR that contain unpinned external package libraries. Please pin your external package libraries by removing the ^ from the beginning of the version number. See:\n\n${locationString}`
+        `There are some package.json files in this PR that contain unpinned external package libraries. Please pin your external package libraries by removing the ^ from the beginning of the version number. See:\n\n${locationString}`,
       );
     }
   }

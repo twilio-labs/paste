@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Theme} from '@twilio-paste/theme';
-import {render, screen} from '@testing-library/react';
-import type {RenderOptions} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { Theme } from '@twilio-paste/theme';
+import { render, screen } from '@testing-library/react';
+import type { RenderOptions } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Spinner} from '../src';
+import { Spinner } from '../src';
 
 const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] =>
-  function Wrapper({children}) {
+  function Wrapper({ children }) {
     return (
       <CustomizationProvider theme={TestTheme} elements={elements} data-testid="test-wrapper">
         {children}
@@ -30,7 +30,7 @@ describe('Spinner', () => {
     it('should set an element data attribute for Spinner', () => {
       render(
         <Spinner element="CUSTOM_SPINNER_A" color="colorText" title="Unique name customization" decorative={false} />,
-        {wrapper: TestWrapper()}
+        { wrapper: TestWrapper() },
       );
 
       const nodeNamedSpinner = screen.getByTestId('test-wrapper').firstChild as HTMLElement;
@@ -66,7 +66,7 @@ describe('Spinner', () => {
         />,
         {
           wrapper: TestWrapper(TEST_ELEMENT_OVERRIDES),
-        }
+        },
       );
 
       const nodeNamedSpinner = screen.getByTestId('test-wrapper').firstChild as HTMLElement;
@@ -84,7 +84,7 @@ describe('Spinner', () => {
         />,
         {
           wrapper: TestWrapper(TEST_ELEMENT_OVERRIDES),
-        }
+        },
       );
 
       const nodeNamedSpinner = screen.getByTestId('test-wrapper').firstChild as HTMLElement;

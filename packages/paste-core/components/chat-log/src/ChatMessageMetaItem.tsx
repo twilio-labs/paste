@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxElementProps } from '@twilio-paste/box';
 
 export interface ChatMessageMetaItemProps {
   children: NonNullable<React.ReactNode>;
@@ -8,7 +8,7 @@ export interface ChatMessageMetaItemProps {
 }
 
 export const ChatMessageMetaItem = React.forwardRef<HTMLDivElement, ChatMessageMetaItemProps>(
-  ({children, element = 'CHAT_MESSAGE_META_ITEM', ...props}, ref) => (
+  ({ children, element = 'CHAT_MESSAGE_META_ITEM', ...props }, ref) => (
     <Box
       ref={ref}
       element={element}
@@ -22,7 +22,7 @@ export const ChatMessageMetaItem = React.forwardRef<HTMLDivElement, ChatMessageM
     >
       {children}
     </Box>
-  )
+  ),
 );
 
 ChatMessageMetaItem.displayName = 'ChatMessageMetaItem';

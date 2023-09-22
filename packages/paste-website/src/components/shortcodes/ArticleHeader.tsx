@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
+import { Box } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
 
-import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
-import {ArticleAuthor} from '../ArticleAuthor';
+import { Breadcrumb, BreadcrumbItem } from '../breadcrumb';
+import { ArticleAuthor } from '../ArticleAuthor';
 
 interface ArticleHeaderProps {
   title: string;
@@ -14,12 +14,12 @@ interface ArticleHeaderProps {
   authorLink: string;
 }
 
-const ArticleHeader: React.FC<ArticleHeaderProps> = ({title, author, avatar, date, authorLink, machineDate}) => {
+const ArticleHeader: React.FC<ArticleHeaderProps> = ({ title, author, avatar, date, authorLink, machineDate }) => {
   const articleDate = new Date(date);
   const formattedDate = new Date(
     articleDate.getUTCFullYear(),
     articleDate.getUTCMonth(),
-    articleDate.getUTCDate()
+    articleDate.getUTCDate(),
   ).toLocaleString('en-US', {
     year: 'numeric',
     month: 'long',
@@ -48,4 +48,4 @@ const ArticleHeader: React.FC<ArticleHeaderProps> = ({title, author, avatar, dat
   );
 };
 
-export {ArticleHeader};
+export { ArticleHeader };

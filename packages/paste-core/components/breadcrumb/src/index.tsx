@@ -1,13 +1,15 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps, BoxElementProps} from '@twilio-paste/box';
-import {Anchor} from '@twilio-paste/anchor';
-import type {AnchorProps} from '@twilio-paste/anchor';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import {useUIDSeed} from '@twilio-paste/uid-library';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps, BoxElementProps } from '@twilio-paste/box';
+import { Anchor } from '@twilio-paste/anchor';
+import type { AnchorProps } from '@twilio-paste/anchor';
+import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-const BreadcrumbSeparator: React.FC<React.PropsWithChildren<{element: BoxElementProps['element']}>> = ({element}) => (
+const BreadcrumbSeparator: React.FC<React.PropsWithChildren<{ element: BoxElementProps['element'] }>> = ({
+  element,
+}) => (
   <Text
     as="span"
     color="colorTextWeak"
@@ -42,7 +44,7 @@ type BreadcrumbItemProps = BreadcrumbItemAsSpanProps | BreadcrumbItemAsAnchorPro
 const DEFAULT_ELEMENT_NAME = 'BREADCRUMB';
 
 const BreadcrumbItem = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, BreadcrumbItemProps>(
-  ({children, element, parentElement, href, last, ...props}, ref) => {
+  ({ children, element, parentElement, href, last, ...props }, ref) => {
     const elementName = element || parentElement || DEFAULT_ELEMENT_NAME;
     return (
       <Box
@@ -79,7 +81,7 @@ const BreadcrumbItem = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, Bre
         {!last && <BreadcrumbSeparator element={elementName} />}
       </Box>
     );
-  }
+  },
 );
 
 BreadcrumbItem.displayName = 'BreadcrumbItem';
@@ -90,13 +92,13 @@ export interface BreadcrumbProps extends HTMLPasteProps<'nav'> {
 }
 
 const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
-  ({children, element = DEFAULT_ELEMENT_NAME, ...props}, ref) => {
+  ({ children, element = DEFAULT_ELEMENT_NAME, ...props }, ref) => {
     const [childrenCount, validChildren] = React.useMemo(
       () => [
         React.Children.count(children),
         React.Children.toArray(children).filter((child) => React.isValidElement(child) || typeof child === 'string'),
       ],
-      [children]
+      [children],
     );
     const keySeed = useUIDSeed();
 
@@ -113,9 +115,9 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
         </Box>
       </Box>
     );
-  }
+  },
 );
 
 Breadcrumb.displayName = 'Breadcrumb';
 
-export {Breadcrumb, BreadcrumbItem};
+export { Breadcrumb, BreadcrumbItem };

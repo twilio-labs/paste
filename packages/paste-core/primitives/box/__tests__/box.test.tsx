@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Box} from '../src';
-import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
+import { Box } from '../src';
+import { CustomizableBoxExample } from '../__fixtures__/CustomizableBox';
 
 describe('Backgrounds', () => {
   it('should render single values', (): void => {
@@ -12,7 +12,7 @@ describe('Backgrounds', () => {
         <Box backgroundColor="colorBackgroundPrimary" data-testid="box">
           background single
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
@@ -24,7 +24,7 @@ describe('Backgrounds', () => {
         <Box backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundPrimary']} data-testid="box">
           background responsive
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153, 205, 255)');
@@ -50,7 +50,7 @@ describe('Color mappings', () => {
         >
           background single
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
@@ -73,7 +73,7 @@ describe('Color mappings', () => {
         >
           background responsive
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(153, 205, 255)');
@@ -103,12 +103,12 @@ describe('Color mappings', () => {
         >
           background responsive
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {target: ':hover'});
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(255, 255, 255)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', { target: ':hover' });
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', { target: ':hover' });
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(255, 255, 255)', { target: ':hover' });
   });
 
   it('should map responsive pseudo selector color values', () => {
@@ -124,20 +124,20 @@ describe('Color mappings', () => {
         >
           background responsive
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', { target: ':hover' });
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(255, 255, 255)', {
       target: ':hover',
       media: 'screen and (min-width:400px)',
     });
-    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', { target: ':hover' });
     expect(renderedBox).toHaveStyleRule('border-color', 'rgb(117, 12, 12)', {
       target: ':hover',
       media: 'screen and (min-width:400px)',
     });
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(214, 31, 31)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(214, 31, 31)', { target: ':hover' });
     expect(renderedBox).toHaveStyleRule('color', 'rgb(136, 145, 170)', {
       target: ':hover',
       media: 'screen and (min-width:400px)',
@@ -158,7 +158,7 @@ describe('Borders', () => {
         >
           border single
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('border-style', 'solid');
@@ -179,7 +179,7 @@ describe('Borders', () => {
         >
           border responsive
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('border-style', 'dashed');
@@ -219,7 +219,7 @@ describe('Sizes', () => {
         >
           size single
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('width', '5.5rem');
@@ -244,7 +244,7 @@ describe('Sizes', () => {
         >
           size responsive
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('width', '5.5rem');
@@ -281,7 +281,7 @@ describe('Spaces', () => {
         <Box margin="space20" data-testid="box">
           space single 1
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin', '0.25rem');
@@ -293,7 +293,7 @@ describe('Spaces', () => {
         <Box margin={['space20', 'space30']} data-testid="box">
           space responsive 1
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin', '0.25rem');
@@ -308,7 +308,7 @@ describe('Spaces', () => {
         <Box marginTop="space20" marginRight="space20" marginBottom="space30" marginLeft="space30" data-testid="box">
           space single 2
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin-top', '0.25rem');
@@ -329,7 +329,7 @@ describe('Spaces', () => {
         >
           space responsive 2
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('margin-top', '0.25rem');
@@ -356,7 +356,7 @@ describe('Spaces', () => {
         <Box display="flex" columnGap="space10" rowGap="space10" data-testid="box">
           space single 3
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('column-gap', '0.125rem');
@@ -369,7 +369,7 @@ describe('Spaces', () => {
         <Box display="flex" columnGap={['space20', 'space30']} rowGap={['space30', 'space40']} data-testid="box">
           space single 3
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('column-gap', '0.25rem');
@@ -402,7 +402,7 @@ describe('Grid CSS', () => {
         >
           Grid test
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const renderedBox = screen.getByText('Grid test');
@@ -429,7 +429,7 @@ describe('Shadows', () => {
         <Box boxShadow="shadowCard" data-testid="box">
           shadow single
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 8px 0 rgba(18, 28, 45, 0.1)');
@@ -441,7 +441,7 @@ describe('Shadows', () => {
         <Box boxShadow={['shadowCard', 'shadowFocus']} data-testid="box">
           shadow responsive
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('box-shadow', '0 2px 8px 0 rgba(18, 28, 45, 0.1)');
@@ -458,7 +458,7 @@ describe('ZIndex', () => {
         <Box zIndex="zIndex10" data-testid="box">
           z-index single
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('z-index', '10');
@@ -470,7 +470,7 @@ describe('ZIndex', () => {
         <Box zIndex={['zIndex10', 'zIndex20']} data-testid="box">
           z-index responsive
         </Box>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('box');
     expect(renderedBox).toHaveStyleRule('z-index', '10');
@@ -484,63 +484,63 @@ describe('ZIndex', () => {
       render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Box
-            _hover={{padding: 'space10'}}
-            _active={{padding: 'space10'}}
-            _focus={{padding: 'space10'}}
-            _visited={{padding: 'space10'}}
-            _even={{padding: 'space10'}}
-            _odd={{padding: 'space10'}}
-            _disabled={{padding: 'space10'}}
-            _checked={{padding: 'space10'}}
-            _mixed={{padding: 'space10'}}
-            _selected={{padding: 'space10'}}
-            _invalid={{padding: 'space10'}}
-            _pressed={{padding: 'space10'}}
-            _readOnly={{padding: 'space10'}}
-            _first={{padding: 'space10'}}
-            _last={{padding: 'space10'}}
-            _expanded={{padding: 'space10'}}
-            _grabbed={{padding: 'space10'}}
-            _notFirst={{padding: 'space10'}}
-            _notLast={{padding: 'space10'}}
-            _groupHover={{padding: 'space10'}}
-            _before={{padding: 'space10'}}
-            _after={{padding: 'space10'}}
-            _focusWithin={{padding: 'space10'}}
-            _focusVisible={{padding: 'space10'}}
-            _placeholder={{padding: 'space10'}}
+            _hover={{ padding: 'space10' }}
+            _active={{ padding: 'space10' }}
+            _focus={{ padding: 'space10' }}
+            _visited={{ padding: 'space10' }}
+            _even={{ padding: 'space10' }}
+            _odd={{ padding: 'space10' }}
+            _disabled={{ padding: 'space10' }}
+            _checked={{ padding: 'space10' }}
+            _mixed={{ padding: 'space10' }}
+            _selected={{ padding: 'space10' }}
+            _invalid={{ padding: 'space10' }}
+            _pressed={{ padding: 'space10' }}
+            _readOnly={{ padding: 'space10' }}
+            _first={{ padding: 'space10' }}
+            _last={{ padding: 'space10' }}
+            _expanded={{ padding: 'space10' }}
+            _grabbed={{ padding: 'space10' }}
+            _notFirst={{ padding: 'space10' }}
+            _notLast={{ padding: 'space10' }}
+            _groupHover={{ padding: 'space10' }}
+            _before={{ padding: 'space10' }}
+            _after={{ padding: 'space10' }}
+            _focusWithin={{ padding: 'space10' }}
+            _focusVisible={{ padding: 'space10' }}
+            _placeholder={{ padding: 'space10' }}
             data-testid="box"
           >
             PseudoBox
           </Box>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedBox = screen.getByTestId('box');
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':hover'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':active'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':focus'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':visited'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':nth-of-type(even)'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':nth-of-type(odd)'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':disabled'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':checked'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':indeterminate'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: '[aria-selected=true]'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':invalid'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: '[aria-pressed=true]'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: '[readonly]'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':first-of-type'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':last-of-type'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: '[aria-expanded=true]'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: '[aria-grabbed=true]'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':not(:first-of-type)'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':not(:last-of-type)'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: '[role=group]:hover'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':before'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':after'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':focus-within'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: ':focus-visible'});
-      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', {target: '::placeholder'});
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':hover' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':active' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':focus' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':visited' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':nth-of-type(even)' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':nth-of-type(odd)' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':disabled' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':checked' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':indeterminate' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: '[aria-selected=true]' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':invalid' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: '[aria-pressed=true]' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: '[readonly]' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':first-of-type' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':last-of-type' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: '[aria-expanded=true]' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: '[aria-grabbed=true]' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':not(:first-of-type)' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':not(:last-of-type)' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: '[role=group]:hover' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':before' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':after' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':focus-within' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: ':focus-visible' });
+      expect(renderedBox).toHaveStyleRule('padding', '0.125rem', { target: '::placeholder' });
     });
   });
 });
@@ -561,12 +561,12 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{CUSTOM_BOX: {color: 'colorTextWeak', textDecoration: 'underline'}}}
+        elements={{ CUSTOM_BOX: { color: 'colorTextWeak', textDecoration: 'underline' } }}
       >
         <CustomizableBoxExample element="CUSTOM_BOX" data-testid="customizable-box">
           Custom Box
         </CustomizableBoxExample>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('customizable-box');
     expect(renderedBox).toHaveStyleRule('text-decoration', 'underline');
@@ -576,11 +576,11 @@ describe('Customization', () => {
 
   it('should override existing styles when provided as element styles on the customization provider', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" elements={{CUSTOM_BOX: {padding: 'space20'}}}>
+      <CustomizationProvider baseTheme="default" elements={{ CUSTOM_BOX: { padding: 'space20' } }}>
         <CustomizableBoxExample element="CUSTOM_BOX" data-testid="customizable-box">
           Custom Box
         </CustomizableBoxExample>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('customizable-box');
     expect(renderedBox).toHaveStyleRule('padding', '0.25rem');
@@ -588,38 +588,41 @@ describe('Customization', () => {
 
   it('should add custom styles to pseudo selectors when provided as element styles on the customization provider', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" elements={{CUSTOM_BOX: {':hover': {color: 'colorTextSuccess'}}}}>
+      <CustomizationProvider baseTheme="default" elements={{ CUSTOM_BOX: { ':hover': { color: 'colorTextSuccess' } } }}>
         <CustomizableBoxExample element="CUSTOM_BOX" data-testid="customizable-box">
           Custom Box
         </CustomizableBoxExample>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('color', 'rgb(14, 124, 58)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('color', 'rgb(14, 124, 58)', { target: ':hover' });
   });
 
   it('should override existing pseudo selector styles when provided as element styles on the customization provider', (): void => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{CUSTOM_BOX: {':hover': {backgroundColor: 'colorBackground'}}}}
+        elements={{ CUSTOM_BOX: { ':hover': { backgroundColor: 'colorBackground' } } }}
       >
         <CustomizableBoxExample element="CUSTOM_BOX" data-testid="customizable-box">
           Custom Box
         </CustomizableBoxExample>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)', { target: ':hover' });
   });
 
   it('should add custom styles to a component variant provided as element styles on the customization provider', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" elements={{CUSTOM_TEXT: {variants: {primary: {fontStyle: 'italic'}}}}}>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{ CUSTOM_TEXT: { variants: { primary: { fontStyle: 'italic' } } } }}
+      >
         <CustomizableBoxExample element="CUSTOM_TEXT" variant="primary" data-testid="customizable-box">
           Custom Box
         </CustomizableBoxExample>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('customizable-box');
     expect(renderedBox).toHaveStyleRule('font-style', 'italic');
@@ -629,12 +632,12 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{CUSTOM_TEXT: {variants: {primary: {backgroundColor: 'colorBackgroundWarning'}}}}}
+        elements={{ CUSTOM_TEXT: { variants: { primary: { backgroundColor: 'colorBackgroundWarning' } } } }}
       >
         <CustomizableBoxExample element="CUSTOM_TEXT" variant="primary" data-testid="customizable-box">
           Custom Box
         </CustomizableBoxExample>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('customizable-box');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 124, 34)');
@@ -642,25 +645,28 @@ describe('Customization', () => {
 
   it('should add custom styles to variant pseudo selectors when provided as element styles on the customization provider', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" elements={{CUSTOM_TEXT: {':hover': {margin: 'space30'}}}}>
+      <CustomizationProvider baseTheme="default" elements={{ CUSTOM_TEXT: { ':hover': { margin: 'space30' } } }}>
         <CustomizableBoxExample element="CUSTOM_TEXT" variant="primary" data-testid="customizable-box">
           Custom Box
         </CustomizableBoxExample>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('margin', '0.5rem', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('margin', '0.5rem', { target: ':hover' });
   });
 
   it('should override existing variant pseudo selector styles when provided as element styles on the customization provider', (): void => {
     render(
-      <CustomizationProvider baseTheme="default" elements={{CUSTOM_TEXT: {':hover': {fontWeight: 'fontWeightMedium'}}}}>
+      <CustomizationProvider
+        baseTheme="default"
+        elements={{ CUSTOM_TEXT: { ':hover': { fontWeight: 'fontWeightMedium' } } }}
+      >
         <CustomizableBoxExample element="CUSTOM_TEXT" variant="primary" data-testid="customizable-box">
           Custom Box
         </CustomizableBoxExample>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('customizable-box');
-    expect(renderedBox).toHaveStyleRule('font-weight', '500', {target: ':hover'});
+    expect(renderedBox).toHaveStyleRule('font-weight', '500', { target: ':hover' });
   });
 });

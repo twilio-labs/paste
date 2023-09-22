@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
 
-const NewComponentBanner: React.FC<React.PropsWithChildren> = ({children}) => {
+const NewComponentBanner: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Box
       alignItems="center"
@@ -20,4 +20,4 @@ const NewComponentBanner: React.FC<React.PropsWithChildren> = ({children}) => {
   );
 };
 
-export {NewComponentBanner};
+export { NewComponentBanner };

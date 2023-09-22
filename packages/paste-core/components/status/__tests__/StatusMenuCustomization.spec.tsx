@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {render, screen, act} from '@testing-library/react';
-import type {RenderOptions} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen, act } from '@testing-library/react';
+import type { RenderOptions } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {initStyles, BaseMenu} from '../stories/StatusMenuCustomization.stories';
+import { initStyles, BaseMenu } from '../stories/StatusMenuCustomization.stories';
 
 const PASTE_ELEMENT = 'data-paste-element';
 
 const initWrapper = (element: string): RenderOptions['wrapper'] =>
-  function Wrapper({children}) {
+  function Wrapper({ children }) {
     return (
       <CustomizationProvider theme={TestTheme} elements={initStyles(element.toUpperCase())}>
         {children}

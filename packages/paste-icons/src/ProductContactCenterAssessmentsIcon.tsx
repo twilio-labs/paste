@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductContactCenterAssessmentsIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ProductContactCenterAssessmentsIconProps extends IconWrapperPro
 }
 
 const ProductContactCenterAssessmentsIcon = React.forwardRef<HTMLElement, ProductContactCenterAssessmentsIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProductContactCenterAssessmentsIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -63,8 +63,8 @@ const ProductContactCenterAssessmentsIcon = React.forwardRef<HTMLElement, Produc
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProductContactCenterAssessmentsIcon.displayName = 'ProductContactCenterAssessmentsIcon';
-export {ProductContactCenterAssessmentsIcon};
+export { ProductContactCenterAssessmentsIcon };

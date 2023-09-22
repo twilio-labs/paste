@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, screen, fireEvent, waitFor} from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 
 import {
   MinimizableDialog,
@@ -8,7 +8,7 @@ import {
   MinimizableDialogContainer,
   MinimizableDialogContent,
 } from '../src';
-import {StateHookExample} from '../stories/index.stories';
+import { StateHookExample } from '../stories/index.stories';
 
 describe('MinimizableDialog', () => {
   describe('Render', () => {
@@ -20,11 +20,11 @@ describe('MinimizableDialog', () => {
             <MinimizableDialogHeader>My custom dialog</MinimizableDialogHeader>
             <MinimizableDialogContent>This is a dialog.</MinimizableDialogContent>
           </MinimizableDialog>
-        </MinimizableDialogContainer>
+        </MinimizableDialogContainer>,
       );
 
-      const dialogButton = screen.getByRole('button', {name: 'Button'});
-      const dialog = screen.getByRole('dialog', {hidden: true});
+      const dialogButton = screen.getByRole('button', { name: 'Button' });
+      const dialog = screen.getByRole('dialog', { hidden: true });
 
       expect(dialogButton.getAttribute('aria-haspopup')).toEqual('dialog');
       expect(dialogButton.getAttribute('aria-controls')).toEqual(dialog.id);
@@ -40,11 +40,11 @@ describe('MinimizableDialog', () => {
     it('should render a dialog and toggle visible and minimized with external buttons', async () => {
       render(<StateHookExample />);
 
-      const showButton = screen.getByRole('button', {name: 'Open dialog'});
-      const closeButton = screen.getByRole('button', {name: 'Close dialog'});
-      const minimizeButton = screen.getByRole('button', {name: 'Minimize dialog'});
-      const expandButton = screen.getByRole('button', {name: 'Expand dialog'});
-      const dialog = screen.getByRole('dialog', {hidden: true});
+      const showButton = screen.getByRole('button', { name: 'Open dialog' });
+      const closeButton = screen.getByRole('button', { name: 'Close dialog' });
+      const minimizeButton = screen.getByRole('button', { name: 'Minimize dialog' });
+      const expandButton = screen.getByRole('button', { name: 'Expand dialog' });
+      const dialog = screen.getByRole('dialog', { hidden: true });
       const dialogContents = screen.getByTestId('dialog-contents');
       const dialogHeader = screen.getByTestId('dialog-header');
 
@@ -82,13 +82,13 @@ describe('MinimizableDialog', () => {
             <MinimizableDialogHeader>My custom dialog</MinimizableDialogHeader>
             <MinimizableDialogContent>This is a dialog.</MinimizableDialogContent>
           </MinimizableDialog>
-        </MinimizableDialogContainer>
+        </MinimizableDialogContainer>,
       );
 
-      const dismissButton = screen.getByRole('button', {name: 'close', hidden: true});
+      const dismissButton = screen.getByRole('button', { name: 'close', hidden: true });
       expect(dismissButton).toBeDefined();
 
-      const minimizeButton = screen.getByRole('button', {name: 'minimize', hidden: true});
+      const minimizeButton = screen.getByRole('button', { name: 'minimize', hidden: true });
       expect(minimizeButton).toBeDefined();
     });
   });

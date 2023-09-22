@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {BaseModal, initStyles} from '../stories/customization.stories';
+import { BaseModal, initStyles } from '../stories/customization.stories';
 
 jest.mock('@twilio-paste/modal-dialog-primitive', () => {
   // Mocking the portal as a div so it renders within the body of the rendered test fragment, rather than using Portal behavior.
   const actual = jest.requireActual('@twilio-paste/modal-dialog-primitive');
-  const {forwardRef: mockForwardRef} = jest.requireActual('react');
+  const { forwardRef: mockForwardRef } = jest.requireActual('react');
   const MockModalDialogPrimitiveOverlay = mockForwardRef(
     (
       {
@@ -15,8 +15,8 @@ jest.mock('@twilio-paste/modal-dialog-primitive', () => {
         'data-paste-element': dataPasteElement,
         style,
         className,
-      }: {children: any; 'data-paste-element': string; style: any; className: string},
-      ref: any
+      }: { children: any; 'data-paste-element': string; style: any; className: string },
+      ref: any,
     ) => (
       <div
         data-testid="mock-reach-dialog-overlay"
@@ -27,7 +27,7 @@ jest.mock('@twilio-paste/modal-dialog-primitive', () => {
       >
         {children}
       </div>
-    )
+    ),
   );
   return {
     ...actual,
@@ -41,7 +41,7 @@ describe('Modal Customization', () => {
       render(<BaseModal size="default" />);
 
       expect(screen.getByTestId('mock-reach-dialog-overlay').getAttribute('data-paste-element')).toEqual(
-        'MODAL_OVERLAY'
+        'MODAL_OVERLAY',
       );
       expect(screen.getByTestId('modal-test-id').getAttribute('data-paste-element')).toEqual('MODAL');
       expect(screen.getByTestId('modal-header-test-id').getAttribute('data-paste-element')).toEqual('MODAL_HEADER');
@@ -64,17 +64,17 @@ describe('Modal Customization', () => {
       render(<BaseModal size="default" element="CUSTOM_TEST_MODAL" />);
 
       expect(screen.getByTestId('mock-reach-dialog-overlay').getAttribute('data-paste-element')).toEqual(
-        'CUSTOM_TEST_MODAL_OVERLAY'
+        'CUSTOM_TEST_MODAL_OVERLAY',
       );
       expect(screen.getByTestId('modal-test-id').getAttribute('data-paste-element')).toEqual('CUSTOM_TEST_MODAL');
       expect(screen.getByTestId('modal-header-test-id').getAttribute('data-paste-element')).toEqual(
-        'CUSTOM_TEST_MODAL_HEADER'
+        'CUSTOM_TEST_MODAL_HEADER',
       );
       expect(screen.getByTestId('modal-heading-test-id').getAttribute('data-paste-element')).toEqual(
-        'CUSTOM_TEST_MODAL_HEADING'
+        'CUSTOM_TEST_MODAL_HEADING',
       );
       expect(screen.getByTestId('modal-body-test-id').getAttribute('data-paste-element')).toEqual(
-        'CUSTOM_TEST_MODAL_BODY'
+        'CUSTOM_TEST_MODAL_BODY',
       );
 
       const modalFooter = screen.getByTestId('modal-footer-test-id');
@@ -85,10 +85,10 @@ describe('Modal Customization', () => {
       expect(modalFooter.getAttribute('data-paste-element')).toEqual('CUSTOM_TEST_MODAL_FOOTER');
       expect(modalFooterActions.getAttribute('data-paste-element')).toEqual('CUSTOM_TEST_MODAL_FOOTER_ACTIONS');
       expect(modalFooterActionItemOne.getAttribute('data-paste-element')).toEqual(
-        'CUSTOM_TEST_MODAL_FOOTER_ACTIONS_ITEM'
+        'CUSTOM_TEST_MODAL_FOOTER_ACTIONS_ITEM',
       );
       expect(modalFooterActionItemTwo.getAttribute('data-paste-element')).toEqual(
-        'CUSTOM_TEST_MODAL_FOOTER_ACTIONS_ITEM'
+        'CUSTOM_TEST_MODAL_FOOTER_ACTIONS_ITEM',
       );
     });
   });
@@ -96,7 +96,7 @@ describe('Modal Customization', () => {
   describe('Custom styles', () => {
     it('Should apply correct style rules to normal size variant', () => {
       render(<BaseModal size="default" />, {
-        wrapper: ({children}) => (
+        wrapper: ({ children }) => (
           <CustomizationProvider theme={TestTheme} elements={initStyles('MODAL')}>
             {children}
           </CustomizationProvider>
@@ -129,7 +129,7 @@ describe('Modal Customization', () => {
 
       expect(modalFooterActions).toHaveStyleRule('justify-content', 'flex-start');
 
-      expect(modalFooterActionItemOne).toHaveStyleRule('padding-left', '0', {target: ':first-of-type'});
+      expect(modalFooterActionItemOne).toHaveStyleRule('padding-left', '0', { target: ':first-of-type' });
       expect(modalFooterActionItemOne).toHaveStyleRule('padding-right', '0.75rem');
 
       expect(modalFooterActionItemTwo).toHaveStyleRule('padding-left', '0.75rem');
@@ -138,7 +138,7 @@ describe('Modal Customization', () => {
 
     it('Should apply correct style rules to wide size variant', () => {
       render(<BaseModal size="wide" />, {
-        wrapper: ({children}) => (
+        wrapper: ({ children }) => (
           <CustomizationProvider theme={TestTheme} elements={initStyles('MODAL')}>
             {children}
           </CustomizationProvider>

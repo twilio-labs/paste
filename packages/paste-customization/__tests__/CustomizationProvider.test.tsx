@@ -1,14 +1,14 @@
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import {createRoot} from 'testing-tools/react-dom-create-root';
-import {render, screen, act} from '@testing-library/react';
+import { createRoot } from 'testing-tools/react-dom-create-root';
+import { render, screen, act } from '@testing-library/react';
 
-import {CustomizationProvider, CustomizationConsumer} from '../src';
+import { CustomizationProvider, CustomizationConsumer } from '../src';
 
 const ThemeConsumerExample = (): React.ReactElement => {
   return (
     <CustomizationConsumer>
-      {({theme}) => {
+      {({ theme }) => {
         if (theme.textColors && theme.textColors.colorTextLink) {
           return <p>Color: {theme.textColors.colorTextLink}</p>;
         }
@@ -21,7 +21,7 @@ const ThemeConsumerExample = (): React.ReactElement => {
 const ThemeConsumerBreakpointsExample = (): React.ReactElement => {
   return (
     <CustomizationConsumer>
-      {({theme}) => <p data-testid="breakpoint-test">Breakpoints: {JSON.stringify(theme.breakpoints)}</p>}
+      {({ theme }) => <p data-testid="breakpoint-test">Breakpoints: {JSON.stringify(theme.breakpoints)}</p>}
     </CustomizationConsumer>
   );
 };
@@ -29,7 +29,7 @@ const ThemeConsumerBreakpointsExample = (): React.ReactElement => {
 const ThemeConsumerElementsExample = (): React.ReactElement => {
   return (
     <CustomizationConsumer>
-      {({theme}) => <p data-testid="elements-test">Elements: {JSON.stringify(theme.elements)}</p>}
+      {({ theme }) => <p data-testid="elements-test">Elements: {JSON.stringify(theme.elements)}</p>}
     </CustomizationConsumer>
   );
 };
@@ -40,7 +40,7 @@ interface BaseThemeConsumerExampleProps {
 const BaseThemeConsumerExample: React.FC<React.PropsWithChildren<BaseThemeConsumerExampleProps>> = (props) => {
   return (
     <CustomizationConsumer>
-      {({theme}) => {
+      {({ theme }) => {
         if (theme.textColors && theme.textColors.colorTextLink) {
           return <p data-testid={props['data-testid']}>Color: {theme.textColors.colorTextLink}</p>;
         }
@@ -67,16 +67,16 @@ describe('CustomizationProvider', () => {
         <CustomizationProvider baseTheme="dark">
           <BaseThemeConsumerExample data-testid="dark-base" />
         </CustomizationProvider>
-      </>
+      </>,
     );
     expect(screen.getByTestId('default-base').textContent).not.toEqual(screen.getByTestId('dark-base').textContent);
   });
 
   it('should override a value in the theme with a custom property', () => {
     render(
-      <CustomizationProvider theme={{textColors: {colorTextLink: 'hotpink'}}}>
+      <CustomizationProvider theme={{ textColors: { colorTextLink: 'hotpink' } }}>
         <ThemeConsumerExample />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -87,7 +87,7 @@ describe('CustomizationProvider', () => {
     render(
       <CustomizationProvider baseTheme="default">
         <ThemeConsumerBreakpointsExample />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('breakpoint-test').textContent).toEqual('Breakpoints: ["400px","1024px","1232px"]');
   });
@@ -96,7 +96,7 @@ describe('CustomizationProvider', () => {
     render(
       <CustomizationProvider baseTheme="default" customBreakpoints={['20px', '50px', '200px']}>
         <ThemeConsumerBreakpointsExample />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('breakpoint-test').textContent).toEqual('Breakpoints: ["20px","50px","200px"]');
   });
@@ -105,13 +105,13 @@ describe('CustomizationProvider', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{CARD: {backgroundColor: 'colorBackground', variant: {padded: {padding: 'space20'}}}}}
+        elements={{ CARD: { backgroundColor: 'colorBackground', variant: { padded: { padding: 'space20' } } } }}
       >
         <ThemeConsumerElementsExample />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('elements-test').textContent).toEqual(
-      'Elements: {"CARD":{"backgroundColor":"colorBackground","variant":{"padded":{"padding":"space20"}}}}'
+      'Elements: {"CARD":{"backgroundColor":"colorBackground","variant":{"padded":{"padding":"space20"}}}}',
     );
   });
 });

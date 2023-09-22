@@ -1,17 +1,17 @@
 import camelCase from 'lodash/camelCase';
-import type {ImmutableStyleMap} from 'theo';
+import type { ImmutableStyleMap } from 'theo';
 
-import type {DesignToken} from '../types';
-import {getTokenCategories} from '../utils/getTokenCategories';
-import {formatSingleTokensWithTemplate} from '../utils/formatSingleTokensWithTemplate';
-import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
-import {isNumeric} from '../utils/isNumeric';
+import type { DesignToken } from '../types';
+import { getTokenCategories } from '../utils/getTokenCategories';
+import { formatSingleTokensWithTemplate } from '../utils/formatSingleTokensWithTemplate';
+import { formatGroupTokensWithTemplate } from '../utils/formatGroupTokensWithTemplate';
+import { isNumeric } from '../utils/isNumeric';
 
-export const tokenTemplate = ({name, value}: {name: string; value: string}): string =>
+export const tokenTemplate = ({ name, value }: { name: string; value: string }): string =>
   `export declare const ${camelCase(name)} = "${value}";`;
 
 const categoryTemplate = (categoryName: string, props: DesignToken[]): string => `export declare const ${camelCase(
-  categoryName
+  categoryName,
 )}: {
 ${props
   .map((prop) => {

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
 export interface ComponentsIconProps {
   className?: string;
@@ -10,10 +10,10 @@ export interface ComponentsIconProps {
 }
 
 const ComponentsIcon = React.memo(
-  ({title = 'Components Icon', decorative = true, className, color, size}: ComponentsIconProps) => {
+  ({ title = 'Components Icon', decorative = true, className, color, size }: ComponentsIconProps) => {
     const titleId = useUID();
     return (
-      <span style={{color, width: size, height: size, display: 'inline-block'}} className={className}>
+      <span style={{ color, width: size, height: size, display: 'inline-block' }} className={className}>
         <svg
           role="img"
           aria-hidden={decorative}
@@ -31,7 +31,7 @@ const ComponentsIcon = React.memo(
         </svg>
       </span>
     );
-  }
+  },
 );
 
 export default ComponentsIcon;

@@ -1,4 +1,4 @@
-import {DEFAULT_VRT_OPTIONS, vrtIsEnabled} from '../utils/vrt';
+import { DEFAULT_VRT_OPTIONS, vrtIsEnabled } from '../utils/vrt';
 
 /**
  * @file Custom parent commands
@@ -12,12 +12,12 @@ Cypress.Commands.add('getDocsPageContentArea', () => cy.get('#paste-docs-content
 
 Cypress.Commands.add(
   'pageHeaderShouldBeVisible',
-  ({headerText, shouldHaveGithubLink, shouldHaveStorybook, shouldHaveOpenGraph}) => {
+  ({ headerText, shouldHaveGithubLink, shouldHaveStorybook, shouldHaveOpenGraph }) => {
     cy.contains('h1', headerText).should('be.visible');
     shouldHaveGithubLink && cy.contains('Github').should('be.visible');
     shouldHaveStorybook && cy.contains('Storybook').should('be.visible');
     shouldHaveOpenGraph && cy.get('meta[property="og:image"]').should('exist');
-  }
+  },
 );
 
 Cypress.Commands.add('overviewTableRendersCorrectly', () => {
@@ -46,14 +46,17 @@ Cypress.Commands.add('checkInPageNavigationLinks', () => {
 
   cy.get('@contentArea')
     .find(
-      '[data-cy="anchored-heading-h2"]:not(#component-changelog a),[data-cy="anchored-heading-h3"]:not(#component-changelog a)'
+      '[data-cy="anchored-heading-h2"]:not(#component-changelog a),[data-cy="anchored-heading-h3"]:not(#component-changelog a)',
     )
     .as('anchoredHeadings');
 
   cy.get('@pageAsideAnchors').then((anchors) => {
     cy.get('@anchoredHeadings').each((anchor, idx) => {
       cy.wrap(anchor).should('have.attr', 'href').and('include', '#');
-      cy.wrap(anchors[idx]).should('have.attr', 'href').and('include', '#').and('eql', anchor.attr('href'));
+      cy.wrap(anchors[idx])
+        .should('have.attr', 'href')
+        .and('include', '#')
+        .and('eql', anchor.attr('href'));
     });
   });
 });
@@ -92,11 +95,13 @@ Cypress.Commands.add('getInFixedContainer', (selector) => {
     .get('@target')
     .invoke('innerHeight')
     .then((height) => {
-      return cy.get('@target').scrollIntoView({offset: {top: (height as number) / 2, left: 0}, ensureScrollable: true});
+      return cy
+        .get('@target')
+        .scrollIntoView({ offset: { top: (height as number) / 2, left: 0 }, ensureScrollable: true });
     });
 });
 
-Cypress.Commands.add('visualRegressionTestUrl', ({url, testName}) => {
+Cypress.Commands.add('visualRegressionTestUrl', ({ url, testName }) => {
   cy.visit(url);
   cy.wait(2500);
   cy.log('[VRT]: checking if VRT is enabled');

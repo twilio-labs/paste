@@ -1,10 +1,10 @@
 import * as React from 'react';
 import TextareaAutosize from '@twilio-paste/react-textarea-autosize-library';
-import {styled, css} from '@twilio-paste/styling-library';
-import {safelySpreadBoxProps, getCustomElementStyles} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {InputBox} from '@twilio-paste/input-box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { styled, css } from '@twilio-paste/styling-library';
+import { safelySpreadBoxProps, getCustomElementStyles } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { InputBox } from '@twilio-paste/input-box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export type TextAreaVariants = 'default' | 'inverse';
 
@@ -66,7 +66,7 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
         '-webkit-opacity': '1',
       },
     }),
-  getCustomElementStyles
+  getCustomElementStyles,
 );
 
 const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
@@ -87,7 +87,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       width,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <InputBox
@@ -117,9 +117,9 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
         </TextAreaElement>
       </InputBox>
     );
-  }
+  },
 );
 
 TextArea.displayName = 'TextArea';
 
-export {TextArea};
+export { TextArea };

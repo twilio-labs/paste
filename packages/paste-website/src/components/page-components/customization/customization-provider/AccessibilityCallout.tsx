@@ -1,5 +1,5 @@
-import {Anchor} from '@twilio-paste/anchor';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import { Anchor } from '@twilio-paste/anchor';
+import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
 
 export const AccessibilityCallout = (): JSX.Element => {
   return (

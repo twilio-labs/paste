@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import type {RenderOptions} from '@testing-library/react';
-import {matchers} from '@emotion/jest';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {useVirtual as UseVirtual, VirtualItem} from 'react-virtual/types';
+import { render, screen } from '@testing-library/react';
+import type { RenderOptions } from '@testing-library/react';
+import { matchers } from '@emotion/jest';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { useVirtual as UseVirtual, VirtualItem } from 'react-virtual/types';
 
-import {Combobox} from '../src';
+import { Combobox } from '../src';
 
 const mockMeasureRef = jest.fn();
 
@@ -14,15 +14,15 @@ jest.mock('react-virtual', () => {
    * mocking this to verify that the measure refs are being invoked --> they are being used
    * need to test this because it is essential that the virtualization ref is attached to the correct element for the virtual listbox to render correctly
    */
-  const {useVirtual} = jest.requireActual('react-virtual');
+  const { useVirtual } = jest.requireActual('react-virtual');
 
   return {
     useVirtual: (config: Parameters<typeof UseVirtual>) => {
-      const {virtualItems, ...returnValue} = useVirtual(config);
+      const { virtualItems, ...returnValue } = useVirtual(config);
 
       return {
         ...returnValue,
-        virtualItems: virtualItems.map(({measureRef, ...virtualItem}: VirtualItem) => ({
+        virtualItems: virtualItems.map(({ measureRef, ...virtualItem }: VirtualItem) => ({
           ...virtualItem,
           measureRef: mockMeasureRef.mockImplementation((element) => measureRef(element)),
         })),
@@ -33,7 +33,7 @@ jest.mock('react-virtual', () => {
 
 expect.extend(matchers);
 
-const CustomizationWrapper: RenderOptions['wrapper'] = ({children}) => (
+const CustomizationWrapper: RenderOptions['wrapper'] = ({ children }) => (
   <CustomizationProvider theme={TestTheme}>{children}</CustomizationProvider>
 );
 
@@ -45,7 +45,7 @@ describe('Combobox - Virtualization', () => {
         wrapper: CustomizationWrapper,
       });
 
-      const resizedLiElement = screen.getAllByRole('presentation', {hidden: true})[1];
+      const resizedLiElement = screen.getAllByRole('presentation', { hidden: true })[1];
 
       expect(resizedLiElement.getAttribute('style')).toEqual('margin: 0px; height: 200px;');
     });
@@ -55,7 +55,7 @@ describe('Combobox - Virtualization', () => {
         wrapper: CustomizationWrapper,
       });
 
-      const optionElements = screen.getAllByRole('option', {hidden: true});
+      const optionElements = screen.getAllByRole('option', { hidden: true });
 
       expect(optionElements.length).toEqual(5);
 
@@ -120,17 +120,17 @@ describe('Combobox - Virtualization', () => {
         <Combobox
           data-testid="test"
           items={items}
-          optionTemplate={({label}) => label}
-          itemToString={({label}) => label}
+          optionTemplate={({ label }) => label}
+          itemToString={({ label }) => label}
           labelText="Choose a letter:"
           initialIsOpen
         />,
         {
           wrapper: CustomizationWrapper,
-        }
+        },
       );
 
-      const resizedLiElement = screen.getAllByRole('presentation', {hidden: true})[1];
+      const resizedLiElement = screen.getAllByRole('presentation', { hidden: true })[1];
 
       expect(resizedLiElement.getAttribute('style')).toEqual('margin: 0px; height: 200px;');
     });
@@ -139,17 +139,17 @@ describe('Combobox - Virtualization', () => {
       render(
         <Combobox
           items={items}
-          optionTemplate={({label}) => label}
-          itemToString={({label}) => label}
+          optionTemplate={({ label }) => label}
+          itemToString={({ label }) => label}
           labelText="Choose a letter:"
           initialIsOpen
         />,
         {
           wrapper: CustomizationWrapper,
-        }
+        },
       );
 
-      const optionElements = screen.getAllByRole('option', {hidden: true});
+      const optionElements = screen.getAllByRole('option', { hidden: true });
 
       expect(optionElements.length).toEqual(5);
 
@@ -181,14 +181,14 @@ describe('Combobox - Virtualization', () => {
         <Combobox
           data-testid="test"
           items={items}
-          optionTemplate={({label}) => label}
-          itemToString={({label}) => label}
+          optionTemplate={({ label }) => label}
+          itemToString={({ label }) => label}
           labelText="Choose a letter:"
           initialIsOpen
         />,
         {
           wrapper: CustomizationWrapper,
-        }
+        },
       );
 
       expect(mockMeasureRef).toHaveBeenCalled();

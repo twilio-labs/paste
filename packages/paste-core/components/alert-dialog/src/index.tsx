@@ -1,21 +1,21 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {useTransition} from '@twilio-paste/animation-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {ModalDialogOverlay} from '@twilio-paste/modal';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { useUID } from '@twilio-paste/uid-library';
+import { useTransition } from '@twilio-paste/animation-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { ModalDialogOverlay } from '@twilio-paste/modal';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {AlertDialogHeader} from './AlertDialogHeader';
-import {AlertDialogBody} from './AlertDialogBody';
-import {AlertDialogContent} from './AlertDialogContent';
-import {AlertDialogFooter} from './AlertDialogFooter';
+import { AlertDialogHeader } from './AlertDialogHeader';
+import { AlertDialogBody } from './AlertDialogBody';
+import { AlertDialogContent } from './AlertDialogContent';
+import { AlertDialogFooter } from './AlertDialogFooter';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getAnimationStates = (): any => ({
-  from: {opacity: 0, transform: `scale(0.675)`},
-  enter: {opacity: 1, transform: `scale(1)`},
-  leave: {opacity: 0, transform: `scale(0.675)`},
+  from: { opacity: 0, transform: `scale(0.675)` },
+  enter: { opacity: 1, transform: `scale(1)` },
+  leave: { opacity: 0, transform: `scale(0.675)` },
   // https://www.react-spring.dev/docs/advanced/config
   config: {
     mass: 0.5,
@@ -51,7 +51,7 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
       onConfirmDisabled,
       ...props
     },
-    ref
+    ref,
   ) => {
     const transitions = useTransition(isOpen, getAnimationStates());
     const headingID = useUID();
@@ -62,7 +62,7 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
         {transitions(
           (styles, item) =>
             item && (
-              <ModalDialogOverlay isOpen={isOpen} style={{opacity: styles.opacity}}>
+              <ModalDialogOverlay isOpen={isOpen} style={{ opacity: styles.opacity }}>
                 <Box
                   // @ts-expect-error Render overlay as box for customization
                   as={AlertDialogContent}
@@ -91,11 +91,11 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
                   />
                 </Box>
               </ModalDialogOverlay>
-            )
+            ),
         )}
       </>
     );
-  }
+  },
 );
 
 AlertDialog.displayName = 'AlertDialog';

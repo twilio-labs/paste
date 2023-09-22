@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {uid} from '@twilio-paste/uid-library';
+import { uid } from '@twilio-paste/uid-library';
 
-import type {MessageVariants} from './MessageVariantContext';
+import type { MessageVariants } from './MessageVariantContext';
 
 type PushChat = (chat: PartialIDChat) => void;
 type PopChat = (id?: string) => void;
@@ -21,7 +21,7 @@ export type UseChatLogger = (...initialChats: PartialIDChat[]) => {
   clear: () => void;
 };
 
-const chatWithId = (chat: PartialIDChat): Chat => ({...chat, id: chat.id || uid(chat.content)});
+const chatWithId = (chat: PartialIDChat): Chat => ({ ...chat, id: chat.id || uid(chat.content) });
 
 export const useChatLogger: UseChatLogger = (...initialChats) => {
   const parsedInitialChats = React.useMemo(() => initialChats.map(chatWithId), [initialChats]);
@@ -38,5 +38,5 @@ export const useChatLogger: UseChatLogger = (...initialChats) => {
 
   const clear: () => void = React.useCallback(() => setChats([]), []);
 
-  return {push, pop, chats, clear};
+  return { push, pop, chats, clear };
 };

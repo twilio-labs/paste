@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Truncate} from '@twilio-paste/truncate';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { Truncate } from '@twilio-paste/truncate';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 
-import type {IconObject} from './types';
+import type { IconObject } from './types';
 
 export interface IconTileProps {
   children?: React.ReactNode;
   icon: IconObject;
   onClick: () => void;
 }
-const IconTile = React.forwardRef<HTMLButtonElement, IconTileProps>(({children, icon, onClick, ...props}, ref) => {
+const IconTile = React.forwardRef<HTMLButtonElement, IconTileProps>(({ children, icon, onClick, ...props }, ref) => {
   const handleOnKeypress = (e: React.KeyboardEvent): void => {
     e.preventDefault();
     if (e.key === 'Enter' || e.key === ' ') {
@@ -58,4 +58,4 @@ const IconTile = React.forwardRef<HTMLButtonElement, IconTileProps>(({children, 
 });
 
 IconTile.displayName = 'IconTile';
-export {IconTile};
+export { IconTile };

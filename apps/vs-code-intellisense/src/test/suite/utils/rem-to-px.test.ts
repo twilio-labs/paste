@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-import {remToPx} from '../../../utils/rem-to-px';
+import { remToPx } from '../../../utils/rem-to-px';
 
 suite('remToPx', () => {
   test("when 'rem' is not found in value, returns unmodified string", () => {

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import type {IconSizeOptions, TextColorOptions} from '@twilio-paste/style-props';
-import {DefaultTheme, useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {Flex} from '@twilio-paste/flex';
+import type { StoryFn } from '@storybook/react';
+import type { IconSizeOptions, TextColorOptions } from '@twilio-paste/style-props';
+import { DefaultTheme, useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import { Flex } from '@twilio-paste/flex';
 
-import {CopyIcon} from '../src/CopyIcon';
+import { CopyIcon } from '../src/CopyIcon';
 
 const SizeOptions = Object.keys(DefaultTheme.iconSizes) as IconSizeOptions[];
 const ColorOptions = Object.keys(DefaultTheme.textColors) as TextColorOptions[];
@@ -75,15 +75,15 @@ export const Alignment = (): React.ReactNode => {
 
 Alignment.storyName = 'alignment';
 
-export const CustomizedIcon: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedIcon: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
       disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundSuccess'},
-        CUSTOM_ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundDestructive'},
+        ICON: { borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundSuccess' },
+        CUSTOM_ICON: { borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundDestructive' },
       }}
     >
       <Stack orientation="vertical" spacing="space40">

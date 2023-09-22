@@ -1,4 +1,4 @@
-import websitePageVrtCheck, {FAIL_MESSAGE} from '../website-page-vrt-check';
+import websitePageVrtCheck, { FAIL_MESSAGE } from '../website-page-vrt-check';
 
 declare const global: any;
 

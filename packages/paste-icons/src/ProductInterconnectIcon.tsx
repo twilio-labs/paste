@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductInterconnectIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ProductInterconnectIconProps extends IconWrapperProps {
 }
 
 const ProductInterconnectIcon = React.forwardRef<HTMLElement, ProductInterconnectIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProductInterconnectIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -40,8 +40,8 @@ const ProductInterconnectIcon = React.forwardRef<HTMLElement, ProductInterconnec
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProductInterconnectIcon.displayName = 'ProductInterconnectIcon';
-export {ProductInterconnectIcon};
+export { ProductInterconnectIcon };

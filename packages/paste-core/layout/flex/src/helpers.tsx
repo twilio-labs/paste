@@ -1,4 +1,4 @@
-import type {ValueOf} from '@twilio-paste/types';
+import type { ValueOf } from '@twilio-paste/types';
 
 import type {
   Basis,
@@ -13,7 +13,7 @@ import type {
 } from './types';
 
 // Gets grow and returns as an array of grow, the value of grow, 1, or 0
-export const getGrow = ({grow}: FlexProps): number | number[] => {
+export const getGrow = ({ grow }: FlexProps): number | number[] => {
   if (Array.isArray(grow)) {
     return (grow as GrowOptions[]).map((value: GrowOptions) => {
       return Number(value);
@@ -32,7 +32,7 @@ export const getGrow = ({grow}: FlexProps): number | number[] => {
 };
 
 // Gets shrink and returns as an array of shrink, the value of shrink, 1, or 0
-export const getShrink = ({shrink, basis}: FlexProps): number | number[] => {
+export const getShrink = ({ shrink, basis }: FlexProps): number | number[] => {
   if (Array.isArray(shrink)) {
     return (shrink as ShrinkOptions[]).map((value: ShrinkOptions) => {
       return Number(value);
@@ -62,7 +62,7 @@ export const getSuffix = (item: Basis): string => {
 };
 
 // Gets basis and returns as an array of basis, the value of basis, or auto
-export const getBasis = ({basis}: FlexProps): string | string[] => {
+export const getBasis = ({ basis }: FlexProps): string | string[] => {
   if (Array.isArray(basis)) {
     return (basis as BasisOptions[]).map((value: BasisOptions) => {
       return getSuffix(value);
@@ -78,7 +78,7 @@ export const getBasis = ({basis}: FlexProps): string | string[] => {
 
 // Gets vertical and returns as an array of column/row, column, or row
 type GetVerticalReturn = 'column' | 'row';
-export const getVertical = ({vertical}: FlexProps): GetVerticalReturn | GetVerticalReturn[] => {
+export const getVertical = ({ vertical }: FlexProps): GetVerticalReturn | GetVerticalReturn[] => {
   if (Array.isArray(vertical)) {
     return (vertical as VerticalOptions[]).map((value: VerticalOptions) => {
       if (typeof value === 'boolean') {
@@ -97,7 +97,7 @@ export const getVertical = ({vertical}: FlexProps): GetVerticalReturn | GetVerti
 
 // Gets wrap and returns as an array of wrap/nowrap, wrap, or nowrap
 type GetWrapReturn = 'wrap' | 'nowrap';
-export const getWrap = ({wrap}: FlexProps): GetWrapReturn | GetWrapReturn[] => {
+export const getWrap = ({ wrap }: FlexProps): GetWrapReturn | GetWrapReturn[] => {
   if (Array.isArray(wrap)) {
     return (wrap as WrapOptions[]).map((value: WrapOptions) => {
       if (typeof value === 'boolean') {
@@ -151,7 +151,7 @@ const RemapedHorizontalAlignments = {
  * ideally this would be typed as ValueOf<typeof RemapedHorizontalAlignments> | ValueOf<typeof RemapedHorizontalAlignments>[]
  * but space-between isn't a valid alignItems value and I don't know how to conditionally type things.
  */
-export const hAlignToProps = ({hAlignContent}: FlexProps): any => {
+export const hAlignToProps = ({ hAlignContent }: FlexProps): any => {
   if (Array.isArray(hAlignContent)) {
     return (hAlignContent as HorizontalAlignOptions[]).map((value) => RemapedHorizontalAlignments[value]);
   }

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {screen, render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { screen, render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {ChatEvent} from '../src';
+import { ChatEvent } from '../src';
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -18,7 +18,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
   </CustomizationProvider>
 );
 
-const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -37,7 +37,7 @@ describe('ChatEvent', () => {
     render(
       <ChatEvent data-testid="event">
         <strong>Lauren Gardner</strong> has left the chat ・3:42 PM
-      </ChatEvent>
+      </ChatEvent>,
     );
     expect(screen.getByTestId('event')).toBeDefined();
   });
@@ -46,7 +46,7 @@ describe('ChatEvent', () => {
     render(
       <ChatEvent data-testid="event" aria-label="Lauren Gardner has left the chat at 3:42 PM">
         <strong>Lauren Gardner</strong> has left the chat ・3:42 PM
-      </ChatEvent>
+      </ChatEvent>,
     );
     expect(screen.getByTestId('event')).toHaveAttribute('aria-label', 'Lauren Gardner has left the chat at 3:42 PM');
   });
@@ -58,7 +58,7 @@ describe('Customization', () => {
       <ChatEvent data-testid="event">
         <strong>Lauren Gardner</strong> has left the chat ・3:42 PM
       </ChatEvent>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const event = screen.getByTestId('event');
@@ -71,7 +71,7 @@ describe('Customization', () => {
       <ChatEvent data-testid="event">
         <strong>Lauren Gardner</strong> has left the chat ・3:42 PM
       </ChatEvent>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const event = screen.getByTestId('event');
@@ -84,7 +84,7 @@ describe('Customization', () => {
       <ChatEvent data-testid="event" element="MY_CHAT_EVENT">
         <strong>Lauren Gardner</strong> has left the chat ・3:42 PM
       </ChatEvent>,
-      {wrapper: MyCustomizationWrapper}
+      { wrapper: MyCustomizationWrapper },
     );
 
     const event = screen.getByTestId('event');
@@ -97,7 +97,7 @@ describe('Customization', () => {
       <ChatEvent data-testid="event" element="MY_CHAT_EVENT">
         <strong>Lauren Gardner</strong> has left the chat ・3:42 PM
       </ChatEvent>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const event = screen.getByTestId('event');

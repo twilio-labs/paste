@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {SelectedIcon} from '@twilio-paste/icons/esm/SelectedIcon';
-import {useTheme} from '@twilio-paste/theme';
-import type {TextColor} from '@twilio-paste/style-props';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { SelectedIcon } from '@twilio-paste/icons/esm/SelectedIcon';
+import { useTheme } from '@twilio-paste/theme';
+import type { TextColor } from '@twilio-paste/style-props';
 
 const getSwitchKnobTransformValue = (disabled: boolean, checked: boolean, isHovering: boolean): string => {
   if (!disabled) {
@@ -32,13 +32,13 @@ export interface SwitchKnobProps {
 }
 
 const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
-  ({element = 'SWITCH', disabled = false, checked = false, isHovering, height, hasError = false, ...props}, ref) => {
+  ({ element = 'SWITCH', disabled = false, checked = false, isHovering, height, hasError = false, ...props }, ref) => {
     const theme = useTheme();
     const SWITCH_PADDING = theme.space ? theme.space.space20 : '4px';
 
     const transformValue = React.useMemo(
       () => getSwitchKnobTransformValue(disabled, checked, isHovering),
-      [disabled, checked, isHovering]
+      [disabled, checked, isHovering],
     );
 
     return (
@@ -82,9 +82,9 @@ const SwitchKnob = React.forwardRef<HTMLDivElement, SwitchKnobProps>(
         </Box>
       </Box>
     );
-  }
+  },
 );
 
 SwitchKnob.displayName = 'SwitchKnob';
 
-export {SwitchKnob};
+export { SwitchKnob };

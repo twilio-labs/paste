@@ -1,6 +1,6 @@
-import type {ValueOf} from '@twilio-paste/types';
+import type { ValueOf } from '@twilio-paste/types';
 
-import type {Statuses} from './constants';
+import type { Statuses } from './constants';
 
 export type StatusTypes = ValueOf<typeof Statuses>;
 

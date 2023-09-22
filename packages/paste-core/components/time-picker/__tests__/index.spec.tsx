@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {formatReturnTime} from '../src/utils';
+import { formatReturnTime } from '../src/utils';
 import {
   DefaultTimePicker,
   DisabledTimePicker,
@@ -30,7 +30,7 @@ describe('formatReturnTime()', () => {
     expect(() => {
       formatReturnTime('2022-03-01T03:35Z', 'hh:mm:ss');
     }).toThrow(
-      '[Paste Time Picker]: Please make sure timeValue string matches HH:mm OR HH:mm:ss OR HH:mm:ss.SSS format'
+      '[Paste Time Picker]: Please make sure timeValue string matches HH:mm OR HH:mm:ss OR HH:mm:ss.SSS format',
     );
   });
 });
@@ -53,7 +53,7 @@ describe('TimePicker', () => {
 
     it('should set disabled correctly', () => {
       expect(InnerTimePicker.getAttribute('disabled')).toEqual('');
-      expect(InnerTimePicker).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', {target: ':disabled'});
+      expect(InnerTimePicker).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', { target: ':disabled' });
     });
 
     it('should set readOnly correctly', () => {
@@ -98,28 +98,28 @@ describe('TimePicker', () => {
       'data-testid': 'datetimepickerid',
     };
     it('should add the element dom attibute', () => {
-      const {container} = render(<DefaultTimePicker {...initialProps} />);
+      const { container } = render(<DefaultTimePicker {...initialProps} />);
       expect(container.querySelector('[data-paste-element="TIMEPICKER"]')).toBeInTheDocument();
       expect(screen.getByTestId('datetimepickerid').getAttribute('data-paste-element')).toEqual('TIMEPICKER_ELEMENT');
     });
     it('should add a custom element dom attibute', () => {
-      const {container} = render(<DefaultTimePicker element="CUSTOM_TIME" {...initialProps} />);
+      const { container } = render(<DefaultTimePicker element="CUSTOM_TIME" {...initialProps} />);
       expect(container.querySelector('[data-paste-element="CUSTOM_TIME"]')).toBeInTheDocument();
       expect(screen.getByTestId('datetimepickerid').getAttribute('data-paste-element')).toEqual('CUSTOM_TIME_ELEMENT');
     });
 
     it('should add custom styles to the TimePicker Component', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            TIMEPICKER: {backgroundColor: 'colorBackgroundBrandStronger'},
-            TIMEPICKER_ELEMENT: {backgroundColor: 'colorBackgroundBrandHighlight'},
+            TIMEPICKER: { backgroundColor: 'colorBackgroundBrandStronger' },
+            TIMEPICKER_ELEMENT: { backgroundColor: 'colorBackgroundBrandHighlight' },
           }}
         >
           <DefaultTimePicker {...initialProps} />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedTimepicker = container.querySelector('[data-paste-element="TIMEPICKER"]');
       const renderedTimepickerElement = screen.getByTestId('datetimepickerid');
@@ -128,17 +128,17 @@ describe('TimePicker', () => {
     });
 
     it('should add custom styles to the TimePicker Component variant', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            TIMEPICKER: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
-            TIMEPICKER_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
+            TIMEPICKER: { variants: { inverse: { backgroundColor: 'colorBackgroundBrand' } } },
+            TIMEPICKER_ELEMENT: { variants: { inverse: { backgroundColor: 'colorBackgroundBrand' } } },
           }}
         >
           <DefaultTimePicker variant="inverse" {...initialProps} />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedTimepicker = container.querySelector('[data-paste-element="TIMEPICKER"]');
       const renderedTimepickerElement = screen.getByTestId('datetimepickerid');
@@ -147,17 +147,17 @@ describe('TimePicker', () => {
     });
 
     it('should add custom styles to a custom TimePicker Component', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            CUSTOM_TIME: {backgroundColor: 'colorBackgroundBusy'},
-            CUSTOM_TIME_ELEMENT: {backgroundColor: 'colorBackgroundDestructive'},
+            CUSTOM_TIME: { backgroundColor: 'colorBackgroundBusy' },
+            CUSTOM_TIME_ELEMENT: { backgroundColor: 'colorBackgroundDestructive' },
           }}
         >
           <DefaultTimePicker element="CUSTOM_TIME" {...initialProps} />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedTimepicker = container.querySelector('[data-paste-element="CUSTOM_TIME"]');
       const renderedTimepickerElement = screen.getByTestId('datetimepickerid');
@@ -166,17 +166,17 @@ describe('TimePicker', () => {
     });
 
     it('should add custom styles to a custom TimePicker Component variant', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            CUSTOM_TIME: {variants: {inverse: {backgroundColor: 'colorBackgroundNew'}}},
-            CUSTOM_TIME_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundSuccess'}}},
+            CUSTOM_TIME: { variants: { inverse: { backgroundColor: 'colorBackgroundNew' } } },
+            CUSTOM_TIME_ELEMENT: { variants: { inverse: { backgroundColor: 'colorBackgroundSuccess' } } },
           }}
         >
           <DefaultTimePicker variant="inverse" element="CUSTOM_TIME" {...initialProps} />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedTimepicker = container.querySelector('[data-paste-element="CUSTOM_TIME"]');
       const renderedTimepickerElement = screen.getByTestId('datetimepickerid');

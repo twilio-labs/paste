@@ -1,4 +1,4 @@
-export {CustomizableDataGrid} from './components/CustomizableDataGrid';
+export { CustomizableDataGrid } from './components/CustomizableDataGrid';
 
 // eslint-disable-next-line import/no-default-export
 export default {

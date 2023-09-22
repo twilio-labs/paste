@@ -1,21 +1,21 @@
 import * as React from 'react';
-import type {StoryFn, Meta} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {Stack} from '@twilio-paste/stack';
-import {useUID} from '@twilio-paste/uid-library';
+import type { StoryFn, Meta } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { Stack } from '@twilio-paste/stack';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {useClipboard} from '../src';
-import type {UseClipboardProps} from '../src';
+import { useClipboard } from '../src';
+import type { UseClipboardProps } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Libraries/clipboard-copy',
 } as Meta;
 
-const Template: StoryFn<{clipboardProps: UseClipboardProps}> = ({clipboardProps = {}}) => {
+const Template: StoryFn<{ clipboardProps: UseClipboardProps }> = ({ clipboardProps = {} }) => {
   const clipboard = useClipboard(clipboardProps);
   const uid = useUID();
 

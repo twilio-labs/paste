@@ -1,6 +1,6 @@
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
-import type {LayoutProps, MarginProps, PaddingProps} from '@twilio-paste/style-props';
-import type {BoxProps} from '@twilio-paste/box';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
+import type { LayoutProps, MarginProps, PaddingProps } from '@twilio-paste/style-props';
+import type { BoxProps } from '@twilio-paste/box';
 
 export type DisplayOptions = 'flex' | 'inline-flex';
 export type Display = ResponsiveValue<DisplayOptions>;

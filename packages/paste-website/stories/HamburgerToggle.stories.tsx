@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 
-import {HamburgerToggle} from '../src/components/site-wrapper/site-header/HamburgerToggle';
+import { HamburgerToggle } from '../src/components/site-wrapper/site-header/HamburgerToggle';
 
 export default {
   title: 'Website/HamburgerToggle',

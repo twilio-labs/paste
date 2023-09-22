@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Anchor} from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Anchor } from '@twilio-paste/anchor';
 
-export const SidebarSkipLinkContainer: React.FC<React.PropsWithChildren<{element?: string}>> = ({
+export const SidebarSkipLinkContainer: React.FC<React.PropsWithChildren<{ element?: string }>> = ({
   element,
   children,
 }) => {
@@ -22,7 +22,7 @@ export const SidebarSkipLinkContainer: React.FC<React.PropsWithChildren<{element
       zIndex="zIndex90"
       display="flex"
       columnGap="space60"
-      _focusWithin={{transform: 'translateY(0%)'}}
+      _focusWithin={{ transform: 'translateY(0%)' }}
     >
       {children}
     </Box>

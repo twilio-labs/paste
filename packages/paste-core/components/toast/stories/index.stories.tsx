@@ -1,24 +1,24 @@
 import * as React from 'react';
-import {action} from '@storybook/addon-actions';
-import {loremIpsum} from 'lorem-ipsum';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Button} from '@twilio-paste/button';
-import {Truncate} from '@twilio-paste/truncate';
-import {useUID} from '@twilio-paste/uid-library';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+import { action } from '@storybook/addon-actions';
+import { loremIpsum } from 'lorem-ipsum';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { Button } from '@twilio-paste/button';
+import { Truncate } from '@twilio-paste/truncate';
+import { useUID } from '@twilio-paste/uid-library';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { RadioGroup, Radio } from '@twilio-paste/radio-group';
 
-import type {ToastVariants} from '../src';
-import {Toast, ToastContainer, Toaster, useToaster} from '../src';
-import {ToastVariantObject} from '../src/constants';
+import type { ToastVariants } from '../src';
+import { Toast, ToastContainer, Toaster, useToaster } from '../src';
+import { ToastVariantObject } from '../src/constants';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Toast',
   component: Toast,
-  subcomponents: {Toaster, ToastContainer},
+  subcomponents: { Toaster, ToastContainer },
 };
 
 export const Neutral = (): React.ReactNode => {
@@ -195,7 +195,7 @@ export const ToastContainerStory = (): React.ReactNode => {
           // eslint-disable-next-line @typescript-eslint/no-shadow
           setToasts((toasts) => [
             ...toasts,
-            {variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum()},
+            { variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum() },
           ])
         }
       >
@@ -222,7 +222,7 @@ export const ToasterStory = (): React.ReactNode => {
   const messageID = useUID();
   const dismissAfterID = useUID();
   const [messageText, setMessageText] = React.useState(
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis veniam, et deleniti sequi est ut aliquam suscipit autem explicabo quod, mollitia pariatur facere aut ab quidem enim molestiae magni.'
+    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis veniam, et deleniti sequi est ut aliquam suscipit autem explicabo quod, mollitia pariatur facere aut ab quidem enim molestiae magni.',
   );
   const [variant, setVariant] = React.useState<ToastVariants>('success');
   const [toastTimeout, setToastTimeout] = React.useState('');
@@ -232,7 +232,7 @@ export const ToasterStory = (): React.ReactNode => {
     toaster.push({
       variant,
       message: messageText,
-      ...(toastTimeout !== '0' && {dismissAfter: Number.parseInt(toastTimeout, 10)}),
+      ...(toastTimeout !== '0' && { dismissAfter: Number.parseInt(toastTimeout, 10) }),
       onDismiss: () => {
         // eslint-disable-next-line no-console
         console.log('dismissed!');

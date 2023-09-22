@@ -1,8 +1,15 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
 
-import {CodeBlock, CodeBlockWrapper, CodeBlockHeader, CodeBlockTabList, CodeBlockTab, CodeBlockTabPanel} from '../src';
+import {
+  CodeBlock,
+  CodeBlockWrapper,
+  CodeBlockHeader,
+  CodeBlockTabList,
+  CodeBlockTab,
+  CodeBlockTabPanel,
+} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

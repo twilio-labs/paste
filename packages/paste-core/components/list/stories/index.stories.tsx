@@ -1,17 +1,17 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Stack } from '@twilio-paste/stack';
 
-import {OrderedList, UnorderedList, ListItem} from '../src';
+import { OrderedList, UnorderedList, ListItem } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/List',
   component: OrderedList,
-  subcomponents: {UnorderedList, ListItem},
+  subcomponents: { UnorderedList, ListItem },
 };
 
 export const DefaultOrderedList = (): React.ReactNode => {
@@ -110,7 +110,7 @@ export const NestedUnorderedList = (): React.ReactNode => {
   );
 };
 
-export const CustomOrderedList: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomOrderedList: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
@@ -192,7 +192,7 @@ CustomOrderedList.parameters = {
   },
 };
 
-export const CustomUnorderedList: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomUnorderedList: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

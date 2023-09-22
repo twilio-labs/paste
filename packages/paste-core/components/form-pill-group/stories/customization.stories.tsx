@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
 
-import {useFormPillState, FormPillGroup, FormPill} from '../src';
+import { useFormPillState, FormPillGroup, FormPill } from '../src';
 
 export const CustomFormPillGroup = (): JSX.Element => {
   const currentTheme = useTheme();
@@ -15,7 +15,7 @@ export const CustomFormPillGroup = (): JSX.Element => {
       disableAnimations={true}
       theme={{
         ...currentTheme,
-        fonts: {fontFamilyText: 'arial'},
+        fonts: { fontFamilyText: 'arial' },
       }}
       elements={{
         FORM_PILL_GROUP: {

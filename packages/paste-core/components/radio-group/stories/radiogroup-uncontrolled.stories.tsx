@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
+import { useUID } from '@twilio-paste/uid-library';
+import { Anchor } from '@twilio-paste/anchor';
+import { Text } from '@twilio-paste/text';
 
-import {Radio, RadioGroup} from '../src';
+import { Radio, RadioGroup } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Radio/Radio Group (Uncontrolled)',
   component: Radio,
-  subcomponents: {RadioGroup},
+  subcomponents: { RadioGroup },
 };
 
 /**
@@ -42,7 +42,7 @@ export const UncontrolledRadioGroupA = (): React.ReactNode => {
 
 UncontrolledRadioGroupA.storyName = 'Uncontrolled RadioGroup with uncontrolled Radios';
 UncontrolledRadioGroupA.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
@@ -104,5 +104,5 @@ export const UncontrolledRadioGroupB = (): React.ReactNode => {
 
 UncontrolledRadioGroupB.storyName = 'Uncontrolled RadioGroup with controlled Radios';
 UncontrolledRadioGroupB.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };

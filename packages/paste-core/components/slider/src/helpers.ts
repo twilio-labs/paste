@@ -1,6 +1,6 @@
-import type {BackgroundColor} from '@twilio-paste/style-props';
+import type { BackgroundColor } from '@twilio-paste/style-props';
 
-import type {UIStates} from './types';
+import type { UIStates } from './types';
 
 export const getColorToken = (states: UIStates): BackgroundColor => {
   if (states.disabled) {

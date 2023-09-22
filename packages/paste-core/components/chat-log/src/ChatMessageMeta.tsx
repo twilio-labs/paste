@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxElementProps } from '@twilio-paste/box';
 
-import {MessageVariantContext} from './MessageVariantContext';
+import { MessageVariantContext } from './MessageVariantContext';
 
 export interface ChatMessageMetaProps {
   ['aria-label']: string;
@@ -11,7 +11,7 @@ export interface ChatMessageMetaProps {
 }
 
 export const ChatMessageMeta = React.forwardRef<HTMLDivElement, ChatMessageMetaProps>(
-  ({children, element = 'CHAT_MESSAGE_META', ...props}, ref) => {
+  ({ children, element = 'CHAT_MESSAGE_META', ...props }, ref) => {
     const variant = React.useContext(MessageVariantContext);
 
     return (
@@ -30,7 +30,7 @@ export const ChatMessageMeta = React.forwardRef<HTMLDivElement, ChatMessageMetaP
         {children}
       </Box>
     );
-  }
+  },
 );
 
 ChatMessageMeta.displayName = 'ChatMessageMeta';

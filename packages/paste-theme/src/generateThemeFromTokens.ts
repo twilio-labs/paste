@@ -17,26 +17,26 @@ import type {
   TextColorsKeys,
   ZIndicesKeys,
 } from './types/GenericThemeShape';
-import {remToPx} from './utils/remToPx';
+import { remToPx } from './utils/remToPx';
 
 interface GenerateThemeFromTokensArgs {
-  backgroundColors: Partial<{[key in BackgroundColorsKeys]: any}>;
-  borderColors: Partial<{[key in BorderColorsKeys]: any}>;
-  borderWidths: Partial<{[key in BorderWidthsKeys]: any}>;
-  radii: Partial<{[key in RadiiKeys]: any}>;
-  fonts: Partial<{[key in FontsKeys]: any}>;
-  fontSizes: Partial<{[key in FontSizesKeys]: any}>;
-  fontWeights: Partial<{[key in FontWeightsKeys]: any}>;
-  lineHeights: Partial<{[key in LineHeightsKeys]: any}>;
-  boxShadows: Partial<{[key in BoxShadowsKeys]: any}>;
+  backgroundColors: Partial<{ [key in BackgroundColorsKeys]: any }>;
+  borderColors: Partial<{ [key in BorderColorsKeys]: any }>;
+  borderWidths: Partial<{ [key in BorderWidthsKeys]: any }>;
+  radii: Partial<{ [key in RadiiKeys]: any }>;
+  fonts: Partial<{ [key in FontsKeys]: any }>;
+  fontSizes: Partial<{ [key in FontSizesKeys]: any }>;
+  fontWeights: Partial<{ [key in FontWeightsKeys]: any }>;
+  lineHeights: Partial<{ [key in LineHeightsKeys]: any }>;
+  boxShadows: Partial<{ [key in BoxShadowsKeys]: any }>;
   // there are some sizes we expect must appear to generate breakpoints and icons sizes
-  sizings: {[key in SizingKeys]: any};
-  spacings: Partial<{[key in SpacingsKeys]: any}>;
-  textColors: Partial<{[key in TextColorsKeys]: any}>;
-  zIndices: Partial<{[key in ZIndicesKeys]: any}>;
-  colors: Partial<{[key in ColorsKeys]: any}>;
-  colorSchemes: Partial<{[key in ColorSchemeKeys]: any}>;
-  dataVisualization: Partial<{[key in DataVisualizationKeys]: any}>;
+  sizings: { [key in SizingKeys]: any };
+  spacings: Partial<{ [key in SpacingsKeys]: any }>;
+  textColors: Partial<{ [key in TextColorsKeys]: any }>;
+  zIndices: Partial<{ [key in ZIndicesKeys]: any }>;
+  colors: Partial<{ [key in ColorsKeys]: any }>;
+  colorSchemes: Partial<{ [key in ColorSchemeKeys]: any }>;
+  dataVisualization: Partial<{ [key in DataVisualizationKeys]: any }>;
 }
 
 export const generateThemeFromTokens = ({

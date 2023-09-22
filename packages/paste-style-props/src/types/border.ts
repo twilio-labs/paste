@@ -1,9 +1,9 @@
 // https://styled-system.com/api/#border
-import type {Properties} from 'csstype';
-import type {ThemeShape} from '@twilio-paste/theme';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type { Properties } from 'csstype';
+import type { ThemeShape } from '@twilio-paste/theme';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
 
-import type {StyleReset} from './helpers';
+import type { StyleReset } from './helpers';
 
 // Tokens
 export type BorderRadiusOptions = keyof ThemeShape['radii'];

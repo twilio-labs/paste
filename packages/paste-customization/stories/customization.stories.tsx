@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Button} from '@twilio-paste/button';
-import {Anchor} from '@twilio-paste/anchor';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {Box} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
+import type { StoryFn } from '@storybook/react';
+import { Button } from '@twilio-paste/button';
+import { Anchor } from '@twilio-paste/anchor';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Stack } from '@twilio-paste/stack';
+import { Box } from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
 
-import {CustomizationProvider} from '../src';
+import { CustomizationProvider } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -26,7 +26,7 @@ const ExampleComponents = (): JSX.Element => (
   </Box>
 );
 
-export const Provider: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Provider: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <>
@@ -41,9 +41,9 @@ export const Provider: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
         disableAnimations={isTestEnvironment}
         theme={{
           ...currentTheme,
-          backgroundColors: {...currentTheme.backgroundColors, colorBackgroundDestructive: 'darkred'},
-          radii: {borderRadius20: '20px'},
-          fonts: {fontFamilyText: 'Times'},
+          backgroundColors: { ...currentTheme.backgroundColors, colorBackgroundDestructive: 'darkred' },
+          radii: { borderRadius20: '20px' },
+          fonts: { fontFamilyText: 'Times' },
         }}
       >
         <ExampleComponents />
@@ -55,9 +55,9 @@ export const Provider: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
         disableAnimations={isTestEnvironment}
         theme={{
           ...currentTheme,
-          backgroundColors: {...currentTheme.backgroundColors, colorBackgroundDestructive: 'blue'},
-          radii: {borderRadius20: '8px'},
-          fonts: {fontFamilyText: 'cursive'},
+          backgroundColors: { ...currentTheme.backgroundColors, colorBackgroundDestructive: 'blue' },
+          radii: { borderRadius20: '8px' },
+          fonts: { fontFamilyText: 'cursive' },
         }}
         elements={{
           CARD: {
@@ -84,7 +84,7 @@ Provider.parameters = {
   },
 };
 
-export const Embedded: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Embedded: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <>

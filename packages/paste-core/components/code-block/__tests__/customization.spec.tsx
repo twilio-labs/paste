@@ -1,45 +1,52 @@
 import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {render, screen} from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
 
-import {CodeBlock, CodeBlockWrapper, CodeBlockHeader, CodeBlockTabList, CodeBlockTab, CodeBlockTabPanel} from '../src';
+import {
+  CodeBlock,
+  CodeBlockWrapper,
+  CodeBlockHeader,
+  CodeBlockTabList,
+  CodeBlockTab,
+  CodeBlockTabPanel,
+} from '../src';
 
 const jsCode = `(num) => num + 1`;
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
     elements={{
-      CODE_BLOCK_CONTENT: {width: 'size50'},
-      CODE_BLOCK_COPY_BUTTON: {backgroundColor: 'colorBackgroundErrorWeakest'},
-      CODE_BLOCK_EXTERNAL_LINK: {backgroundColor: 'colorBackgroundErrorWeakest'},
-      CODE_BLOCK_HEADER: {borderTopRightRadius: 'borderRadius30'},
-      CODE_BLOCK_TAB_LIST: {columnGap: 'space0'},
-      CODE_BLOCK_TAB_PANEL: {borderBottomRightRadius: 'borderRadius30'},
-      CODE_BLOCK_TAB: {borderRadius: 'borderRadius0'},
-      CODE_BLOCK_WRAPPER: {width: 'size50'},
-      CODE_BLOCK: {width: 'size50'},
+      CODE_BLOCK_CONTENT: { width: 'size50' },
+      CODE_BLOCK_COPY_BUTTON: { backgroundColor: 'colorBackgroundErrorWeakest' },
+      CODE_BLOCK_EXTERNAL_LINK: { backgroundColor: 'colorBackgroundErrorWeakest' },
+      CODE_BLOCK_HEADER: { borderTopRightRadius: 'borderRadius30' },
+      CODE_BLOCK_TAB_LIST: { columnGap: 'space0' },
+      CODE_BLOCK_TAB_PANEL: { borderBottomRightRadius: 'borderRadius30' },
+      CODE_BLOCK_TAB: { borderRadius: 'borderRadius0' },
+      CODE_BLOCK_WRAPPER: { width: 'size50' },
+      CODE_BLOCK: { width: 'size50' },
     }}
   >
     {children}
   </CustomizationProvider>
 );
 
-const CustomizationMyWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationMyWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
     elements={{
-      MY_CODE_BLOCK_CONTENT: {width: 'size50'},
-      MY_CODE_BLOCK_COPY_BUTTON: {backgroundColor: 'colorBackgroundErrorWeakest'},
-      MY_CODE_BLOCK_EXTERNAL_LINK: {backgroundColor: 'colorBackgroundErrorWeakest'},
-      MY_CODE_BLOCK_HEADER: {borderTopRightRadius: 'borderRadius30'},
-      MY_CODE_BLOCK_TAB_LIST: {columnGap: 'space0'},
-      MY_CODE_BLOCK_TAB_PANEL: {borderBottomRightRadius: 'borderRadius30'},
-      MY_CODE_BLOCK_TAB: {borderRadius: 'borderRadius0'},
-      MY_CODE_BLOCK_WRAPPER: {width: 'size50'},
-      MY_CODE_BLOCK: {width: 'size50'},
+      MY_CODE_BLOCK_CONTENT: { width: 'size50' },
+      MY_CODE_BLOCK_COPY_BUTTON: { backgroundColor: 'colorBackgroundErrorWeakest' },
+      MY_CODE_BLOCK_EXTERNAL_LINK: { backgroundColor: 'colorBackgroundErrorWeakest' },
+      MY_CODE_BLOCK_HEADER: { borderTopRightRadius: 'borderRadius30' },
+      MY_CODE_BLOCK_TAB_LIST: { columnGap: 'space0' },
+      MY_CODE_BLOCK_TAB_PANEL: { borderBottomRightRadius: 'borderRadius30' },
+      MY_CODE_BLOCK_TAB: { borderRadius: 'borderRadius0' },
+      MY_CODE_BLOCK_WRAPPER: { width: 'size50' },
+      MY_CODE_BLOCK: { width: 'size50' },
     }}
   >
     {children}
@@ -61,18 +68,18 @@ describe('Customization', () => {
         </CodeBlockWrapper>,
         {
           wrapper: CustomizationWrapper,
-        }
+        },
       );
 
       const codeBlock = screen.getByTestId('code-block');
       const content = codeBlock.querySelector('pre')?.parentElement;
-      const heading = screen.getByRole('heading', {name: 'My code block'});
+      const heading = screen.getByRole('heading', { name: 'My code block' });
       const wrapper = heading.parentElement;
       const tabList = screen.getByRole('tablist');
-      const tab = screen.getByRole('tab', {name: 'JavaScript'});
+      const tab = screen.getByRole('tab', { name: 'JavaScript' });
       const tabPanel = codeBlock.parentElement;
-      const copyButton = screen.getByRole('button', {name: 'Copy code block'});
-      const externalLink = screen.getByRole('link', {name: 'Open code block in new page'});
+      const copyButton = screen.getByRole('button', { name: 'Copy code block' });
+      const externalLink = screen.getByRole('link', { name: 'Open code block in new page' });
 
       expect(wrapper?.getAttribute('data-paste-element')).toBe('CODE_BLOCK_WRAPPER');
       expect(content?.getAttribute('data-paste-element')).toBe('CODE_BLOCK_CONTENT');
@@ -104,18 +111,18 @@ describe('Customization', () => {
         </CodeBlockWrapper>,
         {
           wrapper: CustomizationMyWrapper,
-        }
+        },
       );
 
       const codeBlock = screen.getByTestId('code-block');
       const content = codeBlock.querySelector('pre')?.parentElement;
-      const heading = screen.getByRole('heading', {name: 'My code block'});
+      const heading = screen.getByRole('heading', { name: 'My code block' });
       const wrapper = heading.parentElement;
       const tabList = screen.getByRole('tablist');
-      const tab = screen.getByRole('tab', {name: 'JavaScript'});
+      const tab = screen.getByRole('tab', { name: 'JavaScript' });
       const tabPanel = codeBlock.parentElement;
-      const copyButton = screen.getByRole('button', {name: 'Copy code block'});
-      const externalLink = screen.getByRole('link', {name: 'Open code block in new page'});
+      const copyButton = screen.getByRole('button', { name: 'Copy code block' });
+      const externalLink = screen.getByRole('link', { name: 'Open code block in new page' });
 
       expect(wrapper?.getAttribute('data-paste-element')).toBe('MY_CODE_BLOCK_WRAPPER');
       expect(content?.getAttribute('data-paste-element')).toBe('MY_CODE_BLOCK_CONTENT');
@@ -141,18 +148,18 @@ describe('Customization', () => {
         </CodeBlockWrapper>,
         {
           wrapper: CustomizationWrapper,
-        }
+        },
       );
 
       const codeBlock = screen.getByTestId('code-block');
       const content = codeBlock.querySelector('pre')?.parentElement;
-      const heading = screen.getByRole('heading', {name: 'My code block'});
+      const heading = screen.getByRole('heading', { name: 'My code block' });
       const wrapper = heading.parentElement;
       const tabList = screen.getByRole('tablist');
-      const tab = screen.getByRole('tab', {name: 'JavaScript'});
+      const tab = screen.getByRole('tab', { name: 'JavaScript' });
       const tabPanel = codeBlock.parentElement;
-      const copyButton = screen.getByRole('button', {name: 'Copy code block'});
-      const externalLink = screen.getByRole('link', {name: 'Open code block in new page'});
+      const copyButton = screen.getByRole('button', { name: 'Copy code block' });
+      const externalLink = screen.getByRole('link', { name: 'Open code block in new page' });
 
       expect(codeBlock).toHaveStyleRule('width', '31.5rem');
       expect(content).toHaveStyleRule('width', '31.5rem');
@@ -184,18 +191,18 @@ describe('Customization', () => {
         </CodeBlockWrapper>,
         {
           wrapper: CustomizationMyWrapper,
-        }
+        },
       );
 
       const codeBlock = screen.getByTestId('code-block');
       const content = codeBlock.querySelector('pre')?.parentElement;
-      const heading = screen.getByRole('heading', {name: 'My code block'});
+      const heading = screen.getByRole('heading', { name: 'My code block' });
       const wrapper = heading.parentElement;
       const tabList = screen.getByRole('tablist');
-      const tab = screen.getByRole('tab', {name: 'JavaScript'});
+      const tab = screen.getByRole('tab', { name: 'JavaScript' });
       const tabPanel = codeBlock.parentElement;
-      const copyButton = screen.getByRole('button', {name: 'Copy code block'});
-      const externalLink = screen.getByRole('link', {name: 'Open code block in new page'});
+      const copyButton = screen.getByRole('button', { name: 'Copy code block' });
+      const externalLink = screen.getByRole('link', { name: 'Open code block in new page' });
 
       expect(codeBlock).toHaveStyleRule('width', '31.5rem');
       expect(content).toHaveStyleRule('width', '31.5rem');

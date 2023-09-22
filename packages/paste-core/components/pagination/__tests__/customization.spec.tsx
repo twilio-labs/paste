@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
+import { render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
 
-import {WrapperAndArrows, NumbersAndLabel} from '../stories/customization.stories';
+import { WrapperAndArrows, NumbersAndLabel } from '../stories/customization.stories';
 
-const paginationStyles = {fontSize: 'fontSize60', fontWeight: 'fontWeightBold'} as PasteCustomCSS;
-const getCustomizedStyles = (prefix = 'PAGINATION'): {[key: string]: any} => ({
-  [`${prefix}`]: {borderColor: 'colorBorder', borderStyle: 'solid', borderWidth: 'borderWidth10'},
+const paginationStyles = { fontSize: 'fontSize60', fontWeight: 'fontWeightBold' } as PasteCustomCSS;
+const getCustomizedStyles = (prefix = 'PAGINATION'): { [key: string]: any } => ({
+  [`${prefix}`]: { borderColor: 'colorBorder', borderStyle: 'solid', borderWidth: 'borderWidth10' },
   [`${prefix}_ITEMS`]: {
     borderColor: 'colorBorder',
     borderStyle: 'solid',
@@ -47,7 +47,7 @@ const getCustomizedStyles = (prefix = 'PAGINATION'): {[key: string]: any} => ({
 
 describe('Customization for Pagination wrapper and arrows', () => {
   it('should set a element data attribute for the Pagination wrapper and arrows', () => {
-    const {getByTestId} = render(<WrapperAndArrows />);
+    const { getByTestId } = render(<WrapperAndArrows />);
     const pagination = getByTestId('pagination');
     const paginationItems = getByTestId('pagination-items');
     const paginationBackArrow = getByTestId('pagination-back-arrow');
@@ -56,7 +56,7 @@ describe('Customization for Pagination wrapper and arrows', () => {
 
     expect(paginationItems.getAttribute('data-paste-element')).toEqual('PAGINATION_ITEMS');
     expect((paginationItems.firstChild as HTMLElement).getAttribute('data-paste-element')).toEqual(
-      'PAGINATION_ITEMS_ITEM'
+      'PAGINATION_ITEMS_ITEM',
     );
 
     expect(paginationBackArrow.getAttribute('data-paste-element')).toEqual('PAGINATION_ARROW_BUTTON');
@@ -67,7 +67,7 @@ describe('Customization for Pagination wrapper and arrows', () => {
   });
 
   it('should set a custom element data attribute for Pagination wrapper and arrows', () => {
-    const {getByTestId} = render(<WrapperAndArrows element="FOO" />);
+    const { getByTestId } = render(<WrapperAndArrows element="FOO" />);
     const pagination = getByTestId('pagination');
     const paginationItems = getByTestId('pagination-items');
     const paginationBackArrow = getByTestId('pagination-back-arrow');
@@ -85,10 +85,10 @@ describe('Customization for Pagination wrapper and arrows', () => {
   });
 
   it('should add custom styles to Pagination wrapper and arrows', (): void => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <CustomizationProvider theme={TestTheme} elements={getCustomizedStyles()}>
         <WrapperAndArrows />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const pagination = getByTestId('pagination');
@@ -101,10 +101,10 @@ describe('Customization for Pagination wrapper and arrows', () => {
   });
 
   it('should add custom styles to Pagination wrapper and arrows when a custom element data attribute is used', (): void => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <CustomizationProvider theme={TestTheme} elements={getCustomizedStyles('FOO')}>
         <WrapperAndArrows element="FOO" />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const pagination = getByTestId('pagination');
@@ -119,7 +119,7 @@ describe('Customization for Pagination wrapper and arrows', () => {
 
 describe('Customization for Pagination numbers and label', () => {
   it('should set a element data attribute for the Pagination numbers and label', () => {
-    const {getByTestId} = render(<NumbersAndLabel />);
+    const { getByTestId } = render(<NumbersAndLabel />);
     const paginationNumbers = getByTestId('pagination-numbers');
     const paginationNumber = getByTestId('pagination-number');
     const paginationEllipsis = getByTestId('pagination-ellipsis');
@@ -138,7 +138,7 @@ describe('Customization for Pagination numbers and label', () => {
   });
 
   it('should set a custom element data attribute for the Pagination numbers and label', () => {
-    const {getByTestId} = render(<NumbersAndLabel element="FOO" />);
+    const { getByTestId } = render(<NumbersAndLabel element="FOO" />);
     const paginationNumbers = getByTestId('pagination-numbers');
     const paginationNumber = getByTestId('pagination-number');
     const paginationEllipsis = getByTestId('pagination-ellipsis');
@@ -157,10 +157,10 @@ describe('Customization for Pagination numbers and label', () => {
   });
 
   it('should add custom styles to Pagination numbers and label', (): void => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <CustomizationProvider theme={TestTheme} elements={getCustomizedStyles()}>
         <NumbersAndLabel />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const paginationNumbers = getByTestId('pagination-numbers');
@@ -175,10 +175,10 @@ describe('Customization for Pagination numbers and label', () => {
   });
 
   it('should add custom styles to Pagination numbers and label when a custom element data attribute is used', (): void => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <CustomizationProvider theme={TestTheme} elements={getCustomizedStyles('FOO')}>
         <NumbersAndLabel element="FOO" />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const paginationNumbers = getByTestId('pagination-numbers');

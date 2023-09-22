@@ -1,12 +1,12 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Stack } from '@twilio-paste/stack';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Card} from '../src';
+import { Card } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -62,7 +62,7 @@ export const PropPassthrough = (): React.ReactNode => (
   </Card>
 );
 
-export const CustomCard: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomCard: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

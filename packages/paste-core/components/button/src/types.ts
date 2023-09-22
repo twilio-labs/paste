@@ -1,5 +1,5 @@
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 type ButtonTypes = 'submit' | 'button' | 'reset';
 export type ButtonSizes =

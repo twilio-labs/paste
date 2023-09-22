@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {Space} from '@twilio-paste/style-props';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { Space } from '@twilio-paste/style-props';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export interface MediaFigureProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as'> {
   align?: 'start' | 'end';
@@ -25,7 +25,7 @@ export interface MediaFigureProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 
 }
 
 const MediaFigure = React.forwardRef<HTMLElement, MediaFigureProps>(
-  ({align = 'start', as = 'span', children, element = 'MEDIA_FIGURE', spacing = 'space0', ...props}, ref) => {
+  ({ align = 'start', as = 'span', children, element = 'MEDIA_FIGURE', spacing = 'space0', ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -40,9 +40,9 @@ const MediaFigure = React.forwardRef<HTMLElement, MediaFigureProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
 MediaFigure.displayName = 'MediaFigure';
 
-export {MediaFigure};
+export { MediaFigure };

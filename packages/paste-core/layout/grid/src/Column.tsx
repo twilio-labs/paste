@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {Space} from '@twilio-paste/style-props';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { Space } from '@twilio-paste/style-props';
 
-import type {ColumnProps, ColumnStyleProps} from './types';
-import {getStackedColumns, getColumnOffset, getColumnSpan, getColumnPadding} from './utils';
+import type { ColumnProps, ColumnStyleProps } from './types';
+import { getStackedColumns, getColumnOffset, getColumnSpan, getColumnPadding } from './utils';
 
 export const getColumnStyles = ({
   count,
@@ -14,8 +14,8 @@ export const getColumnStyles = ({
   stretchColumnContent,
 }: ColumnProps): ColumnStyleProps => {
   const columnStyles: ColumnStyleProps = {
-    width: getColumnSpan({count, span}),
-    ...getColumnPadding({gutter, vertical}),
+    width: getColumnSpan({ count, span }),
+    ...getColumnPadding({ gutter, vertical }),
   };
 
   if (offset) {
@@ -36,19 +36,22 @@ export const getColumnStyles = ({
 };
 
 const Column = React.forwardRef<HTMLDivElement, ColumnProps>(
-  ({as, children, count, element = 'COLUMN', gutter, offset, span, stretchColumnContent, vertical, ...props}, ref) => {
+  (
+    { as, children, count, element = 'COLUMN', gutter, offset, span, stretchColumnContent, vertical, ...props },
+    ref,
+  ) => {
     const ColumnStyles = React.useMemo(
-      () => getColumnStyles({count, gutter, offset, span, stretchColumnContent, vertical}),
-      [count, gutter, offset, span, stretchColumnContent, vertical]
+      () => getColumnStyles({ count, gutter, offset, span, stretchColumnContent, vertical }),
+      [count, gutter, offset, span, stretchColumnContent, vertical],
     );
     return (
       <Box {...safelySpreadBoxProps(props)} {...ColumnStyles} as={as} element={element} ref={ref}>
         {children}
       </Box>
     );
-  }
+  },
 );
 
 Column.displayName = 'Column';
 
-export {Column};
+export { Column };

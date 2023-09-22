@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 
-import {Flex as FlexComposition} from './components/Flex';
+import { Flex as FlexComposition } from './components/Flex';
 
 // eslint-disable-next-line import/no-default-export
 export default {

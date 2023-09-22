@@ -1,4 +1,4 @@
-import {runCmdJson} from './runCmd';
+import { runCmdJson } from './runCmd';
 
 const packagesInfo: Record<string, any> = {};
 

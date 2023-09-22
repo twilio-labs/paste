@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {MenuItemRadio} from '@twilio-paste/menu';
-import type {MenuItemRadioProps} from '@twilio-paste/menu';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
+import { MenuItemRadio } from '@twilio-paste/menu';
+import type { MenuItemRadioProps } from '@twilio-paste/menu';
+import { Text } from '@twilio-paste/text';
+import { Box } from '@twilio-paste/box';
 
 export interface ProductSwitcherItemProps extends Omit<MenuItemRadioProps, 'variant' | 'children'> {
   productName: string;
@@ -11,7 +11,7 @@ export interface ProductSwitcherItemProps extends Omit<MenuItemRadioProps, 'vari
 }
 
 const ProductSwitcherItem = React.forwardRef<HTMLDivElement, ProductSwitcherItemProps>(
-  ({productName, productStrapline, productIcon, element = 'PRODUCT_SWITCHER_ITEM', ...props}, ref) => {
+  ({ productName, productStrapline, productIcon, element = 'PRODUCT_SWITCHER_ITEM', ...props }, ref) => {
     return (
       <MenuItemRadio element={element} {...props} ref={ref}>
         <Box display="flex" flexDirection="row" columnGap="space50" alignItems="center">
@@ -27,8 +27,8 @@ const ProductSwitcherItem = React.forwardRef<HTMLDivElement, ProductSwitcherItem
         </Box>
       </MenuItemRadio>
     );
-  }
+  },
 );
 
 ProductSwitcherItem.displayName = 'ProductSwitcherItem';
-export {ProductSwitcherItem};
+export { ProductSwitcherItem };

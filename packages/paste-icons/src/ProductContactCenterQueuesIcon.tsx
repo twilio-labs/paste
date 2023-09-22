@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductContactCenterQueuesIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ProductContactCenterQueuesIconProps extends IconWrapperProps {
 }
 
 const ProductContactCenterQueuesIcon = React.forwardRef<HTMLElement, ProductContactCenterQueuesIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProductContactCenterQueuesIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -41,8 +41,8 @@ const ProductContactCenterQueuesIcon = React.forwardRef<HTMLElement, ProductCont
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProductContactCenterQueuesIcon.displayName = 'ProductContactCenterQueuesIcon';
-export {ProductContactCenterQueuesIcon};
+export { ProductContactCenterQueuesIcon };

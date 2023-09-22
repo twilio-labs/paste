@@ -1,4 +1,4 @@
-import type {PrismTheme} from 'prism-react-renderer';
+import type { PrismTheme } from 'prism-react-renderer';
 
 // Nightowl theme
 
@@ -116,4 +116,4 @@ const CodeblockTheme: PrismTheme = {
   ],
 };
 
-export {CodeblockTheme};
+export { CodeblockTheme };

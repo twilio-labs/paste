@@ -4,9 +4,9 @@ import * as vscode from 'vscode';
 import camelCase from 'lodash.camelcase';
 import kebabCase from 'lodash.kebabcase';
 
-import {pasteTokenAttributes} from './tokens';
-import {PasteToken} from './types';
-import {getColorPreview, getThemeSetting, getThemeTokens, remToPx, isColorCategory} from './utils';
+import { pasteTokenAttributes } from './tokens';
+import { PasteToken } from './types';
+import { getColorPreview, getThemeSetting, getThemeTokens, remToPx, isColorCategory } from './utils';
 
 const DIVIDER = `___\n`;
 
@@ -37,7 +37,7 @@ export function getAttributeName(linePrefix: string) {
 }
 
 export function getCompletionItem(token: PasteToken) {
-  const {name, value, type} = token;
+  const { name, value, type } = token;
   const label = camelCase(name);
   if (type === 'color') {
     return {
@@ -80,7 +80,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         const hoverMessage = new vscode.MarkdownString();
 
-        const {name, value, comment, category} = foundPasteToken;
+        const { name, value, comment, category } = foundPasteToken;
 
         // Run any formatters/converters on value before appending
         const formattedValue = remToPx(value);
@@ -100,7 +100,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         return new vscode.Hover(hoverMessage);
       },
-    }
+    },
   );
 
   const completionProvider = vscode.languages.registerCompletionItemProvider(
@@ -113,10 +113,10 @@ export function activate(context: vscode.ExtensionContext) {
 
         const items = getAttributeTokens(attributeName);
 
-        return {isIncomplete: false, items};
+        return { isIncomplete: false, items };
       },
     },
-    '"' // triggered when we type '"'
+    '"', // triggered when we type '"'
   );
 
   context.subscriptions.push(hoverProvider);

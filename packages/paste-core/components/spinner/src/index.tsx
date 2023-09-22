@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {IconWrapper} from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import type {IconWrapperProps} from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import {useTheme} from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import type { BoxElementProps } from '@twilio-paste/box';
+import { IconWrapper } from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import type { IconWrapperProps } from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import { useTheme } from '@twilio-paste/theme';
 
-import {StyledCircleTrack, AnimatedStyledCircle, StyledSvg} from './styled';
-import {circleGeometry} from './constants';
+import { StyledCircleTrack, AnimatedStyledCircle, StyledSvg } from './styled';
+import { circleGeometry } from './constants';
 
 export interface SpinnerProps extends IconWrapperProps {
   title?: string;
@@ -16,10 +16,10 @@ export interface SpinnerProps extends IconWrapperProps {
 }
 
 const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
-  ({size, color = 'currentColor', title, as, display, decorative, delay = 250, element = 'SPINNER'}, ref) => {
+  ({ size, color = 'currentColor', title, as, display, decorative, delay = 250, element = 'SPINNER' }, ref) => {
     const titleId = `spinner-${useUID()}`;
     const {
-      borderWidths: {borderWidth40},
+      borderWidths: { borderWidth40 },
     } = useTheme();
 
     const [show, setShow] = React.useState(delay === 0);
@@ -52,9 +52,9 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
         </StyledSvg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 Spinner.displayName = 'Spinner';
 
-export {Spinner};
+export { Spinner };

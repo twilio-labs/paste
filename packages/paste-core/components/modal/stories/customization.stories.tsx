@@ -1,15 +1,15 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {Button} from '@twilio-paste/button';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
+import type { StoryFn } from '@storybook/react';
+import { useUID } from '@twilio-paste/uid-library';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
+import { Button } from '@twilio-paste/button';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
 
-import type {ModalProps} from '../src';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '../src';
+import type { ModalProps } from '../src';
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from '../src';
 
 export const initStyles = (prefix: string): Record<string, PasteCustomCSS> => ({
   [prefix]: {
@@ -63,9 +63,9 @@ const getElementName = (elementName: string | undefined, suffix?: string): strin
   return elementName != null ? `${elementName}${end}` : undefined;
 };
 
-type BaseModalProps = Pick<ModalProps, 'size'> & {element?: string | undefined};
+type BaseModalProps = Pick<ModalProps, 'size'> & { element?: string | undefined };
 const NOOP: VoidFunction = () => null;
-export const BaseModal: React.FC<React.PropsWithChildren<BaseModalProps>> = ({size, element}) => {
+export const BaseModal: React.FC<React.PropsWithChildren<BaseModalProps>> = ({ size, element }) => {
   const modalHeadingId = useUID();
 
   return (
@@ -114,7 +114,7 @@ export const BaseModal: React.FC<React.PropsWithChildren<BaseModalProps>> = ({si
 export default {
   title: 'Components/Modal/Customization',
   component: Modal,
-  subcomponents: {ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading},
+  subcomponents: { ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading },
   excludeStories: ['initStyles', 'BaseModal'],
   parameters: {
     a11y: {
@@ -124,7 +124,7 @@ export default {
   },
 };
 
-export const First: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const First: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')} disableAnimations={isTestEnvironment}>
@@ -135,10 +135,10 @@ export const First: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
 
 First.storyName = 'Normal variant - Default element names';
 First.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
-export const Second: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Second: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')} disableAnimations={isTestEnvironment}>
@@ -149,10 +149,10 @@ export const Second: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
 
 Second.storyName = 'Normal variant - Custom element names';
 Second.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
-export const Third: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Third: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider theme={currentTheme} elements={initStyles('MODAL')} disableAnimations={isTestEnvironment}>
@@ -163,10 +163,10 @@ export const Third: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
 
 Third.storyName = 'Wide variant - Default element names';
 Third.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
-export const Fourth: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Fourth: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider theme={currentTheme} elements={initStyles('CUSTOM')} disableAnimations={isTestEnvironment}>
@@ -177,5 +177,5 @@ export const Fourth: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
 
 Fourth.storyName = 'Wide variant - Custom element names';
 Fourth.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };

@@ -1,14 +1,17 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
 
 interface PeerReviewStatusProps {
   designStatus?: string;
   engineerStatus?: string;
 }
 
-const PeerReviewStatus: React.FC<React.PropsWithChildren<PeerReviewStatusProps>> = ({designStatus, engineerStatus}) => {
+const PeerReviewStatus: React.FC<React.PropsWithChildren<PeerReviewStatusProps>> = ({
+  designStatus,
+  engineerStatus,
+}) => {
   /*
    * Counts as successfully reviewed if
    * neither is null and they aren't both 'not applicable'
@@ -44,4 +47,4 @@ const PeerReviewStatus: React.FC<React.PropsWithChildren<PeerReviewStatusProps>>
   );
 };
 
-export {PeerReviewStatus};
+export { PeerReviewStatus };

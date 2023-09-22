@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type {LegacyRef} from 'react';
-import {Box} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import type { LegacyRef } from 'react';
+import { Box } from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
+import { useUIDSeed } from '@twilio-paste/uid-library';
 
 interface SVGThumbProps {
   left: number;
@@ -26,7 +26,7 @@ export const SVGThumb: React.FC<React.PropsWithChildren<SVGThumbProps>> = ({
 }) => {
   const seed = useUIDSeed();
   const {
-    backgroundColors: {colorBackground},
+    backgroundColors: { colorBackground },
   } = useTheme();
 
   /*
@@ -74,7 +74,7 @@ export const SVGThumb: React.FC<React.PropsWithChildren<SVGThumbProps>> = ({
           cy="289"
           r="15.5"
           fill={colorBackground}
-          style={{transition: 'stroke-width 0.2s ease'}}
+          style={{ transition: 'stroke-width 0.2s ease' }}
         />
         <circle cx="17.5" cy="289" r="8" fill="currentColor" />
 

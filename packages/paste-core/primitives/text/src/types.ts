@@ -1,4 +1,4 @@
-import type {CustomTheme} from '@twilio-paste/customization';
+import type { CustomTheme } from '@twilio-paste/customization';
 import type {
   Display,
   OverflowProps,
@@ -13,7 +13,7 @@ import type {
   TransitionDelayProperty,
 } from '@twilio-paste/style-props';
 
-import type {PseudoPropStyles} from './PseudoPropStyles';
+import type { PseudoPropStyles } from './PseudoPropStyles';
 
 export interface TextBaseStyleProps extends OverflowProps, PositionProps, ShadowProps, SpaceProps, TypographyProps {
   content?: string;
@@ -45,4 +45,4 @@ export interface TextElementProps extends Omit<React.HTMLAttributes<HTMLElement>
 
 export interface TextProps extends TextElementProps, TextStyleProps {}
 
-export type StyledTextProps = TextProps & {'data-paste-element': string; theme: CustomTheme};
+export type StyledTextProps = TextProps & { 'data-paste-element': string; theme: CustomTheme };

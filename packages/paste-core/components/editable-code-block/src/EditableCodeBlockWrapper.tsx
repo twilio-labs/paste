@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {styled, css} from '@twilio-paste/styling-library';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { styled, css } from '@twilio-paste/styling-library';
 
 const StyledEditableCodeBlockWrapper = styled(Box)(
   css({
     backgroundColor: 'rgb(1, 22, 39)', // Matches the Night Owl background theme
     borderRadius: 'borderRadius20',
     overflow: 'hidden',
-  })
+  }),
 );
 
 export interface EditableCodeBlockWrapperProps {
@@ -17,13 +17,13 @@ export interface EditableCodeBlockWrapperProps {
 }
 
 export const EditableCodeBlockWrapper = React.forwardRef<HTMLDivElement, EditableCodeBlockWrapperProps>(
-  ({children, element = 'EDITABLE_CODE_BLOCK_WRAPPER'}, ref) => {
+  ({ children, element = 'EDITABLE_CODE_BLOCK_WRAPPER' }, ref) => {
     return (
       <StyledEditableCodeBlockWrapper element={element} ref={ref}>
         {children}
       </StyledEditableCodeBlockWrapper>
     );
-  }
+  },
 );
 
 EditableCodeBlockWrapper.displayName = 'EditableCodeBlockWrapper';

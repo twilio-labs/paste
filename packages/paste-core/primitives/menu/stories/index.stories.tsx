@@ -7,7 +7,7 @@ import {
   MenuPrimitiveButton,
   MenuPrimitiveSeparator,
 } from '../src';
-import type {MenuPrimitiveButtonProps} from '../src';
+import type { MenuPrimitiveButtonProps } from '../src';
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>((props, ref) => {
   const menu = useMenuPrimitiveState();
@@ -34,7 +34,7 @@ PreferencesMenu.displayName = 'PreferencesMenu';
 export default {
   title: 'Primitives/Menu',
   component: MenuPrimitive,
-  subcomponents: {MenuPrimitiveItem, MenuPrimitiveButton, MenuPrimitiveSeparator},
+  subcomponents: { MenuPrimitiveItem, MenuPrimitiveButton, MenuPrimitiveSeparator },
 };
 
 export const SimpleMenu = (): React.ReactNode => {

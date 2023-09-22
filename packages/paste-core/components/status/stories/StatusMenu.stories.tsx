@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Stack} from '@twilio-paste/stack';
-import type {ValueOf} from '@twilio-paste/types';
+import type { StoryFn } from '@storybook/react';
+import { Stack } from '@twilio-paste/stack';
+import type { ValueOf } from '@twilio-paste/types';
 
 import {
   StatusMenu,
@@ -11,9 +11,9 @@ import {
   StatusMenuItemRadio,
   useStatusMenuState,
 } from '../src';
-import type {StatusMenuBadgeProps} from '../src';
+import type { StatusMenuBadgeProps } from '../src';
 
-const ProcessStatusMenu: React.FC<React.PropsWithChildren<{variant: StatusMenuBadgeProps['variant']}>> = ({
+const ProcessStatusMenu: React.FC<React.PropsWithChildren<{ variant: StatusMenuBadgeProps['variant'] }>> = ({
   variant,
   children,
 }) => {
@@ -52,7 +52,7 @@ const ProcessStatusMenu: React.FC<React.PropsWithChildren<{variant: StatusMenuBa
     </>
   );
 };
-const ConnectivityStatusMenu: React.FC<React.PropsWithChildren<{variant: StatusMenuBadgeProps['variant']}>> = ({
+const ConnectivityStatusMenu: React.FC<React.PropsWithChildren<{ variant: StatusMenuBadgeProps['variant'] }>> = ({
   variant,
   children,
 }) => {
@@ -110,9 +110,9 @@ const ConnectivityObject = {
 } as const;
 const WorkingConnectivityStatusMenu: React.FC = () => {
   const [availability, setConnectivity] = React.useState<ValueOf<typeof ConnectivityObject>>(
-    ConnectivityObject.Available
+    ConnectivityObject.Available,
   );
-  const menu = useStatusMenuState({visible: true});
+  const menu = useStatusMenuState({ visible: true });
   const onClick = (status): void => {
     setConnectivity(ConnectivityObject[status]);
     menu.hide();
@@ -214,7 +214,7 @@ const ProcessObject = {
 } as const;
 const WorkingProcessStatusMenu: React.FC = () => {
   const [process, setProcess] = React.useState<any>(ProcessObject.Success);
-  const menu = useStatusMenuState({visible: true});
+  const menu = useStatusMenuState({ visible: true });
   const onClick = (status): void => {
     setProcess(ProcessObject[status]);
     menu.hide();
@@ -303,10 +303,10 @@ const WorkingProcessStatusMenu: React.FC = () => {
 export default {
   title: 'Components/Status/MenuStatus',
   component: StatusMenu,
-  subcomponents: {StatusMenuBadge, StatusMenuItemChild},
+  subcomponents: { StatusMenuBadge, StatusMenuItemChild },
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000, diffThreshold: 0.2},
+    chromatic: { delay: 3000, diffThreshold: 0.2 },
   },
 };
 export const Process: StoryFn = () => (

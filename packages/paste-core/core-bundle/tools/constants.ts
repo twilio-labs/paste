@@ -1,6 +1,6 @@
-import {join} from 'path';
+import { join } from 'path';
 
-import type {PackageShape} from './types';
+import type { PackageShape } from './types';
 
 /*
  * Adding the website package for redundancy only, because

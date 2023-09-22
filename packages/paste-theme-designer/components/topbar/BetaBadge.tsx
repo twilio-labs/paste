@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Badge} from '@twilio-paste/core/badge';
-import {NewIcon} from '@twilio-paste/icons/cjs/NewIcon';
+import { Badge } from '@twilio-paste/core/badge';
+import { NewIcon } from '@twilio-paste/icons/cjs/NewIcon';
 
-import {BetaModal} from './BetaModal';
-import {SimpleStorage} from '../../utils/SimpleStorage';
+import { BetaModal } from './BetaModal';
+import { SimpleStorage } from '../../utils/SimpleStorage';
 
 const BetaBadge = (): JSX.Element => {
   const localStorageKey = 'beta-modal-dismissed';
@@ -32,4 +32,4 @@ const BetaBadge = (): JSX.Element => {
   );
 };
 
-export {BetaBadge};
+export { BetaBadge };

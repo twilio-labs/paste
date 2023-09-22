@@ -40,4 +40,4 @@ const configs = {
 // eslint-disable-next-line global-require
 const rules = Object.fromEntries(allRuleFiles.map((file) => [path.basename(file, '.js'), require(`./rules/${file}`)]));
 
-module.exports = {configs, rules};
+module.exports = { configs, rules };

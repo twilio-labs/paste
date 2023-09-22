@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface LoadingIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface LoadingIconProps extends IconWrapperProps {
 }
 
 const LoadingIcon = React.forwardRef<HTMLElement, LoadingIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `LoadingIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -40,8 +40,8 @@ const LoadingIcon = React.forwardRef<HTMLElement, LoadingIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 LoadingIcon.displayName = 'LoadingIcon';
-export {LoadingIcon};
+export { LoadingIcon };

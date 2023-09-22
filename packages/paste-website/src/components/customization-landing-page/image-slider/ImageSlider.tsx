@@ -1,13 +1,13 @@
 import * as React from 'react';
-import type {MutableRefObject, LegacyRef} from 'react';
-import {Box} from '@twilio-paste/box';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import type { MutableRefObject, LegacyRef } from 'react';
+import { Box } from '@twilio-paste/box';
+import { useUIDSeed } from '@twilio-paste/uid-library';
 import Image from 'next/image';
 
-import {SVGThumb} from './SVGThumb';
-import {DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE} from './constants';
-import {convertPositionToInputValue, clampValueToRange} from './utils';
-import {useSvgResize} from './useSvgResize';
+import { SVGThumb } from './SVGThumb';
+import { DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE } from './constants';
+import { convertPositionToInputValue, clampValueToRange } from './utils';
+import { useSvgResize } from './useSvgResize';
 import HeroBack from '../../../assets/images/customization/hero-back.png';
 import HeroFront from '../../../assets/images/customization/hero-front.png';
 
@@ -39,9 +39,9 @@ export const ImageSlider = (): JSX.Element => {
     width: containerWidth,
     x: containerX,
     height: containerHeight,
-  } = containerRef?.current ? containerRef.current.getBoundingClientRect() : {width: 0, height: 0, x: 0};
+  } = containerRef?.current ? containerRef.current.getBoundingClientRect() : { width: 0, height: 0, x: 0 };
 
-  const {svgOffset, svgHeight, svgWidth} = useSvgResize(containerHeight, containerWidth);
+  const { svgOffset, svgHeight, svgWidth } = useSvgResize(containerHeight, containerWidth);
 
   /*
    * Minimum change defines the absolute distance threshold for value to change.
@@ -57,12 +57,12 @@ export const ImageSlider = (): JSX.Element => {
 
   const handleMouseMove = React.useCallback(
     (event: any): void => {
-      const {clientX} = event;
+      const { clientX } = event;
       const computedValue = convertPositionToInputValue(containerWidth, clientX - containerX);
 
       setValue(computedValue);
     },
-    [containerWidth, containerX]
+    [containerWidth, containerX],
   );
 
   const handleMouseUp = React.useCallback(
@@ -73,12 +73,12 @@ export const ImageSlider = (): JSX.Element => {
       document.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('mousemove', handleMouseMove);
 
-      const {clientX} = event;
+      const { clientX } = event;
       const computedValue = convertPositionToInputValue(containerWidth, clientX - containerX);
 
       setValue(computedValue);
     },
-    [containerWidth, containerX]
+    [containerWidth, containerX],
   );
 
   React.useEffect(() => {
@@ -113,7 +113,7 @@ export const ImageSlider = (): JSX.Element => {
         // @ts-expect-error "htmlFor" is an allowed attribute for Label elements.
         htmlFor={uidSeed(INPUT_ID)}
         color="colorTextWeaker"
-        _hover={{color: 'colorTextWeak'}}
+        _hover={{ color: 'colorTextWeak' }}
         onMouseDown={() => {
           setIsDragging(true);
           document.addEventListener('mouseup', handleMouseUp);
@@ -130,7 +130,7 @@ export const ImageSlider = (): JSX.Element => {
           src={HeroFront}
           alt="Sample components with a default Paste theme"
           placeholder="blur"
-          style={{...imageStyleProps, clipPath: `url(#${uidSeed(CLIP_PATH_ID)})`}}
+          style={{ ...imageStyleProps, clipPath: `url(#${uidSeed(CLIP_PATH_ID)})` }}
         />
 
         {typeof clip === 'number' && !Number.isNaN(clip) ? (
@@ -182,7 +182,7 @@ export const ImageSlider = (): JSX.Element => {
             (svgCircleRef.current as SVGCircleElement).setAttribute('stroke-width', '0');
           }
         }}
-        onChange={({target: {value: inputTargetValue}}: React.ChangeEvent<HTMLInputElement>) => {
+        onChange={({ target: { value: inputTargetValue } }: React.ChangeEvent<HTMLInputElement>) => {
           const newValue = clampValueToRange(Number(inputTargetValue));
           setValue(newValue);
         }}

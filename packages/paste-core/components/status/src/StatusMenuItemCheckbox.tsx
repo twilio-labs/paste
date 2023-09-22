@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {MenuItemCheckbox} from '@twilio-paste/menu';
-import type {MenuItemCheckboxProps} from '@twilio-paste/menu';
+import { MenuItemCheckbox } from '@twilio-paste/menu';
+import type { MenuItemCheckboxProps } from '@twilio-paste/menu';
 
 export type StatusMenuItemCheckboxProps = MenuItemCheckboxProps;
 
@@ -9,4 +9,4 @@ const StatusMenuItemCheckbox = React.forwardRef<HTMLDivElement, StatusMenuItemCh
 });
 
 StatusMenuItemCheckbox.displayName = 'StatusMenuItemCheckbox';
-export {StatusMenuItemCheckbox};
+export { StatusMenuItemCheckbox };

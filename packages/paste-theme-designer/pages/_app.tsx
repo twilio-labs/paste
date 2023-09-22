@@ -1,12 +1,12 @@
 import * as React from 'react';
-import type {AppProps} from 'next/app';
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import {datadogRum} from '@datadog/browser-rum';
-import {Theme} from '@twilio-paste/core/theme';
+import { datadogRum } from '@datadog/browser-rum';
+import { Theme } from '@twilio-paste/core/theme';
 import * as Tokens from '@twilio-paste/core/design-tokens';
-import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
 
-import {TokenContext} from '../context/TokenContext';
+import { TokenContext } from '../context/TokenContext';
 
 datadogRum.init({
   applicationId: process.env.DATADOG_APPLICATION_ID || '',
@@ -26,14 +26,14 @@ datadogRum.init({
 });
 datadogRum.startSessionReplayRecording();
 
-function MyApp({Component, pageProps}: AppProps): JSX.Element {
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   const [tokens, setTokens] = React.useState<GenericTokensShape>(Tokens);
 
   const updateToken = React.useCallback((bucket: keyof GenericTokensShape, key: any, value: any) => {
     setTokens((currentTokens) => ({
       ...currentTokens,
       [key]: value, // update the root key
-      [bucket]: {...currentTokens[bucket], [key]: value}, // update the bucketed key
+      [bucket]: { ...currentTokens[bucket], [key]: value }, // update the bucketed key
     }));
   }, []);
 
@@ -42,7 +42,7 @@ function MyApp({Component, pageProps}: AppProps): JSX.Element {
   }, []);
 
   return (
-    <TokenContext.Provider value={{tokens, updateToken, loadTokens}}>
+    <TokenContext.Provider value={{ tokens, updateToken, loadTokens }}>
       <Theme.Provider theme="twilio">
         <Head>
           <title>Home: Paste Remix</title>

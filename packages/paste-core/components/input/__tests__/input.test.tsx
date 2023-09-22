@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {act, render, screen} from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Input} from '../src';
-import type {InputTypes} from '../src';
+import { Input } from '../src';
+import type { InputTypes } from '../src';
 
 const NOOP = (): void => {};
 
@@ -26,7 +26,7 @@ describe('Input inner input props', () => {
     placeholder: 'Enter your name',
   };
 
-  const {getByPlaceholderText} = render(<Input {...initialProps} />);
+  const { getByPlaceholderText } = render(<Input {...initialProps} />);
   const InnerInput = getByPlaceholderText(initialProps.placeholder);
 
   it('should render', () => {
@@ -35,7 +35,7 @@ describe('Input inner input props', () => {
 
   it('should set disabled correctly', () => {
     expect(InnerInput.getAttribute('disabled')).toEqual('');
-    expect(InnerInput).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', {target: ':disabled'});
+    expect(InnerInput).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', { target: ':disabled' });
   });
 
   it('should set readOnly correctly', () => {
@@ -82,12 +82,12 @@ describe('Input insertBefore prop', () => {
   };
 
   it('should render a prefix', () => {
-    const {getByText} = render(<Input {...initialProps} insertBefore={<div>$10.99</div>} />);
+    const { getByText } = render(<Input {...initialProps} insertBefore={<div>$10.99</div>} />);
     expect(getByText('$10.99')).toBeDefined();
   });
 
   it('should render a suffix', () => {
-    const {getByText} = render(<Input {...initialProps} insertAfter={<div>$11.99</div>} />);
+    const { getByText } = render(<Input {...initialProps} insertAfter={<div>$11.99</div>} />);
     expect(getByText('$11.99')).toBeDefined();
   });
 });
@@ -98,8 +98,8 @@ describe('Input event handlers', () => {
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
 
-    const {getByRole} = render(
-      <Input id="input" type="text" value="test" onChange={onChangeMock} onFocus={onFocusMock} onBlur={onBlurMock} />
+    const { getByRole } = render(
+      <Input id="input" type="text" value="test" onChange={onChangeMock} onFocus={onFocusMock} onBlur={onBlurMock} />,
     );
     const RenderedInput = getByRole('textbox');
 
@@ -152,7 +152,7 @@ describe('HTML attributes', () => {
   });
 
   it('should set the data attribute for all Input nodes', (): void => {
-    const {container} = render(
+    const { container } = render(
       <Input
         id="input"
         type="text"
@@ -160,7 +160,7 @@ describe('HTML attributes', () => {
         onChange={NOOP}
         insertBefore={<>test before</>}
         insertAfter={<>test after</>}
-      />
+      />,
     );
     expect(container.querySelector('[data-paste-element="INPUT"]')).toBeInTheDocument();
     expect(screen.getByRole('textbox').getAttribute('data-paste-element')).toEqual('INPUT_ELEMENT');
@@ -169,7 +169,7 @@ describe('HTML attributes', () => {
   });
 
   it('should set the custom element data attribute for all Input nodes', (): void => {
-    const {container} = render(
+    const { container } = render(
       <Input
         id="input"
         type="text"
@@ -178,7 +178,7 @@ describe('HTML attributes', () => {
         element="foo"
         insertBefore={<>test before</>}
         insertAfter={<>test after</>}
-      />
+      />,
     );
     expect(container.querySelector('[data-paste-element="foo"]')).toBeInTheDocument();
     expect(screen.getByRole('textbox').getAttribute('data-paste-element')).toEqual('foo_ELEMENT');
@@ -189,43 +189,43 @@ describe('HTML attributes', () => {
 
 describe('Number Input', () => {
   it('increases when step up clicked', () => {
-    const {getByRole} = render(<Input type="number" defaultValue={1} />);
-    userEvent.click(getByRole('button', {name: 'step value up'}));
+    const { getByRole } = render(<Input type="number" defaultValue={1} />);
+    userEvent.click(getByRole('button', { name: 'step value up' }));
     expect(getByRole('spinbutton').value).toBe('2');
   });
 
   it('decreases when step down clicked', () => {
-    const {getByRole} = render(<Input type="number" defaultValue={3} />);
-    userEvent.click(getByRole('button', {name: 'step value down'}));
+    const { getByRole } = render(<Input type="number" defaultValue={3} />);
+    userEvent.click(getByRole('button', { name: 'step value down' }));
     expect(getByRole('spinbutton').value).toBe('2');
   });
   it('increases by step when step up clicked', () => {
-    const {getByRole} = render(<Input type="number" defaultValue={1} step={2} />);
-    userEvent.click(getByRole('button', {name: 'step value up'}));
+    const { getByRole } = render(<Input type="number" defaultValue={1} step={2} />);
+    userEvent.click(getByRole('button', { name: 'step value up' }));
     expect(getByRole('spinbutton').value).toBe('3');
   });
 
   it('decreases by step when step down clicked', () => {
-    const {getByRole} = render(<Input type="number" defaultValue={3} step={2} />);
-    userEvent.click(getByRole('button', {name: 'step value down'}));
+    const { getByRole } = render(<Input type="number" defaultValue={3} step={2} />);
+    userEvent.click(getByRole('button', { name: 'step value down' }));
     expect(getByRole('spinbutton').value).toBe('1');
   });
 
   it('does not decrement below min value', () => {
-    const {getByRole} = render(<Input type="number" defaultValue={1} min={1} />);
-    userEvent.click(getByRole('button', {name: 'step value down'}));
+    const { getByRole } = render(<Input type="number" defaultValue={1} min={1} />);
+    userEvent.click(getByRole('button', { name: 'step value down' }));
     expect(getByRole('spinbutton').value).toBe('1');
   });
 
   it('does not increment above max value', () => {
-    const {getByRole} = render(<Input type="number" defaultValue={5} max={5} />);
-    userEvent.click(getByRole('button', {name: 'step value up'}));
+    const { getByRole } = render(<Input type="number" defaultValue={5} max={5} />);
+    userEvent.click(getByRole('button', { name: 'step value up' }));
     expect(getByRole('spinbutton').value).toBe('5');
   });
 
   it('increase button hides when hit max', () => {
-    const {getByRole} = render(<NumberInput />);
-    const IncreaseButton = getByRole('button', {name: 'step value up'});
+    const { getByRole } = render(<NumberInput />);
+    const IncreaseButton = getByRole('button', { name: 'step value up' });
     act(() => {
       userEvent.click(IncreaseButton);
     });
@@ -237,8 +237,8 @@ describe('Number Input', () => {
     expect(IncreaseButton).not.toBeInTheDocument();
   });
   it('decrease button hides when hit min', () => {
-    const {getByRole} = render(<NumberInput />);
-    const DecreaseButton = getByRole('button', {name: 'step value down'});
+    const { getByRole } = render(<NumberInput />);
+    const DecreaseButton = getByRole('button', { name: 'step value down' });
     act(() => {
       userEvent.click(DecreaseButton);
     });
@@ -249,14 +249,14 @@ describe('Number Input', () => {
 
 describe('Customization', () => {
   it('should add custom styles to Input', (): void => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          INPUT: {backgroundColor: 'colorBackground'},
-          INPUT_ELEMENT: {backgroundColor: 'colorBackground'},
-          INPUT_PREFIX: {backgroundColor: 'colorBackground'},
-          INPUT_SUFFIX: {backgroundColor: 'colorBackground'},
+          INPUT: { backgroundColor: 'colorBackground' },
+          INPUT_ELEMENT: { backgroundColor: 'colorBackground' },
+          INPUT_PREFIX: { backgroundColor: 'colorBackground' },
+          INPUT_SUFFIX: { backgroundColor: 'colorBackground' },
         }}
       >
         <Input
@@ -267,7 +267,7 @@ describe('Customization', () => {
           insertBefore={<>test before</>}
           insertAfter={<>test after</>}
         />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInput = container.querySelector('[data-paste-element="INPUT"]');
     const renderedInputElement = screen.getByRole('textbox');
@@ -280,7 +280,7 @@ describe('Customization', () => {
   });
 
   it('should add custom styles to a Input variant', (): void => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider
         baseTheme="default"
         elements={{
@@ -333,14 +333,14 @@ describe('Customization', () => {
           insertBefore={<>test before</>}
           insertAfter={<>test after</>}
         />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInput = container.querySelector('[data-paste-element="INPUT"]');
     const renderedInputElement = screen.getByRole('spinbutton');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');
-    const renderedIncrement = screen.getByRole('button', {name: 'step value up'});
-    const renderedDecrement = screen.getByRole('button', {name: 'step value down'});
+    const renderedIncrement = screen.getByRole('button', { name: 'step value up' });
+    const renderedDecrement = screen.getByRole('button', { name: 'step value down' });
     expect(renderedInput).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
     expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
     expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
@@ -350,14 +350,14 @@ describe('Customization', () => {
   });
 
   it('should add custom styles to Input with a custom element data attribute', (): void => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          FOO: {backgroundColor: 'colorBackground'},
-          FOO_ELEMENT: {backgroundColor: 'colorBackground'},
-          FOO_PREFIX: {backgroundColor: 'colorBackground'},
-          FOO_SUFFIX: {backgroundColor: 'colorBackground'},
+          FOO: { backgroundColor: 'colorBackground' },
+          FOO_ELEMENT: { backgroundColor: 'colorBackground' },
+          FOO_PREFIX: { backgroundColor: 'colorBackground' },
+          FOO_SUFFIX: { backgroundColor: 'colorBackground' },
           FOO_INCREMENT_BUTTON: {
             backgroundColor: 'colorBackgroundNew',
           },
@@ -375,14 +375,14 @@ describe('Customization', () => {
           insertBefore={<>test before</>}
           insertAfter={<>test after</>}
         />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInput = container.querySelector('[data-paste-element="FOO"]');
     const renderedInputElement = screen.getByRole('spinbutton');
     const renderedInputPrefix = screen.getByText('test before');
     const renderedInputSuffix = screen.getByText('test after');
-    const renderedIncrement = screen.getByRole('button', {name: 'step value up'});
-    const renderedDecrement = screen.getByRole('button', {name: 'step value down'});
+    const renderedIncrement = screen.getByRole('button', { name: 'step value up' });
+    const renderedDecrement = screen.getByRole('button', { name: 'step value down' });
     expect(renderedInput).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
     expect(renderedInputElement).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
     expect(renderedInputPrefix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -392,7 +392,7 @@ describe('Customization', () => {
   });
 
   it('should add custom styles to a Input variant with a custom element data attribute', (): void => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider
         baseTheme="default"
         elements={{
@@ -440,7 +440,7 @@ describe('Customization', () => {
           insertBefore={<>test before</>}
           insertAfter={<>test after</>}
         />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInput = container.querySelector('[data-paste-element="FOO"]');
     const renderedInputElement = screen.getByRole('textbox');

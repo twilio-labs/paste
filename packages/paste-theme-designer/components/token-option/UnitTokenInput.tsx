@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/core/box';
-import {useUIDSeed} from '@twilio-paste/core/uid-library';
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import { Box } from '@twilio-paste/core/box';
+import { useUIDSeed } from '@twilio-paste/core/uid-library';
+import { Input } from '@twilio-paste/core/input';
+import { Label } from '@twilio-paste/core/label';
+import { HelpText } from '@twilio-paste/core/help-text';
+import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
 
-import type {TokenContextProps} from '../../context/TokenContext';
+import type { TokenContextProps } from '../../context/TokenContext';
 
 type UnitTokenInputProps = {
   bucket: keyof GenericTokensShape;
@@ -65,7 +65,7 @@ export const UnitTokenInput: React.FC<React.PropsWithChildren<UnitTokenInputProp
         type="text"
         value={localValue}
         onChange={(event) => {
-          const {value} = event.target;
+          const { value } = event.target;
           const error = validateInput(value, unit);
           if (error) {
             setErrorText(error);

@@ -1,6 +1,6 @@
-import type {ThemeProviderProps, GenericThemeShape} from '@twilio-paste/theme';
+import type { ThemeProviderProps, GenericThemeShape } from '@twilio-paste/theme';
 
-import type {PasteCustomCSS} from './PasteCSS';
+import type { PasteCustomCSS } from './PasteCSS';
 
 export interface CustomizationProviderProps {
   children?: React.ReactNode | undefined;
@@ -35,7 +35,7 @@ export interface CustomizationProviderProps {
    * @type {[key: string]: PasteCustomCSS}
    * @memberof CustomizationProviderProps
    */
-  elements?: {[key: string]: PasteCustomCSS};
+  elements?: { [key: string]: PasteCustomCSS };
   /**
    * Provide a full or partial Paste theme to be merged into the base theme that you provide
    *

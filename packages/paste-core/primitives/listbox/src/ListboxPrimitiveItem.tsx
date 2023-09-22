@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type {CompositeItemProps} from '@twilio-paste/reakit-library';
-import {CompositeItem} from '@twilio-paste/reakit-library';
+import type { CompositeItemProps } from '@twilio-paste/reakit-library';
+import { CompositeItem } from '@twilio-paste/reakit-library';
 
-import type {As} from './types';
+import type { As } from './types';
 
 export interface ListboxPrimitiveItemProps
   extends Omit<CompositeItemProps, 'unstable_virtual' | 'unstable_moves' | 'unstable_system' | 'wrapElement' | 'wrap'> {
@@ -14,7 +14,7 @@ export interface ListboxPrimitiveItemProps
 }
 
 export const ListboxPrimitiveItem = React.forwardRef<HTMLButtonElement, ListboxPrimitiveItemProps>(
-  ({selected = false, onSelect, ...props}, ref) => (
+  ({ selected = false, onSelect, ...props }, ref) => (
     <CompositeItem
       as="button"
       {...props}
@@ -24,7 +24,7 @@ export const ListboxPrimitiveItem = React.forwardRef<HTMLButtonElement, ListboxP
       type="button"
       onClick={onSelect}
     />
-  )
+  ),
 );
 
 ListboxPrimitiveItem.displayName = 'ListboxPrimitiveItem';

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
-import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
-import {ProductContactCenterTasksIcon} from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from '@twilio-paste/menu';
+import { ProductContactCenterTasksIcon } from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
+import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
 
 import {
   Sidebar,
@@ -222,12 +222,12 @@ describe('SidebarNavigation', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            SIDEBAR_NAVIGATION: {margin: 'space100'},
-            SIDEBAR_NAVIGATION_ITEM: {margin: 'space100'},
-            SIDEBAR_NAVIGATION_DISCLOSURE: {margin: 'space100'},
-            SIDEBAR_NAVIGATION_DISCLOSURE_HEADING_WRAPPER: {margin: 'space100'},
-            SIDEBAR_NAVIGATION_DISCLOSURE_HEADING: {margin: 'space100'},
-            SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT: {margin: 'space100'},
+            SIDEBAR_NAVIGATION: { margin: 'space100' },
+            SIDEBAR_NAVIGATION_ITEM: { margin: 'space100' },
+            SIDEBAR_NAVIGATION_DISCLOSURE: { margin: 'space100' },
+            SIDEBAR_NAVIGATION_DISCLOSURE_HEADING_WRAPPER: { margin: 'space100' },
+            SIDEBAR_NAVIGATION_DISCLOSURE_HEADING: { margin: 'space100' },
+            SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT: { margin: 'space100' },
           }}
         >
           <Sidebar
@@ -260,15 +260,15 @@ describe('SidebarNavigation', () => {
               </SidebarNavigationDisclosure>
             </SidebarNavigation>
           </Sidebar>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const nav = screen.getByRole('navigation');
       const disclosure = screen.getByTestId('disclosure');
-      const disclosureHeading = screen.getByRole('button', {name: 'Heading'});
+      const disclosureHeading = screen.getByRole('button', { name: 'Heading' });
       const disclosureHeadingWrapper = disclosureHeading.parentElement;
       const disclosureContent = screen.getByTestId('disclosure-content');
-      const buttonItem = screen.getByRole('link', {name: 'ButtonItem'});
-      const anchorItem = screen.getByRole('link', {name: 'AnchorItem'});
+      const buttonItem = screen.getByRole('link', { name: 'ButtonItem' });
+      const anchorItem = screen.getByRole('link', { name: 'AnchorItem' });
 
       expect(nav).toHaveStyleRule('margin', '2.25rem');
       expect(disclosure).toHaveStyleRule('margin', '2.25rem');
@@ -285,14 +285,14 @@ describe('SidebarNavigation', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            NAVIGATION: {margin: 'space100'},
-            NAVIGATION_ITEM: {margin: 'space100'},
-            NAVIGATION_ITEM_ANCHOR: {margin: 'space100'},
-            NAVIGATION_ITEM_BUTTON: {margin: 'space100'},
-            NAVIGATION_DISCLOSURE: {margin: 'space100'},
-            NAVIGATION_DISCLOSURE_HEADING_WRAPPER: {margin: 'space100'},
-            NAVIGATION_DISCLOSURE_HEADING: {margin: 'space100'},
-            NAVIGATION_DISCLOSURE_CONTENT: {margin: 'space100'},
+            NAVIGATION: { margin: 'space100' },
+            NAVIGATION_ITEM: { margin: 'space100' },
+            NAVIGATION_ITEM_ANCHOR: { margin: 'space100' },
+            NAVIGATION_ITEM_BUTTON: { margin: 'space100' },
+            NAVIGATION_DISCLOSURE: { margin: 'space100' },
+            NAVIGATION_DISCLOSURE_HEADING_WRAPPER: { margin: 'space100' },
+            NAVIGATION_DISCLOSURE_HEADING: { margin: 'space100' },
+            NAVIGATION_DISCLOSURE_CONTENT: { margin: 'space100' },
           }}
         >
           <Sidebar
@@ -337,15 +337,15 @@ describe('SidebarNavigation', () => {
               </SidebarNavigationDisclosure>
             </SidebarNavigation>
           </Sidebar>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const nav = screen.getByRole('navigation');
       const disclosure = screen.getByTestId('disclosure');
-      const disclosureHeading = screen.getByRole('button', {name: 'Heading'});
+      const disclosureHeading = screen.getByRole('button', { name: 'Heading' });
       const disclosureHeadingWrapper = disclosureHeading.parentElement;
       const disclosureContent = screen.getByTestId('disclosure-content');
-      const buttonItem = screen.getByRole('link', {name: 'ButtonItem'});
-      const anchorItem = screen.getByRole('link', {name: 'AnchorItem'});
+      const buttonItem = screen.getByRole('link', { name: 'ButtonItem' });
+      const anchorItem = screen.getByRole('link', { name: 'AnchorItem' });
 
       expect(nav).toHaveStyleRule('margin', '2.25rem');
       expect(disclosure).toHaveStyleRule('margin', '2.25rem');

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
 
-import type {InputBoxProps} from '../src';
-import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '../src';
+import type { InputBoxProps } from '../src';
+import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '../src';
 
 const Insert = (): JSX.Element => {
   return <Box padding="space20" />;
@@ -14,7 +14,7 @@ const Input = (): JSX.Element => {
   return <Box padding="space60" width="100%" />;
 };
 
-const CommonStories: React.FC<React.PropsWithChildren<Omit<InputBoxProps, 'children'>>> = ({variant, ...props}) => {
+const CommonStories: React.FC<React.PropsWithChildren<Omit<InputBoxProps, 'children'>>> = ({ variant, ...props }) => {
   return (
     <Stack orientation="vertical" spacing="space70">
       <InputBox variant={variant} {...props}>

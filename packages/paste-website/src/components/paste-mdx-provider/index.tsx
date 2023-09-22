@@ -1,37 +1,37 @@
 import * as React from 'react';
-import {MDXProvider} from '@mdx-js/react';
-import {styled} from '@twilio-paste/styling-library';
-import type {HTMLPasteProps} from '@twilio-paste/types';
-import {Anchor, isExternalUrl} from '@twilio-paste/anchor';
-import type {AnchorProps} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import type {HeadingProps} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/list';
-import {Separator} from '@twilio-paste/separator';
-import type {SeparatorProps} from '@twilio-paste/separator';
-import {Table, THead, TBody, TFoot, Tr, Th, Td} from '@twilio-paste/table';
-import {InlineCode} from '@twilio-paste/inline-code';
-import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '@twilio-paste/callout';
+import { MDXProvider } from '@mdx-js/react';
+import { styled } from '@twilio-paste/styling-library';
+import type { HTMLPasteProps } from '@twilio-paste/types';
+import { Anchor, isExternalUrl } from '@twilio-paste/anchor';
+import type { AnchorProps } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
+import type { HeadingProps } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { OrderedList, UnorderedList, ListItem } from '@twilio-paste/list';
+import { Separator } from '@twilio-paste/separator';
+import type { SeparatorProps } from '@twilio-paste/separator';
+import { Table, THead, TBody, TFoot, Tr, Th, Td } from '@twilio-paste/table';
+import { InlineCode } from '@twilio-paste/inline-code';
+import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from '@twilio-paste/callout';
 
-import type {CodeblockProps} from '../codeblock';
-import {Codeblock} from '../codeblock';
-import {AnchoredHeading} from '../Heading';
-import {Pre} from '../Typography';
-import {PropsTable} from '../PropsTables';
+import type { CodeblockProps } from '../codeblock';
+import { Codeblock } from '../codeblock';
+import { AnchoredHeading } from '../Heading';
+import { Pre } from '../Typography';
+import { PropsTable } from '../PropsTables';
 // Shortcode imports
-import {GenericHeader} from '../shortcodes/generic-header';
-import {NormalizedPatternHeader} from '../shortcodes/normalized-pattern-header';
-import {LivePreview} from '../shortcodes/live-preview';
-import {TableOfContents} from '../shortcodes/table-of-contents';
-import {PageAside} from '../shortcodes/PageAside';
-import {ChangelogRevealer} from '../shortcodes/ChangelogRevealer';
-import {StoryPreview} from '../shortcodes/StoryPreview';
-import {ArticleHeader} from '../shortcodes/ArticleHeader';
-import {ArticleContent, ArticleAside} from '../shortcodes/ArticleLayouts';
-import {NormalizedComponentHeader} from '../shortcodes/normalized-component-header';
-import {DoDont, Do, Dont} from '../DoDont';
+import { GenericHeader } from '../shortcodes/generic-header';
+import { NormalizedPatternHeader } from '../shortcodes/normalized-pattern-header';
+import { LivePreview } from '../shortcodes/live-preview';
+import { TableOfContents } from '../shortcodes/table-of-contents';
+import { PageAside } from '../shortcodes/PageAside';
+import { ChangelogRevealer } from '../shortcodes/ChangelogRevealer';
+import { StoryPreview } from '../shortcodes/StoryPreview';
+import { ArticleHeader } from '../shortcodes/ArticleHeader';
+import { ArticleContent, ArticleAside } from '../shortcodes/ArticleLayouts';
+import { NormalizedComponentHeader } from '../shortcodes/normalized-component-header';
+import { DoDont, Do, Dont } from '../DoDont';
 
 interface PasteMDXProviderProps {
   children?: React.ReactElement;
@@ -105,7 +105,7 @@ const MDXPoviderComponents = {
     <Separator {...props} orientation="horizontal" verticalSpacing="space100" />
   ),
   a: (props: AnchorProps): React.ReactElement => <MdxLink {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
-  img: (props: React.ComponentProps<'img'>): React.ReactElement => <img style={{maxWidth: '100%'}} {...props} />, // eslint-disable-line jsx-a11y/alt-text
+  img: (props: React.ComponentProps<'img'>): React.ReactElement => <img style={{ maxWidth: '100%' }} {...props} />, // eslint-disable-line jsx-a11y/alt-text
   sup: (props: React.ComponentProps<'sup'>): React.ReactElement => <StyledSup {...props} />,
   content: (props: HTMLPasteProps<'div'>): React.ReactElement => (
     <Box element="CONTENT" as="div" maxWidth="size70" minWidth="0" {...props} />
@@ -125,14 +125,14 @@ const MDXPoviderComponents = {
  *props than that are passed to the components. I think eslint is confused.
  */
 interface PasteMDXProviderProps {
-  componentOverrides?: {[key: string]: (props: unknown) => React.ReactNode};
+  componentOverrides?: { [key: string]: (props: unknown) => React.ReactNode };
 }
 export const PasteMDXProvider: React.FC<React.PropsWithChildren<PasteMDXProviderProps>> = ({
   componentOverrides,
   children,
 }): React.ReactElement => {
   const components =
-    componentOverrides != null ? {...MDXPoviderComponents, ...componentOverrides} : MDXPoviderComponents;
+    componentOverrides != null ? { ...MDXPoviderComponents, ...componentOverrides } : MDXPoviderComponents;
 
   return <MDXProvider components={components}>{children}</MDXProvider>;
 };

@@ -1,10 +1,10 @@
-import {Box} from '@twilio-paste/box';
-import {useRouter} from 'next/router';
+import { Box } from '@twilio-paste/box';
+import { useRouter } from 'next/router';
 
-import {SiteFooterIllustration} from './SiteFooterIllustration';
-import {SiteFooterNav} from './SiteFooterNav';
-import {SiteFooterTopAngle} from './SiteFooterTopAngle';
-import {SITE_CONTENT_MAX_WIDTH} from '../../../constants';
+import { SiteFooterIllustration } from './SiteFooterIllustration';
+import { SiteFooterNav } from './SiteFooterNav';
+import { SiteFooterTopAngle } from './SiteFooterTopAngle';
+import { SITE_CONTENT_MAX_WIDTH } from '../../../constants';
 
 const SiteFooter: React.FC = () => {
   const router = useRouter();
@@ -33,4 +33,4 @@ const SiteFooter: React.FC = () => {
   );
 };
 
-export {SiteFooter};
+export { SiteFooter };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn, Meta} from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
 import {
   LexicalComposer,
@@ -11,7 +11,7 @@ import {
   $getRoot,
   $getSelection,
 } from '../src';
-import type {EditorState} from '../src';
+import type { EditorState } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

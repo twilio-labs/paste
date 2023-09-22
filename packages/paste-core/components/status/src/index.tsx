@@ -1,4 +1,4 @@
-export {useMenuState as useStatusMenuState} from '@twilio-paste/menu';
+export { useMenuState as useStatusMenuState } from '@twilio-paste/menu';
 export * from './constants';
 export * from './types';
 export * from './StatusMenu';

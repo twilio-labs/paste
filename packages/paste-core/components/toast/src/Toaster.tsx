@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {useTransition, animated, useReducedMotion} from '@twilio-paste/animation-library';
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
+import { useTransition, animated, useReducedMotion } from '@twilio-paste/animation-library';
+import { useTheme } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
 
-import {Toast} from './Toast';
-import {ToastPortal} from './ToastPortal';
-import type {ToasterProps} from './types';
+import { Toast } from './Toast';
+import { ToastPortal } from './ToastPortal';
+import type { ToasterProps } from './types';
 
 export const AnimatedToast = animated(Box);
 
@@ -13,10 +13,10 @@ interface ReturnTargetState {
   trigger: HTMLElement | null;
 }
 
-const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({toasts, pop, ...props}) => {
+const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({ toasts, pop, ...props }) => {
   const prefersReducedMotion = useReducedMotion();
   const [refMap] = React.useState(() => new WeakMap());
-  const [returnTarget, setReturnTarget] = React.useState<ReturnTargetState>({trigger: null});
+  const [returnTarget, setReturnTarget] = React.useState<ReturnTargetState>({ trigger: null });
   const theme = useTheme();
 
   /*
@@ -37,7 +37,7 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({toasts, pop, 
      * FIXME: try again in v9+ of react-spring
      */
     enter: prefersReducedMotion
-      ? {marginBottom: theme.space.space40, opacity: 1, transform: 'translateX(0px) scale(1)'}
+      ? { marginBottom: theme.space.space40, opacity: 1, transform: 'translateX(0px) scale(1)' }
       : (item: any) => async (next: any) => {
           await next({
             marginBottom: theme.space.space40,
@@ -64,7 +64,7 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({toasts, pop, 
    * state being updated in an effect.
    */
   const clearReturnTarget = React.useCallback(() => {
-    setReturnTarget({trigger: null});
+    setReturnTarget({ trigger: null });
   }, [returnTarget]);
 
   React.useEffect(() => {
@@ -81,7 +81,7 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({toasts, pop, 
 
   return (
     <ToastPortal {...props}>
-      {transitions((styles: unknown, item: any, state: {key: any}, index: number) => {
+      {transitions((styles: unknown, item: any, state: { key: any }, index: number) => {
         return (
           // type clash between spring styles and style object. Not sure how to type cast it
           <AnimatedToast as="div" key={state.key} style={styles as any}>
@@ -116,7 +116,7 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({toasts, pop, 
                  * ignore it.
                  */
                 if (e.relatedTarget && !returnTarget.trigger) {
-                  setReturnTarget({trigger: e.relatedTarget as HTMLElement});
+                  setReturnTarget({ trigger: e.relatedTarget as HTMLElement });
                 }
               }}
             >
@@ -131,4 +131,4 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({toasts, pop, 
 
 Toaster.displayName = 'Toaster';
 
-export {Toaster};
+export { Toaster };

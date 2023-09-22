@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {render, screen} from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
 
-import {HelpText} from '../src';
+import { HelpText } from '../src';
 
 describe('HelpText marginTop prop', () => {
   render(<HelpText data-testid="help_text" marginTop="space0" />);
@@ -14,17 +14,17 @@ describe('HelpText marginTop prop', () => {
 
 describe('HelpText HTML attributes', () => {
   it('should set element data attribute for help text', (): void => {
-    const {container} = render(<HelpText data-testid="help_text">This is help text.</HelpText>);
+    const { container } = render(<HelpText data-testid="help_text">This is help text.</HelpText>);
 
     expect(container.querySelector('[data-paste-element="HELP_TEXT"]')).toBeInTheDocument();
     expect(screen.getByTestId('help_text').getAttribute('data-paste-element')).toEqual('HELP_TEXT');
   });
 
   it('should set custom element data attribute for flex wrapper and help text', (): void => {
-    const {container} = render(
+    const { container } = render(
       <HelpText element="foo" data-testid="help_text">
         This is help text.
-      </HelpText>
+      </HelpText>,
     );
 
     expect(container.querySelector('[data-paste-element="foo"]')).toBeInTheDocument();
@@ -42,7 +42,7 @@ describe('Customization', () => {
           HELP_TEXT: {
             color: 'colorTextSuccess',
             fontWeight: 'fontWeightBold',
-            variants: {error: {color: 'colorTextWarningStrong'}},
+            variants: { error: { color: 'colorTextWarningStrong' } },
           },
         }}
       >
@@ -50,7 +50,7 @@ describe('Customization', () => {
         <HelpText data-testid="help_text_error" variant="error">
           This is error help text.
         </HelpText>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('help_text')).toHaveStyleRule('font-weight', '700');
     expect(screen.getByTestId('help_text')).toHaveStyleRule('color', 'rgb(14, 124, 58)');
@@ -66,7 +66,7 @@ describe('Customization', () => {
           foo: {
             color: 'colorTextSuccess',
             fontWeight: 'fontWeightBold',
-            variants: {error: {color: 'colorTextWarningStrong'}},
+            variants: { error: { color: 'colorTextWarningStrong' } },
           },
         }}
       >
@@ -76,7 +76,7 @@ describe('Customization', () => {
         <HelpText data-testid="help_text_error" variant="error" element="foo">
           This is error help text.
         </HelpText>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('help_text')).toHaveStyleRule('font-weight', '700');
     expect(screen.getByTestId('help_text')).toHaveStyleRule('color', 'rgb(14, 124, 58)');

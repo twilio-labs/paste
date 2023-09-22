@@ -1,4 +1,4 @@
-import type {TokenPairContrastRating} from '@twilio-paste/design-tokens/types';
+import type { TokenPairContrastRating } from '@twilio-paste/design-tokens/types';
 import {
   getContrastRatingsOfTokensWithTextContrastRequirements,
   getContrastRatingsOfTokensWithUIControlContrastRequirements,
@@ -6,8 +6,8 @@ import {
   getNumberOfUIControlFailures,
 } from '@twilio-paste/color-contrast-utils';
 
-import {useTheme} from './useTheme';
-import {generateTokensFromTheme} from './generateTokensFromTheme';
+import { useTheme } from './useTheme';
+import { generateTokensFromTheme } from './generateTokensFromTheme';
 
 export interface UseThemeContrastCheckReturn {
   /**

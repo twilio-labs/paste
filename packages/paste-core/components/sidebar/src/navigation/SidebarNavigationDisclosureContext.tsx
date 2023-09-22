@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {DisclosurePrimitveStateReturn} from '@twilio-paste/disclosure-primitive';
+import type { DisclosurePrimitveStateReturn } from '@twilio-paste/disclosure-primitive';
 
 export interface SidebarNavigationDisclosureContextProps {
   disclosure: DisclosurePrimitveStateReturn;
@@ -8,4 +8,4 @@ export interface SidebarNavigationDisclosureContextProps {
 
 const SidebarNavigationDisclosureContext = React.createContext<SidebarNavigationDisclosureContextProps>({} as any);
 
-export {SidebarNavigationDisclosureContext};
+export { SidebarNavigationDisclosureContext };

@@ -1,13 +1,13 @@
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
+import { Box } from '@twilio-paste/box';
+import { Grid, Column } from '@twilio-paste/grid';
 
-import {PopularComponents} from './PopularComponents';
-import {PopularPatterns} from './PopularPatterns';
-import {PopularSectionHeader} from './PopularSectionHeader';
-import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../constants';
-import {useSlantedSkew} from '../SlantedBackgroundGradient';
-import {DoodleLoopSmall} from '../../assets/illustrations/DoodleLoopSmall';
-import {DoodleCurve} from '../../assets/illustrations/DoodleCurve';
+import { PopularComponents } from './PopularComponents';
+import { PopularPatterns } from './PopularPatterns';
+import { PopularSectionHeader } from './PopularSectionHeader';
+import { SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET } from '../../constants';
+import { useSlantedSkew } from '../SlantedBackgroundGradient';
+import { DoodleLoopSmall } from '../../assets/illustrations/DoodleLoopSmall';
+import { DoodleCurve } from '../../assets/illustrations/DoodleCurve';
 
 const PopularComponentsTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
@@ -81,4 +81,4 @@ const PopularComponentsAndPatterns = (): JSX.Element => {
   );
 };
 
-export {PopularComponentsAndPatterns};
+export { PopularComponentsAndPatterns };

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {render, screen, act, fireEvent} from '@testing-library/react';
-import {Button} from '@twilio-paste/button';
+import { render, screen, act, fireEvent } from '@testing-library/react';
+import { Button } from '@twilio-paste/button';
 
 import {
   SideModal,
@@ -12,7 +12,7 @@ import {
   SideModalFooter,
   SideModalFooterActions,
 } from '../src';
-import {StateHookExample} from '../stories/index.stories';
+import { StateHookExample } from '../stories/index.stories';
 
 describe('SideModal', () => {
   describe('Render', () => {
@@ -31,10 +31,10 @@ describe('SideModal', () => {
               </SideModalFooterActions>
             </SideModalFooter>
           </SideModal>
-        </SideModalContainer>
+        </SideModalContainer>,
       );
 
-      const dialogButton = screen.getByRole('button', {name: 'Button'});
+      const dialogButton = screen.getByRole('button', { name: 'Button' });
       expect(dialogButton.getAttribute('aria-haspopup')).toEqual('dialog');
       expect(dialogButton.getAttribute('aria-expanded')).toEqual('false');
 
@@ -42,7 +42,7 @@ describe('SideModal', () => {
         fireEvent.click(dialogButton);
       });
 
-      const dialog = screen.getByRole('dialog', {hidden: true});
+      const dialog = screen.getByRole('dialog', { hidden: true });
       expect(dialogButton.getAttribute('aria-controls')).toEqual(dialog.id);
       expect(dialog).toBeInTheDocument();
     });
@@ -50,13 +50,13 @@ describe('SideModal', () => {
     it('should render a dialog and toggle visible and minimized with external buttons', async () => {
       render(<StateHookExample />);
 
-      const showButton = screen.getByRole('button', {name: 'Open dialog'});
-      const closeButton = screen.getByRole('button', {name: 'Close dialog'});
+      const showButton = screen.getByRole('button', { name: 'Open dialog' });
+      const closeButton = screen.getByRole('button', { name: 'Close dialog' });
 
       await act(async () => {
         fireEvent.click(showButton);
       });
-      const dialog = screen.getByRole('dialog', {hidden: true});
+      const dialog = screen.getByRole('dialog', { hidden: true });
       expect(dialog).toBeInTheDocument();
 
       await act(async () => {
@@ -77,17 +77,17 @@ describe('SideModal', () => {
             </SideModalHeader>
             <SideModalBody>This is a dialog.</SideModalBody>
           </SideModal>
-        </SideModalContainer>
+        </SideModalContainer>,
       );
 
-      const dialogButton = screen.getByRole('button', {name: 'Button'});
+      const dialogButton = screen.getByRole('button', { name: 'Button' });
       await act(async () => {
         fireEvent.click(dialogButton);
       });
 
-      expect(screen.getByRole('dialog', {hidden: true})).toBeInTheDocument();
+      expect(screen.getByRole('dialog', { hidden: true })).toBeInTheDocument();
 
-      const dismissButton = screen.getByRole('button', {name: 'close', hidden: true});
+      const dismissButton = screen.getByRole('button', { name: 'close', hidden: true });
       expect(dismissButton).toBeDefined();
     });
   });

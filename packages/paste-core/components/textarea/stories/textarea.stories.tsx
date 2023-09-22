@@ -1,19 +1,19 @@
 import * as React from 'react';
-import type {Story} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {action} from '@storybook/addon-actions';
-import {Anchor} from '@twilio-paste/anchor';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Stack} from '@twilio-paste/stack';
+import type { Story } from '@storybook/react';
+import { useUID } from '@twilio-paste/uid-library';
+import { action } from '@storybook/addon-actions';
+import { Anchor } from '@twilio-paste/anchor';
+import { Button } from '@twilio-paste/button';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Stack } from '@twilio-paste/stack';
 
-import {TextArea} from '../src';
+import { TextArea } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -87,7 +87,7 @@ export const MultipleTextareas = (): React.ReactElement => {
 };
 
 MultipleTextareas.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 export const TextareaInverse = (): React.ReactNode => {

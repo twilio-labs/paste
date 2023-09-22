@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
+import { useUID } from '@twilio-paste/uid-library';
+import { Anchor } from '@twilio-paste/anchor';
+import { Text } from '@twilio-paste/text';
 
-import {Radio, RadioGroup} from '../src';
+import { Radio, RadioGroup } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Radio/Radio Group (Controlled)',
   component: Radio,
-  subcomponents: {RadioGroup},
+  subcomponents: { RadioGroup },
 };
 
 /**
@@ -58,7 +58,7 @@ export const ControlledRadioGroupA = (): React.ReactNode => {
 
 ControlledRadioGroupA.storyName = 'Controlled RadioGroup with no (default)checked on radios';
 ControlledRadioGroupA.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
@@ -107,7 +107,7 @@ export const ControlledRadioGroupB = (): React.ReactNode => {
 
 ControlledRadioGroupB.storyName = 'Controlled RadioGroup with defaultChecked set on different Radio';
 ControlledRadioGroupB.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
@@ -156,7 +156,7 @@ export const ControlledRadioGroupC = (): React.ReactNode => {
 
 ControlledRadioGroupC.storyName = 'Controlled RadioGroup with checked set on different Radio';
 ControlledRadioGroupC.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
@@ -207,5 +207,5 @@ export const ControlledRadioGroupD = (): React.ReactNode => {
 
 ControlledRadioGroupD.storyName = 'Controlled RadioGroup with checked and defaultChecked set on different Radios';
 ControlledRadioGroupD.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };

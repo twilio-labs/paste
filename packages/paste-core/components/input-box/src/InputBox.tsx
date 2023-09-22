@@ -1,11 +1,11 @@
 import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
-import {FieldWrapper} from './FauxInput';
-import {Prefix} from './Prefix';
-import {Suffix} from './Suffix';
-import type {InputBoxTypes, Variants} from './types';
-import {InputBoxContext} from './InputBoxContext';
+import { FieldWrapper } from './FauxInput';
+import { Prefix } from './Prefix';
+import { Suffix } from './Suffix';
+import type { InputBoxTypes, Variants } from './types';
+import { InputBoxContext } from './InputBoxContext';
 
 export interface InputBoxProps {
   children: NonNullable<React.ReactNode>;
@@ -37,9 +37,9 @@ const InputBox = React.forwardRef<HTMLDivElement, React.PropsWithChildren<InputB
       variant = 'default',
       ...props
     },
-    ref
+    ref,
   ) => (
-    <InputBoxContext.Provider value={{disabled, readOnly, variant}}>
+    <InputBoxContext.Provider value={{ disabled, readOnly, variant }}>
       <FieldWrapper
         disabled={disabled}
         element={element}
@@ -63,9 +63,9 @@ const InputBox = React.forwardRef<HTMLDivElement, React.PropsWithChildren<InputB
         )}
       </FieldWrapper>
     </InputBoxContext.Provider>
-  )
+  ),
 );
 
 InputBox.displayName = 'InputBox';
 
-export {InputBox};
+export { InputBox };

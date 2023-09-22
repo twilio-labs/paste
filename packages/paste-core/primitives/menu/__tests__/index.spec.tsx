@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {render, fireEvent, screen} from '@testing-library/react';
+import { render, fireEvent, screen } from '@testing-library/react';
 
 import {
   useMenuPrimitiveState,
@@ -8,13 +8,13 @@ import {
   MenuPrimitiveButton,
   MenuPrimitiveSeparator,
 } from '../src';
-import type {MenuPrimitiveButtonProps} from '../src';
+import type { MenuPrimitiveButtonProps } from '../src';
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>(function PreferencesMenu(
   props,
-  ref
+  ref,
 ) {
-  const menu = useMenuPrimitiveState({baseId: 'sub-menu'});
+  const menu = useMenuPrimitiveState({ baseId: 'sub-menu' });
   return (
     <>
       <MenuPrimitiveButton ref={ref} {...menu} {...props} data-testid="example-submenu-trigger">
@@ -35,7 +35,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonP
 });
 
 const MenuMock = (): JSX.Element => {
-  const menu = useMenuPrimitiveState({baseId: 'menu-example'});
+  const menu = useMenuPrimitiveState({ baseId: 'menu-example' });
   return (
     <>
       <MenuPrimitiveButton {...menu}>Code</MenuPrimitiveButton>
@@ -54,7 +54,7 @@ const MenuMock = (): JSX.Element => {
 describe('Menu Primitive', () => {
   describe('Render', () => {
     it('should render', () => {
-      const {asFragment} = render(<MenuMock />);
+      const { asFragment } = render(<MenuMock />);
       expect(asFragment()).toMatchSnapshot();
     });
 
@@ -127,7 +127,7 @@ describe('Menu Primitive', () => {
       fireEvent.click(renderedMenuButton);
       expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('true');
       if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'Escape', code: 'Escape'});
+        fireEvent.keyDown(document.activeElement, { key: 'Escape', code: 'Escape' });
         // eslint-disable-next-line jest/no-conditional-expect
         expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
       }
@@ -146,7 +146,7 @@ describe('Menu Primitive', () => {
       render(<MenuMock />);
       fireEvent.click(screen.getByRole('button'));
       if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
+        fireEvent.keyDown(document.activeElement, { key: 'ArrowDown', code: 'ArrowDown' });
         // eslint-disable-next-line jest/no-conditional-expect
         expect(screen.getByText('Check for Updates...')).toEqual(document.activeElement);
       }
@@ -156,8 +156,8 @@ describe('Menu Primitive', () => {
       render(<MenuMock />);
       fireEvent.click(screen.getByRole('button'));
       if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowUp', code: 'ArrowUp'});
+        fireEvent.keyDown(document.activeElement, { key: 'ArrowDown', code: 'ArrowDown' });
+        fireEvent.keyDown(document.activeElement, { key: 'ArrowUp', code: 'ArrowUp' });
         // eslint-disable-next-line jest/no-conditional-expect
         expect(screen.getByText('About Visual Studio Code')).toEqual(document.activeElement);
       }

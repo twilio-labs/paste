@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
-import {FileUploaderContext} from './FileUploaderContext';
+import { FileUploaderContext } from './FileUploaderContext';
 
 export interface FileUploaderDropzoneTextProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
   children?: React.ReactNode;
@@ -10,8 +10,8 @@ export interface FileUploaderDropzoneTextProps extends Omit<React.ComponentProps
 }
 
 export const FileUploaderDropzoneText = React.forwardRef<HTMLDivElement, FileUploaderDropzoneTextProps>(
-  ({children, element = 'FILE_UPLOADER_DROPZONE_TEXT', ...props}, ref) => {
-    const {id} = React.useContext(FileUploaderContext);
+  ({ children, element = 'FILE_UPLOADER_DROPZONE_TEXT', ...props }, ref) => {
+    const { id } = React.useContext(FileUploaderContext);
 
     return (
       <Box
@@ -25,7 +25,7 @@ export const FileUploaderDropzoneText = React.forwardRef<HTMLDivElement, FileUpl
         {children}
       </Box>
     );
-  }
+  },
 );
 
 FileUploaderDropzoneText.displayName = 'FileUploaderDropzoneText';

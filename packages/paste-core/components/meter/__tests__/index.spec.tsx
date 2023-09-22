@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
-import type {RenderOptions} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import type { RenderOptions } from '@testing-library/react';
 
-import {Default, AriaLabel, Customized} from '../stories/index.stories';
+import { Default, AriaLabel, Customized } from '../stories/index.stories';
 
-const ThemeWrapper: RenderOptions['wrapper'] = ({children}) => (
+const ThemeWrapper: RenderOptions['wrapper'] = ({ children }) => (
   <Theme.Provider theme="default">{children}</Theme.Provider>
 );
 
@@ -14,7 +14,7 @@ const elementAttr = 'data-paste-element';
 describe('Meter', () => {
   describe('base usage', () => {
     it('should render correctly', () => {
-      render(<Default />, {wrapper: ThemeWrapper});
+      render(<Default />, { wrapper: ThemeWrapper });
       const meter = screen.getByRole('meter');
       expect(meter).toBeInTheDocument();
       expect(meter).toHaveAttribute('aria-valuemin', '0');
@@ -26,7 +26,7 @@ describe('Meter', () => {
     });
 
     it('should apply aria-label correctly', () => {
-      render(<AriaLabel />, {wrapper: ThemeWrapper});
+      render(<AriaLabel />, { wrapper: ThemeWrapper });
       const meter = screen.getByRole('meter');
       expect(meter).toHaveAttribute('aria-label', 'Storage space');
       expect(meter).not.toHaveAttribute('aria-labelledby');

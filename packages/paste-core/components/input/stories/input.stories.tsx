@@ -1,19 +1,19 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {action} from '@storybook/addon-actions';
-import {Anchor} from '@twilio-paste/anchor';
-import {Form, FormControl} from '@twilio-paste/form';
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {Stack} from '@twilio-paste/stack';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { useUID } from '@twilio-paste/uid-library';
+import { action } from '@storybook/addon-actions';
+import { Anchor } from '@twilio-paste/anchor';
+import { Form, FormControl } from '@twilio-paste/form';
+import { useTheme } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
+import { Stack } from '@twilio-paste/stack';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Input} from '../src';
+import { Input } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -891,21 +891,21 @@ export const CustomizedNumberInput = (): React.ReactNode => {
       <CustomizationProvider
         theme={theme}
         elements={{
-          INPUT: {backgroundColor: 'colorBackgroundPrimaryWeakest'},
+          INPUT: { backgroundColor: 'colorBackgroundPrimaryWeakest' },
           INPUT_ELEMENT: {
             padding: 'space50',
           },
-          INPUT_STEP_WRAPPER: {backgroundColor: 'colorBackgroundBrandHighlightWeakest', paddingLeft: 'space30'},
+          INPUT_STEP_WRAPPER: { backgroundColor: 'colorBackgroundBrandHighlightWeakest', paddingLeft: 'space30' },
           INPUT_INCREMENT_BUTTON: {
             borderRadius: 'borderRadiusCircle',
             backgroundColor: 'colorBackgroundDestructiveWeak',
           },
-          INPUT_INCREMENT_ICON: {size: 'sizeIcon20'},
+          INPUT_INCREMENT_ICON: { size: 'sizeIcon20' },
           INPUT_DECREMENT_BUTTON: {
             borderRadius: 'borderRadiusCircle',
             backgroundColor: 'colorBackgroundDestructiveWeak',
           },
-          INPUT_DECREMENT_ICON: {size: 'sizeIcon20'},
+          INPUT_DECREMENT_ICON: { size: 'sizeIcon20' },
         }}
       >
         <Box margin="space60">
@@ -954,7 +954,7 @@ MaxNumberInput.storyName = 'Number Input - Max number matched';
 
 CustomizedNumberInput.storyName = 'Number Input - Customized';
 
-export const CustomInput: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomInput: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const uidOne = useUID();
   const uidTwo = useUID();
   const uidTwoVariant = useUID();

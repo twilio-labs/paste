@@ -1,18 +1,18 @@
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
+import { Box } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
 import Image from 'next/image';
 
 import HomeGetStartedIllo2 from '../../assets/illustrations/home_getstarted_2.svg';
 import HomeGetStartedIllo2Dark from '../../assets/illustrations/home_getstarted_2_dark.svg';
-import {GetStartedCard} from './GetStartedCard';
-import {GetStartedCardIllustration} from './GetStartedCardIllustration';
-import {GetStartedCardLink} from './GetStartedCardLink';
-import {useDarkModeContext} from '../../context/DarkModeContext';
-import {event} from '../../lib/gtag';
+import { GetStartedCard } from './GetStartedCard';
+import { GetStartedCardIllustration } from './GetStartedCardIllustration';
+import { GetStartedCardLink } from './GetStartedCardLink';
+import { useDarkModeContext } from '../../context/DarkModeContext';
+import { event } from '../../lib/gtag';
 
 export const GetStarterWhy = (): JSX.Element => {
-  const {theme} = useDarkModeContext();
+  const { theme } = useDarkModeContext();
   return (
     <GetStartedCard>
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">

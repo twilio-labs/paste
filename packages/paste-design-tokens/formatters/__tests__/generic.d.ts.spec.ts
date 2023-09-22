@@ -1,8 +1,8 @@
-import {resolve} from 'path';
+import { resolve } from 'path';
 
 import * as theo from 'theo';
 
-import {genericDTsTemplate} from '../generic.d.ts';
+import { genericDTsTemplate } from '../generic.d.ts';
 
 theo.registerFormat('generic.d.ts', genericDTsTemplate);
 

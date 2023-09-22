@@ -1,5 +1,5 @@
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { BoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 type BaseStepProps = Pick<BoxProps, 'element'> & {
   children: NonNullable<React.ReactNode>;

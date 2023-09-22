@@ -1,13 +1,13 @@
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {Menu, MenuButton, MenuItemRadio, useMenuState} from '@twilio-paste/menu';
-import {DarkModeIcon} from '@twilio-paste/icons/esm/DarkModeIcon';
-import {LightModeIcon} from '@twilio-paste/icons/esm/LightModeIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { Menu, MenuButton, MenuItemRadio, useMenuState } from '@twilio-paste/menu';
+import { DarkModeIcon } from '@twilio-paste/icons/esm/DarkModeIcon';
+import { LightModeIcon } from '@twilio-paste/icons/esm/LightModeIcon';
 
-import {useDarkModeContext} from '../../../context/DarkModeContext';
-import {event} from '../../../lib/gtag';
+import { useDarkModeContext } from '../../../context/DarkModeContext';
+import { event } from '../../../lib/gtag';
 
 export const DarkModeToggle = (): JSX.Element => {
-  const {theme, toggleMode} = useDarkModeContext();
+  const { theme, toggleMode } = useDarkModeContext();
   const menu = useMenuState();
 
   const handleClick = (category: string, action: string, label: string): void => {

@@ -1,24 +1,24 @@
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {useWindowSize} from '@twilio-paste/utils';
+import { Box } from '@twilio-paste/box';
+import { Grid, Column } from '@twilio-paste/grid';
+import { useWindowSize } from '@twilio-paste/utils';
 
-import {GetStarterWhy} from './GetStartedWhy';
-import {GetStartedInclusive} from './GetStartedInclusive';
-import {GetStartedRunning} from './GetStartedRunning';
-import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
-import {SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET} from '../../constants';
+import { GetStarterWhy } from './GetStartedWhy';
+import { GetStartedInclusive } from './GetStartedInclusive';
+import { GetStartedRunning } from './GetStartedRunning';
+import { SlantedBackgroundGradient } from '../SlantedBackgroundGradient';
+import { SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET } from '../../constants';
 
 const DELAY_INTERVAL = 250;
 
 export const GetStarted = (): JSX.Element => {
-  const {breakpointIndex} = useWindowSize();
+  const { breakpointIndex } = useWindowSize();
 
   return (
     <Box paddingX={['space90', 'space180']} position="relative">
       <SlantedBackgroundGradient
         startColor="colorBackgroundBrandStronger"
         endColor="colorBackgroundBrandStrong"
-        styles={{bottom: `${HOMEPAGE_SECTION_OVERFLOW_OFFSET}px`}}
+        styles={{ bottom: `${HOMEPAGE_SECTION_OVERFLOW_OFFSET}px` }}
       >
         <Box
           maxWidth={SITE_CONTENT_MAX_WIDTH}

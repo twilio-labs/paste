@@ -1,26 +1,26 @@
 import * as React from 'react';
 import useResizeObserver from 'use-resize-observer';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
+import { Box } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
 import Image from 'next/image';
 
 import HomeGetStartedIllo3 from '../../assets/illustrations/home_getstarted_3.svg';
 import HomeGetStartedIllo3Dark from '../../assets/illustrations/home_getstarted_3_dark.svg';
-import {GetStartedCard} from './GetStartedCard';
-import {GetStartedCardIllustration} from './GetStartedCardIllustration';
-import {GetStartedCardLinks} from './GetStartedCardLinks';
-import {GetStartedCardLink} from './GetStartedCardLink';
-import {useDarkModeContext} from '../../context/DarkModeContext';
-import {event} from '../../lib/gtag';
+import { GetStartedCard } from './GetStartedCard';
+import { GetStartedCardIllustration } from './GetStartedCardIllustration';
+import { GetStartedCardLinks } from './GetStartedCardLinks';
+import { GetStartedCardLink } from './GetStartedCardLink';
+import { useDarkModeContext } from '../../context/DarkModeContext';
+import { event } from '../../lib/gtag';
 
 interface GetStartedRunningProps {
   animationDelay: number;
 }
 
-export const GetStartedRunning: React.FC<React.PropsWithChildren<GetStartedRunningProps>> = ({animationDelay}) => {
-  const {ref, width: linkBoxWidth = 1} = useResizeObserver<HTMLDivElement>();
-  const {theme} = useDarkModeContext();
+export const GetStartedRunning: React.FC<React.PropsWithChildren<GetStartedRunningProps>> = ({ animationDelay }) => {
+  const { ref, width: linkBoxWidth = 1 } = useResizeObserver<HTMLDivElement>();
+  const { theme } = useDarkModeContext();
   return (
     <GetStartedCard animationDelay={animationDelay}>
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">

@@ -1,17 +1,17 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Input} from '@twilio-paste/input';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {Stack} from '@twilio-paste/stack';
-import {Button} from '@twilio-paste/button';
-import {OrderedList, ListItem} from '@twilio-paste/list';
-import {RadioButtonGroup, RadioButton} from '@twilio-paste/radio-button-group';
+import type { StoryFn } from '@storybook/react';
+import { useUID } from '@twilio-paste/uid-library';
+import { Input } from '@twilio-paste/input';
+import { Box } from '@twilio-paste/box';
+import { Label } from '@twilio-paste/label';
+import { Stack } from '@twilio-paste/stack';
+import { Button } from '@twilio-paste/button';
+import { OrderedList, ListItem } from '@twilio-paste/list';
+import { RadioButtonGroup, RadioButton } from '@twilio-paste/radio-button-group';
 
-import {ChatLogger, ChatMessage, ChatBubble, useChatLogger} from '../../src';
-import type {MessageVariants} from '../../src';
-import type {PartialIDChat} from '../../src/useChatLogger';
+import { ChatLogger, ChatMessage, ChatBubble, useChatLogger } from '../../src';
+import type { MessageVariants } from '../../src';
+import type { PartialIDChat } from '../../src/useChatLogger';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -24,7 +24,7 @@ export const UseChatLogger: StoryFn = () => {
   const messageID = useUID();
   const variantId = useUID();
 
-  const {chats, push, pop, clear} = useChatLogger(
+  const { chats, push, pop, clear } = useChatLogger(
     {
       variant: 'inbound',
       content: (
@@ -48,7 +48,7 @@ export const UseChatLogger: StoryFn = () => {
           <ChatBubble>Of course! Can you provide more detail?</ChatBubble>
         </ChatMessage>
       ),
-    }
+    },
   );
 
   const handlePushSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
@@ -130,7 +130,7 @@ export const UseChatLogger: StoryFn = () => {
           </Button>
         </Stack>
         <OrderedList aria-label="ordered list">
-          {chats.map(({id}) => (
+          {chats.map(({ id }) => (
             <ListItem key={id}>
               <code>{id}</code>
             </ListItem>

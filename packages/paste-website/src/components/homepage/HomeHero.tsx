@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Text} from '@twilio-paste/text';
-import {Badge} from '@twilio-paste/badge';
-import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Grid, Column } from '@twilio-paste/grid';
+import { Text } from '@twilio-paste/text';
+import { Badge } from '@twilio-paste/badge';
+import { ArrowForwardIcon } from '@twilio-paste/icons/esm/ArrowForwardIcon';
+import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
 
-import {NewComponentBanner} from './NewComponentBanner';
-import {NewComponentBannerLink} from './NewComponentBannerLink';
-import {NewComponentBannerText} from './NewComponentBannerText';
-import {HomeHeroIllustration} from './HomeHeroIllustration';
-import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
-import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
-import {event} from '../../lib/gtag';
+import { NewComponentBanner } from './NewComponentBanner';
+import { NewComponentBannerLink } from './NewComponentBannerLink';
+import { NewComponentBannerText } from './NewComponentBannerText';
+import { HomeHeroIllustration } from './HomeHeroIllustration';
+import { SlantedBackgroundGradient } from '../SlantedBackgroundGradient';
+import { SITE_CONTENT_MAX_WIDTH } from '../../constants';
+import { event } from '../../lib/gtag';
 
 const SeeRoadmapAnchor = (): JSX.Element => {
   const [hovered, setHovered] = React.useState(false);
@@ -128,4 +128,4 @@ const HomeHero = (): JSX.Element => {
   );
 };
 
-export {HomeHero};
+export { HomeHero };

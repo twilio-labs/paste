@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {TabPrimitivePanel} from '@twilio-paste/tabs-primitive';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { TabPrimitivePanel } from '@twilio-paste/tabs-primitive';
 
-import {TabsContext} from './TabsContext';
-import {getElementName} from './utils';
+import { TabsContext } from './TabsContext';
+import { getElementName } from './utils';
 
 export interface TabPanelProps {
   id?: string | undefined;
@@ -15,7 +15,7 @@ export interface TabPanelProps {
 }
 
 const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(
-  ({children, element, paddingTop = 'space60', ...props}, ref) => {
+  ({ children, element, paddingTop = 'space60', ...props }, ref) => {
     const tab = React.useContext(TabsContext);
     const elementName = getElementName(tab.orientation, 'TAB_PANEL', element);
 
@@ -36,8 +36,8 @@ const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(
         {children}
       </TabPrimitivePanel>
     );
-  }
+  },
 );
 
 TabPanel.displayName = 'TabPanel';
-export {TabPanel};
+export { TabPanel };

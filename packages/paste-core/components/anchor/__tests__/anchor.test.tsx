@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Anchor} from '../src';
+import { Anchor } from '../src';
 
 describe('Anchor', () => {
   it('should render an external anchor', () => {
     render(
       <Anchor href="https://twilio.com">
         This is an anchor that links to Twilio.com with an external target and rel
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByRole('link');
     expect(renderedAnchor.getAttribute('target')).toEqual('_blank');
@@ -20,7 +20,7 @@ describe('Anchor', () => {
     render(
       <Anchor href="https://twilio.com" target="_self" rel="noopener">
         This is an anchor that links to Twilio.com with the target and rel overwritten
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByRole('link');
     expect(renderedAnchor.getAttribute('target')).toEqual('_self');
@@ -31,7 +31,7 @@ describe('Anchor', () => {
     render(
       <Anchor href="https://twilio.com" showExternal>
         External link with icon
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByRole('link');
     expect(renderedAnchor.querySelectorAll('svg').length).toBeGreaterThan(0);
@@ -53,7 +53,7 @@ describe('Anchor', () => {
         verticalAlign="middle"
       >
         Anchor
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByTestId('styledAnchor');
     expect(renderedAnchor).toHaveStyleRule('display', 'block');
@@ -70,7 +70,7 @@ describe('Anchor', () => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" size="size30">
         Anchor
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByTestId('styledAnchor');
     expect(renderedAnchor).toHaveStyleRule('height', 'size30');
@@ -80,7 +80,7 @@ describe('Anchor', () => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" margin="space20">
         Anchor
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByTestId('styledAnchor');
     expect(renderedAnchor).toHaveStyleRule('margin', 'space20');
@@ -97,7 +97,7 @@ describe('Anchor', () => {
         marginLeft="space20"
       >
         Anchor
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByTestId('styledAnchor');
     expect(renderedAnchor).toHaveStyleRule('margin-top', 'space20');
@@ -110,7 +110,7 @@ describe('Anchor', () => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" marginX="space20" marginY="space20">
         Anchor
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByTestId('styledAnchor');
     expect(renderedAnchor).toHaveStyleRule('margin-top', 'space20');
@@ -123,7 +123,7 @@ describe('Anchor', () => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" padding="space20">
         Anchor
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByTestId('styledAnchor');
     expect(renderedAnchor).toHaveStyleRule('padding', 'space20');
@@ -140,7 +140,7 @@ describe('Anchor', () => {
         paddingLeft="space20"
       >
         Anchor
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByTestId('styledAnchor');
     expect(renderedAnchor).toHaveStyleRule('padding-top', 'space20');
@@ -153,7 +153,7 @@ describe('Anchor', () => {
     render(
       <Anchor href="https://twilio.com" data-testid="styledAnchor" paddingX="space20" paddingY="space20">
         Anchor
-      </Anchor>
+      </Anchor>,
     );
     const renderedAnchor = screen.getByTestId('styledAnchor');
     expect(renderedAnchor).toHaveStyleRule('padding-top', 'space20');
@@ -167,7 +167,7 @@ describe('Anchor', () => {
       render(
         <Anchor href="https://twilio.com">
           This is an anchor that links to Twilio.com with an external target and rel
-        </Anchor>
+        </Anchor>,
       );
       const renderedAnchor = screen.getByRole('link');
       expect(renderedAnchor.getAttribute('data-paste-element')).toEqual('ANCHOR');
@@ -176,7 +176,7 @@ describe('Anchor', () => {
       render(
         <Anchor element="FUNKY_ANCHOR" href="https://twilio.com">
           This is an anchor that links to Twilio.com with an external target and rel
-        </Anchor>
+        </Anchor>,
       );
       const renderedAnchor = screen.getByRole('link');
       expect(renderedAnchor.getAttribute('data-paste-element')).toEqual('FUNKY_ANCHOR');
@@ -187,12 +187,12 @@ describe('Anchor', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
+          elements={{ ANCHOR: { backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive' } }}
         >
           <Anchor href="https://paste.twilio.design" data-testid="customizable-anchor">
             Custom anchor
           </Anchor>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedAnchor = screen.getByTestId('customizable-anchor');
       expect(renderedAnchor).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -203,12 +203,12 @@ describe('Anchor', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{FUNKY_ANCHOR: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
+          elements={{ FUNKY_ANCHOR: { backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive' } }}
         >
           <Anchor element="FUNKY_ANCHOR" href="https://paste.twilio.design" data-testid="customizable-anchor">
             Custom anchor
           </Anchor>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedAnchor = screen.getByTestId('customizable-anchor');
       expect(renderedAnchor).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -221,7 +221,7 @@ describe('Anchor', () => {
       render(
         <Anchor showExternal href="#">
           I am anchor
-        </Anchor>
+        </Anchor>,
       );
       const externalAnchor = screen.getByRole('link');
       const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
@@ -231,7 +231,7 @@ describe('Anchor', () => {
       render(
         <Anchor showExternal href="#" i18nExternalLinkLabel="(este enlace redirige a una página externa)">
           Soy enlace
-        </Anchor>
+        </Anchor>,
       );
       const externalAnchor = screen.getByRole('link');
       const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');

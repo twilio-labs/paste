@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
-import {Customized} from '../stories/label.stories';
-import {Label, RequiredDot} from '../src';
+import { Customized } from '../stories/label.stories';
+import { Label, RequiredDot } from '../src';
 
 describe('Label for prop', () => {
   const initialProps = {
@@ -13,7 +13,7 @@ describe('Label for prop', () => {
     render(
       <Label data-testid="test-label" {...initialProps}>
         Label
-      </Label>
+      </Label>,
     );
     expect(screen.getByTestId('test-label').getAttribute('for')).toEqual('input');
   });
@@ -29,7 +29,7 @@ describe('Label required prop', () => {
     render(
       <Label data-testid="test-label" {...initialProps}>
         label
-      </Label>
+      </Label>,
     );
     const label = screen.getByTestId('test-label');
     const requiredDot = label.querySelector('[data-paste-element="REQUIRED_DOT"]');
@@ -39,7 +39,7 @@ describe('Label required prop', () => {
 });
 
 describe('Customization', () => {
-  const {getByTestId} = render(<Customized />);
+  const { getByTestId } = render(<Customized />);
   const label = getByTestId('label_test');
   const customLabel = getByTestId('custom_label_test');
   const requiredDotWrapper = getByTestId('required_dot');

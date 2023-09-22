@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/core/box';
+import { Box } from '@twilio-paste/core/box';
 
-import {SiteHeaderLogo} from './SiteHeaderLogo';
+import { SiteHeaderLogo } from './SiteHeaderLogo';
 
 const TopBar = (): JSX.Element => {
   return (
@@ -19,4 +19,4 @@ const TopBar = (): JSX.Element => {
   );
 };
 
-export {TopBar};
+export { TopBar };

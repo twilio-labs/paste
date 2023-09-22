@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 
-import {ProgressCurrentIcon} from './icons/ProgressCurrentIcon';
-import type {ProgressStepCurrentProps} from './types';
+import { ProgressCurrentIcon } from './icons/ProgressCurrentIcon';
+import type { ProgressStepCurrentProps } from './types';
 
 export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStepCurrentProps>(
-  ({element = 'PROGRESS_STEP_CURRENT', as = 'div', children, i18nCurrentLabel = 'Current', ...props}, ref) => {
+  ({ element = 'PROGRESS_STEP_CURRENT', as = 'div', children, i18nCurrentLabel = 'Current', ...props }, ref) => {
     return (
       <div role="listitem">
         <Box
@@ -30,8 +30,8 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
           borderRadius="borderRadius20"
           cursor={as !== 'div' ? 'pointer' : 'default'}
           color="colorTextPrimary"
-          _hover={as !== 'div' ? {textDecoration: 'none', color: 'colorTextPrimaryStrongest'} : undefined}
-          _focus={as !== 'div' ? {boxShadow: 'shadowFocus'} : undefined}
+          _hover={as !== 'div' ? { textDecoration: 'none', color: 'colorTextPrimaryStrongest' } : undefined}
+          _focus={as !== 'div' ? { boxShadow: 'shadowFocus' } : undefined}
         >
           <ProgressCurrentIcon decorative={false} title={i18nCurrentLabel} />
           <Box as="span" textAlign="left">
@@ -40,6 +40,6 @@ export const ProgressStepCurrent = React.forwardRef<HTMLDivElement, ProgressStep
         </Box>
       </div>
     );
-  }
+  },
 );
 ProgressStepCurrent.displayName = 'ProgressStepCurrent';

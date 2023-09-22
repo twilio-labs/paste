@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {HelpText} from '@twilio-paste/help-text';
+import { Box } from '@twilio-paste/box';
+import { HelpText } from '@twilio-paste/help-text';
 
-import {Checkbox} from './Checkbox';
-import type {CheckboxProps} from './Checkbox';
+import { Checkbox } from './Checkbox';
+import type { CheckboxProps } from './Checkbox';
 
 export interface CheckboxDisclaimerProps
   extends Omit<CheckboxProps, 'isSelectAll' | 'isSelectAllChild' | 'indeterminate' | 'helpText' | 'hasError'> {
@@ -12,7 +12,7 @@ export interface CheckboxDisclaimerProps
 }
 
 const CheckboxDisclaimer = React.forwardRef<HTMLInputElement, CheckboxDisclaimerProps>(
-  ({children, element = 'CHECKBOX_DISCLAIMER', errorText, ...props}, ref) => {
+  ({ children, element = 'CHECKBOX_DISCLAIMER', errorText, ...props }, ref) => {
     return (
       <>
         <Box element={element} backgroundColor="colorBackground" borderRadius="borderRadius20" padding="space50">
@@ -27,9 +27,9 @@ const CheckboxDisclaimer = React.forwardRef<HTMLInputElement, CheckboxDisclaimer
         )}
       </>
     );
-  }
+  },
 );
 
 CheckboxDisclaimer.displayName = 'CheckboxDisclaimer';
 
-export {CheckboxDisclaimer};
+export { CheckboxDisclaimer };

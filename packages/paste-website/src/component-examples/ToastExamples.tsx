@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Toaster, useToaster} from '@twilio-paste/toast';
-import type {ToastVariants} from '@twilio-paste/toast';
-import {Button} from '@twilio-paste/button';
-import {Stack} from '@twilio-paste/stack';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+import { useUID } from '@twilio-paste/uid-library';
+import { Toaster, useToaster } from '@twilio-paste/toast';
+import type { ToastVariants } from '@twilio-paste/toast';
+import { Button } from '@twilio-paste/button';
+import { Stack } from '@twilio-paste/stack';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { RadioGroup, Radio } from '@twilio-paste/radio-group';
 
 export const ToasterExample = (): JSX.Element => {
   const toaster = useToaster();
@@ -21,7 +21,7 @@ export const ToasterExample = (): JSX.Element => {
     toaster.push({
       variant: variantStyle,
       message: messageText,
-      ...(toastTimeout !== '0' && toastTimeout !== '' && {dismissAfter: Number.parseInt(toastTimeout, 10)}),
+      ...(toastTimeout !== '0' && toastTimeout !== '' && { dismissAfter: Number.parseInt(toastTimeout, 10) }),
     });
   };
   return (

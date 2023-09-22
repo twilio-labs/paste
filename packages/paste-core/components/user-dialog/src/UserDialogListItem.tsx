@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {ListboxPrimitiveItem} from '@twilio-paste/listbox-primitive';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { ListboxPrimitiveItem } from '@twilio-paste/listbox-primitive';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 
-import type {UserDialogListItemProps, UserDialogListboxItemProps} from './types';
+import type { UserDialogListItemProps, UserDialogListboxItemProps } from './types';
 
 const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogListboxItemProps>(
-  ({children, href, element = 'USER_DIALOG', ...props}, ref) => {
+  ({ children, href, element = 'USER_DIALOG', ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -44,17 +44,17 @@ const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogList
         {children}
       </Box>
     );
-  }
+  },
 );
 UserDialogListboxItem.displayName = 'UserDialogListboxItem';
 
 export const UserDialogListItem = React.forwardRef<HTMLButtonElement, UserDialogListItemProps>(
-  ({children, ...props}, ref) => {
+  ({ children, ...props }, ref) => {
     return (
       <ListboxPrimitiveItem {...props} ref={ref} as={UserDialogListboxItem}>
         {children}
       </ListboxPrimitiveItem>
     );
-  }
+  },
 );
 UserDialogListItem.displayName = 'UserDialogListItem';

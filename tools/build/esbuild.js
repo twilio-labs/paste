@@ -1,9 +1,9 @@
 const path = require('path');
 const esbuild = require('esbuild');
-const {esbuildPluginVersionInjector} = require('esbuild-plugin-version-injector');
+const { esbuildPluginVersionInjector } = require('esbuild-plugin-version-injector');
 
-const {PasteCJSResolverPlugin} = require('./plugins/PasteCJSResolver');
-const {EsmExternalsPlugin} = require('./plugins/EsmExternals');
+const { PasteCJSResolverPlugin } = require('./plugins/PasteCJSResolver');
+const { EsmExternalsPlugin } = require('./plugins/EsmExternals');
 
 /**
  * ESBuild handles externals literally so that `@twilio-paste/design-tokens` won't
@@ -95,7 +95,7 @@ async function build(packageJson) {
       format: 'esm',
       outfile: outFileESM,
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
-      plugins: [EsmExternalsPlugin({externals: external}), esbuildPluginVersionInjector(versionInjectorConfig)],
+      plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
     })
     .catch((error) => {
       console.error(error);
@@ -124,7 +124,7 @@ async function build(packageJson) {
       format: 'esm',
       outfile: outFileESM.replace('.es.js', '.debug.es.js'),
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
-      plugins: [EsmExternalsPlugin({externals: external}), esbuildPluginVersionInjector(versionInjectorConfig)],
+      plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
     })
     .catch((error) => {
       console.error(error);
@@ -133,4 +133,4 @@ async function build(packageJson) {
     });
 }
 
-module.exports = {build};
+module.exports = { build };

@@ -1,24 +1,24 @@
 import * as React from 'react';
-import type {AppProps} from 'next/app';
+import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import Script from 'next/script';
-import {useRouter} from 'next/router';
-import {datadogRum} from '@datadog/browser-rum';
-import {Theme} from '@twilio-paste/theme';
+import { useRouter } from 'next/router';
+import { datadogRum } from '@datadog/browser-rum';
+import { Theme } from '@twilio-paste/theme';
 
 import packageJSON from '../../../paste-core/core-bundle/package.json';
-import {CookieConsent} from '../components/CookieConsent';
-import {useDarkMode} from '../hooks/useDarkMode';
+import { CookieConsent } from '../components/CookieConsent';
+import { useDarkMode } from '../hooks/useDarkMode';
 import * as gtag from '../lib/gtag';
-import {DarkModeContext} from '../context/DarkModeContext';
-import {inCypress} from '../utils/inCypress';
-import {PreviewThemeContext} from '../context/PreviewThemeContext';
-import {SimpleStorage} from '../utils/SimpleStorage';
-import {SITE_BREAKPOINTS, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT} from '../constants';
+import { DarkModeContext } from '../context/DarkModeContext';
+import { inCypress } from '../utils/inCypress';
+import { PreviewThemeContext } from '../context/PreviewThemeContext';
+import { SimpleStorage } from '../utils/SimpleStorage';
+import { SITE_BREAKPOINTS, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT } from '../constants';
 
 const isProd = ENVIRONMENT_CONTEXT === 'production';
 
-const App = ({Component, pageProps}: AppProps): React.ReactElement => {
+const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
   const router = useRouter();
   const localStorageKey = 'cookie-consent-accepted';
   const [theme, toggleMode, componentMounted] = useDarkMode();
@@ -114,10 +114,10 @@ const App = ({Component, pageProps}: AppProps): React.ReactElement => {
         theme={theme}
         customBreakpoints={SITE_BREAKPOINTS}
         disableAnimations={inCypress()}
-        cacheProviderProps={{key: 'next'}}
+        cacheProviderProps={{ key: 'next' }}
       >
-        <DarkModeContext.Provider value={{theme, toggleMode, componentMounted}}>
-          <PreviewThemeContext.Provider value={{theme: previewTheme, selectTheme: setPreviewTheme}}>
+        <DarkModeContext.Provider value={{ theme, toggleMode, componentMounted }}>
+          <PreviewThemeContext.Provider value={{ theme: previewTheme, selectTheme: setPreviewTheme }}>
             <Component {...pageProps} />
             {cookiesAccepted === null && <CookieConsent onAccept={handleCookieAccept} onReject={handleCookieReject} />}
           </PreviewThemeContext.Provider>

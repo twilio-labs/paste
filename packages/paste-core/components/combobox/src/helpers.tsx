@@ -1,9 +1,9 @@
-import type {HelpTextVariants} from '@twilio-paste/help-text';
-import type {InputVariants} from '@twilio-paste/input';
+import type { HelpTextVariants } from '@twilio-paste/help-text';
+import type { InputVariants } from '@twilio-paste/input';
 import groupBy from 'lodash/groupBy';
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
 
-import type {Item} from './types';
+import type { Item } from './types';
 
 type IndexedItem = Item & {
   index: number;
@@ -17,9 +17,9 @@ type IndexedItem = Item & {
 export const getIndexedItems = (items: Item[]): IndexedItem[] => {
   return items.map((item, index) => {
     if (typeof item === 'string') {
-      return {label: item, index};
+      return { label: item, index };
     }
-    return {...item, index};
+    return { ...item, index };
   });
 };
 

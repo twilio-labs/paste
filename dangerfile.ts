@@ -5,8 +5,8 @@ import changesetsThatNeedCoreCheck from './.danger/changesets-that-need-core-che
 import missingUpgradeGuide from './.danger/missing-upgrade-guide-check';
 import websitePageVrtCheck from './.danger/website-page-vrt-check';
 import pinExternalDeps from './.danger/pin-external-deps';
-import {getRepoPackages} from './tools/utils/getRepoPackages';
-import type {PackageShape} from './tools/utils/getRepoPackages';
+import { getRepoPackages } from './tools/utils/getRepoPackages';
+import type { PackageShape } from './tools/utils/getRepoPackages';
 
 // eslint-disable-next-line import/no-default-export
 export default async (): Promise<void> => {

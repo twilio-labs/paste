@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps, BoxElementProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxStyleProps, BoxElementProps } from '@twilio-paste/box';
 
-import {MessageVariantContext} from './MessageVariantContext';
-import type {MessageVariants} from './MessageVariantContext';
+import { MessageVariantContext } from './MessageVariantContext';
+import type { MessageVariants } from './MessageVariantContext';
 
 export interface ChatMessageProps {
   children?: React.ReactNode;
@@ -26,7 +26,7 @@ const messageVariantStyles: {
 };
 
 export const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
-  ({children, variant, element = 'CHAT_MESSAGE', ...props}, ref) => {
+  ({ children, variant, element = 'CHAT_MESSAGE', ...props }, ref) => {
     return (
       <MessageVariantContext.Provider value={variant}>
         <Box
@@ -43,7 +43,7 @@ export const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
         </Box>
       </MessageVariantContext.Provider>
     );
-  }
+  },
 );
 
 ChatMessage.displayName = 'ChatMessage';

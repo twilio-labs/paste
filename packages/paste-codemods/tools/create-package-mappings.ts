@@ -1,7 +1,7 @@
 import path from 'path';
 
-import {writeToFile} from '../../../tools/utils/writeToFile';
-import {generatePackageExportsMap} from './generatePackageExportsMap';
+import { writeToFile } from '../../../tools/utils/writeToFile';
+import { generatePackageExportsMap } from './generatePackageExportsMap';
 
 (async () => {
   const mapping = await generatePackageExportsMap();

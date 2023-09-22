@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {Text} from '@twilio-paste/text';
-import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
+import { Text } from '@twilio-paste/text';
+import { ArrowForwardIcon } from '@twilio-paste/icons/esm/ArrowForwardIcon';
 
-import {PaginationArrowButton} from './PaginationArrowButton';
-import {PaginationArrowIconWrapper} from './PaginationArrowIconWrapper';
-import type {PaginationArrowProps} from '../types';
+import { PaginationArrowButton } from './PaginationArrowButton';
+import { PaginationArrowIconWrapper } from './PaginationArrowIconWrapper';
+import type { PaginationArrowProps } from '../types';
 
 const PaginationForwardArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
   (
-    {as = 'button', element = 'PAGINATION_ARROW', disabled, isFocused, isHovered, label, visibleLabel, ...props},
-    ref
+    { as = 'button', element = 'PAGINATION_ARROW', disabled, isFocused, isHovered, label, visibleLabel, ...props },
+    ref,
   ) => {
     return (
       <PaginationArrowButton
@@ -43,9 +43,9 @@ const PaginationForwardArrow = React.forwardRef<HTMLButtonElement, PaginationArr
         </PaginationArrowIconWrapper>
       </PaginationArrowButton>
     );
-  }
+  },
 );
 
 PaginationForwardArrow.displayName = 'PaginationForwardArrow';
 
-export {PaginationForwardArrow};
+export { PaginationForwardArrow };

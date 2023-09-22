@@ -2,7 +2,7 @@
 // @ts-nocheck copied from official highcharts docs
 import Highcharts from 'highcharts';
 
-import {elevationData} from '../data/elevationData';
+import { elevationData } from '../data/elevationData';
 
 export const lineChartWithAnnotationsOptions: Highcharts.Options = {
   chart: {

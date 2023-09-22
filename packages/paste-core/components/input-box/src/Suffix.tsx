@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {BackgroundColor, BorderColor} from '@twilio-paste/style-props';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { BackgroundColor, BorderColor } from '@twilio-paste/style-props';
 
-import type {Variants} from './types';
+import type { Variants } from './types';
 
 export interface SuffixProps {
   children: NonNullable<React.ReactNode>;
@@ -17,7 +17,7 @@ export interface SuffixProps {
 }
 
 const Suffix = React.forwardRef<HTMLDivElement, SuffixProps>(
-  ({children, disabled, element = 'SUFFIX', variant}, ref) => {
+  ({ children, disabled, element = 'SUFFIX', variant }, ref) => {
     let backgroundColor = 'colorBackgroundWeak' as BackgroundColor;
     let borderColor = 'colorBorderWeaker' as BorderColor;
 
@@ -52,9 +52,9 @@ const Suffix = React.forwardRef<HTMLDivElement, SuffixProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
 Suffix.displayName = 'Suffix';
 
-export {Suffix};
+export { Suffix };

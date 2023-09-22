@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Button} from '../src';
+import { Button } from '../src';
 
 const NOOP = (): void => {};
 const HREF = 'https://twilio.paste.design';
@@ -19,8 +19,8 @@ describe('Button', () => {
         render(
           <Button variant="primary" href={HREF}>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
@@ -33,8 +33,8 @@ describe('Button', () => {
         render(
           <Button as="a" variant="primary">
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
@@ -47,15 +47,15 @@ describe('Button', () => {
         render(
           <Button as="a" variant="link" href={HREF}>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       expect(() =>
         render(
           <Button as="a" variant="inverse_link" href={HREF}>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
@@ -68,15 +68,15 @@ describe('Button', () => {
         render(
           <Button as="a" href="#" variant="destructive">
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       expect(() =>
         render(
           <Button as="a" href="#" variant="destructive_secondary">
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
@@ -89,16 +89,16 @@ describe('Button', () => {
         render(
           <Button as="a" href="#" variant="primary" disabled>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
 
       expect(() =>
         render(
           <Button as="a" href="#" variant="primary" loading>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
@@ -111,8 +111,8 @@ describe('Button', () => {
         render(
           <Button variant="reset" size="small">
             Submit
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
@@ -125,8 +125,8 @@ describe('Button', () => {
         render(
           <Button variant="primary" fullWidth size="icon">
             X
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
@@ -139,8 +139,8 @@ describe('Button', () => {
         render(
           <Button variant="primary" fullWidth size="icon_small">
             X
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
@@ -177,42 +177,42 @@ describe('Button', () => {
 
   describe('Button aria attributes', () => {
     it('Has an aria-expanded attribute', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Button variant="secondary" aria-expanded="true">
           button
-        </Button>
+        </Button>,
       );
 
       expect(getByRole('button')).toHaveAttribute('aria-expanded', 'true');
     });
 
     it('Has an aria-haspopup attribute', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Button variant="secondary" aria-haspopup="true">
           button
-        </Button>
+        </Button>,
       );
 
       expect(getByRole('button')).toHaveAttribute('aria-haspopup', 'true');
     });
 
     it('Has an aria-controls attribute', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Button variant="secondary" aria-controls="some-id">
           button
-        </Button>
+        </Button>,
       );
 
       expect(getByRole('button')).toHaveAttribute('aria-controls', 'some-id');
     });
 
     it('Has an aria-busy attribute when loading', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" loading>
             button
           </Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const button = getByRole('button');
@@ -222,10 +222,10 @@ describe('Button', () => {
     });
 
     it('Has disabled set on HTML when disabled', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Button variant="secondary" disabled>
           button
-        </Button>
+        </Button>,
       );
 
       expect(getByRole('button')).toBeDisabled();
@@ -234,10 +234,10 @@ describe('Button', () => {
 
   describe('Button data attributes', () => {
     it('Has an data-foo attribute', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Button variant="secondary" data-foo="test">
           button
-        </Button>
+        </Button>,
       );
 
       expect(getByRole('button')).toHaveAttribute('data-foo', 'test');
@@ -246,10 +246,10 @@ describe('Button', () => {
 
   describe('Button render as', () => {
     it('Renders a button as a link', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Button as="a" variant="secondary" href="/tests">
           button
-        </Button>
+        </Button>,
       );
 
       expect(getByRole('link')).toBeInTheDocument();
@@ -258,10 +258,10 @@ describe('Button', () => {
 
   describe('Button margin styles', () => {
     it('Renders a button with margin: space0', () => {
-      const {getByTestId} = render(
+      const { getByTestId } = render(
         <Button variant="primary" data-testid="button-margin">
           button
-        </Button>
+        </Button>,
       );
       expect(getByTestId('button-margin')).toHaveStyleRule('margin', 'space0');
     });
@@ -269,15 +269,15 @@ describe('Button', () => {
 
   describe('Button inner padding', () => {
     it('should not set padding for buttons with only one child', () => {
-      const {getByText} = render(<Button variant="primary">Hello</Button>);
+      const { getByText } = render(<Button variant="primary">Hello</Button>);
       expect(getByText('Hello')).not.toHaveStyleRule('padding', 'undefined');
     });
     it('should set padding between rendered children', () => {
-      const {getByText} = render(
+      const { getByText } = render(
         <Button variant="primary">
           Hello
           <PlusIcon decorative />
-        </Button>
+        </Button>,
       );
       expect(getByText('Hello')).toHaveStyleRule('column-gap', 'space20');
     });
@@ -293,7 +293,7 @@ describe('Button', () => {
       const onFocusMock: jest.Mock = jest.fn();
       const onBlurMock: jest.Mock = jest.fn();
 
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Button
           variant="primary"
           onClick={onClickMock}
@@ -305,7 +305,7 @@ describe('Button', () => {
           onBlur={onBlurMock}
         >
           Hello
-        </Button>
+        </Button>,
       );
 
       const button = getByRole('button');
@@ -331,10 +331,10 @@ describe('Button', () => {
 
   describe('button default styles', () => {
     it('should have the correct styles for the primary variant', () => {
-      const {getByTestId, getByText} = render(
+      const { getByTestId, getByText } = render(
         <Button variant="primary" data-testid="primary-styles">
           Primary
-        </Button>
+        </Button>,
       );
 
       const button = getByTestId('primary-styles');
@@ -348,10 +348,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the primary_icon variant', () => {
-      const {getByTestId} = render(
+      const { getByTestId } = render(
         <Button variant="primary_icon" data-testid="primary-icon-styles" size="reset" onClick={NOOP}>
           <PlusIcon decorative={false} title="add more" />
-        </Button>
+        </Button>,
       );
 
       const button = getByTestId('primary-icon-styles');
@@ -361,10 +361,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the secondary variant', () => {
-      const {getByTestId, getByText} = render(
+      const { getByTestId, getByText } = render(
         <Button variant="secondary" data-testid="secondary-styles">
           Secondary
-        </Button>
+        </Button>,
       );
 
       const button = getByTestId('secondary-styles');
@@ -378,10 +378,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the secondary_icon variant', () => {
-      const {getByTestId} = render(
+      const { getByTestId } = render(
         <Button variant="secondary_icon" data-testid="secondary-icon-styles" size="reset" onClick={NOOP}>
           <PlusIcon decorative={false} title="add more" />
-        </Button>
+        </Button>,
       );
 
       const button = getByTestId('secondary-icon-styles');
@@ -391,10 +391,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the destructive variant', () => {
-      const {getByTestId, getByText} = render(
+      const { getByTestId, getByText } = render(
         <Button variant="destructive" data-testid="destructive-styles">
           Destructive
-        </Button>
+        </Button>,
       );
 
       const button = getByTestId('destructive-styles');
@@ -408,10 +408,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the destructive_icon variant', () => {
-      const {getByTestId} = render(
+      const { getByTestId } = render(
         <Button variant="destructive_icon" data-testid="destructive-icon-styles" size="reset" onClick={NOOP}>
           <PlusIcon decorative={false} title="add more" />
-        </Button>
+        </Button>,
       );
 
       const button = getByTestId('destructive-icon-styles');
@@ -421,10 +421,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the destructive_secondary variant', () => {
-      const {getByTestId, getByText} = render(
+      const { getByTestId, getByText } = render(
         <Button variant="destructive_secondary" data-testid="destructive_secondary-styles">
           Destructive secondary
-        </Button>
+        </Button>,
       );
 
       const button = getByTestId('destructive_secondary-styles');
@@ -437,10 +437,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the destructive_link variant', () => {
-      const {getByTestId, getByText} = render(
+      const { getByTestId, getByText } = render(
         <Button variant="destructive_link" data-testid="destructive_link-styles">
           Destructive link
-        </Button>
+        </Button>,
       );
 
       const button = getByTestId('destructive_link-styles');
@@ -452,10 +452,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the link variant', () => {
-      const {getByTestId, getByText} = render(
+      const { getByTestId, getByText } = render(
         <Button variant="link" data-testid="link-styles">
           Link
-        </Button>
+        </Button>,
       );
 
       const button = getByTestId('link-styles');
@@ -468,10 +468,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the reset variant', () => {
-      const {getByText, getByTestId} = render(
+      const { getByText, getByTestId } = render(
         <Button variant="reset" data-testid="reset-styles">
           Reset
-        </Button>
+        </Button>,
       );
 
       expect(getByText('Reset')).not.toHaveStyleRule('justify-content', 'center');
@@ -479,12 +479,12 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for a link button in loading state', () => {
-      const {getByText, getByTestId} = render(
+      const { getByText, getByTestId } = render(
         <CustomizationProvider baseTheme="default" data-testid="wrapping-div">
           <Button variant="link" loading data-testid="loading-link-styles">
             Loading link
           </Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const buttonContent = getByText('Loading link');
@@ -506,10 +506,10 @@ describe('Button', () => {
     });
 
     it('should have the correct styles for the link variant in disabled state', () => {
-      const {getByTestId} = render(
+      const { getByTestId } = render(
         <Button variant="link" disabled data-testid="disabled-link-styles">
           Disabled link
-        </Button>
+        </Button>,
       );
 
       const buttonComponent = getByTestId('disabled-link-styles');
@@ -526,7 +526,7 @@ describe('Button', () => {
       render(
         <Button as="a" variant="primary" href="https://twilio.com">
           I am anchor
-        </Button>
+        </Button>,
       );
       const externalAnchor = screen.getByRole('link');
       const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
@@ -541,7 +541,7 @@ describe('Button', () => {
           i18nExternalLinkLabel="(este enlace redirige a una página externa)"
         >
           Ir a página externa
-        </Button>
+        </Button>,
       );
       const externalAnchor = screen.getByRole('link');
       const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
@@ -551,10 +551,10 @@ describe('Button', () => {
 
   describe('toggle button', () => {
     it('Does not have aria-pressed attribute when pressed undefined', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary">button</Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const button = getByRole('button');
@@ -563,12 +563,12 @@ describe('Button', () => {
     });
 
     it('Has an aria-pressed attribute when pressed is false', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" pressed={false}>
             button
           </Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const button = getByRole('button');
@@ -577,12 +577,12 @@ describe('Button', () => {
     });
 
     it('Has an aria-pressed attribute when pressed is true', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" pressed={true}>
             button
           </Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const button = getByRole('button');

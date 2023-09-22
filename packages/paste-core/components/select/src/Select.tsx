@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '@twilio-paste/input-box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import type {Variants, Element} from './types';
+import type { Variants, Element } from './types';
 
 export interface SelectProps extends HTMLPasteProps<'select'> {
   children: NonNullable<React.ReactNode>;
@@ -19,7 +19,7 @@ export interface SelectProps extends HTMLPasteProps<'select'> {
 }
 
 export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({element = 'SELECT_ELEMENT', variant, size, ...props}, ref) => {
+  ({ element = 'SELECT_ELEMENT', variant, size, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -61,7 +61,7 @@ export const SelectElement = React.forwardRef<HTMLSelectElement, SelectProps>(
         variant={variant}
       />
     );
-  }
+  },
 );
 
 SelectElement.displayName = 'SelectElement';
@@ -80,7 +80,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       variant = 'default',
       ...props
     },
-    ref
+    ref,
   ) => {
     const [showOptions, setShowOptions] = React.useState(false);
     React.useEffect(() => {
@@ -124,9 +124,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         </Box>
       </InputBox>
     );
-  }
+  },
 );
 
 Select.displayName = 'Select';
 
-export {Select};
+export { Select };

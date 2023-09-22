@@ -7,8 +7,8 @@
  */
 
 import path from 'path';
-import {readFile} from 'fs/promises';
-import {writeFileSync} from 'fs';
+import { readFile } from 'fs/promises';
+import { writeFileSync } from 'fs';
 
 import prettier from 'prettier';
 import ts from 'typescript';
@@ -27,13 +27,13 @@ import {
 function extractPropertiesOfTypeName(
   searchTerm: string | RegExp,
   sourceFile: ts.SourceFile,
-  typeChecker: ts.TypeChecker
+  typeChecker: ts.TypeChecker,
 ): null | Record<string, ComponentTypeProperties> {
   const regexSearchTerm = typeof searchTerm === 'string' ? `^${searchTerm}$` : searchTerm;
   const typeStatements = sourceFile.statements.filter(
     (statement) =>
       (ts.isInterfaceDeclaration(statement) || ts.isTypeAliasDeclaration(statement)) &&
-      new RegExp(regexSearchTerm).test(statement.name.getText())
+      new RegExp(regexSearchTerm).test(statement.name.getText()),
   );
 
   const results: Record<string, ComponentTypeProperties> = {};
@@ -96,11 +96,11 @@ function extractPropertiesOfTypeName(
 }
 
 function createTypeSearch(
-  tsConfigPath: string
+  tsConfigPath: string,
 ): (searchTerm: Parameters<typeof extractPropertiesOfTypeName>[0]) => Record<string, ComponentTypeProperties> {
   const configFile = ts.readConfigFile(tsConfigPath, ts.sys.readFile);
   const basePath = path.dirname(tsConfigPath);
-  const {fileNames, options} = ts.parseJsonConfigFileContent(configFile.config, ts.sys, basePath);
+  const { fileNames, options } = ts.parseJsonConfigFileContent(configFile.config, ts.sys, basePath);
 
   const program = ts.createProgram(fileNames, options);
   const sourceFiles = program.getSourceFiles();
@@ -122,7 +122,7 @@ const main = async (): Promise<void> => {
   const typeExports = extractTypeExports(fileContent)
     ?.map(searchType)
     .filter((value) => Object.keys(value).length > 0)
-    .reduce((acc, value) => ({...acc, ...value}), {});
+    .reduce((acc, value) => ({ ...acc, ...value }), {});
 
   const typeExportsWithThemeProps: Record<string, unknown> = {};
 
@@ -139,7 +139,7 @@ const main = async (): Promise<void> => {
       'type-docs.json',
       prettier.format(JSON.stringify(typeExportsWithThemeProps), {
         parser: 'json',
-      })
+      }),
     );
   }
 };

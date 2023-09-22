@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export interface AlertDialogBodyProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
   bodyID: string;
@@ -9,7 +9,7 @@ export interface AlertDialogBodyProps extends HTMLPasteProps<'div'>, Pick<BoxPro
 }
 
 export const AlertDialogBody = React.forwardRef<HTMLDivElement, AlertDialogBodyProps>(
-  ({bodyID, children, element = 'ALERT_DIALOG_BODY', ...props}, ref) => {
+  ({ bodyID, children, element = 'ALERT_DIALOG_BODY', ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -24,7 +24,7 @@ export const AlertDialogBody = React.forwardRef<HTMLDivElement, AlertDialogBodyP
         {children}
       </Box>
     );
-  }
+  },
 );
 
 AlertDialogBody.displayName = 'AlertDialogBody';

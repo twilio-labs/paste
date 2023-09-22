@@ -1,13 +1,13 @@
 import * as React from 'react';
-import type {GridProps} from '@twilio-paste/grid';
-import {Grid, Column} from '@twilio-paste/grid';
+import type { GridProps } from '@twilio-paste/grid';
+import { Grid, Column } from '@twilio-paste/grid';
 
 interface GetStartedCardLinksProps {
   children: NonNullable<React.ReactNode>;
   vertical: GridProps['vertical'];
 }
 export const GetStartedCardLinks = React.forwardRef<HTMLDivElement, GetStartedCardLinksProps>(
-  ({children, vertical}, ref) => {
+  ({ children, vertical }, ref) => {
     const WrappedLinks = React.Children.map(children, (child) => {
       return <Column>{child}</Column>;
     });
@@ -21,5 +21,5 @@ export const GetStartedCardLinks = React.forwardRef<HTMLDivElement, GetStartedCa
         {WrappedLinks}
       </Grid>
     );
-  }
+  },
 );

@@ -1,4 +1,4 @@
-import type {SizingData} from './getSizingData';
+import type { SizingData } from './getSizingData';
 
 export const getHeight = (node: HTMLElement, sizingData: SizingData): number => {
   const height = node.scrollHeight;

@@ -1,10 +1,10 @@
-import {Paragraph} from '@twilio-paste/paragraph';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import {Badge} from '@twilio-paste/badge';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
-import {Anchor} from '@twilio-paste/anchor';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { Badge } from '@twilio-paste/badge';
+import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
+import { Anchor } from '@twilio-paste/anchor';
 
-import {ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo} from './ProjectCard';
+import { ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo } from './ProjectCard';
 
 export const ComingSoonCard = (): JSX.Element => {
   return (

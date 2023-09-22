@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Suffix} from '../src';
+import { Suffix } from '../src';
 
 describe('HTML attributes', () => {
   it('should set a element data attribute for Suffix', () => {
@@ -23,11 +23,11 @@ describe('Customization', () => {
         baseTheme="default"
         theme={TestTheme}
         elements={{
-          INPUT_SUFFIX: {backgroundColor: 'colorBackground'},
+          INPUT_SUFFIX: { backgroundColor: 'colorBackground' },
         }}
       >
         <Suffix element="INPUT">suffix</Suffix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedSuffix = screen.getByText('suffix');
     expect(renderedSuffix).toHaveStyleRule('background-color', TestTheme.backgroundColors.colorBackground);
@@ -52,7 +52,7 @@ describe('Customization', () => {
         <Suffix element="INPUT" variant="inverse">
           suffix
         </Suffix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedSuffix = screen.getByText('suffix');
     expect(renderedSuffix).toHaveStyleRule('background-color', TestTheme.backgroundColors.colorBackgroundBrand);
@@ -64,11 +64,11 @@ describe('Customization', () => {
         baseTheme="default"
         theme={TestTheme}
         elements={{
-          FOO_SUFFIX: {backgroundColor: 'colorBackground'},
+          FOO_SUFFIX: { backgroundColor: 'colorBackground' },
         }}
       >
         <Suffix element="FOO">suffix</Suffix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedSuffix = screen.getByText('suffix');
     expect(renderedSuffix).toHaveStyleRule('background-color', TestTheme.backgroundColors.colorBackground);
@@ -93,7 +93,7 @@ describe('Customization', () => {
         <Suffix element="FOO" variant="inverse">
           suffix
         </Suffix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedSuffix = screen.getByText('suffix');
     expect(renderedSuffix).toHaveStyleRule('background-color', TestTheme.backgroundColors.colorBackgroundBrand);

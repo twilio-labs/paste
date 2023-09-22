@@ -1,5 +1,5 @@
-import {styled, css} from '@twilio-paste/styling-library';
-import {ButtonToggleStyles, DestructiveSecondaryButtonToggleStyles} from '@twilio-paste/button';
+import { styled, css } from '@twilio-paste/styling-library';
+import { ButtonToggleStyles, DestructiveSecondaryButtonToggleStyles } from '@twilio-paste/button';
 
 export const StyledRadioButtonLabel = styled.label(
   css({
@@ -43,5 +43,5 @@ export const StyledRadioButtonLabel = styled.label(
       ...DestructiveSecondaryButtonToggleStyles._disabled,
       zIndex: 0,
     },
-  })
+  }),
 );

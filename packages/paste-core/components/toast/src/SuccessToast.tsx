@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 
-import type {ToastProps} from './types';
+import type { ToastProps } from './types';
 
-const SuccessToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'TOAST', variant, ...props}, ref) => {
+const SuccessToast = React.forwardRef<HTMLDivElement, ToastProps>(({ element = 'TOAST', variant, ...props }, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -27,4 +27,4 @@ const SuccessToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'T
 
 SuccessToast.displayName = 'SuccessToast';
 
-export {SuccessToast};
+export { SuccessToast };

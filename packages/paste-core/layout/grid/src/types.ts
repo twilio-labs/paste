@@ -1,7 +1,7 @@
-import type {BoxProps} from '@twilio-paste/box';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
-import type {LayoutProps, FlexboxProps, PaddingProps, Space, Padding, SpaceProps} from '@twilio-paste/style-props';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { BoxProps } from '@twilio-paste/box';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
+import type { LayoutProps, FlexboxProps, PaddingProps, Space, Padding, SpaceProps } from '@twilio-paste/style-props';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 /** element identifier from BoxProps for customization */
 export interface GridProps extends HTMLPasteProps<'div'>, SpaceProps {

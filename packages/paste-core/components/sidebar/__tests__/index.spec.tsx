@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
 
 import {
   Sidebar,
@@ -16,7 +16,7 @@ import {
   SidebarOverlayContentWrapper,
   SidebarBetaBadge,
 } from '../src';
-import type {SidebarProps} from '../src';
+import type { SidebarProps } from '../src';
 
 const MockPushSidebar = ({
   collapsed,
@@ -186,15 +186,15 @@ describe('Sidebar', () => {
       render(
         <SidebarBetaBadge as="span" ref={betaBadgeRef}>
           Beta
-        </SidebarBetaBadge>
+        </SidebarBetaBadge>,
       );
       expect(betaBadgeRef?.current?.tagName).toEqual('SPAN');
     });
     it('should render as button if "as" is "button"', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <SidebarBetaBadge as="button" onClick={() => null}>
           Button
-        </SidebarBetaBadge>
+        </SidebarBetaBadge>,
       );
       expect(getByRole('button')).toBeInTheDocument();
     });
@@ -204,17 +204,17 @@ describe('Sidebar', () => {
       render(
         <SidebarBetaBadge as="button" onClick={() => {}} ref={betaBadgeRef}>
           Beta
-        </SidebarBetaBadge>
+        </SidebarBetaBadge>,
       );
       expect(betaBadgeRef?.current?.tagName).toEqual('BUTTON');
     });
 
     it('should handle onclick event', () => {
       const onClickMock: jest.Mock = jest.fn();
-      const {getByRole} = render(
+      const { getByRole } = render(
         <SidebarBetaBadge as="button" onClick={onClickMock}>
           Button
-        </SidebarBetaBadge>
+        </SidebarBetaBadge>,
       );
       const button = getByRole('button');
       fireEvent.click(button);
@@ -232,14 +232,14 @@ describe('Sidebar', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            SIDEBAR: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
+            SIDEBAR: { backgroundColor: 'colorBackgroundPrimary', margin: 'space50' },
             SIDEBAR_COLLAPSE_BUTTON: {
               padding: 'space40',
             },
             SIDEBAR_FOOTER: {
               padding: 'space40',
             },
-            SIDEBAR_PUSH_CONTENT_WRAPPER: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
+            SIDEBAR_PUSH_CONTENT_WRAPPER: { backgroundColor: 'colorBackgroundPrimary', margin: 'space50' },
             SIDEBAR_BETA_BADGE: {
               backgroundColor: 'colorBackgroundAvailable',
             },
@@ -263,7 +263,7 @@ describe('Sidebar', () => {
           <SidebarPushContentWrapper variant="compact" data-testid="contentwrapper">
             <div>Content area</div>
           </SidebarPushContentWrapper>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const nav = screen.getByRole('complementary');
       expect(nav).toHaveStyleRule('margin', '1rem');
@@ -289,8 +289,8 @@ describe('Sidebar', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            XSIDE: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
-            XSIDE_WRAPPER: {backgroundColor: 'colorBackgroundPrimary', margin: 'space50'},
+            XSIDE: { backgroundColor: 'colorBackgroundPrimary', margin: 'space50' },
+            XSIDE_WRAPPER: { backgroundColor: 'colorBackgroundPrimary', margin: 'space50' },
             XSIDE_COLLAPSE_BUTTON: {
               padding: 'space40',
             },
@@ -326,7 +326,7 @@ describe('Sidebar', () => {
           <SidebarPushContentWrapper variant="compact" element="XSIDE_WRAPPER" data-testid="contentwrapper">
             <div>Content area</div>
           </SidebarPushContentWrapper>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const nav = screen.getByRole('complementary');
       expect(nav).toHaveStyleRule('margin', '1rem');

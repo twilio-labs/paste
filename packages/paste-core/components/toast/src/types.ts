@@ -1,8 +1,8 @@
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
-import type {Left} from '@twilio-paste/style-props';
+import type { BoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps, ValueOf } from '@twilio-paste/types';
+import type { Left } from '@twilio-paste/style-props';
 
-import type {ToastVariantObject} from './constants';
+import type { ToastVariantObject } from './constants';
 
 export type ToastVariants = ValueOf<typeof ToastVariantObject>;
 

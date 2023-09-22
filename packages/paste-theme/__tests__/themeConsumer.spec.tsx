@@ -1,12 +1,12 @@
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import {createRoot} from 'testing-tools/react-dom-create-root';
-import {render, act} from '@testing-library/react';
+import { createRoot } from 'testing-tools/react-dom-create-root';
+import { render, act } from '@testing-library/react';
 
-import {Theme} from '../src';
+import { Theme } from '../src';
 
 const ThemeConsumerExampleComponent = (): React.ReactElement => {
-  return <Theme.Consumer>{({theme}) => <p>{theme.textColors.colorText}</p>}</Theme.Consumer>;
+  return <Theme.Consumer>{({ theme }) => <p>{theme.textColors.colorText}</p>}</Theme.Consumer>;
 };
 
 describe('Theme.Consumer', () => {
@@ -16,16 +16,16 @@ describe('Theme.Consumer', () => {
       root.render(
         <Theme.Provider theme="default">
           <ThemeConsumerExampleComponent />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
     });
   });
 
   it('should be able to access the theme object', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <Theme.Provider theme="default">
         <ThemeConsumerExampleComponent />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     expect(getByText('rgb(18, 28, 45)')).toBeDefined();

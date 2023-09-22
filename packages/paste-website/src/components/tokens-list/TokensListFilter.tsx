@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {Input} from '@twilio-paste/input';
-import {Button} from '@twilio-paste/button';
-import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
-import {ClearIcon} from '@twilio-paste/icons/esm/ClearIcon';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Select, Option} from '@twilio-paste/select';
-import {useUID} from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import { Label } from '@twilio-paste/label';
+import { Input } from '@twilio-paste/input';
+import { Button } from '@twilio-paste/button';
+import { FilterIcon } from '@twilio-paste/icons/esm/FilterIcon';
+import { ClearIcon } from '@twilio-paste/icons/esm/ClearIcon';
+import { Grid, Column } from '@twilio-paste/grid';
+import { Select, Option } from '@twilio-paste/select';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {SITE_TOPBAR_HEIGHT} from '../../constants';
+import { SITE_TOPBAR_HEIGHT } from '../../constants';
 
 export interface TokensListFilterProps {
   value: string;

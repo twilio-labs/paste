@@ -1,4 +1,4 @@
-import {getPseudoStyles, getCustomElementStyles} from '../src/StyleFunctions';
+import { getPseudoStyles, getCustomElementStyles } from '../src/StyleFunctions';
 
 describe('Text StyleFunctions', () => {
   /*
@@ -51,7 +51,7 @@ describe('Text StyleFunctions', () => {
 
   describe('getPseudoStyles', () => {
     it('should return resolved object styles when called with pseudo selector props set', () => {
-      const cssFunc = getPseudoStyles({_hover: {padding: 'space10', textDecoration: 'underline'}, as: 'span'});
+      const cssFunc = getPseudoStyles({ _hover: { padding: 'space10', textDecoration: 'underline' }, as: 'span' });
       if (typeof cssFunc === 'function') {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(cssFunc(mockTheme)).toEqual({
@@ -64,7 +64,7 @@ describe('Text StyleFunctions', () => {
     });
     it('should return an empty object styles when called with pseudo selector props set that do not match our expected pseudo selectors', () => {
       // @ts-expect-error testing invalid pseudo selectors
-      const cssFunc = getPseudoStyles({_hovered: {padding: 'space10'}});
+      const cssFunc = getPseudoStyles({ _hovered: { padding: 'space10' } });
       if (typeof cssFunc === 'function') {
         // eslint-disable-next-line jest/no-conditional-expect
         expect(cssFunc(mockTheme)).toEqual({});

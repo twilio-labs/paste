@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Column, Grid} from '../src';
-import {getColumnStyles} from '../src/Column';
+import { Column, Grid } from '../src';
+import { getColumnStyles } from '../src/Column';
 import {
   getColumnOffset,
   getColumnSpan,
@@ -168,7 +168,7 @@ describe('Grid', () => {
           getColumnSpan({
             count: 12,
             span: 6,
-          })
+          }),
         ).toEqual('50%');
       });
 
@@ -177,7 +177,7 @@ describe('Grid', () => {
           getColumnSpan({
             count: 12,
             span: 3,
-          })
+          }),
         ).toEqual('25%');
       });
 
@@ -185,7 +185,7 @@ describe('Grid', () => {
         expect(
           getColumnSpan({
             count: 3,
-          })
+          }),
         ).toEqual('33.33333333333333%');
       });
 
@@ -193,7 +193,7 @@ describe('Grid', () => {
         expect(
           getColumnSpan({
             count: 12,
-          })
+          }),
         ).toEqual('8.333333333333332%');
       });
 
@@ -201,7 +201,7 @@ describe('Grid', () => {
         expect(
           getColumnSpan({
             span: null,
-          })
+          }),
         ).toEqual('8.333333333333332%');
       });
 
@@ -210,7 +210,7 @@ describe('Grid', () => {
           getColumnSpan({
             count: 12,
             span: [3, 6, 3],
-          })
+          }),
         ).toEqual(['25%', '50%', '25%']);
       });
     });
@@ -219,7 +219,7 @@ describe('Grid', () => {
   describe('Column', () => {
     describe('getColumnStyles', () => {
       it('should return correct column padding when passed a gutter', () => {
-        expect(getColumnStyles({gutter: 'space20'})).toEqual({
+        expect(getColumnStyles({ gutter: 'space20' })).toEqual({
           ...BASE_PADDING,
           paddingLeft: 'space20',
           paddingRight: 'space20',
@@ -228,7 +228,7 @@ describe('Grid', () => {
       });
 
       it('should return correct column padding when passed a gutter and vertical is true', () => {
-        expect(getColumnStyles({gutter: 'space20', vertical: true})).toEqual({
+        expect(getColumnStyles({ gutter: 'space20', vertical: true })).toEqual({
           ...BASE_PADDING,
           marginLeft: 'space0',
           minWidth: '100%',
@@ -239,7 +239,7 @@ describe('Grid', () => {
       });
 
       it('should return correct column padding when passed no gutter and vertical is true', () => {
-        expect(getColumnStyles({vertical: true})).toEqual({
+        expect(getColumnStyles({ vertical: true })).toEqual({
           ...BASE_PADDING,
           marginLeft: 'space0',
           minWidth: '100%',
@@ -248,7 +248,7 @@ describe('Grid', () => {
       });
 
       it('should return correct column padding when passed a gutter and vertical is a responsive array value', () => {
-        expect(getColumnStyles({gutter: 'space20', vertical: [true, true, false]})).toEqual({
+        expect(getColumnStyles({ gutter: 'space20', vertical: [true, true, false] })).toEqual({
           marginLeft: 'space0',
           minWidth: ['100%', '100%', '0'],
           paddingBottom: ['space20', 'space20', 'space0'],
@@ -260,7 +260,7 @@ describe('Grid', () => {
       });
 
       it('should return correct column padding when passed a responsive array value for gutter and vertical', () => {
-        expect(getColumnStyles({gutter: ['space10', 'space30', 'space60'], vertical: [true, true, false]})).toEqual({
+        expect(getColumnStyles({ gutter: ['space10', 'space30', 'space60'], vertical: [true, true, false] })).toEqual({
           marginLeft: 'space0',
           minWidth: ['100%', '100%', '0'],
           paddingBottom: ['space10', 'space30', 'space0'],
@@ -272,12 +272,12 @@ describe('Grid', () => {
       });
 
       it('should return column margin left when passed a column offset based on size of offset', () => {
-        expect(getColumnStyles({offset: 2})).toEqual({
+        expect(getColumnStyles({ offset: 2 })).toEqual({
           ...BASE_PADDING,
           marginLeft: '16.666666666666664%',
           width: '8.333333333333332%',
         });
-        expect(getColumnStyles({offset: 6})).toEqual({
+        expect(getColumnStyles({ offset: 6 })).toEqual({
           ...BASE_PADDING,
           marginLeft: '50%',
           width: '8.333333333333332%',
@@ -285,12 +285,12 @@ describe('Grid', () => {
       });
 
       it('should set 100% width and zero offset when a column is vertical', () => {
-        expect(getColumnStyles({vertical: true, offset: 4})).toEqual({
+        expect(getColumnStyles({ vertical: true, offset: 4 })).toEqual({
           ...BASE_PADDING,
           marginLeft: '33.33333333333333%',
           width: '8.333333333333332%',
         });
-        expect(getColumnStyles({vertical: true})).toEqual({
+        expect(getColumnStyles({ vertical: true })).toEqual({
           ...BASE_PADDING,
           marginLeft: 'space0',
           minWidth: '100%',
@@ -299,7 +299,7 @@ describe('Grid', () => {
       });
 
       it('should set the column to stretch content and display flex when setting stretch column content', () => {
-        expect(getColumnStyles({stretchColumnContent: true})).toEqual({
+        expect(getColumnStyles({ stretchColumnContent: true })).toEqual({
           ...BASE_PADDING,
           alignContent: 'stretch',
           display: 'flex',
@@ -319,7 +319,7 @@ describe('Grid', () => {
           <Grid as="span" data-testid="grid-container-2">
             child
           </Grid>
-        </>
+        </>,
       );
       expect(screen.getByTestId('grid-container').tagName).toBe('SECTION');
       expect(screen.getByTestId('grid-container-2').tagName).toBe('SPAN');
@@ -329,7 +329,7 @@ describe('Grid', () => {
       render(
         <Grid gutter={['space10', 'space20', 'space30']} vertical={[true, true, false]} data-testid="grid">
           <Column span={[2, 4, 2]} offset={[8, 6, 8]} data-testid="column" />
-        </Grid>
+        </Grid>,
       );
       const renderedGrid = screen.getByTestId('grid');
       const renderedColumn = screen.getByTestId('column');
@@ -432,10 +432,10 @@ describe('Grid', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{GRID: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ GRID: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <Grid data-testid="customizable-grid">Custom grid</Grid>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedBox = screen.getByTestId('customizable-grid');
       expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -447,12 +447,12 @@ describe('Grid', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ foo: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <Grid element="foo" data-testid="customizable-grid">
             Custom grid
           </Grid>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedBox = screen.getByTestId('customizable-grid');
       expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -464,10 +464,10 @@ describe('Grid', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{COLUMN: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ COLUMN: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <Column data-testid="customizable-column">Custom column</Column>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedBox = screen.getByTestId('customizable-column');
       expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -479,12 +479,12 @@ describe('Grid', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ foo: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <Column element="foo" data-testid="customizable-column">
             Custom column
           </Column>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedBox = screen.getByTestId('customizable-column');
       expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');

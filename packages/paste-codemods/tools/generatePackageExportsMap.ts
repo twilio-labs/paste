@@ -1,4 +1,4 @@
-import {getRepoPackages} from '../../../tools/utils/getRepoPackages';
+import { getRepoPackages } from '../../../tools/utils/getRepoPackages';
 
 export async function generatePackageExportsMap(getPackages = getRepoPackages): Promise<Record<string, string>> {
   // Object to store all the generated mappings for our codemod
@@ -15,7 +15,7 @@ export async function generatePackageExportsMap(getPackages = getRepoPackages): 
     return true;
   });
 
-  filteredPastePackages?.forEach(({name}) => {
+  filteredPastePackages?.forEach(({ name }) => {
     // convert package name to core name
     const corePackageName = `@twilio-paste/core/${name.split('/')[1]}`;
 

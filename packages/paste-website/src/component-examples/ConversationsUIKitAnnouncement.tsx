@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem} from '@twilio-paste/chat-log';
-import {Avatar} from '@twilio-paste/avatar';
+import { ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem } from '@twilio-paste/chat-log';
+import { Avatar } from '@twilio-paste/avatar';
 
 export const ChatHeroExample: React.FC = () => (
   <ChatLog aria-label="example chat log">

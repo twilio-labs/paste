@@ -1,15 +1,15 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {Theme, useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import { Theme, useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {useTooltipState, Tooltip} from '../src';
+import { useTooltipState, Tooltip } from '../src';
 
 export const StateHookExample = (): JSX.Element => {
   const tooltip = useTooltipState();
@@ -40,7 +40,7 @@ export default {
   excludeStories: ['StateHookExample'],
   component: Tooltip,
   parameters: {
-    chromatic: {delay: 3000, diffThreshold: 0.2},
+    chromatic: { delay: 3000, diffThreshold: 0.2 },
   },
 };
 
@@ -165,7 +165,7 @@ export const StateHookTooltip = (): React.ReactNode => {
 
 StateHookTooltip.storyName = 'State hook Tooltip';
 
-export const CustomizedTooltip: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedTooltip: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -206,7 +206,7 @@ export const CustomizedTooltip: StoryFn = (_args, {parameters: {isTestEnvironmen
 CustomizedTooltip.storyName = 'Customized Tooltip';
 CustomizedTooltip.parameters = {
   parameters: {
-    chromatic: {disableSnapshot: true},
+    chromatic: { disableSnapshot: true },
   },
   a11y: {
     // no need to a11y check customization

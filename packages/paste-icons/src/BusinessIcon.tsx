@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface BusinessIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface BusinessIconProps extends IconWrapperProps {
 }
 
 const BusinessIcon = React.forwardRef<HTMLElement, BusinessIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `BusinessIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -45,8 +45,8 @@ const BusinessIcon = React.forwardRef<HTMLElement, BusinessIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 BusinessIcon.displayName = 'BusinessIcon';
-export {BusinessIcon};
+export { BusinessIcon };

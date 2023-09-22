@@ -1,4 +1,4 @@
-import type {ColorCombinationAccessibility} from '../color-combos';
+import type { ColorCombinationAccessibility } from '../color-combos';
 
 interface ColorRating {
   small: string;

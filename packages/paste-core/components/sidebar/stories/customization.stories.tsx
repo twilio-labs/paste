@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {StoryFn} from '@storybook/react';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { Button } from '@twilio-paste/button';
+import { Box } from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
 import {
   Sidebar,
@@ -27,7 +27,7 @@ export default {
   title: 'Components/Sidebar/Sidebar/Customization',
 };
 
-export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithDefaultElementName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
   const sidebarNavigationSkipLinkID = useUID();
@@ -116,7 +116,7 @@ WithDefaultElementName.parameters = {
   padding: false,
 };
 
-export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithCustomElementName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
   const sidebarNavigationSkipLinkID = useUID();

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Avatar} from '@twilio-paste/core/avatar';
-import {Box} from '@twilio-paste/core/box';
-import {Card} from '@twilio-paste/core/card';
-import {Heading} from '@twilio-paste/core/heading';
-import {MediaBody, MediaFigure, MediaObject} from '@twilio-paste/core/media-object';
-import {Paragraph} from '@twilio-paste/core/paragraph';
+import { Avatar } from '@twilio-paste/core/avatar';
+import { Box } from '@twilio-paste/core/box';
+import { Card } from '@twilio-paste/core/card';
+import { Heading } from '@twilio-paste/core/heading';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/core/media-object';
+import { Paragraph } from '@twilio-paste/core/paragraph';
 
-import {MenuPreview} from './MenuPreview';
-import {ModalPreview} from './ModalPreview';
+import { MenuPreview } from './MenuPreview';
+import { ModalPreview } from './ModalPreview';
 
 const CardPreview = (): JSX.Element => {
   return (
@@ -34,4 +34,4 @@ const CardPreview = (): JSX.Element => {
   );
 };
 
-export {CardPreview};
+export { CardPreview };

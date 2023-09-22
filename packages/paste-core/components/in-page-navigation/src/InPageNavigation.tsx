@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
-import type {Variants} from './types';
-import {InPageNavigationContext} from './InPageNavigationContext';
+import type { Variants } from './types';
+import { InPageNavigationContext } from './InPageNavigationContext';
 
 export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
   children?: React.ReactNode;
@@ -14,11 +14,11 @@ export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<
 }
 
 const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>(
-  ({element = 'IN_PAGE_NAVIGATION', variant = 'default', marginBottom, children, ...props}, ref) => {
+  ({ element = 'IN_PAGE_NAVIGATION', variant = 'default', marginBottom, children, ...props }, ref) => {
     const isFullWidth = variant === 'fullWidth' || variant === 'inverse_fullWidth';
 
     return (
-      <InPageNavigationContext.Provider value={{variant}}>
+      <InPageNavigationContext.Provider value={{ variant }}>
         <Box {...safelySpreadBoxProps(props)} as="nav" ref={ref} element={element}>
           <Box
             as="ul"
@@ -36,9 +36,9 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
         </Box>
       </InPageNavigationContext.Provider>
     );
-  }
+  },
 );
 
 InPageNavigation.displayName = 'InPageNavigation';
 
-export {InPageNavigation};
+export { InPageNavigation };

@@ -1,9 +1,9 @@
-import {useTheme} from '@twilio-paste/theme';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Heading} from '@twilio-paste/heading';
-import {Text} from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { Box } from '@twilio-paste/box';
+import { Grid, Column } from '@twilio-paste/grid';
+import { Heading } from '@twilio-paste/heading';
+import { Text } from '@twilio-paste/text';
 import Image from 'next/image';
 
 import {
@@ -12,11 +12,11 @@ import {
   ComponentCardIllustration,
   ComponentCardFooter,
 } from './PopularComponentCard';
-import {SiteLink} from '../SiteLink';
+import { SiteLink } from '../SiteLink';
 import PatternsIcon from '../icons/PatternsIcon';
 import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
 import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
-import {event} from '../../lib/gtag';
+import { event } from '../../lib/gtag';
 
 const PopularPatterns = (): JSX.Element => {
   const theme = useTheme();
@@ -37,7 +37,7 @@ const PopularPatterns = (): JSX.Element => {
           width="sizeSquare150"
         >
           <PatternsIcon
-            css={{height: theme.heights.sizeIcon40, width: theme.widths.sizeIcon40}}
+            css={{ height: theme.heights.sizeIcon40, width: theme.widths.sizeIcon40 }}
             color={theme.textColors.colorTextErrorStrong}
             decorative
           />
@@ -91,4 +91,4 @@ const PopularPatterns = (): JSX.Element => {
   );
 };
 
-export {PopularPatterns};
+export { PopularPatterns };

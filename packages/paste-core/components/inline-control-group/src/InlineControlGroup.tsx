@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps, type BoxProps, type BoxStyleProps} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps, type BoxProps, type BoxStyleProps } from '@twilio-paste/box';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export interface InlineControlGroupProps
   extends Pick<BoxProps, 'element'>,
@@ -33,7 +33,7 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
       fieldStyleProps,
       ...props
     },
-    ref
+    ref,
   ) => {
     const isVisualPicker = Boolean(fieldStyleProps); // This prop is only used in Visual Picker
 
@@ -97,9 +97,9 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
         </Box>
       </Box>
     );
-  }
+  },
 );
 
 InlineControlGroup.displayName = 'InlineControlGroup';
 
-export {InlineControlGroup};
+export { InlineControlGroup };

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import type {ThemeShape} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Separator} from '@twilio-paste/separator';
-import {Text} from '@twilio-paste/text';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import type { ThemeShape } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Separator } from '@twilio-paste/separator';
+import { Text } from '@twilio-paste/text';
 
-import {Box} from '../src';
-import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
+import { Box } from '../src';
+import { CustomizableBoxExample } from '../__fixtures__/CustomizableBox';
 
 const demoString = `I'm some text in a box`;
 
@@ -105,10 +105,10 @@ export const PseudoClassesWithProps = (): React.ReactNode => {
       backgroundColor="colorBackgroundPrimaryWeak"
       height="size20"
       position="relative"
-      _hover={{padding: 'space20', backgroundColor: 'colorBackgroundPrimaryWeaker'}}
-      _first={{margin: 'space10'}}
-      _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0}}
-      _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0}}
+      _hover={{ padding: 'space20', backgroundColor: 'colorBackgroundPrimaryWeaker' }}
+      _first={{ margin: 'space10' }}
+      _before={{ content: `"Before text"`, position: 'absolute', bottom: 0, left: 0 }}
+      _after={{ content: `"After text"`, position: 'absolute', bottom: 0, right: 0 }}
     >
       <Text as="p" color="colorText">
         Hover this box
@@ -140,7 +140,7 @@ const CustomBoxCollection = (): JSX.Element => {
   );
 };
 
-export const CustomBox: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomBox: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <>

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {fireEvent, render, screen} from '@testing-library/react';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
 
 import {
   useMenuState,
@@ -12,12 +12,12 @@ import {
   MenuItemCheckbox,
   MenuItemRadio,
 } from '../src';
-import type {MenuButtonProps} from '../src';
+import type { MenuButtonProps } from '../src';
 
 const handleClickMock: jest.Mock = jest.fn();
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>(function PreferencesMenu(props, ref) {
-  const menu = useMenuState({baseId: 'sub-menu'});
+  const menu = useMenuState({ baseId: 'sub-menu' });
 
   return (
     <>
@@ -39,8 +39,8 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuButtonProps>(fun
 });
 
 const GROUP_LABEL_TEXT = 'Search Options';
-const MenuMock: React.FC<React.PropsWithChildren<{groupRef?: React.Ref<HTMLDivElement>}>> = ({groupRef}) => {
-  const menu = useMenuState({baseId: 'menu-example'});
+const MenuMock: React.FC<React.PropsWithChildren<{ groupRef?: React.Ref<HTMLDivElement> }>> = ({ groupRef }) => {
+  const menu = useMenuState({ baseId: 'menu-example' });
   return (
     <>
       <MenuButton {...menu} variant="primary">
@@ -134,7 +134,7 @@ describe('Menu', () => {
 
     it('should render a menu group', () => {
       const groupRef = React.createRef<HTMLDivElement>();
-      const {getByText} = render(<MenuMock groupRef={groupRef} />);
+      const { getByText } = render(<MenuMock groupRef={groupRef} />);
 
       expect(groupRef.current).not.toBeNull();
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -178,9 +178,9 @@ describe('Menu', () => {
       const renderedMenuItem = screen.getByTestId('example-menu-item');
       fireEvent.click(renderedMenuItem);
       expect(handleClickMock).toHaveBeenCalled();
-      fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+      fireEvent.keyDown(renderedMenuItem, { key: 'Space', code: 'Space' });
       expect(handleClickMock).toHaveBeenCalled();
-      fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+      fireEvent.keyDown(renderedMenuItem, { key: 'Enter', code: 'Enter' });
       expect(handleClickMock).toHaveBeenCalled();
     });
 
@@ -189,9 +189,9 @@ describe('Menu', () => {
       const renderedMenuItem = screen.getByTestId('example-menu-anchor');
       fireEvent.click(renderedMenuItem);
       expect(handleClickMock).toHaveBeenCalled();
-      fireEvent.keyDown(renderedMenuItem, {key: 'Space', code: 'Space'});
+      fireEvent.keyDown(renderedMenuItem, { key: 'Space', code: 'Space' });
       expect(handleClickMock).toHaveBeenCalled();
-      fireEvent.keyDown(renderedMenuItem, {key: 'Enter', code: 'Enter'});
+      fireEvent.keyDown(renderedMenuItem, { key: 'Enter', code: 'Enter' });
       expect(handleClickMock).toHaveBeenCalled();
     });
 

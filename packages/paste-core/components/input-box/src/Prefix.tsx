@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {BackgroundColor, BorderColor} from '@twilio-paste/style-props';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { BackgroundColor, BorderColor } from '@twilio-paste/style-props';
 
-import type {Variants} from './types';
+import type { Variants } from './types';
 
 export interface PrefixProps {
   children: NonNullable<React.ReactNode>;
@@ -17,7 +17,7 @@ export interface PrefixProps {
 }
 
 const Prefix = React.forwardRef<HTMLDivElement, PrefixProps>(
-  ({children, disabled, element = 'PREFIX', variant}, ref) => {
+  ({ children, disabled, element = 'PREFIX', variant }, ref) => {
     let backgroundColor = 'colorBackgroundWeak' as BackgroundColor;
     let borderColor = 'colorBorderWeaker' as BorderColor;
 
@@ -52,9 +52,9 @@ const Prefix = React.forwardRef<HTMLDivElement, PrefixProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
 Prefix.displayName = 'Prefix';
 
-export {Prefix};
+export { Prefix };

@@ -21,7 +21,7 @@ export const isRenderingOnServer = (() => {
 })();
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-const getMediaQueryList = (): {matches: boolean; addListener: Function; removeListener: Function} => {
+const getMediaQueryList = (): { matches: boolean; addListener: Function; removeListener: Function } => {
   if (isRenderingOnServer) {
     return {
       matches: true, // When SSR, true === disable animations

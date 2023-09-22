@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Table, THead, TBody, TFoot, Td, Tr, Th} from '../src';
+import { Table, THead, TBody, TFoot, Td, Tr, Th } from '../src';
 
 describe('Table', () => {
   it('should render a default table', (): void => {
@@ -14,7 +14,7 @@ describe('Table', () => {
             <Td>Column 2</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTable = screen.getByTestId('mockDefaultTable');
     expect(renderedTable).toHaveStyleRule('border-width', 'borderWidth10');
@@ -28,7 +28,7 @@ describe('Table', () => {
             <Td>Column 2</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTable = screen.getByTestId('mockBorderlessTable');
     expect(renderedTable).toHaveStyleRule('border-width', 'borderWidth0');
@@ -46,7 +46,7 @@ describe('Table', () => {
             <Td>Column 4</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTable = screen.getByTestId('mockStripedTable').querySelector('tr:nth-of-type(even)');
     expect(renderedTable).toHaveStyleRule('background-color', 'colorBackgroundRowStriped', {
@@ -62,7 +62,7 @@ describe('Table', () => {
             <Td>Column 2</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTable = screen.getByTestId('mockAutoTable');
     expect(renderedTable).toHaveStyleRule('table-layout', 'auto');
@@ -77,7 +77,7 @@ describe('Table', () => {
             <Td>Column 2</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTable = screen.getByTestId('mockFixedTable');
     expect(renderedTable).toHaveStyleRule('table-layout', 'fixed');
@@ -91,7 +91,7 @@ describe('Table', () => {
             <Td>Column 1</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTr = screen.getByTestId('mockTr');
     expect(renderedTr).toHaveStyleRule('vertical-align', 'top');
@@ -105,7 +105,7 @@ describe('Table', () => {
             <Td>Column 1</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTr = screen.getByTestId('mockTr');
     expect(renderedTr).toHaveStyleRule('vertical-align', 'middle');
@@ -119,7 +119,7 @@ describe('Table', () => {
             <Td>Column 1</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTr = screen.getByTestId('mockTr');
     expect(renderedTr).toHaveStyleRule('vertical-align', 'bottom');
@@ -133,7 +133,7 @@ describe('Table', () => {
             <Th>Column 1</Th>
           </Tr>
         </THead>
-      </Table>
+      </Table>,
     );
     const renderedTh = screen.getByTestId('mockTHead');
     expect(renderedTh).toHaveStyleRule('position', 'sticky');
@@ -149,7 +149,7 @@ describe('Table', () => {
             <Th>Column 1</Th>
           </Tr>
         </THead>
-      </Table>
+      </Table>,
     );
     const renderedTh = screen.getByTestId('mockTHead');
     expect(renderedTh).toHaveStyleRule('position', 'sticky');
@@ -167,7 +167,7 @@ describe('Table', () => {
             </Th>
           </Tr>
         </THead>
-      </Table>
+      </Table>,
     );
     const renderedTh = screen.getByTestId('mockTh');
     expect(renderedTh).toHaveStyleRule('width', 'size50');
@@ -184,7 +184,7 @@ describe('Table', () => {
             </Th>
           </Tr>
         </THead>
-      </Table>
+      </Table>,
     );
     const renderedTh = screen.getByTestId('mockTh');
     expect(renderedTh).toHaveStyleRule('text-align', 'center');
@@ -200,7 +200,7 @@ describe('Table', () => {
             </Th>
           </Tr>
         </THead>
-      </Table>
+      </Table>,
     );
     const renderedTh = screen.getByTestId('mockTh');
     expect(renderedTh).toHaveStyleRule('text-align', 'right');
@@ -214,7 +214,7 @@ describe('Table', () => {
             <Td data-testid="mockTd">Column 1</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTd = screen.getByTestId('mockTd');
     expect(renderedTd).toHaveStyleRule('text-align', 'left');
@@ -230,7 +230,7 @@ describe('Table', () => {
             </Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTd = screen.getByTestId('mockTd');
     expect(renderedTd).toHaveStyleRule('text-align', 'center');
@@ -246,49 +246,49 @@ describe('Table', () => {
             </Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderedTd = screen.getByTestId('mockTd');
     expect(renderedTd).toHaveStyleRule('text-align', 'right');
   });
 
   it('should render responsive table styles', (): void => {
-    const {container} = render(
+    const { container } = render(
       <Table scrollHorizontally>
         <TBody>
           <Tr verticalAlign="top" data-testid="mockTr">
             <Td>Column 1</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderWrapper = container.querySelector('[data-paste-element="TABLE_WRAPPER"]');
     expect(renderWrapper).toHaveStyleRule('overflow-x', 'auto');
   });
 
   it('should render no wrap table styles', (): void => {
-    const {container} = render(
+    const { container } = render(
       <Table noWrap>
         <TBody>
           <Tr verticalAlign="top" data-testid="mockTr">
             <Td>Column 1</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderWrapper = container.querySelector('[data-paste-element="TABLE_WRAPPER"]');
     expect(renderWrapper).toHaveStyleRule('white-space', 'nowrap');
   });
 
   it('should render actionable table styles', (): void => {
-    const {container} = render(
+    const { container } = render(
       <Table isActionable>
         <TBody>
           <Tr verticalAlign="top" data-testid="mockTr">
             <Td>Column 1</Td>
           </Tr>
         </TBody>
-      </Table>
+      </Table>,
     );
     const renderWrapper = container.querySelector('[data-paste-element="TABLE_WRAPPER"]');
     expect(renderWrapper).toHaveStyleRule('box-shadow', 'shadowFocus');
@@ -320,7 +320,7 @@ describe('Table', () => {
               <Td>end</Td>
             </Tr>
           </TFoot>
-        </Table>
+        </Table>,
       );
 
       expect(screen.getByTestId('table').getAttribute('data-paste-element')).toEqual('TABLE');
@@ -363,7 +363,7 @@ describe('Table', () => {
               <Td>end</Td>
             </Tr>
           </TFoot>
-        </Table>
+        </Table>,
       );
 
       expect(screen.getByTestId('table').getAttribute('data-paste-element')).toEqual('dog');
@@ -384,13 +384,13 @@ describe('Table', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            TABLE: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},
-            TH: {borderStyle: 'dotted', fontWeight: 'fontWeightMedium'},
-            TR: {borderStyle: 'dashed', fontWeight: 'fontWeightLight'},
-            THEAD: {borderColor: 'colorBorderDestructiveStrong', fontWeight: 'fontWeightNormal'},
-            TBODY: {borderColor: 'colorBorderDestructiveWeak', fontWeight: 'inherit'},
-            TFOOT: {borderColor: 'colorBorderStrong', fontWeight: 'inherit'},
-            TD: {borderColor: 'colorBorderWeak', fontWeight: 'fontWeightSemibold'},
+            TABLE: { borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold' },
+            TH: { borderStyle: 'dotted', fontWeight: 'fontWeightMedium' },
+            TR: { borderStyle: 'dashed', fontWeight: 'fontWeightLight' },
+            THEAD: { borderColor: 'colorBorderDestructiveStrong', fontWeight: 'fontWeightNormal' },
+            TBODY: { borderColor: 'colorBorderDestructiveWeak', fontWeight: 'inherit' },
+            TFOOT: { borderColor: 'colorBorderStrong', fontWeight: 'inherit' },
+            TD: { borderColor: 'colorBorderWeak', fontWeight: 'fontWeightSemibold' },
           }}
         >
           <Table data-testid="table">
@@ -417,7 +417,7 @@ describe('Table', () => {
               </Tr>
             </TFoot>
           </Table>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const table = screen.getByTestId('table');
@@ -456,14 +456,14 @@ describe('Table', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            dog: {borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold'},
-            cat: {borderStyle: 'dotted', fontWeight: 'fontWeightMedium'},
-            bear: {borderStyle: 'dashed', fontWeight: 'fontWeightLight'},
-            wolf: {borderColor: 'colorBorderDestructiveStrong', fontWeight: 'inherit'},
-            hamster: {borderColor: 'colorBorderDestructiveWeak', fontWeight: 'inherit'},
-            chinchilla: {borderColor: 'colorBorderStrong', fontWeight: 'inherit'},
-            horse: {borderColor: 'colorBorderWeak', fontWeight: 'fontWeightSemibold'},
-            goldfish: {borderColor: 'colorBorderDestructiveStrong', fontWeight: 'inherit'},
+            dog: { borderColor: 'colorBorderDestructive', fontWeight: 'fontWeightBold' },
+            cat: { borderStyle: 'dotted', fontWeight: 'fontWeightMedium' },
+            bear: { borderStyle: 'dashed', fontWeight: 'fontWeightLight' },
+            wolf: { borderColor: 'colorBorderDestructiveStrong', fontWeight: 'inherit' },
+            hamster: { borderColor: 'colorBorderDestructiveWeak', fontWeight: 'inherit' },
+            chinchilla: { borderColor: 'colorBorderStrong', fontWeight: 'inherit' },
+            horse: { borderColor: 'colorBorderWeak', fontWeight: 'fontWeightSemibold' },
+            goldfish: { borderColor: 'colorBorderDestructiveStrong', fontWeight: 'inherit' },
           }}
         >
           <Table element="dog" data-testid="table">
@@ -496,7 +496,7 @@ describe('Table', () => {
               </Tr>
             </TFoot>
           </Table>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const table = screen.getByTestId('table');

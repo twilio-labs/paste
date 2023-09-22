@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {Text} from '@twilio-paste/text';
-import type {ThemeShape} from '@twilio-paste/theme';
-import type {Properties} from 'csstype';
+import { Box } from '@twilio-paste/box';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { Text } from '@twilio-paste/text';
+import type { ThemeShape } from '@twilio-paste/theme';
+import type { Properties } from 'csstype';
 
-import {TextExample} from './TextExample';
-import {contrastScore} from '../../../../utils/contrastScore';
+import { TextExample } from './TextExample';
+import { contrastScore } from '../../../../utils/contrastScore';
 
 export const TextColorExample: React.FC<
   React.PropsWithChildren<{
@@ -15,7 +15,7 @@ export const TextColorExample: React.FC<
     textColor: Properties['color'];
     textShadow?: Properties['textShadow'];
   }>
-> = ({value, backgroundColor, textColor, textShadow}) => {
+> = ({ value, backgroundColor, textColor, textShadow }) => {
   const contrastRating = contrastScore(value, backgroundColor);
 
   return (

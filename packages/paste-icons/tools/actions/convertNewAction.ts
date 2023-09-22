@@ -10,17 +10,17 @@ import {
   getOutputComponentName,
   maybeHandleError,
 } from '../utils';
-import {SVG_PATH, REACT_PATH, BLOCKLIST_FILES} from '../constants';
-import {reactIconTemplate} from '../templates/reactIconTemplate';
-import {writeToFile} from '../../../../tools/utils/writeToFile';
+import { SVG_PATH, REACT_PATH, BLOCKLIST_FILES } from '../constants';
+import { reactIconTemplate } from '../templates/reactIconTemplate';
+import { writeToFile } from '../../../../tools/utils/writeToFile';
 
-const {convertSvgToReact} = require('@twilio-labs/svg-to-react');
+const { convertSvgToReact } = require('@twilio-labs/svg-to-react');
 
 // Converts raw svg to react component
 export async function performFileConversion(
   fileName: string,
   outputPath: string,
-  options: Record<string, unknown>
+  options: Record<string, unknown>,
 ): Promise<void> {
   // eslint-disable-next-line no-console
   console.log(`Converting ${fileName}.`);

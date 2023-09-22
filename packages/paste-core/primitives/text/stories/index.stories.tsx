@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Separator} from '@twilio-paste/separator';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { Separator } from '@twilio-paste/separator';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import type {
   Display,
   FontFamily,
@@ -21,10 +21,10 @@ import type {
   Padding,
   Margin,
 } from '@twilio-paste/style-props';
-import {useTheme} from '@twilio-paste/theme';
+import { useTheme } from '@twilio-paste/theme';
 
-import {Text} from '../src';
-import {CustomizableTextExample} from '../__fixtures__/CustomizableText';
+import { Text } from '../src';
+import { CustomizableTextExample } from '../__fixtures__/CustomizableText';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -148,9 +148,9 @@ export const PseudoClassesWithHoverPseudoProps = (): React.ReactNode => {
     <Text
       as="p"
       color="colorText"
-      _hover={{color: 'colorTextWarningStrong'}}
-      _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0, color: 'colorTextErrorStrong'}}
-      _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0, color: 'colorTextLinkStronger'}}
+      _hover={{ color: 'colorTextWarningStrong' }}
+      _before={{ content: `"Before text"`, position: 'absolute', bottom: 0, left: 0, color: 'colorTextErrorStrong' }}
+      _after={{ content: `"After text"`, position: 'absolute', bottom: 0, right: 0, color: 'colorTextLinkStronger' }}
     >
       Hover this text
     </Text>
@@ -180,7 +180,7 @@ const CustomTextCollection = (): JSX.Element => {
   );
 };
 
-export const CustomText: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomText: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <>

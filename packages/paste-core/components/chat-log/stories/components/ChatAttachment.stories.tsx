@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Spinner} from '@twilio-paste/spinner';
-import {Stack} from '@twilio-paste/stack';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import type {StoryFn} from '@storybook/react';
+import { Spinner } from '@twilio-paste/spinner';
+import { Stack } from '@twilio-paste/stack';
+import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
+import type { StoryFn } from '@storybook/react';
 
 import {
   ChatLog,
@@ -95,5 +95,5 @@ export const StatefulComposerAttachmentCard: StoryFn = () => (
 );
 
 StatefulComposerAttachmentCard.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };

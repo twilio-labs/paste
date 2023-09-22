@@ -1,4 +1,4 @@
-import {styled, css} from '@twilio-paste/styling-library';
+import { styled, css } from '@twilio-paste/styling-library';
 
 export const AttachedRadioButtonGroupWrapper = styled.span(
   css({
@@ -31,7 +31,7 @@ export const AttachedRadioButtonGroupWrapper = styled.span(
         borderBottomLeftRadius: 0,
       },
     },
-  })
+  }),
 );
 
 export const UnattachedRadioButtonGroupWrapper = styled.span(
@@ -42,5 +42,5 @@ export const UnattachedRadioButtonGroupWrapper = styled.span(
     '& > label:not(:first-of-type)': {
       marginLeft: 'space40',
     },
-  })
+  }),
 );

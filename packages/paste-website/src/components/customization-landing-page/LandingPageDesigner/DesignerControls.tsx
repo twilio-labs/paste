@@ -1,18 +1,18 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {Option, Select} from '@twilio-paste/select';
-import {Stack} from '@twilio-paste/stack';
-import {Separator} from '@twilio-paste/separator';
+import { useUID } from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import { Label } from '@twilio-paste/label';
+import { Option, Select } from '@twilio-paste/select';
+import { Stack } from '@twilio-paste/stack';
+import { Separator } from '@twilio-paste/separator';
 
-import {ColorTokenInput} from './ColorTokenInput';
-import {UnitTokenInput} from './UnitTokenInput';
-import {DesignerContext} from './DesignerContext';
-import {TextTokenInput} from './TextToken';
+import { ColorTokenInput } from './ColorTokenInput';
+import { UnitTokenInput } from './UnitTokenInput';
+import { DesignerContext } from './DesignerContext';
+import { TextTokenInput } from './TextToken';
 
 export const DesignerControls = (): JSX.Element => {
-  const {tokens, updateToken} = React.useContext(DesignerContext);
+  const { tokens, updateToken } = React.useContext(DesignerContext);
 
   const [fontFamily, setFontFamily] = React.useState('Inter var experimental');
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 
-import {SidebarBetaBadge} from '../src';
+import { SidebarBetaBadge } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

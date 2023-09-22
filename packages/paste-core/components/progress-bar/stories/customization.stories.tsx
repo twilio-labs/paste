@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {useUID} from '@twilio-paste/uid-library';
-import {Form, FormControl} from '@twilio-paste/form';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
+import { useUID } from '@twilio-paste/uid-library';
+import { Form, FormControl } from '@twilio-paste/form';
+import { Button } from '@twilio-paste/button';
+import { Box } from '@twilio-paste/box';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {ProgressBar, ProgressBarLabel} from '../src';
+import { ProgressBar, ProgressBarLabel } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -16,7 +16,7 @@ export default {
 
 const NumberFormatter = new Intl.NumberFormat('en-US');
 
-export const CustomizationWrapper: React.FC<React.PropsWithChildren<{isTestEnvironment: boolean}>> = ({
+export const CustomizationWrapper: React.FC<React.PropsWithChildren<{ isTestEnvironment: boolean }>> = ({
   isTestEnvironment,
 }): React.ReactElement => {
   const progressBarId = useUID();

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
 import TextareaAutosize from '../src';
-import {forceHiddenStyles} from '../src/forceHiddenStyles';
-import {getSizingData} from '../src/getSizingData';
-import {useWindowResizeListener} from '../src/useWindowResizeListener';
-import {calculateNodeHeight} from '../src/calculateNodeHeight';
-import {getHeight} from '../src/getHeight';
-import {useHiddenTextarea} from '../src/useHiddenTextarea';
-import type {SizingData} from '../src/getSizingData';
+import { forceHiddenStyles } from '../src/forceHiddenStyles';
+import { getSizingData } from '../src/getSizingData';
+import { useWindowResizeListener } from '../src/useWindowResizeListener';
+import { calculateNodeHeight } from '../src/calculateNodeHeight';
+import { getHeight } from '../src/getHeight';
+import { useHiddenTextarea } from '../src/useHiddenTextarea';
+import type { SizingData } from '../src/getSizingData';
 
 const resizeMock: jest.Mock = jest.fn();
 
@@ -20,7 +20,7 @@ const SampleComponent: React.FunctionComponent = () => {
 
 describe('<TextareaAutosize />', () => {
   it('renders ok', () => {
-    const {asFragment} = render(<TextareaAutosize />);
+    const { asFragment } = render(<TextareaAutosize />);
     expect(asFragment()).toMatchSnapshot();
   });
   it('renders with initial height passed in style prop', () => {
@@ -29,7 +29,7 @@ describe('<TextareaAutosize />', () => {
         height: 55,
       },
     };
-    const {asFragment} = render(<TextareaAutosize {...props} />);
+    const { asFragment } = render(<TextareaAutosize {...props} />);
     expect(asFragment()).toMatchSnapshot();
   });
 });
@@ -119,17 +119,17 @@ describe('calculateNodeHeight', () => {
 describe('useHiddenTextarea', () => {
   it('creates a visually hidden textarea', () => {
     render(<SampleComponent />);
-    const hiddenTextarea = screen.getByRole('textbox', {hidden: true});
+    const hiddenTextarea = screen.getByRole('textbox', { hidden: true });
     expect(hiddenTextarea).toBeDefined();
   });
 
   it('removes the visually hidden textarea on unmount', () => {
-    const {unmount} = render(<SampleComponent />);
-    expect(screen.getByRole('textbox', {hidden: true})).toBeDefined();
+    const { unmount } = render(<SampleComponent />);
+    expect(screen.getByRole('textbox', { hidden: true })).toBeDefined();
 
     unmount();
     // queryByRole doesn't fail when the element isn't defined
-    expect(screen.queryByRole('textbox', {hidden: true})).not.toBeInTheDocument();
+    expect(screen.queryByRole('textbox', { hidden: true })).not.toBeInTheDocument();
   });
 });
 

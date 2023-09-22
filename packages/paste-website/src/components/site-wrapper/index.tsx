@@ -1,14 +1,14 @@
 import * as React from 'react';
 
-import {SiteBody} from './SiteBody';
-import {NavigationContext} from '../../context/NavigationContext';
-import type {NavigationQuery} from '../../context/NavigationContext';
+import { SiteBody } from './SiteBody';
+import { NavigationContext } from '../../context/NavigationContext';
+import type { NavigationQuery } from '../../context/NavigationContext';
 
 export interface SiteWrapperProps {
   navigationData: NavigationQuery;
 }
 
-const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({children, navigationData}) => {
+const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({ children, navigationData }) => {
   return (
     /*
      * TODO: move to server components and app directory to remove this provider.
@@ -20,4 +20,4 @@ const SiteWrapper: React.FC<React.PropsWithChildren<SiteWrapperProps>> = ({child
   );
 };
 
-export {SiteWrapper};
+export { SiteWrapper };

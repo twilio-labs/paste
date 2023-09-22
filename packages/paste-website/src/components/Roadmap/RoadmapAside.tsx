@@ -1,17 +1,17 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
 
-import {FeedbackPopover} from '../shortcodes/feedback-popover';
-import {TableOfContentsList} from '../shortcodes/table-of-contents/TableOfContentsList';
-import {TableOfContentsListItem} from '../shortcodes/table-of-contents/TableOfContentsListItem';
-import {TableOfContentsAnchor} from '../shortcodes/table-of-contents/TableOfContentsAnchor';
-import {slugify} from '../../utils/RouteUtils';
-import type {RoadmapProps} from './types';
-import {SITE_TOPBAR_HEIGHT} from '../../constants';
+import { FeedbackPopover } from '../shortcodes/feedback-popover';
+import { TableOfContentsList } from '../shortcodes/table-of-contents/TableOfContentsList';
+import { TableOfContentsListItem } from '../shortcodes/table-of-contents/TableOfContentsListItem';
+import { TableOfContentsAnchor } from '../shortcodes/table-of-contents/TableOfContentsAnchor';
+import { slugify } from '../../utils/RouteUtils';
+import type { RoadmapProps } from './types';
+import { SITE_TOPBAR_HEIGHT } from '../../constants';
 
 type RoadmapAsideProps = RoadmapProps;
 
-const RoadmapAside: React.FC<React.PropsWithChildren<RoadmapAsideProps>> = ({data}) => {
+const RoadmapAside: React.FC<React.PropsWithChildren<RoadmapAsideProps>> = ({ data }) => {
   // Get Array of releases as anchors.
   const releaseList = Object.keys(data).map((release) => slugify(release));
 
@@ -37,4 +37,4 @@ const RoadmapAside: React.FC<React.PropsWithChildren<RoadmapAsideProps>> = ({dat
   );
 };
 
-export {RoadmapAside};
+export { RoadmapAside };

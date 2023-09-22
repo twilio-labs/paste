@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {screen, render, fireEvent} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { screen, render, fireEvent } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Attached} from '../stories/index.stories';
-import {RadioButton, RadioButtonGroup} from '../src';
-import type {RadioButtonProps} from '../src';
+import { Attached } from '../stories/index.stories';
+import { RadioButton, RadioButtonGroup } from '../src';
+import type { RadioButtonProps } from '../src';
 
 describe('RadioButton', () => {
   const renderRadioButton = (props: Partial<RadioButtonProps> = {}): ReturnType<typeof render> =>
@@ -13,7 +13,7 @@ describe('RadioButton', () => {
 
   it('assigns attributes as expected', () => {
     renderRadioButton();
-    const radio = screen.getByRole('radio', {name: 'foo'});
+    const radio = screen.getByRole('radio', { name: 'foo' });
 
     expect(radio).toHaveAttribute('id');
     expect(radio).toHaveAttribute('name', 'foo');
@@ -22,74 +22,74 @@ describe('RadioButton', () => {
 
   it('renders children visibly into document as an input label', () => {
     renderRadioButton();
-    const {labels} = screen.getByRole<HTMLInputElement>('radio', {name: 'foo'});
+    const { labels } = screen.getByRole<HTMLInputElement>('radio', { name: 'foo' });
 
     expect(labels).toHaveLength(1);
     expect(labels?.[0]).toHaveTextContent('foo');
   });
 
   it('should assign an id when provided', () => {
-    renderRadioButton({id: 'foo'});
-    const radio = screen.getByRole('radio', {name: 'foo'});
+    renderRadioButton({ id: 'foo' });
+    const radio = screen.getByRole('radio', { name: 'foo' });
 
     expect(radio).toHaveAttribute('id', 'foo');
   });
 
   it('renders as invalid', () => {
-    renderRadioButton({hasError: true});
-    const radio = screen.getByRole('radio', {name: 'foo'});
+    renderRadioButton({ hasError: true });
+    const radio = screen.getByRole('radio', { name: 'foo' });
 
     expect(radio).toHaveAttribute('aria-invalid', 'true');
   });
 
   it('renders as checked (controlled)', () => {
-    renderRadioButton({checked: true, onChange: () => {}});
-    const radio = screen.getByRole('radio', {name: 'foo'});
+    renderRadioButton({ checked: true, onChange: () => {} });
+    const radio = screen.getByRole('radio', { name: 'foo' });
 
     expect(radio).toBeChecked();
   });
 
   it('renders as checked (uncontrolled)', () => {
-    renderRadioButton({defaultChecked: true});
-    const radio = screen.getByRole('radio', {name: 'foo'});
+    renderRadioButton({ defaultChecked: true });
+    const radio = screen.getByRole('radio', { name: 'foo' });
 
     expect(radio).toBeChecked();
   });
 
   it('renders as disabled', () => {
-    renderRadioButton({disabled: true});
-    const radio = screen.getByRole('radio', {name: 'foo'});
+    renderRadioButton({ disabled: true });
+    const radio = screen.getByRole('radio', { name: 'foo' });
 
     expect(radio).toBeDisabled();
   });
 
   describe('customization', () => {
     it('renders an element data attribute', () => {
-      const {container} = renderRadioButton();
+      const { container } = renderRadioButton();
       const styledRadioLabel = container.querySelector('label');
 
       expect(styledRadioLabel).toHaveAttribute('data-paste-element', 'RADIO_BUTTON');
     });
 
     it('renders a custom element data attribute', () => {
-      const {container} = renderRadioButton({element: 'MY_RADIO_BUTTON'});
+      const { container } = renderRadioButton({ element: 'MY_RADIO_BUTTON' });
       const styledRadioLabel = container.querySelector('label');
 
       expect(styledRadioLabel).toHaveAttribute('data-paste-element', 'MY_RADIO_BUTTON');
     });
 
     it('renders custom styling', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           theme={TestTheme}
           elements={{
-            RADIO_BUTTON: {backgroundColor: 'colorBackgroundAvailable'},
+            RADIO_BUTTON: { backgroundColor: 'colorBackgroundAvailable' },
           }}
         >
           <RadioButton value="foo" name="foo">
             foo
           </RadioButton>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const styledRadioLabel = container.querySelector('label');
 
@@ -97,17 +97,17 @@ describe('RadioButton', () => {
     });
 
     it('renders custom styling to a custom element', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           theme={TestTheme}
           elements={{
-            MY_RADIO_BUTTON: {backgroundColor: 'colorBackgroundAvailable'},
+            MY_RADIO_BUTTON: { backgroundColor: 'colorBackgroundAvailable' },
           }}
         >
           <RadioButton value="foo" name="foo" element="MY_RADIO_BUTTON">
             foo
           </RadioButton>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const styledRadioLabel = container.querySelector('label');
 
@@ -127,7 +127,7 @@ describe('RadioButtonGroup', () => {
 
   it('renders a legend visibly into document', () => {
     render(<Attached />);
-    const legend = screen.getByRole('group', {name: /This is some legend text/}).querySelector('legend');
+    const legend = screen.getByRole('group', { name: /This is some legend text/ }).querySelector('legend');
 
     expect(legend).toBeVisible();
     expect(legend).toBeInstanceOf(HTMLLegendElement);
@@ -143,14 +143,14 @@ describe('RadioButtonGroup', () => {
 
   it('renders with an assigned value', () => {
     render(<Attached value="1" />);
-    const radio = screen.getByRole('radio', {name: 'First'});
+    const radio = screen.getByRole('radio', { name: 'First' });
 
     expect(radio).toBeChecked();
   });
 
   it('renders with an assigned name', () => {
     render(<Attached name="lolwut" />);
-    const radio = screen.getByRole('radio', {name: 'First'});
+    const radio = screen.getByRole('radio', { name: 'First' });
 
     expect(radio).toHaveAttribute('name', 'lolwut');
   });
@@ -194,8 +194,8 @@ describe('RadioButtonGroup', () => {
       ['onBlur', 'blur'],
     ])('assigns the %s event handler as expected', (propName, eventType) => {
       const spy = jest.fn();
-      render(<Attached {...{[propName]: spy}} />);
-      const radio = screen.getByRole('radio', {name: 'First'});
+      render(<Attached {...{ [propName]: spy }} />);
+      const radio = screen.getByRole('radio', { name: 'First' });
       fireEvent[eventType].call(null, radio);
 
       expect(spy).toHaveBeenCalledTimes(1);
@@ -226,7 +226,7 @@ describe('RadioButtonGroup', () => {
         );
       };
 
-      const {getByTestId} = render(<MockRadioButtonGroup />);
+      const { getByTestId } = render(<MockRadioButtonGroup />);
 
       expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
       expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
@@ -255,7 +255,7 @@ describe('RadioButtonGroup', () => {
         );
       };
 
-      const {getByTestId} = render(<MockRadioButtonGroup />);
+      const { getByTestId } = render(<MockRadioButtonGroup />);
 
       expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
       expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
@@ -288,11 +288,11 @@ describe('RadioButtonGroup', () => {
         <CustomizationProvider
           theme={TestTheme}
           elements={{
-            RADIO_BUTTON_GROUP: {backgroundColor: 'colorBackgroundAvailable'},
+            RADIO_BUTTON_GROUP: { backgroundColor: 'colorBackgroundAvailable' },
           }}
         >
           <Attached />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const radioBtnGroup = screen.getByRole('group');
 
@@ -304,11 +304,11 @@ describe('RadioButtonGroup', () => {
         <CustomizationProvider
           theme={TestTheme}
           elements={{
-            MY_RADIO_BUTTON_GROUP: {backgroundColor: 'colorBackgroundAvailable'},
+            MY_RADIO_BUTTON_GROUP: { backgroundColor: 'colorBackgroundAvailable' },
           }}
         >
           <Attached element="MY_RADIO_BUTTON_GROUP" />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const radio = screen.getByRole('group');
 

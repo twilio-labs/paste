@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {InlineCode} from '@twilio-paste/inline-code';
+import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
+import { InlineCode } from '@twilio-paste/inline-code';
 
 export const RegularInline = (): React.ReactNode => <InlineCode>string</InlineCode>;
 

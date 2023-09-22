@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
-import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '../src';
+import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from '../src';
 
 describe('Callout', () => {
   it('should render', () => {
     render(
       <Callout variant="neutral" data-testid="callout">
         <CalloutText>This is some text.</CalloutText>
-      </Callout>
+      </Callout>,
     );
 
     const callout = screen.getByTestId('callout');
@@ -43,7 +43,7 @@ describe('CalloutList', () => {
     render(
       <CalloutList as="ul">
         <CalloutListItem>Item one</CalloutListItem>
-      </CalloutList>
+      </CalloutList>,
     );
 
     const list = screen.getByRole('list');
@@ -57,7 +57,7 @@ describe('CalloutList', () => {
     render(
       <CalloutList as="ol">
         <CalloutListItem>Item one</CalloutListItem>
-      </CalloutList>
+      </CalloutList>,
     );
 
     const list = screen.getByRole('list');
@@ -73,7 +73,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="error">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
@@ -84,7 +84,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="neutral">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
@@ -95,7 +95,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="warning">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
@@ -106,7 +106,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="success">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
@@ -117,7 +117,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="new">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
@@ -128,7 +128,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="error" i18nLabel="(erreur)">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
@@ -139,7 +139,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="neutral" i18nLabel="(information)">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
@@ -150,7 +150,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="warning" i18nLabel="(avertissement)">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
@@ -161,7 +161,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="success" i18nLabel="(succès)">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');
@@ -172,7 +172,7 @@ describe('i18n', () => {
     render(
       <Callout data-testid="callout-i18n" variant="new" i18nLabel="(nouveau)">
         This is a callout
-      </Callout>
+      </Callout>,
     );
     const callout = screen.getByTestId('callout-i18n');
     const icon = callout.querySelector('[data-paste-element="CALLOUT_ICON"]');

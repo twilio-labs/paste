@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
 import {
   MinimizableDialog,
@@ -24,7 +24,7 @@ export default {
   },
 };
 
-export const CustomizedDialog: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedDialog: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (

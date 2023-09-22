@@ -1,5 +1,5 @@
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
 
 const PopularSectionHeader = (): JSX.Element => {
   const theme = useTheme();
@@ -29,4 +29,4 @@ const PopularSectionHeader = (): JSX.Element => {
   );
 };
 
-export {PopularSectionHeader};
+export { PopularSectionHeader };

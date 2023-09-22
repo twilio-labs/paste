@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {CodeEditor, CodeEditorPasteTheme, type Monaco, type Editor} from '../src';
+import { CodeEditor, CodeEditorPasteTheme, type Monaco, type Editor } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

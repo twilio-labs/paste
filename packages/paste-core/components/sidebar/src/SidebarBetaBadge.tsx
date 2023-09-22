@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {badgeBaseStyles, useResizeChildIcons} from '@twilio-paste/badge';
-import type {BadgeProps} from '@twilio-paste/badge';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { badgeBaseStyles, useResizeChildIcons } from '@twilio-paste/badge';
+import type { BadgeProps } from '@twilio-paste/badge';
 
 const SidebarBetaBadgeSpanStyles: BoxProps = {
   ...badgeBaseStyles,
@@ -17,8 +17,8 @@ const SidebarBetaBadgeButtonStyles: BoxProps = {
   boxShadow: 'shadowBorderBottomInverseNewWeaker',
   // The following styles are copied from getBadgeButtonStyles() in the Badge package
   cursor: 'pointer',
-  _hover: {top: '1px', boxShadow: 'none'},
-  _focus: {top: '1px', boxShadow: 'shadowFocusInverse'}, // shadowFocus in Badge
+  _hover: { top: '1px', boxShadow: 'none' },
+  _focus: { top: '1px', boxShadow: 'shadowFocusInverse' }, // shadowFocus in Badge
 };
 
 type SidebarBetaBadgeProps = Omit<BadgeProps, 'as' | 'variant' | 'size'> & {
@@ -26,7 +26,7 @@ type SidebarBetaBadgeProps = Omit<BadgeProps, 'as' | 'variant' | 'size'> & {
 };
 
 export const SidebarBetaBadge = React.forwardRef<HTMLElement, SidebarBetaBadgeProps>(
-  ({children, as, element = 'SIDEBAR_BETA_BADGE', onClick, ...props}, ref) => {
+  ({ children, as, element = 'SIDEBAR_BETA_BADGE', onClick, ...props }, ref) => {
     const resizedChildren = useResizeChildIcons(children);
     const styles = as === 'button' ? SidebarBetaBadgeButtonStyles : SidebarBetaBadgeSpanStyles;
     // We don't want the provided onClick to function if as = span
@@ -37,7 +37,7 @@ export const SidebarBetaBadge = React.forwardRef<HTMLElement, SidebarBetaBadgePr
         {resizedChildren}
       </Box>
     );
-  }
+  },
 );
 
 SidebarBetaBadge.displayName = 'SidebarBetaBadge';

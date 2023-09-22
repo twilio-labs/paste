@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
+import { Box } from '@twilio-paste/box';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
 
-import {useUID, useUIDSeed, UIDFork} from '../src';
+import { useUID, useUIDSeed, UIDFork } from '../src';
 
-const SignupForm: React.FC<React.PropsWithChildren<{emailId: string; passwordId: string}>> = ({
+const SignupForm: React.FC<React.PropsWithChildren<{ emailId: string; passwordId: string }>> = ({
   emailId,
   passwordId,
 }) => {
@@ -54,7 +54,7 @@ export const UseUid = (): React.ReactNode => {
 };
 
 UseUid.storyName = 'useUID';
-UseUid.parameters = {chromatic: {disable: true}};
+UseUid.parameters = { chromatic: { disable: true } };
 
 export const UseUidSeed = (): React.ReactNode => {
   return (
@@ -71,7 +71,7 @@ export const UseUidSeed = (): React.ReactNode => {
 };
 
 UseUidSeed.storyName = 'useUIDSeed';
-UseUidSeed.parameters = {chromatic: {disable: true}};
+UseUidSeed.parameters = { chromatic: { disable: true } };
 
 export const UidFork = (): React.ReactNode => {
   return (
@@ -93,7 +93,7 @@ export const UidFork = (): React.ReactNode => {
 };
 
 UidFork.storyName = 'UIDFork';
-UidFork.parameters = {chromatic: {disable: true}};
+UidFork.parameters = { chromatic: { disable: true } };
 
 export const VanillaUid = (): React.ReactNode => {
   return (
@@ -111,4 +111,4 @@ export const VanillaUid = (): React.ReactNode => {
 };
 
 VanillaUid.storyName = 'vanilla uid';
-VanillaUid.parameters = {chromatic: {disable: true}};
+VanillaUid.parameters = { chromatic: { disable: true } };

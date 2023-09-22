@@ -12,4 +12,4 @@ export * from './styles/ComboboxInputWrapper';
 export * from './styles/ComboboxListbox';
 export * from './styles/ComboboxListboxOption';
 export * from './styles/ComboboxListboxGroup';
-export type {MultiselectComboboxProps, ComboboxProps} from './types';
+export type { MultiselectComboboxProps, ComboboxProps } from './types';

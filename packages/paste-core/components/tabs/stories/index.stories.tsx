@@ -1,17 +1,17 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useUID} from '@twilio-paste/uid-library';
-import {Button} from '@twilio-paste/button';
-import {Heading} from '@twilio-paste/heading';
-import {Anchor} from '@twilio-paste/anchor';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
+import type { StoryFn } from '@storybook/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useUID } from '@twilio-paste/uid-library';
+import { Button } from '@twilio-paste/button';
+import { Heading } from '@twilio-paste/heading';
+import { Anchor } from '@twilio-paste/anchor';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { useTheme } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
 
-import {useTabState, Tabs, TabList, Tab, TabPanels, TabPanel} from '../src';
-import type {TabStateReturn} from '../src';
+import { useTabState, Tabs, TabList, Tab, TabPanels, TabPanel } from '../src';
+import type { TabStateReturn } from '../src';
 
 export const HorizontalTabs = (): JSX.Element => {
   const selectedId = useUID();
@@ -322,7 +322,7 @@ const useButtonClickTabState = (uniqueBaseID: string): TabStateReturn => {
 
 export const StateHookTabs = (): JSX.Element => {
   const uniqueBaseID = useUID();
-  const {...tab} = useButtonClickTabState(uniqueBaseID);
+  const { ...tab } = useButtonClickTabState(uniqueBaseID);
 
   return (
     <Tabs state={tab}>
@@ -369,7 +369,7 @@ export const CenterAlignTabTest = (): JSX.Element => {
   );
 };
 
-export const CustomHorizontalTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomHorizontalTabs: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
   const uniqueBaseID = useUID();
@@ -485,7 +485,7 @@ CustomHorizontalTabs.parameters = {
   },
 };
 
-export const CustomVerticalTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomVerticalTabs: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
   const uniqueBaseID = useUID();
@@ -589,7 +589,7 @@ CustomVerticalTabs.parameters = {
 };
 
 // @TODO
-export const CustomFittedTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomFittedTabs: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
   const uniqueBaseID = useUID();

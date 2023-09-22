@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/styling-library';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {TextColorOptions} from '@twilio-paste/style-props';
+import { styled, themeGet } from '@twilio-paste/styling-library';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { TextColorOptions } from '@twilio-paste/style-props';
 
 interface HamburgerToggleProps {
   toggled: boolean;
@@ -20,14 +20,14 @@ const StyledPattie = styled.span<StyledPattieProps>`
   border-radius: ${themeGet('radii.borderRadius30')};
   transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out;
   transform-origin: left center;
-  background-color: ${({color}) => themeGet(`textColors.${color}`)};
-  top: ${({top}) => top};
-  left: ${({left}) => left};
-  transform: ${({transform}) => transform};
-  opacity: ${({opacity}) => opacity};
+  background-color: ${({ color }) => themeGet(`textColors.${color}`)};
+  top: ${({ top }) => top};
+  left: ${({ left }) => left};
+  transform: ${({ transform }) => transform};
+  opacity: ${({ opacity }) => opacity};
 `;
 
-const HamburgerToggle = React.forwardRef<HTMLDivElement, HamburgerToggleProps>(({toggled, color}, ref) => {
+const HamburgerToggle = React.forwardRef<HTMLDivElement, HamburgerToggleProps>(({ toggled, color }, ref) => {
   return (
     <Box width="sizeIcon50" height="sizeIcon50" position="relative" ref={ref}>
       <StyledPattie
@@ -66,4 +66,4 @@ const HamburgerToggle = React.forwardRef<HTMLDivElement, HamburgerToggleProps>((
   );
 });
 
-export {HamburgerToggle};
+export { HamburgerToggle };

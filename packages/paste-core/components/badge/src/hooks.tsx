@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import { useUIDSeed } from '@twilio-paste/uid-library';
 
 const DEFAULT_ICON_SIZE = 'sizeIcon10';
 

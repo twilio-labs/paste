@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
 import merge from 'deepmerge';
 
 import {
@@ -11,7 +11,7 @@ import {
   selectedBaseCloseStyles,
   selectedCloseColorStyles,
 } from './FormPill.styles';
-import type {PillVariant} from './types';
+import type { PillVariant } from './types';
 
 interface PillCloseIconProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;

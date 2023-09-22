@@ -1,23 +1,23 @@
 import * as React from 'react';
-import {screen, render, fireEvent} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {matchers} from '@emotion/jest';
+import { screen, render, fireEvent } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { matchers } from '@emotion/jest';
 
-import {Radio, RadioGroup} from '../src';
+import { Radio, RadioGroup } from '../src';
 
 expect.extend(matchers);
 
-const getCustomizationStyles = (element = 'RADIO'): {[key: string]: PasteCustomCSS} => ({
-  [`${element}_GROUP`]: {padding: 'space60'},
-  [`${element}_GROUP_SET`]: {marginLeft: 'space60'},
-  [`${element}_GROUP_FIELD`]: {marginBottom: 'space60'},
-  [`${element}_GROUP_ERROR_TEXT_WRAPPER`]: {marginBottom: 'space60'},
-  [`${element}`]: {padding: 'space30'},
-  [`${element}_CONTROL`]: {borderRadius: 'borderRadius20'},
-  [`${element}_CONTROL_CIRCLE`]: {color: 'colorText'},
-  [`${element}_LABEL_TEXT`]: {color: 'colorTextNeutral'},
-  [`${element}_HELP_TEXT_WRAPPER`]: {marginBottom: 'space60'},
+const getCustomizationStyles = (element = 'RADIO'): { [key: string]: PasteCustomCSS } => ({
+  [`${element}_GROUP`]: { padding: 'space60' },
+  [`${element}_GROUP_SET`]: { marginLeft: 'space60' },
+  [`${element}_GROUP_FIELD`]: { marginBottom: 'space60' },
+  [`${element}_GROUP_ERROR_TEXT_WRAPPER`]: { marginBottom: 'space60' },
+  [`${element}`]: { padding: 'space30' },
+  [`${element}_CONTROL`]: { borderRadius: 'borderRadius20' },
+  [`${element}_CONTROL_CIRCLE`]: { color: 'colorText' },
+  [`${element}_LABEL_TEXT`]: { color: 'colorTextNeutral' },
+  [`${element}_HELP_TEXT_WRAPPER`]: { marginBottom: 'space60' },
 });
 
 const NOOP = (): void => {};
@@ -41,7 +41,7 @@ describe('Radio', () => {
     render(
       <Radio value="foo" name="foo" onChange={NOOP}>
         foo
-      </Radio>
+      </Radio>,
     );
 
     const radio = screen.getByRole('radio');
@@ -57,61 +57,61 @@ describe('Radio', () => {
   });
 
   it('should render as invalid', () => {
-    const {getByRole} = render(
+    const { getByRole } = render(
       <Radio {...defaultProps} hasError>
         foo
-      </Radio>
+      </Radio>,
     );
     expect(getByRole('radio').getAttribute('aria-invalid')).toBeTruthy();
   });
 
   it('should render as checked (controlled)', () => {
-    const {getByLabelText} = render(
+    const { getByLabelText } = render(
       <Radio {...defaultProps} checked>
         foo
-      </Radio>
+      </Radio>,
     );
     expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
   });
 
   it('should render as checked (uncontrolled)', () => {
-    const {getByLabelText} = render(
+    const { getByLabelText } = render(
       <Radio {...defaultProps} defaultChecked>
         foo
-      </Radio>
+      </Radio>,
     );
     expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
   });
 
   it('should render as disabled', () => {
-    const {getByLabelText} = render(
+    const { getByLabelText } = render(
       <Radio {...defaultProps} disabled>
         foo
-      </Radio>
+      </Radio>,
     );
     expect((getByLabelText('foo') as HTMLInputElement).disabled).toBeTruthy();
   });
 
   it('should render an id', () => {
-    const {getByLabelText} = render(<Radio {...defaultProps}>foo</Radio>);
+    const { getByLabelText } = render(<Radio {...defaultProps}>foo</Radio>);
     expect(getByLabelText('foo').id).toBe('foo');
   });
 
   it('should render a value', () => {
-    const {getByLabelText} = render(<Radio {...defaultProps}>foo</Radio>);
+    const { getByLabelText } = render(<Radio {...defaultProps}>foo</Radio>);
     expect((getByLabelText('foo') as HTMLInputElement).value).toBe('foo');
   });
 
   it('should render a name', () => {
-    const {getByLabelText} = render(<Radio {...defaultProps}>foo</Radio>);
+    const { getByLabelText } = render(<Radio {...defaultProps}>foo</Radio>);
     expect((getByLabelText('foo') as HTMLInputElement).name).toBe('foo');
   });
 
   it('should render aria attributes', () => {
-    const {getByLabelText} = render(
+    const { getByLabelText } = render(
       <Radio {...defaultProps} aria-label="foo" aria-labelledby="bar" aria-busy="true">
         foo
-      </Radio>
+      </Radio>,
     );
     expect(getByLabelText('foo').getAttribute('aria-label')).toBe('foo');
     expect(getByLabelText('foo').getAttribute('aria-labelledby')).toBe('bar');
@@ -120,10 +120,10 @@ describe('Radio', () => {
 
   it('renders a helpText message when helpText prop is present', () => {
     const helpText = 'I am a helpText message';
-    const {getByText} = render(
+    const { getByText } = render(
       <Radio {...defaultProps} helpText={helpText}>
         foo
-      </Radio>
+      </Radio>,
     );
     expect(getByText(helpText)).toBeDefined();
   });
@@ -131,19 +131,19 @@ describe('Radio', () => {
 
 describe('Radio Group', () => {
   it('should render', () => {
-    const {container} = render(
+    const { container } = render(
       <RadioGroup {...defaultGroupProps}>
         <Radio {...defaultProps}>foo</Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
     expect(container.querySelector('fieldset')).not.toBeNull();
   });
 
   it('should render a legend', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <RadioGroup {...defaultGroupProps}>
         <Radio {...defaultProps}>foo</Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
     expect(getByText('This is a group legend')).not.toBeNull();
   });
@@ -152,7 +152,7 @@ describe('Radio Group', () => {
     render(
       <RadioGroup {...defaultGroupProps} required>
         <Radio {...defaultProps}>foo</Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
 
     const fieldset = screen.getByRole('group');
@@ -162,39 +162,39 @@ describe('Radio Group', () => {
   });
 
   it('should render a value', () => {
-    const {getByRole} = render(
+    const { getByRole } = render(
       <RadioGroup {...defaultGroupProps}>
         <Radio {...defaultProps}>foo</Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
     expect((getByRole('radio') as HTMLInputElement).value).toBe('foo');
   });
 
   it('should render a name', () => {
-    const {getByRole} = render(
+    const { getByRole } = render(
       <RadioGroup {...defaultGroupProps}>
         <Radio {...defaultProps}>foo</Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
     expect((getByRole('radio') as HTMLInputElement).name).toBe(defaultProps.name);
   });
 
   it('renders a helpText message when helpText prop is present', () => {
     const helpText = 'I am a helpText message';
-    const {getByText} = render(
+    const { getByText } = render(
       <RadioGroup {...defaultGroupProps} helpText={helpText}>
         <Radio {...defaultProps}>foo</Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
     expect(getByText(helpText)).toBeDefined();
   });
 
   it('renders an errorText message when errorText prop is present', () => {
     const errorText = 'I am an errorText message';
-    const {getByText} = render(
+    const { getByText } = render(
       <RadioGroup {...defaultGroupProps} errorText={errorText}>
         <Radio {...defaultProps}>foo</Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
     expect(getByText(errorText)).toBeDefined();
   });
@@ -204,7 +204,7 @@ describe('Radio Group', () => {
       render(
         <RadioGroup {...defaultGroupProps} required>
           <Radio {...defaultProps}>foo</Radio>
-        </RadioGroup>
+        </RadioGroup>,
       );
 
       const fieldset = screen.getByRole('group');
@@ -217,7 +217,7 @@ describe('Radio Group', () => {
       render(
         <RadioGroup {...defaultGroupProps} required i18nRequiredLabel="(requis)">
           <Radio {...defaultProps}>foo</Radio>
-        </RadioGroup>
+        </RadioGroup>,
       );
 
       const fieldset = screen.getByRole('group');
@@ -234,7 +234,7 @@ describe('Radio event handlers', () => {
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
 
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <Radio
         data-testid="radio-button"
         id="foo"
@@ -245,7 +245,7 @@ describe('Radio event handlers', () => {
         onBlur={onBlurMock}
       >
         foo
-      </Radio>
+      </Radio>,
     );
 
     fireEvent.click(getByTestId('radio-button'));
@@ -263,7 +263,7 @@ describe('Radio Group event handlers', () => {
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
 
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <RadioGroup
         legend="foo"
         id="foo"
@@ -276,7 +276,7 @@ describe('Radio Group event handlers', () => {
         <Radio data-testid="radio-button" id="bar" name="bar" value="bar">
           bar
         </Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
 
     fireEvent.click(getByTestId('radio-button'));
@@ -313,7 +313,7 @@ describe('Radio Group event handlers', () => {
       );
     };
 
-    const {getByTestId} = render(<MockRadioGroup />);
+    const { getByTestId } = render(<MockRadioGroup />);
 
     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
@@ -342,7 +342,7 @@ describe('Radio Group event handlers', () => {
       );
     };
 
-    const {getByTestId} = render(<MockRadioGroup />);
+    const { getByTestId } = render(<MockRadioGroup />);
 
     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
@@ -377,7 +377,7 @@ describe('Radio Group event handlers', () => {
       );
     };
 
-    const {getByTestId} = render(<MockRadioGroup />);
+    const { getByTestId } = render(<MockRadioGroup />);
 
     expect((getByTestId('radio-button') as HTMLInputElement).checked).toBe(false);
     expect((getByTestId('radio-button1') as HTMLInputElement).checked).toBe(true);
@@ -386,12 +386,12 @@ describe('Radio Group event handlers', () => {
 
 describe('Customization', () => {
   it('should add default element attribute to Radio', () => {
-    const {container} = render(
+    const { container } = render(
       <RadioGroup {...defaultGroupProps} errorText="error">
         <Radio helpText="help" {...defaultProps}>
           foo
         </Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
 
     expect(container.querySelector('[data-paste-element="RADIO_GROUP"]')).toBeInTheDocument();
@@ -406,12 +406,12 @@ describe('Customization', () => {
   });
 
   it('should add custom default element attribute to Radio', () => {
-    const {container} = render(
+    const { container } = render(
       <RadioGroup element="MY_RADIO_GROUP" {...defaultGroupProps} errorText="error">
         <Radio element="MY_RADIO" helpText="help" {...defaultProps}>
           foo
         </Radio>
-      </RadioGroup>
+      </RadioGroup>,
     );
 
     expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP"]')).toBeInTheDocument();
@@ -426,79 +426,79 @@ describe('Customization', () => {
   });
 
   it('should add custom styling to a default Radio', () => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles()}>
         <RadioGroup {...defaultGroupProps} errorText="error">
           <Radio helpText="help" {...defaultProps}>
             foo
           </Radio>
         </RadioGroup>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     expect(container.querySelector('[data-paste-element="RADIO_GROUP"]')).toHaveStyleRule('padding', '1.25rem');
     expect(container.querySelector('[data-paste-element="RADIO_GROUP_SET"]')).toHaveStyleRule('margin-left', '1.25rem');
     expect(container.querySelector('[data-paste-element="RADIO_GROUP_FIELD"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="RADIO"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
     expect(container.querySelector('[data-paste-element="RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
       'color',
-      'rgb(18, 28, 45)'
+      'rgb(18, 28, 45)',
     );
     expect(container.querySelector('[data-paste-element="RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0, 20, 137)'
+      'rgb(0, 20, 137)',
     );
     expect(container.querySelector('[data-paste-element="RADIO_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
   });
 
   it('should add custom styling to a custom element Radio', () => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles('MY_RADIO')}>
         <RadioGroup element="MY_RADIO_GROUP" {...defaultGroupProps} errorText="error">
           <Radio element="MY_RADIO" helpText="help" {...defaultProps}>
             foo
           </Radio>
         </RadioGroup>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP"]')).toHaveStyleRule('padding', '1.25rem');
     expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_SET"]')).toHaveStyleRule(
       'margin-left',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_FIELD"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
     expect(container.querySelector('[data-paste-element="MY_RADIO_CONTROL_CIRCLE"]')).toHaveStyleRule(
       'color',
-      'rgb(18, 28, 45)'
+      'rgb(18, 28, 45)',
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0, 20, 137)'
+      'rgb(0, 20, 137)',
     );
     expect(container.querySelector('[data-paste-element="MY_RADIO_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
   });
 });

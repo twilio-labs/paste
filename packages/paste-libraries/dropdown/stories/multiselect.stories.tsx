@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn, Meta} from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import {useCombobox, useMultipleSelection} from '../src';
+import { useCombobox, useMultipleSelection } from '../src';
 
 type Book = {
   author: string;
@@ -9,16 +9,16 @@ type Book = {
 };
 
 const books: Book[] = [
-  {author: 'Harper Lee', title: 'To Kill a Mockingbird'},
-  {author: 'Lev Tolstoy', title: 'War and Peace'},
-  {author: 'Fyodor Dostoyevsy', title: 'The Idiot'},
-  {author: 'Oscar Wilde', title: 'A Picture of Dorian Gray'},
-  {author: 'George Orwell', title: '1984'},
-  {author: 'Jane Austen', title: 'Pride and Prejudice'},
-  {author: 'Marcus Aurelius', title: 'Meditations'},
-  {author: 'Fyodor Dostoevsky', title: 'The Brothers Karamazov'},
-  {author: 'Lev Tolstoy', title: 'Anna Karenina'},
-  {author: 'Fyodor Dostoevsky', title: 'Crime and Punishment'},
+  { author: 'Harper Lee', title: 'To Kill a Mockingbird' },
+  { author: 'Lev Tolstoy', title: 'War and Peace' },
+  { author: 'Fyodor Dostoyevsy', title: 'The Idiot' },
+  { author: 'Oscar Wilde', title: 'A Picture of Dorian Gray' },
+  { author: 'George Orwell', title: '1984' },
+  { author: 'Jane Austen', title: 'Pride and Prejudice' },
+  { author: 'Marcus Aurelius', title: 'Meditations' },
+  { author: 'Fyodor Dostoevsky', title: 'The Brothers Karamazov' },
+  { author: 'Lev Tolstoy', title: 'Anna Karenina' },
+  { author: 'Fyodor Dostoevsky', title: 'Crime and Punishment' },
 ];
 const initialSelectedItems = [books[0], books[1]];
 
@@ -48,7 +48,7 @@ export const MultiselectComboBox: StoryFn = () => {
     removeSelectedItem,
   } = useMultipleSelection<Book>({
     selectedItems,
-    onStateChange({selectedItems: newSelectedItems, type}) {
+    onStateChange({ selectedItems: newSelectedItems, type }) {
       switch (type) {
         case useMultipleSelection.stateChangeTypes.SelectedItemKeyDownBackspace:
         case useMultipleSelection.stateChangeTypes.SelectedItemKeyDownDelete:
@@ -114,7 +114,7 @@ export const MultiselectComboBox: StoryFn = () => {
      * Handles how state in Downshift should change as a result of user action
      */
     stateReducer(_state, actionAndChanges) {
-      const {changes, type} = actionAndChanges;
+      const { changes, type } = actionAndChanges;
 
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
@@ -123,14 +123,14 @@ export const MultiselectComboBox: StoryFn = () => {
           return {
             ...changes,
             // If an item was selected, keep the menu open and reset the highlightedIndex to the first item.
-            ...(changes.selectedItem && {isOpen: true, highlightedIndex: 0}),
+            ...(changes.selectedItem && { isOpen: true, highlightedIndex: 0 }),
           };
         default:
           return changes;
       }
     },
     // https://www.downshift-js.com/use-combobox#controlling-state
-    onStateChange({inputValue: newInputValue = '', type, selectedItem: newSelectedItem}) {
+    onStateChange({ inputValue: newInputValue = '', type, selectedItem: newSelectedItem }) {
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
@@ -177,7 +177,7 @@ export const MultiselectComboBox: StoryFn = () => {
             );
           })}
           <div {...getComboboxProps()}>
-            <input placeholder="Best book ever" {...getInputProps(getDropdownProps({preventKeyAction: isOpen}))} />
+            <input placeholder="Best book ever" {...getInputProps(getDropdownProps({ preventKeyAction: isOpen }))} />
             <button aria-label="toggle menu" type="button" {...getToggleButtonProps()}>
               &#8595;
             </button>
@@ -205,7 +205,7 @@ export const MultiselectComboBox: StoryFn = () => {
           items.map((item, index) => (
             <li
               key={`${item.author}${item.title}`}
-              {...getItemProps({item, index})}
+              {...getItemProps({ item, index })}
               style={{
                 position: 'relative',
                 cursor: 'pointer',

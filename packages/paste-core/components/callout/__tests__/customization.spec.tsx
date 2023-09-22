@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText} from '../src';
+import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from '../src';
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -46,7 +46,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
   </CustomizationProvider>
 );
 
-const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -97,11 +97,11 @@ describe('Customization', () => {
         <CalloutList as="ul">
           <CalloutListItem>Item one</CalloutListItem>
         </CalloutList>
-      </Callout>
+      </Callout>,
     );
 
     const callout = screen.getByTestId('callout');
-    const heading = screen.getByRole('heading', {name: 'Neutral callout'});
+    const heading = screen.getByRole('heading', { name: 'Neutral callout' });
     const text = screen.getByTestId('callout-text');
     const list = screen.getByRole('list');
     const listItem = screen.getByRole('listitem');
@@ -125,11 +125,11 @@ describe('Customization', () => {
         <CalloutList as="ul" element="FOO_CALLOUT_LIST">
           <CalloutListItem element="FOO_CALLOUT_LIST_ITEM">Item one</CalloutListItem>
         </CalloutList>
-      </Callout>
+      </Callout>,
     );
 
     const callout = screen.getByTestId('callout');
-    const heading = screen.getByRole('heading', {name: 'Neutral callout'});
+    const heading = screen.getByRole('heading', { name: 'Neutral callout' });
     const text = screen.getByTestId('callout-text');
     const list = screen.getByRole('list');
     const listItem = screen.getByRole('listitem');
@@ -155,12 +155,12 @@ describe('Customization', () => {
           <CalloutText>This is a warning callout</CalloutText>
         </Callout>
       </>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const neutralCallout = screen.getByTestId('neutral-callout');
     const warningCallout = screen.getByTestId('neutral-callout');
-    const heading = screen.getByRole('heading', {name: 'Neutral callout'});
+    const heading = screen.getByRole('heading', { name: 'Neutral callout' });
     const text = screen.getByTestId('callout-text');
     const list = screen.getByRole('list');
     const listItem = screen.getByRole('listitem');
@@ -192,12 +192,12 @@ describe('Customization', () => {
           <CalloutText element="FOO_CALLOUT_TEXT">This is a warning callout</CalloutText>
         </Callout>
       </>,
-      {wrapper: MyCustomizationWrapper}
+      { wrapper: MyCustomizationWrapper },
     );
 
     const neutralCallout = screen.getByTestId('neutral-callout');
     const warningCallout = screen.getByTestId('neutral-callout');
-    const heading = screen.getByRole('heading', {name: 'Neutral callout'});
+    const heading = screen.getByRole('heading', { name: 'Neutral callout' });
     const text = screen.getByTestId('callout-text');
     const list = screen.getByRole('list');
     const listItem = screen.getByRole('listitem');

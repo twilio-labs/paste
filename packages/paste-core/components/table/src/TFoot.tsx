@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {styled, css} from '@twilio-paste/styling-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
+import { styled, css } from '@twilio-paste/styling-library';
 
-import type {TFootProps} from './types';
+import type { TFootProps } from './types';
 
 const footerCellStyles: BoxStyleProps = {
   borderBottomWidth: 'borderWidth0',
@@ -16,10 +16,10 @@ const StyledTFoot = styled.tfoot<TFootProps>(
   css({
     '& > tr > td': footerCellStyles,
     '& > tr > th': footerCellStyles,
-  })
+  }),
 );
 
-const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({element = 'TFOOT', ...props}, ref) => {
+const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({ element = 'TFOOT', ...props }, ref) => {
   /* eslint-disable @typescript-eslint/no-explicit-any */
   return (
     <Box
@@ -36,4 +36,4 @@ const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({element = 
 
 TFoot.displayName = 'TFoot';
 
-export {TFoot};
+export { TFoot };

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
+import type { CompositeStateReturn } from '@twilio-paste/reakit-library';
 
 interface DataGridState extends Partial<CompositeStateReturn> {
   actionable: boolean;

@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductEngageIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ProductEngageIconProps extends IconWrapperProps {
 }
 
 const ProductEngageIcon = React.forwardRef<HTMLElement, ProductEngageIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProductEngageIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -44,8 +44,8 @@ const ProductEngageIcon = React.forwardRef<HTMLElement, ProductEngageIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProductEngageIcon.displayName = 'ProductEngageIcon';
-export {ProductEngageIcon};
+export { ProductEngageIcon };

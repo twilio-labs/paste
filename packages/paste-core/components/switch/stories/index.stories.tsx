@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
+import { useUID } from '@twilio-paste/uid-library';
+import { Anchor } from '@twilio-paste/anchor';
+import { Text } from '@twilio-paste/text';
 
-import {Switch, SwitchGroup} from '../src';
+import { Switch, SwitchGroup } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Switch',
   component: Switch,
-  subcomponents: {SwitchGroup},
+  subcomponents: { SwitchGroup },
 };
 
 export const DefaultSwitch = (): React.ReactNode => {

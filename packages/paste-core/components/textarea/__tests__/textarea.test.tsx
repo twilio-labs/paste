@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 
-import {TextArea} from '../src';
-import {CustomizedTextarea, MultipleTextareas} from '../stories/textarea.stories';
+import { TextArea } from '../src';
+import { CustomizedTextarea, MultipleTextareas } from '../stories/textarea.stories';
 
 const NOOP = (): void => {};
 
@@ -15,53 +15,53 @@ const initialProps = {
 
 describe('TextArea render', () => {
   it('should render', () => {
-    const {getByRole} = render(<TextArea {...initialProps} />);
+    const { getByRole } = render(<TextArea {...initialProps} />);
     expect(getByRole('textbox')).not.toBeNull();
   });
 
   it('should render a hidden textarea', () => {
     render(<TextArea {...initialProps} />);
-    expect(screen.getAllByRole('textbox', {hidden: true})).toHaveLength(2);
+    expect(screen.getAllByRole('textbox', { hidden: true })).toHaveLength(2);
   });
 
   it('should render as readOnly', () => {
-    const {getByRole} = render(<TextArea {...initialProps} readOnly />);
+    const { getByRole } = render(<TextArea {...initialProps} readOnly />);
     expect(getByRole('textbox').getAttribute('aria-readOnly')).toBeTruthy();
   });
 
   it('should render as invalid', () => {
-    const {getByRole} = render(<TextArea {...initialProps} hasError />);
+    const { getByRole } = render(<TextArea {...initialProps} hasError />);
     expect(getByRole('textbox').getAttribute('aria-invalid')).toBeTruthy();
   });
 
   it('should render as disabled', () => {
-    const {getByRole} = render(<TextArea {...initialProps} disabled />);
+    const { getByRole } = render(<TextArea {...initialProps} disabled />);
     expect(getByRole('textbox').getAttribute('disabled')).toEqual('');
-    expect(getByRole('textbox')).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', {target: ':disabled'});
+    expect(getByRole('textbox')).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', { target: ':disabled' });
   });
 
   it('should render an id', () => {
-    const {getByRole} = render(<TextArea {...initialProps} />);
+    const { getByRole } = render(<TextArea {...initialProps} />);
     expect(getByRole('textbox').id).toBe('textarea');
   });
 
   it('should render a name', () => {
-    const {getByRole} = render(<TextArea {...initialProps} />);
+    const { getByRole } = render(<TextArea {...initialProps} />);
     expect(getByRole('textbox').getAttribute('name')).toBe('textarea');
   });
 
   it('should render a placeholder', () => {
-    const {getByRole} = render(<TextArea {...initialProps} />);
+    const { getByRole } = render(<TextArea {...initialProps} />);
     expect(getByRole('textbox').getAttribute('placeholder')).toBe('placeholder');
   });
 
   it('should render a prefix', () => {
-    const {getByText} = render(<TextArea {...initialProps} insertBefore={<div>$10.99</div>} />);
+    const { getByText } = render(<TextArea {...initialProps} insertBefore={<div>$10.99</div>} />);
     expect(getByText('$10.99')).toBeDefined();
   });
 
   it('should render a suffix', () => {
-    const {getByText} = render(<TextArea {...initialProps} insertAfter={<div>$10.99</div>} />);
+    const { getByText } = render(<TextArea {...initialProps} insertAfter={<div>$10.99</div>} />);
     expect(getByText('$10.99')).toBeDefined();
   });
 
@@ -77,21 +77,21 @@ describe('TextArea render', () => {
 describe('Multiple textareas', () => {
   it('handles adding and removing multiple textareas', () => {
     render(<MultipleTextareas />);
-    const pushButton = screen.getByRole('button', {name: 'Push textarea'});
-    const popButton = screen.getByRole('button', {name: 'Pop textarea'});
-    const toggleButton = screen.getByRole('button', {name: 'Toggle textarea visibility'});
+    const pushButton = screen.getByRole('button', { name: 'Push textarea' });
+    const popButton = screen.getByRole('button', { name: 'Pop textarea' });
+    const toggleButton = screen.getByRole('button', { name: 'Toggle textarea visibility' });
 
-    expect(screen.getAllByRole('textbox', {hidden: true})).toHaveLength(2);
+    expect(screen.getAllByRole('textbox', { hidden: true })).toHaveLength(2);
 
     fireEvent.click(pushButton);
     fireEvent.click(pushButton);
-    expect(screen.getAllByRole('textbox', {hidden: true})).toHaveLength(6);
+    expect(screen.getAllByRole('textbox', { hidden: true })).toHaveLength(6);
 
     fireEvent.click(popButton);
-    expect(screen.getAllByRole('textbox', {hidden: true})).toHaveLength(4);
+    expect(screen.getAllByRole('textbox', { hidden: true })).toHaveLength(4);
 
     fireEvent.click(toggleButton);
-    expect(screen.queryAllByRole('textbox', {hidden: true})).toHaveLength(0);
+    expect(screen.queryAllByRole('textbox', { hidden: true })).toHaveLength(0);
   });
 });
 
@@ -101,14 +101,14 @@ describe('Textarea event handlers', () => {
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
 
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <TextArea
         data-testid="textarea"
         id="textarea"
         onChange={onChangeMock}
         onFocus={onFocusMock}
         onBlur={onBlurMock}
-      />
+      />,
     );
 
     fireEvent.focus(getByTestId('textarea'));
@@ -120,21 +120,21 @@ describe('Textarea event handlers', () => {
 
 describe('Textarea customization', () => {
   it('should set the dom attributes', () => {
-    const {container} = render(<CustomizedTextarea />);
+    const { container } = render(<CustomizedTextarea />);
     expect(container.querySelector('[data-paste-element="TEXTAREA"]')).toBeInTheDocument();
     expect(screen.getByTestId('default-textarea').getAttribute('data-paste-element')).toEqual('TEXTAREA_ELEMENT');
     expect(container.querySelector('[data-paste-element="TEXTAREA_PREFIX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="TEXTAREA_SUFFIX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="NEW_TEXTAREA"]')).toBeInTheDocument();
     expect(screen.getByTestId('custom-default-textarea').getAttribute('data-paste-element')).toEqual(
-      'NEW_TEXTAREA_ELEMENT'
+      'NEW_TEXTAREA_ELEMENT',
     );
     expect(container.querySelector('[data-paste-element="NEW_TEXTAREA_PREFIX"]')).toBeInTheDocument();
     expect(container.querySelector('[data-paste-element="NEW_TEXTAREA_SUFFIX"]')).toBeInTheDocument();
   });
 
   it('should set custom CSS for customized textarea', () => {
-    const {container} = render(<CustomizedTextarea />);
+    const { container } = render(<CustomizedTextarea />);
     const renderedTextArea = container.querySelector('[data-paste-element="TEXTAREA"]');
     const renderedTextAreaElement = container.querySelector('[data-paste-element="TEXTAREA_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="TEXTAREA_PREFIX"]');
@@ -146,7 +146,7 @@ describe('Textarea customization', () => {
   });
 
   it('should set custom CSS for customized textarea variant', () => {
-    const {container} = render(<CustomizedTextarea />);
+    const { container } = render(<CustomizedTextarea />);
     const renderedTextArea = container.querySelector('[data-paste-element="TEXTAREA_VARIANT"]');
     const renderedTextAreaElement = container.querySelector('[data-paste-element="TEXTAREA_VARIANT_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="TEXTAREA_VARIANT_PREFIX"]');
@@ -158,7 +158,7 @@ describe('Textarea customization', () => {
   });
 
   it('should set custom CSS for custom textarea', () => {
-    const {container} = render(<CustomizedTextarea />);
+    const { container } = render(<CustomizedTextarea />);
     const renderedTextArea = container.querySelector('[data-paste-element="NEW_TEXTAREA"]');
     const renderedTextAreaElement = container.querySelector('[data-paste-element="NEW_TEXTAREA_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="NEW_TEXTAREA_PREFIX"]');
@@ -170,7 +170,7 @@ describe('Textarea customization', () => {
   });
 
   it('should set custom CSS for custom textarea variant', () => {
-    const {container} = render(<CustomizedTextarea />);
+    const { container } = render(<CustomizedTextarea />);
     const renderedTextArea = container.querySelector('[data-paste-element="NEW_TEXTAREA_VARIANT"]');
     const renderedTextAreaElement = container.querySelector('[data-paste-element="NEW_TEXTAREA_VARIANT_ELEMENT"]');
     const renderedTextAreaPrefix = container.querySelector('[data-paste-element="NEW_TEXTAREA_VARIANT_PREFIX"]');

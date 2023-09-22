@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
 
 interface PackageStatusProps {
   status?: string;
   label: string;
 }
 
-const AssetStatus: React.FC<React.PropsWithChildren<PackageStatusProps>> = ({label, status}) => {
+const AssetStatus: React.FC<React.PropsWithChildren<PackageStatusProps>> = ({ label, status }) => {
   if (status === 'yes') {
     return (
       <Box display="flex" alignItems="center" justifyContent="center">
@@ -36,4 +36,4 @@ const AssetStatus: React.FC<React.PropsWithChildren<PackageStatusProps>> = ({lab
   );
 };
 
-export {AssetStatus};
+export { AssetStatus };

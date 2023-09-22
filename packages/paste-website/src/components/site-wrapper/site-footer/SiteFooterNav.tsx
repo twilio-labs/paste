@@ -1,12 +1,12 @@
-import {useTheme} from '@twilio-paste/theme';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
+import { useTheme } from '@twilio-paste/theme';
+import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
 
-import {SiteFooterHeader} from './SiteFooterHeader';
+import { SiteFooterHeader } from './SiteFooterHeader';
 import TwilioLogo from '../../icons/TwilioLogo';
-import {STORYBOOK_DOMAIN, REMIX_DOMAIN, FIGMA_PROFILE_URL} from '../../../constants';
-import {event} from '../../../lib/gtag';
+import { STORYBOOK_DOMAIN, REMIX_DOMAIN, FIGMA_PROFILE_URL } from '../../../constants';
+import { event } from '../../../lib/gtag';
 
 const SiteFooterNav = (): JSX.Element => {
   const theme = useTheme();
@@ -185,7 +185,7 @@ const SiteFooterNav = (): JSX.Element => {
       <Box marginTop="space120" marginLeft={['space0', 'space120']} textAlign={['center', 'left']}>
         <Anchor href="https://twilio.com" display="inline-flex">
           <TwilioLogo
-            css={{height: theme.heights.sizeIcon40, width: theme.widths.size10}}
+            css={{ height: theme.heights.sizeIcon40, width: theme.widths.size10 }}
             color={theme.textColors.colorTextInverse}
             title="Twilio"
           />
@@ -195,4 +195,4 @@ const SiteFooterNav = (): JSX.Element => {
   );
 };
 
-export {SiteFooterNav};
+export { SiteFooterNav };

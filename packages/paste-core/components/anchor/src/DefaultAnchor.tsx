@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
 
-import type {AnchorProps} from './types';
+import type { AnchorProps } from './types';
 
 const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, ref) => (
   <Box
@@ -34,4 +34,4 @@ const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
 
 DefaultAnchor.displayName = 'DefaultAnchor';
 
-export {DefaultAnchor};
+export { DefaultAnchor };

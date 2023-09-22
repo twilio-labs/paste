@@ -47,9 +47,9 @@ describe('tryPrettier', () => {
 describe('sortByRequiredProperties', () => {
   it('should sort properties by name', () => {
     const properties: ComponentTypeProperties = {
-      b: {type: 'string', required: true, externalProp: false},
-      a: {type: 'string', required: true, externalProp: false},
-      c: {type: 'string', required: true, externalProp: false},
+      b: { type: 'string', required: true, externalProp: false },
+      a: { type: 'string', required: true, externalProp: false },
+      c: { type: 'string', required: true, externalProp: false },
     };
     const sortedProperties = sortByRequiredProperties(properties);
     expect(Object.keys(sortedProperties)).toEqual(['a', 'b', 'c']);
@@ -57,9 +57,9 @@ describe('sortByRequiredProperties', () => {
 
   it('should sort required properties first', () => {
     const properties: ComponentTypeProperties = {
-      b: {type: 'string', required: true, externalProp: false},
-      a: {type: 'string', required: false, externalProp: false},
-      c: {type: 'string', required: true, externalProp: false},
+      b: { type: 'string', required: true, externalProp: false },
+      a: { type: 'string', required: false, externalProp: false },
+      c: { type: 'string', required: true, externalProp: false },
     };
     const sortedProperties = sortByRequiredProperties(properties);
     expect(Object.keys(sortedProperties)).toEqual(['b', 'c', 'a']);
@@ -67,9 +67,9 @@ describe('sortByRequiredProperties', () => {
 
   it('should preserve property information', () => {
     const properties: ComponentTypeProperties = {
-      b: {type: 'string', required: true, externalProp: false},
-      a: {type: 'number', required: false, externalProp: false},
-      c: {type: 'boolean', required: true, externalProp: false},
+      b: { type: 'string', required: true, externalProp: false },
+      a: { type: 'number', required: false, externalProp: false },
+      c: { type: 'boolean', required: true, externalProp: false },
     };
     const sortedProperties = sortByRequiredProperties(properties);
     expect(sortedProperties).toEqual(properties);

@@ -1,5 +1,5 @@
-import {useState, useEffect} from 'react';
-import {useTheme} from '@twilio-paste/theme';
+import { useState, useEffect } from 'react';
+import { useTheme } from '@twilio-paste/theme';
 import findIndex from 'lodash/findIndex';
 import debounce from 'lodash/debounce';
 
@@ -23,7 +23,7 @@ export function useWindowSize(): WindowSizeState {
     height: undefined,
     breakpointIndex: undefined,
   });
-  const {breakpoints} = useTheme();
+  const { breakpoints } = useTheme();
 
   // Get breakpoint widths as numbers
   const breakpointNumbers = breakpoints.map((bp: string): number => Number.parseInt(bp.replace(/\D+/g, ''), 10));
@@ -49,7 +49,7 @@ export function useWindowSize(): WindowSizeState {
         });
       },
       50,
-      {leading: false, trailing: true, maxWait: 150}
+      { leading: false, trailing: true, maxWait: 150 },
     );
 
     // Add event listener

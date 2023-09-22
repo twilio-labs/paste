@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {ThemeVariants, useThemeContrastCheck} from '@twilio-paste/core/theme';
-import {Box} from '@twilio-paste/core/box';
-import {MediaBody, MediaFigure, MediaObject} from '@twilio-paste/core/media-object';
-import {SuccessIcon} from '@twilio-paste/icons/cjs/SuccessIcon';
-import {Heading} from '@twilio-paste/core/heading';
-import {ErrorIcon} from '@twilio-paste/icons/cjs/ErrorIcon';
+import { ThemeVariants, useThemeContrastCheck } from '@twilio-paste/core/theme';
+import { Box } from '@twilio-paste/core/box';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/core/media-object';
+import { SuccessIcon } from '@twilio-paste/icons/cjs/SuccessIcon';
+import { Heading } from '@twilio-paste/core/heading';
+import { ErrorIcon } from '@twilio-paste/icons/cjs/ErrorIcon';
 
-import {SelectedThemeContext} from '../App';
-import {ThemeSelector} from './ThemeSelector';
-import {TokenPairRating} from './TokenPairRating';
+import { SelectedThemeContext } from '../App';
+import { ThemeSelector } from './ThemeSelector';
+import { TokenPairRating } from './TokenPairRating';
 
 export const SideBar = (): JSX.Element => {
-  const {selectedTheme, setSelectedTheme} = React.useContext(SelectedThemeContext);
+  const { selectedTheme, setSelectedTheme } = React.useContext(SelectedThemeContext);
 
-  const {textContrastRating, uiControlContrastRating, totalFailures} = useThemeContrastCheck();
+  const { textContrastRating, uiControlContrastRating, totalFailures } = useThemeContrastCheck();
 
   const themes = Object.keys(ThemeVariants) as [keyof typeof ThemeVariants];
   return (

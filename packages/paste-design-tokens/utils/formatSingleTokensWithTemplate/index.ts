@@ -1,10 +1,10 @@
-import type {ImmutableStyleMap} from 'theo';
+import type { ImmutableStyleMap } from 'theo';
 
-import type {DesignToken} from '../../types';
+import type { DesignToken } from '../../types';
 
 export const formatSingleTokensWithTemplate = (
   tokens: ImmutableStyleMap,
-  tokenTemplate: (prop: DesignToken) => string
+  tokenTemplate: (prop: DesignToken) => string,
 ): string => {
   return (
     tokens

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Button} from '@twilio-paste/button';
-import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/popover';
-import {Text} from '@twilio-paste/text';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import type { StoryFn } from '@storybook/react';
+import { useUID } from '@twilio-paste/uid-library';
+import { Button } from '@twilio-paste/button';
+import { Popover, PopoverContainer, PopoverButton } from '@twilio-paste/popover';
+import { Text } from '@twilio-paste/text';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
 
-import {ButtonGroup} from '../src';
-import type {ButtonGroupProps} from '../src';
+import { ButtonGroup } from '../src';
+import type { ButtonGroupProps } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

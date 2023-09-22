@@ -1,8 +1,8 @@
-import {resolve} from 'path';
+import { resolve } from 'path';
 
 import * as theo from 'theo';
 
-import {sketchpaletteTokenFormat} from '../sketchpalette';
+import { sketchpaletteTokenFormat } from '../sketchpalette';
 
 theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
 

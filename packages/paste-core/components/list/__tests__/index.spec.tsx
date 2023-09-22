@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {OrderedList, UnorderedList, ListItem} from '../src';
+import { OrderedList, UnorderedList, ListItem } from '../src';
 
 describe('Ordered List', () => {
   describe('Render', () => {
@@ -10,7 +10,7 @@ describe('Ordered List', () => {
       render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <OrderedList>Children</OrderedList>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).not.toBeNull();
@@ -22,7 +22,7 @@ describe('Ordered List', () => {
           <OrderedList marginTop="space40" marginBottom="space40">
             Children
           </OrderedList>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).toHaveStyleRule('margin-top', '0.75rem');
@@ -34,7 +34,7 @@ describe('Ordered List', () => {
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <OrderedList data-testid="ordered-list">Children</OrderedList>
           <UnorderedList data-testid="unordered-list">Children</UnorderedList>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedOrderedList = screen.getByTestId('ordered-list');
       const renderedUnorderedList = screen.getByTestId('unordered-list');
@@ -78,10 +78,10 @@ describe('Ordered List', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{ORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ ORDERED_LIST: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <OrderedList>Custom ordered list</OrderedList>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -93,10 +93,10 @@ describe('Ordered List', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ foo: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <OrderedList element="foo">Custom ordered list</OrderedList>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -111,7 +111,7 @@ describe('Unordered List', () => {
       render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <UnorderedList>Children</UnorderedList>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).not.toBeNull();
@@ -123,7 +123,7 @@ describe('Unordered List', () => {
           <UnorderedList marginTop="space40" marginBottom="space40">
             Children
           </UnorderedList>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).toHaveStyleRule('margin-top', '0.75rem');
@@ -166,10 +166,10 @@ describe('Unordered List', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{UNORDERED_LIST: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ UNORDERED_LIST: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <UnorderedList>Custom unordered list</UnorderedList>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -181,10 +181,10 @@ describe('Unordered List', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ foo: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <UnorderedList element="foo">Custom unordered list</UnorderedList>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedList = screen.getByRole('list');
       expect(renderedList).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -199,7 +199,7 @@ describe('ListItem', () => {
       render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <ListItem>Children</ListItem>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedListItem = screen.getByRole('listitem');
       expect(renderedListItem).not.toBeNull();
@@ -241,10 +241,10 @@ describe('ListItem', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{LIST_ITEM: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ LIST_ITEM: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <ListItem>Custom list item</ListItem>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedListItem = screen.getByRole('listitem');
       expect(renderedListItem).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -256,10 +256,10 @@ describe('ListItem', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+          elements={{ foo: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
         >
           <ListItem element="foo">Custom list item</ListItem>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedListItem = screen.getByRole('listitem');
       expect(renderedListItem).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps, type BoxProps} from '@twilio-paste/box';
-import {useSpring, animated} from '@twilio-paste/animation-library';
-import {useTheme} from '@twilio-paste/theme';
-import {useWindowSize} from '@twilio-paste/utils';
-import {useUID} from '@twilio-paste/uid-library';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps, type BoxProps } from '@twilio-paste/box';
+import { useSpring, animated } from '@twilio-paste/animation-library';
+import { useTheme } from '@twilio-paste/theme';
+import { useWindowSize } from '@twilio-paste/utils';
+import { useUID } from '@twilio-paste/uid-library';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {SidebarContext} from './SidebarContext';
-import type {Variants} from './types';
-import {SidebarSkipLinks, type SidebarSkipLinksProps} from './SidebarSkipLinks';
+import { SidebarContext } from './SidebarContext';
+import type { Variants } from './types';
+import { SidebarSkipLinks, type SidebarSkipLinksProps } from './SidebarSkipLinks';
 
 const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box
@@ -85,10 +85,10 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     const sidebarId = useUID();
-    const {breakpointIndex} = useWindowSize();
+    const { breakpointIndex } = useWindowSize();
     const theme = useTheme();
 
     const isMobile = breakpointIndex === 0;
@@ -106,7 +106,7 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
     const styles = useSpring(springConfig);
 
     return (
-      <SidebarContext.Provider value={{collapsed, variant, sidebarId, sidebarNavigationSkipLinkID}}>
+      <SidebarContext.Provider value={{ collapsed, variant, sidebarId, sidebarNavigationSkipLinkID }}>
         <SidebarSkipLinks
           element={`${element}_SKIPLINKS`}
           mainContentSkipLinkID={mainContentSkipLinkID}
@@ -128,6 +128,6 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
         </AnimatedStyledSidebar>
       </SidebarContext.Provider>
     );
-  }
+  },
 );
 Sidebar.displayName = 'Sidebar';

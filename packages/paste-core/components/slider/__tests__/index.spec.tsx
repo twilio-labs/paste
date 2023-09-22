@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Slider} from '../src';
+import { Slider } from '../src';
 
 const onChangeMock: jest.Mock = jest.fn();
 const onChangeEndMock: jest.Mock = jest.fn();
 
-const PercentFormatter = new Intl.NumberFormat('en-US', {style: 'percent'});
+const PercentFormatter = new Intl.NumberFormat('en-US', { style: 'percent' });
 
 describe('Slider', () => {
   describe('base usage', () => {
     it('should render correctly', () => {
-      const {rerender} = render(
+      const { rerender } = render(
         <Theme.Provider theme="twilio">
           <Slider
             id="test-slider"
@@ -28,7 +28,7 @@ describe('Slider', () => {
             onChangeEnd={onChangeEndMock}
             numberFormatter={PercentFormatter}
           />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       // Slider input
@@ -47,7 +47,7 @@ describe('Slider', () => {
       expect(input).not.toHaveAttribute('aria-label');
 
       // Fires events correctly
-      fireEvent.keyDown(input, {key: 'ArrowDown', code: 'ArrowDown'});
+      fireEvent.keyDown(input, { key: 'ArrowDown', code: 'ArrowDown' });
       expect(onChangeMock).toHaveBeenCalledTimes(1);
       expect(onChangeEndMock).toHaveBeenCalledTimes(1);
 
@@ -70,13 +70,13 @@ describe('Slider', () => {
             onChangeEnd={onChangeEndMock}
             numberFormatter={PercentFormatter}
           />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       // Check that range isn't rendering anymore
       expect(minValue).not.toBeInTheDocument();
 
-      fireEvent.keyDown(input, {key: 'ArrowDown', code: 'ArrowDown'});
+      fireEvent.keyDown(input, { key: 'ArrowDown', code: 'ArrowDown' });
       // Disabled so unchanged in call count
       expect(onChangeMock).toHaveBeenCalledTimes(1);
       expect(onChangeEndMock).toHaveBeenCalledTimes(1);
@@ -97,7 +97,7 @@ describe('Slider', () => {
             onChangeEnd={onChangeEndMock}
             numberFormatter={PercentFormatter}
           />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const minValue = screen.getByText('0%');
@@ -129,7 +129,7 @@ describe('Slider', () => {
             onChangeEnd={onChangeEndMock}
             numberFormatter={PercentFormatter}
           />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const minValue = screen.getByText('0%');

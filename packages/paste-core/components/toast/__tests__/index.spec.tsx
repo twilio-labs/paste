@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 
-import {Toast} from '../src';
+import { Toast } from '../src';
 
 const onDismissMock: jest.Mock = jest.fn();
 
@@ -11,7 +11,7 @@ describe('Toast', () => {
       render(
         <Toast onDismiss={onDismissMock} variant="neutral">
           This is a toast
-        </Toast>
+        </Toast>,
       );
       const renderedToastDismiss = screen.getByRole('button');
       expect(renderedToastDismiss).toBeDefined();
@@ -21,7 +21,7 @@ describe('Toast', () => {
       render(
         <Toast onDismiss={onDismissMock} variant="neutral">
           This is a toast
-        </Toast>
+        </Toast>,
       );
       const renderedToastDismiss = screen.getByRole('button');
       renderedToastDismiss.click();
@@ -60,9 +60,9 @@ describe('Toast', () => {
       render(
         <Toast variant="neutral" onDismiss={onDismissMock}>
           This is a toast
-        </Toast>
+        </Toast>,
       );
-      const dismissButton = screen.getByRole('button', {name: 'Dismiss toast'});
+      const dismissButton = screen.getByRole('button', { name: 'Dismiss toast' });
       expect(dismissButton).toBeDefined();
     });
 
@@ -70,9 +70,9 @@ describe('Toast', () => {
       render(
         <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" onDismiss={onDismissMock}>
           Esta es una notificacion
-        </Toast>
+        </Toast>,
       );
-      const dismissButton = screen.getByRole('button', {name: 'Cerrar notificacion'});
+      const dismissButton = screen.getByRole('button', { name: 'Cerrar notificacion' });
       expect(dismissButton).toBeDefined();
     });
 
@@ -80,7 +80,7 @@ describe('Toast', () => {
       render(
         <Toast data-testid="toast-i18n" variant="error">
           This is a toast
-        </Toast>
+        </Toast>,
       );
 
       const toast = screen.getByTestId('toast-i18n');
@@ -92,7 +92,7 @@ describe('Toast', () => {
       render(
         <Toast data-testid="toast-i18n" variant="neutral">
           This is a toast
-        </Toast>
+        </Toast>,
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
@@ -103,7 +103,7 @@ describe('Toast', () => {
       render(
         <Toast data-testid="toast-i18n" variant="success">
           This is a toast
-        </Toast>
+        </Toast>,
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
@@ -114,7 +114,7 @@ describe('Toast', () => {
       render(
         <Toast data-testid="toast-i18n" variant="warning">
           This is a toast
-        </Toast>
+        </Toast>,
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
@@ -125,7 +125,7 @@ describe('Toast', () => {
       render(
         <Toast data-testid="toast-i18n" variant="error" i18nErrorLabel="(erreur)">
           This is a toast
-        </Toast>
+        </Toast>,
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
@@ -136,7 +136,7 @@ describe('Toast', () => {
       render(
         <Toast data-testid="toast-i18n" variant="neutral" i18nNeutralLabel="(informacion)">
           This is a toast
-        </Toast>
+        </Toast>,
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
@@ -147,7 +147,7 @@ describe('Toast', () => {
       render(
         <Toast data-testid="toast-i18n" variant="success" i18nSuccessLabel="(éxito)">
           This is a toast
-        </Toast>
+        </Toast>,
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');
@@ -158,7 +158,7 @@ describe('Toast', () => {
       render(
         <Toast data-testid="toast-i18n" variant="warning" i18nWarningLabel="(aviso)">
           This is a toast
-        </Toast>
+        </Toast>,
       );
       const toast = screen.getByTestId('toast-i18n');
       const icon = toast.querySelector('[data-paste-element="TOAST_ICON"]');

@@ -40,7 +40,7 @@ describe('ColorCombos', (): void => {
         color: [255, 0, 0],
         combinations: [
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             color: [255, 255, 255],
             contrast: 3.9984767707539985,
             hex: '#FFFFFF',
@@ -82,7 +82,7 @@ describe('ColorCombos', (): void => {
         color: [255, 0, 0],
         combinations: [
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             color: [255, 255, 255],
             contrast: 3.9984767707539985,
             hex: '#FFFFFF',
@@ -107,11 +107,11 @@ describe('ColorCombos', (): void => {
   });
 
   it('should return a compact combo when passed compact', (): void => {
-    expect(ColorCombos(mockColorObject, {compact: true})).toEqual([
+    expect(ColorCombos(mockColorObject, { compact: true })).toEqual([
       {
         combinations: [
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             contrast: 3.9984767707539985,
             hex: '#FF0000',
           },
@@ -121,7 +121,7 @@ describe('ColorCombos', (): void => {
       {
         combinations: [
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             contrast: 3.9984767707539985,
             hex: '#FFFFFF',
           },
@@ -132,11 +132,11 @@ describe('ColorCombos', (): void => {
   });
 
   it('should filter out dupes', (): void => {
-    expect(ColorCombos(['white', 'red', 'white'], {compact: true})).toEqual([
+    expect(ColorCombos(['white', 'red', 'white'], { compact: true })).toEqual([
       {
         combinations: [
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             contrast: 3.9984767707539985,
             hex: '#FF0000',
           },
@@ -146,7 +146,7 @@ describe('ColorCombos', (): void => {
       {
         combinations: [
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             contrast: 3.9984767707539985,
             hex: '#FFFFFF',
           },
@@ -157,16 +157,16 @@ describe('ColorCombos', (): void => {
   });
 
   it('should not filter out dupes when passed uniq false', (): void => {
-    expect(ColorCombos(['white', 'red', 'white'], {compact: true, uniq: false})).toEqual([
+    expect(ColorCombos(['white', 'red', 'white'], { compact: true, uniq: false })).toEqual([
       {
         combinations: [
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             contrast: 3.9984767707539985,
             hex: '#FF0000',
           },
           {
-            accessibility: {aa: false, aaLarge: false, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: false, aaa: false, aaaLarge: false },
             contrast: 1,
             hex: '#FFFFFF',
           },
@@ -176,12 +176,12 @@ describe('ColorCombos', (): void => {
       {
         combinations: [
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             contrast: 3.9984767707539985,
             hex: '#FFFFFF',
           },
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             contrast: 3.9984767707539985,
             hex: '#FFFFFF',
           },
@@ -191,12 +191,12 @@ describe('ColorCombos', (): void => {
       {
         combinations: [
           {
-            accessibility: {aa: false, aaLarge: false, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: false, aaa: false, aaaLarge: false },
             contrast: 1,
             hex: '#FFFFFF',
           },
           {
-            accessibility: {aa: false, aaLarge: true, aaa: false, aaaLarge: false},
+            accessibility: { aa: false, aaLarge: true, aaa: false, aaaLarge: false },
             contrast: 3.9984767707539985,
             hex: '#FF0000',
           },
@@ -207,11 +207,11 @@ describe('ColorCombos', (): void => {
   });
 
   it('should only return combonations that meet a contrast threshold', (): void => {
-    expect(ColorCombos(mockThresholdColors, {compact: true, threshold: 3.5})).toEqual([
+    expect(ColorCombos(mockThresholdColors, { compact: true, threshold: 3.5 })).toEqual([
       {
         combinations: [
           {
-            accessibility: {aa: true, aaLarge: true, aaa: false, aaaLarge: true},
+            accessibility: { aa: true, aaLarge: true, aaa: false, aaaLarge: true },
             contrast: 4.658034537943552,
             hex: '#1276CE',
           },
@@ -221,24 +221,24 @@ describe('ColorCombos', (): void => {
       {
         combinations: [
           {
-            accessibility: {aa: true, aaLarge: true, aaa: false, aaaLarge: true},
+            accessibility: { aa: true, aaLarge: true, aaa: false, aaaLarge: true },
             contrast: 4.658034537943552,
             hex: '#FFFFFF',
           },
         ],
         hex: '#1276CE',
       },
-      {combinations: [], hex: '#A6A6A6'},
-      {combinations: [], hex: '#12CE54'},
+      { combinations: [], hex: '#A6A6A6' },
+      { combinations: [], hex: '#12CE54' },
     ]);
   });
 
   it('should work with rgb values', (): void => {
-    expect(ColorCombos(mockRGB, {compact: true})).toEqual([
+    expect(ColorCombos(mockRGB, { compact: true })).toEqual([
       {
         combinations: [
           {
-            accessibility: {aa: true, aaLarge: true, aaa: true, aaaLarge: true},
+            accessibility: { aa: true, aaLarge: true, aaa: true, aaaLarge: true },
             contrast: 8.12991671155036,
             hex: '#0019FF',
           },
@@ -248,7 +248,7 @@ describe('ColorCombos', (): void => {
       {
         combinations: [
           {
-            accessibility: {aa: true, aaLarge: true, aaa: true, aaaLarge: true},
+            accessibility: { aa: true, aaLarge: true, aaa: true, aaaLarge: true },
             contrast: 8.12991671155036,
             hex: '#FFFFFF',
           },
@@ -259,11 +259,11 @@ describe('ColorCombos', (): void => {
   });
 
   it('should work with rgba values', (): void => {
-    expect(ColorCombos(mockRGBa, {compact: true})).toEqual([
+    expect(ColorCombos(mockRGBa, { compact: true })).toEqual([
       {
         combinations: [
           {
-            accessibility: {aa: true, aaLarge: true, aaa: true, aaaLarge: true},
+            accessibility: { aa: true, aaLarge: true, aaa: true, aaaLarge: true },
             contrast: 8.12991671155036,
             hex: '#0019FF',
           },
@@ -273,7 +273,7 @@ describe('ColorCombos', (): void => {
       {
         combinations: [
           {
-            accessibility: {aa: true, aaLarge: true, aaa: true, aaaLarge: true},
+            accessibility: { aa: true, aaLarge: true, aaa: true, aaaLarge: true },
             contrast: 8.12991671155036,
             hex: '#FFFFFF',
           },
@@ -284,11 +284,11 @@ describe('ColorCombos', (): void => {
   });
 
   it('should work with hsl values', (): void => {
-    expect(ColorCombos(mockHSL, {compact: true})).toEqual([
+    expect(ColorCombos(mockHSL, { compact: true })).toEqual([
       {
         combinations: [
           {
-            accessibility: {aa: true, aaLarge: true, aaa: false, aaaLarge: true},
+            accessibility: { aa: true, aaLarge: true, aaa: false, aaaLarge: true },
             contrast: 4.739545310784024,
             hex: '#C2160A',
           },
@@ -298,7 +298,7 @@ describe('ColorCombos', (): void => {
       {
         combinations: [
           {
-            accessibility: {aa: true, aaLarge: true, aaa: false, aaaLarge: true},
+            accessibility: { aa: true, aaLarge: true, aaa: false, aaaLarge: true },
             contrast: 4.739545310784024,
             hex: '#8BF9A4',
           },

@@ -1,4 +1,4 @@
-import type {BoxElementProps} from '@twilio-paste/box';
+import type { BoxElementProps } from '@twilio-paste/box';
 
 export type Element = BoxElementProps['element'];
 

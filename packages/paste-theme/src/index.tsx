@@ -1,17 +1,17 @@
-import {ThemeProvider, StyledBase} from './themeProvider';
-import type {ThemeProviderProps} from './themeProvider';
-import {ThemeConsumer} from './themeConsumer';
+import { ThemeProvider, StyledBase } from './themeProvider';
+import type { ThemeProviderProps } from './themeProvider';
+import { ThemeConsumer } from './themeConsumer';
 
 const Theme = {
   Provider: ThemeProvider,
   Consumer: ThemeConsumer,
 };
 
-export {pasteBaseStyles} from './styles/base';
-export {pasteGlobalStyles} from './styles/global';
-export {pasteFonts} from './styles/fonts';
-export {StyledBase};
-export type {ThemeProviderProps};
+export { pasteBaseStyles } from './styles/base';
+export { pasteGlobalStyles } from './styles/global';
+export { pasteFonts } from './styles/fonts';
+export { StyledBase };
+export type { ThemeProviderProps };
 export type {
   ThemeShape,
   SendGridThemeShape,
@@ -21,7 +21,7 @@ export type {
   TwilioThemeShape,
   TwilioDarkThemeShape,
 } from './types/themes';
-export type {GenericThemeShape} from './types/GenericThemeShape';
+export type { GenericThemeShape } from './types/GenericThemeShape';
 export {
   DefaultTheme,
   ConsoleTheme,
@@ -31,13 +31,13 @@ export {
   TwilioTheme,
   TwilioDarkTheme,
 } from './themes';
-export {withTheme} from './withTheme';
-export {useTheme} from './useTheme';
-export {ThemeVariants} from './constants';
-export {generateThemeFromTokens} from './generateThemeFromTokens';
-export {generateTokensFromTheme} from './generateTokensFromTheme';
-export {Theme};
+export { withTheme } from './withTheme';
+export { useTheme } from './useTheme';
+export { ThemeVariants } from './constants';
+export { generateThemeFromTokens } from './generateThemeFromTokens';
+export { generateTokensFromTheme } from './generateTokensFromTheme';
+export { Theme };
 
 // utils
-export {remToPx} from './utils/remToPx';
+export { remToPx } from './utils/remToPx';
 export * from './useThemeContrastCheck';

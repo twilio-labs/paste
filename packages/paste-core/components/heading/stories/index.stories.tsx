@@ -1,11 +1,11 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Card} from '@twilio-paste/card';
-import {Stack} from '@twilio-paste/stack';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Card } from '@twilio-paste/card';
+import { Stack } from '@twilio-paste/stack';
 
-import {Heading} from '../src';
+import { Heading } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -145,7 +145,7 @@ export const Heading60NoMargin = (): React.ReactNode => {
 
 Heading60NoMargin.storyName = 'heading60 no margin';
 
-export const CustomHeading: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomHeading: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

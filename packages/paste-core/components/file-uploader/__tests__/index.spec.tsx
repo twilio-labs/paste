@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {render, screen, fireEvent} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
 
 import {
   FileUploader,
@@ -14,7 +14,7 @@ import {
   FileUploaderHelpText,
   FileUploaderErrorText,
 } from '../src';
-import {arrayToCsv} from '../src/utils';
+import { arrayToCsv } from '../src/utils';
 
 const sampleMimeTypes = ['text/css', 'image/jpeg', 'image/png', 'application/pdf'];
 
@@ -44,7 +44,7 @@ describe('FileUploader', () => {
             </FileUploaderItem>
           </FileUploaderItemsList>
         </FileUploader>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const input = screen.getByLabelText('Upload files');
@@ -62,7 +62,7 @@ describe('FileUploader', () => {
 
     expect(screen.getByRole('list')).toBeDefined();
     expect(screen.getAllByRole('listitem')).toHaveLength(1);
-    expect(screen.getByRole('button', {name: 'Remove file'})).toBeDefined();
+    expect(screen.getByRole('button', { name: 'Remove file' })).toBeDefined();
   });
 
   it('should render as required when pass the required prop', () => {
@@ -74,7 +74,7 @@ describe('FileUploader', () => {
             <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
           </FileUploaderDropzone>
         </FileUploader>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const requiredDot = screen
@@ -94,7 +94,7 @@ describe('FileUploader', () => {
             <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
           </FileUploaderDropzone>
         </FileUploader>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     expect(screen.getByLabelText('Upload files')).toBeDisabled();
@@ -125,12 +125,12 @@ describe('FileUploader', () => {
             <FileUploaderItem onButtonClick={onButtonClickMock}>File1.png</FileUploaderItem>
           </FileUploaderItemsList>
         </FileUploader>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     fireEvent.change(screen.getByLabelText('Upload files'), {
       target: {
-        files: [new File([], 'file.png', {type: 'image/png'})],
+        files: [new File([], 'file.png', { type: 'image/png' })],
       },
     });
     expect(onInputChangeMock).toBeCalledTimes(1);
@@ -150,7 +150,7 @@ describe('FileUploader', () => {
     fireEvent.drop(dropzone);
     expect(onDragLeaveMock).toBeCalledTimes(1);
 
-    fireEvent.click(screen.getByRole('button', {name: 'Remove file'}));
+    fireEvent.click(screen.getByRole('button', { name: 'Remove file' }));
     expect(onButtonClickMock).toBeCalledTimes(1);
   });
 
@@ -173,7 +173,7 @@ describe('FileUploader', () => {
             <FileUploaderDropzoneText>Click to browse or drag files here.</FileUploaderDropzoneText>
           </FileUploaderDropzone>
         </FileUploader>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const dropzone = screen.getByTestId('my-dropzone');
@@ -202,10 +202,10 @@ describe('i18n', () => {
           <FileUploaderItem variant="loading">File1.png</FileUploaderItem>
           <FileUploaderItem variant="error">File1.png</FileUploaderItem>
         </FileUploaderItemsList>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
-    expect(screen.getAllByRole('button', {name: 'Remove file'})).toHaveLength(3);
+    expect(screen.getAllByRole('button', { name: 'Remove file' })).toHaveLength(3);
     expect(screen.getByText('(error)')).toBeDefined();
     expect(screen.getByText('(uploading file)')).toBeDefined();
   });
@@ -221,10 +221,10 @@ describe('i18n', () => {
             File1.png
           </FileUploaderItem>
         </FileUploaderItemsList>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
-    expect(screen.getByRole('button', {name: 'foo button'})).toBeDefined();
+    expect(screen.getByRole('button', { name: 'foo button' })).toBeDefined();
     expect(screen.getByText('foo error')).toBeDefined();
     expect(screen.getByText('foo loading')).toBeDefined();
   });

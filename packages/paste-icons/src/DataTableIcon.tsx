@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface DataTableIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface DataTableIconProps extends IconWrapperProps {
 }
 
 const DataTableIcon = React.forwardRef<HTMLElement, DataTableIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `DataTableIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -42,8 +42,8 @@ const DataTableIcon = React.forwardRef<HTMLElement, DataTableIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 DataTableIcon.displayName = 'DataTableIcon';
-export {DataTableIcon};
+export { DataTableIcon };

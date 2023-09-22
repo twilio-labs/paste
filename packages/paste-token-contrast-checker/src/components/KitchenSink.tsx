@@ -1,27 +1,27 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/core/uid-library';
-import {Alert} from '@twilio-paste/core/alert';
-import {Anchor} from '@twilio-paste/core/anchor';
-import {Box} from '@twilio-paste/core/box';
-import {Button} from '@twilio-paste/core/button';
-import {Card} from '@twilio-paste/core/card';
-import {Column, Grid} from '@twilio-paste/core/grid';
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import {Heading} from '@twilio-paste/core/heading';
-import {MediaBody, MediaFigure, MediaObject} from '@twilio-paste/core/media-object';
-import {Toast} from '@twilio-paste/core/toast';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/core/modal';
-import {Paragraph} from '@twilio-paste/core/paragraph';
-import {Separator} from '@twilio-paste/core/separator';
-import {Stack} from '@twilio-paste/core/stack';
-import {Text} from '@twilio-paste/core/text';
-import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/core/disclosure';
-import {PlusIcon} from '@twilio-paste/icons/cjs/PlusIcon';
-import {ProductTwilioOrgIcon} from '@twilio-paste/icons/cjs/ProductTwilioOrgIcon';
+import { useUID } from '@twilio-paste/core/uid-library';
+import { Alert } from '@twilio-paste/core/alert';
+import { Anchor } from '@twilio-paste/core/anchor';
+import { Box } from '@twilio-paste/core/box';
+import { Button } from '@twilio-paste/core/button';
+import { Card } from '@twilio-paste/core/card';
+import { Column, Grid } from '@twilio-paste/core/grid';
+import { Input } from '@twilio-paste/core/input';
+import { Label } from '@twilio-paste/core/label';
+import { Heading } from '@twilio-paste/core/heading';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/core/media-object';
+import { Toast } from '@twilio-paste/core/toast';
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from '@twilio-paste/core/modal';
+import { Paragraph } from '@twilio-paste/core/paragraph';
+import { Separator } from '@twilio-paste/core/separator';
+import { Stack } from '@twilio-paste/core/stack';
+import { Text } from '@twilio-paste/core/text';
+import { Disclosure, DisclosureContent, DisclosureHeading } from '@twilio-paste/core/disclosure';
+import { PlusIcon } from '@twilio-paste/icons/cjs/PlusIcon';
+import { ProductTwilioOrgIcon } from '@twilio-paste/icons/cjs/ProductTwilioOrgIcon';
 
-import {ExampleForm} from './Form';
-import {PlainMenu} from './Menu';
+import { ExampleForm } from './Form';
+import { PlainMenu } from './Menu';
 
 const handleClick = (): void => {
   // eslint-disable-next-line no-alert

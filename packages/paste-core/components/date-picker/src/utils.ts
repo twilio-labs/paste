@@ -1,4 +1,4 @@
-import {format} from 'date-fns';
+import { format } from 'date-fns';
 
 // https://stackoverflow.com/questions/22061723/regex-date-validation-for-yyyy-mm-dd/22061800
 const DATE_REGEX = /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;

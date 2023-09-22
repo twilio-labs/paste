@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box, type BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
-import {useProgressBar} from '@twilio-paste/react-spectrum-library';
-import {animated, useSpring} from '@twilio-paste/animation-library';
-import {keyframes} from '@twilio-paste/styling-library';
+import { Box, type BoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
+import { useProgressBar } from '@twilio-paste/react-spectrum-library';
+import { animated, useSpring } from '@twilio-paste/animation-library';
+import { keyframes } from '@twilio-paste/styling-library';
 
-import {LABEL_SUFFIX} from './constants';
+import { LABEL_SUFFIX } from './constants';
 
 const AnimatedBox = animated(Box);
 const IndeterminateKeyframes = keyframes`
@@ -39,7 +39,7 @@ export interface ProgressBarProps extends HTMLPasteProps<'progress'> {
 }
 
 export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((props, ref) => {
-  const {element = 'PROGRESS_BAR', id, value = 0, maxValue = 100, isIndeterminate = false} = props;
+  const { element = 'PROGRESS_BAR', id, value = 0, maxValue = 100, isIndeterminate = false } = props;
   /*
    * Since ProgressBar isn't a form element, we cannot use htmlFor from the regular label
    * so we create a ProgressBarLabel component that behaves like a regular form Label
@@ -50,7 +50,7 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((p
     labelledBy = `${id}${LABEL_SUFFIX}`;
   }
 
-  const {progressBarProps} = useProgressBar({
+  const { progressBarProps } = useProgressBar({
     ...props,
     // Appeases useLabel's internal warning about missing labels because we're doing our own thing
     'aria-labelledby': labelledBy,
@@ -60,7 +60,7 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((p
     if (!isIndeterminate) {
       const clampedValue = Math.min(Math.max(value, 0), maxValue);
       const percentage = Math.round((clampedValue / maxValue) * 100);
-      return {width: `${percentage}%`, config: {tension: 280, friction: 60}};
+      return { width: `${percentage}%`, config: { tension: 280, friction: 60 } };
     }
 
     return {

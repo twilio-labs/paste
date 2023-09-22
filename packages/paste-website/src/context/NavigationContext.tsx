@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import type {Feature} from '../utils/api';
+import type { Feature } from '../utils/api';
 
 export type NavigationQuery = Feature[];
 

@@ -1,9 +1,9 @@
 import camelCase from 'lodash/camelCase';
 import mapKeys from 'lodash/mapKeys';
 
-import {getHumanizedNameFromPackageName} from './RouteUtils';
-import {sentenceCase} from './SentenceCase';
-import type {Feature} from './api';
+import { getHumanizedNameFromPackageName } from './RouteUtils';
+import { sentenceCase } from './SentenceCase';
+import type { Feature } from './api';
 
 export type ApiData = Record<string, any>;
 
@@ -22,7 +22,7 @@ type NavData = {
 };
 
 export const getNormalizedHeaderData = (data: ApiData): ApiData => {
-  const {name: packageName, version, description, status, Figma, ...rest} = data;
+  const { name: packageName, version, description, status, Figma, ...rest } = data;
 
   return {
     name: getHumanizedNameFromPackageName(packageName),
@@ -37,7 +37,7 @@ export const getNormalizedHeaderData = (data: ApiData): ApiData => {
 
 const getKebabCaseFeatureName = (name: string): string => name.toLowerCase().replace(/\s/g, '-');
 
-const mutateFeatureToPackage = ({Feature: FeatureName, status}: Feature): NavItem => {
+const mutateFeatureToPackage = ({ Feature: FeatureName, status }: Feature): NavItem => {
   const formattedName = getKebabCaseFeatureName(FeatureName);
   return {
     name: FeatureName,
@@ -46,7 +46,7 @@ const mutateFeatureToPackage = ({Feature: FeatureName, status}: Feature): NavIte
     slug: formattedName,
   };
 };
-const mutateFeatureToPattern = ({Feature: FeatureName, status}: Feature): NavItem => {
+const mutateFeatureToPattern = ({ Feature: FeatureName, status }: Feature): NavItem => {
   const formattedName = getKebabCaseFeatureName(FeatureName);
   return {
     name: FeatureName,

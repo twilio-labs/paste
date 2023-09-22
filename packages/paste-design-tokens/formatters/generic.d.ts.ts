@@ -1,10 +1,10 @@
-import type {ImmutableStyleMap} from 'theo';
+import type { ImmutableStyleMap } from 'theo';
 
-import type {DesignToken} from '../types';
-import {getTokenCategories} from '../utils/getTokenCategories';
-import {isNumeric} from '../utils/isNumeric';
-import {tweakTokens} from './generic';
-import {formatGroupTokensWithTemplate} from '../utils/formatGroupTokensWithTemplate';
+import type { DesignToken } from '../types';
+import { getTokenCategories } from '../utils/getTokenCategories';
+import { isNumeric } from '../utils/isNumeric';
+import { tweakTokens } from './generic';
+import { formatGroupTokensWithTemplate } from '../utils/formatGroupTokensWithTemplate';
 
 const tokenLineTemplate = (key: string, value: string): string =>
   `   ${key}: ${isNumeric(value) ? value : `${JSON.stringify(value)}`};`;
@@ -33,7 +33,7 @@ export const genericDTsTemplate = (result: ImmutableStyleMap): string => {
     result,
     categories,
     categoryTemplate,
-    tweakTokens
+    tweakTokens,
   )}}\n}`;
 
   return `declare const Tokens: ${groupedTokens}\nexport default Tokens;`;

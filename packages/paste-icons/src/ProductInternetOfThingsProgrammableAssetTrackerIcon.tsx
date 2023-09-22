@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductInternetOfThingsProgrammableAssetTrackerIconProps extends IconWrapperProps {
   title?: string;
@@ -15,7 +15,7 @@ export interface ProductInternetOfThingsProgrammableAssetTrackerIconProps extend
 const ProductInternetOfThingsProgrammableAssetTrackerIcon = React.forwardRef<
   HTMLElement,
   ProductInternetOfThingsProgrammableAssetTrackerIconProps
->(({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+>(({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
   const titleId = `ProductInternetOfThingsProgrammableAssetTrackerIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -44,4 +44,4 @@ const ProductInternetOfThingsProgrammableAssetTrackerIcon = React.forwardRef<
 });
 
 ProductInternetOfThingsProgrammableAssetTrackerIcon.displayName = 'ProductInternetOfThingsProgrammableAssetTrackerIcon';
-export {ProductInternetOfThingsProgrammableAssetTrackerIcon};
+export { ProductInternetOfThingsProgrammableAssetTrackerIcon };

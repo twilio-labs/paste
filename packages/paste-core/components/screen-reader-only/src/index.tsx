@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
 export interface ScreenReaderOnlyProps {
   children: NonNullable<React.ReactNode>;
@@ -9,7 +9,7 @@ export interface ScreenReaderOnlyProps {
 }
 
 const ScreenReaderOnly = React.forwardRef<HTMLElement, ScreenReaderOnlyProps>(
-  ({as = 'span', children, ...props}, ref) => {
+  ({ as = 'span', children, ...props }, ref) => {
     return (
       <Box
         {...props}
@@ -29,8 +29,8 @@ const ScreenReaderOnly = React.forwardRef<HTMLElement, ScreenReaderOnlyProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 ScreenReaderOnly.displayName = 'ScreenReaderOnly';
 
-export {ScreenReaderOnly};
+export { ScreenReaderOnly };

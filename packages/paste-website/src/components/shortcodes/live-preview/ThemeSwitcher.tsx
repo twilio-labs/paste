@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {RadioButton, RadioButtonGroup} from '@twilio-paste/radio-button-group';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {Box} from '@twilio-paste/box';
+import { RadioButton, RadioButtonGroup } from '@twilio-paste/radio-button-group';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { Box } from '@twilio-paste/box';
 
-import {usePreviewThemeContext} from '../../../context/PreviewThemeContext';
+import { usePreviewThemeContext } from '../../../context/PreviewThemeContext';
 
 export const ThemeSwitcher: React.FC<React.PropsWithChildren> = () => {
-  const {theme, selectTheme} = usePreviewThemeContext();
+  const { theme, selectTheme } = usePreviewThemeContext();
   const nameSeed = useUIDSeed();
   return (
     <Box padding="space40">

@@ -15,4 +15,4 @@ const CheckboxContext = React.createContext<CheckboxContextValue>({
   onChange: () => {},
 });
 
-export {CheckboxContext};
+export { CheckboxContext };

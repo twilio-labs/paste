@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {styled, css} from '@twilio-paste/styling-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { styled, css } from '@twilio-paste/styling-library';
 
 const AttachedStyled = styled.span(
   css({
@@ -34,7 +34,7 @@ const AttachedStyled = styled.span(
       borderTopLeftRadius: 0,
       borderBottomLeftRadius: 0,
     },
-  })
+  }),
 );
 
 const UnattachedStyled = styled.span(
@@ -45,7 +45,7 @@ const UnattachedStyled = styled.span(
     '& > button:first-of-type': {
       marginLeft: 'space0',
     },
-  })
+  }),
 );
 
 export interface ButtonGroupProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
@@ -55,7 +55,7 @@ export interface ButtonGroupProps extends Omit<React.ComponentPropsWithRef<'div'
 }
 
 export const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
-  ({element = 'BUTTON_GROUP', children, attached = false, ...props}, ref) => {
+  ({ element = 'BUTTON_GROUP', children, attached = false, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -70,7 +70,7 @@ export const ButtonGroup = React.forwardRef<HTMLDivElement, ButtonGroupProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
 ButtonGroup.displayName = 'ButtonGroup';

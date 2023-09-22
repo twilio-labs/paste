@@ -1,4 +1,4 @@
-import {hasWindowObject} from './RouteUtils';
+import { hasWindowObject } from './RouteUtils';
 
 export const inCypress = (): boolean => {
   if (hasWindowObject() && window.Cypress) {

@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {render} from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { render } from '@testing-library/react';
 
-import {PlainDataGrid} from '../stories/components/PlainDataGrid';
-import {customElementStyles} from '../stories/components/CustomizableDataGrid';
+import { PlainDataGrid } from '../stories/components/PlainDataGrid';
+import { customElementStyles } from '../stories/components/CustomizableDataGrid';
 
 describe('Data Grid Customization', () => {
   it('can be customized generically', () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <CustomizationProvider theme={TestTheme} elements={customElementStyles()}>
         <PlainDataGrid />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const datagrid = getByTestId('data-grid');
     const datagridHead = getByTestId('data-grid-head');
@@ -44,10 +44,10 @@ describe('Data Grid Customization', () => {
   });
 
   it('can be customized uniquely', () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <CustomizationProvider theme={TestTheme} elements={customElementStyles('FOO')}>
         <PlainDataGrid element="FOO" />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const datagrid = getByTestId('data-grid');

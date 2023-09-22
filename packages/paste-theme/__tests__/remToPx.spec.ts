@@ -1,4 +1,4 @@
-import {remToPx} from '../src/utils/remToPx';
+import { remToPx } from '../src/utils/remToPx';
 
 describe('remToPx', () => {
   it('handles input strings', (): void => {

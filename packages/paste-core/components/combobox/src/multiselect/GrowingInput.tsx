@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
-import {Box} from '@twilio-paste/box';
-import {InputElement} from '@twilio-paste/input';
+import type { BoxProps } from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
+import { InputElement } from '@twilio-paste/input';
 
 interface GrowingInputProps {
   initialValue?: string;
@@ -12,7 +12,7 @@ interface GrowingInputProps {
 }
 
 export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps>(
-  ({element = 'GROWING_INPUT', onChange, initialValue = '', value, ...props}, ref) => {
+  ({ element = 'GROWING_INPUT', onChange, initialValue = '', value, ...props }, ref) => {
     const [text, setText] = React.useState(value || initialValue);
 
     React.useEffect(() => {
@@ -71,6 +71,6 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
         />
       </Box>
     );
-  }
+  },
 );
 GrowingInput.displayName = 'GrowingInput';

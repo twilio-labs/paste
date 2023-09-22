@@ -16,7 +16,7 @@ function escapeStringRegexp(string) {
 function makeFilter(externals) {
   return new RegExp(
     // eslint-disable-next-line prefer-template
-    '^(' + externals.map(escapeStringRegexp).join('|') + ')(\\/.*)?$' // TODO support for query strings?
+    '^(' + externals.map(escapeStringRegexp).join('|') + ')(\\/.*)?$', // TODO support for query strings?
   );
 }
 
@@ -31,19 +31,19 @@ const NAMESPACE = NAME;
 // import * as JSON from '@twilio-paste/pacakge/jsonfile.json'
 // which would then blow up webpack 5. By targeting only require statements, we solve this
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function EsmExternalsPlugin({externals}) {
+function EsmExternalsPlugin({ externals }) {
   return {
     name: NAME,
     // eslint-disable-next-line @typescript-eslint/no-shadow
     setup(build) {
       const filter = makeFilter(externals);
-      build.onResolve({filter: /.*/, namespace: NAMESPACE}, (args) => {
+      build.onResolve({ filter: /.*/, namespace: NAMESPACE }, (args) => {
         return {
           path: args.path,
           external: true,
         };
       });
-      build.onResolve({filter}, (args) => {
+      build.onResolve({ filter }, (args) => {
         if (args.kind !== 'import-statement') {
           return {
             path: args.path,
@@ -51,10 +51,10 @@ function EsmExternalsPlugin({externals}) {
           };
         }
       });
-      build.onLoad({filter: /.*/, namespace: NAMESPACE}, (args) => {
+      build.onLoad({ filter: /.*/, namespace: NAMESPACE }, (args) => {
         return {
           contents: `export * as default from ${JSON.stringify(args.path)}; export * from ${JSON.stringify(
-            args.path
+            args.path,
           )};`,
         };
       });
@@ -62,4 +62,4 @@ function EsmExternalsPlugin({externals}) {
   };
 }
 
-module.exports = {EsmExternalsPlugin};
+module.exports = { EsmExternalsPlugin };

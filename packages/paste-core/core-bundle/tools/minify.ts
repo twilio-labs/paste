@@ -1,10 +1,10 @@
 import fs from 'fs';
 
-import {minify} from 'terser';
+import { minify } from 'terser';
 
-import {CORE_BUNDLE_OUTPUT_PATH} from './constants';
-import {getAllJsFiles} from './utils';
-import {writeToFile} from '../../../../tools/utils/writeToFile';
+import { CORE_BUNDLE_OUTPUT_PATH } from './constants';
+import { getAllJsFiles } from './utils';
+import { writeToFile } from '../../../../tools/utils/writeToFile';
 
 const files = getAllJsFiles(CORE_BUNDLE_OUTPUT_PATH);
 

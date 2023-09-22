@@ -4,7 +4,7 @@
  * register our own languages for Prism to use.
  */
 /* eslint-disable import/no-extraneous-dependencies */
-import {PrismLight as SyntaxHighlighter} from 'react-syntax-highlighter';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import SyntaxHighlighterTheme from 'react-syntax-highlighter/dist/esm/styles/prism/night-owl';
 import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
 import c from 'react-syntax-highlighter/dist/esm/languages/prism/c';
@@ -67,4 +67,4 @@ SyntaxHighlighter.registerLanguage(SnippetLanguage.GO, go);
 SyntaxHighlighter.registerLanguage(SnippetLanguage.GROOVY, groovy);
 
 // eslint-disable-next-line unicorn/prefer-export-from
-export {SyntaxHighlighter, SyntaxHighlighterTheme, SnippetLanguage};
+export { SyntaxHighlighter, SyntaxHighlighterTheme, SnippetLanguage };

@@ -1,5 +1,5 @@
-import type {PackageShape} from '../../../../tools/utils/getRepoPackages';
-import {generatePackageExportsMap} from '../generatePackageExportsMap';
+import type { PackageShape } from '../../../../tools/utils/getRepoPackages';
+import { generatePackageExportsMap } from '../generatePackageExportsMap';
 
 // This is a simplified mock of paste packages
 const mockGetPastePackages = async (): Promise<PackageShape[] | null> => [

@@ -1,12 +1,12 @@
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Popover, PopoverBadgeButton, PopoverContainer} from '@twilio-paste/popover';
-import {Heading} from '@twilio-paste/heading';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Popover, PopoverBadgeButton, PopoverContainer } from '@twilio-paste/popover';
+import { Heading } from '@twilio-paste/heading';
 import camelCase from 'lodash/camelCase';
-import {Theme} from '@twilio-paste/theme';
+import { Theme } from '@twilio-paste/theme';
 
-import type {TokenCardProps} from '../types';
+import type { TokenCardProps } from '../types';
 
 export const AccessiblePairing: React.FC<Pick<TokenCardProps, 'text_contrast_pairing' | 'name' | 'selectedTheme'>> = ({
   text_contrast_pairing,

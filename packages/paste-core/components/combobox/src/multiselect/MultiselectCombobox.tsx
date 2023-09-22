@@ -1,25 +1,25 @@
 import * as React from 'react';
-import {useVirtual} from 'react-virtual';
+import { useVirtual } from 'react-virtual';
 import includes from 'lodash/includes';
-import {useWindowSize} from '@twilio-paste/utils';
-import {useUID} from '@twilio-paste/uid-library';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {FormPillGroup, FormPill, useFormPillState} from '@twilio-paste/form-pill-group';
-import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
-import {InputBox, InputChevronWrapper, getInputChevronIconColor} from '@twilio-paste/input-box';
-import {Portal} from '@twilio-paste/reakit-library';
+import { useWindowSize } from '@twilio-paste/utils';
+import { useUID } from '@twilio-paste/uid-library';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { Box } from '@twilio-paste/box';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { FormPillGroup, FormPill, useFormPillState } from '@twilio-paste/form-pill-group';
+import { useComboboxPrimitive } from '@twilio-paste/combobox-primitive';
+import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '@twilio-paste/input-box';
+import { Portal } from '@twilio-paste/reakit-library';
 
-import {GrowingInput} from './GrowingInput';
-import {extractPropsFromState} from './extractPropsFromState';
-import {ListBoxPositioner} from '../ListboxPositioner';
-import {ComboboxItems} from '../ComboboxItems';
-import {ComboboxListbox} from '../styles/ComboboxListbox';
-import type {MultiselectComboboxProps} from '../types';
-import {getHelpTextVariant} from '../helpers';
+import { GrowingInput } from './GrowingInput';
+import { extractPropsFromState } from './extractPropsFromState';
+import { ListBoxPositioner } from '../ListboxPositioner';
+import { ComboboxItems } from '../ComboboxItems';
+import { ComboboxListbox } from '../styles/ComboboxListbox';
+import type { MultiselectComboboxProps } from '../types';
+import { getHelpTextVariant } from '../helpers';
 
 export const MultiselectCombobox = React.forwardRef<HTMLInputElement, MultiselectComboboxProps>(
   (
@@ -53,13 +53,13 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       i18nKeyboardControls = 'Press Delete or Backspace to remove. Press Enter to toggle selection.',
       ...props
     },
-    ref
+    ref,
   ) => {
     const a11yLabelId = useUID();
     const helpTextId = useUID();
     const pillState = useFormPillState();
     const parentRef = React.useRef(null);
-    const {width} = useWindowSize();
+    const { width } = useWindowSize();
 
     // gets the dimensions of the inputBox to position the listbox
     const inputBoxRef = React.useRef<HTMLDivElement>(null);
@@ -71,7 +71,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
           onSelectedItemsChangeProp(changes.selectedItems);
         }
       },
-      [onSelectedItemsChangeProp]
+      [onSelectedItemsChangeProp],
     );
 
     const {
@@ -137,7 +137,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
        * Handles how state in Downshift should change as a result of user action
        */
       stateReducer(_state, actionAndChanges) {
-        const {changes, type} = actionAndChanges;
+        const { changes, type } = actionAndChanges;
 
         switch (type) {
           case useComboboxPrimitive.stateChangeTypes.InputKeyDownEnter:
@@ -177,12 +177,12 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             };
           /* Fixes issue where controlled input values were getting blown away by Downshift */
           case useComboboxPrimitive.stateChangeTypes.ControlledPropUpdatedSelectedItem:
-            return {...changes, inputValue};
+            return { ...changes, inputValue };
         }
         return changes;
       },
       // https://www.downshift-js.com/use-combobox#controlling-state
-      onStateChange({type, selectedItem: newSelectedItem}) {
+      onStateChange({ type, selectedItem: newSelectedItem }) {
         switch (type) {
           case useComboboxPrimitive.stateChangeTypes.InputKeyDownEnter:
           case useComboboxPrimitive.stateChangeTypes.ItemClick:
@@ -247,7 +247,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
           rowVirtualizer.scrollToIndex(size - 1);
         }
       },
-      [items, selectedItems, highlightedIndex]
+      [items, selectedItems, highlightedIndex],
     );
 
     /*
@@ -255,7 +255,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
      * but if this is a required field and there are no selected items, we don't want
      * to submit the form
      */
-    const {onKeyDown} = props;
+    const { onKeyDown } = props;
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLInputElement>) => {
         if (event.code === 'Enter' && required && selectedItems.length === 0) {
@@ -264,7 +264,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
         }
         onKeyDown?.(event);
       },
-      [required, selectedItems, onKeyDown]
+      [required, selectedItems, onKeyDown],
     );
 
     // Fix the a11y issue where `aria-expanded` isn't being set until the dropdown opens the very first time
@@ -289,7 +289,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
           ref={inputBoxRef}
         >
           <Box
-            {...getToggleButtonProps({disabled})}
+            {...getToggleButtonProps({ disabled })}
             {...comboboxProps}
             aria-expanded={ariaExpanded}
             position="relative"
@@ -350,7 +350,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
             <GrowingInput
               // we spread props into `getInputProps` so that Downshift handles events correctly
               {...getInputProps({
-                ...getDropdownProps({ref, preventKeyAction: isOpen}),
+                ...getDropdownProps({ ref, preventKeyAction: isOpen }),
                 ...props,
                 disabled,
                 onKeyDown: handleKeyDown,
@@ -366,7 +366,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
         <Portal>
           <ListBoxPositioner inputBoxRef={inputBoxRef} dropdownBoxRef={parentRef}>
             <ComboboxListbox
-              {...getMenuProps({ref: parentRef})}
+              {...getMenuProps({ ref: parentRef })}
               element={`${element}_LISTBOX`}
               hidden={!isOpen}
               aria-multiselectable="true"
@@ -397,7 +397,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
         <ScreenReaderOnly id={a11yLabelId}>{i18nKeyboardControls}</ScreenReaderOnly>
       </Box>
     );
-  }
+  },
 );
 
 MultiselectCombobox.displayName = 'MultiselectCombobox';

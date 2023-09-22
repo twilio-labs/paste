@@ -1,27 +1,27 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Label} from '@twilio-paste/label';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {DatePicker} from '@twilio-paste/date-picker';
-import {TimePicker} from '@twilio-paste/time-picker';
-import {Separator} from '@twilio-paste/separator';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { Label } from '@twilio-paste/label';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { DatePicker } from '@twilio-paste/date-picker';
+import { TimePicker } from '@twilio-paste/time-picker';
+import { Separator } from '@twilio-paste/separator';
 
-import {usePopoverState, Popover, PopoverContainer, PopoverButton, PopoverBadgeButton} from '../src';
+import { usePopoverState, Popover, PopoverContainer, PopoverButton, PopoverBadgeButton } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Popover',
   component: Popover,
-  subcomponents: {PopoverContainer, PopoverButton},
+  subcomponents: { PopoverContainer, PopoverButton },
   parameters: {
     // Sets a delay and diff threshold for the component's stories
-    chromatic: {delay: 3000, diffThreshold: 0.3},
+    chromatic: { delay: 3000, diffThreshold: 0.3 },
   },
 };
 
@@ -226,7 +226,7 @@ export const BadgePopover = (): JSX.Element => {
 
 export const StateHookExample = (): JSX.Element => {
   const uniqueBaseID = useUID();
-  const popover = usePopoverState({baseId: uniqueBaseID});
+  const popover = usePopoverState({ baseId: uniqueBaseID });
   return (
     <Box height="300px">
       <Stack orientation="horizontal" spacing="space60">
@@ -247,7 +247,7 @@ export const StateHookExample = (): JSX.Element => {
   );
 };
 
-export const Customization: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Customization: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const uniqueBaseID = useUID();
   return (

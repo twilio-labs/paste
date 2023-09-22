@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import merge from 'deepmerge';
 
-import {SizeStyles, BaseStyles} from './styles';
-import type {DirectButtonProps} from './types';
+import { SizeStyles, BaseStyles } from './styles';
+import type { DirectButtonProps } from './types';
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
@@ -35,7 +35,7 @@ const ButtonStyleMapping = {
 };
 
 const DestructiveIconButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box
@@ -46,7 +46,7 @@ const DestructiveIconButton = React.forwardRef<HTMLButtonElement, DirectButtonPr
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 DestructiveIconButton.defaultProps = {
   as: 'button',
@@ -54,4 +54,4 @@ DestructiveIconButton.defaultProps = {
 
 DestructiveIconButton.displayName = 'DestructiveIconButton';
 
-export {DestructiveIconButton};
+export { DestructiveIconButton };

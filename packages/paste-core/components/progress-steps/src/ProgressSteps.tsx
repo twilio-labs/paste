@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
-import type {Orientation} from './types';
-import {ProgressStepsContext} from './ProgressStepsContext';
+import type { Orientation } from './types';
+import { ProgressStepsContext } from './ProgressStepsContext';
 
 const VerticalStyles: BoxProps = {
   flexDirection: 'column',
@@ -23,9 +23,9 @@ export interface ProgressStepsProps extends Omit<React.ComponentPropsWithRef<'di
 }
 
 export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps>(
-  ({element = 'PROGRESS_STEPS', orientation = 'horizontal', ...props}, ref) => {
+  ({ element = 'PROGRESS_STEPS', orientation = 'horizontal', ...props }, ref) => {
     return (
-      <ProgressStepsContext.Provider value={{orientation}}>
+      <ProgressStepsContext.Provider value={{ orientation }}>
         <Box
           {...safelySpreadBoxProps(props)}
           ref={ref}
@@ -38,6 +38,6 @@ export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps
         </Box>
       </ProgressStepsContext.Provider>
     );
-  }
+  },
 );
 ProgressSteps.displayName = 'ProgressSteps';

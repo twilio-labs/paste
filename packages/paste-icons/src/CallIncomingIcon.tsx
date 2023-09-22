@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface CallIncomingIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface CallIncomingIconProps extends IconWrapperProps {
 }
 
 const CallIncomingIcon = React.forwardRef<HTMLElement, CallIncomingIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `CallIncomingIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -45,8 +45,8 @@ const CallIncomingIcon = React.forwardRef<HTMLElement, CallIncomingIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 CallIncomingIcon.displayName = 'CallIncomingIcon';
-export {CallIncomingIcon};
+export { CallIncomingIcon };

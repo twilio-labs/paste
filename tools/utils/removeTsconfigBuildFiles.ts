@@ -1,4 +1,4 @@
-import {resolve} from 'path';
+import { resolve } from 'path';
 
 import shell from 'shelljs';
 import chalk from 'chalk';

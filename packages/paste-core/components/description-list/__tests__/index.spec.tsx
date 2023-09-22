@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails} from '../src';
+import { DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails } from '../src';
 
 const FONT_WEIGHT = 'font-weight';
 const MARGIN_LEFT = 'margin-left';
@@ -31,7 +31,7 @@ describe('DescriptionList', () => {
           <DescriptionListDetails>Three</DescriptionListDetails>
         </DescriptionListSet>
       </DescriptionList>
-    </Theme.Provider>
+    </Theme.Provider>,
   );
   const terms = screen.getAllByRole('term');
   const details = screen.getAllByRole('definition');
@@ -72,7 +72,7 @@ describe('Customization', () => {
             <DescriptionListDetails>1</DescriptionListDetails>
           </DescriptionListSet>
         </DescriptionList>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.getByText('A').closest('dl')?.dataset.pasteElement).toBe('DESCRIPTION_LIST');
     expect(screen.getByText('A').closest('div')?.dataset.pasteElement).toBe('DESCRIPTION_LIST_SET');
@@ -89,7 +89,7 @@ describe('Customization', () => {
             <DescriptionListDetails element="BAR">1</DescriptionListDetails>
           </DescriptionListSet>
         </DescriptionList>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.getByText('A').closest('dl')?.dataset.pasteElement).toBe('FAZ');
     expect(screen.getByText('A').closest('div')?.dataset.pasteElement).toBe('BAZ');
@@ -103,10 +103,10 @@ describe('Customization', () => {
         baseTheme="default"
         theme={TestTheme}
         elements={{
-          DESCRIPTION_LIST: {color: 'colorTextDecorative40'},
-          DESCRIPTION_LIST_SET: {backgroundColor: 'colorBackgroundDecorative30Weakest'},
-          DESCRIPTION_LIST_TERM: {fontWeight: 'fontWeightBold'},
-          DESCRIPTION_LIST_DETAILS: {marginLeft: 'space10'},
+          DESCRIPTION_LIST: { color: 'colorTextDecorative40' },
+          DESCRIPTION_LIST_SET: { backgroundColor: 'colorBackgroundDecorative30Weakest' },
+          DESCRIPTION_LIST_TERM: { fontWeight: 'fontWeightBold' },
+          DESCRIPTION_LIST_DETAILS: { marginLeft: 'space10' },
         }}
       >
         <DescriptionList>
@@ -115,7 +115,7 @@ describe('Customization', () => {
             <DescriptionListDetails>1</DescriptionListDetails>
           </DescriptionListSet>
         </DescriptionList>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByText('A').closest('dl')).toHaveStyleRule(COLOR, 'rgb(109, 46, 209)');
     expect(screen.getByText('A').closest('div')).toHaveStyleRule(BACKGROUND_COLOR, 'rgb(237, 253, 243)');
@@ -129,10 +129,10 @@ describe('Customization', () => {
         baseTheme="default"
         theme={TestTheme}
         elements={{
-          FAZ: {color: 'colorTextDecorative40'},
-          BAZ: {backgroundColor: 'colorBackgroundDecorative30Weakest'},
-          FOO: {fontWeight: 'fontWeightBold'},
-          BAR: {marginLeft: 'space10'},
+          FAZ: { color: 'colorTextDecorative40' },
+          BAZ: { backgroundColor: 'colorBackgroundDecorative30Weakest' },
+          FOO: { fontWeight: 'fontWeightBold' },
+          BAR: { marginLeft: 'space10' },
         }}
       >
         <DescriptionList element="FAZ">
@@ -141,7 +141,7 @@ describe('Customization', () => {
             <DescriptionListDetails element="BAR">1</DescriptionListDetails>
           </DescriptionListSet>
         </DescriptionList>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByText('A').closest('dl')).toHaveStyleRule(COLOR, 'rgb(109, 46, 209)');
     expect(screen.getByText('A').closest('div')).toHaveStyleRule(BACKGROUND_COLOR, 'rgb(237, 253, 243)');

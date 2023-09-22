@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import type {Element} from './types';
+import type { Element } from './types';
 
 export interface OptionProps extends HTMLPasteProps<'option'> {
   value: string;
@@ -10,7 +10,7 @@ export interface OptionProps extends HTMLPasteProps<'option'> {
   element?: Element;
 }
 
-const Option = React.forwardRef<HTMLOptionElement, OptionProps>(({children, element = 'OPTION', ...props}, ref) => {
+const Option = React.forwardRef<HTMLOptionElement, OptionProps>(({ children, element = 'OPTION', ...props }, ref) => {
   if (props.selected) {
     // eslint-disable-next-line no-console
     console.warn('"selected" is a blocked prop on this component, please use "value" on the select element.');
@@ -39,4 +39,4 @@ const Option = React.forwardRef<HTMLOptionElement, OptionProps>(({children, elem
 
 Option.displayName = 'Option';
 
-export {Option};
+export { Option };

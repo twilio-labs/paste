@@ -5,8 +5,8 @@
  * `rowGap` and `columnGap` are already defined elsewhere and used
  * in our system
  */
-import type {Properties} from 'csstype';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type { Properties } from 'csstype';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
 
 // CSS native
 export type GridRowOptions = Properties['gridRow'];

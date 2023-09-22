@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import merge from 'deepmerge';
 
-import {SizeStyles, BaseStyles, DestructiveSecondaryToggleStyles} from './styles';
-import type {DirectButtonProps} from './types';
+import { SizeStyles, BaseStyles, DestructiveSecondaryToggleStyles } from './styles';
+import type { DirectButtonProps } from './types';
 
 /*
  * defensively resetting interaction color from over zealous legacy
@@ -62,7 +62,7 @@ const ButtonStyleMapping = {
 };
 
 const DestructiveSecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, pressed, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, pressed, ...props }, ref) => {
     const toggleStyles = pressed === undefined ? {} : DestructiveSecondaryToggleStyles;
 
     // Must spread size styles after button styles
@@ -77,11 +77,11 @@ const DestructiveSecondaryButton = React.forwardRef<HTMLButtonElement, DirectBut
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 DestructiveSecondaryButton.defaultProps = {
   as: 'button',
 };
 DestructiveSecondaryButton.displayName = 'DestructiveSecondaryButton';
 
-export {DestructiveSecondaryButton};
+export { DestructiveSecondaryButton };

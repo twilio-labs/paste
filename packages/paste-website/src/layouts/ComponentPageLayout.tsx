@@ -1,19 +1,19 @@
 import * as React from 'react';
 import Head from 'next/head';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
-import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navigation';
-import {Box} from '@twilio-paste/box';
+import { InPageNavigation, InPageNavigationItem } from '@twilio-paste/in-page-navigation';
+import { Box } from '@twilio-paste/box';
 
-import {SiteWrapper} from '../components/site-wrapper';
-import {PasteMDXProvider} from '../components/paste-mdx-provider';
-import {SiteMetaDefaults} from '../constants';
-import type {NavigationQuery} from '../context/NavigationContext';
-import {PageContentWrapper} from '../components/PageContentWrapper';
-import {NormalizedComponentHeader} from '../components/shortcodes/normalized-component-header';
-import type {ApiData} from '../utils/DataUtils';
-import {getPackagePath} from '../utils/RouteUtils';
-import {PageAside} from '../components/shortcodes/PageAside';
+import { SiteWrapper } from '../components/site-wrapper';
+import { PasteMDXProvider } from '../components/paste-mdx-provider';
+import { SiteMetaDefaults } from '../constants';
+import type { NavigationQuery } from '../context/NavigationContext';
+import { PageContentWrapper } from '../components/PageContentWrapper';
+import { NormalizedComponentHeader } from '../components/shortcodes/normalized-component-header';
+import type { ApiData } from '../utils/DataUtils';
+import { getPackagePath } from '../utils/RouteUtils';
+import { PageAside } from '../components/shortcodes/PageAside';
 
 interface ComponentPageLayoutProps {
   children?: React.ReactElement;
@@ -24,7 +24,7 @@ interface ComponentPageLayoutProps {
     package?: string;
   };
   navigationData: NavigationQuery;
-  mdxHeadings: {depth: number; value: string}[];
+  mdxHeadings: { depth: number; value: string }[];
   pageHeaderData: {
     categoryRoute: string;
     githubUrl: string;
@@ -51,7 +51,7 @@ const ComponentPageLayout: React.FC<React.PropsWithChildren<ComponentPageLayoutP
   navigationData,
   data,
   mdxHeadings,
-  pageHeaderData: {categoryRoute, githubUrl, storybookUrl},
+  pageHeaderData: { categoryRoute, githubUrl, storybookUrl },
 }) => {
   const pageTitle = meta.title ? `${meta.title} - ${SiteMetaDefaults.TITLE}` : SiteMetaDefaults.TITLE;
   const pageDescription = meta.description || SiteMetaDefaults.DESCRIPTION;

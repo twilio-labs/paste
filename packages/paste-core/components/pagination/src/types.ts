@@ -1,5 +1,5 @@
-import type {BoxElementProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { BoxElementProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export type AsTags = 'a' | 'button';
 export type Variants = 'back' | 'forward';

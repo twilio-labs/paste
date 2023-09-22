@@ -1,11 +1,11 @@
-import {Box} from '@twilio-paste/box';
-import type {TextColorOptions, BackgroundColorOptions, BorderColorOptions} from '@twilio-paste/style-props';
-import {styled, themeGet} from '@twilio-paste/styling-library';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {useUID} from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import type { TextColorOptions, BackgroundColorOptions, BorderColorOptions } from '@twilio-paste/style-props';
+import { styled, themeGet } from '@twilio-paste/styling-library';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
-import {ImageCaption} from '../components/ImageCaption';
+import { ColorSwatch, ColorSwatchText } from '../components/color-swatch/ColorSwatch';
+import { ImageCaption } from '../components/ImageCaption';
 
 const backgroundTokens: BackgroundColorOptions[] = [
   'colorBackgroundBody',
@@ -46,36 +46,36 @@ interface TokenPair {
 }
 
 const standardPairingTokens: TokenPair[] = [
-  {textToken: 'colorText', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextWeak', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextIcon', backgroundToken: 'colorBackground'},
-  {textToken: 'colorText', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextWeak', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextIcon', backgroundToken: 'colorBackgroundBody'},
+  { textToken: 'colorText', backgroundToken: 'colorBackground' },
+  { textToken: 'colorTextWeak', backgroundToken: 'colorBackground' },
+  { textToken: 'colorTextIcon', backgroundToken: 'colorBackground' },
+  { textToken: 'colorText', backgroundToken: 'colorBackgroundBody' },
+  { textToken: 'colorTextWeak', backgroundToken: 'colorBackgroundBody' },
+  { textToken: 'colorTextIcon', backgroundToken: 'colorBackgroundBody' },
 ];
 
 const statusPairingTokens: TokenPair[] = [
-  {textToken: 'colorTextSuccess', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextWarning', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextError', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextSuccess', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextWarning', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextError', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextSuccess', backgroundToken: 'colorBackgroundSuccessWeakest'},
-  {textToken: 'colorTextWarning', backgroundToken: 'colorBackgroundWarningWeakest'},
-  {textToken: 'colorTextError', backgroundToken: 'colorBackgroundErrorWeakest'},
+  { textToken: 'colorTextSuccess', backgroundToken: 'colorBackground' },
+  { textToken: 'colorTextWarning', backgroundToken: 'colorBackground' },
+  { textToken: 'colorTextError', backgroundToken: 'colorBackground' },
+  { textToken: 'colorTextSuccess', backgroundToken: 'colorBackgroundBody' },
+  { textToken: 'colorTextWarning', backgroundToken: 'colorBackgroundBody' },
+  { textToken: 'colorTextError', backgroundToken: 'colorBackgroundBody' },
+  { textToken: 'colorTextSuccess', backgroundToken: 'colorBackgroundSuccessWeakest' },
+  { textToken: 'colorTextWarning', backgroundToken: 'colorBackgroundWarningWeakest' },
+  { textToken: 'colorTextError', backgroundToken: 'colorBackgroundErrorWeakest' },
 ];
 
 const inversePairingTokens: TokenPair[] = [
-  {textToken: 'colorTextInverse', backgroundToken: 'colorBackgroundInverse'},
-  {textToken: 'colorTextInverseWeak', backgroundToken: 'colorBackgroundInverse'},
-  {textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundInverse'},
-  {textToken: 'colorTextInverse', backgroundToken: 'colorBackgroundBodyInverse'},
-  {textToken: 'colorTextInverseWeak', backgroundToken: 'colorBackgroundBodyInverse'},
-  {textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundBodyInverse'},
+  { textToken: 'colorTextInverse', backgroundToken: 'colorBackgroundInverse' },
+  { textToken: 'colorTextInverseWeak', backgroundToken: 'colorBackgroundInverse' },
+  { textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundInverse' },
+  { textToken: 'colorTextInverse', backgroundToken: 'colorBackgroundBodyInverse' },
+  { textToken: 'colorTextInverseWeak', backgroundToken: 'colorBackgroundBodyInverse' },
+  { textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundBodyInverse' },
 ];
 
-export const StyledSwatchGrid = styled.div<{numberColumns: number}>`
+export const StyledSwatchGrid = styled.div<{ numberColumns: number }>`
   display: grid;
   column-gap: ${themeGet('space.space70')};
   row-gap: ${themeGet('space.space100')};
@@ -167,7 +167,7 @@ export const StandardPairingSwatches = (): JSX.Element => {
   return (
     <Box marginBottom="space130">
       <StyledSwatchGrid numberColumns={3}>
-        {standardPairingTokens.map(({textToken, backgroundToken}) => {
+        {standardPairingTokens.map(({ textToken, backgroundToken }) => {
           const hasBorder = backgroundToken === 'colorBackgroundBody';
           return (
             <Box aria-hidden="true" key={useUID()}>
@@ -187,7 +187,7 @@ export const StatusPairingSwatches = (): JSX.Element => {
   return (
     <Box marginBottom="space130">
       <StyledSwatchGrid numberColumns={3}>
-        {statusPairingTokens.map(({textToken, backgroundToken}) => {
+        {statusPairingTokens.map(({ textToken, backgroundToken }) => {
           const hasBorder = backgroundToken === 'colorBackgroundBody';
           return (
             <Box aria-hidden="true" key={useUID()}>
@@ -207,7 +207,7 @@ export const InversePairingSwatches = (): JSX.Element => {
   return (
     <Box marginBottom="space130">
       <StyledSwatchGrid numberColumns={3}>
-        {inversePairingTokens.map(({textToken, backgroundToken}) => {
+        {inversePairingTokens.map(({ textToken, backgroundToken }) => {
           return (
             <Box aria-hidden="true" key={useUID()}>
               <ColorSwatch backgroundColor={backgroundToken}>

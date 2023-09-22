@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ArchiveIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ArchiveIconProps extends IconWrapperProps {
 }
 
 const ArchiveIcon = React.forwardRef<HTMLElement, ArchiveIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ArchiveIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -50,8 +50,8 @@ const ArchiveIcon = React.forwardRef<HTMLElement, ArchiveIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ArchiveIcon.displayName = 'ArchiveIcon';
-export {ArchiveIcon};
+export { ArchiveIcon };

@@ -1,9 +1,9 @@
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import {createRoot} from 'testing-tools/react-dom-create-root';
-import {render, act} from '@testing-library/react';
+import { createRoot } from 'testing-tools/react-dom-create-root';
+import { render, act } from '@testing-library/react';
 
-import {Theme, useTheme} from '../src';
+import { Theme, useTheme } from '../src';
 
 const HookExampleComponent = (): React.ReactElement => {
   const theme = useTheme();
@@ -17,16 +17,16 @@ describe('useTheme', () => {
       root.render(
         <Theme.Provider theme="default">
           <HookExampleComponent />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
     });
   });
 
   it('should be able to access the theme object', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <Theme.Provider theme="default">
         <HookExampleComponent />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     expect(getByText('rgb(18, 28, 45)')).toBeDefined();

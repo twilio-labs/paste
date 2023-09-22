@@ -1,23 +1,23 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {action} from '@storybook/addon-actions';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Anchor} from '@twilio-paste/anchor';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
+import type { StoryFn } from '@storybook/react';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import { action } from '@storybook/addon-actions';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { Anchor } from '@twilio-paste/anchor';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
 
-import {Select, Option, OptionGroup} from '../src';
+import { Select, Option, OptionGroup } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Select',
   component: Select,
-  subcomponents: {Option, OptionGroup},
+  subcomponents: { Option, OptionGroup },
 };
 
 export const DefaultSelect = (): React.ReactNode => {
@@ -249,11 +249,11 @@ export const SelectMultiple = (): React.ReactNode => {
         id={uid}
         multiple
         size={2}
-        onChange={({target: options}) => {
+        onChange={({ target: options }) => {
           const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore implicit any with key
-            const {selected, value: optionValue} = options[key];
+            const { selected, value: optionValue } = options[key];
             if (selected) {
               return [...optionValues, optionValue] as unknown as [];
             }
@@ -515,11 +515,11 @@ export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
       <Label htmlFor={uid}>Label</Label>
       <Select
         id={uid}
-        onChange={({target: options}) => {
+        onChange={({ target: options }) => {
           const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore implicit any with key
-            const {selected, value: optionValue} = options[key];
+            const { selected, value: optionValue } = options[key];
             if (selected) {
               return [...optionValues, optionValue] as unknown as [];
             }
@@ -560,11 +560,11 @@ export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
       </Label>
       <Select
         id={uid}
-        onChange={({target: options}) => {
+        onChange={({ target: options }) => {
           const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore implicit any with key
-            const {selected, value: optionValue} = options[key];
+            const { selected, value: optionValue } = options[key];
             if (selected) {
               return [...optionValues, optionValue] as unknown as [];
             }
@@ -625,7 +625,7 @@ export const SelectOverflowLongValue = (): React.ReactNode => {
 
 SelectOverflowLongValue.storyName = 'Select - overflow long value';
 
-export const CustomizedSelect: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedSelect: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   const seed = useUIDSeed();
@@ -661,8 +661,8 @@ export const CustomizedSelect: StoryFn = (_args, {parameters: {isTestEnvironment
         },
         SELECT_WRAPPER: {
           boxShadow: 'shadowBorderPrimary',
-          ':hover': {boxShadow: 'shadowBorderError'},
-          ':focus-within': {boxShadow: 'shadowFocus'},
+          ':hover': { boxShadow: 'shadowBorderError' },
+          ':focus-within': { boxShadow: 'shadowFocus' },
         },
         SELECT_CHEVRON_WRAPPER: {
           transform: 'rotate(90deg) translateX(-50%) translateY(-20%)',

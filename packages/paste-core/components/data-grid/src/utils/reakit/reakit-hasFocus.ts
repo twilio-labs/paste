@@ -1,4 +1,4 @@
-import {getActiveElement} from './reakit-getActiveElement-modded';
+import { getActiveElement } from './reakit-getActiveElement-modded';
 
 /**
  * Checks if `element` has focus. Elements that are referenced by

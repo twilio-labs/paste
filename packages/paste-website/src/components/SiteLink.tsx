@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/styling-library';
+import { styled, themeGet } from '@twilio-paste/styling-library';
 import Link from 'next/link';
 
 // Link styles copied from @twilio-paste/anchor
@@ -31,10 +31,10 @@ export interface SiteLinkProps {
   onClick?: () => void;
 }
 
-const SiteLink: React.FC<React.PropsWithChildren<SiteLinkProps>> = ({children, href, ...props}) => (
+const SiteLink: React.FC<React.PropsWithChildren<SiteLinkProps>> = ({ children, href, ...props }) => (
   <StyledLink href={href} {...props}>
     {children}
   </StyledLink>
 );
 
-export {SiteLink};
+export { SiteLink };

@@ -9,7 +9,7 @@ describe('Token list filter with no existing search params', function () {
 
   describe('Visual regression tests', () => {
     it('Basic VRT', () => {
-      cy.visualRegressionTestUrl({url: '/tokens/list', testName: `${testSuiteName}-basic-page-check`});
+      cy.visualRegressionTestUrl({ url: '/tokens/list', testName: `${testSuiteName}-basic-page-check` });
     });
   });
 });
@@ -47,12 +47,12 @@ describe('Token list filter format control and theme control', function () {
     cy.get('[data-cy="theme-control"]').select('dark').should('have.value', 'dark');
     cy.get('[data-cy="tokens-table-container"] li:first dd [data-paste-element="TEXT"]:first').should(
       'include.text',
-      'rgb(18, 28, 45)'
+      'rgb(18, 28, 45)',
     );
     cy.get('[data-cy="theme-control"]').select('default').should('have.value', 'default');
     cy.get('[data-cy="tokens-table-container"] li:first dd [data-paste-element="TEXT"]:first').should(
       'include.text',
-      'rgb(244, 244, 246)'
+      'rgb(244, 244, 246)',
     );
   });
 

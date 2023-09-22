@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
 import {
   Pagination,
@@ -63,7 +63,9 @@ export const ArrowAsAnchorLabelsExample = (): JSX.Element => {
   );
 };
 
-export const ArrowsPageLabelExample: React.FC<React.PropsWithChildren<{staticLabel?: string}>> = ({staticLabel}) => {
+export const ArrowsPageLabelExample: React.FC<React.PropsWithChildren<{ staticLabel?: string }>> = ({
+  staticLabel,
+}) => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
   return (
@@ -161,12 +163,12 @@ export const ControlledArrowPaginationExample = (): JSX.Element => {
   const [currentPage, setCurrentPage] = React.useState(1);
   const totalPages = 7;
 
-  const goToNextPage = (event: {preventDefault: () => void}): void => {
+  const goToNextPage = (event: { preventDefault: () => void }): void => {
     setCurrentPage((page) => Math.min(page + 1, totalPages));
     event.preventDefault();
   };
 
-  const goToPreviousPage = (event: {preventDefault: () => void}): void => {
+  const goToPreviousPage = (event: { preventDefault: () => void }): void => {
     setCurrentPage((page) => Math.max(page - 1, 1));
     event.preventDefault();
   };
@@ -203,12 +205,12 @@ export const ControlledNumberPaginationExample = (): JSX.Element => {
   const pages = [1, 2, 3, 4, 5, 6, 7];
   const totalPages = pages.length;
 
-  const goToNextPage = (event: {preventDefault: () => void}): void => {
+  const goToNextPage = (event: { preventDefault: () => void }): void => {
     setCurrentPage((page) => Math.min(page + 1, totalPages));
     event.preventDefault();
   };
 
-  const goToPreviousPage = (event: {preventDefault: () => void}): void => {
+  const goToPreviousPage = (event: { preventDefault: () => void }): void => {
     setCurrentPage((page) => Math.max(page - 1, 1));
     event.preventDefault();
   };

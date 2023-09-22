@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export interface TopbarProps extends HTMLPasteProps<'div'> {
   children: React.ReactNode;
@@ -13,7 +13,7 @@ export interface TopbarProps extends HTMLPasteProps<'div'> {
 }
 
 export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(
-  ({element = 'TOPBAR', id, children, ...props}, ref) => {
+  ({ element = 'TOPBAR', id, children, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -37,6 +37,6 @@ export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 Topbar.displayName = 'Topbar';

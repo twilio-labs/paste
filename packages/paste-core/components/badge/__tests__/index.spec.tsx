@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {render, fireEvent, screen, renderHook} from '@testing-library/react';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import { render, fireEvent, screen, renderHook } from '@testing-library/react';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
 
-import {Badge} from '../src';
-import {useResizeChildIcons} from '../src/hooks';
+import { Badge } from '../src';
+import { useResizeChildIcons } from '../src/hooks';
 
 type NamedChild = React.ReactElement<Record<string, any>, React.NamedExoticComponent>;
 
@@ -11,7 +11,7 @@ describe('Badge', () => {
   describe('Hooks', () => {
     describe('useResizeChildIcons', () => {
       it('should return return no modifications when child icon size is default', () => {
-        const {result} = renderHook(() => useResizeChildIcons(['test', <InformationIcon key={1} decorative />]));
+        const { result } = renderHook(() => useResizeChildIcons(['test', <InformationIcon key={1} decorative />]));
 
         const icon = (result.current as ArrayLike<NamedChild>)[1];
 
@@ -20,8 +20,8 @@ describe('Badge', () => {
       });
 
       it('should return the correct modifications when child icon size is not the default', () => {
-        const {result} = renderHook(() =>
-          useResizeChildIcons(['test', <InformationIcon key={1} size="sizeIcon40" decorative />])
+        const { result } = renderHook(() =>
+          useResizeChildIcons(['test', <InformationIcon key={1} size="sizeIcon40" decorative />]),
         );
 
         const icon = (result.current as ArrayLike<NamedChild>)[1];
@@ -38,7 +38,7 @@ describe('Badge', () => {
       render(
         <Badge as="span" variant="neutral" ref={badgeRef}>
           Neutral
-        </Badge>
+        </Badge>,
       );
       expect(badgeRef?.current?.tagName).toEqual('SPAN');
     });
@@ -47,7 +47,7 @@ describe('Badge', () => {
       render(
         <Badge as="button" onClick={() => {}} variant="neutral" ref={badgeRef}>
           Neutral
-        </Badge>
+        </Badge>,
       );
       expect(badgeRef?.current?.tagName).toEqual('BUTTON');
     });
@@ -56,7 +56,7 @@ describe('Badge', () => {
       render(
         <Badge as="a" href="#" variant="neutral" ref={badgeRef}>
           Neutral
-        </Badge>
+        </Badge>,
       );
       expect(badgeRef?.current?.tagName).toEqual('A');
     });
@@ -66,10 +66,10 @@ describe('Badge', () => {
     describe('Event handlers', () => {
       it('should handle onclick event', () => {
         const onClickMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="button" onClick={onClickMock} variant="success">
             Button
-          </Badge>
+          </Badge>,
         );
 
         const button = getByRole('button');
@@ -81,10 +81,10 @@ describe('Badge', () => {
 
       it('should handle onmouseup event', () => {
         const onMouseUpMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="button" onClick={() => null} onMouseUp={onMouseUpMock} variant="success">
             Button
-          </Badge>
+          </Badge>,
         );
 
         const button = getByRole('button');
@@ -95,10 +95,10 @@ describe('Badge', () => {
       });
       it('should handle onmouseenter event', () => {
         const onMouseEnterMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="button" onClick={() => null} onMouseEnter={onMouseEnterMock} variant="success">
             Button
-          </Badge>
+          </Badge>,
         );
 
         const button = getByRole('button');
@@ -110,10 +110,10 @@ describe('Badge', () => {
 
       it('should handle onmouseleave event', () => {
         const onMouseLeaveMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="button" onClick={() => null} onMouseLeave={onMouseLeaveMock} variant="success">
             Button
-          </Badge>
+          </Badge>,
         );
 
         const button = getByRole('button');
@@ -125,10 +125,10 @@ describe('Badge', () => {
 
       it('should handle onfocus event', () => {
         const onFocusMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="button" onClick={() => null} onFocus={onFocusMock} variant="success">
             Button
-          </Badge>
+          </Badge>,
         );
 
         const button = getByRole('button');
@@ -140,10 +140,10 @@ describe('Badge', () => {
 
       it('should handle onblur event', () => {
         const onBlurMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="button" onClick={() => null} onBlur={onBlurMock} variant="success">
             Button
-          </Badge>
+          </Badge>,
         );
 
         const button = getByRole('button');
@@ -155,10 +155,10 @@ describe('Badge', () => {
 
       it('should handle onmousedown event', () => {
         const onMouseDownMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="button" onClick={() => null} onMouseDown={onMouseDownMock} variant="success">
             Button
-          </Badge>
+          </Badge>,
         );
 
         const button = getByRole('button');
@@ -171,10 +171,10 @@ describe('Badge', () => {
 
     describe('Render', () => {
       it('should render badge as button if "as" is "button"', () => {
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="button" onClick={() => null} variant="success">
             Button
-          </Badge>
+          </Badge>,
         );
         expect(getByRole('button')).toBeInTheDocument();
       });
@@ -183,13 +183,13 @@ describe('Badge', () => {
         render(
           <Badge as="button" onClick={() => null} variant="success">
             Button
-          </Badge>
+          </Badge>,
         );
 
         const badgeElement = screen.getByRole('button');
 
-        expect(badgeElement).toHaveStyleRule('box-shadow', 'shadowFocus', {target: ':focus'});
-        expect(badgeElement).toHaveStyleRule('box-shadow', 'none', {target: ':hover'});
+        expect(badgeElement).toHaveStyleRule('box-shadow', 'shadowFocus', { target: ':focus' });
+        expect(badgeElement).toHaveStyleRule('box-shadow', 'none', { target: ':hover' });
       });
     });
   });
@@ -198,10 +198,10 @@ describe('Badge', () => {
     describe('Event handlers', () => {
       it('should handle mouseup event', () => {
         const onMouseUpMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="a" href="#" onMouseUp={onMouseUpMock} variant="success">
             Anchor
-          </Badge>
+          </Badge>,
         );
 
         const anchor = getByRole('link');
@@ -212,10 +212,10 @@ describe('Badge', () => {
       });
       it('should handle mouseenter event', () => {
         const onMouseEnterMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="a" href="#" onMouseEnter={onMouseEnterMock} variant="success">
             Anchor
-          </Badge>
+          </Badge>,
         );
 
         const anchor = getByRole('link');
@@ -227,10 +227,10 @@ describe('Badge', () => {
 
       it('should mouseleave event', () => {
         const onMouseLeaveMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="a" href="#" onMouseLeave={onMouseLeaveMock} variant="success">
             Anchor
-          </Badge>
+          </Badge>,
         );
 
         const anchor = getByRole('link');
@@ -242,10 +242,10 @@ describe('Badge', () => {
 
       it('should handle onblur event', () => {
         const onBlurMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="a" href="#" onBlur={onBlurMock} variant="success">
             Anchor
-          </Badge>
+          </Badge>,
         );
 
         const anchor = getByRole('link');
@@ -257,10 +257,10 @@ describe('Badge', () => {
 
       it('should handle onmousedown event', () => {
         const onMouseDownMock: jest.Mock = jest.fn();
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="a" href="#" onMouseDown={onMouseDownMock} variant="success">
             Anchor
-          </Badge>
+          </Badge>,
         );
 
         const anchor = getByRole('link');
@@ -273,10 +273,10 @@ describe('Badge', () => {
 
     describe('Render', () => {
       it('should render badge as anchor if "as" is "anchor"', () => {
-        const {getByRole} = render(
+        const { getByRole } = render(
           <Badge as="a" href="#test" variant="success">
             Anchor
-          </Badge>
+          </Badge>,
         );
         expect(getByRole('link')).toBeInTheDocument();
       });
@@ -285,14 +285,14 @@ describe('Badge', () => {
         render(
           <Badge href="#test" as="a" variant="success">
             Anchor
-          </Badge>
+          </Badge>,
         );
 
         const badgeElement = screen.getByRole('link');
 
-        expect(badgeElement).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
-        expect(badgeElement).toHaveStyleRule('box-shadow', 'shadowFocus', {target: ':focus'});
-        expect(badgeElement).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
+        expect(badgeElement).toHaveStyleRule('text-decoration', 'none', { target: ':hover' });
+        expect(badgeElement).toHaveStyleRule('box-shadow', 'shadowFocus', { target: ':focus' });
+        expect(badgeElement).toHaveStyleRule('text-decoration', 'none', { target: ':focus' });
       });
     });
   });
@@ -300,10 +300,10 @@ describe('Badge', () => {
   describe('Badge as span', () => {
     describe('Render', () => {
       it('should render as a span element if as is "span"', () => {
-        const {getByTestId} = render(
+        const { getByTestId } = render(
           <Badge as="span" variant="neutral" data-testid="badge-6">
             test
-          </Badge>
+          </Badge>,
         );
         const badgeElement = getByTestId('badge-6');
 

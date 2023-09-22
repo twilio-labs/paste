@@ -1,16 +1,16 @@
 import * as React from 'react';
 import camelCase from 'lodash/camelCase';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Button} from '@twilio-paste/button';
-import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
-import {styled, css} from '@twilio-paste/styling-library';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { Button } from '@twilio-paste/button';
+import { Tooltip, useTooltipState } from '@twilio-paste/tooltip';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { CopyIcon } from '@twilio-paste/icons/esm/CopyIcon';
+import { styled, css } from '@twilio-paste/styling-library';
 
-import {TokenExample} from './token-example';
-import type {TokenCardProps} from '../types';
-import {AccessiblePairing} from './AccessiblePairing';
+import { TokenExample } from './token-example';
+import type { TokenCardProps } from '../types';
+import { AccessiblePairing } from './AccessiblePairing';
 
 const TokenCardContent = styled.dl(
   css({
@@ -21,7 +21,7 @@ const TokenCardContent = styled.dl(
     margin: 'space0',
     paddingX: ['space50', 'space70', 'space50', 'space70'],
     paddingY: ['space50', 'space60', 'space50', 'space60'],
-  })
+  }),
 );
 
 const TokenCardName = styled.dt(
@@ -29,7 +29,7 @@ const TokenCardName = styled.dt(
     display: 'flex',
     alignItems: 'center',
     alignSelf: 'center',
-  })
+  }),
 );
 
 const TokenCardValue = styled.dd(
@@ -42,14 +42,14 @@ const TokenCardValue = styled.dd(
     marginLeft: ['space0', 'space110', 'space0', 'space110'],
     verticalAlign: 'center',
     textAlign: ['left', 'right', 'left', 'right'],
-  })
+  }),
 );
 
 const TokenCardComment = styled.dd(
   css({
     gridRow: 2,
     margin: 'space0',
-  })
+  }),
 );
 
 export const TokenCard: React.FC<React.PropsWithChildren<TokenCardProps>> = React.memo(
@@ -198,5 +198,5 @@ export const TokenCard: React.FC<React.PropsWithChildren<TokenCardProps>> = Reac
         </TokenCardContent>
       </Box>
     );
-  }
+  },
 );

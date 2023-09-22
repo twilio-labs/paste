@@ -1,20 +1,20 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
 import * as React from 'react';
-import {ErrorMessage} from '@hookform/error-message';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {DatePicker} from '@twilio-paste/date-picker';
-import {Heading} from '@twilio-paste/heading';
-import {HelpText} from '@twilio-paste/help-text';
-import {Label} from '@twilio-paste/label';
-import {PopoverContainer, Popover, PopoverButton, usePopoverState} from '@twilio-paste/popover';
-import {Text} from '@twilio-paste/text';
-import {TimePicker} from '@twilio-paste/time-picker';
-import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+import { ErrorMessage } from '@hookform/error-message';
+import { useUID } from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { DatePicker } from '@twilio-paste/date-picker';
+import { Heading } from '@twilio-paste/heading';
+import { HelpText } from '@twilio-paste/help-text';
+import { Label } from '@twilio-paste/label';
+import { PopoverContainer, Popover, PopoverButton, usePopoverState } from '@twilio-paste/popover';
+import { Text } from '@twilio-paste/text';
+import { TimePicker } from '@twilio-paste/time-picker';
+import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
 
-import type {DateTimePopoverProps} from '../types';
+import type { DateTimePopoverProps } from '../types';
 
 export const DateTimePopover: React.FC<React.PropsWithChildren<DateTimePopoverProps>> = ({
   onApply,
@@ -25,7 +25,7 @@ export const DateTimePopover: React.FC<React.PropsWithChildren<DateTimePopoverPr
   const endId = `end-date-${useUID()}`;
   const popoverId = `date-popover-${useUID()}`;
 
-  const popover = usePopoverState({baseId: popoverId});
+  const popover = usePopoverState({ baseId: popoverId });
 
   return (
     <PopoverContainer state={popover}>
@@ -49,12 +49,12 @@ export const DateTimePopover: React.FC<React.PropsWithChildren<DateTimePopoverPr
                 id={`${startId}-date`}
                 aria-describedby={`${startId}-date-error`}
                 required
-                {...register('customDate.startDate', {required: 'Start date is required.'})}
+                {...register('customDate.startDate', { required: 'Start date is required.' })}
               />
               <ErrorMessage
                 errors={errors}
                 name="customDate.startDate"
-                render={({message}): React.ReactNode => (
+                render={({ message }): React.ReactNode => (
                   <HelpText variant="error" id={`${startId}-date-error`} data-cy="start-date-error">
                     {message}
                   </HelpText>
@@ -68,12 +68,12 @@ export const DateTimePopover: React.FC<React.PropsWithChildren<DateTimePopoverPr
               <TimePicker
                 id={`${startId}-time`}
                 required
-                {...register('customDate.startTime', {required: 'Start time is required.'})}
+                {...register('customDate.startTime', { required: 'Start time is required.' })}
               />
               <ErrorMessage
                 errors={errors}
                 name="customDate.startTime"
-                render={({message}) => (
+                render={({ message }) => (
                   <HelpText variant="error" id={`${startId}-time-error`} data-cy="start-time-error">
                     {message}
                   </HelpText>
@@ -90,12 +90,12 @@ export const DateTimePopover: React.FC<React.PropsWithChildren<DateTimePopoverPr
                 id={`${endId}-date`}
                 aria-describedby={`${endId}-date-error`}
                 required
-                {...register('customDate.endDate', {required: 'End date is required.'})}
+                {...register('customDate.endDate', { required: 'End date is required.' })}
               />
               <ErrorMessage
                 errors={errors}
                 name="customDate.endDate"
-                render={({message}): React.ReactNode => (
+                render={({ message }): React.ReactNode => (
                   <HelpText variant="error" id={`${endId}-date-error`} data-cy="end-date-error">
                     {message}
                   </HelpText>
@@ -109,12 +109,12 @@ export const DateTimePopover: React.FC<React.PropsWithChildren<DateTimePopoverPr
               <TimePicker
                 id={`${endId}-time`}
                 required
-                {...register('customDate.endTime', {required: 'End time is required.'})}
+                {...register('customDate.endTime', { required: 'End time is required.' })}
               />
               <ErrorMessage
                 errors={errors}
                 name="customDate.endTime"
-                render={({message}) => (
+                render={({ message }) => (
                   <HelpText variant="error" id={`${endId}-time-error`} data-cy="end-time-error">
                     {message}
                   </HelpText>

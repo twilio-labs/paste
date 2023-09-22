@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import type {TextProps, TextStyleProps} from '@twilio-paste/text';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import type { TextProps, TextStyleProps } from '@twilio-paste/text';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 type DisplayHeadingVariants = 'displayHeading10' | 'displayHeading20' | 'displayHeading30';
 type AsTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span' | 'header';
@@ -17,7 +17,7 @@ export interface DisplayHeadingProps
 
 const getDisplayHeadingProps = (
   displayHeadingVariant?: DisplayHeadingVariants,
-  marginBottom?: 'space0'
+  marginBottom?: 'space0',
 ): TextStyleProps => {
   switch (displayHeadingVariant) {
     case 'displayHeading10':
@@ -46,7 +46,7 @@ const getDisplayHeadingProps = (
 };
 
 const DisplayHeading = React.forwardRef<HTMLHeadingElement, DisplayHeadingProps>(
-  ({element = 'DISPLAY_HEADING', as, children, display = 'block', id, marginBottom, variant, ...props}, ref) => {
+  ({ element = 'DISPLAY_HEADING', as, children, display = 'block', id, marginBottom, variant, ...props }, ref) => {
     return (
       <Text
         {...safelySpreadTextProps(props)}
@@ -63,9 +63,9 @@ const DisplayHeading = React.forwardRef<HTMLHeadingElement, DisplayHeadingProps>
         {children}
       </Text>
     );
-  }
+  },
 );
 
 DisplayHeading.displayName = 'DisplayHeading';
 
-export {DisplayHeading};
+export { DisplayHeading };

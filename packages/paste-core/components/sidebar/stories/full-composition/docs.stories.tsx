@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import type {StoryFn} from '@storybook/react';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navigation';
+import { Button } from '@twilio-paste/button';
+import { Box } from '@twilio-paste/box';
+import type { StoryFn } from '@storybook/react';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { InPageNavigation, InPageNavigationItem } from '@twilio-paste/in-page-navigation';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import {useUID} from '@twilio-paste/uid-library';
-import {Topbar, TopbarActions} from '@twilio-paste/topbar';
+import { useUID } from '@twilio-paste/uid-library';
+import { Topbar, TopbarActions } from '@twilio-paste/topbar';
 
 import {
   Sidebar,
@@ -24,13 +24,13 @@ import {
   SidebarNavigationDisclosureContent,
   SidebarNavigationItem,
 } from '../../src';
-import {SearchBox} from './components/SearchBox';
-import {SupportMenu} from './components/SupportMenu';
-import {NotificationsDialog} from './components/NotificationsDialog';
-import {AppSwitcher} from './components/AppSwitcher';
-import {UserDialogExample} from './components/UserDialogSegment';
-import {WorkspaceSwitcherMenu} from './components/WorkspaceSwitcher';
-import {UpgradeBadge} from './components/UpgradeBadge';
+import { SearchBox } from './components/SearchBox';
+import { SupportMenu } from './components/SupportMenu';
+import { NotificationsDialog } from './components/NotificationsDialog';
+import { AppSwitcher } from './components/AppSwitcher';
+import { UserDialogExample } from './components/UserDialogSegment';
+import { WorkspaceSwitcherMenu } from './components/WorkspaceSwitcher';
+import { UpgradeBadge } from './components/UpgradeBadge';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -127,7 +127,7 @@ export const Docs: StoryFn = () => {
               color="colorText"
               textDecoration="none"
               fontWeight="fontWeightMedium"
-              _hover={{textDecoration: 'underline'}}
+              _hover={{ textDecoration: 'underline' }}
             >
               Log in
             </Box>
@@ -137,7 +137,7 @@ export const Docs: StoryFn = () => {
               color="colorText"
               textDecoration="none"
               fontWeight="fontWeightMedium"
-              _hover={{textDecoration: 'underline'}}
+              _hover={{ textDecoration: 'underline' }}
             >
               Sign up
             </Box>

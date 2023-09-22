@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/styling-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import type {LayoutProps, BorderRadiusProps} from '@twilio-paste/style-props';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { styled, themeGet } from '@twilio-paste/styling-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxElementProps } from '@twilio-paste/box';
+import type { LayoutProps, BorderRadiusProps } from '@twilio-paste/style-props';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {SkeletonLoaderKeyframes} from './keyframes';
+import { SkeletonLoaderKeyframes } from './keyframes';
 
 const SkeletonLoaderInner = styled.div`
   position: absolute;
@@ -52,7 +52,7 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
       width = null,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <Box
@@ -82,9 +82,9 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
         <SkeletonLoaderInner />
       </Box>
     );
-  }
+  },
 );
 
 SkeletonLoader.displayName = 'SkeletonLoader';
 
-export {SkeletonLoader};
+export { SkeletonLoader };

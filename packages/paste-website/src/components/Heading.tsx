@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import type {HeadingProps} from '@twilio-paste/heading';
-import {LinkIcon} from '@twilio-paste/icons/esm/LinkIcon';
+import { Box } from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
+import type { HeadingProps } from '@twilio-paste/heading';
+import { LinkIcon } from '@twilio-paste/icons/esm/LinkIcon';
 
-import {slugify} from '../utils/RouteUtils';
+import { slugify } from '../utils/RouteUtils';
 
 const anchoredHeadingSpacing: Partial<{
   [key in HeadingProps['variant']]: Partial<BoxStyleProps>;
@@ -30,7 +30,7 @@ const anchoredHeadingSpacing: Partial<{
   },
 };
 
-const StyledAnchorHyperlink: React.FC<React.PropsWithChildren<{href: string}>> = ({children, ...props}) => {
+const StyledAnchorHyperlink: React.FC<React.PropsWithChildren<{ href: string }>> = ({ children, ...props }) => {
   return (
     <Box
       {...props}
@@ -41,8 +41,8 @@ const StyledAnchorHyperlink: React.FC<React.PropsWithChildren<{href: string}>> =
       outline="none"
       display="inline-block"
       verticalAlign="text-bottom"
-      _hover={{color: 'colorTextLinkStronger'}}
-      _focus={{boxShadow: 'shadowFocus', color: 'colorTextLinkStronger'}}
+      _hover={{ color: 'colorTextLinkStronger' }}
+      _focus={{ boxShadow: 'shadowFocus', color: 'colorTextLinkStronger' }}
       as="a"
     >
       {children}
@@ -82,4 +82,4 @@ const AnchoredHeading: React.FC<React.PropsWithChildren<AnchoredHeadingProps>> =
   return <Heading variant={variant} as={as} {...props} />;
 };
 
-export {AnchoredHeading, StyledAnchorHyperlink};
+export { AnchoredHeading, StyledAnchorHyperlink };

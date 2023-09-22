@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {screen, render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { screen, render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {ChatMessage, ChatBubble} from '../src';
+import { ChatMessage, ChatBubble } from '../src';
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -12,8 +12,8 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
       CHAT_BUBBLE: {
         color: 'colorTextInverse',
         variants: {
-          inbound: {backgroundColor: 'colorBackgroundPrimary'},
-          outbound: {backgroundColor: 'colorBackgroundPrimaryStronger'},
+          inbound: { backgroundColor: 'colorBackgroundPrimary' },
+          outbound: { backgroundColor: 'colorBackgroundPrimaryStronger' },
         },
       },
     }}
@@ -22,7 +22,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
   </CustomizationProvider>
 );
 
-const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -30,8 +30,8 @@ const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) 
       FOO_BUBBLE: {
         color: 'colorTextInverse',
         variants: {
-          inbound: {backgroundColor: 'colorBackgroundPrimary'},
-          outbound: {backgroundColor: 'colorBackgroundPrimaryStronger'},
+          inbound: { backgroundColor: 'colorBackgroundPrimary' },
+          outbound: { backgroundColor: 'colorBackgroundPrimaryStronger' },
         },
       },
     }}
@@ -45,7 +45,7 @@ describe('ChatBubble', () => {
     render(
       <ChatMessage variant="inbound">
         <ChatBubble>test</ChatBubble>
-      </ChatMessage>
+      </ChatMessage>,
     );
     expect(screen.getByText('test')).toBeDefined();
   });
@@ -62,7 +62,7 @@ describe('Customization', () => {
           <ChatBubble data-testid="outbound-bubble">test</ChatBubble>
         </ChatMessage>
       </>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const inboundBubble = screen.getByTestId('inbound-bubble');
@@ -84,7 +84,7 @@ describe('Customization', () => {
           <ChatBubble data-testid="outbound-bubble">test</ChatBubble>
         </ChatMessage>
       </>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const inboundBubble = screen.getByTestId('inbound-bubble');
@@ -108,7 +108,7 @@ describe('Customization', () => {
           </ChatBubble>
         </ChatMessage>
       </>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
 
     const inboundBubble = screen.getByTestId('inbound-bubble');
@@ -134,7 +134,7 @@ describe('Customization', () => {
           </ChatBubble>
         </ChatMessage>
       </>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
 
     const inboundBubble = screen.getByTestId('inbound-bubble');

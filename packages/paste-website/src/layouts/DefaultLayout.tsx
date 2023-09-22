@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Head from 'next/head';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
-import {SiteWrapper} from '../components/site-wrapper';
-import {PasteMDXProvider} from '../components/paste-mdx-provider';
-import {SiteMetaDefaults} from '../constants';
-import type {NavigationQuery} from '../context/NavigationContext';
-import {PageContentWrapper} from '../components/PageContentWrapper';
+import { SiteWrapper } from '../components/site-wrapper';
+import { PasteMDXProvider } from '../components/paste-mdx-provider';
+import { SiteMetaDefaults } from '../constants';
+import type { NavigationQuery } from '../context/NavigationContext';
+import { PageContentWrapper } from '../components/PageContentWrapper';
 
 interface DefaultLayoutProps {
   children?: React.ReactElement;
@@ -24,7 +24,7 @@ const componentOverrides = {
   h1: () => null,
 };
 
-const DefaultLayout: React.FC<React.PropsWithChildren<DefaultLayoutProps>> = ({children, meta, navigationData}) => {
+const DefaultLayout: React.FC<React.PropsWithChildren<DefaultLayoutProps>> = ({ children, meta, navigationData }) => {
   const pageTitle = meta.title ? `${meta.title} - ${SiteMetaDefaults.TITLE}` : SiteMetaDefaults.TITLE;
   const pageDescription = meta.description || SiteMetaDefaults.DESCRIPTION;
   const router = useRouter();

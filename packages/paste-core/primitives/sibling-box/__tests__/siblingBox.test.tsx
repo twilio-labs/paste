@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {SiblingBox} from '../src';
+import { SiblingBox } from '../src';
 
 describe('SiblingBox render', () => {
   it('should render', (): void => {
@@ -56,7 +56,7 @@ describe('SiblingBox render', () => {
         >
           child
         </SiblingBox>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('sibling-box')).toHaveStyleRule('width', '1.75rem');
     expect(screen.getByTestId('sibling-box')).toHaveStyleRule('color', 'rgb(18, 28, 45)', {
@@ -114,10 +114,10 @@ describe('SiblingBox render', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{SIBLING_BOX: {color: 'colorTextWeak', textDecoration: 'underline'}}}
+          elements={{ SIBLING_BOX: { color: 'colorTextWeak', textDecoration: 'underline' } }}
         >
           <SiblingBox data-testid="customized-sibling-box">Custom Box</SiblingBox>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedSiblingBox = screen.getByTestId('customized-sibling-box');
       expect(renderedSiblingBox).toHaveStyleRule('text-decoration', 'underline');
@@ -126,11 +126,11 @@ describe('SiblingBox render', () => {
 
     it('should add styles when given a custom name', (): void => {
       render(
-        <CustomizationProvider baseTheme="default" elements={{CUSTOM_SIBLING_BOX: {padding: 'space20'}}}>
+        <CustomizationProvider baseTheme="default" elements={{ CUSTOM_SIBLING_BOX: { padding: 'space20' } }}>
           <SiblingBox element="CUSTOM_SIBLING_BOX" data-testid="customizable-sibling-box">
             Custom Box
           </SiblingBox>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedSiblingBox = screen.getByTestId('customizable-sibling-box');
       expect(renderedSiblingBox).toHaveStyleRule('padding', '0.25rem');

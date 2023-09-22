@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {useUID} from '@twilio-paste/uid-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {FormSectionContext} from './FormSectionContext';
+import { FormSectionContext } from './FormSectionContext';
 
 export interface FormSectionProps extends Omit<React.ComponentPropsWithRef<'fieldset'>, 'children'> {
   element?: BoxProps['element'];
@@ -11,11 +11,11 @@ export interface FormSectionProps extends Omit<React.ComponentPropsWithRef<'fiel
 }
 
 export const FormSection = React.forwardRef<HTMLFieldSetElement, FormSectionProps>(
-  ({children, element = 'FORM_SECTION', id: idProp, ...props}, ref) => {
+  ({ children, element = 'FORM_SECTION', id: idProp, ...props }, ref) => {
     const id = idProp ? idProp : useUID();
 
     return (
-      <FormSectionContext.Provider value={{id}}>
+      <FormSectionContext.Provider value={{ id }}>
         <Box
           as="fieldset"
           border="none"
@@ -27,8 +27,8 @@ export const FormSection = React.forwardRef<HTMLFieldSetElement, FormSectionProp
           display="flex"
           flexDirection="column"
           rowGap="space80"
-          _first={{marginTop: 'space0'}}
-          _last={{marginBottom: 'space0'}}
+          _first={{ marginTop: 'space0' }}
+          _last={{ marginBottom: 'space0' }}
           {...safelySpreadBoxProps(props)}
           aria-describedby={`${id}-section-description`}
           id={id}
@@ -37,7 +37,7 @@ export const FormSection = React.forwardRef<HTMLFieldSetElement, FormSectionProp
         </Box>
       </FormSectionContext.Provider>
     );
-  }
+  },
 );
 
 FormSection.displayName = 'FormSection';

@@ -1,12 +1,12 @@
 import Image from 'next/image';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { Text } from '@twilio-paste/text';
+import { Heading } from '@twilio-paste/heading';
 
-import {WorksGreatWith} from './WorksGreatWith';
-import {LandingPageSectionContent} from './LandingPageLayoutUtils';
-import {ImageSlider} from './image-slider';
+import { WorksGreatWith } from './WorksGreatWith';
+import { LandingPageSectionContent } from './LandingPageLayoutUtils';
+import { ImageSlider } from './image-slider';
 import HeroSlider from '../../assets/images/customization/hero-slider-mobile.png';
 
 export const LandingPageHero = (): JSX.Element => {
@@ -63,7 +63,7 @@ export const LandingPageHero = (): JSX.Element => {
             <ImageSlider />
 
             <Box display={['block', 'none']} maxWidth="600px" marginX="auto">
-              <Image src={HeroSlider} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
+              <Image src={HeroSlider} alt="" placeholder="blur" style={{ width: '100%', height: '100%' }} />
             </Box>
           </LandingPageSectionContent>
         </Box>

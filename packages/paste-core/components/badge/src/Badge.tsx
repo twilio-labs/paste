@@ -1,23 +1,23 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {secureExternalLink} from '@twilio-paste/anchor';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { secureExternalLink } from '@twilio-paste/anchor';
+import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
 
-import type {BadgeProps} from './types';
-import {useResizeChildIcons} from './hooks';
-import {badgeBaseStyles, badgeVariantStyles, badgeAnchorStyles, getBadgeButtonStyles} from './styles';
+import type { BadgeProps } from './types';
+import { useResizeChildIcons } from './hooks';
+import { badgeBaseStyles, badgeVariantStyles, badgeAnchorStyles, getBadgeButtonStyles } from './styles';
 
 export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
-  ({as, href, variant, size = 'default', children, element = 'BADGE', ...props}, ref) => {
+  ({ as, href, variant, size = 'default', children, element = 'BADGE', ...props }, ref) => {
     const resizedChildren = useResizeChildIcons(children);
 
-    let badgeStyles = {...badgeBaseStyles, ...badgeVariantStyles[variant]};
+    let badgeStyles = { ...badgeBaseStyles, ...badgeVariantStyles[variant] };
 
     if (as === 'a') {
-      badgeStyles = {...badgeStyles, ...badgeAnchorStyles};
+      badgeStyles = { ...badgeStyles, ...badgeAnchorStyles };
     }
     if (as === 'button') {
-      badgeStyles = {...badgeStyles, ...getBadgeButtonStyles(variant)};
+      badgeStyles = { ...badgeStyles, ...getBadgeButtonStyles(variant) };
     }
 
     return (
@@ -37,7 +37,7 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
         {resizedChildren}
       </Box>
     );
-  }
+  },
 );
 
 Badge.displayName = 'Badge';

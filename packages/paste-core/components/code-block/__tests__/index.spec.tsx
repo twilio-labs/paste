@@ -1,10 +1,17 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
+import { render, screen } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
 
-import {CopyButton, getCopyButtonText} from '../src/CopyButton';
-import {ExternalLinkButton} from '../src/ExternalLinkButton';
-import {CodeBlock, CodeBlockWrapper, CodeBlockHeader, CodeBlockTabList, CodeBlockTab, CodeBlockTabPanel} from '../src';
+import { CopyButton, getCopyButtonText } from '../src/CopyButton';
+import { ExternalLinkButton } from '../src/ExternalLinkButton';
+import {
+  CodeBlock,
+  CodeBlockWrapper,
+  CodeBlockHeader,
+  CodeBlockTabList,
+  CodeBlockTab,
+  CodeBlockTabPanel,
+} from '../src';
 
 const jsCode = `(num) => num + 1`;
 
@@ -32,10 +39,10 @@ describe('CodeBlock', () => {
     render(
       <Theme.Provider theme="default">
         <CodeBlock code={rubyCode} language="ruby" />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
-    const copyButton = screen.getByRole('button', {name: 'Copy code block'});
+    const copyButton = screen.getByRole('button', { name: 'Copy code block' });
     expect(copyButton).toBeDefined();
 
     const rubyText = screen.getByText('#!/usr/bin/ruby');
@@ -46,13 +53,13 @@ describe('CodeBlock', () => {
     render(
       <Theme.Provider theme="default">
         <CodeBlock code={rubyCode} language="ruby" externalLink="https://www.google.com" />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
-    const copyButton = screen.getByRole('button', {name: 'Copy code block'});
+    const copyButton = screen.getByRole('button', { name: 'Copy code block' });
     expect(copyButton).toBeDefined();
 
-    const link = screen.getByRole('link', {name: 'Open code block in new page'});
+    const link = screen.getByRole('link', { name: 'Open code block in new page' });
     expect(link).toBeDefined();
   });
 
@@ -68,13 +75,13 @@ describe('CodeBlock', () => {
             i18nCopyLabelBefore="before"
             i18nLinkLabel="external link"
           />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
-      const copyButton = screen.getByRole('button', {name: 'before'});
+      const copyButton = screen.getByRole('button', { name: 'before' });
       expect(copyButton).toBeDefined();
 
-      const link = screen.getByRole('link', {name: 'external link'});
+      const link = screen.getByRole('link', { name: 'external link' });
       expect(link).toBeDefined();
     });
   });
@@ -86,14 +93,14 @@ describe('CodeBlockHeader', () => {
       <>
         <CodeBlockHeader>My code block</CodeBlockHeader>
         <CodeBlockHeader as="h2">Another code block</CodeBlockHeader>
-      </>
+      </>,
     );
 
-    const headerLevel3 = screen.getByRole('heading', {name: 'My code block'});
+    const headerLevel3 = screen.getByRole('heading', { name: 'My code block' });
     expect(headerLevel3).toBeDefined();
     expect(headerLevel3.tagName).toBe('H3');
 
-    const headerLevel2 = screen.getByRole('heading', {name: 'Another code block'});
+    const headerLevel2 = screen.getByRole('heading', { name: 'Another code block' });
     expect(headerLevel2).toBeDefined();
     expect(headerLevel2.tagName).toBe('H2');
   });
@@ -115,13 +122,13 @@ describe('CodeBlockTabs', () => {
             <CodeBlock code={rubyCode} language="ruby" data-testid="ruby-block" />
           </CodeBlockTabPanel>
         </CodeBlockWrapper>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const tablist = screen.getByRole('tablist');
     expect(tablist).toBeDefined();
 
-    const javascriptTab = screen.getByRole('tab', {name: 'JavaScript'});
+    const javascriptTab = screen.getByRole('tab', { name: 'JavaScript' });
     expect(javascriptTab).toBeDefined();
     expect(javascriptTab.getAttribute('aria-selected')).toBe('true');
 
@@ -130,7 +137,7 @@ describe('CodeBlockTabs', () => {
     expect(javascriptTab.getAttribute('aria-controls')).toBe(javascriptTabPanel?.id);
     expect(javascriptTabPanel?.getAttribute('aria-labelledby')).toBe(javascriptTab.id);
 
-    const rubyTab = screen.getByRole('tab', {name: 'Ruby'});
+    const rubyTab = screen.getByRole('tab', { name: 'Ruby' });
     expect(rubyTab).toBeDefined();
     expect(rubyTab.getAttribute('aria-selected')).toBe('false');
 
@@ -146,11 +153,11 @@ describe('CopyButton', () => {
     render(
       <Theme.Provider theme="default">
         <CopyButton text="hello world" />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const button = screen.getByRole('button');
-    const tooltip = screen.getByRole('tooltip', {hidden: true});
+    const tooltip = screen.getByRole('tooltip', { hidden: true });
 
     expect(button).toBeDefined();
     expect(tooltip).not.toBeVisible();
@@ -171,11 +178,11 @@ describe('ExternalLinkButton', () => {
     render(
       <Theme.Provider theme="default">
         <ExternalLinkButton href="https://www.google.com" />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const link = screen.getByRole('link');
-    const tooltip = screen.getByRole('tooltip', {hidden: true});
+    const tooltip = screen.getByRole('tooltip', { hidden: true });
 
     expect(link).toBeDefined();
     expect(link.getAttribute('href')).toBe('https://www.google.com');

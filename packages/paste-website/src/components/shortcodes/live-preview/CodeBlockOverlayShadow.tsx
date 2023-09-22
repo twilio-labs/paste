@@ -1,4 +1,4 @@
-import {styled, css} from '@twilio-paste/styling-library';
+import { styled, css } from '@twilio-paste/styling-library';
 
 export const CodeBlockOverlayShadow = styled.div(
   css({
@@ -8,5 +8,5 @@ export const CodeBlockOverlayShadow = styled.div(
     left: 0,
     top: 0,
     background: `linear-gradient(0, #121C2D 0%, rgba(18, 28, 45, 0) 100%)`,
-  })
+  }),
 );

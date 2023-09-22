@@ -1,22 +1,22 @@
 import * as React from 'react';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
-import {InDevelopment} from './InDevelopment';
-import {NotFound} from './NotFound';
-import {SidebarCategoryRoutes, PackageStatus} from '../../constants';
+import { InDevelopment } from './InDevelopment';
+import { NotFound } from './NotFound';
+import { SidebarCategoryRoutes, PackageStatus } from '../../constants';
 
 interface Error404Props {
-  componentList: {name: string; status: string}[];
-  layoutList: {name: string; status: string}[];
-  primitiveList: {name: string; status: string}[];
+  componentList: { name: string; status: string }[];
+  layoutList: { name: string; status: string }[];
+  primitiveList: { name: string; status: string }[];
 }
 
-const Error404 = ({componentList, layoutList, primitiveList}: Error404Props): React.ReactNode => {
+const Error404 = ({ componentList, layoutList, primitiveList }: Error404Props): React.ReactNode => {
   const router = useRouter();
   const pathParts = router.asPath.split('/');
   const pageName = pathParts[pathParts.length - 1];
   const packageName = `@twilio-paste/${pageName}`;
-  const packageObj = [...componentList, ...layoutList, ...primitiveList].find(({name}) => name === packageName);
+  const packageObj = [...componentList, ...layoutList, ...primitiveList].find(({ name }) => name === packageName);
   if (packageObj != null) {
     const isInDevelopment = packageObj.status !== PackageStatus.BACKLOG;
 
@@ -33,4 +33,4 @@ const Error404 = ({componentList, layoutList, primitiveList}: Error404Props): Re
   return <NotFound />;
 };
 
-export {Error404};
+export { Error404 };

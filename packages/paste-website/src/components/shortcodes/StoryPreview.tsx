@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {CodeBlock, CodeBlockWrapper} from '@twilio-paste/code-block';
+import { Box } from '@twilio-paste/box';
+import { CodeBlock, CodeBlockWrapper } from '@twilio-paste/code-block';
 
 export interface StoryPreviewProps {
   storyID: string;
@@ -11,7 +11,7 @@ export interface StoryPreviewProps {
 const ENV = process.env.NODE_ENV || 'development';
 const BASE_URL = ENV === 'production' ? 'https://paste-storybook.twilio.design' : 'http://localhost:9001';
 
-const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({storyID, title, code}) => {
+const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({ storyID, title, code }) => {
   return (
     <Box
       padding="space20"
@@ -48,4 +48,4 @@ const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({sto
 };
 
 StoryPreview.displayName = 'StoryPreview';
-export {StoryPreview};
+export { StoryPreview };

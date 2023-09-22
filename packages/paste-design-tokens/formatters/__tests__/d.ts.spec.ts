@@ -1,8 +1,8 @@
-import {resolve} from 'path';
+import { resolve } from 'path';
 
 import * as theo from 'theo';
 
-import {dTSTokenFormat} from '../d.ts';
+import { dTSTokenFormat } from '../d.ts';
 
 theo.registerFormat('d.ts', dTSTokenFormat);
 

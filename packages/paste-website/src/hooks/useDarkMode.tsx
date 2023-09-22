@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {ValueOf} from '@twilio-paste/types';
+import type { ValueOf } from '@twilio-paste/types';
 
-import {SimpleStorage} from '../utils/SimpleStorage';
+import { SimpleStorage } from '../utils/SimpleStorage';
 
 export type UseDarkModeReturn = [ValidThemeName, () => void, boolean];
 

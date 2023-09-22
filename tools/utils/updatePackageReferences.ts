@@ -3,16 +3,16 @@
  * Updates devDependencies with paste peerDependencies
  */
 
-import {existsSync} from 'fs';
-import {resolve, relative} from 'path';
+import { existsSync } from 'fs';
+import { resolve, relative } from 'path';
 
 import chalk from 'chalk';
 import difference from 'lodash/difference';
 
-import {getRepoPackages} from './getRepoPackages';
-import type {PackageShape} from './getRepoPackages';
-import {sortObjectByKey} from './sortObjectByKey';
-import {writeToFile} from './writeToFile';
+import { getRepoPackages } from './getRepoPackages';
+import type { PackageShape } from './getRepoPackages';
+import { sortObjectByKey } from './sortObjectByKey';
+import { writeToFile } from './writeToFile';
 
 interface PackageJsonShape {
   name: string;
@@ -27,7 +27,7 @@ const getPasteDependencyList = (dependencyObject: Record<string, string>): strin
 async function updateTsconfigFile(
   path: string,
   referencesList: string[] = [],
-  packagesList: PackageShape[]
+  packagesList: PackageShape[],
 ): Promise<void> {
   const TSCONFIG_FILE_PATH = resolve(path, 'tsconfig.build.json');
   if (!existsSync(TSCONFIG_FILE_PATH)) return;
@@ -35,9 +35,9 @@ async function updateTsconfigFile(
   const tsconfigData = require(TSCONFIG_FILE_PATH);
 
   const references = referencesList.map((referenceName) => {
-    const dep = packagesList.find(({name}) => name === referenceName);
+    const dep = packagesList.find(({ name }) => name === referenceName);
     if (dep == null) return null;
-    return {path: relative(path, dep.location)};
+    return { path: relative(path, dep.location) };
   });
   // eslint-disable-next-line no-console
   console.log(`Generated References: ${JSON.stringify(references)}`);
@@ -53,7 +53,7 @@ async function updateTsconfigFile(
 async function updatePackageDevDependencies(
   packageJsonPath: string,
   pastePeerDeps: string[] = [],
-  packageJson: PackageJsonShape
+  packageJson: PackageJsonShape,
 ): Promise<void> {
   // Let's start by assuming we need to put all pastePeerDeps into devDeps
   let missingDevDeps = pastePeerDeps;
@@ -102,8 +102,8 @@ async function updatePackageReferences(): Promise<PackageShape[] | null> {
         // eslint-disable-next-line no-console
         console.log(
           chalk.red.bold.underline(
-            `[Error] ${packageJsonData.name}: do not declare @twilio-paste packages as dependencies!`
-          )
+            `[Error] ${packageJsonData.name}: do not declare @twilio-paste packages as dependencies!`,
+          ),
         );
       }
     }
@@ -132,4 +132,4 @@ async function updatePackageReferences(): Promise<PackageShape[] | null> {
   return packagesList;
 }
 
-module.exports = {updatePackageReferences};
+module.exports = { updatePackageReferences };

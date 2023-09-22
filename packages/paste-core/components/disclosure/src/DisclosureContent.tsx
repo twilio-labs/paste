@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {useSpring, animated} from '@twilio-paste/animation-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {DisclosurePrimitiveContent} from '@twilio-paste/disclosure-primitive';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import type {DisclosurePrimitiveContentProps} from '@twilio-paste/disclosure-primitive';
+import { useSpring, animated } from '@twilio-paste/animation-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { DisclosurePrimitiveContent } from '@twilio-paste/disclosure-primitive';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import type { DisclosurePrimitiveContentProps } from '@twilio-paste/disclosure-primitive';
 
-import {DisclosureContext} from './DisclosureContext';
+import { DisclosureContext } from './DisclosureContext';
 
 export const AnimatedDisclosureContent = animated(Box);
 
@@ -35,9 +35,9 @@ export interface DisclosureContentProps
 }
 
 const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProps>(
-  ({children, element = 'DISCLOSURE_CONTENT', visible, ...props}, ref) => {
-    const {disclosure, variant, isHeadingHovered, isDisabled} = React.useContext(DisclosureContext);
-    const {opacity} = useSpring({
+  ({ children, element = 'DISCLOSURE_CONTENT', visible, ...props }, ref) => {
+    const { disclosure, variant, isHeadingHovered, isDisabled } = React.useContext(DisclosureContext);
+    const { opacity } = useSpring({
       opacity: disclosure.visible ? 1 : 0,
       onRest: disclosure.stopAnimation,
       config: {
@@ -73,9 +73,9 @@ const DisclosureContent = React.forwardRef<HTMLDivElement, DisclosureContentProp
         {children}
       </DisclosurePrimitiveContent>
     );
-  }
+  },
 );
 
 DisclosureContent.displayName = 'DisclosureContent';
 
-export {DisclosureContent};
+export { DisclosureContent };

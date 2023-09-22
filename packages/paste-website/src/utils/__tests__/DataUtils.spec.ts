@@ -1,4 +1,4 @@
-import {getNormalizedNavigationData} from '../DataUtils';
+import { getNormalizedNavigationData } from '../DataUtils';
 
 const mockNavData = [
   {
@@ -106,7 +106,7 @@ describe('getNormalizedNavigationData', () => {
           packageStatus: 'production',
           slug: 'account-switcher',
         },
-        {name: 'Alert', packageName: '@twilio-paste/alert', packageStatus: 'production', slug: 'alert'},
+        { name: 'Alert', packageName: '@twilio-paste/alert', packageStatus: 'production', slug: 'alert' },
       ],
       allPasteLayout: [
         {

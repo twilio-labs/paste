@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {Theme} from '@twilio-paste/theme';
-import {useRouter} from 'next/router';
-import type {GetStaticProps, InferGetStaticPropsType} from 'next';
+import { Theme } from '@twilio-paste/theme';
+import { useRouter } from 'next/router';
+import type { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-import {GraphImageWrapper} from '../../components/open-graph-card/GraphImageWrapper';
-import {GraphImageHero} from '../../components/open-graph-card/GraphImageHero';
-import {GraphImageDetails} from '../../components/open-graph-card/GraphImageDetails';
-import type {PackageData} from '../../components/open-graph-card/types';
-import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
-import {getAllFeatures, getAllPackages} from '../../utils/api';
-import type {Feature, Package, PastePackages} from '../../utils/api';
+import { GraphImageWrapper } from '../../components/open-graph-card/GraphImageWrapper';
+import { GraphImageHero } from '../../components/open-graph-card/GraphImageHero';
+import { GraphImageDetails } from '../../components/open-graph-card/GraphImageDetails';
+import type { PackageData } from '../../components/open-graph-card/types';
+import { getHumanizedNameFromPackageName } from '../../utils/RouteUtils';
+import { getAllFeatures, getAllPackages } from '../../utils/api';
+import type { Feature, Package, PastePackages } from '../../utils/api';
 
 /*
  * Some packages can't be found just by humanizing the package name,
@@ -36,7 +36,7 @@ const EMPTY_PACKAGE_DATA = {
   type: '',
 };
 
-const OpenGraphCard = ({data}: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
+const OpenGraphCard = ({ data }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
   const router = useRouter();
   const path = (router.query.path || '').toString();
   const [packageType, packageName] = path.split('/');
@@ -46,7 +46,7 @@ const OpenGraphCard = ({data}: InferGetStaticPropsType<typeof getStaticProps>): 
   }
 
   function mergeAirtableDataForNode(node: Package, type: string): PackageData {
-    const {name, description, version} = node;
+    const { name, description, version } = node;
 
     /*
      * If this package is in our manual mapping list, use that.
@@ -122,7 +122,7 @@ const OpenGraphCard = ({data}: InferGetStaticPropsType<typeof getStaticProps>): 
   );
 };
 
-export const getStaticProps: GetStaticProps<{data: PastePackages & {allAirtable: Feature[]}}> = async () => {
+export const getStaticProps: GetStaticProps<{ data: PastePackages & { allAirtable: Feature[] } }> = async () => {
   const navigationData = await getAllPackages();
   const features = await getAllFeatures();
 

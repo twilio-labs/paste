@@ -1,9 +1,9 @@
 import React from 'react';
-import {Box} from '@twilio-paste/box';
-import {secureExternalLink} from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { secureExternalLink } from '@twilio-paste/anchor';
 
-import {FigmaIcon} from '../../icons/FigmaIcon';
-import {FIGMA_PROFILE_URL} from '../../../constants';
+import { FigmaIcon } from '../../icons/FigmaIcon';
+import { FIGMA_PROFILE_URL } from '../../../constants';
 
 // eslint-disable-next-line no-empty-pattern
 const FigmaButton = React.forwardRef<HTMLDivElement>(({}, ref) => {
@@ -29,8 +29,8 @@ const FigmaButton = React.forwardRef<HTMLDivElement>(({}, ref) => {
       paddingLeft="space20"
       paddingRight="space30"
       textDecoration="none"
-      _hover={{textDecoration: 'underline'}}
-      _focus={{boxShadow: 'shadowFocusInverse'}}
+      _hover={{ textDecoration: 'underline' }}
+      _focus={{ boxShadow: 'shadowFocusInverse' }}
     >
       <FigmaIcon decorative={true} size={12} />
       Figma
@@ -40,4 +40,4 @@ const FigmaButton = React.forwardRef<HTMLDivElement>(({}, ref) => {
 
 FigmaButton.displayName = 'FigmaButton';
 
-export {FigmaButton};
+export { FigmaButton };

@@ -1,4 +1,4 @@
-import type {TokenPackageMap} from './types';
+import type { TokenPackageMap } from './types';
 
 /**
  * Returns a list of our unused tokens from within paste-core.

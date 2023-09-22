@@ -1,15 +1,15 @@
 import Image from 'next/image';
-import {Box} from '@twilio-paste/box';
-import {DisplayHeading} from '@twilio-paste/display-heading';
-import {Text} from '@twilio-paste/text';
-import {Button} from '@twilio-paste/button';
-import {Stack} from '@twilio-paste/stack';
+import { Box } from '@twilio-paste/box';
+import { DisplayHeading } from '@twilio-paste/display-heading';
+import { Text } from '@twilio-paste/text';
+import { Button } from '@twilio-paste/button';
+import { Stack } from '@twilio-paste/stack';
 
-import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
-import {LandingPageDesigner} from './LandingPageDesigner';
-import {DoodleBurst} from '../../assets/illustrations/DoodleBurst';
-import {DoodleLoopMedium} from '../../assets/illustrations/DoodleLoopMedium';
-import {DoodleLoopTiny} from '../../assets/illustrations/DoodleLoopTiny';
+import { LandingPageSection, LandingPageSectionContent } from './LandingPageLayoutUtils';
+import { LandingPageDesigner } from './LandingPageDesigner';
+import { DoodleBurst } from '../../assets/illustrations/DoodleBurst';
+import { DoodleLoopMedium } from '../../assets/illustrations/DoodleLoopMedium';
+import { DoodleLoopTiny } from '../../assets/illustrations/DoodleLoopTiny';
 import ThemeDesigner from '../../assets/images/customization/theme-designer-mobile-screenshot.png';
 
 const LikeTwilioHeadline = (): JSX.Element => {
@@ -65,7 +65,7 @@ const MobileDesigner = (): JSX.Element => {
           Try the beta Theme Designer
         </Button>
       </Box>
-      <Image src={ThemeDesigner} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
+      <Image src={ThemeDesigner} alt="" placeholder="blur" style={{ width: '100%', height: '100%' }} />
     </>
   );
 };

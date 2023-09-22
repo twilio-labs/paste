@@ -1,11 +1,11 @@
-import type {PaginationButtonProps} from './types';
+import type { PaginationButtonProps } from './types';
 
-export const handleLinkValidation = ({as, href}: PaginationButtonProps): void => {
+export const handleLinkValidation = ({ as, href }: PaginationButtonProps): void => {
   const hasHref = href != null && href !== '';
 
   if (as !== 'a' && hasHref) {
     throw new Error(
-      `[Paste: Pagination] You cannot pass href into button pagination without the 'a' tag.  Use 'as="a"'.`
+      `[Paste: Pagination] You cannot pass href into button pagination without the 'a' tag.  Use 'as="a"'.`,
     );
   }
 

@@ -1,11 +1,11 @@
-import {Box} from '@twilio-paste/box';
-import {ProcessDisabledIcon} from '@twilio-paste/icons/esm/ProcessDisabledIcon';
-import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
-import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
-import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
-import {ProcessNeutralIcon} from '@twilio-paste/icons/esm/ProcessNeutralIcon';
-import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
-import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
+import { Box } from '@twilio-paste/box';
+import { ProcessDisabledIcon } from '@twilio-paste/icons/esm/ProcessDisabledIcon';
+import { ProcessDraftIcon } from '@twilio-paste/icons/esm/ProcessDraftIcon';
+import { ProcessErrorIcon } from '@twilio-paste/icons/esm/ProcessErrorIcon';
+import { ProcessInProgressIcon } from '@twilio-paste/icons/esm/ProcessInProgressIcon';
+import { ProcessNeutralIcon } from '@twilio-paste/icons/esm/ProcessNeutralIcon';
+import { ProcessSuccessIcon } from '@twilio-paste/icons/esm/ProcessSuccessIcon';
+import { ProcessWarningIcon } from '@twilio-paste/icons/esm/ProcessWarningIcon';
 
 export const BannerExample = `
 <Box display="flex">

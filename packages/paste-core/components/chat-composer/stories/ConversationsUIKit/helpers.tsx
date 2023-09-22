@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem} from '@twilio-paste/chat-log';
-import type {Chat} from '@twilio-paste/chat-log';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
+import { ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem } from '@twilio-paste/chat-log';
+import type { Chat } from '@twilio-paste/chat-log';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { SendIcon } from '@twilio-paste/icons/esm/SendIcon';
 import {
   useLexicalComposerContext,
   CLEAR_EDITOR_COMMAND,
@@ -37,7 +37,7 @@ export const createNewMessage = (message: string): Omit<Chat, 'id'> => {
   };
 };
 
-export const SendButtonPlugin = ({onClick}: {onClick: () => void}): JSX.Element => {
+export const SendButtonPlugin = ({ onClick }: { onClick: () => void }): JSX.Element => {
   const [editor] = useLexicalComposerContext();
 
   const handleSend = (): void => {
@@ -54,12 +54,12 @@ export const SendButtonPlugin = ({onClick}: {onClick: () => void}): JSX.Element 
   );
 };
 
-export const EnterKeySubmitPlugin = ({onKeyDown}: {onKeyDown: () => void}): null => {
+export const EnterKeySubmitPlugin = ({ onKeyDown }: { onKeyDown: () => void }): null => {
   const [editor] = useLexicalComposerContext();
 
   const handleEnterKey = React.useCallback(
     (event: KeyboardEvent) => {
-      const {shiftKey, ctrlKey} = event;
+      const { shiftKey, ctrlKey } = event;
       if (shiftKey || ctrlKey) return false;
       event.preventDefault();
       event.stopPropagation();
@@ -67,7 +67,7 @@ export const EnterKeySubmitPlugin = ({onKeyDown}: {onKeyDown: () => void}): null
       editor.dispatchCommand(CLEAR_EDITOR_COMMAND, undefined);
       return true;
     },
-    [editor, onKeyDown]
+    [editor, onKeyDown],
   );
 
   React.useEffect(() => {
