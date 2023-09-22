@@ -1,4 +1,4 @@
-import PackageCache from '../../../../tools/.cache/packages.json';
+import PackageCache from "../../../../tools/.cache/packages.json";
 
 export type ComponentApiPropDetails = {
   type: string;
@@ -21,7 +21,7 @@ export type GroupedComponentApi = {
 };
 
 export const getPathFromPackageName = (packageName: string): string => {
-  let packagePath = '';
+  let packagePath = "";
   PackageCache.forEach((pkg: { name: string; version: string; private: boolean; location: string }) => {
     if (pkg.name === packageName) {
       packagePath = pkg.location;

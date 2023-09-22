@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface TourIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface TourIconProps extends IconWrapperProps {
 }
 
 const TourIcon = React.forwardRef<HTMLElement, TourIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `TourIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[TourIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[TourIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -45,5 +45,5 @@ const TourIcon = React.forwardRef<HTMLElement, TourIconProps>(
   },
 );
 
-TourIcon.displayName = 'TourIcon';
+TourIcon.displayName = "TourIcon";
 export { TourIcon };

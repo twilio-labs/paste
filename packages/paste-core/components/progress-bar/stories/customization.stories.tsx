@@ -1,20 +1,20 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Form, FormControl } from '@twilio-paste/form';
-import { HelpText } from '@twilio-paste/help-text';
-import { Label } from '@twilio-paste/label';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Form, FormControl } from "@twilio-paste/form";
+import { HelpText } from "@twilio-paste/help-text";
+import { Label } from "@twilio-paste/label";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { ProgressBar, ProgressBarLabel } from '../src';
+import { ProgressBar, ProgressBarLabel } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ProgressBar/Customization',
+  title: "Components/ProgressBar/Customization",
 };
 
-const NumberFormatter = new Intl.NumberFormat('en-US');
+const NumberFormatter = new Intl.NumberFormat("en-US");
 
 export const CustomizationWrapper: React.FC<React.PropsWithChildren<{ isTestEnvironment: boolean }>> = ({
   isTestEnvironment,
@@ -48,25 +48,25 @@ export const CustomizationWrapper: React.FC<React.PropsWithChildren<{ isTestEnvi
       baseTheme="default"
       elements={{
         PROGRESS_BAR: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
         },
         PROGRESS_BAR_LABEL: {
-          fontSize: 'fontSize50',
+          fontSize: "fontSize50",
         },
         PROGRESS_BAR_FILL: {
-          borderRadius: 'borderRadius0',
-          backgroundColor: 'colorBackgroundBrand',
+          borderRadius: "borderRadius0",
+          backgroundColor: "colorBackgroundBrand",
         },
 
         PROGGER: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
         },
         PROGGER_LABEL: {
-          fontSize: 'fontSize50',
+          fontSize: "fontSize50",
         },
         PROGGER_FILL: {
-          borderRadius: 'borderRadius0',
-          backgroundColor: 'colorBackgroundBrand',
+          borderRadius: "borderRadius0",
+          backgroundColor: "colorBackgroundBrand",
         },
       }}
     >

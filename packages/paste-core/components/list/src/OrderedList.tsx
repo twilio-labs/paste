@@ -1,11 +1,11 @@
-import { safelySpreadTextProps } from '@twilio-paste/text';
-import * as React from 'react';
+import { safelySpreadTextProps } from "@twilio-paste/text";
+import * as React from "react";
 
-import { List } from './List';
-import type { OrderedListProps } from './types';
+import { List } from "./List";
+import type { OrderedListProps } from "./types";
 
 const OrderedList = React.forwardRef<HTMLOListElement, OrderedListProps>(
-  ({ children, element = 'ORDERED_LIST', marginTop, marginBottom = 'space70', ...props }, ref) => {
+  ({ children, element = "ORDERED_LIST", marginTop, marginBottom = "space70", ...props }, ref) => {
     return (
       <List
         {...safelySpreadTextProps(props)}
@@ -22,6 +22,6 @@ const OrderedList = React.forwardRef<HTMLOListElement, OrderedListProps>(
   },
 );
 
-OrderedList.displayName = 'OrderedList';
+OrderedList.displayName = "OrderedList";
 
 export { OrderedList };

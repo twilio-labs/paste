@@ -1,5 +1,5 @@
-import { AutoLinkPlugin as LexicalAutoLinkPlugin } from '@twilio-paste/lexical-library';
-import * as React from 'react';
+import { AutoLinkPlugin as LexicalAutoLinkPlugin } from "@twilio-paste/lexical-library";
+import * as React from "react";
 
 const URL_MATCHER =
   /(?:(?:https?:\/\/(?:www\.)?)|(?:www\.))[\w#%+.:=@~-]{1,256}\.[\d()A-Za-z]{1,6}\b[\w#%&()+./:=?@~-]*/;
@@ -36,4 +36,4 @@ export const AutoLinkPlugin = (): JSX.Element | null => {
   return <LexicalAutoLinkPlugin matchers={MATCHERS} />;
 };
 
-AutoLinkPlugin.displayName = 'AutoLinkPlugin';
+AutoLinkPlugin.displayName = "AutoLinkPlugin";

@@ -1,11 +1,11 @@
 import type {
   NonModalDialogPrimitivePopoverInitialState,
   NonModalDialogPrimitiveStateReturn,
-} from '@twilio-paste/non-modal-dialog-primitive';
-import { useNonModalDialogPrimitiveState } from '@twilio-paste/non-modal-dialog-primitive';
-import * as React from 'react';
+} from "@twilio-paste/non-modal-dialog-primitive";
+import { useNonModalDialogPrimitiveState } from "@twilio-paste/non-modal-dialog-primitive";
+import * as React from "react";
 
-import { MinimizableDialogContext } from './MinimizableDialogContext';
+import { MinimizableDialogContext } from "./MinimizableDialogContext";
 
 export interface MinimizableDialogStateReturn extends NonModalDialogPrimitiveStateReturn {
   [key: string]: any;
@@ -54,9 +54,9 @@ const BaseMinimizableDialogContainer: React.FC<React.PropsWithChildren<Minimizab
 
   return <MinimizableDialogContext.Provider value={{ ...dialog }}>{children}</MinimizableDialogContext.Provider>;
 };
-BaseMinimizableDialogContainer.displayName = 'BaseMinimizableDialogContainer';
+BaseMinimizableDialogContainer.displayName = "BaseMinimizableDialogContainer";
 
 const MinimizableDialogContainer = React.memo(BaseMinimizableDialogContainer);
 
-MinimizableDialogContainer.displayName = 'MinimizableDialogContainer';
+MinimizableDialogContainer.displayName = "MinimizableDialogContainer";
 export { MinimizableDialogContainer };

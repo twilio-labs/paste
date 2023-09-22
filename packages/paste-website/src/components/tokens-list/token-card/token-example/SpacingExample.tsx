@@ -1,11 +1,11 @@
-import { remToPx } from '@twilio-paste/theme';
-import type { Properties } from 'csstype';
-import * as React from 'react';
+import { remToPx } from "@twilio-paste/theme";
+import type { Properties } from "csstype";
+import * as React from "react";
 
 interface SpacingExampleProps {
   tokenName: string;
   spacing: string | number;
-  color: Properties['color'];
+  color: Properties["color"];
 }
 
 export const SpacingExample: React.FC<React.PropsWithChildren<SpacingExampleProps>> = ({
@@ -13,13 +13,13 @@ export const SpacingExample: React.FC<React.PropsWithChildren<SpacingExampleProp
   spacing,
   color,
 }) => {
-  if (spacing === '0') return null;
+  if (spacing === "0") return null;
 
   const lineStart = 1;
   const spacingPx = Math.abs(remToPx(spacing) as number);
   const lineEnd = lineStart + spacingPx;
   const svgWidth = lineEnd + 2;
-  const strokeDash = tokenName.toLowerCase().includes('negative') ? 4 : 1;
+  const strokeDash = tokenName.toLowerCase().includes("negative") ? 4 : 1;
 
   return (
     <svg

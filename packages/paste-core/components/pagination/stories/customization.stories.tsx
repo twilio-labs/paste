@@ -1,13 +1,13 @@
-import type { StoryFn } from '@storybook/react';
-import type { BoxElementProps } from '@twilio-paste/box';
-import { Card } from '@twilio-paste/card';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { Heading } from '@twilio-paste/heading';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import type { BoxElementProps } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import type { PasteCustomCSS } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   Pagination,
@@ -17,7 +17,7 @@ import {
   PaginationLabel,
   PaginationNumber,
   PaginationNumbers,
-} from '../src';
+} from "../src";
 
 // Wrapper to abstract the rendering of the default and customized pagination versions
 const BeforeAndAfter: React.FC<React.PropsWithChildren<{ before: React.ReactNode; after: React.ReactNode }>> = ({
@@ -36,8 +36,8 @@ const BeforeAndAfter: React.FC<React.PropsWithChildren<{ before: React.ReactNode
   </Stack>
 );
 
-export const WrapperAndArrows: React.FC<React.PropsWithChildren<{ element?: BoxElementProps['element'] }>> = ({
-  element = 'PAGINATION',
+export const WrapperAndArrows: React.FC<React.PropsWithChildren<{ element?: BoxElementProps["element"] }>> = ({
+  element = "PAGINATION",
 }) => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
@@ -62,8 +62,8 @@ export const WrapperAndArrows: React.FC<React.PropsWithChildren<{ element?: BoxE
     </Pagination>
   );
 };
-export const NumbersAndLabel: React.FC<React.PropsWithChildren<{ element?: BoxElementProps['element'] }>> = ({
-  element = 'PAGINATION',
+export const NumbersAndLabel: React.FC<React.PropsWithChildren<{ element?: BoxElementProps["element"] }>> = ({
+  element = "PAGINATION",
 }) => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
   const uniquePaginationID = useUID();
@@ -103,37 +103,37 @@ export const NumbersAndLabel: React.FC<React.PropsWithChildren<{ element?: BoxEl
   );
 };
 
-const paginationStyles = { fontSize: 'fontSize60', fontWeight: 'fontWeightBold' } as PasteCustomCSS;
-const getCustomizedStyles = (prefix = 'PAGINATION'): { [key: string]: any } => ({
-  [`${prefix}`]: { borderColor: 'colorBorder', borderStyle: 'solid', borderWidth: 'borderWidth10' },
+const paginationStyles = { fontSize: "fontSize60", fontWeight: "fontWeightBold" } as PasteCustomCSS;
+const getCustomizedStyles = (prefix = "PAGINATION"): { [key: string]: any } => ({
+  [`${prefix}`]: { borderColor: "colorBorder", borderStyle: "solid", borderWidth: "borderWidth10" },
   [`${prefix}_ITEMS`]: {
-    borderColor: 'colorBorder',
-    borderStyle: 'solid',
-    borderWidth: 'borderWidth10',
-    margin: 'space30',
+    borderColor: "colorBorder",
+    borderStyle: "solid",
+    borderWidth: "borderWidth10",
+    margin: "space30",
   },
   [`${prefix}_ITEMS_ITEM`]: {
-    borderColor: 'colorBorder',
-    borderStyle: 'solid',
-    borderWidth: 'borderWidth10',
-    margin: 'space30',
+    borderColor: "colorBorder",
+    borderStyle: "solid",
+    borderWidth: "borderWidth10",
+    margin: "space30",
   },
   [`${prefix}_ARROW_BUTTON`]: {
-    backgroundColor: 'colorBackground',
-    borderColor: 'colorBorder',
-    borderStyle: 'solid',
-    borderWidth: 'borderWidth10',
+    backgroundColor: "colorBackground",
+    borderColor: "colorBorder",
+    borderStyle: "solid",
+    borderWidth: "borderWidth10",
   },
   [`${prefix}_ARROW_ICON_WRAPPER`]: {
-    padding: 'space40',
-    size: 'size10',
+    padding: "space40",
+    size: "size10",
   },
   [`${prefix}_ARROW_ICON`]: {
-    size: 'size10',
+    size: "size10",
   },
   [`${prefix}_ARROW_TEXT`]: {
-    fontWeight: 'fontWeightBold',
-    fontSize: 'fontSize50',
+    fontWeight: "fontWeightBold",
+    fontSize: "fontSize50",
   },
   [`${prefix}_LABEL`]: paginationStyles,
   [`${prefix}_ELLIPSIS`]: paginationStyles,
@@ -181,8 +181,8 @@ export const PaginationNumbersAndLabel: StoryFn = (_args, { parameters: { isTest
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Pagination/Customization',
-  excludeStories: ['WrapperAndArrows', 'NumbersAndLabel'],
+  title: "Components/Pagination/Customization",
+  excludeStories: ["WrapperAndArrows", "NumbersAndLabel"],
   parameters: {
     a11y: {
       // no need to a11y check customization

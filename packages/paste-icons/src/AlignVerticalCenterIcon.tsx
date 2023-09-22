@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface AlignVerticalCenterIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface AlignVerticalCenterIconProps extends IconWrapperProps {
 }
 
 const AlignVerticalCenterIcon = React.forwardRef<HTMLElement, AlignVerticalCenterIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `AlignVerticalCenterIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[AlignVerticalCenterIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[AlignVerticalCenterIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -51,5 +51,5 @@ const AlignVerticalCenterIcon = React.forwardRef<HTMLElement, AlignVerticalCente
   },
 );
 
-AlignVerticalCenterIcon.displayName = 'AlignVerticalCenterIcon';
+AlignVerticalCenterIcon.displayName = "AlignVerticalCenterIcon";
 export { AlignVerticalCenterIcon };

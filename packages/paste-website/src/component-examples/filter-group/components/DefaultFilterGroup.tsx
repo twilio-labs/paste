@@ -1,22 +1,22 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { ExportIcon } from '@twilio-paste/icons/esm/ExportIcon';
-import { FilterIcon } from '@twilio-paste/icons/esm/FilterIcon';
-import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
-import { Input } from '@twilio-paste/input';
-import { Label } from '@twilio-paste/label';
-import { Option, Select } from '@twilio-paste/select';
-import { Separator } from '@twilio-paste/separator';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ExportIcon } from "@twilio-paste/icons/esm/ExportIcon";
+import { FilterIcon } from "@twilio-paste/icons/esm/FilterIcon";
+import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Option, Select } from "@twilio-paste/select";
+import { Separator } from "@twilio-paste/separator";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { DATE_RANGES, ROOM_TYPES } from '../constants';
-import { filterByDateRange, filterByRoomType, filterBySearchString } from '../helpers';
-import type { DateRanges, FilterGroupProps, RoomTypes } from '../types';
-import { EmptyState } from './EmptyState';
-import { SampleDataGrid } from './SampleDataGrid';
+import { DATE_RANGES, ROOM_TYPES } from "../constants";
+import { filterByDateRange, filterByRoomType, filterBySearchString } from "../helpers";
+import type { DateRanges, FilterGroupProps, RoomTypes } from "../types";
+import { EmptyState } from "./EmptyState";
+import { SampleDataGrid } from "./SampleDataGrid";
 
 // Note: update the codesandboxes if update this
 export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupProps>> = ({
@@ -28,9 +28,9 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   const roomTypesId = `type-${useUID()}`;
 
   const [filteredTableData, setFilteredTableData] = React.useState(data);
-  const [searchValue, setSearchValue] = React.useState('');
-  const [filterRoomType, setFilterRoomType] = React.useState(defaultRoomType || 'All');
-  const [filterDateRange, setFilterDateRange] = React.useState(defaultDateRange || 'all');
+  const [searchValue, setSearchValue] = React.useState("");
+  const [filterRoomType, setFilterRoomType] = React.useState(defaultRoomType || "All");
+  const [filterDateRange, setFilterDateRange] = React.useState(defaultDateRange || "all");
   const [areButtonsDisabled, setAreButtonsDisabled] = React.useState(!(defaultRoomType || defaultDateRange));
 
   const handleApplyFilters = React.useCallback((): void => {
@@ -46,9 +46,9 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   }, [data, filterDateRange, filterRoomType, searchValue]);
 
   const handleClearAll = (): void => {
-    setFilterDateRange('all');
-    setFilterRoomType('All');
-    setSearchValue('');
+    setFilterDateRange("all");
+    setFilterRoomType("All");
+    setSearchValue("");
     setFilteredTableData(data);
     setAreButtonsDisabled(true);
   };
@@ -58,7 +58,7 @@ export const DefaultFilterGroup: React.FC<React.PropsWithChildren<FilterGroupPro
   }, [handleApplyFilters]);
 
   React.useEffect(() => {
-    setAreButtonsDisabled(filterDateRange === 'all' && filterRoomType === 'All');
+    setAreButtonsDisabled(filterDateRange === "all" && filterRoomType === "All");
   }, [setAreButtonsDisabled, filterDateRange, filterRoomType]);
 
   return (

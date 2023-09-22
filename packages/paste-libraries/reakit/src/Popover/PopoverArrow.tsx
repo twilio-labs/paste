@@ -4,18 +4,18 @@
  * Using props for fill and stroke
  */
 
-import type { BoxHTMLProps, BoxOptions, PopoverStateReturn } from '@twilio-paste/paste-reakit-fork';
-import { useBox } from '@twilio-paste/paste-reakit-fork';
-import * as React from 'react';
-import { createComponent } from 'reakit-system/createComponent';
-import { createHook } from 'reakit-system/createHook';
-import { useForkRef } from 'reakit-utils/useForkRef';
+import type { BoxHTMLProps, BoxOptions, PopoverStateReturn } from "@twilio-paste/paste-reakit-fork";
+import { useBox } from "@twilio-paste/paste-reakit-fork";
+import * as React from "react";
+import { createComponent } from "reakit-system/createComponent";
+import { createHook } from "reakit-system/createHook";
+import { useForkRef } from "reakit-utils/useForkRef";
 
-import { POPOVER_ARROW_KEYS } from './__keys';
+import { POPOVER_ARROW_KEYS } from "./__keys";
 
 export type PopoverArrowOptions = BoxOptions &
-  Pick<Partial<PopoverStateReturn>, 'unstable_arrowRef' | 'unstable_arrowStyles'> &
-  Pick<PopoverStateReturn, 'placement'> & {
+  Pick<Partial<PopoverStateReturn>, "unstable_arrowRef" | "unstable_arrowStyles"> &
+  Pick<PopoverStateReturn, "placement"> & {
     /** Arrow's size */
     size?: number | string;
     fill?: string;
@@ -26,10 +26,10 @@ export type PopoverArrowHTMLProps = BoxHTMLProps;
 
 export type PopoverArrowProps = PopoverArrowOptions & PopoverArrowHTMLProps;
 
-const PASTE_POPOVER_ARROW_KEYS = [...POPOVER_ARROW_KEYS, 'fill', 'stroke'];
+const PASTE_POPOVER_ARROW_KEYS = [...POPOVER_ARROW_KEYS, "fill", "stroke"];
 
 export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLProps>({
-  name: 'PopoverArrow',
+  name: "PopoverArrow",
   compose: useBox,
   keys: PASTE_POPOVER_ARROW_KEYS,
 
@@ -38,12 +38,12 @@ export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLP
   },
 
   useProps(options, { ref: htmlRef, style: htmlStyle, ...htmlProps }) {
-    const [placement] = options.placement.split('-');
+    const [placement] = options.placement.split("-");
     const transformMap: Record<string, string> = {
-      top: 'rotateZ(180deg)',
-      right: 'rotateZ(-90deg)',
-      bottom: 'rotateZ(360deg)',
-      left: 'rotateZ(90deg)',
+      top: "rotateZ(180deg)",
+      right: "rotateZ(-90deg)",
+      bottom: "rotateZ(360deg)",
+      left: "rotateZ(90deg)",
     };
     const { unstable_arrowStyles: arrowStyles, fill, stroke } = options;
     const transform = transformMap[placement];
@@ -71,10 +71,10 @@ export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLP
       style: {
         ...arrowStyles,
         fontSize: options.size,
-        width: '1em',
-        height: '1em',
-        pointerEvents: 'none',
-        [placement]: '100%',
+        width: "1em",
+        height: "1em",
+        pointerEvents: "none",
+        [placement]: "100%",
         ...htmlStyle,
       },
       children,
@@ -84,7 +84,7 @@ export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLP
 });
 
 export const PopoverArrow = createComponent({
-  as: 'div',
+  as: "div",
   memo: true,
   useHook: usePopoverArrow,
 });

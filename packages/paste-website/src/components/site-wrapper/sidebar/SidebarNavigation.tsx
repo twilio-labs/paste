@@ -1,4 +1,4 @@
-import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
+import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
 import {
   SidebarNavigation,
   SidebarNavigationDisclosure,
@@ -9,26 +9,26 @@ import {
   SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationSeparator,
   useSidebarNavigationDisclosureState,
-} from '@twilio-paste/sidebar';
-import kebabCase from 'lodash/kebabCase';
-import * as React from 'react';
+} from "@twilio-paste/sidebar";
+import kebabCase from "lodash/kebabCase";
+import * as React from "react";
 
-import { SidebarCategoryRoutes } from '../../../constants';
-import { useNavigationContext } from '../../../context/NavigationContext';
-import { event } from '../../../lib/gtag';
-import { getNormalizedNavigationData } from '../../../utils/DataUtils';
-import { useLocationPathname } from '../../../utils/RouteUtils';
-import { alphabetizeComponents } from '../../../utils/componentFilters';
-import { SidebarAnchor } from './SidebarAnchor';
+import { SidebarCategoryRoutes } from "../../../constants";
+import { useNavigationContext } from "../../../context/NavigationContext";
+import { event } from "../../../lib/gtag";
+import { getNormalizedNavigationData } from "../../../utils/DataUtils";
+import { useLocationPathname } from "../../../utils/RouteUtils";
+import { alphabetizeComponents } from "../../../utils/componentFilters";
+import { SidebarAnchor } from "./SidebarAnchor";
 
-const CY_BASE = 'sidebar-disclosure';
+const CY_BASE = "sidebar-disclosure";
 
 const NavigationDisclosure: React.FC<
   React.PropsWithChildren<{
-    children: SidebarNavigationDisclosureContentProps['children'];
+    children: SidebarNavigationDisclosureContentProps["children"];
     categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
     buttonText: string;
-    onClick?: SidebarNavigationDisclosureHeadingProps['onClick'];
+    onClick?: SidebarNavigationDisclosureHeadingProps["onClick"];
   }>
 > = ({ children, categoryRoute, buttonText, onClick }) => {
   const pathname = useLocationPathname();
@@ -75,9 +75,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
         categoryRoute={SidebarCategoryRoutes.INTRODUCTION}
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-introduction',
-            label: 'Introduction',
+            category: "Left Navigation",
+            action: "click-introduction",
+            label: "Introduction",
           })
         }
       >
@@ -109,9 +109,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
           categoryRoute={SidebarCategoryRoutes.CONTENT}
           onClick={() =>
             event({
-              category: 'Left Navigation',
-              action: 'click-content',
-              label: 'Content',
+              category: "Left Navigation",
+              action: "click-content",
+              label: "Content",
             })
           }
         >
@@ -130,9 +130,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
           href={`${SidebarCategoryRoutes.FOUNDATIONS}/illustrations`}
           onClick={() =>
             event({
-              category: 'Left Navigation',
-              action: 'click-illustrations',
-              label: 'Illustrations',
+              category: "Left Navigation",
+              action: "click-illustrations",
+              label: "Illustrations",
             })
           }
         >
@@ -142,9 +142,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
           href={`${SidebarCategoryRoutes.FOUNDATIONS}/localization`}
           onClick={() =>
             event({
-              category: 'Left Navigation',
-              action: 'click-localization',
-              label: 'Localization',
+              category: "Left Navigation",
+              action: "click-localization",
+              label: "Localization",
             })
           }
         >
@@ -154,9 +154,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
           href={`${SidebarCategoryRoutes.FOUNDATIONS}/spacing-and-layout`}
           onClick={() =>
             event({
-              category: 'Left Navigation',
-              action: 'click-spacing-and-layout',
-              label: 'Spacing and layout',
+              category: "Left Navigation",
+              action: "click-spacing-and-layout",
+              label: "Spacing and layout",
             })
           }
         >
@@ -166,9 +166,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
           href={`${SidebarCategoryRoutes.FOUNDATIONS}/typography`}
           onClick={() =>
             event({
-              category: 'Left Navigation',
-              action: 'click-typography',
-              label: 'Typography',
+              category: "Left Navigation",
+              action: "click-typography",
+              label: "Typography",
             })
           }
         >
@@ -180,9 +180,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
         categoryRoute={SidebarCategoryRoutes.PATTERNS}
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-patterns',
-            label: 'Patterns',
+            category: "Left Navigation",
+            action: "click-patterns",
+            label: "Patterns",
           })
         }
       >
@@ -207,16 +207,16 @@ const SiteSidebarNavigation = (): JSX.Element => {
         categoryRoute={SidebarCategoryRoutes.COMPONENTS}
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-components',
-            label: 'Components',
+            category: "Left Navigation",
+            action: "click-components",
+            label: "Components",
           })
         }
       >
         <SidebarAnchor href={SidebarCategoryRoutes.COMPONENTS}>Overview</SidebarAnchor>
         {filteredComponentSidebarItems.map(({ name, slug }: { [key: string]: string }) => {
           const selected = pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/${slug}`);
-          if (name === 'Icon') {
+          if (name === "Icon") {
             return (
               <NavigationDisclosure
                 buttonText={name}
@@ -224,7 +224,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
                 key={slug}
                 onClick={() =>
                   event({
-                    category: 'Left Navigation',
+                    category: "Left Navigation",
                     action: `click-${name}`,
                     label: name,
                   })
@@ -237,7 +237,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
               </NavigationDisclosure>
             );
           }
-          if (name === 'Combobox') {
+          if (name === "Combobox") {
             return (
               <NavigationDisclosure
                 buttonText={name}
@@ -245,7 +245,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
                 key={slug}
                 onClick={() =>
                   event({
-                    category: 'Left Navigation',
+                    category: "Left Navigation",
                     action: `click-${name}`,
                     label: name,
                   })
@@ -266,7 +266,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
               </NavigationDisclosure>
             );
           }
-          if (name === 'Status') {
+          if (name === "Status") {
             return (
               <NavigationDisclosure
                 buttonText={name}
@@ -274,7 +274,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
                 key={slug}
                 onClick={() =>
                   event({
-                    category: 'Left Navigation',
+                    category: "Left Navigation",
                     action: `click-${name}`,
                     label: name,
                   })
@@ -295,7 +295,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
               </NavigationDisclosure>
             );
           }
-          if (name === 'Sidebar') {
+          if (name === "Sidebar") {
             return (
               <NavigationDisclosure
                 buttonText={name}
@@ -303,7 +303,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
                 key={slug}
                 onClick={() =>
                   event({
-                    category: 'Left Navigation',
+                    category: "Left Navigation",
                     action: `click-${name}`,
                     label: name,
                   })
@@ -336,9 +336,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
         categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-primitives',
-            label: 'Primitives',
+            category: "Left Navigation",
+            action: "click-primitives",
+            label: "Primitives",
           })
         }
       >
@@ -357,9 +357,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
         categoryRoute={SidebarCategoryRoutes.TOKENS}
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-design-tokens',
-            label: 'Design Tokens',
+            category: "Left Navigation",
+            action: "click-design-tokens",
+            label: "Design Tokens",
           })
         }
       >
@@ -374,9 +374,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
         categoryRoute={SidebarCategoryRoutes.CORE}
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-core',
-            label: 'Core',
+            category: "Left Navigation",
+            action: "click-core",
+            label: "Core",
           })
         }
       >
@@ -408,9 +408,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
         categoryRoute={SidebarCategoryRoutes.THEME}
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-theme',
-            label: 'Theme',
+            category: "Left Navigation",
+            action: "click-theme",
+            label: "Theme",
           })
         }
       >
@@ -423,9 +423,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
         categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-customization',
-            label: 'Customization',
+            category: "Left Navigation",
+            action: "click-customization",
+            label: "Customization",
           })
         }
       >
@@ -448,9 +448,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
         href="/blog"
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-blog',
-            label: 'Blog',
+            category: "Left Navigation",
+            action: "click-blog",
+            label: "Blog",
           })
         }
       >
@@ -460,9 +460,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
         href="/roadmap"
         onClick={() =>
           event({
-            category: 'Left Navigation',
-            action: 'click-roadmap',
-            label: 'Roadmap',
+            category: "Left Navigation",
+            action: "click-roadmap",
+            label: "Roadmap",
           })
         }
       >

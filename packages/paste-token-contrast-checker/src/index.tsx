@@ -1,9 +1,9 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 
-import App from './App';
-import { IndexPage } from './pages/IndexPage';
-import reportWebVitals from './reportWebVitals';
+import App from "./App";
+import { IndexPage } from "./pages/IndexPage";
+import reportWebVitals from "./reportWebVitals";
 
 export const Index = (): JSX.Element => {
   return (
@@ -13,7 +13,7 @@ export const Index = (): JSX.Element => {
   );
 };
 
-const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement);
+const root = ReactDOM.createRoot(document.querySelector("#root") as HTMLElement);
 root.render(
   <React.StrictMode>
     <Index />

@@ -1,11 +1,11 @@
-import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { css, system } from '@twilio-paste/styling-library';
-import type { CSSObject, Config } from '@twilio-paste/styling-library';
-import merge from 'deepmerge';
+import type { PasteCustomCSS } from "@twilio-paste/customization";
+import { css, system } from "@twilio-paste/styling-library";
+import type { CSSObject, Config } from "@twilio-paste/styling-library";
+import merge from "deepmerge";
 
-import { customStyleProps } from './CustomStyleProps';
-import { PseudoPropStyles } from './PseudoPropStyles';
-import type { StyledBoxProps } from './types';
+import { customStyleProps } from "./CustomStyleProps";
+import { PseudoPropStyles } from "./PseudoPropStyles";
+import type { StyledBoxProps } from "./types";
 
 export const PasteStyleProps = system(customStyleProps as Config);
 
@@ -18,7 +18,7 @@ export const PasteStyleProps = system(customStyleProps as Config);
 export const getPseudoStyles = (
   props: Partial<StyledBoxProps>,
 ): ((props?: Record<string, unknown> | undefined) => CSSObject) | Record<string, never> => {
-  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_')) as Array<
+  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith("_")) as Array<
     keyof typeof PseudoPropStyles
   >;
 
@@ -47,7 +47,7 @@ export const getPseudoStyles = (
 export const getCustomElementStyles = (props: StyledBoxProps): (() => PasteCustomCSS) | Record<string, never> => {
   if (props != null && props.theme != null && props.theme.elements != null) {
     const themeElements = props.theme.elements;
-    const targetElement = props['data-paste-element'];
+    const targetElement = props["data-paste-element"];
 
     if (themeElements[targetElement] != null) {
       const elementOverrides = themeElements[targetElement];

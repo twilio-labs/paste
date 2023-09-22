@@ -1,5 +1,5 @@
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface PatternsIconProps {
   className?: string;
@@ -10,10 +10,10 @@ export interface PatternsIconProps {
 }
 
 const PatternsIcon = React.memo(
-  ({ title = 'Patterns Icon', decorative = true, className, color, size }: PatternsIconProps) => {
+  ({ title = "Patterns Icon", decorative = true, className, color, size }: PatternsIconProps) => {
     const titleId = useUID();
     return (
-      <span style={{ color, width: size, height: size, display: 'inline-block' }} className={className}>
+      <span style={{ color, width: size, height: size, display: "inline-block" }} className={className}>
         <svg
           role="img"
           aria-hidden={decorative}

@@ -1,8 +1,8 @@
-import type { ReportHandler } from 'web-vitals';
+import type { ReportHandler } from "web-vitals";
 
 const reportWebVitals = (onPerfEntry?: ReportHandler): void => {
   if (onPerfEntry && onPerfEntry instanceof Function) {
-    import('web-vitals')
+    import("web-vitals")
       .then(({ getCLS, getFID, getFCP, getLCP, getTTFB }) => {
         getCLS(onPerfEntry, true);
         getFID(onPerfEntry);
@@ -12,7 +12,7 @@ const reportWebVitals = (onPerfEntry?: ReportHandler): void => {
         return true;
       })
       // eslint-disable-next-line no-console
-      .catch(() => console.error('web vitals import error'));
+      .catch(() => console.error("web vitals import error"));
   }
 };
 

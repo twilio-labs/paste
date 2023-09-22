@@ -3,11 +3,11 @@ import {
   getContrastRatingsOfTokensWithUIControlContrastRequirements,
   getNumberOfTextFailures,
   getNumberOfUIControlFailures,
-} from '@twilio-paste/color-contrast-utils';
-import type { TokenPairContrastRating } from '@twilio-paste/design-tokens/types';
+} from "@twilio-paste/color-contrast-utils";
+import type { TokenPairContrastRating } from "@twilio-paste/design-tokens/types";
 
-import { generateTokensFromTheme } from './generateTokensFromTheme';
-import { useTheme } from './useTheme';
+import { generateTokensFromTheme } from "./generateTokensFromTheme";
+import { useTheme } from "./useTheme";
 
 export interface UseThemeContrastCheckReturn {
   /**

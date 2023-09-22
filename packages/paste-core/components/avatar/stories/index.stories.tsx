@@ -1,17 +1,17 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { BusinessIcon } from '@twilio-paste/icons/esm/BusinessIcon';
-import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { BusinessIcon } from "@twilio-paste/icons/esm/BusinessIcon";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Avatar, AvatarGroup } from '../src';
+import { Avatar, AvatarGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Avatar',
+  title: "Components/Avatar",
   component: Avatar,
   // Sets the diffThreshold for all stories
   chromatic: { diffThreshold: 0.3 },
@@ -372,7 +372,7 @@ export const GroupedUsingContext = (): React.ReactNode => {
 export const ResponsiveInitials = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
-      <Avatar size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']} name="Simon Taggart" />
+      <Avatar size={["sizeIcon10", "sizeIcon50", "sizeIcon110"]} name="Simon Taggart" />
     </Stack>
   );
 };
@@ -381,7 +381,7 @@ export const ResponsiveImage = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       <Avatar
-        size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']}
+        size={["sizeIcon10", "sizeIcon50", "sizeIcon110"]}
         name="avatar example"
         src="./avatars/avatar-sizeIcon50.png"
       />
@@ -392,7 +392,7 @@ export const ResponsiveImage = (): React.ReactNode => {
 export const ResponsiveIcon = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
-      <Avatar size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']} name="avatar example" icon={UserIcon} />
+      <Avatar size={["sizeIcon10", "sizeIcon50", "sizeIcon110"]} name="avatar example" icon={UserIcon} />
     </Stack>
   );
 };
@@ -415,11 +415,11 @@ export const CustomAvatar: StoryFn = (_args, { parameters: { isTestEnvironment }
         theme={currentTheme}
         elements={{
           AVATAR: {
-            backgroundColor: 'colorBackgroundTrial',
+            backgroundColor: "colorBackgroundTrial",
           },
           AANG: {
-            color: 'colorTextWeakest',
-            backgroundColor: 'colorBackgroundPrimaryStrong',
+            color: "colorTextWeakest",
+            backgroundColor: "colorBackgroundPrimaryStrong",
           },
         }}
       >

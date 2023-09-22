@@ -1,12 +1,12 @@
-import type { BoxProps } from '@twilio-paste/box';
-import type { LayoutProps, MarginProps, PaddingProps } from '@twilio-paste/style-props';
-import type { ResponsiveValue } from '@twilio-paste/styling-library';
+import type { BoxProps } from "@twilio-paste/box";
+import type { LayoutProps, MarginProps, PaddingProps } from "@twilio-paste/style-props";
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
 
-export type DisplayOptions = 'flex' | 'inline-flex';
+export type DisplayOptions = "flex" | "inline-flex";
 export type Display = ResponsiveValue<DisplayOptions>;
-export type VerticalAlignOptions = 'top' | 'center' | 'bottom' | 'stretch';
+export type VerticalAlignOptions = "top" | "center" | "bottom" | "stretch";
 export type VerticalAlign = ResponsiveValue<VerticalAlignOptions>;
-export type HorizontalAlignOptions = 'left' | 'center' | 'right' | 'around' | 'between';
+export type HorizontalAlignOptions = "left" | "center" | "right" | "around" | "between";
 export type HorizontalAlign = ResponsiveValue<HorizontalAlignOptions>;
 export type VerticalOptions = boolean;
 export type Vertical = ResponsiveValue<VerticalOptions>;
@@ -19,7 +19,7 @@ export type Basis = ResponsiveValue<BasisOptions>;
 export type WrapOptions = boolean;
 export type Wrap = ResponsiveValue<WrapOptions>;
 
-export interface FlexProps extends Omit<LayoutProps, 'verticalAlign'>, MarginProps, PaddingProps {
+export interface FlexProps extends Omit<LayoutProps, "verticalAlign">, MarginProps, PaddingProps {
   /**
    *
    * @default 'div'
@@ -34,7 +34,7 @@ export interface FlexProps extends Omit<LayoutProps, 'verticalAlign'>, MarginPro
    * @type {BoxProps['element']}
    * @memberof FlexProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   children?: React.ReactNode;
   /**
    *

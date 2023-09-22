@@ -1,18 +1,18 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
-import { UploadToCloudIcon } from '@twilio-paste/icons/esm/UploadToCloudIcon';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { UploadToCloudIcon } from "@twilio-paste/icons/esm/UploadToCloudIcon";
+import * as React from "react";
 
-import { FileUploaderContext } from './FileUploaderContext';
-import { arrayToCsv } from './utils';
+import { FileUploaderContext } from "./FileUploaderContext";
+import { arrayToCsv } from "./utils";
 
 export interface FileUploaderDropzoneProps
   extends Omit<
-    React.ComponentPropsWithRef<'input'>,
-    'children' | 'onChange' | 'onDragEnter' | 'onDragLeave' | 'onDrop' | 'onDragStart' | 'onDragEnd' | 'onDragOver'
+    React.ComponentPropsWithRef<"input">,
+    "children" | "onChange" | "onDragEnter" | "onDragLeave" | "onDrop" | "onDragStart" | "onDragEnd" | "onDragOver"
   > {
   acceptedMimeTypes: string[];
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   children?: React.ReactNode;
   onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   onDragEnd?: (event: React.DragEvent<HTMLLabelElement>) => void;
@@ -24,31 +24,31 @@ export interface FileUploaderDropzoneProps
 }
 
 const hoverDragStyles: BoxStyleProps = {
-  borderColor: 'colorBorderPrimaryStrong',
-  backgroundColor: 'colorBackgroundPrimaryWeakest',
+  borderColor: "colorBorderPrimaryStrong",
+  backgroundColor: "colorBackgroundPrimaryWeakest",
 };
 
 const baseStyles: BoxStyleProps = {
-  borderColor: 'colorBorderWeak',
-  borderStyle: 'dashed',
-  backgroundColor: 'colorBackgroundWeak',
-  cursor: 'pointer',
-  color: 'colorText',
+  borderColor: "colorBorderWeak",
+  borderStyle: "dashed",
+  backgroundColor: "colorBackgroundWeak",
+  cursor: "pointer",
+  color: "colorText",
   _hover: hoverDragStyles,
 };
 
 const disabledStyles: BoxStyleProps = {
-  backgroundColor: 'colorBackgroundStrong',
-  borderStyle: 'solid',
-  borderColor: 'colorBorderWeaker',
-  cursor: 'not-allowed',
-  color: 'colorTextWeaker',
+  backgroundColor: "colorBackgroundStrong",
+  borderStyle: "solid",
+  borderColor: "colorBorderWeaker",
+  cursor: "not-allowed",
+  color: "colorTextWeaker",
 };
 
 export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploaderDropzoneProps>(
   (
     {
-      element = 'FILE_UPLOADER_DROPZONE',
+      element = "FILE_UPLOADER_DROPZONE",
       children,
       acceptedMimeTypes,
       onInputChange,
@@ -87,7 +87,7 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
     const handleDragOver = (event: React.DragEvent<HTMLLabelElement>): void => {
       event.preventDefault();
       event.stopPropagation();
-      event.dataTransfer.dropEffect = 'copy';
+      event.dataTransfer.dropEffect = "copy";
 
       if (disabled) return;
 
@@ -99,7 +99,7 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
     const handleDragEnter = (event: React.DragEvent<HTMLLabelElement>): void => {
       event.preventDefault();
       event.stopPropagation();
-      event.dataTransfer.dropEffect = 'copy';
+      event.dataTransfer.dropEffect = "copy";
 
       if (disabled) return;
 
@@ -156,8 +156,8 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
         rowGap="space20"
         {...stateStyles}
         _focusWithin={{
-          backgroundColor: 'colorBackground',
-          boxShadow: 'shadowFocus',
+          backgroundColor: "colorBackground",
+          boxShadow: "shadowFocus",
         }}
         onDragStart={onDragStart}
         onDragEnd={onDragEnd}
@@ -167,7 +167,7 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
         onDragLeave={handleDragLeave}
       >
         <Box
-          backgroundColor={disabled ? 'colorBackgroundStrong' : 'colorBackgroundBody'}
+          backgroundColor={disabled ? "colorBackgroundStrong" : "colorBackgroundBody"}
           borderRadius="borderRadiusCircle"
           padding="space30"
           pointerEvents="none"
@@ -175,7 +175,7 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
           alignItems="center"
           justifyContent="center"
         >
-          <UploadToCloudIcon decorative size="sizeIcon60" color={disabled ? 'colorTextWeaker' : 'colorTextIcon'} />
+          <UploadToCloudIcon decorative size="sizeIcon60" color={disabled ? "colorTextWeaker" : "colorTextIcon"} />
         </Box>
         <>{children}</>
         <Box
@@ -202,4 +202,4 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
   },
 );
 
-FileUploaderDropzone.displayName = 'FileUploaderDropzone';
+FileUploaderDropzone.displayName = "FileUploaderDropzone";

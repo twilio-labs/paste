@@ -1,35 +1,35 @@
-import { secureExternalLink } from '@twilio-paste/anchor';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import type { ButtonProps } from '@twilio-paste/button';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { secureExternalLink } from "@twilio-paste/anchor";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { ButtonProps } from "@twilio-paste/button";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { SidebarContext } from '../SidebarContext';
-import { SidebarNavigationContext } from './SidebarNavigationContext';
-import { SidebarNavigationDisclosureContext } from './SidebarNavigationDisclosureContext';
+import { SidebarContext } from "../SidebarContext";
+import { SidebarNavigationContext } from "./SidebarNavigationContext";
+import { SidebarNavigationDisclosureContext } from "./SidebarNavigationDisclosureContext";
 import {
   sidebarNavigationItemCollapsedStyles,
   sidebarNavigationItemHierarchicalStyles,
   sidebarNavigationItemNestedStyles,
   sidebarNavigationItemSelectedStyles,
   sidebarNavigationItemStyles,
-} from './styles';
+} from "./styles";
 
-export interface SidebarNavigationItemProps extends HTMLPasteProps<'a'> {
-  href: ButtonProps['href'];
+export interface SidebarNavigationItemProps extends HTMLPasteProps<"a"> {
+  href: ButtonProps["href"];
   children: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   selected?: boolean;
   icon?: React.ReactNode;
 }
 
 const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigationItemProps>(
-  ({ element = 'SIDEBAR_NAVIGATION_ITEM', selected, children, icon, ...props }, ref) => {
+  ({ element = "SIDEBAR_NAVIGATION_ITEM", selected, children, icon, ...props }, ref) => {
     const { collapsed, variant } = React.useContext(SidebarContext);
     const { disclosure } = React.useContext(SidebarNavigationDisclosureContext);
     const { hideItemsOnCollapse, hierarchical } = React.useContext(SidebarNavigationContext);
-    const isCompact = variant === 'compact';
+    const isCompact = variant === "compact";
     const [visible, setVisible] = React.useState(!isCompact ? true : !collapsed);
     const timeout = React.useRef(0);
 
@@ -56,8 +56,8 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         ...(isNested && sidebarNavigationItemNestedStyles),
         ...(collapsed && sidebarNavigationItemCollapsedStyles),
         ...(selected && sidebarNavigationItemSelectedStyles),
-        display: collapsed && hideItemsOnCollapse ? 'none' : 'flex',
-        width: collapsed ? '36px' : '100%',
+        display: collapsed && hideItemsOnCollapse ? "none" : "flex",
+        width: collapsed ? "36px" : "100%",
       }),
       [isNested, selected, collapsed, hideItemsOnCollapse, hierarchical],
     );
@@ -69,11 +69,11 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         ref={ref}
         element={element}
         as="a"
-        aria-current={selected ? 'page' : undefined}
+        aria-current={selected ? "page" : undefined}
         {...styles}
       >
         {icon && (
-          <Box as="span" color={selected ? 'colorTextInverse' : 'colorTextIconInverse'}>
+          <Box as="span" color={selected ? "colorTextInverse" : "colorTextIconInverse"}>
             {icon}
           </Box>
         )}
@@ -85,9 +85,9 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
           columnGap="space20"
           transition="all 120ms ease"
           flexGrow={1}
-          float={visible ? 'none' : 'left'}
+          float={visible ? "none" : "left"}
           opacity={visible ? 1 : 0}
-          whiteSpace={visible ? 'normal' : 'nowrap'}
+          whiteSpace={visible ? "normal" : "nowrap"}
         >
           {collapsed ? null : children}
         </Box>
@@ -95,6 +95,6 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
     );
   },
 );
-SidebarNavigationItem.displayName = 'SidebarNavigationItem';
+SidebarNavigationItem.displayName = "SidebarNavigationItem";
 
 export { SidebarNavigationItem };

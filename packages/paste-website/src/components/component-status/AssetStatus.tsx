@@ -1,7 +1,7 @@
-import { Box } from '@twilio-paste/box';
-import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
 interface PackageStatusProps {
   status?: string;
@@ -9,7 +9,7 @@ interface PackageStatusProps {
 }
 
 const AssetStatus: React.FC<React.PropsWithChildren<PackageStatusProps>> = ({ label, status }) => {
-  if (status === 'yes') {
+  if (status === "yes") {
     return (
       <Box display="flex" alignItems="center" justifyContent="center">
         <SuccessIcon
@@ -22,7 +22,7 @@ const AssetStatus: React.FC<React.PropsWithChildren<PackageStatusProps>> = ({ la
       </Box>
     );
   }
-  if (status === 'not applicable') {
+  if (status === "not applicable") {
     return (
       <Text as="span" color="colorTextWeak">
         (n/a)

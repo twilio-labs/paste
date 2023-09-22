@@ -1,12 +1,12 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { Box } from '@twilio-paste/box';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
 
-import { FIGMA_PROFILE_URL, REMIX_DOMAIN, STORYBOOK_DOMAIN } from '../../../constants';
-import { event } from '../../../lib/gtag';
-import TwilioLogo from '../../icons/TwilioLogo';
-import { SiteFooterHeader } from './SiteFooterHeader';
+import { FIGMA_PROFILE_URL, REMIX_DOMAIN, STORYBOOK_DOMAIN } from "../../../constants";
+import { event } from "../../../lib/gtag";
+import TwilioLogo from "../../icons/TwilioLogo";
+import { SiteFooterHeader } from "./SiteFooterHeader";
 
 const SiteFooterNav = (): JSX.Element => {
   const theme = useTheme();
@@ -16,20 +16,20 @@ const SiteFooterNav = (): JSX.Element => {
       <Box
         as="nav"
         display="flex"
-        flexDirection={['column', 'row']}
-        marginLeft={['space0', 'space120']}
-        textAlign={['center', 'left']}
+        flexDirection={["column", "row"]}
+        marginLeft={["space0", "space120"]}
+        textAlign={["center", "left"]}
       >
-        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
+        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={["space0", "space130"]}>
           <Stack orientation="vertical" spacing="space60">
             <Anchor
               href="/introduction/about-paste"
               variant="inverse"
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-about',
-                  label: 'About',
+                  category: "Footer",
+                  action: "click-about",
+                  label: "About",
                 })
               }
             >
@@ -40,9 +40,9 @@ const SiteFooterNav = (): JSX.Element => {
               variant="inverse"
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-our-roadmap',
-                  label: 'Our roadmap',
+                  category: "Footer",
+                  action: "click-our-roadmap",
+                  label: "Our roadmap",
                 })
               }
             >
@@ -53,9 +53,9 @@ const SiteFooterNav = (): JSX.Element => {
               variant="inverse"
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-design-guidelines',
-                  label: 'Design guidelines',
+                  category: "Footer",
+                  action: "click-design-guidelines",
+                  label: "Design guidelines",
                 })
               }
             >
@@ -66,9 +66,9 @@ const SiteFooterNav = (): JSX.Element => {
               variant="inverse"
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-quickstart',
-                  label: 'Quick Start',
+                  category: "Footer",
+                  action: "click-quickstart",
+                  label: "Quick Start",
                 })
               }
             >
@@ -76,7 +76,7 @@ const SiteFooterNav = (): JSX.Element => {
             </Anchor>
           </Stack>
         </Box>
-        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
+        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={["space0", "space130"]}>
           <Stack orientation="vertical" spacing="space60">
             <Anchor
               href="https://github.com/twilio-labs/paste"
@@ -84,9 +84,9 @@ const SiteFooterNav = (): JSX.Element => {
               showExternal
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-github',
-                  label: 'Github',
+                  category: "Footer",
+                  action: "click-github",
+                  label: "Github",
                 })
               }
             >
@@ -98,9 +98,9 @@ const SiteFooterNav = (): JSX.Element => {
               showExternal
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-figma',
-                  label: 'Figma',
+                  category: "Footer",
+                  action: "click-figma",
+                  label: "Figma",
                 })
               }
             >
@@ -112,9 +112,9 @@ const SiteFooterNav = (): JSX.Element => {
               showExternal
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-storybook',
-                  label: 'Storybook',
+                  category: "Footer",
+                  action: "click-storybook",
+                  label: "Storybook",
                 })
               }
             >
@@ -126,9 +126,9 @@ const SiteFooterNav = (): JSX.Element => {
               showExternal
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-remix',
-                  label: 'Theme Designer',
+                  category: "Footer",
+                  action: "click-remix",
+                  label: "Theme Designer",
                 })
               }
             >
@@ -136,7 +136,7 @@ const SiteFooterNav = (): JSX.Element => {
             </Anchor>
           </Stack>
         </Box>
-        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={['space0', 'space130']}>
+        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={["space0", "space130"]}>
           <Stack orientation="vertical" spacing="space60">
             <Anchor
               href="https://github.com/twilio-labs/paste/discussions"
@@ -144,9 +144,9 @@ const SiteFooterNav = (): JSX.Element => {
               showExternal
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-get-support',
-                  label: 'Get support',
+                  category: "Footer",
+                  action: "click-get-support",
+                  label: "Get support",
                 })
               }
             >
@@ -158,9 +158,9 @@ const SiteFooterNav = (): JSX.Element => {
               showExternal
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-report-a-bug',
-                  label: 'Report a bug',
+                  category: "Footer",
+                  action: "click-report-a-bug",
+                  label: "Report a bug",
                 })
               }
             >
@@ -171,9 +171,9 @@ const SiteFooterNav = (): JSX.Element => {
               variant="inverse"
               onClick={() =>
                 event({
-                  category: 'Footer',
-                  action: 'click-how-we-work',
-                  label: 'How we work',
+                  category: "Footer",
+                  action: "click-how-we-work",
+                  label: "How we work",
                 })
               }
             >
@@ -182,7 +182,7 @@ const SiteFooterNav = (): JSX.Element => {
           </Stack>
         </Box>
       </Box>
-      <Box marginTop="space120" marginLeft={['space0', 'space120']} textAlign={['center', 'left']}>
+      <Box marginTop="space120" marginLeft={["space0", "space120"]} textAlign={["center", "left"]}>
         <Anchor href="https://twilio.com" display="inline-flex">
           <TwilioLogo
             css={{ height: theme.heights.sizeIcon40, width: theme.widths.size10 }}

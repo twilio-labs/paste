@@ -1,28 +1,28 @@
-import { Button } from '@twilio-paste/button';
-import { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay } from '@twilio-paste/modal-dialog-primitive';
-import { styled } from '@twilio-paste/styling-library';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Button } from "@twilio-paste/button";
+import { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay } from "@twilio-paste/modal-dialog-primitive";
+import { styled } from "@twilio-paste/styling-library";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
-  position: 'fixed',
+  position: "fixed",
   top: 0,
   right: 0,
   bottom: 0,
   left: 0,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  background: 'rgba(0, 0, 0, 0.7)',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  background: "rgba(0, 0, 0, 0.7)",
 });
 
 const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)({
-  width: '100%',
-  maxWidth: '560px',
-  maxHeight: 'calc(100% - 60px)',
-  background: '#f4f5f6',
-  borderRadius: '5px',
-  padding: '20px',
+  width: "100%",
+  maxWidth: "560px",
+  maxHeight: "calc(100% - 60px)",
+  background: "#f4f5f6",
+  borderRadius: "5px",
+  padding: "20px",
 });
 
 interface BasicModalDialogProps {

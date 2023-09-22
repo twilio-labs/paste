@@ -1,1 +1,1 @@
-export * from '@twilio-paste/react-textarea-autosize-library';
+export * from "@twilio-paste/react-textarea-autosize-library";

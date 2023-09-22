@@ -1,14 +1,14 @@
-import type { StoryFn } from '@storybook/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Paragraph } from '../src';
+import { Paragraph } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Paragraph',
+  title: "Components/Paragraph",
   component: Paragraph,
 };
 
@@ -44,9 +44,9 @@ export const CustomParagraph: StoryFn = (_args, { parameters: { isTestEnvironmen
         theme={currentTheme}
         elements={{
           PARAGRAPH: {
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
-            color: 'colorTextError',
-            padding: 'space40',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            color: "colorTextError",
+            padding: "space40",
           },
         }}
       >
@@ -60,9 +60,9 @@ export const CustomParagraph: StoryFn = (_args, { parameters: { isTestEnvironmen
         theme={currentTheme}
         elements={{
           NEW_PARAGRAPH: {
-            backgroundColor: 'colorBackgroundTrial',
-            color: 'colorTextLink',
-            padding: 'space60',
+            backgroundColor: "colorBackgroundTrial",
+            color: "colorTextLink",
+            padding: "space60",
           },
         }}
       >

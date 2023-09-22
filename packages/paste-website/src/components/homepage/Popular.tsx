@@ -1,13 +1,13 @@
-import { Box } from '@twilio-paste/box';
-import { Column, Grid } from '@twilio-paste/grid';
+import { Box } from "@twilio-paste/box";
+import { Column, Grid } from "@twilio-paste/grid";
 
-import { DoodleCurve } from '../../assets/illustrations/DoodleCurve';
-import { DoodleLoopSmall } from '../../assets/illustrations/DoodleLoopSmall';
-import { HOMEPAGE_SECTION_OVERFLOW_OFFSET, SITE_CONTENT_MAX_WIDTH } from '../../constants';
-import { useSlantedSkew } from '../SlantedBackgroundGradient';
-import { PopularComponents } from './PopularComponents';
-import { PopularPatterns } from './PopularPatterns';
-import { PopularSectionHeader } from './PopularSectionHeader';
+import { DoodleCurve } from "../../assets/illustrations/DoodleCurve";
+import { DoodleLoopSmall } from "../../assets/illustrations/DoodleLoopSmall";
+import { HOMEPAGE_SECTION_OVERFLOW_OFFSET, SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { useSlantedSkew } from "../SlantedBackgroundGradient";
+import { PopularComponents } from "./PopularComponents";
+import { PopularPatterns } from "./PopularPatterns";
+import { PopularSectionHeader } from "./PopularSectionHeader";
 
 const PopularComponentsTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
@@ -50,7 +50,7 @@ const PopularComponentsBottomAngle = (): JSX.Element => {
 
 const PopularComponentsAndPatterns = (): JSX.Element => {
   return (
-    <Box margin="space70" marginTop="space110" padding={['space90', 'space180']} position="relative">
+    <Box margin="space70" marginTop="space110" padding={["space90", "space180"]} position="relative">
       <PopularComponentsTopAngle />
       <PopularComponentsBottomAngle />
       <Box

@@ -4,8 +4,8 @@ export {
   type EditorProps as CodeEditorProps,
   type DiffEditorProps as CodeEditorDiffProps,
   type Monaco,
-} from '@monaco-editor/react';
-export { PasteTheme as CodeEditorPasteTheme } from './PasteTheme';
+} from "@monaco-editor/react";
+export { PasteTheme as CodeEditorPasteTheme } from "./PasteTheme";
 export type {
   editor as Editor,
   languages as Languages,
@@ -26,4 +26,4 @@ export type {
   Token,
   Emitter,
   Environment,
-} from 'monaco-editor';
+} from "monaco-editor";

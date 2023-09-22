@@ -1,7 +1,7 @@
-import { Theme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import type { CustomTheme } from './types/CustomTheme';
+import type { CustomTheme } from "./types/CustomTheme";
 
 export interface CustomizationConsumerProps {
   children: ({ theme }: { theme: CustomTheme }) => React.ReactNode;
@@ -11,4 +11,4 @@ export const CustomizationConsumer: React.FC<CustomizationConsumerProps> = (prop
   return <Theme.Consumer {...props} />;
 };
 
-CustomizationConsumer.displayName = 'PasteCustomizationConsumer';
+CustomizationConsumer.displayName = "PasteCustomizationConsumer";

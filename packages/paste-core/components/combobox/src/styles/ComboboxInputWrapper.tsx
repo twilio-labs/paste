@@ -1,5 +1,5 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
 export interface ComboboxInputWrapperProps {
   children: NonNullable<React.ReactNode>;
@@ -15,6 +15,6 @@ const ComboboxInputWrapper = React.forwardRef<HTMLDivElement, ComboboxInputWrapp
   },
 );
 
-ComboboxInputWrapper.displayName = 'ComboboxInputWrapper';
+ComboboxInputWrapper.displayName = "ComboboxInputWrapper";
 
 export { ComboboxInputWrapper };

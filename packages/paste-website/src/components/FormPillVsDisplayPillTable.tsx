@@ -1,7 +1,7 @@
-import { Box } from '@twilio-paste/box';
-import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { TBody, THead, Table, Td, Th, Tr } from '@twilio-paste/table';
+import { Box } from "@twilio-paste/box";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
 
 const FormPillVsDisplayPillTable = (): JSX.Element => {
   return (

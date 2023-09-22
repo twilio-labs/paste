@@ -1,10 +1,10 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { Composite, CompositeGroup, CompositeItem, useCompositeState } from '../src';
+import { Composite, CompositeGroup, CompositeItem, useCompositeState } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/Reakit/Composite',
+  title: "Libraries/Reakit/Composite",
   component: Composite,
   subcomponents: { Composite, CompositeItem },
 };
@@ -56,7 +56,7 @@ const Grid: React.FC<any> = (props) => {
 };
 
 const GridRow: React.FC<any> = (props) => {
-  return <CompositeGroup role="row" {...props} style={{ display: 'flex', columnGap: '10px' }} />;
+  return <CompositeGroup role="row" {...props} style={{ display: "flex", columnGap: "10px" }} />;
 };
 
 const GridCell: React.FC<any> = (props) => {

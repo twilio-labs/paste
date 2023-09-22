@@ -1,14 +1,14 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-export interface FormActionsProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
-  element?: BoxProps['element'];
+export interface FormActionsProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+  element?: BoxProps["element"];
   children: React.ReactNode;
 }
 
 export const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
-  ({ children, element = 'FORM_ACTIONS', ...props }, ref) => (
+  ({ children, element = "FORM_ACTIONS", ...props }, ref) => (
     <Box
       ref={ref}
       element={element}
@@ -23,4 +23,4 @@ export const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
   ),
 );
 
-FormActions.displayName = 'FormActions';
+FormActions.displayName = "FormActions";

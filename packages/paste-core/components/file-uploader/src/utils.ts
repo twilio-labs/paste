@@ -1,4 +1,4 @@
-import isEmpty from 'lodash/isEmpty';
+import isEmpty from "lodash/isEmpty";
 
 /**
  * Converts an array to a comma separated string
@@ -11,8 +11,8 @@ export const arrayToCsv = (value: string[]): string => {
    * there's nothing to join
    */
   if (!Array.isArray(value) || isEmpty(value)) {
-    return '';
+    return "";
   }
 
-  return value.join(',');
+  return value.join(",");
 };

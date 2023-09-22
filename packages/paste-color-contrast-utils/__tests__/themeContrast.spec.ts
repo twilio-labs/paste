@@ -13,7 +13,7 @@ import {
   spacings,
   textColors,
   zIndices,
-} from '@twilio-paste/design-tokens';
+} from "@twilio-paste/design-tokens";
 import {
   backgroundColors as darkBackgroundColors,
   borderColors as darkBorderColors,
@@ -29,7 +29,7 @@ import {
   spacings as darkSpacings,
   textColors as darkTextColors,
   zIndices as darkZIndices,
-} from '@twilio-paste/design-tokens/dist/themes/dark/tokens.common';
+} from "@twilio-paste/design-tokens/dist/themes/dark/tokens.common";
 import {
   backgroundColors as twilioDarkBackgroundColors,
   borderColors as twilioDarkBorderColors,
@@ -45,7 +45,7 @@ import {
   spacings as twilioDarkSpacings,
   textColors as twilioDarkTextColors,
   zIndices as twilioDarkZIndices,
-} from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.common';
+} from "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.common";
 import {
   backgroundColors as twilioBackgroundColors,
   borderColors as twilioBorderColors,
@@ -61,13 +61,13 @@ import {
   spacings as twilioSpacings,
   textColors as twilioTextColors,
   zIndices as twilioZIndices,
-} from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.common';
+} from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.common";
 
 import {
   getContrastRatingsOfTokensWithDataVisualizationContrastRequirements,
   getContrastRatingsOfTokensWithTextContrastRequirements,
   getContrastRatingsOfTokensWithUIControlContrastRequirements,
-} from '../src/utils';
+} from "../src/utils";
 
 const defaultThemeTextColorContrastRatings = getContrastRatingsOfTokensWithTextContrastRequirements({
   backgroundColors,
@@ -267,73 +267,73 @@ const twilioDarkThemeDataVisualizationColorContrastRatings =
     zIndices: twilioDarkZIndices,
   });
 
-describe('Default Theme', () => {
-  describe('Text color contrast ratio for token pairs', () => {
-    test.each(defaultThemeTextColorContrastRatings)('ratio check for %p', (rating) => {
+describe("Default Theme", () => {
+  describe("Text color contrast ratio for token pairs", () => {
+    test.each(defaultThemeTextColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(4.5);
     });
   });
-  describe('UI Control color contrast ratio for token pairs', () => {
-    test.each(defaultThemeUiControlColorContrastRatings)('ratio check for %p', (rating) => {
+  describe("UI Control color contrast ratio for token pairs", () => {
+    test.each(defaultThemeUiControlColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(3);
     });
   });
-  describe('Data visualization color contrast ratio for token pairs', () => {
-    test.each(defaultThemeDataVisualizationColorContrastRatings)('ratio check for %p', (rating) => {
+  describe("Data visualization color contrast ratio for token pairs", () => {
+    test.each(defaultThemeDataVisualizationColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(2.25);
     });
   });
 });
 
-describe('Dark Theme', () => {
-  describe('Text color contrast ratio for token pairs', () => {
-    test.each(darkThemeTextColorContrastRatings)('ratio check for %p', (rating) => {
+describe("Dark Theme", () => {
+  describe("Text color contrast ratio for token pairs", () => {
+    test.each(darkThemeTextColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(4.5);
     });
   });
-  describe('UI Control color contrast ratio for token pairs', () => {
-    test.each(darkThemeUiControlColorContrastRatings)('ratio check for %p', (rating) => {
+  describe("UI Control color contrast ratio for token pairs", () => {
+    test.each(darkThemeUiControlColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(3);
     });
   });
-  describe('Data visualization color contrast ratio for token pairs', () => {
-    test.each(darkThemeDataVisualizationColorContrastRatings)('ratio check for %p', (rating) => {
+  describe("Data visualization color contrast ratio for token pairs", () => {
+    test.each(darkThemeDataVisualizationColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(2);
     });
   });
 });
 
-describe('Twilio Theme', () => {
-  describe('Text color contrast ratio for token pairs', () => {
-    test.each(twilioThemeTextColorContrastRatings)('ratio check for %p', (rating) => {
+describe("Twilio Theme", () => {
+  describe("Text color contrast ratio for token pairs", () => {
+    test.each(twilioThemeTextColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(4.5);
     });
   });
-  describe('UI Control color contrast ratio for token pairs', () => {
-    test.each(twilioThemeUiControlColorContrastRatings)('ratio check for %p', (rating) => {
+  describe("UI Control color contrast ratio for token pairs", () => {
+    test.each(twilioThemeUiControlColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(3);
     });
   });
-  describe('Data visualization color contrast ratio for token pairs', () => {
-    test.each(twilioThemeDataVisualizationColorContrastRatings)('ratio check for %p', (rating) => {
+  describe("Data visualization color contrast ratio for token pairs", () => {
+    test.each(twilioThemeDataVisualizationColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(2);
     });
   });
 });
 
-describe('Twilio Dark Theme', () => {
-  describe('Text color contrast ratio for token pairs', () => {
-    test.each(twilioDarkThemeTextColorContrastRatings)('ratio check for %p', (rating) => {
+describe("Twilio Dark Theme", () => {
+  describe("Text color contrast ratio for token pairs", () => {
+    test.each(twilioDarkThemeTextColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(4.5);
     });
   });
-  describe('UI Control color contrast ratio for token pairs', () => {
-    test.each(twilioDarkThemeUiControlColorContrastRatings)('ratio check for %p', (rating) => {
+  describe("UI Control color contrast ratio for token pairs", () => {
+    test.each(twilioDarkThemeUiControlColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(3);
     });
   });
-  describe('Data visualization color contrast ratio for token pairs', () => {
-    test.each(twilioDarkThemeDataVisualizationColorContrastRatings)('ratio check for %p', (rating) => {
+  describe("Data visualization color contrast ratio for token pairs", () => {
+    test.each(twilioDarkThemeDataVisualizationColorContrastRatings)("ratio check for %p", (rating) => {
       expect(rating.contrast).toBeGreaterThanOrEqual(2);
     });
   });

@@ -1,31 +1,31 @@
-import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
-import type { HTMLPasteProps } from '@twilio-paste/types';
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 
-type ButtonTypes = 'submit' | 'button' | 'reset';
+type ButtonTypes = "submit" | "button" | "reset";
 export type ButtonSizes =
-  | 'small'
-  | 'default'
-  | 'icon'
-  | 'icon_small'
-  | 'reset'
-  | 'rounded_small'
-  | 'circle'
-  | 'circle_small';
+  | "small"
+  | "default"
+  | "icon"
+  | "icon_small"
+  | "reset"
+  | "rounded_small"
+  | "circle"
+  | "circle_small";
 type ButtonBaseVariants =
-  | 'primary'
-  | 'primary_icon'
-  | 'secondary'
-  | 'secondary_icon'
-  | 'destructive'
-  | 'destructive_icon'
-  | 'destructive_link'
-  | 'destructive_secondary'
-  | 'link'
-  | 'inverse_link'
-  | 'inverse';
-type ButtonResetVariant = 'reset';
+  | "primary"
+  | "primary_icon"
+  | "secondary"
+  | "secondary_icon"
+  | "destructive"
+  | "destructive_icon"
+  | "destructive_link"
+  | "destructive_secondary"
+  | "link"
+  | "inverse_link"
+  | "inverse";
+type ButtonResetVariant = "reset";
 export type ButtonVariants = ButtonResetVariant | ButtonBaseVariants;
-export type ButtonStates = 'disabled' | 'loading' | 'default';
+export type ButtonStates = "disabled" | "loading" | "default";
 export type ButtonTabIndexes = 0 | -1;
 
 export interface ButtonContentsProps {
@@ -34,7 +34,7 @@ export interface ButtonContentsProps {
   variant?: ButtonVariants;
 }
 
-export interface DirectButtonProps extends HTMLPasteProps<'button'> {
+export interface DirectButtonProps extends HTMLPasteProps<"button"> {
   /**
    * The HTML tag to replace the default `<button>` tag.
    * @default 'button'
@@ -54,7 +54,7 @@ export interface DirectButtonProps extends HTMLPasteProps<'button'> {
    * @type {BoxProps['element']}
    * @memberof DirectButtonProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   /**
    * Sets the Button width to 100% of the parent container.
    * @default false
@@ -90,11 +90,11 @@ export interface DirectButtonProps extends HTMLPasteProps<'button'> {
 type BaseVariantsButtonProps = {
   variant?: ButtonBaseVariants;
 };
-type ResetVariantButtonProps = Omit<BoxStyleProps, 'size'> & {
+type ResetVariantButtonProps = Omit<BoxStyleProps, "size"> & {
   variant?: ButtonResetVariant;
 };
 
-export type ButtonProps = Omit<DirectButtonProps, 'buttonState' | 'i18nExternalLinkLabel' | 'loading' | 'size'> & {
+export type ButtonProps = Omit<DirectButtonProps, "buttonState" | "i18nExternalLinkLabel" | "loading" | "size"> & {
   /**
    * Title for showExternal icon
    * @default '(link takes you to an external page)'

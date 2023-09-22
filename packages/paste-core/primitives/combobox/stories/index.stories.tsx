@@ -1,20 +1,20 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption } from '@twilio-paste/combobox';
-import { FormPill, FormPillGroup, useFormPillState } from '@twilio-paste/form-pill-group';
-import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
-import { Input } from '@twilio-paste/input';
-import { Label } from '@twilio-paste/label';
-import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption } from "@twilio-paste/combobox";
+import { FormPill, FormPillGroup, useFormPillState } from "@twilio-paste/form-pill-group";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { ComboboxPrimitive, useComboboxPrimitive, useMultiSelectPrimitive } from '../src';
+import { ComboboxPrimitive, useComboboxPrimitive, useMultiSelectPrimitive } from "../src";
 
-const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
+const items = ["Alert", "Anchor", "Button", "Card", "Heading", "List", "Modal", "Paragraph"];
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Primitives/Combobox',
+  title: "Primitives/Combobox",
   component: ComboboxPrimitive,
 };
 
@@ -36,20 +36,20 @@ export const DropdownCombobox = (): React.ReactNode => {
       <Label htmlFor={uid} {...getLabelProps()}>
         Choose a component:
       </Label>
-      <Box {...getComboboxProps({ role: 'combobox' })}>
+      <Box {...getComboboxProps({ role: "combobox" })}>
         <Input
           id={uid}
           type="text"
           {...getToggleButtonProps({ tabIndex: 0 })}
           {...getInputProps()}
-          value={selectedItem || ''}
+          value={selectedItem || ""}
         />
       </Box>
       <ul {...getMenuProps()}>
         {isOpen &&
           items.map((item, index) => (
             <li
-              style={highlightedIndex === index ? { backgroundColor: '#bde4ff' } : {}}
+              style={highlightedIndex === index ? { backgroundColor: "#bde4ff" } : {}}
               // eslint-disable-next-line react/no-array-index-key
               key={`${item}${index}`}
               {...getItemProps({ item, index })}
@@ -97,7 +97,7 @@ export const AutocompleteCombobox = (): React.ReactNode => {
         {isOpen &&
           inputItems.map((item, index) => (
             <li
-              style={highlightedIndex === index ? { backgroundColor: '#bde4ff' } : {}}
+              style={highlightedIndex === index ? { backgroundColor: "#bde4ff" } : {}}
               // eslint-disable-next-line react/no-array-index-key
               key={`${item}${index}`}
               {...getItemProps({ item, index })}
@@ -149,7 +149,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
                         index,
                         item,
                         style: {
-                          backgroundColor: highlightedIndex === index ? '#bde4ff' : undefined,
+                          backgroundColor: highlightedIndex === index ? "#bde4ff" : undefined,
                         },
                       })}
                     >
@@ -164,7 +164,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
   );
 };
 
-ComboboxNonHooks.storyName = 'Combobox - non-hooks';
+ComboboxNonHooks.storyName = "Combobox - non-hooks";
 
 export const MultiSelectionCombobox = (): React.ReactNode => {
   const seed = useUIDSeed();
@@ -208,7 +208,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
     selectItem,
   } = useComboboxPrimitive({
     items: filteredItems,
-    initialInputValue: '',
+    initialInputValue: "",
     onSelectedItemChange: ({ selectedItem: selected }) => {
       if (selected != null) {
         handleSelectItemOnClick(selected);
@@ -225,7 +225,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
         <Label htmlFor={uid} {...getLabelProps()}>
           Choose a component
         </Label>
-        <Box {...getComboboxProps({ role: 'combobox' })}>
+        <Box {...getComboboxProps({ role: "combobox" })}>
           <Input
             id={uid}
             type="text"
@@ -235,7 +235,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
                 ...getToggleButtonProps({ tabIndex: 0 }),
               }),
             })}
-            value={selectedItem || ''}
+            value={selectedItem || ""}
           />
         </Box>
         <ComboboxListbox hidden={!isOpen} {...getMenuProps()}>
@@ -276,4 +276,4 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
   );
 };
 
-MultiSelectionCombobox.storyName = 'Combobox - multiple selection';
+MultiSelectionCombobox.storyName = "Combobox - multiple selection";

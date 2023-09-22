@@ -1,13 +1,13 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import * as React from 'react';
+import type { Meta, StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import * as React from "react";
 
-import { type SliderState, type SliderStateOptions, useSlider, useSliderState, useSliderThumb } from '../src';
+import { type SliderState, type SliderStateOptions, useSlider, useSliderState, useSliderThumb } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/React-Spectrum/useSlider',
+  title: "Libraries/React-Spectrum/useSlider",
   parameters: {},
 } as Meta;
 
@@ -33,9 +33,9 @@ const Thumb: React.FC<ThumbProps> = ({ state, trackRef, index, isDisabled }) => 
   return (
     <Box
       {...thumbProps}
-      backgroundColor={isDisabled ? 'colorBackgroundPrimaryWeak' : 'colorBackgroundPrimaryStrong'}
+      backgroundColor={isDisabled ? "colorBackgroundPrimaryWeak" : "colorBackgroundPrimaryStrong"}
       borderRadius="borderRadiusCircle"
-      boxShadow={isDragging || focused ? 'shadowFocus' : 'none'}
+      boxShadow={isDragging || focused ? "shadowFocus" : "none"}
       width="18px"
       height="18px"
       marginTop="space10"
@@ -64,7 +64,7 @@ const Slider: React.FC<SliderStateOptions<number | number[]>> = (props) => {
       {/* The track element holds the visible track line and the thumb. */}
       <Box {...trackProps} ref={trackRef} height="13px" width="100%" display="flex" alignItems="center">
         <Box
-          backgroundColor={props.isDisabled ? 'colorBackgroundPrimaryWeak' : 'colorBackgroundPrimary'}
+          backgroundColor={props.isDisabled ? "colorBackgroundPrimaryWeak" : "colorBackgroundPrimary"}
           height="4px"
           width="100%"
           borderRadius="borderRadius20"

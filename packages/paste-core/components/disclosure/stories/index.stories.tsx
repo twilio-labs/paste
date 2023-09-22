@@ -1,22 +1,22 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { ProductInternetOfThingsIcon } from '@twilio-paste/icons/esm/ProductInternetOfThingsIcon';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import { Truncate } from '@twilio-paste/truncate';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { ProductInternetOfThingsIcon } from "@twilio-paste/icons/esm/ProductInternetOfThingsIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import { Truncate } from "@twilio-paste/truncate";
+import * as React from "react";
 
-import { Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState } from '../src';
-import type { DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants } from '../src';
+import { Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState } from "../src";
+import type { DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants } from "../src";
 
 export const ExampleDisclosures: React.FC<
   React.PropsWithChildren<{
     disabled?: boolean;
     variant?: DisclosureVariants;
-    headingVariant: DisclosureHeadingProps['variant'];
+    headingVariant: DisclosureHeadingProps["variant"];
   }>
 > = (props) => {
   return (
@@ -71,9 +71,9 @@ const useDelayedDisclosureState = ({
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Disclosure',
+  title: "Components/Disclosure",
   decorators: [],
-  excludeStories: ['ExampleDisclosures'],
+  excludeStories: ["ExampleDisclosures"],
   component: Disclosure,
   subcomponents: { DisclosureHeading, DisclosureContent },
 };
@@ -82,37 +82,37 @@ export const HeadingVariant10 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading10" />;
 };
 
-HeadingVariant10.storyName = 'Heading variant 10';
+HeadingVariant10.storyName = "Heading variant 10";
 
 export const HeadingVariant20 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading20" />;
 };
 
-HeadingVariant20.storyName = 'Heading variant 20';
+HeadingVariant20.storyName = "Heading variant 20";
 
 export const HeadingVariant30 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading30" />;
 };
 
-HeadingVariant30.storyName = 'Heading variant 30';
+HeadingVariant30.storyName = "Heading variant 30";
 
 export const HeadingVariant40 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading40" />;
 };
 
-HeadingVariant40.storyName = 'Heading variant 40';
+HeadingVariant40.storyName = "Heading variant 40";
 
 export const HeadingVariant50 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading50" />;
 };
 
-HeadingVariant50.storyName = 'Heading variant 50';
+HeadingVariant50.storyName = "Heading variant 50";
 
 export const HeadingVariant60 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading60" />;
 };
 
-HeadingVariant60.storyName = 'Heading variant 60';
+HeadingVariant60.storyName = "Heading variant 60";
 
 export const Disabled = (): React.ReactNode => {
   return <ExampleDisclosures disabled headingVariant="heading10" />;
@@ -151,7 +151,7 @@ export const MultilineHeading = (): React.ReactNode => {
   );
 };
 
-MultilineHeading.storyName = 'Multiline heading';
+MultilineHeading.storyName = "Multiline heading";
 
 export const TruncatedHeader = (): React.ReactNode => {
   return (
@@ -173,7 +173,7 @@ export const TruncatedHeader = (): React.ReactNode => {
   );
 };
 
-TruncatedHeader.storyName = 'Truncated Header';
+TruncatedHeader.storyName = "Truncated Header";
 
 export const MediaObjectHeading = (): React.ReactNode => {
   return (
@@ -198,49 +198,49 @@ export const MediaObjectHeading = (): React.ReactNode => {
   );
 };
 
-MediaObjectHeading.storyName = 'MediaObject in Heading';
+MediaObjectHeading.storyName = "MediaObject in Heading";
 
 export const ContainedHeadingVariant10 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading10" variant="contained" />;
 };
 
-ContainedHeadingVariant10.storyName = 'Contained Heading variant 10';
+ContainedHeadingVariant10.storyName = "Contained Heading variant 10";
 
 export const ContainedHeadingVariant20 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading20" variant="contained" />;
 };
 
-ContainedHeadingVariant20.storyName = 'Contained Heading variant 20';
+ContainedHeadingVariant20.storyName = "Contained Heading variant 20";
 
 export const ContainedHeadingVariant30 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading30" variant="contained" />;
 };
 
-ContainedHeadingVariant30.storyName = 'Contained Heading variant 30';
+ContainedHeadingVariant30.storyName = "Contained Heading variant 30";
 
 export const ContainedHeadingVariant40 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading40" variant="contained" />;
 };
 
-ContainedHeadingVariant40.storyName = 'Contained Heading variant 40';
+ContainedHeadingVariant40.storyName = "Contained Heading variant 40";
 
 export const ContainedHeadingVariant50 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading50" variant="contained" />;
 };
 
-ContainedHeadingVariant50.storyName = 'Contained Heading variant 50';
+ContainedHeadingVariant50.storyName = "Contained Heading variant 50";
 
 export const ContainedHeadingVariant60 = (): React.ReactNode => {
   return <ExampleDisclosures headingVariant="heading60" variant="contained" />;
 };
 
-ContainedHeadingVariant60.storyName = 'Contained Heading variant 60';
+ContainedHeadingVariant60.storyName = "Contained Heading variant 60";
 
 export const ContainedDisabled = (): React.ReactNode => {
   return <ExampleDisclosures disabled headingVariant="heading10" variant="contained" />;
 };
 
-ContainedDisabled.storyName = 'Contained disabled';
+ContainedDisabled.storyName = "Contained disabled";
 
 export const ContainedMultilineHeading = (): React.ReactNode => {
   return (
@@ -275,19 +275,19 @@ export const ContainedMultilineHeading = (): React.ReactNode => {
   );
 };
 
-ContainedMultilineHeading.storyName = 'Contained multiline heading';
+ContainedMultilineHeading.storyName = "Contained multiline heading";
 
 export const StateHook = (): React.ReactNode => {
   const { transitioning, ...disclosure } = useDelayedDisclosureState({
     delay: 500,
   });
-  const clickableHeading = disclosure.visible ? 'Hide with delay' : 'Show with delay';
+  const clickableHeading = disclosure.visible ? "Hide with delay" : "Show with delay";
   return (
     <>
       <Paragraph>This Disclosure should be visible on load, and take 1 second to open and close.</Paragraph>
       <Disclosure variant="contained" state={disclosure}>
         <DisclosureHeading as="h2" variant="heading20">
-          {transitioning ? 'Please wait...' : clickableHeading}
+          {transitioning ? "Please wait..." : clickableHeading}
         </DisclosureHeading>
         <DisclosureContent>
           Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus
@@ -300,7 +300,7 @@ export const StateHook = (): React.ReactNode => {
   );
 };
 
-StateHook.storyName = 'State hook';
+StateHook.storyName = "State hook";
 
 export const Customization: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
@@ -309,15 +309,15 @@ export const Customization: StoryFn = (_args, { parameters: { isTestEnvironment 
       disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        DISCLOSURE: { padding: 'space30', variants: { contained: { borderColor: 'colorBorderError' } } },
-        DISCLOSURE_CONTENT: { color: 'colorTextErrorStrong' },
+        DISCLOSURE: { padding: "space30", variants: { contained: { borderColor: "colorBorderError" } } },
+        DISCLOSURE_CONTENT: { color: "colorTextErrorStrong" },
         DISCLOSURE_HEADING: {
-          color: 'colorText',
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          ':hover': { backgroundColor: 'colorBackgroundErrorWeak' },
+          color: "colorText",
+          backgroundColor: "colorBackgroundErrorWeakest",
+          ":hover": { backgroundColor: "colorBackgroundErrorWeak" },
         },
         DISCLOSURE_HEADING_ICON: {
-          color: 'colorTextIconError',
+          color: "colorTextIconError",
         },
       }}
     >

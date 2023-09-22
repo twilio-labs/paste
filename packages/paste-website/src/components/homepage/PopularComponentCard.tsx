@@ -1,10 +1,10 @@
-import { animated, useSpring } from '@twilio-paste/animation-library';
-import { Box } from '@twilio-paste/box';
-import { Card } from '@twilio-paste/card';
-import { Heading } from '@twilio-paste/heading';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
+import { animated, useSpring } from "@twilio-paste/animation-library";
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { Heading } from "@twilio-paste/heading";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
 const ComponentCardHeader: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
@@ -43,7 +43,7 @@ const ComponentCard: React.FC<React.PropsWithChildren> = ({ children }) => {
 
   const props = useSpring({
     opacity: show ? 1 : 0,
-    transform: show ? 'translateY(0px)' : 'translateY(25px)',
+    transform: show ? "translateY(0px)" : "translateY(25px)",
     config: { mass: 1, tension: 280, friction: 80 },
   });
 

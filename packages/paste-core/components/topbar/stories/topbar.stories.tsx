@@ -1,8 +1,8 @@
-import type { StoryFn } from '@storybook/react';
-import { Button } from '@twilio-paste/button';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
-import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
-import { Paragraph } from '@twilio-paste/paragraph';
+import type { StoryFn } from "@storybook/react";
+import { Button } from "@twilio-paste/button";
+import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import { Paragraph } from "@twilio-paste/paragraph";
 import {
   Sidebar,
   SidebarBody,
@@ -14,23 +14,23 @@ import {
   SidebarNavigation,
   SidebarOverlayContentWrapper,
   SidebarPushContentWrapper,
-} from '@twilio-paste/sidebar';
+} from "@twilio-paste/sidebar";
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 import {
   UserDialog,
   UserDialogContainer,
   UserDialogUserEmail,
   UserDialogUserInfo,
   UserDialogUserName,
-} from '@twilio-paste/user-dialog';
-import * as React from 'react';
+} from "@twilio-paste/user-dialog";
+import * as React from "react";
 
-import { Topbar, TopbarActions } from '../src';
+import { Topbar, TopbarActions } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Topbar',
+  title: "Components/Topbar",
 };
 
 const TonsOfContent: React.FC = () => {

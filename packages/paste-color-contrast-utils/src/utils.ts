@@ -1,9 +1,9 @@
-import DefaultRawTokenJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
-import type { DesignToken, DesignTokensJSON, TokenPairContrastRating } from '@twilio-paste/design-tokens/types';
-import type { AllGenericTokens, GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
-import ColorCombos from 'color-combos';
-import type { ColorCombo } from 'color-combos';
-import camelCase from 'lodash/camelCase';
+import DefaultRawTokenJSON from "@twilio-paste/design-tokens/dist/tokens.raw.json";
+import type { DesignToken, DesignTokensJSON, TokenPairContrastRating } from "@twilio-paste/design-tokens/types";
+import type { AllGenericTokens, GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
+import ColorCombos from "color-combos";
+import type { ColorCombo } from "color-combos";
+import camelCase from "lodash/camelCase";
 
 /**
  * Filter out any ratings that are not at least aa for text color contrast requirements
@@ -70,7 +70,7 @@ export const convertRawTokenJSONToArray = (rawTokens: DesignTokensJSON): DesignT
 export const getTokensWithTextContrastRequirements = (rawTokens: DesignTokensJSON): DesignToken[] =>
   convertRawTokenJSONToArray(rawTokens)
     // filter by type and contrast pairing type
-    .filter((token) => token.type === 'color' && token.text_contrast_pairing != null);
+    .filter((token) => token.type === "color" && token.text_contrast_pairing != null);
 
 /**
  * get all color tokens that have ui control contrast requirements
@@ -81,7 +81,7 @@ export const getTokensWithTextContrastRequirements = (rawTokens: DesignTokensJSO
 export const getTokensWithUIControlContrastRequirements = (rawTokens: DesignTokensJSON): DesignToken[] =>
   convertRawTokenJSONToArray(rawTokens)
     // filter by type and contrast pairing type
-    .filter((token) => token.type === 'color' && token.uicontrol_contrast_pairing != null);
+    .filter((token) => token.type === "color" && token.uicontrol_contrast_pairing != null);
 
 /**
  * get all color tokens that have ui control contrast requirements
@@ -92,7 +92,7 @@ export const getTokensWithUIControlContrastRequirements = (rawTokens: DesignToke
 export const getTokensWithDataVisualizationContrastRequirements = (rawTokens: DesignTokensJSON): DesignToken[] =>
   convertRawTokenJSONToArray(rawTokens)
     // filter by type and contrast pairing type
-    .filter((token) => token.type === 'color' && token.data_visualization_contrast_pairing != null);
+    .filter((token) => token.type === "color" && token.data_visualization_contrast_pairing != null);
 
 /**
  * build an array of contrast results for each token pairing
@@ -105,7 +105,7 @@ export const getTokensWithDataVisualizationContrastRequirements = (rawTokens: De
 export const getContrastRatingForTokenPairing = (
   filteredTokens: DesignToken[],
   tokens: AllGenericTokens,
-  pairingKey: 'text_contrast_pairing' | 'uicontrol_contrast_pairing' | 'data_visualization_contrast_pairing',
+  pairingKey: "text_contrast_pairing" | "uicontrol_contrast_pairing" | "data_visualization_contrast_pairing",
 ): TokenPairContrastRating[] => {
   return filteredTokens.reduce((tokenRatings: TokenPairContrastRating[], token: DesignToken) => {
     /** array of tokens that are paired with this token for the type of contrast checking we're doing */
@@ -180,7 +180,7 @@ export const getContrastRatingsOfTokensWithTextContrastRequirements = (
   const defaultThemeRawJSON = DefaultRawTokenJSON.props;
   const tokenWithTextContrastRequirements = getTokensWithTextContrastRequirements(defaultThemeRawJSON);
   const flattenedTokens = flattenCategorizedTokens(tokens);
-  return getContrastRatingForTokenPairing(tokenWithTextContrastRequirements, flattenedTokens, 'text_contrast_pairing');
+  return getContrastRatingForTokenPairing(tokenWithTextContrastRequirements, flattenedTokens, "text_contrast_pairing");
 };
 
 /**
@@ -203,7 +203,7 @@ export const getContrastRatingsOfTokensWithUIControlContrastRequirements = (
   return getContrastRatingForTokenPairing(
     tokenWithUIControlContrastRequirements,
     flattenedTokens,
-    'uicontrol_contrast_pairing',
+    "uicontrol_contrast_pairing",
   );
 };
 
@@ -228,6 +228,6 @@ export const getContrastRatingsOfTokensWithDataVisualizationContrastRequirements
   return getContrastRatingForTokenPairing(
     tokenWithDataVisualizationContrastRequirements,
     flattenedTokens,
-    'data_visualization_contrast_pairing',
+    "data_visualization_contrast_pairing",
   );
 };

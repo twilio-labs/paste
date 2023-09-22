@@ -1,14 +1,14 @@
-import { animated, useSpring } from '@twilio-paste/animation-library';
-import { Box, type BoxProps, safelySpreadBoxProps } from '@twilio-paste/box';
-import { useTheme } from '@twilio-paste/theme';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import { useUID } from '@twilio-paste/uid-library';
-import { useWindowSize } from '@twilio-paste/utils';
-import * as React from 'react';
+import { animated, useSpring } from "@twilio-paste/animation-library";
+import { Box, type BoxProps, safelySpreadBoxProps } from "@twilio-paste/box";
+import { useTheme } from "@twilio-paste/theme";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUID } from "@twilio-paste/uid-library";
+import { useWindowSize } from "@twilio-paste/utils";
+import * as React from "react";
 
-import { SidebarContext } from './SidebarContext';
-import { SidebarSkipLinks, type SidebarSkipLinksProps } from './SidebarSkipLinks';
-import type { Variants } from './types';
+import { SidebarContext } from "./SidebarContext";
+import { SidebarSkipLinks, type SidebarSkipLinksProps } from "./SidebarSkipLinks";
+import type { Variants } from "./types";
 
 const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box
@@ -29,7 +29,7 @@ const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) =>
     bottom={0}
   />
 ));
-StyledSidebar.displayName = 'StyledSidebar';
+StyledSidebar.displayName = "StyledSidebar";
 const AnimatedStyledSidebar = animated(StyledSidebar);
 
 const config = {
@@ -58,14 +58,14 @@ const getHiddenSpringConfig = (collapsed: boolean, sizeSidebar: string): any => 
 });
 const getMobileSpringConfig = (collapsed: boolean): any => ({
   opacity: collapsed ? 0 : 1,
-  width: '100%',
+  width: "100%",
   transform: collapsed ? `translateX(-100%)` : `translateX(0%)`,
   config,
 });
 
-export interface SidebarProps extends HTMLPasteProps<'div'>, Omit<SidebarSkipLinksProps, 'element'> {
+export interface SidebarProps extends HTMLPasteProps<"div">, Omit<SidebarSkipLinksProps, "element"> {
   children: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   collapsed?: boolean;
   variant: Variants;
 }
@@ -74,8 +74,8 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
   (
     {
       collapsed = false,
-      variant = 'default',
-      element = 'SIDEBAR',
+      variant = "default",
+      element = "SIDEBAR",
       mainContentSkipLinkID,
       sidebarNavigationSkipLinkID,
       topbarSkipLinkID,
@@ -92,7 +92,7 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
     const theme = useTheme();
 
     const isMobile = breakpointIndex === 0;
-    const isCompact = variant === 'compact';
+    const isCompact = variant === "compact";
 
     let springConfig;
     if (isMobile) {
@@ -120,7 +120,7 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
           {...safelySpreadBoxProps(props)}
           ref={ref}
           element={element}
-          width={['100%', isCompact && collapsed ? 'sizeSidebarCompact' : 'sizeSidebar']}
+          width={["100%", isCompact && collapsed ? "sizeSidebarCompact" : "sizeSidebar"]}
           style={styles}
           id={sidebarId}
         >
@@ -130,4 +130,4 @@ export const Sidebar = React.forwardRef<HTMLDivElement, SidebarProps>(
     );
   },
 );
-Sidebar.displayName = 'Sidebar';
+Sidebar.displayName = "Sidebar";

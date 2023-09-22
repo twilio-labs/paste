@@ -1,1 +1,1 @@
-export * from '@twilio-paste/sidebar';
+export * from "@twilio-paste/sidebar";

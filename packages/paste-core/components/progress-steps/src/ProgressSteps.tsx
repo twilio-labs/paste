@@ -1,29 +1,29 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import { ProgressStepsContext } from './ProgressStepsContext';
-import type { Orientation } from './types';
+import { ProgressStepsContext } from "./ProgressStepsContext";
+import type { Orientation } from "./types";
 
 const VerticalStyles: BoxProps = {
-  flexDirection: 'column',
-  rowGap: 'space30',
-  alignItems: 'flex-start', // to prevent children from stretching full width
+  flexDirection: "column",
+  rowGap: "space30",
+  alignItems: "flex-start", // to prevent children from stretching full width
 };
 const HorizontalStyles: BoxProps = {
-  alignItems: 'center',
-  columnGap: 'space30',
-  flexWrap: 'nowrap',
+  alignItems: "center",
+  columnGap: "space30",
+  flexWrap: "nowrap",
 };
 
-export interface ProgressStepsProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
+export interface ProgressStepsProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
   children?: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   orientation?: Orientation;
 }
 
 export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps>(
-  ({ element = 'PROGRESS_STEPS', orientation = 'horizontal', ...props }, ref) => {
+  ({ element = "PROGRESS_STEPS", orientation = "horizontal", ...props }, ref) => {
     return (
       <ProgressStepsContext.Provider value={{ orientation }}>
         <Box
@@ -32,7 +32,7 @@ export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps
           element={element}
           display="flex"
           role="list"
-          {...(orientation === 'horizontal' ? HorizontalStyles : VerticalStyles)}
+          {...(orientation === "horizontal" ? HorizontalStyles : VerticalStyles)}
         >
           {props.children}
         </Box>
@@ -40,4 +40,4 @@ export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps
     );
   },
 );
-ProgressSteps.displayName = 'ProgressSteps';
+ProgressSteps.displayName = "ProgressSteps";

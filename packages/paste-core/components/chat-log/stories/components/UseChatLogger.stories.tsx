@@ -1,21 +1,21 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { Input } from '@twilio-paste/input';
-import { Label } from '@twilio-paste/label';
-import { ListItem, OrderedList } from '@twilio-paste/list';
-import { RadioButton, RadioButtonGroup } from '@twilio-paste/radio-button-group';
-import { Stack } from '@twilio-paste/stack';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { ListItem, OrderedList } from "@twilio-paste/list";
+import { RadioButton, RadioButtonGroup } from "@twilio-paste/radio-button-group";
+import { Stack } from "@twilio-paste/stack";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { ChatBubble, ChatLogger, ChatMessage, useChatLogger } from '../../src';
-import type { MessageVariants } from '../../src';
-import type { PartialIDChat } from '../../src/useChatLogger';
+import { ChatBubble, ChatLogger, ChatMessage, useChatLogger } from "../../src";
+import type { MessageVariants } from "../../src";
+import type { PartialIDChat } from "../../src/useChatLogger";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatLog',
+  title: "Components/ChatLog",
 };
 
 export const UseChatLogger: StoryFn = () => {
@@ -26,7 +26,7 @@ export const UseChatLogger: StoryFn = () => {
 
   const { chats, push, pop, clear } = useChatLogger(
     {
-      variant: 'inbound',
+      variant: "inbound",
       content: (
         <ChatMessage variant="inbound">
           <ChatBubble>Hi my name is Jane Doe how can I help you?</ChatBubble>
@@ -34,7 +34,7 @@ export const UseChatLogger: StoryFn = () => {
       ),
     },
     {
-      variant: 'outbound',
+      variant: "outbound",
       content: (
         <ChatMessage variant="outbound">
           <ChatBubble>I need some help with the Twilio API</ChatBubble>
@@ -42,7 +42,7 @@ export const UseChatLogger: StoryFn = () => {
       ),
     },
     {
-      variant: 'inbound',
+      variant: "inbound",
       content: (
         <ChatMessage variant="inbound">
           <ChatBubble>Of course! Can you provide more detail?</ChatBubble>
@@ -55,9 +55,9 @@ export const UseChatLogger: StoryFn = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const message = data.get('message');
-    const variant = (data.get('variant') || 'inbound') as MessageVariants;
-    const id = data.get('id');
+    const message = data.get("message");
+    const variant = (data.get("variant") || "inbound") as MessageVariants;
+    const id = data.get("id");
 
     const chat: PartialIDChat = {
       variant,
@@ -80,7 +80,7 @@ export const UseChatLogger: StoryFn = () => {
     e.preventDefault();
     const form = e.currentTarget;
     const data = new FormData(form);
-    const id = data.get('id')?.toString();
+    const id = data.get("id")?.toString();
 
     pop(id);
     form.reset();

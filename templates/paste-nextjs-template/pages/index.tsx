@@ -1,11 +1,11 @@
-import { Anchor } from '@twilio-paste/core/anchor';
-import { Box } from '@twilio-paste/core/box';
-import { Heading } from '@twilio-paste/core/heading';
-import { ListItem, UnorderedList } from '@twilio-paste/core/list';
-import { Paragraph } from '@twilio-paste/core/paragraph';
-import { Separator } from '@twilio-paste/core/separator';
-import type { NextPage } from 'next';
-import Head from 'next/head';
+import { Anchor } from "@twilio-paste/core/anchor";
+import { Box } from "@twilio-paste/core/box";
+import { Heading } from "@twilio-paste/core/heading";
+import { ListItem, UnorderedList } from "@twilio-paste/core/list";
+import { Paragraph } from "@twilio-paste/core/paragraph";
+import { Separator } from "@twilio-paste/core/separator";
+import type { NextPage } from "next";
+import Head from "next/head";
 
 const Home: NextPage = () => {
   return (
@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       </Heading>
 
       <Paragraph>
-        Everything you need to get started using Paste in a Production app. Start by editing{' '}
+        Everything you need to get started using Paste in a Production app. Start by editing{" "}
         <code>pages/index.tsx</code>
       </Paragraph>
       <Separator orientation="horizontal" verticalSpacing="space120" />

@@ -1,1 +1,1 @@
-export * from '@twilio-paste/in-page-navigation';
+export * from "@twilio-paste/in-page-navigation";

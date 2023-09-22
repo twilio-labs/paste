@@ -1,4 +1,4 @@
-import prettier from 'prettier';
+import prettier from "prettier";
 
 export type ComponentTypeInfo = {
   type: string;
@@ -14,19 +14,19 @@ export type ComponentTypeProperties = {
 
 export function log(...args: any[]): void {
   // eslint-disable-next-line no-console
-  console.log('[props-docs]:', ...args);
+  console.log("[props-docs]:", ...args);
 }
 
 export function tryPrettier(typeName: string): string {
   try {
-    const prefix = 'type ONLY_FOR_FORMAT =';
+    const prefix = "type ONLY_FOR_FORMAT =";
     const prettyType = prettier.format(prefix + typeName, {
-      parser: 'typescript',
+      parser: "typescript",
       semi: false,
     });
-    return prettyType.replace(prefix, '').trim();
+    return prettyType.replace(prefix, "").trim();
   } catch {
-    log('prettier failed', typeName);
+    log("prettier failed", typeName);
     return typeName;
   }
 }
@@ -34,10 +34,10 @@ export function tryPrettier(typeName: string): string {
 export function formatValue(value: string | undefined): null | string | boolean {
   if (!value) return null;
   // convert "\"column\"", to "column"
-  const x = value.replace(/^"(.*)"$/, '$1');
-  if (x === 'true') {
+  const x = value.replace(/^"(.*)"$/, "$1");
+  if (x === "true") {
     return true;
-  } else if (x === 'false') {
+  } else if (x === "false") {
     return false;
   }
   return x;
@@ -69,8 +69,8 @@ export function getSourceFileName(symbol: ts.Symbol): string | undefined {
 
 export function shouldIgnoreProperty(property: ts.Symbol): boolean {
   const sourceFileName = getSourceFileName(property);
-  const isExternal = /(styled-system)/.test(sourceFileName ?? '');
-  const isExcludedByName = ['children'].includes(property.getName());
+  const isExternal = /(styled-system)/.test(sourceFileName ?? "");
+  const isExcludedByName = ["children"].includes(property.getName());
   return isExternal || isExcludedByName;
 }
 
@@ -103,9 +103,9 @@ export function extractTypeExports(code: string): string[] {
   let match = exportedTypeRegex.exec(code);
 
   while (match != null) {
-    const types = match[1].split(',').map((s) => s.trim());
+    const types = match[1].split(",").map((s) => s.trim());
     types.forEach((type) => {
-      const [typeName] = type.split(' ') ?? [];
+      const [typeName] = type.split(" ") ?? [];
       exported[typeName] = true;
     });
     match = exportedTypeRegex.exec(code);

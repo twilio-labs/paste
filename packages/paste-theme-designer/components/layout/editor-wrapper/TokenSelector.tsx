@@ -1,14 +1,14 @@
-import { Box } from '@twilio-paste/core/box';
-import { Label } from '@twilio-paste/core/label';
-import { Option, Select } from '@twilio-paste/core/select';
-import { useRouter } from 'next/router';
-import * as React from 'react';
+import { Box } from "@twilio-paste/core/box";
+import { Label } from "@twilio-paste/core/label";
+import { Option, Select } from "@twilio-paste/core/select";
+import { useRouter } from "next/router";
+import * as React from "react";
 
-import { Routes } from '../../../constants/Routes';
+import { Routes } from "../../../constants/Routes";
 
 const TokenSelector = (): JSX.Element => {
   const router = useRouter();
-  const [value, setValue] = React.useState(router.pathname.replace(`/`, ''));
+  const [value, setValue] = React.useState(router.pathname.replace(`/`, ""));
 
   const handleChange = React.useCallback((event: any) => {
     setValue(event.target.value);

@@ -1,5 +1,5 @@
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface FigmaIconProps {
   className?: string;
@@ -7,15 +7,15 @@ export interface FigmaIconProps {
   color?: string;
   title?: string;
   decorative?: boolean;
-  display?: 'block' | 'inline-block' | 'inline-flex';
+  display?: "block" | "inline-block" | "inline-flex";
 }
 
 const FigmaIcon = React.forwardRef<HTMLDivElement, FigmaIconProps>(
-  ({ title, decorative, className, color = 'currentColor', display = 'block', size = 'sizeIcon30', ...props }, ref) => {
+  ({ title, decorative, className, color = "currentColor", display = "block", size = "sizeIcon30", ...props }, ref) => {
     const titleId = `FigmaIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[FigmaIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[FigmaIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -66,5 +66,5 @@ const FigmaIcon = React.forwardRef<HTMLDivElement, FigmaIconProps>(
   },
 );
 
-FigmaIcon.displayName = 'FigmaIcon';
+FigmaIcon.displayName = "FigmaIcon";
 export { FigmaIcon };

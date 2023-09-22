@@ -1,11 +1,11 @@
-import type { StoryFn } from '@storybook/react';
-import type { BadgeProps } from '@twilio-paste/badge';
-import { Stack } from '@twilio-paste/stack';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import type { BadgeProps } from "@twilio-paste/badge";
+import { Stack } from "@twilio-paste/stack";
+import * as React from "react";
 
-import { Menu, MenuBadge, MenuItem, MenuSeparator, useMenuState } from '../src';
+import { Menu, MenuBadge, MenuItem, MenuSeparator, useMenuState } from "../src";
 
-const BadgeMenu: React.FC<React.PropsWithChildren<{ variant: BadgeProps['variant'] }>> = ({ variant, children }) => {
+const BadgeMenu: React.FC<React.PropsWithChildren<{ variant: BadgeProps["variant"] }>> = ({ variant, children }) => {
   const menu = useMenuState();
   const onClick = (): void => {
     menu.hide();
@@ -38,7 +38,7 @@ const BadgeMenu: React.FC<React.PropsWithChildren<{ variant: BadgeProps['variant
 };
 
 export default {
-  title: 'Components/Menu/MenuBadge',
+  title: "Components/Menu/MenuBadge",
   component: Menu,
   subcomponents: { MenuBadge, MenuItem, MenuSeparator },
   parameters: {

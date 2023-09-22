@@ -1,11 +1,11 @@
-import Downshift from '@twilio-paste/dropdown-library';
+import Downshift from "@twilio-paste/dropdown-library";
 
 export { Downshift as ComboboxPrimitive };
 
 export {
   useCombobox as useComboboxPrimitive,
   useMultipleSelection as useMultiSelectPrimitive,
-} from '@twilio-paste/dropdown-library';
+} from "@twilio-paste/dropdown-library";
 
 export type {
   UseComboboxInterface as UseComboboxPrimitiveInterface,
@@ -22,4 +22,4 @@ export type {
   UseMultipleSelectionState as UseMultiSelectPrimitiveState,
   UseMultipleSelectionReturnValue as UseMultiSelectPrimitiveReturnValue,
   UseMultipleSelectionStateChange as UseMultiSelectPrimitiveStateChange,
-} from '@twilio-paste/dropdown-library';
+} from "@twilio-paste/dropdown-library";

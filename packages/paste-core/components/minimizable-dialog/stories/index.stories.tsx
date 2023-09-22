@@ -1,14 +1,14 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { Heading } from '@twilio-paste/heading';
-import { ChatIcon } from '@twilio-paste/icons/esm/ChatIcon';
-import { Input } from '@twilio-paste/input';
-import { Label } from '@twilio-paste/label';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { TextArea } from '@twilio-paste/textarea';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Heading } from "@twilio-paste/heading";
+import { ChatIcon } from "@twilio-paste/icons/esm/ChatIcon";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { TextArea } from "@twilio-paste/textarea";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   MinimizableDialog,
@@ -17,13 +17,13 @@ import {
   MinimizableDialogContent,
   MinimizableDialogHeader,
   useMinimizableDialogState,
-} from '../src';
-import { MinimizableDialogContext } from '../src/MinimizableDialogContext';
-import { StyledMinimizableDialog } from '../src/StyledMinimizableDialog';
+} from "../src";
+import { MinimizableDialogContext } from "../src/MinimizableDialogContext";
+import { StyledMinimizableDialog } from "../src/StyledMinimizableDialog";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Minimizable Dialog',
+  title: "Components/Minimizable Dialog",
   component: MinimizableDialog,
 };
 

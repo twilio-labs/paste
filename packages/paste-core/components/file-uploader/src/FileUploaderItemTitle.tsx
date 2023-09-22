@@ -1,14 +1,14 @@
-import type { BoxElementProps } from '@twilio-paste/box';
-import { Text, safelySpreadTextProps } from '@twilio-paste/text';
-import * as React from 'react';
+import type { BoxElementProps } from "@twilio-paste/box";
+import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import * as React from "react";
 
-export interface FileUploaderItemTitleProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
+export interface FileUploaderItemTitleProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
   children: string;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
 }
 
 export const FileUploaderItemTitle = React.forwardRef<HTMLElement, FileUploaderItemTitleProps>(
-  ({ children, element = 'FILE_UPLOADER_ITEM_TITLE', ...props }, ref) => {
+  ({ children, element = "FILE_UPLOADER_ITEM_TITLE", ...props }, ref) => {
     return (
       <Text
         {...safelySpreadTextProps(props)}
@@ -26,4 +26,4 @@ export const FileUploaderItemTitle = React.forwardRef<HTMLElement, FileUploaderI
   },
 );
 
-FileUploaderItemTitle.displayName = 'FileUploaderItemTitle';
+FileUploaderItemTitle.displayName = "FileUploaderItemTitle";

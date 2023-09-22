@@ -1,20 +1,20 @@
-import { Globals as AnimatedGlobals, useReducedMotion } from '@twilio-paste/animation-library';
+import { Globals as AnimatedGlobals, useReducedMotion } from "@twilio-paste/animation-library";
 import {
   CacheProvider as EmotionCacheProvider,
   StylingGlobals,
   ThemeProvider as EmotionThemeProvider,
   createCache,
   styled,
-} from '@twilio-paste/styling-library';
-import type { CreateCacheOptions } from '@twilio-paste/styling-library';
-import * as React from 'react';
+} from "@twilio-paste/styling-library";
+import type { CreateCacheOptions } from "@twilio-paste/styling-library";
+import * as React from "react";
 
-import { ThemeVariants } from './constants';
-import { pasteBaseStyles } from './styles/base';
-import { pasteFonts } from './styles/fonts';
-import { pasteGlobalStyles } from './styles/global';
-import { DarkTheme, DefaultTheme, EvergreenTheme, SendGridTheme, TwilioDarkTheme, TwilioTheme } from './themes';
-import { getThemeFromHash } from './utils/getThemeFromHash';
+import { ThemeVariants } from "./constants";
+import { pasteBaseStyles } from "./styles/base";
+import { pasteFonts } from "./styles/fonts";
+import { pasteGlobalStyles } from "./styles/global";
+import { DarkTheme, DefaultTheme, EvergreenTheme, SendGridTheme, TwilioDarkTheme, TwilioTheme } from "./themes";
+import { getThemeFromHash } from "./utils/getThemeFromHash";
 
 export const StyledBase = styled.div(pasteBaseStyles);
 
@@ -26,10 +26,10 @@ const useThemeOverwriteHook = (): string | undefined => {
   };
 
   React.useEffect(() => {
-    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener("popstate", handleLocationChange);
 
     return () => {
-      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener("popstate", handleLocationChange);
     };
   });
 
@@ -120,6 +120,6 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
   );
 };
 
-ThemeProvider.displayName = 'PasteThemeProvider';
+ThemeProvider.displayName = "PasteThemeProvider";
 
 export { ThemeProvider };

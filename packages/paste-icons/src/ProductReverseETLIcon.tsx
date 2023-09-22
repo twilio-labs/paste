@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductReverseETLIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductReverseETLIconProps extends IconWrapperProps {
 }
 
 const ProductReverseETLIcon = React.forwardRef<HTMLElement, ProductReverseETLIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductReverseETLIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductReverseETLIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductReverseETLIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -47,5 +47,5 @@ const ProductReverseETLIcon = React.forwardRef<HTMLElement, ProductReverseETLIco
   },
 );
 
-ProductReverseETLIcon.displayName = 'ProductReverseETLIcon';
+ProductReverseETLIcon.displayName = "ProductReverseETLIcon";
 export { ProductReverseETLIcon };

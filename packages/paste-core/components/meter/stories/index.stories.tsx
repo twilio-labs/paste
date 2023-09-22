@@ -1,15 +1,15 @@
-import { Box } from '@twilio-paste/box';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { HelpText } from '@twilio-paste/help-text';
-import { useTheme } from '@twilio-paste/theme';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { HelpText } from "@twilio-paste/help-text";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { Meter, MeterLabel } from '../src';
+import { Meter, MeterLabel } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Meter',
+  title: "Components/Meter",
   component: Meter,
 };
 
@@ -157,37 +157,37 @@ export const Customized = (): React.ReactElement => {
     <CustomizationProvider
       theme={theme}
       elements={{
-        METER_LABEL_WRAPPER: { borderStyle: 'solid', borderWidth: 'borderWidth20' },
-        METER_LABEL: { color: 'colorTextError' },
-        METER_LABEL_VALUE_LABEL: { color: 'colorTextDecorative10' },
+        METER_LABEL_WRAPPER: { borderStyle: "solid", borderWidth: "borderWidth20" },
+        METER_LABEL: { color: "colorTextError" },
+        METER_LABEL_VALUE_LABEL: { color: "colorTextDecorative10" },
         METER: {
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth30',
-          borderColor: 'colorBorderDecorative20Weaker',
-          borderRadius: 'borderRadius10',
+          borderStyle: "solid",
+          borderWidth: "borderWidth30",
+          borderColor: "colorBorderDecorative20Weaker",
+          borderRadius: "borderRadius10",
         },
-        METER_VALUE_LABEL: { color: 'colorTextDecorative30', fontWeight: 'fontWeightBold' },
-        METER_BAR: { backgroundColor: 'colorBackgroundDestructiveStrongest', borderRadius: 'borderRadius10' },
-        METER_FILL: { backgroundColor: 'colorBackgroundDecorative30Weakest', borderRadius: 'borderRadius10' },
-        METER_MIN_MAX_WRAPPER: { backgroundColor: 'colorBackgroundBrandHighlightWeakest' },
-        METER_MIN: { color: 'colorTextBrandHighlight' },
-        METER_MAX: { color: 'colorTextIconAvailable' },
+        METER_VALUE_LABEL: { color: "colorTextDecorative30", fontWeight: "fontWeightBold" },
+        METER_BAR: { backgroundColor: "colorBackgroundDestructiveStrongest", borderRadius: "borderRadius10" },
+        METER_FILL: { backgroundColor: "colorBackgroundDecorative30Weakest", borderRadius: "borderRadius10" },
+        METER_MIN_MAX_WRAPPER: { backgroundColor: "colorBackgroundBrandHighlightWeakest" },
+        METER_MIN: { color: "colorTextBrandHighlight" },
+        METER_MAX: { color: "colorTextIconAvailable" },
 
-        FOO_LABEL_WRAPPER: { borderStyle: 'solid', borderWidth: 'borderWidth20' },
-        FOO_LABEL: { color: 'colorTextError' },
-        FOO_LABEL_VALUE_LABEL: { color: 'colorTextDecorative10' },
+        FOO_LABEL_WRAPPER: { borderStyle: "solid", borderWidth: "borderWidth20" },
+        FOO_LABEL: { color: "colorTextError" },
+        FOO_LABEL_VALUE_LABEL: { color: "colorTextDecorative10" },
         FOO: {
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth30',
-          borderColor: 'colorBorderDecorative20Weaker',
-          borderRadius: 'borderRadius10',
+          borderStyle: "solid",
+          borderWidth: "borderWidth30",
+          borderColor: "colorBorderDecorative20Weaker",
+          borderRadius: "borderRadius10",
         },
-        FOO_VALUE_LABEL: { color: 'colorTextDecorative30', fontWeight: 'fontWeightBold' },
-        FOO_BAR: { backgroundColor: 'colorBackgroundDestructiveStrongest', borderRadius: 'borderRadius10' },
-        FOO_FILL: { backgroundColor: 'colorBackgroundDecorative30Weakest', borderRadius: 'borderRadius10' },
-        FOO_MIN_MAX_WRAPPER: { backgroundColor: 'colorBackgroundBrandHighlightWeakest' },
-        FOO_MIN: { color: 'colorTextBrandHighlight' },
-        FOO_MAX: { color: 'colorTextIconAvailable' },
+        FOO_VALUE_LABEL: { color: "colorTextDecorative30", fontWeight: "fontWeightBold" },
+        FOO_BAR: { backgroundColor: "colorBackgroundDestructiveStrongest", borderRadius: "borderRadius10" },
+        FOO_FILL: { backgroundColor: "colorBackgroundDecorative30Weakest", borderRadius: "borderRadius10" },
+        FOO_MIN_MAX_WRAPPER: { backgroundColor: "colorBackgroundBrandHighlightWeakest" },
+        FOO_MIN: { color: "colorTextBrandHighlight" },
+        FOO_MAX: { color: "colorTextIconAvailable" },
       }}
     >
       <Box width="size30" display="flex" flexDirection="column" rowGap="space60">

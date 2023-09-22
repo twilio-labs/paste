@@ -1,14 +1,14 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxStyleProps } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
-import { isValidElementType } from 'react-is';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
+import { isValidElementType } from "react-is";
 
-import { AvatarGroupContext } from './AvatarGroup';
-import type { AvatarContentProps, AvatarProps, AvatarVariants, ColorVariants } from './types';
-import { getComputedTokenNames, getInitialsFromName } from './utils';
+import { AvatarGroupContext } from "./AvatarGroup";
+import type { AvatarContentProps, AvatarProps, AvatarVariants, ColorVariants } from "./types";
+import { getComputedTokenNames, getInitialsFromName } from "./utils";
 
-const DEFAULT_SIZE = 'sizeIcon70';
+const DEFAULT_SIZE = "sizeIcon70";
 
 const AvatarContents: React.FC<React.PropsWithChildren<AvatarContentProps>> = ({
   name,
@@ -25,8 +25,8 @@ const AvatarContents: React.FC<React.PropsWithChildren<AvatarContentProps>> = ({
     );
   }
   if (Icon != null) {
-    if (!isValidElementType(Icon) || typeof Icon.displayName !== 'string' || !Icon.displayName.includes('Icon')) {
-      throw new Error('[Paste Avatar]: icon prop expected to be a Paste icon only.');
+    if (!isValidElementType(Icon) || typeof Icon.displayName !== "string" || !Icon.displayName.includes("Icon")) {
+      throw new Error("[Paste Avatar]: icon prop expected to be a Paste icon only.");
     }
     return (
       <Box maxWidth="100%" size={size} display="flex" alignItems="center" justifyContent="center">
@@ -51,53 +51,53 @@ const AvatarContents: React.FC<React.PropsWithChildren<AvatarContentProps>> = ({
   );
 };
 
-AvatarContents.displayName = 'AvatarContents';
+AvatarContents.displayName = "AvatarContents";
 
 const colorPropStyles: Record<ColorVariants, BoxStyleProps> = {
   default: {
-    backgroundColor: 'colorBackgroundUser',
-    boxShadow: 'shadowBorderUser',
-    color: 'colorTextUser',
+    backgroundColor: "colorBackgroundUser",
+    boxShadow: "shadowBorderUser",
+    color: "colorTextUser",
   },
   decorative10: {
-    backgroundColor: 'colorBackgroundDecorative10Weakest',
-    boxShadow: 'shadowBorderDecorative10Weaker',
-    color: 'colorTextDecorative10',
+    backgroundColor: "colorBackgroundDecorative10Weakest",
+    boxShadow: "shadowBorderDecorative10Weaker",
+    color: "colorTextDecorative10",
   },
   decorative20: {
-    backgroundColor: 'colorBackgroundDecorative20Weakest',
-    boxShadow: 'shadowBorderDecorative20Weaker',
-    color: 'colorTextDecorative20',
+    backgroundColor: "colorBackgroundDecorative20Weakest",
+    boxShadow: "shadowBorderDecorative20Weaker",
+    color: "colorTextDecorative20",
   },
   decorative30: {
-    backgroundColor: 'colorBackgroundDecorative30Weakest',
-    boxShadow: 'shadowBorderDecorative30Weaker',
-    color: 'colorTextDecorative30',
+    backgroundColor: "colorBackgroundDecorative30Weakest",
+    boxShadow: "shadowBorderDecorative30Weaker",
+    color: "colorTextDecorative30",
   },
   decorative40: {
-    backgroundColor: 'colorBackgroundDecorative40Weakest',
-    boxShadow: 'shadowBorderDecorative40Weaker',
-    color: 'colorTextDecorative40',
+    backgroundColor: "colorBackgroundDecorative40Weakest",
+    boxShadow: "shadowBorderDecorative40Weaker",
+    color: "colorTextDecorative40",
   },
 };
 
 const variantStyles: Record<AvatarVariants, BoxStyleProps> = {
   user: {
-    borderRadius: 'borderRadiusCircle',
+    borderRadius: "borderRadiusCircle",
   },
   entity: {
-    borderRadius: 'borderRadius30',
+    borderRadius: "borderRadius30",
   },
 };
 
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   (
-    { name, size = DEFAULT_SIZE, element = 'AVATAR', src, icon, color = 'default', variant = 'user', ...props },
+    { name, size = DEFAULT_SIZE, element = "AVATAR", src, icon, color = "default", variant = "user", ...props },
     ref,
   ) => {
     if (name === undefined) {
       // eslint-disable-next-line no-console
-      console.error('[Paste Avatar]: name prop is required');
+      console.error("[Paste Avatar]: name prop is required");
     }
     const { variant: groupVariant, size: groupSize } = React.useContext(AvatarGroupContext);
 
@@ -114,7 +114,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         {...colorPropStyles[color]}
         {...variantStyles[groupVariant || variant]}
         // when its an image set specific styles that are unrelated to color or variants
-        {...(src && { backgroundColor: 'colorBackgroundBody', boxShadow: 'shadowBorderWeaker' })}
+        {...(src && { backgroundColor: "colorBackgroundBody", boxShadow: "shadowBorderWeaker" })}
       >
         <AvatarContents name={name} size={groupSize || size} icon={icon} src={src} />
       </Box>
@@ -122,4 +122,4 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   },
 );
 
-Avatar.displayName = 'Avatar';
+Avatar.displayName = "Avatar";

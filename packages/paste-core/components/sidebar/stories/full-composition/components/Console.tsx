@@ -1,16 +1,16 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
-import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
-import { ProductLookupIcon } from '@twilio-paste/icons/esm/ProductLookupIcon';
-import { ProductMessagingIcon } from '@twilio-paste/icons/esm/ProductMessagingIcon';
-import { ProductVideoIcon } from '@twilio-paste/icons/esm/ProductVideoIcon';
-import { Menu, MenuButton, MenuItem, useMenuState } from '@twilio-paste/menu';
-import { Topbar, TopbarActions } from '@twilio-paste/topbar';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
+import { ProductLookupIcon } from "@twilio-paste/icons/esm/ProductLookupIcon";
+import { ProductMessagingIcon } from "@twilio-paste/icons/esm/ProductMessagingIcon";
+import { ProductVideoIcon } from "@twilio-paste/icons/esm/ProductVideoIcon";
+import { Menu, MenuButton, MenuItem, useMenuState } from "@twilio-paste/menu";
+import { Topbar, TopbarActions } from "@twilio-paste/topbar";
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   Sidebar,
@@ -29,15 +29,15 @@ import {
   SidebarNavigationItem,
   SidebarNavigationSeparator,
   SidebarPushContentWrapper,
-} from '../../../src';
-import { AccountMenu } from './AccountMenu';
-import { AccountSwitcherMenu } from './AccountSwitcher';
-import { AppSwitcher } from './AppSwitcher';
-import { BillingMenu } from './BillingMenu';
-import { SearchBox } from './SearchBox';
-import { SupportMenu } from './SupportMenu';
-import { TrialBadge } from './TrialBadge';
-import { UserDialogExample } from './UserDialogConsole';
+} from "../../../src";
+import { AccountMenu } from "./AccountMenu";
+import { AccountSwitcherMenu } from "./AccountSwitcher";
+import { AppSwitcher } from "./AppSwitcher";
+import { BillingMenu } from "./BillingMenu";
+import { SearchBox } from "./SearchBox";
+import { SupportMenu } from "./SupportMenu";
+import { TrialBadge } from "./TrialBadge";
+import { UserDialogExample } from "./UserDialogConsole";
 
 const onClick = (): void => {};
 

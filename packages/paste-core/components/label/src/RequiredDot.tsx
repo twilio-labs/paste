@@ -1,16 +1,16 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import * as React from "react";
 
 export interface RequiredDotProps {
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   i18nLabel?: string;
 }
 
 export const RequiredDot: React.FC<React.PropsWithChildren<RequiredDotProps>> = ({
-  element = 'REQUIRED_DOT',
-  i18nLabel = 'Required',
+  element = "REQUIRED_DOT",
+  i18nLabel = "Required",
   ...props
 }) => {
   return (
@@ -40,4 +40,4 @@ export const RequiredDot: React.FC<React.PropsWithChildren<RequiredDotProps>> = 
   );
 };
 
-RequiredDot.displayName = 'RequiredDot';
+RequiredDot.displayName = "RequiredDot";

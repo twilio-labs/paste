@@ -1,11 +1,11 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import type { Space } from '@twilio-paste/style-props';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { Space } from "@twilio-paste/style-props";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface MediaFigureProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as'> {
-  align?: 'start' | 'end';
+export interface MediaFigureProps extends HTMLPasteProps<"div">, Pick<BoxProps, "as"> {
+  align?: "start" | "end";
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -13,7 +13,7 @@ export interface MediaFigureProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 
    * @type {BoxProps['element']}
    * @memberof MediaFigureProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   children: NonNullable<React.ReactNode>;
   /**
    * Space between the figure and body
@@ -25,7 +25,7 @@ export interface MediaFigureProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 
 }
 
 const MediaFigure = React.forwardRef<HTMLElement, MediaFigureProps>(
-  ({ align = 'start', as = 'span', children, element = 'MEDIA_FIGURE', spacing = 'space0', ...props }, ref) => {
+  ({ align = "start", as = "span", children, element = "MEDIA_FIGURE", spacing = "space0", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -33,8 +33,8 @@ const MediaFigure = React.forwardRef<HTMLElement, MediaFigureProps>(
         display="flex"
         element={element}
         flexShrink={0}
-        marginLeft={align === 'end' ? spacing : undefined}
-        marginRight={align === 'start' ? spacing : undefined}
+        marginLeft={align === "end" ? spacing : undefined}
+        marginRight={align === "start" ? spacing : undefined}
         ref={ref}
       >
         {children}
@@ -43,6 +43,6 @@ const MediaFigure = React.forwardRef<HTMLElement, MediaFigureProps>(
   },
 );
 
-MediaFigure.displayName = 'MediaFigure';
+MediaFigure.displayName = "MediaFigure";
 
 export { MediaFigure };

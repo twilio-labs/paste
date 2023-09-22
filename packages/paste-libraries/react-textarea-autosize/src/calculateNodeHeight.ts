@@ -1,6 +1,6 @@
-import { forceHiddenStyles } from './forceHiddenStyles';
-import { getHeight } from './getHeight';
-import type { SizingData } from './getSizingData';
+import { forceHiddenStyles } from "./forceHiddenStyles";
+import { getHeight } from "./getHeight";
+import type { SizingData } from "./getSizingData";
 
 /*
  * TODO: use labelled tuples once they are avaiable:
@@ -33,17 +33,17 @@ export function calculateNodeHeight(
   let height = getHeight(hiddenTextarea, sizingData);
 
   // measure height of a textarea with a single row
-  hiddenTextarea.value = 'x';
+  hiddenTextarea.value = "x";
   const rowHeight = Math.max(hiddenTextarea.scrollHeight - paddingSize, 0);
 
   let minHeight = rowHeight * minRows;
-  if (boxSizing === 'border-box') {
+  if (boxSizing === "border-box") {
     minHeight = minHeight + paddingSize + borderSize;
   }
   height = Math.max(minHeight, height);
 
   let maxHeight = rowHeight * maxRows;
-  if (boxSizing === 'border-box') {
+  if (boxSizing === "border-box") {
     maxHeight = maxHeight + paddingSize + borderSize;
   }
   height = Math.max(Math.min(maxHeight, height), 0);

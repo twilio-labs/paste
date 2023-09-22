@@ -1,11 +1,11 @@
-import { animated, useReducedMotion, useTransition } from '@twilio-paste/animation-library';
-import { Box } from '@twilio-paste/box';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { animated, useReducedMotion, useTransition } from "@twilio-paste/animation-library";
+import { Box } from "@twilio-paste/box";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Toast } from './Toast';
-import { ToastPortal } from './ToastPortal';
-import type { ToasterProps } from './types';
+import { Toast } from "./Toast";
+import { ToastPortal } from "./ToastPortal";
+import type { ToasterProps } from "./types";
 
 export const AnimatedToast = animated(Box);
 
@@ -25,10 +25,10 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({ toasts, pop,
    */
   const transitions = useTransition(toasts, {
     from: {
-      marginBottom: '0rem',
+      marginBottom: "0rem",
       opacity: 0,
-      transform: 'translateX(100%) scale(1)',
-      height: prefersReducedMotion ? 'auto' : 0,
+      transform: "translateX(100%) scale(1)",
+      height: prefersReducedMotion ? "auto" : 0,
     },
     /*
      * We use object notation instead of function / next to fix a bug
@@ -37,20 +37,20 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({ toasts, pop,
      * FIXME: try again in v9+ of react-spring
      */
     enter: prefersReducedMotion
-      ? { marginBottom: theme.space.space40, opacity: 1, transform: 'translateX(0px) scale(1)' }
+      ? { marginBottom: theme.space.space40, opacity: 1, transform: "translateX(0px) scale(1)" }
       : (item: any) => async (next: any) => {
           await next({
             marginBottom: theme.space.space40,
             opacity: 1,
-            transform: 'translateX(0px) scale(1)',
+            transform: "translateX(0px) scale(1)",
             height: refMap.get(item).offsetHeight,
           });
         },
     leave: {
-      marginBottom: '0rem',
+      marginBottom: "0rem",
       opacity: 0,
-      transform: 'translateX(0px) scale(0.8)',
-      height: prefersReducedMotion ? 'auto' : 0,
+      transform: "translateX(0px) scale(0.8)",
+      height: prefersReducedMotion ? "auto" : 0,
     },
     config: {
       mass: 1,
@@ -129,6 +129,6 @@ const Toaster: React.FC<React.PropsWithChildren<ToasterProps>> = ({ toasts, pop,
   );
 };
 
-Toaster.displayName = 'Toaster';
+Toaster.displayName = "Toaster";
 
 export { Toaster };

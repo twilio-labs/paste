@@ -1,10 +1,10 @@
-import { Composite, useCompositeState } from '@twilio-paste/reakit-library';
-import { Table } from '@twilio-paste/table';
-import type { TableProps } from '@twilio-paste/table';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Composite, useCompositeState } from "@twilio-paste/reakit-library";
+import { Table } from "@twilio-paste/table";
+import type { TableProps } from "@twilio-paste/table";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { DataGridContext } from './DataGridContext';
+import { DataGridContext } from "./DataGridContext";
 import {
   delayedSetFocusable,
   ensureFocus,
@@ -13,10 +13,10 @@ import {
   getClosestGridCellFromCurrentFocus,
   getFirstFocusableIn,
   isCell,
-} from './utils';
+} from "./utils";
 
 export interface DataGridProps extends TableProps {
-  'aria-label': string;
+  "aria-label": string;
 }
 
 /**
@@ -27,7 +27,7 @@ export interface DataGridProps extends TableProps {
  * @param {string} element - customization element
  */
 export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
-  ({ element = 'DATA_GRID', striped = false, ...props }, ref) => {
+  ({ element = "DATA_GRID", striped = false, ...props }, ref) => {
     const dataGridId = `data-grid-${useUID()}`;
     const lastFocusedElement = React.useRef<Element | null>(null);
     const compositeState = useCompositeState({ unstable_virtual: false });
@@ -86,7 +86,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
            * Wrapping cases in {} to avoid ESLint error
            * https://eslint.org/docs/rules/no-case-declarations
            */
-          case 'Enter': {
+          case "Enter": {
             // Set the actionable state
             setActionable(true);
 
@@ -105,7 +105,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
             }
             break;
           }
-          case 'Escape': {
+          case "Escape": {
             // Set the actionable state
             setActionable(false);
             // From the current focus target, find the closest parent cell
@@ -153,4 +153,4 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
   },
 );
 
-DataGrid.displayName = 'DataGrid';
+DataGrid.displayName = "DataGrid";

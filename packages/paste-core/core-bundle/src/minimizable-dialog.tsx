@@ -1,1 +1,1 @@
-export * from '@twilio-paste/minimizable-dialog';
+export * from "@twilio-paste/minimizable-dialog";

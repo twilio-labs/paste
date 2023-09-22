@@ -1,11 +1,11 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxElementProps } from '@twilio-paste/box';
-import type { BorderRadiusProps, LayoutProps } from '@twilio-paste/style-props';
-import { styled, themeGet } from '@twilio-paste/styling-library';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { BorderRadiusProps, LayoutProps } from "@twilio-paste/style-props";
+import { styled, themeGet } from "@twilio-paste/styling-library";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { SkeletonLoaderKeyframes } from './keyframes';
+import { SkeletonLoaderKeyframes } from "./keyframes";
 
 const SkeletonLoaderInner = styled.div`
   position: absolute;
@@ -16,8 +16,8 @@ const SkeletonLoaderInner = styled.div`
   background: linear-gradient(
     90deg,
     transparent,
-    ${themeGet('backgroundColors.colorBackground')} 40%,
-    ${themeGet('backgroundColors.colorBackground')} 60%,
+    ${themeGet("backgroundColors.colorBackground")} 40%,
+    ${themeGet("backgroundColors.colorBackground")} 60%,
     transparent
   );
   transform: translateX(-100%) skew(155deg);
@@ -28,9 +28,9 @@ const SkeletonLoaderInner = styled.div`
 `;
 
 export interface SkeletonLoaderProps
-  extends HTMLPasteProps<'div'>,
-    Pick<BoxElementProps, 'element'>,
-    Omit<LayoutProps, 'verticalAlign'>,
+  extends HTMLPasteProps<"div">,
+    Pick<BoxElementProps, "element">,
+    Omit<LayoutProps, "verticalAlign">,
     BorderRadiusProps {}
 
 const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
@@ -38,12 +38,12 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
     {
       borderBottomLeftRadius,
       borderBottomRightRadius,
-      borderRadius = 'borderRadius20',
+      borderRadius = "borderRadius20",
       borderTopLeftRadius,
       borderTopRightRadius,
-      element = 'SKELETON_LOADER',
+      element = "SKELETON_LOADER",
       display,
-      height = 'sizeIcon20',
+      height = "sizeIcon20",
       maxHeight,
       maxWidth,
       minHeight,
@@ -85,6 +85,6 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
   },
 );
 
-SkeletonLoader.displayName = 'SkeletonLoader';
+SkeletonLoader.displayName = "SkeletonLoader";
 
 export { SkeletonLoader };

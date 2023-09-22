@@ -1,4 +1,4 @@
-import type { PrismTheme } from 'prism-react-renderer';
+import type { PrismTheme } from "prism-react-renderer";
 
 // Nightowl theme
 
@@ -10,60 +10,60 @@ import type { PrismTheme } from 'prism-react-renderer';
 
 const CodeblockTheme: PrismTheme = {
   plain: {
-    color: '#d6deeb',
-    backgroundColor: '#011627',
+    color: "#d6deeb",
+    backgroundColor: "#011627",
   },
   styles: [
     {
-      types: ['changed'],
+      types: ["changed"],
       style: {
-        color: 'rgb(162, 191, 252)',
-        fontStyle: 'italic',
+        color: "rgb(162, 191, 252)",
+        fontStyle: "italic",
       },
     },
     {
-      types: ['deleted'],
+      types: ["deleted"],
       style: {
-        color: 'rgba(239, 83, 80, 0.56)',
-        fontStyle: 'italic',
+        color: "rgba(239, 83, 80, 0.56)",
+        fontStyle: "italic",
       },
     },
     {
-      types: ['inserted', 'attr-name'],
+      types: ["inserted", "attr-name"],
       style: {
-        color: 'rgb(173, 219, 103)',
-        fontStyle: 'italic',
+        color: "rgb(173, 219, 103)",
+        fontStyle: "italic",
       },
     },
     {
-      types: ['comment'],
+      types: ["comment"],
       style: {
-        color: 'rgb(99, 119, 119)',
-        fontStyle: 'italic',
+        color: "rgb(99, 119, 119)",
+        fontStyle: "italic",
       },
     },
     {
-      types: ['string', 'url'],
+      types: ["string", "url"],
       style: {
-        color: 'rgb(173, 219, 103)',
+        color: "rgb(173, 219, 103)",
       },
     },
     {
-      types: ['variable'],
+      types: ["variable"],
       style: {
-        color: 'rgb(214, 222, 235)',
+        color: "rgb(214, 222, 235)",
       },
     },
     {
-      types: ['number'],
+      types: ["number"],
       style: {
-        color: 'rgb(247, 140, 108)',
+        color: "rgb(247, 140, 108)",
       },
     },
     {
-      types: ['builtin', 'char', 'constant', 'function'],
+      types: ["builtin", "char", "constant", "function"],
       style: {
-        color: 'rgb(130, 170, 255)',
+        color: "rgb(130, 170, 255)",
       },
     },
     {
@@ -71,46 +71,46 @@ const CodeblockTheme: PrismTheme = {
        * This was manually added after the auto-generation
        * so that punctuations are not italicised
        */
-      types: ['punctuation'],
+      types: ["punctuation"],
       style: {
-        color: 'rgb(199, 146, 234)',
+        color: "rgb(199, 146, 234)",
       },
     },
     {
-      types: ['selector', 'doctype'],
+      types: ["selector", "doctype"],
       style: {
-        color: 'rgb(199, 146, 234)',
-        fontStyle: 'italic',
+        color: "rgb(199, 146, 234)",
+        fontStyle: "italic",
       },
     },
     {
-      types: ['class-name'],
+      types: ["class-name"],
       style: {
-        color: 'rgb(255, 203, 139)',
+        color: "rgb(255, 203, 139)",
       },
     },
     {
-      types: ['tag', 'operator', 'keyword'],
+      types: ["tag", "operator", "keyword"],
       style: {
-        color: 'rgb(127, 219, 202)',
+        color: "rgb(127, 219, 202)",
       },
     },
     {
-      types: ['boolean'],
+      types: ["boolean"],
       style: {
-        color: 'rgb(255, 88, 116)',
+        color: "rgb(255, 88, 116)",
       },
     },
     {
-      types: ['property'],
+      types: ["property"],
       style: {
-        color: 'rgb(128, 203, 196)',
+        color: "rgb(128, 203, 196)",
       },
     },
     {
-      types: ['namespace'],
+      types: ["namespace"],
       style: {
-        color: 'rgb(178, 204, 214)',
+        color: "rgb(178, 204, 214)",
       },
     },
   ],

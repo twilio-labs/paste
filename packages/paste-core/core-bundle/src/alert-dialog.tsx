@@ -1,1 +1,1 @@
-export * from '@twilio-paste/alert-dialog';
+export * from "@twilio-paste/alert-dialog";

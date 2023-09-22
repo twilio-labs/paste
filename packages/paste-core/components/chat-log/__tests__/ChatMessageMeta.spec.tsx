@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import * as React from 'react';
+import { render, screen } from "@testing-library/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import * as React from "react";
 
-import { ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from '../src';
+import { ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "../src";
 
 const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
@@ -10,15 +10,15 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) =
     theme={TestTheme}
     elements={{
       CHAT_MESSAGE_META: {
-        columnGap: 'space50',
+        columnGap: "space50",
         variants: {
-          inbound: { justifyContent: 'flex-start' },
-          outbound: { justifyContent: 'flex-end' },
+          inbound: { justifyContent: "flex-start" },
+          outbound: { justifyContent: "flex-end" },
         },
       },
       CHAT_MESSAGE_META_ITEM: {
-        color: 'colorText',
-        columnGap: 'space0',
+        color: "colorText",
+        columnGap: "space0",
       },
     }}
   >
@@ -32,15 +32,15 @@ const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({ children }
     theme={TestTheme}
     elements={{
       FOO_META: {
-        columnGap: 'space50',
+        columnGap: "space50",
         variants: {
-          inbound: { justifyContent: 'flex-start' },
-          outbound: { justifyContent: 'flex-end' },
+          inbound: { justifyContent: "flex-start" },
+          outbound: { justifyContent: "flex-end" },
         },
       },
       FOO_META_ITEM: {
-        color: 'colorText',
-        columnGap: 'space0',
+        color: "colorText",
+        columnGap: "space0",
       },
     }}
   >
@@ -48,8 +48,8 @@ const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({ children }
   </CustomizationProvider>
 );
 
-describe('ChatMessageMeta', () => {
-  it('should render', () => {
+describe("ChatMessageMeta", () => {
+  it("should render", () => {
     render(
       <ChatMessage variant="inbound">
         <ChatMessageMeta aria-label="sent at 5:04pm">
@@ -57,10 +57,10 @@ describe('ChatMessageMeta', () => {
         </ChatMessageMeta>
       </ChatMessage>,
     );
-    expect(screen.getByText('5:04pm')).toBeDefined();
+    expect(screen.getByText("5:04pm")).toBeDefined();
   });
 
-  it('should have aria-label when pass the aria-label prop', () => {
+  it("should have aria-label when pass the aria-label prop", () => {
     render(
       <ChatMessage variant="inbound">
         <ChatMessageMeta data-testid="test-meta" aria-label="said by Gibby Radki at 5:04pm">
@@ -69,10 +69,10 @@ describe('ChatMessageMeta', () => {
         </ChatMessageMeta>
       </ChatMessage>,
     );
-    expect(screen.getByTestId('test-meta')).toHaveAttribute('aria-label', 'said by Gibby Radki at 5:04pm');
+    expect(screen.getByTestId("test-meta")).toHaveAttribute("aria-label", "said by Gibby Radki at 5:04pm");
   });
 
-  it('should have justifyContent flex-start it is inbound and flex-end if it is outbound', () => {
+  it("should have justifyContent flex-start it is inbound and flex-end if it is outbound", () => {
     render(
       <>
         <ChatMessage variant="inbound">
@@ -87,11 +87,11 @@ describe('ChatMessageMeta', () => {
         </ChatMessage>
       </>,
     );
-    expect(screen.getByTestId('in-test-meta')).toHaveStyleRule('justify-content', 'flex-start');
-    expect(screen.getByTestId('out-test-meta')).toHaveStyleRule('justify-content', 'flex-end');
+    expect(screen.getByTestId("in-test-meta")).toHaveStyleRule("justify-content", "flex-start");
+    expect(screen.getByTestId("out-test-meta")).toHaveStyleRule("justify-content", "flex-end");
   });
 
-  it('should have textAlign right if it is outbound', () => {
+  it("should have textAlign right if it is outbound", () => {
     render(
       <ChatMessage variant="outbound">
         <ChatMessageMeta data-testid="test-meta" aria-label="sent at 5:04pm">
@@ -99,10 +99,10 @@ describe('ChatMessageMeta', () => {
         </ChatMessageMeta>
       </ChatMessage>,
     );
-    expect(screen.getByTestId('test-meta')).toHaveStyleRule('text-align', 'right');
+    expect(screen.getByTestId("test-meta")).toHaveStyleRule("text-align", "right");
   });
 
-  it('should not set textAlign if there is more than one child', () => {
+  it("should not set textAlign if there is more than one child", () => {
     render(
       <ChatMessage variant="inbound">
         <ChatMessageMeta data-testid="test-meta" aria-label="said by Gibby Radki at 5:04pm">
@@ -111,12 +111,12 @@ describe('ChatMessageMeta', () => {
         </ChatMessageMeta>
       </ChatMessage>,
     );
-    expect(screen.getByTestId('test-meta')).not.toHaveStyleRule('text-align', 'right');
+    expect(screen.getByTestId("test-meta")).not.toHaveStyleRule("text-align", "right");
   });
 });
 
-describe('Customization', () => {
-  it('should add custom styles to variants', () => {
+describe("Customization", () => {
+  it("should add custom styles to variants", () => {
     render(
       <>
         <ChatMessage variant="inbound">
@@ -133,16 +133,16 @@ describe('Customization', () => {
       { wrapper: CustomizationWrapper },
     );
 
-    const inboundMeta = screen.getByTestId('inbound-meta');
-    const outboundMeta = screen.getByTestId('outbound-meta');
+    const inboundMeta = screen.getByTestId("inbound-meta");
+    const outboundMeta = screen.getByTestId("outbound-meta");
 
-    expect(inboundMeta).toHaveStyleRule('column-gap', '1rem');
-    expect(inboundMeta).toHaveStyleRule('justify-content', 'flex-start');
-    expect(outboundMeta).toHaveStyleRule('column-gap', '1rem');
-    expect(outboundMeta).toHaveStyleRule('justify-content', 'flex-end');
+    expect(inboundMeta).toHaveStyleRule("column-gap", "1rem");
+    expect(inboundMeta).toHaveStyleRule("justify-content", "flex-start");
+    expect(outboundMeta).toHaveStyleRule("column-gap", "1rem");
+    expect(outboundMeta).toHaveStyleRule("justify-content", "flex-end");
   });
 
-  it('should set element data attribute', () => {
+  it("should set element data attribute", () => {
     render(
       <>
         <ChatMessage variant="inbound">
@@ -159,14 +159,14 @@ describe('Customization', () => {
       { wrapper: CustomizationWrapper },
     );
 
-    const inboundMeta = screen.getByTestId('inbound-meta');
-    const outboundMeta = screen.getByTestId('outbound-meta');
+    const inboundMeta = screen.getByTestId("inbound-meta");
+    const outboundMeta = screen.getByTestId("outbound-meta");
 
-    expect(inboundMeta.getAttribute('data-paste-element')).toEqual('CHAT_MESSAGE_META');
-    expect(outboundMeta.getAttribute('data-paste-element')).toEqual('CHAT_MESSAGE_META');
+    expect(inboundMeta.getAttribute("data-paste-element")).toEqual("CHAT_MESSAGE_META");
+    expect(outboundMeta.getAttribute("data-paste-element")).toEqual("CHAT_MESSAGE_META");
   });
 
-  it('should add custom styles to variants with a custom element data attribute', () => {
+  it("should add custom styles to variants with a custom element data attribute", () => {
     render(
       <>
         <ChatMessage variant="inbound">
@@ -183,16 +183,16 @@ describe('Customization', () => {
       { wrapper: CustomizationFooWrapper },
     );
 
-    const inboundMeta = screen.getByTestId('inbound-meta');
-    const outboundMeta = screen.getByTestId('outbound-meta');
+    const inboundMeta = screen.getByTestId("inbound-meta");
+    const outboundMeta = screen.getByTestId("outbound-meta");
 
-    expect(inboundMeta).toHaveStyleRule('column-gap', '1rem');
-    expect(inboundMeta).toHaveStyleRule('justify-content', 'flex-start');
-    expect(outboundMeta).toHaveStyleRule('column-gap', '1rem');
-    expect(outboundMeta).toHaveStyleRule('justify-content', 'flex-end');
+    expect(inboundMeta).toHaveStyleRule("column-gap", "1rem");
+    expect(inboundMeta).toHaveStyleRule("justify-content", "flex-start");
+    expect(outboundMeta).toHaveStyleRule("column-gap", "1rem");
+    expect(outboundMeta).toHaveStyleRule("justify-content", "flex-end");
   });
 
-  it('should set custom element data attribute', () => {
+  it("should set custom element data attribute", () => {
     render(
       <>
         <ChatMessage variant="inbound">
@@ -209,16 +209,16 @@ describe('Customization', () => {
       { wrapper: CustomizationFooWrapper },
     );
 
-    const inboundMeta = screen.getByTestId('inbound-meta');
-    const outboundMeta = screen.getByTestId('outbound-meta');
+    const inboundMeta = screen.getByTestId("inbound-meta");
+    const outboundMeta = screen.getByTestId("outbound-meta");
 
-    expect(inboundMeta.getAttribute('data-paste-element')).toEqual('FOO_META');
-    expect(outboundMeta.getAttribute('data-paste-element')).toEqual('FOO_META');
+    expect(inboundMeta.getAttribute("data-paste-element")).toEqual("FOO_META");
+    expect(outboundMeta.getAttribute("data-paste-element")).toEqual("FOO_META");
   });
 });
 
-describe('ChatMessageMetaItem', () => {
-  it('should add custom styles', () => {
+describe("ChatMessageMetaItem", () => {
+  it("should add custom styles", () => {
     render(
       <ChatMessage variant="inbound">
         <ChatMessageMeta aria-label="sent at 5:04pm">
@@ -228,12 +228,12 @@ describe('ChatMessageMetaItem', () => {
       { wrapper: CustomizationWrapper },
     );
 
-    const metaItem = screen.getByTestId('meta-item');
-    expect(metaItem).toHaveStyleRule('column-gap', '0');
-    expect(metaItem).toHaveStyleRule('color', 'rgb(18, 28, 45)');
+    const metaItem = screen.getByTestId("meta-item");
+    expect(metaItem).toHaveStyleRule("column-gap", "0");
+    expect(metaItem).toHaveStyleRule("color", "rgb(18, 28, 45)");
   });
 
-  it('should set element data attribute', () => {
+  it("should set element data attribute", () => {
     render(
       <ChatMessage variant="inbound">
         <ChatMessageMeta aria-label="sent at 5:04pm">
@@ -243,11 +243,11 @@ describe('ChatMessageMetaItem', () => {
       { wrapper: CustomizationWrapper },
     );
 
-    const metaItem = screen.getByTestId('meta-item');
-    expect(metaItem.getAttribute('data-paste-element')).toEqual('CHAT_MESSAGE_META_ITEM');
+    const metaItem = screen.getByTestId("meta-item");
+    expect(metaItem.getAttribute("data-paste-element")).toEqual("CHAT_MESSAGE_META_ITEM");
   });
 
-  it('should add custom styles to variants with a custom element data attribute', () => {
+  it("should add custom styles to variants with a custom element data attribute", () => {
     render(
       <ChatMessage variant="inbound">
         <ChatMessageMeta aria-label="sent at 5:04pm">
@@ -259,12 +259,12 @@ describe('ChatMessageMetaItem', () => {
       { wrapper: CustomizationFooWrapper },
     );
 
-    const metaItem = screen.getByTestId('meta-item');
-    expect(metaItem).toHaveStyleRule('column-gap', '0');
-    expect(metaItem).toHaveStyleRule('color', 'rgb(18, 28, 45)');
+    const metaItem = screen.getByTestId("meta-item");
+    expect(metaItem).toHaveStyleRule("column-gap", "0");
+    expect(metaItem).toHaveStyleRule("color", "rgb(18, 28, 45)");
   });
 
-  it('should set custom element data attribute', () => {
+  it("should set custom element data attribute", () => {
     render(
       <ChatMessage variant="inbound">
         <ChatMessageMeta aria-label="sent at 5:04pm">
@@ -276,7 +276,7 @@ describe('ChatMessageMetaItem', () => {
       { wrapper: CustomizationFooWrapper },
     );
 
-    const metaItem = screen.getByTestId('meta-item');
-    expect(metaItem.getAttribute('data-paste-element')).toEqual('FOO_META_ITEM');
+    const metaItem = screen.getByTestId("meta-item");
+    expect(metaItem.getAttribute("data-paste-element")).toEqual("FOO_META_ITEM");
   });
 });

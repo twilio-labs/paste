@@ -1,16 +1,16 @@
-import { Box } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
 import {
   NonModalDialogArrowPrimitive,
   NonModalDialogDisclosurePrimitive,
   NonModalDialogPrimitive,
   useNonModalDialogPrimitiveState,
-} from '../src';
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Primitives/Non-Modal Dialog',
+  title: "Primitives/Non-Modal Dialog",
   component: NonModalDialogPrimitive,
   subcomponents: { NonModalDialogDisclosurePrimitive, NonModalDialogArrowPrimitive },
 };
@@ -28,10 +28,10 @@ export const SimpleNonModalDialog = (): React.ReactNode => {
   );
 };
 
-SimpleNonModalDialog.storyName = 'Simple Non-Modal Dialog';
+SimpleNonModalDialog.storyName = "Simple Non-Modal Dialog";
 
 export const NonModalDialogRightPlacement = (): React.ReactNode => {
-  const nonModalDialog = useNonModalDialogPrimitiveState({ placement: 'right' });
+  const nonModalDialog = useNonModalDialogPrimitiveState({ placement: "right" });
   return (
     <>
       <NonModalDialogDisclosurePrimitive {...nonModalDialog}>Open non-modal dialog</NonModalDialogDisclosurePrimitive>
@@ -43,10 +43,10 @@ export const NonModalDialogRightPlacement = (): React.ReactNode => {
   );
 };
 
-NonModalDialogRightPlacement.storyName = 'Non-Modal Dialog Right Placement';
+NonModalDialogRightPlacement.storyName = "Non-Modal Dialog Right Placement";
 
 export const NonModalDialogLeftPlacement = (): React.ReactNode => {
-  const nonModalDialog = useNonModalDialogPrimitiveState({ placement: 'left' });
+  const nonModalDialog = useNonModalDialogPrimitiveState({ placement: "left" });
   return (
     <Box position="absolute" top={12} right={12}>
       <NonModalDialogDisclosurePrimitive {...nonModalDialog}>Open non-modal dialog</NonModalDialogDisclosurePrimitive>
@@ -58,10 +58,10 @@ export const NonModalDialogLeftPlacement = (): React.ReactNode => {
   );
 };
 
-NonModalDialogLeftPlacement.storyName = 'Non-Modal Dialog Left Placement';
+NonModalDialogLeftPlacement.storyName = "Non-Modal Dialog Left Placement";
 
 export const NonModalDialogTopPlacement = (): React.ReactNode => {
-  const nonModalDialog = useNonModalDialogPrimitiveState({ placement: 'top' });
+  const nonModalDialog = useNonModalDialogPrimitiveState({ placement: "top" });
   return (
     <Box position="absolute" bottom={12}>
       <NonModalDialogDisclosurePrimitive {...nonModalDialog}>Open non-modal dialog</NonModalDialogDisclosurePrimitive>
@@ -73,10 +73,10 @@ export const NonModalDialogTopPlacement = (): React.ReactNode => {
   );
 };
 
-NonModalDialogTopPlacement.storyName = 'Non-Modal Dialog Top Placement';
+NonModalDialogTopPlacement.storyName = "Non-Modal Dialog Top Placement";
 
 export const NonModalDialogBottomPlacement = (): React.ReactNode => {
-  const nonModalDialog = useNonModalDialogPrimitiveState({ placement: 'bottom' });
+  const nonModalDialog = useNonModalDialogPrimitiveState({ placement: "bottom" });
   return (
     <>
       <NonModalDialogDisclosurePrimitive {...nonModalDialog}>Open non-modal dialog</NonModalDialogDisclosurePrimitive>
@@ -88,7 +88,7 @@ export const NonModalDialogBottomPlacement = (): React.ReactNode => {
   );
 };
 
-NonModalDialogBottomPlacement.storyName = 'Non-Modal Dialog Bottom Placement';
+NonModalDialogBottomPlacement.storyName = "Non-Modal Dialog Bottom Placement";
 
 export const NonModalDialogWithoutGutter = (): React.ReactNode => {
   const nonModalDialog = useNonModalDialogPrimitiveState({ gutter: 0 });
@@ -102,4 +102,4 @@ export const NonModalDialogWithoutGutter = (): React.ReactNode => {
   );
 };
 
-NonModalDialogWithoutGutter.storyName = 'Non-Modal Dialog Without Gutter';
+NonModalDialogWithoutGutter.storyName = "Non-Modal Dialog Without Gutter";

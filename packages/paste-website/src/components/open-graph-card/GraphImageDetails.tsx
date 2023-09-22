@@ -1,9 +1,9 @@
-import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-import { ComponentStatus } from './ComponentStatus';
-import type { PackageData } from './types';
+import { ComponentStatus } from "./ComponentStatus";
+import type { PackageData } from "./types";
 
 export type GraphImageDetailsProps = PackageData;
 

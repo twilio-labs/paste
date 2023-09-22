@@ -1,23 +1,23 @@
-import { resolve } from 'path';
+import { resolve } from "path";
 
-import * as theo from 'theo';
+import * as theo from "theo";
 
-import { genericJsTokenFormat } from '../generic';
+import { genericJsTokenFormat } from "../generic";
 
-theo.registerFormat('generic.js', genericJsTokenFormat);
+theo.registerFormat("generic.js", genericJsTokenFormat);
 
-describe('generic JS formatter', () => {
-  it('should return js formatted tokens', async () => {
+describe("generic JS formatter", () => {
+  it("should return js formatted tokens", async () => {
     return theo
       .convert({
         transform: {
-          type: 'web',
-          file: resolve(__dirname, '../__fixtures__/index.yml'),
+          type: "web",
+          file: resolve(__dirname, "../__fixtures__/index.yml"),
         },
         format: {
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore Theo isn't typed for custom format types
-          type: 'generic.js',
+          type: "generic.js",
         },
       })
       .then((genericJS: string) => {
@@ -26,7 +26,7 @@ describe('generic JS formatter', () => {
       .catch((error: string) => {
         // eslint-disable-next-line no-console
         console.log(`Something  went wrong: ${error}`);
-        throw new Error('[es6Formatter test]: should return es6 formatted tokens');
+        throw new Error("[es6Formatter test]: should return es6 formatted tokens");
       });
   });
 });

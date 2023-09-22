@@ -1,19 +1,19 @@
-import { InlineControlGroup } from '@twilio-paste/inline-control-group';
-import * as React from 'react';
+import { InlineControlGroup } from "@twilio-paste/inline-control-group";
+import * as React from "react";
 
-import { VisualPickerCheckboxContext } from './VisualPickerContext';
-import type { VisualPickerCheckboxGroupProps } from './types';
+import { VisualPickerCheckboxContext } from "./VisualPickerContext";
+import type { VisualPickerCheckboxGroupProps } from "./types";
 
 export const VisualPickerCheckboxGroup = React.forwardRef<HTMLFieldSetElement, VisualPickerCheckboxGroupProps>(
   (
     {
-      orientation = 'vertical',
+      orientation = "vertical",
       children,
-      element = 'VISUAL_PICKER_CHECKBOX_GROUP',
+      element = "VISUAL_PICKER_CHECKBOX_GROUP",
       disabled = false,
       errorText,
       name,
-      i18nRequiredLabel = '(required)',
+      i18nRequiredLabel = "(required)",
       ...props
     },
     ref,
@@ -39,8 +39,8 @@ export const VisualPickerCheckboxGroup = React.forwardRef<HTMLFieldSetElement, V
           orientation={orientation}
           i18nRequiredLabel={i18nRequiredLabel}
           fieldStyleProps={{
-            marginTop: orientation === 'horizontal' ? 'space40' : 'space30',
-            marginRight: orientation === 'horizontal' ? 'space30' : undefined,
+            marginTop: orientation === "horizontal" ? "space40" : "space30",
+            marginRight: orientation === "horizontal" ? "space30" : undefined,
           }}
         >
           {children}
@@ -50,4 +50,4 @@ export const VisualPickerCheckboxGroup = React.forwardRef<HTMLFieldSetElement, V
   },
 );
 
-VisualPickerCheckboxGroup.displayName = 'VisualPickerCheckboxGroup';
+VisualPickerCheckboxGroup.displayName = "VisualPickerCheckboxGroup";

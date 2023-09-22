@@ -1,10 +1,10 @@
-import { Box } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import { SITE_TOPBAR_HEIGHT } from '../../constants';
-import { FeedbackPopover } from './feedback-popover';
-import { TableOfContents } from './table-of-contents';
+import { SITE_TOPBAR_HEIGHT } from "../../constants";
+import { FeedbackPopover } from "./feedback-popover";
+import { TableOfContents } from "./table-of-contents";
 
 type ToCHeading = {
   value: string;
@@ -13,15 +13,15 @@ type ToCHeading = {
 interface PageAsideProps {
   data: ToCHeading[];
   hideFeedback?: boolean;
-  stickyTop?: BoxProps['top'];
-  topPadding?: BoxProps['padding'];
+  stickyTop?: BoxProps["top"];
+  topPadding?: BoxProps["padding"];
 }
 
 const PageAside: React.FC<React.PropsWithChildren<PageAsideProps>> = ({
   data,
   hideFeedback,
-  stickyTop = '36px',
-  topPadding = 'space0',
+  stickyTop = "36px",
+  topPadding = "space0",
 }) => {
   return (
     <Box
@@ -31,7 +31,7 @@ const PageAside: React.FC<React.PropsWithChildren<PageAsideProps>> = ({
       minWidth="size20"
       maxWidth="size30"
       id="page-aside"
-      display={['none', 'none', 'block']}
+      display={["none", "none", "block"]}
       data-cy="page-aside"
     >
       <Box position="sticky" top={`calc(${SITE_TOPBAR_HEIGHT}px + ${stickyTop})`} paddingTop={topPadding}>

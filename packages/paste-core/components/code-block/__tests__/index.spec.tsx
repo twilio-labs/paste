@@ -1,6 +1,6 @@
-import { render, screen } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { render, screen } from "@testing-library/react";
+import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
 import {
   CodeBlock,
@@ -9,9 +9,9 @@ import {
   CodeBlockTabList,
   CodeBlockTabPanel,
   CodeBlockWrapper,
-} from '../src';
-import { CopyButton, getCopyButtonText } from '../src/CopyButton';
-import { ExternalLinkButton } from '../src/ExternalLinkButton';
+} from "../src";
+import { CopyButton, getCopyButtonText } from "../src/CopyButton";
+import { ExternalLinkButton } from "../src/ExternalLinkButton";
 
 const jsCode = `(num) => num + 1`;
 
@@ -34,37 +34,37 @@ lab = TkLabel.new(root) {
 }
 `;
 
-describe('CodeBlock', () => {
-  it('should render', () => {
+describe("CodeBlock", () => {
+  it("should render", () => {
     render(
       <Theme.Provider theme="default">
         <CodeBlock code={rubyCode} language="ruby" />
       </Theme.Provider>,
     );
 
-    const copyButton = screen.getByRole('button', { name: 'Copy code block' });
+    const copyButton = screen.getByRole("button", { name: "Copy code block" });
     expect(copyButton).toBeDefined();
 
-    const rubyText = screen.getByText('#!/usr/bin/ruby');
+    const rubyText = screen.getByText("#!/usr/bin/ruby");
     expect(rubyText).toBeDefined();
   });
 
-  it('should render a code block with a link', () => {
+  it("should render a code block with a link", () => {
     render(
       <Theme.Provider theme="default">
         <CodeBlock code={rubyCode} language="ruby" externalLink="https://www.google.com" />
       </Theme.Provider>,
     );
 
-    const copyButton = screen.getByRole('button', { name: 'Copy code block' });
+    const copyButton = screen.getByRole("button", { name: "Copy code block" });
     expect(copyButton).toBeDefined();
 
-    const link = screen.getByRole('link', { name: 'Open code block in new page' });
+    const link = screen.getByRole("link", { name: "Open code block in new page" });
     expect(link).toBeDefined();
   });
 
-  describe('i18n', () => {
-    it('should use i18n labels for copy button and external link', () => {
+  describe("i18n", () => {
+    it("should use i18n labels for copy button and external link", () => {
       render(
         <Theme.Provider theme="default">
           <CodeBlock
@@ -78,17 +78,17 @@ describe('CodeBlock', () => {
         </Theme.Provider>,
       );
 
-      const copyButton = screen.getByRole('button', { name: 'before' });
+      const copyButton = screen.getByRole("button", { name: "before" });
       expect(copyButton).toBeDefined();
 
-      const link = screen.getByRole('link', { name: 'external link' });
+      const link = screen.getByRole("link", { name: "external link" });
       expect(link).toBeDefined();
     });
   });
 });
 
-describe('CodeBlockHeader', () => {
-  it('should render a heading', () => {
+describe("CodeBlockHeader", () => {
+  it("should render a heading", () => {
     render(
       <>
         <CodeBlockHeader>My code block</CodeBlockHeader>
@@ -96,18 +96,18 @@ describe('CodeBlockHeader', () => {
       </>,
     );
 
-    const headerLevel3 = screen.getByRole('heading', { name: 'My code block' });
+    const headerLevel3 = screen.getByRole("heading", { name: "My code block" });
     expect(headerLevel3).toBeDefined();
-    expect(headerLevel3.tagName).toBe('H3');
+    expect(headerLevel3.tagName).toBe("H3");
 
-    const headerLevel2 = screen.getByRole('heading', { name: 'Another code block' });
+    const headerLevel2 = screen.getByRole("heading", { name: "Another code block" });
     expect(headerLevel2).toBeDefined();
-    expect(headerLevel2.tagName).toBe('H2');
+    expect(headerLevel2.tagName).toBe("H2");
   });
 });
 
-describe('CodeBlockTabs', () => {
-  it('should render an accessible tab set', () => {
+describe("CodeBlockTabs", () => {
+  it("should render an accessible tab set", () => {
     render(
       <Theme.Provider theme="default">
         <CodeBlockWrapper>
@@ -125,67 +125,67 @@ describe('CodeBlockTabs', () => {
       </Theme.Provider>,
     );
 
-    const tablist = screen.getByRole('tablist');
+    const tablist = screen.getByRole("tablist");
     expect(tablist).toBeDefined();
 
-    const javascriptTab = screen.getByRole('tab', { name: 'JavaScript' });
+    const javascriptTab = screen.getByRole("tab", { name: "JavaScript" });
     expect(javascriptTab).toBeDefined();
-    expect(javascriptTab.getAttribute('aria-selected')).toBe('true');
+    expect(javascriptTab.getAttribute("aria-selected")).toBe("true");
 
-    const javascriptTabPanel = screen.getByTestId('js-block').parentElement;
+    const javascriptTabPanel = screen.getByTestId("js-block").parentElement;
     expect(javascriptTabPanel).toBeDefined();
-    expect(javascriptTab.getAttribute('aria-controls')).toBe(javascriptTabPanel?.id);
-    expect(javascriptTabPanel?.getAttribute('aria-labelledby')).toBe(javascriptTab.id);
+    expect(javascriptTab.getAttribute("aria-controls")).toBe(javascriptTabPanel?.id);
+    expect(javascriptTabPanel?.getAttribute("aria-labelledby")).toBe(javascriptTab.id);
 
-    const rubyTab = screen.getByRole('tab', { name: 'Ruby' });
+    const rubyTab = screen.getByRole("tab", { name: "Ruby" });
     expect(rubyTab).toBeDefined();
-    expect(rubyTab.getAttribute('aria-selected')).toBe('false');
+    expect(rubyTab.getAttribute("aria-selected")).toBe("false");
 
-    const rubyTabPanel = screen.getByTestId('ruby-block').parentElement;
+    const rubyTabPanel = screen.getByTestId("ruby-block").parentElement;
     expect(rubyTabPanel).toBeDefined();
-    expect(rubyTab.getAttribute('aria-controls')).toBe(rubyTabPanel?.id);
-    expect(rubyTabPanel?.getAttribute('aria-labelledby')).toBe(rubyTab.id);
+    expect(rubyTab.getAttribute("aria-controls")).toBe(rubyTabPanel?.id);
+    expect(rubyTabPanel?.getAttribute("aria-labelledby")).toBe(rubyTab.id);
   });
 });
 
-describe('CopyButton', () => {
-  it('should render', () => {
+describe("CopyButton", () => {
+  it("should render", () => {
     render(
       <Theme.Provider theme="default">
         <CopyButton text="hello world" />
       </Theme.Provider>,
     );
 
-    const button = screen.getByRole('button');
-    const tooltip = screen.getByRole('tooltip', { hidden: true });
+    const button = screen.getByRole("button");
+    const tooltip = screen.getByRole("tooltip", { hidden: true });
 
     expect(button).toBeDefined();
     expect(tooltip).not.toBeVisible();
   });
 
-  describe('getCopyButtonText', () => {
-    it('returns the correct string depending on the copied arg', () => {
-      const getText = getCopyButtonText('before', 'after');
+  describe("getCopyButtonText", () => {
+    it("returns the correct string depending on the copied arg", () => {
+      const getText = getCopyButtonText("before", "after");
 
-      expect(getText(false)).toBe('before');
-      expect(getText(true)).toBe('after');
+      expect(getText(false)).toBe("before");
+      expect(getText(true)).toBe("after");
     });
   });
 });
 
-describe('ExternalLinkButton', () => {
-  it('should render', () => {
+describe("ExternalLinkButton", () => {
+  it("should render", () => {
     render(
       <Theme.Provider theme="default">
         <ExternalLinkButton href="https://www.google.com" />
       </Theme.Provider>,
     );
 
-    const link = screen.getByRole('link');
-    const tooltip = screen.getByRole('tooltip', { hidden: true });
+    const link = screen.getByRole("link");
+    const tooltip = screen.getByRole("tooltip", { hidden: true });
 
     expect(link).toBeDefined();
-    expect(link.getAttribute('href')).toBe('https://www.google.com');
+    expect(link.getAttribute("href")).toBe("https://www.google.com");
     expect(tooltip).not.toBeVisible();
   });
 });

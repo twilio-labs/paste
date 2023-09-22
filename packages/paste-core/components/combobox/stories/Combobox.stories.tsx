@@ -1,32 +1,32 @@
-import type { Meta, StoryContext, StoryFn } from '@storybook/react';
-import { Anchor } from '@twilio-paste/anchor';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
-import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
-import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
-import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
-import { Label } from '@twilio-paste/label';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
-import { Modal, ModalBody, ModalHeader, ModalHeading } from '@twilio-paste/modal';
-import { Option, Select } from '@twilio-paste/select';
-import { Text } from '@twilio-paste/text';
-import { useUID } from '@twilio-paste/uid-library';
-import _ from 'lodash';
-import * as React from 'react';
+import type { Meta, StoryContext, StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
+import { Label } from "@twilio-paste/label";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Modal, ModalBody, ModalHeader, ModalHeading } from "@twilio-paste/modal";
+import { Option, Select } from "@twilio-paste/select";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import _ from "lodash";
+import * as React from "react";
 
-import { Combobox, useCombobox } from '../src';
+import { Combobox, useCombobox } from "../src";
 
 const items = [
-  'Alert',
-  'Anchor',
-  'Button',
-  'Card',
-  'Heading',
-  'A component with a really really really really really really really really long name',
-  'List',
-  'Modal',
-  'Paragraph',
+  "Alert",
+  "Anchor",
+  "Button",
+  "Card",
+  "Heading",
+  "A component with a really really really really really really really really long name",
+  "List",
+  "Modal",
+  "Paragraph",
 ];
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
@@ -42,14 +42,14 @@ interface IconItems {
   iconLeft?: undefined;
 }
 const iconItems = [
-  { label: 'Alert', iconRight: true },
-  { label: 'Anchor' },
-  { label: 'Button', iconLeft: true },
-  { label: 'Card', iconRight: true },
-  { label: 'Heading' },
-  { label: 'List', iconRight: true },
-  { label: 'Modal', iconLeft: true },
-  { label: 'Paragraph', iconRight: true },
+  { label: "Alert", iconRight: true },
+  { label: "Anchor" },
+  { label: "Button", iconLeft: true },
+  { label: "Card", iconRight: true },
+  { label: "Heading" },
+  { label: "List", iconRight: true },
+  { label: "Modal", iconLeft: true },
+  { label: "Paragraph", iconRight: true },
 ];
 
 interface ObjectItem {
@@ -58,33 +58,33 @@ interface ObjectItem {
   phone: string;
 }
 const objectItems = [
-  { code: 'AD', label: 'Andorra', phone: '376' },
-  { code: 'AE', label: 'United Arab Emirates', phone: '971' },
-  { code: 'AF', label: 'Afghanistan', phone: '93' },
-  { code: 'AG', label: 'Antigua and Barbuda', phone: '1-268' },
-  { code: 'AI', label: 'Anguilla', phone: '1-264' },
-  { code: 'AL', label: 'Albania', phone: '355' },
-  { code: 'AM', label: 'Armenia', phone: '374' },
-  { code: 'AO', label: 'Angola', phone: '244' },
-  { code: 'AQ', label: 'Antarctica', phone: '672' },
-  { code: 'AR', label: 'Argentina', phone: '54' },
-  { code: 'AS', label: 'American Samoa', phone: '1-684' },
-  { code: 'AT', label: 'Austria', phone: '44' },
-  { code: 'BS', label: 'Bahamas', phone: '43' },
-  { code: 'BH', label: 'Bahrain', phone: '48' },
-  { code: 'BD', label: 'Bangladesh', phone: '50' },
-  { code: 'BB', label: 'Barbados', phone: '52' },
-  { code: 'BY', label: 'Belarus', phone: '112' },
-  { code: 'BE', label: 'Belgium', phone: '56' },
-  { code: 'BZ', label: 'Belize', phone: '84' },
-  { code: 'BJ', label: 'Benin', phone: '204' },
-  { code: 'BM', label: 'Bermuda', phone: '60' },
-  { code: 'BT', label: 'Bhutan', phone: '64' },
-  { code: 'BO', label: 'Bolivia', phone: '68' },
-  { code: 'BW', label: 'Botswana', phone: '72' },
-  { code: 'BR', label: 'Brazil', phone: '76' },
-  { code: 'KH', label: 'Cambodia', phone: '116' },
-  { code: 'CA', label: 'Canada', phone: '124' },
+  { code: "AD", label: "Andorra", phone: "376" },
+  { code: "AE", label: "United Arab Emirates", phone: "971" },
+  { code: "AF", label: "Afghanistan", phone: "93" },
+  { code: "AG", label: "Antigua and Barbuda", phone: "1-268" },
+  { code: "AI", label: "Anguilla", phone: "1-264" },
+  { code: "AL", label: "Albania", phone: "355" },
+  { code: "AM", label: "Armenia", phone: "374" },
+  { code: "AO", label: "Angola", phone: "244" },
+  { code: "AQ", label: "Antarctica", phone: "672" },
+  { code: "AR", label: "Argentina", phone: "54" },
+  { code: "AS", label: "American Samoa", phone: "1-684" },
+  { code: "AT", label: "Austria", phone: "44" },
+  { code: "BS", label: "Bahamas", phone: "43" },
+  { code: "BH", label: "Bahrain", phone: "48" },
+  { code: "BD", label: "Bangladesh", phone: "50" },
+  { code: "BB", label: "Barbados", phone: "52" },
+  { code: "BY", label: "Belarus", phone: "112" },
+  { code: "BE", label: "Belgium", phone: "56" },
+  { code: "BZ", label: "Belize", phone: "84" },
+  { code: "BJ", label: "Benin", phone: "204" },
+  { code: "BM", label: "Bermuda", phone: "60" },
+  { code: "BT", label: "Bhutan", phone: "64" },
+  { code: "BO", label: "Bolivia", phone: "68" },
+  { code: "BW", label: "Botswana", phone: "72" },
+  { code: "BR", label: "Brazil", phone: "76" },
+  { code: "KH", label: "Cambodia", phone: "116" },
+  { code: "CA", label: "Canada", phone: "124" },
 ];
 
 interface GroupedItem {
@@ -92,24 +92,24 @@ interface GroupedItem {
   label: string;
 }
 const groupedItems = [
-  { group: 'Components', label: 'Alert' },
-  { group: 'Components', label: 'Anchor' },
-  { group: 'Components', label: 'Button' },
-  { group: 'Components', label: 'Card' },
-  { group: 'Components', label: 'Heading' },
-  { group: 'Components', label: 'List' },
-  { group: 'Components', label: 'Modal' },
-  { group: 'Components', label: 'Paragraph' },
-  { group: 'Primitives', label: 'Box' },
-  { group: 'Primitives', label: 'Text' },
-  { group: 'Primitives', label: 'Non-modal dialog' },
-  { group: 'Layout', label: 'Grid' },
-  { label: 'Design Tokens' },
+  { group: "Components", label: "Alert" },
+  { group: "Components", label: "Anchor" },
+  { group: "Components", label: "Button" },
+  { group: "Components", label: "Card" },
+  { group: "Components", label: "Heading" },
+  { group: "Components", label: "List" },
+  { group: "Components", label: "Modal" },
+  { group: "Components", label: "Paragraph" },
+  { group: "Primitives", label: "Box" },
+  { group: "Primitives", label: "Text" },
+  { group: "Primitives", label: "Non-modal dialog" },
+  { group: "Layout", label: "Grid" },
+  { label: "Design Tokens" },
 ];
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Combobox/Combobox',
+  title: "Components/Combobox/Combobox",
   component: Combobox,
   // wraps each story in a div that has a fixed height. This makes it so chromatic takes a large enough screenshot to see the listbox.
   decorators: [
@@ -143,12 +143,12 @@ export const DefaultCombobox: StoryFn = () => {
           ) : null}
         </MediaObject>
       )}
-      itemToString={(item: IconItems) => (item ? String(item.label) : '')}
+      itemToString={(item: IconItems) => (item ? String(item.label) : "")}
     />
   );
 };
 
-DefaultCombobox.storyName = 'Combobox';
+DefaultCombobox.storyName = "Combobox";
 
 export const BottomOfScreen: StoryFn = () => {
   return (
@@ -174,12 +174,12 @@ export const BottomOfScreen: StoryFn = () => {
             ) : null}
           </MediaObject>
         )}
-        itemToString={(item: IconItems) => (item ? String(item.label) : '')}
+        itemToString={(item: IconItems) => (item ? String(item.label) : "")}
       />
     </>
   );
 };
-BottomOfScreen.storyName = 'Bottom of screen';
+BottomOfScreen.storyName = "Bottom of screen";
 BottomOfScreen.parameters = {
   chromatic: { disableSnapshot: true },
 };
@@ -201,14 +201,14 @@ export const VirtualizedCombobox: StoryFn = () => {
   );
 };
 
-VirtualizedCombobox.storyName = 'Combobox - Virtualized without option template';
+VirtualizedCombobox.storyName = "Combobox - Virtualized without option template";
 
 export const VirtualizedCombobox1: StoryFn = () => {
   const itemsForVirtualCombobox = React.useMemo(
     () =>
       createLargeArray((index) => ({
         name: `Item ${index as number}`,
-        subtext: 'Virtualized combobox from Twilio Paste',
+        subtext: "Virtualized combobox from Twilio Paste",
       })),
     [],
   );
@@ -227,14 +227,14 @@ export const VirtualizedCombobox1: StoryFn = () => {
   );
 };
 
-VirtualizedCombobox1.storyName = 'Combobox - Virtualized with string option template';
+VirtualizedCombobox1.storyName = "Combobox - Virtualized with string option template";
 
 export const VirtualizedCombobox2: StoryFn = () => {
   const itemsForVirtualCombobox = React.useMemo(
     () =>
       createLargeArray((index) => ({
         name: `Item ${index as number}`,
-        subtext: 'Virtualized combobox from Twilio Paste',
+        subtext: "Virtualized combobox from Twilio Paste",
       })),
     [],
   );
@@ -259,7 +259,7 @@ export const VirtualizedCombobox2: StoryFn = () => {
   );
 };
 
-VirtualizedCombobox2.storyName = 'Combobox - Virtualized with React child option template';
+VirtualizedCombobox2.storyName = "Combobox - Virtualized with React child option template";
 
 export const ComboboxInverse: StoryFn = () => {
   return (
@@ -284,14 +284,14 @@ export const ComboboxInverse: StoryFn = () => {
             ) : null}
           </MediaObject>
         )}
-        itemToString={(item: IconItems) => (item ? String(item.label) : '')}
+        itemToString={(item: IconItems) => (item ? String(item.label) : "")}
         variant="inverse"
       />
     </Box>
   );
 };
 
-ComboboxInverse.storyName = 'Combobox - Inverse';
+ComboboxInverse.storyName = "Combobox - Inverse";
 
 export const ComboboxAutocomplete: StoryFn = () => {
   const [inputItems, setInputItems] = React.useState(items);
@@ -310,19 +310,19 @@ export const ComboboxAutocomplete: StoryFn = () => {
   );
 };
 
-ComboboxAutocomplete.storyName = 'Combobox - Autocomplete';
+ComboboxAutocomplete.storyName = "Combobox - Autocomplete";
 
 export const ComboboxHiddenLabel: StoryFn = () => {
   return <Combobox items={items} labelText="Choose a component:" hideVisibleLabel helpText="This is the help text" />;
 };
 
-ComboboxHiddenLabel.storyName = 'Combobox - Non-visble label';
+ComboboxHiddenLabel.storyName = "Combobox - Non-visble label";
 
 export const ComboboxRequired: StoryFn = () => {
   return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" required />;
 };
 
-ComboboxRequired.storyName = 'Combobox - Required';
+ComboboxRequired.storyName = "Combobox - Required";
 
 export const ComboboxRequiredInverse: StoryFn = () => {
   return (
@@ -338,13 +338,13 @@ export const ComboboxRequiredInverse: StoryFn = () => {
   );
 };
 
-ComboboxRequiredInverse.storyName = 'Combobox - Required inverse';
+ComboboxRequiredInverse.storyName = "Combobox - Required inverse";
 
 export const ComboboxError: StoryFn = () => {
   return <Combobox items={items} labelText="Choose a component:" helpText="This is the help text" hasError />;
 };
 
-ComboboxError.storyName = 'Combobox - Error';
+ComboboxError.storyName = "Combobox - Error";
 
 export const ComboboxErrorInverse: StoryFn = () => {
   return (
@@ -360,7 +360,7 @@ export const ComboboxErrorInverse: StoryFn = () => {
   );
 };
 
-ComboboxErrorInverse.storyName = 'Combobox - Error inverse';
+ComboboxErrorInverse.storyName = "Combobox - Error inverse";
 
 export const ComboboxDisabled: StoryFn = () => {
   return (
@@ -374,7 +374,7 @@ export const ComboboxDisabled: StoryFn = () => {
   );
 };
 
-ComboboxDisabled.storyName = 'Combobox - Disabled';
+ComboboxDisabled.storyName = "Combobox - Disabled";
 
 export const ComboboxDisabledItems: StoryFn = () => {
   return (
@@ -388,7 +388,7 @@ export const ComboboxDisabledItems: StoryFn = () => {
   );
 };
 
-ComboboxDisabledItems.storyName = 'Combobox - Disabled Items';
+ComboboxDisabledItems.storyName = "Combobox - Disabled Items";
 
 export const ComboboxDisabledInverse: StoryFn = () => {
   return (
@@ -405,7 +405,7 @@ export const ComboboxDisabledInverse: StoryFn = () => {
   );
 };
 
-ComboboxDisabledInverse.storyName = 'Combobox - Disabled inverse';
+ComboboxDisabledInverse.storyName = "Combobox - Disabled inverse";
 
 export const ComboboxInsertBeforeAndAfter: StoryFn = () => {
   return (
@@ -427,7 +427,7 @@ export const ComboboxInsertBeforeAndAfter: StoryFn = () => {
   );
 };
 
-ComboboxInsertBeforeAndAfter.storyName = 'Combobox - Insert before and after';
+ComboboxInsertBeforeAndAfter.storyName = "Combobox - Insert before and after";
 
 export const ComboboxDisabledInsertBeforeAndAfter: StoryFn = () => {
   return (
@@ -450,7 +450,7 @@ export const ComboboxDisabledInsertBeforeAndAfter: StoryFn = () => {
   );
 };
 
-ComboboxDisabledInsertBeforeAndAfter.storyName = 'Combobox - Disabled insert before and after';
+ComboboxDisabledInsertBeforeAndAfter.storyName = "Combobox - Disabled insert before and after";
 
 export const ComboboxInsertBeforeAndAfterInverse: StoryFn = () => {
   return (
@@ -475,7 +475,7 @@ export const ComboboxInsertBeforeAndAfterInverse: StoryFn = () => {
   );
 };
 
-ComboboxInsertBeforeAndAfterInverse.storyName = 'Combobox - Insert before and after inverse';
+ComboboxInsertBeforeAndAfterInverse.storyName = "Combobox - Insert before and after inverse";
 
 export const ComboboxDisabledInsertBeforeAndAfterInverse: StoryFn = () => {
   return (
@@ -501,7 +501,7 @@ export const ComboboxDisabledInsertBeforeAndAfterInverse: StoryFn = () => {
   );
 };
 
-ComboboxDisabledInsertBeforeAndAfterInverse.storyName = 'Combobox - Disabled insert before and after inverse';
+ComboboxDisabledInsertBeforeAndAfterInverse.storyName = "Combobox - Disabled insert before and after inverse";
 
 export const ComboboxObject: StoryFn = () => {
   const [inputItems, setInputItems] = React.useState(objectItems);
@@ -523,13 +523,13 @@ export const ComboboxObject: StoryFn = () => {
           );
         }
       }}
-      itemToString={(item: ObjectItem) => (item ? item.label : '')}
+      itemToString={(item: ObjectItem) => (item ? item.label : "")}
       disabledItems={objectItems.slice(2, 5)}
     />
   );
 };
 
-ComboboxObject.storyName = 'Combobox - Object';
+ComboboxObject.storyName = "Combobox - Object";
 
 export const ComboboxOverflowLongValue: StoryFn = () => {
   const [inputItems, setInputItems] = React.useState(items);
@@ -551,11 +551,11 @@ export const ComboboxOverflowLongValue: StoryFn = () => {
   );
 };
 
-ComboboxOverflowLongValue.storyName = 'Combobox - overflow long value';
+ComboboxOverflowLongValue.storyName = "Combobox - overflow long value";
 
 export const ComboboxControlled: StoryFn = () => {
-  const [value, setValue] = React.useState('United Arab Emirates');
-  const [selectedItem, setSelectedItem] = React.useState({ code: 'AE', label: 'United Arab Emirates', phone: '971' });
+  const [value, setValue] = React.useState("United Arab Emirates");
+  const [selectedItem, setSelectedItem] = React.useState({ code: "AE", label: "United Arab Emirates", phone: "971" });
   const [inputItems, setInputItems] = React.useState(objectItems);
   return (
     <>
@@ -573,8 +573,8 @@ export const ComboboxControlled: StoryFn = () => {
         optionTemplate={(item: ObjectItem) => {
           return (
             <Box>
-              {item.code} | {item.label} | {item.phone}{' '}
-              {item && selectedItem && item.label === selectedItem.label ? '✅' : null}
+              {item.code} | {item.label} | {item.phone}{" "}
+              {item && selectedItem && item.label === selectedItem.label ? "✅" : null}
             </Box>
           );
         }}
@@ -588,7 +588,7 @@ export const ComboboxControlled: StoryFn = () => {
             setValue(inputValue);
           }
         }}
-        itemToString={(item: ObjectItem) => (item ? item.label : '')}
+        itemToString={(item: ObjectItem) => (item ? item.label : "")}
         selectedItem={selectedItem}
         onSelectedItemChange={(changes) => {
           setSelectedItem(changes.selectedItem);
@@ -599,20 +599,20 @@ export const ComboboxControlled: StoryFn = () => {
   );
 };
 
-ComboboxControlled.storyName = 'Combobox - Controlled';
+ComboboxControlled.storyName = "Combobox - Controlled";
 
 export const ComboboxControlledUsingState: StoryFn = () => {
-  const [value, setValue] = React.useState('United Arab Emirates');
+  const [value, setValue] = React.useState("United Arab Emirates");
   const [selectedItem, setSelectedItem] = React.useState<ObjectItem>({
-    code: 'AE',
-    label: 'United Arab Emirates',
-    phone: '971',
+    code: "AE",
+    label: "United Arab Emirates",
+    phone: "971",
   } as ObjectItem);
   const [inputItems, setInputItems] = React.useState<ObjectItem[] | never[]>(objectItems as ObjectItem[]);
   const { reset, ...state } = useCombobox<ObjectItem>({
     initialInputValue: value,
     items: inputItems,
-    itemToString: (item) => (item ? item.label : ''),
+    itemToString: (item) => (item ? item.label : ""),
     onSelectedItemChange: (changes) => {
       if (changes.selectedItem != null) {
         setSelectedItem(changes.selectedItem);
@@ -639,13 +639,13 @@ export const ComboboxControlledUsingState: StoryFn = () => {
         state={{ ...state, reset }}
         items={inputItems}
         autocomplete
-        itemToString={(item) => (item ? item.label : '')}
+        itemToString={(item) => (item ? item.label : "")}
         labelText="Choose a country:"
         helpText="This is the help text"
         optionTemplate={(item: ObjectItem) => (
           <Box>
-            {item.code} | {item.label} | {item.phone}{' '}
-            {item && selectedItem && item.label === selectedItem.label ? '✅' : null}
+            {item.code} | {item.label} | {item.phone}{" "}
+            {item && selectedItem && item.label === selectedItem.label ? "✅" : null}
           </Box>
         )}
         insertAfter={
@@ -653,12 +653,12 @@ export const ComboboxControlledUsingState: StoryFn = () => {
             variant="link"
             size="reset"
             onClick={() => {
-              setValue('');
+              setValue("");
               setSelectedItem({} as ObjectItem);
               reset();
             }}
           >
-            {value !== '' ? (
+            {value !== "" ? (
               <CloseIcon decorative={false} title="Clear" />
             ) : (
               <SearchIcon decorative={false} title="Search" />
@@ -670,7 +670,7 @@ export const ComboboxControlledUsingState: StoryFn = () => {
   );
 };
 
-ComboboxControlledUsingState.storyName = 'Combobox - Controlled using state';
+ComboboxControlledUsingState.storyName = "Combobox - Controlled using state";
 
 export const ComboboxOpen: StoryFn = () => {
   return (
@@ -679,12 +679,12 @@ export const ComboboxOpen: StoryFn = () => {
       labelText="Choose a country:"
       initialIsOpen
       optionTemplate={(item: ObjectItem) => <div>{item.label}</div>}
-      itemToString={(item: ObjectItem) => (item ? item.label : '')}
+      itemToString={(item: ObjectItem) => (item ? item.label : "")}
     />
   );
 };
 
-ComboboxOpen.storyName = 'Combobox - Open';
+ComboboxOpen.storyName = "Combobox - Open";
 
 export const ComboboxOptionGroups: StoryFn = () => {
   return (
@@ -694,12 +694,12 @@ export const ComboboxOptionGroups: StoryFn = () => {
       labelText="Choose a component:"
       helpText="This is group"
       optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
-      itemToString={(item: GroupedItem) => (item ? item.label : '')}
+      itemToString={(item: GroupedItem) => (item ? item.label : "")}
     />
   );
 };
 
-ComboboxOptionGroups.storyName = 'Combobox - Option groups';
+ComboboxOptionGroups.storyName = "Combobox - Option groups";
 
 export const ComboboxOptionGroupsOpen: StoryFn = () => {
   return (
@@ -711,7 +711,7 @@ export const ComboboxOptionGroupsOpen: StoryFn = () => {
       initialIsOpen
       optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
       groupLabelTemplate={(groupName: string) => {
-        if (groupName === 'Components') {
+        if (groupName === "Components") {
           return (
             <MediaObject verticalAlign="center">
               <MediaFigure spacing="space20">
@@ -723,12 +723,12 @@ export const ComboboxOptionGroupsOpen: StoryFn = () => {
         }
         return groupName;
       }}
-      itemToString={(item: GroupedItem) => (item ? item.label : '')}
+      itemToString={(item: GroupedItem) => (item ? item.label : "")}
     />
   );
 };
 
-ComboboxOptionGroupsOpen.storyName = 'Combobox - Option groups open';
+ComboboxOptionGroupsOpen.storyName = "Combobox - Option groups open";
 
 export const ComboboxOptionGroupsAutocomplete: StoryFn = () => {
   const [inputItems, setInputItems] = React.useState(groupedItems);
@@ -749,15 +749,15 @@ export const ComboboxOptionGroupsAutocomplete: StoryFn = () => {
           );
         }
       }}
-      itemToString={(item: GroupedItem) => (item ? item.label : '')}
+      itemToString={(item: GroupedItem) => (item ? item.label : "")}
     />
   );
 };
 
-ComboboxOptionGroupsAutocomplete.storyName = 'Combobox - Option groups autocomplete';
+ComboboxOptionGroupsAutocomplete.storyName = "Combobox - Option groups autocomplete";
 
 export const ComboboxListboxZIndex: StoryFn = () => {
-  const [selectValue, setSelectValue] = React.useState('');
+  const [selectValue, setSelectValue] = React.useState("");
   const selectID = useUID();
   return (
     <>
@@ -782,7 +782,7 @@ export const ComboboxListboxZIndex: StoryFn = () => {
               ) : null}
             </MediaObject>
           )}
-          itemToString={(item: IconItems) => (item ? String(item.label) : '')}
+          itemToString={(item: IconItems) => (item ? String(item.label) : "")}
           initialIsOpen
         />
       </Box>
@@ -799,7 +799,7 @@ export const ComboboxListboxZIndex: StoryFn = () => {
   );
 };
 
-ComboboxListboxZIndex.storyName = 'Combobox - Listbox zIndex';
+ComboboxListboxZIndex.storyName = "Combobox - Listbox zIndex";
 
 const SampleEmptyState: React.FC = () => (
   <>
@@ -831,7 +831,7 @@ export const ComboboxEmptyState: StoryFn = () => {
   );
 };
 
-ComboboxEmptyState.storyName = 'Combobox - EmptyState';
+ComboboxEmptyState.storyName = "Combobox - EmptyState";
 
 export const ComboboxInModal: StoryFn = () => {
   const [modalIsOpen, setModalIsOpen] = React.useState(true);
@@ -872,7 +872,7 @@ export const ComboboxInModal: StoryFn = () => {
                 ) : null}
               </MediaObject>
             )}
-            itemToString={(item: IconItems) => (item ? String(item.label) : '')}
+            itemToString={(item: IconItems) => (item ? String(item.label) : "")}
           />
         </ModalBody>
       </Modal>

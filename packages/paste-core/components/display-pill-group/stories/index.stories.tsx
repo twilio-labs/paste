@@ -1,10 +1,10 @@
-import { Avatar } from '@twilio-paste/avatar';
-import { Box } from '@twilio-paste/box';
-import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
-import * as React from 'react';
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
+import * as React from "react";
 
-import { DisplayPill } from '../src/DisplayPill';
-import { DisplayPillGroup } from '../src/DisplayPillGroup';
+import { DisplayPill } from "../src/DisplayPill";
+import { DisplayPillGroup } from "../src/DisplayPillGroup";
 
 export const Basic = (): JSX.Element => {
   return (
@@ -13,11 +13,11 @@ export const Basic = (): JSX.Element => {
         data-testid="display-pill-anchor"
         onFocus={() => {
           // eslint-disable-next-line no-console
-          console.log('Focused Tennis!');
+          console.log("Focused Tennis!");
         }}
         onBlur={() => {
           // eslint-disable-next-line no-console
-          console.log('Blurred Tennis!');
+          console.log("Blurred Tennis!");
         }}
         href="https://google.com"
       >
@@ -47,11 +47,11 @@ export const OverflowWrapping = (): JSX.Element => {
           data-testid="display-pill-anchor"
           onFocus={() => {
             // eslint-disable-next-line no-console
-            console.log('Focused Tennis!');
+            console.log("Focused Tennis!");
           }}
           onBlur={() => {
             // eslint-disable-next-line no-console
-            console.log('Blurred Tennis!');
+            console.log("Blurred Tennis!");
           }}
           href="https://google.com"
         >
@@ -73,6 +73,6 @@ export const OverflowWrapping = (): JSX.Element => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Display Pill Group',
+  title: "Components/Display Pill Group",
   component: DisplayPill,
 };

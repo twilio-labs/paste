@@ -1,12 +1,12 @@
-import { render, screen } from '@testing-library/react';
-import type { RenderOptions } from '@testing-library/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Theme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { render, screen } from "@testing-library/react";
+import type { RenderOptions } from "@testing-library/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Spinner } from '../src';
+import { Spinner } from "../src";
 
-const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] =>
+const TestWrapper = (elements?: Record<string, any>): RenderOptions["wrapper"] =>
   function Wrapper({ children }) {
     return (
       <CustomizationProvider theme={TestTheme} elements={elements} data-testid="test-wrapper">
@@ -15,49 +15,49 @@ const TestWrapper = (elements?: Record<string, any>): RenderOptions['wrapper'] =
     );
   };
 
-describe('Spinner', () => {
-  describe('HTML Attribute', () => {
-    it('should set an element data attribute for Spinner (default)', () => {
+describe("Spinner", () => {
+  describe("HTML Attribute", () => {
+    it("should set an element data attribute for Spinner (default)", () => {
       render(<Spinner color="colorText" title="Default name customization" decorative={false} />, {
         wrapper: TestWrapper(),
       });
 
-      const nodeNamedSpinner = screen.getByTestId('test-wrapper').firstChild as HTMLElement;
+      const nodeNamedSpinner = screen.getByTestId("test-wrapper").firstChild as HTMLElement;
 
-      expect(nodeNamedSpinner.getAttribute('data-paste-element')).toEqual('SPINNER');
+      expect(nodeNamedSpinner.getAttribute("data-paste-element")).toEqual("SPINNER");
     });
 
-    it('should set an element data attribute for Spinner', () => {
+    it("should set an element data attribute for Spinner", () => {
       render(
         <Spinner element="CUSTOM_SPINNER_A" color="colorText" title="Unique name customization" decorative={false} />,
         { wrapper: TestWrapper() },
       );
 
-      const nodeNamedSpinner = screen.getByTestId('test-wrapper').firstChild as HTMLElement;
+      const nodeNamedSpinner = screen.getByTestId("test-wrapper").firstChild as HTMLElement;
 
-      expect(nodeNamedSpinner.getAttribute('data-paste-element')).toEqual('CUSTOM_SPINNER_A');
+      expect(nodeNamedSpinner.getAttribute("data-paste-element")).toEqual("CUSTOM_SPINNER_A");
     });
   });
 
-  describe('Customization', () => {
+  describe("Customization", () => {
     const TEST_ELEMENT_OVERRIDES = {
       SPINNER: {
-        color: 'colorTextIconSuccess',
+        color: "colorTextIconSuccess",
       },
       CUSTOM_SPINNER_A: {
-        size: 'sizeIcon80',
-        backgroundColor: 'colorBackgroundBrand',
-        color: 'colorTextInverse',
-        alignSelf: 'flex-start',
-        padding: 'space20',
+        size: "sizeIcon80",
+        backgroundColor: "colorBackgroundBrand",
+        color: "colorTextInverse",
+        alignSelf: "flex-start",
+        padding: "space20",
       },
       CUSTOM_SPINNER_B: {
-        size: 'sizeIcon60',
-        alignSelf: 'flex-end',
-        color: 'colorTextNew',
+        size: "sizeIcon60",
+        alignSelf: "flex-end",
+        color: "colorTextNew",
       },
     };
-    it('should add custom styles to Spinner for default variant', () => {
+    it("should add custom styles to Spinner for default variant", () => {
       render(
         <Spinner
           color="colorText"
@@ -69,12 +69,12 @@ describe('Spinner', () => {
         },
       );
 
-      const nodeNamedSpinner = screen.getByTestId('test-wrapper').firstChild as HTMLElement;
+      const nodeNamedSpinner = screen.getByTestId("test-wrapper").firstChild as HTMLElement;
 
-      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(14, 124, 58)');
+      expect(nodeNamedSpinner).toHaveStyleRule("color", "rgb(14, 124, 58)");
     });
 
-    it('should add custom styles to Spinner with a custom element data attribute', () => {
+    it("should add custom styles to Spinner with a custom element data attribute", () => {
       render(
         <Spinner
           element="CUSTOM_SPINNER_A"
@@ -87,14 +87,14 @@ describe('Spinner', () => {
         },
       );
 
-      const nodeNamedSpinner = screen.getByTestId('test-wrapper').firstChild as HTMLElement;
+      const nodeNamedSpinner = screen.getByTestId("test-wrapper").firstChild as HTMLElement;
 
-      expect(nodeNamedSpinner).toHaveStyleRule('height', '2.5rem');
-      expect(nodeNamedSpinner).toHaveStyleRule('width', '2.5rem');
-      expect(nodeNamedSpinner).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
-      expect(nodeNamedSpinner).toHaveStyleRule('color', 'rgb(255, 255, 255)');
-      expect(nodeNamedSpinner).toHaveStyleRule('align-self', 'flex-start');
-      expect(nodeNamedSpinner).toHaveStyleRule('padding', '0.25rem');
+      expect(nodeNamedSpinner).toHaveStyleRule("height", "2.5rem");
+      expect(nodeNamedSpinner).toHaveStyleRule("width", "2.5rem");
+      expect(nodeNamedSpinner).toHaveStyleRule("background-color", "rgb(0, 20, 137)");
+      expect(nodeNamedSpinner).toHaveStyleRule("color", "rgb(255, 255, 255)");
+      expect(nodeNamedSpinner).toHaveStyleRule("align-self", "flex-start");
+      expect(nodeNamedSpinner).toHaveStyleRule("padding", "0.25rem");
     });
   });
 });

@@ -1,1 +1,1 @@
-export * from '@twilio-paste/visual-picker';
+export * from "@twilio-paste/visual-picker";

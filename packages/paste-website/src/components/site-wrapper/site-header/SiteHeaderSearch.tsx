@@ -1,10 +1,10 @@
-import '@docsearch/css';
-import { DocSearchButton, useDocSearchKeyboardEvents } from '@docsearch/react';
-import type { DocSearchModal as DocSearchModalType } from '@docsearch/react';
-import Head from 'next/head';
-import * as React from 'react';
+import "@docsearch/css";
+import { DocSearchButton, useDocSearchKeyboardEvents } from "@docsearch/react";
+import type { DocSearchModal as DocSearchModalType } from "@docsearch/react";
+import Head from "next/head";
+import * as React from "react";
 
-import { DOCSEARCHV3_APIKEY, DOCSEARCHV3_APPID, DOCSEARCHV3_INDEXNAME } from '../../../constants';
+import { DOCSEARCHV3_APIKEY, DOCSEARCHV3_APPID, DOCSEARCHV3_INDEXNAME } from "../../../constants";
 
 // https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-theme-search-algolia/src/theme/SearchBar/index.tsx
 let DocSearchModal: typeof DocSearchModalType | null = null;
@@ -17,8 +17,8 @@ const SiteHeaderSearch: React.FC = () => {
     if (DocSearchModal) {
       return;
     }
-    const { DocSearchModal: Modal }: typeof import('@docsearch/react') = await import(
-      /* webpackChunkName: 'DocSearchModal' */ '@docsearch/react/modal'
+    const { DocSearchModal: Modal }: typeof import("@docsearch/react") = await import(
+      /* webpackChunkName: 'DocSearchModal' */ "@docsearch/react/modal"
     );
     DocSearchModal = Modal;
   }, []);
@@ -61,8 +61,8 @@ const SiteHeaderSearch: React.FC = () => {
         <DocSearchModal
           placeholder={`Try "button" or "token"`}
           appId={DOCSEARCHV3_APPID}
-          indexName={DOCSEARCHV3_INDEXNAME || ''}
-          apiKey={DOCSEARCHV3_APIKEY || ''}
+          indexName={DOCSEARCHV3_INDEXNAME || ""}
+          apiKey={DOCSEARCHV3_APIKEY || ""}
           initialScrollY={window.scrollY}
           onClose={onClose}
         />

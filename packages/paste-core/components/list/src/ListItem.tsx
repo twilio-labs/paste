@@ -1,10 +1,10 @@
-import { Text, safelySpreadTextProps } from '@twilio-paste/text';
-import * as React from 'react';
+import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import * as React from "react";
 
-import type { ListItemProps } from './types';
+import type { ListItemProps } from "./types";
 
 const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
-  ({ children, element = 'LIST_ITEM', ...props }, ref) => {
+  ({ children, element = "LIST_ITEM", ...props }, ref) => {
     return (
       <Text
         {...safelySpreadTextProps(props)}
@@ -24,6 +24,6 @@ const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
   },
 );
 
-ListItem.displayName = 'ListItem';
+ListItem.displayName = "ListItem";
 
 export { ListItem };

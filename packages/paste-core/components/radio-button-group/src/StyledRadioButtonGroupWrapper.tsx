@@ -1,4 +1,4 @@
-import { css, styled } from '@twilio-paste/styling-library';
+import { css, styled } from "@twilio-paste/styling-library";
 
 export const AttachedRadioButtonGroupWrapper = styled.span(
   css({
@@ -8,25 +8,25 @@ export const AttachedRadioButtonGroupWrapper = styled.span(
      * Not applied to hover for consistent styling with borders.
      */
 
-    '& > label:focus-within': {
+    "& > label:focus-within": {
       zIndex: 2,
-      position: 'relative',
+      position: "relative",
     },
-    '& > label:first-of-type': {
-      '& > span': {
+    "& > label:first-of-type": {
+      "& > span": {
         borderTopRightRadius: 0,
         borderBottomRightRadius: 0,
       },
     },
-    '& > label:not(:first-of-type):not(:last-of-type)': {
-      '& > span': {
+    "& > label:not(:first-of-type):not(:last-of-type)": {
+      "& > span": {
         borderRadius: 0,
-        marginLeft: '1px',
+        marginLeft: "1px",
       },
     },
-    '& > label:last-of-type': {
-      '& > span': {
-        marginLeft: '1px',
+    "& > label:last-of-type": {
+      "& > span": {
+        marginLeft: "1px",
         borderTopLeftRadius: 0,
         borderBottomLeftRadius: 0,
       },
@@ -36,11 +36,11 @@ export const AttachedRadioButtonGroupWrapper = styled.span(
 
 export const UnattachedRadioButtonGroupWrapper = styled.span(
   css({
-    '& > label:first-of-type': {
-      marginLeft: 'space0',
+    "& > label:first-of-type": {
+      marginLeft: "space0",
     },
-    '& > label:not(:first-of-type)': {
-      marginLeft: 'space40',
+    "& > label:not(:first-of-type)": {
+      marginLeft: "space40",
     },
   }),
 );

@@ -1,12 +1,12 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { ListboxPrimitiveInitialState, ListboxPrimitiveStateReturn } from '@twilio-paste/listbox-primitive';
-import { ListboxPrimitive, useListboxPrimitiveState } from '@twilio-paste/listbox-primitive';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { ListboxPrimitiveInitialState, ListboxPrimitiveStateReturn } from "@twilio-paste/listbox-primitive";
+import { ListboxPrimitive, useListboxPrimitiveState } from "@twilio-paste/listbox-primitive";
+import * as React from "react";
 
-import type { UserDialogListProps, UserDialogListboxProps } from './types';
+import type { UserDialogListProps, UserDialogListboxProps } from "./types";
 
 const UserDialogListbox = React.forwardRef<HTMLDivElement, UserDialogListboxProps>(
-  ({ element = 'USER_DIALOG', ...props }, ref) => {
+  ({ element = "USER_DIALOG", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -21,7 +21,7 @@ const UserDialogListbox = React.forwardRef<HTMLDivElement, UserDialogListboxProp
     );
   },
 );
-UserDialogListbox.displayName = 'UserDialogListbox';
+UserDialogListbox.displayName = "UserDialogListbox";
 
 export const UserDialogList = React.forwardRef<HTMLDivElement, UserDialogListProps>(({ children, ...props }, ref) => {
   return (
@@ -30,8 +30,8 @@ export const UserDialogList = React.forwardRef<HTMLDivElement, UserDialogListPro
     </ListboxPrimitive>
   );
 });
-UserDialogList.displayName = 'UserDialogList';
+UserDialogList.displayName = "UserDialogList";
 
 export const useUserDialogListState = (props?: ListboxPrimitiveInitialState): ListboxPrimitiveStateReturn => {
-  return useListboxPrimitiveState({ ...props, orientation: 'vertical' });
+  return useListboxPrimitiveState({ ...props, orientation: "vertical" });
 };

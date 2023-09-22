@@ -1,7 +1,7 @@
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { AnchoredHeading } from '../src/components/Heading';
+import { AnchoredHeading } from "../src/components/Heading";
 
 export const SectionHeaderAnchor = (): React.ReactNode => {
   /*
@@ -25,5 +25,5 @@ export const SectionHeaderAnchor = (): React.ReactNode => {
 };
 
 export default {
-  title: 'Website/SectionHeaderAnchor',
+  title: "Website/SectionHeaderAnchor",
 };

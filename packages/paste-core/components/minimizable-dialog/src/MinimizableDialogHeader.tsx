@@ -1,29 +1,29 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { ChevronUpIcon } from '@twilio-paste/icons/esm/ChevronUpIcon';
-import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
-import { MinusIcon } from '@twilio-paste/icons/esm/MinusIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ChevronUpIcon } from "@twilio-paste/icons/esm/ChevronUpIcon";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { MinusIcon } from "@twilio-paste/icons/esm/MinusIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { MinimizableDialogContext } from './MinimizableDialogContext';
+import { MinimizableDialogContext } from "./MinimizableDialogContext";
 
-export interface MinimizableDialogHeaderProps extends HTMLPasteProps<'div'> {
+export interface MinimizableDialogHeaderProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
   i18nDismissLabel?: string;
   i18nMinimizeLabel?: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDialogHeaderProps>(
   (
     {
       children,
-      element = 'MINIMIZABLE_DIALOG_HEADER',
-      i18nDismissLabel = 'close',
-      i18nMinimizeLabel = 'minimize',
+      element = "MINIMIZABLE_DIALOG_HEADER",
+      i18nDismissLabel = "close",
+      i18nMinimizeLabel = "minimize",
       ...props
     },
     ref,
@@ -84,6 +84,6 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
   },
 );
 
-MinimizableDialogHeader.displayName = 'MinimizableDialogHeader';
+MinimizableDialogHeader.displayName = "MinimizableDialogHeader";
 
 export { MinimizableDialogHeader };

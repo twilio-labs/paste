@@ -1,17 +1,17 @@
-import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Theme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { render, screen, waitFor } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState } from '../src';
-import type { DisclosureHeadingProps, DisclosureProps } from '../src';
+import { Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState } from "../src";
+import type { DisclosureHeadingProps, DisclosureProps } from "../src";
 
 const MockDisclosure: React.FC<
   React.PropsWithChildren<{
-    visible?: DisclosureProps['visible'];
-    disabled?: DisclosureHeadingProps['disabled'];
-    focusable?: DisclosureHeadingProps['focusable'];
+    visible?: DisclosureProps["visible"];
+    disabled?: DisclosureHeadingProps["disabled"];
+    focusable?: DisclosureHeadingProps["focusable"];
   }>
 > = ({ visible, disabled, focusable }) => {
   return (
@@ -76,142 +76,142 @@ const StateHookMock = (): JSX.Element => {
   );
 };
 
-describe('Disclosure', () => {
-  describe('Render', () => {
-    it('should render a disclosure button with aria attributes', () => {
+describe("Disclosure", () => {
+  describe("Render", () => {
+    it("should render a disclosure button with aria attributes", () => {
       render(<MockDisclosure />);
-      const renderedDisclosureButton = screen.getByRole('button');
-      expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('false');
-      expect(renderedDisclosureButton.getAttribute('aria-controls')).toEqual('disclosure');
-      expect(renderedDisclosureButton.getAttribute('tabindex')).toEqual('0');
-      expect(screen.getByTestId('disclosure').id).toEqual('disclosure');
+      const renderedDisclosureButton = screen.getByRole("button");
+      expect(renderedDisclosureButton.getAttribute("aria-expanded")).toEqual("false");
+      expect(renderedDisclosureButton.getAttribute("aria-controls")).toEqual("disclosure");
+      expect(renderedDisclosureButton.getAttribute("tabindex")).toEqual("0");
+      expect(screen.getByTestId("disclosure").id).toEqual("disclosure");
     });
-    it('should render a disclosure open', async () => {
+    it("should render a disclosure open", async () => {
       await waitFor(() => {
         render(<MockDisclosure visible />);
       });
-      const renderedDisclosureButton = screen.getByRole('button');
-      expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
+      const renderedDisclosureButton = screen.getByRole("button");
+      expect(renderedDisclosureButton.getAttribute("aria-expanded")).toEqual("true");
     });
-    it('should update attributes when clicked', async () => {
+    it("should update attributes when clicked", async () => {
       render(<MockDisclosure />);
-      const renderedDisclosureButton = screen.getByRole('button');
+      const renderedDisclosureButton = screen.getByRole("button");
       userEvent.click(renderedDisclosureButton);
-      expect(renderedDisclosureButton.getAttribute('aria-expanded')).toEqual('true');
+      expect(renderedDisclosureButton.getAttribute("aria-expanded")).toEqual("true");
     });
-    it('should render a disabled disclosure', () => {
+    it("should render a disabled disclosure", () => {
       render(<MockDisclosure disabled />);
-      const renderedDisclosureButton = screen.getByRole('button');
-      expect(renderedDisclosureButton.getAttribute('aria-disabled')).toEqual('true');
-      expect(renderedDisclosureButton.getAttribute('tabindex')).toBeNull();
+      const renderedDisclosureButton = screen.getByRole("button");
+      expect(renderedDisclosureButton.getAttribute("aria-disabled")).toEqual("true");
+      expect(renderedDisclosureButton.getAttribute("tabindex")).toBeNull();
     });
-    it('should render a disabled but focusable disclosure', () => {
+    it("should render a disabled but focusable disclosure", () => {
       render(<MockDisclosure disabled focusable />);
-      const renderedDisclosureButton = screen.getByRole('button');
-      expect(renderedDisclosureButton.getAttribute('aria-disabled')).toEqual('true');
-      expect(renderedDisclosureButton.getAttribute('tabindex')).toEqual('0');
+      const renderedDisclosureButton = screen.getByRole("button");
+      expect(renderedDisclosureButton.getAttribute("aria-disabled")).toEqual("true");
+      expect(renderedDisclosureButton.getAttribute("tabindex")).toEqual("0");
     });
-    it('should render a disclosure open and update attributes when clicked using a state hook', async () => {
+    it("should render a disclosure open and update attributes when clicked using a state hook", async () => {
       render(<StateHookMock />);
-      const toggleButton = screen.getByTestId('external-toggle');
-      const disclosureButton = screen.getByTestId('disclosure-button');
-      const disclosureContent = screen.getByTestId('disclosure-content');
-      expect(disclosureButton.getAttribute('aria-expanded')).toEqual('false');
+      const toggleButton = screen.getByTestId("external-toggle");
+      const disclosureButton = screen.getByTestId("disclosure-button");
+      const disclosureContent = screen.getByTestId("disclosure-content");
+      expect(disclosureButton.getAttribute("aria-expanded")).toEqual("false");
       expect(disclosureContent).not.toBeVisible();
       userEvent.click(toggleButton);
-      expect(disclosureButton.getAttribute('aria-expanded')).toEqual('true');
+      expect(disclosureButton.getAttribute("aria-expanded")).toEqual("true");
       waitFor(() => {
         expect(disclosureContent).toBeVisible();
       });
     });
   });
 
-  describe('Customization', () => {
-    it('should set an element data attribute for Disclosure components', () => {
+  describe("Customization", () => {
+    it("should set an element data attribute for Disclosure components", () => {
       render(
         <Theme.Provider theme="default">
           <MockDefaultElementDisclosure />
         </Theme.Provider>,
       );
 
-      const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
-      const renderedDisclosure = screen.getByTestId('disclosure');
-      const renderedDisclosureContent = screen.getByTestId('disclosure-content');
+      const renderedDisclosureHeading = screen.getByTestId("disclosure-heading");
+      const renderedDisclosure = screen.getByTestId("disclosure");
+      const renderedDisclosureContent = screen.getByTestId("disclosure-content");
 
-      expect(renderedDisclosure.getAttribute('data-paste-element')).toEqual('DISCLOSURE');
-      expect(renderedDisclosureHeading.getAttribute('data-paste-element')).toEqual('DISCLOSURE_HEADING');
-      expect(renderedDisclosureContent.getAttribute('data-paste-element')).toEqual('DISCLOSURE_CONTENT');
+      expect(renderedDisclosure.getAttribute("data-paste-element")).toEqual("DISCLOSURE");
+      expect(renderedDisclosureHeading.getAttribute("data-paste-element")).toEqual("DISCLOSURE_HEADING");
+      expect(renderedDisclosureContent.getAttribute("data-paste-element")).toEqual("DISCLOSURE_CONTENT");
     });
 
-    it('should set a custom element data attribute for custom named Disclosure components', () => {
+    it("should set a custom element data attribute for custom named Disclosure components", () => {
       render(
         <Theme.Provider theme="default">
           <MockCustomElementDisclosure />
         </Theme.Provider>,
       );
 
-      const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
-      const renderedDisclosure = screen.getByTestId('disclosure');
-      const renderedDisclosureContent = screen.getByTestId('disclosure-content');
+      const renderedDisclosureHeading = screen.getByTestId("disclosure-heading");
+      const renderedDisclosure = screen.getByTestId("disclosure");
+      const renderedDisclosureContent = screen.getByTestId("disclosure-content");
 
-      expect(renderedDisclosure.getAttribute('data-paste-element')).toEqual('MY_DISCLOSURE');
-      expect(renderedDisclosureHeading.getAttribute('data-paste-element')).toEqual('MY_DISCLOSURE_HEADING');
-      expect(renderedDisclosureContent.getAttribute('data-paste-element')).toEqual('MY_DISCLOSURE_CONTENT');
+      expect(renderedDisclosure.getAttribute("data-paste-element")).toEqual("MY_DISCLOSURE");
+      expect(renderedDisclosureHeading.getAttribute("data-paste-element")).toEqual("MY_DISCLOSURE_HEADING");
+      expect(renderedDisclosureContent.getAttribute("data-paste-element")).toEqual("MY_DISCLOSURE_CONTENT");
     });
 
-    it('should add custom styles to Disclosure components', () => {
+    it("should add custom styles to Disclosure components", () => {
       render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            DISCLOSURE: { padding: 'space100' },
-            DISCLOSURE_CONTENT: { color: 'colorTextErrorStrong' },
-            DISCLOSURE_HEADING: { color: 'colorTextWeakest', backgroundColor: 'colorBackgroundDestructiveStrong' },
-            DISCLOSURE_HEADING_ICON: { color: 'colorTextIconError' },
+            DISCLOSURE: { padding: "space100" },
+            DISCLOSURE_CONTENT: { color: "colorTextErrorStrong" },
+            DISCLOSURE_HEADING: { color: "colorTextWeakest", backgroundColor: "colorBackgroundDestructiveStrong" },
+            DISCLOSURE_HEADING_ICON: { color: "colorTextIconError" },
           }}
         >
           <MockDefaultElementDisclosure />
         </CustomizationProvider>,
       );
 
-      const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
+      const renderedDisclosureHeading = screen.getByTestId("disclosure-heading");
       const renderedDisclosureHeadingIcon = renderedDisclosureHeading.firstChild;
-      const renderedDisclosure = screen.getByTestId('disclosure');
-      const renderedDisclosureContent = screen.getByTestId('disclosure-content');
+      const renderedDisclosure = screen.getByTestId("disclosure");
+      const renderedDisclosureContent = screen.getByTestId("disclosure-content");
 
-      expect(renderedDisclosure).toHaveStyleRule('padding', '2.25rem');
-      expect(renderedDisclosureHeading).toHaveStyleRule('color', 'rgb(255, 255, 255)');
-      expect(renderedDisclosureHeading).toHaveStyleRule('background-color', 'rgb(117, 12, 12)');
-      expect(renderedDisclosureHeadingIcon).toHaveStyleRule('color', 'rgb(214, 31, 31)');
-      expect(renderedDisclosureContent).toHaveStyleRule('color', 'rgb(173, 17, 17)');
+      expect(renderedDisclosure).toHaveStyleRule("padding", "2.25rem");
+      expect(renderedDisclosureHeading).toHaveStyleRule("color", "rgb(255, 255, 255)");
+      expect(renderedDisclosureHeading).toHaveStyleRule("background-color", "rgb(117, 12, 12)");
+      expect(renderedDisclosureHeadingIcon).toHaveStyleRule("color", "rgb(214, 31, 31)");
+      expect(renderedDisclosureContent).toHaveStyleRule("color", "rgb(173, 17, 17)");
     });
 
-    it('should add custom styles to custom named Disclosure components', () => {
+    it("should add custom styles to custom named Disclosure components", () => {
       render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            MY_DISCLOSURE: { padding: 'space100' },
-            MY_DISCLOSURE_CONTENT: { color: 'colorTextErrorStrong' },
-            MY_DISCLOSURE_HEADING: { color: 'colorTextWeakest', backgroundColor: 'colorBackgroundDestructiveStrong' },
-            MY_DISCLOSURE_HEADING_ICON: { color: 'colorTextIconError' },
+            MY_DISCLOSURE: { padding: "space100" },
+            MY_DISCLOSURE_CONTENT: { color: "colorTextErrorStrong" },
+            MY_DISCLOSURE_HEADING: { color: "colorTextWeakest", backgroundColor: "colorBackgroundDestructiveStrong" },
+            MY_DISCLOSURE_HEADING_ICON: { color: "colorTextIconError" },
           }}
         >
           <MockCustomElementDisclosure />
         </CustomizationProvider>,
       );
-      const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
+      const renderedDisclosureHeading = screen.getByTestId("disclosure-heading");
       const renderedDisclosureHeadingIcon = renderedDisclosureHeading.firstChild;
-      const renderedDisclosure = screen.getByTestId('disclosure');
-      const renderedDisclosureContent = screen.getByTestId('disclosure-content');
+      const renderedDisclosure = screen.getByTestId("disclosure");
+      const renderedDisclosureContent = screen.getByTestId("disclosure-content");
 
-      expect(renderedDisclosure).toHaveStyleRule('padding', '2.25rem');
-      expect(renderedDisclosureHeading).toHaveStyleRule('color', 'rgb(255, 255, 255)');
-      expect(renderedDisclosureHeading).toHaveStyleRule('background-color', 'rgb(117, 12, 12)');
-      expect(renderedDisclosureHeadingIcon).toHaveStyleRule('color', 'rgb(214, 31, 31)');
-      expect(renderedDisclosureContent).toHaveStyleRule('color', 'rgb(173, 17, 17)');
+      expect(renderedDisclosure).toHaveStyleRule("padding", "2.25rem");
+      expect(renderedDisclosureHeading).toHaveStyleRule("color", "rgb(255, 255, 255)");
+      expect(renderedDisclosureHeading).toHaveStyleRule("background-color", "rgb(117, 12, 12)");
+      expect(renderedDisclosureHeadingIcon).toHaveStyleRule("color", "rgb(214, 31, 31)");
+      expect(renderedDisclosureContent).toHaveStyleRule("color", "rgb(173, 17, 17)");
     });
   });
 });

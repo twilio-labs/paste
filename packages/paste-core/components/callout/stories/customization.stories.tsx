@@ -1,14 +1,14 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from '../src';
+import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Callout/Customization',
+  title: "Components/Callout/Customization",
   parameters: {
     a11y: {
       // no need to a11y check customization
@@ -25,35 +25,35 @@ export const CustomizedCallout: StoryFn = (_args, { parameters: { isTestEnvironm
       theme={currentTheme}
       elements={{
         CALLOUT: {
-          padding: 'space40',
+          padding: "space40",
           variants: {
             neutral: {
-              backgroundColor: 'colorBackgroundBodyInverse',
-              color: 'colorTextInverse',
+              backgroundColor: "colorBackgroundBodyInverse",
+              color: "colorTextInverse",
             },
             warning: {
-              backgroundColor: 'colorBackground',
-              color: 'colorTextWarningStrong',
-              borderStyle: 'solid',
-              borderWidth: 'borderWidth20',
-              borderColor: 'colorBorderWarning',
+              backgroundColor: "colorBackground",
+              color: "colorTextWarningStrong",
+              borderStyle: "solid",
+              borderWidth: "borderWidth20",
+              borderColor: "colorBorderWarning",
             },
           },
         },
         CALLOUT_HEADING: {
-          fontSize: 'fontSize50',
-          lineHeight: 'lineHeight50',
+          fontSize: "fontSize50",
+          lineHeight: "lineHeight50",
         },
         CALLOUT_TEXT: {
-          fontSize: 'fontSize30',
-          lineHeight: 'lineHeight30',
+          fontSize: "fontSize30",
+          lineHeight: "lineHeight30",
         },
         CALLOUT_LIST: {
-          marginLeft: 'space50',
+          marginLeft: "space50",
         },
         CALLOUT_LIST_ITEM: {
-          fontSize: 'fontSize30',
-          lineHeight: 'lineHeight30',
+          fontSize: "fontSize30",
+          lineHeight: "lineHeight30",
         },
       }}
     >

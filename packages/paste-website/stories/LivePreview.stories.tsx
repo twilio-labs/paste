@@ -1,12 +1,12 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { Stack } from '@twilio-paste/stack';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import { Stack } from "@twilio-paste/stack";
+import * as React from "react";
 
-import { LivePreview } from '../src/components/shortcodes/live-preview';
-import { PreviewThemeContext } from '../src/context/PreviewThemeContext';
+import { LivePreview } from "../src/components/shortcodes/live-preview";
+import { PreviewThemeContext } from "../src/context/PreviewThemeContext";
 
 export const SmallLivePreview = (): React.ReactNode => {
-  const [previewTheme, setPreviewTheme] = React.useState('twilio');
+  const [previewTheme, setPreviewTheme] = React.useState("twilio");
   return (
     <PreviewThemeContext.Provider value={{ theme: previewTheme, selectTheme: setPreviewTheme }}>
       <LivePreview scope={{ Anchor }} language="jsx">
@@ -25,7 +25,7 @@ SmallLivePreview.parameters = {
 };
 
 export const LargeLivePreview = (): React.ReactNode => {
-  const [previewTheme, setPreviewTheme] = React.useState('twilio');
+  const [previewTheme, setPreviewTheme] = React.useState("twilio");
   return (
     <PreviewThemeContext.Provider value={{ theme: previewTheme, selectTheme: setPreviewTheme }}>
       <LivePreview scope={{ Anchor, Stack }} language="jsx">
@@ -49,5 +49,5 @@ LargeLivePreview.parameters = {
 };
 
 export default {
-  title: 'Website/LivePreview',
+  title: "Website/LivePreview",
 };

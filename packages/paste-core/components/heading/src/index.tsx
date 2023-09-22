@@ -1,69 +1,69 @@
-import type { TextStyleProps } from '@twilio-paste/text';
-import { Text, safelySpreadTextProps } from '@twilio-paste/text';
-import * as React from 'react';
+import type { TextStyleProps } from "@twilio-paste/text";
+import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import * as React from "react";
 
-import type { AsTags, HeadingProps, HeadingVariants } from './types';
+import type { AsTags, HeadingProps, HeadingVariants } from "./types";
 
-function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space0'): TextStyleProps {
+function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: "space0"): TextStyleProps {
   switch (headingVariant) {
-    case 'heading10':
+    case "heading10":
       return {
-        marginBottom: marginBottom || 'space70',
-        fontSize: 'fontSize90',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight90',
-        letterSpacing: '-.02em',
+        marginBottom: marginBottom || "space70",
+        fontSize: "fontSize90",
+        fontWeight: "fontWeightSemibold",
+        lineHeight: "lineHeight90",
+        letterSpacing: "-.02em",
       };
-    case 'heading30':
+    case "heading30":
       return {
-        marginBottom: marginBottom || 'space50',
-        fontSize: 'fontSize60',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight60',
-        letterSpacing: '-.02em',
+        marginBottom: marginBottom || "space50",
+        fontSize: "fontSize60",
+        fontWeight: "fontWeightSemibold",
+        lineHeight: "lineHeight60",
+        letterSpacing: "-.02em",
       };
-    case 'heading40':
+    case "heading40":
       return {
-        marginBottom: marginBottom || 'space40',
-        fontSize: 'fontSize40',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight40',
-        letterSpacing: '-.02em',
+        marginBottom: marginBottom || "space40",
+        fontSize: "fontSize40",
+        fontWeight: "fontWeightSemibold",
+        lineHeight: "lineHeight40",
+        letterSpacing: "-.02em",
       };
-    case 'heading50':
+    case "heading50":
       return {
-        marginBottom: marginBottom || 'space30',
-        fontSize: 'fontSize30',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight30',
-        letterSpacing: '-.02em',
+        marginBottom: marginBottom || "space30",
+        fontSize: "fontSize30",
+        fontWeight: "fontWeightSemibold",
+        lineHeight: "lineHeight30",
+        letterSpacing: "-.02em",
       };
-    case 'heading60':
+    case "heading60":
       return {
-        marginBottom: marginBottom || 'space30',
-        fontSize: 'fontSize20',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight20',
-        letterSpacing: '-.02em',
+        marginBottom: marginBottom || "space30",
+        fontSize: "fontSize20",
+        fontWeight: "fontWeightSemibold",
+        lineHeight: "lineHeight20",
+        letterSpacing: "-.02em",
       };
     /**
      * heading20 is out of order because its also default.
      * Default is at the bottom of switch statement for readability.
      */
-    case 'heading20':
+    case "heading20":
     default:
       return {
-        marginBottom: marginBottom || 'space60',
-        fontSize: 'fontSize70',
-        fontWeight: 'fontWeightSemibold',
-        lineHeight: 'lineHeight70',
-        letterSpacing: '-.02em',
+        marginBottom: marginBottom || "space60",
+        fontSize: "fontSize70",
+        fontWeight: "fontWeightSemibold",
+        lineHeight: "lineHeight70",
+        letterSpacing: "-.02em",
       };
   }
 }
 
 const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
-  ({ as, children, display = 'block', element = 'HEADING', id, marginBottom, variant, ...props }, ref) => {
+  ({ as, children, display = "block", element = "HEADING", id, marginBottom, variant, ...props }, ref) => {
     return (
       <Text
         {...safelySpreadTextProps(props)}
@@ -82,7 +82,7 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
   },
 );
 
-Heading.displayName = 'Heading';
+Heading.displayName = "Heading";
 
 export type { HeadingProps, HeadingVariants, AsTags as asTags };
 export { Heading };

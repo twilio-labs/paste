@@ -1,11 +1,11 @@
-import { animated, useTransition } from '@twilio-paste/animation-library';
-import { Box, type BoxProps, safelySpreadBoxProps } from '@twilio-paste/box';
-import { NonModalDialogPrimitive } from '@twilio-paste/non-modal-dialog-primitive';
-import { StyledBase } from '@twilio-paste/theme';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { animated, useTransition } from "@twilio-paste/animation-library";
+import { Box, type BoxProps, safelySpreadBoxProps } from "@twilio-paste/box";
+import { NonModalDialogPrimitive } from "@twilio-paste/non-modal-dialog-primitive";
+import { StyledBase } from "@twilio-paste/theme";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { SideModalContext } from './SideModalContext';
+import { SideModalContext } from "./SideModalContext";
 
 export const AnimatedBox = animated(Box);
 
@@ -22,15 +22,15 @@ const getAnimationStates = (): any => ({
   },
 });
 
-export interface SideModalProps extends HTMLPasteProps<'div'> {
+export interface SideModalProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
-  'aria-label': string;
-  element?: BoxProps['element'];
+  "aria-label": string;
+  element?: BoxProps["element"];
   hideOnEsc?: boolean;
 }
 
 export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
-  ({ children, element = 'SIDE_MODAL', hideOnEsc = true, ...props }, ref) => {
+  ({ children, element = "SIDE_MODAL", hideOnEsc = true, ...props }, ref) => {
     const dialog = React.useContext(SideModalContext);
     const transitions = useTransition(dialog.visible, getAnimationStates());
 
@@ -57,7 +57,7 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
         left="auto !important"
         transform="none !important"
         _focus={{
-          outline: 'none',
+          outline: "none",
         }}
       >
         <StyledBase>
@@ -85,4 +85,4 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
   },
 );
 
-SideModal.displayName = 'SideModal';
+SideModal.displayName = "SideModal";

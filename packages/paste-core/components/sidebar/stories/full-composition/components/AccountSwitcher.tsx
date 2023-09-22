@@ -6,12 +6,12 @@ import {
   AccountSwitcherItemRadio,
   AccountSwitcherSeparator,
   useAccountSwitcherState,
-} from '@twilio-paste/account-switcher';
-import * as React from 'react';
+} from "@twilio-paste/account-switcher";
+import * as React from "react";
 
 export const AccountSwitcherMenu: React.FC = () => {
   const accountSwitcher = useAccountSwitcherState();
-  const [selectedAccount, setSelectedAccount] = React.useState('Owl Telehealth');
+  const [selectedAccount, setSelectedAccount] = React.useState("Owl Telehealth");
   return (
     <>
       <AccountSwitcherBadge {...accountSwitcher} i18nButtonLabel="Switch accounts">
@@ -22,8 +22,8 @@ export const AccountSwitcherMenu: React.FC = () => {
           <AccountSwitcherItemRadio
             name="recent_accounts"
             value="Owl Telehealth"
-            checked={selectedAccount === 'Owl Telehealth'}
-            onChange={() => setSelectedAccount('Owl Telehealth')}
+            checked={selectedAccount === "Owl Telehealth"}
+            onChange={() => setSelectedAccount("Owl Telehealth")}
             {...accountSwitcher}
           >
             Owl Telehealth
@@ -31,8 +31,8 @@ export const AccountSwitcherMenu: React.FC = () => {
           <AccountSwitcherItemRadio
             name="recent_accounts"
             value="Owl Health Demo"
-            checked={selectedAccount === 'Owl Health Demo'}
-            onChange={() => setSelectedAccount('Owl Health Demo')}
+            checked={selectedAccount === "Owl Health Demo"}
+            onChange={() => setSelectedAccount("Owl Health Demo")}
             {...accountSwitcher}
           >
             Owl Health Demo
@@ -40,8 +40,8 @@ export const AccountSwitcherMenu: React.FC = () => {
           <AccountSwitcherItemRadio
             name="recent_accounts"
             value="Owl Subway"
-            checked={selectedAccount === 'Owl Subway'}
-            onChange={() => setSelectedAccount('Owl Subway')}
+            checked={selectedAccount === "Owl Subway"}
+            onChange={() => setSelectedAccount("Owl Subway")}
             {...accountSwitcher}
           >
             Owl Subway

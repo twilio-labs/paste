@@ -1,22 +1,22 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { DatePicker } from '@twilio-paste/date-picker';
-import { Label } from '@twilio-paste/label';
-import { Separator } from '@twilio-paste/separator';
-import { Stack } from '@twilio-paste/stack';
-import { Text } from '@twilio-paste/text';
-import { useTheme } from '@twilio-paste/theme';
-import { TimePicker } from '@twilio-paste/time-picker';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { DatePicker } from "@twilio-paste/date-picker";
+import { Label } from "@twilio-paste/label";
+import { Separator } from "@twilio-paste/separator";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { TimePicker } from "@twilio-paste/time-picker";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { Popover, PopoverBadgeButton, PopoverButton, PopoverContainer, usePopoverState } from '../src';
+import { Popover, PopoverBadgeButton, PopoverButton, PopoverContainer, usePopoverState } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Popover',
+  title: "Components/Popover",
   component: Popover,
   subcomponents: { PopoverContainer, PopoverButton },
   parameters: {
@@ -113,7 +113,7 @@ export const ResponsiveWidth: StoryFn = () => {
   return (
     <PopoverContainer baseId={useUID()} visible>
       <PopoverButton variant="primary">Open popover</PopoverButton>
-      <Popover aria-label="Popover" width={['size20', 'size40']}>
+      <Popover aria-label="Popover" width={["size20", "size40"]}>
         <Text as="span">Responsive width Popover</Text>
       </Popover>
     </PopoverContainer>
@@ -256,18 +256,18 @@ export const Customization: StoryFn = (_args, { parameters: { isTestEnvironment 
       theme={currentTheme}
       elements={{
         POPOVER: {
-          backgroundColor: 'colorBackgroundNeutralWeakest',
-          fontWeight: 'fontWeightBold',
+          backgroundColor: "colorBackgroundNeutralWeakest",
+          fontWeight: "fontWeightBold",
         },
         POPOVER_BUTTON: {
-          backgroundColor: 'colorBackgroundBrandStronger',
+          backgroundColor: "colorBackgroundBrandStronger",
         },
         POPOVER_CLOSE_BUTTON: {
-          backgroundColor: 'colorBackgroundBodyInverse',
-          borderRadius: 'borderRadius20',
+          backgroundColor: "colorBackgroundBodyInverse",
+          borderRadius: "borderRadius20",
         },
         POPOVER_CLOSE_ICON: {
-          color: 'colorTextInverse',
+          color: "colorTextInverse",
         },
       }}
     >
@@ -306,4 +306,4 @@ export const I18n = (): React.ReactNode => {
   );
 };
 
-I18n.storyName = 'i18n Prop';
+I18n.storyName = "i18n Prop";

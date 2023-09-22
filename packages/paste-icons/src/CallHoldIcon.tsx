@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface CallHoldIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface CallHoldIconProps extends IconWrapperProps {
 }
 
 const CallHoldIcon = React.forwardRef<HTMLElement, CallHoldIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `CallHoldIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CallHoldIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[CallHoldIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -44,5 +44,5 @@ const CallHoldIcon = React.forwardRef<HTMLElement, CallHoldIconProps>(
   },
 );
 
-CallHoldIcon.displayName = 'CallHoldIcon';
+CallHoldIcon.displayName = "CallHoldIcon";
 export { CallHoldIcon };

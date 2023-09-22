@@ -1,18 +1,18 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { Input } from '@twilio-paste/input';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Option, Select } from '@twilio-paste/select';
-import { Stack } from '@twilio-paste/stack';
-import { TextArea } from '@twilio-paste/textarea';
-import * as React from 'react';
-import root from 'react-shadow';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Input } from "@twilio-paste/input";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Option, Select } from "@twilio-paste/select";
+import { Stack } from "@twilio-paste/stack";
+import { TextArea } from "@twilio-paste/textarea";
+import * as React from "react";
+import root from "react-shadow";
 
-import { ThemeProvider } from '../src/themeProvider';
+import { ThemeProvider } from "../src/themeProvider";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Theme/ThemeProvider/CacheProvider',
+  title: "Theme/ThemeProvider/CacheProvider",
   parameters: {
     a11y: {
       /*
@@ -32,7 +32,7 @@ export const CacheProviderContainer = (): React.ReactNode => {
     if (ref && !emotionCache) {
       const createdEmotionWithRef = {
         container: ref,
-        key: 'shadow-dom-paste',
+        key: "shadow-dom-paste",
       };
       setEmotionCache(createdEmotionWithRef);
     }

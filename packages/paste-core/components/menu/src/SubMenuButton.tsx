@@ -1,16 +1,16 @@
-import type { BoxElementProps } from '@twilio-paste/box';
-import { ChevronRightIcon } from '@twilio-paste/icons/esm/ChevronRightIcon';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
-import type { MenuPrimitiveButtonProps } from '@twilio-paste/menu-primitive';
-import { MenuPrimitiveButton } from '@twilio-paste/menu-primitive';
-import * as React from 'react';
+import type { BoxElementProps } from "@twilio-paste/box";
+import { ChevronRightIcon } from "@twilio-paste/icons/esm/ChevronRightIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import type { MenuPrimitiveButtonProps } from "@twilio-paste/menu-primitive";
+import { MenuPrimitiveButton } from "@twilio-paste/menu-primitive";
+import * as React from "react";
 
-import { StyledMenuItem } from './MenuItem.styles';
+import { StyledMenuItem } from "./MenuItem.styles";
 
-export type SubMenuButtonProps = MenuPrimitiveButtonProps & { element?: BoxElementProps['element'] };
+export type SubMenuButtonProps = MenuPrimitiveButtonProps & { element?: BoxElementProps["element"] };
 
 const SubMenuButton = React.forwardRef<HTMLButtonElement, SubMenuButtonProps>(
-  ({ element = 'SUBMENU_BUTTON', ...props }, ref) => {
+  ({ element = "SUBMENU_BUTTON", ...props }, ref) => {
     // MenuPrimitiveButton from reakit types `as` as HTML element names, but accepts components. any prevents type errors
     return (
       <MenuPrimitiveButton {...props} as={StyledMenuItem as any} element={element} ref={ref}>
@@ -28,5 +28,5 @@ const SubMenuButton = React.forwardRef<HTMLButtonElement, SubMenuButtonProps>(
     );
   },
 );
-SubMenuButton.displayName = 'SubMenuButton';
+SubMenuButton.displayName = "SubMenuButton";
 export { SubMenuButton };

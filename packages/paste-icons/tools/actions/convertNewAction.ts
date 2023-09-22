@@ -1,10 +1,10 @@
-import fs from 'fs';
+import fs from "fs";
 
-import difference from 'lodash/difference';
+import difference from "lodash/difference";
 
-import { writeToFile } from '../../../../tools/utils/writeToFile';
-import { BLOCKLIST_FILES, REACT_PATH, SVG_PATH } from '../constants';
-import { reactIconTemplate } from '../templates/reactIconTemplate';
+import { writeToFile } from "../../../../tools/utils/writeToFile";
+import { BLOCKLIST_FILES, REACT_PATH, SVG_PATH } from "../constants";
+import { reactIconTemplate } from "../templates/reactIconTemplate";
 import {
   getInputPath,
   getOutputComponentName,
@@ -12,9 +12,9 @@ import {
   maybeHandleError,
   normalizeFileName,
   readdirAsync,
-} from '../utils';
+} from "../utils";
 
-const { convertSvgToReact } = require('@twilio-labs/svg-to-react');
+const { convertSvgToReact } = require("@twilio-labs/svg-to-react");
 
 // Converts raw svg to react component
 export async function performFileConversion(
@@ -25,15 +25,15 @@ export async function performFileConversion(
   // eslint-disable-next-line no-console
   console.log(`Converting ${fileName}.`);
   // Read the SVG file
-  fs.readFile(getInputPath(fileName), 'utf8', async (readFileError, fileContents) => {
-    maybeHandleError('Invalid fileName provided', readFileError);
+  fs.readFile(getInputPath(fileName), "utf8", async (readFileError, fileContents) => {
+    maybeHandleError("Invalid fileName provided", readFileError);
     const cleanedFileName = getOutputComponentName(fileName);
     // Convert the SVG into our ideal format
     let generatedComponent;
     try {
       generatedComponent = await convertSvgToReact(cleanedFileName, fileContents, options);
     } catch (error) {
-      maybeHandleError('Error occured while generating the component!', error);
+      maybeHandleError("Error occured while generating the component!", error);
     }
 
     writeToFile(outputPath, generatedComponent, {

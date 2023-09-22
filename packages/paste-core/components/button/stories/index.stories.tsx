@@ -1,37 +1,37 @@
-import { isRenderingOnServer } from '@twilio-paste/animation-library';
-import { Box } from '@twilio-paste/box';
-import { Heading } from '@twilio-paste/heading';
-import { BoldIcon } from '@twilio-paste/icons/esm/BoldIcon';
-import { CheckboxCheckIcon } from '@twilio-paste/icons/esm/CheckboxCheckIcon';
-import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
-import { PauseIcon } from '@twilio-paste/icons/esm/PauseIcon';
-import { PlayIcon } from '@twilio-paste/icons/esm/PlayIcon';
-import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { Stack } from '@twilio-paste/stack';
-import * as React from 'react';
+import { isRenderingOnServer } from "@twilio-paste/animation-library";
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { BoldIcon } from "@twilio-paste/icons/esm/BoldIcon";
+import { CheckboxCheckIcon } from "@twilio-paste/icons/esm/CheckboxCheckIcon";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { PauseIcon } from "@twilio-paste/icons/esm/PauseIcon";
+import { PlayIcon } from "@twilio-paste/icons/esm/PlayIcon";
+import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Stack } from "@twilio-paste/stack";
+import * as React from "react";
 
-import { Button } from '../src';
-import type { ButtonSizes, ButtonVariants } from '../src/types';
+import { Button } from "../src";
+import type { ButtonSizes, ButtonVariants } from "../src/types";
 
 const ButtonSizeOptions = [
-  'default',
-  'small',
-  'icon',
-  'icon_small',
-  'reset',
-  'rounded_small',
-  'circle',
-  'circle_small',
+  "default",
+  "small",
+  "icon",
+  "icon_small",
+  "reset",
+  "rounded_small",
+  "circle",
+  "circle_small",
 ];
 
 const AllSizeOptions: React.FC<React.PropsWithChildren<{ variant: ButtonVariants }>> = ({ variant }) => {
   const allButtons: React.ReactNode[] = [];
 
   ButtonSizeOptions.forEach((size, index) => {
-    if (variant === 'reset' && size !== 'reset') return;
+    if (variant === "reset" && size !== "reset") return;
     const children =
-      size === 'icon' || size === 'icon_small' || size === 'circle' || size === 'circle_small' ? (
+      size === "icon" || size === "icon_small" || size === "circle" || size === "circle_small" ? (
         <PlusIcon title="Add item to cart" decorative={false} />
       ) : (
         variant
@@ -44,21 +44,21 @@ const AllSizeOptions: React.FC<React.PropsWithChildren<{ variant: ButtonVariants
             <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
               {children}
             </Button>
-            {size !== 'icon' &&
-              size !== 'icon_small' &&
-              size !== 'reset' &&
-              size !== 'circle' &&
-              size !== 'circle_small' && (
+            {size !== "icon" &&
+              size !== "icon_small" &&
+              size !== "reset" &&
+              size !== "circle" &&
+              size !== "circle_small" && (
                 <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
                   <PlusIcon title="Add item to cart" decorative={false} />
                   {children}
                 </Button>
               )}
-            {size !== 'icon' &&
-              size !== 'icon_small' &&
-              size !== 'reset' &&
-              size !== 'circle' &&
-              size !== 'circle_small' && (
+            {size !== "icon" &&
+              size !== "icon_small" &&
+              size !== "reset" &&
+              size !== "circle" &&
+              size !== "circle_small" && (
                 <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
                   {children}
                   <PlusIcon title="Add item to cart" decorative={false} />
@@ -73,11 +73,11 @@ const AllSizeOptions: React.FC<React.PropsWithChildren<{ variant: ButtonVariants
             </Button>
           </Stack>
         </Box>
-        {size !== 'icon' &&
-          size !== 'icon_small' &&
-          size !== 'reset' &&
-          size !== 'circle' &&
-          size !== 'circle_small' && (
+        {size !== "icon" &&
+          size !== "icon_small" &&
+          size !== "reset" &&
+          size !== "circle" &&
+          size !== "circle_small" && (
             <Box key={`variant-${variant}-${size}-vert-${index}`} marginBottom="space40" padding="space30">
               <Stack orientation="vertical" spacing="space40">
                 <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
@@ -112,7 +112,7 @@ const AllSizeOptions: React.FC<React.PropsWithChildren<{ variant: ButtonVariants
   return (
     <Box
       backgroundColor={
-        variant === 'inverse' || variant === 'inverse_link' ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'
+        variant === "inverse" || variant === "inverse_link" ? "colorBackgroundBodyInverse" : "colorBackgroundBody"
       }
     >
       {allButtons}
@@ -122,7 +122,7 @@ const AllSizeOptions: React.FC<React.PropsWithChildren<{ variant: ButtonVariants
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
 };
 
@@ -191,7 +191,7 @@ export const ButtonAsAnchor = (): React.ReactNode => {
 
       <Box padding="space30">
         <Button as="a" href="https://twilio.com" variant="primary">
-          Not added when children{' '}
+          Not added when children{" "}
           <em>
             <u>is not string type</u>
           </em>
@@ -262,8 +262,8 @@ export const DestructiveIconButton = (): React.ReactNode => <IconSizeOptions var
 
 interface ToggleButtonProps {
   defaultPressed?: boolean;
-  variant?: 'secondary' | 'secondary_icon' | 'destructive_secondary';
-  size?: 'icon' | 'circle';
+  variant?: "secondary" | "secondary_icon" | "destructive_secondary";
+  size?: "icon" | "circle";
   disabled?: boolean;
   icons: {
     default: React.ReactNode;
@@ -273,7 +273,7 @@ interface ToggleButtonProps {
 
 const ToggleButton: React.FC<React.PropsWithChildren<ToggleButtonProps>> = ({
   defaultPressed = false,
-  variant = 'secondary',
+  variant = "secondary",
   children,
   size,
   icons,
@@ -367,4 +367,4 @@ export const I18nButtons = (): React.ReactNode => {
   );
 };
 
-I18nButtons.storyName = 'i18n Button';
+I18nButtons.storyName = "i18n Button";

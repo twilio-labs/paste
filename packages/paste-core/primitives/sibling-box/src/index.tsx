@@ -1,7 +1,7 @@
-import { Box } from '@twilio-paste/box';
-import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
-import { css, styled } from '@twilio-paste/styling-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
+import * as React from "react";
 
 export interface SiblingBoxProps extends BoxProps {
   _activeSibling?: BoxStyleProps;
@@ -21,7 +21,7 @@ export interface SiblingBoxProps extends BoxProps {
   _invalidSibling?: BoxStyleProps;
   _invalidAndHoverSibling?: BoxStyleProps;
   _invalidAndDisabledSibling?: BoxStyleProps;
-  type?: 'checkbox' | 'radio' | 'file';
+  type?: "checkbox" | "radio" | "file";
 }
 
 const StyledSiblingBox = styled(Box)<SiblingBoxProps>(
@@ -43,7 +43,7 @@ const StyledSiblingBox = styled(Box)<SiblingBoxProps>(
     _invalidSibling,
     _invalidAndHoverSibling,
     _invalidAndDisabledSibling,
-    type = 'checkbox',
+    type = "checkbox",
   }) => {
     const active = `input[type=${type}]:active + label &`;
     const checked = `input[type=${type}]:checked + label &, input[type=${type}][aria-checked=mixed] + label &`;
@@ -87,13 +87,13 @@ const StyledSiblingBox = styled(Box)<SiblingBoxProps>(
 const SiblingBox = React.forwardRef<HTMLSpanElement, React.PropsWithChildren<SiblingBoxProps>>(
   (
     {
-      'aria-hidden': ariaHidden = 'true',
-      alignItems = 'center',
-      display = 'inline-flex',
-      element = 'SIBLING_BOX',
+      "aria-hidden": ariaHidden = "true",
+      alignItems = "center",
+      display = "inline-flex",
+      element = "SIBLING_BOX",
       flexShrink = 0,
-      justifyContent = 'center',
-      transition = 'all 120ms',
+      justifyContent = "center",
+      transition = "all 120ms",
       ...props
     },
     ref,
@@ -114,6 +114,6 @@ const SiblingBox = React.forwardRef<HTMLSpanElement, React.PropsWithChildren<Sib
   },
 );
 
-SiblingBox.displayName = 'SiblingBox';
+SiblingBox.displayName = "SiblingBox";
 
 export { SiblingBox };

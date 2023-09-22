@@ -7,7 +7,7 @@ export {
   MenuItemRadio as MenuPrimitiveItemRadio,
   MenuButton as MenuPrimitiveButton,
   MenuSeparator as MenuPrimitiveSeparator,
-} from '@twilio-paste/reakit-library';
+} from "@twilio-paste/reakit-library";
 
 export type {
   MenuProps as MenuPrimitiveProps,
@@ -17,4 +17,4 @@ export type {
   MenuItemRadioProps as MenuPrimitiveItemRadioProps,
   MenuButtonProps as MenuPrimitiveButtonProps,
   MenuSeparatorProps as MenuPrimitiveSeparatorProps,
-} from '@twilio-paste/reakit-library';
+} from "@twilio-paste/reakit-library";

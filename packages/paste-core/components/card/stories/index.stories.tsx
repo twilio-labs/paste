@@ -1,16 +1,16 @@
-import type { StoryFn } from '@storybook/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Heading } from '@twilio-paste/heading';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Card } from '../src';
+import { Card } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Card',
+  title: "Components/Card",
   component: Card,
 };
 
@@ -37,7 +37,7 @@ export const DefinedPadding = (): React.ReactNode => (
   </Card>
 );
 
-DefinedPadding.storyName = 'Padding';
+DefinedPadding.storyName = "Padding";
 
 export const NoPadding = (): React.ReactNode => (
   <Card padding="space0">
@@ -80,9 +80,9 @@ export const CustomCard: StoryFn = (_args, { parameters: { isTestEnvironment } }
         theme={currentTheme}
         elements={{
           CARD: {
-            backgroundColor: 'colorBackground',
-            borderColor: 'colorBorderPrimary',
-            padding: 'space100',
+            backgroundColor: "colorBackground",
+            borderColor: "colorBorderPrimary",
+            padding: "space100",
           },
         }}
       >
@@ -101,10 +101,10 @@ export const CustomCard: StoryFn = (_args, { parameters: { isTestEnvironment } }
         theme={currentTheme}
         elements={{
           NEW_CARD: {
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
-            borderColor: 'colorBorderDestructive',
-            borderRadius: 'borderRadius30',
-            padding: 'space200',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            borderColor: "colorBorderDestructive",
+            borderRadius: "borderRadius30",
+            padding: "space200",
           },
         }}
       >

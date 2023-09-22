@@ -1,13 +1,13 @@
-import type { BoxProps } from '@twilio-paste/box';
-import { Box } from '@twilio-paste/box';
-import * as React from 'react';
+import type { BoxProps } from "@twilio-paste/box";
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
-import type { ChatComposerProps } from '.';
+import type { ChatComposerProps } from ".";
 
 export const PlaceholderWrapper: React.FC<
   React.PropsWithChildren<{
-    placeholder: ChatComposerProps['placeholder'];
-    element?: BoxProps['element'];
+    placeholder: ChatComposerProps["placeholder"];
+    element?: BoxProps["element"];
   }>
 > = ({ placeholder, element }) => (
   <Box
@@ -27,4 +27,4 @@ export const PlaceholderWrapper: React.FC<
   </Box>
 );
 
-PlaceholderWrapper.displayName = 'PlaceholderWrapper';
+PlaceholderWrapper.displayName = "PlaceholderWrapper";

@@ -1,20 +1,20 @@
-import * as fs from 'fs';
+import * as fs from "fs";
 // you kind of have to treat Danger plugins as global?
 // https://danger.systems/js/usage/extending-danger.html#writing-your-plugin
-import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL';
-import { getChangesetsFromFiles } from './utils';
+import { DangerDSLType } from "danger/distribution/dsl/DangerDSL";
+import { getChangesetsFromFiles } from "./utils";
 declare const danger: DangerDSLType;
 export declare function fail(message: string): void;
 
 const IGNORE_LIST = [
-  '@twilio-paste/core',
-  '@twilio-paste/icons',
-  '@twilio-paste/website',
-  '@twilio-paste/codemods',
-  '@twilio-paste/nextjs-template',
-  '@twilio-paste/theme-designer',
-  '@twilio-paste/color-contrast-utils',
-  '@twilio-paste/token-contrast-checker',
+  "@twilio-paste/core",
+  "@twilio-paste/icons",
+  "@twilio-paste/website",
+  "@twilio-paste/codemods",
+  "@twilio-paste/nextjs-template",
+  "@twilio-paste/theme-designer",
+  "@twilio-paste/color-contrast-utils",
+  "@twilio-paste/token-contrast-checker",
 ];
 
 /**

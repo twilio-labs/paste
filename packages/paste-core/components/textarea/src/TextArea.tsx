@@ -1,14 +1,14 @@
-import { getCustomElementStyles, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { InputBox } from '@twilio-paste/input-box';
-import TextareaAutosize from '@twilio-paste/react-textarea-autosize-library';
-import { css, styled } from '@twilio-paste/styling-library';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { getCustomElementStyles, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { InputBox } from "@twilio-paste/input-box";
+import TextareaAutosize from "@twilio-paste/react-textarea-autosize-library";
+import { css, styled } from "@twilio-paste/styling-library";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export type TextAreaVariants = 'default' | 'inverse';
+export type TextAreaVariants = "default" | "inverse";
 
-export interface TextAreaProps extends HTMLPasteProps<'textarea'>, Pick<BoxProps, 'element'> {
+export interface TextAreaProps extends HTMLPasteProps<"textarea">, Pick<BoxProps, "element"> {
   disabled?: boolean;
   hasError?: boolean;
   height?: never;
@@ -19,7 +19,7 @@ export interface TextAreaProps extends HTMLPasteProps<'textarea'>, Pick<BoxProps
   placeholder?: string;
   readOnly?: boolean;
   required?: boolean;
-  resize?: 'none' | 'vertical';
+  resize?: "none" | "vertical";
   size?: never;
   variant?: TextAreaVariants;
   width?: never;
@@ -29,41 +29,41 @@ export interface TextAreaProps extends HTMLPasteProps<'textarea'>, Pick<BoxProps
 const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
   (props) =>
     css({
-      appearance: 'none',
-      background: 'transparent',
-      border: 'none',
-      borderRadius: 'borderRadius20',
-      boxShadow: 'none',
-      color: 'inherit',
-      display: 'block',
-      fontFamily: 'inherit',
-      fontSize: 'fontSize30',
-      fontWeight: 'fontWeightMedium',
-      lineHeight: 'lineHeight20',
-      maxHeight: props.resize === 'vertical' ? 'none' : 'size30',
-      outline: 'none',
-      paddingBottom: 'space30',
-      paddingLeft: 'space40',
-      paddingRight: 'space40',
-      paddingTop: 'space30',
+      appearance: "none",
+      background: "transparent",
+      border: "none",
+      borderRadius: "borderRadius20",
+      boxShadow: "none",
+      color: "inherit",
+      display: "block",
+      fontFamily: "inherit",
+      fontSize: "fontSize30",
+      fontWeight: "fontWeightMedium",
+      lineHeight: "lineHeight20",
+      maxHeight: props.resize === "vertical" ? "none" : "size30",
+      outline: "none",
+      paddingBottom: "space30",
+      paddingLeft: "space40",
+      paddingRight: "space40",
+      paddingTop: "space30",
       resize: props.resize,
-      width: '100%',
+      width: "100%",
 
-      '&::placeholder': {
-        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeak',
-        fontStyle: 'italic',
+      "&::placeholder": {
+        color: props.variant === "inverse" ? "colorTextInverseWeaker" : "colorTextWeak",
+        fontStyle: "italic",
       },
 
-      '&:focus::placeholder': {
-        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeak',
+      "&:focus::placeholder": {
+        color: props.variant === "inverse" ? "colorTextInverseWeaker" : "colorTextWeak",
       },
 
-      '&:disabled': {
-        color: props.variant === 'inverse' ? 'colorTextInverseWeakest' : 'colorTextWeaker',
-        cursor: 'not-allowed',
+      "&:disabled": {
+        color: props.variant === "inverse" ? "colorTextInverseWeakest" : "colorTextWeaker",
+        cursor: "not-allowed",
         // Fixes value color in Safari
-        '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeakest' : 'colorTextWeaker',
-        '-webkit-opacity': '1',
+        "-webkit-text-fill-color": props.variant === "inverse" ? "colorTextInverseWeakest" : "colorTextWeaker",
+        "-webkit-opacity": "1",
       },
     }),
   getCustomElementStyles,
@@ -74,13 +74,13 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
     {
       children,
       disabled,
-      element = 'TEXTAREA',
+      element = "TEXTAREA",
       hasError,
       insertBefore,
       insertAfter,
       readOnly,
       variant,
-      resize = 'none',
+      resize = "none",
       // size, height and width should not be passed down
       size,
       height,
@@ -120,6 +120,6 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
   },
 );
 
-TextArea.displayName = 'TextArea';
+TextArea.displayName = "TextArea";
 
 export { TextArea };

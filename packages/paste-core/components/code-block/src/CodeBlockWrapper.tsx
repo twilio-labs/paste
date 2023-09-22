@@ -1,8 +1,8 @@
-import { Box } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { Tabs } from '@twilio-paste/tabs';
-import type { TabStateReturn } from '@twilio-paste/tabs';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { Tabs } from "@twilio-paste/tabs";
+import type { TabStateReturn } from "@twilio-paste/tabs";
+import * as React from "react";
 
 export interface CodeBlockTabStateReturn extends TabStateReturn {
   [key: string]: any;
@@ -10,12 +10,12 @@ export interface CodeBlockTabStateReturn extends TabStateReturn {
 
 export interface CodeBlockWrapperProps {
   children?: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   state?: CodeBlockTabStateReturn;
 }
 
 export const CodeBlockWrapper = React.forwardRef<HTMLDivElement, CodeBlockWrapperProps>(
-  ({ children, state, element = 'CODE_BLOCK_WRAPPER' }, ref) => {
+  ({ children, state, element = "CODE_BLOCK_WRAPPER" }, ref) => {
     return (
       <Tabs variant="inverse" state={state}>
         <Box
@@ -32,4 +32,4 @@ export const CodeBlockWrapper = React.forwardRef<HTMLDivElement, CodeBlockWrappe
   },
 );
 
-CodeBlockWrapper.displayName = 'CodeBlockWrapper';
+CodeBlockWrapper.displayName = "CodeBlockWrapper";

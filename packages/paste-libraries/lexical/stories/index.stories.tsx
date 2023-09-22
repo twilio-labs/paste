@@ -1,5 +1,5 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import * as React from 'react';
+import type { Meta, StoryFn } from "@storybook/react";
+import * as React from "react";
 
 import {
   $getRoot,
@@ -10,12 +10,12 @@ import {
   LexicalComposer,
   OnChangePlugin,
   RichTextPlugin,
-} from '../src';
-import type { EditorState } from '../src';
+} from "../src";
+import type { EditorState } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/lexical',
+  title: "Libraries/lexical",
   parameters: {},
 } as Meta;
 
@@ -38,7 +38,7 @@ export const RichTextExample: StoryFn = () => {
   return (
     <LexicalComposer
       initialConfig={{
-        namespace: 'foo',
+        namespace: "foo",
         onError: (error: Error) => {
           throw error;
         },

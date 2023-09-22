@@ -1,19 +1,19 @@
-import { Box, type BoxProps } from '@twilio-paste/box';
-import { useSlider, useSliderState, useSliderThumb } from '@twilio-paste/react-spectrum-library';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { useMergeRefs } from '@twilio-paste/utils';
-import * as React from 'react';
+import { Box, type BoxProps } from "@twilio-paste/box";
+import { useSlider, useSliderState, useSliderThumb } from "@twilio-paste/react-spectrum-library";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { useMergeRefs } from "@twilio-paste/utils";
+import * as React from "react";
 
-import { SliderThumb } from './SliderThumb';
-import { SliderTrack } from './SliderTrack';
+import { SliderThumb } from "./SliderThumb";
+import { SliderTrack } from "./SliderTrack";
 
-const DefaultNumberFormatter = new Intl.NumberFormat('en-US');
+const DefaultNumberFormatter = new Intl.NumberFormat("en-US");
 
 export interface SliderProps {
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   id: string;
-  'aria-describedby'?: string;
-  'aria-labelledby'?: string;
+  "aria-describedby"?: string;
+  "aria-labelledby"?: string;
   disabled?: boolean;
   hasError?: boolean;
   hideRangeLabels?: boolean;
@@ -45,14 +45,14 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
    * and to preserve the underlying props object variable
    */
   const {
-    element = 'SLIDER',
+    element = "SLIDER",
     minValue = 0,
     maxValue = 100,
     hideRangeLabels = false,
     disabled: isDisabled = false,
     id,
-    i18nMaxRangeLabel = 'Maximum value:',
-    i18nMinRangeLabel = 'Minimum value:',
+    i18nMaxRangeLabel = "Maximum value:",
+    i18nMinRangeLabel = "Minimum value:",
   } = props;
 
   // Our API differs from the underlying library, so we need to remap props
@@ -61,7 +61,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
     id,
     isDisabled,
     // needed to silence react-aria a11y guardrails
-    'aria-labelledby': id,
+    "aria-labelledby": id,
     numberFormatter: props.numberFormatter || DefaultNumberFormatter,
   };
 
@@ -105,7 +105,7 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
         alignItems="center"
         height="20px"
         width="100%"
-        cursor={isDisabled ? 'not-allowed' : 'pointer'}
+        cursor={isDisabled ? "not-allowed" : "pointer"}
         onClick={onClickHandler}
       >
         <SliderTrack
@@ -119,9 +119,9 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
               <input
                 ref={mergedInputRef}
                 {...inputProps}
-                aria-labelledby={props['aria-labelledby']}
-                aria-describedby={props['aria-describedby']}
-                id={inputProps.id?.replace('-0', '')}
+                aria-labelledby={props["aria-labelledby"]}
+                aria-describedby={props["aria-describedby"]}
+                id={inputProps.id?.replace("-0", "")}
                 onFocus={() => setFocused(true)}
                 onBlur={() => setFocused(false)}
               />
@@ -156,4 +156,4 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
   );
 });
 
-Slider.displayName = 'Slider';
+Slider.displayName = "Slider";

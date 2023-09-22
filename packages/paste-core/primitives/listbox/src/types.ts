@@ -4,4 +4,4 @@
  */
 export type As<P = any> = React.ElementType<P>;
 
-export type ListboxPrimitiveVariants = 'single' | 'multiple';
+export type ListboxPrimitiveVariants = "single" | "multiple";

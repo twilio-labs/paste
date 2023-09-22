@@ -1,8 +1,8 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { ListItem, UnorderedList } from '@twilio-paste/list';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import { ListItem, UnorderedList } from "@twilio-paste/list";
+import * as React from "react";
 
-import { Ingredients, Related, Required } from './Ingredients';
+import { Ingredients, Related, Required } from "./Ingredients";
 
 const SettingsIngredients: React.FC = () => {
   return (
@@ -10,21 +10,21 @@ const SettingsIngredients: React.FC = () => {
       <Required>
         <UnorderedList>
           <ListItem>
-            <Anchor href="/components/breadcrumb">Breadcrumb</Anchor> and{' '}
+            <Anchor href="/components/breadcrumb">Breadcrumb</Anchor> and{" "}
             <Anchor href="/components/heading">Heading</Anchor>
           </ListItem>
           <ListItem>
-            <Anchor href="/components/form">Form</Anchor> and form elements like{' '}
-            <Anchor href="/components/input">Input</Anchor>, <Anchor href="/components/checkbox">Checkbox</Anchor>,{' '}
-            <Anchor href="/components/radio-group">Radio Group</Anchor>,{' '}
-            <Anchor href="/components/select">Select</Anchor>, <Anchor href="/components/combobox">Combobox</Anchor>,{' '}
-            <Anchor href="/components/textarea">Textarea</Anchor>,{' '}
-            <Anchor href="/components/date-picker">Date Picker</Anchor>,{' '}
-            <Anchor href="/components/time-picker">Time Picker</Anchor>,{' '}
+            <Anchor href="/components/form">Form</Anchor> and form elements like{" "}
+            <Anchor href="/components/input">Input</Anchor>, <Anchor href="/components/checkbox">Checkbox</Anchor>,{" "}
+            <Anchor href="/components/radio-group">Radio Group</Anchor>,{" "}
+            <Anchor href="/components/select">Select</Anchor>, <Anchor href="/components/combobox">Combobox</Anchor>,{" "}
+            <Anchor href="/components/textarea">Textarea</Anchor>,{" "}
+            <Anchor href="/components/date-picker">Date Picker</Anchor>,{" "}
+            <Anchor href="/components/time-picker">Time Picker</Anchor>,{" "}
             <Anchor href="/components/help-text">Help Text</Anchor>, and <Anchor href="/components/label">Label</Anchor>
           </ListItem>
           <ListItem>
-            <Anchor href="/components/button">Button</Anchor> and{' '}
+            <Anchor href="/components/button">Button</Anchor> and{" "}
             <Anchor href="/components/button-group">Button Group</Anchor>
           </ListItem>
         </UnorderedList>
@@ -50,7 +50,7 @@ const SettingsIngredients: React.FC = () => {
             <Anchor href="/components/description-list">Description List</Anchor>
           </ListItem>
           <ListItem>
-            <Anchor href="/components/in-page-navigation">In Page Navigation</Anchor> and{' '}
+            <Anchor href="/components/in-page-navigation">In Page Navigation</Anchor> and{" "}
             <Anchor href="/components/tabs">Tabs</Anchor>
           </ListItem>
           <ListItem>

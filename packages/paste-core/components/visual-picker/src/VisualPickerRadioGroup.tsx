@@ -1,13 +1,13 @@
-import { InlineControlGroup } from '@twilio-paste/inline-control-group';
-import * as React from 'react';
+import { InlineControlGroup } from "@twilio-paste/inline-control-group";
+import * as React from "react";
 
-import { VisualPickerRadioContext } from './VisualPickerContext';
-import { type VisualPickerRadioGroupProps } from './types';
+import { VisualPickerRadioContext } from "./VisualPickerContext";
+import { type VisualPickerRadioGroupProps } from "./types";
 
 export const VisualPickerRadioGroup = React.forwardRef<HTMLFieldSetElement, VisualPickerRadioGroupProps>(
   (
     {
-      orientation = 'vertical',
+      orientation = "vertical",
       children,
       disabled = false,
       legend,
@@ -15,8 +15,8 @@ export const VisualPickerRadioGroup = React.forwardRef<HTMLFieldSetElement, Visu
       name,
       errorText,
       value,
-      element = 'VISUAL_PICKER_RADIO_GROUP',
-      i18nRequiredLabel = '(required)',
+      element = "VISUAL_PICKER_RADIO_GROUP",
+      i18nRequiredLabel = "(required)",
       ...props
     },
     ref,
@@ -31,7 +31,7 @@ export const VisualPickerRadioGroup = React.forwardRef<HTMLFieldSetElement, Visu
     const contextValue = React.useMemo(() => {
       return {
         name,
-        value: value || '',
+        value: value || "",
         groupIsDisabled: disabled,
         groupHasError: errorText != null,
         onChange: onChangeHandler,
@@ -52,8 +52,8 @@ export const VisualPickerRadioGroup = React.forwardRef<HTMLFieldSetElement, Visu
           disabled={disabled}
           i18nRequiredLabel={i18nRequiredLabel}
           fieldStyleProps={{
-            marginTop: orientation === 'horizontal' ? 'space40' : 'space30',
-            marginRight: orientation === 'horizontal' ? 'space30' : undefined,
+            marginTop: orientation === "horizontal" ? "space40" : "space30",
+            marginRight: orientation === "horizontal" ? "space30" : undefined,
           }}
         >
           {children}
@@ -63,4 +63,4 @@ export const VisualPickerRadioGroup = React.forwardRef<HTMLFieldSetElement, Visu
   },
 );
 
-VisualPickerRadioGroup.displayName = 'VisualPickerRadioGroup';
+VisualPickerRadioGroup.displayName = "VisualPickerRadioGroup";

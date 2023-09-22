@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductSourceSchemaIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductSourceSchemaIconProps extends IconWrapperProps {
 }
 
 const ProductSourceSchemaIcon = React.forwardRef<HTMLElement, ProductSourceSchemaIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductSourceSchemaIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductSourceSchemaIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductSourceSchemaIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -45,5 +45,5 @@ const ProductSourceSchemaIcon = React.forwardRef<HTMLElement, ProductSourceSchem
   },
 );
 
-ProductSourceSchemaIcon.displayName = 'ProductSourceSchemaIcon';
+ProductSourceSchemaIcon.displayName = "ProductSourceSchemaIcon";
 export { ProductSourceSchemaIcon };

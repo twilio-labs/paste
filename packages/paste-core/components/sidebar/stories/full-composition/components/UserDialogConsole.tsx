@@ -1,10 +1,10 @@
-import { Badge } from '@twilio-paste/badge';
-import { Box } from '@twilio-paste/box';
-import { CodeIcon } from '@twilio-paste/icons/esm/CodeIcon';
-import { LogOutIcon } from '@twilio-paste/icons/esm/LogOutIcon';
-import { ThemeIcon } from '@twilio-paste/icons/esm/ThemeIcon';
-import { TranslationIcon } from '@twilio-paste/icons/esm/TranslationIcon';
-import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
+import { Badge } from "@twilio-paste/badge";
+import { Box } from "@twilio-paste/box";
+import { CodeIcon } from "@twilio-paste/icons/esm/CodeIcon";
+import { LogOutIcon } from "@twilio-paste/icons/esm/LogOutIcon";
+import { ThemeIcon } from "@twilio-paste/icons/esm/ThemeIcon";
+import { TranslationIcon } from "@twilio-paste/icons/esm/TranslationIcon";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import {
   UserDialog,
   UserDialogContainer,
@@ -15,8 +15,8 @@ import {
   UserDialogUserInfo,
   UserDialogUserName,
   useUserDialogListState,
-} from '@twilio-paste/user-dialog';
-import * as React from 'react';
+} from "@twilio-paste/user-dialog";
+import * as React from "react";
 
 export const UserDialogExample: React.FC = () => {
   const userDialogList = useUserDialogListState();

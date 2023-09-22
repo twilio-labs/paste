@@ -1,21 +1,21 @@
-import { render, screen } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { render, screen } from "@testing-library/react";
+import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { TokenCard } from '../components/tokens-list/token-card';
+import { TokenCard } from "../components/tokens-list/token-card";
 
-describe('TokenCard', () => {
-  const testTokenName = 'color-background';
-  const testTokenNameCamelCase = 'colorBackground';
-  const testTokenCategory = 'background-colors';
-  const testTokenValue = 'rgb(244, 244, 246)';
-  const testTokenAltValue = '#F4F4F6';
-  const testTokenComment = 'Background color used for containers.';
-  const testExampleBackground = '#ffffff';
-  const testExampleBackgroundInverse = '#121C2D';
-  const testExampleHighlightColor = '#E1E3EA';
-  const testExampleTextColor = '#121C2D';
-  const testExampleTextColorInverse = '#FFFFFF';
+describe("TokenCard", () => {
+  const testTokenName = "color-background";
+  const testTokenNameCamelCase = "colorBackground";
+  const testTokenCategory = "background-colors";
+  const testTokenValue = "rgb(244, 244, 246)";
+  const testTokenAltValue = "#F4F4F6";
+  const testTokenComment = "Background color used for containers.";
+  const testExampleBackground = "#ffffff";
+  const testExampleBackgroundInverse = "#121C2D";
+  const testExampleHighlightColor = "#E1E3EA";
+  const testExampleTextColor = "#121C2D";
+  const testExampleTextColorInverse = "#FFFFFF";
 
   const BaseTokenCardComponent: React.FC<React.PropsWithChildren<{ useCamelCase?: boolean }>> = ({
     useCamelCase = false,
@@ -38,7 +38,7 @@ describe('TokenCard', () => {
     </Theme.Provider>
   );
 
-  it('should render the proper pass-in props', () => {
+  it("should render the proper pass-in props", () => {
     render(<BaseTokenCardComponent />);
 
     expect(screen.getByText(`$${testTokenName}`)).toBeDefined();
@@ -46,19 +46,19 @@ describe('TokenCard', () => {
     expect(screen.getByText(testTokenComment)).toBeDefined();
   });
 
-  it('should convert token name to camelCase when prop is set', () => {
+  it("should convert token name to camelCase when prop is set", () => {
     render(<BaseTokenCardComponent useCamelCase />);
 
     expect(screen.getByText(testTokenNameCamelCase)).toBeDefined();
   });
 
-  it('should render the proper hexidecimal alt value for color tokens', () => {
+  it("should render the proper hexidecimal alt value for color tokens", () => {
     render(<BaseTokenCardComponent />);
 
     expect(screen.getByText(testTokenAltValue)).toBeDefined();
   });
 
-  it('should render the proper px alt value for size related token', () => {
+  it("should render the proper px alt value for size related token", () => {
     render(
       <Theme.Provider theme="default">
         <TokenCard
@@ -72,10 +72,10 @@ describe('TokenCard', () => {
       </Theme.Provider>,
     );
 
-    expect(screen.getByText('1128px')).toBeDefined();
+    expect(screen.getByText("1128px")).toBeDefined();
   });
 
-  it('should render the color contrast score for text colors', () => {
+  it("should render the color contrast score for text colors", () => {
     render(
       <Theme.Provider theme="default">
         <TokenCard
@@ -93,10 +93,10 @@ describe('TokenCard', () => {
       </Theme.Provider>,
     );
 
-    expect(screen.getByText('AA Conditional')).toBeDefined();
+    expect(screen.getByText("AA Conditional")).toBeDefined();
   });
 
-  it('should render an inverse background for inverse tokens', () => {
+  it("should render an inverse background for inverse tokens", () => {
     render(
       <Theme.Provider theme="default">
         <TokenCard
@@ -113,12 +113,12 @@ describe('TokenCard', () => {
       </Theme.Provider>,
     );
 
-    const previewDiv = screen.getByTestId('alertInverse').querySelector('[data-paste-element=TOKEN_EXAMPLE]');
+    const previewDiv = screen.getByTestId("alertInverse").querySelector("[data-paste-element=TOKEN_EXAMPLE]");
     // @ts-expect-error toHaveStyleRule definitely exists
-    expect(previewDiv).toHaveStyleRule('background-color', testExampleBackgroundInverse);
+    expect(previewDiv).toHaveStyleRule("background-color", testExampleBackgroundInverse);
   });
 
-  it('should render inverse text color for the color accessibility description on an inverse text color', () => {
+  it("should render inverse text color for the color accessibility description on an inverse text color", () => {
     render(
       <Theme.Provider theme="default">
         <TokenCard
@@ -136,10 +136,10 @@ describe('TokenCard', () => {
       </Theme.Provider>,
     );
     // @ts-expect-error toHaveStyleRule definitely exists
-    expect(screen.getByText('AAA')).toHaveStyleRule('color', testExampleTextColorInverse);
+    expect(screen.getByText("AAA")).toHaveStyleRule("color", testExampleTextColorInverse);
   });
 
-  it('should render the proper highlight color for a token example (line height)', () => {
+  it("should render the proper highlight color for a token example (line height)", () => {
     render(
       <Theme.Provider theme="default">
         <TokenCard
@@ -159,8 +159,8 @@ describe('TokenCard', () => {
       </Theme.Provider>,
     );
 
-    const testElement = screen.getByTestId('highlightToken').querySelector('[data-paste-element=TOKEN_EXAMPLE] > div');
+    const testElement = screen.getByTestId("highlightToken").querySelector("[data-paste-element=TOKEN_EXAMPLE] > div");
     // @ts-expect-error toHaveStyleRule definitely exists
-    expect(testElement).toHaveStyleRule('background-color', testExampleHighlightColor);
+    expect(testElement).toHaveStyleRule("background-color", testExampleHighlightColor);
   });
 });

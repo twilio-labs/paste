@@ -1,16 +1,16 @@
-import { Label } from '@twilio-paste/label';
-import type { LabelProps } from '@twilio-paste/label';
-import * as React from 'react';
+import { Label } from "@twilio-paste/label";
+import type { LabelProps } from "@twilio-paste/label";
+import * as React from "react";
 
-import { FileUploaderContext } from './FileUploaderContext';
+import { FileUploaderContext } from "./FileUploaderContext";
 
-export type FileUploaderLabelProps = Omit<React.ComponentPropsWithRef<'label'>, 'children'> & {
-  children: LabelProps['children'];
-  element?: LabelProps['element'];
+export type FileUploaderLabelProps = Omit<React.ComponentPropsWithRef<"label">, "children"> & {
+  children: LabelProps["children"];
+  element?: LabelProps["element"];
 };
 
 export const FileUploaderLabel = React.forwardRef<HTMLLabelElement, FileUploaderLabelProps>(
-  ({ children, element = 'FILE_UPLOADER_LABEL', ...props }, ref) => {
+  ({ children, element = "FILE_UPLOADER_LABEL", ...props }, ref) => {
     const { id, disabled, required } = React.useContext(FileUploaderContext);
 
     return (
@@ -21,4 +21,4 @@ export const FileUploaderLabel = React.forwardRef<HTMLLabelElement, FileUploader
   },
 );
 
-FileUploaderLabel.displayName = 'FileUploaderLabel';
+FileUploaderLabel.displayName = "FileUploaderLabel";

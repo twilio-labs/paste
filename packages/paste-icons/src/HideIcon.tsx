@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface HideIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface HideIconProps extends IconWrapperProps {
 }
 
 const HideIcon = React.forwardRef<HTMLElement, HideIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `HideIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[HideIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[HideIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -45,5 +45,5 @@ const HideIcon = React.forwardRef<HTMLElement, HideIconProps>(
   },
 );
 
-HideIcon.displayName = 'HideIcon';
+HideIcon.displayName = "HideIcon";
 export { HideIcon };

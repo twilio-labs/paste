@@ -1,28 +1,28 @@
-import { Alert } from '@twilio-paste/alert';
-import type { AlertProps } from '@twilio-paste/alert';
-import { Avatar } from '@twilio-paste/avatar';
-import type { AvatarProps } from '@twilio-paste/avatar';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import type { ButtonProps } from '@twilio-paste/button';
-import { ButtonGroup } from '@twilio-paste/button-group';
-import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
-import type { CalloutProps } from '@twilio-paste/callout';
-import { Disclosure, DisclosureContent, DisclosureHeading } from '@twilio-paste/disclosure';
-import type { DisclosureHeadingProps } from '@twilio-paste/disclosure';
-import { Heading } from '@twilio-paste/heading';
-import { Input } from '@twilio-paste/input';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Option, Select } from '@twilio-paste/select';
-import { Stack } from '@twilio-paste/stack';
-import { TextArea } from '@twilio-paste/textarea';
-import * as React from 'react';
+import { Alert } from "@twilio-paste/alert";
+import type { AlertProps } from "@twilio-paste/alert";
+import { Avatar } from "@twilio-paste/avatar";
+import type { AvatarProps } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import type { ButtonProps } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import type { CalloutProps } from "@twilio-paste/callout";
+import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
+import type { DisclosureHeadingProps } from "@twilio-paste/disclosure";
+import { Heading } from "@twilio-paste/heading";
+import { Input } from "@twilio-paste/input";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Option, Select } from "@twilio-paste/select";
+import { Stack } from "@twilio-paste/stack";
+import { TextArea } from "@twilio-paste/textarea";
+import * as React from "react";
 
-import { ThemeProvider } from '../src/themeProvider';
+import { ThemeProvider } from "../src/themeProvider";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Theme/Themes',
+  title: "Theme/Themes",
   component: ThemeProvider,
 };
 
@@ -57,11 +57,11 @@ export const Evergreen = (): React.ReactNode => (
           Button variants
         </Heading>
         <ButtonGroup>
-          {'primary primary_icon secondary secondary_icon destructive destructive_icon destructive_link destructive_secondary link inverse reset'
-            .split(' ')
-            .filter((variant) => !variant.includes('icon'))
+          {"primary primary_icon secondary secondary_icon destructive destructive_icon destructive_link destructive_secondary link inverse reset"
+            .split(" ")
+            .filter((variant) => !variant.includes("icon"))
             .map((variant) => (
-              <Button key={variant} variant={variant as ButtonProps['variant']} onClick={() => {}}>
+              <Button key={variant} variant={variant as ButtonProps["variant"]} onClick={() => {}}>
                 {variant} variant
               </Button>
             ))}
@@ -72,9 +72,9 @@ export const Evergreen = (): React.ReactNode => (
           Callout variants
         </Heading>
         <Stack orientation="horizontal" spacing="space40">
-          {'neutral warning error success new'.split(' ').map((variant) => {
+          {"neutral warning error success new".split(" ").map((variant) => {
             return (
-              <Callout key={variant} variant={variant as CalloutProps['variant']}>
+              <Callout key={variant} variant={variant as CalloutProps["variant"]}>
                 <CalloutHeading as="h2">{variant} heading</CalloutHeading>
                 <CalloutText>{variant} variant text</CalloutText>
               </Callout>
@@ -87,9 +87,9 @@ export const Evergreen = (): React.ReactNode => (
           Alert variants
         </Heading>
         <Stack orientation="horizontal" spacing="space40">
-          {'error neutral warning'.split(' ').map((variant) => {
+          {"error neutral warning".split(" ").map((variant) => {
             return (
-              <Alert key={variant} variant={variant as AlertProps['variant']}>
+              <Alert key={variant} variant={variant as AlertProps["variant"]}>
                 {variant} variant
               </Alert>
             );
@@ -101,8 +101,8 @@ export const Evergreen = (): React.ReactNode => (
           Avatar
         </Heading>
         <Stack orientation="horizontal" spacing="space40">
-          {'30 40 50 60 70 80 90 100 110'.split(' ').map((size) => {
-            return <Avatar key={size} size={`sizeIcon${size}` as AvatarProps['size']} name={size} />;
+          {"30 40 50 60 70 80 90 100 110".split(" ").map((size) => {
+            return <Avatar key={size} size={`sizeIcon${size}` as AvatarProps["size"]} name={size} />;
           })}
         </Stack>
       </Box>
@@ -111,10 +111,10 @@ export const Evergreen = (): React.ReactNode => (
           Disclosure
         </Heading>
         <Stack orientation="vertical" spacing="space70">
-          {'10 20 30 40 50 60'.split(' ').map((size) => {
+          {"10 20 30 40 50 60".split(" ").map((size) => {
             return (
               <Disclosure key={size}>
-                <DisclosureHeading as="h2" variant={`heading${size}` as DisclosureHeadingProps['variant']}>
+                <DisclosureHeading as="h2" variant={`heading${size}` as DisclosureHeadingProps["variant"]}>
                   Disclosure Heading
                 </DisclosureHeading>
                 <DisclosureContent>Content</DisclosureContent>

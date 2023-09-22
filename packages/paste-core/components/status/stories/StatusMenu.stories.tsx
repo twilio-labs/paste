@@ -1,7 +1,7 @@
-import type { StoryFn } from '@storybook/react';
-import { Stack } from '@twilio-paste/stack';
-import type { ValueOf } from '@twilio-paste/types';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Stack } from "@twilio-paste/stack";
+import type { ValueOf } from "@twilio-paste/types";
+import * as React from "react";
 
 import {
   StatusMenu,
@@ -10,10 +10,10 @@ import {
   StatusMenuItemChild,
   StatusMenuItemRadio,
   useStatusMenuState,
-} from '../src';
-import type { StatusMenuBadgeProps } from '../src';
+} from "../src";
+import type { StatusMenuBadgeProps } from "../src";
 
-const ProcessStatusMenu: React.FC<React.PropsWithChildren<{ variant: StatusMenuBadgeProps['variant'] }>> = ({
+const ProcessStatusMenu: React.FC<React.PropsWithChildren<{ variant: StatusMenuBadgeProps["variant"] }>> = ({
   variant,
   children,
 }) => {
@@ -52,7 +52,7 @@ const ProcessStatusMenu: React.FC<React.PropsWithChildren<{ variant: StatusMenuB
     </>
   );
 };
-const ConnectivityStatusMenu: React.FC<React.PropsWithChildren<{ variant: StatusMenuBadgeProps['variant'] }>> = ({
+const ConnectivityStatusMenu: React.FC<React.PropsWithChildren<{ variant: StatusMenuBadgeProps["variant"] }>> = ({
   variant,
   children,
 }) => {
@@ -88,24 +88,24 @@ const ConnectivityStatusMenu: React.FC<React.PropsWithChildren<{ variant: Status
 
 const ConnectivityObject = {
   Available: {
-    variant: 'ConnectivityAvailable',
-    children: 'Available',
+    variant: "ConnectivityAvailable",
+    children: "Available",
   },
   Busy: {
-    variant: 'ConnectivityBusy',
-    children: 'Busy',
+    variant: "ConnectivityBusy",
+    children: "Busy",
   },
   Unavailable: {
-    variant: 'ConnectivityUnavailable',
-    children: 'Unavailable',
+    variant: "ConnectivityUnavailable",
+    children: "Unavailable",
   },
   Neutral: {
-    variant: 'ConnectivityNeutral',
-    children: 'Neutral',
+    variant: "ConnectivityNeutral",
+    children: "Neutral",
   },
   Offline: {
-    variant: 'ConnectivityOffline',
-    children: 'Offline',
+    variant: "ConnectivityOffline",
+    children: "Offline",
   },
 } as const;
 const WorkingConnectivityStatusMenu: React.FC = () => {
@@ -125,10 +125,10 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
       <StatusMenu {...menu} aria-label="Preferences">
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Available'}
+          checked={availability.children === "Available"}
           value="available"
           {...menu}
-          onClick={() => onClick('Available')}
+          onClick={() => onClick("Available")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityAvailable">
@@ -137,20 +137,20 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
         </StatusMenuItemRadio>
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Busy'}
+          checked={availability.children === "Busy"}
           value="busy"
           {...menu}
-          onClick={() => onClick('Busy')}
+          onClick={() => onClick("Busy")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityBusy">{ConnectivityObject.Busy.children}</StatusMenuItemChild>
         </StatusMenuItemRadio>
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Unavailable'}
+          checked={availability.children === "Unavailable"}
           value="unavailable"
           {...menu}
-          onClick={() => onClick('Unavailable')}
+          onClick={() => onClick("Unavailable")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityUnavailable">
@@ -159,20 +159,20 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
         </StatusMenuItemRadio>
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Neutral'}
+          checked={availability.children === "Neutral"}
           value="neutral"
           {...menu}
-          onClick={() => onClick('Neutral')}
+          onClick={() => onClick("Neutral")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityNeutral">{ConnectivityObject.Neutral.children}</StatusMenuItemChild>
         </StatusMenuItemRadio>
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Offline'}
+          checked={availability.children === "Offline"}
           value="offline"
           {...menu}
-          onClick={() => onClick('Offline')}
+          onClick={() => onClick("Offline")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityOffline">{ConnectivityObject.Offline.children}</StatusMenuItemChild>
@@ -184,32 +184,32 @@ const WorkingConnectivityStatusMenu: React.FC = () => {
 
 const ProcessObject = {
   Success: {
-    variant: 'ProcessSuccess',
-    children: 'Complete',
+    variant: "ProcessSuccess",
+    children: "Complete",
   },
   Neutral: {
-    variant: 'ProcessNeutral',
-    children: 'In review',
+    variant: "ProcessNeutral",
+    children: "In review",
   },
   Warning: {
-    variant: 'ProcessWarning',
-    children: 'Needs attention',
+    variant: "ProcessWarning",
+    children: "Needs attention",
   },
   Error: {
-    variant: 'ProcessError',
-    children: 'Rejected',
+    variant: "ProcessError",
+    children: "Rejected",
   },
   InProgress: {
-    variant: 'ProcessInProgress',
-    children: 'In-progress',
+    variant: "ProcessInProgress",
+    children: "In-progress",
   },
   Disabled: {
-    variant: 'ProcessDisabled',
-    children: 'Paused',
+    variant: "ProcessDisabled",
+    children: "Paused",
   },
   Draft: {
-    variant: 'ProcessDraft',
-    children: 'Draft',
+    variant: "ProcessDraft",
+    children: "Draft",
   },
 } as const;
 const WorkingProcessStatusMenu: React.FC = () => {
@@ -230,7 +230,7 @@ const WorkingProcessStatusMenu: React.FC = () => {
           name="process"
           value="success"
           checked={process.children === ProcessObject.Success.children}
-          onClick={() => onClick('Success')}
+          onClick={() => onClick("Success")}
           variant="default"
         >
           <StatusMenuItemChild variant="ProcessSuccess">{ProcessObject.Success.children}</StatusMenuItemChild>
@@ -240,7 +240,7 @@ const WorkingProcessStatusMenu: React.FC = () => {
           name="process"
           value="neutral"
           checked={process.children === ProcessObject.Neutral.children}
-          onClick={() => onClick('Neutral')}
+          onClick={() => onClick("Neutral")}
           variant="default"
         >
           <StatusMenuItemChild variant="ProcessNeutral">{ProcessObject.Neutral.children}</StatusMenuItemChild>
@@ -250,7 +250,7 @@ const WorkingProcessStatusMenu: React.FC = () => {
           name="process"
           value="warning"
           checked={process.children === ProcessObject.Warning.children}
-          onClick={() => onClick('Warning')}
+          onClick={() => onClick("Warning")}
           variant="default"
         >
           <StatusMenuItemChild variant="ProcessWarning">{ProcessObject.Warning.children}</StatusMenuItemChild>
@@ -260,7 +260,7 @@ const WorkingProcessStatusMenu: React.FC = () => {
           name="process"
           value="error"
           checked={process.children === ProcessObject.Error.children}
-          onClick={() => onClick('Error')}
+          onClick={() => onClick("Error")}
           variant="default"
         >
           <StatusMenuItemChild variant="ProcessError">{ProcessObject.Error.children}</StatusMenuItemChild>
@@ -270,7 +270,7 @@ const WorkingProcessStatusMenu: React.FC = () => {
           name="process"
           value="InProgress"
           checked={process.children === ProcessObject.InProgress.children}
-          onClick={() => onClick('InProgress')}
+          onClick={() => onClick("InProgress")}
           variant="default"
         >
           <StatusMenuItemChild variant="ProcessInProgress">{ProcessObject.InProgress.children}</StatusMenuItemChild>
@@ -280,7 +280,7 @@ const WorkingProcessStatusMenu: React.FC = () => {
           name="process"
           value="disabled"
           checked={process.children === ProcessObject.Disabled.children}
-          onClick={() => onClick('Disabled')}
+          onClick={() => onClick("Disabled")}
           variant="default"
         >
           <StatusMenuItemChild variant="ProcessDisabled">{ProcessObject.Disabled.children}</StatusMenuItemChild>
@@ -290,7 +290,7 @@ const WorkingProcessStatusMenu: React.FC = () => {
           name="process"
           value="draft"
           checked={process.children === ProcessObject.Draft.children}
-          onClick={() => onClick('Draft')}
+          onClick={() => onClick("Draft")}
           variant="default"
         >
           <StatusMenuItemChild variant="ProcessDraft">{ProcessObject.Draft.children}</StatusMenuItemChild>
@@ -301,7 +301,7 @@ const WorkingProcessStatusMenu: React.FC = () => {
 };
 
 export default {
-  title: 'Components/Status/MenuStatus',
+  title: "Components/Status/MenuStatus",
   component: StatusMenu,
   subcomponents: { StatusMenuBadge, StatusMenuItemChild },
   parameters: {

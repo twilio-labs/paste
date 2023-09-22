@@ -1,17 +1,17 @@
-import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
 export interface PProps {
-  variant?: 'default' | 'lead';
+  variant?: "default" | "lead";
 }
 export const P: React.FC<React.PropsWithChildren<PProps>> = ({ children, variant }) => {
   return (
     <Text
       as="p"
       marginBottom="space70"
-      lineHeight={variant === 'lead' ? 'lineHeight40' : 'lineHeight30'}
-      fontSize={variant === 'lead' ? 'fontSize40' : undefined}
+      lineHeight={variant === "lead" ? "lineHeight40" : "lineHeight30"}
+      fontSize={variant === "lead" ? "fontSize40" : undefined}
     >
       {children}
     </Text>

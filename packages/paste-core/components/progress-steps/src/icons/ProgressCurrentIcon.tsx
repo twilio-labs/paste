@@ -1,10 +1,10 @@
-import { IconWrapper } from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import type { IconWrapperProps } from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import { useUID } from '@twilio-paste/uid-library';
+import { IconWrapper } from "@twilio-paste/icons/esm/helpers/IconWrapper";
+import type { IconWrapperProps } from "@twilio-paste/icons/esm/helpers/IconWrapper";
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
 export interface ProgressCurrentIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +12,11 @@ export interface ProgressCurrentIconProps extends IconWrapperProps {
 }
 
 const ProgressCurrentIcon = React.forwardRef<HTMLElement, ProgressCurrentIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProgressCurrentIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProgressCurrentIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProgressCurrentIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -44,5 +44,5 @@ const ProgressCurrentIcon = React.forwardRef<HTMLElement, ProgressCurrentIconPro
   },
 );
 
-ProgressCurrentIcon.displayName = 'ProgressCurrentIcon';
+ProgressCurrentIcon.displayName = "ProgressCurrentIcon";
 export { ProgressCurrentIcon };

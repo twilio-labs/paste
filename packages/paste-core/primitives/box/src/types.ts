@@ -1,4 +1,4 @@
-import type { CustomTheme } from '@twilio-paste/customization';
+import type { CustomTheme } from "@twilio-paste/customization";
 import type {
   BackgroundProps,
   BorderProps,
@@ -10,9 +10,9 @@ import type {
   ShadowProps,
   SpaceProps,
   TypographyProps,
-} from '@twilio-paste/style-props';
+} from "@twilio-paste/style-props";
 
-import type { PseudoPropStyles } from './PseudoPropStyles';
+import type { PseudoPropStyles } from "./PseudoPropStyles";
 
 export interface BoxBaseStyleProps
   extends LayoutProps,
@@ -56,4 +56,4 @@ export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>,
 
 export interface BoxProps extends BoxElementProps, BoxStyleProps {}
 
-export type StyledBoxProps = BoxProps & { 'data-paste-element': string; theme: CustomTheme };
+export type StyledBoxProps = BoxProps & { "data-paste-element": string; theme: CustomTheme };

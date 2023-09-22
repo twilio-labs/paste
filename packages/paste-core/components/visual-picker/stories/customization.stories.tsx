@@ -1,47 +1,47 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { Avatar, AvatarGroup } from '@twilio-paste/avatar';
-import { Box } from '@twilio-paste/box';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { CodeIcon } from '@twilio-paste/icons/esm/CodeIcon';
-import { CommunityIcon } from '@twilio-paste/icons/esm/CommunityIcon';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
-import { StatusBadge } from '@twilio-paste/status';
-import { Text } from '@twilio-paste/text';
-import { useTheme } from '@twilio-paste/theme';
-import { useUID } from '@twilio-paste/uid-library';
+import { Anchor } from "@twilio-paste/anchor";
+import { Avatar, AvatarGroup } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { CodeIcon } from "@twilio-paste/icons/esm/CodeIcon";
+import { CommunityIcon } from "@twilio-paste/icons/esm/CommunityIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { StatusBadge } from "@twilio-paste/status";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
-import * as React from 'react';
+import * as React from "react";
 
-import { VisualPickerCheckbox, VisualPickerCheckboxGroup, VisualPickerRadio, VisualPickerRadioGroup } from '../src';
+import { VisualPickerCheckbox, VisualPickerCheckboxGroup, VisualPickerRadio, VisualPickerRadioGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Visual Picker/Customization',
+  title: "Components/Visual Picker/Customization",
   component: VisualPickerRadioGroup,
 };
 
-export const CustomizedRadio = (props: Partial<Record<'element', string>>): React.ReactElement => {
+export const CustomizedRadio = (props: Partial<Record<"element", string>>): React.ReactElement => {
   const theme = useTheme();
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <CustomizationProvider
       theme={theme}
       elements={{
-        VISUAL_PICKER_RADIO_GROUP: { backgroundColor: 'colorBackgroundBrandHighlightWeakest' },
-        VISUAL_PICKER_RADIO_GROUP_SET: { backgroundColor: 'colorBackgroundDecorative20Weakest' },
-        VISUAL_PICKER_RADIO_GROUP_FIELD: { backgroundColor: 'colorBackgroundDecorative30Weakest' },
-        VISUAL_PICKER_RADIO: { borderRadius: 'borderRadiusCircle' },
-        VISUAL_PICKER_RADIO_CONTROL: { borderRadius: 'borderRadius20' },
-        VISUAL_PICKER_RADIO_CONTROL_CIRCLE: { opacity: '50%' },
-        VISUAL_PICKER_RADIO_CONTENT: { fontFamily: 'fontFamilyCode', color: 'colorTextErrorStrongest' },
-        MY_PICKER: { backgroundColor: 'colorBackgroundBrandHighlightWeakest' },
-        MY_PICKER_SET: { backgroundColor: 'colorBackgroundDecorative20Weakest' },
-        MY_PICKER_FIELD: { backgroundColor: 'colorBackgroundDecorative30Weakest' },
-        MY_PICKER_RADIO: { borderRadius: 'borderRadiusCircle' },
-        MY_PICKER_RADIO_CONTROL: { borderRadius: 'borderRadius20' },
-        MY_PICKER_RADIO_CONTROL_CIRCLE: { opacity: '50%' },
-        MY_PICKER_RADIO_CONTENT: { fontFamily: 'fontFamilyCode', color: 'colorTextErrorStrongest' },
+        VISUAL_PICKER_RADIO_GROUP: { backgroundColor: "colorBackgroundBrandHighlightWeakest" },
+        VISUAL_PICKER_RADIO_GROUP_SET: { backgroundColor: "colorBackgroundDecorative20Weakest" },
+        VISUAL_PICKER_RADIO_GROUP_FIELD: { backgroundColor: "colorBackgroundDecorative30Weakest" },
+        VISUAL_PICKER_RADIO: { borderRadius: "borderRadiusCircle" },
+        VISUAL_PICKER_RADIO_CONTROL: { borderRadius: "borderRadius20" },
+        VISUAL_PICKER_RADIO_CONTROL_CIRCLE: { opacity: "50%" },
+        VISUAL_PICKER_RADIO_CONTENT: { fontFamily: "fontFamilyCode", color: "colorTextErrorStrongest" },
+        MY_PICKER: { backgroundColor: "colorBackgroundBrandHighlightWeakest" },
+        MY_PICKER_SET: { backgroundColor: "colorBackgroundDecorative20Weakest" },
+        MY_PICKER_FIELD: { backgroundColor: "colorBackgroundDecorative30Weakest" },
+        MY_PICKER_RADIO: { borderRadius: "borderRadiusCircle" },
+        MY_PICKER_RADIO_CONTROL: { borderRadius: "borderRadius20" },
+        MY_PICKER_RADIO_CONTROL_CIRCLE: { opacity: "50%" },
+        MY_PICKER_RADIO_CONTENT: { fontFamily: "fontFamilyCode", color: "colorTextErrorStrongest" },
       }}
     >
       <VisualPickerRadioGroup
@@ -155,7 +155,7 @@ export const CustomizedRadio = (props: Partial<Record<'element', string>>): Reac
   );
 };
 
-export const CustomizedCheckbox = (props: Partial<Record<'element', string>>): React.ReactElement => {
+export const CustomizedCheckbox = (props: Partial<Record<"element", string>>): React.ReactElement => {
   const theme = useTheme();
   const [checked1, setChecked1] = React.useState(false);
   const [checked2, setChecked2] = React.useState(false);
@@ -167,20 +167,20 @@ export const CustomizedCheckbox = (props: Partial<Record<'element', string>>): R
     <CustomizationProvider
       theme={theme}
       elements={{
-        VISUAL_PICKER_CHECKBOX_GROUP: { backgroundColor: 'colorBackgroundBrandHighlightWeakest' },
-        VISUAL_PICKER_CHECKBOX_GROUP_SET: { backgroundColor: 'colorBackgroundDecorative20Weakest' },
-        VISUAL_PICKER_CHECKBOX_GROUP_FIELD: { backgroundColor: 'colorBackgroundDecorative30Weakest' },
-        VISUAL_PICKER_CHECKBOX: { borderRadius: 'borderRadiusCircle' },
-        VISUAL_PICKER_CHECKBOX_CONTROL: { borderRadius: 'borderRadiusCircle' },
-        VISUAL_PICKER_CHECKBOX_ICON: { opacity: '50%' },
-        VISUAL_PICKER_CHECKBOX_CONTENT: { fontFamily: 'fontFamilyCode', color: 'colorTextErrorStrongest' },
-        MY_PICKER: { backgroundColor: 'colorBackgroundBrandHighlightWeakest' },
-        MY_PICKER_SET: { backgroundColor: 'colorBackgroundDecorative20Weakest' },
-        MY_PICKER_FIELD: { backgroundColor: 'colorBackgroundDecorative30Weakest' },
-        MY_PICKER_CHECKBOX: { borderRadius: 'borderRadiusCircle' },
-        MY_PICKER_CHECKBOX_CONTROL: { borderRadius: 'borderRadius20' },
-        MY_PICKER_CHECKBOX_ICON: { opacity: '50%' },
-        MY_PICKER_CHECKBOX_CONTENT: { fontFamily: 'fontFamilyCode', color: 'colorTextErrorStrongest' },
+        VISUAL_PICKER_CHECKBOX_GROUP: { backgroundColor: "colorBackgroundBrandHighlightWeakest" },
+        VISUAL_PICKER_CHECKBOX_GROUP_SET: { backgroundColor: "colorBackgroundDecorative20Weakest" },
+        VISUAL_PICKER_CHECKBOX_GROUP_FIELD: { backgroundColor: "colorBackgroundDecorative30Weakest" },
+        VISUAL_PICKER_CHECKBOX: { borderRadius: "borderRadiusCircle" },
+        VISUAL_PICKER_CHECKBOX_CONTROL: { borderRadius: "borderRadiusCircle" },
+        VISUAL_PICKER_CHECKBOX_ICON: { opacity: "50%" },
+        VISUAL_PICKER_CHECKBOX_CONTENT: { fontFamily: "fontFamilyCode", color: "colorTextErrorStrongest" },
+        MY_PICKER: { backgroundColor: "colorBackgroundBrandHighlightWeakest" },
+        MY_PICKER_SET: { backgroundColor: "colorBackgroundDecorative20Weakest" },
+        MY_PICKER_FIELD: { backgroundColor: "colorBackgroundDecorative30Weakest" },
+        MY_PICKER_CHECKBOX: { borderRadius: "borderRadiusCircle" },
+        MY_PICKER_CHECKBOX_CONTROL: { borderRadius: "borderRadius20" },
+        MY_PICKER_CHECKBOX_ICON: { opacity: "50%" },
+        MY_PICKER_CHECKBOX_CONTENT: { fontFamily: "fontFamilyCode", color: "colorTextErrorStrongest" },
       }}
     >
       <VisualPickerCheckboxGroup

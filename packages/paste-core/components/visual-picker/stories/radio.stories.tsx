@@ -1,26 +1,26 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { Avatar, AvatarGroup } from '@twilio-paste/avatar';
-import { Box } from '@twilio-paste/box';
-import { CodeIcon } from '@twilio-paste/icons/esm/CodeIcon';
-import { CommunityIcon } from '@twilio-paste/icons/esm/CommunityIcon';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
-import { StatusBadge } from '@twilio-paste/status';
-import { Text } from '@twilio-paste/text';
-import { useUID } from '@twilio-paste/uid-library';
+import { Anchor } from "@twilio-paste/anchor";
+import { Avatar, AvatarGroup } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { CodeIcon } from "@twilio-paste/icons/esm/CodeIcon";
+import { CommunityIcon } from "@twilio-paste/icons/esm/CommunityIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { StatusBadge } from "@twilio-paste/status";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
-import * as React from 'react';
+import * as React from "react";
 
-import { VisualPickerRadio, VisualPickerRadioGroup } from '../src';
+import { VisualPickerRadio, VisualPickerRadioGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Visual Picker/Radio',
+  title: "Components/Visual Picker/Radio",
   component: VisualPickerRadioGroup,
 };
 
 export const VerticalRadioGroup = (): React.ReactNode => {
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <VisualPickerRadioGroup
       orientation="vertical"
@@ -122,7 +122,7 @@ export const VerticalRadioGroup = (): React.ReactNode => {
 };
 
 export const VerticalRadioGroupDisabledRadio = (): React.ReactNode => {
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <VisualPickerRadioGroup
       orientation="vertical"
@@ -224,7 +224,7 @@ export const VerticalRadioGroupDisabledRadio = (): React.ReactNode => {
 };
 
 export const VerticalRadioGroupRadioError = (): React.ReactNode => {
-  const [value, setValue] = React.useState('2');
+  const [value, setValue] = React.useState("2");
   return (
     <VisualPickerRadioGroup
       orientation="vertical"
@@ -326,7 +326,7 @@ export const VerticalRadioGroupRadioError = (): React.ReactNode => {
 };
 
 export const HorizontalRadioGroup = (): React.ReactNode => {
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <VisualPickerRadioGroup
       orientation="horizontal"
@@ -426,7 +426,7 @@ export const HorizontalRadioGroup = (): React.ReactNode => {
 };
 
 export const HorizontalRadioGroupDisabledGroup = (): React.ReactNode => {
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <VisualPickerRadioGroup
       orientation="horizontal"
@@ -527,7 +527,7 @@ export const HorizontalRadioGroupDisabledGroup = (): React.ReactNode => {
 };
 
 export const HorizontalRadioGroupGroupError = (): React.ReactNode => {
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <VisualPickerRadioGroup
       orientation="horizontal"

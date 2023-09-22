@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductFaxIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductFaxIconProps extends IconWrapperProps {
 }
 
 const ProductFaxIcon = React.forwardRef<HTMLElement, ProductFaxIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductFaxIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductFaxIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductFaxIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -43,5 +43,5 @@ const ProductFaxIcon = React.forwardRef<HTMLElement, ProductFaxIconProps>(
   },
 );
 
-ProductFaxIcon.displayName = 'ProductFaxIcon';
+ProductFaxIcon.displayName = "ProductFaxIcon";
 export { ProductFaxIcon };

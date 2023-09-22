@@ -1,36 +1,36 @@
-import { badgeBaseStyles, useResizeChildIcons } from '@twilio-paste/badge';
-import type { BadgeProps } from '@twilio-paste/badge';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { badgeBaseStyles, useResizeChildIcons } from "@twilio-paste/badge";
+import type { BadgeProps } from "@twilio-paste/badge";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
 const SidebarBetaBadgeSpanStyles: BoxProps = {
   ...badgeBaseStyles,
-  paddingX: 'space20',
-  paddingY: 'space10',
-  boxShadow: 'shadowBorderInverseNewWeaker',
-  backgroundColor: 'colorBackgroundInverseStrong',
-  color: 'colorTextInverseNew',
+  paddingX: "space20",
+  paddingY: "space10",
+  boxShadow: "shadowBorderInverseNewWeaker",
+  backgroundColor: "colorBackgroundInverseStrong",
+  color: "colorTextInverseNew",
 };
 const SidebarBetaBadgeButtonStyles: BoxProps = {
   ...SidebarBetaBadgeSpanStyles,
-  boxShadow: 'shadowBorderBottomInverseNewWeaker',
+  boxShadow: "shadowBorderBottomInverseNewWeaker",
   // The following styles are copied from getBadgeButtonStyles() in the Badge package
-  cursor: 'pointer',
-  _hover: { top: '1px', boxShadow: 'none' },
-  _focus: { top: '1px', boxShadow: 'shadowFocusInverse' }, // shadowFocus in Badge
+  cursor: "pointer",
+  _hover: { top: "1px", boxShadow: "none" },
+  _focus: { top: "1px", boxShadow: "shadowFocusInverse" }, // shadowFocus in Badge
 };
 
-type SidebarBetaBadgeProps = Omit<BadgeProps, 'as' | 'variant' | 'size'> & {
-  as: 'span' | 'button';
+type SidebarBetaBadgeProps = Omit<BadgeProps, "as" | "variant" | "size"> & {
+  as: "span" | "button";
 };
 
 export const SidebarBetaBadge = React.forwardRef<HTMLElement, SidebarBetaBadgeProps>(
-  ({ children, as, element = 'SIDEBAR_BETA_BADGE', onClick, ...props }, ref) => {
+  ({ children, as, element = "SIDEBAR_BETA_BADGE", onClick, ...props }, ref) => {
     const resizedChildren = useResizeChildIcons(children);
-    const styles = as === 'button' ? SidebarBetaBadgeButtonStyles : SidebarBetaBadgeSpanStyles;
+    const styles = as === "button" ? SidebarBetaBadgeButtonStyles : SidebarBetaBadgeSpanStyles;
     // We don't want the provided onClick to function if as = span
-    const handleOnClick = as === 'button' ? onClick : undefined;
+    const handleOnClick = as === "button" ? onClick : undefined;
 
     return (
       <Box {...safelySpreadBoxProps(props)} {...styles} as={as} ref={ref} element={element} onClick={handleOnClick}>
@@ -40,4 +40,4 @@ export const SidebarBetaBadge = React.forwardRef<HTMLElement, SidebarBetaBadgePr
   },
 );
 
-SidebarBetaBadge.displayName = 'SidebarBetaBadge';
+SidebarBetaBadge.displayName = "SidebarBetaBadge";

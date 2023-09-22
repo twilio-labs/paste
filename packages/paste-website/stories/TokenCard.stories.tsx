@@ -1,16 +1,16 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
-import { useTheme } from '@twilio-paste/theme';
-import camelCase from 'lodash/camelCase';
-import * as React from 'react';
+import type { Meta, StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import Tokens from "@twilio-paste/design-tokens/dist/tokens.generic";
+import { useTheme } from "@twilio-paste/theme";
+import camelCase from "lodash/camelCase";
+import * as React from "react";
 
-import { TokenCard } from '../src/components/tokens-list/token-card';
+import { TokenCard } from "../src/components/tokens-list/token-card";
 
 const defaultThemeTokens = Tokens.tokens;
 
 export default {
-  title: 'Website/Token Card',
+  title: "Website/Token Card",
   component: TokenCard,
   argTypes: {
     backgroundColor: {
@@ -30,7 +30,7 @@ export default {
     },
     value: { control: false },
     useCamelCase: {
-      control: { type: 'boolean' },
+      control: { type: "boolean" },
     },
   },
 } as Meta<typeof TokenCard>;
@@ -53,17 +53,17 @@ const Template: StoryFn<typeof TokenCard> = ({ name, category, useCamelCase, tex
 
   // todo: what is the mapping between pure tokens and theme tokens? category names are diff in some cases.
   switch (category) {
-    case 'box-shadows':
-      themeCategory = 'shadows';
+    case "box-shadows":
+      themeCategory = "shadows";
       break;
-    case 'spacings':
-      themeCategory = 'space';
+    case "spacings":
+      themeCategory = "space";
       break;
-    case 'sizings':
-      if (name.includes('icon')) {
-        themeCategory = 'iconSizes';
+    case "sizings":
+      if (name.includes("icon")) {
+        themeCategory = "iconSizes";
       }
-      themeCategory = 'sizes';
+      themeCategory = "sizes";
       break;
 
     default:
@@ -99,123 +99,123 @@ const Template: StoryFn<typeof TokenCard> = ({ name, category, useCamelCase, tex
 
 export const BackgroundColorToken = Template.bind({});
 BackgroundColorToken.args = {
-  category: 'background-colors',
-  name: 'color-background-available',
+  category: "background-colors",
+  name: "color-background-available",
 };
 
 export const BackgroundColorTokenWithBorder = Template.bind({});
 BackgroundColorTokenWithBorder.args = {
-  category: 'background-colors',
-  name: 'color-background-body',
+  category: "background-colors",
+  name: "color-background-body",
 };
 
 export const BackgroundColorTokenInverse = Template.bind({});
 BackgroundColorTokenInverse.args = {
-  category: 'background-colors',
-  name: 'color-background-inverse',
+  category: "background-colors",
+  name: "color-background-inverse",
 };
 
 export const BorderColorToken = Template.bind({});
 BorderColorToken.args = {
-  category: 'border-colors',
-  name: 'color-border',
+  category: "border-colors",
+  name: "color-border",
 };
 
 export const BorderColorInverseToken = Template.bind({});
 BorderColorInverseToken.args = {
-  category: 'border-colors',
-  name: 'color-border-inverse',
+  category: "border-colors",
+  name: "color-border-inverse",
 };
 
 export const BorderWidthToken = Template.bind({});
 BorderWidthToken.args = {
-  category: 'border-widths',
-  name: 'border-width-20',
+  category: "border-widths",
+  name: "border-width-20",
 };
 
 export const BorderRadiusToken = Template.bind({});
 BorderRadiusToken.args = {
-  category: 'radii',
-  name: 'border-radius-circle',
+  category: "radii",
+  name: "border-radius-circle",
 };
 
 export const BoxShadowToken = Template.bind({});
 BoxShadowToken.args = {
-  category: 'box-shadows',
-  name: 'shadow',
+  category: "box-shadows",
+  name: "shadow",
 };
 
 export const FontFamilyToken = Template.bind({});
 FontFamilyToken.args = {
-  category: 'fonts',
-  name: 'font-family-text',
+  category: "fonts",
+  name: "font-family-text",
 };
 
 export const FontSizeToken = Template.bind({});
 FontSizeToken.args = {
-  category: 'font-sizes',
-  name: 'font-size-110',
+  category: "font-sizes",
+  name: "font-size-110",
 };
 
 export const FontWeightToken = Template.bind({});
 FontWeightToken.args = {
-  category: 'font-weights',
-  name: 'font-weight-bold',
+  category: "font-weights",
+  name: "font-weight-bold",
 };
 
 export const LineHeightTokenLarge = Template.bind({});
 LineHeightTokenLarge.args = {
-  category: 'line-heights',
-  name: 'line-height-110',
+  category: "line-heights",
+  name: "line-height-110",
 };
 
 export const LineHeightTokenSmall = Template.bind({});
 LineHeightTokenSmall.args = {
-  category: 'line-heights',
-  name: 'line-height-10',
+  category: "line-heights",
+  name: "line-height-10",
 };
 
 export const SizingToken = Template.bind({});
 SizingToken.args = {
-  category: 'sizings',
-  name: 'size-110',
+  category: "sizings",
+  name: "size-110",
 };
 
 export const SizingTokenIcon = Template.bind({});
 SizingTokenIcon.args = {
-  category: 'sizings',
-  name: 'size-icon-110',
+  category: "sizings",
+  name: "size-icon-110",
 };
 
 export const SizingTokenSquare = Template.bind({});
 SizingTokenSquare.args = {
-  category: 'sizings',
-  name: 'size-square-200',
+  category: "sizings",
+  name: "size-square-200",
 };
 
 export const SpacingToken = Template.bind({});
 SpacingToken.args = {
-  category: 'spacings',
-  name: 'space-150',
+  category: "spacings",
+  name: "space-150",
 };
 
 export const SpacingTokenNegative = Template.bind({});
 SpacingTokenNegative.args = {
-  category: 'spacings',
-  name: 'space-negative-50',
+  category: "spacings",
+  name: "space-negative-50",
 };
 
 export const SpacingTokenZero = Template.bind({});
 SpacingTokenZero.args = {
-  category: 'spacings',
-  name: 'space-0',
+  category: "spacings",
+  name: "space-0",
 };
 
 export const TextColorToken = Template.bind({});
 TextColorToken.args = {
-  category: 'text-colors',
-  name: 'color-text-success',
-  text_contrast_pairing: ['color-background', 'color-background-new', 'color-background-user'],
+  category: "text-colors",
+  name: "color-text-success",
+  text_contrast_pairing: ["color-background", "color-background-new", "color-background-user"],
 };
 TextColorToken.parameters = {
   a11y: {
@@ -223,7 +223,7 @@ TextColorToken.parameters = {
       rules: [
         {
           // this rule is technically wrong https://html.spec.whatwg.org/multipage/grouping-content.html#the-dl-element
-          id: 'definition-list',
+          id: "definition-list",
           enabled: false,
         },
       ],
@@ -233,15 +233,15 @@ TextColorToken.parameters = {
 
 export const TextColorConditionalToken = Template.bind({});
 TextColorConditionalToken.args = {
-  category: 'text-colors',
-  name: 'color-text-brand-highlight',
+  category: "text-colors",
+  name: "color-text-brand-highlight",
 };
 TextColorConditionalToken.parameters = {
   a11y: {
     config: {
       rules: [
         {
-          id: 'color-contrast',
+          id: "color-contrast",
           // This story purposefully fails color contrast for small text
           enabled: false,
         },
@@ -252,6 +252,6 @@ TextColorConditionalToken.parameters = {
 
 export const ZIndexToken = Template.bind({});
 ZIndexToken.args = {
-  category: 'z-indices',
-  name: 'z-index-90',
+  category: "z-indices",
+  name: "z-index-90",
 };

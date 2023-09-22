@@ -1,19 +1,19 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { Box } from '@twilio-paste/box';
-import { Breadcrumb, BreadcrumbItem } from '@twilio-paste/breadcrumb';
-import { Heading } from '@twilio-paste/heading';
-import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
-import { Stack } from '@twilio-paste/stack';
-import { Text } from '@twilio-paste/text';
-import { useTheme } from '@twilio-paste/theme';
-import Head from 'next/head';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Breadcrumb, BreadcrumbItem } from "@twilio-paste/breadcrumb";
+import { Heading } from "@twilio-paste/heading";
+import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import Head from "next/head";
+import * as React from "react";
 
-import { STORYBOOK_DOMAIN, SidebarCategoryRoutes } from '../../../constants';
-import { getCategoryNameFromRoute, getNameFromPackageName, useOpengraphServiceUrl } from '../../../utils/RouteUtils';
-import GithubIcon from '../../icons/GithubIcon';
-import StorybookIcon from '../../icons/StorybookIcon';
-import { PackageStatusLegend } from '../package-status-legend';
+import { STORYBOOK_DOMAIN, SidebarCategoryRoutes } from "../../../constants";
+import { getCategoryNameFromRoute, getNameFromPackageName, useOpengraphServiceUrl } from "../../../utils/RouteUtils";
+import GithubIcon from "../../icons/GithubIcon";
+import StorybookIcon from "../../icons/StorybookIcon";
+import { PackageStatusLegend } from "../package-status-legend";
 
 const IconAnchor: React.FC<React.PropsWithChildren<{ href: string; icon: React.ReactNode; children: string }>> = ({
   href,
@@ -64,7 +64,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   const theme = useTheme();
 
   const ogImagePath = packageName
-    ? `${categoryRoute.replace('/', '')}/${getNameFromPackageName(packageName)}`
+    ? `${categoryRoute.replace("/", "")}/${getNameFromPackageName(packageName)}`
     : undefined;
   const openGraphServiceUrl = ogImagePath ? useOpengraphServiceUrl(ogImagePath) : null;
 
@@ -72,7 +72,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   const sharedIconStyles = {
     height: theme.space.space40,
     width: theme.space.space40,
-    display: 'inline-block',
+    display: "inline-block",
   };
 
   const githubIconColor = theme.textColors.colorTextIcon;
@@ -152,7 +152,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
             {storybookUrl && (
               <IconAnchor
                 href={`${STORYBOOK_DOMAIN}${storybookUrl}`}
-                icon={<StorybookIcon css={{ ...sharedIconStyles, color: '#FF4785' }} decorative />}
+                icon={<StorybookIcon css={{ ...sharedIconStyles, color: "#FF4785" }} decorative />}
               >
                 Storybook
               </IconAnchor>

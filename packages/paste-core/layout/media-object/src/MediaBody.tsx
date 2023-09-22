@@ -1,9 +1,9 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface MediaBodyProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'as'> {
+export interface MediaBodyProps extends HTMLPasteProps<"div">, Pick<BoxProps, "as"> {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -11,12 +11,12 @@ export interface MediaBodyProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'a
    * @type {BoxProps['element']}
    * @memberof MediaBodyProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   children: NonNullable<React.ReactNode>;
 }
 
 const MediaBody = React.forwardRef<HTMLElement, MediaBodyProps>(
-  ({ as = 'span', children, element = 'MEDIA_BODY', ...props }, ref) => {
+  ({ as = "span", children, element = "MEDIA_BODY", ...props }, ref) => {
     return (
       <Box {...safelySpreadBoxProps(props)} as={as} element={element} flex={1} minWidth="size0" ref={ref}>
         {children}
@@ -25,6 +25,6 @@ const MediaBody = React.forwardRef<HTMLElement, MediaBodyProps>(
   },
 );
 
-MediaBody.displayName = 'MediaBody';
+MediaBody.displayName = "MediaBody";
 
 export { MediaBody };

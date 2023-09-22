@@ -1,15 +1,15 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import type { FieldError, UseFormRegister, UseFormReturn } from 'react-hook-form';
+import type { FieldError, UseFormRegister, UseFormReturn } from "react-hook-form";
 
-export type RoomTypes = 'All' | 'Group' | 'WebRTC Go' | 'Peer to Peer';
-export type DateRanges = 'all' | 'day' | 'oneWeek' | 'twoWeeks';
-export type DateTimeRanges = 'all' | '12hours' | 'day' | 'threeDays' | 'custom';
+export type RoomTypes = "All" | "Group" | "WebRTC Go" | "Peer to Peer";
+export type DateRanges = "all" | "day" | "oneWeek" | "twoWeeks";
+export type DateTimeRanges = "all" | "12hours" | "day" | "threeDays" | "custom";
 export type CustomDateInputNames =
-  | 'customDate.startDate'
-  | 'customDate.startTime'
-  | 'customDate.endDate'
-  | 'customDate.endTime';
+  | "customDate.startDate"
+  | "customDate.startTime"
+  | "customDate.endDate"
+  | "customDate.endTime";
 
 export interface DateTimeFormValues {
   range: DateTimeRanges;
@@ -36,7 +36,7 @@ export interface DateTimeFormErrors {
 }
 
 export interface DateTimePopoverProps {
-  onApply: (callback: VoidFunction) => ReturnType<UseFormReturn['handleSubmit']>;
+  onApply: (callback: VoidFunction) => ReturnType<UseFormReturn["handleSubmit"]>;
   register: UseFormRegister<DateTimeFormValues>;
   errors: DateTimeFormErrors;
 }

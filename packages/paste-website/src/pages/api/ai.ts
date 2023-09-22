@@ -12,19 +12,19 @@
  *
  * Please set these in your .env file and on your deployment boxes configuration.
  */
-import { createClient } from '@supabase/supabase-js';
-import { OpenAIStream, StreamingTextResponse } from 'ai';
+import { createClient } from "@supabase/supabase-js";
+import { OpenAIStream, StreamingTextResponse } from "ai";
 // @ts-expect-error not typed
-import { codeBlock, oneLine } from 'common-tags';
-import GPT3Tokenizer from 'gpt3-tokenizer';
-import type { NextRequest } from 'next/server';
+import { codeBlock, oneLine } from "common-tags";
+import GPT3Tokenizer from "gpt3-tokenizer";
+import type { NextRequest } from "next/server";
 import {
   type ChatCompletionRequestMessage,
   Configuration,
   type CreateEmbeddingResponse,
   type CreateModerationResponse,
   OpenAIApi,
-} from 'openai-edge';
+} from "openai-edge";
 
 class ApplicationError extends Error {
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
@@ -44,29 +44,29 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
-export const runtime = 'edge';
+export const runtime = "edge";
 
 export default async function handler(req: NextRequest): Promise<void | Response> {
   try {
     if (!openAiKey) {
-      throw new ApplicationError('Missing environment variable OPENAI_API_KEY');
+      throw new ApplicationError("Missing environment variable OPENAI_API_KEY");
     }
     if (!openAiSecret) {
-      throw new ApplicationError('Missing environment variable OPENAI_API_SECRET');
+      throw new ApplicationError("Missing environment variable OPENAI_API_SECRET");
     }
 
     if (!supabaseUrl) {
-      throw new ApplicationError('Missing environment variable SUPABASE_URL');
+      throw new ApplicationError("Missing environment variable SUPABASE_URL");
     }
 
     if (!supabaseServiceKey) {
-      throw new ApplicationError('Missing environment variable SUPABASE_KEY');
+      throw new ApplicationError("Missing environment variable SUPABASE_KEY");
     }
 
     const requestData = await req.json();
 
     if (!requestData) {
-      throw new UserError('Missing request data');
+      throw new UserError("Missing request data");
     }
 
     const { prompt: query, secret } = requestData;
@@ -90,12 +90,12 @@ export default async function handler(req: NextRequest): Promise<void | Response
     // @ts-expect-error this is a bug in the types
     if (moderationResponse.error) {
       // @ts-expect-error this is a bug in the types
-      throw new ApplicationError('Failed to moderate content', moderationResponse.error.message);
+      throw new ApplicationError("Failed to moderate content", moderationResponse.error.message);
     }
     const [results] = moderationResponse.results;
 
     if (results.flagged) {
-      throw new UserError('Flagged content', {
+      throw new UserError("Flagged content", {
         flagged: true,
         categories: results.categories,
       });
@@ -103,19 +103,19 @@ export default async function handler(req: NextRequest): Promise<void | Response
 
     // Create embedding from query
     const embeddingResponse = await openai.createEmbedding({
-      model: 'text-embedding-ada-002',
-      input: sanitizedQuery.replaceAll('\n', ' '),
+      model: "text-embedding-ada-002",
+      input: sanitizedQuery.replaceAll("\n", " "),
     });
 
     if (embeddingResponse.status !== 200) {
-      throw new ApplicationError('Failed to create embedding for question', embeddingResponse);
+      throw new ApplicationError("Failed to create embedding for question", embeddingResponse);
     }
 
     const {
       data: [{ embedding }],
     }: CreateEmbeddingResponse = await embeddingResponse.json();
 
-    const { error: matchError, data: pageSections } = await supabaseClient.rpc('match_page_sections', {
+    const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_page_sections", {
       embedding,
       /* eslint-disable camelcase */
       match_threshold: 0.78,
@@ -125,12 +125,12 @@ export default async function handler(req: NextRequest): Promise<void | Response
     });
 
     if (matchError) {
-      throw new ApplicationError('Failed to match page sections', matchError);
+      throw new ApplicationError("Failed to match page sections", matchError);
     }
 
-    const tokenizer = new GPT3Tokenizer({ type: 'gpt3' });
+    const tokenizer = new GPT3Tokenizer({ type: "gpt3" });
     let tokenCount = 0;
-    let contextText = '';
+    let contextText = "";
 
     // eslint-disable-next-line unicorn/no-for-loop
     for (const { content } of pageSections) {
@@ -165,12 +165,12 @@ export default async function handler(req: NextRequest): Promise<void | Response
     `;
 
     const chatMessage: ChatCompletionRequestMessage = {
-      role: 'user',
+      role: "user",
       content: prompt,
     };
 
     const response = await openai.createChatCompletion({
-      model: 'gpt-4',
+      model: "gpt-4",
       messages: [chatMessage],
       // eslint-disable-next-line camelcase
       max_tokens: 512,
@@ -180,7 +180,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
 
     if (!response.ok) {
       const error = await response.json();
-      throw new ApplicationError('Failed to generate completion', error);
+      throw new ApplicationError("Failed to generate completion", error);
     }
 
     // Transform the response into a readable stream
@@ -197,7 +197,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
         }),
         {
           status: 400,
-          headers: { 'Content-Type': 'application/json' },
+          headers: { "Content-Type": "application/json" },
         },
       );
     } else if (error instanceof ApplicationError) {
@@ -212,11 +212,11 @@ export default async function handler(req: NextRequest): Promise<void | Response
 
     return new Response(
       JSON.stringify({
-        error: 'There was an error processing your request',
+        error: "There was an error processing your request",
       }),
       {
         status: 500,
-        headers: { 'Content-Type': 'application/json' },
+        headers: { "Content-Type": "application/json" },
       },
     );
   }

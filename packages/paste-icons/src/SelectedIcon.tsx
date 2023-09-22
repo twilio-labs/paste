@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface SelectedIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface SelectedIconProps extends IconWrapperProps {
 }
 
 const SelectedIcon = React.forwardRef<HTMLElement, SelectedIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `SelectedIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[SelectedIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[SelectedIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -45,5 +45,5 @@ const SelectedIcon = React.forwardRef<HTMLElement, SelectedIconProps>(
   },
 );
 
-SelectedIcon.displayName = 'SelectedIcon';
+SelectedIcon.displayName = "SelectedIcon";
 export { SelectedIcon };

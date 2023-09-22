@@ -2,25 +2,25 @@
 // can't handle importing them, so copy pasta'd here as it doesn't seem like a big deal.
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function escapeStringRegexp(string) {
-  if (typeof string !== 'string') {
-    throw new TypeError('Expected a string');
+  if (typeof string !== "string") {
+    throw new TypeError("Expected a string");
   }
 
   // Escape characters with special meaning either inside or outside character sets.
   // Use a simple backslash escape when it’s always valid, and a `\xnn` escape when the simpler form would be disallowed by Unicode patterns’ stricter grammar.
   // eslint-disable-next-line unicorn/better-regex
-  return string.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&').replace(/-/g, '\\x2d');
+  return string.replace(/[|\\{}()[\]^$+*?.]/g, "\\$&").replace(/-/g, "\\x2d");
 }
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function makeFilter(externals) {
   return new RegExp(
     // eslint-disable-next-line prefer-template
-    '^(' + externals.map(escapeStringRegexp).join('|') + ')(\\/.*)?$', // TODO support for query strings?
+    "^(" + externals.map(escapeStringRegexp).join("|") + ")(\\/.*)?$", // TODO support for query strings?
   );
 }
 
-const NAME = 'esm-externals';
+const NAME = "esm-externals";
 const NAMESPACE = NAME;
 
 // this is a modified version of https://github.com/remorses/esbuild-plugins/tree/master/esm-externals
@@ -44,7 +44,7 @@ function EsmExternalsPlugin({ externals }) {
         };
       });
       build.onResolve({ filter }, (args) => {
-        if (args.kind !== 'import-statement') {
+        if (args.kind !== "import-statement") {
           return {
             path: args.path,
             namespace: NAMESPACE,

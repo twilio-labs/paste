@@ -1,14 +1,14 @@
-import { Globals } from '@react-spring/shared';
-import { animated, interpolate, useChain, useSpring, useSprings, useTrail, useTransition } from '@react-spring/web';
+import { Globals } from "@react-spring/shared";
+import { animated, interpolate, useChain, useSpring, useSprings, useTrail, useTransition } from "@react-spring/web";
 import type {
   AnimatedProps,
   UseSpringProps,
   UseSpringsProps,
   UseTrailProps,
   UseTransitionProps,
-} from '@react-spring/web';
+} from "@react-spring/web";
 
-import { isRenderingOnServer, useReducedMotion } from './useReducedMotion';
+import { isRenderingOnServer, useReducedMotion } from "./useReducedMotion";
 
 export {
   Globals,

@@ -1,18 +1,18 @@
-import { BaseRadioCheckboxControl, BaseRadioCheckboxLabel } from '@twilio-paste/base-radio-checkbox';
-import { Box } from '@twilio-paste/box';
-import { HiddenRadio, type HiddenRadioState } from '@twilio-paste/radio-group';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { type BorderColor } from '@twilio-paste/style-props';
-import { useUID } from '@twilio-paste/uid-library';
-import { useMergeRefs } from '@twilio-paste/utils';
-import * as React from 'react';
+import { BaseRadioCheckboxControl, BaseRadioCheckboxLabel } from "@twilio-paste/base-radio-checkbox";
+import { Box } from "@twilio-paste/box";
+import { HiddenRadio, type HiddenRadioState } from "@twilio-paste/radio-group";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { type BorderColor } from "@twilio-paste/style-props";
+import { useUID } from "@twilio-paste/uid-library";
+import { useMergeRefs } from "@twilio-paste/utils";
+import * as React from "react";
 
-import { VisualPickerRadioContext } from './VisualPickerContext';
-import { type VisualPickerRadioProps } from './types';
+import { VisualPickerRadioContext } from "./VisualPickerContext";
+import { type VisualPickerRadioProps } from "./types";
 
 export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPickerRadioProps>(
   (
-    { id, name, element = 'VISUAL_PICKER_RADIO', value, disabled, hasError, onChange, children, labelText, ...props },
+    { id, name, element = "VISUAL_PICKER_RADIO", value, disabled, hasError, onChange, children, labelText, ...props },
     ref,
   ) => {
     const [isHovering, setIsHovering] = React.useState(false);
@@ -47,15 +47,15 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
     const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
 
     // Border color shouldn't change on hover of selected radio because a radio can't be unselected by clicking on it
-    let pickerBorderColor = 'colorBorderWeak' as BorderColor;
-    if (disabled || groupIsDisabled) pickerBorderColor = 'colorBorderWeak';
+    let pickerBorderColor = "colorBorderWeak" as BorderColor;
+    if (disabled || groupIsDisabled) pickerBorderColor = "colorBorderWeak";
     else if (!state.checked) {
-      if ((hasError || groupHasError) && !isHovering) pickerBorderColor = 'colorBorderError' as BorderColor;
-      else if ((hasError || groupHasError) && isHovering) pickerBorderColor = 'colorBorderErrorStrong' as BorderColor;
-      else if (isHovering) pickerBorderColor = 'colorBorderPrimary' as BorderColor;
+      if ((hasError || groupHasError) && !isHovering) pickerBorderColor = "colorBorderError" as BorderColor;
+      else if ((hasError || groupHasError) && isHovering) pickerBorderColor = "colorBorderErrorStrong" as BorderColor;
+      else if (isHovering) pickerBorderColor = "colorBorderPrimary" as BorderColor;
     } else if (state.checked) {
-      if (hasError || groupHasError) pickerBorderColor = 'colorBorderError' as BorderColor;
-      else pickerBorderColor = 'colorBorderPrimary' as BorderColor;
+      if (hasError || groupHasError) pickerBorderColor = "colorBorderError" as BorderColor;
+      else pickerBorderColor = "colorBorderPrimary" as BorderColor;
     }
 
     return (
@@ -63,11 +63,11 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
         element={element}
         position="relative"
         display="inline-flex"
-        alignItems={visualPickerRadioGroupContext.orientation === 'vertical' ? 'center' : 'flex-start'}
+        alignItems={visualPickerRadioGroupContext.orientation === "vertical" ? "center" : "flex-start"}
         flexDirection="row"
         height="100%"
         width="100%"
-        backgroundColor={disabled || groupIsDisabled ? 'colorBackgroundWeak' : undefined}
+        backgroundColor={disabled || groupIsDisabled ? "colorBackgroundWeak" : undefined}
         borderStyle="solid"
         borderColor={pickerBorderColor}
         borderWidth="borderWidth10"
@@ -80,7 +80,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
           internalRef.current?.focus();
           e.stopPropagation();
         }}
-        _hover={{ cursor: disabled || groupIsDisabled ? 'not-allowed' : 'pointer' }}
+        _hover={{ cursor: disabled || groupIsDisabled ? "not-allowed" : "pointer" }}
       >
         <HiddenRadio
           {...props}
@@ -105,14 +105,14 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
             type="radio"
             applyHoverStyles={isHovering}
             _checkedAndDisabledSibling={{
-              color: 'colorTextWeaker',
+              color: "colorTextWeaker",
             }}
           >
             <Box
               as="span"
               element={`${element}_CONTROL_CIRCLE`}
               lineHeight="lineHeight0"
-              display={state.checked ? 'block' : 'none'}
+              display={state.checked ? "block" : "none"}
               color="inherit"
               size="sizeIcon10"
             >
@@ -129,4 +129,4 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
     );
   },
 );
-VisualPickerRadio.displayName = 'VisualPickerRadio';
+VisualPickerRadio.displayName = "VisualPickerRadio";

@@ -1,9 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { Box } from '@twilio-paste/box';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
-import { Theme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { fireEvent, render, screen } from "@testing-library/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
+import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
 import {
   Sidebar,
@@ -15,15 +15,15 @@ import {
   SidebarHeaderLabel,
   SidebarOverlayContentWrapper,
   SidebarPushContentWrapper,
-} from '../src';
-import type { SidebarProps } from '../src';
+} from "../src";
+import type { SidebarProps } from "../src";
 
 const MockPushSidebar = ({
   collapsed,
-  variant = 'default',
+  variant = "default",
 }: {
   collapsed?: boolean;
-  variant?: SidebarProps['variant'];
+  variant?: SidebarProps["variant"];
 }): JSX.Element => {
   return (
     <Theme.Provider theme="twilio">
@@ -53,10 +53,10 @@ const MockPushSidebar = ({
 
 const MockOverlaySidebar = ({
   collapsed,
-  variant = 'default',
+  variant = "default",
 }: {
   collapsed?: boolean;
-  variant?: SidebarProps['variant'];
+  variant?: SidebarProps["variant"];
 }): JSX.Element => {
   return (
     <Theme.Provider theme="twilio">
@@ -84,103 +84,103 @@ const MockOverlaySidebar = ({
   );
 };
 
-describe('Sidebar', () => {
+describe("Sidebar", () => {
   /**
    * PUSH
    */
-  describe('Push Sidebar', () => {
-    it('should have an id', () => {
+  describe("Push Sidebar", () => {
+    it("should have an id", () => {
       render(<MockPushSidebar collapsed />);
-      const nav = screen.getByRole('complementary');
-      expect(nav).toHaveAttribute('id');
+      const nav = screen.getByRole("complementary");
+      expect(nav).toHaveAttribute("id");
     });
 
-    it('should render expanded', () => {
+    it("should render expanded", () => {
       render(<MockPushSidebar collapsed={false} />);
-      const nav = screen.getByRole('complementary');
-      expect(nav.style.width).toBe('15rem');
+      const nav = screen.getByRole("complementary");
+      expect(nav.style.width).toBe("15rem");
     });
 
-    it('should render expanded by default', () => {
+    it("should render expanded by default", () => {
       render(<MockPushSidebar />);
-      const nav = screen.getByRole('complementary');
-      expect(nav.style.width).toBe('15rem');
+      const nav = screen.getByRole("complementary");
+      expect(nav.style.width).toBe("15rem");
     });
 
-    it('should render compact width', () => {
+    it("should render compact width", () => {
       render(<MockPushSidebar collapsed={true} variant="compact" />);
-      const nav = screen.getByRole('complementary');
-      expect(nav.style.width).toBe('4.75rem');
+      const nav = screen.getByRole("complementary");
+      expect(nav.style.width).toBe("4.75rem");
     });
   });
 
   /**
    * OVERLAY
    */
-  describe('Overlay Sidebar', () => {
-    it('should have an id', () => {
+  describe("Overlay Sidebar", () => {
+    it("should have an id", () => {
       render(<MockOverlaySidebar collapsed />);
-      const nav = screen.getByRole('complementary');
-      expect(nav).toHaveAttribute('id');
+      const nav = screen.getByRole("complementary");
+      expect(nav).toHaveAttribute("id");
     });
 
-    it('should render expanded', () => {
+    it("should render expanded", () => {
       render(<MockOverlaySidebar collapsed={false} />);
-      const nav = screen.getByRole('complementary');
-      expect(nav.style.width).toBe('15rem');
+      const nav = screen.getByRole("complementary");
+      expect(nav.style.width).toBe("15rem");
     });
 
-    it('should render expanded by default', () => {
+    it("should render expanded by default", () => {
       render(<MockOverlaySidebar />);
-      const nav = screen.getByRole('complementary');
-      expect(nav.style.width).toBe('15rem');
+      const nav = screen.getByRole("complementary");
+      expect(nav.style.width).toBe("15rem");
     });
 
-    it('should render compact width', () => {
+    it("should render compact width", () => {
       render(<MockOverlaySidebar collapsed={true} variant="compact" />);
-      const nav = screen.getByRole('complementary');
-      expect(nav.style.width).toBe('4.75rem');
+      const nav = screen.getByRole("complementary");
+      expect(nav.style.width).toBe("4.75rem");
     });
   });
 
   /**
    * SIDEBAR COLLAPSE BUTTON
    */
-  describe('Sidebar Collapse Button', () => {
-    it('should have aria-expanded and aria-controls set correctly when collapsed', async () => {
+  describe("Sidebar Collapse Button", () => {
+    it("should have aria-expanded and aria-controls set correctly when collapsed", async () => {
       render(<MockOverlaySidebar collapsed />);
-      const toggleButton = screen.getAllByRole('button')[1];
-      const nav = screen.getByRole('complementary');
-      expect(toggleButton.getAttribute('aria-controls')).toEqual(nav.getAttribute('id'));
-      expect(toggleButton.getAttribute('aria-expanded')).toEqual('false');
-      expect(toggleButton.textContent).toBe('Open sidebar');
+      const toggleButton = screen.getAllByRole("button")[1];
+      const nav = screen.getByRole("complementary");
+      expect(toggleButton.getAttribute("aria-controls")).toEqual(nav.getAttribute("id"));
+      expect(toggleButton.getAttribute("aria-expanded")).toEqual("false");
+      expect(toggleButton.textContent).toBe("Open sidebar");
     });
 
-    it('should have aria-expanded and aria-controls set correctly when expanded', async () => {
+    it("should have aria-expanded and aria-controls set correctly when expanded", async () => {
       render(<MockOverlaySidebar collapsed={false} />);
-      const toggleButton = screen.getAllByRole('button')[1];
-      const nav = screen.getByRole('complementary');
-      expect(toggleButton.getAttribute('aria-controls')).toEqual(nav.getAttribute('id'));
-      expect(toggleButton.getAttribute('aria-expanded')).toEqual('true');
-      expect(toggleButton.textContent).toBe('Close sidebar');
+      const toggleButton = screen.getAllByRole("button")[1];
+      const nav = screen.getByRole("complementary");
+      expect(toggleButton.getAttribute("aria-controls")).toEqual(nav.getAttribute("id"));
+      expect(toggleButton.getAttribute("aria-expanded")).toEqual("true");
+      expect(toggleButton.textContent).toBe("Close sidebar");
     });
   });
 
   /**
    * SIDEBAR HEADER
    */
-  describe('Sidebar Header', () => {
-    it('hides the text when collapsed', async () => {
+  describe("Sidebar Header", () => {
+    it("hides the text when collapsed", async () => {
       render(<MockOverlaySidebar collapsed />);
-      const headerText = screen.getByText('Twilio Flex');
-      expect(headerText).toHaveStyleRule('opacity', '0');
+      const headerText = screen.getByText("Twilio Flex");
+      expect(headerText).toHaveStyleRule("opacity", "0");
     });
   });
 
   /**
    * SIDEBAR BETA BADGE
    */
-  describe('Sidebar Beta Badge', () => {
+  describe("Sidebar Beta Badge", () => {
     it('should set ref to a span element if "as" is "span"', () => {
       const betaBadgeRef = React.createRef<HTMLElement>();
       render(
@@ -188,7 +188,7 @@ describe('Sidebar', () => {
           Beta
         </SidebarBetaBadge>,
       );
-      expect(betaBadgeRef?.current?.tagName).toEqual('SPAN');
+      expect(betaBadgeRef?.current?.tagName).toEqual("SPAN");
     });
     it('should render as button if "as" is "button"', () => {
       const { getByRole } = render(
@@ -196,7 +196,7 @@ describe('Sidebar', () => {
           Button
         </SidebarBetaBadge>,
       );
-      expect(getByRole('button')).toBeInTheDocument();
+      expect(getByRole("button")).toBeInTheDocument();
     });
 
     it('should set ref to a button element if "as" is "button"', () => {
@@ -206,17 +206,17 @@ describe('Sidebar', () => {
           Beta
         </SidebarBetaBadge>,
       );
-      expect(betaBadgeRef?.current?.tagName).toEqual('BUTTON');
+      expect(betaBadgeRef?.current?.tagName).toEqual("BUTTON");
     });
 
-    it('should handle onclick event', () => {
+    it("should handle onclick event", () => {
       const onClickMock: jest.Mock = jest.fn();
       const { getByRole } = render(
         <SidebarBetaBadge as="button" onClick={onClickMock}>
           Button
         </SidebarBetaBadge>,
       );
-      const button = getByRole('button');
+      const button = getByRole("button");
       fireEvent.click(button);
       expect(onClickMock).toBeCalledTimes(1);
     });
@@ -225,23 +225,23 @@ describe('Sidebar', () => {
   /**
    * Customization
    */
-  describe('Customization', () => {
-    it('should work with default element values', () => {
+  describe("Customization", () => {
+    it("should work with default element values", () => {
       render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            SIDEBAR: { backgroundColor: 'colorBackgroundPrimary', margin: 'space50' },
+            SIDEBAR: { backgroundColor: "colorBackgroundPrimary", margin: "space50" },
             SIDEBAR_COLLAPSE_BUTTON: {
-              padding: 'space40',
+              padding: "space40",
             },
             SIDEBAR_FOOTER: {
-              padding: 'space40',
+              padding: "space40",
             },
-            SIDEBAR_PUSH_CONTENT_WRAPPER: { backgroundColor: 'colorBackgroundPrimary', margin: 'space50' },
+            SIDEBAR_PUSH_CONTENT_WRAPPER: { backgroundColor: "colorBackgroundPrimary", margin: "space50" },
             SIDEBAR_BETA_BADGE: {
-              backgroundColor: 'colorBackgroundAvailable',
+              backgroundColor: "colorBackgroundAvailable",
             },
           }}
         >
@@ -265,40 +265,40 @@ describe('Sidebar', () => {
           </SidebarPushContentWrapper>
         </CustomizationProvider>,
       );
-      const nav = screen.getByRole('complementary');
-      expect(nav).toHaveStyleRule('margin', '1rem');
-      expect(nav).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+      const nav = screen.getByRole("complementary");
+      expect(nav).toHaveStyleRule("margin", "1rem");
+      expect(nav).toHaveStyleRule("background-color", "rgb(2, 99, 224)");
 
-      const sidebarButton = screen.getByRole('button');
-      expect(sidebarButton).toHaveStyleRule('padding', '0.75rem');
+      const sidebarButton = screen.getByRole("button");
+      expect(sidebarButton).toHaveStyleRule("padding", "0.75rem");
 
-      const sidebarButtonWrapper = screen.getByTestId('collapseButtonWrapper');
-      expect(sidebarButtonWrapper).toHaveStyleRule('padding', '0.75rem');
+      const sidebarButtonWrapper = screen.getByTestId("collapseButtonWrapper");
+      expect(sidebarButtonWrapper).toHaveStyleRule("padding", "0.75rem");
 
-      const contentWrapper = screen.getByTestId('contentwrapper');
-      expect(contentWrapper).toHaveStyleRule('margin', '1rem');
-      expect(contentWrapper).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+      const contentWrapper = screen.getByTestId("contentwrapper");
+      expect(contentWrapper).toHaveStyleRule("margin", "1rem");
+      expect(contentWrapper).toHaveStyleRule("background-color", "rgb(2, 99, 224)");
 
-      const sidebarBetaBadge = screen.getByText('Beta');
-      expect(sidebarBetaBadge).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
+      const sidebarBetaBadge = screen.getByText("Beta");
+      expect(sidebarBetaBadge).toHaveStyleRule("background-color", "rgb(20, 176, 83)");
     });
 
-    it('should work with custom element values', () => {
+    it("should work with custom element values", () => {
       render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            XSIDE: { backgroundColor: 'colorBackgroundPrimary', margin: 'space50' },
-            XSIDE_WRAPPER: { backgroundColor: 'colorBackgroundPrimary', margin: 'space50' },
+            XSIDE: { backgroundColor: "colorBackgroundPrimary", margin: "space50" },
+            XSIDE_WRAPPER: { backgroundColor: "colorBackgroundPrimary", margin: "space50" },
             XSIDE_COLLAPSE_BUTTON: {
-              padding: 'space40',
+              padding: "space40",
             },
             XSIDE_COLLAPSE_BUTTON_WRAPPER: {
-              padding: 'space40',
+              padding: "space40",
             },
             XSIDE_BETA_BADGE: {
-              backgroundColor: 'colorBackgroundAvailable',
+              backgroundColor: "colorBackgroundAvailable",
             },
           }}
         >
@@ -328,22 +328,22 @@ describe('Sidebar', () => {
           </SidebarPushContentWrapper>
         </CustomizationProvider>,
       );
-      const nav = screen.getByRole('complementary');
-      expect(nav).toHaveStyleRule('margin', '1rem');
-      expect(nav).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+      const nav = screen.getByRole("complementary");
+      expect(nav).toHaveStyleRule("margin", "1rem");
+      expect(nav).toHaveStyleRule("background-color", "rgb(2, 99, 224)");
 
-      const sidebarButton = screen.getByRole('button');
-      expect(sidebarButton).toHaveStyleRule('padding', '0.75rem');
+      const sidebarButton = screen.getByRole("button");
+      expect(sidebarButton).toHaveStyleRule("padding", "0.75rem");
 
-      const sidebarButtonWrapper = screen.getByTestId('collapseButtonWrapper');
-      expect(sidebarButtonWrapper).toHaveStyleRule('padding', '0.75rem');
+      const sidebarButtonWrapper = screen.getByTestId("collapseButtonWrapper");
+      expect(sidebarButtonWrapper).toHaveStyleRule("padding", "0.75rem");
 
-      const contentWrapper = screen.getByTestId('contentwrapper');
-      expect(contentWrapper).toHaveStyleRule('margin', '1rem');
-      expect(contentWrapper).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
+      const contentWrapper = screen.getByTestId("contentwrapper");
+      expect(contentWrapper).toHaveStyleRule("margin", "1rem");
+      expect(contentWrapper).toHaveStyleRule("background-color", "rgb(2, 99, 224)");
 
-      const sidebarBetaBadge = screen.getByText('Beta');
-      expect(sidebarBetaBadge).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
+      const sidebarBetaBadge = screen.getByText("Beta");
+      expect(sidebarBetaBadge).toHaveStyleRule("background-color", "rgb(20, 176, 83)");
     });
   });
 });

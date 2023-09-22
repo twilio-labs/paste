@@ -1,1 +1,1 @@
-export * from '@twilio-paste/grid';
+export * from "@twilio-paste/grid";

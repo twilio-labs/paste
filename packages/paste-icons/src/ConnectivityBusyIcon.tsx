@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ConnectivityBusyIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ConnectivityBusyIconProps extends IconWrapperProps {
 }
 
 const ConnectivityBusyIcon = React.forwardRef<HTMLElement, ConnectivityBusyIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ConnectivityBusyIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ConnectivityBusyIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ConnectivityBusyIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -40,5 +40,5 @@ const ConnectivityBusyIcon = React.forwardRef<HTMLElement, ConnectivityBusyIconP
   },
 );
 
-ConnectivityBusyIcon.displayName = 'ConnectivityBusyIcon';
+ConnectivityBusyIcon.displayName = "ConnectivityBusyIcon";
 export { ConnectivityBusyIcon };

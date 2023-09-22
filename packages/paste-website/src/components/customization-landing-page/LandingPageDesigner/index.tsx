@@ -1,12 +1,12 @@
-import { Box } from '@twilio-paste/box';
-import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
-import { generateTokensFromTheme, useTheme } from '@twilio-paste/theme';
-import Head from 'next/head';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
+import { generateTokensFromTheme, useTheme } from "@twilio-paste/theme";
+import Head from "next/head";
+import * as React from "react";
 
-import { DesignerContext } from './DesignerContext';
-import { DesignerControls } from './DesignerControls';
-import { DesignerPreview } from './DesignerPreview';
+import { DesignerContext } from "./DesignerContext";
+import { DesignerControls } from "./DesignerControls";
+import { DesignerPreview } from "./DesignerPreview";
 
 export const LandingPageDesigner = (): JSX.Element => {
   const theme = useTheme();

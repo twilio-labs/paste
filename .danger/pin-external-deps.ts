@@ -1,6 +1,6 @@
-import fs from 'fs';
-import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL';
-import { getPackJsonsFromFiles } from './utils';
+import fs from "fs";
+import { DangerDSLType } from "danger/distribution/dsl/DangerDSL";
+import { getPackJsonsFromFiles } from "./utils";
 
 // you kind of have to treat Danger plugins as global?
 // https://danger.systems/js/usage/extending-danger.html#writing-your-plugin
@@ -18,9 +18,9 @@ export const getUnpinnedExternalDeps = (deps: Record<string, string>): string[] 
     return (
       Object.keys(deps)
         // we don't want internal packages
-        .filter((dep) => !dep.includes('@twilio-paste'))
+        .filter((dep) => !dep.includes("@twilio-paste"))
         // we want anything that has a ^
-        .filter((dep) => deps[dep].startsWith('^'))
+        .filter((dep) => deps[dep].startsWith("^"))
     );
   } else {
     return [];

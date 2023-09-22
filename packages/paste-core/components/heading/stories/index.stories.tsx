@@ -1,15 +1,15 @@
-import type { StoryFn } from '@storybook/react';
-import { Card } from '@twilio-paste/card';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Heading } from '../src';
+import { Heading } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Heading',
+  title: "Components/Heading",
   component: Heading,
 };
 
@@ -21,7 +21,7 @@ export const Heading10 = (): React.ReactNode => {
   );
 };
 
-Heading10.storyName = 'heading10';
+Heading10.storyName = "heading10";
 
 export const Heading20 = (): React.ReactNode => {
   return (
@@ -31,7 +31,7 @@ export const Heading20 = (): React.ReactNode => {
   );
 };
 
-Heading20.storyName = 'heading20';
+Heading20.storyName = "heading20";
 
 export const Heading30 = (): React.ReactNode => {
   return (
@@ -41,7 +41,7 @@ export const Heading30 = (): React.ReactNode => {
   );
 };
 
-Heading30.storyName = 'heading30';
+Heading30.storyName = "heading30";
 
 export const Heading40 = (): React.ReactNode => {
   return (
@@ -51,7 +51,7 @@ export const Heading40 = (): React.ReactNode => {
   );
 };
 
-Heading40.storyName = 'heading40';
+Heading40.storyName = "heading40";
 
 export const Heading50 = (): React.ReactNode => {
   return (
@@ -61,7 +61,7 @@ export const Heading50 = (): React.ReactNode => {
   );
 };
 
-Heading50.storyName = 'heading50';
+Heading50.storyName = "heading50";
 
 export const Heading60 = (): React.ReactNode => {
   return (
@@ -71,7 +71,7 @@ export const Heading60 = (): React.ReactNode => {
   );
 };
 
-Heading60.storyName = 'heading60';
+Heading60.storyName = "heading60";
 
 export const Heading10NoMargin = (): React.ReactNode => {
   return (
@@ -83,7 +83,7 @@ export const Heading10NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading10NoMargin.storyName = 'heading10 no margin';
+Heading10NoMargin.storyName = "heading10 no margin";
 
 export const Heading20NoMargin = (): React.ReactNode => {
   return (
@@ -95,7 +95,7 @@ export const Heading20NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading20NoMargin.storyName = 'heading20 no margin';
+Heading20NoMargin.storyName = "heading20 no margin";
 
 export const Heading30NoMargin = (): React.ReactNode => {
   return (
@@ -107,7 +107,7 @@ export const Heading30NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading30NoMargin.storyName = 'heading30 no margin';
+Heading30NoMargin.storyName = "heading30 no margin";
 
 export const Heading40NoMargin = (): React.ReactNode => {
   return (
@@ -119,7 +119,7 @@ export const Heading40NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading40NoMargin.storyName = 'heading40 no margin';
+Heading40NoMargin.storyName = "heading40 no margin";
 
 export const Heading50NoMargin = (): React.ReactNode => {
   return (
@@ -131,7 +131,7 @@ export const Heading50NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading50NoMargin.storyName = 'heading50 no margin';
+Heading50NoMargin.storyName = "heading50 no margin";
 
 export const Heading60NoMargin = (): React.ReactNode => {
   return (
@@ -143,7 +143,7 @@ export const Heading60NoMargin = (): React.ReactNode => {
   );
 };
 
-Heading60NoMargin.storyName = 'heading60 no margin';
+Heading60NoMargin.storyName = "heading60 no margin";
 
 export const CustomHeading: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
@@ -157,17 +157,17 @@ export const CustomHeading: StoryFn = (_args, { parameters: { isTestEnvironment 
         theme={currentTheme}
         elements={{
           HEADING: {
-            backgroundColor: 'colorBackgroundPrimaryWeaker',
-            color: 'colorTextError',
-            padding: 'space40',
-            textDecoration: 'underline',
+            backgroundColor: "colorBackgroundPrimaryWeaker",
+            color: "colorTextError",
+            padding: "space40",
+            textDecoration: "underline",
             variants: {
               heading10: {
-                color: 'colorTextError',
+                color: "colorTextError",
               },
               heading20: {
-                color: 'colorTextLink',
-                textDecoration: 'none',
+                color: "colorTextLink",
+                textDecoration: "none",
               },
             },
           },
@@ -185,16 +185,16 @@ export const CustomHeading: StoryFn = (_args, { parameters: { isTestEnvironment 
         theme={currentTheme}
         elements={{
           NEW_HEADING: {
-            backgroundColor: 'colorBackgroundTrial',
-            color: 'colorTextLink',
-            padding: 'space60',
+            backgroundColor: "colorBackgroundTrial",
+            color: "colorTextLink",
+            padding: "space60",
             variants: {
               heading10: {
-                color: 'colorTextLink',
+                color: "colorTextLink",
               },
               heading20: {
-                color: 'colorTextError',
-                textDecoration: 'underline',
+                color: "colorTextError",
+                textDecoration: "underline",
               },
             },
           },

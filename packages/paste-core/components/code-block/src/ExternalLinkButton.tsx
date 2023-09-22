@@ -1,20 +1,20 @@
-import type { BoxProps } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { Tooltip, useTooltipState } from '@twilio-paste/tooltip';
-import * as React from 'react';
+import type { BoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
+import * as React from "react";
 
 interface ExternalLinkButtonProps {
   href: string;
   i18nLinkLabel?: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 export const ExternalLinkButton: React.FC<React.PropsWithChildren<ExternalLinkButtonProps>> = ({
-  i18nLinkLabel = 'Open code block in new page',
+  i18nLinkLabel = "Open code block in new page",
   href,
-  element = 'EXTERNAL_LINK',
+  element = "EXTERNAL_LINK",
 }) => {
   const tooltipState = useTooltipState();
   const tooltipText = i18nLinkLabel;
@@ -46,4 +46,4 @@ export const ExternalLinkButton: React.FC<React.PropsWithChildren<ExternalLinkBu
   );
 };
 
-ExternalLinkButton.displayName = 'ExternalLinkButton';
+ExternalLinkButton.displayName = "ExternalLinkButton";

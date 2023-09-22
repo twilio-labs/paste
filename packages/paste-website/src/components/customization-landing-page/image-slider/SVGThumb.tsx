@@ -1,8 +1,8 @@
-import { Box } from '@twilio-paste/box';
-import { useTheme } from '@twilio-paste/theme';
-import { useUIDSeed } from '@twilio-paste/uid-library';
-import * as React from 'react';
-import type { LegacyRef } from 'react';
+import { Box } from "@twilio-paste/box";
+import { useTheme } from "@twilio-paste/theme";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
+import type { LegacyRef } from "react";
 
 interface SVGThumbProps {
   left: number;
@@ -13,8 +13,8 @@ interface SVGThumbProps {
   width: number | undefined;
 }
 
-const FILTER_1 = 'filter-1';
-const FILTER_2 = 'filter-2';
+const FILTER_1 = "filter-1";
+const FILTER_2 = "filter-2";
 
 export const SVGThumb: React.FC<React.PropsWithChildren<SVGThumbProps>> = ({
   left,
@@ -74,7 +74,7 @@ export const SVGThumb: React.FC<React.PropsWithChildren<SVGThumbProps>> = ({
           cy="289"
           r="15.5"
           fill={colorBackground}
-          style={{ transition: 'stroke-width 0.2s ease' }}
+          style={{ transition: "stroke-width 0.2s ease" }}
         />
         <circle cx="17.5" cy="289" r="8" fill="currentColor" />
 
@@ -111,4 +111,4 @@ export const SVGThumb: React.FC<React.PropsWithChildren<SVGThumbProps>> = ({
   );
 };
 
-SVGThumb.displayName = 'SVGThumb';
+SVGThumb.displayName = "SVGThumb";

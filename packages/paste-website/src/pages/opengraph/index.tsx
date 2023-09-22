@@ -1,15 +1,15 @@
-import { Theme } from '@twilio-paste/theme';
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import { useRouter } from 'next/router';
-import * as React from 'react';
+import { Theme } from "@twilio-paste/theme";
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import { useRouter } from "next/router";
+import * as React from "react";
 
-import { GraphImageDetails } from '../../components/open-graph-card/GraphImageDetails';
-import { GraphImageHero } from '../../components/open-graph-card/GraphImageHero';
-import { GraphImageWrapper } from '../../components/open-graph-card/GraphImageWrapper';
-import type { PackageData } from '../../components/open-graph-card/types';
-import { getHumanizedNameFromPackageName } from '../../utils/RouteUtils';
-import { getAllFeatures, getAllPackages } from '../../utils/api';
-import type { Feature, Package, PastePackages } from '../../utils/api';
+import { GraphImageDetails } from "../../components/open-graph-card/GraphImageDetails";
+import { GraphImageHero } from "../../components/open-graph-card/GraphImageHero";
+import { GraphImageWrapper } from "../../components/open-graph-card/GraphImageWrapper";
+import type { PackageData } from "../../components/open-graph-card/types";
+import { getHumanizedNameFromPackageName } from "../../utils/RouteUtils";
+import { getAllFeatures, getAllPackages } from "../../utils/api";
+import type { Feature, Package, PastePackages } from "../../utils/api";
 
 /*
  * Some packages can't be found just by humanizing the package name,
@@ -17,29 +17,29 @@ import type { Feature, Package, PastePackages } from '../../utils/api';
  */
 const ManualPackageNameMapping: Record<string, string> = {
   // This package needs to preserve one of the hyphens in the name.
-  '@twilio-paste/non-modal-dialog-primitive': 'Non-modal Dialog Primitive',
+  "@twilio-paste/non-modal-dialog-primitive": "Non-modal Dialog Primitive",
 };
 
 const EMPTY_PACKAGE_DATA = {
-  name: '',
-  description: '',
-  version: '',
-  status: '',
-  Feature: '',
-  Figma: '',
+  name: "",
+  description: "",
+  version: "",
+  status: "",
+  Feature: "",
+  Figma: "",
   Documentation: false,
-  'Design committee review': '',
-  'Engineer committee review': '',
-  Code: '',
-  'Component Category': '',
-  'Product suitability': [''],
-  type: '',
+  "Design committee review": "",
+  "Engineer committee review": "",
+  Code: "",
+  "Component Category": "",
+  "Product suitability": [""],
+  type: "",
 };
 
 const OpenGraphCard = ({ data }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
   const router = useRouter();
-  const path = (router.query.path || '').toString();
-  const [packageType, packageName] = path.split('/');
+  const path = (router.query.path || "").toString();
+  const [packageType, packageName] = path.split("/");
 
   if (!packageType || !packageName) {
     return <div>Invalid request</div>;
@@ -77,30 +77,30 @@ const OpenGraphCard = ({ data }: InferGetStaticPropsType<typeof getStaticProps>)
   let packageData: PackageData = EMPTY_PACKAGE_DATA;
 
   switch (packageType) {
-    case 'components': {
+    case "components": {
       const entry = data.allPasteComponent.find((component) => {
         return component.name === `@twilio-paste/${packageName}`;
       });
       if (entry) {
-        packageData = mergeAirtableDataForNode(entry, 'components');
+        packageData = mergeAirtableDataForNode(entry, "components");
       }
       break;
     }
-    case 'primitives': {
+    case "primitives": {
       const entry = data.allPastePrimitive.find((primitive) => {
         return primitive.name === `@twilio-paste/${packageName}`;
       });
       if (entry) {
-        packageData = mergeAirtableDataForNode(entry, 'primitives');
+        packageData = mergeAirtableDataForNode(entry, "primitives");
       }
       break;
     }
-    case 'layout': {
+    case "layout": {
       const entry = data.allPasteLayout.find((layout) => {
         return layout.name === `@twilio-paste/${packageName}`;
       });
       if (entry) {
-        packageData = mergeAirtableDataForNode(entry, 'layout');
+        packageData = mergeAirtableDataForNode(entry, "layout");
       }
       break;
     }

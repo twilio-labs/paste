@@ -1,7 +1,7 @@
 /** @module SimpleStorage */
 
 /** The namespace for all storage keys in SimpleStorage. */
-const BASE_KEY = 'paste-website';
+const BASE_KEY = "paste-website";
 
 /** Helper function to namespace a provided key. */
 const namespaceKey = (key: string): string => `${BASE_KEY}/${key}`;

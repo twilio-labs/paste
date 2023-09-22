@@ -1,5 +1,5 @@
-import { fireEvent, render, screen, waitFor } from '@testing-library/react';
-import * as React from 'react';
+import { fireEvent, render, screen, waitFor } from "@testing-library/react";
+import * as React from "react";
 
 import {
   MinimizableDialog,
@@ -7,12 +7,12 @@ import {
   MinimizableDialogContainer,
   MinimizableDialogContent,
   MinimizableDialogHeader,
-} from '../src';
-import { StateHookExample } from '../stories/index.stories';
+} from "../src";
+import { StateHookExample } from "../stories/index.stories";
 
-describe('MinimizableDialog', () => {
-  describe('Render', () => {
-    it('should render a dialog button and dialog with aria attributes', async () => {
+describe("MinimizableDialog", () => {
+  describe("Render", () => {
+    it("should render a dialog button and dialog with aria attributes", async () => {
       render(
         <MinimizableDialogContainer>
           <MinimizableDialogButton variant="primary">Button</MinimizableDialogButton>
@@ -23,12 +23,12 @@ describe('MinimizableDialog', () => {
         </MinimizableDialogContainer>,
       );
 
-      const dialogButton = screen.getByRole('button', { name: 'Button' });
-      const dialog = screen.getByRole('dialog', { hidden: true });
+      const dialogButton = screen.getByRole("button", { name: "Button" });
+      const dialog = screen.getByRole("dialog", { hidden: true });
 
-      expect(dialogButton.getAttribute('aria-haspopup')).toEqual('dialog');
-      expect(dialogButton.getAttribute('aria-controls')).toEqual(dialog.id);
-      expect(dialogButton.getAttribute('aria-expanded')).toEqual('false');
+      expect(dialogButton.getAttribute("aria-haspopup")).toEqual("dialog");
+      expect(dialogButton.getAttribute("aria-controls")).toEqual(dialog.id);
+      expect(dialogButton.getAttribute("aria-expanded")).toEqual("false");
 
       expect(dialog).not.toBeVisible();
       await waitFor(() => {
@@ -37,16 +37,16 @@ describe('MinimizableDialog', () => {
       expect(dialog).toBeVisible();
     });
 
-    it('should render a dialog and toggle visible and minimized with external buttons', async () => {
+    it("should render a dialog and toggle visible and minimized with external buttons", async () => {
       render(<StateHookExample />);
 
-      const showButton = screen.getByRole('button', { name: 'Open dialog' });
-      const closeButton = screen.getByRole('button', { name: 'Close dialog' });
-      const minimizeButton = screen.getByRole('button', { name: 'Minimize dialog' });
-      const expandButton = screen.getByRole('button', { name: 'Expand dialog' });
-      const dialog = screen.getByRole('dialog', { hidden: true });
-      const dialogContents = screen.getByTestId('dialog-contents');
-      const dialogHeader = screen.getByTestId('dialog-header');
+      const showButton = screen.getByRole("button", { name: "Open dialog" });
+      const closeButton = screen.getByRole("button", { name: "Close dialog" });
+      const minimizeButton = screen.getByRole("button", { name: "Minimize dialog" });
+      const expandButton = screen.getByRole("button", { name: "Expand dialog" });
+      const dialog = screen.getByRole("dialog", { hidden: true });
+      const dialogContents = screen.getByTestId("dialog-contents");
+      const dialogHeader = screen.getByTestId("dialog-header");
 
       expect(dialog).not.toBeVisible();
       await waitFor(() => {
@@ -73,8 +73,8 @@ describe('MinimizableDialog', () => {
     });
   });
 
-  describe('i18n', () => {
-    it('should have default dismiss and minimize button text', async () => {
+  describe("i18n", () => {
+    it("should have default dismiss and minimize button text", async () => {
       render(
         <MinimizableDialogContainer>
           <MinimizableDialogButton variant="primary">Button</MinimizableDialogButton>
@@ -85,10 +85,10 @@ describe('MinimizableDialog', () => {
         </MinimizableDialogContainer>,
       );
 
-      const dismissButton = screen.getByRole('button', { name: 'close', hidden: true });
+      const dismissButton = screen.getByRole("button", { name: "close", hidden: true });
       expect(dismissButton).toBeDefined();
 
-      const minimizeButton = screen.getByRole('button', { name: 'minimize', hidden: true });
+      const minimizeButton = screen.getByRole("button", { name: "minimize", hidden: true });
       expect(minimizeButton).toBeDefined();
     });
   });

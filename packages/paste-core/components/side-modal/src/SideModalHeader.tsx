@@ -1,21 +1,21 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { SideModalContext } from './SideModalContext';
+import { SideModalContext } from "./SideModalContext";
 
-export interface SideModalHeaderProps extends HTMLPasteProps<'div'> {
+export interface SideModalHeaderProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
   i18nDismissLabel?: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 const SideModalHeader = React.forwardRef<HTMLDivElement, SideModalHeaderProps>(
-  ({ children, element = 'SIDE_MODAL_HEADER', i18nDismissLabel = 'close', ...props }, ref) => {
+  ({ children, element = "SIDE_MODAL_HEADER", i18nDismissLabel = "close", ...props }, ref) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore Property 'hide' does not exist on type 'Partial<PopoverState>', but reakit docs suggest using it (https://reakit.io/docs/popover/#initial-focus)
     const { hide } = React.useContext(SideModalContext);
@@ -43,6 +43,6 @@ const SideModalHeader = React.forwardRef<HTMLDivElement, SideModalHeaderProps>(
   },
 );
 
-SideModalHeader.displayName = 'SideModalHeader';
+SideModalHeader.displayName = "SideModalHeader";
 
 export { SideModalHeader };

@@ -1,7 +1,7 @@
-import { uid } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { uid } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import type { MessageVariants } from './MessageVariantContext';
+import type { MessageVariants } from "./MessageVariantContext";
 
 type PushChat = (chat: PartialIDChat) => void;
 type PopChat = (id?: string) => void;
@@ -12,7 +12,7 @@ export type Chat = {
   content: React.ReactElement;
 };
 
-export type PartialIDChat = Omit<Chat, 'id'> & Partial<Pick<Chat, 'id'>>;
+export type PartialIDChat = Omit<Chat, "id"> & Partial<Pick<Chat, "id">>;
 
 export type UseChatLogger = (...initialChats: PartialIDChat[]) => {
   chats: Chat[];

@@ -13,16 +13,16 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import '@percy/cypress';
+import "@percy/cypress";
 
 // Import commands.js using ES2015 syntax:
-import './commands';
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
 const resizeObserverLoopErrRe = /^[^(ResizeObserver loop limit exceeded)]/;
-Cypress.on('uncaught:exception', (err) => {
+Cypress.on("uncaught:exception", (err) => {
   /* returning false here prevents Cypress from failing the test
   Benign error occurs when an observer takes longer than one frame to execute, like
   in the case of disclosures opening on the website sidebar.

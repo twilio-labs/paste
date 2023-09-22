@@ -1,5 +1,5 @@
-import { SkeletonLoader } from '@twilio-paste/skeleton-loader';
-import * as React from 'react';
+import { SkeletonLoader } from "@twilio-paste/skeleton-loader";
+import * as React from "react";
 
 import {
   DataGrid,
@@ -9,8 +9,8 @@ import {
   DataGridHead,
   DataGridHeader,
   DataGridRow,
-} from '../../src';
-import { TableBodyData, TableHeaderData } from './constants';
+} from "../../src";
+import { TableBodyData, TableHeaderData } from "./constants";
 
 export const LoadingDataGrid = (): JSX.Element => {
   // Used for random looking column widths

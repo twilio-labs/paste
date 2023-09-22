@@ -1,5 +1,5 @@
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface BrushProps {
   className?: string;
@@ -9,7 +9,7 @@ export interface BrushProps {
   decorative?: boolean;
 }
 
-const Brush = React.memo(({ title = 'Brush', decorative = true, className, color, size }: BrushProps) => {
+const Brush = React.memo(({ title = "Brush", decorative = true, className, color, size }: BrushProps) => {
   const uid = useUID();
   return (
     <div style={{ color, width: size, height: size }} className={className}>

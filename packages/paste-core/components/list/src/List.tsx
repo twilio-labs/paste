@@ -1,10 +1,10 @@
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-import type { BaseListProps } from './types';
+import type { BaseListProps } from "./types";
 
 const List = React.forwardRef<HTMLOListElement | HTMLUListElement, BaseListProps>(
-  ({ as, children, element = 'LIST', listStyleType = 'disc', ...props }, ref) => {
+  ({ as, children, element = "LIST", listStyleType = "disc", ...props }, ref) => {
     return (
       <Text
         {...props}
@@ -24,6 +24,6 @@ const List = React.forwardRef<HTMLOListElement | HTMLUListElement, BaseListProps
   },
 );
 
-List.displayName = 'List';
+List.displayName = "List";
 
 export { List };

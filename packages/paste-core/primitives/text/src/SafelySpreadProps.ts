@@ -1,6 +1,6 @@
-import { OVERFLOW_PROPS, SHADOW_PROPS, SPACE_PROPS, TYPOGRAPHY_PROPS } from '@twilio-paste/style-props';
+import { OVERFLOW_PROPS, SHADOW_PROPS, SPACE_PROPS, TYPOGRAPHY_PROPS } from "@twilio-paste/style-props";
 
-import { PseudoPropStyles } from './PseudoPropStyles';
+import { PseudoPropStyles } from "./PseudoPropStyles";
 
 export const TEXT_PROPS_TO_BLOCK = [
   ...SHADOW_PROPS,
@@ -8,10 +8,10 @@ export const TEXT_PROPS_TO_BLOCK = [
   ...TYPOGRAPHY_PROPS,
   ...OVERFLOW_PROPS,
   ...Object.keys(PseudoPropStyles),
-  'display',
-  'verticalAlign',
-  'className',
-  'style',
+  "display",
+  "verticalAlign",
+  "className",
+  "style",
 ];
 
 type Props = { [key: string]: any };

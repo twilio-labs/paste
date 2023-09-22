@@ -1,12 +1,12 @@
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { DisplayHeading } from '../src';
+import { DisplayHeading } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Display Heading',
+  title: "Components/Display Heading",
   component: DisplayHeading,
 };
 
@@ -53,7 +53,7 @@ export const DisplayHeading30 = (): React.ReactNode => {
 export const Customization = (): React.ReactNode => {
   const theme = useTheme();
   return (
-    <CustomizationProvider theme={theme} elements={{ DISPLAY_HEADING: { color: 'colorTextDecorative20' } }}>
+    <CustomizationProvider theme={theme} elements={{ DISPLAY_HEADING: { color: "colorTextDecorative20" } }}>
       <DisplayHeading as="div" variant="displayHeading10">
         Display Heading with customization
       </DisplayHeading>

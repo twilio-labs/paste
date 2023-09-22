@@ -1,13 +1,13 @@
-import { Anchor } from '@twilio-paste/anchor';
-import type { AnchorProps } from '@twilio-paste/anchor';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxElementProps, BoxProps } from '@twilio-paste/box';
-import { Text, safelySpreadTextProps } from '@twilio-paste/text';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import { useUIDSeed } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import type { AnchorProps } from "@twilio-paste/anchor";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps, BoxProps } from "@twilio-paste/box";
+import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-const BreadcrumbSeparator: React.FC<React.PropsWithChildren<{ element: BoxElementProps['element'] }>> = ({
+const BreadcrumbSeparator: React.FC<React.PropsWithChildren<{ element: BoxElementProps["element"] }>> = ({
   element,
 }) => (
   <Text
@@ -24,15 +24,15 @@ const BreadcrumbSeparator: React.FC<React.PropsWithChildren<{ element: BoxElemen
   </Text>
 );
 
-BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';
+BreadcrumbSeparator.displayName = "BreadcrumbSeparator";
 
-type BreadcrumbItemBaseProps = Pick<BoxProps, 'element'> & {
+type BreadcrumbItemBaseProps = Pick<BoxProps, "element"> & {
   children: NonNullable<React.ReactNode>;
-  parentElement?: BoxElementProps['element'];
+  parentElement?: BoxElementProps["element"];
   last?: boolean;
 };
 
-type BreadcrumbItemAsSpanProps = HTMLPasteProps<'span'> &
+type BreadcrumbItemAsSpanProps = HTMLPasteProps<"span"> &
   BreadcrumbItemBaseProps & {
     href?: never;
   };
@@ -41,7 +41,7 @@ type BreadcrumbItemAsAnchorProps = AnchorProps & BreadcrumbItemBaseProps;
 
 type BreadcrumbItemProps = BreadcrumbItemAsSpanProps | BreadcrumbItemAsAnchorProps;
 
-const DEFAULT_ELEMENT_NAME = 'BREADCRUMB';
+const DEFAULT_ELEMENT_NAME = "BREADCRUMB";
 
 const BreadcrumbItem = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, BreadcrumbItemProps>(
   ({ children, element, parentElement, href, last, ...props }, ref) => {
@@ -84,11 +84,11 @@ const BreadcrumbItem = React.forwardRef<HTMLSpanElement | HTMLAnchorElement, Bre
   },
 );
 
-BreadcrumbItem.displayName = 'BreadcrumbItem';
+BreadcrumbItem.displayName = "BreadcrumbItem";
 
-export interface BreadcrumbProps extends HTMLPasteProps<'nav'> {
+export interface BreadcrumbProps extends HTMLPasteProps<"nav"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
 }
 
 const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
@@ -96,7 +96,7 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
     const [childrenCount, validChildren] = React.useMemo(
       () => [
         React.Children.count(children),
-        React.Children.toArray(children).filter((child) => React.isValidElement(child) || typeof child === 'string'),
+        React.Children.toArray(children).filter((child) => React.isValidElement(child) || typeof child === "string"),
       ],
       [children],
     );
@@ -118,6 +118,6 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
   },
 );
 
-Breadcrumb.displayName = 'Breadcrumb';
+Breadcrumb.displayName = "Breadcrumb";
 
 export { Breadcrumb, BreadcrumbItem };

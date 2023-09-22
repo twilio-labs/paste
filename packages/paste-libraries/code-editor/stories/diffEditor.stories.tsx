@@ -1,16 +1,16 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { CodeEditorDiff, CodeEditorPasteTheme, type Editor, type Monaco } from '../src';
+import { CodeEditorDiff, CodeEditorPasteTheme, type Editor, type Monaco } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/code-editor/DiffEditor',
+  title: "Libraries/code-editor/DiffEditor",
 };
 
 const setTheme = (monaco: Monaco): void => {
   // you can also store it in `useRef` for further usage
-  monaco.editor.defineTheme('paste', CodeEditorPasteTheme);
-  monaco.editor.setTheme('paste');
+  monaco.editor.defineTheme("paste", CodeEditorPasteTheme);
+  monaco.editor.setTheme("paste");
 };
 
 const originalText = `This line is removed on the right.\njust some text\nabcd\nefgh\nSome more text`;

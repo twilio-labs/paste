@@ -1,22 +1,22 @@
-import { Box, type BoxProps } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { ChevronDoubleLeftIcon } from '@twilio-paste/icons/esm/ChevronDoubleLeftIcon';
-import { ChevronDoubleRightIcon } from '@twilio-paste/icons/esm/ChevronDoubleRightIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, type BoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ChevronDoubleLeftIcon } from "@twilio-paste/icons/esm/ChevronDoubleLeftIcon";
+import { ChevronDoubleRightIcon } from "@twilio-paste/icons/esm/ChevronDoubleRightIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { SidebarContext } from '../SidebarContext';
+import { SidebarContext } from "../SidebarContext";
 
-export interface SidebarCollapseButtonProps extends HTMLPasteProps<'button'> {
+export interface SidebarCollapseButtonProps extends HTMLPasteProps<"button"> {
   i18nCollapseLabel: string;
   i18nExpandLabel: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   onClick?: () => void;
 }
 
 export const SidebarCollapseButton = React.forwardRef<HTMLButtonElement, SidebarCollapseButtonProps>(
-  ({ i18nExpandLabel, i18nCollapseLabel, element = 'SIDEBAR_COLLAPSE_BUTTON', ...props }, ref) => {
+  ({ i18nExpandLabel, i18nCollapseLabel, element = "SIDEBAR_COLLAPSE_BUTTON", ...props }, ref) => {
     const { collapsed, sidebarId } = React.useContext(SidebarContext);
 
     return (
@@ -48,4 +48,4 @@ export const SidebarCollapseButton = React.forwardRef<HTMLButtonElement, Sidebar
   },
 );
 
-SidebarCollapseButton.displayName = 'SidebarCollapseButton';
+SidebarCollapseButton.displayName = "SidebarCollapseButton";

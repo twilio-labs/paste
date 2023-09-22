@@ -1,16 +1,16 @@
-import Color from 'color';
-import type { Properties } from 'csstype';
+import Color from "color";
+import type { Properties } from "csstype";
 
 enum ContrastRatingScores {
-  Fail = 'Fail',
-  AAConditional = 'AA Conditional',
-  AA = 'AA',
-  AAA = 'AAA',
+  Fail = "Fail",
+  AAConditional = "AA Conditional",
+  AA = "AA",
+  AAA = "AAA",
 }
 
 export function contrastScore(
-  color1: Properties['backgroundColor'],
-  color2: Properties['backgroundColor'],
+  color1: Properties["backgroundColor"],
+  color2: Properties["backgroundColor"],
 ): ContrastRatingScores | null {
   const color = Color(color1);
   const compareColor = Color(color2);

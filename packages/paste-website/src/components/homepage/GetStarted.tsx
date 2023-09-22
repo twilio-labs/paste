@@ -1,12 +1,12 @@
-import { Box } from '@twilio-paste/box';
-import { Column, Grid } from '@twilio-paste/grid';
-import { useWindowSize } from '@twilio-paste/utils';
+import { Box } from "@twilio-paste/box";
+import { Column, Grid } from "@twilio-paste/grid";
+import { useWindowSize } from "@twilio-paste/utils";
 
-import { HOMEPAGE_SECTION_OVERFLOW_OFFSET, SITE_CONTENT_MAX_WIDTH } from '../../constants';
-import { SlantedBackgroundGradient } from '../SlantedBackgroundGradient';
-import { GetStartedInclusive } from './GetStartedInclusive';
-import { GetStartedRunning } from './GetStartedRunning';
-import { GetStarterWhy } from './GetStartedWhy';
+import { HOMEPAGE_SECTION_OVERFLOW_OFFSET, SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { SlantedBackgroundGradient } from "../SlantedBackgroundGradient";
+import { GetStartedInclusive } from "./GetStartedInclusive";
+import { GetStartedRunning } from "./GetStartedRunning";
+import { GetStarterWhy } from "./GetStartedWhy";
 
 const DELAY_INTERVAL = 250;
 
@@ -14,7 +14,7 @@ export const GetStarted = (): JSX.Element => {
   const { breakpointIndex } = useWindowSize();
 
   return (
-    <Box paddingX={['space90', 'space180']} position="relative">
+    <Box paddingX={["space90", "space180"]} position="relative">
       <SlantedBackgroundGradient
         startColor="colorBackgroundBrandStronger"
         endColor="colorBackgroundBrandStrong"
@@ -31,12 +31,12 @@ export const GetStarted = (): JSX.Element => {
         >
           <Grid as="section" gutter="space40" vertical={[true, false, false]} equalColumnHeights>
             <Column span={4}>
-              <Box marginBottom={['space70', 'space0', 'space0']}>
+              <Box marginBottom={["space70", "space0", "space0"]}>
                 <GetStarterWhy />
               </Box>
             </Column>
             <Column span={4}>
-              <Box marginBottom={['space70', 'space0', 'space0']}>
+              <Box marginBottom={["space70", "space0", "space0"]}>
                 <GetStartedInclusive
                   animationDelay={breakpointIndex === undefined || breakpointIndex > 1 ? DELAY_INTERVAL : 0}
                 />

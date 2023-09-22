@@ -1,11 +1,11 @@
-import camelCase from 'lodash/camelCase';
-import type { ImmutableStyleMap } from 'theo';
+import camelCase from "lodash/camelCase";
+import type { ImmutableStyleMap } from "theo";
 
-import type { DesignToken } from '../types';
-import { formatGroupTokensWithTemplate } from '../utils/formatGroupTokensWithTemplate';
-import { formatSingleTokensWithTemplate } from '../utils/formatSingleTokensWithTemplate';
-import { getTokenCategories } from '../utils/getTokenCategories';
-import { isNumeric } from '../utils/isNumeric';
+import type { DesignToken } from "../types";
+import { formatGroupTokensWithTemplate } from "../utils/formatGroupTokensWithTemplate";
+import { formatSingleTokensWithTemplate } from "../utils/formatSingleTokensWithTemplate";
+import { getTokenCategories } from "../utils/getTokenCategories";
+import { isNumeric } from "../utils/isNumeric";
 
 export const tokenTemplate = ({ name, value }: { name: string; value: string }): string =>
   `export declare const ${camelCase(name)} = "${value}";`;
@@ -18,7 +18,7 @@ ${props
     const value = isNumeric(prop.value) ? prop.value : `"${prop.value}"`;
     return `  ${camelCase(prop.name)}: ${value};`;
   })
-  .join('\n')}
+  .join("\n")}
 };`;
 
 export const dTSTokenFormat = (result: ImmutableStyleMap): string => {
@@ -28,5 +28,5 @@ export const dTSTokenFormat = (result: ImmutableStyleMap): string => {
 
   const groupedTokens = formatGroupTokensWithTemplate(result, categories, categoryTemplate);
 
-  return [singleTokens, groupedTokens].join('\n');
+  return [singleTokens, groupedTokens].join("\n");
 };

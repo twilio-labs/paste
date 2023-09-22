@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 import {
   MenuPrimitive,
@@ -6,8 +6,8 @@ import {
   MenuPrimitiveItem,
   MenuPrimitiveSeparator,
   useMenuPrimitiveState,
-} from '../src';
-import type { MenuPrimitiveButtonProps } from '../src';
+} from "../src";
+import type { MenuPrimitiveButtonProps } from "../src";
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>((props, ref) => {
   const menu = useMenuPrimitiveState();
@@ -28,11 +28,11 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonP
   );
 });
 
-PreferencesMenu.displayName = 'PreferencesMenu';
+PreferencesMenu.displayName = "PreferencesMenu";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Primitives/Menu',
+  title: "Primitives/Menu",
   component: MenuPrimitive,
   subcomponents: { MenuPrimitiveItem, MenuPrimitiveButton, MenuPrimitiveSeparator },
 };

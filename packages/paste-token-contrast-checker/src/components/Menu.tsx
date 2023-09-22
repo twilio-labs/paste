@@ -1,6 +1,6 @@
-import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from '@twilio-paste/core/menu';
-import { ChevronDownIcon } from '@twilio-paste/icons/cjs/ChevronDownIcon';
-import * as React from 'react';
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/core/menu";
+import { ChevronDownIcon } from "@twilio-paste/icons/cjs/ChevronDownIcon";
+import * as React from "react";
 
 export const PlainMenu = (): JSX.Element => {
   const menu = useMenuState();

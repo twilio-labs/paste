@@ -1,13 +1,13 @@
-import type { StoryFn } from '@storybook/react';
-import { Avatar } from '@twilio-paste/avatar';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { HelpText } from '@twilio-paste/help-text';
-import { ArrowDownIcon } from '@twilio-paste/icons/esm/ArrowDownIcon';
-import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
-import { Stack } from '@twilio-paste/stack';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { HelpText } from "@twilio-paste/help-text";
+import { ArrowDownIcon } from "@twilio-paste/icons/esm/ArrowDownIcon";
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { Stack } from "@twilio-paste/stack";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   ChatAttachment,
@@ -21,11 +21,11 @@ import {
   ChatMessage,
   ChatMessageMeta,
   ChatMessageMetaItem,
-} from '../src';
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatLog',
+  title: "Components/ChatLog",
 };
 
 export const NewMessagesButton: StoryFn = () => (
@@ -99,7 +99,7 @@ export const ScrollingChatLog: StoryFn = () => {
           <ChatBubble>
             Quisque ullamcorper ipsum vitae lorem euismod sodales. Donec a nisi eget eros laoreet pellentesque. Donec
             sed bibendum justo, at ornare mi. Sed eget tempor metus, sed sagittis lacus. Donec commodo nisi in ligula
-            accumsan euismod. Nam ornare lobortis orci, eget rhoncus ligula euismod ut.{' '}
+            accumsan euismod. Nam ornare lobortis orci, eget rhoncus ligula euismod ut.{" "}
           </ChatBubble>
           <ChatBubble>Donec sit amet orci hendrerit, varius diam in, porttitor felis.</ChatBubble>
           <ChatMessageMeta aria-label="said by Gibby Radki at 5:04pm">
@@ -188,7 +188,7 @@ export const ExampleChatLog: StoryFn = () => (
       <ChatBubble>
         Quisque ullamcorper ipsum vitae lorem euismod sodales. Donec a nisi eget eros laoreet pellentesque. Donec sed
         bibendum justo, at ornare mi. Sed eget tempor metus, sed sagittis lacus. Donec commodo nisi in ligula accumsan
-        euismod. Nam ornare lobortis orci, eget rhoncus ligula euismod ut.{' '}
+        euismod. Nam ornare lobortis orci, eget rhoncus ligula euismod ut.{" "}
       </ChatBubble>
       <ChatBubble>
         <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>

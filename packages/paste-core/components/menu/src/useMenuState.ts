@@ -1,3 +1,3 @@
-import { useMenuPrimitiveState } from '@twilio-paste/menu-primitive';
+import { useMenuPrimitiveState } from "@twilio-paste/menu-primitive";
 
 export { useMenuPrimitiveState as useMenuState };

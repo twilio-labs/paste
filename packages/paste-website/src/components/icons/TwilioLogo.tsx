@@ -1,5 +1,5 @@
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface TwilioLogoProps {
   className?: string;
@@ -10,10 +10,10 @@ export interface TwilioLogoProps {
 }
 
 const TwilioLogo = React.memo(
-  ({ title = 'Twilio Logo', decorative = true, className, color, size }: TwilioLogoProps) => {
+  ({ title = "Twilio Logo", decorative = true, className, color, size }: TwilioLogoProps) => {
     const titleId = useUID();
     return (
-      <span style={{ color, width: size, height: size, display: 'inline-block' }} className={className}>
+      <span style={{ color, width: size, height: size, display: "inline-block" }} className={className}>
         <svg
           role="img"
           aria-hidden={decorative}

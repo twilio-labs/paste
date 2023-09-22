@@ -1,17 +1,17 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { HelpText } from '@twilio-paste/help-text';
-import type { HelpTextProps } from '@twilio-paste/help-text';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { HelpText } from "@twilio-paste/help-text";
+import type { HelpTextProps } from "@twilio-paste/help-text";
+import * as React from "react";
 
-import { FileUploaderContext } from './FileUploaderContext';
+import { FileUploaderContext } from "./FileUploaderContext";
 
-export interface FileUploaderErrorTextProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
-  children?: HelpTextProps['children'];
-  element?: HelpTextProps['element'];
+export interface FileUploaderErrorTextProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+  children?: HelpTextProps["children"];
+  element?: HelpTextProps["element"];
 }
 
 export const FileUploaderErrorText = React.forwardRef<HTMLDivElement, FileUploaderErrorTextProps>(
-  ({ children, element = 'FILE_UPLOADER_ERROR_TEXT', ...props }, ref) => {
+  ({ children, element = "FILE_UPLOADER_ERROR_TEXT", ...props }, ref) => {
     const { id } = React.useContext(FileUploaderContext);
 
     return (
@@ -24,4 +24,4 @@ export const FileUploaderErrorText = React.forwardRef<HTMLDivElement, FileUpload
   },
 );
 
-FileUploaderErrorText.displayName = 'FileUploaderErrorText';
+FileUploaderErrorText.displayName = "FileUploaderErrorText";

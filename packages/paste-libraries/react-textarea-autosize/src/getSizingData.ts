@@ -1,29 +1,29 @@
-import pick from 'lodash/pick';
+import pick from "lodash/pick";
 
 const SIZING_STYLE = [
-  'borderBottomWidth',
-  'borderLeftWidth',
-  'borderRightWidth',
-  'borderTopWidth',
-  'boxSizing',
-  'fontFamily',
-  'fontSize',
-  'fontStyle',
-  'fontWeight',
-  'letterSpacing',
-  'lineHeight',
-  'paddingBottom',
-  'paddingLeft',
-  'paddingRight',
-  'paddingTop',
+  "borderBottomWidth",
+  "borderLeftWidth",
+  "borderRightWidth",
+  "borderTopWidth",
+  "boxSizing",
+  "fontFamily",
+  "fontSize",
+  "fontStyle",
+  "fontWeight",
+  "letterSpacing",
+  "lineHeight",
+  "paddingBottom",
+  "paddingLeft",
+  "paddingRight",
+  "paddingTop",
   // non-standard
-  'tabSize',
-  'textIndent',
+  "tabSize",
+  "textIndent",
   // non-standard
-  'textRendering',
-  'textTransform',
-  'width',
-  'wordBreak',
+  "textRendering",
+  "textTransform",
+  "width",
+  "wordBreak",
 ] as const;
 
 type SizingProps = Extract<typeof SIZING_STYLE[number], keyof CSSStyleDeclaration>;
@@ -36,7 +36,7 @@ export type SizingData = {
   borderSize: number;
 };
 
-const isIE = typeof document !== 'undefined' ? Boolean((document.documentElement as any).currentStyle) : false;
+const isIE = typeof document !== "undefined" ? Boolean((document.documentElement as any).currentStyle) : false;
 
 export const getSizingData = (node: HTMLElement): SizingData | null => {
   const style = window.getComputedStyle(node);
@@ -60,7 +60,7 @@ export const getSizingData = (node: HTMLElement): SizingData | null => {
   } = sizingStyle;
 
   // probably node is detached from DOM, can't read computed dimensions
-  if (boxSizing === '') {
+  if (boxSizing === "") {
     return null;
   }
 
@@ -68,7 +68,7 @@ export const getSizingData = (node: HTMLElement): SizingData | null => {
    * IE (Edge has already correct behaviour) returns content width as computed width
    * so we need to add manually padding and border widths
    */
-  if (isIE && boxSizing === 'border-box') {
+  if (isIE && boxSizing === "border-box") {
     const widthPxValue =
       Number.parseFloat(width!) +
       Number.parseFloat(borderRightWidth!) +

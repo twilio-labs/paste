@@ -1,16 +1,16 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { DisplayHeading } from '@twilio-paste/display-heading';
-import { Stack } from '@twilio-paste/stack';
-import { Text } from '@twilio-paste/text';
-import Image from 'next/image';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { DisplayHeading } from "@twilio-paste/display-heading";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import Image from "next/image";
 
-import { DoodleBurst } from '../../assets/illustrations/DoodleBurst';
-import { DoodleLoopMedium } from '../../assets/illustrations/DoodleLoopMedium';
-import { DoodleLoopTiny } from '../../assets/illustrations/DoodleLoopTiny';
-import ThemeDesigner from '../../assets/images/customization/theme-designer-mobile-screenshot.png';
-import { LandingPageDesigner } from './LandingPageDesigner';
-import { LandingPageSection, LandingPageSectionContent } from './LandingPageLayoutUtils';
+import { DoodleBurst } from "../../assets/illustrations/DoodleBurst";
+import { DoodleLoopMedium } from "../../assets/illustrations/DoodleLoopMedium";
+import { DoodleLoopTiny } from "../../assets/illustrations/DoodleLoopTiny";
+import ThemeDesigner from "../../assets/images/customization/theme-designer-mobile-screenshot.png";
+import { LandingPageDesigner } from "./LandingPageDesigner";
+import { LandingPageSection, LandingPageSectionContent } from "./LandingPageLayoutUtils";
 
 const LikeTwilioHeadline = (): JSX.Element => {
   return (
@@ -29,7 +29,7 @@ const LikeTwilioHeadline = (): JSX.Element => {
 const DesktopDesigner = (): JSX.Element => {
   return (
     <>
-      <Box as="span" position="absolute" display={['none', 'none', 'block']} top={-55} left={-55}>
+      <Box as="span" position="absolute" display={["none", "none", "block"]} top={-55} left={-55}>
         <DoodleBurst />
       </Box>
       <Stack orientation="vertical" spacing="space50">
@@ -65,7 +65,7 @@ const MobileDesigner = (): JSX.Element => {
           Try the beta Theme Designer
         </Button>
       </Box>
-      <Image src={ThemeDesigner} alt="" placeholder="blur" style={{ width: '100%', height: '100%' }} />
+      <Image src={ThemeDesigner} alt="" placeholder="blur" style={{ width: "100%", height: "100%" }} />
     </>
   );
 };
@@ -73,21 +73,21 @@ const MobileDesigner = (): JSX.Element => {
 export const LikeTwilio = (): JSX.Element => {
   return (
     <LandingPageSection zIndex="zIndex10" overflow="hidden">
-      <LandingPageSectionContent variant="narrow" paddingTop={['space200', 'space200', 'space0']}>
+      <LandingPageSectionContent variant="narrow" paddingTop={["space200", "space200", "space0"]}>
         <LikeTwilioHeadline />
 
-        <Box display={['none', 'block']} position="relative">
+        <Box display={["none", "block"]} position="relative">
           <DesktopDesigner />
         </Box>
 
-        <Box display={['block', 'none']} marginY="space120" position="relative">
+        <Box display={["block", "none"]} marginY="space120" position="relative">
           <MobileDesigner />
         </Box>
 
         <Box
           as="span"
           position="absolute"
-          display={['flex', 'flex', 'none']}
+          display={["flex", "flex", "none"]}
           justifyContent="center"
           top={0}
           left={0}
@@ -96,7 +96,7 @@ export const LikeTwilio = (): JSX.Element => {
           <DoodleLoopTiny />
         </Box>
 
-        <Box as="span" position="absolute" display={['none', 'none', 'block']} bottom={120} right={-120}>
+        <Box as="span" position="absolute" display={["none", "none", "block"]} bottom={120} right={-120}>
           <DoodleLoopMedium />
         </Box>
       </LandingPageSectionContent>

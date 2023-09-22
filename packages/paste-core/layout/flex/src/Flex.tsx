@@ -1,9 +1,9 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { FlexboxProps } from '@twilio-paste/style-props';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { FlexboxProps } from "@twilio-paste/style-props";
+import * as React from "react";
 
-import { getBasis, getGrow, getShrink, getVertical, getWrap, hAlignToProps, vAlignToProps } from './helpers';
-import type { FlexProps } from './types';
+import { getBasis, getGrow, getShrink, getVertical, getWrap, hAlignToProps, vAlignToProps } from "./helpers";
+import type { FlexProps } from "./types";
 
 const getFlexStyles = (props: FlexProps): FlexboxProps => {
   const styles: FlexboxProps = {
@@ -35,7 +35,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       basis,
       children,
       display,
-      element = 'FLEX',
+      element = "FLEX",
       hAlignContent,
       grow,
       marginTop,
@@ -53,7 +53,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
       paddingX,
       paddingY,
       maxWidth,
-      minWidth = 'size0',
+      minWidth = "size0",
       width,
       height,
       minHeight,
@@ -74,7 +74,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
 
     if (size && (width || height)) {
       // eslint-disable-next-line no-console
-      console.error('[Paste Flex]: you cannot set a height or width when using the size attribute');
+      console.error("[Paste Flex]: you cannot set a height or width when using the size attribute");
     }
     if (
       (marginX && (margin || marginBottom || marginLeft || marginRight || marginTop)) ||
@@ -82,7 +82,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     ) {
       // eslint-disable-next-line no-console
       console.error(
-        '[Paste Flex]: you cannot set a top, right, bottom or left margin when using the marginX or marginY attributes.',
+        "[Paste Flex]: you cannot set a top, right, bottom or left margin when using the marginX or marginY attributes.",
       );
     }
     if (
@@ -91,7 +91,7 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
     ) {
       // eslint-disable-next-line no-console
       console.error(
-        '[Paste Flex]: you cannot set a top, right, bottom or left padding when using the paddingX or paddingY attributes.',
+        "[Paste Flex]: you cannot set a top, right, bottom or left padding when using the paddingX or paddingY attributes.",
       );
     }
 
@@ -123,9 +123,9 @@ const Flex = React.forwardRef<HTMLDivElement, FlexProps>(
   },
 );
 
-Flex.displayName = 'Flex';
+Flex.displayName = "Flex";
 Flex.defaultProps = {
-  display: 'flex',
+  display: "flex",
 };
 
 export { Flex };

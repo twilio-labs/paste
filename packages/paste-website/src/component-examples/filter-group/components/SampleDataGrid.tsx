@@ -7,12 +7,12 @@ import {
   DataGridHead,
   DataGridHeader,
   DataGridRow,
-} from '@twilio-paste/data-grid';
-import * as React from 'react';
+} from "@twilio-paste/data-grid";
+import * as React from "react";
 
-import { TABLE_HEADERS } from '../constants';
-import { formatDate, formatDateTime } from '../helpers';
-import type { SampleDataGridProps } from '../types';
+import { TABLE_HEADERS } from "../constants";
+import { formatDate, formatDateTime } from "../helpers";
+import type { SampleDataGridProps } from "../types";
 
 export const SampleDataGrid: React.FC<React.PropsWithChildren<SampleDataGridProps>> = ({
   data,

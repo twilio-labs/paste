@@ -1,20 +1,20 @@
-import { matchers } from '@emotion/jest';
-import { render, screen } from '@testing-library/react';
-import type { RenderOptions } from '@testing-library/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import * as React from 'react';
-import type { VirtualItem, useVirtual as UseVirtual } from 'react-virtual/types';
+import { matchers } from "@emotion/jest";
+import { render, screen } from "@testing-library/react";
+import type { RenderOptions } from "@testing-library/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import * as React from "react";
+import type { VirtualItem, useVirtual as UseVirtual } from "react-virtual/types";
 
-import { Combobox } from '../src';
+import { Combobox } from "../src";
 
 const mockMeasureRef = jest.fn();
 
-jest.mock('react-virtual', () => {
+jest.mock("react-virtual", () => {
   /*
    * mocking this to verify that the measure refs are being invoked --> they are being used
    * need to test this because it is essential that the virtualization ref is attached to the correct element for the virtual listbox to render correctly
    */
-  const { useVirtual } = jest.requireActual('react-virtual');
+  const { useVirtual } = jest.requireActual("react-virtual");
 
   return {
     useVirtual: (config: Parameters<typeof UseVirtual>) => {
@@ -33,56 +33,56 @@ jest.mock('react-virtual', () => {
 
 expect.extend(matchers);
 
-const CustomizationWrapper: RenderOptions['wrapper'] = ({ children }) => (
+const CustomizationWrapper: RenderOptions["wrapper"] = ({ children }) => (
   <CustomizationProvider theme={TestTheme}>{children}</CustomizationProvider>
 );
 
-describe('Combobox - Virtualization', () => {
-  describe('Without option template', () => {
-    const items = ['a', 'b', 'c', 'd', 'e'];
-    it('should apply the correct height to the virtualized list box', () => {
+describe("Combobox - Virtualization", () => {
+  describe("Without option template", () => {
+    const items = ["a", "b", "c", "d", "e"];
+    it("should apply the correct height to the virtualized list box", () => {
       render(<Combobox data-testid="test" items={items} labelText="Choose a letter:" initialIsOpen />, {
         wrapper: CustomizationWrapper,
       });
 
-      const resizedLiElement = screen.getAllByRole('presentation', { hidden: true })[1];
+      const resizedLiElement = screen.getAllByRole("presentation", { hidden: true })[1];
 
-      expect(resizedLiElement.getAttribute('style')).toEqual('margin: 0px; height: 200px;');
+      expect(resizedLiElement.getAttribute("style")).toEqual("margin: 0px; height: 200px;");
     });
 
-    it('should apply the correct styles to the virtualized list box', () => {
+    it("should apply the correct styles to the virtualized list box", () => {
       render(<Combobox items={items} labelText="Choose a letter:" initialIsOpen />, {
         wrapper: CustomizationWrapper,
       });
 
-      const optionElements = screen.getAllByRole('option', { hidden: true });
+      const optionElements = screen.getAllByRole("option", { hidden: true });
 
       expect(optionElements.length).toEqual(5);
 
       const [first, second, third, fourth, fifth] = optionElements;
 
-      expect(first).toHaveStyleRule('transform', 'translateY(0px)');
-      expect(first).toHaveAttribute('aria-setsize', '5');
-      expect(first).toHaveAttribute('aria-posinset', '1');
+      expect(first).toHaveStyleRule("transform", "translateY(0px)");
+      expect(first).toHaveAttribute("aria-setsize", "5");
+      expect(first).toHaveAttribute("aria-posinset", "1");
 
-      expect(second).toHaveStyleRule('transform', 'translateY(50px)');
-      expect(second).toHaveAttribute('aria-setsize', '5');
-      expect(second).toHaveAttribute('aria-posinset', '2');
+      expect(second).toHaveStyleRule("transform", "translateY(50px)");
+      expect(second).toHaveAttribute("aria-setsize", "5");
+      expect(second).toHaveAttribute("aria-posinset", "2");
 
-      expect(third).toHaveStyleRule('transform', 'translateY(100px)');
-      expect(third).toHaveAttribute('aria-setsize', '5');
-      expect(third).toHaveAttribute('aria-posinset', '3');
+      expect(third).toHaveStyleRule("transform", "translateY(100px)");
+      expect(third).toHaveAttribute("aria-setsize", "5");
+      expect(third).toHaveAttribute("aria-posinset", "3");
 
-      expect(fourth).toHaveStyleRule('transform', 'translateY(150px)');
-      expect(fourth).toHaveAttribute('aria-setsize', '5');
-      expect(fourth).toHaveAttribute('aria-posinset', '4');
+      expect(fourth).toHaveStyleRule("transform", "translateY(150px)");
+      expect(fourth).toHaveAttribute("aria-setsize", "5");
+      expect(fourth).toHaveAttribute("aria-posinset", "4");
 
-      expect(fifth).toHaveStyleRule('transform', 'translateY(200px)');
-      expect(fifth).toHaveAttribute('aria-setsize', '5');
-      expect(fifth).toHaveAttribute('aria-posinset', '5');
+      expect(fifth).toHaveStyleRule("transform", "translateY(200px)");
+      expect(fifth).toHaveAttribute("aria-setsize", "5");
+      expect(fifth).toHaveAttribute("aria-posinset", "5");
     });
 
-    it('should call the measure ref from virtualize when component is mounted', () => {
+    it("should call the measure ref from virtualize when component is mounted", () => {
       render(<Combobox data-testid="test" items={items} labelText="Choose a letter:" initialIsOpen />, {
         wrapper: CustomizationWrapper,
       });
@@ -91,31 +91,31 @@ describe('Combobox - Virtualization', () => {
     });
   });
 
-  describe('With option template', () => {
+  describe("With option template", () => {
     const items = [
       {
-        label: 'a',
-        value: 'a-english',
+        label: "a",
+        value: "a-english",
       },
       {
-        label: 'b',
-        value: 'b-english',
+        label: "b",
+        value: "b-english",
       },
       {
-        label: 'c',
-        value: 'c-english',
+        label: "c",
+        value: "c-english",
       },
       {
-        label: 'd',
-        value: 'd-english',
+        label: "d",
+        value: "d-english",
       },
       {
-        label: 'e',
-        value: 'e-english',
+        label: "e",
+        value: "e-english",
       },
     ];
 
-    it('should apply the correct height to the virtualized list box', () => {
+    it("should apply the correct height to the virtualized list box", () => {
       render(
         <Combobox
           data-testid="test"
@@ -130,12 +130,12 @@ describe('Combobox - Virtualization', () => {
         },
       );
 
-      const resizedLiElement = screen.getAllByRole('presentation', { hidden: true })[1];
+      const resizedLiElement = screen.getAllByRole("presentation", { hidden: true })[1];
 
-      expect(resizedLiElement.getAttribute('style')).toEqual('margin: 0px; height: 200px;');
+      expect(resizedLiElement.getAttribute("style")).toEqual("margin: 0px; height: 200px;");
     });
 
-    it('should apply the correct styles to the virtualized list box', () => {
+    it("should apply the correct styles to the virtualized list box", () => {
       render(
         <Combobox
           items={items}
@@ -149,34 +149,34 @@ describe('Combobox - Virtualization', () => {
         },
       );
 
-      const optionElements = screen.getAllByRole('option', { hidden: true });
+      const optionElements = screen.getAllByRole("option", { hidden: true });
 
       expect(optionElements.length).toEqual(5);
 
       const [first, second, third, fourth, fifth] = optionElements;
 
-      expect(first).toHaveStyleRule('transform', 'translateY(0px)');
-      expect(first).toHaveAttribute('aria-setsize', '5');
-      expect(first).toHaveAttribute('aria-posinset', '1');
+      expect(first).toHaveStyleRule("transform", "translateY(0px)");
+      expect(first).toHaveAttribute("aria-setsize", "5");
+      expect(first).toHaveAttribute("aria-posinset", "1");
 
-      expect(second).toHaveStyleRule('transform', 'translateY(50px)');
-      expect(second).toHaveAttribute('aria-setsize', '5');
-      expect(second).toHaveAttribute('aria-posinset', '2');
+      expect(second).toHaveStyleRule("transform", "translateY(50px)");
+      expect(second).toHaveAttribute("aria-setsize", "5");
+      expect(second).toHaveAttribute("aria-posinset", "2");
 
-      expect(third).toHaveStyleRule('transform', 'translateY(100px)');
-      expect(third).toHaveAttribute('aria-setsize', '5');
-      expect(third).toHaveAttribute('aria-posinset', '3');
+      expect(third).toHaveStyleRule("transform", "translateY(100px)");
+      expect(third).toHaveAttribute("aria-setsize", "5");
+      expect(third).toHaveAttribute("aria-posinset", "3");
 
-      expect(fourth).toHaveStyleRule('transform', 'translateY(150px)');
-      expect(fourth).toHaveAttribute('aria-setsize', '5');
-      expect(fourth).toHaveAttribute('aria-posinset', '4');
+      expect(fourth).toHaveStyleRule("transform", "translateY(150px)");
+      expect(fourth).toHaveAttribute("aria-setsize", "5");
+      expect(fourth).toHaveAttribute("aria-posinset", "4");
 
-      expect(fifth).toHaveStyleRule('transform', 'translateY(200px)');
-      expect(fifth).toHaveAttribute('aria-setsize', '5');
-      expect(fifth).toHaveAttribute('aria-posinset', '5');
+      expect(fifth).toHaveStyleRule("transform", "translateY(200px)");
+      expect(fifth).toHaveAttribute("aria-setsize", "5");
+      expect(fifth).toHaveAttribute("aria-posinset", "5");
     });
 
-    it('should call the measure ref from virtualize when component is mounted', () => {
+    it("should call the measure ref from virtualize when component is mounted", () => {
       render(
         <Combobox
           data-testid="test"

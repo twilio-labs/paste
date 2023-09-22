@@ -1,7 +1,7 @@
-import { uid } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { uid } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import type { ToasterPush, ToasterToast, UseToasterReturnedProps } from './types';
+import type { ToasterPush, ToasterToast, UseToasterReturnedProps } from "./types";
 
 export const useToaster = (): UseToasterReturnedProps => {
   const isMounted = React.useRef<boolean | null>(null);
@@ -22,7 +22,7 @@ export const useToaster = (): UseToasterReturnedProps => {
     };
   }, []);
 
-  const pop = (id: ToasterToast['id']): void => {
+  const pop = (id: ToasterToast["id"]): void => {
     if (!isMounted.current) {
       return;
     }

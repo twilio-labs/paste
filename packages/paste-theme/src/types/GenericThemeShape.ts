@@ -15,7 +15,7 @@ import type {
   spacings,
   textColors,
   zIndices,
-} from '@twilio-paste/design-tokens';
+} from "@twilio-paste/design-tokens";
 
 export type BackgroundColorsKeys = keyof typeof backgroundColors;
 export type BorderColorsKeys = keyof typeof borderColors;

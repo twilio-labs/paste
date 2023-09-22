@@ -1,5 +1,5 @@
-import type { NonModalDialogPrimitiveState } from '@twilio-paste/non-modal-dialog-primitive';
-import * as React from 'react';
+import type { NonModalDialogPrimitiveState } from "@twilio-paste/non-modal-dialog-primitive";
+import * as React from "react";
 
 export type MinimizableDialogContextProps = Partial<NonModalDialogPrimitiveState> & {
   minimized?: boolean;

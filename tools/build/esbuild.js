@@ -1,9 +1,9 @@
-const path = require('path');
-const esbuild = require('esbuild');
-const { esbuildPluginVersionInjector } = require('esbuild-plugin-version-injector');
+const path = require("path");
+const esbuild = require("esbuild");
+const { esbuildPluginVersionInjector } = require("esbuild-plugin-version-injector");
 
-const { PasteCJSResolverPlugin } = require('./plugins/PasteCJSResolver');
-const { EsmExternalsPlugin } = require('./plugins/EsmExternals');
+const { PasteCJSResolverPlugin } = require("./plugins/PasteCJSResolver");
+const { EsmExternalsPlugin } = require("./plugins/EsmExternals");
 
 /**
  * ESBuild handles externals literally so that `@twilio-paste/design-tokens` won't
@@ -27,7 +27,7 @@ const getWildcardExternalPeers = (peerDeps = {}) => {
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 async function build(packageJson) {
   // Entry and Output file paths
-  const entryPoints = [packageJson['main:dev']];
+  const entryPoints = [packageJson["main:dev"]];
   const outFileCJS = packageJson.main;
   const outFileESM = packageJson.module;
   // Things we don't want to bundle
@@ -49,23 +49,23 @@ async function build(packageJson) {
      * main fields setting to module,main if you want to enable tree shaking
      * and know it is safe to do so.
      */
-    mainFields: ['module', 'main'],
+    mainFields: ["module", "main"],
     // Fixes issues related to SSR (website builds)
-    platform: 'browser',
+    platform: "browser",
     bundle: true,
     /**
      * Sets the target environment so the code is changed into a format that
      * works  with node12 and the listed browsers
      */
-    target: ['chrome100', 'firefox100', 'safari14', 'edge100', 'node18.16.0'],
+    target: ["chrome100", "firefox100", "safari14", "edge100", "node18.16.0"],
     define: {
-      'process.env.NODE_ENV': `"${process.env.NODE_ENV}"`,
+      "process.env.NODE_ENV": `"${process.env.NODE_ENV}"`,
     },
     external,
   };
 
   const versionInjectorConfig = {
-    packageJsonPath: path.join(__dirname, '../../packages/paste-core/core-bundle/package.json'),
+    packageJsonPath: path.join(__dirname, "../../packages/paste-core/core-bundle/package.json"),
   };
 
   // Minified
@@ -75,7 +75,7 @@ async function build(packageJson) {
       minifyWhitespace: true,
       minifyIdentifiers: false,
       minifySyntax: true,
-      format: 'cjs',
+      format: "cjs",
       outfile: outFileCJS,
       // Needed to fix ES6 module import paths for CJS builds
       plugins: [PasteCJSResolverPlugin, esbuildPluginVersionInjector(versionInjectorConfig)],
@@ -92,7 +92,7 @@ async function build(packageJson) {
       minifyWhitespace: true,
       minifyIdentifiers: false,
       minifySyntax: true,
-      format: 'esm',
+      format: "esm",
       outfile: outFileESM,
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
       plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
@@ -107,8 +107,8 @@ async function build(packageJson) {
   await esbuild
     .build({
       ...config,
-      format: 'cjs',
-      outfile: outFileCJS.replace('.js', '.debug.js'),
+      format: "cjs",
+      outfile: outFileCJS.replace(".js", ".debug.js"),
       // Needed to fix ES6 module import paths for CJS builds
       plugins: [PasteCJSResolverPlugin, esbuildPluginVersionInjector(versionInjectorConfig)],
     })
@@ -121,8 +121,8 @@ async function build(packageJson) {
   await esbuild
     .build({
       ...config,
-      format: 'esm',
-      outfile: outFileESM.replace('.es.js', '.debug.es.js'),
+      format: "esm",
+      outfile: outFileESM.replace(".es.js", ".debug.es.js"),
       // Needed to fix a bug with replacing require with import statements https://github.com/evanw/esbuild/issues/566
       plugins: [EsmExternalsPlugin({ externals: external }), esbuildPluginVersionInjector(versionInjectorConfig)],
     })

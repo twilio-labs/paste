@@ -1,8 +1,8 @@
-const ComponentLookup = require('../tools/.cache/mappings.json');
+const ComponentLookup = require("../tools/.cache/mappings.json");
 
 module.exports = function barreledToUnbarreled(fileInfo, api, options) {
   const j = api.jscodeshift;
-  const printOptions = options.printOptions || { quote: 'single', tabWidth: 2, trailingComma: true };
+  const printOptions = options.printOptions || { quote: "single", tabWidth: 2, trailingComma: true };
   const root = j(fileInfo.source);
   const importLookups = {};
 
@@ -10,7 +10,7 @@ module.exports = function barreledToUnbarreled(fileInfo, api, options) {
     const importSource = path.value.source.value;
 
     // If it isn't exactly from the package (i.e.: core/esm or core/dist etc) then skip it.
-    if (importSource !== '@twilio-paste/core') {
+    if (importSource !== "@twilio-paste/core") {
       return;
     }
 

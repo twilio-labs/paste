@@ -1,12 +1,12 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { Heading } from '@twilio-paste/heading';
-import { Paragraph } from '@twilio-paste/paragraph';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import * as React from "react";
 
-import { NoResultsIllustration } from './NoResultsIllustration';
+import { NoResultsIllustration } from "./NoResultsIllustration";
 
 export const EmptyState: React.FC<React.PropsWithChildren<{ handleClearAll: () => void }>> = ({ handleClearAll }) => (
   <Box

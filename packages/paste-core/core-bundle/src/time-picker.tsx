@@ -1,1 +1,1 @@
-export * from '@twilio-paste/time-picker';
+export * from "@twilio-paste/time-picker";

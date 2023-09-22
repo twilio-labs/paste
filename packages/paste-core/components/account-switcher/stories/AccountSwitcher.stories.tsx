@@ -1,5 +1,5 @@
-import type { StoryFn } from '@storybook/react';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import * as React from "react";
 
 import {
   AccountSwitcher,
@@ -9,16 +9,16 @@ import {
   AccountSwitcherItemRadio,
   AccountSwitcherSeparator,
   useAccountSwitcherState,
-} from '../src';
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/AccountSwitcher',
+  title: "Components/AccountSwitcher",
 };
 
 export const AccountSwitcherMenu: StoryFn = () => {
   const accountSwitcher = useAccountSwitcherState({ visible: true });
-  const [selectedAccount, setSelectedAccount] = React.useState('Owl Telehealth');
+  const [selectedAccount, setSelectedAccount] = React.useState("Owl Telehealth");
   return (
     <>
       <AccountSwitcherBadge {...accountSwitcher} i18nButtonLabel="Switch accounts">
@@ -29,8 +29,8 @@ export const AccountSwitcherMenu: StoryFn = () => {
           <AccountSwitcherItemRadio
             name="recent_accounts"
             value="Owl Telehealth"
-            checked={selectedAccount === 'Owl Telehealth'}
-            onChange={() => setSelectedAccount('Owl Telehealth')}
+            checked={selectedAccount === "Owl Telehealth"}
+            onChange={() => setSelectedAccount("Owl Telehealth")}
             {...accountSwitcher}
           >
             Owl Telehealth
@@ -38,8 +38,8 @@ export const AccountSwitcherMenu: StoryFn = () => {
           <AccountSwitcherItemRadio
             name="recent_accounts"
             value="Owl Health Demo"
-            checked={selectedAccount === 'Owl Health Demo'}
-            onChange={() => setSelectedAccount('Owl Health Demo')}
+            checked={selectedAccount === "Owl Health Demo"}
+            onChange={() => setSelectedAccount("Owl Health Demo")}
             {...accountSwitcher}
           >
             Owl Health Demo
@@ -47,8 +47,8 @@ export const AccountSwitcherMenu: StoryFn = () => {
           <AccountSwitcherItemRadio
             name="recent_accounts"
             value="Owl Subway"
-            checked={selectedAccount === 'Owl Subway'}
-            onChange={() => setSelectedAccount('Owl Subway')}
+            checked={selectedAccount === "Owl Subway"}
+            onChange={() => setSelectedAccount("Owl Subway")}
             {...accountSwitcher}
           >
             Owl Subway

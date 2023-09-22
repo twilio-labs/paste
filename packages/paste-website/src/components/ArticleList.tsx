@@ -1,9 +1,9 @@
-import { Stack } from '@twilio-paste/stack';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Stack } from "@twilio-paste/stack";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import type { ArticleData } from '../utils/api';
-import { Article } from './Article';
+import type { ArticleData } from "../utils/api";
+import { Article } from "./Article";
 
 export interface ArticleListProps {
   articles: ArticleData[];
@@ -19,6 +19,6 @@ const ArticleList: React.FC<React.PropsWithChildren<ArticleListProps>> = ({ arti
   );
 };
 
-ArticleList.displayName = 'ArticleList';
+ArticleList.displayName = "ArticleList";
 
 export { ArticleList };

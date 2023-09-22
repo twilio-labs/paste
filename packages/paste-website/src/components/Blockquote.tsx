@@ -1,7 +1,7 @@
-import { Anchor, isExternalUrl } from '@twilio-paste/anchor';
-import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Anchor, isExternalUrl } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
 interface Props {
   name?: string;
@@ -13,7 +13,7 @@ const Citation: React.FC<React.PropsWithChildren<Props>> = ({ name, source, sour
   return (
     <Text as="footer" fontWeight="fontWeightSemibold" marginTop="space40">
       &mdash; {name}
-      {source && ', '}
+      {source && ", "}
       {source && (
         <cite>
           {sourceUrl ? (

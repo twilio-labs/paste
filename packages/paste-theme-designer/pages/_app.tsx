@@ -1,20 +1,20 @@
-import { datadogRum } from '@datadog/browser-rum';
-import * as Tokens from '@twilio-paste/core/design-tokens';
-import { Theme } from '@twilio-paste/core/theme';
-import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import * as React from 'react';
+import { datadogRum } from "@datadog/browser-rum";
+import * as Tokens from "@twilio-paste/core/design-tokens";
+import { Theme } from "@twilio-paste/core/theme";
+import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import * as React from "react";
 
-import { TokenContext } from '../context/TokenContext';
+import { TokenContext } from "../context/TokenContext";
 
 datadogRum.init({
-  applicationId: process.env.DATADOG_APPLICATION_ID || '',
-  clientToken: process.env.DATADOG_CLIENT_TOKEN || '',
-  site: 'datadoghq.com',
-  service: 'paste-remix',
+  applicationId: process.env.DATADOG_APPLICATION_ID || "",
+  clientToken: process.env.DATADOG_CLIENT_TOKEN || "",
+  site: "datadoghq.com",
+  service: "paste-remix",
   env: process.env.ENVIRONMENT_CONTEXT,
-  version: '1.0.0',
+  version: "1.0.0",
   // controls the percentage of overall sessions being tracked. It defaults to 100%
   sessionSampleRate: 100,
   // applied after the overall sample rate, and controls the percentage of sessions tracked as Browser RUM & Session Replay
@@ -22,7 +22,7 @@ datadogRum.init({
   trackUserInteractions: true,
   trackResources: true,
   trackLongTasks: true,
-  defaultPrivacyLevel: 'mask-user-input',
+  defaultPrivacyLevel: "mask-user-input",
 });
 datadogRum.startSessionReplayRecording();
 

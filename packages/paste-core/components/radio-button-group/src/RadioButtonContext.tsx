@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface RadioButtonContextValue {
   name: string;
@@ -10,8 +10,8 @@ interface RadioButtonContextValue {
 }
 
 const RadioButtonContext = React.createContext<RadioButtonContextValue>({
-  name: '',
-  value: '',
+  name: "",
+  value: "",
   disabled: false,
   hasError: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function

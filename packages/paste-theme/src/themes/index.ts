@@ -1,9 +1,9 @@
-import { DarkTheme } from './dark';
-import { DefaultTheme } from './default';
-import { EvergreenTheme } from './evergreen';
-import { SendGridTheme } from './sendgrid';
-import { TwilioTheme } from './twilio';
-import { TwilioDarkTheme } from './twilio-dark';
+import { DarkTheme } from "./dark";
+import { DefaultTheme } from "./default";
+import { EvergreenTheme } from "./evergreen";
+import { SendGridTheme } from "./sendgrid";
+import { TwilioTheme } from "./twilio";
+import { TwilioDarkTheme } from "./twilio-dark";
 
 const ConsoleTheme = DefaultTheme;
 

@@ -1,37 +1,37 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
-import type { TextColor } from '@twilio-paste/style-props';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import type { TextColor } from "@twilio-paste/style-props";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { RequiredDot } from './RequiredDot';
+import { RequiredDot } from "./RequiredDot";
 
-export type LabelVariants = 'default' | 'inverse';
-type LabelBaseProps = Pick<BoxProps, 'element'> & {
+export type LabelVariants = "default" | "inverse";
+type LabelBaseProps = Pick<BoxProps, "element"> & {
   children: NonNullable<React.ReactNode>;
   disabled?: boolean;
-  marginBottom?: 'space0';
+  marginBottom?: "space0";
   required?: boolean;
   variant?: LabelVariants;
   i18nRequiredLabel?: string;
 };
-type LabelElementProps = HTMLPasteProps<'label'> & {
-  as?: 'label';
+type LabelElementProps = HTMLPasteProps<"label"> & {
+  as?: "label";
   /**
    * You must specify the 'htmlFor' prop to associate the label with an input.
    */
   htmlFor: string | undefined;
 };
-type LabelLegendElementProps = HTMLPasteProps<'legend'> & {
-  as?: 'legend';
+type LabelLegendElementProps = HTMLPasteProps<"legend"> & {
+  as?: "legend";
   /**
    * You cannot apply htmlFor to a legend element.
    */
   htmlFor?: never;
 };
-type LabelDivElementProps = HTMLPasteProps<'div'> & {
-  as?: 'div';
+type LabelDivElementProps = HTMLPasteProps<"div"> & {
+  as?: "div";
   /**
    * You cannot apply htmlFor to a div element.
    */
@@ -43,32 +43,32 @@ export type LabelProps = LabelBaseProps & (LabelElementProps | LabelLegendElemen
 const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
   (
     {
-      as = 'label',
+      as = "label",
       marginBottom,
       required,
       disabled,
       children,
       variant,
-      element = 'LABEL',
-      i18nRequiredLabel = '',
+      element = "LABEL",
+      i18nRequiredLabel = "",
       ...props
     },
     ref,
   ) => {
-    let textColor = 'colorText' as TextColor;
-    if (disabled && variant === 'inverse') {
-      textColor = 'colorTextInverseWeaker';
+    let textColor = "colorText" as TextColor;
+    if (disabled && variant === "inverse") {
+      textColor = "colorTextInverseWeaker";
     } else if (disabled) {
-      textColor = 'colorTextWeak';
-    } else if (variant === 'inverse') {
-      textColor = 'colorTextInverse';
+      textColor = "colorTextWeak";
+    } else if (variant === "inverse") {
+      textColor = "colorTextInverse";
     }
 
-    let cursor = 'pointer';
+    let cursor = "pointer";
     if (disabled) {
-      cursor = 'not-allowed';
-    } else if (as === 'legend' || as === 'div') {
-      cursor = 'default';
+      cursor = "not-allowed";
+    } else if (as === "legend" || as === "div") {
+      cursor = "default";
     }
 
     return (
@@ -81,7 +81,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
          */
         borderBottomWidth="borderWidth0"
         display="block"
-        marginBottom={marginBottom || 'space20'}
+        marginBottom={marginBottom || "space20"}
         paddingLeft="space0"
         paddingRight="space0"
         textTransform="none"
@@ -106,6 +106,6 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
   },
 );
 
-Label.displayName = 'Label';
+Label.displayName = "Label";
 
 export { Label };

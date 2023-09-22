@@ -1,1 +1,1 @@
-export * from '@twilio-paste/react-spectrum-library';
+export * from "@twilio-paste/react-spectrum-library";

@@ -1,8 +1,8 @@
-import { InlineControlGroup } from '@twilio-paste/inline-control-group';
-import type { InlineControlGroupProps } from '@twilio-paste/inline-control-group';
-import * as React from 'react';
+import { InlineControlGroup } from "@twilio-paste/inline-control-group";
+import type { InlineControlGroupProps } from "@twilio-paste/inline-control-group";
+import * as React from "react";
 
-import { RadioContext } from './RadioContext';
+import { RadioContext } from "./RadioContext";
 
 export interface RadioGroupProps extends InlineControlGroupProps {
   name: string;
@@ -15,13 +15,13 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
   (
     {
       name,
-      element = 'RADIO_GROUP',
+      element = "RADIO_GROUP",
       value,
       onChange,
       disabled = false,
       errorText,
       children,
-      i18nRequiredLabel = '(required)',
+      i18nRequiredLabel = "(required)",
       ...props
     },
     ref,
@@ -38,7 +38,7 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
     const contextValue = React.useMemo(() => {
       return {
         name,
-        value: value || '',
+        value: value || "",
         disabled,
         hasError: errorText != null,
         onChange: onChangeHandler,
@@ -63,6 +63,6 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
   },
 );
 
-RadioGroup.displayName = 'RadioGroup';
+RadioGroup.displayName = "RadioGroup";
 
 export { RadioGroup };

@@ -1,40 +1,40 @@
-import { act, fireEvent, render, renderHook, screen } from '@testing-library/react';
-import type { FireObject } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
+import { act, fireEvent, render, renderHook, screen } from "@testing-library/react";
+import type { FireObject } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import type {
   UseMultipleSelectionGetDropdownProps,
   UseMultipleSelectionGetSelectedItemPropsOptions,
-} from '@twilio-paste/dropdown-library';
-import { useUIDSeed } from '@twilio-paste/uid-library';
-import * as React from 'react';
+} from "@twilio-paste/dropdown-library";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { useComboboxPrimitive, useMultiSelectPrimitive } from '../src';
-import type { UseComboboxPrimitiveProps, UseMultiSelectPrimitiveProps } from '../src';
+import { useComboboxPrimitive, useMultiSelectPrimitive } from "../src";
+import type { UseComboboxPrimitiveProps, UseMultiSelectPrimitiveProps } from "../src";
 
 const { stateChangeTypes } = useMultiSelectPrimitive;
 
-jest.mock('@twilio-paste/dropdown-library', () => {
-  const { default: all, ...rest } = jest.requireActual('@twilio-paste/dropdown-library');
+jest.mock("@twilio-paste/dropdown-library", () => {
+  const { default: all, ...rest } = jest.requireActual("@twilio-paste/dropdown-library");
 
   return {
     ...rest,
     default: {
       ...all,
-      generateId: () => 'test-id',
+      generateId: () => "test-id",
       useGetterPropsCalledChecker: () => all.noop,
     },
   };
 });
 
-const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
+const items = ["Alert", "Anchor", "Button", "Card", "Heading", "List", "Modal", "Paragraph"];
 
 const dataTestIds = {
-  selectedItemPrefix: 'selected-item-id',
+  selectedItemPrefix: "selected-item-id",
   selectedItem: (index: number) => `selected-item-id-${index}`,
-  input: 'input-id',
-  menu: 'menu-id',
-  combobox: 'combobox-id',
-  label: 'label-id',
+  input: "input-id",
+  menu: "menu-id",
+  combobox: "combobox-id",
+  label: "label-id",
 };
 
 type DropdownMultipleComboboxProps = {
@@ -58,7 +58,7 @@ const DropdownMultipleCombobox: React.FC<React.PropsWithChildren<DropdownMultipl
       <label htmlFor={dataTestIds.input} data-testid={dataTestIds.label} {...getLabelProps()}>
         Choose a component:
       </label>
-      <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+      <div style={{ display: "flex", flexWrap: "wrap" }}>
         {selectedItems.map((selectedItem, index) => (
           <span
             key={seed(`selected-item-${index}`)}
@@ -96,7 +96,7 @@ const renderMultipleCombobox = (
     index: number,
     key: string,
     options?: Record<string, any>,
-  ) => ReturnType<FireObject['keyDown']>;
+  ) => ReturnType<FireObject["keyDown"]>;
   focusSelectedItemAtIndex: (index: number) => void;
   getSelectedItems: () => HTMLSpanElement[];
   getA11yStatusContainer: () => HTMLElement | null;
@@ -106,20 +106,20 @@ const renderMultipleCombobox = (
   const utils = render(<DropdownMultipleCombobox {...props} />);
 
   const label = screen.getByText(/choose a component/i);
-  const menu = screen.getByRole('listbox');
+  const menu = screen.getByRole("listbox");
   const input = screen.getByTestId(dataTestIds.input) as HTMLInputElement;
   const rerender = (newProps: DropdownMultipleComboboxProps): void =>
     utils.rerender(<DropdownMultipleCombobox {...newProps} />);
   const getSelectedItemAtIndex = (index: number): HTMLElement => screen.getByTestId(dataTestIds.selectedItem(index));
   const getSelectedItems = (): HTMLElement[] => screen.queryAllByTestId(new RegExp(dataTestIds.selectedItemPrefix));
 
-  const keyDownOnSelectedItemAtIndex = (index: number, key: string, options = {}): ReturnType<FireObject['keyDown']> =>
+  const keyDownOnSelectedItemAtIndex = (index: number, key: string, options = {}): ReturnType<FireObject["keyDown"]> =>
     fireEvent.keyDown(getSelectedItemAtIndex(index), { key, ...options });
 
   const focusSelectedItemAtIndex = (index: number): void => {
     getSelectedItemAtIndex(index).focus();
   };
-  const getA11yStatusContainer = (): HTMLElement | null => screen.queryByRole('status');
+  const getA11yStatusContainer = (): HTMLElement | null => screen.queryByRole("status");
   const keyDownOnInput = (key: string, options = {}): void => {
     if (document.activeElement !== input) {
       input.focus();
@@ -143,14 +143,14 @@ const renderMultipleCombobox = (
   };
 };
 
-describe('useMultiSelectPrimitive', () => {
+describe("useMultiSelectPrimitive", () => {
   jest.useFakeTimers();
   beforeEach(jest.resetAllMocks);
 
   afterAll(jest.restoreAllMocks);
-  describe('props', () => {
-    test('if falsy then no prop types error is thrown', () => {
-      jest.spyOn(console, 'error').mockImplementation(() => {});
+  describe("props", () => {
+    test("if falsy then no prop types error is thrown", () => {
+      jest.spyOn(console, "error").mockImplementation(() => {});
 
       renderHook(() => {
         const { getDropdownProps } = useMultiSelectPrimitive({});
@@ -161,14 +161,14 @@ describe('useMultiSelectPrimitive', () => {
       expect(console.error).not.toHaveBeenCalled();
     });
 
-    describe('selectedItems', () => {
+    describe("selectedItems", () => {
       afterEach(() => {
         act(() => {
           jest.runAllTimers();
         });
       });
 
-      test('passed as objects should work with custom itemToString', () => {
+      test("passed as objects should work with custom itemToString", () => {
         const { keyDownOnSelectedItemAtIndex, getA11yStatusContainer } = renderMultipleCombobox({
           multipleSelectionProps: {
             initialSelectedItems: [items[0], items[1]],
@@ -176,12 +176,12 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        keyDownOnSelectedItemAtIndex(0, 'Delete');
+        keyDownOnSelectedItemAtIndex(0, "Delete");
 
-        expect(getA11yStatusContainer()).toHaveTextContent('Alert has been removed');
+        expect(getA11yStatusContainer()).toHaveTextContent("Alert has been removed");
       });
 
-      test('controls the state property if passed', () => {
+      test("controls the state property if passed", () => {
         const inputItems = [items[0], items[1]];
         const { keyDownOnSelectedItemAtIndex, getSelectedItems } = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -190,20 +190,20 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        keyDownOnSelectedItemAtIndex(0, 'Delete');
+        keyDownOnSelectedItemAtIndex(0, "Delete");
 
         expect(getSelectedItems()).toHaveLength(2);
       });
     });
 
-    describe('getA11yRemovalMessage', () => {
+    describe("getA11yRemovalMessage", () => {
       afterEach(() => {
         act(() => {
           jest.runAllTimers();
         });
       });
 
-      test('is called with object that contains specific props', () => {
+      test("is called with object that contains specific props", () => {
         const getA11yRemovalMessage = jest.fn();
 
         const initialSelectedItems = [items[0], items[1]];
@@ -216,7 +216,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        keyDownOnSelectedItemAtIndex(0, 'Delete');
+        keyDownOnSelectedItemAtIndex(0, "Delete");
 
         expect(getA11yRemovalMessage).toHaveBeenCalledWith(
           expect.objectContaining({
@@ -228,24 +228,24 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('is replaced with the user provided one', () => {
+      test("is replaced with the user provided one", () => {
         const initialSelectedItems = [items[0], items[1]];
         const { keyDownOnSelectedItemAtIndex, getA11yStatusContainer } = renderMultipleCombobox({
           multipleSelectionProps: {
             initialSelectedItems,
             initialActiveIndex: 0,
-            getA11yRemovalMessage: () => 'custom message',
+            getA11yRemovalMessage: () => "custom message",
           },
         });
 
-        keyDownOnSelectedItemAtIndex(0, 'Delete');
+        keyDownOnSelectedItemAtIndex(0, "Delete");
 
-        expect(getA11yStatusContainer()).toHaveTextContent('custom message');
+        expect(getA11yStatusContainer()).toHaveTextContent("custom message");
       });
     });
 
-    describe('activeIndex', () => {
-      test('controls the state property if passed', () => {
+    describe("activeIndex", () => {
+      test("controls the state property if passed", () => {
         const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, focusSelectedItemAtIndex } =
           renderMultipleCombobox({
             multipleSelectionProps: {
@@ -256,26 +256,26 @@ describe('useMultiSelectPrimitive', () => {
 
         focusSelectedItemAtIndex(1);
 
-        expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
-        expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
+        expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
+        expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "0");
         expect(getSelectedItemAtIndex(1)).toHaveFocus();
 
-        keyDownOnSelectedItemAtIndex(1, 'ArrowLeft');
+        keyDownOnSelectedItemAtIndex(1, "ArrowLeft");
 
-        expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
-        expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
+        expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
+        expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "0");
         expect(getSelectedItemAtIndex(1)).toHaveFocus();
 
-        keyDownOnSelectedItemAtIndex(1, 'ArrowRight');
+        keyDownOnSelectedItemAtIndex(1, "ArrowRight");
 
-        expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
-        expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
+        expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
+        expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "0");
         expect(getSelectedItemAtIndex(1)).toHaveFocus();
       });
     });
 
-    describe('stateReducer', () => {
-      test('is called at each state change with the function change type', () => {
+    describe("stateReducer", () => {
+      test("is called at each state change with the function change type", () => {
         const stateReducer = jest.fn((_s, a) => a.changes);
         const { result } = renderHook(() => useMultiSelectPrimitive({ stateReducer }));
 
@@ -367,7 +367,7 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('is called at each state change with the appropriate change type', async () => {
+      test("is called at each state change with the appropriate change type", async () => {
         const stateReducer = jest.fn((_s, { changes }) => {
           return changes;
         });
@@ -379,7 +379,7 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         input.focus();
-        keyDownOnInput('Backspace');
+        keyDownOnInput("Backspace");
 
         expect(stateReducer).toHaveBeenCalledTimes(1);
         expect(stateReducer).toHaveBeenLastCalledWith(
@@ -394,7 +394,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnInput('ArrowLeft');
+        keyDownOnInput("ArrowLeft");
 
         expect(stateReducer).toHaveBeenCalledTimes(2);
         expect(stateReducer).toHaveBeenLastCalledWith(
@@ -407,7 +407,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnSelectedItemAtIndex(1, 'ArrowLeft');
+        keyDownOnSelectedItemAtIndex(1, "ArrowLeft");
 
         expect(stateReducer).toHaveBeenCalledTimes(3);
         expect(stateReducer).toHaveBeenLastCalledWith(
@@ -420,7 +420,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnSelectedItemAtIndex(0, 'ArrowRight');
+        keyDownOnSelectedItemAtIndex(0, "ArrowRight");
 
         expect(stateReducer).toHaveBeenCalledTimes(4);
         expect(stateReducer).toHaveBeenLastCalledWith(
@@ -459,7 +459,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnSelectedItemAtIndex(0, 'Delete');
+        keyDownOnSelectedItemAtIndex(0, "Delete");
 
         expect(stateReducer).toHaveBeenCalledTimes(7);
         expect(stateReducer).toHaveBeenLastCalledWith(
@@ -474,7 +474,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnSelectedItemAtIndex(0, 'Backspace');
+        keyDownOnSelectedItemAtIndex(0, "Backspace");
 
         expect(stateReducer).toHaveBeenCalledTimes(8);
         expect(stateReducer).toHaveBeenLastCalledWith(
@@ -490,7 +490,7 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('replaces prop values with user defined', () => {
+      test("replaces prop values with user defined", () => {
         const stateReducer = jest.fn((_s, { changes }) => {
           const shallowClone = { ...changes };
           shallowClone.activeIndex = 0;
@@ -506,12 +506,12 @@ describe('useMultiSelectPrimitive', () => {
 
         userEvent.click(getSelectedItemAtIndex(0));
 
-        expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
-        expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
+        expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "-1");
+        expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "0");
         expect(getSelectedItemAtIndex(0)).toHaveFocus();
       });
 
-      test('receives state, changes and type', () => {
+      test("receives state, changes and type", () => {
         const stateReducer = jest.fn((s, a) => {
           expect(a.type).not.toBeUndefined();
           expect(a.type).not.toBeNull();
@@ -534,7 +534,7 @@ describe('useMultiSelectPrimitive', () => {
         userEvent.click(getSelectedItemAtIndex(0));
       });
 
-      test('changes are visible in onChange handlers', () => {
+      test("changes are visible in onChange handlers", () => {
         const activeIndex = 0;
         const stateReducer = jest.fn(() => ({
           activeIndex,
@@ -553,7 +553,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        keyDownOnInput('ArrowLeft');
+        keyDownOnInput("ArrowLeft");
 
         expect(onActiveIndexChange).toHaveBeenCalledTimes(1);
         expect(onActiveIndexChange).toHaveBeenCalledWith(
@@ -578,8 +578,8 @@ describe('useMultiSelectPrimitive', () => {
       });
     });
 
-    describe('onActiveIndexChange', () => {
-      test('is called at activeIndex change', () => {
+    describe("onActiveIndexChange", () => {
+      test("is called at activeIndex change", () => {
         const onActiveIndexChange = jest.fn();
         const { getSelectedItemAtIndex } = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -600,7 +600,7 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('is not called at if selectedItem is the same', () => {
+      test("is not called at if selectedItem is the same", () => {
         const onActiveIndexChange = jest.fn();
         const { getSelectedItemAtIndex } = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -615,7 +615,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(onActiveIndexChange).not.toHaveBeenCalled();
       });
 
-      test('works correctly with the corresponding control prop', () => {
+      test("works correctly with the corresponding control prop", () => {
         let activeIndex = 3;
         const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, rerender } = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -627,13 +627,13 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        keyDownOnSelectedItemAtIndex(3, 'ArrowLeft');
+        keyDownOnSelectedItemAtIndex(3, "ArrowLeft");
         rerender({ multipleSelectionProps: { activeIndex } });
 
-        expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '0');
+        expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "0");
       });
 
-      test('can have downshift actions executed', () => {
+      test("can have downshift actions executed", () => {
         const { result } = renderHook(() =>
           useMultiSelectPrimitive({
             onActiveIndexChange: () => {
@@ -654,8 +654,8 @@ describe('useMultiSelectPrimitive', () => {
       });
     });
 
-    describe('onSelectedItemsChange', () => {
-      test('is called at items change', () => {
+    describe("onSelectedItemsChange", () => {
+      test("is called at items change", () => {
         const onSelectedItemsChange = jest.fn();
         const { keyDownOnSelectedItemAtIndex } = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -665,7 +665,7 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        keyDownOnSelectedItemAtIndex(1, 'Delete');
+        keyDownOnSelectedItemAtIndex(1, "Delete");
 
         expect(onSelectedItemsChange).toHaveBeenCalledTimes(1);
         expect(onSelectedItemsChange).toHaveBeenCalledWith(
@@ -675,7 +675,7 @@ describe('useMultiSelectPrimitive', () => {
         );
       });
 
-      test('is not called at if items is the same', () => {
+      test("is not called at if items is the same", () => {
         const onSelectedItemsChange = jest.fn();
         const { getSelectedItemAtIndex } = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -690,7 +690,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(onSelectedItemsChange).not.toHaveBeenCalled();
       });
 
-      test('works correctly with the corresponding control prop', () => {
+      test("works correctly with the corresponding control prop", () => {
         let selectedItems = [items[0], items[1]];
         const { keyDownOnSelectedItemAtIndex, getSelectedItems, rerender } = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -702,13 +702,13 @@ describe('useMultiSelectPrimitive', () => {
           },
         });
 
-        keyDownOnSelectedItemAtIndex(0, 'Delete');
+        keyDownOnSelectedItemAtIndex(0, "Delete");
         rerender({ multipleSelectionProps: { selectedItems } });
 
         expect(getSelectedItems()).toHaveLength(1);
       });
 
-      test('can have downshift actions executed', () => {
+      test("can have downshift actions executed", () => {
         const { result } = renderHook(() =>
           useMultiSelectPrimitive({
             onSelectedItemsChange: () => {
@@ -721,15 +721,15 @@ describe('useMultiSelectPrimitive', () => {
         act(() => {
           result.current
             .getSelectedItemProps({ index: 3 } as UseMultipleSelectionGetSelectedItemPropsOptions<string>)
-            .onKeyDown({ key: 'Backspace' });
+            .onKeyDown({ key: "Backspace" });
         });
 
         expect(result.current.activeIndex).toEqual(1);
       });
     });
 
-    describe('onStateChange', () => {
-      test('is called at each state property change', () => {
+    describe("onStateChange", () => {
+      test("is called at each state property change", () => {
         const onStateChange = jest.fn();
         const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, keyDownOnInput, input } = renderMultipleCombobox({
           multipleSelectionProps: {
@@ -739,7 +739,7 @@ describe('useMultiSelectPrimitive', () => {
         });
 
         input.focus();
-        keyDownOnInput('Backspace');
+        keyDownOnInput("Backspace");
 
         expect(onStateChange).toHaveBeenCalledTimes(1);
         expect(onStateChange).toHaveBeenLastCalledWith(
@@ -749,7 +749,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnInput('ArrowLeft');
+        keyDownOnInput("ArrowLeft");
 
         expect(onStateChange).toHaveBeenCalledTimes(2);
         expect(onStateChange).toHaveBeenLastCalledWith(
@@ -759,7 +759,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnSelectedItemAtIndex(1, 'ArrowLeft');
+        keyDownOnSelectedItemAtIndex(1, "ArrowLeft");
 
         expect(onStateChange).toHaveBeenCalledTimes(3);
         expect(onStateChange).toHaveBeenLastCalledWith(
@@ -769,7 +769,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnSelectedItemAtIndex(0, 'ArrowRight');
+        keyDownOnSelectedItemAtIndex(0, "ArrowRight");
 
         expect(onStateChange).toHaveBeenCalledTimes(4);
         expect(onStateChange).toHaveBeenLastCalledWith(
@@ -789,7 +789,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnSelectedItemAtIndex(0, 'Delete');
+        keyDownOnSelectedItemAtIndex(0, "Delete");
 
         expect(onStateChange).toHaveBeenCalledTimes(6);
         expect(onStateChange).toHaveBeenLastCalledWith(
@@ -799,7 +799,7 @@ describe('useMultiSelectPrimitive', () => {
           }),
         );
 
-        keyDownOnSelectedItemAtIndex(0, 'Backspace');
+        keyDownOnSelectedItemAtIndex(0, "Backspace");
 
         expect(onStateChange).toHaveBeenCalledTimes(7);
         expect(onStateChange).toHaveBeenLastCalledWith(
@@ -811,33 +811,33 @@ describe('useMultiSelectPrimitive', () => {
       });
     });
 
-    test('overrides navigation previous and next keys correctly', () => {
+    test("overrides navigation previous and next keys correctly", () => {
       const { keyDownOnInput, getSelectedItemAtIndex, keyDownOnSelectedItemAtIndex, input } = renderMultipleCombobox({
         multipleSelectionProps: {
-          keyNavigationPrevious: 'ArrowUp',
-          keyNavigationNext: 'ArrowDown',
+          keyNavigationPrevious: "ArrowUp",
+          keyNavigationNext: "ArrowDown",
           initialSelectedItems: [items[0], items[1]],
         },
       });
 
-      keyDownOnInput('ArrowUp');
+      keyDownOnInput("ArrowUp");
 
       expect(getSelectedItemAtIndex(1)).toHaveFocus();
 
-      keyDownOnSelectedItemAtIndex(1, 'ArrowUp');
+      keyDownOnSelectedItemAtIndex(1, "ArrowUp");
 
       expect(getSelectedItemAtIndex(0)).toHaveFocus();
 
-      keyDownOnSelectedItemAtIndex(0, 'ArrowDown');
+      keyDownOnSelectedItemAtIndex(0, "ArrowDown");
 
       expect(getSelectedItemAtIndex(1)).toHaveFocus();
 
-      keyDownOnSelectedItemAtIndex(1, 'ArrowDown');
+      keyDownOnSelectedItemAtIndex(1, "ArrowDown");
 
       expect(input).toHaveFocus();
     });
 
-    test('can have downshift actions executed', () => {
+    test("can have downshift actions executed", () => {
       const { result } = renderHook(() =>
         useMultiSelectPrimitive({
           initialSelectedItems: items,
@@ -857,13 +857,13 @@ describe('useMultiSelectPrimitive', () => {
     });
   });
 
-  describe('returnProps', () => {
-    test('should have stateChangeTypes attached to hook', () => {
-      expect(useMultiSelectPrimitive).toHaveProperty('stateChangeTypes', stateChangeTypes);
+  describe("returnProps", () => {
+    test("should have stateChangeTypes attached to hook", () => {
+      expect(useMultiSelectPrimitive).toHaveProperty("stateChangeTypes", stateChangeTypes);
     });
 
-    describe('prop getters', () => {
-      test('are returned as functions', () => {
+    describe("prop getters", () => {
+      test("are returned as functions", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
 
         expect(result.current.getDropdownProps).toBeInstanceOf(Function);
@@ -871,50 +871,50 @@ describe('useMultiSelectPrimitive', () => {
       });
     });
 
-    describe('actions', () => {
-      test('addSelectedItem adds an item to the selected array', () => {
+    describe("actions", () => {
+      test("addSelectedItem adds an item to the selected array", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
 
         act(() => {
-          result.current.addSelectedItem('test');
+          result.current.addSelectedItem("test");
         });
 
-        expect(result.current.selectedItems).toStrictEqual(['test']);
+        expect(result.current.selectedItems).toStrictEqual(["test"]);
       });
 
-      test('removeSelectedItem removes an item from the selected array and keeps active index if not last item', () => {
+      test("removeSelectedItem removes an item from the selected array and keeps active index if not last item", () => {
         const { result } = renderHook(() =>
           useMultiSelectPrimitive({
-            initialSelectedItems: ['test', 'more test'],
+            initialSelectedItems: ["test", "more test"],
             initialActiveIndex: 0,
           }),
         );
 
         act(() => {
-          result.current.removeSelectedItem('test');
+          result.current.removeSelectedItem("test");
         });
 
-        expect(result.current.selectedItems).toStrictEqual(['more test']);
+        expect(result.current.selectedItems).toStrictEqual(["more test"]);
         expect(result.current.activeIndex).toEqual(0);
       });
 
-      test('removeSelectedItem removes an item from the selected array and decreases active index if last item', () => {
+      test("removeSelectedItem removes an item from the selected array and decreases active index if last item", () => {
         const { result } = renderHook(() =>
           useMultiSelectPrimitive({
-            initialSelectedItems: ['test', 'more test'],
+            initialSelectedItems: ["test", "more test"],
             initialActiveIndex: 1,
           }),
         );
 
         act(() => {
-          result.current.removeSelectedItem('more test');
+          result.current.removeSelectedItem("more test");
         });
 
-        expect(result.current.selectedItems).toStrictEqual(['test']);
+        expect(result.current.selectedItems).toStrictEqual(["test"]);
         expect(result.current.activeIndex).toEqual(0);
       });
 
-      test('setActiveIndex sets activeIndex', () => {
+      test("setActiveIndex sets activeIndex", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
 
         act(() => {
@@ -924,7 +924,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(result.current.activeIndex).toBe(3);
       });
 
-      test('setSelectedItems sets selectedItems', () => {
+      test("setSelectedItems sets selectedItems", () => {
         const inputItems = [1, 2, 3];
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
 
@@ -935,7 +935,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(result.current.selectedItems).toBe(inputItems);
       });
 
-      test('reset sets the state to default values', () => {
+      test("reset sets the state to default values", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
 
         act(() => {
@@ -948,7 +948,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(result.current.selectedItems).toStrictEqual([]);
       });
 
-      test('reset sets the state to default prop values passed by user', () => {
+      test("reset sets the state to default prop values passed by user", () => {
         const { result } = renderHook(() =>
           useMultiSelectPrimitive({
             defaultSelectedItems: [3, 4],
@@ -967,14 +967,14 @@ describe('useMultiSelectPrimitive', () => {
       });
     });
 
-    describe('state and props', () => {
-      test('activeIndex is returned', () => {
+    describe("state and props", () => {
+      test("activeIndex is returned", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({ activeIndex: 4 }));
 
         expect(result.current.activeIndex).toBe(4);
       });
 
-      test('selectedItems is returned', () => {
+      test("selectedItems is returned", () => {
         const itemsInput = [1, 2, 3];
         const { result } = renderHook(() => useMultiSelectPrimitive({ selectedItems: itemsInput }));
 
@@ -983,8 +983,8 @@ describe('useMultiSelectPrimitive', () => {
     });
   });
 
-  describe('test memoization', () => {
-    test('functions are memoized', () => {
+  describe("test memoization", () => {
+    test("functions are memoized", () => {
       const { result, rerender } = renderHook(() => useMultiSelectPrimitive({}));
       const firstRenderResult = result.current;
       rerender();
@@ -993,16 +993,16 @@ describe('useMultiSelectPrimitive', () => {
     });
   });
 
-  describe('getSelectedItemProps', () => {
-    test('throws error if no index or item has been passed', () => {
+  describe("getSelectedItemProps", () => {
+    test("throws error if no index or item has been passed", () => {
       const { result } = renderHook(() => useMultiSelectPrimitive({}));
 
       expect(result.current.getSelectedItemProps).toThrowError(
-        'Pass either selectedItem or index in getSelectedItemProps!',
+        "Pass either selectedItem or index in getSelectedItemProps!",
       );
     });
 
-    describe('hook props', () => {
+    describe("hook props", () => {
       test("assign '-1' to tabindex for a non-active item", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
         const itemProps = result.current.getSelectedItemProps({
@@ -1025,20 +1025,20 @@ describe('useMultiSelectPrimitive', () => {
       });
     });
 
-    describe('user props', () => {
-      test('are passed down', () => {
+    describe("user props", () => {
+      test("are passed down", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
 
         expect(
           result.current.getSelectedItemProps({
             index: 1,
             selectedItem: items[1],
-            foo: 'bar',
+            foo: "bar",
           } as UseMultipleSelectionGetSelectedItemPropsOptions<string>),
-        ).toHaveProperty('foo', 'bar');
+        ).toHaveProperty("foo", "bar");
       });
 
-      test('custom ref passed by the user is used', () => {
+      test("custom ref passed by the user is used", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
         const refFn = jest.fn();
         const itemNode = {};
@@ -1057,7 +1057,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(refFn).toHaveBeenCalledWith(itemNode);
       });
 
-      test('custom ref with custom name passed by the user is used', () => {
+      test("custom ref with custom name passed by the user is used", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
         const refFn = jest.fn();
         const itemNode = {};
@@ -1066,7 +1066,7 @@ describe('useMultiSelectPrimitive', () => {
           const { blablaRef } = result.current.getSelectedItemProps({
             index: 1,
             selectedItem: items[1],
-            refKey: 'blablaRef',
+            refKey: "blablaRef",
             blablaRef: refFn,
           } as UseMultipleSelectionGetSelectedItemPropsOptions<string>);
 
@@ -1077,7 +1077,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(refFn).toHaveBeenCalledWith(itemNode);
       });
 
-      test('event handler onClick is called along with downshift handler', () => {
+      test("event handler onClick is called along with downshift handler", () => {
         const userOnClick = jest.fn();
         const { result } = renderHook(() => useMultiSelectPrimitive({ initialSelectedItems: [items[0], items[1]] }));
 
@@ -1116,7 +1116,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(result.current.activeIndex).toBe(-1);
       });
 
-      test('event handler onKeyDown is called along with downshift handler', () => {
+      test("event handler onKeyDown is called along with downshift handler", () => {
         const userOnKeyDown = jest.fn();
         const { result } = renderHook(() => useMultiSelectPrimitive({ initialSelectedItems: [items[0], items[1]] }));
 
@@ -1127,7 +1127,7 @@ describe('useMultiSelectPrimitive', () => {
             onKeyDown: userOnKeyDown,
           });
 
-          onKeyDown({ key: 'ArrowLeft' });
+          onKeyDown({ key: "ArrowLeft" });
         });
 
         expect(userOnKeyDown).toHaveBeenCalledTimes(1);
@@ -1148,7 +1148,7 @@ describe('useMultiSelectPrimitive', () => {
             onKeyDown: userOnKeyDown,
           });
 
-          onKeyDown({ key: 'ArrowLeft' });
+          onKeyDown({ key: "ArrowLeft" });
         });
 
         expect(userOnKeyDown).toHaveBeenCalledTimes(1);
@@ -1156,8 +1156,8 @@ describe('useMultiSelectPrimitive', () => {
       });
     });
 
-    describe('event handlers', () => {
-      describe('on click', () => {
+    describe("event handlers", () => {
+      describe("on click", () => {
         test('sets tabindex to "0"', () => {
           const { getSelectedItemAtIndex } = renderMultipleCombobox({
             multipleSelectionProps: { initialSelectedItems: [items[0], items[1]] },
@@ -1165,9 +1165,9 @@ describe('useMultiSelectPrimitive', () => {
 
           userEvent.click(getSelectedItemAtIndex(0));
 
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "0");
           expect(getSelectedItemAtIndex(0)).toHaveFocus();
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "-1");
         });
 
         test('keeps tabindex "0" to an already active item', () => {
@@ -1181,13 +1181,13 @@ describe('useMultiSelectPrimitive', () => {
           focusSelectedItemAtIndex(0);
           userEvent.click(getSelectedItemAtIndex(0));
 
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "0");
           expect(getSelectedItemAtIndex(0)).toHaveFocus();
         });
       });
 
-      describe('on key down', () => {
-        test('arrow left should change active item in a descending order', () => {
+      describe("on key down", () => {
+        test("arrow left should change active item in a descending order", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex } = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1]],
@@ -1195,9 +1195,9 @@ describe('useMultiSelectPrimitive', () => {
             },
           });
 
-          keyDownOnSelectedItemAtIndex(1, 'ArrowLeft');
+          keyDownOnSelectedItemAtIndex(1, "ArrowLeft");
 
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "0");
           expect(getSelectedItemAtIndex(0)).toHaveFocus();
         });
 
@@ -1211,13 +1211,13 @@ describe('useMultiSelectPrimitive', () => {
             });
 
           focusSelectedItemAtIndex(0);
-          keyDownOnSelectedItemAtIndex(0, 'ArrowLeft');
+          keyDownOnSelectedItemAtIndex(0, "ArrowLeft");
 
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "0");
           expect(getSelectedItemAtIndex(0)).toHaveFocus();
         });
 
-        test('arrow right should change active item ascendently', () => {
+        test("arrow right should change active item ascendently", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex } = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1]],
@@ -1225,9 +1225,9 @@ describe('useMultiSelectPrimitive', () => {
             },
           });
 
-          keyDownOnSelectedItemAtIndex(0, 'ArrowRight');
+          keyDownOnSelectedItemAtIndex(0, "ArrowRight");
 
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "0");
           expect(getSelectedItemAtIndex(1)).toHaveFocus();
         });
 
@@ -1239,14 +1239,14 @@ describe('useMultiSelectPrimitive', () => {
             },
           });
 
-          keyDownOnSelectedItemAtIndex(1, 'ArrowRight');
+          keyDownOnSelectedItemAtIndex(1, "ArrowRight");
 
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
           expect(input).toHaveFocus();
         });
 
-        test('arrow navigation moves focus back and forth', () => {
+        test("arrow navigation moves focus back and forth", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex } = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1], items[2]],
@@ -1254,32 +1254,32 @@ describe('useMultiSelectPrimitive', () => {
             },
           });
 
-          keyDownOnSelectedItemAtIndex(2, 'ArrowLeft');
+          keyDownOnSelectedItemAtIndex(2, "ArrowLeft");
 
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
-          expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "0");
+          expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
 
-          keyDownOnSelectedItemAtIndex(1, 'ArrowLeft');
+          keyDownOnSelectedItemAtIndex(1, "ArrowLeft");
 
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
-          expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "0");
+          expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "-1");
 
-          keyDownOnSelectedItemAtIndex(0, 'ArrowRight');
+          keyDownOnSelectedItemAtIndex(0, "ArrowRight");
 
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
-          expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "0");
+          expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
 
-          keyDownOnSelectedItemAtIndex(2, 'ArrowRight');
+          keyDownOnSelectedItemAtIndex(2, "ArrowRight");
 
-          expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '0');
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "0");
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
         });
 
-        test('backspace removes item and moves focus to next item if any', () => {
+        test("backspace removes item and moves focus to next item if any", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex } =
             renderMultipleCombobox({
               multipleSelectionProps: {
@@ -1289,14 +1289,14 @@ describe('useMultiSelectPrimitive', () => {
             });
 
           focusSelectedItemAtIndex(1);
-          keyDownOnSelectedItemAtIndex(1, 'Backspace');
+          keyDownOnSelectedItemAtIndex(1, "Backspace");
 
           expect(getSelectedItems()).toHaveLength(2);
           expect(getSelectedItemAtIndex(1)).toHaveFocus();
           expect(getSelectedItemAtIndex(1)).toHaveTextContent(items[2]);
         });
 
-        test('backspace removes item and moves focus to input if no items left', () => {
+        test("backspace removes item and moves focus to input if no items left", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex, input } =
             renderMultipleCombobox({
               multipleSelectionProps: {
@@ -1306,13 +1306,13 @@ describe('useMultiSelectPrimitive', () => {
             });
 
           focusSelectedItemAtIndex(0);
-          keyDownOnSelectedItemAtIndex(0, 'Backspace');
+          keyDownOnSelectedItemAtIndex(0, "Backspace");
 
           expect(getSelectedItems()).toHaveLength(0);
           expect(input).toHaveFocus();
         });
 
-        test('backspace removes item and moves focus to previous item if it was the last in the array', () => {
+        test("backspace removes item and moves focus to previous item if it was the last in the array", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex } =
             renderMultipleCombobox({
               multipleSelectionProps: {
@@ -1322,14 +1322,14 @@ describe('useMultiSelectPrimitive', () => {
             });
 
           focusSelectedItemAtIndex(2);
-          keyDownOnSelectedItemAtIndex(2, 'Backspace');
+          keyDownOnSelectedItemAtIndex(2, "Backspace");
 
           expect(getSelectedItems()).toHaveLength(2);
           expect(getSelectedItemAtIndex(1)).toHaveFocus();
           expect(getSelectedItemAtIndex(1)).toHaveTextContent(items[1]);
         });
 
-        test('delete removes item and moves focus to next item if any', () => {
+        test("delete removes item and moves focus to next item if any", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex } =
             renderMultipleCombobox({
               multipleSelectionProps: {
@@ -1339,14 +1339,14 @@ describe('useMultiSelectPrimitive', () => {
             });
 
           focusSelectedItemAtIndex(1);
-          keyDownOnSelectedItemAtIndex(1, 'Delete');
+          keyDownOnSelectedItemAtIndex(1, "Delete");
 
           expect(getSelectedItems()).toHaveLength(2);
           expect(getSelectedItemAtIndex(1)).toHaveFocus();
           expect(getSelectedItemAtIndex(1)).toHaveTextContent(items[2]);
         });
 
-        test('delete removes item and moves focus to input if no items left', () => {
+        test("delete removes item and moves focus to input if no items left", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex, input } =
             renderMultipleCombobox({
               multipleSelectionProps: {
@@ -1356,13 +1356,13 @@ describe('useMultiSelectPrimitive', () => {
             });
 
           focusSelectedItemAtIndex(0);
-          keyDownOnSelectedItemAtIndex(0, 'Delete');
+          keyDownOnSelectedItemAtIndex(0, "Delete");
 
           expect(getSelectedItems()).toHaveLength(0);
           expect(input).toHaveFocus();
         });
 
-        test('delete removes item and moves focus to previous item if it was the last in the array', () => {
+        test("delete removes item and moves focus to previous item if it was the last in the array", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex, getSelectedItems, focusSelectedItemAtIndex } =
             renderMultipleCombobox({
               multipleSelectionProps: {
@@ -1372,14 +1372,14 @@ describe('useMultiSelectPrimitive', () => {
             });
 
           focusSelectedItemAtIndex(2);
-          keyDownOnSelectedItemAtIndex(2, 'Delete');
+          keyDownOnSelectedItemAtIndex(2, "Delete");
 
           expect(getSelectedItems()).toHaveLength(2);
           expect(getSelectedItemAtIndex(1)).toHaveFocus();
           expect(getSelectedItemAtIndex(1)).toHaveTextContent(items[1]);
         });
 
-        test('navigation works correctly with both click and arrow keys', () => {
+        test("navigation works correctly with both click and arrow keys", () => {
           const { keyDownOnSelectedItemAtIndex, getSelectedItemAtIndex } = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1], items[2]],
@@ -1388,27 +1388,27 @@ describe('useMultiSelectPrimitive', () => {
 
           userEvent.click(getSelectedItemAtIndex(1));
 
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "0");
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "-1");
 
-          keyDownOnSelectedItemAtIndex(1, 'ArrowLeft');
+          keyDownOnSelectedItemAtIndex(1, "ArrowLeft");
 
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
-          expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "0");
+          expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "-1");
 
           userEvent.click(getSelectedItemAtIndex(1));
 
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
-          expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "0");
+          expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
 
-          keyDownOnSelectedItemAtIndex(2, 'ArrowRight');
+          keyDownOnSelectedItemAtIndex(2, "ArrowRight");
 
-          expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '0');
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "0");
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "-1");
         });
 
         test("other than the ones supported don't affect anything", () => {
@@ -1418,18 +1418,18 @@ describe('useMultiSelectPrimitive', () => {
             });
 
           focusSelectedItemAtIndex(1);
-          keyDownOnSelectedItemAtIndex(1, 'Alt');
-          keyDownOnSelectedItemAtIndex(1, 'Control');
-          keyDownOnSelectedItemAtIndex(1, 'ArrowUp');
-          keyDownOnSelectedItemAtIndex(1, 'ArrowDown');
-          keyDownOnSelectedItemAtIndex(1, 'Enter');
+          keyDownOnSelectedItemAtIndex(1, "Alt");
+          keyDownOnSelectedItemAtIndex(1, "Control");
+          keyDownOnSelectedItemAtIndex(1, "ArrowUp");
+          keyDownOnSelectedItemAtIndex(1, "ArrowDown");
+          keyDownOnSelectedItemAtIndex(1, "Enter");
 
           expect(getSelectedItems()).toHaveLength(2);
           expect(getSelectedItemAtIndex(1)).toHaveFocus();
         });
       });
 
-      describe('on focus', () => {
+      describe("on focus", () => {
         test('keeps tabindex "0" when focusing input by tab/click so user can return via tab', () => {
           const { getSelectedItemAtIndex, focusSelectedItemAtIndex, input } = renderMultipleCombobox({
             multipleSelectionProps: {
@@ -1441,17 +1441,17 @@ describe('useMultiSelectPrimitive', () => {
           focusSelectedItemAtIndex(0);
           input.focus();
 
-          expect(getSelectedItemAtIndex(0)).toHaveAttribute('tabindex', '0');
-          expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
-          expect(getSelectedItemAtIndex(2)).toHaveAttribute('tabindex', '-1');
+          expect(getSelectedItemAtIndex(0)).toHaveAttribute("tabindex", "0");
+          expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "-1");
+          expect(getSelectedItemAtIndex(2)).toHaveAttribute("tabindex", "-1");
           expect(input).toHaveFocus();
         });
       });
     });
   });
 
-  describe('getDropdownProps', () => {
-    test('returns no keydown events if preventKeyAction is true', () => {
+  describe("getDropdownProps", () => {
+    test("returns no keydown events if preventKeyAction is true", () => {
       const { result } = renderHook(() => useMultiSelectPrimitive({}));
       const dropdownProps = result.current.getDropdownProps({
         preventKeyAction: true,
@@ -1460,17 +1460,17 @@ describe('useMultiSelectPrimitive', () => {
       expect(dropdownProps.onKeyDown).toBeUndefined();
     });
 
-    describe('user props', () => {
-      test('are passed down', () => {
+    describe("user props", () => {
+      test("are passed down", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
 
-        expect(result.current.getDropdownProps({ foo: 'bar' } as UseMultipleSelectionGetDropdownProps)).toHaveProperty(
-          'foo',
-          'bar',
+        expect(result.current.getDropdownProps({ foo: "bar" } as UseMultipleSelectionGetDropdownProps)).toHaveProperty(
+          "foo",
+          "bar",
         );
       });
 
-      test('custom ref passed by the user is used', () => {
+      test("custom ref passed by the user is used", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
         const refFn = jest.fn();
         const dropdownNode = {};
@@ -1487,14 +1487,14 @@ describe('useMultiSelectPrimitive', () => {
         expect(refFn).toHaveBeenCalledWith(dropdownNode);
       });
 
-      test('custom ref with custom name passed by the user is used', () => {
+      test("custom ref with custom name passed by the user is used", () => {
         const { result } = renderHook(() => useMultiSelectPrimitive({}));
         const refFn = jest.fn();
         const dropdownNode = {};
 
         act(() => {
           const { blablaRef } = result.current.getDropdownProps({
-            refKey: 'blablaRef',
+            refKey: "blablaRef",
             blablaRef: refFn,
           } as UseMultipleSelectionGetDropdownProps);
 
@@ -1505,7 +1505,7 @@ describe('useMultiSelectPrimitive', () => {
         expect(refFn).toHaveBeenCalledWith(dropdownNode);
       });
 
-      test('event handler onKeyDown is called along with downshift handler', () => {
+      test("event handler onKeyDown is called along with downshift handler", () => {
         const userOnKeyDown = jest.fn();
         const { result } = renderHook(() =>
           useMultiSelectPrimitive({
@@ -1518,7 +1518,7 @@ describe('useMultiSelectPrimitive', () => {
             onKeyDown: userOnKeyDown,
           });
 
-          onKeyDown({ key: 'ArrowLeft' });
+          onKeyDown({ key: "ArrowLeft" });
         });
 
         expect(userOnKeyDown).toHaveBeenCalledTimes(1);
@@ -1541,7 +1541,7 @@ describe('useMultiSelectPrimitive', () => {
             onKeyDown: userOnKeyDown,
           });
 
-          onKeyDown({ key: 'ArrowLeft' });
+          onKeyDown({ key: "ArrowLeft" });
         });
 
         expect(userOnKeyDown).toHaveBeenCalledTimes(1);
@@ -1549,100 +1549,100 @@ describe('useMultiSelectPrimitive', () => {
       });
     });
 
-    describe('event handlers', () => {
-      describe('on keydown', () => {
-        test('arrow left should make first selected item active', () => {
+    describe("event handlers", () => {
+      describe("on keydown", () => {
+        test("arrow left should make first selected item active", () => {
           const { keyDownOnInput, getSelectedItemAtIndex } = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1]],
             },
           });
 
-          keyDownOnInput('ArrowLeft');
+          keyDownOnInput("ArrowLeft");
 
           expect(getSelectedItemAtIndex(1)).toHaveFocus();
         });
 
-        test('arrow left should not work if pressed with modifier keys', () => {
+        test("arrow left should not work if pressed with modifier keys", () => {
           const { keyDownOnInput, getSelectedItems } = renderMultipleCombobox({
             multipleSelectionProps: { initialSelectedItems: [items[0], items[1]] },
           });
 
-          keyDownOnInput('ArrowLeft', { shiftKey: true });
+          keyDownOnInput("ArrowLeft", { shiftKey: true });
 
           expect(getSelectedItems()).toHaveLength(2);
 
-          keyDownOnInput('ArrowLeft', { altKey: true });
+          keyDownOnInput("ArrowLeft", { altKey: true });
 
           expect(getSelectedItems()).toHaveLength(2);
 
-          keyDownOnInput('ArrowLeft', { metaKey: true });
+          keyDownOnInput("ArrowLeft", { metaKey: true });
 
           expect(getSelectedItems()).toHaveLength(2);
 
-          keyDownOnInput('ArrowLeft', { ctrlKey: true });
+          keyDownOnInput("ArrowLeft", { ctrlKey: true });
 
           expect(getSelectedItems()).toHaveLength(2);
         });
 
-        test('backspace should remove the first selected item', () => {
+        test("backspace should remove the first selected item", () => {
           const { keyDownOnInput, getSelectedItems } = renderMultipleCombobox({
             multipleSelectionProps: { initialSelectedItems: [items[0], items[1]] },
           });
 
-          keyDownOnInput('Backspace');
+          keyDownOnInput("Backspace");
 
           expect(getSelectedItems()).toHaveLength(1);
         });
 
-        test('backspace should not work if pressed with modifier keys', () => {
+        test("backspace should not work if pressed with modifier keys", () => {
           const { keyDownOnInput, getSelectedItems } = renderMultipleCombobox({
             multipleSelectionProps: { initialSelectedItems: [items[0], items[1]] },
           });
 
-          keyDownOnInput('Backspace', { shiftKey: true });
+          keyDownOnInput("Backspace", { shiftKey: true });
 
           expect(getSelectedItems()).toHaveLength(2);
 
-          keyDownOnInput('Backspace', { altKey: true });
+          keyDownOnInput("Backspace", { altKey: true });
 
           expect(getSelectedItems()).toHaveLength(2);
 
-          keyDownOnInput('Backspace', { metaKey: true });
+          keyDownOnInput("Backspace", { metaKey: true });
 
           expect(getSelectedItems()).toHaveLength(2);
 
-          keyDownOnInput('Backspace', { ctrlKey: true });
+          keyDownOnInput("Backspace", { ctrlKey: true });
 
           expect(getSelectedItems()).toHaveLength(2);
         });
 
-        test('backspace should not work if pressed with cursor not on first position', () => {
+        test("backspace should not work if pressed with cursor not on first position", () => {
           const { keyDownOnInput, getSelectedItems, input } = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1]],
             },
-            comboboxProps: { initialInputValue: 'test' },
+            comboboxProps: { initialInputValue: "test" },
           });
 
           input.selectionStart = 1;
           input.selectionEnd = 1;
-          keyDownOnInput('Backspace');
+          keyDownOnInput("Backspace");
 
           expect(getSelectedItems()).toHaveLength(2);
         });
 
-        test('backspace should not work if pressed with cursor highlighting text', () => {
+        test("backspace should not work if pressed with cursor highlighting text", () => {
           const { keyDownOnInput, getSelectedItems, input } = renderMultipleCombobox({
             multipleSelectionProps: {
               initialSelectedItems: [items[0], items[1]],
             },
-            comboboxProps: { initialInputValue: 'test' },
+            comboboxProps: { initialInputValue: "test" },
           });
 
           input.selectionStart = 0;
           input.selectionEnd = 3;
-          keyDownOnInput('Backspace');
+          keyDownOnInput("Backspace");
 
           expect(getSelectedItems()).toHaveLength(2);
         });
@@ -1654,15 +1654,15 @@ describe('useMultiSelectPrimitive', () => {
             },
           });
 
-          keyDownOnInput('Alt');
-          keyDownOnInput('Control');
+          keyDownOnInput("Alt");
+          keyDownOnInput("Control");
 
           expect(getSelectedItems()).toHaveLength(2);
           expect(input).toHaveFocus();
         });
       });
 
-      test('on click it should remove active status from item if any', () => {
+      test("on click it should remove active status from item if any", () => {
         const { keyDownOnInput, getSelectedItemAtIndex, input, focusSelectedItemAtIndex } = renderMultipleCombobox({
           multipleSelectionProps: {
             initialSelectedItems: [items[0], items[1]],
@@ -1673,12 +1673,12 @@ describe('useMultiSelectPrimitive', () => {
         focusSelectedItemAtIndex(1);
         userEvent.click(input);
 
-        expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '-1');
+        expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "-1");
 
-        keyDownOnInput('ArrowLeft');
+        keyDownOnInput("ArrowLeft");
 
         expect(getSelectedItemAtIndex(1)).toHaveFocus();
-        expect(getSelectedItemAtIndex(1)).toHaveAttribute('tabindex', '0');
+        expect(getSelectedItemAtIndex(1)).toHaveAttribute("tabindex", "0");
       });
     });
   });

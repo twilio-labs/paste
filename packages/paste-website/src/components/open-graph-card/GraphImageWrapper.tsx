@@ -1,5 +1,5 @@
-import { Box } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
 export interface GraphImageWrapperProps {
   children: NonNullable<React.ReactNode>;

@@ -1,15 +1,15 @@
-import isChromatic from 'chromatic';
+import isChromatic from "chromatic";
 /// <reference types="vite/client" />
-import React from 'react';
-import { version } from '../packages/paste-core/core-bundle/package.json';
+import React from "react";
+import { version } from "../packages/paste-core/core-bundle/package.json";
 
 const trackRenderPerformance = (data) => {
-  const commitSha = import.meta.env.STORYBOOK_GITHUB_SHA ? import.meta.env.STORYBOOK_GITHUB_SHA : 'localdev';
+  const commitSha = import.meta.env.STORYBOOK_GITHUB_SHA ? import.meta.env.STORYBOOK_GITHUB_SHA : "localdev";
 
-  fetch('https://paste-data.netlify.app/.netlify/functions/create-component-perf-metric', {
-    method: 'POST',
+  fetch("https://paste-data.netlify.app/.netlify/functions/create-component-perf-metric", {
+    method: "POST",
     keepalive: true,
-    mode: 'cors',
+    mode: "cors",
     // mix in the current git commit SHA, along with core bundle version number to profiler data. SHA is set via github actions when run in a PR
     body: JSON.stringify({ ...data, commitSha, coreVersionNumber: version }),
   });

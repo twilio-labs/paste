@@ -1,11 +1,11 @@
-import { Box } from '@twilio-paste/box';
-import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
-import { InlineCode } from '@twilio-paste/inline-code';
-import { Paragraph } from '@twilio-paste/paragraph';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { InlineCode } from "@twilio-paste/inline-code";
+import { Paragraph } from "@twilio-paste/paragraph";
+import * as React from "react";
 
-import { SiteLink } from '../SiteLink';
-import type { Token } from './types';
+import { SiteLink } from "../SiteLink";
+import type { Token } from "./types";
 
 const ColorGuidelinesLink: React.FC = () => <SiteLink href="/foundations/colors">Read the color guidelines</SiteLink>;
 
@@ -43,7 +43,7 @@ const BoxShadowsIntro = (): JSX.Element => (
 
 const DataVisualizationIntro = (): JSX.Element => (
   <Paragraph>
-    Data visualization colors are for usage within charts.{' '}
+    Data visualization colors are for usage within charts.{" "}
     <SiteLink href="/foundations/data-visualization">Read the data visualization guidelines</SiteLink> to learn more
     about building charts with Paste.
   </Paragraph>
@@ -71,7 +71,7 @@ const TextColorsIntro = (): JSX.Element => (
   <Paragraph>
     Text color tokens define both text and icon colors. We specifically have <InlineCode>color-text-*</InlineCode> and
     <InlineCode>color-text-icon-*</InlineCode> tokens, since icons have lower contrast requirements than text. This
-    means that text color tokens can be used for icons, but icon color tokens cannot be used for text.{' '}
+    means that text color tokens can be used for icons, but icon color tokens cannot be used for text.{" "}
     <ColorGuidelinesLink /> to learn more about using text color tokens in Paste.
   </Paragraph>
 );
@@ -80,12 +80,12 @@ const ZIndicesIntro = (): JSX.Element => (
   <Paragraph>Z indices define the vertical stacking order of UI elements that overlap.</Paragraph>
 );
 
-export const sectionIntros: { [key: Token['category']]: JSX.Element } = {
-  'background-colors': <BackgroundColorsIntro />,
-  'border-colors': <BorderColorsIntro />,
-  'box-shadows': <BoxShadowsIntro />,
-  'data-visualization': <DataVisualizationIntro />,
-  'font-sizes': <FontSizesIntro />,
-  'text-colors': <TextColorsIntro />,
-  'z-indices': <ZIndicesIntro />,
+export const sectionIntros: { [key: Token["category"]]: JSX.Element } = {
+  "background-colors": <BackgroundColorsIntro />,
+  "border-colors": <BorderColorsIntro />,
+  "box-shadows": <BoxShadowsIntro />,
+  "data-visualization": <DataVisualizationIntro />,
+  "font-sizes": <FontSizesIntro />,
+  "text-colors": <TextColorsIntro />,
+  "z-indices": <ZIndicesIntro />,
 };

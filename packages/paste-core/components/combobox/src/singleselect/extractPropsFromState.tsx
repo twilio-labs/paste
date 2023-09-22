@@ -1,29 +1,29 @@
-import { useComboboxPrimitive } from '@twilio-paste/combobox-primitive';
+import { useComboboxPrimitive } from "@twilio-paste/combobox-primitive";
 import type {
   UseComboboxPrimitiveReturnValue,
   UseComboboxPrimitiveState,
   UseComboboxPrimitiveStateChange,
   UseComboboxPrimitiveStateChangeOptions,
-} from '@twilio-paste/combobox-primitive';
-import isEmpty from 'lodash/isEmpty';
-import * as React from 'react';
+} from "@twilio-paste/combobox-primitive";
+import isEmpty from "lodash/isEmpty";
+import * as React from "react";
 
-import type { ComboboxProps } from '../types';
+import type { ComboboxProps } from "../types";
 
 type DefaultStateProps = {
-  onInputValueChange: ComboboxProps['onInputValueChange'];
-  onIsOpenChange: ComboboxProps['onIsOpenChange'];
-  onSelectedItemChange: ComboboxProps['onSelectedItemChange'];
-  onHighlightedIndexChange: ComboboxProps['onHighlightedIndexChange'];
-  itemToString: ComboboxProps['itemToString'];
-  initialIsOpen: ComboboxProps['initialIsOpen'];
-  inputValue: ComboboxProps['inputValue'];
-  selectedItem: ComboboxProps['selectedItem'];
-  initialSelectedItem: ComboboxProps['initialSelectedItem'];
-  items: ComboboxProps['items'];
-  disabledItems: ComboboxProps['disabledItems'];
-  getA11yStatusMessage: ComboboxProps['getA11yStatusMessage'];
-  getA11ySelectionMessage: ComboboxProps['getA11ySelectionMessage'];
+  onInputValueChange: ComboboxProps["onInputValueChange"];
+  onIsOpenChange: ComboboxProps["onIsOpenChange"];
+  onSelectedItemChange: ComboboxProps["onSelectedItemChange"];
+  onHighlightedIndexChange: ComboboxProps["onHighlightedIndexChange"];
+  itemToString: ComboboxProps["itemToString"];
+  initialIsOpen: ComboboxProps["initialIsOpen"];
+  inputValue: ComboboxProps["inputValue"];
+  selectedItem: ComboboxProps["selectedItem"];
+  initialSelectedItem: ComboboxProps["initialSelectedItem"];
+  items: ComboboxProps["items"];
+  disabledItems: ComboboxProps["disabledItems"];
+  getA11yStatusMessage: ComboboxProps["getA11yStatusMessage"];
+  getA11ySelectionMessage: ComboboxProps["getA11ySelectionMessage"];
 };
 
 const getDefaultState = ({

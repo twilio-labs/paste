@@ -1,8 +1,8 @@
-import { Box } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-export const StyledMinimizableDialog: React.FC<React.PropsWithChildren<Pick<BoxProps, 'element'>>> = ({
+export const StyledMinimizableDialog: React.FC<React.PropsWithChildren<Pick<BoxProps, "element">>> = ({
   element,
   children,
 }) => (
@@ -19,4 +19,4 @@ export const StyledMinimizableDialog: React.FC<React.PropsWithChildren<Pick<BoxP
   </Box>
 );
 
-StyledMinimizableDialog.displayName = 'StyledMinimizableDialog';
+StyledMinimizableDialog.displayName = "StyledMinimizableDialog";

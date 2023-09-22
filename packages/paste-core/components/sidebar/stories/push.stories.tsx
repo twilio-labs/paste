@@ -1,10 +1,10 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   Sidebar,
@@ -16,11 +16,11 @@ import {
   SidebarHeaderLabel,
   SidebarNavigation,
   SidebarPushContentWrapper,
-} from '../src';
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/Sidebar/Push',
+  title: "Components/Sidebar/Sidebar/Push",
 };
 
 export const Default: StoryFn = () => {

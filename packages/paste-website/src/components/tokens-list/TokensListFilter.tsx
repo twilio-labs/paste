@@ -1,15 +1,15 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { Column, Grid } from '@twilio-paste/grid';
-import { ClearIcon } from '@twilio-paste/icons/esm/ClearIcon';
-import { FilterIcon } from '@twilio-paste/icons/esm/FilterIcon';
-import { Input } from '@twilio-paste/input';
-import { Label } from '@twilio-paste/label';
-import { Option, Select } from '@twilio-paste/select';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Column, Grid } from "@twilio-paste/grid";
+import { ClearIcon } from "@twilio-paste/icons/esm/ClearIcon";
+import { FilterIcon } from "@twilio-paste/icons/esm/FilterIcon";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Option, Select } from "@twilio-paste/select";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { SITE_TOPBAR_HEIGHT } from '../../constants';
+import { SITE_TOPBAR_HEIGHT } from "../../constants";
 
 export interface TokensListFilterProps {
   value: string;
@@ -50,15 +50,15 @@ export const TokensListFilter: React.FC<React.PropsWithChildren<TokensListFilter
       zIndex="zIndex10"
       marginX="spaceNegative40"
       css={{
-        '::before': {
+        "::before": {
           content: '""',
-          position: 'absolute',
-          bottom: '0',
-          right: '8px',
-          left: '8px',
-          height: '1px',
-          backgroundColor: '#fff',
-          boxShadow: '0px 4px 12px rgba(0, 0, 0, 0.8)',
+          position: "absolute",
+          bottom: "0",
+          right: "8px",
+          left: "8px",
+          height: "1px",
+          backgroundColor: "#fff",
+          boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.8)",
           opacity: shadowOpacity,
         },
       }}

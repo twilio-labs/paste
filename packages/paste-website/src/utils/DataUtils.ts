@@ -1,9 +1,9 @@
-import camelCase from 'lodash/camelCase';
-import mapKeys from 'lodash/mapKeys';
+import camelCase from "lodash/camelCase";
+import mapKeys from "lodash/mapKeys";
 
-import { getHumanizedNameFromPackageName } from './RouteUtils';
-import { sentenceCase } from './SentenceCase';
-import type { Feature } from './api';
+import { getHumanizedNameFromPackageName } from "./RouteUtils";
+import { sentenceCase } from "./SentenceCase";
+import type { Feature } from "./api";
 
 export type ApiData = Record<string, any>;
 
@@ -35,7 +35,7 @@ export const getNormalizedHeaderData = (data: ApiData): ApiData => {
   };
 };
 
-const getKebabCaseFeatureName = (name: string): string => name.toLowerCase().replace(/\s/g, '-');
+const getKebabCaseFeatureName = (name: string): string => name.toLowerCase().replace(/\s/g, "-");
 
 const mutateFeatureToPackage = ({ Feature: FeatureName, status }: Feature): NavItem => {
   const formattedName = getKebabCaseFeatureName(FeatureName);
@@ -71,20 +71,20 @@ export const getNormalizedNavigationData = (data: Feature[]): NavData => {
     // only display nav items for components that have docs
     if (!feature.Documentation) return;
 
-    switch (feature['Component Category']) {
-      case 'component':
+    switch (feature["Component Category"]) {
+      case "component":
         normalizedData.allPasteComponent.push(mutateFeatureToPackage(feature));
         break;
-      case 'layout':
+      case "layout":
         normalizedData.allPasteLayout.push(mutateFeatureToPackage(feature));
         break;
-      case 'primitive':
+      case "primitive":
         normalizedData.allPastePrimitive.push(mutateFeatureToPackage(feature));
         break;
-      case 'pattern':
+      case "pattern":
         normalizedData.allPastePattern.push(mutateFeatureToPattern(feature));
         break;
-      case 'page template':
+      case "page template":
         normalizedData.allPastePageTemplate.push(mutateFeatureToPackage(feature));
         break;
     }

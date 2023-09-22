@@ -1,8 +1,8 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
-import { Paragraph } from '@twilio-paste/paragraph';
+import { Anchor } from "@twilio-paste/anchor";
+import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
+import { Paragraph } from "@twilio-paste/paragraph";
 
-import { ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo } from './ProjectCard';
+import { ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo } from "./ProjectCard";
 
 export const FlexCard = (): JSX.Element => {
   return (

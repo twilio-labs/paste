@@ -1,5 +1,5 @@
-import * as React from 'react';
-import useLatest from 'use-latest';
+import * as React from "react";
+import useLatest from "use-latest";
 
 export const useWindowResizeListener = (listener: (event: UIEvent) => any): any => {
   const latestListener = useLatest(listener);
@@ -9,10 +9,10 @@ export const useWindowResizeListener = (listener: (event: UIEvent) => any): any 
       latestListener.current(event);
     };
 
-    window.addEventListener('resize', handler);
+    window.addEventListener("resize", handler);
 
     return () => {
-      window.removeEventListener('resize', handler);
+      window.removeEventListener("resize", handler);
     };
   }, []);
 };

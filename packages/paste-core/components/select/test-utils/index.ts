@@ -1,11 +1,11 @@
 export interface AttributesMap {
   class?: string;
-  'data-testid'?: string;
+  "data-testid"?: string;
   id?: string;
-  'aria-invalid'?: string;
+  "aria-invalid"?: string;
   disabled?: boolean;
   label?: string;
-  'data-attr'?: string;
+  "data-attr"?: string;
   selected?: string;
   title?: string;
   spellcheck?: string;

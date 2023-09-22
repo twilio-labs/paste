@@ -1,1 +1,1 @@
-export type StyleReset = 'none' | 'inherit' | 'initial' | 'unset';
+export type StyleReset = "none" | "inherit" | "initial" | "unset";

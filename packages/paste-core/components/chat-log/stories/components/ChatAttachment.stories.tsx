@@ -1,8 +1,8 @@
-import type { StoryFn } from '@storybook/react';
-import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
-import { Spinner } from '@twilio-paste/spinner';
-import { Stack } from '@twilio-paste/stack';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { Spinner } from "@twilio-paste/spinner";
+import { Stack } from "@twilio-paste/stack";
+import * as React from "react";
 
 import {
   ChatAttachment,
@@ -12,11 +12,11 @@ import {
   ChatLog,
   ChatMessage,
   ComposerAttachmentCard,
-} from '../../src';
+} from "../../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatLog',
+  title: "Components/ChatLog",
 };
 
 export const InboundChatMessageWithAttachment: StoryFn = () => (

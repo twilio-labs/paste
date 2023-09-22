@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface CheckmarkCircleIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface CheckmarkCircleIconProps extends IconWrapperProps {
 }
 
 const CheckmarkCircleIcon = React.forwardRef<HTMLElement, CheckmarkCircleIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `CheckmarkCircleIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CheckmarkCircleIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[CheckmarkCircleIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -43,5 +43,5 @@ const CheckmarkCircleIcon = React.forwardRef<HTMLElement, CheckmarkCircleIconPro
   },
 );
 
-CheckmarkCircleIcon.displayName = 'CheckmarkCircleIcon';
+CheckmarkCircleIcon.displayName = "CheckmarkCircleIcon";
 export { CheckmarkCircleIcon };

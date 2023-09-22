@@ -1,11 +1,11 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { ClearIcon } from '@twilio-paste/icons/esm/ClearIcon';
-import { FilterIcon } from '@twilio-paste/icons/esm/FilterIcon';
-import { Input } from '@twilio-paste/input';
-import { Label } from '@twilio-paste/label';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ClearIcon } from "@twilio-paste/icons/esm/ClearIcon";
+import { FilterIcon } from "@twilio-paste/icons/esm/FilterIcon";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 type WordFilterProps = {
   value: string;
@@ -15,7 +15,7 @@ type WordFilterProps = {
 export const WordFilter: React.FC<WordFilterProps> = ({ value, onInput, onClear }) => {
   const filterID = useUID();
   return (
-    <Box marginBottom="space70" maxWidth={['100%', '100%', 'size30']}>
+    <Box marginBottom="space70" maxWidth={["100%", "100%", "size30"]}>
       <Label htmlFor={filterID}>Filter words</Label>
       <Input
         type="text"

@@ -1,6 +1,6 @@
-import sortBy from 'lodash/sortBy';
+import sortBy from "lodash/sortBy";
 
-import { CORE_BUNDLE_INDEX_PATH, CORE_BUNDLE_PACKAGE_PATH } from './constants';
+import { CORE_BUNDLE_INDEX_PATH, CORE_BUNDLE_PACKAGE_PATH } from "./constants";
 import {
   createCodeSandboxCIjson,
   createGitIgnore,
@@ -11,7 +11,7 @@ import {
   getCoreRelevantPackages,
   getRepoPackages,
   writeToFile,
-} from './utils';
+} from "./utils";
 
 // Main
 (async () => {
@@ -20,9 +20,9 @@ import {
   // Filter to all public packages
   const filteredPublicPackages = packageList !== null ? getCoreRelevantPackages(packageList) : [];
   // Sort the list so we don't get inconsistent ordering each rebuild
-  const sortedPackageList = sortBy(filteredPublicPackages, ['name']);
+  const sortedPackageList = sortBy(filteredPublicPackages, ["name"]);
   // Filter to all production ready core packages
-  const filteredCorePackageList = sortedPackageList.filter((item) => item.location.includes('/paste-core/'));
+  const filteredCorePackageList = sortedPackageList.filter((item) => item.location.includes("/paste-core/"));
 
   /*
    * Write the index file

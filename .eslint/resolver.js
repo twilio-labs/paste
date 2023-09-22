@@ -1,5 +1,5 @@
-const resolve = require('resolve');
-const cachedPackages = require('../tools/.cache/packages.json');
+const resolve = require("resolve");
+const cachedPackages = require("../tools/.cache/packages.json");
 
 exports.interfaceVersion = 2;
 
@@ -24,10 +24,10 @@ const keyedPackages = cachedPackages.reduce((acc, currentPackage) => {
 
   // If there's no main entrypoint, don't update the location path.
   // Note: the icons package doesn't have a main entrypoint
-  if (packageJson['main:dev'] == null && packageJson.main == null) {
+  if (packageJson["main:dev"] == null && packageJson.main == null) {
     acc[currentPackage.name] = currentPackage;
   } else {
-    const mainEntrypoint = packageJson['main:dev'] || packageJson.main;
+    const mainEntrypoint = packageJson["main:dev"] || packageJson.main;
     // Make sure to set the location to the dist/main entrypoint.
     acc[currentPackage.name] = {
       ...currentPackage,
@@ -46,7 +46,7 @@ const keyedPackages = cachedPackages.reduce((acc, currentPackage) => {
  * https://github.com/benmosher/eslint-plugin-import/blob/master/resolvers/README.md
  */
 exports.resolve = function customResolver(source, file, config) {
-  if (source.includes('@twilio-paste/') && keyedPackages[source] != null) {
+  if (source.includes("@twilio-paste/") && keyedPackages[source] != null) {
     return { found: true, path: keyedPackages[source].location };
   }
 

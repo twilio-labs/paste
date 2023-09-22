@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductInternetOfThingsNarrowbandIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductInternetOfThingsNarrowbandIconProps extends IconWrapperP
 }
 
 const ProductInternetOfThingsNarrowbandIcon = React.forwardRef<HTMLElement, ProductInternetOfThingsNarrowbandIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductInternetOfThingsNarrowbandIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductInternetOfThingsNarrowbandIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductInternetOfThingsNarrowbandIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -45,5 +45,5 @@ const ProductInternetOfThingsNarrowbandIcon = React.forwardRef<HTMLElement, Prod
   },
 );
 
-ProductInternetOfThingsNarrowbandIcon.displayName = 'ProductInternetOfThingsNarrowbandIcon';
+ProductInternetOfThingsNarrowbandIcon.displayName = "ProductInternetOfThingsNarrowbandIcon";
 export { ProductInternetOfThingsNarrowbandIcon };

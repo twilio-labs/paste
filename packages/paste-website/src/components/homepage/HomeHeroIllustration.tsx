@@ -1,13 +1,13 @@
-import { useReducedMotion } from '@twilio-paste/animation-library';
-import { Box } from '@twilio-paste/box';
-import type { ValueOf } from '@twilio-paste/types';
-import lottie from 'lottie-web';
-import Image from 'next/image';
-import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
+import { useReducedMotion } from "@twilio-paste/animation-library";
+import { Box } from "@twilio-paste/box";
+import type { ValueOf } from "@twilio-paste/types";
+import lottie from "lottie-web";
+import Image from "next/image";
+import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
-import HomeHeroIllu from '../../assets/illustrations/home_hero.svg';
-import { inCypress } from '../../utils/inCypress';
+import HomeHeroIllu from "../../assets/illustrations/home_hero.svg";
+import { inCypress } from "../../utils/inCypress";
 
 const IllustrationStates = {
   UNINITIALIZED: 0, // This is SSR too
@@ -56,14 +56,14 @@ const HomeHeroIllustration: React.FC<React.PropsWithChildren<unknown>> = () => {
        * Dynamically import the animation so we don't load a huge json blob for everyone
        * @ts-ignore
        */
-      import('../../assets/animations/homepage-hero-animation.json')
+      import("../../assets/animations/homepage-hero-animation.json")
         .then((animationData) => {
           if (containerRef.current != null) {
             const anim = lottie.loadAnimation({
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
               container: containerRef.current,
-              renderer: 'svg',
+              renderer: "svg",
               loop: false,
               autoplay: true,
               animationData,
@@ -88,7 +88,7 @@ const HomeHeroIllustration: React.FC<React.PropsWithChildren<unknown>> = () => {
       <Box
         aria-hidden="true"
         maxWidth="size70"
-        height={['400px', '400px', '500px']}
+        height={["400px", "400px", "500px"]}
         marginLeft="auto"
         position="relative"
         ref={containerRef}

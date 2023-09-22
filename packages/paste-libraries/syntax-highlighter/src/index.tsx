@@ -4,52 +4,52 @@
  * register our own languages for Prism to use.
  */
 /* eslint-disable import/no-extraneous-dependencies */
-import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
-import bash from 'react-syntax-highlighter/dist/esm/languages/prism/bash';
-import c from 'react-syntax-highlighter/dist/esm/languages/prism/c';
-import csharp from 'react-syntax-highlighter/dist/esm/languages/prism/csharp';
-import go from 'react-syntax-highlighter/dist/esm/languages/prism/go';
-import groovy from 'react-syntax-highlighter/dist/esm/languages/prism/groovy';
-import java from 'react-syntax-highlighter/dist/esm/languages/prism/java';
-import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
-import json from 'react-syntax-highlighter/dist/esm/languages/prism/json';
-import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
-import php from 'react-syntax-highlighter/dist/esm/languages/prism/php';
-import python from 'react-syntax-highlighter/dist/esm/languages/prism/python';
-import ruby from 'react-syntax-highlighter/dist/esm/languages/prism/ruby';
-import shell from 'react-syntax-highlighter/dist/esm/languages/prism/shell-session';
-import SyntaxHighlighterTheme from 'react-syntax-highlighter/dist/esm/styles/prism/night-owl';
+import { PrismLight as SyntaxHighlighter } from "react-syntax-highlighter";
+import bash from "react-syntax-highlighter/dist/esm/languages/prism/bash";
+import c from "react-syntax-highlighter/dist/esm/languages/prism/c";
+import csharp from "react-syntax-highlighter/dist/esm/languages/prism/csharp";
+import go from "react-syntax-highlighter/dist/esm/languages/prism/go";
+import groovy from "react-syntax-highlighter/dist/esm/languages/prism/groovy";
+import java from "react-syntax-highlighter/dist/esm/languages/prism/java";
+import javascript from "react-syntax-highlighter/dist/esm/languages/prism/javascript";
+import json from "react-syntax-highlighter/dist/esm/languages/prism/json";
+import jsx from "react-syntax-highlighter/dist/esm/languages/prism/jsx";
+import php from "react-syntax-highlighter/dist/esm/languages/prism/php";
+import python from "react-syntax-highlighter/dist/esm/languages/prism/python";
+import ruby from "react-syntax-highlighter/dist/esm/languages/prism/ruby";
+import shell from "react-syntax-highlighter/dist/esm/languages/prism/shell-session";
+import SyntaxHighlighterTheme from "react-syntax-highlighter/dist/esm/styles/prism/night-owl";
 /* eslint-enable import/no-extraneous-dependencies */
 
 export type SnippetLanguages =
-  | 'javascript'
-  | 'jsx'
-  | 'csharp'
-  | 'php'
-  | 'ruby'
-  | 'python'
-  | 'java'
-  | 'json'
-  | 'c'
-  | 'bash'
-  | 'shell'
-  | 'go'
-  | 'groovy';
+  | "javascript"
+  | "jsx"
+  | "csharp"
+  | "php"
+  | "ruby"
+  | "python"
+  | "java"
+  | "json"
+  | "c"
+  | "bash"
+  | "shell"
+  | "go"
+  | "groovy";
 
 const SnippetLanguage = {
-  JAVASCRIPT: 'javascript',
-  JSX: 'jsx',
-  CSHARP: 'csharp',
-  PHP: 'php',
-  RUBY: 'ruby',
-  PYTHON: 'python',
-  JAVA: 'java',
-  JSON: 'json',
-  C: 'c',
-  BASH: 'bash',
-  SHELL: 'shell',
-  GO: 'go',
-  GROOVY: 'groovy',
+  JAVASCRIPT: "javascript",
+  JSX: "jsx",
+  CSHARP: "csharp",
+  PHP: "php",
+  RUBY: "ruby",
+  PYTHON: "python",
+  JAVA: "java",
+  JSON: "json",
+  C: "c",
+  BASH: "bash",
+  SHELL: "shell",
+  GO: "go",
+  GROOVY: "groovy",
 };
 
 SyntaxHighlighter.registerLanguage(SnippetLanguage.JAVASCRIPT, javascript);

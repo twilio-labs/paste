@@ -3,9 +3,9 @@
  * https://github.com/infiniteluke/react-reduce-motion
  * https://joshwcomeau.com/react/prefers-reduced-motion/#the-hook
  */
-import * as React from 'react';
+import * as React from "react";
 
-const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
 
 /*
  * Due to a bug in how terser is compiling these functions,
@@ -14,7 +14,7 @@ const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
  */
 /* eslint-disable no-else-return */
 export const isRenderingOnServer = (() => {
-  if (typeof window == 'undefined' || !window.location || !window.location.href || !window.matchMedia) {
+  if (typeof window == "undefined" || !window.location || !window.location.href || !window.matchMedia) {
     return true;
   }
   return false;

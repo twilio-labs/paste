@@ -17,6 +17,6 @@
 import {
   DialogContent as ModalDialogPrimitiveContent,
   DialogOverlay as ModalDialogPrimitiveOverlay,
-} from '@reach/dialog';
+} from "@reach/dialog";
 
 export { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay };

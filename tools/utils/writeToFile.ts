@@ -1,6 +1,6 @@
-import { writeFile } from 'fs';
+import { writeFile } from "fs";
 
-import chalk from 'chalk';
+import chalk from "chalk";
 
 export function writeToFile(
   filePath: string,
@@ -15,7 +15,7 @@ export function writeToFile(
     ? JSON.stringify(content, null, 2)
     : (content as NodeJS.ArrayBufferView);
 
-  writeFile(filePath, output, 'utf8', (error) => {
+  writeFile(filePath, output, "utf8", (error) => {
     if (error) {
       if (errorMessage != null) {
         // eslint-disable-next-line no-console
