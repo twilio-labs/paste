@@ -1,5 +1,5 @@
 [functions]
-  external_node_modules = ["@sparticuz/chromium", "puppeteer-core", "@swc"]
+  external_node_modules = ["@sparticuz/chromium", "puppeteer-core", "@swc", "faiss-node"]
 
 [context.deploy-preview.environment]
   NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "deploy-preview"
