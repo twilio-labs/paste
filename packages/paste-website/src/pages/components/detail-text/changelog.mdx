@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Detail Text - Changelog',
+  package: '@twilio-paste/detail-text',
+  description: 'Detail Text is typography used for short pieces of secondary text content.',
+  slug: '/components/detail-text/changelog',
+};
+
+import Changelog from '@twilio-paste/detail-text/CHANGELOG.md';
+import packageJson from '@twilio-paste/detail-text/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Detail Text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/detail-text',
+        storybookUrl: '/?path=/story/components-detail-text--default',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -1,0 +1,62 @@
+export const meta = {
+  title: 'Description List - API',
+  package: '@twilio-paste/description-list',
+  description: 'A Description List is a set or sets of terms and their definitions, or details, used to display data.',
+  slug: '/components/description-list/api',
+};
+
+import Changelog from '@twilio-paste/description-list/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/description-list/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Description List');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/description-list');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/description-list',
+        storybookUrl: '/?path=/story/components-description-list--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/description-list - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails} from '@twilio-paste/core/description-list';
+
+const Component = () => (
+  <DescriptionList>
+    <DescriptionListSet>
+      <DescriptionListTerm>Paste</DescriptionList>
+      <DescriptionListDetails>A design system used to build accessible, cohesive, and high-quality customer experiences at Twilio.</DescriptionListDetails>
+    </DescriptionListSet>
+  </DescriptionList>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

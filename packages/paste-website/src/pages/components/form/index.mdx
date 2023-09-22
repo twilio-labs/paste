@@ -43,12 +43,11 @@ import {
   errorExample,
   maxWidthForm,
 } from '../../../component-examples/FormExamples';
-import Changelog from '@twilio-paste/form/CHANGELOG.md';
 import packageJson from '@twilio-paste/form/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -60,25 +59,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form',
+        storybookUrl: '/?path=/story/components-form--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form"
-  storybookUrl="/?path=/story/components-form--default"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -528,148 +517,6 @@ Use a Form when users are expected to enter more than a single form component to
 - [Notifications and Feedback](/patterns/notifications-and-feedback/)
 - [Object details](/page-templates/object-details)
 
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  Form,
-  FormSection,
-  FormSectionHeading,
-  FormControl
-} from '@twilio-paste/core/form;
-import {Input} from '@twilio-paste/core/input;
-import {Label} from '@twilio-paste/core/label;
-
-const SampleForm = () => (
- <Form maxWidth="size30">
-   <FormSection>
-     <FormSectionHeading variant="heading30">
-       Personal information
-     </FormSectionHeading>
-     <FormControl>
-       <Label htmlFor="first-name">First name</Label>
-       <Input id="first-name" />
-     </FormControl>
-     <FormControl>
-       <Label htmlFor="last-name">Last name</Label>
-       <Input id="last-name" />
-     </FormControl>
-   </FormSection>
- </CheckboxGroup>
-);
-```
-
-#### Form props
-
-Accepts all valid attributes for HTML form elements.
-
-| Prop      | Type                               | Description                                                                                | Default |
-| --------- | ---------------------------------- | ------------------------------------------------------------------------------------------ | ------- |
-| children  | `React.ReactNode`                  | The contents of the Form                                                                   |         |
-| maxWidth? | `ResponsiveValue<MaxWidthOptions>` | The maximum width of the Form.                                                             |         |
-| element?  | `string`                           | Overrides the default element name to apply unique styles with the Customization Provider. | 'FORM'  |
-
-#### FormActions props
-
-Accepts all valid attributes for HTML div elements.
-
-| Prop     | Type              | Description                                                                                | Default        |
-| -------- | ----------------- | ------------------------------------------------------------------------------------------ | -------------- |
-| children | `React.ReactNode` | The contents of the Form Control                                                           |                |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FORM_CONTROL' |
-
-#### FormControl props
-
-Accepts all valid attributes for HTML div elements.
-
-| Prop     | Type              | Description                                                                                | Default        |
-| -------- | ----------------- | ------------------------------------------------------------------------------------------ | -------------- |
-| children | `React.ReactNode` | The contents of the Form Actions                                                           |                |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FORM_ACTIONS' |
-
-#### FormControlTwoColumn props
-
-Accepts all valid attributes for HTML div elements.
-
-| Prop     | Type              | Description                                                                                | Default                   |
-| -------- | ----------------- | ------------------------------------------------------------------------------------------ | ------------------------- |
-| children | `React.ReactNode` | The contents of the Form Control Two Column                                                |                           |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FORM_CONTROL_TWO_COLUMN' |
-
-#### FormSection props
-
-Accepts all valid attributes for HTML fieldset elements.
-
-| Prop     | Type              | Description                                                                                | Default        |
-| -------- | ----------------- | ------------------------------------------------------------------------------------------ | -------------- |
-| children | `React.ReactNode` | The contents of the Form Section                                                           |                |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FORM_SECTION' |
-
-#### FormSectionDescription props
-
-Accepts all valid attributes for HTML div elements.
-
-| Prop     | Type              | Description                                                                                | Default                    |
-| -------- | ----------------- | ------------------------------------------------------------------------------------------ | -------------------------- |
-| children | `React.ReactNode` | The contents of the Form Section Heading                                                   |                            |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FORM_SECTION_DESCRIPTION' |
-
-#### FormSectionHeading props
-
-Accepts all valid attributes for HTML heading elements.
-
-| Prop     | Type                                                                           | Description                                                                                | Default                |
-| -------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ---------------------- |
-| children | `React.ReactNode`                                                              | The contents of the Form Section Description                                               |                        |
-| variant? | `'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'` | The heading variant to render                                                              | 'heading40'            |
-| element? | `string`                                                                       | Overrides the default element name to apply unique styles with the Customization Provider. | 'FORM_SECTION_HEADING' |
-
-### Figma
-
-#### Usage
-
-Form is available in the Paste Components Figma library. It has 3 base components: Form element group, Form section, and Form section header, with a ⚙️emoji in its layer name to indicate there are nested configurable properties available.
-
-In code, it’s easy to add more than one form element to a form when you need it. To accomplish this in Figma, you can show and hide the number of form elements you need in the form component itself.
-
-To customize the layout of a single form element in Figma, expand the Form until you reach a “⚙️Form element group” layer within a “⚙️Form section.” From there, you can select the type of form element component you need (e.g. an “Input” or a “Select”) and change the number of columns displayed within a form element group (up to 2 columns). If you need a custom form element, you can create your own local component and use Figma’s component swapping feature to utilize your custom component.
-
-The Form component allows you to show or hide Form actions.
-
-To customize the number of sections, expand the Form until you reach the “Form content↓” layer. From there, you can show/hide the “⚙️ Form section” layers until you reach the desired number of sections for your form.
-
-To customize a Form section’s header, expand the “Form content↓” layer until you reach a “⚙️ Form section header”, which includes a Heading and Paragraph to add more detail to your Form’s sections.
-
-#### Properties
-
-Here is a properties table for Form:
-
-| Property | Variants    | Description                             | Default |
-| -------- | ----------- | --------------------------------------- | ------- |
-| Actions  | "Yes", "No" | Allows for displaying up to two buttons | Yes     |
-
-Here is a properties table for Form’s nested component, Form section:
-
-| Property | Variants    | Description                                              | Default |
-| -------- | ----------- | -------------------------------------------------------- | ------- |
-| Header   | "Yes", "No" | Allows for displaying a section heading and description. | Yes     |
-
-Here is a properties table for Form’s nested component, Form element group:
-
-| Property | Variants | Description                                                                | Default |
-| -------- | -------- | -------------------------------------------------------------------------- | ------- |
-| Columns  | 1,2      | Allows for up a 2-column horizontal layout of the form element components. | 1       |
-
 ## References
 
 Further reading on Forms best practices.
@@ -679,11 +526,3 @@ Further reading on Forms best practices.
 3. Andrew Coyle, [Design Better Forms](https://uxdesign.cc/design-better-forms-96fadca0f49c) (UX Collective, 2016)
 4. Adam Silver, [Form Design: From zero to hero all in one blog post](https://adamsilver.io/blog/form-design-from-zero-to-hero-all-in-one-blog-post/) (2019)
 5. Luke Wroblewski, [Web Form Design: Filling in the blanks](https://www.lukew.com/resources/web_form_design.asp) (2008)
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

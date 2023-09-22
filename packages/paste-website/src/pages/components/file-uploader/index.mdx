@@ -5,7 +5,6 @@ export const meta = {
   slug: '/components/file-uploader/',
 };
 
-import Changelog from '@twilio-paste/file-uploader/CHANGELOG.md';
 import {
   FileUploader,
   FileUploaderLabel,
@@ -33,10 +32,10 @@ import {
 } from '../../../component-examples/FileUploaderExamples.ts';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import packageJson from '@twilio-paste/file-uploader/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -48,25 +47,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-uploader',
+        storybookUrl: '/?path=/story/components-file-uploader--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-uploader"
-  storybookUrl="/?path=/story/components-file-uploader--default"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -326,150 +315,3 @@ For additional guidance on how to compose error messages, refer to the [error st
      in error state without putting the FileUploader itself into error state and providing a helpful error message."
   />
 </DoDont>
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/file-uploader - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  FileUploader,
-  FileUploaderLabel,
-  FileUploaderHelpText,
-  FileUploaderDropzone,
-  FileUploaderDropzoneText,
-} from '@twilio-paste/core/file-uploader';
-
-const MyFileUploader = () => (
-  <FileUploader name="Default File Uploader">
-    <FileUploaderLabel>Upload files</FileUploaderLabel>
-    <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
-    <FileUploaderDropzone acceptedMimeTypes={['image/*', 'application/pdf']}>
-      <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
-    </FileUploaderDropzone>
-  </FileUploader>
-);
-```
-
-#### FileUploader props
-
-Accepts all valid attributes for HTML div elements.
-
-| Prop      | Type              | Description                                                                                | Default         |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------ | --------------- |
-| children? | `React.ReactNode` | The contents of the FileUploader                                                           |                 |
-| disabled? | `boolean`         | Disables the FileUploader                                                                  |                 |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILE_UPLOADER' |
-| id?       | `string`          | The id of the FileUploader. Used to create ids for the elements within the FileUploader.   |                 |
-| name      | `string`          | The name for the input within the FileUploader                                             |                 |
-| required? | `boolean`         | If the FileUploader is required.                                                           |                 |
-
-#### FileUploaderDropzone props
-
-Accepts all attributes for HTML input elements.
-
-| Prop               | Type                                                   | Description                                                                                            | Default                  |
-| ------------------ | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------ | ------------------------ |
-| acceptedMimeTypes? | `string[]`                                             | The allowed mime types for the input. It is convereted to a string and passed to the accept attribute. |                          |
-| children?          | `React.ReactNode`                                      | The contents of the FileUploaderDropzone                                                               |                          |
-| element?           | `string`                                               | Overrides the default element name to apply unique styles with the Customization Provider.             | 'FILE_UPLOADER_DROPZONE' |
-| onDragStart?       | `(event: React.DragEvent<HTMLLabelElement>) => void`   | A function that runs on drag leave on the label that wraps the FileUploaderDropzone                    |                          |
-| onDragEnd?         | `(event: React.DragEvent<HTMLLabelElement>) => void`   | A function that runs on drag leave on the label that wraps the FileUploaderDropzone                    |                          |
-| onDragEnter?       | `(event: React.DragEvent<HTMLLabelElement>) => void`   | A function that runs on drag leave on the label that wraps the FileUploaderDropzone                    |                          |
-| onDragLeave?       | `(event: React.DragEvent<HTMLLabelElement>) => void`   | A function that runs on drag leave on the label that wraps the FileUploaderDropzone                    |                          |
-| onDragOver?        | `(event: React.DragEvent<HTMLLabelElement>) => void`   | A function that runs on drag over on the label that wraps the FileUploaderDropzone                     |                          |
-| onDrop?            | `(event: React.DragEvent<HTMLLabelElement>) => void`   | A function that runs on drop on the label that wraps the FileUploaderDropzone                          |                          |
-| onInputChange?     | `(event: React.ChangeEvent<HTMLInputElement>) => void` | A function that runs when the input within the Dropzone is changed                                     |                          |
-
-#### FileUploaderDropzoneText props
-
-Accepts all attributes for HTML div elements.
-
-| Prop      | Type              | Description                                                                                | Default                       |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------ | ----------------------------- |
-| children? | `React.ReactNode` | The contents of the FileUploaderDropzoneText                                               |                               |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILE_UPLOADER_DROPZONE_TEXT' |
-
-#### FileUploaderErrorText props
-
-Accepts all attributes for HTML div elements.
-
-| Prop      | Type              | Description                                                                                | Default                    |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------ | -------------------------- |
-| children? | `React.ReactNode` | The contents of the FileUploaderErrorText                                                  |                            |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILE_UPLOADER_ERROR_TEXT' |
-
-#### FileUploaderHelpText props
-
-Accepts all attributes for HTML div elements.
-
-| Prop      | Type              | Description                                                                                | Default                   |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------ | ------------------------- |
-| children? | `React.ReactNode` | The contents of the FileUploaderHelpText                                                   |                           |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILE_UPLOADER_HELP_TEXT' |
-
-#### FileUploaderItem props
-
-Accepts all valid attributes for HTML li elements.
-
-| Prop             | Type                                | Description                                                                                | Default              |
-| ---------------- | ----------------------------------- | ------------------------------------------------------------------------------------------ | -------------------- |
-| children?        | `React.ReactNode`                   | The contents of the FileUploaderItem                                                       |                      |
-| element?         | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILE_UPLOADER_ITEM' |
-| fileIcon?        | `React.ReactNode`                   | The icon displayed when it is not loading or error variant.                                |                      |
-| i18nButtonText?  | `string`                            | The hidden text for the dismiss button                                                     | 'Remove file'        |
-| i18nErrorText?   | `string`                            | The hidden text for the error icon                                                         | '(error)'            |
-| i18nLoadingText? | `string`                            | The hidden text for the loading spinner                                                    | '(loading)'          |
-| variant?         | `'default' \| 'loading' \| 'error'` | The variant of FileUploaderItem                                                            | 'default'            |
-
-#### FileUploaderItemDescription props
-
-Accepts all attributes for HTML div elements.
-
-| Prop      | Type              | Description                                                                                | Default                          |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------ | -------------------------------- |
-| children? | `React.ReactNode` | The contents of the FileUploaderItemDescription                                            |                                  |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILE_UPLOADER_ITEM_DESCRIPTION' |
-
-#### FileUploaderItemsList props
-
-Accepts all attributes for HTML ul elements.
-
-| Prop      | Type              | Description                                                                                | Default                    |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------ | -------------------------- |
-| children? | `React.ReactNode` | The contents of the FileUploaderItemsList                                                  |                            |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILE_UPLOADER_ITEMS_LIST' |
-
-#### FileUploaderItemTitle props
-
-Accepts all attributes for HTML div elements.
-
-| Prop      | Type              | Description                                                                                | Default                    |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------ | -------------------------- |
-| children? | `React.ReactNode` | The contents of the FileUploaderItemTitle                                                  |                            |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILE_UPLOADER_ITEM_TITLE' |
-
-#### FileUploaderUploaderLabel props
-
-Accepts all attributes for HTML label elements.
-
-| Prop      | Type              | Description                                                                                | Default               |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------ | --------------------- |
-| children? | `React.ReactNode` | The contents of the FileUploaderUploaderLabel                                              |                       |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILE_UPLOADER_LABEL' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

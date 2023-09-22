@@ -1,0 +1,67 @@
+export const meta = {
+  title: 'File Picker - API',
+  package: '@twilio-paste/file-picker',
+  description: 'A File Picker is a form element used to upload files.',
+  slug: '/components/file-picker/api',
+};
+
+import Changelog from '@twilio-paste/file-picker/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/file-picker/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('File Picker');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/file-picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-picker',
+        storybookUrl: '/?path=/story/components-file-picker--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/file-picker - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {FilePicker, FilePickerButton} from '@twilio-paste/core/file-picker';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/help-text';
+
+const MyFilePicker = () => (
+  <>
+    <Label htmlFor="foo" required>
+      Profile photo
+    </Label>
+    <FilePicker id="foo" required aria-describedby="foo_text">
+      <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
+    </FilePicker>
+    <HelpText id="foo_text">Upload an image</HelpText>
+  </>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

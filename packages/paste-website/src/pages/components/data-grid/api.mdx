@@ -1,0 +1,108 @@
+export const meta = {
+  title: 'Data Grid - API',
+  package: '@twilio-paste/data-grid',
+  description:
+    'A data grid is an interactive table used for working with a large collection of data in a scannable way.',
+  slug: '/components/data-grid/api',
+};
+
+import Changelog from '@twilio-paste/data-grid/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/data-grid/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Data Grid');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/data-grid');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/data-grid',
+        storybookUrl: '/?path=/story/components-data-grid--plain-data-grid',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  DataGrid,
+  DataGridHead,
+  DataGridRow,
+  DataGridHeader,
+  DataGridBody,
+  DataGridCell,
+  DataGridFoot,
+} from '@twilio-paste/core/data-grid';
+
+const Component = () => (
+  <DataGrid aria-label="User information table" striped>
+    <DataGridHead>
+      <DataGridRow>
+        <DataGridHeader>First Name</DataGridHeader>
+        <DataGridHeader>Last Name</DataGridHeader>
+        <DataGridHeader>Country</DataGridHeader>
+        <DataGridHeader>Email</DataGridHeader>
+        <DataGridHeader>Phone</DataGridHeader>
+      </DataGridRow>
+    </DataGridHead>
+    <DataGridBody>
+      <DataGridRow>
+        <DataGridCell>Devyn</DataGridCell>
+        <DataGridCell>Weimann</DataGridCell>
+        <DataGridCell>Congo</DataGridCell>
+        <DataGridCell>Matilde86@gmail.com</DataGridCell>
+        <DataGridCell>652-441-1766 x377</DataGridCell>
+      </DataGridRow>
+      <DataGridRow>
+        <DataGridCell>Fritz</DataGridCell>
+        <DataGridCell>Bashirian</DataGridCell>
+        <DataGridCell>France</DataGridCell>
+        <DataGridCell>Magali.Harber@hotmail.com</DataGridCell>
+        <DataGridCell>1-229-278-7567</DataGridCell>
+      </DataGridRow>
+      <DataGridRow>
+        <DataGridCell>Jovanny</DataGridCell>
+        <DataGridCell>Mante</DataGridCell>
+        <DataGridCell>Pitcairn Islands</DataGridCell>
+        <DataGridCell>Fausto_Vandervort15@gmail.com</DataGridCell>
+        <DataGridCell>(629) 375-5743 x726</DataGridCell>
+      </DataGridRow>
+    </DataGridBody>
+    <DataGridFoot>
+      <DataGridRow>
+        <DataGridCell>Devyn</DataGridCell>
+        <DataGridCell>Weimann</DataGridCell>
+        <DataGridCell>Congo</DataGridCell>
+        <DataGridCell>Matilde86@gmail.com</DataGridCell>
+        <DataGridCell>652-441-1766 x377</DataGridCell>
+      </DataGridRow>
+    </DataGridFoot>
+  </DataGrid>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

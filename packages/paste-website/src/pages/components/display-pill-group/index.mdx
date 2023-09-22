@@ -8,7 +8,6 @@ export const meta = {
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {DisplayPill, DisplayPillGroup} from '@twilio-paste/display-pill-group';
-import Changelog from '@twilio-paste/display-pill-group/CHANGELOG.md';
 import {Truncate} from '@twilio-paste/truncate';
 
 import {AgentIcon} from '@twilio-paste/icons/esm/AgentIcon';
@@ -42,10 +41,10 @@ import {
   iconExample,
 } from '../../../component-examples/DisplayPillGroup.ts';
 import packageJson from '@twilio-paste/display-pill-group/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -57,25 +56,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/display-pill-group',
+        storybookUrl: '/?path=/story/components-display-pill-group--basic',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/display-pill-group"
-  storybookUrl="/?path=/story/components-display-pill-group--basic"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{DisplayPill, DisplayPillGroup, MMSCapableIcon, SMSCapableIcon, AgentIcon, Avatar}} noInline>
   {mainExample}
@@ -216,104 +205,3 @@ A Display Pill can have an optional [Icon](/components/icon). We recommend placi
     body="Don’t pass DisplayPillGroup in any other component type, and do not wrap DisplayPill in any other component of the DOM element."
   />
 </DoDont>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/display-pill-group - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {AgentIcon} from '@twilio-paste/icons/esm/AgentIcon';
-import {Avatar} from '@twilio-paste/core/display-pill-group';
-import {DisplayPillGroup, DisplayPill} from '@twilio-paste/core/display-pill-group';
-import {MMSCapableIcon} from '@twilio-paste/icons/esm/MMSCapableIcon';
-import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
-
-const DisplayPillGroupExample = () => {
-  return (
-    <DisplayPillGroup aria-label="Products:">
-      <DisplayPill>Voice</DisplayPill>
-      <DisplayPill href="https://google.com">Studio</DisplayPill>
-      <DisplayPill>
-        <SMSCapableIcon decorative size="sizeIcon10" />
-        SMS
-      </DisplayPill>
-      <DisplayPill href="https://google.com">
-        <MMSCapableIcon decorative size="sizeIcon10" />
-        MMS
-      </DisplayPill>
-      <DisplayPill>
-        <Avatar size="sizeIcon10" name="Customer" src="/images/avatars/avatar4.png" />
-        Customer
-      </DisplayPill>
-      <DisplayPill href="https://google.com">
-        <Avatar size="sizeIcon10" name="Agent" icon={AgentIcon} />
-        Agent
-      </DisplayPill>
-    </DisplayPillGroup>
-  );
-};
-```
-
-#### Props
-
-##### DisplayPillGroup
-
-`DisplayPillGroup` will take any global HTML attribute for an HTML List element, plus the following:
-
-| Prop         | Type     | Description                                                                               | Default                |
-| ------------ | -------- | ----------------------------------------------------------------------------------------- | ---------------------- |
-| `aria-label` | `string` | Defines a string value that labels the DisplayPillGroup                                   |                        |
-| `element?`   | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'DISPLAY_PILL_GROUP'` |
-
-##### DisplayPill
-
-`DisplayPill` will take any global HTML attribute for an HTML Anchor element, plus the following:
-
-| Prop       | Type     | Description                                                                               | Default          |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| `href?`    | `string` | URL the pill links to                                                                     |                  |
-| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'DISPLAY_PILL'` |
-
-### Figma
-
-#### Usage
-
-Display Pill Group is available in the Paste Components Figma library. It has 1 base component, Display Pill, with a ⚙️ emoji in its layer name to indicate there are nested configurable properties available.
-
-In code, when there are more pills than the max width, they will wrap to the next row. To accomplish the same behavior in Figma, please use the `Row count` property to select a number of rows, or place multiple Display Pill Group components under one another.
-
-Display Pill Group also contains other Paste components as nested components, including [Avatar](/components/icon) and [Icon](/components/icon).
-
-#### Properties
-
-Here is a properties table for Display Pill Group:
-
-| Property  | Variants   | Description                                        | Default |
-| --------- | ---------- | -------------------------------------------------- | ------- |
-| Row count | 1, 2, 3, 4 | Displays a number of rows in a Display Pill Group. | 1       |
-
-Here is a properties table for its nested component, Display Pill:
-
-| Property | Variants                    | Description                                                                                                                                    | Default   |
-| -------- | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| Variant  | `Basic`, `Linked`           | The variant of the Display Pill.                                                                                                               | `Basic`   |
-| State    | `Default`, `Hover`, `Focus` | The state of the Display Pill. If `Variant=Basic`, the state can only be set to `Default`.                                                     | `Default` |
-| Prefix   | `None`, `Icon`, `Avatar`    | Adds a prefix ahead of the Display Pill label. If set to `Avatar`, manage the nested properties of Avatar in the layer marked with a ⚙️ emoji. | `None`    |
-| Icon     |                             | Swaps the icon within a Display Pill. This property is visible in the Figma side panel if `Prefix=Icon`.                                       |           |
-| Label    |                             | Sets the label of a Display Pill                                                                                                               | "Label"   |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

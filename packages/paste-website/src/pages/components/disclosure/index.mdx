@@ -15,14 +15,13 @@ import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {Disclosure, DisclosureHeading, DisclosureContent, useDisclosureState} from '@twilio-paste/disclosure';
-import Changelog from '@twilio-paste/disclosure/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {StateHookExample, StateHookToggleExample} from '../../../component-examples/DisclosureExamples';
 import packageJson from '@twilio-paste/disclosure/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -34,24 +33,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/disclosure',
+        storybookUrl: '/?path=/story/components-disclosure--heading-variant-10',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/disclosure"
-  storybookUrl="/?path=/story/components-disclosure--heading-variant-10"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -409,116 +399,3 @@ Disclosures with an error icon in the header must include additional information
   </DisclosureContent>
 </Disclosure>`}
 </LivePreview>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/disclosure - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/core/disclosure';
-
-const PopoverExample: React.FC = () => {
-  return (
-    <Disclosure>
-      <DisclosureHeading as="h2" variant="heading20">
-        Disclosure Heading
-      </DisclosureHeading>
-      <DisclosureContent>Disclosure content</DisclosureContent>
-    </Disclosure>
-  );
-};
-```
-
-#### Props
-
-#### useDisclosureState Props
-
-Pass these as part of an object to the useDisclosureState hook.
-
-##### `baseId?: string`
-
-ID that will serve as a base for all the items IDs.
-
-##### `visible?: boolean`
-
-Whether it's visible or not.
-
-#### useDisclosureState returned props
-
-These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
-
-##### `baseId?: string`
-
-ID that will serve as a base for all the items IDs.
-
-##### `visible?: boolean`
-
-Whether it's visible or not.
-
-##### `toggle?: () => void`
-
-Toggles the visible state
-
-#### Disclosure Props
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-##### `baseId?: string`
-
-ID that will serve as a base for all the items IDs.
-
-##### `visible?: boolean`
-
-Whether it's visible or not.
-
-##### `variant?: 'default' | 'contained'`
-
-Changes the styling on the component based on the variant selected.
-
-##### `element?: string`
-
-Overrides the default element name ('DISCLOSURE') to apply unique styles with the Customization Provider
-
-#### DisclosureHeading Props
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on).
-
-All [Heading](/components/heading) props.
-
-Also including the following custom props:
-
-##### `disabled?: boolean | undefined`
-
-Same as the HTML attribute.
-
-##### `focusable?: boolean | undefined`
-
-When an element is `disabled`, it may still be `focusable`. It works similarly to `readOnly` on form elements. In this case, only `aria-disabled` will be set.
-
-##### `element?: string`
-
-Overrides the default element name ('DISCLOSURE_HEADING') to apply unique styles with the Customization Provider
-
-#### DisclosureContent Props
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-##### `element?: string`
-
-Overrides the default element name ('DISCLOSURE_CONTENT') to apply unique styles with the Customization Provider
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

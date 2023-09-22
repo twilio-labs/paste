@@ -12,12 +12,11 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/heading/CHANGELOG.md';
 import packageJson from '@twilio-paste/heading/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -29,24 +28,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/heading',
+        storybookUrl: '/?path=/story/components-heading--heading-10',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/heading"
-  storybookUrl="/?path=/story/components-heading--heading-10"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Heading}} language="jsx">
   {`<Heading as="h1" variant="heading10" marginBottom="space0">
@@ -230,46 +220,3 @@ Headings should be used for page headings or content subsections. Headings are b
   <Do title="Do" body="Use headings in order." />
   <Dont title="Don't" body="Don’t skip levels or put smaller headings before larger headings." />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/heading - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Heading} from '@twilio-paste/core/heading';
-
-const Component = () => (
-  <Heading as="h2" variant="heading20">
-    Heading Two
-  </Heading>
-);
-```
-
-#### Props
-
-| Prop          | Type                           | Description                                                                               | Default   |
-| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | --------- |
-| as            | `asTags`                       | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                                | null      |
-| id?           | `string`                       |                                                                                           | null      |
-| marginBottom? | `oneOf(['space0'])`            | Currently we only allow `space0` to remove bottom margin                                  | null      |
-| variant       | `headingVariants`              | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'              | null      |
-| display?      | `CSS display property options` | 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', and more | "block"   |
-| element?      | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'HEADING' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

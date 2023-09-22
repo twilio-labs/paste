@@ -1,0 +1,69 @@
+export const meta = {
+  title: 'File Uploader - API',
+  package: '@twilio-paste/file-uploader',
+  description: 'A File Uploader is a form element used to upload multiple files.',
+  slug: '/components/file-uploader/api',
+};
+
+import Changelog from '@twilio-paste/file-uploader/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/file-uploader/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('File Uploader');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/file-uploader');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-uploader',
+        storybookUrl: '/?path=/story/components-file-uploader--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/file-uploader - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  FileUploader,
+  FileUploaderLabel,
+  FileUploaderHelpText,
+  FileUploaderDropzone,
+  FileUploaderDropzoneText,
+} from '@twilio-paste/core/file-uploader';
+
+const MyFileUploader = () => (
+  <FileUploader name="Default File Uploader">
+    <FileUploaderLabel>Upload files</FileUploaderLabel>
+    <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
+    <FileUploaderDropzone acceptedMimeTypes={['image/*', 'application/pdf']}>
+      <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
+    </FileUploaderDropzone>
+  </FileUploader>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />
