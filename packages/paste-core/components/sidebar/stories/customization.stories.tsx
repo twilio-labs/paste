@@ -85,9 +85,7 @@ export const WithDefaultElementName: StoryFn = (_args, { parameters: { isTestEnv
             <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
           <SidebarBody>
-            <SidebarNavigation aria-label="main">
-              <></>
-            </SidebarNavigation>
+            <SidebarNavigation aria-label="main">Main</SidebarNavigation>
             <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
           </SidebarBody>
           <SidebarFooter>
@@ -175,9 +173,7 @@ export const WithCustomElementName: StoryFn = (_args, { parameters: { isTestEnvi
             <SidebarHeaderLabel element="SIDECAR_HEADER_LABEL">Twilio Flex</SidebarHeaderLabel>
           </SidebarHeader>
           <SidebarBody element="SIDECAR_NAVIGATION">
-            <SidebarNavigation aria-label="main">
-              <></>
-            </SidebarNavigation>
+            <SidebarNavigation aria-label="main">Main</SidebarNavigation>
             <SidebarBetaBadge as="button" element="SIDECAR_BETA_BADGE">
               Beta
             </SidebarBetaBadge>

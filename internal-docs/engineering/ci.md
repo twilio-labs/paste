@@ -45,7 +45,7 @@ This job downloads the build cache of the monorepo, and then runs the Typescript
 
 ### Lint
 
-This job downloads the build cache of the monorepo, and then runs ESLint.
+This job downloads the build cache of the monorepo, and then runs BiomeJS Linting.
 
 ### Test React 17
 

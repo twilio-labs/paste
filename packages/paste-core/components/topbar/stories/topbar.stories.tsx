@@ -63,9 +63,7 @@ export const PushDefaultTopbar: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label="main">
-            <></>
-          </SidebarNavigation>
+          <SidebarNavigation aria-label="main">Main</SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -124,9 +122,7 @@ export const PushCompactTopbar: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label="main">
-            <></>
-          </SidebarNavigation>
+          <SidebarNavigation aria-label="main">Main</SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -178,9 +174,7 @@ export const OverlayDefaultTopbar: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label="main">
-            <></>
-          </SidebarNavigation>
+          <SidebarNavigation aria-label="main">Main</SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -236,9 +230,7 @@ export const OverlayCompactTopbar: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label="main">
-            <></>
-          </SidebarNavigation>
+          <SidebarNavigation aria-label="main">Main</SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton

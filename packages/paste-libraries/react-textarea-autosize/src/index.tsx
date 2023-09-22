@@ -53,7 +53,11 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
   const hiddenTextarea = useHiddenTextarea();
 
   const resizeTextarea = (): void => {
-    const node = ownRef.current!;
+    const node = ownRef.current;
+    if (!node) {
+      return;
+    }
+
     const nodeSizingData =
       cacheMeasurements && measurementsCacheRef.current ? measurementsCacheRef.current : getSizingData(node);
 

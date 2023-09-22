@@ -153,14 +153,7 @@ describe("HTML attributes", () => {
 
   it("should set the data attribute for all Input nodes", (): void => {
     const { container } = render(
-      <Input
-        id="input"
-        type="text"
-        value="test"
-        onChange={NOOP}
-        insertBefore={<>test before</>}
-        insertAfter={<>test after</>}
-      />,
+      <Input id="input" type="text" value="test" onChange={NOOP} insertBefore="test before" insertAfter="test after" />,
     );
     expect(container.querySelector('[data-paste-element="INPUT"]')).toBeInTheDocument();
     expect(screen.getByRole("textbox").getAttribute("data-paste-element")).toEqual("INPUT_ELEMENT");
@@ -176,8 +169,8 @@ describe("HTML attributes", () => {
         value="test"
         onChange={NOOP}
         element="foo"
-        insertBefore={<>test before</>}
-        insertAfter={<>test after</>}
+        insertBefore="test before"
+        insertAfter="test after"
       />,
     );
     expect(container.querySelector('[data-paste-element="foo"]')).toBeInTheDocument();
@@ -264,8 +257,8 @@ describe("Customization", () => {
           type="text"
           value="test"
           onChange={NOOP}
-          insertBefore={<>test before</>}
-          insertAfter={<>test after</>}
+          insertBefore="test before"
+          insertAfter="test after"
         />
       </CustomizationProvider>,
     );
@@ -330,8 +323,8 @@ describe("Customization", () => {
           value="test"
           onChange={NOOP}
           variant="inverse"
-          insertBefore={<>test before</>}
-          insertAfter={<>test after</>}
+          insertBefore="test before"
+          insertAfter="test after"
         />
       </CustomizationProvider>,
     );
@@ -372,8 +365,8 @@ describe("Customization", () => {
           value="test"
           onChange={NOOP}
           element="FOO"
-          insertBefore={<>test before</>}
-          insertAfter={<>test after</>}
+          insertBefore="test before"
+          insertAfter="test after"
         />
       </CustomizationProvider>,
     );
@@ -437,8 +430,8 @@ describe("Customization", () => {
           onChange={NOOP}
           variant="inverse"
           element="FOO"
-          insertBefore={<>test before</>}
-          insertAfter={<>test after</>}
+          insertBefore="test before"
+          insertAfter="test after"
         />
       </CustomizationProvider>,
     );

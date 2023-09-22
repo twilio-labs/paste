@@ -38,9 +38,6 @@ describe("Theme.Provider", () => {
   it("should override selected theme with hash value", () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    delete window.location;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     window.location = new URL("https://www.example.com#paste-theme-override=evergreen");
 
     const { getByText } = render(

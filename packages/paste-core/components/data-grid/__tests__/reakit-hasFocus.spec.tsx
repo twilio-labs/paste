@@ -14,7 +14,7 @@ const TestComponent = (): JSX.Element => {
         <button type="button" aria-label="item1-1" />
       </div>
       <button type="button" aria-label="item2" />
-      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+      {/* biome-ignore lint: this is a test so it is fine */}
       <div aria-label="item3" tabIndex={0} aria-activedescendant="item3-1">
         <div aria-label="item3-1" id="item3-1" />
       </div>

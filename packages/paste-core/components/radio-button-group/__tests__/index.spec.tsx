@@ -9,7 +9,11 @@ import { Attached } from "../stories/index.stories";
 describe("RadioButton", () => {
   const renderRadioButton = (props: Partial<RadioButtonProps> = {}): ReturnType<typeof render> =>
     // eslint-disable-next-line react/no-children-prop
-    render(<RadioButton value="foo" name="foo" children="foo" {...props} />);
+    render(
+      <RadioButton value="foo" name="foo" {...props}>
+        Foo
+      </RadioButton>,
+    );
 
   it("assigns attributes as expected", () => {
     renderRadioButton();

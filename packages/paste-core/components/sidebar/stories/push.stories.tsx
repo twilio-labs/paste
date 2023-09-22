@@ -45,9 +45,7 @@ export const Default: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label="main">
-            <></>
-          </SidebarNavigation>
+          <SidebarNavigation aria-label="main">Main</SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton
@@ -96,9 +94,7 @@ export const Compact: StoryFn = () => {
           <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
         </SidebarHeader>
         <SidebarBody>
-          <SidebarNavigation aria-label="main">
-            <></>
-          </SidebarNavigation>
+          <SidebarNavigation aria-label="main">Main</SidebarNavigation>
         </SidebarBody>
         <SidebarFooter>
           <SidebarCollapseButton

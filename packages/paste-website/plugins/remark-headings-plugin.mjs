@@ -1,4 +1,4 @@
-import { toString } from "mdast-util-to-string";
+import { toString as mdastToString } from "mdast-util-to-string";
 import { visit } from "unist-util-visit-esm";
 
 // eslint-disable-next-line unicorn/consistent-function-scoping
@@ -7,7 +7,7 @@ const transform = () => (tree) => {
 
   visit(tree, "heading", (heading) => {
     headings.push({
-      value: toString(heading),
+      value: mdastToString(heading),
       depth: heading.depth,
     });
   });

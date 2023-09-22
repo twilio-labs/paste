@@ -80,9 +80,10 @@ export const Neutral: StoryFn = (_args, { parameters: { isTestEnvironment } }) =
 export const Warning: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
   <CustomizationWrapper {...isTestEnvironment} variant="warning" />
 );
-export const Error: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
+export const ErrorBadge: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
   <CustomizationWrapper {...isTestEnvironment} variant="error" />
 );
+ErrorBadge.storyName = "Error";
 export const Success: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
   <CustomizationWrapper {...isTestEnvironment} variant="success" />
 );

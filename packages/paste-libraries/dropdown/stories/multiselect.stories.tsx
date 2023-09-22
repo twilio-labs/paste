@@ -170,6 +170,10 @@ export const MultiselectComboBox: StoryFn = () => {
                     e.stopPropagation();
                     removeSelectedItem(selectedItemForRender);
                   }}
+                  onKeyDown={(e) => {
+                    e.stopPropagation();
+                    removeSelectedItem(selectedItemForRender);
+                  }}
                 >
                   &#10005;
                 </span>

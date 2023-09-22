@@ -44,8 +44,6 @@ module.exports = {
     "import/no-unused-modules": [0],
     // There are times when we have to use require, so maybe this should stay a warning
     "@typescript-eslint/no-require-imports": "warn",
-    // There are times when we have to use var requires, so maybe this should stay a warning (example: importing token files on the website)
-    "@typescript-eslint/no-var-requires": "warn",
     // We spread props a lot, for example for combobox hooks
     "react/jsx-props-no-spreading": "off",
     // This rule doesn't work with typescript, disabled in favor of the typescript version

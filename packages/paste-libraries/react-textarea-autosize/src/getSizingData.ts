@@ -70,17 +70,17 @@ export const getSizingData = (node: HTMLElement): SizingData | null => {
    */
   if (isIE && boxSizing === "border-box") {
     const widthPxValue =
-      Number.parseFloat(width!) +
-      Number.parseFloat(borderRightWidth!) +
-      Number.parseFloat(borderLeftWidth!) +
-      Number.parseFloat(paddingRight!) +
-      Number.parseFloat(paddingLeft!);
+      Number.parseFloat(width) +
+      Number.parseFloat(borderRightWidth) +
+      Number.parseFloat(borderLeftWidth) +
+      Number.parseFloat(paddingRight) +
+      Number.parseFloat(paddingLeft);
 
     sizingStyle.width = `${widthPxValue}px`;
   }
 
-  const paddingSize = Number.parseFloat(paddingBottom!) + Number.parseFloat(paddingTop!);
-  const borderSize = Number.parseFloat(borderBottomWidth!) + Number.parseFloat(borderTopWidth!);
+  const paddingSize = Number.parseFloat(paddingBottom) + Number.parseFloat(paddingTop);
+  const borderSize = Number.parseFloat(borderBottomWidth) + Number.parseFloat(borderTopWidth);
 
   return {
     sizingStyle,
