@@ -1,11 +1,11 @@
 import type {
   NonModalDialogPrimitivePopoverInitialState,
   NonModalDialogPrimitiveStateReturn as SideModalStateReturn,
-} from '@twilio-paste/non-modal-dialog-primitive';
-import { useNonModalDialogPrimitiveState } from '@twilio-paste/non-modal-dialog-primitive';
-import * as React from 'react';
+} from "@twilio-paste/non-modal-dialog-primitive";
+import { useNonModalDialogPrimitiveState } from "@twilio-paste/non-modal-dialog-primitive";
+import * as React from "react";
 
-import { SideModalContext } from './SideModalContext';
+import { SideModalContext } from "./SideModalContext";
 
 interface SideModalContainerProps extends NonModalDialogPrimitivePopoverInitialState {
   children: NonNullable<React.ReactNode>;
@@ -30,10 +30,10 @@ const BaseSideModalContainer: React.FC<SideModalContainerProps> = ({
 
   return <SideModalContext.Provider value={{ ...dialog }}>{children}</SideModalContext.Provider>;
 };
-BaseSideModalContainer.displayName = 'BaseSideModalContainer';
+BaseSideModalContainer.displayName = "BaseSideModalContainer";
 
 const SideModalContainer = React.memo(BaseSideModalContainer);
-SideModalContainer.displayName = 'SideModalContainer';
+SideModalContainer.displayName = "SideModalContainer";
 
 export type { SideModalStateReturn, SideModalContainerProps };
 export { SideModalContainer };

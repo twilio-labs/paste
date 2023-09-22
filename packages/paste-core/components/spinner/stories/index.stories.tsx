@@ -1,24 +1,24 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { Card } from '@twilio-paste/card';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import type { IconSize, TextColorOptions } from '@twilio-paste/style-props';
-import { DefaultTheme, useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import type { IconSize, TextColorOptions } from "@twilio-paste/style-props";
+import { DefaultTheme, useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Spinner } from '../src';
+import { Spinner } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Spinner',
+  title: "Components/Spinner",
   component: Spinner,
 };
 
 const { textColors: defaultThemeTextColors, iconSizes } = DefaultTheme;
 
 const textColorTokens = Object.keys(defaultThemeTextColors);
-const inverse = textColorTokens.filter((tokenName) => tokenName.toLowerCase().includes('inverse'));
-const standard = textColorTokens.filter((tokenName) => !tokenName.toLowerCase().includes('inverse'));
+const inverse = textColorTokens.filter((tokenName) => tokenName.toLowerCase().includes("inverse"));
+const standard = textColorTokens.filter((tokenName) => !tokenName.toLowerCase().includes("inverse"));
 
 export const Colors = (): React.ReactNode => (
   <Box
@@ -81,19 +81,19 @@ export const CustomizedSpinner: StoryFn = (_args, { parameters: { isTestEnvironm
       theme={currentTheme}
       elements={{
         SPINNER: {
-          color: 'colorTextIconSuccess',
+          color: "colorTextIconSuccess",
         },
         CUSTOM_SPINNER_A: {
-          size: 'sizeIcon80',
-          backgroundColor: 'colorBackgroundBrand',
-          color: 'colorTextInverse',
-          alignSelf: 'flex-start',
-          padding: 'space20',
+          size: "sizeIcon80",
+          backgroundColor: "colorBackgroundBrand",
+          color: "colorTextInverse",
+          alignSelf: "flex-start",
+          padding: "space20",
         },
         CUSTOM_SPINNER_B: {
-          size: 'sizeIcon60',
-          alignSelf: 'flex-end',
-          color: 'colorTextNew',
+          size: "sizeIcon60",
+          alignSelf: "flex-end",
+          color: "colorTextNew",
         },
       }}
     >

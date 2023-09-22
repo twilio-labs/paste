@@ -1,16 +1,16 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { HiddenRadio } from './HiddenRadio';
-import type { HiddenRadioState } from './HiddenRadio';
-import { RadioButtonContext } from './RadioButtonContext';
-import { StyledRadioButtonLabel } from './StyledRadioButtonLabel';
+import { HiddenRadio } from "./HiddenRadio";
+import type { HiddenRadioState } from "./HiddenRadio";
+import { RadioButtonContext } from "./RadioButtonContext";
+import { StyledRadioButtonLabel } from "./StyledRadioButtonLabel";
 
-export interface RadioButtonProps extends HTMLPasteProps<'input'> {
+export interface RadioButtonProps extends HTMLPasteProps<"input"> {
   id?: string;
   value?: string;
   name?: string;
@@ -19,7 +19,7 @@ export interface RadioButtonProps extends HTMLPasteProps<'input'> {
   disabled?: boolean;
   hasError?: boolean;
   children: NonNullable<React.ReactNode>;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 /*
@@ -38,7 +38,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
     {
       id,
       name,
-      element = 'RADIO_BUTTON',
+      element = "RADIO_BUTTON",
       value,
       checked,
       defaultChecked,
@@ -59,7 +59,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
     const radioGroupContext = React.useContext(RadioButtonContext);
     const radioId = id ? id : useUID();
     // We shouldn't change between controlled and uncontrolled after mount, so we memo this for safety
-    const isControlled = React.useMemo(() => checked !== undefined || radioGroupContext.value !== '', []);
+    const isControlled = React.useMemo(() => checked !== undefined || radioGroupContext.value !== "", []);
 
     const handleChange = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -84,7 +84,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
      */
     if (isControlled) {
       // Use context's value first
-      if (radioGroupContext.value !== '') {
+      if (radioGroupContext.value !== "") {
         state.checked = radioGroupContext.value === value;
       } else {
         // Then checked prop on this radio
@@ -110,7 +110,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
           id={radioId}
           ref={ref}
         />
-        <Button variant={state.hasError ? 'destructive_secondary' : 'secondary'} as="span" disabled={state.disabled}>
+        <Button variant={state.hasError ? "destructive_secondary" : "secondary"} as="span" disabled={state.disabled}>
           {children}
         </Button>
       </Box>
@@ -118,6 +118,6 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
   },
 );
 
-RadioButton.displayName = 'RadioButton';
+RadioButton.displayName = "RadioButton";
 
 export { RadioButton };

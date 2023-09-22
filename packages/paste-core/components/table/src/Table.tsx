@@ -1,20 +1,20 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import { TableContext } from './TableContext';
-import type { TableProps } from './types';
+import { TableContext } from "./TableContext";
+import type { TableProps } from "./types";
 
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
   (
     {
-      element = 'TABLE',
+      element = "TABLE",
       id,
       isActionable,
       scrollHorizontally,
       noWrap,
       striped = false,
-      tableLayout = 'auto',
-      variant = 'default',
+      tableLayout = "auto",
+      variant = "default",
       ...props
     },
     ref,
@@ -28,9 +28,9 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
         <Box
           id={id}
           element={`${element}_WRAPPER`}
-          overflowX={scrollHorizontally ? 'auto' : null}
-          whiteSpace={noWrap ? 'nowrap' : null}
-          boxShadow={isActionable ? 'shadowFocus' : null}
+          overflowX={scrollHorizontally ? "auto" : null}
+          whiteSpace={noWrap ? "nowrap" : null}
+          boxShadow={isActionable ? "shadowFocus" : null}
         >
           <Box
             {...safelySpreadBoxProps(props)}
@@ -40,9 +40,9 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
             borderColor="colorBorderWeaker"
             borderSpacing="0"
             borderStyle="solid"
-            borderWidth={variant === 'borderless' ? 'borderWidth0' : 'borderWidth10'}
+            borderWidth={variant === "borderless" ? "borderWidth0" : "borderWidth10"}
             element={element}
-            tableLayout={tableLayout === 'fixed' ? 'fixed' : 'auto'}
+            tableLayout={tableLayout === "fixed" ? "fixed" : "auto"}
             width="100%"
           />
         </Box>
@@ -51,6 +51,6 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
   },
 );
 
-Table.displayName = 'Table';
+Table.displayName = "Table";
 
 export { Table };

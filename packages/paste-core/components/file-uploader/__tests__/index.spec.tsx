@@ -1,6 +1,6 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { fireEvent, render, screen } from "@testing-library/react";
+import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
 import {
   FileUploader,
@@ -13,19 +13,19 @@ import {
   FileUploaderItemTitle,
   FileUploaderItemsList,
   FileUploaderLabel,
-} from '../src';
-import { arrayToCsv } from '../src/utils';
+} from "../src";
+import { arrayToCsv } from "../src/utils";
 
-const sampleMimeTypes = ['text/css', 'image/jpeg', 'image/png', 'application/pdf'];
+const sampleMimeTypes = ["text/css", "image/jpeg", "image/png", "application/pdf"];
 
-describe('arrayToCsv', () => {
-  it('should convert an array of strings to CSV', () => {
-    expect(arrayToCsv(['foo', 'bar', 'baz'])).toBe('foo,bar,baz');
+describe("arrayToCsv", () => {
+  it("should convert an array of strings to CSV", () => {
+    expect(arrayToCsv(["foo", "bar", "baz"])).toBe("foo,bar,baz");
   });
 });
 
-describe('FileUploader', () => {
-  it('should render the proper HTML', () => {
+describe("FileUploader", () => {
+  it("should render the proper HTML", () => {
     render(
       <Theme.Provider theme="default">
         <FileUploader name="Default File Uploader">
@@ -47,25 +47,25 @@ describe('FileUploader', () => {
       </Theme.Provider>,
     );
 
-    const input = screen.getByLabelText('Upload files');
-    const helpTextId = screen.getByTestId('my-help-text').id;
-    const errorTextId = screen.getByTestId('my-error-text').id;
-    const dropzoneTextId = screen.getByText('Click to browse or drag files here.').id;
+    const input = screen.getByLabelText("Upload files");
+    const helpTextId = screen.getByTestId("my-help-text").id;
+    const errorTextId = screen.getByTestId("my-error-text").id;
+    const dropzoneTextId = screen.getByText("Click to browse or drag files here.").id;
 
     expect(input).toBeDefined();
     expect(input).not.toBeRequired();
     expect(input).not.toBeDisabled();
-    expect(input.getAttribute('aria-describedby')).toBe(`${errorTextId} ${helpTextId} ${dropzoneTextId}`);
-    expect(input.getAttribute('name')).toBe('Default File Uploader');
-    expect(input.getAttribute('accept')).toBe('text/css,image/jpeg,image/png,application/pdf');
-    expect(input.getAttribute('type')).toBe('file');
+    expect(input.getAttribute("aria-describedby")).toBe(`${errorTextId} ${helpTextId} ${dropzoneTextId}`);
+    expect(input.getAttribute("name")).toBe("Default File Uploader");
+    expect(input.getAttribute("accept")).toBe("text/css,image/jpeg,image/png,application/pdf");
+    expect(input.getAttribute("type")).toBe("file");
 
-    expect(screen.getByRole('list')).toBeDefined();
-    expect(screen.getAllByRole('listitem')).toHaveLength(1);
-    expect(screen.getByRole('button', { name: 'Remove file' })).toBeDefined();
+    expect(screen.getByRole("list")).toBeDefined();
+    expect(screen.getAllByRole("listitem")).toHaveLength(1);
+    expect(screen.getByRole("button", { name: "Remove file" })).toBeDefined();
   });
 
-  it('should render as required when pass the required prop', () => {
+  it("should render as required when pass the required prop", () => {
     render(
       <Theme.Provider theme="default">
         <FileUploader name="Default File Uploader" required>
@@ -78,14 +78,14 @@ describe('FileUploader', () => {
     );
 
     const requiredDot = screen
-      .getByTestId('my-label')
+      .getByTestId("my-label")
       .querySelector('[data-paste-element="FILE_UPLOADER_LABEL_REQUIRED_DOT"]');
 
     expect(requiredDot).toBeInTheDocument();
-    expect(screen.getByLabelText('Upload files')).toBeRequired();
+    expect(screen.getByLabelText("Upload files")).toBeRequired();
   });
 
-  it('should render as disabled when pass the disabled prop', () => {
+  it("should render as disabled when pass the disabled prop", () => {
     render(
       <Theme.Provider theme="default">
         <FileUploader name="Default File Uploader" disabled>
@@ -97,10 +97,10 @@ describe('FileUploader', () => {
       </Theme.Provider>,
     );
 
-    expect(screen.getByLabelText('Upload files')).toBeDisabled();
+    expect(screen.getByLabelText("Upload files")).toBeDisabled();
   });
 
-  it('should call appropriate event handlers', () => {
+  it("should call appropriate event handlers", () => {
     const onInputChangeMock: jest.Mock = jest.fn();
     const onDragOverMock: jest.Mock = jest.fn();
     const onDragLeaveMock: jest.Mock = jest.fn();
@@ -128,18 +128,18 @@ describe('FileUploader', () => {
       </Theme.Provider>,
     );
 
-    fireEvent.change(screen.getByLabelText('Upload files'), {
+    fireEvent.change(screen.getByLabelText("Upload files"), {
       target: {
-        files: [new File([], 'file.png', { type: 'image/png' })],
+        files: [new File([], "file.png", { type: "image/png" })],
       },
     });
     expect(onInputChangeMock).toBeCalledTimes(1);
 
-    const dropzone = screen.getByTestId('my-dropzone');
+    const dropzone = screen.getByTestId("my-dropzone");
 
     fireEvent.dragOver(dropzone, {
       dataTransfer: {
-        dropEffect: 'copy',
+        dropEffect: "copy",
       },
     });
     expect(onDragOverMock).toBeCalledTimes(1);
@@ -150,11 +150,11 @@ describe('FileUploader', () => {
     fireEvent.drop(dropzone);
     expect(onDragLeaveMock).toBeCalledTimes(1);
 
-    fireEvent.click(screen.getByRole('button', { name: 'Remove file' }));
+    fireEvent.click(screen.getByRole("button", { name: "Remove file" }));
     expect(onButtonClickMock).toBeCalledTimes(1);
   });
 
-  it('should not call drag event handlers when disabled', () => {
+  it("should not call drag event handlers when disabled", () => {
     const onDragOverMock: jest.Mock = jest.fn();
     const onDragLeaveMock: jest.Mock = jest.fn();
     const onDropMock: jest.Mock = jest.fn();
@@ -176,11 +176,11 @@ describe('FileUploader', () => {
       </Theme.Provider>,
     );
 
-    const dropzone = screen.getByTestId('my-dropzone');
+    const dropzone = screen.getByTestId("my-dropzone");
 
     fireEvent.dragOver(dropzone, {
       dataTransfer: {
-        dropEffect: 'copy',
+        dropEffect: "copy",
       },
     });
     expect(onDragOverMock).toBeCalledTimes(0);
@@ -193,8 +193,8 @@ describe('FileUploader', () => {
   });
 });
 
-describe('i18n', () => {
-  it('should have default strings', () => {
+describe("i18n", () => {
+  it("should have default strings", () => {
     render(
       <Theme.Provider theme="default">
         <FileUploaderItemsList>
@@ -205,11 +205,11 @@ describe('i18n', () => {
       </Theme.Provider>,
     );
 
-    expect(screen.getAllByRole('button', { name: 'Remove file' })).toHaveLength(3);
-    expect(screen.getByText('(error)')).toBeDefined();
-    expect(screen.getByText('(uploading file)')).toBeDefined();
+    expect(screen.getAllByRole("button", { name: "Remove file" })).toHaveLength(3);
+    expect(screen.getByText("(error)")).toBeDefined();
+    expect(screen.getByText("(uploading file)")).toBeDefined();
   });
-  it('should use the i18n props to change the strings', () => {
+  it("should use the i18n props to change the strings", () => {
     render(
       <Theme.Provider theme="default">
         <FileUploaderItemsList>
@@ -224,8 +224,8 @@ describe('i18n', () => {
       </Theme.Provider>,
     );
 
-    expect(screen.getByRole('button', { name: 'foo button' })).toBeDefined();
-    expect(screen.getByText('foo error')).toBeDefined();
-    expect(screen.getByText('foo loading')).toBeDefined();
+    expect(screen.getByRole("button", { name: "foo button" })).toBeDefined();
+    expect(screen.getByText("foo error")).toBeDefined();
+    expect(screen.getByText("foo loading")).toBeDefined();
   });
 });

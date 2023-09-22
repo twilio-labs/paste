@@ -1,9 +1,9 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { Portal } from '@twilio-paste/reakit-library';
-import { StyledBase } from '@twilio-paste/theme';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { Portal } from "@twilio-paste/reakit-library";
+import { StyledBase } from "@twilio-paste/theme";
+import * as React from "react";
 
-import type { ToastPortalProps } from './types';
+import type { ToastPortalProps } from "./types";
 
 const ToastPortal = React.forwardRef<HTMLDivElement, ToastPortalProps>(({ children, left, ...props }, ref) => {
   return (
@@ -26,6 +26,6 @@ const ToastPortal = React.forwardRef<HTMLDivElement, ToastPortalProps>(({ childr
   );
 });
 
-ToastPortal.displayName = 'ToastPortal';
+ToastPortal.displayName = "ToastPortal";
 
 export { ToastPortal };

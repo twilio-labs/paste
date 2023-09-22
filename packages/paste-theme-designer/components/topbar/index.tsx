@@ -1,7 +1,7 @@
-import { Box } from '@twilio-paste/core/box';
-import * as React from 'react';
+import { Box } from "@twilio-paste/core/box";
+import * as React from "react";
 
-import { SiteHeaderLogo } from './SiteHeaderLogo';
+import { SiteHeaderLogo } from "./SiteHeaderLogo";
 
 const TopBar = (): JSX.Element => {
   return (

@@ -1,15 +1,15 @@
-import { Button } from '@twilio-paste/button';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Stack } from '@twilio-paste/stack';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Button } from "@twilio-paste/button";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import type { TabPrimitiveStateReturn } from '../src';
-import { TabPrimitive, TabPrimitiveList, TabPrimitivePanel, useTabPrimitiveState } from '../src';
+import type { TabPrimitiveStateReturn } from "../src";
+import { TabPrimitive, TabPrimitiveList, TabPrimitivePanel, useTabPrimitiveState } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Primitives/Tabs',
+  title: "Primitives/Tabs",
   component: TabPrimitive,
   subcomponents: { TabPrimitiveList, TabPrimitivePanel },
 };
@@ -53,15 +53,15 @@ export const HorizontalTabs = (): React.ReactNode => {
 
 export const VerticalTabs = (): React.ReactNode => {
   const selectedId = useUID();
-  const tab = useTabPrimitiveState({ orientation: 'vertical', selectedId });
+  const tab = useTabPrimitiveState({ orientation: "vertical", selectedId });
   return (
     <>
       <Paragraph>This changes the keys to jump between tabs from left/right arrow to up/down arrow</Paragraph>
-      <div style={{ display: 'flex' }}>
+      <div style={{ display: "flex" }}>
         <TabPrimitiveList
           {...tab}
           aria-label="My tabs"
-          style={{ borderRight: '1px solid black', paddingRight: 10, marginRight: 10 }}
+          style={{ borderRight: "1px solid black", paddingRight: 10, marginRight: 10 }}
         >
           <Stack orientation="vertical" spacing="space20">
             <TabPrimitive {...tab} id={selectedId}>

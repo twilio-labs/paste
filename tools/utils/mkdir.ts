@@ -1,6 +1,6 @@
-import fs from 'fs';
+import fs from "fs";
 
-import chalk from 'chalk';
+import chalk from "chalk";
 
 interface mkdirArgs {
   callback: () => unknown;

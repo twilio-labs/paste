@@ -1,11 +1,11 @@
 import type {
   NonModalDialogPrimitivePopoverInitialState,
   NonModalDialogPrimitiveStateReturn,
-} from '@twilio-paste/non-modal-dialog-primitive';
-import { useNonModalDialogPrimitiveState } from '@twilio-paste/non-modal-dialog-primitive';
-import * as React from 'react';
+} from "@twilio-paste/non-modal-dialog-primitive";
+import { useNonModalDialogPrimitiveState } from "@twilio-paste/non-modal-dialog-primitive";
+import * as React from "react";
 
-import { PopoverContext } from './PopoverContext';
+import { PopoverContext } from "./PopoverContext";
 
 export interface PopoverStateReturn extends NonModalDialogPrimitiveStateReturn {
   [key: string]: any;
@@ -26,11 +26,11 @@ const BasePopoverContainer: React.FC<React.PropsWithChildren<PopoverContainerPro
   const popover = state || useNonModalDialogPrimitiveState({ gutter, modal: true, placement, ...initialState });
   return <PopoverContext.Provider value={popover}>{children}</PopoverContext.Provider>;
 };
-BasePopoverContainer.displayName = 'BasePopoverContainer';
+BasePopoverContainer.displayName = "BasePopoverContainer";
 
 const PopoverContainer = React.memo(BasePopoverContainer);
 
-PopoverContainer.displayName = 'PopoverContainer';
+PopoverContainer.displayName = "PopoverContainer";
 export { PopoverContainer };
 
 export { useNonModalDialogPrimitiveState as usePopoverState };

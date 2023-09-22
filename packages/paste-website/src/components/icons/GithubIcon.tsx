@@ -1,5 +1,5 @@
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface GithubIconProps {
   className?: string;
@@ -10,7 +10,7 @@ export interface GithubIconProps {
 }
 
 const GithubIcon = React.memo(
-  ({ title = 'Github Icon', decorative = true, className, color, size }: GithubIconProps) => {
+  ({ title = "Github Icon", decorative = true, className, color, size }: GithubIconProps) => {
     const uid = useUID();
     return (
       <span style={{ color, width: size, height: size }} className={className}>

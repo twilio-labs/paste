@@ -1,27 +1,27 @@
-import { Box } from '@twilio-paste/box';
-import type { BackgroundColor, BoxShadow } from '@twilio-paste/style-props';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { BackgroundColor, BoxShadow } from "@twilio-paste/style-props";
+import * as React from "react";
 
-import type { FauxInputProps } from '../types';
+import type { FauxInputProps } from "../types";
 
 const DefaultFauxInput = React.forwardRef<HTMLDivElement, React.PropsWithChildren<FauxInputProps>>(
   ({ disabled, element, hasError, readOnly, children, type, variant }, ref) => {
-    let backgroundColor = 'colorBackgroundBody' as BackgroundColor;
-    let boxShadow = 'shadowBorder' as BoxShadow;
-    let boxShadowHover = 'shadowBorderPrimary' as BoxShadow;
-    let boxShadowActive = 'shadowBorderPrimaryStronger' as BoxShadow;
-    if (disabled && type !== 'hidden') {
-      boxShadow = 'shadowBorderWeak';
-      boxShadowHover = 'shadowBorderWeak';
-      backgroundColor = 'colorBackground';
-      boxShadowActive = 'shadowBorderWeak';
-    } else if (readOnly && type !== 'hidden') {
-      boxShadowHover = 'shadowBorder';
-      backgroundColor = 'colorBackground';
-    } else if (hasError && type !== 'hidden') {
-      boxShadow = 'shadowBorderError';
-      boxShadowHover = 'shadowBorderErrorStronger';
-    } else if (type === 'hidden') {
+    let backgroundColor = "colorBackgroundBody" as BackgroundColor;
+    let boxShadow = "shadowBorder" as BoxShadow;
+    let boxShadowHover = "shadowBorderPrimary" as BoxShadow;
+    let boxShadowActive = "shadowBorderPrimaryStronger" as BoxShadow;
+    if (disabled && type !== "hidden") {
+      boxShadow = "shadowBorderWeak";
+      boxShadowHover = "shadowBorderWeak";
+      backgroundColor = "colorBackground";
+      boxShadowActive = "shadowBorderWeak";
+    } else if (readOnly && type !== "hidden") {
+      boxShadowHover = "shadowBorder";
+      backgroundColor = "colorBackground";
+    } else if (hasError && type !== "hidden") {
+      boxShadow = "shadowBorderError";
+      boxShadowHover = "shadowBorderErrorStronger";
+    } else if (type === "hidden") {
       boxShadow = null;
       boxShadowHover = null;
       backgroundColor = null;
@@ -38,13 +38,13 @@ const DefaultFauxInput = React.forwardRef<HTMLDivElement, React.PropsWithChildre
         boxShadow={boxShadow}
         borderRadius="borderRadius20"
         transition="box-shadow 100ms ease-in"
-        cursor={disabled ? 'not-allowed' : 'text'}
+        cursor={disabled ? "not-allowed" : "text"}
         variant={variant}
         _hover={{
           boxShadow: boxShadowHover,
         }}
         _focusWithin={{
-          boxShadow: disabled ? boxShadow : 'shadowFocusShadowBorder',
+          boxShadow: disabled ? boxShadow : "shadowFocusShadowBorder",
         }}
         _active={{
           boxShadow: boxShadowActive,
@@ -56,6 +56,6 @@ const DefaultFauxInput = React.forwardRef<HTMLDivElement, React.PropsWithChildre
   },
 );
 
-DefaultFauxInput.displayName = 'DefaultFauxInput';
+DefaultFauxInput.displayName = "DefaultFauxInput";
 
 export { DefaultFauxInput };

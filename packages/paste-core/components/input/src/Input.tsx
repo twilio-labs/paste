@@ -1,18 +1,18 @@
-import { Box } from '@twilio-paste/box';
-import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
-import { InputBox } from '@twilio-paste/input-box';
-import type { InputBoxTypes } from '@twilio-paste/input-box';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import { useMergeRefs } from '@twilio-paste/utils';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { InputBox } from "@twilio-paste/input-box";
+import type { InputBoxTypes } from "@twilio-paste/input-box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useMergeRefs } from "@twilio-paste/utils";
+import * as React from "react";
 
-import { DecrementButton } from './DecrementButton';
-import { IncrementButton } from './IncrementButton';
-import { safelySpreadFormControlProps } from './utils';
+import { DecrementButton } from "./DecrementButton";
+import { IncrementButton } from "./IncrementButton";
+import { safelySpreadFormControlProps } from "./utils";
 
-export type InputVariants = 'default' | 'inverse';
+export type InputVariants = "default" | "inverse";
 
-export interface InputProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'element'> {
+export interface InputProps extends HTMLPasteProps<"input">, Pick<BoxProps, "element"> {
   disabled?: boolean;
   hasError?: boolean;
   height?: never;
@@ -29,9 +29,9 @@ export interface InputProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'ele
   value?: string;
   variant?: InputVariants;
   width?: never;
-  padding?: 'space0';
-  paddingRight?: BoxStyleProps['paddingRight'];
-  cursor?: BoxStyleProps['cursor'];
+  padding?: "space0";
+  paddingRight?: BoxStyleProps["paddingRight"];
+  cursor?: BoxStyleProps["cursor"];
   i18nStepUpLabel?: string;
   i18nStepDownLabel?: string;
 }
@@ -52,7 +52,7 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ el
       borderRadius="borderRadius20"
       boxShadow="none"
       color="inherit"
-      cursor={(props.type === 'date' || props.type === 'time') && !props.readOnly && !props.disabled ? 'text' : 'auto'}
+      cursor={(props.type === "date" || props.type === "time") && !props.readOnly && !props.disabled ? "text" : "auto"}
       display="block"
       element={element}
       fontFamily="inherit"
@@ -70,46 +70,46 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ el
       variant={props.variant}
       ref={ref}
       _placeholder={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeak',
-        fontStyle: 'italic',
+        color: props.variant === "inverse" ? "colorTextInverseWeaker" : "colorTextWeak",
+        fontStyle: "italic",
       }}
       _focus_placeholder={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeak',
+        color: props.variant === "inverse" ? "colorTextInverseWeaker" : "colorTextWeak",
       }}
       _disabled={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeakest' : 'colorTextWeaker',
-        cursor: 'not-allowed',
-        '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeakest' : 'colorTextWeaker',
-        '-webkit-opacity': '1',
+        color: props.variant === "inverse" ? "colorTextInverseWeakest" : "colorTextWeaker",
+        cursor: "not-allowed",
+        "-webkit-text-fill-color": props.variant === "inverse" ? "colorTextInverseWeakest" : "colorTextWeaker",
+        "-webkit-opacity": "1",
       }}
       __webkit_datetime_edit={{
-        display: 'flex',
+        display: "flex",
       }}
       __webkit_calendar_picker_indicator_hover={{
-        cursor: props.readOnly || props.disabled ? 'default' : 'pointer',
+        cursor: props.readOnly || props.disabled ? "default" : "pointer",
       }}
       // Hide native number input stepper buttons
       __webkit_inner_spin_button={{
-        display: 'none',
-        margin: 'space0',
+        display: "none",
+        margin: "space0",
       }}
       __webkit_outer_spin_button={{
-        display: 'none',
-        margin: 'space0',
+        display: "none",
+        margin: "space0",
       }}
-      {...{ '-moz-appearance': 'textfield' }}
+      {...{ "-moz-appearance": "textfield" }}
       {...props}
     />
   );
 });
 
-InputElement.displayName = 'InputElement';
+InputElement.displayName = "InputElement";
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       disabled,
-      element = 'INPUT',
+      element = "INPUT",
       hasError,
       id,
       insertAfter,
@@ -139,10 +139,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const [showDecrement, setShowDecrement] = React.useState(true);
 
     // used for number inputs to be able to track uncontrolled number inputs value being changed by a user and it not being tracked by an applications
-    const [internalValue, setInternalValue] = React.useState(props.defaultValue ? props.defaultValue : '0');
+    const [internalValue, setInternalValue] = React.useState(props.defaultValue ? props.defaultValue : "0");
 
     React.useEffect(() => {
-      if (type !== 'number') return;
+      if (type !== "number") return;
       if (disabled) {
         setShowDecrement(false);
         setShowIncrement(false);
@@ -159,7 +159,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
       if ((numMax - numMin) % numStep !== 0)
         // eslint-disable-next-line no-console
         console.error(
-          '[Paste Input]: when using min/max, and step values with a Number Input, please make sure that the min and max are multiples of the step value.',
+          "[Paste Input]: when using min/max, and step values with a Number Input, please make sure that the min and max are multiples of the step value.",
         );
       if (numVal < numMax && numVal + numStep <= numMax) {
         setShowIncrement(true);
@@ -203,13 +203,13 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           value={value}
           variant={variant}
           onChange={(event) => {
-            if (props.onChange != null && typeof props.onChange === 'function') {
+            if (props.onChange != null && typeof props.onChange === "function") {
               props.onChange(event);
             }
             setInternalValue(event.target.value);
           }}
         />
-        {type === 'number' ? (
+        {type === "number" ? (
           <Box
             display="flex"
             flexDirection="column"
@@ -222,7 +222,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 element={element}
                 onClick={() => {
                   internalRef.current?.stepUp();
-                  const ev = new Event('change', { bubbles: true });
+                  const ev = new Event("change", { bubbles: true });
                   internalRef.current?.dispatchEvent(ev);
                   internalRef.current?.focus();
                 }}
@@ -236,7 +236,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                 element={element}
                 onClick={() => {
                   internalRef.current?.stepDown();
-                  const ev = new Event('change', { bubbles: true });
+                  const ev = new Event("change", { bubbles: true });
                   internalRef.current?.dispatchEvent(ev);
                   internalRef.current?.focus();
                 }}
@@ -254,7 +254,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   },
 );
 
-Input.displayName = 'Input';
+Input.displayName = "Input";
 
 export { Input };
 export type { InputBoxTypes as InputTypes };

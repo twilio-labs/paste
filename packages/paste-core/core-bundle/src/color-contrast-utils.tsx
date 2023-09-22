@@ -1,1 +1,1 @@
-export * from '@twilio-paste/color-contrast-utils';
+export * from "@twilio-paste/color-contrast-utils";

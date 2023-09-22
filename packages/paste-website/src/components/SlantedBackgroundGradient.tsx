@@ -1,8 +1,8 @@
-import type { BackgroundColorOptions } from '@twilio-paste/style-props';
-import { css } from '@twilio-paste/styling-library';
-import { useTheme } from '@twilio-paste/theme';
-import { useWindowSize } from '@twilio-paste/utils';
-import * as React from 'react';
+import type { BackgroundColorOptions } from "@twilio-paste/style-props";
+import { css } from "@twilio-paste/styling-library";
+import { useTheme } from "@twilio-paste/theme";
+import { useWindowSize } from "@twilio-paste/utils";
+import * as React from "react";
 
 // https://codepen.io/enbee81/full/yLyrmyg
 const getSkewOffset = (width: number, skewAngle: number): number => Math.floor((Math.tan(skewAngle) * width) / 2);
@@ -28,7 +28,7 @@ export const SlantedBackgroundGradient: React.FC<React.PropsWithChildren<Backgro
   startColor,
   endColor,
   skewAngle = HOMEPAGE_SKEW_ANGLE,
-  gradientAngle = '90deg',
+  gradientAngle = "90deg",
   styles,
   ...props
 }) => {
@@ -38,21 +38,21 @@ export const SlantedBackgroundGradient: React.FC<React.PropsWithChildren<Backgro
   return (
     <div
       css={css({
-        '&:before': {
+        "&:before": {
           content: `" "`,
           zIndex: zIndices.zIndex0,
-          position: 'absolute',
+          position: "absolute",
           /*
            * Fixes anti-aliasing
            * https://stackoverflow.com/questions/6492027/css-transform-jagged-edges-in-chrome/36549674#36549674
            */
-          outline: '1px solid transparent',
+          outline: "1px solid transparent",
           right: 0,
           bottom: 0,
           left: 0,
           top: `${skewOffset}px`,
           transform: `skewY(${skewAngle}rad)`,
-          transition: 'top 400ms ease',
+          transition: "top 400ms ease",
           background: `linear-gradient(
             ${gradientAngle},
             ${backgroundColors[startColor]} 0%,

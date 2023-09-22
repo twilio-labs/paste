@@ -1,17 +1,17 @@
-import { Button } from '@twilio-paste/core/button';
-import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from '@twilio-paste/core/modal';
-import type { ModalProps } from '@twilio-paste/core/modal';
-import { Paragraph } from '@twilio-paste/core/paragraph';
-import { TextArea } from '@twilio-paste/core/textarea';
-import { generateThemeFromTokens } from '@twilio-paste/core/theme';
-import { useUID } from '@twilio-paste/core/uid-library';
-import * as React from 'react';
+import { Button } from "@twilio-paste/core/button";
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/core/modal";
+import type { ModalProps } from "@twilio-paste/core/modal";
+import { Paragraph } from "@twilio-paste/core/paragraph";
+import { TextArea } from "@twilio-paste/core/textarea";
+import { generateThemeFromTokens } from "@twilio-paste/core/theme";
+import { useUID } from "@twilio-paste/core/uid-library";
+import * as React from "react";
 
-import { TokenContext } from '../../../context/TokenContext';
+import { TokenContext } from "../../../context/TokenContext";
 
 type ExportModalProps = {
-  isOpen: ModalProps['isOpen'];
-  onDismiss: ModalProps['onDismiss'];
+  isOpen: ModalProps["isOpen"];
+  onDismiss: ModalProps["onDismiss"];
 };
 const ExportModal: React.FC<React.PropsWithChildren<ExportModalProps>> = ({ isOpen, onDismiss }) => {
   const { tokens } = React.useContext(TokenContext);
@@ -23,7 +23,7 @@ const ExportModal: React.FC<React.PropsWithChildren<ExportModalProps>> = ({ isOp
   // @ts-expect-error tokens from context are based on GenericTokenShape which states that sizing keys are as optional as the rest, but generateThemeFromTokens expects sizing keys to be required
   const customTheme = generateThemeFromTokens(tokens);
 
-  const themeJson = JSON.stringify(customTheme, null, '  ');
+  const themeJson = JSON.stringify(customTheme, null, "  ");
   const themeDownload = `data:application/json;charset=utf-8, ${encodeURIComponent(themeJson)}`;
 
   return (

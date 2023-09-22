@@ -1,14 +1,14 @@
-import type { BadgeProps } from '@twilio-paste/badge';
-import { Box } from '@twilio-paste/box';
-import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
-import { Popover, PopoverBadgeButton, PopoverContainer } from '@twilio-paste/popover';
-import { StatusBadge } from '@twilio-paste/status';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import type { BadgeProps } from "@twilio-paste/badge";
+import { Box } from "@twilio-paste/box";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { Popover, PopoverBadgeButton, PopoverContainer } from "@twilio-paste/popover";
+import { StatusBadge } from "@twilio-paste/status";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { StatusDescriptions } from '../../../constants';
+import { StatusDescriptions } from "../../../constants";
 
-type BadgeVariants = BadgeProps['variant'];
+type BadgeVariants = BadgeProps["variant"];
 interface PackageStatusLegendProps {
   packageStatus?: string | null;
   figmaStatus?: string | null;
@@ -23,11 +23,11 @@ interface StatusData {
 
 const statusMap: { [index: string]: StatusData } = {
   Alpha: {
-    badgeVariant: 'new',
+    badgeVariant: "new",
     popoverContent: StatusDescriptions.ALPHA,
   },
   Beta: {
-    badgeVariant: 'neutral',
+    badgeVariant: "neutral",
     popoverContent: StatusDescriptions.BETA,
   },
 };

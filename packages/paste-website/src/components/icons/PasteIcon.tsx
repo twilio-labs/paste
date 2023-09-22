@@ -6,9 +6,9 @@ import type {
   TextColorOptions,
   TopOptions,
   TransitionProperty,
-} from '@twilio-paste/style-props';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+} from "@twilio-paste/style-props";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface PasteIconProps {
   decorative?: boolean;
@@ -25,7 +25,7 @@ export interface PasteIconProps {
 
 const PasteIcon = React.memo(
   ({
-    title = 'Twilio Icon',
+    title = "Twilio Icon",
     color,
     decorative = true,
     display,

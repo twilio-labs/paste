@@ -1,20 +1,20 @@
-import type { ResponsiveValue, TLengthStyledSystem } from '@twilio-paste/styling-library';
-import type { ThemeShape } from '@twilio-paste/theme';
+import type { ResponsiveValue, TLengthStyledSystem } from "@twilio-paste/styling-library";
+import type { ThemeShape } from "@twilio-paste/theme";
 // https://styled-system.com/api/#background
-import type { Properties } from 'csstype';
+import type { Properties } from "csstype";
 
-import type { StyleReset } from './helpers';
+import type { StyleReset } from "./helpers";
 
 // Tokens
-export type BackgroundColorOptions = keyof ThemeShape['backgroundColors'];
-export type BackgroundColor = ResponsiveValue<BackgroundColorOptions | 'none' | 'transparent' | 'inherit'>;
+export type BackgroundColorOptions = keyof ThemeShape["backgroundColors"];
+export type BackgroundColor = ResponsiveValue<BackgroundColorOptions | "none" | "transparent" | "inherit">;
 
 // CSS native
-export type BackgroundImageOptions = Properties['backgroundImage'];
-export type BackgroundSizeOptions = Properties<TLengthStyledSystem>['backgroundSize'];
-export type BackgroundPositionOptions = Properties['backgroundPosition'];
-export type BackgroundRepeatOptions = Properties['backgroundRepeat'];
-export type BackgroundAttachmentOptions = Properties['backgroundAttachment'];
+export type BackgroundImageOptions = Properties["backgroundImage"];
+export type BackgroundSizeOptions = Properties<TLengthStyledSystem>["backgroundSize"];
+export type BackgroundPositionOptions = Properties["backgroundPosition"];
+export type BackgroundRepeatOptions = Properties["backgroundRepeat"];
+export type BackgroundAttachmentOptions = Properties["backgroundAttachment"];
 
 export type BackgroundImage = ResponsiveValue<BackgroundImageOptions>;
 export type BackgroundSize = ResponsiveValue<BackgroundSizeOptions>;

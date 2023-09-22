@@ -1,1 +1,1 @@
-export * from '@twilio-paste/styling-library';
+export * from "@twilio-paste/styling-library";

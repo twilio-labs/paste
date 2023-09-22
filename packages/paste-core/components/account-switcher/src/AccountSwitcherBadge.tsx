@@ -1,13 +1,13 @@
-import { MenuBadge } from '@twilio-paste/menu';
-import type { MenuBadgeProps } from '@twilio-paste/menu';
-import * as React from 'react';
+import { MenuBadge } from "@twilio-paste/menu";
+import type { MenuBadgeProps } from "@twilio-paste/menu";
+import * as React from "react";
 
-export interface AccountSwitcherBadgeProps extends Omit<MenuBadgeProps, 'variant'> {
+export interface AccountSwitcherBadgeProps extends Omit<MenuBadgeProps, "variant"> {
   children: NonNullable<React.ReactNode>;
 }
 
 const AccountSwitcherBadge = React.forwardRef<HTMLButtonElement, AccountSwitcherBadgeProps>(
-  ({ children, element = 'ACCOUNT_SWITCHER_BADGE', ...props }, ref) => {
+  ({ children, element = "ACCOUNT_SWITCHER_BADGE", ...props }, ref) => {
     return (
       <MenuBadge element={element} {...props} variant="default" ref={ref}>
         {children}
@@ -16,5 +16,5 @@ const AccountSwitcherBadge = React.forwardRef<HTMLButtonElement, AccountSwitcher
   },
 );
 
-AccountSwitcherBadge.displayName = 'AccountSwitcherBadge';
+AccountSwitcherBadge.displayName = "AccountSwitcherBadge";
 export { AccountSwitcherBadge };

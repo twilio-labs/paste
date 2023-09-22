@@ -1,19 +1,19 @@
-import { Anchor } from '@twilio-paste/anchor';
-import type { AnchorProps } from '@twilio-paste/anchor';
-import { Card } from '@twilio-paste/card';
-import { Heading } from '@twilio-paste/heading';
-import { Paragraph } from '@twilio-paste/paragraph';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import type { AnchorProps } from "@twilio-paste/anchor";
+import { Card } from "@twilio-paste/card";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import * as React from "react";
 
-import type { ArticleData } from '../utils/api';
-import { ArticleAuthor } from './ArticleAuthor';
-import { SiteLink } from './SiteLink';
+import type { ArticleData } from "../utils/api";
+import { ArticleAuthor } from "./ArticleAuthor";
+import { SiteLink } from "./SiteLink";
 
 export interface ArticleProps {
   article: ArticleData;
 }
 
-export type ArticleLinkProps = Pick<ArticleData, 'slug' | 'external_link'> & Pick<AnchorProps, 'children'>;
+export type ArticleLinkProps = Pick<ArticleData, "slug" | "external_link"> & Pick<AnchorProps, "children">;
 export const ArticleLink: React.FC<React.PropsWithChildren<ArticleLinkProps>> = ({ external_link, slug, children }) => {
   if (external_link)
     return (
@@ -39,7 +39,7 @@ const Article: React.FC<React.PropsWithChildren<ArticleProps>> = ({ article }) =
         machineDate={article.machineDate}
       />
       <Paragraph marginBottom="space0">
-        {article.excerpt}{' '}
+        {article.excerpt}{" "}
         <ArticleLink slug={article.slug} external_link={article.external_link}>
           Continue reading
         </ArticleLink>
@@ -48,6 +48,6 @@ const Article: React.FC<React.PropsWithChildren<ArticleProps>> = ({ article }) =
   );
 };
 
-Article.displayName = 'Article';
+Article.displayName = "Article";
 
 export { Article };

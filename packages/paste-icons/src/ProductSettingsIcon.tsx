@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductSettingsIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductSettingsIconProps extends IconWrapperProps {
 }
 
 const ProductSettingsIcon = React.forwardRef<HTMLElement, ProductSettingsIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductSettingsIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductSettingsIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductSettingsIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -43,5 +43,5 @@ const ProductSettingsIcon = React.forwardRef<HTMLElement, ProductSettingsIconPro
   },
 );
 
-ProductSettingsIcon.displayName = 'ProductSettingsIcon';
+ProductSettingsIcon.displayName = "ProductSettingsIcon";
 export { ProductSettingsIcon };

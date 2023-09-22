@@ -1,18 +1,18 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxElementProps } from '@twilio-paste/box';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-type JustifyOptions = 'flex-start' | 'flex-end' | 'space-between';
+type JustifyOptions = "flex-start" | "flex-end" | "space-between";
 
-export interface SideModalFooterActionsProps extends HTMLPasteProps<'div'> {
+export interface SideModalFooterActionsProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
   justifyContent?: JustifyOptions;
 }
 
 const SideModalFooterActions = React.forwardRef<HTMLDivElement, SideModalFooterActionsProps>(
-  ({ children, element = 'SIDE_MODAL_FOOTER_ACTIONS', justifyContent = 'flex-end', ...props }, ref) => {
+  ({ children, element = "SIDE_MODAL_FOOTER_ACTIONS", justifyContent = "flex-end", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -31,6 +31,6 @@ const SideModalFooterActions = React.forwardRef<HTMLDivElement, SideModalFooterA
   },
 );
 
-SideModalFooterActions.displayName = 'SideModalFooterActions';
+SideModalFooterActions.displayName = "SideModalFooterActions";
 
 export { SideModalFooterActions };

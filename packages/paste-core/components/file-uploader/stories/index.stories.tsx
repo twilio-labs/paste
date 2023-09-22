@@ -1,10 +1,10 @@
-import type { StoryFn } from '@storybook/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { useTheme } from '@twilio-paste/theme';
-import snakeCase from 'lodash/snakeCase';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { useTheme } from "@twilio-paste/theme";
+import snakeCase from "lodash/snakeCase";
+import * as React from "react";
 
 import {
   FileUploader,
@@ -17,12 +17,12 @@ import {
   FileUploaderItemTitle,
   FileUploaderItemsList,
   FileUploaderLabel,
-} from '../src';
-import type { FileUploaderItemProps } from '../src';
+} from "../src";
+import type { FileUploaderItemProps } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/File Uploader',
+  title: "Components/File Uploader",
   component: FileUploader,
 };
 
@@ -31,7 +31,7 @@ export const Default: StoryFn = () => {
     <FileUploader name="Default File Uploader">
       <FileUploaderLabel>Upload files</FileUploaderLabel>
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
-      <FileUploaderDropzone acceptedMimeTypes={['text/css', 'image/jpeg', 'image/png', 'application/pdf']}>
+      <FileUploaderDropzone acceptedMimeTypes={["text/css", "image/jpeg", "image/png", "application/pdf"]}>
         <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
       </FileUploaderDropzone>
       <FileUploaderItemsList>
@@ -53,7 +53,7 @@ export const Error: StoryFn = () => {
     <FileUploader name="Error File Uploader">
       <FileUploaderLabel>Upload files</FileUploaderLabel>
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
-      <FileUploaderDropzone acceptedMimeTypes={['text/css']}>
+      <FileUploaderDropzone acceptedMimeTypes={["text/css"]}>
         <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
       </FileUploaderDropzone>
       <FileUploaderErrorText>One of your files failed to upload. Please try again.</FileUploaderErrorText>
@@ -82,7 +82,7 @@ export const Disabled: StoryFn = () => {
     <FileUploader name="Disabled File Uploader" disabled>
       <FileUploaderLabel>Upload files</FileUploaderLabel>
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
-      <FileUploaderDropzone acceptedMimeTypes={['text/css']}>
+      <FileUploaderDropzone acceptedMimeTypes={["text/css"]}>
         <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
       </FileUploaderDropzone>
     </FileUploader>
@@ -94,7 +94,7 @@ export const Required: StoryFn = () => {
     <FileUploader name="Required File Uploader" required>
       <FileUploaderLabel>Upload files</FileUploaderLabel>
       <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
-      <FileUploaderDropzone acceptedMimeTypes={['text/css']}>
+      <FileUploaderDropzone acceptedMimeTypes={["text/css"]}>
         <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
       </FileUploaderDropzone>
     </FileUploader>
@@ -102,7 +102,7 @@ export const Required: StoryFn = () => {
 };
 
 interface File {
-  variant: FileUploaderItemProps['variant'];
+  variant: FileUploaderItemProps["variant"];
   title: string;
   description: string;
   id: string;
@@ -110,32 +110,32 @@ interface File {
 
 const sampleFiles: File[] = [
   {
-    variant: 'default',
-    title: 'File1.png',
-    description: '9.2 MB',
+    variant: "default",
+    title: "File1.png",
+    description: "9.2 MB",
     id: `initial-file-0`,
   },
   {
-    variant: 'loading',
-    title: 'File2.png',
-    description: 'Uploading...',
+    variant: "loading",
+    title: "File2.png",
+    description: "Uploading...",
     id: `initial-file-1`,
   },
 ];
 
 export const DragDropExample: StoryFn = () => {
-  const [screenReaderText, setScreenReaderText] = React.useState('');
+  const [screenReaderText, setScreenReaderText] = React.useState("");
   const [files, setFiles] = React.useState<File[]>(sampleFiles);
 
   React.useEffect(() => {
     const timer = setTimeout(() => {
-      let finishedFiles = '';
+      let finishedFiles = "";
 
       setFiles((prev) => {
         const updatedFiles: File[] = [];
         prev.forEach((file) => {
-          if (file.variant === 'loading') {
-            file.variant = 'default';
+          if (file.variant === "loading") {
+            file.variant = "default";
             const size = Math.floor(Math.random() * (50 - 1 + 1) + 1);
             file.description = `${size} MB`;
             finishedFiles = `${finishedFiles} ${file.title}`;
@@ -155,7 +155,7 @@ export const DragDropExample: StoryFn = () => {
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     const { files: newFiles } = event.target;
-    let newFilesNames = '';
+    let newFilesNames = "";
 
     if (newFiles !== null) {
       Array.from(newFiles).forEach(({ name }) => {
@@ -165,8 +165,8 @@ export const DragDropExample: StoryFn = () => {
             ...prev,
             {
               title: name,
-              description: 'Uploading...',
-              variant: 'loading',
+              description: "Uploading...",
+              variant: "loading",
               id: `${snakeCase(name)}`,
             },
           ];
@@ -200,8 +200,8 @@ export const DragDropExample: StoryFn = () => {
             ...prev,
             {
               title: name,
-              description: 'Uploading...',
-              variant: 'loading',
+              description: "Uploading...",
+              variant: "loading",
               id: `${snakeCase(name)}`,
             },
           ];
@@ -217,7 +217,7 @@ export const DragDropExample: StoryFn = () => {
         <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
         <FileUploaderDropzone
           multiple
-          acceptedMimeTypes={['image/*', 'application/pdf']}
+          acceptedMimeTypes={["image/*", "application/pdf"]}
           onDragEnter={handleDragEnter}
           onDrop={handleDrop}
           onDragLeave={handleDragLeave}
@@ -265,7 +265,7 @@ export const ReallyLongText: StoryFn = () => {
         magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
         consequat.
       </FileUploaderHelpText>
-      <FileUploaderDropzone acceptedMimeTypes={['text/css', 'image/jpeg', 'image/png', 'application/pdf']}>
+      <FileUploaderDropzone acceptedMimeTypes={["text/css", "image/jpeg", "image/png", "application/pdf"]}>
         <FileUploaderDropzoneText>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
           magna aliqua.
@@ -287,29 +287,29 @@ export const ReallyLongText: StoryFn = () => {
   );
 };
 
-export const Customized: StoryFn = ({ element = 'FILE_UPLOADER', ...props }) => {
+export const Customized: StoryFn = ({ element = "FILE_UPLOADER", ...props }) => {
   const theme = useTheme();
 
   return (
     <CustomizationProvider
       theme={theme}
       elements={{
-        [`${element}`]: { maxWidth: 'size30' },
-        [`${element}_DROPZONE_TEXT`]: { fontFamily: 'fontFamilyCode' },
-        [`${element}_DROPZONE`]: { borderRadius: 'borderRadius0' },
-        [`${element}_HELP_TEXT`]: { marginBottom: 'space10' },
-        [`${element}_ITEM_CONTENT`]: { rowGap: 'space30' },
-        [`${element}_ITEM_DESCRIPTION`]: { fontSize: 'fontSize40' },
-        [`${element}_ITEM_TITLE`]: { fontSize: 'fontSize40' },
-        [`${element}_ITEM`]: { padding: 'space10' },
-        [`${element}_ITEMS_LIST`]: { rowGap: 'space10' },
-        [`${element}_LABEL`]: { fontWeight: 'fontWeightNormal' },
+        [`${element}`]: { maxWidth: "size30" },
+        [`${element}_DROPZONE_TEXT`]: { fontFamily: "fontFamilyCode" },
+        [`${element}_DROPZONE`]: { borderRadius: "borderRadius0" },
+        [`${element}_HELP_TEXT`]: { marginBottom: "space10" },
+        [`${element}_ITEM_CONTENT`]: { rowGap: "space30" },
+        [`${element}_ITEM_DESCRIPTION`]: { fontSize: "fontSize40" },
+        [`${element}_ITEM_TITLE`]: { fontSize: "fontSize40" },
+        [`${element}_ITEM`]: { padding: "space10" },
+        [`${element}_ITEMS_LIST`]: { rowGap: "space10" },
+        [`${element}_LABEL`]: { fontWeight: "fontWeightNormal" },
       }}
     >
       <FileUploader name="Default File Uploader" {...props}>
         <FileUploaderLabel>Upload files</FileUploaderLabel>
         <FileUploaderHelpText>Files can be up to 50 MB.</FileUploaderHelpText>
-        <FileUploaderDropzone acceptedMimeTypes={['text/css', 'image/jpeg', 'image/png', 'application/pdf']}>
+        <FileUploaderDropzone acceptedMimeTypes={["text/css", "image/jpeg", "image/png", "application/pdf"]}>
           <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
         </FileUploaderDropzone>
         <FileUploaderItemsList>

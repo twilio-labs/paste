@@ -1,6 +1,6 @@
-import { TFoot } from '@twilio-paste/table';
-import type { TFootProps } from '@twilio-paste/table';
-import * as React from 'react';
+import { TFoot } from "@twilio-paste/table";
+import type { TFootProps } from "@twilio-paste/table";
+import * as React from "react";
 
 /**
  * DataGrid foot wrapper component.
@@ -8,9 +8,9 @@ import * as React from 'react';
  * @param {string} element - customization element
  */
 export const DataGridFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(
-  ({ element = 'DATA_GRID_FOOT', ...props }, ref) => {
+  ({ element = "DATA_GRID_FOOT", ...props }, ref) => {
     return <TFoot {...props} element={element} ref={ref} />;
   },
 );
 
-DataGridFoot.displayName = 'DataGridFoot';
+DataGridFoot.displayName = "DataGridFoot";

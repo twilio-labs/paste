@@ -1,19 +1,19 @@
-import { Box } from '@twilio-paste/box';
-import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
-import { Stack } from '@twilio-paste/stack';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-import { AssetStatus } from './AssetStatus';
-import { PeerReviewStatus } from './PeerReviewStatus';
-import type { PackageData } from './types';
+import { AssetStatus } from "./AssetStatus";
+import { PeerReviewStatus } from "./PeerReviewStatus";
+import type { PackageData } from "./types";
 
 export const ComponentStatus: React.FC<React.PropsWithChildren<PackageData>> = ({
   Figma,
   Documentation,
   Code,
-  'Design committee review': Design_committee_review,
-  'Engineer committee review': Engineer_committee_review,
+  "Design committee review": Design_committee_review,
+  "Engineer committee review": Engineer_committee_review,
 }) => {
   return (
     <Stack orientation="vertical" spacing="space20">

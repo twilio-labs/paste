@@ -1,4 +1,4 @@
-import { getDocument } from './reakit-getDocument';
+import { getDocument } from "./reakit-getDocument";
 
 /**
  * Returns `element.ownerDocument.activeElement`.

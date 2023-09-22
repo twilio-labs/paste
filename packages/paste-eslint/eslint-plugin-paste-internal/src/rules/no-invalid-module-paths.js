@@ -1,9 +1,9 @@
 module.exports = {
   meta: {
-    type: 'problem',
+    type: "problem",
     docs: {
-      description: 'Forbid invalid package module paths',
-      category: 'Possible Problems',
+      description: "Forbid invalid package module paths",
+      category: "Possible Problems",
     },
     fixable: null,
     schema: [], // no options
@@ -14,8 +14,8 @@ module.exports = {
 
   create(context) {
     const checkModulePath = (path, node) => {
-      if (path.startsWith('@twilio-paste') && path.includes('src')) {
-        context.report({ messageId: 'src', node });
+      if (path.startsWith("@twilio-paste") && path.includes("src")) {
+        context.report({ messageId: "src", node });
       }
     };
 
@@ -25,8 +25,8 @@ module.exports = {
 
 const createVisitors = (checkModulePath) => {
   const checkSource = (source, node) => {
-    if (source?.type !== 'Literal') return;
-    if (typeof source?.value !== 'string') return;
+    if (source?.type !== "Literal") return;
+    if (typeof source?.value !== "string") return;
     checkModulePath(source.value, node);
   };
 
@@ -35,11 +35,11 @@ const createVisitors = (checkModulePath) => {
   };
 
   const visitExpression = (node) => {
-    const isImportCall = node.type === 'ImportExpression';
+    const isImportCall = node.type === "ImportExpression";
     if (isImportCall) return checkSource(node.source, node);
 
     const isRequireCall =
-      node.type === 'CallExpression' && node.callee.name === 'require' && node.arguments.length === 1;
+      node.type === "CallExpression" && node.callee.name === "require" && node.arguments.length === 1;
     if (isRequireCall) return checkSource(node.arguments[0], node);
   };
 

@@ -1,25 +1,25 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { Card } from '@twilio-paste/card';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Heading } from '@twilio-paste/heading';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { useTheme } from '@twilio-paste/theme';
-import type { ThemeShape } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { useTheme } from "@twilio-paste/theme";
+import type { ThemeShape } from "@twilio-paste/theme";
+import * as React from "react";
 
-import type { StackOrientation } from '../src';
-import { Stack } from '../src';
+import type { StackOrientation } from "../src";
+import { Stack } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Layout/Stack',
+  title: "Layout/Stack",
   component: Stack,
 };
 
 export const DefaultStack = (): React.ReactNode => {
-  const orientaionValue = 'vertical' as StackOrientation;
-  const spaceValue = 'space40' as keyof ThemeShape['space'];
+  const orientaionValue = "vertical" as StackOrientation;
+  const spaceValue = "space40" as keyof ThemeShape["space"];
   return (
     <Stack orientation={orientaionValue} spacing={spaceValue}>
       <Card>
@@ -42,7 +42,7 @@ export const DefaultStack = (): React.ReactNode => {
   );
 };
 
-DefaultStack.storyName = 'Stack';
+DefaultStack.storyName = "Stack";
 
 export const StackVertical = (): React.ReactNode => {
   return (
@@ -67,7 +67,7 @@ export const StackVertical = (): React.ReactNode => {
   );
 };
 
-StackVertical.storyName = 'Stack - Vertical';
+StackVertical.storyName = "Stack - Vertical";
 
 export const StackHorizontal = (): React.ReactNode => {
   return (
@@ -92,11 +92,11 @@ export const StackHorizontal = (): React.ReactNode => {
   );
 };
 
-StackHorizontal.storyName = 'Stack - Horizontal';
+StackHorizontal.storyName = "Stack - Horizontal";
 
 export const StackResponsive = (): React.ReactNode => {
   return (
-    <Stack orientation={['vertical', 'horizontal', 'vertical']} spacing="space40">
+    <Stack orientation={["vertical", "horizontal", "vertical"]} spacing="space40">
       <Card>
         <Heading as="h2" variant="heading20">
           First Card
@@ -117,7 +117,7 @@ export const StackResponsive = (): React.ReactNode => {
   );
 };
 
-StackResponsive.storyName = 'Stack - Responsive';
+StackResponsive.storyName = "Stack - Responsive";
 
 export const OneChild = (): React.ReactNode => {
   return (
@@ -135,7 +135,7 @@ export const OneChild = (): React.ReactNode => {
   );
 };
 
-OneChild.storyName = 'Stack - One Child';
+OneChild.storyName = "Stack - One Child";
 
 export const CustomizedStack: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
@@ -160,23 +160,23 @@ export const CustomizedStack: StoryFn = (_args, { parameters: { isTestEnvironmen
         theme={currentTheme}
         elements={{
           STACK: {
-            backgroundColor: 'colorBackground',
-            padding: 'space40',
-            color: 'colorTextWarning',
+            backgroundColor: "colorBackground",
+            padding: "space40",
+            color: "colorTextWarning",
           },
           STACK_CHILD: {
             flex: 1,
           },
           STACKY: {
-            padding: 'space40',
+            padding: "space40",
           },
           STACKY_CHILD: {
-            fontWeight: 'fontWeightBold',
+            fontWeight: "fontWeightBold",
           },
         }}
       >
         {/* Default Customized Stack */}
-        <Stack orientation={['vertical', 'vertical', 'horizontal']} spacing="space40">
+        <Stack orientation={["vertical", "vertical", "horizontal"]} spacing="space40">
           <Card>
             <Heading as="h2" variant="heading20">
               First Card
@@ -217,7 +217,7 @@ export const CustomizedStack: StoryFn = (_args, { parameters: { isTestEnvironmen
   );
 };
 
-CustomizedStack.storyName = 'Stack - Customized';
+CustomizedStack.storyName = "Stack - Customized";
 CustomizedStack.parameters = {
   a11y: {
     // no need to a11y check customization

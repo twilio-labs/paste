@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ChatIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ChatIconProps extends IconWrapperProps {
 }
 
 const ChatIcon = React.forwardRef<HTMLElement, ChatIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ChatIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ChatIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ChatIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -44,5 +44,5 @@ const ChatIcon = React.forwardRef<HTMLElement, ChatIconProps>(
   },
 );
 
-ChatIcon.displayName = 'ChatIcon';
+ChatIcon.displayName = "ChatIcon";
 export { ChatIcon };

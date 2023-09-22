@@ -1,11 +1,11 @@
-import type { StoryFn } from '@storybook/react';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import * as React from "react";
 
-import { Flex as FlexComposition } from './components/Flex';
+import { Flex as FlexComposition } from "./components/Flex";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/FullCompositions',
+  title: "Components/Sidebar/FullCompositions",
 };
 
 export const Flex: StoryFn = () => {

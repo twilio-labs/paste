@@ -1,11 +1,11 @@
-describe('Box primitives documentation page', () => {
+describe("Box primitives documentation page", () => {
   beforeEach(() => {
-    cy.visit('/primitives/box');
+    cy.visit("/primitives/box");
   });
 
-  it('should render the box primitives page correctly', () => {
+  it("should render the box primitives page correctly", () => {
     cy.pageHeaderShouldBeVisible({
-      headerText: 'Box',
+      headerText: "Box",
       shouldHaveGithubLink: true,
       shouldHaveStorybook: true,
       shouldHaveOpenGraph: true,

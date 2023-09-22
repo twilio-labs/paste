@@ -1,1 +1,1 @@
-export * from '@twilio-paste/spinner';
+export * from "@twilio-paste/spinner";

@@ -1,31 +1,31 @@
-import { animated, useTransition } from '@twilio-paste/animation-library';
-import { Box, getCustomElementStyles, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxElementProps } from '@twilio-paste/box';
-import { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay } from '@twilio-paste/modal-dialog-primitive';
-import { css, styled } from '@twilio-paste/styling-library';
-import { pasteBaseStyles } from '@twilio-paste/theme';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { animated, useTransition } from "@twilio-paste/animation-library";
+import { Box, getCustomElementStyles, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay } from "@twilio-paste/modal-dialog-primitive";
+import { css, styled } from "@twilio-paste/styling-library";
+import { pasteBaseStyles } from "@twilio-paste/theme";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { ModalContext } from './ModalContext';
+import { ModalContext } from "./ModalContext";
 
-type Sizes = 'default' | 'wide';
+type Sizes = "default" | "wide";
 
 export const ModalDialogOverlay = animated(
   // @ts-expect-error Just like in box I can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
   styled(ModalDialogPrimitiveOverlay)<{ variant?: Sizes }>(
     css({
-      position: 'fixed',
+      position: "fixed",
       top: 0,
       right: 0,
       bottom: 0,
       left: 0,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '100%',
-      backgroundColor: 'colorBackgroundOverlay',
-      zIndex: 'zIndex80',
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      backgroundColor: "colorBackgroundOverlay",
+      zIndex: "zIndex80",
     }),
     /*
      * import Paste Theme Based Styles due to portal positioning.
@@ -43,31 +43,31 @@ export const ModalDialogOverlay = animated(
 export interface ModalDialogContentProps {
   size?: Sizes;
   children: React.ReactNode;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
 }
 
 export const ModalDialogContent = animated(
   styled(ModalDialogPrimitiveContent)<ModalDialogContentProps>(({ size }) =>
     css({
-      width: '100%',
-      maxWidth: size === 'wide' ? 'size80' : 'size60',
-      maxHeight: '90%',
-      minHeight: '170px',
-      backgroundColor: 'colorBackgroundBody',
-      borderColor: 'colorBorderWeaker',
-      borderRadius: 'borderRadius30',
-      borderStyle: 'solid',
-      borderWidth: 'borderWidth10',
-      boxShadow: 'shadow',
-      display: 'flex',
-      flexDirection: 'column',
+      width: "100%",
+      maxWidth: size === "wide" ? "size80" : "size60",
+      maxHeight: "90%",
+      minHeight: "170px",
+      backgroundColor: "colorBackgroundBody",
+      borderColor: "colorBorderWeaker",
+      borderRadius: "borderRadius30",
+      borderStyle: "solid",
+      borderWidth: "borderWidth10",
+      boxShadow: "shadow",
+      display: "flex",
+      flexDirection: "column",
     }),
   ),
 );
 
-export interface ModalProps extends HTMLPasteProps<'div'> {
+export interface ModalProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
   isOpen: boolean;
   onDismiss: VoidFunction;
   allowPinchZoom?: boolean;
@@ -93,7 +93,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   (
     {
       children,
-      element = 'MODAL',
+      element = "MODAL",
       isOpen,
       onDismiss,
       allowPinchZoom = true,
@@ -139,6 +139,6 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
     );
   },
 );
-Modal.displayName = 'Modal';
+Modal.displayName = "Modal";
 
 export { Modal };

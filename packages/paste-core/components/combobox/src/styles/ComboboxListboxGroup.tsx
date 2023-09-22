@@ -1,22 +1,22 @@
-import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-import type { ComboboxProps } from '../types';
+import type { ComboboxProps } from "../types";
 
-export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, 'groupLabelTemplate' | 'element'> {
+export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, "groupLabelTemplate" | "element"> {
   children: NonNullable<React.ReactNode>;
   groupName?: string | undefined;
 }
 
 const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxGroupProps>(
-  ({ children, element = 'COMBOBOX', groupName, groupLabelTemplate }, ref) => {
+  ({ children, element = "COMBOBOX", groupName, groupLabelTemplate }, ref) => {
     return (
       <Box
         as="ul"
         ref={ref}
         element={`${element}_LIST`}
-        role={!groupName ? 'presentation' : 'group'}
+        role={!groupName ? "presentation" : "group"}
         aria-label={groupName}
         margin="space0"
         padding="space0"
@@ -25,7 +25,7 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
         borderBottomWidth="borderWidth10"
         borderBottomColor="colorBorderWeaker"
         _last={{
-          borderWidth: 'borderWidth0',
+          borderWidth: "borderWidth0",
         }}
       >
         {groupName ? (
@@ -59,6 +59,6 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
   },
 );
 
-ComboboxListboxGroup.displayName = 'ComboboxListboxGroup';
+ComboboxListboxGroup.displayName = "ComboboxListboxGroup";
 
 export { ComboboxListboxGroup };

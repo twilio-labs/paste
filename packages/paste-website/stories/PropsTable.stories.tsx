@@ -1,13 +1,13 @@
-import type { StoryFn } from '@storybook/react';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import * as React from "react";
 
-import { PropsTable } from '../src/components/PropsTables';
+import { PropsTable } from "../src/components/PropsTables";
 
 const MockComponentAPI = {
   TBody: {
     externalProps: {
       about: {
-        type: 'string',
+        type: "string",
         defaultValue: null,
         required: false,
         externalProp: false,
@@ -17,14 +17,14 @@ const MockComponentAPI = {
   TFoot: {
     internalProps: {
       about: {
-        type: 'string',
-        defaultValue: 'foo',
+        type: "string",
+        defaultValue: "foo",
         required: true,
-        description: 'this is a function',
+        description: "this is a function",
         externalProp: true,
       },
       accessKey: {
-        type: 'string',
+        type: "string",
         defaultValue: null,
         required: false,
         externalProp: true,
@@ -34,7 +34,7 @@ const MockComponentAPI = {
   Table: {
     internalProps: {
       about: {
-        type: 'string',
+        type: "string",
         defaultValue: null,
         required: false,
         externalProp: false,
@@ -42,7 +42,7 @@ const MockComponentAPI = {
     },
     externalProps: {
       accessKey: {
-        type: 'string',
+        type: "string",
         defaultValue: null,
         required: false,
         externalProp: true,
@@ -52,7 +52,7 @@ const MockComponentAPI = {
 };
 
 export default {
-  title: 'Website/PropsTable',
+  title: "Website/PropsTable",
 };
 
 export const PropsTableDefault: StoryFn = () => {

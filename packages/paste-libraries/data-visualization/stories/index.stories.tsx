@@ -1,22 +1,22 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import { Stack } from '@twilio-paste/stack';
+import type { Meta, StoryFn } from "@storybook/react";
+import { Stack } from "@twilio-paste/stack";
 /* eslint-disable import/no-extraneous-dependencies */
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
-import * as React from 'react';
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import * as React from "react";
 /* eslint-enable */
 
-import { usePasteHighchartsTheme } from '../src';
-import { basicAreaChartOptions } from './options/basicAreaChartOptions';
-import { columnChartOptions } from './options/columnChartOptions';
-import { lineChartOptions } from './options/lineChartOptions';
-import { lineChartWithAnnotationsOptions } from './options/lineChartWithAnnotationsOptions';
-import { pieChartOptions } from './options/pieChartOptions';
-import { timeSeriesOptions } from './options/timeSeriesOptions';
+import { usePasteHighchartsTheme } from "../src";
+import { basicAreaChartOptions } from "./options/basicAreaChartOptions";
+import { columnChartOptions } from "./options/columnChartOptions";
+import { lineChartOptions } from "./options/lineChartOptions";
+import { lineChartWithAnnotationsOptions } from "./options/lineChartWithAnnotationsOptions";
+import { pieChartOptions } from "./options/pieChartOptions";
+import { timeSeriesOptions } from "./options/timeSeriesOptions";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/data-visualization',
+  title: "Libraries/data-visualization",
   parameters: {
     chromatic: { disableSnapshot: true },
   },

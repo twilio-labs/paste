@@ -1,19 +1,19 @@
-import { Box } from '@twilio-paste/core/box';
-import { Checkbox, CheckboxGroup } from '@twilio-paste/core/checkbox';
-import { Heading } from '@twilio-paste/core/heading';
-import { HelpText } from '@twilio-paste/core/help-text';
-import { Input } from '@twilio-paste/core/input';
-import { Label } from '@twilio-paste/core/label';
-import { Radio, RadioGroup } from '@twilio-paste/core/radio-group';
-import { Option, Select } from '@twilio-paste/core/select';
-import { Stack } from '@twilio-paste/core/stack';
-import { useUIDSeed } from '@twilio-paste/core/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/core/box";
+import { Checkbox, CheckboxGroup } from "@twilio-paste/core/checkbox";
+import { Heading } from "@twilio-paste/core/heading";
+import { HelpText } from "@twilio-paste/core/help-text";
+import { Input } from "@twilio-paste/core/input";
+import { Label } from "@twilio-paste/core/label";
+import { Radio, RadioGroup } from "@twilio-paste/core/radio-group";
+import { Option, Select } from "@twilio-paste/core/select";
+import { Stack } from "@twilio-paste/core/stack";
+import { useUIDSeed } from "@twilio-paste/core/uid-library";
+import * as React from "react";
 
 const FormPreview = (): JSX.Element => {
-  const [inputValue, setInputValue] = React.useState('input');
-  const [selectValue, setSelectValue] = React.useState('select');
-  const [radioValue, setRadioValue] = React.useState('radio');
+  const [inputValue, setInputValue] = React.useState("input");
+  const [selectValue, setSelectValue] = React.useState("select");
+  const [radioValue, setRadioValue] = React.useState("radio");
   const inputId = useUIDSeed();
 
   return (
@@ -23,22 +23,22 @@ const FormPreview = (): JSX.Element => {
       </Heading>
       <Stack orientation="vertical" spacing="space90">
         <Box>
-          <Label htmlFor={inputId('input')}>Text input</Label>
+          <Label htmlFor={inputId("input")}>Text input</Label>
           <Input
-            aria-describedby={inputId('input-help-text')}
-            id={inputId('input')}
+            aria-describedby={inputId("input-help-text")}
+            id={inputId("input")}
             type="text"
             value={inputValue}
             onChange={(event) => {
               setInputValue(event.target.value);
             }}
           />
-          <HelpText id={inputId('input-help-text')}>This is help text.</HelpText>
+          <HelpText id={inputId("input-help-text")}>This is help text.</HelpText>
         </Box>
         <Box>
-          <Label htmlFor={inputId('select')}>Select input</Label>
+          <Label htmlFor={inputId("select")}>Select input</Label>
           <Select
-            id={inputId('select')}
+            id={inputId("select")}
             value={selectValue}
             onChange={(event) => {
               setSelectValue(event.target.value);
@@ -58,20 +58,20 @@ const FormPreview = (): JSX.Element => {
               setRadioValue(newValue);
             }}
           >
-            <Radio id={inputId('radio1')} value="1" helpText="First selection">
+            <Radio id={inputId("radio1")} value="1" helpText="First selection">
               First
             </Radio>
-            <Radio id={inputId('radio2')} value="2" helpText="Second selection">
+            <Radio id={inputId("radio2")} value="2" helpText="Second selection">
               Second
             </Radio>
           </RadioGroup>
         </Box>
         <Box>
           <CheckboxGroup name="bar" legend="This is the legend text">
-            <Checkbox id={inputId('check1')} value="1" helpText="First selection">
+            <Checkbox id={inputId("check1")} value="1" helpText="First selection">
               First
             </Checkbox>
-            <Checkbox id={inputId('check2')} value="2" helpText="Second selection">
+            <Checkbox id={inputId("check2")} value="2" helpText="Second selection">
               Second
             </Checkbox>
           </CheckboxGroup>

@@ -1,19 +1,19 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { HelpText } from '@twilio-paste/help-text';
-import { Label, RequiredDot } from '@twilio-paste/label';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
-import { SiblingBox } from '@twilio-paste/sibling-box';
-import { Text } from '@twilio-paste/text';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { HelpText } from "@twilio-paste/help-text";
+import { Label, RequiredDot } from "@twilio-paste/label";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { SiblingBox } from "@twilio-paste/sibling-box";
+import { Text } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { SwitchContext } from './SwitchContext';
-import { SwitchKnob } from './SwitchKnob';
-import { SWITCH_HEIGHT, SWITCH_KNOB_SIZE, SWITCH_WIDTH } from './constants';
+import { SwitchContext } from "./SwitchContext";
+import { SwitchKnob } from "./SwitchKnob";
+import { SWITCH_HEIGHT, SWITCH_KNOB_SIZE, SWITCH_WIDTH } from "./constants";
 
-export interface SwitchProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'element'> {
+export interface SwitchProps extends HTMLPasteProps<"input">, Pick<BoxProps, "element"> {
   children: NonNullable<React.ReactNode>;
   hasError?: boolean;
   helpText?: string | React.ReactNode;
@@ -24,7 +24,7 @@ export interface SwitchProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'el
 
 type HiddenSwitchProps = Pick<
   SwitchProps,
-  'checked' | 'defaultChecked' | 'element' | 'disabled' | 'id' | 'name' | 'onChange' | 'required' | 'value'
+  "checked" | "defaultChecked" | "element" | "disabled" | "id" | "name" | "onChange" | "required" | "value"
 >;
 const HiddenSwitch = React.forwardRef<HTMLInputElement, HiddenSwitchProps>((props, ref) => (
   <Box
@@ -45,10 +45,10 @@ const HiddenSwitch = React.forwardRef<HTMLInputElement, HiddenSwitchProps>((prop
   />
 ));
 
-HiddenSwitch.displayName = 'HiddenSwitch';
+HiddenSwitch.displayName = "HiddenSwitch";
 
 const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
-  ({ checked, defaultChecked, element = 'SWITCH', children, helpText, id, required, onChange, ...props }, ref) => {
+  ({ checked, defaultChecked, element = "SWITCH", children, helpText, id, required, onChange, ...props }, ref) => {
     if (checked != null && defaultChecked != null) {
       throw new Error(
         `[Paste Switch] Do not provide both 'defaultChecked' and 'checked' to Switch at the same time. Please consider if you want this component to be controlled or uncontrolled.`,
@@ -136,32 +136,32 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
                 setIsHovering(false);
               }}
               _hoverSibling={{
-                backgroundColor: 'colorBackgroundStrongest',
+                backgroundColor: "colorBackgroundStrongest",
               }}
               _focusSibling={{
-                boxShadow: 'shadowFocus',
+                boxShadow: "shadowFocus",
               }}
               _checkedSibling={{
-                backgroundColor: 'colorBackgroundPrimary',
-                color: 'colorTextPrimary',
+                backgroundColor: "colorBackgroundPrimary",
+                color: "colorTextPrimary",
               }}
               _disabledSibling={{
-                backgroundColor: 'colorBackgroundStrong',
-                color: 'currentColor',
-                cursor: 'not-allowed',
+                backgroundColor: "colorBackgroundStrong",
+                color: "currentColor",
+                cursor: "not-allowed",
               }}
               _checkedAndHoverSibling={{
-                color: 'colorTextIcon',
-                backgroundColor: 'colorBackgroundStrongest',
+                color: "colorTextIcon",
+                backgroundColor: "colorBackgroundStrongest",
               }}
               _invalidSibling={{
-                backgroundColor: 'colorBackgroundError',
+                backgroundColor: "colorBackgroundError",
               }}
               _invalidAndHoverSibling={{
-                backgroundColor: 'colorBackgroundErrorStrongest',
+                backgroundColor: "colorBackgroundErrorStrongest",
               }}
               _invalidAndDisabledSibling={{
-                backgroundColor: 'colorBackgroundStrong',
+                backgroundColor: "colorBackgroundStrong",
               }}
             >
               <SwitchKnob
@@ -214,6 +214,6 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
     );
   },
 );
-Switch.displayName = 'Switch';
+Switch.displayName = "Switch";
 
 export { Switch };

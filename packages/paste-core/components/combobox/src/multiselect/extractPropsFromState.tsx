@@ -1,13 +1,13 @@
-import { useMultiSelectPrimitive } from '@twilio-paste/combobox-primitive';
-import type { UseMultiSelectPrimitiveReturnValue } from '@twilio-paste/combobox-primitive';
-import isEmpty from 'lodash/isEmpty';
+import { useMultiSelectPrimitive } from "@twilio-paste/combobox-primitive";
+import type { UseMultiSelectPrimitiveReturnValue } from "@twilio-paste/combobox-primitive";
+import isEmpty from "lodash/isEmpty";
 
-import type { Item, MultiselectComboboxProps } from '../types';
+import type { Item, MultiselectComboboxProps } from "../types";
 
 interface DefaultStateProps {
-  initialSelectedItems: MultiselectComboboxProps['initialSelectedItems'];
-  onSelectedItemsChange: MultiselectComboboxProps['onSelectedItemsChange'];
-  state: MultiselectComboboxProps['state'];
+  initialSelectedItems: MultiselectComboboxProps["initialSelectedItems"];
+  onSelectedItemsChange: MultiselectComboboxProps["onSelectedItemsChange"];
+  state: MultiselectComboboxProps["state"];
 }
 
 export const extractPropsFromState = ({

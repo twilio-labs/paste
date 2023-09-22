@@ -1,7 +1,7 @@
-import { animated, useSpring } from '@twilio-paste/animation-library';
-import { Card } from '@twilio-paste/card';
-import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
+import { animated, useSpring } from "@twilio-paste/animation-library";
+import { Card } from "@twilio-paste/card";
+import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
 const AnimatedCard = animated(Card);
 interface GetStartedCardProps {
@@ -20,10 +20,10 @@ export const GetStartedCard: React.FC<React.PropsWithChildren<GetStartedCardProp
   };
 
   const props = useSpring({
-    height: '100%', // FIXME: hackily fixes equal card heights
-    width: '100%', // FIXME: hackily fixes stacked Card widths
+    height: "100%", // FIXME: hackily fixes equal card heights
+    width: "100%", // FIXME: hackily fixes stacked Card widths
     opacity: show ? 1 : 0,
-    transform: show ? 'translateY(0px)' : 'translateY(25px)',
+    transform: show ? "translateY(0px)" : "translateY(25px)",
     delay: animationDelay,
     config: { mass: 1, tension: 280, friction: 40 },
   });

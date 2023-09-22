@@ -1,16 +1,16 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxElementProps } from '@twilio-paste/box';
-import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import * as React from "react";
 
-import { hoverPillStyles, pillStyles } from './FormPill.styles';
-import type { PillVariant } from './types';
+import { hoverPillStyles, pillStyles } from "./FormPill.styles";
+import type { PillVariant } from "./types";
 
 interface FormPillStylesProps {
   variant?: PillVariant;
   selected?: boolean;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
   children: React.ReactNode;
   onKeyDown?: (event: React.KeyboardEvent<HTMLButtonElement>) => void;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
@@ -24,13 +24,13 @@ interface FormPillStylesProps {
 export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>(
   (
     {
-      element = 'FORM_PILL',
+      element = "FORM_PILL",
       selected = false,
-      variant = 'default',
+      variant = "default",
       isHoverable = false,
       isDisabled = false,
       isDismissable = false,
-      i18nErrorLabel = '(error)',
+      i18nErrorLabel = "(error)",
       ...props
     },
     ref,
@@ -61,12 +61,12 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         fontWeight="fontWeightMedium"
         outline="none"
         paddingLeft="space30"
-        paddingRight={isDismissable ? 'space80' : 'space30'}
+        paddingRight={isDismissable ? "space80" : "space30"}
         transition="background-color 150ms ease-in, border-color 150ms ease-in, box-shadow 150ms ease-in, color 150ms ease-in"
         {...computedStyles}
       >
         <Box display="flex" alignItems="center" columnGap="space20" opacity={isDisabled ? 0.3 : 1}>
-          {variant === 'error' ? (
+          {variant === "error" ? (
             <>
               <ErrorIcon decorative size="sizeIcon10" />
               <ScreenReaderOnly>{i18nErrorLabel}</ScreenReaderOnly>
@@ -79,4 +79,4 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
   },
 );
 
-FormPillButton.displayName = 'FormPillButton';
+FormPillButton.displayName = "FormPillButton";

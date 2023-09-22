@@ -1,18 +1,18 @@
-import { Box } from '@twilio-paste/box';
-import { Disclosure, DisclosureContent, DisclosureHeading } from '@twilio-paste/disclosure';
-import { InlineCode } from '@twilio-paste/inline-code';
-import { RequiredDot } from '@twilio-paste/label';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Text } from '@twilio-paste/text';
-import Markdown from 'markdown-to-jsx';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
+import { InlineCode } from "@twilio-paste/inline-code";
+import { RequiredDot } from "@twilio-paste/label";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
+import Markdown from "markdown-to-jsx";
+import * as React from "react";
 
 import {
   type ComponentApiProp,
   type ComponentApiPropDetails,
   type GroupedComponentApi,
-} from '../utils/componentApiUtils';
-import { AnchoredHeading } from './Heading';
+} from "../utils/componentApiUtils";
+import { AnchoredHeading } from "./Heading";
 
 export interface PropsTableProps {
   componentApi: GroupedComponentApi;
@@ -51,7 +51,7 @@ const PropType: React.FC<React.PropsWithChildren<PropTypeProps>> = ({ children }
     </Box>
   );
 };
-PropType.displayName = 'PropType';
+PropType.displayName = "PropType";
 
 const PropPair: React.FC<PropPairProps> = ({ term, description }) => {
   return (
@@ -65,7 +65,7 @@ const PropPair: React.FC<PropPairProps> = ({ term, description }) => {
     </Box>
   );
 };
-PropPair.displayName = 'PropPair';
+PropPair.displayName = "PropPair";
 
 const PropsList: React.FC<PropsListProps> = ({ props }) => {
   return (
@@ -81,7 +81,7 @@ const PropsList: React.FC<PropsListProps> = ({ props }) => {
             marginBottom="space120"
             paddingBottom="space90"
             _last={{
-              marginBottom: 'space50',
+              marginBottom: "space50",
             }}
           >
             <Box marginBottom="space60">
@@ -108,7 +108,7 @@ const PropsList: React.FC<PropsListProps> = ({ props }) => {
                   borderRadius="borderRadiusPill"
                 >
                   {propName}
-                </Box>{' '}
+                </Box>{" "}
                 {prop.required ? (
                   <Box as="span" display="flex" alignItems="center" columnGap="space30">
                     <RequiredDot />
@@ -117,7 +117,7 @@ const PropsList: React.FC<PropsListProps> = ({ props }) => {
                     </Text>
                   </Box>
                 ) : (
-                  ''
+                  ""
                 )}
               </Box>
               {prop.description && (
@@ -128,7 +128,7 @@ const PropsList: React.FC<PropsListProps> = ({ props }) => {
             </Box>
             <Box as="dl">
               <PropPair term="Type" description={<PropType>{prop.type}</PropType>} />
-              {prop.defaultValue && prop.defaultValue !== ' ' ? (
+              {prop.defaultValue && prop.defaultValue !== " " ? (
                 <PropPair term="Default" description={<PropType>{prop.defaultValue}</PropType>} />
               ) : null}
             </Box>
@@ -138,7 +138,7 @@ const PropsList: React.FC<PropsListProps> = ({ props }) => {
     </Box>
   );
 };
-PropsList.displayName = 'PropsList';
+PropsList.displayName = "PropsList";
 
 const PropsTable: React.FC<PropsTableProps> = ({ componentApi }) => {
   const propsTable = React.useMemo(() => componentApi, [componentApi]);
@@ -175,6 +175,6 @@ const PropsTable: React.FC<PropsTableProps> = ({ componentApi }) => {
   );
 };
 
-PropsTable.displayName = 'PropsTable';
+PropsTable.displayName = "PropsTable";
 
 export { PropsTable };

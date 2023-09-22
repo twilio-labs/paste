@@ -7,13 +7,13 @@ import type {
   ShadowProps,
   SpaceProps,
   TypographyProps,
-} from '@twilio-paste/style-props';
+} from "@twilio-paste/style-props";
 import type {
   CSSPseudoSelectorProps,
   CSSSelectorObject,
   SystemCssProperties,
   SystemStyleObject,
-} from '@twilio-paste/styling-library';
+} from "@twilio-paste/styling-library";
 
 type AllStyleProps = BackgroundProps &
   BorderProps &

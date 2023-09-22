@@ -1,22 +1,22 @@
-import { secureExternalLink } from '@twilio-paste/anchor';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
-import * as React from 'react';
+import { secureExternalLink } from "@twilio-paste/anchor";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import * as React from "react";
 
-import { useResizeChildIcons } from './hooks';
-import { badgeAnchorStyles, badgeBaseStyles, badgeVariantStyles, getBadgeButtonStyles } from './styles';
-import type { BadgeProps } from './types';
+import { useResizeChildIcons } from "./hooks";
+import { badgeAnchorStyles, badgeBaseStyles, badgeVariantStyles, getBadgeButtonStyles } from "./styles";
+import type { BadgeProps } from "./types";
 
 export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
-  ({ as, href, variant, size = 'default', children, element = 'BADGE', ...props }, ref) => {
+  ({ as, href, variant, size = "default", children, element = "BADGE", ...props }, ref) => {
     const resizedChildren = useResizeChildIcons(children);
 
     let badgeStyles = { ...badgeBaseStyles, ...badgeVariantStyles[variant] };
 
-    if (as === 'a') {
+    if (as === "a") {
       badgeStyles = { ...badgeStyles, ...badgeAnchorStyles };
     }
-    if (as === 'button') {
+    if (as === "button") {
       badgeStyles = { ...badgeStyles, ...getBadgeButtonStyles(variant) };
     }
 
@@ -27,17 +27,17 @@ export const Badge = React.forwardRef<HTMLElement, BadgeProps>(
         href={href}
         as={as}
         element={element}
-        paddingX={size === 'small' ? 'space20' : 'space30'}
-        paddingY={size === 'small' ? 'space10' : 'space20'}
+        paddingX={size === "small" ? "space20" : "space30"}
+        paddingY={size === "small" ? "space10" : "space20"}
         variant={variant}
         ref={ref}
         {...badgeStyles}
       >
-        {variant === 'error_counter' ? <ErrorIcon element={`${element}_ICON`} decorative size="sizeIcon10" /> : null}
+        {variant === "error_counter" ? <ErrorIcon element={`${element}_ICON`} decorative size="sizeIcon10" /> : null}
         {resizedChildren}
       </Box>
     );
   },
 );
 
-Badge.displayName = 'Badge';
+Badge.displayName = "Badge";

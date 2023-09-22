@@ -1,12 +1,12 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { css, styled } from '@twilio-paste/styling-library';
-import type { ThemeShape } from '@twilio-paste/theme';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
+import type { ThemeShape } from "@twilio-paste/theme";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { SidebarContext } from '../SidebarContext';
-import { SidebarNavigationContext } from './SidebarNavigationContext';
+import { SidebarContext } from "../SidebarContext";
+import { SidebarNavigationContext } from "./SidebarNavigationContext";
 
 /**
  * This wrapper applies styles that customize the scrollbar and its track,
@@ -17,45 +17,45 @@ const SidebarNavigationWrapper = styled.nav(({ theme }: { theme: ThemeShape }) =
   const { colorBackgroundInverse, colorBackgroundInverseStronger } = theme.backgroundColors;
 
   return css({
-    overflowScrolling: 'touch',
+    overflowScrolling: "touch",
     // CSS magic to apply shadow on top and bottom of container when they scroll
     background: `linear-gradient(${colorBackgroundInverse} 33%, rgba(20,28,44, 0)),
     linear-gradient(rgba(20,28,44, 0), ${colorBackgroundInverse} 66%) 0 100%,
     radial-gradient(farthest-side at 50% 100%, rgba(57, 71, 98, 0.5), rgba(0,0,0,0)) 0 100%`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: '100% 15px, 100% 15px, 100% 5px, 100% 5px',
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "100% 15px, 100% 15px, 100% 5px, 100% 5px",
     backgroundAttachment: `local, local, scroll, scroll`,
     // Scrollbar
-    '::-webkit-scrollbar': {
-      width: '6px',
+    "::-webkit-scrollbar": {
+      width: "6px",
     },
     // Track
-    '::-webkit-scrollbar-track': {
-      marginTop: '8px',
+    "::-webkit-scrollbar-track": {
+      marginTop: "8px",
       background: colorBackgroundInverse,
     },
     // Handle
-    '::-webkit-scrollbar-thumb': {
+    "::-webkit-scrollbar-thumb": {
       background: colorBackgroundInverseStronger,
-      borderRadius: '10px',
+      borderRadius: "10px",
     },
     // Handle on hover
-    '::-webkit-scrollbar-thumb:hover': {
+    "::-webkit-scrollbar-thumb:hover": {
       background: colorBackgroundInverseStronger,
     },
   });
 });
 
-export interface SidebarNavigationProps extends HTMLPasteProps<'div'> {
+export interface SidebarNavigationProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
-  'aria-label': string;
-  element?: BoxProps['element'];
+  "aria-label": string;
+  element?: BoxProps["element"];
   hideItemsOnCollapse?: boolean;
   hierarchical?: boolean;
 }
 
 export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigationProps>(
-  ({ element = 'SIDEBAR_NAVIGATION', hideItemsOnCollapse = false, hierarchical = false, children, ...props }, ref) => {
+  ({ element = "SIDEBAR_NAVIGATION", hideItemsOnCollapse = false, hierarchical = false, children, ...props }, ref) => {
     const { collapsed, sidebarNavigationSkipLinkID } = React.useContext(SidebarContext);
 
     return (
@@ -69,7 +69,7 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
           {...safelySpreadBoxProps(props)}
           as={SidebarNavigationWrapper as any}
           id={sidebarNavigationSkipLinkID}
-          aria-label={props['aria-label']}
+          aria-label={props["aria-label"]}
           element={element}
           ref={ref}
           transition="opacity 150ms ease"
@@ -78,7 +78,7 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
           overflowX="hidden"
           paddingY="space50"
           paddingLeft="space60"
-          paddingRight={collapsed ? 'space40' : 'space60'}
+          paddingRight={collapsed ? "space40" : "space60"}
           flexGrow={1}
         >
           {children}
@@ -87,4 +87,4 @@ export const SidebarNavigation = React.forwardRef<HTMLDivElement, SidebarNavigat
     );
   },
 );
-SidebarNavigation.displayName = 'SidebarNavigation';
+SidebarNavigation.displayName = "SidebarNavigation";

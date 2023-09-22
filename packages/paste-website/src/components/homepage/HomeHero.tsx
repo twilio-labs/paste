@@ -1,19 +1,19 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { Badge } from '@twilio-paste/badge';
-import { Box } from '@twilio-paste/box';
-import { Column, Grid } from '@twilio-paste/grid';
-import { ArrowForwardIcon } from '@twilio-paste/icons/esm/ArrowForwardIcon';
-import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import { Badge } from "@twilio-paste/badge";
+import { Box } from "@twilio-paste/box";
+import { Column, Grid } from "@twilio-paste/grid";
+import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-import { SITE_CONTENT_MAX_WIDTH } from '../../constants';
-import { event } from '../../lib/gtag';
-import { SlantedBackgroundGradient } from '../SlantedBackgroundGradient';
-import { HomeHeroIllustration } from './HomeHeroIllustration';
-import { NewComponentBanner } from './NewComponentBanner';
-import { NewComponentBannerLink } from './NewComponentBannerLink';
-import { NewComponentBannerText } from './NewComponentBannerText';
+import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { event } from "../../lib/gtag";
+import { SlantedBackgroundGradient } from "../SlantedBackgroundGradient";
+import { HomeHeroIllustration } from "./HomeHeroIllustration";
+import { NewComponentBanner } from "./NewComponentBanner";
+import { NewComponentBannerLink } from "./NewComponentBannerLink";
+import { NewComponentBannerText } from "./NewComponentBannerText";
 
 const SeeRoadmapAnchor = (): JSX.Element => {
   const [hovered, setHovered] = React.useState(false);
@@ -34,9 +34,9 @@ const SeeRoadmapAnchor = (): JSX.Element => {
         onMouseLeave={handleMouseLeave}
         onClick={() =>
           event({
-            category: 'Hero',
-            action: 'click-see-roadmap',
-            label: 'See our roadmap',
+            category: "Hero",
+            action: "click-see-roadmap",
+            label: "See our roadmap",
           })
         }
       >
@@ -45,7 +45,7 @@ const SeeRoadmapAnchor = (): JSX.Element => {
       <Box
         as="span"
         display="flex"
-        transform={hovered ? 'translateY(1px) translateX(4px)' : 'translateY(1px) translateX(0)'}
+        transform={hovered ? "translateY(1px) translateX(4px)" : "translateY(1px) translateX(0)"}
         transition="all 100ms ease"
       >
         <ArrowForwardIcon decorative display="inline-block" size="sizeIcon40" />
@@ -57,9 +57,9 @@ const SeeRoadmapAnchor = (): JSX.Element => {
 const HomeHero = (): JSX.Element => {
   return (
     <Box
-      paddingX={['space90', 'space180']}
-      paddingTop={['space90', 'space200']}
-      paddingBottom={['space90', 'space160', 'space160']}
+      paddingX={["space90", "space180"]}
+      paddingTop={["space90", "space200"]}
+      paddingBottom={["space90", "space160", "space160"]}
       position="relative"
     >
       <SlantedBackgroundGradient skewAngle={0} startColor="colorBackgroundBrandStrong" endColor="colorBackgroundBrand">
@@ -82,9 +82,9 @@ const HomeHero = (): JSX.Element => {
                   href="/page-templates"
                   onClick={() =>
                     event({
-                      category: 'Hero',
-                      action: 'click-new-banner',
-                      label: 'Page templates announcement',
+                      category: "Hero",
+                      action: "click-new-banner",
+                      label: "Page templates announcement",
                     })
                   }
                 >
@@ -95,15 +95,15 @@ const HomeHero = (): JSX.Element => {
                 as="h1"
                 color="colorTextInverse"
                 fontFamily="fontFamilyDisplay"
-                fontSize={['fontSizeDisplay10', 'fontSizeDisplay20', 'fontSizeDisplay20', 'fontSizeDisplay30']}
+                fontSize={["fontSizeDisplay10", "fontSizeDisplay20", "fontSizeDisplay20", "fontSizeDisplay30"]}
                 fontWeight="fontWeightExtrabold"
                 lineHeight={[
-                  'lineHeightDisplay10',
-                  'lineHeightDisplay20',
-                  'lineHeightDisplay20',
-                  'lineHeightDisplay30',
+                  "lineHeightDisplay10",
+                  "lineHeightDisplay20",
+                  "lineHeightDisplay20",
+                  "lineHeightDisplay30",
                 ]}
-                marginTop={['space80', 'space120']}
+                marginTop={["space80", "space120"]}
               >
                 Build inclusive, delightful Twilio customer experiences with Paste.
               </Text>

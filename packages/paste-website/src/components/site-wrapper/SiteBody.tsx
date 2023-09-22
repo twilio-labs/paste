@@ -1,5 +1,5 @@
-import { Box } from '@twilio-paste/box';
-import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { Box } from "@twilio-paste/box";
+import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
 import {
   Sidebar,
   SidebarBody,
@@ -9,12 +9,12 @@ import {
   SidebarHeaderIconButton,
   SidebarHeaderLabel,
   SidebarPushContentWrapper,
-} from '@twilio-paste/sidebar';
-import { type CSSObject, StylingGlobals } from '@twilio-paste/styling-library';
-import { useTheme } from '@twilio-paste/theme';
-import { useWindowSize } from '@twilio-paste/utils';
-import { useRouter } from 'next/router';
-import * as React from 'react';
+} from "@twilio-paste/sidebar";
+import { type CSSObject, StylingGlobals } from "@twilio-paste/styling-library";
+import { useTheme } from "@twilio-paste/theme";
+import { useWindowSize } from "@twilio-paste/utils";
+import { useRouter } from "next/router";
+import * as React from "react";
 
 import {
   PASTE_DOCS_CONTENT_AREA,
@@ -23,19 +23,19 @@ import {
   SITE_TOPBAR_HEIGHT,
   TOKEN_LIST_PAGE_REGEX,
   TOKEN_STICKY_FILTER_HEIGHT,
-} from '../../constants';
-import { docSearchStyles, docSearchVariable } from '../../styles/docSearch';
-import { SiteMain } from './SiteMain';
-import { SidebarNavigation } from './sidebar/SidebarNavigation';
-import { SiteFooter } from './site-footer';
-import { SiteHeader } from './site-header';
+} from "../../constants";
+import { docSearchStyles, docSearchVariable } from "../../styles/docSearch";
+import { SiteMain } from "./SiteMain";
+import { SidebarNavigation } from "./sidebar/SidebarNavigation";
+import { SiteFooter } from "./site-footer";
+import { SiteHeader } from "./site-header";
 
 // height of the topbar plus a little extra whitespace
 const defaultScrollOffset = `calc(${SITE_TOPBAR_HEIGHT}px + 24px)`;
 
 const GlobalScrollBehaviourStyles = (scrollOffset = defaultScrollOffset): CSSObject => ({
   html: {
-    scrollBehavior: 'smooth',
+    scrollBehavior: "smooth",
     // compensate for the sticky topbar, this offset allows for the jump to links to keep the headings in view when you jump to the section
     scrollPaddingTop: scrollOffset,
   },
@@ -107,7 +107,7 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({ children }) => {
        * when it's not mounted we use a transparent sidebar on small screens, after it's mounted we switch to visible,
        * but transition it and delay the transistion start. For desktop, we start visible and never transition.
        */}
-      <Box opacity={[!mounted ? '0' : '1', '1']} transitionDelay="50ms" transition="opacity 150ms ease">
+      <Box opacity={[!mounted ? "0" : "1", "1"]} transitionDelay="50ms" transition="opacity 150ms ease">
         <Sidebar
           variant="default"
           collapsed={sidebarCollapsed}

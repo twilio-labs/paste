@@ -1,28 +1,28 @@
-import { Box } from '@twilio-paste/box';
-import { Column, Grid } from '@twilio-paste/grid';
-import { Heading } from '@twilio-paste/heading';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { Text } from '@twilio-paste/text';
-import { useTheme } from '@twilio-paste/theme';
-import Image from 'next/image';
+import { Box } from "@twilio-paste/box";
+import { Column, Grid } from "@twilio-paste/grid";
+import { Heading } from "@twilio-paste/heading";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import Image from "next/image";
 
-import HomeButtonIllustration from '../../assets/illustrations/home_button_illustration.svg';
-import HomeComboboxIllustration from '../../assets/illustrations/home_combobox_illustration.svg';
-import { event } from '../../lib/gtag';
-import { SiteLink } from '../SiteLink';
-import ComponentsIcon from '../icons/ComponentsIcon';
+import HomeButtonIllustration from "../../assets/illustrations/home_button_illustration.svg";
+import HomeComboboxIllustration from "../../assets/illustrations/home_combobox_illustration.svg";
+import { event } from "../../lib/gtag";
+import { SiteLink } from "../SiteLink";
+import ComponentsIcon from "../icons/ComponentsIcon";
 import {
   ComponentCard,
   ComponentCardFooter,
   ComponentCardHeader,
   ComponentCardIllustration,
-} from './PopularComponentCard';
+} from "./PopularComponentCard";
 
 const PopularComponents = (): JSX.Element => {
   const theme = useTheme();
 
   return (
-    <Box marginBottom={['space130', 'space0']}>
+    <Box marginBottom={["space130", "space0"]}>
       <Box textAlign="center">
         <Box
           alignItems="center"
@@ -72,14 +72,14 @@ const PopularComponents = (): JSX.Element => {
       </Grid>
       <Box textAlign="center" marginTop="space20" marginBottom="space60">
         <Text as="span" fontWeight="fontWeightSemibold">
-          Explore{' '}
+          Explore{" "}
           <SiteLink
             href="/components"
             onClick={() =>
               event({
-                category: 'Popular',
-                action: 'click-all-components',
-                label: 'Explore all components',
+                category: "Popular",
+                action: "click-all-components",
+                label: "Explore all components",
               })
             }
           >

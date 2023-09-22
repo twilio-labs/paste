@@ -1,11 +1,11 @@
-import { Box } from '@twilio-paste/box';
-import { Checkbox, CheckboxGroup } from '@twilio-paste/checkbox';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { useUIDSeed } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from '../../src';
-import { TableBodyData, TableHeaderData } from './constants';
+import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from "../../src";
+import { TableBodyData, TableHeaderData } from "./constants";
 
 interface CheckboxCellProps {
   onClick: (checked: boolean) => void;
@@ -96,7 +96,7 @@ export const SelectableRowsDataGrid = (): JSX.Element => {
                   const newCheckedItems = checkedItems.map(() => checked);
                   setCheckedItems(newCheckedItems);
                 }}
-                id={seed('select-all')}
+                id={seed("select-all")}
                 checked={allChecked}
                 indeterminate={indeterminate}
                 label="Select all"

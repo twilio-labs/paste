@@ -1,36 +1,36 @@
-import { Box } from '@twilio-paste/box';
-import { HelpText } from '@twilio-paste/help-text';
-import type { HelpTextVariants } from '@twilio-paste/help-text';
-import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
-import type { InputVariants } from '@twilio-paste/input';
-import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '@twilio-paste/input-box';
-import { Label } from '@twilio-paste/label';
-import { Portal } from '@twilio-paste/reakit-library';
-import { useUID } from '@twilio-paste/uid-library';
-import { useWindowSize } from '@twilio-paste/utils';
-import * as React from 'react';
-import { useVirtual } from 'react-virtual';
+import { Box } from "@twilio-paste/box";
+import { HelpText } from "@twilio-paste/help-text";
+import type { HelpTextVariants } from "@twilio-paste/help-text";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import type { InputVariants } from "@twilio-paste/input";
+import { InputBox, InputChevronWrapper, getInputChevronIconColor } from "@twilio-paste/input-box";
+import { Label } from "@twilio-paste/label";
+import { Portal } from "@twilio-paste/reakit-library";
+import { useUID } from "@twilio-paste/uid-library";
+import { useWindowSize } from "@twilio-paste/utils";
+import * as React from "react";
+import { useVirtual } from "react-virtual";
 
-import { ComboboxItems } from '../ComboboxItems';
-import { ListBoxPositioner } from '../ListboxPositioner';
-import { visuallyHiddenStyles } from '../helpers';
-import { ComboboxInputSelect } from '../styles/ComboboxInputSelect';
-import { ComboboxInputWrapper } from '../styles/ComboboxInputWrapper';
-import { ComboboxListbox } from '../styles/ComboboxListbox';
-import type { ComboboxProps } from '../types';
-import { extractPropsFromState } from './extractPropsFromState';
+import { ComboboxItems } from "../ComboboxItems";
+import { ListBoxPositioner } from "../ListboxPositioner";
+import { visuallyHiddenStyles } from "../helpers";
+import { ComboboxInputSelect } from "../styles/ComboboxInputSelect";
+import { ComboboxInputWrapper } from "../styles/ComboboxInputWrapper";
+import { ComboboxListbox } from "../styles/ComboboxListbox";
+import type { ComboboxProps } from "../types";
+import { extractPropsFromState } from "./extractPropsFromState";
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
-  if (hasError && variant === 'inverse') {
-    return 'error_inverse';
+  if (hasError && variant === "inverse") {
+    return "error_inverse";
   }
   if (hasError) {
-    return 'error';
+    return "error";
   }
-  if (variant === 'inverse') {
-    return 'inverse';
+  if (variant === "inverse") {
+    return "inverse";
   }
-  return 'default';
+  return "default";
 };
 
 const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
@@ -38,7 +38,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
     {
       autocomplete,
       disabled,
-      element = 'COMBOBOX',
+      element = "COMBOBOX",
       hasError,
       hideVisibleLabel,
       helpText,
@@ -60,7 +60,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       selectedItem,
       groupItemsBy,
       groupLabelTemplate,
-      variant = 'default',
+      variant = "default",
       emptyState,
       getA11yStatusMessage,
       getA11ySelectionMessage,
@@ -114,7 +114,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
       isOpen === undefined
     ) {
       throw new Error(
-        '[Combobox]: One of getComboboxProps, getInputProps, getItemProps, getLabelProps, getMenuProps, getToggleButtonProps, highlightedIndex or isOpen is missing from the state object. Please make sure this is provided.',
+        "[Combobox]: One of getComboboxProps, getInputProps, getItemProps, getLabelProps, getMenuProps, getToggleButtonProps, highlightedIndex or isOpen is missing from the state object. Please make sure this is provided.",
       );
     }
 
@@ -159,7 +159,7 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
           variant={variant}
           ref={inputBoxRef}
         >
-          <ComboboxInputWrapper {...getComboboxProps({ role: 'combobox' })}>
+          <ComboboxInputWrapper {...getComboboxProps({ role: "combobox" })}>
             <ComboboxInputSelect
               {...getToggleButtonProps({ tabIndex: 0 })}
               // we spread props into `getInputProps` so that Downshift handles events correctly
@@ -210,6 +210,6 @@ const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
   },
 );
 
-Combobox.displayName = 'Combobox';
+Combobox.displayName = "Combobox";
 
 export { Combobox };

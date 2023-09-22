@@ -1,17 +1,17 @@
-import { Box } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { useClipboard } from '@twilio-paste/clipboard-copy-library';
-import { CopyIcon } from '@twilio-paste/icons/esm/CopyIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { Tooltip, useTooltipState } from '@twilio-paste/tooltip';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { useClipboard } from "@twilio-paste/clipboard-copy-library";
+import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
+import * as React from "react";
 
 interface CopyButtonProps {
   text: string;
   i18nCopyLabelBefore?: string;
   i18nCopyLabelAfter?: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   copyTextFormatter?: (code: string) => string;
 }
 
@@ -23,9 +23,9 @@ export const getCopyButtonText = (labelBefore: string, labelAfter: string) => {
 
 export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
   text,
-  i18nCopyLabelBefore = 'Copy code block',
-  i18nCopyLabelAfter = 'Copied!',
-  element = 'COPY_BUTTON',
+  i18nCopyLabelBefore = "Copy code block",
+  i18nCopyLabelAfter = "Copied!",
+  element = "COPY_BUTTON",
   copyTextFormatter,
 }) => {
   const tooltipState = useTooltipState();
@@ -75,4 +75,4 @@ export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
   );
 };
 
-CopyButton.displayName = 'CopyButton';
+CopyButton.displayName = "CopyButton";

@@ -1,6 +1,6 @@
-import type { ResponsiveValue } from '@twilio-paste/styling-library';
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
 // https://styled-system.com/api/#flexbox
-import type { Globals, Properties } from 'csstype';
+import type { Globals, Properties } from "csstype";
 
 /**
  * The CSS align-items property sets the align-self value on all direct children as a group. The align-self
@@ -13,11 +13,11 @@ import type { Globals, Properties } from 'csstype';
  */
 export type AlignItemsOptions =
   | Globals
-  | Properties['alignSelf']
-  | Properties['position']
-  | 'baseline'
-  | 'normal'
-  | 'stretch';
+  | Properties["alignSelf"]
+  | Properties["position"]
+  | "baseline"
+  | "normal"
+  | "stretch";
 export type AlignItems = ResponsiveValue<AlignItemsOptions>;
 
 /**
@@ -26,7 +26,7 @@ export type AlignItems = ResponsiveValue<AlignItemsOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
  */
-export type AlignContentOptions = Globals | Properties['alignSelf'] | Properties['position'] | 'baseline' | 'normal';
+export type AlignContentOptions = Globals | Properties["alignSelf"] | Properties["position"] | "baseline" | "normal";
 export type AlignContent = ResponsiveValue<AlignContentOptions>;
 
 /**
@@ -37,13 +37,13 @@ export type AlignContent = ResponsiveValue<AlignContentOptions>;
  */
 export type JustifyItemsOptions =
   | Globals
-  | Properties['justifySelf']
-  | 'baseline'
-  | 'left'
-  | 'legacy'
-  | 'normal'
-  | 'right'
-  | 'stretch';
+  | Properties["justifySelf"]
+  | "baseline"
+  | "left"
+  | "legacy"
+  | "normal"
+  | "right"
+  | "stretch";
 export type JustifyItems = ResponsiveValue<JustifyItemsOptions>;
 
 /**
@@ -54,11 +54,11 @@ export type JustifyItems = ResponsiveValue<JustifyItemsOptions>;
  */
 export type JustifyContentOptions =
   | Globals
-  | Properties['justifyContent']
-  | Properties['position']
-  | 'left'
-  | 'normal'
-  | 'right';
+  | Properties["justifyContent"]
+  | Properties["position"]
+  | "left"
+  | "normal"
+  | "right";
 export type JustifyContent = ResponsiveValue<JustifyContentOptions>;
 
 /**
@@ -67,7 +67,7 @@ export type JustifyContent = ResponsiveValue<JustifyContentOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
  */
-export type FlexWrapOptions = Properties['flexWrap'];
+export type FlexWrapOptions = Properties["flexWrap"];
 export type FlexWrap = ResponsiveValue<FlexWrapOptions>;
 
 /*
@@ -76,7 +76,7 @@ export type FlexWrap = ResponsiveValue<FlexWrapOptions>;
  *       Not sure there’s a way to still have the union values show up as
  *       auto-completion results.
  */
-export type FlexBasisOptions = Properties['flexBasis'];
+export type FlexBasisOptions = Properties["flexBasis"];
 export type FlexBasis = ResponsiveValue<FlexBasisOptions>;
 
 /**
@@ -85,7 +85,7 @@ export type FlexBasis = ResponsiveValue<FlexBasisOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
  */
-export type FlexDirectionOptions = Properties['flexDirection'];
+export type FlexDirectionOptions = Properties["flexDirection"];
 export type FlexDirection = ResponsiveValue<FlexDirectionOptions>;
 
 /**
@@ -94,7 +94,7 @@ export type FlexDirection = ResponsiveValue<FlexDirectionOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
  */
-export type FlexOptions = Properties['flex'];
+export type FlexOptions = Properties["flex"];
 export type Flex = ResponsiveValue<FlexOptions>;
 
 /**
@@ -105,16 +105,16 @@ export type Flex = ResponsiveValue<FlexOptions>;
  */
 export type JustifySelfOptions =
   | Globals
-  | Properties['position']
-  | 'auto'
-  | 'baseline'
-  | 'left'
-  | 'normal'
-  | 'right'
-  | 'stretch'
+  | Properties["position"]
+  | "auto"
+  | "baseline"
+  | "left"
+  | "normal"
+  | "right"
+  | "stretch"
   | string;
 export type JustifySelf =
-  | ResponsiveValue<Globals | Properties['position'] | 'auto' | 'baseline' | 'left' | 'normal' | 'right' | 'stretch'>
+  | ResponsiveValue<Globals | Properties["position"] | "auto" | "baseline" | "left" | "normal" | "right" | "stretch">
   | ResponsiveValue<string>;
 
 /**
@@ -125,9 +125,9 @@ export type JustifySelf =
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
  */
-export type AlignSelfOptions = Globals | Properties['position'] | 'auto' | 'baseline' | 'normal' | 'stretch' | string;
+export type AlignSelfOptions = Globals | Properties["position"] | "auto" | "baseline" | "normal" | "stretch" | string;
 export type AlignSelf =
-  | ResponsiveValue<Globals | Properties['position'] | 'auto' | 'baseline' | 'normal' | 'stretch'>
+  | ResponsiveValue<Globals | Properties["position"] | "auto" | "baseline" | "normal" | "stretch">
   | ResponsiveValue<string>;
 
 /**

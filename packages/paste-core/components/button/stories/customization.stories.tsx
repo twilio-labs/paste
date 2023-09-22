@@ -1,33 +1,33 @@
-import type { StoryFn } from '@storybook/react';
-import type { BoxElementProps } from '@twilio-paste/box';
-import { Card } from '@twilio-paste/card';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { Heading } from '@twilio-paste/heading';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import type { BoxElementProps } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import type { PasteCustomCSS } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Button } from '../src';
-import type { ButtonVariants } from '../src/types';
+import { Button } from "../src";
+import type { ButtonVariants } from "../src/types";
 
 const customButtonStyles = {
-  backgroundColor: 'colorBackgroundBrand',
-  borderRadius: 'borderRadius0',
-  borderWidth: 'borderWidth40',
-  borderColor: 'colorBorderError',
-  fontWeight: 'fontWeightLight',
+  backgroundColor: "colorBackgroundBrand",
+  borderRadius: "borderRadius0",
+  borderWidth: "borderWidth40",
+  borderColor: "colorBorderError",
+  fontWeight: "fontWeightLight",
   variants: {
-    secondary: { backgroundColor: 'colorBackgroundNew' },
-    destructive: { backgroundColor: 'colorBackgroundDestructiveStrongest', color: 'colorTextWeakest' },
-    destructive_secondary: { backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong' },
-    link: { padding: 'space40', borderRadius: 'borderRadiusCircle', backgroundColor: 'colorBackgroundNeutralWeakest' },
+    secondary: { backgroundColor: "colorBackgroundNew" },
+    destructive: { backgroundColor: "colorBackgroundDestructiveStrongest", color: "colorTextWeakest" },
+    destructive_secondary: { backgroundColor: "colorBackgroundNeutralWeakest", color: "colorTextWarningStrong" },
+    link: { padding: "space40", borderRadius: "borderRadiusCircle", backgroundColor: "colorBackgroundNeutralWeakest" },
     destructive_link: {
-      padding: 'space40',
-      borderRadius: 'borderRadiusCircle',
-      backgroundColor: 'colorBackgroundDestructiveWeak',
-      color: 'colorTextWarningStrong',
-      fontWeight: 'fontWeightBold',
+      padding: "space40",
+      borderRadius: "borderRadiusCircle",
+      backgroundColor: "colorBackgroundDestructiveWeak",
+      color: "colorTextWarningStrong",
+      fontWeight: "fontWeightBold",
     },
   },
 } as PasteCustomCSS;
@@ -75,8 +75,8 @@ const ShowCustomization: React.FC<
 };
 
 export const AnyButton: React.FC<
-  React.PropsWithChildren<{ element?: BoxElementProps['element']; variant: ButtonVariants }>
-> = ({ element = 'BUTTON', variant }) => (
+  React.PropsWithChildren<{ element?: BoxElementProps["element"]; variant: ButtonVariants }>
+> = ({ element = "BUTTON", variant }) => (
   <Button variant={variant} element={element} data-testid="button_for_customization">
     Click me
   </Button>
@@ -132,8 +132,8 @@ export const CustomizedDestructiveLinkButton: StoryFn = (_args, { parameters: { 
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Button/Customization',
-  excludeStories: ['AnyButton'],
+  title: "Components/Button/Customization",
+  excludeStories: ["AnyButton"],
   parameters: {
     a11y: {
       // no need to a11y check customization

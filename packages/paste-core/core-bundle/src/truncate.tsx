@@ -1,1 +1,1 @@
-export * from '@twilio-paste/truncate';
+export * from "@twilio-paste/truncate";

@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface OrderedListIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface OrderedListIconProps extends IconWrapperProps {
 }
 
 const OrderedListIcon = React.forwardRef<HTMLElement, OrderedListIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `OrderedListIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[OrderedListIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[OrderedListIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -43,5 +43,5 @@ const OrderedListIcon = React.forwardRef<HTMLElement, OrderedListIconProps>(
   },
 );
 
-OrderedListIcon.displayName = 'OrderedListIcon';
+OrderedListIcon.displayName = "OrderedListIcon";
 export { OrderedListIcon };

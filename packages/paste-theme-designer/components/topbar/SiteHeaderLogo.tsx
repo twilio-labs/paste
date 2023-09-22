@@ -1,13 +1,13 @@
-import { Box } from '@twilio-paste/core/box';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/core/media-object';
-import { styled } from '@twilio-paste/core/styling-library';
-import { Text } from '@twilio-paste/core/text';
-import { useTheme } from '@twilio-paste/core/theme';
-import Link from 'next/link';
-import * as React from 'react';
+import { Box } from "@twilio-paste/core/box";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/core/media-object";
+import { styled } from "@twilio-paste/core/styling-library";
+import { Text } from "@twilio-paste/core/text";
+import { useTheme } from "@twilio-paste/core/theme";
+import Link from "next/link";
+import * as React from "react";
 
-import { BetaBadge } from './BetaBadge';
-import { PasteIconInverse } from './PasteIconInverse';
+import { BetaBadge } from "./BetaBadge";
+import { PasteIconInverse } from "./PasteIconInverse";
 
 const StyledA = styled(Link)`
   text-decoration: none;
@@ -35,10 +35,10 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
       alignItems="center"
       paddingX="space70"
       paddingY="space50"
-      minWidth={subtitle ? 'sizeSidebar' : 'size0'}
+      minWidth={subtitle ? "sizeSidebar" : "size0"}
     >
       <MediaObject verticalAlign="center">
-        <MediaFigure spacing={subtitle ? 'space40' : 'space0'}>
+        <MediaFigure spacing={subtitle ? "space40" : "space0"}>
           <PasteIconInverse color={theme.textColors.colorTextInverse} display="block" size={42} />
         </MediaFigure>
         <MediaBody>

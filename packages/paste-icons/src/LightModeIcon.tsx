@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface LightModeIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface LightModeIconProps extends IconWrapperProps {
 }
 
 const LightModeIcon = React.forwardRef<HTMLElement, LightModeIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `LightModeIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[LightModeIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[LightModeIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -53,5 +53,5 @@ const LightModeIcon = React.forwardRef<HTMLElement, LightModeIconProps>(
   },
 );
 
-LightModeIcon.displayName = 'LightModeIcon';
+LightModeIcon.displayName = "LightModeIcon";
 export { LightModeIcon };

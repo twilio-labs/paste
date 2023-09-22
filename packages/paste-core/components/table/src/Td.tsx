@@ -1,9 +1,9 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import type { TdProps } from './types';
+import type { TdProps } from "./types";
 
-const Td = React.forwardRef<HTMLTableCellElement, TdProps>(({ element = 'TD', textAlign = 'left', ...props }, ref) => {
+const Td = React.forwardRef<HTMLTableCellElement, TdProps>(({ element = "TD", textAlign = "left", ...props }, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -26,6 +26,6 @@ const Td = React.forwardRef<HTMLTableCellElement, TdProps>(({ element = 'TD', te
   );
 });
 
-Td.displayName = 'Td';
+Td.displayName = "Td";
 
 export { Td };

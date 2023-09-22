@@ -1,7 +1,7 @@
-import { animated, useSpring } from '@twilio-paste/animation-library';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
+import { animated, useSpring } from "@twilio-paste/animation-library";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
 const dashArray = 260;
 

@@ -1,9 +1,9 @@
-import { InlineControlGroup } from '@twilio-paste/inline-control-group';
-import type { InlineControlGroupProps } from '@twilio-paste/inline-control-group';
-import * as React from 'react';
+import { InlineControlGroup } from "@twilio-paste/inline-control-group";
+import type { InlineControlGroupProps } from "@twilio-paste/inline-control-group";
+import * as React from "react";
 
-import type { CheckboxProps } from './Checkbox';
-import { CheckboxContext } from './CheckboxContext';
+import type { CheckboxProps } from "./Checkbox";
+import { CheckboxContext } from "./CheckboxContext";
 
 export interface CheckboxGroupProps extends InlineControlGroupProps {
   isSelectAll?: boolean;
@@ -16,14 +16,14 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
   (
     {
       children,
-      element = 'CHECKBOX_GROUP',
+      element = "CHECKBOX_GROUP",
       disabled = false,
       errorText,
       isSelectAll = false,
       name,
       onChange,
-      orientation = 'vertical',
-      i18nRequiredLabel = '(required)',
+      orientation = "vertical",
+      i18nRequiredLabel = "(required)",
       ...props
     },
     ref,
@@ -62,7 +62,7 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
             return React.isValidElement(child)
               ? React.cloneElement(child as React.ReactElement<CheckboxProps>, {
                   isSelectAll: isSelectAll && index === 0,
-                  isSelectAllChild: isSelectAll && orientation === 'vertical' && index !== 0,
+                  isSelectAllChild: isSelectAll && orientation === "vertical" && index !== 0,
                 })
               : child;
           })}
@@ -72,6 +72,6 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
   },
 );
 
-CheckboxGroup.displayName = 'CheckboxGroup';
+CheckboxGroup.displayName = "CheckboxGroup";
 
 export { CheckboxGroup };

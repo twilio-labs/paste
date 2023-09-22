@@ -1,32 +1,32 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxElementProps, BoxStyleProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import { MessageVariantContext } from './MessageVariantContext';
-import type { MessageVariants } from './MessageVariantContext';
+import { MessageVariantContext } from "./MessageVariantContext";
+import type { MessageVariants } from "./MessageVariantContext";
 
 export interface ChatMessageProps {
   children?: React.ReactNode;
   variant: MessageVariants;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
 }
 
 const messageVariantStyles: {
   [key in MessageVariants]: {
-    marginLeft?: BoxStyleProps['marginLeft'];
-    marginRight?: BoxStyleProps['marginRight'];
+    marginLeft?: BoxStyleProps["marginLeft"];
+    marginRight?: BoxStyleProps["marginRight"];
   };
 } = {
   inbound: {
-    marginRight: 'space70',
+    marginRight: "space70",
   },
   outbound: {
-    marginLeft: 'space70',
+    marginLeft: "space70",
   },
 };
 
 export const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
-  ({ children, variant, element = 'CHAT_MESSAGE', ...props }, ref) => {
+  ({ children, variant, element = "CHAT_MESSAGE", ...props }, ref) => {
     return (
       <MessageVariantContext.Provider value={variant}>
         <Box
@@ -46,4 +46,4 @@ export const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
   },
 );
 
-ChatMessage.displayName = 'ChatMessage';
+ChatMessage.displayName = "ChatMessage";

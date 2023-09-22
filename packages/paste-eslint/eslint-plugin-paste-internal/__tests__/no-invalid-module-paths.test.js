@@ -1,13 +1,13 @@
-import { RuleTester } from 'eslint';
+import { RuleTester } from "eslint";
 
-import rule from '../src/rules/no-invalid-module-paths';
+import rule from "../src/rules/no-invalid-module-paths";
 
 const ruleTester = new RuleTester({
-  parser: require.resolve('@typescript-eslint/parser'),
+  parser: require.resolve("@typescript-eslint/parser"),
 });
 const { src } = rule.meta.messages;
 
-ruleTester.run('no-invalid-module-paths', rule, {
+ruleTester.run("no-invalid-module-paths", rule, {
   valid: [
     // @twilio-paste *value* level module paths that *do not* contain src
     { code: 'import {ButtonToggleStyles} from "@twilio-paste/button"' },

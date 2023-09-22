@@ -1,48 +1,48 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
-import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
-import { NeutralIcon } from '@twilio-paste/icons/esm/NeutralIcon';
-import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
-import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
-import { WarningIcon } from '@twilio-paste/icons/esm/WarningIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { NeutralIcon } from "@twilio-paste/icons/esm/NeutralIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import * as React from "react";
 
-type CalloutVariants = 'neutral' | 'warning' | 'error' | 'success' | 'new';
+type CalloutVariants = "neutral" | "warning" | "error" | "success" | "new";
 
-export interface CalloutProps extends Partial<Omit<HTMLDivElement, 'children'>> {
+export interface CalloutProps extends Partial<Omit<HTMLDivElement, "children">> {
   children?: React.ReactNode;
   variant: CalloutVariants;
   i18nLabel?: string;
-  element?: BoxProps['element'];
-  marginY?: BoxStyleProps['marginY'];
+  element?: BoxProps["element"];
+  marginY?: BoxStyleProps["marginY"];
 }
 
 const variantStyles: Record<CalloutVariants, BoxStyleProps> = {
   success: {
-    backgroundColor: 'colorBackgroundSuccessWeakest',
-    color: 'colorTextSuccess',
-    borderColor: 'colorBorderSuccessWeaker',
+    backgroundColor: "colorBackgroundSuccessWeakest",
+    color: "colorTextSuccess",
+    borderColor: "colorBorderSuccessWeaker",
   },
   error: {
-    backgroundColor: 'colorBackgroundErrorWeakest',
-    color: 'colorTextError',
-    borderColor: 'colorBorderErrorWeaker',
+    backgroundColor: "colorBackgroundErrorWeakest",
+    color: "colorTextError",
+    borderColor: "colorBorderErrorWeaker",
   },
   warning: {
-    backgroundColor: 'colorBackgroundWarningWeakest',
-    color: 'colorTextWarningStrong',
-    borderColor: 'colorBorderWarningWeaker',
+    backgroundColor: "colorBackgroundWarningWeakest",
+    color: "colorTextWarningStrong",
+    borderColor: "colorBorderWarningWeaker",
   },
   new: {
-    backgroundColor: 'colorBackgroundNewWeakest',
-    color: 'colorTextNew',
-    borderColor: 'colorBorderNewWeaker',
+    backgroundColor: "colorBackgroundNewWeakest",
+    color: "colorTextNew",
+    borderColor: "colorBorderNewWeaker",
   },
   neutral: {
-    backgroundColor: 'colorBackgroundNeutralWeakest',
-    color: 'colorTextNeutral',
-    borderColor: 'colorBorderNeutralWeaker',
+    backgroundColor: "colorBackgroundNeutralWeakest",
+    color: "colorTextNeutral",
+    borderColor: "colorBorderNeutralWeaker",
   },
 };
 
@@ -55,15 +55,15 @@ const variantIcons: Record<CalloutVariants, React.ReactElement> = {
 };
 
 const defaultIconLabels: Record<CalloutVariants, string> = {
-  success: '(success)',
-  error: '(error)',
-  warning: '(warning)',
-  new: '(new)',
-  neutral: '(information)',
+  success: "(success)",
+  error: "(error)",
+  warning: "(warning)",
+  new: "(new)",
+  neutral: "(information)",
 };
 
 export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
-  ({ children, variant, element = 'CALLOUT', i18nLabel, marginY, ...props }, ref) => {
+  ({ children, variant, element = "CALLOUT", i18nLabel, marginY, ...props }, ref) => {
     const IconComponent = variantIcons[variant];
     const iconLabel = i18nLabel ? i18nLabel : defaultIconLabels[variant];
 
@@ -93,4 +93,4 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
   },
 );
 
-Callout.displayName = 'Callout';
+Callout.displayName = "Callout";

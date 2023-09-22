@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface LowerHandIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface LowerHandIconProps extends IconWrapperProps {
 }
 
 const LowerHandIcon = React.forwardRef<HTMLElement, LowerHandIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `LowerHandIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[LowerHandIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[LowerHandIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -57,5 +57,5 @@ const LowerHandIcon = React.forwardRef<HTMLElement, LowerHandIconProps>(
   },
 );
 
-LowerHandIcon.displayName = 'LowerHandIcon';
+LowerHandIcon.displayName = "LowerHandIcon";
 export { LowerHandIcon };

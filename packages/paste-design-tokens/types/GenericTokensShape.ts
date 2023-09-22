@@ -15,7 +15,7 @@ import type {
   spacings,
   textColors,
   zIndices,
-} from '../dist/tokens.common';
+} from "../dist/tokens.common";
 
 export type GenericBackgroundColors = Partial<{ [key in keyof typeof backgroundColors]: any }>;
 export type GenericBorderColors = Partial<{ [key in keyof typeof borderColors]: any }>;

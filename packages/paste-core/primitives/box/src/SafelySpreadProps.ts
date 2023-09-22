@@ -8,9 +8,9 @@ import {
   SHADOW_PROPS,
   SPACE_PROPS,
   TYPOGRAPHY_PROPS,
-} from '@twilio-paste/style-props';
+} from "@twilio-paste/style-props";
 
-import { PseudoPropStyles } from './PseudoPropStyles';
+import { PseudoPropStyles } from "./PseudoPropStyles";
 
 export const BOX_PROPS_TO_BLOCK = [
   ...LAYOUT_PROPS,
@@ -23,8 +23,8 @@ export const BOX_PROPS_TO_BLOCK = [
   ...GRID_PROPS,
   ...TYPOGRAPHY_PROPS,
   ...Object.keys(PseudoPropStyles),
-  'className',
-  'style',
+  "className",
+  "style",
 ];
 
 type Props = { [key: string]: any };

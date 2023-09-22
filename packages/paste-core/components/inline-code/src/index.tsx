@@ -1,16 +1,16 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
 /**
  * Inline Code style variants.
  * Minimal is a deprecated vairant that we now hide, but we can't remove as it's a breaking change
  */
-type InlineCodeVariants = 'default' | 'minimal';
+type InlineCodeVariants = "default" | "minimal";
 
-export interface InlineCodeProps extends Partial<Omit<HTMLDivElement, 'children'>> {
+export interface InlineCodeProps extends Partial<Omit<HTMLDivElement, "children">> {
   children: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 
   /**
    * Choose the badge variant you would like to use.
@@ -23,7 +23,7 @@ export interface InlineCodeProps extends Partial<Omit<HTMLDivElement, 'children'
 }
 
 const InlineCode = React.forwardRef<HTMLDivElement, InlineCodeProps>(
-  ({ children, element = 'INLINE_CODE', variant = 'default', ...props }, ref) => {
+  ({ children, element = "INLINE_CODE", variant = "default", ...props }, ref) => {
     return (
       <Box
         as="code"
@@ -49,6 +49,6 @@ const InlineCode = React.forwardRef<HTMLDivElement, InlineCodeProps>(
   },
 );
 
-InlineCode.displayName = 'InlineCode';
+InlineCode.displayName = "InlineCode";
 
 export { InlineCode };

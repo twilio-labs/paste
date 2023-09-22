@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from "react";
 
-import type { Feature } from '../utils/api';
+import type { Feature } from "../utils/api";
 
 export type NavigationQuery = Feature[];
 
@@ -9,7 +9,7 @@ export const NavigationContext = React.createContext<NavigationQuery | null>(nul
 export const useNavigationContext = (): NavigationQuery => {
   const context = React.useContext(NavigationContext);
   if (!context) {
-    throw new Error('useNavigationContext must be used with NavigationContextProvider');
+    throw new Error("useNavigationContext must be used with NavigationContextProvider");
   }
   return context;
 };

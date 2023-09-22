@@ -1,19 +1,19 @@
-import { Box } from '@twilio-paste/box';
-import { InPageNavigation, InPageNavigationItem } from '@twilio-paste/in-page-navigation';
-import Head from 'next/head';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { InPageNavigation, InPageNavigationItem } from "@twilio-paste/in-page-navigation";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import * as React from "react";
 
-import { PageContentWrapper } from '../components/PageContentWrapper';
-import { PasteMDXProvider } from '../components/paste-mdx-provider';
-import { PageAside } from '../components/shortcodes/PageAside';
-import { NormalizedComponentHeader } from '../components/shortcodes/normalized-component-header';
-import { SiteWrapper } from '../components/site-wrapper';
-import { SiteMetaDefaults } from '../constants';
-import type { NavigationQuery } from '../context/NavigationContext';
-import type { ApiData } from '../utils/DataUtils';
-import { getPackagePath } from '../utils/RouteUtils';
+import { PageContentWrapper } from "../components/PageContentWrapper";
+import { PasteMDXProvider } from "../components/paste-mdx-provider";
+import { PageAside } from "../components/shortcodes/PageAside";
+import { NormalizedComponentHeader } from "../components/shortcodes/normalized-component-header";
+import { SiteWrapper } from "../components/site-wrapper";
+import { SiteMetaDefaults } from "../constants";
+import type { NavigationQuery } from "../context/NavigationContext";
+import type { ApiData } from "../utils/DataUtils";
+import { getPackagePath } from "../utils/RouteUtils";
 
 interface ComponentPageLayoutProps {
   children?: React.ReactElement;
@@ -101,7 +101,7 @@ const ComponentPageLayout: React.FC<React.PropsWithChildren<ComponentPageLayoutP
             </Link>
           </InPageNavigation>
         </Box>
-        <Box element="CONTENT_WRAPPER" as="div" display={['block', 'block', 'flex']}>
+        <Box element="CONTENT_WRAPPER" as="div" display={["block", "block", "flex"]}>
           <PageAside data={mdxHeadings} />
           <Box element="CONTENT" as="div" maxWidth="size70" minWidth="0">
             <PasteMDXProvider componentOverrides={meta.package ? componentOverrides : {}}>{children}</PasteMDXProvider>

@@ -1,10 +1,10 @@
-import { IconWrapper } from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import type { IconWrapperProps } from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import { useUID } from '@twilio-paste/uid-library';
+import { IconWrapper } from "@twilio-paste/icons/esm/helpers/IconWrapper";
+import type { IconWrapperProps } from "@twilio-paste/icons/esm/helpers/IconWrapper";
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
 export interface CustomizableIconProps extends IconWrapperProps {
   title?: string;
@@ -14,7 +14,7 @@ export interface CustomizableIconProps extends IconWrapperProps {
 const CustomizableIcon: React.FC<React.PropsWithChildren<CustomizableIconProps>> = ({
   as,
   display,
-  element = 'ICON',
+  element = "ICON",
   size,
   color,
   title,
@@ -23,7 +23,7 @@ const CustomizableIcon: React.FC<React.PropsWithChildren<CustomizableIconProps>>
   const titleId = `CustomizableIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[CustomizableIcon]: Missing a title for non-decorative icon.');
+    throw new Error("[CustomizableIcon]: Missing a title for non-decorative icon.");
   }
 
   return (
@@ -47,5 +47,5 @@ const CustomizableIcon: React.FC<React.PropsWithChildren<CustomizableIconProps>>
   );
 };
 
-CustomizableIcon.displayName = 'CustomizableIcon';
+CustomizableIcon.displayName = "CustomizableIcon";
 export { CustomizableIcon };

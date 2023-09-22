@@ -1,5 +1,5 @@
-import { TBody, THead, Table, Td, Th, Tr } from '@twilio-paste/core/table';
-import * as React from 'react';
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/core/table";
+import * as React from "react";
 
 const TablePreview = (): JSX.Element => {
   return (

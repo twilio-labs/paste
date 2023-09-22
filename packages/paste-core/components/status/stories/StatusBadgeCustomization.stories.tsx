@@ -1,14 +1,14 @@
-import type { StoryFn } from '@storybook/react';
-import { Card } from '@twilio-paste/card';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import type { PasteCustomCSS } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { StatusBadge } from '../src';
-import type { StatusBadgeVariants } from '../src/types';
+import { StatusBadge } from "../src";
+import type { StatusBadgeVariants } from "../src/types";
 
 export const makeBadge = (variant: StatusBadgeVariants, element?: string): React.ReactElement => (
   <StatusBadge as="span" element={element} variant={variant} data-testid={`${variant}_badge`}>
@@ -16,23 +16,23 @@ export const makeBadge = (variant: StatusBadgeVariants, element?: string): React
   </StatusBadge>
 );
 
-export const getStyles = (element = 'STATUS_BADGE'): { [key: string]: PasteCustomCSS } => {
+export const getStyles = (element = "STATUS_BADGE"): { [key: string]: PasteCustomCSS } => {
   return {
     [element]: {
-      cursor: 'help',
+      cursor: "help",
       variants: {
-        ProcessError: { paddingY: 'space30' },
-        ProcessWarning: { paddingY: 'space50' },
-        ProcessSuccess: { paddingY: 'space60' },
-        ProcessNeutral: { paddingY: 'space70' },
-        ProcessInProgress: { paddingY: 'space80' },
-        ProcessDisabled: { paddingY: 'space40' },
-        ProcessDraft: { paddingY: 'space50' },
-        ConnectivityAvailable: { paddingY: 'space60' },
-        ConnectivityBusy: { paddingY: 'space70' },
-        ConnectivityUnavailable: { paddingY: 'space30' },
-        ConnectivityOffline: { paddingY: 'space40' },
-        ConnectivityNeutral: { paddingY: 'space40' },
+        ProcessError: { paddingY: "space30" },
+        ProcessWarning: { paddingY: "space50" },
+        ProcessSuccess: { paddingY: "space60" },
+        ProcessNeutral: { paddingY: "space70" },
+        ProcessInProgress: { paddingY: "space80" },
+        ProcessDisabled: { paddingY: "space40" },
+        ProcessDraft: { paddingY: "space50" },
+        ConnectivityAvailable: { paddingY: "space60" },
+        ConnectivityBusy: { paddingY: "space70" },
+        ConnectivityUnavailable: { paddingY: "space30" },
+        ConnectivityOffline: { paddingY: "space40" },
+        ConnectivityNeutral: { paddingY: "space40" },
       },
     },
   };
@@ -42,7 +42,7 @@ const CustomizationWrapper: React.FC<
   React.PropsWithChildren<{ variant: StatusBadgeVariants; isTestEnvironment: boolean }>
 > = ({ variant, isTestEnvironment }): React.ReactElement => {
   const theme = useTheme();
-  const customElement = 'FOO';
+  const customElement = "FOO";
   return (
     <Stack orientation="vertical" spacing="space50">
       <Card>
@@ -114,9 +114,9 @@ export const ConnectivityNeutral: StoryFn = (_args, { parameters: { isTestEnviro
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Status/StatusBadge/Customization',
+  title: "Components/Status/StatusBadge/Customization",
   component: StatusBadge,
-  excludeStories: ['getStyles', 'makeBadge'],
+  excludeStories: ["getStyles", "makeBadge"],
   parameters: {
     a11y: {
       // no need to a11y check customization

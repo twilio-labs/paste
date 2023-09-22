@@ -1,6 +1,6 @@
-import { Box } from '@twilio-paste/box';
-import { Card } from '@twilio-paste/card';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import * as React from "react";
 
 interface ListProps {
   children: React.ReactNode;

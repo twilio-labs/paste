@@ -1,16 +1,16 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
-import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from '../src';
+import { Callout, CalloutHeading, CalloutList, CalloutListItem, CalloutText } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Callout',
+  title: "Components/Callout",
   component: Callout,
 };
 
-const ExampleList: React.FC<React.PropsWithChildren<{ as: 'ul' | 'ol' }>> = ({ as }) => (
+const ExampleList: React.FC<React.PropsWithChildren<{ as: "ul" | "ol" }>> = ({ as }) => (
   <CalloutList as={as}>
     <CalloutListItem>Item one</CalloutListItem>
     <CalloutListItem>Item two</CalloutListItem>

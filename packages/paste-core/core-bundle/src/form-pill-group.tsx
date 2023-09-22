@@ -1,1 +1,1 @@
-export * from '@twilio-paste/form-pill-group';
+export * from "@twilio-paste/form-pill-group";

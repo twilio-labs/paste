@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
-import * as React from 'react';
+import { useRouter } from "next/router";
+import * as React from "react";
 
-import { PackageStatus, SidebarCategoryRoutes } from '../../constants';
-import { InDevelopment } from './InDevelopment';
-import { NotFound } from './NotFound';
+import { PackageStatus, SidebarCategoryRoutes } from "../../constants";
+import { InDevelopment } from "./InDevelopment";
+import { NotFound } from "./NotFound";
 
 interface Error404Props {
   componentList: { name: string; status: string }[];
@@ -13,7 +13,7 @@ interface Error404Props {
 
 const Error404 = ({ componentList, layoutList, primitiveList }: Error404Props): React.ReactNode => {
   const router = useRouter();
-  const pathParts = router.asPath.split('/');
+  const pathParts = router.asPath.split("/");
   const pageName = pathParts[pathParts.length - 1];
   const packageName = `@twilio-paste/${pageName}`;
   const packageObj = [...componentList, ...layoutList, ...primitiveList].find(({ name }) => name === packageName);

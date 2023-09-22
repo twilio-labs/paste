@@ -1,21 +1,21 @@
-import type { BoxElementProps } from '@twilio-paste/box';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { FlexboxProps, LayoutProps, MarginProps, SpaceOptions } from '@twilio-paste/style-props';
-import type { ResponsiveValue } from '@twilio-paste/styling-library';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import { useUIDSeed } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import type { BoxElementProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { FlexboxProps, LayoutProps, MarginProps, SpaceOptions } from "@twilio-paste/style-props";
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-type StackChildMargins = Pick<MarginProps, 'marginRight' | 'marginBottom'>;
-type DisplayOptions = 'block' | 'flex';
+type StackChildMargins = Pick<MarginProps, "marginRight" | "marginBottom">;
+type DisplayOptions = "block" | "flex";
 type DisplayValue = ResponsiveValue<DisplayOptions>;
-type StackOrientationOptions = 'horizontal' | 'vertical';
+type StackOrientationOptions = "horizontal" | "vertical";
 export type StackOrientation = ResponsiveValue<StackOrientationOptions>;
 
-interface StackStyleProps extends Pick<LayoutProps, 'display'>, Pick<FlexboxProps, 'alignItems' | 'flexWrap'> {}
+interface StackStyleProps extends Pick<LayoutProps, "display">, Pick<FlexboxProps, "alignItems" | "flexWrap"> {}
 
-export interface StackProps extends HTMLPasteProps<'div'> {
-  as?: BoxElementProps['as'];
+export interface StackProps extends HTMLPasteProps<"div"> {
+  as?: BoxElementProps["as"];
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -23,7 +23,7 @@ export interface StackProps extends HTMLPasteProps<'div'> {
    * @type {BoxElementProps['element']}
    * @memberof StackProps
    */
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
   orientation: StackOrientation;
   spacing: SpaceOptions;
 }
@@ -31,26 +31,26 @@ export interface StackProps extends HTMLPasteProps<'div'> {
 export const getStackDisplay = (orientation: StackOrientation): DisplayValue => {
   if (Array.isArray(orientation)) {
     return orientation.map((value) => {
-      if (value === 'horizontal') {
-        return 'flex';
+      if (value === "horizontal") {
+        return "flex";
       }
 
-      return 'block';
+      return "block";
     });
   }
 
-  if (orientation === 'horizontal') {
-    return 'flex';
+  if (orientation === "horizontal") {
+    return "flex";
   }
 
-  return 'block';
+  return "block";
 };
 
 export const getStackStyles = (orientation: StackOrientation): StackStyleProps => {
   const styles: StackStyleProps = {
     display: getStackDisplay(orientation),
-    alignItems: 'center',
-    flexWrap: 'wrap',
+    alignItems: "center",
+    flexWrap: "wrap",
   };
 
   return styles;
@@ -64,8 +64,8 @@ export const getStackChildMargins = (orientation: StackOrientation, spacing: Spa
     const marginBottom: SpaceOptions[] = [];
 
     orientation.forEach((value, i) => {
-      marginRight[i] = value === 'horizontal' ? spacing : 'space0';
-      marginBottom[i] = value === 'horizontal' ? 'space0' : spacing;
+      marginRight[i] = value === "horizontal" ? spacing : "space0";
+      marginBottom[i] = value === "horizontal" ? "space0" : spacing;
     });
 
     styles = {
@@ -74,11 +74,11 @@ export const getStackChildMargins = (orientation: StackOrientation, spacing: Spa
     };
   }
 
-  if (orientation === 'horizontal') {
+  if (orientation === "horizontal") {
     styles = { marginRight: spacing };
   }
 
-  if (orientation === 'vertical') {
+  if (orientation === "vertical") {
     styles = { marginBottom: spacing };
   }
 
@@ -86,10 +86,10 @@ export const getStackChildMargins = (orientation: StackOrientation, spacing: Spa
 };
 
 const Stack = React.forwardRef<HTMLDivElement, StackProps>(
-  ({ children, orientation, spacing, element = 'STACK', ...props }, ref) => {
+  ({ children, orientation, spacing, element = "STACK", ...props }, ref) => {
     const [childrenCount, validChildren] = React.useMemo(() => {
       const filteredChildren = React.Children.toArray(children).filter(
-        (child) => React.isValidElement(child) || typeof child === 'string',
+        (child) => React.isValidElement(child) || typeof child === "string",
       );
       return [filteredChildren.length, filteredChildren];
     }, [children]);
@@ -115,6 +115,6 @@ const Stack = React.forwardRef<HTMLDivElement, StackProps>(
   },
 );
 
-Stack.displayName = 'Stack';
+Stack.displayName = "Stack";
 
 export { Stack };

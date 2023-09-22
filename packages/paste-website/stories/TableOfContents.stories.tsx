@@ -1,15 +1,15 @@
-import { Box } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
-import { TableOfContents } from '../src/components/shortcodes/table-of-contents';
-import type { HeadingData } from '../src/components/shortcodes/table-of-contents/types';
+import { TableOfContents } from "../src/components/shortcodes/table-of-contents";
+import type { HeadingData } from "../src/components/shortcodes/table-of-contents/types";
 
 const TEST_HEADING: HeadingData[] = [
-  { depth: 2, value: 'Guidelines' },
-  { depth: 3, value: 'Accessibility' },
-  { depth: 2, value: 'Examples' },
-  { depth: 2, value: 'Usage Guide' },
-  { depth: 3, value: 'API' },
+  { depth: 2, value: "Guidelines" },
+  { depth: 3, value: "Accessibility" },
+  { depth: 2, value: "Examples" },
+  { depth: 2, value: "Usage Guide" },
+  { depth: 3, value: "API" },
 ];
 
 export const DefaultTableOfContents = (): React.ReactNode => (
@@ -25,6 +25,6 @@ DefaultTableOfContents.parameters = {
 };
 
 export default {
-  title: 'Website/TableOfContents',
+  title: "Website/TableOfContents",
   component: TableOfContents,
 };

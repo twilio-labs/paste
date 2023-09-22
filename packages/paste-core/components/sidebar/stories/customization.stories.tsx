@@ -1,12 +1,12 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
-import { useTheme } from '@twilio-paste/theme';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
+import { useTheme } from "@twilio-paste/theme";
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   Sidebar,
@@ -20,11 +20,11 @@ import {
   SidebarNavigation,
   SidebarOverlayContentWrapper,
   SidebarPushContentWrapper,
-} from '../src';
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/Sidebar/Customization',
+  title: "Components/Sidebar/Sidebar/Customization",
 };
 
 export const WithDefaultElementName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
@@ -40,32 +40,32 @@ export const WithDefaultElementName: StoryFn = (_args, { parameters: { isTestEnv
       theme={currentTheme}
       elements={{
         SIDEBAR: {
-          backgroundColor: 'colorBackgroundBrand',
+          backgroundColor: "colorBackgroundBrand",
         },
         SIDEBAR_HEADER: {
-          padding: 'space40',
+          padding: "space40",
         },
         SIDEBAR_HEADER_ICON_BUTTON: {
-          padding: 'space40',
+          padding: "space40",
         },
         SIDEBAR_HEADER_LABEL: {
-          fontWeight: 'fontWeightNormal',
+          fontWeight: "fontWeightNormal",
         },
         SIDEBAR_FOOTER: {
-          boxShadow: 'shadowBorder',
+          boxShadow: "shadowBorder",
         },
         SIDEBAR_COLLAPSE_BUTTON: {
-          padding: 'space60',
+          padding: "space60",
         },
         SIDEBAR_PUSH_CONTENT_WRAPPER: {
-          backgroundColor: 'colorBackground',
-          padding: 'space40',
+          backgroundColor: "colorBackground",
+          padding: "space40",
         },
         SIDEBAR_BETA_BADGE: {
-          padding: 'space40',
+          padding: "space40",
         },
         SIDEBAR_NAVIGATION: {
-          background: 'none',
+          background: "none",
         },
       }}
     >
@@ -129,32 +129,32 @@ export const WithCustomElementName: StoryFn = (_args, { parameters: { isTestEnvi
       theme={currentTheme}
       elements={{
         SIDECAR: {
-          backgroundColor: 'colorBackgroundBrand',
+          backgroundColor: "colorBackgroundBrand",
         },
         SIDECAR_HEADER: {
-          padding: 'space40',
+          padding: "space40",
         },
         SIDECAR_HEADER_ICON_BUTTON: {
-          padding: 'space40',
+          padding: "space40",
         },
         SIDECAR_HEADER_LABEL: {
-          padding: 'space40',
+          padding: "space40",
         },
         SIDECAR_COLLAPSE_BUTTON_WRAPPER: {
-          boxShadow: 'shadowBorder',
+          boxShadow: "shadowBorder",
         },
         SIDECAR_COLLAPSE_BUTTON: {
-          padding: 'space60',
+          padding: "space60",
         },
         SIDECAR_OVERLAY_WRAPPER: {
-          backgroundColor: 'colorBackground',
-          padding: 'space40',
+          backgroundColor: "colorBackground",
+          padding: "space40",
         },
         SIDECAR_BETA_BADGE: {
-          padding: 'space40',
+          padding: "space40",
         },
         SIDECAR_NAVIGATION: {
-          background: 'none',
+          background: "none",
         },
       }}
     >

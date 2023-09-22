@@ -1,13 +1,13 @@
-import { MenuPrimitiveItem } from '@twilio-paste/menu-primitive';
-import * as React from 'react';
+import { MenuPrimitiveItem } from "@twilio-paste/menu-primitive";
+import * as React from "react";
 
-import { MenuGroupContext } from './MenuGroup';
-import { StyledMenuItem, getComputedVariant } from './MenuItem.styles';
-import { MenuItemVariants } from './constants';
-import type { MenuItemProps } from './types';
+import { MenuGroupContext } from "./MenuGroup";
+import { StyledMenuItem, getComputedVariant } from "./MenuItem.styles";
+import { MenuItemVariants } from "./constants";
+import type { MenuItemProps } from "./types";
 
 const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
-  ({ as = StyledMenuItem, variant: _variant, element = 'MENU_ITEM', ...props }, ref) => {
+  ({ as = StyledMenuItem, variant: _variant, element = "MENU_ITEM", ...props }, ref) => {
     const isGrouped = React.useContext(MenuGroupContext) === MenuItemVariants.GROUP_ITEM;
     const variant = _variant ? getComputedVariant(_variant, isGrouped) : _variant;
 
@@ -15,6 +15,6 @@ const MenuItem = React.forwardRef<HTMLDivElement, MenuItemProps>(
   },
 );
 
-MenuItem.displayName = 'MenuItem';
+MenuItem.displayName = "MenuItem";
 
 export { MenuItem };

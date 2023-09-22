@@ -1,1 +1,1 @@
-export * from '@twilio-paste/radio-group';
+export * from "@twilio-paste/radio-group";

@@ -1,14 +1,14 @@
-import { ArrowForwardIcon } from '@twilio-paste/icons/esm/ArrowForwardIcon';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-import type { PaginationArrowProps } from '../types';
-import { PaginationArrowButton } from './PaginationArrowButton';
-import { PaginationArrowIconWrapper } from './PaginationArrowIconWrapper';
+import type { PaginationArrowProps } from "../types";
+import { PaginationArrowButton } from "./PaginationArrowButton";
+import { PaginationArrowIconWrapper } from "./PaginationArrowIconWrapper";
 
 const PaginationForwardArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
   (
-    { as = 'button', element = 'PAGINATION_ARROW', disabled, isFocused, isHovered, label, visibleLabel, ...props },
+    { as = "button", element = "PAGINATION_ARROW", disabled, isFocused, isHovered, label, visibleLabel, ...props },
     ref,
   ) => {
     return (
@@ -24,7 +24,7 @@ const PaginationForwardArrow = React.forwardRef<HTMLButtonElement, PaginationArr
           <Text
             aria-hidden="true"
             as="span"
-            color={isHovered ? 'colorTextLink' : 'inherit'}
+            color={isHovered ? "colorTextLink" : "inherit"}
             fontWeight="fontWeightMedium"
             marginRight="space30"
             element={`${element}_TEXT`}
@@ -35,7 +35,7 @@ const PaginationForwardArrow = React.forwardRef<HTMLButtonElement, PaginationArr
         <PaginationArrowIconWrapper isFocused={isFocused} isHovered={isHovered} element={`${element}_ICON_WRAPPER`}>
           <ArrowForwardIcon
             decorative={false}
-            color={isHovered ? 'colorTextPrimary' : 'colorText'}
+            color={isHovered ? "colorTextPrimary" : "colorText"}
             display="block"
             title={label}
             element={`${element}_ICON`}
@@ -46,6 +46,6 @@ const PaginationForwardArrow = React.forwardRef<HTMLButtonElement, PaginationArr
   },
 );
 
-PaginationForwardArrow.displayName = 'PaginationForwardArrow';
+PaginationForwardArrow.displayName = "PaginationForwardArrow";
 
 export { PaginationForwardArrow };

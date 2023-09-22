@@ -1,13 +1,13 @@
-import { fireEvent, render, screen } from '@testing-library/react';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
-import { ProductContactCenterTasksIcon } from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
-import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from '@twilio-paste/menu';
-import { Theme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { fireEvent, render, screen } from "@testing-library/react";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { ProductContactCenterTasksIcon } from "@twilio-paste/icons/esm/ProductContactCenterTasksIcon";
+import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
+import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
 import {
   Sidebar,
@@ -24,7 +24,7 @@ import {
   SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationItem,
   SidebarPushContentWrapper,
-} from '../src';
+} from "../src";
 
 const MockPushSidebarWithNavigation = ({
   collapsed,
@@ -142,15 +142,15 @@ const MockPushSidebarWithNavigation = ({
   /* eslint-enable react/jsx-max-depth */
 };
 
-describe('SidebarNavigation', () => {
-  it('renders collapsed SidebarNavigationItems correctly', () => {
+describe("SidebarNavigation", () => {
+  it("renders collapsed SidebarNavigationItems correctly", () => {
     const onClick: jest.Mock = jest.fn(() => {});
 
     render(<MockPushSidebarWithNavigation collapsed onClick={onClick} />);
-    const wrapper = screen.getByRole('navigation');
-    const buttonIcon = screen.getByTestId('nav-item-button');
-    const anchorIcon = screen.getByTestId('nav-item-anchor');
-    const disclosure = screen.getByTestId('nav-item-disclosure');
+    const wrapper = screen.getByRole("navigation");
+    const buttonIcon = screen.getByTestId("nav-item-button");
+    const anchorIcon = screen.getByTestId("nav-item-anchor");
+    const disclosure = screen.getByTestId("nav-item-disclosure");
 
     /*
      * Check that the sidebar has the correct number of children, including the disclosure
@@ -165,25 +165,25 @@ describe('SidebarNavigation', () => {
     fireEvent.click(buttonIcon);
     expect(onClick).toBeCalledTimes(1);
     // N.B: 'getByText' fails when element is missing so we use 'queryByText' here
-    const buttonByText = screen.queryByText('This item closes the sidebar');
+    const buttonByText = screen.queryByText("This item closes the sidebar");
     expect(buttonByText).not.toBeInTheDocument();
 
     // Anchor works
-    expect(anchorIcon).toHaveAttribute('href');
+    expect(anchorIcon).toHaveAttribute("href");
 
     // Disclosure works
     expect(disclosure).toBeInTheDocument();
     expect(disclosure).not.toBeVisible();
   });
 
-  it('renders expanded SidebarNavigationItems correctly', () => {
+  it("renders expanded SidebarNavigationItems correctly", () => {
     const onClick: jest.Mock = jest.fn(() => {});
 
     render(<MockPushSidebarWithNavigation collapsed={false} onClick={onClick} />);
-    const wrapper = screen.getByRole('navigation');
-    const disclosure = screen.getByTestId('nav-item-disclosure');
-    const disclosureHeading = screen.getByTestId('nav-item-disclosure-heading');
-    const disclosureContent = screen.getByTestId('nav-item-disclosure-content');
+    const wrapper = screen.getByRole("navigation");
+    const disclosure = screen.getByTestId("nav-item-disclosure");
+    const disclosureHeading = screen.getByTestId("nav-item-disclosure-heading");
+    const disclosureContent = screen.getByTestId("nav-item-disclosure-content");
 
     /*
      * Check that the sidebar has the correct number of children, including the disclosure
@@ -194,40 +194,40 @@ describe('SidebarNavigation', () => {
     expect(wrapper.children).toHaveLength(3);
 
     // SidebarNavigationItem text is rendered
-    const buttonByText = screen.getByText('This item closes the sidebar');
+    const buttonByText = screen.getByText("This item closes the sidebar");
     expect(buttonByText).toBeInTheDocument();
-    const anchorByText = screen.getByText('Go to Google.com');
+    const anchorByText = screen.getByText("Go to Google.com");
     expect(anchorByText).toBeInTheDocument();
 
     // Disclosure is visible
     expect(disclosure).toBeInTheDocument();
-    expect(disclosure).toHaveStyleRule('display', 'block');
+    expect(disclosure).toHaveStyleRule("display", "block");
     // Disclosure is closed
-    expect(disclosureHeading).toHaveAttribute('aria-expanded', 'false');
-    expect(disclosureContent.getAttribute('id')).toEqual(disclosureHeading.getAttribute('aria-controls'));
+    expect(disclosureHeading).toHaveAttribute("aria-expanded", "false");
+    expect(disclosureContent.getAttribute("id")).toEqual(disclosureHeading.getAttribute("aria-controls"));
     expect(disclosureContent).not.toBeVisible();
     // Disclosure is open
     fireEvent.click(disclosureHeading);
-    expect(disclosureHeading).toHaveAttribute('aria-expanded', 'true');
+    expect(disclosureHeading).toHaveAttribute("aria-expanded", "true");
     expect(disclosureContent).toBeVisible();
   });
 
   /**
    * Customization
    */
-  describe('Customization', () => {
-    it('should work with default element values', () => {
+  describe("Customization", () => {
+    it("should work with default element values", () => {
       render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            SIDEBAR_NAVIGATION: { margin: 'space100' },
-            SIDEBAR_NAVIGATION_ITEM: { margin: 'space100' },
-            SIDEBAR_NAVIGATION_DISCLOSURE: { margin: 'space100' },
-            SIDEBAR_NAVIGATION_DISCLOSURE_HEADING_WRAPPER: { margin: 'space100' },
-            SIDEBAR_NAVIGATION_DISCLOSURE_HEADING: { margin: 'space100' },
-            SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT: { margin: 'space100' },
+            SIDEBAR_NAVIGATION: { margin: "space100" },
+            SIDEBAR_NAVIGATION_ITEM: { margin: "space100" },
+            SIDEBAR_NAVIGATION_DISCLOSURE: { margin: "space100" },
+            SIDEBAR_NAVIGATION_DISCLOSURE_HEADING_WRAPPER: { margin: "space100" },
+            SIDEBAR_NAVIGATION_DISCLOSURE_HEADING: { margin: "space100" },
+            SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT: { margin: "space100" },
           }}
         >
           <Sidebar
@@ -262,37 +262,37 @@ describe('SidebarNavigation', () => {
           </Sidebar>
         </CustomizationProvider>,
       );
-      const nav = screen.getByRole('navigation');
-      const disclosure = screen.getByTestId('disclosure');
-      const disclosureHeading = screen.getByRole('button', { name: 'Heading' });
+      const nav = screen.getByRole("navigation");
+      const disclosure = screen.getByTestId("disclosure");
+      const disclosureHeading = screen.getByRole("button", { name: "Heading" });
       const disclosureHeadingWrapper = disclosureHeading.parentElement;
-      const disclosureContent = screen.getByTestId('disclosure-content');
-      const buttonItem = screen.getByRole('link', { name: 'ButtonItem' });
-      const anchorItem = screen.getByRole('link', { name: 'AnchorItem' });
+      const disclosureContent = screen.getByTestId("disclosure-content");
+      const buttonItem = screen.getByRole("link", { name: "ButtonItem" });
+      const anchorItem = screen.getByRole("link", { name: "AnchorItem" });
 
-      expect(nav).toHaveStyleRule('margin', '2.25rem');
-      expect(disclosure).toHaveStyleRule('margin', '2.25rem');
-      expect(disclosureHeadingWrapper).toHaveStyleRule('margin', '2.25rem');
-      expect(disclosureHeading).toHaveStyleRule('margin', '2.25rem');
-      expect(disclosureContent).toHaveStyleRule('margin', '2.25rem');
-      expect(anchorItem).toHaveStyleRule('margin', '2.25rem');
-      expect(buttonItem).toHaveStyleRule('margin', '2.25rem');
+      expect(nav).toHaveStyleRule("margin", "2.25rem");
+      expect(disclosure).toHaveStyleRule("margin", "2.25rem");
+      expect(disclosureHeadingWrapper).toHaveStyleRule("margin", "2.25rem");
+      expect(disclosureHeading).toHaveStyleRule("margin", "2.25rem");
+      expect(disclosureContent).toHaveStyleRule("margin", "2.25rem");
+      expect(anchorItem).toHaveStyleRule("margin", "2.25rem");
+      expect(buttonItem).toHaveStyleRule("margin", "2.25rem");
     });
 
-    it('should work with custom element values', () => {
+    it("should work with custom element values", () => {
       render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            NAVIGATION: { margin: 'space100' },
-            NAVIGATION_ITEM: { margin: 'space100' },
-            NAVIGATION_ITEM_ANCHOR: { margin: 'space100' },
-            NAVIGATION_ITEM_BUTTON: { margin: 'space100' },
-            NAVIGATION_DISCLOSURE: { margin: 'space100' },
-            NAVIGATION_DISCLOSURE_HEADING_WRAPPER: { margin: 'space100' },
-            NAVIGATION_DISCLOSURE_HEADING: { margin: 'space100' },
-            NAVIGATION_DISCLOSURE_CONTENT: { margin: 'space100' },
+            NAVIGATION: { margin: "space100" },
+            NAVIGATION_ITEM: { margin: "space100" },
+            NAVIGATION_ITEM_ANCHOR: { margin: "space100" },
+            NAVIGATION_ITEM_BUTTON: { margin: "space100" },
+            NAVIGATION_DISCLOSURE: { margin: "space100" },
+            NAVIGATION_DISCLOSURE_HEADING_WRAPPER: { margin: "space100" },
+            NAVIGATION_DISCLOSURE_HEADING: { margin: "space100" },
+            NAVIGATION_DISCLOSURE_CONTENT: { margin: "space100" },
           }}
         >
           <Sidebar
@@ -339,21 +339,21 @@ describe('SidebarNavigation', () => {
           </Sidebar>
         </CustomizationProvider>,
       );
-      const nav = screen.getByRole('navigation');
-      const disclosure = screen.getByTestId('disclosure');
-      const disclosureHeading = screen.getByRole('button', { name: 'Heading' });
+      const nav = screen.getByRole("navigation");
+      const disclosure = screen.getByTestId("disclosure");
+      const disclosureHeading = screen.getByRole("button", { name: "Heading" });
       const disclosureHeadingWrapper = disclosureHeading.parentElement;
-      const disclosureContent = screen.getByTestId('disclosure-content');
-      const buttonItem = screen.getByRole('link', { name: 'ButtonItem' });
-      const anchorItem = screen.getByRole('link', { name: 'AnchorItem' });
+      const disclosureContent = screen.getByTestId("disclosure-content");
+      const buttonItem = screen.getByRole("link", { name: "ButtonItem" });
+      const anchorItem = screen.getByRole("link", { name: "AnchorItem" });
 
-      expect(nav).toHaveStyleRule('margin', '2.25rem');
-      expect(disclosure).toHaveStyleRule('margin', '2.25rem');
-      expect(disclosureHeadingWrapper).toHaveStyleRule('margin', '2.25rem');
-      expect(disclosureHeading).toHaveStyleRule('margin', '2.25rem');
-      expect(disclosureContent).toHaveStyleRule('margin', '2.25rem');
-      expect(buttonItem).toHaveStyleRule('margin', '2.25rem');
-      expect(anchorItem).toHaveStyleRule('margin', '2.25rem');
+      expect(nav).toHaveStyleRule("margin", "2.25rem");
+      expect(disclosure).toHaveStyleRule("margin", "2.25rem");
+      expect(disclosureHeadingWrapper).toHaveStyleRule("margin", "2.25rem");
+      expect(disclosureHeading).toHaveStyleRule("margin", "2.25rem");
+      expect(disclosureContent).toHaveStyleRule("margin", "2.25rem");
+      expect(buttonItem).toHaveStyleRule("margin", "2.25rem");
+      expect(anchorItem).toHaveStyleRule("margin", "2.25rem");
     });
   });
 });

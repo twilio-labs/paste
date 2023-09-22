@@ -1,4 +1,4 @@
-import { hasFocus } from './reakit-hasFocus';
+import { hasFocus } from "./reakit-hasFocus";
 
 type EnsureFocusOptions = FocusOptions & {
   isActive?: typeof hasFocus;

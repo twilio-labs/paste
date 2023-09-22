@@ -1,18 +1,18 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import type { PaddingProps } from '@twilio-paste/style-props';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { PaddingProps } from "@twilio-paste/style-props";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
 /** element identifier from BoxProps for customization */
-export interface CardProps extends HTMLPasteProps<'article'>, PaddingProps, Pick<BoxProps, 'element' | 'variant'> {}
+export interface CardProps extends HTMLPasteProps<"article">, PaddingProps, Pick<BoxProps, "element" | "variant"> {}
 
 const Card = React.forwardRef<HTMLElement, CardProps>(
   (
     {
       children,
-      element = 'CARD',
-      padding = 'space100',
+      element = "CARD",
+      padding = "space100",
       paddingBottom,
       paddingLeft,
       paddingRight,
@@ -44,6 +44,6 @@ const Card = React.forwardRef<HTMLElement, CardProps>(
   },
 );
 
-Card.displayName = 'Card';
+Card.displayName = "Card";
 
 export { Card };

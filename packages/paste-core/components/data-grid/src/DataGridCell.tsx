@@ -1,21 +1,21 @@
-import type { BoxElementProps } from '@twilio-paste/box';
-import { CompositeItem } from '@twilio-paste/reakit-library';
-import { useMutationObservable } from '@twilio-paste/utils';
-import isElement from 'lodash/isElement';
-import * as React from 'react';
+import type { BoxElementProps } from "@twilio-paste/box";
+import { CompositeItem } from "@twilio-paste/reakit-library";
+import { useMutationObservable } from "@twilio-paste/utils";
+import isElement from "lodash/isElement";
+import * as React from "react";
 
-import { DataGridContext } from './DataGridContext';
-import { Td } from './table/Td';
-import type { TdProps } from './table/Td';
-import { Th } from './table/Th';
-import { ensureFocus, isCell, updateTabIndexForActionable } from './utils';
+import { DataGridContext } from "./DataGridContext";
+import { Td } from "./table/Td";
+import type { TdProps } from "./table/Td";
+import { Th } from "./table/Th";
+import { ensureFocus, isCell, updateTabIndexForActionable } from "./utils";
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 
-type CellType = 'th' | 'td';
-export interface DataGridCellProps extends Pick<TdProps, 'textAlign'> {
+type CellType = "th" | "td";
+export interface DataGridCellProps extends Pick<TdProps, "textAlign"> {
   as?: CellType;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
   colSpan?: number;
 }
 
@@ -27,8 +27,8 @@ export interface DataGridCellProps extends Pick<TdProps, 'textAlign'> {
  * @param {number} [colSpan] - how many columns the cell spans across
  */
 export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> = ({
-  element = 'DATA_GRID_CELL',
-  as = 'td',
+  element = "DATA_GRID_CELL",
+  as = "td",
   ...props
 }) => {
   const dataGridState = React.useContext(DataGridContext);
@@ -62,7 +62,7 @@ export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> 
          * when in actionable mode
          */
         if (
-          mutation.attributeName === 'tabindex' &&
+          mutation.attributeName === "tabindex" &&
           dataGridState.actionable &&
           target.tabIndex === 0 &&
           isCell(target)
@@ -90,10 +90,10 @@ export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> 
       {...dataGridState}
       element={element}
       ref={cellRef}
-      as={as === 'td' ? Td : Th}
+      as={as === "td" ? Td : Th}
       onClick={handleMouseDown}
     />
   );
 };
 
-DataGridCell.displayName = 'DataGridCell';
+DataGridCell.displayName = "DataGridCell";

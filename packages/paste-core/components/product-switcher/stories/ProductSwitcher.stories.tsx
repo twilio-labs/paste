@@ -1,20 +1,20 @@
-import type { StoryFn } from '@storybook/react';
-import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import { ProductEmailAPIIcon } from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
-import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
+import { ProductEmailAPIIcon } from "@twilio-paste/icons/esm/ProductEmailAPIIcon";
+import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
+import { ProductSegmentIcon } from "@twilio-paste/icons/esm/ProductSegmentIcon";
+import * as React from "react";
 
-import { ProductSwitcher, ProductSwitcherButton, ProductSwitcherItem, useProductSwitcherState } from '../src';
+import { ProductSwitcher, ProductSwitcherButton, ProductSwitcherItem, useProductSwitcherState } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ProductSwitcher',
+  title: "Components/ProductSwitcher",
 };
 
 export const ProductSwitcherMenu: StoryFn = () => {
   const productSwitcher = useProductSwitcherState({ visible: true });
-  const [product, setProduct] = React.useState('twilio');
+  const [product, setProduct] = React.useState("twilio");
   return (
     <>
       <ProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
@@ -23,9 +23,9 @@ export const ProductSwitcherMenu: StoryFn = () => {
           {...productSwitcher}
           name="product"
           value="twilio"
-          checked={product === 'twilio'}
+          checked={product === "twilio"}
           onChange={() => {
-            setProduct('twilio');
+            setProduct("twilio");
           }}
           productName="Twilio"
           productStrapline="SMS, Voice & Video"
@@ -35,9 +35,9 @@ export const ProductSwitcherMenu: StoryFn = () => {
           {...productSwitcher}
           name="product"
           value="segment"
-          checked={product === 'segment'}
+          checked={product === "segment"}
           onChange={() => {
-            setProduct('segment');
+            setProduct("segment");
           }}
           productName="Segment"
           productStrapline="Customer data platform"
@@ -47,9 +47,9 @@ export const ProductSwitcherMenu: StoryFn = () => {
           {...productSwitcher}
           name="product"
           value="flex"
-          checked={product === 'flex'}
+          checked={product === "flex"}
           onChange={() => {
-            setProduct('flex');
+            setProduct("flex");
           }}
           productName="Flex"
           productStrapline="Cloud-based contact center"
@@ -59,9 +59,9 @@ export const ProductSwitcherMenu: StoryFn = () => {
           {...productSwitcher}
           name="product"
           value="sendgrid"
-          checked={product === 'sendgrid'}
+          checked={product === "sendgrid"}
           onChange={() => {
-            setProduct('sendgrid');
+            setProduct("sendgrid");
           }}
           productName="SendGrid"
           productStrapline="Email delivery and API"
@@ -71,9 +71,9 @@ export const ProductSwitcherMenu: StoryFn = () => {
           {...productSwitcher}
           name="product"
           value="admin"
-          checked={product === 'admin'}
+          checked={product === "admin"}
           onChange={() => {
-            setProduct('admin');
+            setProduct("admin");
           }}
           productName="Console Admin"
           productStrapline="Admin center"

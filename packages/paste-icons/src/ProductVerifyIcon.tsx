@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductVerifyIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductVerifyIconProps extends IconWrapperProps {
 }
 
 const ProductVerifyIcon = React.forwardRef<HTMLElement, ProductVerifyIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductVerifyIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductVerifyIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductVerifyIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -43,5 +43,5 @@ const ProductVerifyIcon = React.forwardRef<HTMLElement, ProductVerifyIconProps>(
   },
 );
 
-ProductVerifyIcon.displayName = 'ProductVerifyIcon';
+ProductVerifyIcon.displayName = "ProductVerifyIcon";
 export { ProductVerifyIcon };

@@ -1,6 +1,6 @@
-import { Combobox } from '@twilio-paste/combobox';
-import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
-import * as React from 'react';
+import { Combobox } from "@twilio-paste/combobox";
+import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
+import * as React from "react";
 
 export const SearchBox: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ export const SearchBox: React.FC = () => {
       insertBefore={<SearchIcon color="colorTextIcon" decorative />}
       labelText="Search application"
       hideVisibleLabel
-      items={['one', 'two']}
+      items={["one", "two"]}
     />
   );
 };

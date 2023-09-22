@@ -1,5 +1,5 @@
-import Color from 'color';
-import uniq from 'lodash/uniq';
+import Color from "color";
+import uniq from "lodash/uniq";
 
 interface ColorObject {
   color: number[];
@@ -63,7 +63,7 @@ const ColorCombos = (
   const combinedOptions = Object.assign<Options, Options>(DEFAULT_OPTIONS, options);
 
   if (!Array.isArray(colors)) {
-    if (typeof colors === 'object') {
+    if (typeof colors === "object") {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       arr = Object.keys(colors).map((key) => {
@@ -78,7 +78,7 @@ const ColorCombos = (
       }
     } else {
       // eslint-disable-next-line no-console
-      console.error('Must provide an array or object');
+      console.error("Must provide an array or object");
       return false;
     }
   } else {
@@ -97,14 +97,14 @@ const ColorCombos = (
   results = arr.map((color): ColorCombosTypes => {
     const result: ColorCombosTypes = combinedOptions.compact
       ? {
-          hex: '',
+          hex: "",
           combinations: [],
         }
       : {
           color: color.color,
           model: color.model,
           valpha: color.valpha,
-          hex: '',
+          hex: "",
           combinations: [],
         };
 
@@ -122,12 +122,12 @@ const ColorCombos = (
         let combination: ColorCombinationTypes = combinedOptions.compact
           ? {
               accessibility: { aa: false, aaLarge: false, aaa: false, aaaLarge: false },
-              hex: '',
+              hex: "",
               contrast: 0,
             }
           : {
               accessibility: { aa: false, aaLarge: false, aaa: false, aaaLarge: false },
-              hex: '',
+              hex: "",
               contrast: 0,
               color: bg.color,
               model: bg.model,

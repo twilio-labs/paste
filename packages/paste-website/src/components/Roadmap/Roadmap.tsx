@@ -1,17 +1,17 @@
-import { Box } from '@twilio-paste/box';
-import { ProcessDraftIcon } from '@twilio-paste/icons/esm/ProcessDraftIcon';
-import { ProcessInProgressIcon } from '@twilio-paste/icons/esm/ProcessInProgressIcon';
-import { ProcessSuccessIcon } from '@twilio-paste/icons/esm/ProcessSuccessIcon';
-import { ProcessWarningIcon } from '@twilio-paste/icons/esm/ProcessWarningIcon';
-import { Stack } from '@twilio-paste/stack';
-import { TBody, THead, Table, Td, Th, Tr } from '@twilio-paste/table';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { ProcessDraftIcon } from "@twilio-paste/icons/esm/ProcessDraftIcon";
+import { ProcessInProgressIcon } from "@twilio-paste/icons/esm/ProcessInProgressIcon";
+import { ProcessSuccessIcon } from "@twilio-paste/icons/esm/ProcessSuccessIcon";
+import { ProcessWarningIcon } from "@twilio-paste/icons/esm/ProcessWarningIcon";
+import { Stack } from "@twilio-paste/stack";
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { slugify } from '../../utils/RouteUtils';
-import { AnchoredHeading } from '../Heading';
-import { Statuses } from './constants';
-import type { ReleaseData, RoadmapProps } from './types';
+import { slugify } from "../../utils/RouteUtils";
+import { AnchoredHeading } from "../Heading";
+import { Statuses } from "./constants";
+import type { ReleaseData, RoadmapProps } from "./types";
 
 const StatusIconWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <Box display="flex" columnGap="space20" justifyContent="flex-start">
@@ -72,11 +72,11 @@ const Roadmap: React.FC<RoadmapProps> = ({ data }) => {
                   {data[release].map((feature: ReleaseData) => {
                     return (
                       <Tr verticalAlign="top" key={useUID()}>
-                        <Th>{feature['Release feature name']}</Th>
+                        <Th>{feature["Release feature name"]}</Th>
                         <Td>
-                          {feature['Public Description (from System)']
-                            ? feature['Public Description (from System)'][0]
-                            : feature['Release Description']}
+                          {feature["Public Description (from System)"]
+                            ? feature["Public Description (from System)"][0]
+                            : feature["Release Description"]}
                         </Td>
                         <Td>{StatusIcons[feature.Status]}</Td>
                       </Tr>

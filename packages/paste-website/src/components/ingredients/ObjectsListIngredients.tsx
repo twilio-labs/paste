@@ -1,8 +1,8 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { ListItem, UnorderedList } from '@twilio-paste/list';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import { ListItem, UnorderedList } from "@twilio-paste/list";
+import * as React from "react";
 
-import { Ingredients, Related, Required } from './Ingredients';
+import { Ingredients, Related, Required } from "./Ingredients";
 
 const ObjectsListIngredients: React.FC = () => {
   return (
@@ -10,7 +10,7 @@ const ObjectsListIngredients: React.FC = () => {
       <Required>
         <UnorderedList>
           <ListItem>
-            <Anchor href="/components/breadcrumb">Breadcrumb</Anchor> and{' '}
+            <Anchor href="/components/breadcrumb">Breadcrumb</Anchor> and{" "}
             <Anchor href="/components/heading">Heading</Anchor>
           </ListItem>
           <ListItem>
@@ -24,11 +24,11 @@ const ObjectsListIngredients: React.FC = () => {
             <Anchor href="/components/anchor">Anchor</Anchor>
           </ListItem>
           <ListItem>
-            <Anchor href="/components/button">Button</Anchor> and{' '}
+            <Anchor href="/components/button">Button</Anchor> and{" "}
             <Anchor href="components/button-group">Button Group</Anchor>
           </ListItem>
           <ListItem>
-            <Anchor href="/components/in-page-navigation">In Page Navigation</Anchor> and{' '}
+            <Anchor href="/components/in-page-navigation">In Page Navigation</Anchor> and{" "}
             <Anchor href="/components/tabs">Tabs</Anchor>
           </ListItem>
           <ListItem>
@@ -41,7 +41,7 @@ const ObjectsListIngredients: React.FC = () => {
             <Anchor href="/patterns/filter-group">Filter group pattern</Anchor>
             <UnorderedList>
               <ListItem>
-                <Anchor href="/components/select">Select</Anchor> and{' '}
+                <Anchor href="/components/select">Select</Anchor> and{" "}
                 <Anchor href="/components/combobox">Combobox</Anchor>
               </ListItem>
               <ListItem>

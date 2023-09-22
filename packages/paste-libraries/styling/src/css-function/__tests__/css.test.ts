@@ -1,34 +1,34 @@
 // eslint-disable-next-line import/no-named-as-default
-import css from '../css';
+import css from "../css";
 
 const theme = {
   backgroundColors: {
-    primary: 'tomato',
-    secondary: 'cyan',
+    primary: "tomato",
+    secondary: "cyan",
   },
   borderColors: {
-    primary: 'pink',
-    secondary: 'hotpink',
+    primary: "pink",
+    secondary: "hotpink",
   },
   textColors: {
-    primary: 'tomato',
-    secondary: 'cyan',
+    primary: "tomato",
+    secondary: "cyan",
   },
   outlineColors: {
-    primary: 'tomato',
-    secondary: 'cyan',
+    primary: "tomato",
+    secondary: "cyan",
   },
   fillColors: {
-    primary: 'tomato',
-    secondary: 'cyan',
+    primary: "tomato",
+    secondary: "cyan",
   },
   strokeColors: {
-    primary: 'tomato',
-    secondary: 'cyan',
+    primary: "tomato",
+    secondary: "cyan",
   },
   fontSizes: [12, 14, 16, 24, 36],
   fonts: {
-    monospace: 'Menlo, monospace',
+    monospace: "Menlo, monospace",
   },
   lineHeights: {
     body: 1.5,
@@ -45,103 +45,103 @@ const theme = {
   buttons: {
     primary: {
       p: 3,
-      fontWeight: 'bold',
-      color: 'white',
-      bg: 'primary',
+      fontWeight: "bold",
+      color: "white",
+      bg: "primary",
       borderRadius: 2,
     },
   },
   text: {
     caps: {
       fontSize: [1, 2],
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase',
+      letterSpacing: "0.1em",
+      textTransform: "uppercase",
     },
     title: {
       fontSize: [3, 4],
-      letterSpacing: ['-0.01em', '-0.02em'],
+      letterSpacing: ["-0.01em", "-0.02em"],
     },
   },
   borderWidths: {
     thin: 1,
   },
   borderStyles: {
-    thick: 'solid',
+    thick: "solid",
   },
   radii: {
     small: 5,
   },
 };
 
-describe('css function', () => {
-  it('returns a function', () => {
+describe("css function", () => {
+  it("returns a function", () => {
     const result = css({});
-    expect(typeof result).toBe('function');
+    expect(typeof result).toBe("function");
   });
 
-  it('returns an object', () => {
+  it("returns an object", () => {
     const result = css({})();
-    expect(typeof result).toBe('object');
+    expect(typeof result).toBe("object");
   });
 
-  it('returns styles', () => {
+  it("returns styles", () => {
     const result = css({
       fontSize: 32,
-      color: 'blue',
+      color: "blue",
       borderRadius: 4,
     })();
     expect(result).toEqual({
       fontSize: 32,
-      color: 'blue',
+      color: "blue",
       borderRadius: 4,
     });
   });
 
-  it('returns system props styles', () => {
+  it("returns system props styles", () => {
     const result = css({
-      color: 'primary',
+      color: "primary",
       fontSize: [2, 3, 4],
     })({ theme });
     expect(result).toEqual({
       fontSize: 16,
-      '@media screen and (min-width: 40em)': {
+      "@media screen and (min-width: 40em)": {
         fontSize: 24,
       },
-      '@media screen and (min-width: 52em)': {
+      "@media screen and (min-width: 52em)": {
         fontSize: 36,
       },
-      color: 'tomato',
+      color: "tomato",
     });
   });
 
-  it('returns nested system props styles', () => {
+  it("returns nested system props styles", () => {
     const result = css({
-      color: 'primary',
-      '&:hover': {
-        color: 'secondary',
+      color: "primary",
+      "&:hover": {
+        color: "secondary",
       },
     })({ theme });
     expect(result).toEqual({
-      color: 'tomato',
-      '&:hover': {
-        color: 'cyan',
+      color: "tomato",
+      "&:hover": {
+        color: "cyan",
       },
     });
   });
 
-  it('returns nested responsive styles', () => {
+  it("returns nested responsive styles", () => {
     const result = css({
-      color: 'primary',
+      color: "primary",
       h1: {
         py: [3, 4],
       },
     })({ theme });
     expect(result).toEqual({
-      color: 'tomato',
+      color: "tomato",
       h1: {
         paddingTop: 16,
         paddingBottom: 16,
-        '@media screen and (min-width: 40em)': {
+        "@media screen and (min-width: 40em)": {
           paddingTop: 32,
           paddingBottom: 32,
         },
@@ -149,110 +149,110 @@ describe('css function', () => {
     });
   });
 
-  it('handles all core styled system props', () => {
+  it("handles all core styled system props", () => {
     const result = css({
       m: 0,
       mb: 2,
-      mx: 'auto',
+      mx: "auto",
       p: 3,
       py: 4,
       fontSize: 3,
-      fontWeight: 'bold',
-      color: 'primary',
-      bg: 'secondary',
-      fontFamily: 'monospace',
-      lineHeight: 'body',
+      fontWeight: "bold",
+      color: "primary",
+      bg: "secondary",
+      fontFamily: "monospace",
+      lineHeight: "body",
     })({ theme });
     expect(result).toEqual({
       margin: 0,
       marginBottom: 8,
-      marginLeft: 'auto',
-      marginRight: 'auto',
+      marginLeft: "auto",
+      marginRight: "auto",
       padding: 16,
       paddingTop: 32,
       paddingBottom: 32,
-      color: 'tomato',
-      backgroundColor: 'cyan',
-      fontFamily: 'Menlo, monospace',
+      color: "tomato",
+      backgroundColor: "cyan",
+      fontFamily: "Menlo, monospace",
       fontSize: 24,
       fontWeight: 600,
       lineHeight: 1.5,
     });
   });
 
-  it('works with the css prop', () => {
+  it("works with the css prop", () => {
     const result = css({
-      color: 'primary',
+      color: "primary",
       m: 0,
       fontSize: 2,
     })(theme);
     expect(result).toEqual({
-      color: 'tomato',
+      color: "tomato",
       margin: 0,
       fontSize: 16,
     });
   });
 
-  it('works with functional arguments', () => {
+  it("works with functional arguments", () => {
     const result = css((t: any) => ({
       color: t.backgroundColors.primary,
     }))(theme);
     expect(result).toEqual({
-      color: 'tomato',
+      color: "tomato",
     });
   });
 
-  it('supports functional values', () => {
+  it("supports functional values", () => {
     const result = css({
       color: (t: any) => t.textColors.primary,
     })(theme);
     expect(result).toEqual({
-      color: 'tomato',
+      color: "tomato",
     });
   });
 
-  it('returns variants from theme', () => {
+  it("returns variants from theme", () => {
     const result = css({
-      variant: 'buttons.primary',
+      variant: "buttons.primary",
     })(theme);
     expect(result).toEqual({
       padding: 16,
       fontWeight: 600,
-      color: 'white',
-      backgroundColor: 'tomato',
+      color: "white",
+      backgroundColor: "tomato",
       borderRadius: 2,
     });
   });
 
-  it('handles variants with responsive values', () => {
+  it("handles variants with responsive values", () => {
     const result = css({
-      variant: 'text.caps',
+      variant: "text.caps",
     })(theme);
     expect(result).toEqual({
       fontSize: 14,
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase',
-      '@media screen and (min-width: 40em)': {
+      letterSpacing: "0.1em",
+      textTransform: "uppercase",
+      "@media screen and (min-width: 40em)": {
         fontSize: 16,
       },
     });
   });
 
-  it('handles responsive variants', () => {
+  it("handles responsive variants", () => {
     const result = css({
-      variant: 'text.title',
+      variant: "text.title",
     })(theme);
     expect(result).toEqual({
       fontSize: 24,
-      letterSpacing: '-0.01em',
-      '@media screen and (min-width: 40em)': {
+      letterSpacing: "-0.01em",
+      "@media screen and (min-width: 40em)": {
         fontSize: 36,
-        letterSpacing: '-0.02em',
+        letterSpacing: "-0.02em",
       },
     });
   });
 
-  it('handles negative margins from scale', () => {
+  it("handles negative margins from scale", () => {
     const result = css({
       mt: -3,
       mx: -4,
@@ -264,7 +264,7 @@ describe('css function', () => {
     });
   });
 
-  it('handles negative top, left, bottom, and right from scale', () => {
+  it("handles negative top, left, bottom, and right from scale", () => {
     const result = css({
       top: -1,
       right: -4,
@@ -279,25 +279,25 @@ describe('css function', () => {
     });
   });
 
-  it('skip breakpoints', () => {
+  it("skip breakpoints", () => {
     const result = css({
       // eslint-disable-next-line no-sparse-arrays
-      width: ['100%', , '50%'],
+      width: ["100%", , "50%"],
     })(theme);
     expect(result).toEqual({
-      width: '100%',
-      '@media screen and (min-width: 40em)': {},
-      '@media screen and (min-width: 52em)': {
-        width: '50%',
+      width: "100%",
+      "@media screen and (min-width: 40em)": {},
+      "@media screen and (min-width: 52em)": {
+        width: "50%",
       },
     });
   });
 
-  it('padding shorthand does not collide with nested p selector', () => {
+  it("padding shorthand does not collide with nested p selector", () => {
     const result = css({
       p: {
         fontSize: 32,
-        color: 'tomato',
+        color: "tomato",
         p: 2,
       },
       padding: 32,
@@ -305,108 +305,108 @@ describe('css function', () => {
     expect(result).toEqual({
       p: {
         fontSize: 32,
-        color: 'tomato',
+        color: "tomato",
         padding: 8,
       },
       padding: 32,
     });
   });
 
-  it('ignores array values longer than breakpoints', () => {
+  it("ignores array values longer than breakpoints", () => {
     const result = css({
       width: [32, 64, 128, 256, 512],
     })({
-      breakpoints: ['32em', '40em'],
+      breakpoints: ["32em", "40em"],
     });
     expect(result).toEqual({
       width: 32,
-      '@media screen and (min-width: 32em)': {
+      "@media screen and (min-width: 32em)": {
         width: 64,
       },
-      '@media screen and (min-width: 40em)': {
+      "@media screen and (min-width: 40em)": {
         width: 128,
       },
     });
   });
 
-  it('functional values can return responsive arrays', () => {
+  it("functional values can return responsive arrays", () => {
     const result = css({
       color: (t: any) => [t.borderColors.primary, t.borderColors.secondary],
     })(theme);
     expect(result).toEqual({
-      '@media screen and (min-width: 40em)': {
-        color: 'hotpink',
+      "@media screen and (min-width: 40em)": {
+        color: "hotpink",
       },
-      color: 'pink',
+      color: "pink",
     });
   });
 
-  it('returns individual border styles', () => {
+  it("returns individual border styles", () => {
     const result = css({
-      borderTopWidth: 'thin',
-      borderTopColor: 'primary',
-      borderTopStyle: 'thick',
-      borderTopLeftRadius: 'small',
-      borderTopRightRadius: 'small',
-      borderBottomWidth: 'thin',
-      borderBottomColor: 'secondary',
-      borderBottomStyle: 'thick',
-      borderBottomLeftRadius: 'small',
-      borderBottomRightRadius: 'small',
-      borderRightWidth: 'thin',
-      borderRightColor: 'primary',
-      borderRightStyle: 'thick',
-      borderLeftWidth: 'thin',
-      borderLeftColor: 'secondary',
-      borderLeftStyle: 'thick',
+      borderTopWidth: "thin",
+      borderTopColor: "primary",
+      borderTopStyle: "thick",
+      borderTopLeftRadius: "small",
+      borderTopRightRadius: "small",
+      borderBottomWidth: "thin",
+      borderBottomColor: "secondary",
+      borderBottomStyle: "thick",
+      borderBottomLeftRadius: "small",
+      borderBottomRightRadius: "small",
+      borderRightWidth: "thin",
+      borderRightColor: "primary",
+      borderRightStyle: "thick",
+      borderLeftWidth: "thin",
+      borderLeftColor: "secondary",
+      borderLeftStyle: "thick",
     })(theme);
     expect(result).toEqual({
-      borderTopColor: 'pink',
+      borderTopColor: "pink",
       borderTopWidth: 1,
-      borderTopStyle: 'solid',
+      borderTopStyle: "solid",
       borderTopLeftRadius: 5,
       borderTopRightRadius: 5,
-      borderBottomColor: 'hotpink',
+      borderBottomColor: "hotpink",
       borderBottomWidth: 1,
-      borderBottomStyle: 'solid',
+      borderBottomStyle: "solid",
       borderBottomLeftRadius: 5,
       borderBottomRightRadius: 5,
-      borderRightColor: 'pink',
+      borderRightColor: "pink",
       borderRightWidth: 1,
-      borderRightStyle: 'solid',
-      borderLeftColor: 'hotpink',
+      borderRightStyle: "solid",
+      borderLeftColor: "hotpink",
       borderLeftWidth: 1,
-      borderLeftStyle: 'solid',
+      borderLeftStyle: "solid",
     });
   });
 
-  it('flexBasis uses theme.sizes', () => {
+  it("flexBasis uses theme.sizes", () => {
     const style = css({
-      flexBasis: 'sidebar',
+      flexBasis: "sidebar",
     })(theme);
     expect(style).toEqual({
       flexBasis: 320,
     });
   });
 
-  it('fill and stroke use theme.colors', () => {
+  it("fill and stroke use theme.colors", () => {
     const style = css({
-      fill: 'primary',
-      stroke: 'secondary',
+      fill: "primary",
+      stroke: "secondary",
     })(theme);
     expect(style).toEqual({
-      fill: 'tomato',
-      stroke: 'cyan',
+      fill: "tomato",
+      stroke: "cyan",
     });
   });
 
-  it('multiples are transformed', () => {
+  it("multiples are transformed", () => {
     const style = css({
       marginX: 2,
       marginY: 2,
       paddingX: 2,
       paddingY: 2,
-      size: 'large',
+      size: "large",
     })(theme);
     expect(style).toEqual({
       marginLeft: 8,
@@ -422,62 +422,62 @@ describe('css function', () => {
     });
   });
 
-  it('returns outline color from theme', () => {
+  it("returns outline color from theme", () => {
     const result = css({
-      outlineColor: 'primary',
+      outlineColor: "primary",
     })(theme);
     expect(result).toEqual({
-      outlineColor: 'tomato',
+      outlineColor: "tomato",
     });
   });
 
-  it('returns correct media query order', () => {
+  it("returns correct media query order", () => {
     const result = css({
       // eslint-disable-next-line no-sparse-arrays
-      width: ['100%', , '50%'],
-      color: ['red', 'green', 'blue'],
+      width: ["100%", , "50%"],
+      color: ["red", "green", "blue"],
     })(theme);
     const keys = Object.keys(result);
     expect(keys).toEqual([
-      'width',
-      '@media screen and (min-width: 40em)',
-      '@media screen and (min-width: 52em)',
-      'color',
+      "width",
+      "@media screen and (min-width: 40em)",
+      "@media screen and (min-width: 52em)",
+      "color",
     ]);
     expect(result).toEqual({
-      width: '100%',
-      '@media screen and (min-width: 40em)': {
-        color: 'green',
+      width: "100%",
+      "@media screen and (min-width: 40em)": {
+        color: "green",
       },
-      '@media screen and (min-width: 52em)': {
-        width: '50%',
-        color: 'blue',
+      "@media screen and (min-width: 52em)": {
+        width: "50%",
+        color: "blue",
       },
-      color: 'red',
+      color: "red",
     });
   });
 
-  it('returns correct media query order 2', () => {
+  it("returns correct media query order 2", () => {
     const result = css({
-      flexDirection: 'column',
-      justifyContent: [null, 'flex-start', 'flex-end'],
-      color: 'background',
-      height: '100%',
+      flexDirection: "column",
+      justifyContent: [null, "flex-start", "flex-end"],
+      color: "background",
+      height: "100%",
       px: [2, 3, 4],
       py: 4,
     })(theme);
     const keys = Object.keys(result);
     expect(keys).toEqual([
-      'flexDirection',
-      'justifyContent',
-      '@media screen and (min-width: 40em)',
-      '@media screen and (min-width: 52em)',
-      'color',
-      'height',
-      'paddingLeft',
-      'paddingRight',
-      'paddingTop',
-      'paddingBottom',
+      "flexDirection",
+      "justifyContent",
+      "@media screen and (min-width: 40em)",
+      "@media screen and (min-width: 52em)",
+      "color",
+      "height",
+      "paddingLeft",
+      "paddingRight",
+      "paddingTop",
+      "paddingBottom",
     ]);
   });
 });

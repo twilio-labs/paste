@@ -1,15 +1,15 @@
-import type { StoryFn } from '@storybook/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { ListItem, OrderedList, UnorderedList } from '../src';
+import { ListItem, OrderedList, UnorderedList } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/List',
+  title: "Components/List",
   component: OrderedList,
   subcomponents: { UnorderedList, ListItem },
 };
@@ -46,7 +46,7 @@ export const DefaultOrderedList = (): React.ReactNode => {
   );
 };
 
-DefaultOrderedList.storyName = 'Ordered List';
+DefaultOrderedList.storyName = "Ordered List";
 
 export const DefaultUnorderedList = (): React.ReactNode => {
   return (
@@ -76,7 +76,7 @@ export const DefaultUnorderedList = (): React.ReactNode => {
   );
 };
 
-DefaultUnorderedList.storyName = 'Unordered List';
+DefaultUnorderedList.storyName = "Unordered List";
 
 export const NestedUnorderedList = (): React.ReactNode => {
   return (
@@ -130,13 +130,13 @@ export const CustomOrderedList: StoryFn = (_args, { parameters: { isTestEnvironm
         theme={currentTheme}
         elements={{
           ORDERED_LIST: {
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
-            marginLeft: 'space0',
-            padding: 'space40',
-            paddingLeft: 'space70',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            marginLeft: "space0",
+            padding: "space40",
+            paddingLeft: "space70",
           },
           LIST_ITEM: {
-            color: 'colorTextError',
+            color: "colorTextError",
           },
         }}
       >
@@ -157,16 +157,16 @@ export const CustomOrderedList: StoryFn = (_args, { parameters: { isTestEnvironm
         theme={currentTheme}
         elements={{
           NEW_ORDERED_LIST: {
-            backgroundColor: 'colorBackgroundTrial',
-            marginLeft: 'space0',
-            padding: 'space40',
-            paddingLeft: 'space70',
+            backgroundColor: "colorBackgroundTrial",
+            marginLeft: "space0",
+            padding: "space40",
+            paddingLeft: "space70",
           },
           NEW_LIST_ITEM: {
-            color: 'colorTextLink',
+            color: "colorTextLink",
           },
           ANOTHER_NEW_LIST_ITEM: {
-            color: 'colorTextErrorStrong',
+            color: "colorTextErrorStrong",
           },
         }}
       >
@@ -212,13 +212,13 @@ export const CustomUnorderedList: StoryFn = (_args, { parameters: { isTestEnviro
         theme={currentTheme}
         elements={{
           UNORDERED_LIST: {
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
-            marginLeft: 'space0',
-            padding: 'space40',
-            paddingLeft: 'space70',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            marginLeft: "space0",
+            padding: "space40",
+            paddingLeft: "space70",
           },
           LIST_ITEM: {
-            color: 'colorTextError',
+            color: "colorTextError",
           },
         }}
       >
@@ -239,16 +239,16 @@ export const CustomUnorderedList: StoryFn = (_args, { parameters: { isTestEnviro
         theme={currentTheme}
         elements={{
           NEW_UNORDERED_LIST: {
-            backgroundColor: 'colorBackgroundTrial',
-            marginLeft: 'space0',
-            padding: 'space40',
-            paddingLeft: 'space70',
+            backgroundColor: "colorBackgroundTrial",
+            marginLeft: "space0",
+            padding: "space40",
+            paddingLeft: "space70",
           },
           NEW_LIST_ITEM: {
-            color: 'colorTextLink',
+            color: "colorTextLink",
           },
           ANOTHER_NEW_LIST_ITEM: {
-            color: 'colorTextErrorStrong',
+            color: "colorTextErrorStrong",
           },
         }}
       >

@@ -1,13 +1,13 @@
-import { Avatar } from '@twilio-paste/avatar';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
-import { NonModalDialogDisclosurePrimitive, NonModalDialogPrimitive } from '@twilio-paste/non-modal-dialog-primitive';
-import { StyledBase } from '@twilio-paste/theme';
-import * as React from 'react';
+import { Avatar } from "@twilio-paste/avatar";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { NonModalDialogDisclosurePrimitive, NonModalDialogPrimitive } from "@twilio-paste/non-modal-dialog-primitive";
+import { StyledBase } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { UserDialogContext } from './UserDialogContainer';
-import type { UserDialogButtonProps, UserDialogPopoverProps, UserDialogProps } from './types';
+import { UserDialogContext } from "./UserDialogContainer";
+import type { UserDialogButtonProps, UserDialogPopoverProps, UserDialogProps } from "./types";
 
 // styled popover for UserDialog Non Modal Dialog Primitive
 const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProps>(({ style, ...props }, ref) => {
@@ -30,7 +30,7 @@ const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProp
     </Box>
   );
 });
-UserDialogPopover.displayName = 'UserDialogPopover';
+UserDialogPopover.displayName = "UserDialogPopover";
 
 const UserDialogButton = React.forwardRef<HTMLButtonElement, UserDialogButtonProps>(
   ({ children, element, ...props }, ref) => {
@@ -48,10 +48,10 @@ const UserDialogButton = React.forwardRef<HTMLButtonElement, UserDialogButtonPro
     );
   },
 );
-UserDialogButton.displayName = 'UserDialogButton';
+UserDialogButton.displayName = "UserDialogButton";
 
 export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
-  ({ children, 'aria-label': label, element = 'USER_DIALOG', ...props }, ref) => {
+  ({ children, "aria-label": label, element = "USER_DIALOG", ...props }, ref) => {
     const { userDialogState, avatarProps } = React.useContext(UserDialogContext);
     return (
       <>
@@ -62,7 +62,7 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
             alignItems="center"
             element={`${element}_BUTTON_CONTENTS`}
             color="colorTextIcon"
-            _hover={{ color: 'colorTextPrimaryStrongest' }}
+            _hover={{ color: "colorTextPrimaryStrongest" }}
           >
             <Avatar
               variant="user"
@@ -91,4 +91,4 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
     );
   },
 );
-UserDialog.displayName = 'UserDialog';
+UserDialog.displayName = "UserDialog";

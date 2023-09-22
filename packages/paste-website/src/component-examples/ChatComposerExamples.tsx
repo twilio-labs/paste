@@ -1,15 +1,15 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { ChatBubble, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from '@twilio-paste/chat-log';
-import type { Chat } from '@twilio-paste/chat-log';
-import { SendIcon } from '@twilio-paste/icons/esm/SendIcon';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ChatBubble, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "@twilio-paste/chat-log";
+import type { Chat } from "@twilio-paste/chat-log";
+import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import {
   CLEAR_EDITOR_COMMAND,
   COMMAND_PRIORITY_HIGH,
   KEY_ENTER_COMMAND,
   useLexicalComposerContext,
-} from '@twilio-paste/lexical-library';
-import * as React from 'react';
+} from "@twilio-paste/lexical-library";
+import * as React from "react";
 
 export const RichTextExample = `const RichTextExample = () => {
   return (
@@ -72,14 +72,14 @@ function getRandomInt(max: number): number {
   return Math.floor(Math.random() * max);
 }
 
-export const createNewMessage = (message: string): Omit<Chat, 'id'> => {
-  const time = new Date().toLocaleString('en-US', {
-    hour: 'numeric',
-    minute: 'numeric',
+export const createNewMessage = (message: string): Omit<Chat, "id"> => {
+  const time = new Date().toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
     hour12: true,
   });
 
-  const messageDirection = getRandomInt(2) === 1 ? 'inbound' : 'outbound';
+  const messageDirection = getRandomInt(2) === 1 ? "inbound" : "outbound";
 
   return {
     variant: messageDirection,

@@ -1,4 +1,4 @@
-import { styled } from '@twilio-paste/styling-library';
+import { styled } from "@twilio-paste/styling-library";
 
 interface GridProps {
   columnWidth: number;

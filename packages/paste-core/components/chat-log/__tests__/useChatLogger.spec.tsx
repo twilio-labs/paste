@@ -1,11 +1,11 @@
-import { act, renderHook } from '@testing-library/react';
-import * as React from 'react';
+import { act, renderHook } from "@testing-library/react";
+import * as React from "react";
 
-import { ChatBubble, ChatMessage, useChatLogger } from '../src';
+import { ChatBubble, ChatMessage, useChatLogger } from "../src";
 
 const chat = {
-  id: 'custom-id-123',
-  variant: 'inbound',
+  id: "custom-id-123",
+  variant: "inbound",
   content: (
     <ChatMessage variant="inbound">
       <ChatBubble>hi</ChatBubble>
@@ -13,8 +13,8 @@ const chat = {
   ),
 } as const;
 
-describe('useChatLogger', () => {
-  it('returns expected result with defaults', () => {
+describe("useChatLogger", () => {
+  it("returns expected result with defaults", () => {
     const { result } = renderHook(() => useChatLogger());
 
     expect(result.current).toMatchObject({
@@ -24,7 +24,7 @@ describe('useChatLogger', () => {
     });
   });
 
-  it('returns expected result with initialization', () => {
+  it("returns expected result with initialization", () => {
     const { result } = renderHook(() => useChatLogger(chat));
 
     expect(result.current.chats).toHaveLength(1);
@@ -33,8 +33,8 @@ describe('useChatLogger', () => {
     expect(result.current.chats[0]).toMatchObject(chat);
   });
 
-  describe('push', () => {
-    it('pushes new chats with an id', () => {
+  describe("push", () => {
+    it("pushes new chats with an id", () => {
       const { result } = renderHook(() => useChatLogger());
       expect(result.current.chats).toHaveLength(0);
 
@@ -46,7 +46,7 @@ describe('useChatLogger', () => {
       expect(result.current.chats[0]).toMatchObject(chat);
     });
 
-    it('pushes new chats without an id', () => {
+    it("pushes new chats without an id", () => {
       const { result } = renderHook(() => useChatLogger());
       expect(result.current.chats).toHaveLength(0);
 
@@ -62,8 +62,8 @@ describe('useChatLogger', () => {
     });
   });
 
-  describe('pop', () => {
-    it('pops chats with an id', () => {
+  describe("pop", () => {
+    it("pops chats with an id", () => {
       const { result } = renderHook(() => useChatLogger(chat));
       expect(result.current.chats).toHaveLength(1);
 
@@ -74,7 +74,7 @@ describe('useChatLogger', () => {
       expect(result.current.chats).toHaveLength(0);
     });
 
-    it('pops chats without an id', () => {
+    it("pops chats without an id", () => {
       const { result } = renderHook(() => useChatLogger(chat));
       expect(result.current.chats).toHaveLength(1);
 

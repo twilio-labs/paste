@@ -1,6 +1,6 @@
-import { Box } from '@twilio-paste/box';
-import { styled } from '@twilio-paste/styling-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { styled } from "@twilio-paste/styling-library";
+import * as React from "react";
 
 export interface AspectRatioProps {
   /**
@@ -18,7 +18,7 @@ const RATIO_REGEX = /^(\d+:\d*)$/;
 const isCorrectPattern = (ratio: string): boolean => RATIO_REGEX.test(ratio);
 
 const handlePropValidation = ({ ratio }: AspectRatioProps): void => {
-  const hasRatio = ratio != null && ratio !== '';
+  const hasRatio = ratio != null && ratio !== "";
 
   if (!hasRatio) {
     throw new Error(`[Paste: AspectRatio] Missing 'ratio' prop.`);
@@ -47,7 +47,7 @@ const AspectRatioContainer = styled.div`
 const AspectRatio = React.forwardRef<HTMLDivElement, AspectRatioProps>((props, ref) => {
   handlePropValidation(props);
 
-  const aspectArray = props.ratio.split(':').map(Number);
+  const aspectArray = props.ratio.split(":").map(Number);
   const aspectPercent = (aspectArray[1] / aspectArray[0]) * 100;
 
   return (
@@ -59,6 +59,6 @@ const AspectRatio = React.forwardRef<HTMLDivElement, AspectRatioProps>((props, r
   );
 });
 
-AspectRatio.displayName = 'AspectRatio';
+AspectRatio.displayName = "AspectRatio";
 
 export { AspectRatio };

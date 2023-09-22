@@ -1,14 +1,14 @@
-import { Avatar } from '@twilio-paste/avatar';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
-import { Separator } from '@twilio-paste/separator';
-import * as React from 'react';
+import { Avatar } from "@twilio-paste/avatar";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Separator } from "@twilio-paste/separator";
+import * as React from "react";
 
-import { UserDialogContext } from './UserDialogContainer';
-import type { UserDialogUserInfoProps } from './types';
+import { UserDialogContext } from "./UserDialogContainer";
+import type { UserDialogUserInfoProps } from "./types";
 
 export const UserDialogUserInfo = React.forwardRef<HTMLDivElement, UserDialogUserInfoProps>(
-  ({ children, element = 'USER_DIALOG', ...props }, ref) => {
+  ({ children, element = "USER_DIALOG", ...props }, ref) => {
     const { avatarProps } = React.useContext(UserDialogContext);
     return (
       <>
@@ -40,4 +40,4 @@ export const UserDialogUserInfo = React.forwardRef<HTMLDivElement, UserDialogUse
     );
   },
 );
-UserDialogUserInfo.displayName = 'UserDialogUserInfo';
+UserDialogUserInfo.displayName = "UserDialogUserInfo";

@@ -3,16 +3,16 @@ import {
   BaseRadioCheckboxHelpText,
   BaseRadioCheckboxLabel,
   BaseRadioCheckboxLabelText,
-} from '@twilio-paste/base-radio-checkbox';
-import { Box } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+} from "@twilio-paste/base-radio-checkbox";
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { RadioContext } from './RadioContext';
+import { RadioContext } from "./RadioContext";
 
-export interface RadioProps extends HTMLPasteProps<'input'> {
+export interface RadioProps extends HTMLPasteProps<"input"> {
   id?: string;
   value?: string;
   name?: string;
@@ -22,10 +22,10 @@ export interface RadioProps extends HTMLPasteProps<'input'> {
   hasError?: boolean;
   helpText?: string | React.ReactNode;
   children: NonNullable<React.ReactNode>;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
-type HiddenRadioProps = Pick<RadioProps, 'checked' | 'value' | 'id' | 'disabled' | 'name' | 'onChange'>;
+type HiddenRadioProps = Pick<RadioProps, "checked" | "value" | "id" | "disabled" | "name" | "onChange">;
 const HiddenRadio = React.forwardRef<HTMLInputElement, HiddenRadioProps>((props, ref) => (
   <Box
     as="input"
@@ -44,7 +44,7 @@ const HiddenRadio = React.forwardRef<HTMLInputElement, HiddenRadioProps>((props,
   />
 ));
 
-HiddenRadio.displayName = 'HiddenRadio';
+HiddenRadio.displayName = "HiddenRadio";
 
 type HiddenRadioState = {
   name: string;
@@ -70,7 +70,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     {
       id,
       name,
-      element = 'RADIO',
+      element = "RADIO",
       value,
       checked,
       defaultChecked,
@@ -99,7 +99,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     const helpTextId = useUID();
     const radioId = id ? id : useUID();
     // We shouldn't change between controlled and uncontrolled after mount, so we memo this for safety
-    const isControlled = React.useMemo(() => checked !== undefined || radioGroupContext.value !== '', []);
+    const isControlled = React.useMemo(() => checked !== undefined || radioGroupContext.value !== "", []);
 
     const handleChange = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -128,7 +128,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
      */
     if (isControlled) {
       // Use context's value first
-      if (radioGroupContext.value !== '') {
+      if (radioGroupContext.value !== "") {
         state.checked = radioGroupContext.value === value;
       } else {
         // Then checked prop on this radio
@@ -167,14 +167,14 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
             disabled={state.disabled}
             type="radio"
             _checkedAndDisabledSibling={{
-              color: 'colorTextWeaker',
+              color: "colorTextWeaker",
             }}
           >
             <Box
               as="span"
               element={`${element}_CONTROL_CIRCLE`}
               lineHeight="lineHeight0"
-              display={mergedChecked ? 'block' : 'none'}
+              display={mergedChecked ? "block" : "none"}
               color="inherit"
               size="sizeIcon10"
             >
@@ -197,6 +197,6 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   },
 );
 
-Radio.displayName = 'Radio';
+Radio.displayName = "Radio";
 
 export { Radio, HiddenRadio, type HiddenRadioState };

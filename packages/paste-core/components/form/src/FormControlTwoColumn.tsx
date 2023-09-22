@@ -1,14 +1,14 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-export interface FormControlTwoColumnProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
-  element?: BoxProps['element'];
+export interface FormControlTwoColumnProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+  element?: BoxProps["element"];
   children: React.ReactNode;
 }
 
 export const FormControlTwoColumn = React.forwardRef<HTMLLegendElement, FormControlTwoColumnProps>(
-  ({ children, element = 'FORM_CONTROL_TWO_COLUMN', ...props }, ref) => (
+  ({ children, element = "FORM_CONTROL_TWO_COLUMN", ...props }, ref) => (
     <Box
       display="grid"
       gridTemplateColumns="1fr 1fr"
@@ -22,4 +22,4 @@ export const FormControlTwoColumn = React.forwardRef<HTMLLegendElement, FormCont
   ),
 );
 
-FormControlTwoColumn.displayName = 'FormControlTwoColumn';
+FormControlTwoColumn.displayName = "FormControlTwoColumn";

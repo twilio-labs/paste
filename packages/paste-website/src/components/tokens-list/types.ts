@@ -1,6 +1,6 @@
-import type { Properties } from 'csstype';
+import type { Properties } from "csstype";
 
-import type { Themes } from '../../types';
+import type { Themes } from "../../types";
 
 export interface Token {
   type: string;
@@ -22,24 +22,24 @@ export interface TokensShape {
 }
 
 export interface TokenExampleColors {
-  backgroundColor?: Properties['backgroundColor'];
-  backgroundColorInverse?: Properties['backgroundColor'];
-  borderColor?: Properties['borderColor'];
-  highlightColor?: Properties['backgroundColor'];
-  textColor?: Properties['color'];
-  textColorInverse?: Properties['color'];
+  backgroundColor?: Properties["backgroundColor"];
+  backgroundColorInverse?: Properties["backgroundColor"];
+  borderColor?: Properties["borderColor"];
+  highlightColor?: Properties["backgroundColor"];
+  textColor?: Properties["color"];
+  textColorInverse?: Properties["color"];
 }
 
 export interface TokenExampleProps extends TokenExampleColors {
-  category: Token['category'];
-  name: Token['name'];
-  value: Token['value'];
-  text_contrast_pairing?: Token['text_contrast_pairing'];
+  category: Token["category"];
+  name: Token["name"];
+  value: Token["value"];
+  text_contrast_pairing?: Token["text_contrast_pairing"];
 }
 
 export interface TokenCardProps extends TokenExampleProps {
-  altValue: Token['altValue'];
-  comment?: Token['comment'];
+  altValue: Token["altValue"];
+  comment?: Token["comment"];
   useCamelCase?: boolean;
   isCopied?: boolean;
   onCopyText?: (tokenName: string) => void;

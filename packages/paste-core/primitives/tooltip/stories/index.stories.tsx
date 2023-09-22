@@ -1,12 +1,12 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import * as React from "react";
 
-import { TooltipPrimitive, TooltipPrimitiveReference, useTooltipPrimitiveState } from '../src';
+import { TooltipPrimitive, TooltipPrimitiveReference, useTooltipPrimitiveState } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Primitives/Tooltip',
+  title: "Primitives/Tooltip",
   component: TooltipPrimitive,
   subcomponents: { TooltipPrimitiveReference },
 };
@@ -24,7 +24,7 @@ export const SimpleTooltip = (): React.ReactNode => {
 };
 
 export const TooltipRightPlacement = (): React.ReactNode => {
-  const tooltip = useTooltipPrimitiveState({ placement: 'right' });
+  const tooltip = useTooltipPrimitiveState({ placement: "right" });
   return (
     <>
       <TooltipPrimitiveReference {...tooltip} as={Button} variant="primary">
@@ -36,7 +36,7 @@ export const TooltipRightPlacement = (): React.ReactNode => {
 };
 
 export const TooltipLeftPlacement = (): React.ReactNode => {
-  const tooltip = useTooltipPrimitiveState({ placement: 'left' });
+  const tooltip = useTooltipPrimitiveState({ placement: "left" });
   return (
     <Box position="absolute" top={12} right={12}>
       <TooltipPrimitiveReference {...tooltip} as={Button} variant="primary">
@@ -48,7 +48,7 @@ export const TooltipLeftPlacement = (): React.ReactNode => {
 };
 
 export const TooltipTopPlacement = (): React.ReactNode => {
-  const tooltip = useTooltipPrimitiveState({ placement: 'top' });
+  const tooltip = useTooltipPrimitiveState({ placement: "top" });
   return (
     <Box position="absolute" bottom={12}>
       <TooltipPrimitiveReference {...tooltip} as={Button} variant="primary">
@@ -60,7 +60,7 @@ export const TooltipTopPlacement = (): React.ReactNode => {
 };
 
 export const TooltipBottomPlacement = (): React.ReactNode => {
-  const tooltip = useTooltipPrimitiveState({ placement: 'bottom' });
+  const tooltip = useTooltipPrimitiveState({ placement: "bottom" });
   return (
     <>
       <TooltipPrimitiveReference {...tooltip} as={Button} variant="primary">

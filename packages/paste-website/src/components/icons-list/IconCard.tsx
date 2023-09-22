@@ -1,14 +1,14 @@
-import { Box } from '@twilio-paste/box';
-import { Card } from '@twilio-paste/card';
-import { CodeBlock } from '@twilio-paste/code-block';
-import { Heading } from '@twilio-paste/heading';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Text } from '@twilio-paste/text';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CodeBlock } from "@twilio-paste/code-block";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-import { CopyButton } from '../CopyButton';
-import { SiteLink } from '../SiteLink';
-import type { IconObject } from './types';
+import { CopyButton } from "../CopyButton";
+import { SiteLink } from "../SiteLink";
+import type { IconObject } from "./types";
 
 const iconSnippet = (name: string): string => `import { ${name} } from "@twilio-paste/icons/esm/${name}";
 
@@ -28,7 +28,7 @@ const IconCard: React.FC<React.PropsWithChildren<IconCardProps>> = ({ selectedIc
     <>
       <Heading as="h2" variant="heading20">
         <Text as="span" fontSize="inherit" wordBreak="break-all">
-          {selectedIcon.name.replace('Icon', '')}
+          {selectedIcon.name.replace("Icon", "")}
         </Text>
       </Heading>
       <Card>

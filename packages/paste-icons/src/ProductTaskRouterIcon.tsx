@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductTaskRouterIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductTaskRouterIconProps extends IconWrapperProps {
 }
 
 const ProductTaskRouterIcon = React.forwardRef<HTMLElement, ProductTaskRouterIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductTaskRouterIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductTaskRouterIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductTaskRouterIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -43,5 +43,5 @@ const ProductTaskRouterIcon = React.forwardRef<HTMLElement, ProductTaskRouterIco
   },
 );
 
-ProductTaskRouterIcon.displayName = 'ProductTaskRouterIcon';
+ProductTaskRouterIcon.displayName = "ProductTaskRouterIcon";
 export { ProductTaskRouterIcon };

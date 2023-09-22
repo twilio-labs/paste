@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import * as React from 'react';
+import Head from "next/head";
+import { useRouter } from "next/router";
+import * as React from "react";
 
-import { PageContentWrapper } from '../components/PageContentWrapper';
-import { PasteMDXProvider } from '../components/paste-mdx-provider';
-import { SiteWrapper } from '../components/site-wrapper';
-import { SiteMetaDefaults } from '../constants';
-import type { NavigationQuery } from '../context/NavigationContext';
+import { PageContentWrapper } from "../components/PageContentWrapper";
+import { PasteMDXProvider } from "../components/paste-mdx-provider";
+import { SiteWrapper } from "../components/site-wrapper";
+import { SiteMetaDefaults } from "../constants";
+import type { NavigationQuery } from "../context/NavigationContext";
 
 interface DefaultLayoutProps {
   children?: React.ReactElement;

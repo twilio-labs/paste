@@ -1,35 +1,35 @@
-import { Box } from '@twilio-paste/box';
-import DarkRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.raw.json';
-import DefaultRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.raw.json';
-import { styled, themeGet } from '@twilio-paste/styling-library';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import DarkRawTokens from "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.raw.json";
+import DefaultRawTokens from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.raw.json";
+import { styled, themeGet } from "@twilio-paste/styling-library";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { useDarkModeContext } from '../../context/DarkModeContext';
-import type { Themes } from '../../types';
+import { useDarkModeContext } from "../../context/DarkModeContext";
+import type { Themes } from "../../types";
 
 type ThemeShape = Record<string, Record<string, string | number>>;
 
 const aliasPrefixes = [
-  'palette-gray',
-  'palette-red',
-  'palette-orange',
-  'palette-yellow',
-  'palette-green',
-  'palette-blue',
-  'palette-purple',
+  "palette-gray",
+  "palette-red",
+  "palette-orange",
+  "palette-yellow",
+  "palette-green",
+  "palette-blue",
+  "palette-purple",
 ];
-const excludedAliases = new Set(['palette-gray-0', 'palette-gray-110', 'palette-orange-65', 'palette-gray-05']);
+const excludedAliases = new Set(["palette-gray-0", "palette-gray-110", "palette-orange-65", "palette-gray-05"]);
 
 export const sortAliasNames = (aliasNames: string[]): string[] => {
   return aliasNames.sort((nameA, nameB) => nameA.localeCompare(nameB, undefined, { numeric: true })).reverse();
 };
 
 export const filterAliasNames = (aliasName: string, prefix: string): boolean =>
-  aliasName.includes(prefix) && !aliasName.includes('transparent') && !excludedAliases.has(aliasName);
+  aliasName.includes(prefix) && !aliasName.includes("transparent") && !excludedAliases.has(aliasName);
 
 export const getAliasValuesFromPrefix = (prefix: string, theme: Themes): string[] => {
-  const themeColors: ThemeShape = theme === 'default' ? DefaultRawTokens.aliases : DarkRawTokens.aliases;
+  const themeColors: ThemeShape = theme === "default" ? DefaultRawTokens.aliases : DarkRawTokens.aliases;
   const filteredAliasNames = Object.keys(themeColors).filter((aliasName) => filterAliasNames(aliasName, prefix));
 
   return sortAliasNames(filteredAliasNames).reduce((current: string[], aliasName): string[] => {
@@ -41,14 +41,14 @@ export const getAliasValuesFromPrefix = (prefix: string, theme: Themes): string[
 // Need to use styled div because the alias names aren't valid backgroundColors on Box
 const StyledGradientSwatch = styled.div<{ backgroundColor: string }>`
   background-color: ${(props) => props.backgroundColor};
-  height: ${themeGet('space.space60')};
+  height: ${themeGet("space.space60")};
 `;
 
 // Need to use styled div because Box doesn't support CSS grid
 const StyledGrid = styled.div`
   display: grid;
-  column-gap: ${themeGet('space.space40')};
-  margin-bottom: ${themeGet('space.space70')};
+  column-gap: ${themeGet("space.space40")};
+  margin-bottom: ${themeGet("space.space70")};
   grid-template-columns: repeat(7, 1fr);
 `;
 

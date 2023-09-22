@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface LockIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface LockIconProps extends IconWrapperProps {
 }
 
 const LockIcon = React.forwardRef<HTMLElement, LockIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `LockIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[LockIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[LockIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -46,5 +46,5 @@ const LockIcon = React.forwardRef<HTMLElement, LockIconProps>(
   },
 );
 
-LockIcon.displayName = 'LockIcon';
+LockIcon.displayName = "LockIcon";
 export { LockIcon };

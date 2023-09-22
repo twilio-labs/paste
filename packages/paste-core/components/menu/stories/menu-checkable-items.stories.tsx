@@ -1,16 +1,16 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { BoldIcon } from '@twilio-paste/icons/esm/BoldIcon';
-import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
-import { DataBarChartIcon } from '@twilio-paste/icons/esm/DataBarChartIcon';
-import { DataLineChartIcon } from '@twilio-paste/icons/esm/DataLineChartIcon';
-import { DataPieChartIcon } from '@twilio-paste/icons/esm/DataPieChartIcon';
-import { DataTableIcon } from '@twilio-paste/icons/esm/DataTableIcon';
-import { ItalicIcon } from '@twilio-paste/icons/esm/ItalicIcon';
-import { StrikethroughIcon } from '@twilio-paste/icons/esm/StrikethroughIcon';
-import { UnderlineIcon } from '@twilio-paste/icons/esm/UnderlineIcon';
-import { UnorderedListIcon } from '@twilio-paste/icons/esm/UnorderedListIcon';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { BoldIcon } from "@twilio-paste/icons/esm/BoldIcon";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { DataBarChartIcon } from "@twilio-paste/icons/esm/DataBarChartIcon";
+import { DataLineChartIcon } from "@twilio-paste/icons/esm/DataLineChartIcon";
+import { DataPieChartIcon } from "@twilio-paste/icons/esm/DataPieChartIcon";
+import { DataTableIcon } from "@twilio-paste/icons/esm/DataTableIcon";
+import { ItalicIcon } from "@twilio-paste/icons/esm/ItalicIcon";
+import { StrikethroughIcon } from "@twilio-paste/icons/esm/StrikethroughIcon";
+import { UnderlineIcon } from "@twilio-paste/icons/esm/UnderlineIcon";
+import { UnorderedListIcon } from "@twilio-paste/icons/esm/UnorderedListIcon";
+import * as React from "react";
 
 import {
   Menu,
@@ -22,11 +22,11 @@ import {
   MenuSeparator,
   SubMenuButton,
   useMenuState,
-} from '../src';
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Menu/CheckableItems',
+  title: "Components/Menu/CheckableItems",
   component: Menu,
   subcomponents: { MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator },
   parameters: {
@@ -93,7 +93,7 @@ export const CheckboxMenu: StoryFn = () => {
 
 export const RadioMenu: StoryFn = () => {
   const menu = useMenuState();
-  const [value, setValue] = React.useState('grid');
+  const [value, setValue] = React.useState("grid");
   return (
     <>
       <MenuButton {...menu} variant="secondary">
@@ -103,8 +103,8 @@ export const RadioMenu: StoryFn = () => {
         <MenuItemRadio
           {...menu}
           name="display-view"
-          checked={value === 'grid'}
-          onChange={() => setValue('grid')}
+          checked={value === "grid"}
+          onChange={() => setValue("grid")}
           value="grid"
         >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
@@ -114,8 +114,8 @@ export const RadioMenu: StoryFn = () => {
         <MenuItemRadio
           {...menu}
           name="display-view"
-          checked={value === 'bar'}
-          onChange={() => setValue('bar')}
+          checked={value === "bar"}
+          onChange={() => setValue("bar")}
           value="bar"
         >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
@@ -125,8 +125,8 @@ export const RadioMenu: StoryFn = () => {
         <MenuItemRadio
           {...menu}
           name="display-view"
-          checked={value === 'line'}
-          onChange={() => setValue('line')}
+          checked={value === "line"}
+          onChange={() => setValue("line")}
           value="line"
         >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
@@ -137,8 +137,8 @@ export const RadioMenu: StoryFn = () => {
           {...menu}
           name="display-view"
           disabled
-          checked={value === 'pie'}
-          onChange={() => setValue('pie')}
+          checked={value === "pie"}
+          onChange={() => setValue("pie")}
           value="pie"
         >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">
@@ -149,8 +149,8 @@ export const RadioMenu: StoryFn = () => {
         <MenuItemRadio
           {...menu}
           name="display-view"
-          checked={value === 'list'}
-          onChange={() => setValue('list')}
+          checked={value === "list"}
+          onChange={() => setValue("list")}
           value="list"
         >
           <Box as="span" display="flex" columnGap="space30" alignItems="center">

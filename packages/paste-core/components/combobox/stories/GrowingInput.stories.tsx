@@ -1,10 +1,10 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { Label } from '@twilio-paste/label';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Label } from "@twilio-paste/label";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { GrowingInput } from '../src/multiselect/GrowingInput';
+import { GrowingInput } from "../src/multiselect/GrowingInput";
 
 export const GrowingInputDemo: StoryFn = () => {
   const id = useUID();
@@ -21,7 +21,7 @@ export const GrowingInputDemo: StoryFn = () => {
   );
 };
 
-GrowingInputDemo.storyName = 'GrowingInput';
+GrowingInputDemo.storyName = "GrowingInput";
 GrowingInputDemo.parameters = {
   // Nothing to VRT. Story for developer experience
   chromatic: { disableSnapshot: true },
@@ -29,6 +29,6 @@ GrowingInputDemo.parameters = {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Combobox',
+  title: "Components/Combobox",
   component: GrowingInputDemo,
 };

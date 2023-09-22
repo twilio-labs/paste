@@ -1,16 +1,16 @@
-import type { BoxProps } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { ArrowDownIcon } from '@twilio-paste/icons/esm/ArrowDownIcon';
-import { ArrowUpIcon } from '@twilio-paste/icons/esm/ArrowUpIcon';
-import { UnsortedIcon } from '@twilio-paste/icons/esm/UnsortedIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import * as React from 'react';
+import type { BoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ArrowDownIcon } from "@twilio-paste/icons/esm/ArrowDownIcon";
+import { ArrowUpIcon } from "@twilio-paste/icons/esm/ArrowUpIcon";
+import { UnsortedIcon } from "@twilio-paste/icons/esm/UnsortedIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import * as React from "react";
 
-export type SortDirection = 'ascending' | 'descending' | 'none';
+export type SortDirection = "ascending" | "descending" | "none";
 
 interface DataGridHeaderSortIconProps {
   direction: SortDirection;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 const DataGridHeaderSortIcon: React.FC<React.PropsWithChildren<DataGridHeaderSortIconProps>> = ({
@@ -18,18 +18,18 @@ const DataGridHeaderSortIcon: React.FC<React.PropsWithChildren<DataGridHeaderSor
   element,
 }) => {
   switch (direction) {
-    case 'ascending':
+    case "ascending":
       return <ArrowUpIcon decorative element={element} />;
-    case 'descending':
+    case "descending":
       return <ArrowDownIcon decorative element={element} />;
-    case 'none':
+    case "none":
       return <UnsortedIcon decorative element={element} />;
     default:
       return null;
   }
 };
 
-DataGridHeaderSortIcon.displayName = 'DataGridHeaderSortIcon';
+DataGridHeaderSortIcon.displayName = "DataGridHeaderSortIcon";
 
 export interface DataGridHeaderSortProps extends DataGridHeaderSortIconProps {
   onClick?: () => void;
@@ -48,10 +48,10 @@ export interface DataGridHeaderSortProps extends DataGridHeaderSortIconProps {
 export const DataGridHeaderSort: React.FC<React.PropsWithChildren<DataGridHeaderSortProps>> = ({
   direction,
   onClick,
-  element = 'DATA_GRID_HEADER_SORT',
-  i18nAscendingLabel = 'Sort ascending',
-  i18nDescendingLabel = 'Sort descending',
-  i18nUnsortedLabel = 'Unsorted',
+  element = "DATA_GRID_HEADER_SORT",
+  i18nAscendingLabel = "Sort ascending",
+  i18nDescendingLabel = "Sort descending",
+  i18nUnsortedLabel = "Unsorted",
   ...props
 }) => {
   const i18nLabelDirectionMap = {
@@ -68,4 +68,4 @@ export const DataGridHeaderSort: React.FC<React.PropsWithChildren<DataGridHeader
   );
 };
 
-DataGridHeaderSort.displayName = 'DataGridHeaderSort';
+DataGridHeaderSort.displayName = "DataGridHeaderSort";

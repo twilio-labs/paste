@@ -1,8 +1,8 @@
-import { Box } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-type BorderExampleProps = Pick<BoxProps, 'borderWidth'>;
+type BorderExampleProps = Pick<BoxProps, "borderWidth">;
 
 export const BorderExample: React.FC<React.PropsWithChildren<BorderExampleProps>> = ({ borderWidth }) => {
   return (

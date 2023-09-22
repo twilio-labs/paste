@@ -1,11 +1,11 @@
-import type { ImmutableStyleMap } from 'theo';
+import type { ImmutableStyleMap } from "theo";
 
 export const getTokenCategories = (tokens: ImmutableStyleMap): any => {
   return tokens
-    .get('props')
+    .get("props")
     .map((prop): string | number | null => {
       if (prop !== undefined) {
-        return prop.get('category');
+        return prop.get("category");
       }
       return null;
     })

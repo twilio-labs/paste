@@ -1,11 +1,11 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen } from "@testing-library/react";
 /*
  * Copied from Reakit and modified to work in Paste
  * https://github.com/reakit/reakit/blob/a211d94da9f3b683182568a56479b91afb1b85ae/packages/reakit-utils/src/__tests__/hasFocus-test.tsx
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { hasFocus } from '../src/utils/reakit/reakit-hasFocus';
+import { hasFocus } from "../src/utils/reakit/reakit-hasFocus";
 
 const TestComponent = (): JSX.Element => {
   return (
@@ -22,26 +22,26 @@ const TestComponent = (): JSX.Element => {
   );
 };
 
-test('hasFocus', () => {
+test("hasFocus", () => {
   render(<TestComponent />);
-  const item1 = screen.getByLabelText('item1');
+  const item1 = screen.getByLabelText("item1");
   expect(hasFocus(item1)).toBe(false);
 
   item1.focus();
-  expect(hasFocus(screen.getByLabelText('item1'))).toBe(false);
-  expect(hasFocus(screen.getByLabelText('item1-1'))).toBe(false);
+  expect(hasFocus(screen.getByLabelText("item1"))).toBe(false);
+  expect(hasFocus(screen.getByLabelText("item1-1"))).toBe(false);
 
-  const item11 = screen.getByLabelText('item1-1');
+  const item11 = screen.getByLabelText("item1-1");
   item11.focus();
-  expect(hasFocus(screen.getByLabelText('item1-1'))).toBe(true);
+  expect(hasFocus(screen.getByLabelText("item1-1"))).toBe(true);
 
-  const item2 = screen.getByLabelText('item2');
+  const item2 = screen.getByLabelText("item2");
   item2.focus();
-  expect(hasFocus(screen.getByLabelText('item2'))).toBe(true);
-  expect(hasFocus(screen.getByLabelText('item3-1'))).toBe(false);
+  expect(hasFocus(screen.getByLabelText("item2"))).toBe(true);
+  expect(hasFocus(screen.getByLabelText("item3-1"))).toBe(false);
 
-  const item3 = screen.getByLabelText('item3');
+  const item3 = screen.getByLabelText("item3");
   item3.focus();
-  expect(hasFocus(screen.getByLabelText('item3'))).toBe(true);
-  expect(hasFocus(screen.getByLabelText('item3-1'))).toBe(true);
+  expect(hasFocus(screen.getByLabelText("item3"))).toBe(true);
+  expect(hasFocus(screen.getByLabelText("item3-1"))).toBe(true);
 });

@@ -1,5 +1,5 @@
-import { Box } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
 import {
   DataGrid,
@@ -10,9 +10,9 @@ import {
   DataGridHeader,
   DataGridHeaderSort,
   DataGridRow,
-} from '../../src';
-import type { SortDirection } from '../../src';
-import { TableBodyData, TableHeaderData } from './constants';
+} from "../../src";
+import type { SortDirection } from "../../src";
+import { TableBodyData, TableHeaderData } from "./constants";
 
 // Sorting function
 const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId: number): number => {
@@ -26,7 +26,7 @@ const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId
 };
 
 const numColumns = TableHeaderData.length;
-const initialHeaderData = [...new Array(numColumns)].map((_, index) => (index === 0 ? 'ascending' : 'none'));
+const initialHeaderData = [...new Array(numColumns)].map((_, index) => (index === 0 ? "ascending" : "none"));
 const initialBodyData = TableBodyData.sort((a, b) => simpleComparator(a, b, true, 0));
 
 export const SortableColumnsDataGrid = (): JSX.Element => {
@@ -36,17 +36,17 @@ export const SortableColumnsDataGrid = (): JSX.Element => {
   // Handle sorting behavior
   const handleSortingColumn = (columnId: number): void => {
     // Update the state of the sort direction in column headers
-    const newSortedColumns: Array<SortDirection> = sortedColumns.map(() => 'none');
-    if (sortedColumns[columnId] === 'ascending') {
-      newSortedColumns[columnId] = 'descending';
+    const newSortedColumns: Array<SortDirection> = sortedColumns.map(() => "none");
+    if (sortedColumns[columnId] === "ascending") {
+      newSortedColumns[columnId] = "descending";
     } else {
-      newSortedColumns[columnId] = 'ascending';
+      newSortedColumns[columnId] = "ascending";
     }
     setSortedColumns(newSortedColumns);
 
     // Update the table data to be sorted correctly
     setSortedData(
-      TableBodyData.sort((a, b) => simpleComparator(a, b, newSortedColumns[columnId] === 'ascending', columnId)),
+      TableBodyData.sort((a, b) => simpleComparator(a, b, newSortedColumns[columnId] === "ascending", columnId)),
     );
   };
 

@@ -1,15 +1,15 @@
-import { useTransition } from '@twilio-paste/animation-library';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { ModalDialogOverlay } from '@twilio-paste/modal';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useTransition } from "@twilio-paste/animation-library";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { ModalDialogOverlay } from "@twilio-paste/modal";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { AlertDialogBody } from './AlertDialogBody';
-import { AlertDialogContent } from './AlertDialogContent';
-import { AlertDialogFooter } from './AlertDialogFooter';
-import { AlertDialogHeader } from './AlertDialogHeader';
+import { AlertDialogBody } from "./AlertDialogBody";
+import { AlertDialogContent } from "./AlertDialogContent";
+import { AlertDialogFooter } from "./AlertDialogFooter";
+import { AlertDialogHeader } from "./AlertDialogHeader";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getAnimationStates = (): any => ({
@@ -24,7 +24,7 @@ const getAnimationStates = (): any => ({
   },
 });
 
-export interface AlertDialogProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
+export interface AlertDialogProps extends HTMLPasteProps<"div">, Pick<BoxProps, "element"> {
   children: NonNullable<React.ReactNode>;
   destructive?: boolean;
   heading: string;
@@ -41,7 +41,7 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
     {
       children,
       destructive,
-      element = 'ALERT_DIALOG',
+      element = "ALERT_DIALOG",
       heading,
       isOpen,
       onConfirm,
@@ -98,4 +98,4 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
   },
 );
 
-AlertDialog.displayName = 'AlertDialog';
+AlertDialog.displayName = "AlertDialog";

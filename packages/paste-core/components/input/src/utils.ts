@@ -1,4 +1,4 @@
-export const PROPS_TO_BLOCK: string[] = ['className', 'style', 'size', 'height', 'width'];
+export const PROPS_TO_BLOCK: string[] = ["className", "style", "size", "height", "width"];
 
 type Props = { [key: string]: any };
 

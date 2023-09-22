@@ -1,5 +1,5 @@
-const { getStoryContext } = require('@storybook/test-runner');
-const { injectAxe, configureAxe, checkA11y } = require('axe-playwright');
+const { getStoryContext } = require("@storybook/test-runner");
+const { injectAxe, configureAxe, checkA11y } = require("axe-playwright");
 
 const a11yConfig = {
   async preRender(page, context) {
@@ -18,27 +18,27 @@ const a11yConfig = {
       rules: [
         {
           // Page level test that states one main element is present. Not applicable for isolated components.
-          id: 'landmark-unique',
+          id: "landmark-unique",
           enabled: false,
         },
         {
           // Page level test that states one main element is present. Not applicable for isolated components.
-          id: 'landmark-one-main',
+          id: "landmark-one-main",
           enabled: false,
         },
         {
           // Page level test that states one h1 element is present. Not applicable for isolated components.
-          id: 'page-has-heading-one',
+          id: "page-has-heading-one",
           enabled: false,
         },
         {
           // Page level test that states all page content must be contained by landmarks. Not applicable for isolated components.
-          id: 'region',
+          id: "region",
           enabled: false,
         },
         {
           // Rule that dictates that long scrolling content should have a focusable element. Not applicable when we don't control the component children.
-          id: 'scrollable-region-focusable',
+          id: "scrollable-region-focusable",
           enabled: false,
         },
         // allow individual stories to configure axe-playwright rules by setting story parameters.

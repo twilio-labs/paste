@@ -1,13 +1,13 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { Text } from '@twilio-paste/text';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { Radio, RadioGroup } from '../src';
+import { Radio, RadioGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Radio/Radio Group (Uncontrolled)',
+  title: "Components/Radio/Radio Group (Uncontrolled)",
   component: Radio,
   subcomponents: { RadioGroup },
 };
@@ -40,7 +40,7 @@ export const UncontrolledRadioGroupA = (): React.ReactNode => {
   );
 };
 
-UncontrolledRadioGroupA.storyName = 'Uncontrolled RadioGroup with uncontrolled Radios';
+UncontrolledRadioGroupA.storyName = "Uncontrolled RadioGroup with uncontrolled Radios";
 UncontrolledRadioGroupA.parameters = {
   chromatic: { disableSnapshot: true },
 };
@@ -49,7 +49,7 @@ UncontrolledRadioGroupA.parameters = {
  * RadioGroup passes no context value (defaults to '' empty string) with controlled radios
  */
 export const UncontrolledRadioGroupB = (): React.ReactNode => {
-  const [value, setValue] = React.useState('2');
+  const [value, setValue] = React.useState("2");
   return (
     <RadioGroup
       name="bar"
@@ -64,14 +64,14 @@ export const UncontrolledRadioGroupB = (): React.ReactNode => {
       <Radio
         id={useUID()}
         value="1"
-        checked={value === '1'}
+        checked={value === "1"}
         helpText={
           <Text as="span" color="currentColor">
             This is some legend text with a <Anchor href="http://paste.twilio.com">link</Anchor>.
           </Text>
         }
         onChange={() => {
-          setValue('1');
+          setValue("1");
         }}
       >
         First
@@ -80,9 +80,9 @@ export const UncontrolledRadioGroupB = (): React.ReactNode => {
         id={useUID()}
         value="2"
         helpText="This is some help text."
-        checked={value === '2'}
+        checked={value === "2"}
         onChange={() => {
-          setValue('2');
+          setValue("2");
         }}
       >
         Second
@@ -91,9 +91,9 @@ export const UncontrolledRadioGroupB = (): React.ReactNode => {
         id={useUID()}
         value="3"
         helpText="This is some help text."
-        checked={value === '3'}
+        checked={value === "3"}
         onChange={() => {
-          setValue('3');
+          setValue("3");
         }}
       >
         Third
@@ -102,7 +102,7 @@ export const UncontrolledRadioGroupB = (): React.ReactNode => {
   );
 };
 
-UncontrolledRadioGroupB.storyName = 'Uncontrolled RadioGroup with controlled Radios';
+UncontrolledRadioGroupB.storyName = "Uncontrolled RadioGroup with controlled Radios";
 UncontrolledRadioGroupB.parameters = {
   chromatic: { disableSnapshot: true },
 };

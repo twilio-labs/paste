@@ -6,15 +6,15 @@
  * Until this bites us, we should automate this because not bumping peers has bit us.
  */
 
-import { resolve } from 'path';
+import { resolve } from "path";
 
-import chalk from 'chalk';
+import chalk from "chalk";
 
-import { getRepoPackages } from './getRepoPackages';
-import type { PackageShape } from './getRepoPackages';
-import { writeToFile } from './writeToFile';
+import { getRepoPackages } from "./getRepoPackages";
+import type { PackageShape } from "./getRepoPackages";
+import { writeToFile } from "./writeToFile";
 
-const isPasteDependency = (packageName: string): boolean => packageName.includes('@twilio-paste/');
+const isPasteDependency = (packageName: string): boolean => packageName.includes("@twilio-paste/");
 const getPasteDependencyList = (dependencyObject: Record<string, string>): string[] =>
   Object.keys(dependencyObject).filter(isPasteDependency);
 
@@ -62,7 +62,7 @@ export async function calibratePackagePeerDepsVersions(): Promise<PackageShape[]
   const packagesList = await getRepoPackages();
 
   packagesList?.forEach(async (item) => {
-    const PACKAGE_JSON_PATH = resolve(item.location, 'package.json');
+    const PACKAGE_JSON_PATH = resolve(item.location, "package.json");
     // eslint-disable-next-line import/no-dynamic-require, global-require
     const packageJsonData = require(PACKAGE_JSON_PATH);
 
@@ -76,7 +76,7 @@ export async function calibratePackagePeerDepsVersions(): Promise<PackageShape[]
             `[Error] ${packageJsonData.name}: do not declare @twilio-paste packages as dependencies!`,
           ),
         );
-        throw new Error('Move deps to peerDeps and devDeps');
+        throw new Error("Move deps to peerDeps and devDeps");
       }
     }
 

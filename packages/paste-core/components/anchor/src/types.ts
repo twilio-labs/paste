@@ -1,12 +1,12 @@
-import type { BoxProps } from '@twilio-paste/box';
-import type { LayoutProps, SpaceProps } from '@twilio-paste/style-props';
-import type { HTMLPasteProps } from '@twilio-paste/types';
+import type { BoxProps } from "@twilio-paste/box";
+import type { LayoutProps, SpaceProps } from "@twilio-paste/style-props";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 
 export type AnchorTabIndexes = 0 | -1;
-export type AnchorTargets = '_self' | '_blank' | '_parent' | '_top';
-export type AnchorVariants = 'default' | 'inverse';
+export type AnchorTargets = "_self" | "_blank" | "_parent" | "_top";
+export type AnchorVariants = "default" | "inverse";
 
-export interface AnchorProps extends HTMLPasteProps<'a'>, LayoutProps, SpaceProps {
+export interface AnchorProps extends HTMLPasteProps<"a">, LayoutProps, SpaceProps {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -14,7 +14,7 @@ export interface AnchorProps extends HTMLPasteProps<'a'>, LayoutProps, SpaceProp
    * @type {BoxProps['element']}
    * @memberof AnchorProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   children: NonNullable<React.ReactNode>;
   /**
    * A URL to route to.

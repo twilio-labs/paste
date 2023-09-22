@@ -1,28 +1,28 @@
-import { Box } from '@twilio-paste/box';
-import { Column, Grid } from '@twilio-paste/grid';
-import { Heading } from '@twilio-paste/heading';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { Text } from '@twilio-paste/text';
-import { useTheme } from '@twilio-paste/theme';
-import Image from 'next/image';
+import { Box } from "@twilio-paste/box";
+import { Column, Grid } from "@twilio-paste/grid";
+import { Heading } from "@twilio-paste/heading";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import Image from "next/image";
 
-import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
-import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
-import { event } from '../../lib/gtag';
-import { SiteLink } from '../SiteLink';
-import PatternsIcon from '../icons/PatternsIcon';
+import HomeCreateIllustration from "../../assets/illustrations/home_create_illustration.svg";
+import HomeDeleteIllustration from "../../assets/illustrations/home_delete_illustration.svg";
+import { event } from "../../lib/gtag";
+import { SiteLink } from "../SiteLink";
+import PatternsIcon from "../icons/PatternsIcon";
 import {
   ComponentCard,
   ComponentCardFooter,
   ComponentCardHeader,
   ComponentCardIllustration,
-} from './PopularComponentCard';
+} from "./PopularComponentCard";
 
 const PopularPatterns = (): JSX.Element => {
   const theme = useTheme();
 
   return (
-    <Box marginBottom={['space130', 'space0']}>
+    <Box marginBottom={["space130", "space0"]}>
       <Box textAlign="center">
         <Box
           alignItems="center"
@@ -72,14 +72,14 @@ const PopularPatterns = (): JSX.Element => {
       </Grid>
       <Box textAlign="center" marginTop="space20" marginBottom="space60">
         <Text as="span" fontWeight="fontWeightSemibold">
-          Explore{' '}
+          Explore{" "}
           <SiteLink
             href="/patterns"
             onClick={() =>
               event({
-                category: 'Popular',
-                action: 'click-all-patterns',
-                label: 'Explore all patterns',
+                category: "Popular",
+                action: "click-all-patterns",
+                label: "Explore all patterns",
               })
             }
           >

@@ -1,24 +1,24 @@
-import type { StoryFn } from '@storybook/react';
-import { Avatar } from '@twilio-paste/avatar';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { Card } from '@twilio-paste/card';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Heading } from '@twilio-paste/heading';
-import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Stack } from '@twilio-paste/stack';
-import { TBody, THead, Table, Td, Th, Tr } from '@twilio-paste/table';
-import { Text } from '@twilio-paste/text';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import type { SkeletonLoaderProps } from '../src';
-import { SkeletonLoader } from '../src';
+import type { SkeletonLoaderProps } from "../src";
+import { SkeletonLoader } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Skeleton Loader',
+  title: "Components/Skeleton Loader",
   component: SkeletonLoader,
 };
 
@@ -334,8 +334,8 @@ export const CustomizedSkeletonLoader: StoryFn = (_args, { parameters: { isTestE
       disableAnimations={isTestEnvironment}
       theme={activeTheme}
       elements={{
-        SKELETON_LOADER: { backgroundColor: 'colorBackgroundBrandHighlight', margin: 'space100' },
-        CUSTOM_SKELETON: { backgroundColor: 'colorBackgroundBrand', padding: 'space80' },
+        SKELETON_LOADER: { backgroundColor: "colorBackgroundBrandHighlight", margin: "space100" },
+        CUSTOM_SKELETON: { backgroundColor: "colorBackgroundBrand", padding: "space80" },
       }}
     >
       <Stack orientation="vertical" spacing="space50">

@@ -1,7 +1,7 @@
-import { Alert } from '@twilio-paste/core/alert';
-import { Stack } from '@twilio-paste/core/stack';
-import { Text } from '@twilio-paste/core/text';
-import * as React from 'react';
+import { Alert } from "@twilio-paste/core/alert";
+import { Stack } from "@twilio-paste/core/stack";
+import { Text } from "@twilio-paste/core/text";
+import * as React from "react";
 
 const AlertPreview = (): JSX.Element => {
   return (

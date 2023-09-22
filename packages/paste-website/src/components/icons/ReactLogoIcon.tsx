@@ -1,10 +1,10 @@
-import { IconWrapper } from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import type { IconWrapperProps } from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import { useUID } from '@twilio-paste/uid-library';
+import { IconWrapper } from "@twilio-paste/icons/esm/helpers/IconWrapper";
+import type { IconWrapperProps } from "@twilio-paste/icons/esm/helpers/IconWrapper";
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
 export interface ReactLogoIconProps extends IconWrapperProps {
   title?: string;
@@ -14,7 +14,7 @@ export interface ReactLogoIconProps extends IconWrapperProps {
 const ReactLogoIcon: React.FC<React.PropsWithChildren<ReactLogoIconProps>> = ({
   as,
   display,
-  element = 'ICON',
+  element = "ICON",
   size,
   color,
   title,
@@ -23,7 +23,7 @@ const ReactLogoIcon: React.FC<React.PropsWithChildren<ReactLogoIconProps>> = ({
   const titleId = `A11yIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[A11yIcon]: Missing a title for non-decorative icon.');
+    throw new Error("[A11yIcon]: Missing a title for non-decorative icon.");
   }
 
   return (
@@ -39,5 +39,5 @@ const ReactLogoIcon: React.FC<React.PropsWithChildren<ReactLogoIconProps>> = ({
   );
 };
 
-ReactLogoIcon.displayName = 'A11yIcon';
+ReactLogoIcon.displayName = "A11yIcon";
 export { ReactLogoIcon };

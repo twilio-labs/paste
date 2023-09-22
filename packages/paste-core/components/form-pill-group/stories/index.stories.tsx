@@ -1,22 +1,22 @@
-import { Avatar } from '@twilio-paste/avatar';
-import { Box } from '@twilio-paste/box';
-import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
-import * as React from 'react';
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
+import * as React from "react";
 
-import { FormPill, FormPillGroup, useFormPillState } from '../src';
+import { FormPill, FormPillGroup, useFormPillState } from "../src";
 
 const PILL_NAMES = [
-  'Default pill',
-  'Pill with icon',
-  'Pill with avatar',
-  'Error pill',
-  'Error pill with icon',
-  'Error pill with avatar',
+  "Default pill",
+  "Pill with icon",
+  "Pill with avatar",
+  "Error pill",
+  "Error pill with icon",
+  "Error pill with avatar",
 ];
 
 export const Basic: React.FC<
   React.PropsWithChildren<{ selected?: boolean; dismissable?: boolean; disabled?: boolean; ariaLabel?: string }>
-> = ({ selected = false, dismissable = false, disabled = false, ariaLabel = 'Basic pills:' }) => {
+> = ({ selected = false, dismissable = false, disabled = false, ariaLabel = "Basic pills:" }) => {
   const pillState = useFormPillState();
   return (
     <form>
@@ -27,7 +27,7 @@ export const Basic: React.FC<
             data-testid={`form-pill-${index}`}
             {...pillState}
             selected={selected}
-            variant={index > 2 ? 'error' : 'default'}
+            variant={index > 2 ? "error" : "default"}
             onDismiss={dismissable ? () => {} : undefined}
             disabled={disabled}
           >
@@ -65,7 +65,7 @@ export const SelectableAndDismissable = (): JSX.Element => {
             data-testid={`form-pill-${index}`}
             {...pillState}
             selected={selectedSet.has(pill)}
-            variant={index > 2 ? 'error' : 'default'}
+            variant={index > 2 ? "error" : "default"}
             onDismiss={() => {
               setPills(pills.filter((_, i) => i !== index));
             }}
@@ -89,7 +89,7 @@ export const SelectableAndDismissable = (): JSX.Element => {
   );
 };
 
-const I18N_PILL_NAMES = ['Le tennis', 'Le football américain', 'Le ski', 'Le football'];
+const I18N_PILL_NAMES = ["Le tennis", "Le football américain", "Le ski", "Le football"];
 
 export const I18nProp = (): React.ReactNode => {
   const pillState = useFormPillState();
@@ -112,10 +112,10 @@ export const I18nProp = (): React.ReactNode => {
   );
 };
 
-I18nProp.storyName = 'I18n Prop';
+I18nProp.storyName = "I18n Prop";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Form Pill Group',
+  title: "Components/Form Pill Group",
   component: FormPillGroup,
 };

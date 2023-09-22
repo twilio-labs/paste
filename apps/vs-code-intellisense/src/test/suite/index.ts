@@ -1,18 +1,18 @@
-import * as path from 'path';
-import glob from 'glob';
-import Mocha from 'mocha';
+import * as path from "path";
+import glob from "glob";
+import Mocha from "mocha";
 
 export function run(): Promise<void> {
   // Create the mocha test
   const mocha = new Mocha({
-    ui: 'tdd',
+    ui: "tdd",
     color: true,
   });
 
-  const testsRoot = path.resolve(__dirname, '..');
+  const testsRoot = path.resolve(__dirname, "..");
 
   return new Promise((c, e) => {
-    glob('**/**.test.js', { cwd: testsRoot }, (err: any, files: string[]) => {
+    glob("**/**.test.js", { cwd: testsRoot }, (err: any, files: string[]) => {
       if (err) {
         return e(err);
       }

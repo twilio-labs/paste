@@ -1,25 +1,25 @@
-import { Box, type BoxProps } from '@twilio-paste/box';
-import { useMeter } from '@twilio-paste/react-spectrum-library';
-import { Text } from '@twilio-paste/text';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, type BoxProps } from "@twilio-paste/box";
+import { useMeter } from "@twilio-paste/react-spectrum-library";
+import { Text } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { LABEL_SUFFIX } from './constants';
+import { LABEL_SUFFIX } from "./constants";
 
-export interface MeterProps extends HTMLPasteProps<'meter'>, Pick<BoxProps, 'element'> {
+export interface MeterProps extends HTMLPasteProps<"meter">, Pick<BoxProps, "element"> {
   minValue?: number;
   maxValue?: number;
   minLabel?: string;
   maxLabel?: string;
   value?: number;
   id: string;
-  'aria-label'?: string;
-  'aria-describedby'?: string;
-  'aria-labelledby'?: string;
+  "aria-label"?: string;
+  "aria-describedby"?: string;
+  "aria-labelledby"?: string;
 }
 
 const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
-  ({ element = 'METER', id, minLabel, maxLabel, ...props }, ref) => {
+  ({ element = "METER", id, minLabel, maxLabel, ...props }, ref) => {
     const { value = 0, minValue = 0, maxValue = 100 } = props;
     const { meterProps } = useMeter(props);
 
@@ -33,8 +33,8 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
      * but leverages aria-labelledby instead of htmlFor under the hood.
      * `aria-labelledby` and `aria-label` can still be passed for custom labelling options.
      */
-    let labelledBy = props['aria-labelledby'];
-    if (labelledBy == null && props['aria-label'] == null && id != null) {
+    let labelledBy = props["aria-labelledby"];
+    if (labelledBy == null && props["aria-label"] == null && id != null) {
       labelledBy = `${id}${LABEL_SUFFIX}`;
     }
 
@@ -62,8 +62,8 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
             backgroundColor="colorBackgroundPrimaryStronger"
             borderTopLeftRadius="borderRadiusPill"
             borderBottomLeftRadius="borderRadiusPill"
-            borderTopRightRadius={fillWidth === '100%' ? 'borderRadiusPill' : 'borderRadius10'}
-            borderBottomRightRadius={fillWidth === '100%' ? 'borderRadiusPill' : 'borderRadius10'}
+            borderTopRightRadius={fillWidth === "100%" ? "borderRadiusPill" : "borderRadius10"}
+            borderBottomRightRadius={fillWidth === "100%" ? "borderRadiusPill" : "borderRadius10"}
             element={`${element}_FILL`}
           />
         </Box>
@@ -105,6 +105,6 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
   },
 );
 
-Meter.displayName = 'Meter';
+Meter.displayName = "Meter";
 
 export { Meter };

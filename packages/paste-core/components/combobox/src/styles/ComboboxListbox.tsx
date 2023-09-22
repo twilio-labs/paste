@@ -1,14 +1,14 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-export interface ComboboxListboxProps extends Pick<BoxProps, 'element'> {
+export interface ComboboxListboxProps extends Pick<BoxProps, "element"> {
   children: NonNullable<React.ReactNode>;
   hidden: boolean;
 }
 
 const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>(
-  ({ children, element = 'COMBOBOX_LISTBOX', hidden, ...props }, ref) => {
+  ({ children, element = "COMBOBOX_LISTBOX", hidden, ...props }, ref) => {
     // Unmount children when hidden
     if (hidden) {
       return <Box {...safelySpreadBoxProps(props)} appearance="none" ref={ref} />;
@@ -48,6 +48,6 @@ const ComboboxListbox = React.forwardRef<HTMLUListElement, ComboboxListboxProps>
   },
 );
 
-ComboboxListbox.displayName = 'ComboboxListbox';
+ComboboxListbox.displayName = "ComboboxListbox";
 
 export { ComboboxListbox };

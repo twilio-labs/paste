@@ -1,11 +1,11 @@
-import { safelySpreadTextProps } from '@twilio-paste/text';
-import * as React from 'react';
+import { safelySpreadTextProps } from "@twilio-paste/text";
+import * as React from "react";
 
-import { List } from './List';
-import type { UnorderedListProps } from './types';
+import { List } from "./List";
+import type { UnorderedListProps } from "./types";
 
 const UnorderedList = React.forwardRef<HTMLUListElement, UnorderedListProps>(
-  ({ children, element = 'UNORDERED_LIST', marginTop, marginBottom = 'space70', ...props }, ref) => {
+  ({ children, element = "UNORDERED_LIST", marginTop, marginBottom = "space70", ...props }, ref) => {
     return (
       <List
         {...safelySpreadTextProps(props)}
@@ -22,6 +22,6 @@ const UnorderedList = React.forwardRef<HTMLUListElement, UnorderedListProps>(
   },
 );
 
-UnorderedList.displayName = 'UnorderedList';
+UnorderedList.displayName = "UnorderedList";
 
 export { UnorderedList };

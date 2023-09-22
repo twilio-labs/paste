@@ -1,17 +1,17 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { Card } from '@twilio-paste/card';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { HelpText } from '../src';
+import { HelpText } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Help Text',
+  title: "Components/Help Text",
   component: HelpText,
 };
 
@@ -29,7 +29,7 @@ export const Default = (): React.ReactNode => {
   );
 };
 
-Default.storyName = 'Default';
+Default.storyName = "Default";
 
 export const Inverse = (): React.ReactNode => {
   return (
@@ -40,7 +40,7 @@ export const Inverse = (): React.ReactNode => {
   );
 };
 
-Inverse.storyName = 'Inverse';
+Inverse.storyName = "Inverse";
 
 export const Customized: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
@@ -64,12 +64,12 @@ export const Customized: StoryFn = (_args, { parameters: { isTestEnvironment } }
               theme={currentTheme}
               elements={{
                 HELP_TEXT: {
-                  color: 'colorTextSuccess',
-                  fontWeight: 'fontWeightBold',
+                  color: "colorTextSuccess",
+                  fontWeight: "fontWeightBold",
                   variants: {
-                    error: { color: 'colorTextWarningStrong' },
-                    success: { color: 'colorTextLinkStrong' },
-                    warning: { color: 'colorTextErrorStronger' },
+                    error: { color: "colorTextWarningStrong" },
+                    success: { color: "colorTextLinkStrong" },
+                    warning: { color: "colorTextErrorStronger" },
                   },
                 },
               }}
@@ -89,12 +89,12 @@ export const Customized: StoryFn = (_args, { parameters: { isTestEnvironment } }
               theme={currentTheme}
               elements={{
                 foo: {
-                  color: 'colorTextSuccess',
-                  fontWeight: 'fontWeightBold',
+                  color: "colorTextSuccess",
+                  fontWeight: "fontWeightBold",
                   variants: {
-                    error: { color: 'colorTextWarningStrong' },
-                    success: { color: 'colorTextLinkStrong' },
-                    warning: { color: 'colorTextErrorStronger' },
+                    error: { color: "colorTextWarningStrong" },
+                    success: { color: "colorTextLinkStrong" },
+                    warning: { color: "colorTextErrorStronger" },
                   },
                 },
               }}

@@ -1,15 +1,15 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface SidebarHeaderProps extends HTMLPasteProps<'button'> {
+export interface SidebarHeaderProps extends HTMLPasteProps<"button"> {
   children: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 export const SidebarHeader = React.forwardRef<HTMLButtonElement, SidebarHeaderProps>(
-  ({ element = 'SIDEBAR_HEADER', children, ...props }, ref) => {
+  ({ element = "SIDEBAR_HEADER", children, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -33,4 +33,4 @@ export const SidebarHeader = React.forwardRef<HTMLButtonElement, SidebarHeaderPr
   },
 );
 
-SidebarHeader.displayName = 'SidebarHeader';
+SidebarHeader.displayName = "SidebarHeader";

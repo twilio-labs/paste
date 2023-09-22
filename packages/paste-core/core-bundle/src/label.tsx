@@ -1,1 +1,1 @@
-export * from '@twilio-paste/label';
+export * from "@twilio-paste/label";

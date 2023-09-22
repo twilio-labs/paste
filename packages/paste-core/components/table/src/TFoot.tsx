@@ -1,25 +1,25 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxStyleProps } from '@twilio-paste/box';
-import { css, styled } from '@twilio-paste/styling-library';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
+import * as React from "react";
 
-import type { TFootProps } from './types';
+import type { TFootProps } from "./types";
 
 const footerCellStyles: BoxStyleProps = {
-  borderBottomWidth: 'borderWidth0',
-  borderTopWidth: 'borderWidth10',
-  fontWeight: 'fontWeightSemibold',
-  paddingY: 'space40',
+  borderBottomWidth: "borderWidth0",
+  borderTopWidth: "borderWidth10",
+  fontWeight: "fontWeightSemibold",
+  paddingY: "space40",
 };
 
 const StyledTFoot = styled.tfoot<TFootProps>(
   css({
-    '& > tr > td': footerCellStyles,
-    '& > tr > th': footerCellStyles,
+    "& > tr > td": footerCellStyles,
+    "& > tr > th": footerCellStyles,
   }),
 );
 
-const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({ element = 'TFOOT', ...props }, ref) => {
+const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({ element = "TFOOT", ...props }, ref) => {
   /* eslint-disable @typescript-eslint/no-explicit-any */
   return (
     <Box
@@ -34,6 +34,6 @@ const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({ element =
   /* eslint-enable @typescript-eslint/no-explicit-any */
 });
 
-TFoot.displayName = 'TFoot';
+TFoot.displayName = "TFoot";
 
 export { TFoot };

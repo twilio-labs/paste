@@ -1,7 +1,7 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import * as React from 'react';
+import type { Meta, StoryFn } from "@storybook/react";
+import * as React from "react";
 
-import { useCombobox } from '../src';
+import { useCombobox } from "../src";
 
 type Book = {
   author: string;
@@ -9,16 +9,16 @@ type Book = {
 };
 
 const books: Book[] = [
-  { author: 'Harper Lee', title: 'To Kill a Mockingbird' },
-  { author: 'Lev Tolstoy', title: 'War and Peace' },
-  { author: 'Fyodor Dostoyevsy', title: 'The Idiot' },
-  { author: 'Oscar Wilde', title: 'A Picture of Dorian Gray' },
-  { author: 'George Orwell', title: '1984' },
-  { author: 'Jane Austen', title: 'Pride and Prejudice' },
-  { author: 'Marcus Aurelius', title: 'Meditations' },
-  { author: 'Fyodor Dostoevsky', title: 'The Brothers Karamazov' },
-  { author: 'Lev Tolstoy', title: 'Anna Karenina' },
-  { author: 'Fyodor Dostoevsky', title: 'Crime and Punishment' },
+  { author: "Harper Lee", title: "To Kill a Mockingbird" },
+  { author: "Lev Tolstoy", title: "War and Peace" },
+  { author: "Fyodor Dostoyevsy", title: "The Idiot" },
+  { author: "Oscar Wilde", title: "A Picture of Dorian Gray" },
+  { author: "George Orwell", title: "1984" },
+  { author: "Jane Austen", title: "Pride and Prejudice" },
+  { author: "Marcus Aurelius", title: "Meditations" },
+  { author: "Fyodor Dostoevsky", title: "The Brothers Karamazov" },
+  { author: "Lev Tolstoy", title: "Anna Karenina" },
+  { author: "Fyodor Dostoevsky", title: "Crime and Punishment" },
 ];
 
 function getBooksFilter(inputValue: string | undefined) {
@@ -47,7 +47,7 @@ export const ComboBox: StoryFn = () => {
     },
     items,
     itemToString(item) {
-      return item ? item.title : '';
+      return item ? item.title : "";
     },
   });
 
@@ -69,7 +69,7 @@ export const ComboBox: StoryFn = () => {
             <li
               style={{
                 // eslint-disable-next-line unicorn/no-nested-ternary
-                color: highlightedIndex === index ? 'blue' : selectedItem === item ? 'green' : 'black',
+                color: highlightedIndex === index ? "blue" : selectedItem === item ? "green" : "black",
               }}
               key={`${item.title}${index}`}
               {...getItemProps({ item, index })}
@@ -85,6 +85,6 @@ export const ComboBox: StoryFn = () => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/dropdown/useCombobox',
+  title: "Libraries/dropdown/useCombobox",
   parameters: {},
 } as Meta;

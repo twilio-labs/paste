@@ -1,16 +1,16 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import { FormSectionContext } from './FormSectionContext';
+import { FormSectionContext } from "./FormSectionContext";
 
-export interface FormSectionDescriptionProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children' | 'id'> {
-  element?: BoxProps['element'];
+export interface FormSectionDescriptionProps extends Omit<React.ComponentPropsWithRef<"div">, "children" | "id"> {
+  element?: BoxProps["element"];
   children: React.ReactNode;
 }
 
 export const FormSectionDescription = React.forwardRef<HTMLDivElement, FormSectionDescriptionProps>(
-  ({ children, element = 'FORM_SECTION_DESCRIPTION', ...props }, ref) => {
+  ({ children, element = "FORM_SECTION_DESCRIPTION", ...props }, ref) => {
     const { id: sectionId } = React.useContext(FormSectionContext);
 
     return (
@@ -29,4 +29,4 @@ export const FormSectionDescription = React.forwardRef<HTMLDivElement, FormSecti
   },
 );
 
-FormSectionDescription.displayName = 'FormSectionDescription';
+FormSectionDescription.displayName = "FormSectionDescription";

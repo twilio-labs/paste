@@ -1,7 +1,7 @@
-import { Box } from '@twilio-paste/box';
-import { Card } from '@twilio-paste/card';
-import { Heading } from '@twilio-paste/heading';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { Heading } from "@twilio-paste/heading";
+import * as React from "react";
 
 export const ProjectCard: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (

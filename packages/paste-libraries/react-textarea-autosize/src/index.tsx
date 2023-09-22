@@ -1,22 +1,22 @@
-import * as React from 'react';
-import useComposedRef from 'use-composed-ref';
+import * as React from "react";
+import useComposedRef from "use-composed-ref";
 
-import { calculateNodeHeight } from './calculateNodeHeight';
-import type { SizingData } from './getSizingData';
-import { getSizingData } from './getSizingData';
-import { useHiddenTextarea } from './useHiddenTextarea';
-import { useWindowResizeListener } from './useWindowResizeListener';
+import { calculateNodeHeight } from "./calculateNodeHeight";
+import type { SizingData } from "./getSizingData";
+import { getSizingData } from "./getSizingData";
+import { useHiddenTextarea } from "./useHiddenTextarea";
+import { useWindowResizeListener } from "./useWindowResizeListener";
 
 type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
-type Style = Omit<NonNullable<TextareaProps['style']>, 'maxHeight' | 'minHeight'> & {
+type Style = Omit<NonNullable<TextareaProps["style"]>, "maxHeight" | "minHeight"> & {
   height?: number;
 };
 
 export type TextareaHeightChangeMeta = {
   rowHeight: number;
 };
-export interface TextareaAutosizeProps extends Omit<TextareaProps, 'style'> {
+export interface TextareaAutosizeProps extends Omit<TextareaProps, "style"> {
   maxRows?: number;
   minRows?: number;
   onHeightChange?: (height: number, meta: TextareaHeightChangeMeta) => void;
@@ -37,12 +37,12 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
   },
   userRef: React.Ref<HTMLTextAreaElement>,
 ) => {
-  if (process.env.NODE_ENV !== 'production' && props.style) {
-    if ('maxHeight' in props.style) {
-      throw new Error('Using `style.maxHeight` for <TextareaAutosize/> is not supported. Please use `maxRows`.');
+  if (process.env.NODE_ENV !== "production" && props.style) {
+    if ("maxHeight" in props.style) {
+      throw new Error("Using `style.maxHeight` for <TextareaAutosize/> is not supported. Please use `maxRows`.");
     }
-    if ('minHeight' in props.style) {
-      throw new Error('Using `style.minHeight` for <TextareaAutosize/> is not supported. Please use `minRows`.');
+    if ("minHeight" in props.style) {
+      throw new Error("Using `style.minHeight` for <TextareaAutosize/> is not supported. Please use `minRows`.");
     }
   }
   const isControlled = props.value !== undefined && onChange !== undefined;
@@ -66,14 +66,14 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
     const [height, rowHeight] = calculateNodeHeight(
       hiddenTextarea,
       nodeSizingData,
-      node.value || node.placeholder || 'x',
+      node.value || node.placeholder || "x",
       minRows,
       maxRows,
     );
 
     if (heightRef.current !== height) {
       heightRef.current = height;
-      node.style.setProperty('height', `${height}px`, 'important');
+      node.style.setProperty("height", `${height}px`, "important");
       onHeightChange(height, { rowHeight });
     }
   };
@@ -85,7 +85,7 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
      * The way the react-textarea-autosize works, it calculates the height and sets the style attribute with !important
      * So, we can assume that if the height has important it is the autosize height and if it doesn't have important the user resized it themselves
      */
-    const didUserResize = ownRef.current?.style.getPropertyPriority('height') !== 'important';
+    const didUserResize = ownRef.current?.style.getPropertyPriority("height") !== "important";
 
     if (!isControlled && !didUserResize) {
       resizeTextarea();
@@ -93,7 +93,7 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
     onChange(event);
   };
 
-  if (typeof document !== 'undefined') {
+  if (typeof document !== "undefined") {
     React.useLayoutEffect(resizeTextarea);
     useWindowResizeListener(resizeTextarea);
   }
@@ -101,7 +101,7 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
   return <textarea {...props} onChange={handleChange} ref={ref} />;
 };
 
-TextareaAutosize.displayName = 'TexareaAutosize';
+TextareaAutosize.displayName = "TexareaAutosize";
 
 // eslint-disable-next-line import/no-default-export
 export default /* #__PURE__ */ React.forwardRef(TextareaAutosize);

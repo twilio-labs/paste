@@ -1,5 +1,5 @@
-import { Box } from '@twilio-paste/box';
-import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import {
   // The component that renders the content editable div
   ContentEditable,
@@ -25,22 +25,22 @@ import {
    * https://lexical.dev/docs/react/plugins#lexicalrichtextplugin
    */
   RichTextPlugin,
-} from '@twilio-paste/lexical-library';
-import type { ContentEditableProps, LexicalComposerProps, OnChangeFunction } from '@twilio-paste/lexical-library';
-import { StylingGlobals } from '@twilio-paste/styling-library';
-import merge from 'deepmerge';
-import * as React from 'react';
+} from "@twilio-paste/lexical-library";
+import type { ContentEditableProps, LexicalComposerProps, OnChangeFunction } from "@twilio-paste/lexical-library";
+import { StylingGlobals } from "@twilio-paste/styling-library";
+import merge from "deepmerge";
+import * as React from "react";
 
-import { AutoLinkPlugin } from './AutoLinkPlugin';
-import { PlaceholderWrapper } from './PlaceholderWrapper';
-import { baseConfig, renderInitialText } from './helpers';
-import { chatComposerLexicalStyles } from './styles';
+import { AutoLinkPlugin } from "./AutoLinkPlugin";
+import { PlaceholderWrapper } from "./PlaceholderWrapper";
+import { baseConfig, renderInitialText } from "./helpers";
+import { chatComposerLexicalStyles } from "./styles";
 
-export interface ChatComposerProps extends Omit<ContentEditableProps, 'style' | 'className' | 'onChange'> {
-  children?: LexicalComposerProps['children'];
-  config: LexicalComposerProps['initialConfig'];
-  element?: BoxProps['element'];
-  maxHeight?: BoxStyleProps['maxHeight'];
+export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | "className" | "onChange"> {
+  children?: LexicalComposerProps["children"];
+  config: LexicalComposerProps["initialConfig"];
+  element?: BoxProps["element"];
+  maxHeight?: BoxStyleProps["maxHeight"];
   initialValue?: string;
   disabled?: boolean;
   onChange?: OnChangeFunction;
@@ -50,9 +50,9 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
   (
     {
       children,
-      element = 'CHAT_COMPOSER',
+      element = "CHAT_COMPOSER",
       onChange,
-      placeholder = '',
+      placeholder = "",
       initialValue,
       config,
       maxHeight,
@@ -77,14 +77,14 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         paddingY="space30"
         paddingX="space40"
         borderRadius="borderRadius20"
-        _focusWithin={{ boxShadow: 'shadowFocus' }}
+        _focusWithin={{ boxShadow: "shadowFocus" }}
         overflowY="scroll"
         maxHeight={maxHeight}
         disabled={disabled}
         aria-disabled={disabled}
         _disabled={{
-          color: 'colorTextWeaker',
-          backgroundColor: 'colorBackground',
+          color: "colorTextWeaker",
+          backgroundColor: "colorBackground",
         }}
       >
         <StylingGlobals styles={chatComposerLexicalStyles} />
@@ -106,4 +106,4 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
   },
 );
 
-ChatComposer.displayName = 'ChatComposer';
+ChatComposer.displayName = "ChatComposer";

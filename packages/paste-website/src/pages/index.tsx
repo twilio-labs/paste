@@ -1,16 +1,16 @@
-import type { GetStaticProps, InferGetStaticPropsType } from 'next';
-import Head from 'next/head';
-import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import Head from "next/head";
+import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
-import { Experiment } from '../components/homepage/Experiment';
-import { GetStarted } from '../components/homepage/GetStarted';
-import { HomeHero } from '../components/homepage/HomeHero';
-import { PopularComponentsAndPatterns } from '../components/homepage/Popular';
-import { SiteWrapper } from '../components/site-wrapper';
-import { SiteMetaDefaults } from '../constants';
-import { getNavigationData } from '../utils/api';
-import type { Feature } from '../utils/api';
+import { Experiment } from "../components/homepage/Experiment";
+import { GetStarted } from "../components/homepage/GetStarted";
+import { HomeHero } from "../components/homepage/HomeHero";
+import { PopularComponentsAndPatterns } from "../components/homepage/Popular";
+import { SiteWrapper } from "../components/site-wrapper";
+import { SiteMetaDefaults } from "../constants";
+import { getNavigationData } from "../utils/api";
+import type { Feature } from "../utils/api";
 
 const Homepage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
   /*

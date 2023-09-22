@@ -1,14 +1,14 @@
 module.exports = {
   printWidth: 120,
-  trailingComma: 'es5',
+  trailingComma: "es5",
   bracketSpacing: true,
   singleQuote: true,
   tabWidth: 2,
   overrides: [
     {
-      files: '*.yml',
+      files: "*.yml",
       options: {
-        parser: 'yaml',
+        parser: "yaml",
         singleQuote: false,
       },
     },

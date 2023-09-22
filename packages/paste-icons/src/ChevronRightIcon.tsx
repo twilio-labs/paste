@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ChevronRightIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ChevronRightIconProps extends IconWrapperProps {
 }
 
 const ChevronRightIcon = React.forwardRef<HTMLElement, ChevronRightIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ChevronRightIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ChevronRightIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ChevronRightIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -43,5 +43,5 @@ const ChevronRightIcon = React.forwardRef<HTMLElement, ChevronRightIconProps>(
   },
 );
 
-ChevronRightIcon.displayName = 'ChevronRightIcon';
+ChevronRightIcon.displayName = "ChevronRightIcon";
 export { ChevronRightIcon };

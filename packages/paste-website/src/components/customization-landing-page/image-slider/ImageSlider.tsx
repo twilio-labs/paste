@@ -1,27 +1,27 @@
-import { Box } from '@twilio-paste/box';
-import { useUIDSeed } from '@twilio-paste/uid-library';
-import Image from 'next/image';
-import * as React from 'react';
-import type { LegacyRef, MutableRefObject } from 'react';
+import { Box } from "@twilio-paste/box";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import Image from "next/image";
+import * as React from "react";
+import type { LegacyRef, MutableRefObject } from "react";
 
-import HeroBack from '../../../assets/images/customization/hero-back.png';
-import HeroFront from '../../../assets/images/customization/hero-front.png';
-import { SVGThumb } from './SVGThumb';
-import { DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE } from './constants';
-import { useSvgResize } from './useSvgResize';
-import { clampValueToRange, convertPositionToInputValue } from './utils';
+import HeroBack from "../../../assets/images/customization/hero-back.png";
+import HeroFront from "../../../assets/images/customization/hero-front.png";
+import { SVGThumb } from "./SVGThumb";
+import { DEFAULT_MIN_CHANGE, MAX_VALUE, MIN_VALUE } from "./constants";
+import { useSvgResize } from "./useSvgResize";
+import { clampValueToRange, convertPositionToInputValue } from "./utils";
 
-const INPUT_ID = 'input-range-id';
-const CLIP_PATH_ID = 'clip-path-id';
+const INPUT_ID = "input-range-id";
+const CLIP_PATH_ID = "clip-path-id";
 
 const imageStyleProps: React.CSSProperties = {
-  pointerEvents: 'none',
-  position: 'absolute',
-  width: '100%',
-  height: '100%',
-  maxWidth: '640px',
-  objectFit: 'scale-down',
-  objectPosition: 'center center',
+  pointerEvents: "none",
+  position: "absolute",
+  width: "100%",
+  height: "100%",
+  maxWidth: "640px",
+  objectFit: "scale-down",
+  objectPosition: "center center",
 };
 
 export const ImageSlider = (): JSX.Element => {
@@ -70,8 +70,8 @@ export const ImageSlider = (): JSX.Element => {
       setIsDragging(false);
 
       // We must unbind these manually managed events
-      document.removeEventListener('mouseup', handleMouseUp);
-      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener("mouseup", handleMouseUp);
+      document.removeEventListener("mousemove", handleMouseMove);
 
       const { clientX } = event;
       const computedValue = convertPositionToInputValue(containerWidth, clientX - containerX);
@@ -89,8 +89,8 @@ export const ImageSlider = (): JSX.Element => {
 
   return (
     <Box
-      display={['none', 'block']}
-      minHeight={['size0', '260px', '460px']}
+      display={["none", "block"]}
+      minHeight={["size0", "260px", "460px"]}
       maxWidth="size60"
       position="absolute"
       top="space150"
@@ -98,7 +98,7 @@ export const ImageSlider = (): JSX.Element => {
       right="spaceNegative150"
       width="60%"
       zIndex="zIndex10"
-      marginRight={['space0', 'space0', 'space100']}
+      marginRight={["space0", "space0", "space100"]}
       userSelect="none"
     >
       <Box
@@ -108,16 +108,16 @@ export const ImageSlider = (): JSX.Element => {
         height="100%"
         display="inherit"
         maxWidth="640px"
-        cursor={isDragging ? 'grabbing' : 'grab'}
+        cursor={isDragging ? "grabbing" : "grab"}
         aria-label="Controls the width of the customizable image."
         // @ts-expect-error "htmlFor" is an allowed attribute for Label elements.
         htmlFor={uidSeed(INPUT_ID)}
         color="colorTextWeaker"
-        _hover={{ color: 'colorTextWeak' }}
+        _hover={{ color: "colorTextWeak" }}
         onMouseDown={() => {
           setIsDragging(true);
-          document.addEventListener('mouseup', handleMouseUp);
-          document.addEventListener('mousemove', handleMouseMove);
+          document.addEventListener("mouseup", handleMouseUp);
+          document.addEventListener("mousemove", handleMouseMove);
         }}
       >
         <Image
@@ -133,7 +133,7 @@ export const ImageSlider = (): JSX.Element => {
           style={{ ...imageStyleProps, clipPath: `url(#${uidSeed(CLIP_PATH_ID)})` }}
         />
 
-        {typeof clip === 'number' && !Number.isNaN(clip) ? (
+        {typeof clip === "number" && !Number.isNaN(clip) ? (
           <>
             <SVGThumb
               left={Math.round(clip - minimumChange)}
@@ -174,12 +174,12 @@ export const ImageSlider = (): JSX.Element => {
         type="range"
         onFocus={() => {
           if (svgCircleRef.current) {
-            (svgCircleRef.current as SVGCircleElement).setAttribute('stroke-width', '0.22rem');
+            (svgCircleRef.current as SVGCircleElement).setAttribute("stroke-width", "0.22rem");
           }
         }}
         onBlur={() => {
           if (svgCircleRef.current) {
-            (svgCircleRef.current as SVGCircleElement).setAttribute('stroke-width', '0');
+            (svgCircleRef.current as SVGCircleElement).setAttribute("stroke-width", "0");
           }
         }}
         onChange={({ target: { value: inputTargetValue } }: React.ChangeEvent<HTMLInputElement>) => {
@@ -191,4 +191,4 @@ export const ImageSlider = (): JSX.Element => {
   );
 };
 
-ImageSlider.displayName = 'ImageSlider';
+ImageSlider.displayName = "ImageSlider";

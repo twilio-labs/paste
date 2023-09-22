@@ -1,21 +1,21 @@
-import type { BackgroundColor } from '@twilio-paste/style-props';
+import type { BackgroundColor } from "@twilio-paste/style-props";
 
-import type { UIStates } from './types';
+import type { UIStates } from "./types";
 
 export const getColorToken = (states: UIStates): BackgroundColor => {
   if (states.disabled) {
-    return 'colorBackgroundStrong';
+    return "colorBackgroundStrong";
   } else if (states.error) {
     if (states.hovered) {
-      return 'colorBackgroundErrorStrong';
+      return "colorBackgroundErrorStrong";
     }
-    return 'colorBackgroundError';
+    return "colorBackgroundError";
   } else if (states.dragging) {
-    return 'colorBackgroundPrimary';
+    return "colorBackgroundPrimary";
   } else if (states.focused) {
-    return 'colorBackgroundPrimaryStronger';
+    return "colorBackgroundPrimaryStronger";
   } else if (states.hovered) {
-    return 'colorBackgroundPrimary';
+    return "colorBackgroundPrimary";
   }
-  return 'colorBackgroundPrimaryStronger';
+  return "colorBackgroundPrimaryStronger";
 };

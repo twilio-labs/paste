@@ -1,11 +1,11 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { Heading } from '@twilio-paste/heading';
-import { Stack } from '@twilio-paste/stack';
-import { Text } from '@twilio-paste/text';
-import { Truncate } from '@twilio-paste/truncate';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { Truncate } from "@twilio-paste/truncate";
+import * as React from "react";
 
 import {
   DataGrid,
@@ -15,7 +15,7 @@ import {
   DataGridHead,
   DataGridHeader,
   DataGridRow,
-} from '../../src';
+} from "../../src";
 
 export const DataGridLayouts = (): React.ReactNode => {
   return (
@@ -388,4 +388,4 @@ export const DataGridLayouts = (): React.ReactNode => {
   );
 };
 
-DataGridLayouts.storyName = 'Data Grid Layouts';
+DataGridLayouts.storyName = "Data Grid Layouts";

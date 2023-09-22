@@ -1,13 +1,13 @@
-import { Box } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
-import { SITE_TOPBAR_HEIGHT, TOKEN_LIST_PAGE_REGEX, TOKEN_STICKY_FILTER_HEIGHT } from '../../../constants';
-import { useWindowSize } from '../../../hooks/useWindowSize';
-import { slugify, useLocationPathname } from '../../../utils/RouteUtils';
-import { TableOfContentsAnchor } from './TableOfContentsAnchor';
-import { TableOfContentsList } from './TableOfContentsList';
-import { TableOfContentsListItem } from './TableOfContentsListItem';
-import type { TableOfContentsProps } from './types';
+import { SITE_TOPBAR_HEIGHT, TOKEN_LIST_PAGE_REGEX, TOKEN_STICKY_FILTER_HEIGHT } from "../../../constants";
+import { useWindowSize } from "../../../hooks/useWindowSize";
+import { slugify, useLocationPathname } from "../../../utils/RouteUtils";
+import { TableOfContentsAnchor } from "./TableOfContentsAnchor";
+import { TableOfContentsList } from "./TableOfContentsList";
+import { TableOfContentsListItem } from "./TableOfContentsListItem";
+import type { TableOfContentsProps } from "./types";
 
 // Table of contents should only include h2, h3, h4 headings
 const shouldIncludeInToC = ({ depth }: { depth: number }): boolean => depth > 1 && depth < 4;
@@ -49,7 +49,7 @@ const TableOfContents: React.FC<React.PropsWithChildren<TableOfContentsProps>> =
 
               const depthLevel = depth.toString();
 
-              const paddingLeftValue = depthLevel === '3' || depthLevel === '4' ? 'space140' : 'space90';
+              const paddingLeftValue = depthLevel === "3" || depthLevel === "4" ? "space140" : "space90";
 
               return (
                 <TableOfContentsListItem key={value} depth={depthLevel}>

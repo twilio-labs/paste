@@ -1,6 +1,6 @@
-import { Avatar } from '@twilio-paste/avatar';
-import { ChatBubble, ChatLog, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from '@twilio-paste/chat-log';
-import * as React from 'react';
+import { Avatar } from "@twilio-paste/avatar";
+import { ChatBubble, ChatLog, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "@twilio-paste/chat-log";
+import * as React from "react";
 
 export const ChatHeroExample: React.FC = () => (
   <ChatLog aria-label="example chat log">
@@ -15,7 +15,7 @@ export const ChatHeroExample: React.FC = () => (
     </ChatMessage>
     <ChatMessage variant="outbound">
       <ChatBubble>
-        No way!{' '}
+        No way!{" "}
         <span role="img" aria-label="Raised hands and party popper emoji">
           🙌 🎉
         </span>

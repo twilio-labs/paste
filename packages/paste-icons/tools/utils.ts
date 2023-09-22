@@ -1,9 +1,9 @@
-import fs from 'fs';
-import { join } from 'path';
+import fs from "fs";
+import { join } from "path";
 
-import startcase from 'lodash/startCase';
+import startcase from "lodash/startCase";
 
-import { REACT_PATH, SVG_PATH } from './constants';
+import { REACT_PATH, SVG_PATH } from "./constants";
 
 // Ramda-like general purpose functional pipe method
 const pipe =
@@ -15,15 +15,15 @@ const pipe =
  * Split ComponentName (PascalCase) to multi word regex
  * Used for icon title text for a11y
  */
-const pascalCaseWordSplitter = (str: string): string => str.replace(/([A-Z]+)/g, ' $1').trim();
+const pascalCaseWordSplitter = (str: string): string => str.replace(/([A-Z]+)/g, " $1").trim();
 
 const addTsxExtension = (str: string): string => `${str}.tsx`;
 const addIconSuffix = (str: string): string => `${str}Icon`;
-const removeIconSuffix = (str: string): string => str.replace('Icon', '');
-const removeSvgExtension = (str: string): string => str.replace('.svg', '');
-const removeTsxExtension = (str: string): string => str.replace('.tsx', '');
-const cleanFileName = (str: string): string => startcase(str).replace(/ /g, '');
-const removeDashes = (str: string): string => str.replace(/[_-]/g, '');
+const removeIconSuffix = (str: string): string => str.replace("Icon", "");
+const removeSvgExtension = (str: string): string => str.replace(".svg", "");
+const removeTsxExtension = (str: string): string => str.replace(".tsx", "");
+const cleanFileName = (str: string): string => startcase(str).replace(/ /g, "");
+const removeDashes = (str: string): string => str.replace(/[_-]/g, "");
 const lowerCase = (str: string): string => str.toLowerCase();
 
 const getOutputComponentName = pipe(removeSvgExtension, removeIconSuffix, addIconSuffix, cleanFileName);

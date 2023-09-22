@@ -1,7 +1,7 @@
-import { animated, useSpring } from '@twilio-paste/animation-library';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
+import { animated, useSpring } from "@twilio-paste/animation-library";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
 const dashArray = 160;
 
@@ -17,7 +17,7 @@ export const DoodleCloud = (): JSX.Element => {
 
   const styles = useSpring({
     x: show ? 0 : -1 * dashArray,
-    fill: show ? '#f6b1b1' : '#ffffff',
+    fill: show ? "#f6b1b1" : "#ffffff",
     config: {
       duration: 1000,
     },

@@ -4,18 +4,18 @@
  * Source: https://stevenpetryk.com/blog/custom-eslint-rules/
  */
 
-const fs = require('fs');
-const path = require('path');
+const fs = require("fs");
+const path = require("path");
 
-const projectName = 'paste-internal';
+const projectName = "paste-internal";
 
 /*
  * This allRuleFiles constant will include ALL the rules in our rules directory.
  * We create an array of these rule files by filtering out this index.js file and any test files.
  */
 const allRuleFiles = fs
-  .readdirSync(path.join(__dirname, './rules'))
-  .filter((file) => file !== 'index.js' && !file.endsWith('test.js'));
+  .readdirSync(path.join(__dirname, "./rules"))
+  .filter((file) => file !== "index.js" && !file.endsWith("test.js"));
 
 /*
  * Create a config object for our plugin
@@ -29,7 +29,7 @@ const allRuleFiles = fs
 const configs = {
   all: {
     plugins: [projectName],
-    rules: Object.fromEntries(allRuleFiles.map((file) => [`${projectName}/${path.basename(file, '.js')}`, 'error'])),
+    rules: Object.fromEntries(allRuleFiles.map((file) => [`${projectName}/${path.basename(file, ".js")}`, "error"])),
   },
 };
 
@@ -38,6 +38,6 @@ const configs = {
  * and specifying the file paths in the format required by eslint.
  */
 // eslint-disable-next-line global-require
-const rules = Object.fromEntries(allRuleFiles.map((file) => [path.basename(file, '.js'), require(`./rules/${file}`)]));
+const rules = Object.fromEntries(allRuleFiles.map((file) => [path.basename(file, ".js"), require(`./rules/${file}`)]));
 
 module.exports = { configs, rules };

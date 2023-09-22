@@ -1,19 +1,19 @@
-import { Box, type BoxProps } from '@twilio-paste/box';
-import { Label } from '@twilio-paste/label';
-import { Text } from '@twilio-paste/text';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import * as React from 'react';
+import { Box, type BoxProps } from "@twilio-paste/box";
+import { Label } from "@twilio-paste/label";
+import { Text } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import { LABEL_SUFFIX } from './constants';
+import { LABEL_SUFFIX } from "./constants";
 
-export interface MeterLabelProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
+export interface MeterLabelProps extends HTMLPasteProps<"div">, Pick<BoxProps, "element"> {
   children: string;
   htmlFor: string;
   valueLabel?: string;
 }
 
 const MeterLabel = React.forwardRef<HTMLLabelElement, MeterLabelProps>(
-  ({ element = 'METER_LABEL', children, htmlFor, valueLabel, ...labelProps }, ref) => {
+  ({ element = "METER_LABEL", children, htmlFor, valueLabel, ...labelProps }, ref) => {
     return (
       <Box
         display="flex"
@@ -43,6 +43,6 @@ const MeterLabel = React.forwardRef<HTMLLabelElement, MeterLabelProps>(
   },
 );
 
-MeterLabel.displayName = 'MeterLabel';
+MeterLabel.displayName = "MeterLabel";
 
 export { MeterLabel };

@@ -1,6 +1,6 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import * as React from "react";
 
 export const CookieConsent: React.FC<{ onAccept: () => void; onReject: () => void }> = ({ onAccept, onReject }) => {
   return (
@@ -27,7 +27,7 @@ export const CookieConsent: React.FC<{ onAccept: () => void; onReject: () => voi
           columnGap="space40"
           rowGap="space40"
           display="flex"
-          flexDirection={['column', 'column', 'row']}
+          flexDirection={["column", "column", "row"]}
         >
           <Button variant="primary" size="small" onClick={onAccept}>
             Accept cookies

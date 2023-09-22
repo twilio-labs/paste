@@ -1,13 +1,13 @@
-import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
-import { RadioButton, RadioButtonGroup } from '@twilio-paste/radio-button-group';
-import { Stack } from '@twilio-paste/stack';
-import * as React from 'react';
+import { Callout, CalloutHeading, CalloutText } from "@twilio-paste/callout";
+import { RadioButton, RadioButtonGroup } from "@twilio-paste/radio-button-group";
+import { Stack } from "@twilio-paste/stack";
+import * as React from "react";
 
-import { EditableCodeBlock, EditableCodeBlockHeader, EditableCodeBlockWrapper } from '../src';
+import { EditableCodeBlock, EditableCodeBlockHeader, EditableCodeBlockWrapper } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Editable Code Block',
+  title: "Components/Editable Code Block",
 };
 
 const TypeScriptExample = `interface User {
@@ -95,8 +95,8 @@ export const ReadOnly = (): React.ReactNode => {
 
 const Files: any = {
   JS: {
-    name: 'script.js',
-    language: 'javascript',
+    name: "script.js",
+    language: "javascript",
     value: `// program that checks if the number is positive, negative or zero
 // input from the user
 const number = parseInt(prompt("Enter a number: "));
@@ -117,8 +117,8 @@ else {
 }`,
   },
   CSS: {
-    name: 'style.css',
-    language: 'css',
+    name: "style.css",
+    language: "css",
     value: `.content-area {
   background-color: #fff;
   border: 1px solid #e5e5e5;
@@ -128,8 +128,8 @@ else {
 }`,
   },
   HTML: {
-    name: 'index.html',
-    language: 'html',
+    name: "index.html",
+    language: "html",
     value: `<!DOCTYPE html>
 <html>
   <head></head>
@@ -144,7 +144,7 @@ else {
 };
 
 export const MultiFileEditor = (): React.ReactNode => {
-  const [fileKey, setFileKey] = React.useState('JS');
+  const [fileKey, setFileKey] = React.useState("JS");
   return (
     <Stack orientation="vertical" spacing="space40">
       <RadioButtonGroup

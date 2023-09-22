@@ -1,12 +1,12 @@
-import type { StoryFn } from '@storybook/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import * as React from "react";
 
-import { Topbar } from '../src';
+import { Topbar } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Topbar/Customization',
+  title: "Components/Topbar/Customization",
 };
 
 export const DefaultElement: StoryFn = () => {
@@ -15,8 +15,8 @@ export const DefaultElement: StoryFn = () => {
       baseTheme="default"
       elements={{
         TOPBAR: {
-          backgroundColor: 'colorBackgroundPrimary',
-          color: 'colorTextInverse',
+          backgroundColor: "colorBackgroundPrimary",
+          color: "colorTextInverse",
         },
       }}
     >
@@ -34,8 +34,8 @@ export const CustomElement: StoryFn = () => {
       baseTheme="default"
       elements={{
         CUSTOM_TOPBAR: {
-          backgroundColor: 'colorBackgroundPrimary',
-          color: 'colorTextInverse',
+          backgroundColor: "colorBackgroundPrimary",
+          color: "colorTextInverse",
         },
       }}
     >

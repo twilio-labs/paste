@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface AlignRightIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface AlignRightIconProps extends IconWrapperProps {
 }
 
 const AlignRightIcon = React.forwardRef<HTMLElement, AlignRightIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `AlignRightIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[AlignRightIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[AlignRightIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -45,5 +45,5 @@ const AlignRightIcon = React.forwardRef<HTMLElement, AlignRightIconProps>(
   },
 );
 
-AlignRightIcon.displayName = 'AlignRightIcon';
+AlignRightIcon.displayName = "AlignRightIcon";
 export { AlignRightIcon };

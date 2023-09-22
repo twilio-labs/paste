@@ -1,16 +1,16 @@
-import { Box } from '@twilio-paste/box';
-import { Button } from '@twilio-paste/button';
-import { ProductContactCenterAdminIcon } from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
-import { ProductContactCenterQueuesIcon } from '@twilio-paste/icons/esm/ProductContactCenterQueuesIcon';
-import { ProductContactCenterTasksIcon } from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
-import { ProductContactCenterTeamsIcon } from '@twilio-paste/icons/esm/ProductContactCenterTeamsIcon';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
-import { ProductPrivacyIcon } from '@twilio-paste/icons/esm/ProductPrivacyIcon';
-import { ProductUsageIcon } from '@twilio-paste/icons/esm/ProductUsageIcon';
-import { Topbar, TopbarActions } from '@twilio-paste/topbar';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ProductContactCenterAdminIcon } from "@twilio-paste/icons/esm/ProductContactCenterAdminIcon";
+import { ProductContactCenterQueuesIcon } from "@twilio-paste/icons/esm/ProductContactCenterQueuesIcon";
+import { ProductContactCenterTasksIcon } from "@twilio-paste/icons/esm/ProductContactCenterTasksIcon";
+import { ProductContactCenterTeamsIcon } from "@twilio-paste/icons/esm/ProductContactCenterTeamsIcon";
+import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
+import { ProductPrivacyIcon } from "@twilio-paste/icons/esm/ProductPrivacyIcon";
+import { ProductUsageIcon } from "@twilio-paste/icons/esm/ProductUsageIcon";
+import { Topbar, TopbarActions } from "@twilio-paste/topbar";
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   Sidebar,
@@ -23,16 +23,16 @@ import {
   SidebarNavigation,
   SidebarNavigationItem,
   SidebarOverlayContentWrapper,
-} from '../../../src';
-import { AppSwitcher } from './AppSwitcher';
-import { DebuggerAction } from './DebuggerAction';
-import { StatusMenuExample } from './StatusMenu';
-import { SupportMenu } from './SupportMenu';
-import { UserDialogExample } from './UserDialogFlex';
+} from "../../../src";
+import { AppSwitcher } from "./AppSwitcher";
+import { DebuggerAction } from "./DebuggerAction";
+import { StatusMenuExample } from "./StatusMenu";
+import { SupportMenu } from "./SupportMenu";
+import { UserDialogExample } from "./UserDialogFlex";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/FullCompositions',
+  title: "Components/Sidebar/FullCompositions",
 };
 
 export const Flex: React.FC<React.PropsWithChildren<{ collapsed: boolean; setCollapsed: (collapsed) => void }>> = ({

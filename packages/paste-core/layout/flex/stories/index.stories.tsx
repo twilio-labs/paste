@@ -1,17 +1,17 @@
-import type { StoryFn } from '@storybook/react';
-import { Box } from '@twilio-paste/box';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Text } from '@twilio-paste/text';
-import { useTheme } from '@twilio-paste/theme';
-import { Truncate } from '@twilio-paste/truncate';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { Truncate } from "@twilio-paste/truncate";
+import * as React from "react";
 
-import { Flex } from '../src';
+import { Flex } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Layout/Flex',
+  title: "Layout/Flex",
   component: Flex,
 };
 
@@ -360,7 +360,7 @@ export const ContainedWidth = (): React.ReactNode => {
   );
 };
 
-ContainedWidth.storyName = 'Contained width';
+ContainedWidth.storyName = "Contained width";
 
 export const CustomizedFlex: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
@@ -384,7 +384,7 @@ export const CustomizedFlex: StoryFn = (_args, { parameters: { isTestEnvironment
       <CustomizationProvider
         disableAnimations={isTestEnvironment}
         theme={currentTheme}
-        elements={{ FLEX: { backgroundColor: 'colorBackgroundBusy' } }}
+        elements={{ FLEX: { backgroundColor: "colorBackgroundBusy" } }}
       >
         <Box padding="space30" borderStyle="solid" marginBottom="space70">
           <Flex display="flex">
@@ -404,7 +404,7 @@ export const CustomizedFlex: StoryFn = (_args, { parameters: { isTestEnvironment
       <CustomizationProvider
         disableAnimations={isTestEnvironment}
         theme={currentTheme}
-        elements={{ MY_FLEX: { backgroundColor: 'colorBackgroundSuccess' } }}
+        elements={{ MY_FLEX: { backgroundColor: "colorBackgroundSuccess" } }}
       >
         <Box padding="space30" borderStyle="solid" marginBottom="space70">
           <Flex display="flex" element="MY_FLEX">

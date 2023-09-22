@@ -1,8 +1,8 @@
-import { Box } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
-import merge from 'deepmerge';
-import * as React from 'react';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import merge from "deepmerge";
+import * as React from "react";
 
 import {
   baseCloseStyles,
@@ -10,23 +10,23 @@ import {
   closeInheritColorStyles,
   selectedBaseCloseStyles,
   selectedCloseColorStyles,
-} from './FormPill.styles';
-import type { PillVariant } from './types';
+} from "./FormPill.styles";
+import type { PillVariant } from "./types";
 
 interface PillCloseIconProps {
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   selected?: boolean;
   variant?: PillVariant;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   pillIsHoverable?: boolean;
 }
 
 export const PillCloseIcon: React.FC<React.PropsWithChildren<PillCloseIconProps>> = ({
-  element = 'FORM_PILL_CLOSE',
+  element = "FORM_PILL_CLOSE",
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onClick = () => {},
   selected = false,
-  variant = 'default',
+  variant = "default",
   pillIsHoverable = false,
 }) => {
   const baseStyles = selected ? selectedBaseCloseStyles[variant] : baseCloseStyles[variant];
@@ -62,4 +62,4 @@ export const PillCloseIcon: React.FC<React.PropsWithChildren<PillCloseIconProps>
   );
 };
 
-PillCloseIcon.displayName = 'PillCloseIcon';
+PillCloseIcon.displayName = "PillCloseIcon";

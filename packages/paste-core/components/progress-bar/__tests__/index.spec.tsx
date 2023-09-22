@@ -1,14 +1,14 @@
-import { render, screen } from '@testing-library/react';
-import { HelpText } from '@twilio-paste/help-text';
-import { Theme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { render, screen } from "@testing-library/react";
+import { HelpText } from "@twilio-paste/help-text";
+import { Theme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { ProgressBar, ProgressBarLabel } from '../src';
-import { LABEL_SUFFIX } from '../src/constants';
+import { ProgressBar, ProgressBarLabel } from "../src";
+import { LABEL_SUFFIX } from "../src/constants";
 
-describe('ProgressBar', () => {
-  describe('base usage', () => {
-    it('should render correctly with all aria attributes', () => {
+describe("ProgressBar", () => {
+  describe("base usage", () => {
+    it("should render correctly with all aria attributes", () => {
       const { rerender } = render(
         <Theme.Provider theme="twilio">
           <ProgressBarLabel htmlFor="test-progress-bar">Download progress</ProgressBarLabel>
@@ -17,16 +17,16 @@ describe('ProgressBar', () => {
         </Theme.Provider>,
       );
 
-      const progressBar = screen.getByRole('progressbar');
+      const progressBar = screen.getByRole("progressbar");
       expect(progressBar).toBeInTheDocument();
-      expect(progressBar).toHaveAttribute('aria-valuemin', '0');
-      expect(progressBar).toHaveAttribute('aria-valuemax', '120');
-      expect(progressBar).toHaveAttribute('aria-valuenow', '33');
-      expect(progressBar).toHaveAttribute('aria-valuetext', '28%');
-      expect(progressBar).toHaveAttribute('id', 'test-progress-bar');
-      expect(progressBar).toHaveAttribute('aria-describedby', 'test-description');
-      expect(progressBar).toHaveAttribute('aria-labelledby', `test-progress-bar${LABEL_SUFFIX}`);
-      expect(progressBar).not.toHaveAttribute('aria-label');
+      expect(progressBar).toHaveAttribute("aria-valuemin", "0");
+      expect(progressBar).toHaveAttribute("aria-valuemax", "120");
+      expect(progressBar).toHaveAttribute("aria-valuenow", "33");
+      expect(progressBar).toHaveAttribute("aria-valuetext", "28%");
+      expect(progressBar).toHaveAttribute("id", "test-progress-bar");
+      expect(progressBar).toHaveAttribute("aria-describedby", "test-description");
+      expect(progressBar).toHaveAttribute("aria-labelledby", `test-progress-bar${LABEL_SUFFIX}`);
+      expect(progressBar).not.toHaveAttribute("aria-label");
 
       // New render to test other conditions
       rerender(
@@ -46,22 +46,22 @@ describe('ProgressBar', () => {
           <HelpText id="test-description">Downloading more ram</HelpText>
         </Theme.Provider>,
       );
-      expect(progressBar).toHaveAttribute('aria-valuenow', '50');
-      expect(progressBar).toHaveAttribute('aria-valuetext', '42%');
+      expect(progressBar).toHaveAttribute("aria-valuenow", "50");
+      expect(progressBar).toHaveAttribute("aria-valuetext", "42%");
     });
 
-    it('should render correctly with aria-label', () => {
+    it("should render correctly with aria-label", () => {
       render(<ProgressBar id="test-progress-bar" aria-label="Cool progress" />);
 
-      const progressBar = screen.getByRole('progressbar');
+      const progressBar = screen.getByRole("progressbar");
       expect(progressBar).toBeInTheDocument();
-      expect(progressBar).toHaveAttribute('aria-label', 'Cool progress');
-      expect(progressBar).not.toHaveAttribute('aria-labelledby');
+      expect(progressBar).toHaveAttribute("aria-label", "Cool progress");
+      expect(progressBar).not.toHaveAttribute("aria-labelledby");
     });
   });
 
-  describe('Customization', () => {
-    it('should set DEFAULT data-paste-element attribute', (): void => {
+  describe("Customization", () => {
+    it("should set DEFAULT data-paste-element attribute", (): void => {
       render(
         <Theme.Provider theme="twilio">
           <div id="labelledby">Download progress</div>
@@ -69,13 +69,13 @@ describe('ProgressBar', () => {
         </Theme.Provider>,
       );
 
-      const progressBar = screen.getByRole('progressbar');
+      const progressBar = screen.getByRole("progressbar");
 
-      expect(progressBar).toHaveAttribute('data-paste-element', 'PROGRESS_BAR');
-      expect(progressBar.firstChild).toHaveAttribute('data-paste-element', 'PROGRESS_BAR_FILL');
+      expect(progressBar).toHaveAttribute("data-paste-element", "PROGRESS_BAR");
+      expect(progressBar.firstChild).toHaveAttribute("data-paste-element", "PROGRESS_BAR_FILL");
     });
 
-    it('should set CUSTOM data-paste-element attribute', (): void => {
+    it("should set CUSTOM data-paste-element attribute", (): void => {
       render(
         <Theme.Provider theme="twilio">
           <ProgressBar
@@ -88,10 +88,10 @@ describe('ProgressBar', () => {
         </Theme.Provider>,
       );
 
-      const progressBar = screen.getByRole('progressbar');
+      const progressBar = screen.getByRole("progressbar");
 
-      expect(progressBar).toHaveAttribute('data-paste-element', 'PROGGER');
-      expect(progressBar.firstChild).toHaveAttribute('data-paste-element', 'PROGGER_FILL');
+      expect(progressBar).toHaveAttribute("data-paste-element", "PROGGER");
+      expect(progressBar.firstChild).toHaveAttribute("data-paste-element", "PROGGER_FILL");
     });
   });
 });

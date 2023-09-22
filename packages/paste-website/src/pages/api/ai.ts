@@ -1,4 +1,4 @@
-import path from 'path';
+import path from "path";
 /**
  * API endpoint for querying our doc site with ChatGPT4
  *
@@ -8,19 +8,19 @@ import path from 'path';
  *
  * Please set these in your .env file and on your deployment boxes configuration.
  */
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from "url";
 
-import { loadQAStuffChain } from 'langchain/chains';
-import { ChatOpenAI } from 'langchain/chat_models/openai';
-import { OpenAIEmbeddings } from 'langchain/embeddings/openai';
-import { FaissStore } from 'langchain/vectorstores/faiss';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import { loadQAStuffChain } from "langchain/chains";
+import { ChatOpenAI } from "langchain/chat_models/openai";
+import { OpenAIEmbeddings } from "langchain/embeddings/openai";
+import { FaissStore } from "langchain/vectorstores/faiss";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   const { question, secret } = req.body;
   // Exit early if the required params aren't provided
   if (!question || secret !== process.env.OPENAI_API_SECRET) {
-    res.status(200).send({ answer: 'Please provide a question' });
+    res.status(200).send({ answer: "Please provide a question" });
     return;
   }
 
@@ -29,14 +29,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
    */
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = path.dirname(__filename);
-  const directory = path.join(__dirname, '../../../indexes/faiss_index');
+  const directory = path.join(__dirname, "../../../indexes/faiss_index");
   const loadedVectorStore = await FaissStore.loadFromPython(directory, new OpenAIEmbeddings());
 
   /*
    * Create the OpenAI model
    */
   const model = new ChatOpenAI({
-    modelName: 'gpt-4',
+    modelName: "gpt-4",
     temperature: 0,
   });
 
@@ -72,7 +72,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 export const config = {
   api: {
     bodyParser: {
-      sizeLimit: '10kb',
+      sizeLimit: "10kb",
     },
   },
   // Specifies the maximum allowed duration for this function to execute (in seconds)

@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { DislikedPage, FeedbackPopover, LikedPage, UnratedPage } from '../src/components/shortcodes/feedback-popover';
+import { DislikedPage, FeedbackPopover, LikedPage, UnratedPage } from "../src/components/shortcodes/feedback-popover";
 
 const NOOP = (): void => {};
 
@@ -11,6 +11,6 @@ export const DislikedPageFeedbackPopover = (): React.ReactNode => <DislikedPage 
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Website/Feedback-Popover',
+  title: "Website/Feedback-Popover",
   component: ButtonFeedbackPopover,
 };

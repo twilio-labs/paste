@@ -1,13 +1,13 @@
-import { Menu } from '@twilio-paste/menu';
-import type { MenuProps } from '@twilio-paste/menu';
-import * as React from 'react';
+import { Menu } from "@twilio-paste/menu";
+import type { MenuProps } from "@twilio-paste/menu";
+import * as React from "react";
 
 export interface ProductSwitcherProps extends MenuProps {
   children: NonNullable<React.ReactNode>;
 }
 
 const ProductSwitcher = React.forwardRef<HTMLDivElement, ProductSwitcherProps>(
-  ({ children, element = 'PRODUCT_SWITCHER', ...props }, ref) => {
+  ({ children, element = "PRODUCT_SWITCHER", ...props }, ref) => {
     return (
       <Menu element={element} {...props} ref={ref}>
         {children}
@@ -16,5 +16,5 @@ const ProductSwitcher = React.forwardRef<HTMLDivElement, ProductSwitcherProps>(
   },
 );
 
-ProductSwitcher.displayName = 'ProductSwitcher';
+ProductSwitcher.displayName = "ProductSwitcher";
 export { ProductSwitcher };

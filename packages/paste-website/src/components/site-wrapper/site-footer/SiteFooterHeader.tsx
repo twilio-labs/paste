@@ -1,8 +1,8 @@
-import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
-import { useTheme } from '@twilio-paste/theme';
+import { Box } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
 
-import HeartDoodleIcon from '../../icons/HeartDoodleIcon';
+import HeartDoodleIcon from "../../icons/HeartDoodleIcon";
 
 const SiteFooterHeader = (): JSX.Element => {
   const theme = useTheme();
@@ -10,9 +10,9 @@ const SiteFooterHeader = (): JSX.Element => {
     <Box
       alignItems="center"
       display="flex"
-      flexDirection={['column', 'row']}
+      flexDirection={["column", "row"]}
       marginBottom="space80"
-      textAlign={['center', 'left']}
+      textAlign={["center", "left"]}
     >
       <HeartDoodleIcon
         css={{ height: theme.heights.sizeIcon70, width: theme.widths.sizeIcon70 }}
@@ -23,11 +23,11 @@ const SiteFooterHeader = (): JSX.Element => {
         as="h2"
         color="colorTextInverse"
         fontFamily="fontFamilyDisplay"
-        fontSize={['fontSize60', 'fontSizeDisplay10']}
+        fontSize={["fontSize60", "fontSizeDisplay10"]}
         fontWeight="fontWeightExtrabold"
-        lineHeight={['lineHeight60', 'lineHeightDisplay10']}
-        marginLeft={['space0', 'space40']}
-        marginTop={['space40', 'space0']}
+        lineHeight={["lineHeight60", "lineHeightDisplay10"]}
+        marginLeft={["space0", "space40"]}
+        marginTop={["space40", "space0"]}
       >
         Black lives matter.
       </Text>

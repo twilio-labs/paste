@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface SortAlphabeticalIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface SortAlphabeticalIconProps extends IconWrapperProps {
 }
 
 const SortAlphabeticalIcon = React.forwardRef<HTMLElement, SortAlphabeticalIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `SortAlphabeticalIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[SortAlphabeticalIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[SortAlphabeticalIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -49,5 +49,5 @@ const SortAlphabeticalIcon = React.forwardRef<HTMLElement, SortAlphabeticalIconP
   },
 );
 
-SortAlphabeticalIcon.displayName = 'SortAlphabeticalIcon';
+SortAlphabeticalIcon.displayName = "SortAlphabeticalIcon";
 export { SortAlphabeticalIcon };

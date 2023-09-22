@@ -1,31 +1,31 @@
-import type { BoxStyleProps } from '@twilio-paste/box';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import merge from 'deepmerge';
-import * as React from 'react';
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import merge from "deepmerge";
+import * as React from "react";
 
-import { BaseStyles, SizeStyles } from './styles';
-import type { DirectButtonProps } from './types';
+import { BaseStyles, SizeStyles } from "./styles";
+import type { DirectButtonProps } from "./types";
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
  * legacy global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextDestructive',
+  color: "colorTextDestructive",
   _hover: {
-    color: 'colorTextDestructiveStrongest',
+    color: "colorTextDestructiveStrongest",
   },
   _active: {
-    color: 'colorTextDestructiveStrongest',
+    color: "colorTextDestructiveStrongest",
   },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextDestructive',
+  color: "colorTextDestructive",
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {
-  color: 'colorTextWeaker',
+  color: "colorTextWeaker",
 });
 
 const ButtonStyleMapping = {
@@ -40,7 +40,7 @@ const DestructiveIconButton = React.forwardRef<HTMLButtonElement, DirectButtonPr
     return (
       <Box
         ref={ref}
-        width={fullWidth ? '100%' : 'auto'}
+        width={fullWidth ? "100%" : "auto"}
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
@@ -49,9 +49,9 @@ const DestructiveIconButton = React.forwardRef<HTMLButtonElement, DirectButtonPr
   },
 );
 DestructiveIconButton.defaultProps = {
-  as: 'button',
+  as: "button",
 };
 
-DestructiveIconButton.displayName = 'DestructiveIconButton';
+DestructiveIconButton.displayName = "DestructiveIconButton";
 
 export { DestructiveIconButton };

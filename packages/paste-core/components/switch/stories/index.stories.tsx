@@ -1,13 +1,13 @@
-import { Anchor } from '@twilio-paste/anchor';
-import { Text } from '@twilio-paste/text';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { Anchor } from "@twilio-paste/anchor";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { Switch, SwitchGroup } from '../src';
+import { Switch, SwitchGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Switch',
+  title: "Components/Switch",
   component: Switch,
   subcomponents: { SwitchGroup },
 };
@@ -16,7 +16,7 @@ export const DefaultSwitch = (): React.ReactNode => {
   const switchRef = React.useRef(null);
   return <Switch ref={switchRef}>Play notification sounds</Switch>;
 };
-DefaultSwitch.storyName = 'Switch';
+DefaultSwitch.storyName = "Switch";
 
 export const SwitchChecked = (): React.ReactNode => {
   const [checked, setChecked] = React.useState(true);
@@ -35,7 +35,7 @@ export const SwitchChecked = (): React.ReactNode => {
   );
 };
 
-SwitchChecked.storyName = 'Switch - Checked';
+SwitchChecked.storyName = "Switch - Checked";
 
 export const SwitchWithNoID = (): React.ReactNode => {
   const [checked, setChecked] = React.useState(true);
@@ -53,7 +53,7 @@ export const SwitchWithNoID = (): React.ReactNode => {
   );
 };
 
-SwitchWithNoID.storyName = 'Switch - With no ID';
+SwitchWithNoID.storyName = "Switch - With no ID";
 
 export const SwitchDefaultChecked = (): React.ReactNode => {
   return (
@@ -62,7 +62,7 @@ export const SwitchDefaultChecked = (): React.ReactNode => {
     </Switch>
   );
 };
-SwitchDefaultChecked.storyName = 'Switch - defaultChecked';
+SwitchDefaultChecked.storyName = "Switch - defaultChecked";
 
 export const SwitchRequired = (): React.ReactNode => {
   return (
@@ -72,7 +72,7 @@ export const SwitchRequired = (): React.ReactNode => {
   );
 };
 
-SwitchRequired.storyName = 'Switch - Required';
+SwitchRequired.storyName = "Switch - Required";
 
 export const SwitchDisabled = (): React.ReactNode => {
   return (
@@ -82,7 +82,7 @@ export const SwitchDisabled = (): React.ReactNode => {
   );
 };
 
-SwitchDisabled.storyName = 'Switch - Disabled';
+SwitchDisabled.storyName = "Switch - Disabled";
 
 export const SwitchDisabledChecked = (): React.ReactNode => {
   const [checked, setChecked] = React.useState(true);
@@ -102,7 +102,7 @@ export const SwitchDisabledChecked = (): React.ReactNode => {
   );
 };
 
-SwitchDisabledChecked.storyName = 'Switch - Disabled & Checked';
+SwitchDisabledChecked.storyName = "Switch - Disabled & Checked";
 
 export const SwitchError = (): React.ReactNode => {
   return (
@@ -112,7 +112,7 @@ export const SwitchError = (): React.ReactNode => {
   );
 };
 
-SwitchError.storyName = 'Switch - Error';
+SwitchError.storyName = "Switch - Error";
 
 export const SwitchErrorChecked = (): React.ReactNode => {
   const [checked, setChecked] = React.useState(true);
@@ -132,7 +132,7 @@ export const SwitchErrorChecked = (): React.ReactNode => {
   );
 };
 
-SwitchErrorChecked.storyName = 'Switch - Error & Checked';
+SwitchErrorChecked.storyName = "Switch - Error & Checked";
 
 export const SwitchErrorDisabled = (): React.ReactNode => {
   return (
@@ -142,7 +142,7 @@ export const SwitchErrorDisabled = (): React.ReactNode => {
   );
 };
 
-SwitchErrorDisabled.storyName = 'Switch - Error & Disabled';
+SwitchErrorDisabled.storyName = "Switch - Error & Disabled";
 
 export const SwitchErrorDisabledChecked = (): React.ReactNode => {
   return (
@@ -152,7 +152,7 @@ export const SwitchErrorDisabledChecked = (): React.ReactNode => {
   );
 };
 
-SwitchErrorDisabledChecked.storyName = 'Switch - Error & Disabled & Checked';
+SwitchErrorDisabledChecked.storyName = "Switch - Error & Disabled & Checked";
 
 export const SwitchHelpTextString = (): React.ReactNode => {
   return (
@@ -162,7 +162,7 @@ export const SwitchHelpTextString = (): React.ReactNode => {
   );
 };
 
-SwitchHelpTextString.storyName = 'Switch - Help text string';
+SwitchHelpTextString.storyName = "Switch - Help text string";
 
 export const SwitchHelpTextChildren = (): React.ReactNode => {
   return (
@@ -181,7 +181,7 @@ export const SwitchHelpTextChildren = (): React.ReactNode => {
   );
 };
 
-SwitchHelpTextChildren.storyName = 'Switch - Help text children';
+SwitchHelpTextChildren.storyName = "Switch - Help text children";
 
 export const SwitchControlled = (): React.ReactNode => {
   const [checked1, setChecked1] = React.useState(true);
@@ -226,7 +226,7 @@ export const SwitchControlled = (): React.ReactNode => {
   );
 };
 
-SwitchControlled.storyName = 'Switch - Controlled';
+SwitchControlled.storyName = "Switch - Controlled";
 
 export const DefaultSwitchGroup = (): React.ReactNode => {
   const [checked1, setChecked1] = React.useState(true);
@@ -286,7 +286,7 @@ export const DefaultSwitchGroup = (): React.ReactNode => {
   );
 };
 
-DefaultSwitchGroup.storyName = 'SwitchGroup';
+DefaultSwitchGroup.storyName = "SwitchGroup";
 
 export const SwitchGroupError = (): React.ReactNode => {
   return (
@@ -304,7 +304,7 @@ export const SwitchGroupError = (): React.ReactNode => {
   );
 };
 
-SwitchGroupError.storyName = 'Switch Group - Error';
+SwitchGroupError.storyName = "Switch Group - Error";
 
 export const SwitchGroupDisabled = (): React.ReactNode => {
   return (
@@ -322,7 +322,7 @@ export const SwitchGroupDisabled = (): React.ReactNode => {
   );
 };
 
-SwitchGroupDisabled.storyName = 'Switch Group - Disabled';
+SwitchGroupDisabled.storyName = "Switch Group - Disabled";
 
 export const SwitchGroupOverrideDisabled = (): React.ReactNode => {
   return (
@@ -340,7 +340,7 @@ export const SwitchGroupOverrideDisabled = (): React.ReactNode => {
   );
 };
 
-SwitchGroupOverrideDisabled.storyName = 'Switch Group - Override Disabled';
+SwitchGroupOverrideDisabled.storyName = "Switch Group - Override Disabled";
 
 export const SwitchGroupHorizontal = (): React.ReactNode => {
   return (
@@ -364,7 +364,7 @@ export const SwitchGroupHorizontal = (): React.ReactNode => {
   );
 };
 
-SwitchGroupHorizontal.storyName = 'Switch Group - Horizontal';
+SwitchGroupHorizontal.storyName = "Switch Group - Horizontal";
 
 export const SwitchGroupHorizontalDisabled = (): React.ReactNode => {
   return (
@@ -382,7 +382,7 @@ export const SwitchGroupHorizontalDisabled = (): React.ReactNode => {
   );
 };
 
-SwitchGroupHorizontalDisabled.storyName = 'Switch Group - Horizontal disabled';
+SwitchGroupHorizontalDisabled.storyName = "Switch Group - Horizontal disabled";
 
 export const SwitchGroupHorizontalError = (): React.ReactNode => {
   return (
@@ -412,4 +412,4 @@ export const SwitchGroupHorizontalError = (): React.ReactNode => {
   );
 };
 
-SwitchGroupHorizontalError.storyName = 'Switch Group - Horizontal error';
+SwitchGroupHorizontalError.storyName = "Switch Group - Horizontal error";

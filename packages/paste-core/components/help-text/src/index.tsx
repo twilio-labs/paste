@@ -1,1 +1,1 @@
-export * from './HelpText';
+export * from "./HelpText";

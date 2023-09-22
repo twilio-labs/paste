@@ -1,22 +1,22 @@
-import type { StoryFn } from '@storybook/react';
-import { Button } from '@twilio-paste/button';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Popover, PopoverButton, PopoverContainer } from '@twilio-paste/popover';
-import { Text } from '@twilio-paste/text';
-import { useTheme } from '@twilio-paste/theme';
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import { ButtonGroup } from '../src';
-import type { ButtonGroupProps } from '../src';
+import { ButtonGroup } from "../src";
+import type { ButtonGroupProps } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Button Group',
+  title: "Components/Button Group",
   component: ButtonGroup,
 };
 
-type ButtonGroupStoryProps = Partial<Omit<ButtonGroupProps, 'children'>>;
+type ButtonGroupStoryProps = Partial<Omit<ButtonGroupProps, "children">>;
 
 export const Unattached: StoryFn<ButtonGroupStoryProps> = (props) => (
   <ButtonGroup aria-label="A decisive group of buttons" {...props}>
@@ -43,7 +43,7 @@ export const FewButtons: StoryFn = () => (
 
 export const ManyButtons: StoryFn = () => (
   <ButtonGroup attached aria-label="An alphabetical group of buttons">
-    {[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map((letter) => (
+    {[..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"].map((letter) => (
       <Button key={letter} variant="secondary">
         {letter}
       </Button>
@@ -115,9 +115,9 @@ export const Customized: StoryFn = () => {
       theme={currentTheme}
       elements={{
         BUTTON_GROUP: {
-          padding: 'space40',
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderRadius: 'borderRadius30',
+          padding: "space40",
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderRadius: "borderRadius30",
         },
       }}
     >

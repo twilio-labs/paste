@@ -1,10 +1,10 @@
-import type { Story } from '@storybook/react';
-import { Button } from '@twilio-paste/button';
-import { Button as EgButton } from 'evergreen-ui';
-import * as React from 'react';
+import type { Story } from "@storybook/react";
+import { Button } from "@twilio-paste/button";
+import { Button as EgButton } from "evergreen-ui";
+import * as React from "react";
 
 export default {
-  title: 'Performance/Button',
+  title: "Performance/Button",
   component: Button,
 };
 

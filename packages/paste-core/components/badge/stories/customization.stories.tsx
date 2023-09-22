@@ -1,14 +1,14 @@
-import type { StoryFn } from '@storybook/react';
-import { Card } from '@twilio-paste/card';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Stack } from '@twilio-paste/stack';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import type { PasteCustomCSS } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { Badge } from '../src';
-import type { BadgeVariants } from '../src/constants';
+import { Badge } from "../src";
+import type { BadgeVariants } from "../src/constants";
 
 export const makeBadge = (variant: typeof BadgeVariants[number], element?: string): React.ReactElement => (
   <Badge as="span" element={element} variant={variant} data-testid={`${variant}_badge`}>
@@ -16,22 +16,22 @@ export const makeBadge = (variant: typeof BadgeVariants[number], element?: strin
   </Badge>
 );
 
-export const getStyles = (element = 'BADGE'): { [key: string]: PasteCustomCSS } => {
+export const getStyles = (element = "BADGE"): { [key: string]: PasteCustomCSS } => {
   return {
     [element]: {
-      cursor: 'help',
+      cursor: "help",
       variants: {
-        neutral: { paddingY: 'space30' },
-        warning: { paddingY: 'space50' },
-        error: { paddingY: 'space60' },
-        success: { paddingY: 'space70' },
-        new: { paddingY: 'space80' },
-        decorative10: { paddingY: 'space40' },
-        decorative20: { paddingY: 'space50' },
-        decorative30: { paddingY: 'space60' },
-        decorative40: { paddingY: 'space70' },
-        default: { paddingY: 'space30' },
-        info: { paddingY: 'space40' },
+        neutral: { paddingY: "space30" },
+        warning: { paddingY: "space50" },
+        error: { paddingY: "space60" },
+        success: { paddingY: "space70" },
+        new: { paddingY: "space80" },
+        decorative10: { paddingY: "space40" },
+        decorative20: { paddingY: "space50" },
+        decorative30: { paddingY: "space60" },
+        decorative40: { paddingY: "space70" },
+        default: { paddingY: "space30" },
+        info: { paddingY: "space40" },
       },
     },
   };
@@ -41,7 +41,7 @@ const CustomizationWrapper: React.FC<
   React.PropsWithChildren<{ variant: typeof BadgeVariants[number]; isTestEnvironment: boolean }>
 > = ({ variant, isTestEnvironment }): React.ReactElement => {
   const theme = useTheme();
-  const customElement = 'FOO';
+  const customElement = "FOO";
   return (
     <Stack orientation="vertical" spacing="space50">
       <Card>
@@ -116,9 +116,9 @@ export const Info: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Badge/Customization',
+  title: "Components/Badge/Customization",
   component: Badge,
-  excludeStories: ['getStyles', 'makeBadge'],
+  excludeStories: ["getStyles", "makeBadge"],
   parameters: {
     a11y: {
       // no need to a11y check customization

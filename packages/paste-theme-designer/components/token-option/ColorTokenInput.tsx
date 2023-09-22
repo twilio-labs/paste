@@ -1,22 +1,22 @@
-import { Box } from '@twilio-paste/core/box';
-import { Input } from '@twilio-paste/core/input';
-import { Label } from '@twilio-paste/core/label';
-import { Popover, PopoverButton, PopoverContainer } from '@twilio-paste/core/popover';
-import { useTheme } from '@twilio-paste/core/theme';
-import { useUIDSeed } from '@twilio-paste/core/uid-library';
-import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
-import { ColorPickerIcon } from '@twilio-paste/icons/cjs/ColorPickerIcon';
-import * as React from 'react';
-import { ChromePicker } from 'react-color';
-import type { ColorChangeHandler, ColorResult } from 'react-color';
+import { Box } from "@twilio-paste/core/box";
+import { Input } from "@twilio-paste/core/input";
+import { Label } from "@twilio-paste/core/label";
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/core/popover";
+import { useTheme } from "@twilio-paste/core/theme";
+import { useUIDSeed } from "@twilio-paste/core/uid-library";
+import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
+import { ColorPickerIcon } from "@twilio-paste/icons/cjs/ColorPickerIcon";
+import * as React from "react";
+import { ChromePicker } from "react-color";
+import type { ColorChangeHandler, ColorResult } from "react-color";
 
-import type { TokenContextProps } from '../../context/TokenContext';
+import type { TokenContextProps } from "../../context/TokenContext";
 
 type ColorTokenInputProps = {
   bucket: keyof GenericTokensShape;
   tokenName: string;
   tokenValue: string;
-  onChange: TokenContextProps['updateToken'];
+  onChange: TokenContextProps["updateToken"];
 };
 
 const isInRange = (v: number): boolean => v >= 0 && v <= 255;
@@ -43,16 +43,16 @@ export const ColorTokenInput: React.FC<React.PropsWithChildren<ColorTokenInputPr
 
   const handleInputChange: React.ChangeEventHandler<HTMLInputElement> = (event): void => {
     const { value } = event.target;
-    const isRGB = value.startsWith('rgb(');
-    const isRGBA = value.startsWith('rgba(');
-    const valueParts = value.split(',');
-    const partOne = Number.parseInt(valueParts[0].split('(')[1], 10);
+    const isRGB = value.startsWith("rgb(");
+    const isRGBA = value.startsWith("rgba(");
+    const valueParts = value.split(",");
+    const partOne = Number.parseInt(valueParts[0].split("(")[1], 10);
     const partTwo = Number.parseInt(valueParts[1], 10);
-    const partThree = Number.parseInt(valueParts[2].replace(')', ''), 10);
-    const partFour = valueParts[3] ? Number.parseFloat(valueParts[3].replace(')', '')) : null;
+    const partThree = Number.parseInt(valueParts[2].replace(")", ""), 10);
+    const partFour = valueParts[3] ? Number.parseFloat(valueParts[3].replace(")", "")) : null;
     if (
       (isRGB || isRGBA) &&
-      value.endsWith(')') &&
+      value.endsWith(")") &&
       (valueParts.length === 3 || valueParts.length === 4) &&
       isInRange(partOne) &&
       isInRange(partTwo) &&
@@ -90,7 +90,7 @@ export const ColorTokenInput: React.FC<React.PropsWithChildren<ColorTokenInputPr
             <ChromePicker
               onChange={handleColorChange}
               styles={{
-                default: { picker: { boxShadow: 'none' }, saturation: { borderRadius: theme.radii.borderRadius10 } },
+                default: { picker: { boxShadow: "none" }, saturation: { borderRadius: theme.radii.borderRadius10 } },
               }}
               color={tokenValue}
               // @ts-expect-error defaultView doesn't seem to be typed

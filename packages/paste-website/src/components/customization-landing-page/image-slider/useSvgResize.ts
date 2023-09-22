@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 // Ratio of default image width to SVG width (width for which SVG was designed)
 const widthRatio = 640 / (35 * 1.3);
@@ -14,12 +14,12 @@ export const useSvgResize = (
   const [svgWidth, setSvgWidth] = React.useState<number>(0);
 
   React.useEffect(() => {
-    if (typeof containerHeight === 'number' && !Number.isNaN(containerHeight)) {
+    if (typeof containerHeight === "number" && !Number.isNaN(containerHeight)) {
       setSvgHeight(containerHeight / heightRatio);
     }
   }, [containerHeight]);
   React.useEffect(() => {
-    if (typeof containerWidth === 'number' && !Number.isNaN(containerWidth)) {
+    if (typeof containerWidth === "number" && !Number.isNaN(containerWidth)) {
       setSvgWidth(containerWidth / widthRatio);
     }
   }, [containerWidth]);

@@ -1,7 +1,7 @@
-import type { Meta, StoryFn } from '@storybook/react';
-import * as React from 'react';
+import type { Meta, StoryFn } from "@storybook/react";
+import * as React from "react";
 
-import { useCombobox, useMultipleSelection } from '../src';
+import { useCombobox, useMultipleSelection } from "../src";
 
 type Book = {
   author: string;
@@ -9,16 +9,16 @@ type Book = {
 };
 
 const books: Book[] = [
-  { author: 'Harper Lee', title: 'To Kill a Mockingbird' },
-  { author: 'Lev Tolstoy', title: 'War and Peace' },
-  { author: 'Fyodor Dostoyevsy', title: 'The Idiot' },
-  { author: 'Oscar Wilde', title: 'A Picture of Dorian Gray' },
-  { author: 'George Orwell', title: '1984' },
-  { author: 'Jane Austen', title: 'Pride and Prejudice' },
-  { author: 'Marcus Aurelius', title: 'Meditations' },
-  { author: 'Fyodor Dostoevsky', title: 'The Brothers Karamazov' },
-  { author: 'Lev Tolstoy', title: 'Anna Karenina' },
-  { author: 'Fyodor Dostoevsky', title: 'Crime and Punishment' },
+  { author: "Harper Lee", title: "To Kill a Mockingbird" },
+  { author: "Lev Tolstoy", title: "War and Peace" },
+  { author: "Fyodor Dostoyevsy", title: "The Idiot" },
+  { author: "Oscar Wilde", title: "A Picture of Dorian Gray" },
+  { author: "George Orwell", title: "1984" },
+  { author: "Jane Austen", title: "Pride and Prejudice" },
+  { author: "Marcus Aurelius", title: "Meditations" },
+  { author: "Fyodor Dostoevsky", title: "The Brothers Karamazov" },
+  { author: "Lev Tolstoy", title: "Anna Karenina" },
+  { author: "Fyodor Dostoevsky", title: "Crime and Punishment" },
 ];
 const initialSelectedItems = [books[0], books[1]];
 
@@ -35,7 +35,7 @@ function getFilteredBooks(selectedItems: Book[], inputValue: string): Book[] {
 }
 
 export const MultiselectComboBox: StoryFn = () => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const [selectedItems, setSelectedItems] = React.useState<Book[]>(initialSelectedItems);
   const items = React.useMemo(() => getFilteredBooks(selectedItems, inputValue), [selectedItems, inputValue]);
 
@@ -99,7 +99,7 @@ export const MultiselectComboBox: StoryFn = () => {
      * we will return an empty string in this case.
      */
     itemToString(item) {
-      return item ? `${item.title} - ${item.author}` : '';
+      return item ? `${item.title} - ${item.author}` : "";
     },
     defaultHighlightedIndex: 0, // after selection, highlight the first item.
     /*
@@ -130,7 +130,7 @@ export const MultiselectComboBox: StoryFn = () => {
       }
     },
     // https://www.downshift-js.com/use-combobox#controlling-state
-    onStateChange({ inputValue: newInputValue = '', type, selectedItem: newSelectedItem }) {
+    onStateChange({ inputValue: newInputValue = "", type, selectedItem: newSelectedItem }) {
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
@@ -189,16 +189,16 @@ export const MultiselectComboBox: StoryFn = () => {
         style={{
           padding: 0,
           marginTop: 0,
-          position: 'absolute',
-          backgroundColor: 'white',
-          width: '100%',
-          maxHeight: '20rem',
-          overflowY: 'auto',
-          overflowX: 'hidden',
-          outline: '0',
-          transition: 'opacity .1s ease',
-          borderRadius: '0 0 .28571429rem .28571429rem',
-          boxShadow: '0 2px 3px 0 rgba(34,36,38,.15)',
+          position: "absolute",
+          backgroundColor: "white",
+          width: "100%",
+          maxHeight: "20rem",
+          overflowY: "auto",
+          overflowX: "hidden",
+          outline: "0",
+          transition: "opacity .1s ease",
+          borderRadius: "0 0 .28571429rem .28571429rem",
+          boxShadow: "0 2px 3px 0 rgba(34,36,38,.15)",
         }}
       >
         {isOpen &&
@@ -207,21 +207,21 @@ export const MultiselectComboBox: StoryFn = () => {
               key={`${item.author}${item.title}`}
               {...getItemProps({ item, index })}
               style={{
-                position: 'relative',
-                cursor: 'pointer',
-                display: 'block',
-                border: 'none',
-                height: 'auto',
-                textAlign: 'left',
-                borderTop: 'none',
-                lineHeight: '1em',
-                fontSize: '1rem',
-                textTransform: 'none',
-                fontWeight: '400',
-                boxShadow: 'none',
-                padding: '.8rem 1.1rem',
-                whiteSpace: 'normal',
-                wordWrap: 'normal',
+                position: "relative",
+                cursor: "pointer",
+                display: "block",
+                border: "none",
+                height: "auto",
+                textAlign: "left",
+                borderTop: "none",
+                lineHeight: "1em",
+                fontSize: "1rem",
+                textTransform: "none",
+                fontWeight: "400",
+                boxShadow: "none",
+                padding: ".8rem 1.1rem",
+                whiteSpace: "normal",
+                wordWrap: "normal",
               }}
             >
               <span>
@@ -236,6 +236,6 @@ export const MultiselectComboBox: StoryFn = () => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/dropdown/useMultipleSelection',
+  title: "Libraries/dropdown/useMultipleSelection",
   parameters: {},
 } as Meta;

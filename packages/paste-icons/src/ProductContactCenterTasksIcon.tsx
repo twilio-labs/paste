@@ -1,11 +1,11 @@
-import { useUID } from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
+import * as React from "react";
 
-import { IconWrapper } from './helpers/IconWrapper';
-import type { IconWrapperProps } from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductContactCenterTasksIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductContactCenterTasksIconProps extends IconWrapperProps {
 }
 
 const ProductContactCenterTasksIcon = React.forwardRef<HTMLElement, ProductContactCenterTasksIconProps>(
-  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductContactCenterTasksIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductContactCenterTasksIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductContactCenterTasksIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -44,5 +44,5 @@ const ProductContactCenterTasksIcon = React.forwardRef<HTMLElement, ProductConta
   },
 );
 
-ProductContactCenterTasksIcon.displayName = 'ProductContactCenterTasksIcon';
+ProductContactCenterTasksIcon.displayName = "ProductContactCenterTasksIcon";
 export { ProductContactCenterTasksIcon };

@@ -1,5 +1,5 @@
-import { useUID } from '@twilio-paste/uid-library';
-import * as React from 'react';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   Pagination,
@@ -9,7 +9,7 @@ import {
   PaginationLabel,
   PaginationNumber,
   PaginationNumbers,
-} from '../src';
+} from "../src";
 
 export const ArrowExample = (): JSX.Element => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
@@ -250,18 +250,18 @@ export const ControlledNumberPaginationExample = (): JSX.Element => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Pagination',
+  title: "Components/Pagination",
   excludeStories: [
-    'ArrowExample',
-    'ArrowsAsAnchorsExample',
-    'ArrowLabelsExample',
-    'ArrowAsAnchorLabelsExample',
-    'ArrowsPageLabelExample',
-    'NumbersExample',
-    'NumbersAsAnchorsExample',
-    'NumbersPageLabelExample',
-    'ControlledArrowPaginationExample',
-    'ControlledNumberPaginationExample',
+    "ArrowExample",
+    "ArrowsAsAnchorsExample",
+    "ArrowLabelsExample",
+    "ArrowAsAnchorLabelsExample",
+    "ArrowsPageLabelExample",
+    "NumbersExample",
+    "NumbersAsAnchorsExample",
+    "NumbersPageLabelExample",
+    "ControlledArrowPaginationExample",
+    "ControlledNumberPaginationExample",
   ],
   component: Pagination,
 };
@@ -274,25 +274,25 @@ export const ArrowsAsAnchors = (): React.ReactNode => {
   return <ArrowsAsAnchorsExample />;
 };
 
-ArrowsAsAnchors.storyName = 'Arrows as anchors';
+ArrowsAsAnchors.storyName = "Arrows as anchors";
 
 export const ArrowLabels = (): React.ReactNode => {
   return <ArrowLabelsExample />;
 };
 
-ArrowLabels.storyName = 'Arrows with visible labels';
+ArrowLabels.storyName = "Arrows with visible labels";
 
 export const ArrowAsAnchorLabels = (): React.ReactNode => {
   return <ArrowAsAnchorLabelsExample />;
 };
 
-ArrowAsAnchorLabels.storyName = 'Arrows as anchors with visible labels';
+ArrowAsAnchorLabels.storyName = "Arrows as anchors with visible labels";
 
 export const ArrowsPageLabel = (): React.ReactNode => {
   return <ArrowsPageLabelExample />;
 };
 
-ArrowsPageLabel.storyName = 'Arrows with page label';
+ArrowsPageLabel.storyName = "Arrows with page label";
 
 export const Numbers = (): React.ReactNode => {
   return <NumbersExample />;
@@ -302,13 +302,13 @@ export const NumbersAsAnchors = (): React.ReactNode => {
   return <NumbersAsAnchorsExample />;
 };
 
-NumbersAsAnchors.storyName = 'Numbers as anchors';
+NumbersAsAnchors.storyName = "Numbers as anchors";
 
 export const NumbersPageLabel = (): React.ReactNode => {
   return <NumbersPageLabelExample />;
 };
 
-NumbersPageLabel.storyName = 'Numbers with page label';
+NumbersPageLabel.storyName = "Numbers with page label";
 
 export const Label = (): React.ReactNode => {
   return <PaginationLabel>Page 1 of 10</PaginationLabel>;
@@ -322,10 +322,10 @@ export const ControlledArrowPagination = (): React.ReactNode => {
   return <ControlledArrowPaginationExample />;
 };
 
-ControlledArrowPagination.storyName = 'Controlled pagination using arrows';
+ControlledArrowPagination.storyName = "Controlled pagination using arrows";
 
 export const ControlledNumberPagination = (): React.ReactNode => {
   return <ControlledNumberPaginationExample />;
 };
 
-ControlledArrowPagination.storyName = 'Controlled pagination using numbers';
+ControlledArrowPagination.storyName = "Controlled pagination using numbers";

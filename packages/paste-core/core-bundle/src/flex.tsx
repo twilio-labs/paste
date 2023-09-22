@@ -1,1 +1,1 @@
-export * from '@twilio-paste/flex';
+export * from "@twilio-paste/flex";

@@ -1,8 +1,8 @@
-import * as React from 'react';
+import * as React from "react";
 
-import { NavigationContext } from '../../context/NavigationContext';
-import type { NavigationQuery } from '../../context/NavigationContext';
-import { SiteBody } from './SiteBody';
+import { NavigationContext } from "../../context/NavigationContext";
+import type { NavigationQuery } from "../../context/NavigationContext";
+import { SiteBody } from "./SiteBody";
 
 export interface SiteWrapperProps {
   navigationData: NavigationQuery;

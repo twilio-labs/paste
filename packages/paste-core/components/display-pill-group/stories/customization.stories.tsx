@@ -1,10 +1,10 @@
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
-import { useTheme } from '@twilio-paste/theme';
-import * as React from 'react';
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import { DisplayPill } from '../src/DisplayPill';
-import { DisplayPillGroup } from '../src/DisplayPillGroup';
+import { DisplayPill } from "../src/DisplayPill";
+import { DisplayPillGroup } from "../src/DisplayPillGroup";
 
 export const CustomDisplayPillGroup = (): JSX.Element => {
   const currentTheme = useTheme();
@@ -13,17 +13,17 @@ export const CustomDisplayPillGroup = (): JSX.Element => {
       disableAnimations={true}
       theme={{
         ...currentTheme,
-        textColors: { ...currentTheme.textColors, colorTextLink: 'red' },
-        fonts: { ...currentTheme.fonts, fontFamilyText: 'arial' },
+        textColors: { ...currentTheme.textColors, colorTextLink: "red" },
+        fonts: { ...currentTheme.fonts, fontFamilyText: "arial" },
       }}
       elements={{
         DISPLAY_PILL_GROUP: {
-          margin: 'space40',
+          margin: "space40",
         },
         DISPLAY_PILL: {
-          backgroundColor: 'colorBackgroundNew',
-          color: 'colorText',
-          padding: 'space40',
+          backgroundColor: "colorBackgroundNew",
+          color: "colorText",
+          padding: "space40",
         },
       }}
     >
@@ -32,11 +32,11 @@ export const CustomDisplayPillGroup = (): JSX.Element => {
           data-testid="display-pill-anchor"
           onFocus={() => {
             // eslint-disable-next-line no-console
-            console.log('Focused Tennis!');
+            console.log("Focused Tennis!");
           }}
           onBlur={() => {
             // eslint-disable-next-line no-console
-            console.log('Blurred Tennis!');
+            console.log("Blurred Tennis!");
           }}
           href="https://google.com"
         >
@@ -54,7 +54,7 @@ export const CustomDisplayPillGroup = (): JSX.Element => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Display Pill Group/Customization',
+  title: "Components/Display Pill Group/Customization",
   component: DisplayPill,
   parameters: {
     a11y: {

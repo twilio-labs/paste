@@ -1,14 +1,14 @@
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-export interface DescriptionListProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
+export interface DescriptionListProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
   children?: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 const DescriptionList = React.forwardRef<HTMLDListElement, DescriptionListProps>(
-  ({ element = 'DESCRIPTION_LIST', children, ...props }, ref) => {
+  ({ element = "DESCRIPTION_LIST", children, ...props }, ref) => {
     return (
       <Box {...safelySpreadBoxProps(props)} as="dl" ref={ref} element={element}>
         {children}
@@ -17,6 +17,6 @@ const DescriptionList = React.forwardRef<HTMLDListElement, DescriptionListProps>
   },
 );
 
-DescriptionList.displayName = 'DescriptionList';
+DescriptionList.displayName = "DescriptionList";
 
 export { DescriptionList };
