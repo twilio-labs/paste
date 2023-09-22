@@ -19,8 +19,12 @@ import type {NextApiRequest, NextApiResponse} from 'next';
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void> {
   const {question, secret} = req.body;
   // Exit early if the required params aren't provided
-  if (!question || secret !== process.env.OPENAI_API_SECRET) {
-    res.status(200).send({answer: 'Please provide a question'});
+  if (secret !== process.env.OPENAI_API_SECRET) {
+    res.status(401).send({error: 'Unauthorized'});
+    return;
+  }
+  if (!question) {
+    res.status(400).send({answer: 'Please provide a question'});
     return;
   }
 
