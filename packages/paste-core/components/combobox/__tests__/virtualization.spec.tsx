@@ -1,9 +1,9 @@
-import * as React from 'react';
+import { matchers } from '@emotion/jest';
 import { render, screen } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
-import { matchers } from '@emotion/jest';
 import { CustomizationProvider } from '@twilio-paste/customization';
-import type { useVirtual as UseVirtual, VirtualItem } from 'react-virtual/types';
+import * as React from 'react';
+import type { VirtualItem, useVirtual as UseVirtual } from 'react-virtual/types';
 
 import { Combobox } from '../src';
 

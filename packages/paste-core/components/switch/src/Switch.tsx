@@ -1,17 +1,17 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
-import { Text } from '@twilio-paste/text';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
-import { SiblingBox } from '@twilio-paste/sibling-box';
-import { Label, RequiredDot } from '@twilio-paste/label';
 import { HelpText } from '@twilio-paste/help-text';
-import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import { Label, RequiredDot } from '@twilio-paste/label';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
+import { SiblingBox } from '@twilio-paste/sibling-box';
+import { Text } from '@twilio-paste/text';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { SWITCH_HEIGHT, SWITCH_KNOB_SIZE, SWITCH_WIDTH } from './constants';
 import { SwitchContext } from './SwitchContext';
 import { SwitchKnob } from './SwitchKnob';
+import { SWITCH_HEIGHT, SWITCH_KNOB_SIZE, SWITCH_WIDTH } from './constants';
 
 export interface SwitchProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;

@@ -1,5 +1,5 @@
+import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
-import type { StoryFn, Meta } from '@storybook/react';
 
 import { useCombobox } from '../src';
 

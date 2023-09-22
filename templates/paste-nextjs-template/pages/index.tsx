@@ -1,11 +1,11 @@
-import Head from 'next/head';
 import { Anchor } from '@twilio-paste/core/anchor';
-import { Heading } from '@twilio-paste/core/heading';
 import { Box } from '@twilio-paste/core/box';
-import { Paragraph } from '@twilio-paste/core/paragraph';
+import { Heading } from '@twilio-paste/core/heading';
 import { ListItem, UnorderedList } from '@twilio-paste/core/list';
+import { Paragraph } from '@twilio-paste/core/paragraph';
 import { Separator } from '@twilio-paste/core/separator';
 import type { NextPage } from 'next';
+import Head from 'next/head';
 
 const Home: NextPage = () => {
   return (

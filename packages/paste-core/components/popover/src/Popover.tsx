@@ -1,12 +1,12 @@
-import * as React from 'react';
 import type { BoxProps } from '@twilio-paste/box';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
-import { StyledBase } from '@twilio-paste/theme';
 import { NonModalDialogPrimitive } from '@twilio-paste/non-modal-dialog-primitive';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import type { ResponsiveValue } from '@twilio-paste/styling-library';
+import { StyledBase } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { PopoverArrow } from './PopoverArrow';
 import { PopoverContext } from './PopoverContext';

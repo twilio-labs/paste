@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { HelpText } from '@twilio-paste/help-text';
 import type { HelpTextProps } from '@twilio-paste/help-text';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 import { FileUploaderContext } from './FileUploaderContext';
 

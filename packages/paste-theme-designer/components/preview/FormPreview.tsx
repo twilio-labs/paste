@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { useUIDSeed } from '@twilio-paste/core/uid-library';
 import { Box } from '@twilio-paste/core/box';
 import { Checkbox, CheckboxGroup } from '@twilio-paste/core/checkbox';
 import { Heading } from '@twilio-paste/core/heading';
+import { HelpText } from '@twilio-paste/core/help-text';
 import { Input } from '@twilio-paste/core/input';
 import { Label } from '@twilio-paste/core/label';
-import { HelpText } from '@twilio-paste/core/help-text';
-import { Stack } from '@twilio-paste/core/stack';
 import { Radio, RadioGroup } from '@twilio-paste/core/radio-group';
-import { Select, Option } from '@twilio-paste/core/select';
+import { Option, Select } from '@twilio-paste/core/select';
+import { Stack } from '@twilio-paste/core/stack';
+import { useUIDSeed } from '@twilio-paste/core/uid-library';
+import * as React from 'react';
 
 const FormPreview = (): JSX.Element => {
   const [inputValue, setInputValue] = React.useState('input');

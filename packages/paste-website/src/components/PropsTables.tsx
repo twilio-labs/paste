@@ -1,15 +1,15 @@
-import * as React from 'react';
-import Markdown from 'markdown-to-jsx';
 import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
 import { Disclosure, DisclosureContent, DisclosureHeading } from '@twilio-paste/disclosure';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { RequiredDot } from '@twilio-paste/label';
 import { InlineCode } from '@twilio-paste/inline-code';
+import { RequiredDot } from '@twilio-paste/label';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Text } from '@twilio-paste/text';
+import Markdown from 'markdown-to-jsx';
+import * as React from 'react';
 
 import {
-  type ComponentApiPropDetails,
   type ComponentApiProp,
+  type ComponentApiPropDetails,
   type GroupedComponentApi,
 } from '../utils/componentApiUtils';
 import { AnchoredHeading } from './Heading';

@@ -1,29 +1,29 @@
-import * as React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
+import { ProductContactCenterTasksIcon } from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
 import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
 import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from '@twilio-paste/menu';
-import { ProductContactCenterTasksIcon } from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
-import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import {
   Sidebar,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
+  SidebarBetaBadge,
   SidebarCollapseButton,
   SidebarFooter,
-  SidebarPushContentWrapper,
-  SidebarBetaBadge,
+  SidebarHeader,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
   SidebarNavigation,
   SidebarNavigationDisclosure,
-  SidebarNavigationDisclosureHeadingWrapper,
-  SidebarNavigationDisclosureHeading,
   SidebarNavigationDisclosureContent,
+  SidebarNavigationDisclosureHeading,
+  SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationItem,
+  SidebarPushContentWrapper,
 } from '../src';
 
 const MockPushSidebarWithNavigation = ({

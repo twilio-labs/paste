@@ -1,4 +1,4 @@
-import { SHADOW_PROPS, SPACE_PROPS, TYPOGRAPHY_PROPS, OVERFLOW_PROPS } from '@twilio-paste/style-props';
+import { OVERFLOW_PROPS, SHADOW_PROPS, SPACE_PROPS, TYPOGRAPHY_PROPS } from '@twilio-paste/style-props';
 
 import { PseudoPropStyles } from './PseudoPropStyles';
 

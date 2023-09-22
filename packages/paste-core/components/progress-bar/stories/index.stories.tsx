@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
-import { useUID } from '@twilio-paste/uid-library';
-import { Form, FormControl } from '@twilio-paste/form';
-import { Button } from '@twilio-paste/button';
 import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { Form, FormControl } from '@twilio-paste/form';
+import { HelpText } from '@twilio-paste/help-text';
+import { Label } from '@twilio-paste/label';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { ProgressBar, ProgressBarLabel } from '../src';
 

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
+import type { FauxInputProps } from '../types';
 import { DefaultFauxInput } from './DefaultFauxInput';
 import { InverseFauxInput } from './InverseFauxInput';
-import type { FauxInputProps } from '../types';
 
 const FauxInputVariants = {
   default: DefaultFauxInput,

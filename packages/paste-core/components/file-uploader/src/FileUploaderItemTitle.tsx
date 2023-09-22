@@ -1,6 +1,6 @@
-import * as React from 'react';
 import type { BoxElementProps } from '@twilio-paste/box';
 import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import * as React from 'react';
 
 export interface FileUploaderItemTitleProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
   children: string;

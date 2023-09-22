@@ -1,6 +1,6 @@
-import * as React from 'react';
 import type { BoxProps } from '@twilio-paste/box';
 import { TabPanel } from '@twilio-paste/tabs';
+import * as React from 'react';
 
 export interface CodeBlockTabPanelProps extends Partial<Omit<HTMLDivElement, 'children'>> {
   children?: React.ReactNode;

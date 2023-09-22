@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import { GraphImageWrapper } from '../src/components/open-graph-card/GraphImageWrapper';
-import { GraphImageHero } from '../src/components/open-graph-card/GraphImageHero';
 import { GraphImageDetails } from '../src/components/open-graph-card/GraphImageDetails';
+import { GraphImageHero } from '../src/components/open-graph-card/GraphImageHero';
+import { GraphImageWrapper } from '../src/components/open-graph-card/GraphImageWrapper';
 
 export const AlertCard = (): React.ReactNode => {
   const packageData = {

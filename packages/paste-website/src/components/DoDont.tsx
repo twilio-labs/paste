@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { styled, themeGet } from '@twilio-paste/styling-library';
 import { AspectRatio } from '@twilio-paste/aspect-ratio';
 import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
 import { Heading } from '@twilio-paste/heading';
+import { styled, themeGet } from '@twilio-paste/styling-library';
+import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
 const StyledWrapper = styled(Box)`
   display: grid;

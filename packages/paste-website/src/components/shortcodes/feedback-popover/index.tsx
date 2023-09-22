@@ -1,20 +1,20 @@
-import * as React from 'react';
-import { Heading } from '@twilio-paste/heading';
-import { Text } from '@twilio-paste/text';
-import { PopoverContainer, PopoverButton, Popover } from '@twilio-paste/popover';
-import { useUID } from '@twilio-paste/uid-library';
-import { Box } from '@twilio-paste/box';
-import { Stack } from '@twilio-paste/stack';
-import { Separator } from '@twilio-paste/separator';
 import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
-import { ThumbsUpIcon } from '@twilio-paste/icons/esm/ThumbsUpIcon';
-import { ThumbsDownIcon } from '@twilio-paste/icons/esm/ThumbsDownIcon';
+import { Heading } from '@twilio-paste/heading';
 import { SupportIcon } from '@twilio-paste/icons/esm/SupportIcon';
+import { ThumbsDownIcon } from '@twilio-paste/icons/esm/ThumbsDownIcon';
+import { ThumbsUpIcon } from '@twilio-paste/icons/esm/ThumbsUpIcon';
+import { Popover, PopoverButton, PopoverContainer } from '@twilio-paste/popover';
+import { Separator } from '@twilio-paste/separator';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { SimpleStorage } from '../../../utils/SimpleStorage';
-import { useLocationPathname } from '../../../utils/RouteUtils';
 import { event } from '../../../lib/gtag';
+import { useLocationPathname } from '../../../utils/RouteUtils';
+import { SimpleStorage } from '../../../utils/SimpleStorage';
 
 type RatingProps = {
   likePage: (event: React.MouseEvent) => void;

@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 export interface TruncateProps extends HTMLPasteProps<'span'>, Pick<BoxProps, 'as'> {
   children: NonNullable<React.ReactNode>;

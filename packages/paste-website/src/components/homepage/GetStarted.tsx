@@ -1,12 +1,12 @@
 import { Box } from '@twilio-paste/box';
-import { Grid, Column } from '@twilio-paste/grid';
+import { Column, Grid } from '@twilio-paste/grid';
 import { useWindowSize } from '@twilio-paste/utils';
 
-import { GetStarterWhy } from './GetStartedWhy';
+import { HOMEPAGE_SECTION_OVERFLOW_OFFSET, SITE_CONTENT_MAX_WIDTH } from '../../constants';
+import { SlantedBackgroundGradient } from '../SlantedBackgroundGradient';
 import { GetStartedInclusive } from './GetStartedInclusive';
 import { GetStartedRunning } from './GetStartedRunning';
-import { SlantedBackgroundGradient } from '../SlantedBackgroundGradient';
-import { SITE_CONTENT_MAX_WIDTH, HOMEPAGE_SECTION_OVERFLOW_OFFSET } from '../../constants';
+import { GetStarterWhy } from './GetStartedWhy';
 
 const DELAY_INTERVAL = 250;
 

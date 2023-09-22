@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { styled, themeGet } from '@twilio-paste/styling-library';
 import Link from 'next/link';
+import * as React from 'react';
 
 // Link styles copied from @twilio-paste/anchor
 const StyledLink = styled(Link)`

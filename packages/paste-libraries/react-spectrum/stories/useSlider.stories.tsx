@@ -1,9 +1,9 @@
-import * as React from 'react';
-import type { StoryFn, Meta } from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import * as React from 'react';
 
-import { useSliderState, useSlider, useSliderThumb, type SliderStateOptions, type SliderState } from '../src';
+import { type SliderState, type SliderStateOptions, useSlider, useSliderState, useSliderThumb } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

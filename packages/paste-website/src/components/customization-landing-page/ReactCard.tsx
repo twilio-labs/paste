@@ -1,5 +1,5 @@
-import { Paragraph } from '@twilio-paste/paragraph';
 import { Anchor } from '@twilio-paste/anchor';
+import { Paragraph } from '@twilio-paste/paragraph';
 
 import { ReactLogoIcon } from '../icons/ReactLogoIcon';
 import { ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo } from './ProjectCard';

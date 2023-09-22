@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 import {
-  useMenuPrimitiveState,
   MenuPrimitive,
-  MenuPrimitiveItem,
   MenuPrimitiveButton,
+  MenuPrimitiveItem,
   MenuPrimitiveSeparator,
+  useMenuPrimitiveState,
 } from '../src';
 import type { MenuPrimitiveButtonProps } from '../src';
 

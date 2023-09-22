@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { StyledBase } from '@twilio-paste/theme';
-import { Portal } from '@twilio-paste/reakit-library';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { Portal } from '@twilio-paste/reakit-library';
+import { StyledBase } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import type { ToastPortalProps } from './types';
 

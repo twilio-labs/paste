@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
+import { ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption } from '@twilio-paste/combobox';
+import { FormPill, FormPillGroup, useFormPillState } from '@twilio-paste/form-pill-group';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
 import { Input } from '@twilio-paste/input';
 import { Label } from '@twilio-paste/label';
-import { FormPill, FormPillGroup, useFormPillState } from '@twilio-paste/form-pill-group';
-import { ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption } from '@twilio-paste/combobox';
-import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { ComboboxPrimitive, useComboboxPrimitive, useMultiSelectPrimitive } from '../src';
 

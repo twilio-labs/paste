@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Stack } from '@twilio-paste/stack';
 import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
-import { RadioButtonGroup, RadioButton } from '@twilio-paste/radio-button-group';
+import { RadioButton, RadioButtonGroup } from '@twilio-paste/radio-button-group';
+import { Stack } from '@twilio-paste/stack';
+import * as React from 'react';
 
-import { EditableCodeBlockHeader, EditableCodeBlockWrapper, EditableCodeBlock } from '../src';
+import { EditableCodeBlock, EditableCodeBlockHeader, EditableCodeBlockWrapper } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -1,17 +1,17 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { CopyButton, getCopyButtonText } from '../src/CopyButton';
-import { ExternalLinkButton } from '../src/ExternalLinkButton';
 import {
   CodeBlock,
-  CodeBlockWrapper,
   CodeBlockHeader,
-  CodeBlockTabList,
   CodeBlockTab,
+  CodeBlockTabList,
   CodeBlockTabPanel,
+  CodeBlockWrapper,
 } from '../src';
+import { CopyButton, getCopyButtonText } from '../src/CopyButton';
+import { ExternalLinkButton } from '../src/ExternalLinkButton';
 
 const jsCode = `(num) => num + 1`;
 

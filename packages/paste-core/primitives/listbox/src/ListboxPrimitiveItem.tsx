@@ -1,6 +1,6 @@
-import * as React from 'react';
 import type { CompositeItemProps } from '@twilio-paste/reakit-library';
 import { CompositeItem } from '@twilio-paste/reakit-library';
+import * as React from 'react';
 
 import type { As } from './types';
 

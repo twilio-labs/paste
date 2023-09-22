@@ -1,15 +1,15 @@
-import * as React from 'react';
-import { Button } from '@twilio-paste/button';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { Button } from '@twilio-paste/button';
+import * as React from 'react';
 
-import { DataGridCell, DataGridHeaderSort, DataGridHeader } from '../src';
+import { DataGridCell, DataGridHeader, DataGridHeaderSort } from '../src';
 import {
   ColumnSpanDataGrid,
   ComposableCellsDataGrid,
-  SortableColumnsDataGrid,
   PaginatedDataGrid,
   PlainDataGrid,
+  SortableColumnsDataGrid,
 } from '../stories/index.stories';
 
 const checkTagName = (el: Element, name: string): void => expect(el.tagName).toBe(name.toUpperCase());

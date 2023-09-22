@@ -1,6 +1,6 @@
-import * as React from 'react';
 import type { DisplayOptions, OpacityProperty, TransitionProperty } from '@twilio-paste/style-props';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 export interface PasteIconPrideProps {
   decorative?: boolean;

@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
 import { TableOfContents } from '../src/components/shortcodes/table-of-contents';
 import type { HeadingData } from '../src/components/shortcodes/table-of-contents/types';

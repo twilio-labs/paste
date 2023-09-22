@@ -1,22 +1,22 @@
-import * as React from 'react';
+import type { StoryFn } from '@storybook/react';
 import type { BoxElementProps } from '@twilio-paste/box';
 import { Card } from '@twilio-paste/card';
-import { Heading } from '@twilio-paste/heading';
-import { Stack } from '@twilio-paste/stack';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { useUID } from '@twilio-paste/uid-library';
+import { Heading } from '@twilio-paste/heading';
+import { Stack } from '@twilio-paste/stack';
 import { useTheme } from '@twilio-paste/theme';
-import type { StoryFn } from '@storybook/react';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import {
   Pagination,
   PaginationArrow,
   PaginationEllipsis,
   PaginationItems,
+  PaginationLabel,
   PaginationNumber,
   PaginationNumbers,
-  PaginationLabel,
 } from '../src';
 
 // Wrapper to abstract the rendering of the default and customized pagination versions

@@ -1,4 +1,4 @@
-import { AutoLinkNode, $getRoot, $createParagraphNode, $createTextNode } from '@twilio-paste/lexical-library';
+import { $createParagraphNode, $createTextNode, $getRoot, AutoLinkNode } from '@twilio-paste/lexical-library';
 
 export const renderInitialText = (text: string): void => {
   const root = $getRoot();

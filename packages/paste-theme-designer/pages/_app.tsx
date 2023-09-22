@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { datadogRum } from '@datadog/browser-rum';
+import * as Tokens from '@twilio-paste/core/design-tokens';
+import { Theme } from '@twilio-paste/core/theme';
+import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { datadogRum } from '@datadog/browser-rum';
-import { Theme } from '@twilio-paste/core/theme';
-import * as Tokens from '@twilio-paste/core/design-tokens';
-import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import * as React from 'react';
 
 import { TokenContext } from '../context/TokenContext';
 

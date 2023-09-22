@@ -1,7 +1,7 @@
-import { DefaultTheme } from './default';
-import { SendGridTheme } from './sendgrid';
-import { EvergreenTheme } from './evergreen';
 import { DarkTheme } from './dark';
+import { DefaultTheme } from './default';
+import { EvergreenTheme } from './evergreen';
+import { SendGridTheme } from './sendgrid';
 import { TwilioTheme } from './twilio';
 import { TwilioDarkTheme } from './twilio-dark';
 

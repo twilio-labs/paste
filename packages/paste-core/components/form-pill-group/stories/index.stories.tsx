@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Box } from '@twilio-paste/box';
 import { Avatar } from '@twilio-paste/avatar';
+import { Box } from '@twilio-paste/box';
 import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
+import * as React from 'react';
 
-import { useFormPillState, FormPillGroup, FormPill } from '../src';
+import { FormPill, FormPillGroup, useFormPillState } from '../src';
 
 const PILL_NAMES = [
   'Default pill',

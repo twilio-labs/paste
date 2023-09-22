@@ -1,13 +1,13 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
-import { Label } from '@twilio-paste/label';
-import { Input } from '@twilio-paste/input';
 import { Button } from '@twilio-paste/button';
-import { FilterIcon } from '@twilio-paste/icons/esm/FilterIcon';
+import { Column, Grid } from '@twilio-paste/grid';
 import { ClearIcon } from '@twilio-paste/icons/esm/ClearIcon';
-import { Grid, Column } from '@twilio-paste/grid';
-import { Select, Option } from '@twilio-paste/select';
+import { FilterIcon } from '@twilio-paste/icons/esm/FilterIcon';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { Option, Select } from '@twilio-paste/select';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { SITE_TOPBAR_HEIGHT } from '../../constants';
 

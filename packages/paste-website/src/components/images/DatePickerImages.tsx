@@ -1,11 +1,11 @@
-import * as React from 'react';
-import Image from 'next/image';
 import { css } from '@twilio-paste/styling-library';
 import { useTheme } from '@twilio-paste/theme';
+import Image from 'next/image';
+import * as React from 'react';
 
 import Chrome from '../../assets/images/date-picker/chrome.png';
-import Safari from '../../assets/images/date-picker/safari.png';
 import Firefox from '../../assets/images/date-picker/firefox.png';
+import Safari from '../../assets/images/date-picker/safari.png';
 
 export const ChromeImage: React.FC = () => {
   const theme = useTheme();

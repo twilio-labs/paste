@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { ChatMessage, ChatBubble } from '../src';
+import { ChatBubble, ChatMessage } from '../src';
 
 const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider

@@ -1,14 +1,14 @@
-import { Text } from '@twilio-paste/text';
-import { Grid, Column } from '@twilio-paste/grid';
-import { useTheme } from '@twilio-paste/theme';
 import { Box } from '@twilio-paste/box';
+import { Column, Grid } from '@twilio-paste/grid';
 import { css } from '@twilio-paste/styling-library';
+import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
 
-import { FlexCard } from './FlexCard';
-import { ComingSoonCard } from './ComingSoonCard';
-import { ReactCard } from './ReactCard';
-import { LandingPageSectionContent } from './LandingPageLayoutUtils';
 import { DoodleLoopArrow } from '../../assets/illustrations/DoodleLoopArrow';
+import { ComingSoonCard } from './ComingSoonCard';
+import { FlexCard } from './FlexCard';
+import { LandingPageSectionContent } from './LandingPageLayoutUtils';
+import { ReactCard } from './ReactCard';
 
 export const WorksGreatWith = (): JSX.Element => {
   const { backgroundColors, ...theme } = useTheme();

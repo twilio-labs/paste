@@ -1,22 +1,22 @@
-import * as React from 'react';
-import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import type { StoryFn } from '@storybook/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { useTheme } from '@twilio-paste/theme';
 import snakeCase from 'lodash/snakeCase';
+import * as React from 'react';
 
 import {
   FileUploader,
-  FileUploaderItem,
-  FileUploaderItemsList,
-  FileUploaderItemDescription,
-  FileUploaderItemTitle,
   FileUploaderDropzone,
   FileUploaderDropzoneText,
-  FileUploaderLabel,
-  FileUploaderHelpText,
   FileUploaderErrorText,
+  FileUploaderHelpText,
+  FileUploaderItem,
+  FileUploaderItemDescription,
+  FileUploaderItemTitle,
+  FileUploaderItemsList,
+  FileUploaderLabel,
 } from '../src';
 import type { FileUploaderItemProps } from '../src';
 

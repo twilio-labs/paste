@@ -1,8 +1,8 @@
+import { act, render, screen } from '@testing-library/react';
 import * as React from 'react';
-import { render, screen, act } from '@testing-library/react';
 
+import { CustomElementName, DefaultElementName } from '../stories/ProductSwitcher.customization.stories';
 import { ProductSwitcherMenu } from '../stories/ProductSwitcher.stories';
-import { DefaultElementName, CustomElementName } from '../stories/ProductSwitcher.customization.stories';
 
 describe('ProductSwitcher', () => {
   describe('element naming', () => {

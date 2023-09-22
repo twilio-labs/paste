@@ -1,18 +1,18 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
-import { useTheme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import {
   StatusMenu,
   StatusMenuBadge,
   StatusMenuItem,
   StatusMenuItemCheckbox,
-  StatusMenuItemRadio,
   StatusMenuItemChild,
+  StatusMenuItemRadio,
   useStatusMenuState,
 } from '../src';
 import type { StatusMenuBadgeProps } from '../src';

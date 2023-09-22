@@ -1,13 +1,13 @@
-import Image from 'next/image';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
-import { Text } from '@twilio-paste/text';
 import { Heading } from '@twilio-paste/heading';
+import { Text } from '@twilio-paste/text';
+import Image from 'next/image';
 
-import { WorksGreatWith } from './WorksGreatWith';
-import { LandingPageSectionContent } from './LandingPageLayoutUtils';
-import { ImageSlider } from './image-slider';
 import HeroSlider from '../../assets/images/customization/hero-slider-mobile.png';
+import { LandingPageSectionContent } from './LandingPageLayoutUtils';
+import { WorksGreatWith } from './WorksGreatWith';
+import { ImageSlider } from './image-slider';
 
 export const LandingPageHero = (): JSX.Element => {
   return (

@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
-import { useWindowSize } from '@twilio-paste/utils';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import { useWindowSize } from '@twilio-paste/utils';
+import * as React from 'react';
 
 import type { Variants } from '../types';
 

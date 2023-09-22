@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxElementProps } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import { Flex } from '@twilio-paste/flex';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { useModalContext } from './ModalContext';
 

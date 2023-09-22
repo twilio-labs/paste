@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Badge } from '@twilio-paste/core/badge';
 import { NewIcon } from '@twilio-paste/icons/cjs/NewIcon';
+import * as React from 'react';
 
-import { BetaModal } from './BetaModal';
 import { SimpleStorage } from '../../utils/SimpleStorage';
+import { BetaModal } from './BetaModal';
 
 const BetaBadge = (): JSX.Element => {
   const localStorageKey = 'beta-modal-dismissed';

@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
-import { useUIDSeed } from '@twilio-paste/uid-library';
+import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
 import { Input } from '@twilio-paste/input';
 import { Label } from '@twilio-paste/label';
-import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import type { DesignerContextProps } from './DesignerContext';
 

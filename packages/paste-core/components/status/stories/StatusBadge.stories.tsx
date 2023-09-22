@@ -1,5 +1,5 @@
-import * as React from 'react';
 import type { Meta, StoryFn } from '@storybook/react';
+import * as React from 'react';
 
 import { StatusBadge } from '../src';
 

@@ -1,18 +1,18 @@
-import * as React from 'react';
-import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
-import { CheckboxCheckIcon } from '@twilio-paste/icons/esm/CheckboxCheckIcon';
-import { BoldIcon } from '@twilio-paste/icons/esm/BoldIcon';
-import { PauseIcon } from '@twilio-paste/icons/esm/PauseIcon';
-import { PlayIcon } from '@twilio-paste/icons/esm/PlayIcon';
+import { isRenderingOnServer } from '@twilio-paste/animation-library';
 import { Box } from '@twilio-paste/box';
 import { Heading } from '@twilio-paste/heading';
-import { Stack } from '@twilio-paste/stack';
+import { BoldIcon } from '@twilio-paste/icons/esm/BoldIcon';
+import { CheckboxCheckIcon } from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
+import { PauseIcon } from '@twilio-paste/icons/esm/PauseIcon';
+import { PlayIcon } from '@twilio-paste/icons/esm/PlayIcon';
+import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { isRenderingOnServer } from '@twilio-paste/animation-library';
+import { Stack } from '@twilio-paste/stack';
+import * as React from 'react';
 
 import { Button } from '../src';
-import type { ButtonVariants, ButtonSizes } from '../src/types';
+import type { ButtonSizes, ButtonVariants } from '../src/types';
 
 const ButtonSizeOptions = [
   'default',

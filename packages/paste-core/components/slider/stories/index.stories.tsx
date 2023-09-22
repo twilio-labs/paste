@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
-import { useUID } from '@twilio-paste/uid-library';
-import { Form, FormControl } from '@twilio-paste/form';
-import { Paragraph } from '@twilio-paste/paragraph';
 import { Box } from '@twilio-paste/box';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Form, FormControl } from '@twilio-paste/form';
+import { HelpText } from '@twilio-paste/help-text';
+import { Label } from '@twilio-paste/label';
+import { Paragraph } from '@twilio-paste/paragraph';
 import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { Slider } from '../src';
 

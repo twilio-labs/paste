@@ -1,16 +1,16 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
-import { Table, THead, TBody, Tr, Th, Td } from '@twilio-paste/table';
-import { Text } from '@twilio-paste/text';
 import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
+import { TBody, THead, Table, Td, Th, Tr } from '@twilio-paste/table';
+import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
-import { AssetStatus } from '../component-status/AssetStatus';
-import { PeerReviewStatus } from '../component-status/PeerReviewStatus';
-import { SiteLink } from '../SiteLink';
 import type { SidebarCategoryRoutes } from '../../constants';
 import { getPackagePath } from '../../utils/RouteUtils';
 import { sentenceCase } from '../../utils/SentenceCase';
 import type { Feature } from '../../utils/api';
+import { SiteLink } from '../SiteLink';
+import { AssetStatus } from '../component-status/AssetStatus';
+import { PeerReviewStatus } from '../component-status/PeerReviewStatus';
 
 interface ComponentOverviewTableProps {
   categoryRoute?: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];

@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Box } from '@twilio-paste/box';
 import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
 import type { SiteLinkProps } from '../SiteLink';
 import { SiteLink } from '../SiteLink';

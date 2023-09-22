@@ -1,8 +1,8 @@
 import {
-  isCell,
-  getClosestCellFrom,
-  updateTabIndexForActionable,
   delayedSetFocusable,
+  getClosestCellFrom,
+  isCell,
+  updateTabIndexForActionable,
 } from '../src/utils/cell-management';
 
 describe('cell-management utils', () => {

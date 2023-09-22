@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { render, fireEvent, screen, renderHook } from '@testing-library/react';
+import { fireEvent, render, renderHook, screen } from '@testing-library/react';
 import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import * as React from 'react';
 
 import { Badge } from '../src';
 import { useResizeChildIcons } from '../src/hooks';

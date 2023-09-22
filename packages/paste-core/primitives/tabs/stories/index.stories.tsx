@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { Button } from '@twilio-paste/button';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { Stack } from '@twilio-paste/stack';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import type { TabPrimitiveStateReturn } from '../src';
-import { useTabPrimitiveState, TabPrimitive, TabPrimitiveList, TabPrimitivePanel } from '../src';
+import { TabPrimitive, TabPrimitiveList, TabPrimitivePanel, useTabPrimitiveState } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

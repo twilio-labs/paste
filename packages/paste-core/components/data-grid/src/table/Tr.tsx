@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { styled, css } from '@twilio-paste/styling-library';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { css, styled } from '@twilio-paste/styling-library';
 import type { TrProps as TableTrProps } from '@twilio-paste/table';
+import * as React from 'react';
 
 export interface TrProps extends TableTrProps {
   role: string;

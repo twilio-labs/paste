@@ -1,20 +1,20 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import {
   FileUploader,
-  FileUploaderItem,
-  FileUploaderItemsList,
-  FileUploaderItemDescription,
-  FileUploaderItemTitle,
   FileUploaderDropzone,
   FileUploaderDropzoneText,
-  FileUploaderLabel,
-  FileUploaderHelpText,
   FileUploaderErrorText,
+  FileUploaderHelpText,
+  FileUploaderItem,
+  FileUploaderItemDescription,
+  FileUploaderItemTitle,
+  FileUploaderItemsList,
+  FileUploaderLabel,
 } from '../src';
 
 const getCustomizationStyles = (element = 'FILE_UPLOADER'): { [key: string]: PasteCustomCSS } => ({

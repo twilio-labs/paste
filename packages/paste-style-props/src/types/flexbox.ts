@@ -1,6 +1,6 @@
-// https://styled-system.com/api/#flexbox
-import type { Properties, Globals } from 'csstype';
 import type { ResponsiveValue } from '@twilio-paste/styling-library';
+// https://styled-system.com/api/#flexbox
+import type { Globals, Properties } from 'csstype';
 
 /**
  * The CSS align-items property sets the align-self value on all direct children as a group. The align-self

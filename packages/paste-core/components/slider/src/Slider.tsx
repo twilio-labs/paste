@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Box, type BoxProps } from '@twilio-paste/box';
+import { useSlider, useSliderState, useSliderThumb } from '@twilio-paste/react-spectrum-library';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { useSliderState, useSlider, useSliderThumb } from '@twilio-paste/react-spectrum-library';
 import { useMergeRefs } from '@twilio-paste/utils';
+import * as React from 'react';
 
 import { SliderThumb } from './SliderThumb';
 import { SliderTrack } from './SliderTrack';

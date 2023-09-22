@@ -1,7 +1,7 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import type { BadgeProps } from '@twilio-paste/badge';
 import { Stack } from '@twilio-paste/stack';
+import * as React from 'react';
 
 import { Menu, MenuBadge, MenuItem, MenuSeparator, useMenuState } from '../src';
 

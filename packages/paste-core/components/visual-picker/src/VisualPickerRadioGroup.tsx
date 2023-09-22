@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { InlineControlGroup } from '@twilio-paste/inline-control-group';
+import * as React from 'react';
 
 import { VisualPickerRadioContext } from './VisualPickerContext';
 import { type VisualPickerRadioGroupProps } from './types';

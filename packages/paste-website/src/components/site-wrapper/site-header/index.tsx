@@ -1,17 +1,17 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
-import { Topbar, TopbarActions } from '@twilio-paste/topbar';
-import GitHubButton from 'react-github-button';
 import { Button } from '@twilio-paste/button';
+import { Topbar, TopbarActions } from '@twilio-paste/topbar';
+import * as React from 'react';
+import GitHubButton from 'react-github-button';
 import 'react-github-button/assets/style.css';
 
+import { PASTE_DOCS_TOPBAR } from '../../../constants';
+import { ContactUsMenu } from '../../ContactUsMenu';
+import { DarkModeToggle } from './DarkModeToggle';
+import { FigmaButton } from './FigmaButton';
 import { HamburgerToggle } from './HamburgerToggle';
 import { SiteHeaderLogo } from './SiteHeaderLogo';
 import { SiteHeaderSearch } from './SiteHeaderSearch';
-import { DarkModeToggle } from './DarkModeToggle';
-import { FigmaButton } from './FigmaButton';
-import { ContactUsMenu } from '../../ContactUsMenu';
-import { PASTE_DOCS_TOPBAR } from '../../../constants';
 
 export const SiteHeader: React.FC<{
   sidebarMobileCollapsed: boolean;

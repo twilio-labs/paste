@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
 import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '@twilio-paste/input-box';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
-import type { Variants, Element } from './types';
+import type { Element, Variants } from './types';
 
 export interface SelectProps extends HTMLPasteProps<'select'> {
   children: NonNullable<React.ReactNode>;

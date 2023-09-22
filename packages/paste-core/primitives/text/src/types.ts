@@ -1,16 +1,16 @@
 import type { CustomTheme } from '@twilio-paste/customization';
 import type {
+  CursorProperty,
   Display,
+  OutlineProperty,
   OverflowProps,
   PositionProps,
   ShadowProps,
   SpaceProps,
+  TransitionDelayProperty,
+  TransitionProperty,
   TypographyProps,
   VerticalAlign,
-  CursorProperty,
-  OutlineProperty,
-  TransitionProperty,
-  TransitionDelayProperty,
 } from '@twilio-paste/style-props';
 
 import type { PseudoPropStyles } from './PseudoPropStyles';

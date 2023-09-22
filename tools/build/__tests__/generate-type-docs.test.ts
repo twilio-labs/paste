@@ -2,10 +2,10 @@ import prettier from 'prettier';
 
 import {
   type ComponentTypeProperties,
+  extractTypeExports,
   formatValue,
   sortByRequiredProperties,
   tryPrettier,
-  extractTypeExports,
 } from '../generate-type-docs/utils';
 
 describe('formatValue', () => {

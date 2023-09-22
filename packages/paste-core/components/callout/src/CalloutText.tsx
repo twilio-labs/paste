@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Text, safelySpreadTextProps } from '@twilio-paste/text';
 import type { BoxProps } from '@twilio-paste/box';
+import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import * as React from 'react';
 
 export interface CalloutTextProps extends Partial<Omit<HTMLParagraphElement, 'children'>> {
   children?: React.ReactNode;

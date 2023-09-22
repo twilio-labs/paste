@@ -1,16 +1,16 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { useUID } from '@twilio-paste/uid-library';
-import { Button } from '@twilio-paste/button';
-import { Heading } from '@twilio-paste/heading';
 import { Anchor } from '@twilio-paste/anchor';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { useTheme } from '@twilio-paste/theme';
 import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
 import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { useTabState, Tabs, TabList, Tab, TabPanels, TabPanel } from '../src';
+import { Tab, TabList, TabPanel, TabPanels, Tabs, useTabState } from '../src';
 import type { TabStateReturn } from '../src';
 
 export const HorizontalTabs = (): JSX.Element => {

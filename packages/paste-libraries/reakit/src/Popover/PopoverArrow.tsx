@@ -4,12 +4,12 @@
  * Using props for fill and stroke
  */
 
+import type { BoxHTMLProps, BoxOptions, PopoverStateReturn } from '@twilio-paste/paste-reakit-fork';
+import { useBox } from '@twilio-paste/paste-reakit-fork';
 import * as React from 'react';
 import { createComponent } from 'reakit-system/createComponent';
 import { createHook } from 'reakit-system/createHook';
 import { useForkRef } from 'reakit-utils/useForkRef';
-import type { BoxOptions, BoxHTMLProps, PopoverStateReturn } from '@twilio-paste/paste-reakit-fork';
-import { useBox } from '@twilio-paste/paste-reakit-fork';
 
 import { POPOVER_ARROW_KEYS } from './__keys';
 

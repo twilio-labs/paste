@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
 import { UploadToCloudIcon } from '@twilio-paste/icons/esm/UploadToCloudIcon';
+import * as React from 'react';
 
 import { FileUploaderContext } from './FileUploaderContext';
 import { arrayToCsv } from './utils';

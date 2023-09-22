@@ -1,17 +1,17 @@
-import * as React from 'react';
-import type { StoryFn } from '@storybook/react';
-import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
 import { action } from '@storybook/addon-actions';
-import { useTheme } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
+import type { StoryFn } from '@storybook/react';
 import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { HelpText } from '@twilio-paste/help-text';
 import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
 import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
+import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { Select, Option, OptionGroup } from '../src';
+import { Option, OptionGroup, Select } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

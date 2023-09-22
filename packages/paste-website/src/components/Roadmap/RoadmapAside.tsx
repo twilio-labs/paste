@@ -1,13 +1,13 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
+import { SITE_TOPBAR_HEIGHT } from '../../constants';
+import { slugify } from '../../utils/RouteUtils';
 import { FeedbackPopover } from '../shortcodes/feedback-popover';
+import { TableOfContentsAnchor } from '../shortcodes/table-of-contents/TableOfContentsAnchor';
 import { TableOfContentsList } from '../shortcodes/table-of-contents/TableOfContentsList';
 import { TableOfContentsListItem } from '../shortcodes/table-of-contents/TableOfContentsListItem';
-import { TableOfContentsAnchor } from '../shortcodes/table-of-contents/TableOfContentsAnchor';
-import { slugify } from '../../utils/RouteUtils';
 import type { RoadmapProps } from './types';
-import { SITE_TOPBAR_HEIGHT } from '../../constants';
 
 type RoadmapAsideProps = RoadmapProps;
 

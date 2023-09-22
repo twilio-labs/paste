@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { makeToast, getStyles } from '../stories/customization.stories';
+import { getStyles, makeToast } from '../stories/customization.stories';
 
 describe('Toast data-paste-element attribute', () => {
   it('should set the correct default element prop on Toast', () => {

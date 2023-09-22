@@ -1,13 +1,13 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
-import { useTheme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
 import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
+import { useTheme } from '@twilio-paste/theme';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { Menu, MenuBadge, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState } from '../src';
+import { Menu, MenuBadge, MenuGroup, MenuItem, MenuSeparator, SubMenuButton, useMenuState } from '../src';
 import type { MenuBadgeProps } from '../src';
 
 type ElementOverrides = Record<string, PasteCustomCSS>;

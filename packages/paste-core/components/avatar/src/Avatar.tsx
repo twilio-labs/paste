@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { isValidElementType } from 'react-is';
-import { Text } from '@twilio-paste/text';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxStyleProps } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import * as React from 'react';
+import { isValidElementType } from 'react-is';
 
-import { getComputedTokenNames, getInitialsFromName } from './utils';
-import type { AvatarProps, AvatarContentProps, ColorVariants, AvatarVariants } from './types';
 import { AvatarGroupContext } from './AvatarGroup';
+import type { AvatarContentProps, AvatarProps, AvatarVariants, ColorVariants } from './types';
+import { getComputedTokenNames, getInitialsFromName } from './utils';
 
 const DEFAULT_SIZE = 'sizeIcon70';
 

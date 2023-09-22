@@ -1,34 +1,34 @@
-import * as React from 'react';
-import { useRouter } from 'next/router';
-import { StylingGlobals, type CSSObject } from '@twilio-paste/styling-library';
-import { useTheme } from '@twilio-paste/theme';
-import { useWindowSize } from '@twilio-paste/utils';
 import { Box } from '@twilio-paste/box';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
 import {
   Sidebar,
-  SidebarHeader,
   SidebarBody,
+  SidebarCollapseButton,
+  SidebarFooter,
+  SidebarHeader,
   SidebarHeaderIconButton,
   SidebarHeaderLabel,
   SidebarPushContentWrapper,
-  SidebarFooter,
-  SidebarCollapseButton,
 } from '@twilio-paste/sidebar';
-import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { type CSSObject, StylingGlobals } from '@twilio-paste/styling-library';
+import { useTheme } from '@twilio-paste/theme';
+import { useWindowSize } from '@twilio-paste/utils';
+import { useRouter } from 'next/router';
+import * as React from 'react';
 
-import { SiteHeader } from './site-header';
-import { SiteFooter } from './site-footer';
 import {
   PASTE_DOCS_CONTENT_AREA,
-  TOKEN_STICKY_FILTER_HEIGHT,
-  TOKEN_LIST_PAGE_REGEX,
-  PASTE_DOCS_TOPBAR,
   PASTE_DOCS_SIDEBAR_NAV,
+  PASTE_DOCS_TOPBAR,
   SITE_TOPBAR_HEIGHT,
+  TOKEN_LIST_PAGE_REGEX,
+  TOKEN_STICKY_FILTER_HEIGHT,
 } from '../../constants';
 import { docSearchStyles, docSearchVariable } from '../../styles/docSearch';
 import { SiteMain } from './SiteMain';
 import { SidebarNavigation } from './sidebar/SidebarNavigation';
+import { SiteFooter } from './site-footer';
+import { SiteHeader } from './site-header';
 
 // height of the topbar plus a little extra whitespace
 const defaultScrollOffset = `calc(${SITE_TOPBAR_HEIGHT}px + 24px)`;

@@ -1,19 +1,19 @@
-import * as React from 'react';
-import _ from 'lodash';
-import type { StoryFn, Meta, StoryContext } from '@storybook/react';
-import { useUID } from '@twilio-paste/uid-library';
+import type { Meta, StoryContext, StoryFn } from '@storybook/react';
 import { Anchor } from '@twilio-paste/anchor';
-import { Button } from '@twilio-paste/button';
 import { Box } from '@twilio-paste/box';
-import { Label } from '@twilio-paste/label';
-import { Text } from '@twilio-paste/text';
-import { Select, Option } from '@twilio-paste/select';
-import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
-import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { Button } from '@twilio-paste/button';
 import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
-import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
 import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
+import { Label } from '@twilio-paste/label';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
 import { Modal, ModalBody, ModalHeader, ModalHeading } from '@twilio-paste/modal';
+import { Option, Select } from '@twilio-paste/select';
+import { Text } from '@twilio-paste/text';
+import { useUID } from '@twilio-paste/uid-library';
+import _ from 'lodash';
+import * as React from 'react';
 
 import { Combobox, useCombobox } from '../src';
 

@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { getInputChevronIconColor, InputChevronWrapper, InputBox } from '../src';
+import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '../src';
 
 describe('HTML attributes', () => {
   it('should set a element data attribute for InputChevronWrapper', () => {

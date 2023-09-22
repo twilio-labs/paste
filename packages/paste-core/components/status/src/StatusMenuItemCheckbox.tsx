@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { MenuItemCheckbox } from '@twilio-paste/menu';
 import type { MenuItemCheckboxProps } from '@twilio-paste/menu';
+import * as React from 'react';
 
 export type StatusMenuItemCheckboxProps = MenuItemCheckboxProps;
 

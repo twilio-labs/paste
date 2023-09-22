@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
 import {
-  useNonModalDialogPrimitiveState,
-  NonModalDialogPrimitive,
-  NonModalDialogDisclosurePrimitive,
   NonModalDialogArrowPrimitive,
+  NonModalDialogDisclosurePrimitive,
+  NonModalDialogPrimitive,
+  useNonModalDialogPrimitiveState,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

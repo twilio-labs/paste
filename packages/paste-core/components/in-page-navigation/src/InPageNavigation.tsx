@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
-import type { Variants } from './types';
 import { InPageNavigationContext } from './InPageNavigationContext';
+import type { Variants } from './types';
 
 export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
   children?: React.ReactNode;

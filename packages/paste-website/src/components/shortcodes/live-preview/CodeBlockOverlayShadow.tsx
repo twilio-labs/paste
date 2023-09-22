@@ -1,4 +1,4 @@
-import { styled, css } from '@twilio-paste/styling-library';
+import { css, styled } from '@twilio-paste/styling-library';
 
 export const CodeBlockOverlayShadow = styled.div(
   css({

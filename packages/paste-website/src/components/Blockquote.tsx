@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Anchor, isExternalUrl } from '@twilio-paste/anchor';
 import { Box } from '@twilio-paste/box';
 import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
 interface Props {
   name?: string;

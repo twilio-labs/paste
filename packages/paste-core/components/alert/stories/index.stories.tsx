@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { action } from '@storybook/addon-actions';
 import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
-import { Truncate } from '@twilio-paste/truncate';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { useTheme } from '@twilio-paste/theme';
+import { Truncate } from '@twilio-paste/truncate';
+import * as React from 'react';
 
 import { Alert } from '../src';
 

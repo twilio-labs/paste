@@ -1,7 +1,7 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
+import * as React from 'react';
 
-import { ChatLog, ChatEvent } from '../../src';
+import { ChatEvent, ChatLog } from '../../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

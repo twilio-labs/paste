@@ -1,6 +1,6 @@
+import { mockTheme } from '../__fixtures__/mockThemes';
 import type { PasteCustomCSS } from '../src/types/PasteCSS';
 import { createCustomTheme } from '../src/utils';
-import { mockTheme } from '../__fixtures__/mockThemes';
 
 describe('createCustomTheme', () => {
   it('should merge base theme with overrides', () => {

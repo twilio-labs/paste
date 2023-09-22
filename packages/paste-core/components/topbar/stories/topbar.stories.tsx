@@ -1,30 +1,30 @@
-import * as React from 'react';
-import { Button } from '@twilio-paste/button';
 import type { StoryFn } from '@storybook/react';
+import { Button } from '@twilio-paste/button';
 import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
 import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
 import { Paragraph } from '@twilio-paste/paragraph';
+import {
+  Sidebar,
+  SidebarBody,
+  SidebarCollapseButton,
+  SidebarFooter,
+  SidebarHeader,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
+  SidebarNavigation,
+  SidebarOverlayContentWrapper,
+  SidebarPushContentWrapper,
+} from '@twilio-paste/sidebar';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
 import { useUID } from '@twilio-paste/uid-library';
 import {
-  Sidebar,
-  SidebarPushContentWrapper,
-  SidebarOverlayContentWrapper,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
-  SidebarCollapseButton,
-  SidebarFooter,
-  SidebarBody,
-  SidebarNavigation,
-} from '@twilio-paste/sidebar';
-import {
   UserDialog,
+  UserDialogContainer,
+  UserDialogUserEmail,
   UserDialogUserInfo,
   UserDialogUserName,
-  UserDialogUserEmail,
-  UserDialogContainer,
 } from '@twilio-paste/user-dialog';
+import * as React from 'react';
 
 import { Topbar, TopbarActions } from '../src';
 

@@ -1,18 +1,18 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
+import { Flex } from '../src';
 import {
+  getBasis,
   getGrow,
   getShrink,
-  getBasis,
   getSuffix,
   getVertical,
   getWrap,
-  vAlignToProps,
   hAlignToProps,
+  vAlignToProps,
 } from '../src/helpers';
-import { Flex } from '../src';
 import type { FlexProps } from '../src/types';
 
 describe('Flex Unit Tests', () => {

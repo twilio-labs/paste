@@ -1,6 +1,6 @@
 import type { BadgeBaseProps, BadgeButtonProps } from '@twilio-paste/badge';
-import type { ButtonProps } from '@twilio-paste/button';
 import type { BoxProps } from '@twilio-paste/box';
+import type { ButtonProps } from '@twilio-paste/button';
 
 export type ButtonBadgeProps = BadgeBaseProps &
   Omit<BadgeButtonProps, 'onClick'> & {

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { SyntaxHighlighter } from '@twilio-paste/syntax-highlighter-library';
-import type { SnippetLanguages } from '@twilio-paste/syntax-highlighter-library';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import { SyntaxHighlighter } from '@twilio-paste/syntax-highlighter-library';
+import type { SnippetLanguages } from '@twilio-paste/syntax-highlighter-library';
+import * as React from 'react';
 
 import { getPasteSyntaxTheme } from './CodeBlockTheme';
 import { CopyButton } from './CopyButton';

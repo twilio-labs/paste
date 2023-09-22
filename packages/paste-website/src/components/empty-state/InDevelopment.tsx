@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
 import { Heading } from '@twilio-paste/heading';
 import { Paragraph } from '@twilio-paste/paragraph';
-import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
-import { Breadcrumb, BreadcrumbItem } from '../breadcrumb';
 import { SidebarCategoryRoutes } from '../../constants';
 import { getHumanizedNameFromPackageName } from '../../utils/RouteUtils';
+import { Breadcrumb, BreadcrumbItem } from '../breadcrumb';
 
 interface InDevelopmentProps {
   type?: 'component' | 'primitive' | 'layout';

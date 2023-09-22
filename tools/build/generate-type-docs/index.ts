@@ -6,22 +6,22 @@
  * an official API documentor later, but it looks pretty complex.
  */
 
+import { writeFileSync } from 'fs';
 import path from 'path';
 import { readFile } from 'fs/promises';
-import { writeFileSync } from 'fs';
 
 import prettier from 'prettier';
 import ts from 'typescript';
 
 import {
   type ComponentTypeProperties,
+  extractTypeExports,
   formatValue,
   getSourceFileName,
   log,
   shouldIgnoreProperty,
   sortByRequiredProperties,
   tryPrettier,
-  extractTypeExports,
 } from './utils';
 
 function extractPropertiesOfTypeName(

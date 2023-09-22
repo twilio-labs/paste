@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { uid } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import type { MessageVariants } from './MessageVariantContext';
 

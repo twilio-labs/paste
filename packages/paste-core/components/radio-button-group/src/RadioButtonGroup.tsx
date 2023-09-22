@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { InlineControlGroupProps } from '@twilio-paste/inline-control-group';
 import { HelpText } from '@twilio-paste/help-text';
+import type { InlineControlGroupProps } from '@twilio-paste/inline-control-group';
 import { Label } from '@twilio-paste/label';
+import * as React from 'react';
 
 import { RadioButtonContext } from './RadioButtonContext';
 import { AttachedRadioButtonGroupWrapper, UnattachedRadioButtonGroupWrapper } from './StyledRadioButtonGroupWrapper';

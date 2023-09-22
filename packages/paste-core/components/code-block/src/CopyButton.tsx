@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Button } from '@twilio-paste/button';
 import { Box } from '@twilio-paste/box';
-import { useClipboard } from '@twilio-paste/clipboard-copy-library';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { CopyIcon } from '@twilio-paste/icons/esm/CopyIcon';
-import { Tooltip, useTooltipState } from '@twilio-paste/tooltip';
 import type { BoxProps } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { useClipboard } from '@twilio-paste/clipboard-copy-library';
+import { CopyIcon } from '@twilio-paste/icons/esm/CopyIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { Tooltip, useTooltipState } from '@twilio-paste/tooltip';
+import * as React from 'react';
 
 interface CopyButtonProps {
   text: string;

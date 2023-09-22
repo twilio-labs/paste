@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { Truncate } from '@twilio-paste/truncate';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { Truncate } from '@twilio-paste/truncate';
+import * as React from 'react';
 
 import type { IconObject } from './types';
 

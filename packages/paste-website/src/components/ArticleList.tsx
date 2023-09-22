@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Stack } from '@twilio-paste/stack';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { Article } from './Article';
 import type { ArticleData } from '../utils/api';
+import { Article } from './Article';
 
 export interface ArticleListProps {
   articles: ArticleData[];

@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Text, safelySpreadTextProps } from '@twilio-paste/text';
 import type { TextProps, TextStyleProps } from '@twilio-paste/text';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 type DisplayHeadingVariants = 'displayHeading10' | 'displayHeading20' | 'displayHeading30';
 type AsTags = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'div' | 'span' | 'header';

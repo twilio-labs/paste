@@ -1,10 +1,10 @@
 import { Box } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { Popover, PopoverBadgeButton, PopoverContainer } from '@twilio-paste/popover';
-import { Heading } from '@twilio-paste/heading';
-import camelCase from 'lodash/camelCase';
 import { Theme } from '@twilio-paste/theme';
+import camelCase from 'lodash/camelCase';
 
 import type { TokenCardProps } from '../types';
 

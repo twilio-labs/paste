@@ -1,7 +1,7 @@
-import omitBy from 'lodash/omitBy';
 import isEmpty from 'lodash/isEmpty';
+import omitBy from 'lodash/omitBy';
 
-import type { PackageList, BestGuessMapper, TokenPackageMap } from './types';
+import type { BestGuessMapper, PackageList, TokenPackageMap } from './types';
 
 /**
  * Get minimal components using all tokens

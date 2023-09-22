@@ -1,7 +1,7 @@
+import type { ResponsiveValue, TLengthStyledSystem } from '@twilio-paste/styling-library';
+import type { ThemeShape } from '@twilio-paste/theme';
 // https://styled-system.com/api/#background
 import type { Properties } from 'csstype';
-import type { ThemeShape } from '@twilio-paste/theme';
-import type { ResponsiveValue, TLengthStyledSystem } from '@twilio-paste/styling-library';
 
 import type { StyleReset } from './helpers';
 

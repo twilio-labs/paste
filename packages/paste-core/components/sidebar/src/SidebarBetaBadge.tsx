@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import type { BoxProps } from '@twilio-paste/box';
 import { badgeBaseStyles, useResizeChildIcons } from '@twilio-paste/badge';
 import type { BadgeProps } from '@twilio-paste/badge';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 const SidebarBetaBadgeSpanStyles: BoxProps = {
   ...badgeBaseStyles,

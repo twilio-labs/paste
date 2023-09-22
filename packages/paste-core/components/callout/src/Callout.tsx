@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
 import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
 import { NeutralIcon } from '@twilio-paste/icons/esm/NeutralIcon';
 import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
 import { WarningIcon } from '@twilio-paste/icons/esm/WarningIcon';
-import type { BoxStyleProps, BoxProps } from '@twilio-paste/box';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import * as React from 'react';
 
 type CalloutVariants = 'neutral' | 'warning' | 'error' | 'success' | 'new';
 

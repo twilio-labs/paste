@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
-import { StyledBase } from '@twilio-paste/theme';
 import { Text } from '@twilio-paste/text';
-import { useTooltipPrimitiveState, TooltipPrimitive, TooltipPrimitiveReference } from '@twilio-paste/tooltip-primitive';
+import { StyledBase } from '@twilio-paste/theme';
+import { TooltipPrimitive, TooltipPrimitiveReference, useTooltipPrimitiveState } from '@twilio-paste/tooltip-primitive';
 import type { TooltipPrimitiveInitialState, TooltipPrimitiveStateReturn } from '@twilio-paste/tooltip-primitive';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { TooltipArrow } from './TooltipArrow';
 

@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import { Input } from '@twilio-paste/input';
 import { Paragraph } from '@twilio-paste/paragraph';
-import { Select, Option } from '@twilio-paste/select';
+import { Option, Select } from '@twilio-paste/select';
 import { Stack } from '@twilio-paste/stack';
 import { TextArea } from '@twilio-paste/textarea';
+import * as React from 'react';
 import root from 'react-shadow';
 
 import { ThemeProvider } from '../src/themeProvider';

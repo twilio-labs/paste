@@ -1,15 +1,15 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useTheme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import {
   CodeBlock,
-  CodeBlockWrapper,
   CodeBlockHeader,
-  CodeBlockTabList,
   CodeBlockTab,
+  CodeBlockTabList,
   CodeBlockTabPanel,
+  CodeBlockWrapper,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

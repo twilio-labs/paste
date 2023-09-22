@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { Theme } from '@twilio-paste/theme';
 import { render, screen } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Spinner } from '../src';
 

@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxElementProps } from '@twilio-paste/box';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { useUID } from '@twilio-paste/uid-library';
 import { Composite } from '@twilio-paste/reakit-library';
 import type { CompositeProps } from '@twilio-paste/reakit-library';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 export interface FormPillGroupProps
   extends Omit<CompositeProps, 'unstable_virtual' | 'unstable_moves' | 'unstable_system' | 'wrapElement' | 'wrap'> {

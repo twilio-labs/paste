@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
 import type { InformationIconProps } from '@twilio-paste/icons/esm/InformationIcon';
+import * as React from 'react';
 
 type IconSizeExampleProps = Pick<InformationIconProps, 'size' | 'color'>;
 

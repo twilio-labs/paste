@@ -1,20 +1,20 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
+import { Anchor } from '@twilio-paste/anchor';
 import { Box } from '@twilio-paste/box';
-import { Stack } from '@twilio-paste/stack';
-import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/media-object';
-import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from '@twilio-paste/menu';
+import { Button } from '@twilio-paste/button';
 import { CustomizationProvider } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
+import { Heading } from '@twilio-paste/heading';
 import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
 import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from '@twilio-paste/menu';
+import { Stack } from '@twilio-paste/stack';
 import { Text } from '@twilio-paste/text';
-import { Heading } from '@twilio-paste/heading';
-import { Anchor } from '@twilio-paste/anchor';
-import { Button } from '@twilio-paste/button';
+import { useTheme } from '@twilio-paste/theme';
 import { Truncate } from '@twilio-paste/truncate';
+import * as React from 'react';
 
-import { Table, THead, TBody, TFoot, Tr, Td, Th } from '../src';
+import { TBody, TFoot, THead, Table, Td, Th, Tr } from '../src';
 
 const MoreMenu = (): JSX.Element => {
   const menu = useMenuState();

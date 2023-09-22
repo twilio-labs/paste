@@ -1,8 +1,8 @@
+import { Box } from '@twilio-paste/box';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { HelpText } from '@twilio-paste/help-text';
 import { useTheme } from '@twilio-paste/theme';
 import { useUID } from '@twilio-paste/uid-library';
-import { HelpText } from '@twilio-paste/help-text';
-import { Box } from '@twilio-paste/box';
 import * as React from 'react';
 
 import { Meter, MeterLabel } from '../src';

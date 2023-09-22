@@ -1,7 +1,7 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Stack } from '@twilio-paste/stack';
 import type { ValueOf } from '@twilio-paste/types';
+import * as React from 'react';
 
 import {
   StatusMenu,

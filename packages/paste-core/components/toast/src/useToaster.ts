@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { uid } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import type { ToasterToast, ToasterPush, UseToasterReturnedProps } from './types';
+import type { ToasterPush, ToasterToast, UseToasterReturnedProps } from './types';
 
 export const useToaster = (): UseToasterReturnedProps => {
   const isMounted = React.useRef<boolean | null>(null);

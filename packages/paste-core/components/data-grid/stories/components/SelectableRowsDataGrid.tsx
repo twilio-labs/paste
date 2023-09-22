@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
+import { Checkbox, CheckboxGroup } from '@twilio-paste/checkbox';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { CheckboxGroup, Checkbox } from '@twilio-paste/checkbox';
 import { useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell } from '../../src';
-import { TableHeaderData, TableBodyData } from './constants';
+import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from '../../src';
+import { TableBodyData, TableHeaderData } from './constants';
 
 interface CheckboxCellProps {
   onClick: (checked: boolean) => void;

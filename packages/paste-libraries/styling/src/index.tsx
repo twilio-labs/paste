@@ -1,6 +1,6 @@
+import createCache from '@emotion/cache';
 // Base styling system (emotion)
 import styled from '@emotion/styled';
-import createCache from '@emotion/cache';
 
 /*
  * Custom styling application (styled-system)

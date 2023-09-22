@@ -1,6 +1,6 @@
-import * as React from 'react';
 import type { CompositeProps } from '@twilio-paste/reakit-library';
 import { Composite } from '@twilio-paste/reakit-library';
+import * as React from 'react';
 
 import type { As, ListboxPrimitiveVariants } from './types';
 

@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Separator } from '../src';
 

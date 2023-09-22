@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { SuccessIcon as ProgressSuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
+import * as React from 'react';
 
 import type { ProgressStepCompleteProps } from './types';
 

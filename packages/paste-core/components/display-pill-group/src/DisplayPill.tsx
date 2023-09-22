@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { secureExternalLink } from '@twilio-paste/anchor';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxElementProps } from '@twilio-paste/box';
 import type { HTMLPasteProps } from '@twilio-paste/types';
-import { secureExternalLink } from '@twilio-paste/anchor';
+import * as React from 'react';
 
 type DisplayPillProps = HTMLPasteProps<'a'> & Pick<BoxElementProps, 'element'>;
 

@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
-import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
 import type { TextColor } from '@twilio-paste/style-props';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { RequiredDot } from './RequiredDot';
 

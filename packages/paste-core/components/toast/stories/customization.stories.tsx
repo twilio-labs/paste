@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { Stack } from '@twilio-paste/stack';
 import { Card } from '@twilio-paste/card';
-import { Text } from '@twilio-paste/text';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import type { ToastVariants } from '../src';
 import { Toast } from '../src';

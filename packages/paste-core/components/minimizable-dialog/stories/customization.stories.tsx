@@ -1,15 +1,15 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { useTheme } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import {
   MinimizableDialog,
   MinimizableDialogButton,
-  MinimizableDialogHeader,
   MinimizableDialogContainer,
   MinimizableDialogContent,
+  MinimizableDialogHeader,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

@@ -1,6 +1,6 @@
+import isChromatic from 'chromatic';
 /// <reference types="vite/client" />
 import React from 'react';
-import isChromatic from 'chromatic';
 import { version } from '../packages/paste-core/core-bundle/package.json';
 
 const trackRenderPerformance = (data) => {

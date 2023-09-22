@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Box } from '@twilio-paste/box';
-import { StatusBadge } from '@twilio-paste/status';
 import type { BadgeProps } from '@twilio-paste/badge';
-import { PopoverContainer, PopoverBadgeButton, Popover } from '@twilio-paste/popover';
-import { useUID } from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
 import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
+import { Popover, PopoverBadgeButton, PopoverContainer } from '@twilio-paste/popover';
+import { StatusBadge } from '@twilio-paste/status';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { StatusDescriptions } from '../../../constants';
 

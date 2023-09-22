@@ -1,20 +1,20 @@
-import * as React from 'react';
-import { useReducedMotion, Globals as AnimatedGlobals } from '@twilio-paste/animation-library';
+import { Globals as AnimatedGlobals, useReducedMotion } from '@twilio-paste/animation-library';
 import {
-  styled,
+  CacheProvider as EmotionCacheProvider,
   StylingGlobals,
   ThemeProvider as EmotionThemeProvider,
   createCache,
-  CacheProvider as EmotionCacheProvider,
+  styled,
 } from '@twilio-paste/styling-library';
 import type { CreateCacheOptions } from '@twilio-paste/styling-library';
+import * as React from 'react';
 
-import { getThemeFromHash } from './utils/getThemeFromHash';
-import { DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme, EvergreenTheme } from './themes';
-import { pasteGlobalStyles } from './styles/global';
+import { ThemeVariants } from './constants';
 import { pasteBaseStyles } from './styles/base';
 import { pasteFonts } from './styles/fonts';
-import { ThemeVariants } from './constants';
+import { pasteGlobalStyles } from './styles/global';
+import { DarkTheme, DefaultTheme, EvergreenTheme, SendGridTheme, TwilioDarkTheme, TwilioTheme } from './themes';
+import { getThemeFromHash } from './utils/getThemeFromHash';
 
 export const StyledBase = styled.div(pasteBaseStyles);
 

@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { Paragraph } from '@twilio-paste/paragraph';
+import type { StoryFn } from '@storybook/react';
+import { Card } from '@twilio-paste/card';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
+import { Paragraph } from '@twilio-paste/paragraph';
 import { Stack } from '@twilio-paste/stack';
-import { Card } from '@twilio-paste/card';
-import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Badge } from '../src';
 import type { BadgeVariants } from '../src/constants';

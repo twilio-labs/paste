@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import { ChevronUpIcon } from '@twilio-paste/icons/esm/ChevronUpIcon';
 import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import type { BoxProps } from '@twilio-paste/box';
 import { MinusIcon } from '@twilio-paste/icons/esm/MinusIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { MinimizableDialogContext } from './MinimizableDialogContext';
 

@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import * as React from 'react';
 
-import { useListboxPrimitiveState, ListboxPrimitive, ListboxPrimitiveItem } from '../src';
+import { ListboxPrimitive, ListboxPrimitiveItem, useListboxPrimitiveState } from '../src';
 
 const FIRST_ITEM = 'first-listbox-item';
 const SECOND_ITEM = 'second-listbox-item';

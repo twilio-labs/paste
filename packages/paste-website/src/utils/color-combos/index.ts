@@ -1,5 +1,5 @@
-import uniq from 'lodash/uniq';
 import Color from 'color';
+import uniq from 'lodash/uniq';
 
 interface ColorObject {
   color: number[];

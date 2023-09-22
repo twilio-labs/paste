@@ -2,17 +2,17 @@ import fs from 'fs';
 
 import difference from 'lodash/difference';
 
+import { writeToFile } from '../../../../tools/utils/writeToFile';
+import { BLOCKLIST_FILES, REACT_PATH, SVG_PATH } from '../constants';
+import { reactIconTemplate } from '../templates/reactIconTemplate';
 import {
   getInputPath,
+  getOutputComponentName,
   getReactOutputPath,
+  maybeHandleError,
   normalizeFileName,
   readdirAsync,
-  getOutputComponentName,
-  maybeHandleError,
 } from '../utils';
-import { SVG_PATH, REACT_PATH, BLOCKLIST_FILES } from '../constants';
-import { reactIconTemplate } from '../templates/reactIconTemplate';
-import { writeToFile } from '../../../../tools/utils/writeToFile';
 
 const { convertSvgToReact } = require('@twilio-labs/svg-to-react');
 

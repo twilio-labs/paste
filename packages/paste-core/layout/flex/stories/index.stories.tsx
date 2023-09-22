@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useTheme } from '@twilio-paste/theme';
 import { Box } from '@twilio-paste/box';
 import { CustomizationProvider } from '@twilio-paste/customization';
-import { Text } from '@twilio-paste/text';
 import { Paragraph } from '@twilio-paste/paragraph';
+import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
 import { Truncate } from '@twilio-paste/truncate';
+import * as React from 'react';
 
 import { Flex } from '../src';
 

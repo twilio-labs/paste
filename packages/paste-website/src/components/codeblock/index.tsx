@@ -1,6 +1,6 @@
-import * as React from 'react';
 import type { CodeBlockProps } from '@twilio-paste/code-block';
 import { CodeBlock } from '@twilio-paste/code-block';
+import * as React from 'react';
 
 export type CodeblockProps = CodeBlockProps & {
   className: string;

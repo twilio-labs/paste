@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import { Input } from '../src';
 import type { InputTypes } from '../src';

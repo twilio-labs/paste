@@ -1,19 +1,19 @@
-// https://github.com/FormidableLabs/react-live
-import * as React from 'react';
-import { LiveProvider, LiveEditor, LiveError, LivePreview as ReactLivePreview } from 'react-live';
-import type { LiveProviderProps } from 'react-live';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
+import { HideIcon } from '@twilio-paste/icons/esm/HideIcon';
+import { ShowIcon } from '@twilio-paste/icons/esm/ShowIcon';
 import { Theme, useTheme } from '@twilio-paste/theme';
 import { useUID } from '@twilio-paste/uid-library';
-import { ShowIcon } from '@twilio-paste/icons/esm/ShowIcon';
-import { HideIcon } from '@twilio-paste/icons/esm/HideIcon';
+// https://github.com/FormidableLabs/react-live
+import * as React from 'react';
+import { LiveEditor, LiveError, LivePreview as ReactLivePreview, LiveProvider } from 'react-live';
+import type { LiveProviderProps } from 'react-live';
 
-import { CodeblockTheme } from './theme';
-import { CodeBlockOverlayShadow } from './CodeBlockOverlayShadow';
-import { CopyButton } from '../../CopyButton';
-import { ThemeSwitcher } from './ThemeSwitcher';
 import { usePreviewThemeContext } from '../../../context/PreviewThemeContext';
+import { CopyButton } from '../../CopyButton';
+import { CodeBlockOverlayShadow } from './CodeBlockOverlayShadow';
+import { ThemeSwitcher } from './ThemeSwitcher';
+import { CodeblockTheme } from './theme';
 
 interface LivePreviewProps {
   children: string;

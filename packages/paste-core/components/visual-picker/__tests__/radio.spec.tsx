@@ -1,8 +1,8 @@
-import * as React from 'react';
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
+import * as React from 'react';
 
-import { VisualPickerRadioGroup, VisualPickerRadio } from '../src';
+import { VisualPickerRadio, VisualPickerRadioGroup } from '../src';
 import { CustomizedRadio } from '../stories/customization.stories';
 
 const NOOP = (): void => {};

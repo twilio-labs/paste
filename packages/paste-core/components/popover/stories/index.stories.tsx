@@ -1,18 +1,18 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useTheme } from '@twilio-paste/theme';
-import { useUID } from '@twilio-paste/uid-library';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
-import { Label } from '@twilio-paste/label';
-import { Stack } from '@twilio-paste/stack';
-import { Text } from '@twilio-paste/text';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { DatePicker } from '@twilio-paste/date-picker';
-import { TimePicker } from '@twilio-paste/time-picker';
+import { Label } from '@twilio-paste/label';
 import { Separator } from '@twilio-paste/separator';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import { TimePicker } from '@twilio-paste/time-picker';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { usePopoverState, Popover, PopoverContainer, PopoverButton, PopoverBadgeButton } from '../src';
+import { Popover, PopoverBadgeButton, PopoverButton, PopoverContainer, usePopoverState } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { render, act, screen, fireEvent } from '@testing-library/react';
+import { act, fireEvent, render, screen } from '@testing-library/react';
 import type { RenderOptions } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
-import { Form } from '@twilio-paste/form';
 import { Button } from '@twilio-paste/button';
+import { Form } from '@twilio-paste/form';
+import { Theme } from '@twilio-paste/theme';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
+import * as React from 'react';
 
 import { MultiselectCombobox, useMultiselectCombobox } from '../src';
 import type { MultiselectComboboxProps } from '../src';

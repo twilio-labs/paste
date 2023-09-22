@@ -1,7 +1,6 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { Separator } from '@twilio-paste/separator';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Separator } from '@twilio-paste/separator';
 import type {
   Display,
   FontFamily,
@@ -10,21 +9,22 @@ import type {
   FontWeight,
   LetterSpacing,
   LineHeight,
-  TextAlign,
-  TextColor,
-  TextDecoration,
+  Margin,
   Overflow,
   OverflowX,
   OverflowY,
+  Padding,
+  TextAlign,
+  TextColor,
+  TextDecoration,
   TextOverflow,
   WhiteSpace,
-  Padding,
-  Margin,
 } from '@twilio-paste/style-props';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { Text } from '../src';
 import { CustomizableTextExample } from '../__fixtures__/CustomizableText';
+import { Text } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

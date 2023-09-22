@@ -1,26 +1,26 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Box } from '@twilio-paste/box';
-import { useTheme } from '@twilio-paste/theme';
+import type { ButtonProps } from '@twilio-paste/button';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
 import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
 import { SupportIcon } from '@twilio-paste/icons/esm/SupportIcon';
-import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
-import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { useTheme } from '@twilio-paste/theme';
 import { useUID } from '@twilio-paste/uid-library';
-import type { ButtonProps } from '@twilio-paste/button';
+import * as React from 'react';
 
 import {
   Menu,
   MenuButton,
-  SubMenuButton,
   MenuGroup,
   MenuItem,
-  MenuSeparator,
-  useMenuState,
   MenuItemCheckbox,
   MenuItemRadio,
+  MenuSeparator,
+  SubMenuButton,
+  useMenuState,
 } from '../src';
 
 type ButtonVariants = ButtonProps['variant'];

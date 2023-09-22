@@ -1,12 +1,12 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { Button } from '@twilio-paste/button';
 import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
 import { Heading } from '@twilio-paste/heading';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { Stack } from '@twilio-paste/stack';
-import { Box } from '@twilio-paste/box';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { CustomizationProvider } from '../src';
 

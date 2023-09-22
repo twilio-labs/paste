@@ -1,13 +1,13 @@
-import * as React from 'react';
+import { Anchor } from '@twilio-paste/anchor';
+import type { AnchorProps } from '@twilio-paste/anchor';
 import { Card } from '@twilio-paste/card';
 import { Heading } from '@twilio-paste/heading';
 import { Paragraph } from '@twilio-paste/paragraph';
-import { Anchor } from '@twilio-paste/anchor';
-import type { AnchorProps } from '@twilio-paste/anchor';
+import * as React from 'react';
 
-import { SiteLink } from './SiteLink';
-import { ArticleAuthor } from './ArticleAuthor';
 import type { ArticleData } from '../utils/api';
+import { ArticleAuthor } from './ArticleAuthor';
+import { SiteLink } from './SiteLink';
 
 export interface ArticleProps {
   article: ArticleData;

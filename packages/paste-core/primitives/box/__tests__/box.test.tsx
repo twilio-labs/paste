@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { Box } from '../src';
 import { CustomizableBoxExample } from '../__fixtures__/CustomizableBox';
+import { Box } from '../src';
 
 describe('Backgrounds', () => {
   it('should render single values', (): void => {

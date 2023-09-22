@@ -1,6 +1,6 @@
 import changesetsThatNeedCoreCheck, {
-  shouldFlagChangeset,
   getChangesetsNotTaggingCore,
+  shouldFlagChangeset,
 } from '../changesets-that-need-core-check';
 
 declare const global: any;

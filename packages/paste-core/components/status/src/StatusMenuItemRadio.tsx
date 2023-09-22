@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { MenuItemRadio } from '@twilio-paste/menu';
 import type { MenuItemRadioProps } from '@twilio-paste/menu';
+import * as React from 'react';
 
 export type StatusMenuItemRadioProps = MenuItemRadioProps;
 

@@ -1,13 +1,13 @@
-import * as React from 'react';
-import { Box } from '@twilio-paste/box';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { Badge } from '@twilio-paste/badge';
 import type { BadgeProps } from '@twilio-paste/badge';
+import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import type { ButtonProps } from '@twilio-paste/button';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
 import { MenuPrimitiveButton } from '@twilio-paste/menu-primitive';
 import type { MenuPrimitiveButtonProps } from '@twilio-paste/menu-primitive';
-import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import * as React from 'react';
 
 export type MenuBadgeProps = MenuPrimitiveButtonProps &
   Omit<ButtonProps, 'variant'> &

@@ -1,9 +1,9 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { useTheme } from '@twilio-paste/theme';
 import { useUID } from '@twilio-paste/uid-library';
-import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
 import { InPageNavigation, InPageNavigationItem } from '../src';
 

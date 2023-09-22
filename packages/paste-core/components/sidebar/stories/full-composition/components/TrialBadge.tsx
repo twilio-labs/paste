@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { Badge } from '@twilio-paste/badge';
 import { Anchor } from '@twilio-paste/anchor';
+import { Badge } from '@twilio-paste/badge';
+import * as React from 'react';
 
 export const TrialBadge: React.FC = () => {
   return (

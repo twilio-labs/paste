@@ -1,7 +1,7 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
 import { formatDate } from './helpers';
-import type { TableDataRow, DateTimeFormValues } from './types';
+import type { DateTimeFormValues, TableDataRow } from './types';
 
 export const ROOM_TYPES = ['All', 'Group', 'WebRTC Go', 'Peer to Peer'];
 export const DATE_RANGES = [

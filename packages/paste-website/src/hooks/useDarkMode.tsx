@@ -1,5 +1,5 @@
-import * as React from 'react';
 import type { ValueOf } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { SimpleStorage } from '../utils/SimpleStorage';
 

@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Button } from '@twilio-paste/button';
 import { useClipboard } from '@twilio-paste/clipboard-copy-library';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { CopyIcon } from '@twilio-paste/icons/esm/CopyIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import * as React from 'react';
 
 interface CopyButtonProps {
   text: string;

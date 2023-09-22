@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { render } from '@testing-library/react';
-import { CustomizationProvider } from '@twilio-paste/customization';
 import { Box } from '@twilio-paste/box';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import { InlineCode } from '../src';
 

@@ -1,14 +1,14 @@
-import * as React from 'react';
 import { action } from '@storybook/addon-actions';
-import { loremIpsum } from 'lorem-ipsum';
 import { Box } from '@twilio-paste/box';
-import { Stack } from '@twilio-paste/stack';
 import { Button } from '@twilio-paste/button';
-import { Truncate } from '@twilio-paste/truncate';
-import { useUID } from '@twilio-paste/uid-library';
 import { Input } from '@twilio-paste/input';
 import { Label } from '@twilio-paste/label';
-import { RadioGroup, Radio } from '@twilio-paste/radio-group';
+import { Radio, RadioGroup } from '@twilio-paste/radio-group';
+import { Stack } from '@twilio-paste/stack';
+import { Truncate } from '@twilio-paste/truncate';
+import { useUID } from '@twilio-paste/uid-library';
+import { loremIpsum } from 'lorem-ipsum';
+import * as React from 'react';
 
 import type { ToastVariants } from '../src';
 import { Toast, ToastContainer, Toaster, useToaster } from '../src';

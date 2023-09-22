@@ -1,19 +1,19 @@
-import * as React from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { InPageNavigation, InPageNavigationItem } from '@twilio-paste/in-page-navigation';
 import { Box } from '@twilio-paste/box';
+import { InPageNavigation, InPageNavigationItem } from '@twilio-paste/in-page-navigation';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import * as React from 'react';
 
-import { SiteWrapper } from '../components/site-wrapper';
+import { PageContentWrapper } from '../components/PageContentWrapper';
 import { PasteMDXProvider } from '../components/paste-mdx-provider';
+import { PageAside } from '../components/shortcodes/PageAside';
+import { NormalizedComponentHeader } from '../components/shortcodes/normalized-component-header';
+import { SiteWrapper } from '../components/site-wrapper';
 import { SiteMetaDefaults } from '../constants';
 import type { NavigationQuery } from '../context/NavigationContext';
-import { PageContentWrapper } from '../components/PageContentWrapper';
-import { NormalizedComponentHeader } from '../components/shortcodes/normalized-component-header';
 import type { ApiData } from '../utils/DataUtils';
 import { getPackagePath } from '../utils/RouteUtils';
-import { PageAside } from '../components/shortcodes/PageAside';
 
 interface ComponentPageLayoutProps {
   children?: React.ReactElement;

@@ -1,15 +1,15 @@
-import {
-  getContrastRatingForTokenPairing,
-  getTokensWithTextContrastRequirements,
-  getTokensWithUIControlContrastRequirements,
-  getTokensWithDataVisualizationContrastRequirements,
-  convertRawTokenJSONToArray,
-} from '../src/utils';
-import * as RawJSON from '../__fixtures__/tokens.raw.json';
-import * as RawExtraJSON from '../__fixtures__/tokensWithExtraPairings.raw.json';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore type declaration warning for these token fixtures
 import { tokens } from '../__fixtures__/tokens';
+import * as RawJSON from '../__fixtures__/tokens.raw.json';
+import * as RawExtraJSON from '../__fixtures__/tokensWithExtraPairings.raw.json';
+import {
+  convertRawTokenJSONToArray,
+  getContrastRatingForTokenPairing,
+  getTokensWithDataVisualizationContrastRequirements,
+  getTokensWithTextContrastRequirements,
+  getTokensWithUIControlContrastRequirements,
+} from '../src/utils';
 
 describe('convertRawTokenJSONToArray', () => {
   test('it should convert raw JSON to an array of tokens', () => {

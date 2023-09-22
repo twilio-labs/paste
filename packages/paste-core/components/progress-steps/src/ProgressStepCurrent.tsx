@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 import { ProgressCurrentIcon } from './icons/ProgressCurrentIcon';
 import type { ProgressStepCurrentProps } from './types';

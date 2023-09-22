@@ -1,26 +1,26 @@
-import * as React from 'react';
+import type { StoryFn } from '@storybook/react';
 import { Avatar } from '@twilio-paste/avatar';
 import { Box } from '@twilio-paste/box';
-import { HelpText } from '@twilio-paste/help-text';
-import { Stack } from '@twilio-paste/stack';
 import { Button } from '@twilio-paste/button';
+import { HelpText } from '@twilio-paste/help-text';
 import { ArrowDownIcon } from '@twilio-paste/icons/esm/ArrowDownIcon';
 import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
+import { Stack } from '@twilio-paste/stack';
 import { useUID } from '@twilio-paste/uid-library';
-import type { StoryFn } from '@storybook/react';
+import * as React from 'react';
 
 import {
-  ChatMessage,
-  ChatBubble,
-  ChatMessageMeta,
-  ChatMessageMetaItem,
   ChatAttachment,
-  ChatAttachmentLink,
   ChatAttachmentDescription,
-  ChatLog,
+  ChatAttachmentLink,
   ChatBookend,
   ChatBookendItem,
+  ChatBubble,
   ChatEvent,
+  ChatLog,
+  ChatMessage,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

@@ -1,15 +1,15 @@
+import type { Meta, StoryFn } from '@storybook/react';
 import * as React from 'react';
-import type { StoryFn, Meta } from '@storybook/react';
 
 import {
-  LexicalComposer,
-  HistoryPlugin,
-  RichTextPlugin,
-  ContentEditable,
-  OnChangePlugin,
-  ErrorBoundary,
   $getRoot,
   $getSelection,
+  ContentEditable,
+  ErrorBoundary,
+  HistoryPlugin,
+  LexicalComposer,
+  OnChangePlugin,
+  RichTextPlugin,
 } from '../src';
 import type { EditorState } from '../src';
 

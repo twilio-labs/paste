@@ -1,19 +1,19 @@
-import * as React from 'react';
-import Head from 'next/head';
 import { Anchor } from '@twilio-paste/anchor';
 import { Box } from '@twilio-paste/box';
+import { Breadcrumb, BreadcrumbItem } from '@twilio-paste/breadcrumb';
+import { Heading } from '@twilio-paste/heading';
+import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
 import { Stack } from '@twilio-paste/stack';
 import { Text } from '@twilio-paste/text';
-import { Heading } from '@twilio-paste/heading';
 import { useTheme } from '@twilio-paste/theme';
-import { Breadcrumb, BreadcrumbItem } from '@twilio-paste/breadcrumb';
-import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
+import Head from 'next/head';
+import * as React from 'react';
 
-import { PackageStatusLegend } from '../package-status-legend';
 import { STORYBOOK_DOMAIN, SidebarCategoryRoutes } from '../../../constants';
+import { getCategoryNameFromRoute, getNameFromPackageName, useOpengraphServiceUrl } from '../../../utils/RouteUtils';
 import GithubIcon from '../../icons/GithubIcon';
 import StorybookIcon from '../../icons/StorybookIcon';
-import { useOpengraphServiceUrl, getNameFromPackageName, getCategoryNameFromRoute } from '../../../utils/RouteUtils';
+import { PackageStatusLegend } from '../package-status-legend';
 
 const IconAnchor: React.FC<React.PropsWithChildren<{ href: string; icon: React.ReactNode; children: string }>> = ({
   href,

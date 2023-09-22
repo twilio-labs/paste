@@ -1,8 +1,8 @@
-import * as React from 'react';
+import { Box } from '@twilio-paste/box';
 import { MenuItemRadio } from '@twilio-paste/menu';
 import type { MenuItemRadioProps } from '@twilio-paste/menu';
 import { Text } from '@twilio-paste/text';
-import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
 export interface ProductSwitcherItemProps extends Omit<MenuItemRadioProps, 'variant' | 'children'> {
   productName: string;

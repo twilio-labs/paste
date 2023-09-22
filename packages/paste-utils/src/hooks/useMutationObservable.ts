@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import debounce from 'lodash/debounce';
+import { useEffect, useState } from 'react';
 
 type Options = {
   config?: {

@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import * as React from 'react';
 
 import type { PaginationLabelProps } from './types';
 

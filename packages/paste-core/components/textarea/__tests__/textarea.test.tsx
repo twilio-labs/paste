@@ -1,5 +1,5 @@
+import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
 
 import { TextArea } from '../src';
 import { CustomizedTextarea, MultipleTextareas } from '../stories/textarea.stories';

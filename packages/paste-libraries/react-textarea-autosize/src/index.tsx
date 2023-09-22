@@ -4,8 +4,8 @@ import useComposedRef from 'use-composed-ref';
 import { calculateNodeHeight } from './calculateNodeHeight';
 import type { SizingData } from './getSizingData';
 import { getSizingData } from './getSizingData';
-import { useWindowResizeListener } from './useWindowResizeListener';
 import { useHiddenTextarea } from './useHiddenTextarea';
+import { useWindowResizeListener } from './useWindowResizeListener';
 
 type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 

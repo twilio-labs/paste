@@ -1,8 +1,8 @@
-import * as React from 'react';
-import type { LegacyRef } from 'react';
 import { Box } from '@twilio-paste/box';
 import { useTheme } from '@twilio-paste/theme';
 import { useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
+import type { LegacyRef } from 'react';
 
 interface SVGThumbProps {
   left: number;

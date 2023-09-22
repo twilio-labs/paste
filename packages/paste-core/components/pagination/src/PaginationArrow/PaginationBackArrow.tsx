@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Text } from '@twilio-paste/text';
 import { ArrowBackIcon } from '@twilio-paste/icons/esm/ArrowBackIcon';
+import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
+import type { PaginationArrowProps } from '../types';
 import { PaginationArrowButton } from './PaginationArrowButton';
 import { PaginationArrowIconWrapper } from './PaginationArrowIconWrapper';
-import type { PaginationArrowProps } from '../types';
 
 const PaginationBackArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
   (

@@ -1,9 +1,9 @@
-import { join } from 'path';
 import fs from 'fs';
+import { join } from 'path';
 
 import startcase from 'lodash/startCase';
 
-import { SVG_PATH, REACT_PATH } from './constants';
+import { REACT_PATH, SVG_PATH } from './constants';
 
 // Ramda-like general purpose functional pipe method
 const pipe =

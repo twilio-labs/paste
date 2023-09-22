@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { ThProps as TableThProps } from '@twilio-paste/table';
+import * as React from 'react';
 
 export interface ThProps extends TableThProps {
   onClick?: React.MouseEventHandler;

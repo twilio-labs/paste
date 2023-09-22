@@ -1,6 +1,6 @@
-import { filterWordList } from '../utils';
-import type { WordListShape } from '../types';
 import exampleWordList from '../__fixtures__/examples.json';
+import type { WordListShape } from '../types';
+import { filterWordList } from '../utils';
 
 describe('filterWordList', () => {
   const testWords = exampleWordList as WordListShape;

@@ -2,17 +2,17 @@ import fs from 'fs';
 import path from 'path';
 
 import { getRepoPackages } from '../../../../tools/utils/getRepoPackages';
-import { writeToFile } from '../../../../tools/utils/writeToFile';
 import { mkdir } from '../../../../tools/utils/mkdir';
-import type { PackageShape, PackageList } from './types';
+import { writeToFile } from '../../../../tools/utils/writeToFile';
 import {
+  BASE_CODESANDBOX_CI,
+  BLOCKLIST,
+  CODESANDBOX_CI_JSON_PATH,
+  PACKAGES_ROOT_PATH,
   getPackageName,
   getUnbarreledFileFullPath,
-  BLOCKLIST,
-  BASE_CODESANDBOX_CI,
-  PACKAGES_ROOT_PATH,
-  CODESANDBOX_CI_JSON_PATH,
 } from './constants';
+import type { PackageList, PackageShape } from './types';
 
 // Given a list of packages, output the index.tsx exports string
 function generateIndexFromPackageList(packageList: PackageList): string {

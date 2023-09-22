@@ -1,9 +1,9 @@
-import React from 'react';
-import { Box } from '@twilio-paste/box';
 import { secureExternalLink } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import React from 'react';
 
-import { FigmaIcon } from '../../icons/FigmaIcon';
 import { FIGMA_PROFILE_URL } from '../../../constants';
+import { FigmaIcon } from '../../icons/FigmaIcon';
 
 // eslint-disable-next-line no-empty-pattern
 const FigmaButton = React.forwardRef<HTMLDivElement>(({}, ref) => {

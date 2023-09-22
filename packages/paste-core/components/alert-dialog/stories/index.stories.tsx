@@ -1,22 +1,22 @@
-import * as React from 'react';
 import type { Story } from '@storybook/react';
-import { useUID } from '@twilio-paste/uid-library';
-import { Button } from '@twilio-paste/button';
-import { Heading } from '@twilio-paste/heading';
-import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from '@twilio-paste/modal';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
 import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Heading } from '@twilio-paste/heading';
+import { HelpText } from '@twilio-paste/help-text';
 import { Input } from '@twilio-paste/input';
 import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from '@twilio-paste/modal';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { AlertDialog } from '../src';
-import { AlertDialogHeader } from '../src/AlertDialogHeader';
 import { AlertDialogBody } from '../src/AlertDialogBody';
 import { AlertDialogContent } from '../src/AlertDialogContent';
 import { AlertDialogFooter } from '../src/AlertDialogFooter';
+import { AlertDialogHeader } from '../src/AlertDialogHeader';
 
 // eslint-disable-next-line import/no-default-export
 export default {

@@ -1,8 +1,8 @@
+import { act, render, screen } from '@testing-library/react';
 import * as React from 'react';
-import { render, screen, act } from '@testing-library/react';
 
-import { AccountSwitcherMenu } from '../stories/AccountSwitcher.stories';
 import { CustomElementName, DefaultElementName } from '../stories/AccountSwitcher.customization.stories';
+import { AccountSwitcherMenu } from '../stories/AccountSwitcher.stories';
 
 describe('AccountSwitcher', () => {
   describe('element naming', () => {

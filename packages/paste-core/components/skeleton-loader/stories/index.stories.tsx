@@ -1,17 +1,17 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { Avatar } from '@twilio-paste/avatar';
 import { Box } from '@twilio-paste/box';
 import { Button } from '@twilio-paste/button';
 import { Card } from '@twilio-paste/card';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { Heading } from '@twilio-paste/heading';
+import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { Stack } from '@twilio-paste/stack';
-import { Table, THead, TBody, Tr, Td, Th } from '@twilio-paste/table';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
+import { TBody, THead, Table, Td, Th, Tr } from '@twilio-paste/table';
 import { Text } from '@twilio-paste/text';
-import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import type { SkeletonLoaderProps } from '../src';
 import { SkeletonLoader } from '../src';

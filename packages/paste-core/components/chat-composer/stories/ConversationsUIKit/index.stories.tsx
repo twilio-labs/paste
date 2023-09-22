@@ -1,36 +1,36 @@
-import * as React from 'react';
-import {
-  MinimizableDialog,
-  MinimizableDialogButton,
-  MinimizableDialogContainer,
-  MinimizableDialogHeader,
-  MinimizableDialogContent,
-} from '@twilio-paste/minimizable-dialog';
-import { $getRoot, ClearEditorPlugin } from '@twilio-paste/lexical-library';
-import { ChatIcon } from '@twilio-paste/icons/esm/ChatIcon';
-import { Box } from '@twilio-paste/box';
 import type { StoryFn } from '@storybook/react';
+import { Avatar } from '@twilio-paste/avatar';
+import { Box } from '@twilio-paste/box';
 import {
-  ChatLogger,
-  useChatLogger,
-  ChatMessage,
-  ChatMessageMeta,
-  ChatMessageMetaItem,
-  ChatBubble,
   ChatAttachment,
-  ChatEvent,
   ChatAttachmentDescription,
   ChatAttachmentLink,
   ChatBookend,
   ChatBookendItem,
+  ChatBubble,
+  ChatEvent,
+  ChatLogger,
+  ChatMessage,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
   ComposerAttachmentCard,
+  useChatLogger,
 } from '@twilio-paste/chat-log';
-import { Avatar } from '@twilio-paste/avatar';
+import { ChatIcon } from '@twilio-paste/icons/esm/ChatIcon';
 import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
+import { $getRoot, ClearEditorPlugin } from '@twilio-paste/lexical-library';
 import type { EditorState } from '@twilio-paste/lexical-library';
+import {
+  MinimizableDialog,
+  MinimizableDialogButton,
+  MinimizableDialogContainer,
+  MinimizableDialogContent,
+  MinimizableDialogHeader,
+} from '@twilio-paste/minimizable-dialog';
+import * as React from 'react';
 
 import { ChatComposer } from '../../src';
-import { SendButtonPlugin, EnterKeySubmitPlugin, createNewMessage } from './helpers';
+import { EnterKeySubmitPlugin, SendButtonPlugin, createNewMessage } from './helpers';
 
 // eslint-disable-next-line import/no-default-export
 export default {

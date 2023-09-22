@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxStyleProps } from '@twilio-paste/box';
-import { styled, css } from '@twilio-paste/styling-library';
+import { css, styled } from '@twilio-paste/styling-library';
+import * as React from 'react';
 
 import type { TBodyProps } from './types';
 

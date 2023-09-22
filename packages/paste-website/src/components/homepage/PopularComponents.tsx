@@ -1,22 +1,22 @@
-import { useTheme } from '@twilio-paste/theme';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { Box } from '@twilio-paste/box';
-import { Grid, Column } from '@twilio-paste/grid';
+import { Column, Grid } from '@twilio-paste/grid';
 import { Heading } from '@twilio-paste/heading';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
 import Image from 'next/image';
 
-import {
-  ComponentCard,
-  ComponentCardHeader,
-  ComponentCardIllustration,
-  ComponentCardFooter,
-} from './PopularComponentCard';
-import { SiteLink } from '../SiteLink';
-import ComponentsIcon from '../icons/ComponentsIcon';
 import HomeButtonIllustration from '../../assets/illustrations/home_button_illustration.svg';
 import HomeComboboxIllustration from '../../assets/illustrations/home_combobox_illustration.svg';
 import { event } from '../../lib/gtag';
+import { SiteLink } from '../SiteLink';
+import ComponentsIcon from '../icons/ComponentsIcon';
+import {
+  ComponentCard,
+  ComponentCardFooter,
+  ComponentCardHeader,
+  ComponentCardIllustration,
+} from './PopularComponentCard';
 
 const PopularComponents = (): JSX.Element => {
   const theme = useTheme();

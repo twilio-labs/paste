@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { DisplayHeading } from '../src';
 

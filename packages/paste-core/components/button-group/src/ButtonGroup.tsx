@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
-import { styled, css } from '@twilio-paste/styling-library';
+import { css, styled } from '@twilio-paste/styling-library';
+import * as React from 'react';
 
 const AttachedStyled = styled.span(
   css({

@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { useUID } from '@twilio-paste/core/uid-library';
+import * as React from 'react';
 
 type PasteIconInverseProps = {
   className?: string;

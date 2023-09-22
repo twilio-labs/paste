@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
 import type { AnchorProps } from './types';
 

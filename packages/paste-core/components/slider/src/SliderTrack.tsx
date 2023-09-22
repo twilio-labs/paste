@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { Box, type BoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
 import { getColorToken } from './helpers';
 import type { UIStates } from './types';

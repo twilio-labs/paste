@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { SelectedIcon } from '@twilio-paste/icons/esm/SelectedIcon';
-import { useTheme } from '@twilio-paste/theme';
 import type { TextColor } from '@twilio-paste/style-props';
+import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 const getSwitchKnobTransformValue = (disabled: boolean, checked: boolean, isHovering: boolean): string => {
   if (!disabled) {

@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxElementProps } from '@twilio-paste/box';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 export interface ModalFooterProps extends HTMLPasteProps<'div'> {
   children: NonNullable<React.ReactNode>;

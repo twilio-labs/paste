@@ -1,19 +1,19 @@
-import * as React from 'react';
 import { Button } from '@twilio-paste/button';
 import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
 import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
 import { NeutralIcon } from '@twilio-paste/icons/esm/NeutralIcon';
 import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
 import { WarningIcon } from '@twilio-paste/icons/esm/WarningIcon';
-import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import * as React from 'react';
 
 import { ErrorToast } from './ErrorToast';
 import { NeutralToast } from './NeutralToast';
 import { SuccessToast } from './SuccessToast';
 import { WarningToast } from './WarningToast';
-import type { ToastProps, ToastVariants } from './types';
 import { ToastVariantObject } from './constants';
+import type { ToastProps, ToastVariants } from './types';
 
 const ToastComponentVariants = {
   error: ErrorToast,

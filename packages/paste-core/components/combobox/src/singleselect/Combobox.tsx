@@ -1,24 +1,24 @@
-import * as React from 'react';
-import { useVirtual } from 'react-virtual';
-import { useUID } from '@twilio-paste/uid-library';
-import { useWindowSize } from '@twilio-paste/utils';
-import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
 import { Box } from '@twilio-paste/box';
-import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '@twilio-paste/input-box';
-import { Label } from '@twilio-paste/label';
 import { HelpText } from '@twilio-paste/help-text';
 import type { HelpTextVariants } from '@twilio-paste/help-text';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
 import type { InputVariants } from '@twilio-paste/input';
+import { InputBox, InputChevronWrapper, getInputChevronIconColor } from '@twilio-paste/input-box';
+import { Label } from '@twilio-paste/label';
 import { Portal } from '@twilio-paste/reakit-library';
+import { useUID } from '@twilio-paste/uid-library';
+import { useWindowSize } from '@twilio-paste/utils';
+import * as React from 'react';
+import { useVirtual } from 'react-virtual';
 
+import { ComboboxItems } from '../ComboboxItems';
+import { ListBoxPositioner } from '../ListboxPositioner';
+import { visuallyHiddenStyles } from '../helpers';
 import { ComboboxInputSelect } from '../styles/ComboboxInputSelect';
 import { ComboboxInputWrapper } from '../styles/ComboboxInputWrapper';
 import { ComboboxListbox } from '../styles/ComboboxListbox';
-import { ComboboxItems } from '../ComboboxItems';
 import type { ComboboxProps } from '../types';
 import { extractPropsFromState } from './extractPropsFromState';
-import { ListBoxPositioner } from '../ListboxPositioner';
-import { visuallyHiddenStyles } from '../helpers';
 
 const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
   if (hasError && variant === 'inverse') {

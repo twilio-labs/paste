@@ -1,9 +1,9 @@
-import * as React from 'react';
-import { Box, type BoxProps } from '@twilio-paste/box';
-import type { HTMLPasteProps } from '@twilio-paste/types';
-import { useProgressBar } from '@twilio-paste/react-spectrum-library';
 import { animated, useSpring } from '@twilio-paste/animation-library';
+import { Box, type BoxProps } from '@twilio-paste/box';
+import { useProgressBar } from '@twilio-paste/react-spectrum-library';
 import { keyframes } from '@twilio-paste/styling-library';
+import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { LABEL_SUFFIX } from './constants';
 

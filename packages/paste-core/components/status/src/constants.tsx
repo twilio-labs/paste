@@ -1,4 +1,8 @@
-import * as React from 'react';
+import { ConnectivityAvailableIcon } from '@twilio-paste/icons/esm/ConnectivityAvailableIcon';
+import { ConnectivityBusyIcon } from '@twilio-paste/icons/esm/ConnectivityBusyIcon';
+import { ConnectivityNeutralIcon } from '@twilio-paste/icons/esm/ConnectivityNeutralIcon';
+import { ConnectivityOfflineIcon } from '@twilio-paste/icons/esm/ConnectivityOfflineIcon';
+import { ConnectivityUnavailableIcon } from '@twilio-paste/icons/esm/ConnectivityUnavailableIcon';
 import { ProcessDisabledIcon } from '@twilio-paste/icons/esm/ProcessDisabledIcon';
 import { ProcessDraftIcon } from '@twilio-paste/icons/esm/ProcessDraftIcon';
 import { ProcessErrorIcon } from '@twilio-paste/icons/esm/ProcessErrorIcon';
@@ -6,11 +10,7 @@ import { ProcessInProgressIcon } from '@twilio-paste/icons/esm/ProcessInProgress
 import { ProcessNeutralIcon } from '@twilio-paste/icons/esm/ProcessNeutralIcon';
 import { ProcessSuccessIcon } from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import { ProcessWarningIcon } from '@twilio-paste/icons/esm/ProcessWarningIcon';
-import { ConnectivityAvailableIcon } from '@twilio-paste/icons/esm/ConnectivityAvailableIcon';
-import { ConnectivityBusyIcon } from '@twilio-paste/icons/esm/ConnectivityBusyIcon';
-import { ConnectivityUnavailableIcon } from '@twilio-paste/icons/esm/ConnectivityUnavailableIcon';
-import { ConnectivityOfflineIcon } from '@twilio-paste/icons/esm/ConnectivityOfflineIcon';
-import { ConnectivityNeutralIcon } from '@twilio-paste/icons/esm/ConnectivityNeutralIcon';
+import * as React from 'react';
 
 import type { StatusBadges } from './types';
 

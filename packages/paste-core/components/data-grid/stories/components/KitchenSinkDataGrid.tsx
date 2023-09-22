@@ -1,29 +1,29 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
+import { Checkbox, CheckboxGroup } from '@twilio-paste/checkbox';
 import { Input } from '@twilio-paste/input';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { CheckboxGroup, Checkbox } from '@twilio-paste/checkbox';
-import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
 import {
   Pagination,
-  PaginationItems,
   PaginationArrow,
-  PaginationNumbers,
-  PaginationNumber,
   PaginationEllipsis,
+  PaginationItems,
+  PaginationNumber,
+  PaginationNumbers,
 } from '@twilio-paste/pagination';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import type { SortDirection } from '../../src';
 import {
   DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
-  DataGridHeaderSort,
   DataGridBody,
   DataGridCell,
+  DataGridHead,
+  DataGridHeader,
+  DataGridHeaderSort,
+  DataGridRow,
 } from '../../src';
-import { TableHeaderData, PaginatedTableBodyData } from './constants';
+import { PaginatedTableBodyData, TableHeaderData } from './constants';
 
 // Sorting function
 const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId: number): number => {

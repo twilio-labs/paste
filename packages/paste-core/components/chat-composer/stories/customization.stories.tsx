@@ -1,7 +1,7 @@
-import * as React from 'react';
+import type { StoryFn } from '@storybook/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { useTheme } from '@twilio-paste/theme';
-import type { StoryFn } from '@storybook/react';
+import * as React from 'react';
 
 import { ChatComposer } from '../src';
 import type { ChatComposerProps } from '../src';

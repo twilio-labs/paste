@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { ThemeVariants, useThemeContrastCheck } from '@twilio-paste/core/theme';
 import { Box } from '@twilio-paste/core/box';
-import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/core/media-object';
-import { SuccessIcon } from '@twilio-paste/icons/cjs/SuccessIcon';
 import { Heading } from '@twilio-paste/core/heading';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/core/media-object';
+import { ThemeVariants, useThemeContrastCheck } from '@twilio-paste/core/theme';
 import { ErrorIcon } from '@twilio-paste/icons/cjs/ErrorIcon';
+import { SuccessIcon } from '@twilio-paste/icons/cjs/SuccessIcon';
+import * as React from 'react';
 
 import { SelectedThemeContext } from '../App';
 import { ThemeSelector } from './ThemeSelector';

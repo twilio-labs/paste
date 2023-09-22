@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { Stack } from '@twilio-paste/stack';
 import { Box } from '@twilio-paste/box';
-import { Grid, Column } from '@twilio-paste/grid';
-import { useUIDSeed } from '@twilio-paste/uid-library';
 import { Button } from '@twilio-paste/button';
+import { Column, Grid } from '@twilio-paste/grid';
 import { CheckboxCheckIcon } from '@twilio-paste/icons/esm/CheckboxCheckIcon';
-import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
 import { MinusIcon } from '@twilio-paste/icons/esm/MinusIcon';
+import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
+import { Stack } from '@twilio-paste/stack';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { useListboxPrimitiveState, ListboxPrimitive, ListboxPrimitiveGroup, ListboxPrimitiveItem } from '../src';
+import { ListboxPrimitive, ListboxPrimitiveGroup, ListboxPrimitiveItem, useListboxPrimitiveState } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

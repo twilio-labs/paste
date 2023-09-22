@@ -1,10 +1,10 @@
-import { Heading } from '@twilio-paste/heading';
-import { Column, Grid } from '@twilio-paste/grid';
-import { Card } from '@twilio-paste/card';
-import { Paragraph } from '@twilio-paste/paragraph';
 import { Anchor } from '@twilio-paste/anchor';
-import { useTheme } from '@twilio-paste/theme';
+import { Card } from '@twilio-paste/card';
+import { Column, Grid } from '@twilio-paste/grid';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
 import { css } from '@twilio-paste/styling-library';
+import { useTheme } from '@twilio-paste/theme';
 
 import { LandingPageSection, LandingPageSectionContent } from './LandingPageLayoutUtils';
 

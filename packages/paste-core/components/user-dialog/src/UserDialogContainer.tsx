@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { useNonModalDialogPrimitiveState } from '@twilio-paste/non-modal-dialog-primitive';
 import type {
-  NonModalDialogPrimitiveStateReturn,
   NonModalDialogPrimitivePopoverInitialState,
+  NonModalDialogPrimitiveStateReturn,
 } from '@twilio-paste/non-modal-dialog-primitive';
+import * as React from 'react';
 
 import type { UserDialogContainerProps, UserDialogContextProps } from './types';
 

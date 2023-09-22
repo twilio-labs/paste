@@ -1,5 +1,3 @@
-import * as React from 'react';
-import type { ValueOf } from '@twilio-paste/types';
 import {
   StatusMenu,
   StatusMenuBadge,
@@ -7,6 +5,8 @@ import {
   StatusMenuItemRadio,
   useStatusMenuState,
 } from '@twilio-paste/status';
+import type { ValueOf } from '@twilio-paste/types';
+import * as React from 'react';
 
 const ConnectivityObject = {
   Available: {

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
+import * as React from 'react';
 
 import { DefaultAnchor } from './DefaultAnchor';
 import { InverseAnchor } from './InverseAnchor';

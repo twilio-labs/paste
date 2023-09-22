@@ -1,14 +1,14 @@
-import * as React from 'react';
-import { useMergeRefs } from '@twilio-paste/utils';
 import { Box } from '@twilio-paste/box';
 import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
 import { InputBox } from '@twilio-paste/input-box';
 import type { InputBoxTypes } from '@twilio-paste/input-box';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import { useMergeRefs } from '@twilio-paste/utils';
+import * as React from 'react';
 
-import { safelySpreadFormControlProps } from './utils';
 import { DecrementButton } from './DecrementButton';
 import { IncrementButton } from './IncrementButton';
+import { safelySpreadFormControlProps } from './utils';
 
 export type InputVariants = 'default' | 'inverse';
 

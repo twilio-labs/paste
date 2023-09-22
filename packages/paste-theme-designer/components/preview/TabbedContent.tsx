@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/core/uid-library';
 import { Box } from '@twilio-paste/core/box';
 import { Heading } from '@twilio-paste/core/heading';
 import { Separator } from '@twilio-paste/core/separator';
 import { Stack } from '@twilio-paste/core/stack';
-import { Tabs, Tab, TabList, TabPanel, TabPanels } from '@twilio-paste/core/tabs';
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@twilio-paste/core/tabs';
+import { useUID } from '@twilio-paste/core/uid-library';
+import * as React from 'react';
 
 import { AlertPreview } from './AlertPreview';
 import { AnchorPreview } from './AnchorPreview';

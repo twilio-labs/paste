@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { SelectedIcon } from '@twilio-paste/icons/esm/SelectedIcon';
 import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
+import { SelectedIcon } from '@twilio-paste/icons/esm/SelectedIcon';
 import type { PositionOptions } from '@twilio-paste/style-props';
+import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 import type { VirtualItem } from 'react-virtual';
 
 export interface ComboboxListboxOptionProps extends Pick<BoxProps, 'element'> {

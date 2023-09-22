@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Avatar } from '@twilio-paste/core/avatar';
 import { Stack } from '@twilio-paste/core/stack';
+import * as React from 'react';
 
 const AvatarPreview = (): JSX.Element => {
   return (

@@ -1,14 +1,14 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
+import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import { ColorPickerIcon } from '@twilio-paste/icons/esm/ColorPickerIcon';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { Popover, PopoverButton, PopoverContainer } from '@twilio-paste/popover';
 import { useTheme } from '@twilio-paste/theme';
 import { useUIDSeed } from '@twilio-paste/uid-library';
-import { PopoverContainer, PopoverButton, Popover } from '@twilio-paste/popover';
-import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
-import { Label } from '@twilio-paste/label';
+import * as React from 'react';
 import { ChromePicker } from 'react-color';
 import type { ColorChangeHandler, ColorResult } from 'react-color';
-import { Input } from '@twilio-paste/input';
-import { ColorPickerIcon } from '@twilio-paste/icons/esm/ColorPickerIcon';
 
 import type { DesignerContextProps } from './DesignerContext';
 

@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useUID } from '@twilio-paste/uid-library';
-import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
-import { useTheme } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
 import { Box } from '@twilio-paste/box';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { HelpText } from '@twilio-paste/help-text';
+import { Label } from '@twilio-paste/label';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { FilePicker, FilePickerButton } from '../src';
 

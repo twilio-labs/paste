@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { Table, THead, TBody, TFoot, Td, Tr, Th } from '../src';
+import { TBody, TFoot, THead, Table, Td, Th, Tr } from '../src';
 
 describe('Table', () => {
   it('should render a default table', (): void => {

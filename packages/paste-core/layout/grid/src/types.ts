@@ -1,6 +1,6 @@
 import type { BoxProps } from '@twilio-paste/box';
+import type { FlexboxProps, LayoutProps, Padding, PaddingProps, Space, SpaceProps } from '@twilio-paste/style-props';
 import type { ResponsiveValue } from '@twilio-paste/styling-library';
-import type { LayoutProps, FlexboxProps, PaddingProps, Space, Padding, SpaceProps } from '@twilio-paste/style-props';
 import type { HTMLPasteProps } from '@twilio-paste/types';
 
 /** element identifier from BoxProps for customization */

@@ -1,7 +1,7 @@
-import * as React from 'react';
+import { Box } from '@twilio-paste/box';
 import Image from 'next/image';
 import type { ImageProps } from 'next/image';
-import { Box } from '@twilio-paste/box';
+import * as React from 'react';
 
 const ResponsiveImage: React.FC<ImageProps> = (props) => {
   return (

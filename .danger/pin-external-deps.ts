@@ -1,5 +1,5 @@
-import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL';
 import fs from 'fs';
+import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL';
 import { getPackJsonsFromFiles } from './utils';
 
 // you kind of have to treat Danger plugins as global?

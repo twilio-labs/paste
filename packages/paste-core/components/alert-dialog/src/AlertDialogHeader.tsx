@@ -1,8 +1,8 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
 import { Heading } from '@twilio-paste/heading';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 export interface AlertDialogHeaderProps extends HTMLPasteProps<'header'>, Pick<BoxProps, 'element'> {
   children: string;

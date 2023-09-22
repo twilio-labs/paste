@@ -1,23 +1,23 @@
-import * as React from 'react';
-import { CustomizationProvider } from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
 import { Avatar } from '@twilio-paste/avatar';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
 import { useTheme } from '@twilio-paste/theme';
-import type { StoryFn } from '@storybook/react';
+import * as React from 'react';
 
 import {
-  ChatMessage,
-  ChatBubble,
-  ChatMessageMeta,
-  ChatMessageMetaItem,
   ChatAttachment,
-  ComposerAttachmentCard,
-  ChatAttachmentLink,
   ChatAttachmentDescription,
+  ChatAttachmentLink,
   ChatBookend,
   ChatBookendItem,
+  ChatBubble,
   ChatEvent,
   ChatLog,
+  ChatMessage,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
+  ComposerAttachmentCard,
 } from '../src';
 
 // eslint-disable-next-line import/no-default-export

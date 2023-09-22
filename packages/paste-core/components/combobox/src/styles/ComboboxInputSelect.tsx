@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { InputElement } from '@twilio-paste/input';
+import * as React from 'react';
 
 import type { ComboboxProps } from '../types';
 

@@ -1,10 +1,10 @@
+import { IconWrapper } from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import type { IconWrapperProps } from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import { useUID } from '@twilio-paste/uid-library';
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
-import { IconWrapper } from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import type { IconWrapperProps } from '@twilio-paste/icons/esm/helpers/IconWrapper';
 
 export interface ProgressCurrentIconProps extends IconWrapperProps {
   title?: string;

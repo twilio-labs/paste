@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { useDisclosurePrimitiveState } from '@twilio-paste/disclosure-primitive';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import type { BoxProps } from '@twilio-paste/box';
+import { useDisclosurePrimitiveState } from '@twilio-paste/disclosure-primitive';
 import type { DisclosurePrimitiveInitialState } from '@twilio-paste/disclosure-primitive';
+import * as React from 'react';
 
 import { SidebarContext } from '../SidebarContext';
 import { SidebarNavigationDisclosureContext } from './SidebarNavigationDisclosureContext';

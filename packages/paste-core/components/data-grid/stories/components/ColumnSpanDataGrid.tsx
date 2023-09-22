@@ -1,7 +1,7 @@
-import * as React from 'react';
 import type { BoxProps } from '@twilio-paste/box';
+import * as React from 'react';
 
-import { DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell } from '../../src';
+import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from '../../src';
 import { TableBodyData } from './constants';
 
 export const ColumnSpanDataGrid: React.FC<React.PropsWithChildren<{ element?: BoxProps['element'] }>> = ({

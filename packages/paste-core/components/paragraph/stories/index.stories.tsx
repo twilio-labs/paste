@@ -1,8 +1,8 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { Stack } from '@twilio-paste/stack';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Paragraph } from '../src';
 

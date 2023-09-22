@@ -1,6 +1,6 @@
-import { Paragraph } from '@twilio-paste/paragraph';
-import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
 import { Anchor } from '@twilio-paste/anchor';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { Paragraph } from '@twilio-paste/paragraph';
 
 import { ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo } from './ProjectCard';
 

@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
 import type { PaginationNumberProps } from './types';
 import { handleLinkValidation } from './utils';

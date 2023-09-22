@@ -1,36 +1,36 @@
-import * as React from 'react';
-import { Button } from '@twilio-paste/button';
-import { Box } from '@twilio-paste/box';
 import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
 import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
 import { InPageNavigation, InPageNavigationItem } from '@twilio-paste/in-page-navigation';
+import { Topbar, TopbarActions } from '@twilio-paste/topbar';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
 import { useUID } from '@twilio-paste/uid-library';
-import { Topbar, TopbarActions } from '@twilio-paste/topbar';
+import * as React from 'react';
 
 import {
   Sidebar,
   SidebarBody,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
   SidebarCollapseButton,
   SidebarFooter,
-  SidebarPushContentWrapper,
+  SidebarHeader,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
   SidebarNavigation,
   SidebarNavigationDisclosure,
-  SidebarNavigationDisclosureHeadingWrapper,
-  SidebarNavigationDisclosureHeading,
   SidebarNavigationDisclosureContent,
+  SidebarNavigationDisclosureHeading,
+  SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationItem,
+  SidebarPushContentWrapper,
 } from '../../src';
+import { AppSwitcher } from './components/AppSwitcher';
+import { NotificationsDialog } from './components/NotificationsDialog';
 import { SearchBox } from './components/SearchBox';
 import { SupportMenu } from './components/SupportMenu';
-import { NotificationsDialog } from './components/NotificationsDialog';
-import { AppSwitcher } from './components/AppSwitcher';
+import { UpgradeBadge } from './components/UpgradeBadge';
 import { UserDialogExample } from './components/UserDialogSegment';
 import { WorkspaceSwitcherMenu } from './components/WorkspaceSwitcher';
-import { UpgradeBadge } from './components/UpgradeBadge';
 
 // eslint-disable-next-line import/no-default-export
 export default {

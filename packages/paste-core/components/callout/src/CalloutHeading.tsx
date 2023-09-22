@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Text, safelySpreadTextProps } from '@twilio-paste/text';
-import type { asTags } from '@twilio-paste/heading';
 import type { BoxProps } from '@twilio-paste/box';
+import type { asTags } from '@twilio-paste/heading';
+import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import * as React from 'react';
 
 export interface CalloutHeadingProps extends Partial<Omit<HTMLHeadingElement, 'children'>> {
   as?: asTags;

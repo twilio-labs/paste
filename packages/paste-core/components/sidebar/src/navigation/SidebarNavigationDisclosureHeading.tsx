@@ -1,16 +1,16 @@
-import * as React from 'react';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { ChevronDisclosureIcon } from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
-import { DisclosurePrimitive } from '@twilio-paste/disclosure-primitive';
 import type { BoxProps } from '@twilio-paste/box';
+import { DisclosurePrimitive } from '@twilio-paste/disclosure-primitive';
+import { ChevronDisclosureIcon } from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { SidebarContext } from '../SidebarContext';
 import { SidebarNavigationDisclosureContext } from './SidebarNavigationDisclosureContext';
 import {
-  sidebarNavigationLabelStyles,
   sidebarNavigationLabelNestedStyles,
   sidebarNavigationLabelSelectedStyles,
+  sidebarNavigationLabelStyles,
 } from './styles';
 
 export interface SidebarNavigationDisclosureHeadingProps extends React.ComponentPropsWithRef<'div'> {

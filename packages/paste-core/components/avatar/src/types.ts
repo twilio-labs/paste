@@ -1,6 +1,6 @@
-import type { IconSize } from '@twilio-paste/style-props';
-import type { GenericIconProps } from '@twilio-paste/icons/esm/types';
 import type { BoxProps } from '@twilio-paste/box';
+import type { GenericIconProps } from '@twilio-paste/icons/esm/types';
+import type { IconSize } from '@twilio-paste/style-props';
 import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export type ColorVariants = 'default' | 'decorative10' | 'decorative20' | 'decorative30' | 'decorative40';

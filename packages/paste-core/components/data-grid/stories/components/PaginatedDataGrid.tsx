@@ -1,19 +1,19 @@
-import * as React from 'react';
 import { Box } from '@twilio-paste/box';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { CheckboxGroup, Checkbox } from '@twilio-paste/checkbox';
-import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import { Checkbox, CheckboxGroup } from '@twilio-paste/checkbox';
 import {
   Pagination,
-  PaginationItems,
   PaginationArrow,
-  PaginationNumbers,
-  PaginationNumber,
   PaginationEllipsis,
+  PaginationItems,
+  PaginationNumber,
+  PaginationNumbers,
 } from '@twilio-paste/pagination';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
-import { DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell } from '../../src';
-import { TableHeaderData, PaginatedTableBodyData } from './constants';
+import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from '../../src';
+import { PaginatedTableBodyData, TableHeaderData } from './constants';
 
 const getRange = (start: number, end: number): number[] => {
   return [...new Array(end - start + 1)].map((_, index) => index + start);

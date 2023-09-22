@@ -1,18 +1,18 @@
-import * as React from 'react';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import {
   FileUploader,
-  FileUploaderItem,
-  FileUploaderItemsList,
-  FileUploaderItemDescription,
-  FileUploaderItemTitle,
   FileUploaderDropzone,
   FileUploaderDropzoneText,
-  FileUploaderLabel,
-  FileUploaderHelpText,
   FileUploaderErrorText,
+  FileUploaderHelpText,
+  FileUploaderItem,
+  FileUploaderItemDescription,
+  FileUploaderItemTitle,
+  FileUploaderItemsList,
+  FileUploaderLabel,
 } from '../src';
 import { arrayToCsv } from '../src/utils';
 

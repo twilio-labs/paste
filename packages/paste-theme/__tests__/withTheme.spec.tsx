@@ -1,7 +1,7 @@
+import { act, render } from '@testing-library/react';
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
 import { createRoot } from 'testing-tools/react-dom-create-root';
-import { render, act } from '@testing-library/react';
 
 import type { ThemeShape } from '../src';
 import { Theme, withTheme } from '../src';

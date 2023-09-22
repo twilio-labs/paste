@@ -1,9 +1,9 @@
-import * as React from 'react';
 import type {
-  NonModalDialogPrimitiveStateReturn as SideModalStateReturn,
   NonModalDialogPrimitivePopoverInitialState,
+  NonModalDialogPrimitiveStateReturn as SideModalStateReturn,
 } from '@twilio-paste/non-modal-dialog-primitive';
 import { useNonModalDialogPrimitiveState } from '@twilio-paste/non-modal-dialog-primitive';
+import * as React from 'react';
 
 import { SideModalContext } from './SideModalContext';
 

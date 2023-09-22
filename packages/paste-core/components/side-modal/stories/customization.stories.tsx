@@ -1,19 +1,19 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
+import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { useTheme } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { Button } from '@twilio-paste/button';
+import * as React from 'react';
 
 import {
   SideModal,
-  SideModalButton,
-  SideModalHeader,
-  SideModalHeading,
-  SideModalContainer,
   SideModalBody,
+  SideModalButton,
+  SideModalContainer,
   SideModalFooter,
   SideModalFooterActions,
+  SideModalHeader,
+  SideModalHeading,
 } from '../src';
 // eslint-disable-next-line import/no-default-export
 export default {

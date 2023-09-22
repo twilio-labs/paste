@@ -1,14 +1,14 @@
-import * as React from 'react';
 import type { BoxProps } from '@twilio-paste/box';
-import type { HTMLPasteProps, ValueOf } from '@twilio-paste/types';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
-import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
 import { Button } from '@twilio-paste/button';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
 import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
 import { NeutralIcon } from '@twilio-paste/icons/esm/NeutralIcon';
 import { WarningIcon } from '@twilio-paste/icons/esm/WarningIcon';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import type { HTMLPasteProps, ValueOf } from '@twilio-paste/types';
+import * as React from 'react';
 
 type AlertVariantKeys = 'ERROR' | 'NEUTRAL' | 'WARNING';
 

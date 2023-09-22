@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
 import { Card } from '@twilio-paste/card';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import type { StackOrientation } from '../src';
-import { getStackDisplay, getStackStyles, getStackChildMargins, Stack } from '../src/Stack';
+import { Stack, getStackChildMargins, getStackDisplay, getStackStyles } from '../src/Stack';
 
 describe('Stack Unit Tests', () => {
   const mockHorizontalOrientation = 'horizontal';

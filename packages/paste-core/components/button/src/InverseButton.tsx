@@ -1,9 +1,9 @@
-import * as React from 'react';
 import type { BoxStyleProps } from '@twilio-paste/box';
 import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import merge from 'deepmerge';
+import * as React from 'react';
 
-import { SizeStyles, BaseStyles } from './styles';
+import { BaseStyles, SizeStyles } from './styles';
 import type { DirectButtonProps } from './types';
 
 /*

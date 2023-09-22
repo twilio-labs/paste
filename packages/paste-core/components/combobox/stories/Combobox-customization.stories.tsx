@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { Stack } from '@twilio-paste/stack';
-import { CustomizationProvider } from '@twilio-paste/customization';
 import { Card } from '@twilio-paste/card';
-import { Text } from '@twilio-paste/text';
+import { CustomizationProvider } from '@twilio-paste/customization';
 import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
 import { useTheme } from '@twilio-paste/theme';
+import * as React from 'react';
 
 import { Combobox } from '../src';
 

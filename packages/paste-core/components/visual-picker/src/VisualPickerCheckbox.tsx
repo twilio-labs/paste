@@ -1,11 +1,11 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
-import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import { BaseRadioCheckboxControl, BaseRadioCheckboxLabel } from '@twilio-paste/base-radio-checkbox';
-import { HiddenCheckbox, CheckboxIcon } from '@twilio-paste/checkbox';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { CheckboxIcon, HiddenCheckbox } from '@twilio-paste/checkbox';
 import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
-import { useMergeRefs } from '@twilio-paste/utils';
 import { type BorderColor } from '@twilio-paste/style-props';
+import { useUID } from '@twilio-paste/uid-library';
+import { useMergeRefs } from '@twilio-paste/utils';
+import * as React from 'react';
 
 import { VisualPickerCheckboxContext } from './VisualPickerContext';
 import { type VisualPickerCheckboxProps } from './types';

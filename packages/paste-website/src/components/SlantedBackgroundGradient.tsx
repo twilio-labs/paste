@@ -1,8 +1,8 @@
-import * as React from 'react';
 import type { BackgroundColorOptions } from '@twilio-paste/style-props';
-import { useTheme } from '@twilio-paste/theme';
 import { css } from '@twilio-paste/styling-library';
+import { useTheme } from '@twilio-paste/theme';
 import { useWindowSize } from '@twilio-paste/utils';
+import * as React from 'react';
 
 // https://codepen.io/enbee81/full/yLyrmyg
 const getSkewOffset = (width: number, skewAngle: number): number => Math.floor((Math.tan(skewAngle) * width) / 2);

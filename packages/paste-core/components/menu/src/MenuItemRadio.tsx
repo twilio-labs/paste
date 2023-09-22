@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { MenuPrimitiveItemRadio } from '@twilio-paste/menu-primitive';
+import * as React from 'react';
 
-import type { MenuItemRadioProps } from './types';
 import { MenuGroupContext } from './MenuGroup';
-import { MenuItemVariants } from './constants';
 import { StyledMenuItem, getComputedVariant } from './MenuItem.styles';
+import { MenuItemVariants } from './constants';
+import type { MenuItemRadioProps } from './types';
 
 const MenuItemRadio = React.forwardRef<HTMLDivElement, MenuItemRadioProps>(
   ({ as = StyledMenuItem, variant: _variant, element = 'MENU_ITEM_RADIO', ...props }, ref) => {

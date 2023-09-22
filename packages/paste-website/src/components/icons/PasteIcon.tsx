@@ -1,14 +1,14 @@
-import * as React from 'react';
 import type {
-  TextColorOptions,
   DisplayOptions,
-  PositionOptions,
-  TopOptions,
   LeftOptions,
   OpacityProperty,
+  PositionOptions,
+  TextColorOptions,
+  TopOptions,
   TransitionProperty,
 } from '@twilio-paste/style-props';
 import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 export interface PasteIconProps {
   decorative?: boolean;

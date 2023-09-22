@@ -12,19 +12,19 @@
  *
  * Please set these in your .env file and on your deployment boxes configuration.
  */
-import type {NextRequest} from 'next/server';
-import {createClient} from '@supabase/supabase-js';
+import { createClient } from '@supabase/supabase-js';
+import { OpenAIStream, StreamingTextResponse } from 'ai';
 // @ts-expect-error not typed
-import {codeBlock, oneLine} from 'common-tags';
+import { codeBlock, oneLine } from 'common-tags';
 import GPT3Tokenizer from 'gpt3-tokenizer';
+import type { NextRequest } from 'next/server';
 import {
-  Configuration,
-  OpenAIApi,
-  type CreateModerationResponse,
-  type CreateEmbeddingResponse,
   type ChatCompletionRequestMessage,
+  Configuration,
+  type CreateEmbeddingResponse,
+  type CreateModerationResponse,
+  OpenAIApi,
 } from 'openai-edge';
-import {OpenAIStream, StreamingTextResponse} from 'ai';
 
 class ApplicationError extends Error {
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
@@ -69,7 +69,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new UserError('Missing request data');
     }
 
-    const {prompt: query, secret} = requestData;
+    const { prompt: query, secret } = requestData;
 
     if (!secret || secret !== openAiSecret) {
       throw new UserError("Incorrect 'secret' in request data");
@@ -84,7 +84,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
     // Moderate the content to comply with OpenAI T&C
     const sanitizedQuery = query.trim();
     const moderationResponse: CreateModerationResponse = await openai
-      .createModeration({input: sanitizedQuery})
+      .createModeration({ input: sanitizedQuery })
       .then((res: any) => res.json());
 
     // @ts-expect-error this is a bug in the types
@@ -112,10 +112,10 @@ export default async function handler(req: NextRequest): Promise<void | Response
     }
 
     const {
-      data: [{embedding}],
+      data: [{ embedding }],
     }: CreateEmbeddingResponse = await embeddingResponse.json();
 
-    const {error: matchError, data: pageSections} = await supabaseClient.rpc('match_page_sections', {
+    const { error: matchError, data: pageSections } = await supabaseClient.rpc('match_page_sections', {
       embedding,
       /* eslint-disable camelcase */
       match_threshold: 0.78,
@@ -128,12 +128,12 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError('Failed to match page sections', matchError);
     }
 
-    const tokenizer = new GPT3Tokenizer({type: 'gpt3'});
+    const tokenizer = new GPT3Tokenizer({ type: 'gpt3' });
     let tokenCount = 0;
     let contextText = '';
 
     // eslint-disable-next-line unicorn/no-for-loop
-    for (const {content} of pageSections) {
+    for (const { content } of pageSections) {
       const encoded = tokenizer.encode(content);
       tokenCount += encoded.text.length;
 
@@ -197,8 +197,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
         }),
         {
           status: 400,
-          headers: {'Content-Type': 'application/json'},
-        }
+          headers: { 'Content-Type': 'application/json' },
+        },
       );
     } else if (error instanceof ApplicationError) {
       // Print out application errors with their additional data
@@ -216,8 +216,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
       }),
       {
         status: 500,
-        headers: {'Content-Type': 'application/json'},
-      }
+        headers: { 'Content-Type': 'application/json' },
+      },
     );
   }
 }

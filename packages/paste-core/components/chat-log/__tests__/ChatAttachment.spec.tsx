@@ -1,12 +1,12 @@
-import * as React from 'react';
-import { screen, render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { Spinner } from '@twilio-paste/spinner';
 import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
+import { Spinner } from '@twilio-paste/spinner';
 import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { ChatAttachment, ChatAttachmentLink, ChatAttachmentDescription, ComposerAttachmentCard } from '../src';
+import { ChatAttachment, ChatAttachmentDescription, ChatAttachmentLink, ComposerAttachmentCard } from '../src';
 
 const customizedElements: { [key: string]: PasteCustomCSS } = {
   COMPOSER_ATTACHMENT_CARD: {

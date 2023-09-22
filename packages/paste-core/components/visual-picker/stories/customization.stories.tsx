@@ -1,19 +1,19 @@
+import { Anchor } from '@twilio-paste/anchor';
+import { Avatar, AvatarGroup } from '@twilio-paste/avatar';
+import { Box } from '@twilio-paste/box';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { CodeIcon } from '@twilio-paste/icons/esm/CodeIcon';
+import { CommunityIcon } from '@twilio-paste/icons/esm/CommunityIcon';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/media-object';
+import { StatusBadge } from '@twilio-paste/status';
+import { Text } from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import { useUID } from '@twilio-paste/uid-library';
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
 import * as React from 'react';
-import { Anchor } from '@twilio-paste/anchor';
-import { Text } from '@twilio-paste/text';
-import { useUID } from '@twilio-paste/uid-library';
-import { Avatar, AvatarGroup } from '@twilio-paste/avatar';
-import { StatusBadge } from '@twilio-paste/status';
-import { CodeIcon } from '@twilio-paste/icons/esm/CodeIcon';
-import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/media-object';
-import { Box } from '@twilio-paste/box';
-import { CommunityIcon } from '@twilio-paste/icons/esm/CommunityIcon';
-import { CustomizationProvider } from '@twilio-paste/customization';
-import { useTheme } from '@twilio-paste/theme';
 
-import { VisualPickerRadioGroup, VisualPickerRadio, VisualPickerCheckboxGroup, VisualPickerCheckbox } from '../src';
+import { VisualPickerCheckbox, VisualPickerCheckboxGroup, VisualPickerRadio, VisualPickerRadioGroup } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

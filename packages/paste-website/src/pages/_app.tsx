@@ -1,20 +1,20 @@
-import * as React from 'react';
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import Script from 'next/script';
-import { useRouter } from 'next/router';
 import { datadogRum } from '@datadog/browser-rum';
 import { Theme } from '@twilio-paste/theme';
+import type { AppProps } from 'next/app';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import Script from 'next/script';
+import * as React from 'react';
 
 import packageJSON from '../../../paste-core/core-bundle/package.json';
 import { CookieConsent } from '../components/CookieConsent';
+import { DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT, SITE_BREAKPOINTS } from '../constants';
+import { DarkModeContext } from '../context/DarkModeContext';
+import { PreviewThemeContext } from '../context/PreviewThemeContext';
 import { useDarkMode } from '../hooks/useDarkMode';
 import * as gtag from '../lib/gtag';
-import { DarkModeContext } from '../context/DarkModeContext';
-import { inCypress } from '../utils/inCypress';
-import { PreviewThemeContext } from '../context/PreviewThemeContext';
 import { SimpleStorage } from '../utils/SimpleStorage';
-import { SITE_BREAKPOINTS, DATADOG_APPLICATION_ID, DATADOG_CLIENT_TOKEN, ENVIRONMENT_CONTEXT } from '../constants';
+import { inCypress } from '../utils/inCypress';
 
 const isProd = ENVIRONMENT_CONTEXT === 'production';
 

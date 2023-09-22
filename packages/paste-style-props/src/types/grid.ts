@@ -1,3 +1,4 @@
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
 // https://styled-system.com/api/#grid-layout
 /*
  * NOTE:
@@ -6,7 +7,6 @@
  * in our system
  */
 import type { Properties } from 'csstype';
-import type { ResponsiveValue } from '@twilio-paste/styling-library';
 
 // CSS native
 export type GridRowOptions = Properties['gridRow'];

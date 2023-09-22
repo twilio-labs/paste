@@ -1,9 +1,9 @@
-import * as React from 'react';
 import { render, screen } from '@testing-library/react';
-import { Theme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { MediaObject, MediaFigure, MediaBody } from '../src';
+import { MediaBody, MediaFigure, MediaObject } from '../src';
 
 describe('MediaObject', () => {
   it('should render', (): void => {

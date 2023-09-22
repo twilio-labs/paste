@@ -1,16 +1,16 @@
-import * as React from 'react';
 import { render } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
 import {
-  ProgressSteps,
-  ProgressStepSeparator,
   ProgressStepComplete,
   ProgressStepCurrent,
   ProgressStepError,
   ProgressStepIncomplete,
+  ProgressStepSeparator,
+  ProgressSteps,
 } from '../src';
-import { Divs, Buttons, Anchors } from '../stories/horizontal.stories';
+import { Anchors, Buttons, Divs } from '../stories/horizontal.stories';
 
 describe('ProgressSteps', () => {
   it('should render divs correctly', () => {

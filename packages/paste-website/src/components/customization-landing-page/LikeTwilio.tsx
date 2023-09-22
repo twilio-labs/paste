@@ -1,16 +1,16 @@
-import Image from 'next/image';
 import { Box } from '@twilio-paste/box';
-import { DisplayHeading } from '@twilio-paste/display-heading';
-import { Text } from '@twilio-paste/text';
 import { Button } from '@twilio-paste/button';
+import { DisplayHeading } from '@twilio-paste/display-heading';
 import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import Image from 'next/image';
 
-import { LandingPageSection, LandingPageSectionContent } from './LandingPageLayoutUtils';
-import { LandingPageDesigner } from './LandingPageDesigner';
 import { DoodleBurst } from '../../assets/illustrations/DoodleBurst';
 import { DoodleLoopMedium } from '../../assets/illustrations/DoodleLoopMedium';
 import { DoodleLoopTiny } from '../../assets/illustrations/DoodleLoopTiny';
 import ThemeDesigner from '../../assets/images/customization/theme-designer-mobile-screenshot.png';
+import { LandingPageDesigner } from './LandingPageDesigner';
+import { LandingPageSection, LandingPageSectionContent } from './LandingPageLayoutUtils';
 
 const LikeTwilioHeadline = (): JSX.Element => {
   return (

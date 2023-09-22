@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { useCompositeState, Composite, CompositeGroup, CompositeItem } from '../src';
+import { Composite, CompositeGroup, CompositeItem, useCompositeState } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

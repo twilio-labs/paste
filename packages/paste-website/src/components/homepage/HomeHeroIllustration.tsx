@@ -1,10 +1,10 @@
-import * as React from 'react';
+import { useReducedMotion } from '@twilio-paste/animation-library';
 import { Box } from '@twilio-paste/box';
 import type { ValueOf } from '@twilio-paste/types';
-import { useReducedMotion } from '@twilio-paste/animation-library';
 import lottie from 'lottie-web';
-import VisibilitySensor from 'react-visibility-sensor';
 import Image from 'next/image';
+import * as React from 'react';
+import VisibilitySensor from 'react-visibility-sensor';
 
 import HomeHeroIllu from '../../assets/illustrations/home_hero.svg';
 import { inCypress } from '../../utils/inCypress';

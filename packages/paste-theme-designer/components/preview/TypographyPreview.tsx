@@ -1,7 +1,7 @@
-import * as React from 'react';
 import { Heading } from '@twilio-paste/core/heading';
-import { OrderedList, UnorderedList, ListItem } from '@twilio-paste/core/list';
+import { ListItem, OrderedList, UnorderedList } from '@twilio-paste/core/list';
 import { Paragraph } from '@twilio-paste/core/paragraph';
+import * as React from 'react';
 
 const TypographyPreview = (): JSX.Element => {
   return (

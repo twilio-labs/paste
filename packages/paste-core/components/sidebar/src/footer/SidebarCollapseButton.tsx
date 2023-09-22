@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Button } from '@twilio-paste/button';
 import { Box, type BoxProps } from '@twilio-paste/box';
-import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { Button } from '@twilio-paste/button';
 import { ChevronDoubleLeftIcon } from '@twilio-paste/icons/esm/ChevronDoubleLeftIcon';
 import { ChevronDoubleRightIcon } from '@twilio-paste/icons/esm/ChevronDoubleRightIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 import type { HTMLPasteProps } from '@twilio-paste/types';
+import * as React from 'react';
 
 import { SidebarContext } from '../SidebarContext';
 

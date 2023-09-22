@@ -1,11 +1,11 @@
-import * as React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { CustomizationProvider } from '@twilio-paste/customization';
+import * as React from 'react';
 
-import { HorizontalTabs, StateHookTabs } from '../stories/index.stories';
-import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../src';
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from '../src';
 import { getElementName } from '../src/utils';
+import { HorizontalTabs, StateHookTabs } from '../stories/index.stories';
 
 describe('Tabs', () => {
   describe('Utils', () => {

@@ -1,9 +1,9 @@
-import * as React from 'react';
+import { Button } from '@twilio-paste/button';
 import { styled } from '@twilio-paste/styling-library';
 import { Text } from '@twilio-paste/text';
-import { Button } from '@twilio-paste/button';
+import * as React from 'react';
 
-import { ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent } from '../src';
+import { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay } from '../src';
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   position: 'fixed',

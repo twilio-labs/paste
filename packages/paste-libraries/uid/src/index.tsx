@@ -1,5 +1,5 @@
 import React from 'react';
-import { useUID as useUIDLegacy, useUIDSeed as useUIDSeedLegacy, UIDFork, uid } from 'react-uid';
+import { UIDFork, uid, useUID as useUIDLegacy, useUIDSeed as useUIDSeedLegacy } from 'react-uid';
 
 /**
  * We found a workaround here but for webpack Workaround for https://github.com/webpack/webpack/issues/14814

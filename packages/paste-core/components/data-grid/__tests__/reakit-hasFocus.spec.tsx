@@ -1,9 +1,9 @@
+import { render, screen } from '@testing-library/react';
 /*
  * Copied from Reakit and modified to work in Paste
  * https://github.com/reakit/reakit/blob/a211d94da9f3b683182568a56479b91afb1b85ae/packages/reakit-utils/src/__tests__/hasFocus-test.tsx
  */
 import * as React from 'react';
-import { render, screen } from '@testing-library/react';
 
 import { hasFocus } from '../src/utils/reakit/reakit-hasFocus';
 

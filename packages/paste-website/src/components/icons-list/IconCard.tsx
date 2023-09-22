@@ -1,10 +1,10 @@
-import * as React from 'react';
-import { Card } from '@twilio-paste/card';
-import { Heading } from '@twilio-paste/heading';
 import { Box } from '@twilio-paste/box';
-import { Text } from '@twilio-paste/text';
-import { Paragraph } from '@twilio-paste/paragraph';
+import { Card } from '@twilio-paste/card';
 import { CodeBlock } from '@twilio-paste/code-block';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Text } from '@twilio-paste/text';
+import * as React from 'react';
 
 import { CopyButton } from '../CopyButton';
 import { SiteLink } from '../SiteLink';

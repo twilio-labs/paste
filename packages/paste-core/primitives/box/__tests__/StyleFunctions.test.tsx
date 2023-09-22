@@ -1,4 +1,4 @@
-import { getPseudoStyles, getCustomElementStyles } from '../src/StyleFunctions';
+import { getCustomElementStyles, getPseudoStyles } from '../src/StyleFunctions';
 
 /*
  * When rendered the theme object is injected onto Box props via emotions theming context

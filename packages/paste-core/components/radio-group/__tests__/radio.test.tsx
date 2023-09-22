@@ -1,8 +1,8 @@
-import * as React from 'react';
-import { screen, render, fireEvent } from '@testing-library/react';
+import { matchers } from '@emotion/jest';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import type { PasteCustomCSS } from '@twilio-paste/customization';
-import { matchers } from '@emotion/jest';
+import * as React from 'react';
 
 import { Radio, RadioGroup } from '../src';
 

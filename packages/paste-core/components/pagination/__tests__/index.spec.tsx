@@ -1,5 +1,5 @@
+import { fireEvent, render } from '@testing-library/react';
 import * as React from 'react';
-import { render, fireEvent } from '@testing-library/react';
 
 import { PaginationArrow, PaginationNumber } from '../src';
 import { ArrowsPageLabelExample, NumbersExample, NumbersPageLabelExample } from '../stories/index.stories';

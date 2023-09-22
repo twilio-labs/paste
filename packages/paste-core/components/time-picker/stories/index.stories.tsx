@@ -1,13 +1,13 @@
-import * as React from 'react';
 import type { StoryFn } from '@storybook/react';
-import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
-import { Label } from '@twilio-paste/label';
-import { HelpText } from '@twilio-paste/help-text';
 import { Box } from '@twilio-paste/box';
 import { Combobox } from '@twilio-paste/combobox';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { HelpText } from '@twilio-paste/help-text';
+import { Label } from '@twilio-paste/label';
 import { Stack } from '@twilio-paste/stack';
 import { useTheme } from '@twilio-paste/theme';
-import { CustomizationProvider } from '@twilio-paste/customization';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { TimePicker, formatReturnTime } from '../src';
 import type { TimePickerProps } from '../src';

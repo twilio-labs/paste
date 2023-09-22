@@ -1,10 +1,10 @@
-import * as React from 'react';
 import merge from 'deepmerge';
+import * as React from 'react';
 
-import { GenericHeader } from '../generic-header';
-import type { GenericHeaderProps } from '../generic-header';
 import { getNormalizedHeaderData } from '../../../utils/DataUtils';
 import type { ApiData } from '../../../utils/DataUtils';
+import { GenericHeader } from '../generic-header';
+import type { GenericHeaderProps } from '../generic-header';
 
 interface NormalizedComponentHeaderProps extends Partial<GenericHeaderProps> {
   data: ApiData;

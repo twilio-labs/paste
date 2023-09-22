@@ -1,6 +1,6 @@
-import { css, styled } from '@twilio-paste/styling-library';
 import { ModalDialogContent } from '@twilio-paste/modal';
 import type { ModalDialogContentProps } from '@twilio-paste/modal';
+import { css, styled } from '@twilio-paste/styling-library';
 
 export type AlertDialogContentProps = ModalDialogContentProps;
 

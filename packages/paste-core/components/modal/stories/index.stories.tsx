@@ -1,29 +1,29 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
-import { Button } from '@twilio-paste/button';
-import { Heading } from '@twilio-paste/heading';
-import { Paragraph } from '@twilio-paste/paragraph';
-import { Flex } from '@twilio-paste/flex';
-import { Text } from '@twilio-paste/text';
 import { Box } from '@twilio-paste/box';
-import { Select, Option } from '@twilio-paste/select';
-import { Popover, PopoverContainer, PopoverButton } from '@twilio-paste/popover';
-import { Tooltip } from '@twilio-paste/tooltip';
+import { Button } from '@twilio-paste/button';
+import { Flex } from '@twilio-paste/flex';
+import { Heading } from '@twilio-paste/heading';
 import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
-import { Label } from '@twilio-paste/label';
 import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Popover, PopoverButton, PopoverContainer } from '@twilio-paste/popover';
+import { Option, Select } from '@twilio-paste/select';
+import { Text } from '@twilio-paste/text';
+import { Tooltip } from '@twilio-paste/tooltip';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import type { ModalProps } from '../src';
 import {
   Modal,
   ModalBody,
+  ModalContext,
+  ModalDialogContent,
+  ModalDialogOverlay,
   ModalFooter,
   ModalFooterActions,
   ModalHeader,
   ModalHeading,
-  ModalContext,
-  ModalDialogContent,
-  ModalDialogOverlay,
 } from '../src';
 
 type ModalTriggerProps = Pick<ModalProps, 'size'>;

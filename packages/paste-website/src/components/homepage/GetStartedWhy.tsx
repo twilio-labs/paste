@@ -5,11 +5,11 @@ import Image from 'next/image';
 
 import HomeGetStartedIllo2 from '../../assets/illustrations/home_getstarted_2.svg';
 import HomeGetStartedIllo2Dark from '../../assets/illustrations/home_getstarted_2_dark.svg';
+import { useDarkModeContext } from '../../context/DarkModeContext';
+import { event } from '../../lib/gtag';
 import { GetStartedCard } from './GetStartedCard';
 import { GetStartedCardIllustration } from './GetStartedCardIllustration';
 import { GetStartedCardLink } from './GetStartedCardLink';
-import { useDarkModeContext } from '../../context/DarkModeContext';
-import { event } from '../../lib/gtag';
 
 export const GetStarterWhy = (): JSX.Element => {
   const { theme } = useDarkModeContext();

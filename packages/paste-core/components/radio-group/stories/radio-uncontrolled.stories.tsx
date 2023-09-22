@@ -1,6 +1,6 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
 import { Anchor } from '@twilio-paste/anchor';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { Radio, RadioGroup } from '../src';
 

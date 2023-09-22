@@ -1,11 +1,11 @@
 import { add } from 'date-fns';
 
 import {
-  filterBySearchString,
-  filterByRoomType,
+  dateDifference,
   filterByDateRange,
   filterByDateTimeRange,
-  dateDifference,
+  filterByRoomType,
+  filterBySearchString,
   isEndDateBeforeStartDate,
 } from '../component-examples/filter-group/helpers';
 

@@ -1,10 +1,10 @@
-import * as React from 'react';
-import Head from 'next/head';
+import '@docsearch/css';
 import { DocSearchButton, useDocSearchKeyboardEvents } from '@docsearch/react';
 import type { DocSearchModal as DocSearchModalType } from '@docsearch/react';
-import '@docsearch/css';
+import Head from 'next/head';
+import * as React from 'react';
 
-import { DOCSEARCHV3_APIKEY, DOCSEARCHV3_INDEXNAME, DOCSEARCHV3_APPID } from '../../../constants';
+import { DOCSEARCHV3_APIKEY, DOCSEARCHV3_APPID, DOCSEARCHV3_INDEXNAME } from '../../../constants';
 
 // https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-theme-search-algolia/src/theme/SearchBar/index.tsx
 let DocSearchModal: typeof DocSearchModalType | null = null;

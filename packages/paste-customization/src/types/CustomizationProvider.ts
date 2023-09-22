@@ -1,4 +1,4 @@
-import type { ThemeProviderProps, GenericThemeShape } from '@twilio-paste/theme';
+import type { GenericThemeShape, ThemeProviderProps } from '@twilio-paste/theme';
 
 import type { PasteCustomCSS } from './PasteCSS';
 

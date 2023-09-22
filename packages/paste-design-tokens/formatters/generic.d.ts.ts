@@ -1,10 +1,10 @@
 import type { ImmutableStyleMap } from 'theo';
 
 import type { DesignToken } from '../types';
+import { formatGroupTokensWithTemplate } from '../utils/formatGroupTokensWithTemplate';
 import { getTokenCategories } from '../utils/getTokenCategories';
 import { isNumeric } from '../utils/isNumeric';
 import { tweakTokens } from './generic';
-import { formatGroupTokensWithTemplate } from '../utils/formatGroupTokensWithTemplate';
 
 const tokenLineTemplate = (key: string, value: string): string =>
   `   ${key}: ${isNumeric(value) ? value : `${JSON.stringify(value)}`};`;

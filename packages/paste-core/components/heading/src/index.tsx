@@ -1,8 +1,8 @@
-import * as React from 'react';
 import type { TextStyleProps } from '@twilio-paste/text';
 import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import * as React from 'react';
 
-import type { HeadingVariants, HeadingProps, AsTags } from './types';
+import type { AsTags, HeadingProps, HeadingVariants } from './types';
 
 function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space0'): TextStyleProps {
   switch (headingVariant) {

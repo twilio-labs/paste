@@ -1,12 +1,12 @@
-import * as React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { Theme } from '@twilio-paste/theme';
 import { CustomizationProvider } from '@twilio-paste/customization';
 import { Text } from '@twilio-paste/text';
+import { Theme } from '@twilio-paste/theme';
+import * as React from 'react';
 
-import { PopoverTop, StateHookExample, BadgePopover, InitialFocus } from '../stories/index.stories';
-import { Popover, PopoverContainer, PopoverButton } from '../src';
+import { Popover, PopoverButton, PopoverContainer } from '../src';
+import { BadgePopover, InitialFocus, PopoverTop, StateHookExample } from '../stories/index.stories';
 
 describe('Popover', () => {
   describe('Render', () => {

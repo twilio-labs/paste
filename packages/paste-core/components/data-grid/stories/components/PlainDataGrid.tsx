@@ -1,18 +1,18 @@
-import * as React from 'react';
 import { Anchor } from '@twilio-paste/anchor';
 import type { BoxProps } from '@twilio-paste/box';
 import { Paragraph } from '@twilio-paste/paragraph';
+import * as React from 'react';
 
 import {
   DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
   DataGridBody,
   DataGridCell,
   DataGridFoot,
+  DataGridHead,
+  DataGridHeader,
+  DataGridRow,
 } from '../../src';
-import { TableHeaderData, TableBodyData } from './constants';
+import { TableBodyData, TableHeaderData } from './constants';
 
 export const PlainDataGrid: React.FC<React.PropsWithChildren<{ element?: BoxProps['element'] }>> = ({
   element = 'DATA_GRID',

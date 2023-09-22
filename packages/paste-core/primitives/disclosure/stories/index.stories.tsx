@@ -1,10 +1,10 @@
-import * as React from 'react';
 import { Anchor } from '@twilio-paste/anchor';
 import { Heading } from '@twilio-paste/heading';
 import { Paragraph } from '@twilio-paste/paragraph';
 import { Separator } from '@twilio-paste/separator';
+import * as React from 'react';
 
-import { useDisclosurePrimitiveState, DisclosurePrimitive, DisclosurePrimitiveContent } from '../src';
+import { DisclosurePrimitive, DisclosurePrimitiveContent, useDisclosurePrimitiveState } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

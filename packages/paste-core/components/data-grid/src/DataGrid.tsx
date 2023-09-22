@@ -1,18 +1,18 @@
-import * as React from 'react';
-import { useUID } from '@twilio-paste/uid-library';
-import { useCompositeState, Composite } from '@twilio-paste/reakit-library';
+import { Composite, useCompositeState } from '@twilio-paste/reakit-library';
 import { Table } from '@twilio-paste/table';
 import type { TableProps } from '@twilio-paste/table';
+import { useUID } from '@twilio-paste/uid-library';
+import * as React from 'react';
 
 import { DataGridContext } from './DataGridContext';
 import {
+  delayedSetFocusable,
   ensureFocus,
   getActiveElement,
-  getFirstFocusableIn,
   getClosestCellFrom,
   getClosestGridCellFromCurrentFocus,
+  getFirstFocusableIn,
   isCell,
-  delayedSetFocusable,
 } from './utils';
 
 export interface DataGridProps extends TableProps {
