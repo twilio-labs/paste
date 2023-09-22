@@ -105,6 +105,7 @@ const MDXPoviderComponents = {
     <Separator {...props} orientation="horizontal" verticalSpacing="space100" />
   ),
   a: (props: AnchorProps): React.ReactElement => <MdxLink {...props} />, // eslint-disable-line jsx-a11y/anchor-has-content
+  // biome-ignore lint: props adds alt text to images
   img: (props: React.ComponentProps<"img">): React.ReactElement => <img style={{ maxWidth: "100%" }} {...props} />, // eslint-disable-line jsx-a11y/alt-text
   sup: (props: React.ComponentProps<"sup">): React.ReactElement => <StyledSup {...props} />,
   content: (props: HTMLPasteProps<"div">): React.ReactElement => (

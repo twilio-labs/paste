@@ -62,6 +62,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
           />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-FL02YG9W9H" />
           <script
+            // biome-ignore lint: this is a google analytics script
             dangerouslySetInnerHTML={{
               __html: `
             window.dataLayer = window.dataLayer || [];

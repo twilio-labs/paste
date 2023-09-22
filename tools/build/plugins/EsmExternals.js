@@ -16,7 +16,7 @@ function escapeStringRegexp(string) {
 function makeFilter(externals) {
   return new RegExp(
     // eslint-disable-next-line prefer-template
-    "^(" + externals.map(escapeStringRegexp).join("|") + ")(\\/.*)?$", // TODO support for query strings?
+    `^(${externals.map(escapeStringRegexp).join("|")})(\\/.*)?$`, // TODO support for query strings?
   );
 }
 

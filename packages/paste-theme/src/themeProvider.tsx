@@ -37,7 +37,10 @@ const useThemeOverwriteHook = (): string | undefined => {
 };
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function getProviderThemeProps(theme: ThemeVariants, customBreakpoints?: string[]): {} {
+function getProviderThemeProps(
+  theme: ThemeVariants,
+  customBreakpoints?: string[],
+): { [key: string]: string[] | Partial<{ [key: string]: any }> } {
   switch (theme) {
     case ThemeVariants.TWILIO:
       return {

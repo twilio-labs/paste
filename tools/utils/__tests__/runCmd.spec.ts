@@ -17,7 +17,7 @@ describe("runCmd", () => {
     spy.mockRestore();
   });
 
-  it(`throws errors when processes return non-zero exit codes`, async () => {
+  it("throws errors when processes return non-zero exit codes", async () => {
     const spy = jest.spyOn(console, "log");
     spy.mockImplementation(() => {});
     let didThrow = false;

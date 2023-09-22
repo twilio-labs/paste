@@ -7,6 +7,6 @@ export const CodeBlockOverlayShadow = styled.div(
     bottom: 0,
     left: 0,
     top: 0,
-    background: `linear-gradient(0, #121C2D 0%, rgba(18, 28, 45, 0) 100%)`,
+    background: "linear-gradient(0, #121C2D 0%, rgba(18, 28, 45, 0) 100%)",
   }),
 );

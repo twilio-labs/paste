@@ -143,7 +143,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
             width={iconSize}
             transform={`
              ${shouldIconMove ? `translateX(${theme.space.space10})` : "translateX(0)"}
-             ${isExpanded ? `rotate(90deg)` : "rotate(0deg)"}`}
+             ${isExpanded ? "rotate(90deg)" : "rotate(0deg)"}`}
           >
             <ChevronDisclosureIcon color="inherit" decorative size={iconSize} />
           </Box>

@@ -69,6 +69,6 @@ import {
   };
   const newPackageJsonString = `${JSON.stringify(newPackageJson, null, 2)}\n`;
   writeToFile(CORE_BUNDLE_PACKAGE_PATH, newPackageJsonString, {
-    successMessage: `[@twilio-paste/core] Successfully updated dependencies.`,
+    successMessage: "[@twilio-paste/core] Successfully updated dependencies.",
   });
 })();

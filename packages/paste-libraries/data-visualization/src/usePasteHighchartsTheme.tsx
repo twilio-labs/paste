@@ -13,7 +13,7 @@ import * as React from "react";
 export const usePasteHighchartsTheme = (options: Highcharts.Options): Highcharts.Options => {
   if (options == null) {
     throw new Error(
-      `[usePasteHighchartsTheme]: Must provide highcharts options into this function. Options are deepmerged against the theme and returned for usage.`,
+      "[usePasteHighchartsTheme]: Must provide highcharts options into this function. Options are deepmerged against the theme and returned for usage.",
     );
   }
 

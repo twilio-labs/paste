@@ -50,7 +50,7 @@ module.exports = {
          *getting it with the helper function will return undefined. The '|| {}' snippet is added to
          *create a falsey result from this undefined return.
          */
-        if ((getJSXIdentifier(elementDetails) || {}).name === "svg") {
+        if (getJSXIdentifier(elementDetails)?.name === "svg") {
           /*
            * There can be multiple attributes, so we go thru each attribute
            * to see if any are viewBox

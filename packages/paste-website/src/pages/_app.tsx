@@ -96,6 +96,7 @@ const App = ({ Component, pageProps }: AppProps): React.ReactElement => {
           <Script
             id="gtag-init"
             strategy="afterInteractive"
+            // biome-ignore lint: this is a google analytics script
             dangerouslySetInnerHTML={{
               __html: `
             window.dataLayer = window.dataLayer || [];

@@ -13,9 +13,9 @@ const setTheme = (monaco: Monaco): void => {
   monaco.editor.setTheme("paste");
 };
 
-const originalText = `This line is removed on the right.\njust some text\nabcd\nefgh\nSome more text`;
+const originalText = "This line is removed on the right.\njust some text\nabcd\nefgh\nSome more text";
 
-const modifiedText = `just some text\nabcz\nzzzzefgh\nSome more text\nThis line is removed on the left.`;
+const modifiedText = "just some text\nabcz\nzzzzefgh\nSome more text\nThis line is removed on the left.";
 
 export const TextDiffExample = (): React.ReactNode => {
   const diffEditorRef = React.useRef<Editor.IStandaloneDiffEditor | undefined>(undefined);

@@ -9,7 +9,7 @@ import { listIconsAction } from "./actions/listIconsAction";
 program.version("0.1.0");
 program
   .command("list-icons")
-  .description(`Generates a list of all our icon components and builds the story`)
+  .description("Generates a list of all our icon components and builds the story")
   .action(listIconsAction);
 
 program

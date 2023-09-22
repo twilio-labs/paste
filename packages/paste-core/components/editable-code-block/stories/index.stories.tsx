@@ -173,7 +173,7 @@ export const MultiFileEditor = (): React.ReactNode => {
   );
 };
 
-export const SyntaxError = (): React.ReactNode => {
+export const SyntaxErrorEditableCodeBlock = (): React.ReactNode => {
   return (
     <EditableCodeBlockWrapper>
       <EditableCodeBlockHeader>Syntax error example</EditableCodeBlockHeader>
@@ -188,6 +188,7 @@ const Three === 3;`}
     </EditableCodeBlockWrapper>
   );
 };
+SyntaxErrorEditableCodeBlock.storyName = "SyntaxError";
 
 export const CustomInlineError = (): React.ReactNode => {
   return (

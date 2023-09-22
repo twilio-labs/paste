@@ -6,7 +6,7 @@ import { FIGMA_PROFILE_URL } from "../../../constants";
 import { FigmaIcon } from "../../icons/FigmaIcon";
 
 // eslint-disable-next-line no-empty-pattern
-const FigmaButton = React.forwardRef<HTMLDivElement>(({}, ref) => {
+const FigmaButton = React.forwardRef<HTMLDivElement>((_, ref) => {
   return (
     <Box
       ref={ref}

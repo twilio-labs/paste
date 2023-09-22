@@ -6,13 +6,13 @@ import { Paragraph } from "../src";
 
 describe("General", () => {
   it("should render", (): void => {
-    const textContent = `This is a paragraph`;
+    const textContent = "This is a paragraph";
     const { getByText } = render(<Paragraph>{textContent}</Paragraph>);
     expect(getByText(textContent)).toBeDefined();
     expect(getByText(textContent).tagName).toEqual("P");
   });
   it("should allow for global html Attributes", (): void => {
-    const textContent = `This is a paragraph`;
+    const textContent = "This is a paragraph";
     render(
       <Paragraph aria-label="foo" data-testid="bar">
         {textContent}

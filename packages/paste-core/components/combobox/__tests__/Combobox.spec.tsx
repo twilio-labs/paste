@@ -212,14 +212,14 @@ describe("Combobox", () => {
       render(<ComboboxMock />, { wrapper: ThemeWrapper });
       const renderedCombobox = screen.getByRole("textbox");
       expect(renderedCombobox.getAttribute("aria-controls")).toEqual(screen.getByRole("listbox").id);
-      expect(renderedCombobox.getAttribute("aria-labelledby")).toEqual(document.querySelector("label")!.id);
+      expect(renderedCombobox.getAttribute("aria-labelledby")).toEqual(document.querySelector("label")?.id);
       expect(renderedCombobox.getAttribute("aria-describedby")).not.toEqual("");
     });
 
     it("should render a list with aria attributes", () => {
       render(<ComboboxMock />, { wrapper: ThemeWrapper });
       const renderedCombobox = screen.getByRole("listbox");
-      expect(renderedCombobox.getAttribute("aria-labelledby")).toEqual(document.querySelector("label")!.id);
+      expect(renderedCombobox.getAttribute("aria-labelledby")).toEqual(document.querySelector("label")?.id);
     });
 
     it("should render a list with unique option ids", () => {
@@ -235,7 +235,7 @@ describe("Combobox", () => {
       render(<ComboboxMock />, { wrapper: ThemeWrapper });
       const renderedLabel = document.querySelector("label");
       const renderedTextbox = screen.getByRole("textbox");
-      expect(renderedLabel!.getAttribute("for")).toEqual(renderedTextbox.getAttribute("id"));
+      expect(renderedLabel?.getAttribute("for")).toEqual(renderedTextbox.getAttribute("id"));
     });
 
     it("should render a required combobox", () => {
@@ -296,13 +296,13 @@ describe("Combobox", () => {
         wrapper: ThemeWrapper,
       });
       const renderedGroups = screen.getAllByRole("group");
-      expect(renderedGroups[0].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
+      expect(renderedGroups[0].querySelector('[role="group"] > li[role="presentation"]')?.textContent).toEqual(
         "hi Components",
       );
-      expect(renderedGroups[1].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
+      expect(renderedGroups[1].querySelector('[role="group"] > li[role="presentation"]')?.textContent).toEqual(
         "hi Primitives",
       );
-      expect(renderedGroups[2].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
+      expect(renderedGroups[2].querySelector('[role="group"] > li[role="presentation"]')?.textContent).toEqual(
         "hi Layout",
       );
     });

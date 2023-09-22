@@ -29,7 +29,7 @@ export const SidebarPushContentWrapper = React.forwardRef<HTMLDivElement, Sideba
 
     const styles = useSpring({
       // eslint-disable-next-line unicorn/no-nested-ternary
-      marginLeft: !collapsed ? theme.sizes.sizeSidebar : isCompact ? theme.sizes.sizeSidebarCompact : `0rem`,
+      marginLeft: !collapsed ? theme.sizes.sizeSidebar : isCompact ? theme.sizes.sizeSidebarCompact : "0rem",
       config: {
         mass: 0.3,
         tension: 288,

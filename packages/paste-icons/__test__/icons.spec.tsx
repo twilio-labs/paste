@@ -147,7 +147,7 @@ describe("icons util functions", () => {
     });
     it("getReactOutputPath util takes a file name and returns the complete path for the React component", () => {
       expect(
-        getReactOutputPath("iAmAFile.tsx").includes(`paste/packages/paste-icons/src/IAmAFileTsxIcon.tsx`),
+        getReactOutputPath("iAmAFile.tsx").includes("paste/packages/paste-icons/src/IAmAFileTsxIcon.tsx"),
       ).toBeTruthy();
     });
     it("getBuildFileName util takes a file and adds src/ and .tsx", () => {

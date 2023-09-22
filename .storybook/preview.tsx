@@ -97,22 +97,6 @@ export const decorators = [
     }
 
     switch (layout) {
-      default:
-      case "default":
-        return (
-          <RenderPerformanceProfiler id={context.id} kind={context.kind} view="default">
-            <GlobalStyles />
-            <Theme.Provider theme={theme} disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
-              <Box
-                backgroundColor="colorBackgroundBody"
-                color="colorText"
-                padding={context.parameters.padding === false ? "space0" : "space80"}
-              >
-                <Story />
-              </Box>
-            </Theme.Provider>
-          </RenderPerformanceProfiler>
-        );
       case "side-by-side":
         return (
           <RenderPerformanceProfiler id={context.id} kind={context.kind} view="side-by-side">
@@ -249,6 +233,22 @@ export const decorators = [
                 </Box>
               </Theme.Provider>
             </Stack>
+          </RenderPerformanceProfiler>
+        );
+      case "default":
+      default:
+        return (
+          <RenderPerformanceProfiler id={context.id} kind={context.kind} view="default">
+            <GlobalStyles />
+            <Theme.Provider theme={theme} disableAnimations={isTestEnvironment} customBreakpoints={breakpoints}>
+              <Box
+                backgroundColor="colorBackgroundBody"
+                color="colorText"
+                padding={context.parameters.padding === false ? "space0" : "space80"}
+              >
+                <Story />
+              </Box>
+            </Theme.Provider>
           </RenderPerformanceProfiler>
         );
     }

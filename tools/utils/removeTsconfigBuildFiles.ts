@@ -18,7 +18,7 @@ export async function removeTsconfigBuildFiles(): Promise<void> {
 
   if (tsconfigBuildInfoFiles.length === 0) {
     // eslint-disable-next-line no-console
-    console.log(`[Typescript] No tsconfig.build.tsbuildinfo files to remove.`);
+    console.log("[Typescript] No tsconfig.build.tsbuildinfo files to remove.");
     return;
   }
 

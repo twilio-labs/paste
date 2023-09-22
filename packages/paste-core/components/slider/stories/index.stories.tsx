@@ -77,7 +77,7 @@ export const Disabled = (): React.ReactNode => {
   );
 };
 
-export const Error = (): React.ReactNode => {
+export const ErrorSlider = (): React.ReactNode => {
   const [value, setValue] = React.useState<number>(32);
   const sliderId = useUID();
   const helpTextId = useUID();
@@ -107,6 +107,7 @@ export const Error = (): React.ReactNode => {
     </Form>
   );
 };
+ErrorSlider.storyName = "Error";
 
 export const CustomRange = (): React.ReactNode => {
   const [value, setValue] = React.useState<number>(0.55);

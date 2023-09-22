@@ -17,7 +17,7 @@ export default {
   component: CodeBlock,
 };
 
-const jsCode = `(num) => num + 1`;
+const jsCode = "(num) => num + 1";
 
 const rubyCode = `#!/usr/bin/ruby
 

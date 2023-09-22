@@ -177,7 +177,7 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
         >
           <UploadToCloudIcon decorative size="sizeIcon60" color={disabled ? "colorTextWeaker" : "colorTextIcon"} />
         </Box>
-        <>{children}</>
+        {children}
         <Box
           as="input"
           type="file"

@@ -282,7 +282,7 @@ describe("css function", () => {
   it("skip breakpoints", () => {
     const result = css({
       // eslint-disable-next-line no-sparse-arrays
-      width: ["100%", , "50%"],
+      width: ["100%", undefined, "50%"],
     })(theme);
     expect(result).toEqual({
       width: "100%",
@@ -434,7 +434,7 @@ describe("css function", () => {
   it("returns correct media query order", () => {
     const result = css({
       // eslint-disable-next-line no-sparse-arrays
-      width: ["100%", , "50%"],
+      width: ["100%", undefined, "50%"],
       color: ["red", "green", "blue"],
     })(theme);
     const keys = Object.keys(result);

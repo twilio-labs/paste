@@ -59,7 +59,7 @@ export default () => {
     const unpinnedExternalDeps = getUnPinnedExternalDepsFromPackageJSONFiles(packageJSONsChanged);
 
     if (unpinnedExternalDeps.length > 0) {
-      let locationString = ``;
+      let locationString = "";
       unpinnedExternalDeps.forEach(({ dep, name }) => {
         locationString += `* ${name} - ${dep}\n`;
       });

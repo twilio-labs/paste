@@ -31,7 +31,8 @@ const InlineErrorStyles: { [key: string]: any } = {
       left: "2px",
       width: "16px",
       height: "16px",
-      background: `url(https://assets.twilio.com/public_assets/paste-assets/1.0.0/icons/editable-codeblock-error.svg) no-repeat center center`,
+      background:
+        "url(https://assets.twilio.com/public_assets/paste-assets/1.0.0/icons/editable-codeblock-error.svg) no-repeat center center",
     },
   },
   ".paste-editable-code-editor-row-error": {

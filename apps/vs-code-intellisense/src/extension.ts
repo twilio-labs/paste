@@ -8,7 +8,7 @@ import { pasteTokenAttributes } from "./tokens";
 import { PasteToken } from "./types";
 import { getColorPreview, getThemeSetting, getThemeTokens, isColorCategory, remToPx } from "./utils";
 
-const DIVIDER = `___\n`;
+const DIVIDER = "___\n";
 
 export function findPasteToken(word?: string): PasteToken | undefined {
   if (!word) {

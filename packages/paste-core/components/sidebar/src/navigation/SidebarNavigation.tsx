@@ -24,7 +24,7 @@ const SidebarNavigationWrapper = styled.nav(({ theme }: { theme: ThemeShape }) =
     radial-gradient(farthest-side at 50% 100%, rgba(57, 71, 98, 0.5), rgba(0,0,0,0)) 0 100%`,
     backgroundRepeat: "no-repeat",
     backgroundSize: "100% 15px, 100% 15px, 100% 5px, 100% 5px",
-    backgroundAttachment: `local, local, scroll, scroll`,
+    backgroundAttachment: "local, local, scroll, scroll",
     // Scrollbar
     "::-webkit-scrollbar": {
       width: "6px",

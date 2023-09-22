@@ -20,7 +20,7 @@ const getPasteDependencyList = (dependencyObject: Record<string, string>): strin
 
 async function updatePackagePeerDependencies(
   packageJsonPath: string,
-  peerDepsList: string[] = [],
+  peerDepsList: string[],
   packageJsonData: {
     peerDependencies: Record<string, string>;
     name: string;
@@ -56,7 +56,7 @@ async function updatePackagePeerDependencies(
 
 export async function calibratePackagePeerDepsVersions(): Promise<PackageShape[] | null> {
   // eslint-disable-next-line no-console
-  console.log(chalk.green.bold(`Calibrating package peerDependencies...`));
+  console.log(chalk.green.bold("Calibrating package peerDependencies..."));
 
   // Use lerna to get all packages and their version info
   const packagesList = await getRepoPackages();

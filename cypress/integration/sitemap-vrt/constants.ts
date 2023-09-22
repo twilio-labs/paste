@@ -179,7 +179,7 @@ export const SITEMAP = [
 const SITEMAP_CHUNKS: string[][] = [];
 const CHUNK_SIZE = 25;
 
-for (var i = 0, len = SITEMAP.length; i < len; i += CHUNK_SIZE) {
+for (let i = 0, len = SITEMAP.length; i < len; i += CHUNK_SIZE) {
   SITEMAP_CHUNKS.push(SITEMAP.slice(i, i + CHUNK_SIZE));
 }
 

@@ -73,12 +73,12 @@ describe("Option", () => {
     );
     const attributeMap = createAttributeMap(getByTestId("option-test"));
 
-    expect(attributeMap.hasOwnProperty("style")).toBe(false);
-    expect(attributeMap.hasOwnProperty("className")).toBe(false);
-    expect(attributeMap.hasOwnProperty("height")).toBe(false);
-    expect(attributeMap.hasOwnProperty("width")).toBe(false);
-    expect(attributeMap.hasOwnProperty("size")).toBe(false);
-    expect(attributeMap.hasOwnProperty("selected")).toBe(false);
+    expect(attributeMap.style).toBe(undefined);
+    expect(attributeMap.className).toBe(undefined);
+    expect(attributeMap.height).toBe(undefined);
+    expect(attributeMap.width).toBe(undefined);
+    expect(attributeMap.size).toBe(undefined);
+    expect(attributeMap.selected).toBe(undefined);
     expect(attributeMap.class).not.toBe("blocklisted");
 
     errorSpy.mockRestore();

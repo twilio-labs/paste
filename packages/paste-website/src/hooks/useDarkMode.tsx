@@ -36,7 +36,7 @@ export const useDarkMode = (): UseDarkModeReturn => {
   React.useEffect(() => {
     const localTheme = SimpleStorage.get("theme") as ValidThemeName;
 
-    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && !localTheme) {
+    if (window.matchMedia?.("(prefers-color-scheme: dark)").matches && !localTheme) {
       setMode(ValidThemes.DARK);
     } else if (localTheme && isValidTheme(localTheme)) {
       setTheme(localTheme);

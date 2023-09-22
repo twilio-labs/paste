@@ -79,7 +79,7 @@ export const Success = (): React.ReactNode => {
   );
 };
 
-export const Error = (): React.ReactNode => {
+export const ErrorToast = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
       <ToastContainer left={["space40", "unset", "unset"]}>
@@ -107,6 +107,7 @@ export const Error = (): React.ReactNode => {
     </Box>
   );
 };
+ErrorToast.storyName = "Error";
 
 export const Warning = (): React.ReactNode => {
   return (

@@ -13,7 +13,7 @@ import {
 import { CopyButton, getCopyButtonText } from "../src/CopyButton";
 import { ExternalLinkButton } from "../src/ExternalLinkButton";
 
-const jsCode = `(num) => num + 1`;
+const jsCode = "(num) => num + 1";
 
 const rubyCode = `#!/usr/bin/ruby
 

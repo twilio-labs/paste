@@ -61,8 +61,9 @@ export const MultipleTextareas = (): React.ReactElement => {
     <>
       {shouldDisplayTextareas && (
         <Box display="flex" flexDirection="column" rowGap="space50" paddingBottom="space100">
-          {textareas.map((textarea, i) => (
-            <Box key={i}>{textarea}</Box>
+          {textareas.map((textarea, index) => (
+            // biome-ignore lint: demo code
+            <Box key={index}>{textarea}</Box>
           ))}
         </Box>
       )}

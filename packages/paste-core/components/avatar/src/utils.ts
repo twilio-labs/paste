@@ -38,8 +38,6 @@ export const getCorrespondingFontSizeFromSizeToken = (size: IconSizeOptions): Fo
       case "sizeIcon40":
       case "sizeIcon50":
       case "sizeIcon60":
-      default:
-        return "fontSize10";
       case "sizeIcon70":
         return "fontSize20";
       case "sizeIcon80":
@@ -50,6 +48,8 @@ export const getCorrespondingFontSizeFromSizeToken = (size: IconSizeOptions): Fo
         return "fontSize60";
       case "sizeIcon110":
         return "fontSize70";
+      default:
+        return "fontSize10";
     }
   }
   throw new Error("[Avatar]: size must be of type IconSizeOptions.");
@@ -65,8 +65,6 @@ export const getCorrespondingIconSizeFromSizeToken = (size: IconSizeOptions): Ic
       case "sizeIcon20":
       case "sizeIcon30":
       case "sizeIcon40":
-      default:
-        return "sizeIcon10";
       case "sizeIcon50":
       case "sizeIcon60":
         return "sizeIcon20";
@@ -80,6 +78,8 @@ export const getCorrespondingIconSizeFromSizeToken = (size: IconSizeOptions): Ic
         return "sizeIcon70";
       case "sizeIcon110":
         return "sizeIcon80";
+      default:
+        return "sizeIcon10";
     }
   }
   throw new Error("[Avatar]: size must be of type IconSizeOptions.");

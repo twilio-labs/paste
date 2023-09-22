@@ -230,6 +230,7 @@ export const ControlledNumberPaginationExample = (): JSX.Element => {
         <PaginationNumbers pageLabel={`Page ${currentPage} of ${totalPages}`}>
           {pages.map((page, i) => {
             return (
+              // biome-ignore lint: this is a story, so we don't need to worry about the key
               <PaginationNumber key={i} label={`Go to page ${page}`} isCurrent={page === currentPage}>
                 {page}
               </PaginationNumber>

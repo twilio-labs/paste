@@ -48,7 +48,7 @@ export const Default: StoryFn = () => {
   );
 };
 
-export const Error: StoryFn = () => {
+export const ErrorFileUploader: StoryFn = () => {
   return (
     <FileUploader name="Error File Uploader">
       <FileUploaderLabel>Upload files</FileUploaderLabel>
@@ -76,6 +76,7 @@ export const Error: StoryFn = () => {
     </FileUploader>
   );
 };
+ErrorFileUploader.storyName = "Error";
 
 export const Disabled: StoryFn = () => {
   return (
@@ -113,13 +114,13 @@ const sampleFiles: File[] = [
     variant: "default",
     title: "File1.png",
     description: "9.2 MB",
-    id: `initial-file-0`,
+    id: "initial-file-0",
   },
   {
     variant: "loading",
     title: "File2.png",
     description: "Uploading...",
-    id: `initial-file-1`,
+    id: "initial-file-1",
   },
 ];
 

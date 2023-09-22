@@ -53,14 +53,15 @@ describe("OptionGroup", () => {
       width: "2px",
       size: 2,
     };
+    // @ts-expect-error making sure it filters props
     const { getByTestId } = render(<ExampleOptionGroup {...blockListedPropsMap} />);
     const attributeMap = createAttributeMap(getByTestId("optgroup-1-test"));
 
-    expect(attributeMap.hasOwnProperty("style")).toBe(false);
-    expect(attributeMap.hasOwnProperty("className")).toBe(false);
-    expect(attributeMap.hasOwnProperty("height")).toBe(false);
-    expect(attributeMap.hasOwnProperty("width")).toBe(false);
-    expect(attributeMap.hasOwnProperty("size")).toBe(false);
+    expect(attributeMap.style).toBe(undefined);
+    expect(attributeMap.className).toBe(undefined);
+    expect(attributeMap.height).toBe(undefined);
+    expect(attributeMap.width).toBe(undefined);
+    expect(attributeMap.size).toBe(undefined);
     expect(attributeMap.class).not.toBe("blocklisted");
   });
 

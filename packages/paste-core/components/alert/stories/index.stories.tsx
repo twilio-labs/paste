@@ -43,7 +43,7 @@ export const Neutral = (): React.ReactNode => {
   );
 };
 
-export const Error = (): React.ReactNode => {
+export const ErrorAlert = (): React.ReactNode => {
   return (
     <>
       <Alert variant="error" onDismiss={action("dismiss")}>
@@ -73,6 +73,7 @@ export const Error = (): React.ReactNode => {
     </>
   );
 };
+ErrorAlert.storyName = "Error";
 
 export const Warning = (): React.ReactNode => {
   return (

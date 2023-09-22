@@ -14,14 +14,14 @@ const REDUCED_MOTION_QUERY = "(prefers-reduced-motion: reduce)";
  */
 /* eslint-disable no-else-return */
 export const isRenderingOnServer = (() => {
-  if (typeof window == "undefined" || !window.location || !window.location.href || !window.matchMedia) {
+  if (typeof window === "undefined" || !window.location || !window.location.href || !window.matchMedia) {
     return true;
   }
   return false;
 })();
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-const getMediaQueryList = (): { matches: boolean; addListener: Function; removeListener: Function } => {
+const getMediaQueryList = (): { matches: boolean; addListener: any; removeListener: any } => {
   if (isRenderingOnServer) {
     return {
       matches: true, // When SSR, true === disable animations

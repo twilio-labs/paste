@@ -13,9 +13,9 @@ import { AlertDialogHeader } from "./AlertDialogHeader";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getAnimationStates = (): any => ({
-  from: { opacity: 0, transform: `scale(0.675)` },
-  enter: { opacity: 1, transform: `scale(1)` },
-  leave: { opacity: 0, transform: `scale(0.675)` },
+  from: { opacity: 0, transform: "scale(0.675)" },
+  enter: { opacity: 1, transform: "scale(1)" },
+  leave: { opacity: 0, transform: "scale(0.675)" },
   // https://www.react-spring.dev/docs/advanced/config
   config: {
     mass: 0.5,

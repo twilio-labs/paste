@@ -28,7 +28,7 @@ export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> 
 
   switch (category) {
     case "background-colors":
-    case "data-visualization":
+    case "data-visualization": {
       // apply a border to foreground colors that match the background color
       const boxBorder = value === backgroundColor ? borderColor : null;
 
@@ -39,6 +39,7 @@ export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> 
         />
       );
       break;
+    }
     case "border-colors":
       tokenExampleRender = <BoxExample borderColor={value as keyof ThemeShape["borderColors"]} />;
       break;
@@ -79,7 +80,7 @@ export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> 
         />
       );
       break;
-    case "radii":
+    case "radii": {
       const height = name.toLowerCase().match("pill") ? "sizeSquare70" : null;
 
       tokenExampleRender = (
@@ -90,6 +91,7 @@ export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> 
         />
       );
       break;
+    }
     case "box-shadows":
       tokenExampleRender = <BoxExample boxShadow={value as keyof ThemeShape["shadows"]} />;
       break;
@@ -116,7 +118,7 @@ export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> 
       }
 
       break;
-    case "text-colors":
+    case "text-colors": {
       const textShadow = value === backgroundColor ? `0 0 1px ${borderColor}` : undefined;
 
       tokenExampleRender = (
@@ -127,6 +129,7 @@ export const TokenExample: React.FC<React.PropsWithChildren<TokenExampleProps>> 
           textShadow={textShadow}
         />
       );
+    }
   }
 
   return tokenExampleRender ? (

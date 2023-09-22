@@ -9,7 +9,7 @@ const ThemeConsumerExample = (): React.ReactElement => {
   return (
     <CustomizationConsumer>
       {({ theme }) => {
-        if (theme.textColors && theme.textColors.colorTextLink) {
+        if (theme.textColors?.colorTextLink) {
           return <p>Color: {theme.textColors.colorTextLink}</p>;
         }
         return <></>;
@@ -41,7 +41,7 @@ const BaseThemeConsumerExample: React.FC<React.PropsWithChildren<BaseThemeConsum
   return (
     <CustomizationConsumer>
       {({ theme }) => {
-        if (theme.textColors && theme.textColors.colorTextLink) {
+        if (theme.textColors?.colorTextLink) {
           return <p data-testid={props["data-testid"]}>Color: {theme.textColors.colorTextLink}</p>;
         }
         return <></>;

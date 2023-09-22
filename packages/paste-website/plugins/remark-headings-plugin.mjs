@@ -5,7 +5,7 @@ import { visit } from "unist-util-visit-esm";
 const transform = () => (tree) => {
   const headings = [];
 
-  visit(tree, `heading`, (heading) => {
+  visit(tree, "heading", (heading) => {
     headings.push({
       value: toString(heading),
       depth: heading.depth,

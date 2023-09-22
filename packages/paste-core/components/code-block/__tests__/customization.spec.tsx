@@ -11,7 +11,7 @@ import {
   CodeBlockWrapper,
 } from "../src";
 
-const jsCode = `(num) => num + 1`;
+const jsCode = "(num) => num + 1";
 
 const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider

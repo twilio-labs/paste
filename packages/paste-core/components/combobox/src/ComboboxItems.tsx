@@ -63,7 +63,7 @@ const ComboboxItems: React.FC<
             <li role="presentation" key="total-size" style={{ margin: 0, height: totalSize }} />
             {virtualItems.map(({ measureRef, index: virtualItemIndex, start }: VirtualItem) => {
               const item = templatizedItems[virtualItemIndex];
-              const disabled = disabledItems != null && disabledItems.includes(items[virtualItemIndex]);
+              const disabled = disabledItems?.includes(items[virtualItemIndex]);
               return (
                 <ComboboxListboxOption
                   {...getItemProps({ item, index: virtualItemIndex, ref: measureRef, disabled })}

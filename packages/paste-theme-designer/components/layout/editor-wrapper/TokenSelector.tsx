@@ -8,7 +8,7 @@ import { Routes } from "../../../constants/Routes";
 
 const TokenSelector = (): JSX.Element => {
   const router = useRouter();
-  const [value, setValue] = React.useState(router.pathname.replace(`/`, ""));
+  const [value, setValue] = React.useState(router.pathname.replace("/", ""));
 
   const handleChange = React.useCallback((event: any) => {
     setValue(event.target.value);

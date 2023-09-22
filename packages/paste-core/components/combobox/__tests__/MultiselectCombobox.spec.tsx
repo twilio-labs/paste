@@ -172,7 +172,7 @@ describe("MultiselectCombobox", () => {
       const renderedTextbox = screen.getByRole("textbox");
       expect(renderedTextbox.getAttribute("aria-controls")).toEqual(dropdownListbox.id);
       expect(renderedTextbox.getAttribute("aria-describedby")).not.toEqual("");
-      expect(renderedTextbox.getAttribute("aria-labelledby")).toEqual(document.querySelector("label")!.id);
+      expect(renderedTextbox.getAttribute("aria-labelledby")).toEqual(document.querySelector("label")?.id);
       expect(renderedTextbox.getAttribute("required")).toEqual(null);
 
       // unique option ids
@@ -184,7 +184,7 @@ describe("MultiselectCombobox", () => {
 
       // Label matches the input id
       const renderedLabel = document.querySelector("label");
-      expect(renderedLabel!.getAttribute("for")).toEqual(renderedTextbox.getAttribute("id"));
+      expect(renderedLabel?.getAttribute("for")).toEqual(renderedTextbox.getAttribute("id"));
     });
 
     it("should clear the input on selection", async () => {
@@ -275,13 +275,13 @@ describe("MultiselectCombobox", () => {
         wrapper: ThemeWrapper,
       });
       const renderedGroups = screen.getAllByRole("group");
-      expect(renderedGroups[0].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
+      expect(renderedGroups[0].querySelector('[role="group"] > li[role="presentation"]')?.textContent).toEqual(
         "hi Components",
       );
-      expect(renderedGroups[1].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
+      expect(renderedGroups[1].querySelector('[role="group"] > li[role="presentation"]')?.textContent).toEqual(
         "hi Primitives",
       );
-      expect(renderedGroups[2].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
+      expect(renderedGroups[2].querySelector('[role="group"] > li[role="presentation"]')?.textContent).toEqual(
         "hi Layout",
       );
     });

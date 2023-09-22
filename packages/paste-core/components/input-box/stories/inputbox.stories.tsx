@@ -68,11 +68,11 @@ export const Disabled = (): React.ReactNode => {
 
 Disabled.storyName = "disabled";
 
-export const Error = (): React.ReactNode => {
+export const ErrorInputBox = (): React.ReactNode => {
   return <CommonStories hasError variant="default" element="INPUT_BOX" />;
 };
 
-Error.storyName = "error";
+ErrorInputBox.storyName = "error";
 
 export const Inverse = (): React.ReactNode => {
   return (

@@ -5,7 +5,7 @@ import * as React from "react";
 import { MessageVariantContext } from "./MessageVariantContext";
 
 export interface ChatMessageMetaProps {
-  ["aria-label"]: string;
+  "aria-label": string;
   children: NonNullable<React.ReactNode>;
   element?: BoxElementProps["element"];
 }

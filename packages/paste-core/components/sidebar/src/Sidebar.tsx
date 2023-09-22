@@ -47,19 +47,19 @@ const config = {
 const getCompactSpringConfig = (collapsed: boolean, sizeSidebar: string, sizeSidebarCompact: string): any => ({
   opacity: 1, // Needed to overwrite the styles from getMobileSpringConfig
   width: collapsed ? sizeSidebarCompact : sizeSidebar,
-  transform: `translateX(0%)`,
+  transform: "translateX(0%)",
   config,
 });
 const getHiddenSpringConfig = (collapsed: boolean, sizeSidebar: string): any => ({
   opacity: collapsed ? 0 : 1,
   width: sizeSidebar,
-  transform: collapsed ? `translateX(-100%)` : `translateX(0%)`,
+  transform: collapsed ? "translateX(-100%)" : "translateX(0%)",
   config,
 });
 const getMobileSpringConfig = (collapsed: boolean): any => ({
   opacity: collapsed ? 0 : 1,
   width: "100%",
-  transform: collapsed ? `translateX(-100%)` : `translateX(0%)`,
+  transform: collapsed ? "translateX(-100%)" : "translateX(0%)",
   config,
 });
 

@@ -36,7 +36,7 @@ export const ImportModal: React.FC<React.PropsWithChildren<ImportModalProps>> = 
 
     if (hasError) {
       toaster.push({
-        message: `Please make sure the theme is in the correct JSON format.`,
+        message: "Please make sure the theme is in the correct JSON format.",
         variant: "error",
         dismissAfter: 4000,
       });
