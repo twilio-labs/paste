@@ -48,8 +48,7 @@
     "formatter": {
       "indentStyle": "space",
       "indentSize": 2,
-      "lineWidth": 120,
-      "quoteStyle": "single"
+      "lineWidth": 120
     }
   },
   "json": {
