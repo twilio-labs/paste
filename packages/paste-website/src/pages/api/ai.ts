@@ -41,15 +41,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
    */
   const stuffChain = loadQAStuffChain(model);
 
-  try {
-    /*
-     * Get the FAISS DB
-     */
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
-    const directory = path.join(__dirname, '../../../indexes/faiss_index');
-    const loadedVectorStore = await FaissStore.loadFromPython(directory, new OpenAIEmbeddings());
+  /*
+   * Get the FAISS DB
+   */
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const directory = path.join(__dirname, '../../../indexes/faiss_index');
+  const loadedVectorStore = await FaissStore.loadFromPython(directory, new OpenAIEmbeddings());
 
+  try {
     /*
      * We cannot provide GPT-4 with our entire doc site. For this reason we use the FAISS DB.
      * This DB is a compressed vector db that allows us to search for similar "documents"
