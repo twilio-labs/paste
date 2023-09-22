@@ -2,7 +2,7 @@ const ComponentLookup = require('../tools/.cache/mappings.json');
 
 module.exports = function barreledToUnbarreled(fileInfo, api, options) {
   const j = api.jscodeshift;
-  const printOptions = options.printOptions || {quote: 'single', tabWidth: 2, trailingComma: true};
+  const printOptions = options.printOptions || { quote: 'single', tabWidth: 2, trailingComma: true };
   const root = j(fileInfo.source);
   const importLookups = {};
 

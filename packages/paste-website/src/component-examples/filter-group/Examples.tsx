@@ -1,10 +1,10 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
+import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
 
-import {DefaultFilterGroup} from './components/DefaultFilterGroup';
-import {CustomDateFilterGroup} from './components/CustomDateFilterGroup';
-import {TABLE_DATA, DATE_TIME_TABLE_DATA} from './constants';
+import { DefaultFilterGroup } from './components/DefaultFilterGroup';
+import { CustomDateFilterGroup } from './components/CustomDateFilterGroup';
+import { TABLE_DATA, DATE_TIME_TABLE_DATA } from './constants';
 
 export const DefaultFilterGroupExample = (): JSX.Element => (
   <Box marginBottom="space70" data-cy="filter-group-default-example">

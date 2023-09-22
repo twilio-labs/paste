@@ -1,6 +1,6 @@
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
-import type {WidthOptions} from '@twilio-paste/style-props';
+import type { BoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps, ValueOf } from '@twilio-paste/types';
+import type { WidthOptions } from '@twilio-paste/style-props';
 
 import type {
   TableAlignmentObject,

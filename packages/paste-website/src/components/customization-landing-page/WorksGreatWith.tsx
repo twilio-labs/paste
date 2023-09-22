@@ -1,17 +1,17 @@
-import {Text} from '@twilio-paste/text';
-import {Grid, Column} from '@twilio-paste/grid';
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {css} from '@twilio-paste/styling-library';
+import { Text } from '@twilio-paste/text';
+import { Grid, Column } from '@twilio-paste/grid';
+import { useTheme } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { css } from '@twilio-paste/styling-library';
 
-import {FlexCard} from './FlexCard';
-import {ComingSoonCard} from './ComingSoonCard';
-import {ReactCard} from './ReactCard';
-import {LandingPageSectionContent} from './LandingPageLayoutUtils';
-import {DoodleLoopArrow} from '../../assets/illustrations/DoodleLoopArrow';
+import { FlexCard } from './FlexCard';
+import { ComingSoonCard } from './ComingSoonCard';
+import { ReactCard } from './ReactCard';
+import { LandingPageSectionContent } from './LandingPageLayoutUtils';
+import { DoodleLoopArrow } from '../../assets/illustrations/DoodleLoopArrow';
 
 export const WorksGreatWith = (): JSX.Element => {
-  const {backgroundColors, ...theme} = useTheme();
+  const { backgroundColors, ...theme } = useTheme();
   return (
     <Box
       as="section"

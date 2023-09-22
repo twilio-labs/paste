@@ -5,13 +5,13 @@
  */
 
 import * as React from 'react';
-import {createComponent} from 'reakit-system/createComponent';
-import {createHook} from 'reakit-system/createHook';
-import {useForkRef} from 'reakit-utils/useForkRef';
-import type {BoxOptions, BoxHTMLProps, PopoverStateReturn} from '@twilio-paste/paste-reakit-fork';
-import {useBox} from '@twilio-paste/paste-reakit-fork';
+import { createComponent } from 'reakit-system/createComponent';
+import { createHook } from 'reakit-system/createHook';
+import { useForkRef } from 'reakit-utils/useForkRef';
+import type { BoxOptions, BoxHTMLProps, PopoverStateReturn } from '@twilio-paste/paste-reakit-fork';
+import { useBox } from '@twilio-paste/paste-reakit-fork';
 
-import {POPOVER_ARROW_KEYS} from './__keys';
+import { POPOVER_ARROW_KEYS } from './__keys';
 
 export type PopoverArrowOptions = BoxOptions &
   Pick<Partial<PopoverStateReturn>, 'unstable_arrowRef' | 'unstable_arrowStyles'> &
@@ -33,11 +33,11 @@ export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLP
   compose: useBox,
   keys: PASTE_POPOVER_ARROW_KEYS,
 
-  useOptions({size = 30, fill, stroke, ...options}) {
-    return {size, fill, stroke, ...options};
+  useOptions({ size = 30, fill, stroke, ...options }) {
+    return { size, fill, stroke, ...options };
   },
 
-  useProps(options, {ref: htmlRef, style: htmlStyle, ...htmlProps}) {
+  useProps(options, { ref: htmlRef, style: htmlStyle, ...htmlProps }) {
     const [placement] = options.placement.split('-');
     const transformMap: Record<string, string> = {
       top: 'rotateZ(180deg)',
@@ -45,12 +45,12 @@ export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLP
       bottom: 'rotateZ(360deg)',
       left: 'rotateZ(90deg)',
     };
-    const {unstable_arrowStyles: arrowStyles, fill, stroke} = options;
+    const { unstable_arrowStyles: arrowStyles, fill, stroke } = options;
     const transform = transformMap[placement];
 
     const children = React.useMemo(
       () => (
-        <svg viewBox="0 0 30 30" style={{transform}}>
+        <svg viewBox="0 0 30 30" style={{ transform }}>
           <path
             fill={fill}
             stroke={stroke}
@@ -63,7 +63,7 @@ export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLP
           />
         </svg>
       ),
-      [transform]
+      [transform],
     );
 
     return {

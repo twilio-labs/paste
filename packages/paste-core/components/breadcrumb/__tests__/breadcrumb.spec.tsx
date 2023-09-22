@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Breadcrumb, BreadcrumbItem} from '../src';
+import { Breadcrumb, BreadcrumbItem } from '../src';
 
 describe('Breadcrumb', () => {
   const BreadcrumbExample = (): JSX.Element => {
@@ -15,7 +15,7 @@ describe('Breadcrumb', () => {
   };
 
   it('should render a nav with correct aria-label', () => {
-    const {getByRole} = render(<BreadcrumbExample />);
+    const { getByRole } = render(<BreadcrumbExample />);
     expect(getByRole('navigation').getAttribute('aria-label')).toBe('breadcrumb');
   });
 
@@ -41,17 +41,17 @@ describe('Breadcrumb', () => {
     render(
       <Breadcrumb>
         <BreadcrumbItem href="#">foo</BreadcrumbItem>
-      </Breadcrumb>
+      </Breadcrumb>,
     );
     const renderedAnchor = screen.getAllByRole('link');
     expect(renderedAnchor).not.toBeNull();
   });
 
   it('should render text with correct aria-current', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <Breadcrumb>
         <BreadcrumbItem>foo</BreadcrumbItem>
-      </Breadcrumb>
+      </Breadcrumb>,
     );
     expect(getByText('foo').getAttribute('aria-current')).toBe('page');
   });
@@ -62,7 +62,7 @@ describe('Breadcrumb', () => {
         <BreadcrumbItem href="#" data-testid="breadcrumb-anchor">
           foo
         </BreadcrumbItem>
-      </Breadcrumb>
+      </Breadcrumb>,
     );
     const breadcrumbAnchor = screen.getByRole('listitem').firstChild as HTMLElement;
     expect(breadcrumbAnchor.getAttribute('data-testid')).toEqual('breadcrumb-anchor');
@@ -78,7 +78,7 @@ describe('Breadcrumb', () => {
           <BreadcrumbItem element="TEST" href="#" data-testid="breadcrumb-item-2">
             First
           </BreadcrumbItem>
-        </Breadcrumb>
+        </Breadcrumb>,
       );
 
       expect(screen.getByTestId('breadcrumb').getAttribute('data-paste-element')).toEqual('TEST_PARENT');
@@ -108,7 +108,7 @@ describe('Breadcrumb', () => {
           <BreadcrumbItem href="#" data-testid="breadcrumb-item-2">
             First
           </BreadcrumbItem>
-        </Breadcrumb>
+        </Breadcrumb>,
       );
 
       expect(screen.getByTestId('breadcrumb').getAttribute('data-paste-element')).toEqual('TEST_PARENT');
@@ -139,7 +139,7 @@ describe('Breadcrumb', () => {
           <BreadcrumbItem href="#" data-testid="breadcrumb-item-2">
             First
           </BreadcrumbItem>
-        </Breadcrumb>
+        </Breadcrumb>,
       );
 
       expect(screen.getByTestId('breadcrumb').getAttribute('data-paste-element')).toEqual('BREADCRUMB');
@@ -169,14 +169,14 @@ describe('Breadcrumb', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            BREADCRUMB: {fontVariantNumeric: 'slashed-zero'},
-            BREADCRUMB_ITEM: {fontWeight: 'fontWeightMedium'},
+            BREADCRUMB: { fontVariantNumeric: 'slashed-zero' },
+            BREADCRUMB_ITEM: { fontWeight: 'fontWeightMedium' },
             BREADCRUMB_ANCHOR: {
               textDecoration: 'underline wavy',
               color: 'colorTextInverseWeaker',
-              ':hover': {color: 'colorLinkStronger'},
+              ':hover': { color: 'colorLinkStronger' },
             },
-            BREADCRUMB_TEXT: {letterSpacing: '0.25rem'},
+            BREADCRUMB_TEXT: { letterSpacing: '0.25rem' },
             BREADCRUMB_SEPARATOR: {
               color: 'colorTextBrandHighlight',
             },
@@ -191,7 +191,7 @@ describe('Breadcrumb', () => {
             </BreadcrumbItem>
             <BreadcrumbItem data-testid="breadcrumb-item-3">Third</BreadcrumbItem>
           </Breadcrumb>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       expect(screen.getByTestId('breadcrumb')).toHaveStyleRule('font-variant-numeric', 'slashed-zero');
@@ -226,18 +226,18 @@ describe('Breadcrumb', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            CUSTOM: {marginY: 'space60', fontVariantNumeric: 'ordinal'},
-            CUSTOM_CHILD_ITEM: {fontWeight: 'fontWeightLight'},
-            CUSTOM_CHILD_ANCHOR: {fontWeight: 'fontWeightBold'},
-            CUSTOM_CHILD_SEPARATOR: {fontWeight: 'fontWeightLight'},
-            CUSTOM_CHILD_TEXT: {fontWeight: 'fontWeightSemibold'},
-            CUSTOM_ITEM: {fontWeight: 'fontWeightBold'},
-            CUSTOM_ANCHOR: {letterSpacing: '0.25rem'},
+            CUSTOM: { marginY: 'space60', fontVariantNumeric: 'ordinal' },
+            CUSTOM_CHILD_ITEM: { fontWeight: 'fontWeightLight' },
+            CUSTOM_CHILD_ANCHOR: { fontWeight: 'fontWeightBold' },
+            CUSTOM_CHILD_SEPARATOR: { fontWeight: 'fontWeightLight' },
+            CUSTOM_CHILD_TEXT: { fontWeight: 'fontWeightSemibold' },
+            CUSTOM_ITEM: { fontWeight: 'fontWeightBold' },
+            CUSTOM_ANCHOR: { letterSpacing: '0.25rem' },
             CUSTOM_SEPARATOR: {
               color: 'colorTextBrandHighlight',
             },
-            BREADCRUMB_ITEM: {fontWeight: 'fontWeightLight'},
-            BREADCRUMB_ANCHOR: {letterSpacing: '0.5rem'},
+            BREADCRUMB_ITEM: { fontWeight: 'fontWeightLight' },
+            BREADCRUMB_ANCHOR: { letterSpacing: '0.5rem' },
             BREADCRUMB_SEPARATOR: {
               color: 'colorText',
             },
@@ -254,7 +254,7 @@ describe('Breadcrumb', () => {
               Third
             </BreadcrumbItem>
           </Breadcrumb>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       expect(screen.getByTestId('breadcrumb')).toHaveStyleRule('font-variant-numeric', 'ordinal');

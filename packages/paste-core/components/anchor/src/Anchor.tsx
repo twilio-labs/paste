@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
 
-import {DefaultAnchor} from './DefaultAnchor';
-import {InverseAnchor} from './InverseAnchor';
-import type {AnchorProps} from './types';
+import { DefaultAnchor } from './DefaultAnchor';
+import { InverseAnchor } from './InverseAnchor';
+import type { AnchorProps } from './types';
 
 const AnchorVariants = {
   inverse: InverseAnchor,
@@ -17,8 +17,8 @@ const EXTERNAL_REL_DEFAULT = 'noreferrer noopener';
 export const isExternalUrl = (url: string): boolean => EXTERNAL_URL_REGEX.test(url);
 
 export const secureExternalLink = (
-  href: string
-): {rel: typeof EXTERNAL_REL_DEFAULT; target: typeof EXTERNAL_TARGET_DEFAULT} | undefined => {
+  href: string,
+): { rel: typeof EXTERNAL_REL_DEFAULT; target: typeof EXTERNAL_TARGET_DEFAULT } | undefined => {
   if (!isExternalUrl(href)) return undefined;
   return {
     rel: EXTERNAL_REL_DEFAULT,
@@ -58,7 +58,7 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
       i18nExternalLinkLabel = '(link takes you to an external page)',
       ...props
     },
-    ref
+    ref,
   ) => {
     const AnchorComponent = AnchorVariants[variant];
 
@@ -106,11 +106,11 @@ const Anchor = React.forwardRef<HTMLAnchorElement, AnchorProps>(
         )}
       </AnchorComponent>
     );
-  }
+  },
 );
 
 Anchor.displayName = 'Anchor';
 
-export {Anchor};
+export { Anchor };
 
 export * from './types';

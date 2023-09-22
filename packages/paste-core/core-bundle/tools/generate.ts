@@ -1,6 +1,6 @@
 import sortBy from 'lodash/sortBy';
 
-import {CORE_BUNDLE_INDEX_PATH, CORE_BUNDLE_PACKAGE_PATH} from './constants';
+import { CORE_BUNDLE_INDEX_PATH, CORE_BUNDLE_PACKAGE_PATH } from './constants';
 import {
   getRepoPackages,
   writeToFile,

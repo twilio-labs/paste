@@ -4,12 +4,12 @@ import gulpTheo from 'gulp-theo';
 import gulpif from 'gulp-if';
 import terser from 'gulp-terser';
 
-import {sketchpaletteTokenFormat} from './formatters/sketchpalette';
-import {genericDTsTemplate} from './formatters/generic.d.ts';
-import {genericJsTokenFormat} from './formatters/generic';
-import {es6TokenFormat} from './formatters/es6';
-import {dTSTokenFormat} from './formatters/d.ts';
-import {commonTokenFormat} from './formatters/common';
+import { sketchpaletteTokenFormat } from './formatters/sketchpalette';
+import { genericDTsTemplate } from './formatters/generic.d.ts';
+import { genericJsTokenFormat } from './formatters/generic';
+import { es6TokenFormat } from './formatters/es6';
+import { dTSTokenFormat } from './formatters/d.ts';
+import { commonTokenFormat } from './formatters/common';
 
 // Browsersync isn't typed correctly so we import the old way
 const browserSync = require('browser-sync');
@@ -38,14 +38,14 @@ gulp.task('tokens:less', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web'},
-        format: {type: 'less'},
-      })
+        transform: { type: 'web' },
+        format: { type: 'less' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:css-custom-props', () =>
@@ -53,14 +53,14 @@ gulp.task('tokens:css-custom-props', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web'},
-        format: {type: 'custom-properties.css'},
-      })
+        transform: { type: 'web' },
+        format: { type: 'custom-properties.css' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:scss', () =>
@@ -68,14 +68,14 @@ gulp.task('tokens:scss', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web'},
-        format: {type: 'default.scss'},
-      })
+        transform: { type: 'web' },
+        format: { type: 'default.scss' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:scssmap', () =>
@@ -83,14 +83,14 @@ gulp.task('tokens:scssmap', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web'},
-        format: {type: 'map.scss'},
-      })
+        transform: { type: 'web' },
+        format: { type: 'map.scss' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:json', () =>
@@ -98,14 +98,14 @@ gulp.task('tokens:json', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web'},
-        format: {type: 'json'},
-      })
+        transform: { type: 'web' },
+        format: { type: 'json' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:ios', () =>
@@ -113,14 +113,14 @@ gulp.task('tokens:ios', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'ios'},
-        format: {type: 'ios.json'},
-      })
+        transform: { type: 'ios' },
+        format: { type: 'ios.json' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:android', () =>
@@ -128,14 +128,14 @@ gulp.task('tokens:android', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'android'},
-        format: {type: 'android.xml'},
-      })
+        transform: { type: 'android' },
+        format: { type: 'android.xml' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:raw', () =>
@@ -143,14 +143,14 @@ gulp.task('tokens:raw', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'raw'},
-        format: {type: 'raw.json'},
-      })
+        transform: { type: 'raw' },
+        format: { type: 'raw.json' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:sketchpalette', () =>
@@ -158,14 +158,14 @@ gulp.task('tokens:sketchpalette', () =>
     .src(`${paths.tokensDir}/**/sketch.yml`)
     .pipe(
       gulpTheo({
-        transform: {type: 'web', includeMeta: true},
-        format: {type: 'sketchpalette'},
-      })
+        transform: { type: 'web', includeMeta: true },
+        format: { type: 'sketchpalette' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:commonjs', () =>
@@ -173,15 +173,15 @@ gulp.task('tokens:commonjs', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web', includeMeta: true},
-        format: {type: 'common.js'},
-      })
+        transform: { type: 'web', includeMeta: true },
+        format: { type: 'common.js' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
     .pipe(gulpif(process.env.NODE_ENV === 'production', terser()))
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:es6', () =>
@@ -189,15 +189,15 @@ gulp.task('tokens:es6', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web', includeMeta: true},
-        format: {type: 'es6.js'},
-      })
+        transform: { type: 'web', includeMeta: true },
+        format: { type: 'es6.js' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
     .pipe(gulpif(process.env.NODE_ENV === 'production', terser()))
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:common:dts', () =>
@@ -205,14 +205,14 @@ gulp.task('tokens:common:dts', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web', includeMeta: true},
-        format: {type: 'common.d.ts'},
-      })
+        transform: { type: 'web', includeMeta: true },
+        format: { type: 'common.d.ts' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:es6:dts', () =>
@@ -220,14 +220,14 @@ gulp.task('tokens:es6:dts', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web', includeMeta: true},
-        format: {type: 'es6.d.ts'},
-      })
+        transform: { type: 'web', includeMeta: true },
+        format: { type: 'es6.d.ts' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:generic:js', () =>
@@ -235,14 +235,14 @@ gulp.task('tokens:generic:js', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web', includeMeta: true},
-        format: {type: 'generic.js'},
-      })
+        transform: { type: 'web', includeMeta: true },
+        format: { type: 'generic.js' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('tokens:generic:d:ts', () =>
@@ -250,14 +250,14 @@ gulp.task('tokens:generic:d:ts', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web', includeMeta: true},
-        format: {type: 'generic.d.ts'},
-      })
+        transform: { type: 'web', includeMeta: true },
+        format: { type: 'generic.d.ts' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.dist))
+    .pipe(gulp.dest(paths.dist)),
 );
 
 gulp.task('docs', () =>
@@ -265,14 +265,14 @@ gulp.task('docs', () =>
     .src(paths.tokensEntry)
     .pipe(
       gulpTheo({
-        transform: {type: 'web'},
-        format: {type: 'html'},
-      })
+        transform: { type: 'web' },
+        format: { type: 'html' },
+      }),
     )
     .on('error', (err: string) => {
       throw new Error(err);
     })
-    .pipe(gulp.dest(paths.docs))
+    .pipe(gulp.dest(paths.docs)),
 );
 
 gulp.task(
@@ -292,8 +292,8 @@ gulp.task(
     'tokens:raw',
     'tokens:sketchpalette',
     'tokens:generic:js',
-    'tokens:generic:d:ts'
-  )
+    'tokens:generic:d:ts',
+  ),
 );
 
 gulp.task('browsersync', () =>
@@ -302,13 +302,13 @@ gulp.task('browsersync', () =>
     notify: false,
     server: 'docs',
     startPath: 'tokens.html',
-  })
+  }),
 );
 
 gulp.task('watch', () => {
   gulp.watch(
     [`${paths.aliases}/**/*.*`, `${paths.globals}/**/*.*`],
-    gulp.series('tokens:raw', 'tokens:es6', 'tokens:es6:dts')
+    gulp.series('tokens:raw', 'tokens:es6', 'tokens:es6:dts'),
   );
 });
 

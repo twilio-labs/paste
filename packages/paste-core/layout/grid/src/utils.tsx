@@ -1,5 +1,5 @@
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
-import type {Margin, Padding, Space, SpaceOptions} from '@twilio-paste/style-props';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
+import type { Margin, Padding, Space, SpaceOptions } from '@twilio-paste/style-props';
 
 import type {
   ColumnOffset,
@@ -22,7 +22,7 @@ const initDefaultSpacing = ({
   prefix: string;
   responsive: boolean;
   defaultValue: Margin | Padding;
-}): {[x: string]: typeof defaultValue} => {
+}): { [x: string]: typeof defaultValue } => {
   const getSpaceDefault = (): typeof defaultValue => (responsive ? new Array(3).fill(defaultValue) : defaultValue);
   return {
     [`${prefix}Top`]: getSpaceDefault(),
@@ -38,10 +38,10 @@ const getDefaultSpacingValue = (prefix: SpacingPrefix): Margin | Padding =>
 export const getSpacing = (
   vertical: boolean,
   prefix: SpacingPrefix,
-  spacing: Margin | Padding | undefined
-): {[x: string]: Margin | Padding} => {
+  spacing: Margin | Padding | undefined,
+): { [x: string]: Margin | Padding } => {
   const defaultValue = getDefaultSpacingValue(prefix);
-  const computedSpacing = initDefaultSpacing({prefix, responsive: false, defaultValue});
+  const computedSpacing = initDefaultSpacing({ prefix, responsive: false, defaultValue });
 
   if (spacing === undefined) {
     return computedSpacing;
@@ -60,8 +60,8 @@ export const getSpacing = (
 export const getResponsiveSpacing = (
   vertical: boolean[],
   prefix: SpacingPrefix & string,
-  spacing: (Margin | Padding) | (Margin[] | Padding[]) | undefined
-): {[x: string]: (Margin | Padding)[]} => {
+  spacing: (Margin | Padding) | (Margin[] | Padding[]) | undefined,
+): { [x: string]: (Margin | Padding)[] } => {
   const defaultValue = getDefaultSpacingValue(prefix);
   const styles = {
     [`${prefix}Top`]: [defaultValue, defaultValue, defaultValue],
@@ -133,14 +133,14 @@ export const getStackedColumns = (vertical: Vertical): ColumnMinWidth => {
   return '0';
 };
 
-export const getColumnPadding = ({vertical, gutter}: ColumnProps): ColumnPadding => {
+export const getColumnPadding = ({ vertical, gutter }: ColumnProps): ColumnPadding => {
   return Array.isArray(vertical)
     ? getResponsiveSpacing(vertical as boolean[], 'padding', gutter as SpaceOptions[])
     : getSpacing(vertical as boolean, 'padding', gutter as SpaceOptions);
 };
 
 // Gets the Column span prop, calculates, and returns the value to be used as the Column width
-export const getColumnSpan = ({count, span}: ColumnProps): ColumnWidthSpan => {
+export const getColumnSpan = ({ count, span }: ColumnProps): ColumnWidthSpan => {
   if (Array.isArray(span) && count) {
     return (span as ColumnSpanOptions[]).map((value: ColumnSpanOptions) => {
       return `${(value / 12) * 100}%`;

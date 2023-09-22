@@ -1,13 +1,13 @@
 import React from 'react';
-import {INITIAL_VIEWPORTS} from '@storybook/addon-viewport';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import isChromatic from 'chromatic';
-import {StylingGlobals} from '@twilio-paste/styling-library';
-import {Theme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Grid, Column} from '@twilio-paste/grid';
-import {RenderPerformanceProfiler} from './RenderPerformanceProfiler';
-import {SITE_BREAKPOINTS} from '../packages/paste-website/src/constants';
+import { StylingGlobals } from '@twilio-paste/styling-library';
+import { Theme } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { Grid, Column } from '@twilio-paste/grid';
+import { RenderPerformanceProfiler } from './RenderPerformanceProfiler';
+import { SITE_BREAKPOINTS } from '../packages/paste-website/src/constants';
 
 // disable animations in test environments
 const isTestEnvironment = isChromatic() || process.env.NODE_ENV === 'test';
@@ -32,9 +32,9 @@ export const globalTypes = {
     toolbar: {
       icon: 'component',
       items: [
-        {value: 'default', title: 'default'},
-        {value: 'side-by-side', title: 'side by side'},
-        {value: 'stacked', title: 'stacked'},
+        { value: 'default', title: 'default' },
+        { value: 'side-by-side', title: 'side by side' },
+        { value: 'stacked', title: 'stacked' },
       ],
     },
   },
@@ -45,8 +45,8 @@ export const globalTypes = {
     toolbar: {
       icon: 'globe',
       items: [
-        {value: 'en', right: 'LTR', title: 'English'},
-        {value: 'rtl', right: 'RTL', title: 'English (RTL)'},
+        { value: 'en', right: 'LTR', title: 'English' },
+        { value: 'rtl', right: 'RTL', title: 'English (RTL)' },
       ],
     },
   },
@@ -57,8 +57,8 @@ export const globalTypes = {
     toolbar: {
       icon: 'mobile',
       items: [
-        {value: null, title: 'Default Breakpoints'},
-        {value: SITE_BREAKPOINTS, title: 'Docs Site Breakpoints'},
+        { value: null, title: 'Default Breakpoints' },
+        { value: SITE_BREAKPOINTS, title: 'Docs Site Breakpoints' },
       ],
     },
   },
@@ -257,10 +257,10 @@ export const decorators = [
 
 export const parameters = {
   isTestEnvironment,
-  actions: {argTypesRegex: '^on[A-Z].*'},
+  actions: { argTypesRegex: '^on[A-Z].*' },
   viewport: {
     viewports: INITIAL_VIEWPORTS,
   },
   // Notifies Chromatic to pause the animations when they finish for all stories.
-  chromatic: {pauseAnimationAtEnd: true},
+  chromatic: { pauseAnimationAtEnd: true },
 };

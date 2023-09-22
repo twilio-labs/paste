@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, type BoxProps} from '@twilio-paste/box';
+import { Box, type BoxProps } from '@twilio-paste/box';
 
-import {getColorToken} from './helpers';
-import type {UIStates} from './types';
+import { getColorToken } from './helpers';
+import type { UIStates } from './types';
 
 export interface SliderThumbProps extends UIStates {
   children?: React.ReactNode;
@@ -10,7 +10,7 @@ export interface SliderThumbProps extends UIStates {
   element: BoxProps['element'];
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
-export const SliderThumb: React.FC<SliderThumbProps> = ({element = 'SLIDER_THUMB', left = '0%', ...props}) => {
+export const SliderThumb: React.FC<SliderThumbProps> = ({ element = 'SLIDER_THUMB', left = '0%', ...props }) => {
   return (
     <Box
       {...props}

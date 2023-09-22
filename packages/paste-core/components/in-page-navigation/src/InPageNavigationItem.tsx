@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {secureExternalLink} from '@twilio-paste/anchor';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { BoxStyleProps, BoxProps } from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { secureExternalLink } from '@twilio-paste/anchor';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {InPageNavigationContext} from './InPageNavigationContext';
+import { InPageNavigationContext } from './InPageNavigationContext';
 
 const BASE_STYLES: BoxStyleProps = {
   borderBottomColor: 'transparent',
@@ -69,8 +69,8 @@ export interface InPageNavigationItemProps extends HTMLPasteProps<'a'> {
 }
 
 const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationItemProps>(
-  ({element = 'IN_PAGE_NAVIGATION_ITEM', currentPage = false, href, children, ...props}, ref) => {
-    const {variant} = React.useContext(InPageNavigationContext);
+  ({ element = 'IN_PAGE_NAVIGATION_ITEM', currentPage = false, href, children, ...props }, ref) => {
+    const { variant } = React.useContext(InPageNavigationContext);
     const isFullWidth = variant === 'fullWidth' || variant === 'inverse_fullWidth';
     const isInverse = variant === 'inverse' || variant === 'inverse_fullWidth';
     let currentPageStyles = {};
@@ -107,9 +107,9 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
         </Box>
       </Box>
     );
-  }
+  },
 );
 
 InPageNavigationItem.displayName = 'InPageNavigationItem';
 
-export {InPageNavigationItem};
+export { InPageNavigationItem };

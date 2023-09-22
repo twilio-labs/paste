@@ -1,6 +1,6 @@
-import type {TextProps} from '@twilio-paste/text';
-import type {Space} from '@twilio-paste/style-props';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { TextProps } from '@twilio-paste/text';
+import type { Space } from '@twilio-paste/style-props';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export type AsTags = 'ol' | 'ul';
 

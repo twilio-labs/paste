@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxElementProps } from '@twilio-paste/box';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
 
-import {pillStyles, hoverPillStyles} from './FormPill.styles';
-import type {PillVariant} from './types';
+import { pillStyles, hoverPillStyles } from './FormPill.styles';
+import type { PillVariant } from './types';
 
 interface FormPillStylesProps {
   variant?: PillVariant;
@@ -33,11 +33,11 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
       i18nErrorLabel = '(error)',
       ...props
     },
-    ref
+    ref,
   ) => {
     const computedStyles = React.useMemo(() => {
       const hasHoverStyles = isHoverable && !isDisabled;
-      return hasHoverStyles ? {...pillStyles[variant], ...hoverPillStyles[variant]} : pillStyles[variant];
+      return hasHoverStyles ? { ...pillStyles[variant], ...hoverPillStyles[variant] } : pillStyles[variant];
     }, [isHoverable, isDisabled, variant]);
 
     return (
@@ -76,7 +76,7 @@ export const FormPillButton = React.forwardRef<HTMLElement, FormPillStylesProps>
         </Box>
       </Box>
     );
-  }
+  },
 );
 
 FormPillButton.displayName = 'FormPillButton';

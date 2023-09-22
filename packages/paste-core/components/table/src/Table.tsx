@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 
-import {TableContext} from './TableContext';
-import type {TableProps} from './types';
+import { TableContext } from './TableContext';
+import type { TableProps } from './types';
 
 const Table = React.forwardRef<HTMLTableElement, TableProps>(
   (
@@ -17,7 +17,7 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
       variant = 'default',
       ...props
     },
-    ref
+    ref,
   ) => {
     const tableContext = {
       striped,
@@ -48,9 +48,9 @@ const Table = React.forwardRef<HTMLTableElement, TableProps>(
         </Box>
       </TableContext.Provider>
     );
-  }
+  },
 );
 
 Table.displayName = 'Table';
 
-export {Table};
+export { Table };

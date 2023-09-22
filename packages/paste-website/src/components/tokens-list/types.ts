@@ -1,6 +1,6 @@
-import type {Properties} from 'csstype';
+import type { Properties } from 'csstype';
 
-import type {Themes} from '../../types';
+import type { Themes } from '../../types';
 
 export interface Token {
   type: string;

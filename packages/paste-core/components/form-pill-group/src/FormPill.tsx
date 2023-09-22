@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {CompositeItem} from '@twilio-paste/reakit-library';
-import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { CompositeItem } from '@twilio-paste/reakit-library';
+import type { CompositeStateReturn } from '@twilio-paste/reakit-library';
 
-import {PillCloseIcon} from './PillCloseIcon';
-import {FormPillButton} from './FormPillButton';
-import type {PillVariant} from './types';
-import {selectedWrapperStyles, wrapperStyles} from './FormPill.styles';
+import { PillCloseIcon } from './PillCloseIcon';
+import { FormPillButton } from './FormPillButton';
+import type { PillVariant } from './types';
+import { selectedWrapperStyles, wrapperStyles } from './FormPill.styles';
 
 interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> {
   selected?: boolean;
@@ -55,7 +55,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
       i18nErrorLabel,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (selected && disabled) {
       throw new Error('[Paste FormPill] FormPills cannot be selected and disabled at the same time.');
@@ -82,7 +82,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
           }
         }
       },
-      [onDismiss, next]
+      [onDismiss, next],
     );
     return (
       <Box
@@ -121,7 +121,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
         ) : null}
       </Box>
     );
-  }
+  },
 );
 
 FormPill.displayName = 'FormPill';

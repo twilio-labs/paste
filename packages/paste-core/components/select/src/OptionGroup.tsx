@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import type {Element} from './types';
+import type { Element } from './types';
 
 export interface OptionGroupProps extends HTMLPasteProps<'optgroup'> {
   label: string;
@@ -11,7 +11,7 @@ export interface OptionGroupProps extends HTMLPasteProps<'optgroup'> {
 }
 
 const OptionGroup = React.forwardRef<HTMLOptGroupElement, OptionGroupProps>(
-  ({label, children, element = 'OPTION_GROUP', ...props}, ref) => (
+  ({ label, children, element = 'OPTION_GROUP', ...props }, ref) => (
     <Box
       ref={ref}
       label={label}
@@ -27,9 +27,9 @@ const OptionGroup = React.forwardRef<HTMLOptGroupElement, OptionGroupProps>(
     >
       {children}
     </Box>
-  )
+  ),
 );
 
 OptionGroup.displayName = 'OptionGroup';
 
-export {OptionGroup};
+export { OptionGroup };

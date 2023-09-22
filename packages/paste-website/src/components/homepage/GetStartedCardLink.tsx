@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Text} from '@twilio-paste/text';
+import { Text } from '@twilio-paste/text';
 
-import type {SiteLinkProps} from '../SiteLink';
-import {SiteLink} from '../SiteLink';
+import type { SiteLinkProps } from '../SiteLink';
+import { SiteLink } from '../SiteLink';
 
 interface GetStartedCardLinkProps {
   href: SiteLinkProps['href'];

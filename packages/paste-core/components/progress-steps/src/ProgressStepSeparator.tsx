@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
-import {ProgressStepsContext} from './ProgressStepsContext';
+import { ProgressStepsContext } from './ProgressStepsContext';
 
 const VerticalStyles: BoxProps = {
   borderLeftWidth: 'borderWidth20',
@@ -26,8 +26,8 @@ export interface ProgressStepSeparatorProps {
 }
 
 export const ProgressStepSeparator = React.forwardRef<HTMLDivElement, ProgressStepSeparatorProps>(
-  ({element = 'PROGRESS_STEP_SEPARATOR', ...props}, ref) => {
-    const {orientation} = React.useContext(ProgressStepsContext);
+  ({ element = 'PROGRESS_STEP_SEPARATOR', ...props }, ref) => {
+    const { orientation } = React.useContext(ProgressStepsContext);
 
     return (
       <Box
@@ -40,6 +40,6 @@ export const ProgressStepSeparator = React.forwardRef<HTMLDivElement, ProgressSt
         element={element}
       />
     );
-  }
+  },
 );
 ProgressStepSeparator.displayName = 'ProgressStepSeparator';

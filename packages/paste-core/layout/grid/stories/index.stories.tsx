@@ -1,23 +1,23 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import type {ThemeShape} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {Truncate} from '@twilio-paste/truncate';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import type { ThemeShape } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { Card } from '@twilio-paste/card';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import { Truncate } from '@twilio-paste/truncate';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Grid, Column} from '../src';
+import { Grid, Column } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Layout/Grid',
   component: Grid,
-  subcomponents: {Column},
+  subcomponents: { Column },
 };
 
 export const Grid12ColumnAndGutterSupport = (): React.ReactNode => {
@@ -850,7 +850,7 @@ export const GridContainingLongContent = (): React.ReactNode => {
 
 GridContainingLongContent.storyName = 'Grid - Containing long content';
 
-export const CustomGrid: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomGrid: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

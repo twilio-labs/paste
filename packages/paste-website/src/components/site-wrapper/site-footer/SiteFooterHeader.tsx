@@ -1,6 +1,6 @@
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
+import { useTheme } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
 
 import HeartDoodleIcon from '../../icons/HeartDoodleIcon';
 
@@ -15,7 +15,7 @@ const SiteFooterHeader = (): JSX.Element => {
       textAlign={['center', 'left']}
     >
       <HeartDoodleIcon
-        css={{height: theme.heights.sizeIcon70, width: theme.widths.sizeIcon70}}
+        css={{ height: theme.heights.sizeIcon70, width: theme.widths.sizeIcon70 }}
         color={theme.textColors.colorTextInverse}
         decorative
       />
@@ -35,4 +35,4 @@ const SiteFooterHeader = (): JSX.Element => {
   );
 };
 
-export {SiteFooterHeader};
+export { SiteFooterHeader };

@@ -101,7 +101,7 @@ describe('css function', () => {
     const result = css({
       color: 'primary',
       fontSize: [2, 3, 4],
-    })({theme});
+    })({ theme });
     expect(result).toEqual({
       fontSize: 16,
       '@media screen and (min-width: 40em)': {
@@ -120,7 +120,7 @@ describe('css function', () => {
       '&:hover': {
         color: 'secondary',
       },
-    })({theme});
+    })({ theme });
     expect(result).toEqual({
       color: 'tomato',
       '&:hover': {
@@ -135,7 +135,7 @@ describe('css function', () => {
       h1: {
         py: [3, 4],
       },
-    })({theme});
+    })({ theme });
     expect(result).toEqual({
       color: 'tomato',
       h1: {
@@ -162,7 +162,7 @@ describe('css function', () => {
       bg: 'secondary',
       fontFamily: 'monospace',
       lineHeight: 'body',
-    })({theme});
+    })({ theme });
     expect(result).toEqual({
       margin: 0,
       marginBottom: 8,

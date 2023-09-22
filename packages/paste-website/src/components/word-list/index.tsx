@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Table, TBody, Td, Th, THead, Tr} from '@twilio-paste/table';
+import { Table, TBody, Td, Th, THead, Tr } from '@twilio-paste/table';
 
-import {EmptyState} from './EmptyState';
+import { EmptyState } from './EmptyState';
 import wordsList from '../../data/word-list.json';
-import {filterWordList} from './utils';
-import type {WordListShape} from './types';
-import {WordFilter} from './WordFilter';
+import { filterWordList } from './utils';
+import type { WordListShape } from './types';
+import { WordFilter } from './WordFilter';
 
 const WordsList: React.FC = () => {
   const [filterString, setFilterString] = React.useState('');
@@ -54,4 +54,4 @@ const WordsList: React.FC = () => {
 
 WordsList.displayName = 'WordsList';
 
-export {WordsList};
+export { WordsList };

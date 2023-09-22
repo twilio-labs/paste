@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {TabPrimitiveList} from '@twilio-paste/tabs-primitive';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { TabPrimitiveList } from '@twilio-paste/tabs-primitive';
 
-import {TabsContext} from './TabsContext';
-import type {Variants} from './types';
-import {getElementName} from './utils';
+import { TabsContext } from './TabsContext';
+import type { Variants } from './types';
+import { getElementName } from './utils';
 
 export interface TabListProps {
   'aria-label': string;
@@ -16,7 +16,7 @@ export interface TabListProps {
   variant?: Variants;
 }
 
-const HorizontalTabList: React.FC<React.PropsWithChildren<{variant?: Variants; element?: BoxProps['element']}>> = ({
+const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; element?: BoxProps['element'] }>> = ({
   children,
   variant,
   element,
@@ -39,7 +39,10 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{variant?: Variants; e
 
 HorizontalTabList.displayName = 'HorizontalTabList';
 
-const VerticalTabList: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({children, element}) => (
+const VerticalTabList: React.FC<React.PropsWithChildren<{ element?: BoxProps['element'] }>> = ({
+  children,
+  element,
+}) => (
   <Box element={element} marginRight="space110" minWidth="size20" maxWidth="size40">
     {children}
   </Box>
@@ -47,9 +50,9 @@ const VerticalTabList: React.FC<React.PropsWithChildren<{element?: BoxProps['ele
 
 VerticalTabList.displayName = 'VerticalTabList';
 
-const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, element, variant, ...props}, ref) => {
+const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({ children, element, variant, ...props }, ref) => {
   const tab = React.useContext(TabsContext);
-  const {orientation} = tab;
+  const { orientation } = tab;
   const elementName = getElementName(orientation, 'TAB_LIST', element);
   const TabListWrapper = orientation === 'vertical' ? VerticalTabList : HorizontalTabList;
 
@@ -63,4 +66,4 @@ const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, eleme
 });
 
 TabList.displayName = 'TabList';
-export {TabList};
+export { TabList };

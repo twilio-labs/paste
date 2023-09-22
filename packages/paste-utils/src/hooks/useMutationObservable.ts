@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import debounce from 'lodash/debounce';
 
 type Options = {
@@ -11,7 +11,7 @@ type Options = {
 };
 type Callback = (mutations: MutationRecord[]) => void;
 const DEFAULT_OPTIONS = {
-  config: {attributes: true, childList: true, subtree: true},
+  config: { attributes: true, childList: true, subtree: true },
   debounceTime: 0,
 };
 
@@ -53,7 +53,7 @@ export function useMutationObservable(targetEl: Element, cb: Callback, options: 
       console.warn(`You must provide a valid DOM element to observe, instead you've provided ${targetEl}`);
     }
 
-    const {config} = options;
+    const { config } = options;
 
     try {
       observer.observe(targetEl, config);

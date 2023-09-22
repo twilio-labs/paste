@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {forceHiddenStyles} from './forceHiddenStyles';
+import { forceHiddenStyles } from './forceHiddenStyles';
 
 export const useHiddenTextarea = (): HTMLTextAreaElement | null => {
   const [hiddenTextarea, setHiddenTextarea] = React.useState<HTMLTextAreaElement | null>(null);

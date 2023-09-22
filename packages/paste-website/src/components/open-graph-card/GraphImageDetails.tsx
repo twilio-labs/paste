@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
 
-import {ComponentStatus} from './ComponentStatus';
-import type {PackageData} from './types';
+import { ComponentStatus } from './ComponentStatus';
+import type { PackageData } from './types';
 
 export type GraphImageDetailsProps = PackageData;
 
@@ -18,4 +18,4 @@ const GraphImageDetails: React.FC<React.PropsWithChildren<GraphImageDetailsProps
   );
 };
 
-export {GraphImageDetails};
+export { GraphImageDetails };

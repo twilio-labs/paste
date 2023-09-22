@@ -1,4 +1,4 @@
-import {ENVIRONMENT_CONTEXT} from '../constants';
+import { ENVIRONMENT_CONTEXT } from '../constants';
 
 export const GA_TRACKING_ID = 'UA-145457417-1';
 
@@ -19,7 +19,7 @@ type GTagEvent = {
   value?: number;
 };
 
-export const event = ({action, category, label, value}: GTagEvent): void => {
+export const event = ({ action, category, label, value }: GTagEvent): void => {
   if (isProd && window.gtag) {
     window.gtag('event', action, {
       event_category: category,

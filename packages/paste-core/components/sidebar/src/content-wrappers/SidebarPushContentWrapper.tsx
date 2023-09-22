@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {useSpring, animated} from '@twilio-paste/animation-library';
-import {useTheme} from '@twilio-paste/theme';
-import {useWindowSize} from '@twilio-paste/utils';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { useSpring, animated } from '@twilio-paste/animation-library';
+import { useTheme } from '@twilio-paste/theme';
+import { useWindowSize } from '@twilio-paste/utils';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import type {Variants} from '../types';
+import type { Variants } from '../types';
 
 const StyledContentWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box {...props} as="div" position="relative" ref={ref} />
@@ -22,10 +22,10 @@ export interface SidebarPushContentWrapperProps extends HTMLPasteProps<'div'> {
 }
 
 export const SidebarPushContentWrapper = React.forwardRef<HTMLDivElement, SidebarPushContentWrapperProps>(
-  ({collapsed = false, variant = 'default', element = 'SIDEBAR_PUSH_CONTENT_WRAPPER', children, ...props}, ref) => {
+  ({ collapsed = false, variant = 'default', element = 'SIDEBAR_PUSH_CONTENT_WRAPPER', children, ...props }, ref) => {
     const theme = useTheme();
     const isCompact = variant === 'compact';
-    const {breakpointIndex} = useWindowSize();
+    const { breakpointIndex } = useWindowSize();
 
     const styles = useSpring({
       // eslint-disable-next-line unicorn/no-nested-ternary
@@ -49,6 +49,6 @@ export const SidebarPushContentWrapper = React.forwardRef<HTMLDivElement, Sideba
         {children}
       </AnimatedStyledContentWrapper>
     );
-  }
+  },
 );
 SidebarPushContentWrapper.displayName = 'SidebarPushContentWrapper';

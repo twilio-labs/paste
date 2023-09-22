@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { Box } from '@twilio-paste/box';
 
 export interface PProps {
   variant?: 'default' | 'lead';
 }
-export const P: React.FC<React.PropsWithChildren<PProps>> = ({children, variant}) => {
+export const P: React.FC<React.PropsWithChildren<PProps>> = ({ children, variant }) => {
   return (
     <Text
       as="p"

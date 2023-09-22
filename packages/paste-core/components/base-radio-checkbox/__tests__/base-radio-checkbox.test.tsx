@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { CheckboxCheckIcon } from '@twilio-paste/icons/esm/CheckboxCheckIcon';
 
 import {
   BaseRadioCheckboxControl,
@@ -12,7 +12,7 @@ import {
 
 describe('Base radio checkbox HTML attributes', () => {
   it('should set element data attribute on base radio checkbox components', () => {
-    const {container} = render(
+    const { container } = render(
       <>
         <BaseRadioCheckboxLabel htmlFor="checkbox" data-testid="label">
           <BaseRadioCheckboxControl data-testid="control">
@@ -21,23 +21,23 @@ describe('Base radio checkbox HTML attributes', () => {
           <BaseRadioCheckboxLabelText data-testid="label_text">Label</BaseRadioCheckboxLabelText>
         </BaseRadioCheckboxLabel>
         <BaseRadioCheckboxHelpText helpTextId="help_text">Help Text</BaseRadioCheckboxHelpText>
-      </>
+      </>,
     );
     expect(screen.getByTestId('label').getAttribute('data-paste-element')).toEqual('LABEL');
     expect(screen.getByTestId('control').getAttribute('data-paste-element')).toEqual('BASE_RADIO_CHECKBOX_CONTROL');
     expect(screen.getByTestId('label_text').getAttribute('data-paste-element')).toEqual(
-      'BASE_RADIO_CHECKBOX_LABEL_TEXT'
+      'BASE_RADIO_CHECKBOX_LABEL_TEXT',
     );
     expect(container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
     expect(
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore object isn't null
-      container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]').firstElementChild
+      container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]').firstElementChild,
     ).toHaveAttribute('data-paste-element', 'HELP_TEXT');
   });
 
   it('should set element data attribute on base radio checkbox components with custom element prop', () => {
-    const {container} = render(
+    const { container } = render(
       <>
         <BaseRadioCheckboxLabel htmlFor="checkbox" data-testid="label" element="fee">
           <BaseRadioCheckboxControl data-testid="control" element="fi">
@@ -50,7 +50,7 @@ describe('Base radio checkbox HTML attributes', () => {
         <BaseRadioCheckboxHelpText helpTextId="help_text" element="fum">
           Help Text
         </BaseRadioCheckboxHelpText>
-      </>
+      </>,
     );
     expect(screen.getByTestId('label').getAttribute('data-paste-element')).toEqual('fee');
     expect(screen.getByTestId('control').getAttribute('data-paste-element')).toEqual('fi');
@@ -60,20 +60,20 @@ describe('Base radio checkbox HTML attributes', () => {
     // @ts-ignore object isn't null
     expect(container.querySelector('[data-paste-element="fum"]').firstElementChild).toHaveAttribute(
       'data-paste-element',
-      'HELP_TEXT'
+      'HELP_TEXT',
     );
   });
 });
 
 describe('Base radio checkbox customization', () => {
   it('should add custom styles to base radio checkbox', () => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider
         theme={TestTheme}
         elements={{
-          BASE_RADIO_CHECKBOX_CONTROL: {backgroundColor: 'colorBackgroundError'},
-          BASE_RADIO_CHECKBOX_LABEL_TEXT: {color: 'colorTextSuccess'},
-          BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER: {marginLeft: 'space90'},
+          BASE_RADIO_CHECKBOX_CONTROL: { backgroundColor: 'colorBackgroundError' },
+          BASE_RADIO_CHECKBOX_LABEL_TEXT: { color: 'colorTextSuccess' },
+          BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER: { marginLeft: 'space90' },
         }}
       >
         <BaseRadioCheckboxLabel htmlFor="checkbox" data-testid="label">
@@ -83,7 +83,7 @@ describe('Base radio checkbox customization', () => {
           <BaseRadioCheckboxLabelText data-testid="label_text">Label</BaseRadioCheckboxLabelText>
         </BaseRadioCheckboxLabel>
         <BaseRadioCheckboxHelpText helpTextId="help_text">Help Text</BaseRadioCheckboxHelpText>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     /*
@@ -96,18 +96,18 @@ describe('Base radio checkbox customization', () => {
     expect(screen.getByTestId('label_text')).toHaveStyleRule('color', 'rgb(14, 124, 58)');
     expect(container.querySelector('[data-paste-element="BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-left',
-      '2rem'
+      '2rem',
     );
   });
 
   it('should add custom styles to base radio checkbox with custom element prop', () => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider
         theme={TestTheme}
         elements={{
-          fi: {backgroundColor: 'colorBackgroundError'},
-          fo: {color: 'colorTextSuccess'},
-          fum: {marginLeft: 'space90'},
+          fi: { backgroundColor: 'colorBackgroundError' },
+          fo: { color: 'colorTextSuccess' },
+          fum: { marginLeft: 'space90' },
         }}
       >
         <BaseRadioCheckboxLabel htmlFor="checkbox" data-testid="label">
@@ -121,7 +121,7 @@ describe('Base radio checkbox customization', () => {
         <BaseRadioCheckboxHelpText helpTextId="help_text" element="fum">
           Help Text
         </BaseRadioCheckboxHelpText>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     /*
      * matcher selects the last style rule in the stylesheet, not the last style rule that is currently applied

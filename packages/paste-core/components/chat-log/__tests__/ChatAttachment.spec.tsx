@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {screen, render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {Spinner} from '@twilio-paste/spinner';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import {Theme} from '@twilio-paste/theme';
+import { screen, render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { Spinner } from '@twilio-paste/spinner';
+import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
+import { Theme } from '@twilio-paste/theme';
 
-import {ChatAttachment, ChatAttachmentLink, ChatAttachmentDescription, ComposerAttachmentCard} from '../src';
+import { ChatAttachment, ChatAttachmentLink, ChatAttachmentDescription, ComposerAttachmentCard } from '../src';
 
-const customizedElements: {[key: string]: PasteCustomCSS} = {
+const customizedElements: { [key: string]: PasteCustomCSS } = {
   COMPOSER_ATTACHMENT_CARD: {
     padding: 'space100',
   },
@@ -32,7 +32,7 @@ const customizedElements: {[key: string]: PasteCustomCSS} = {
   },
 };
 
-const customizedMyElements: {[key: string]: PasteCustomCSS} = {
+const customizedMyElements: { [key: string]: PasteCustomCSS } = {
   MY_COMPOSER_ATTACHMENT_CARD: {
     padding: 'space100',
   },
@@ -56,7 +56,7 @@ const customizedMyElements: {[key: string]: PasteCustomCSS} = {
   },
 };
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren<{elements?: {[key: string]: PasteCustomCSS}}>> = ({
+const CustomizationWrapper: React.FC<React.PropsWithChildren<{ elements?: { [key: string]: PasteCustomCSS } }>> = ({
   children,
   elements,
 }) => (
@@ -65,17 +65,17 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren<{elements?: {[key: 
   </CustomizationProvider>
 );
 
-const CustomizationMyWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationMyWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationWrapper elements={customizedMyElements}>{children}</CustomizationWrapper>
 );
 
 describe('ChatAttachment', () => {
   it('should render an icon, anchor, and text', () => {
-    const {container} = render(
+    const { container } = render(
       <ChatAttachment attachmentIcon={<DownloadIcon decorative />}>
         <ChatAttachmentLink href="www.google.com">document</ChatAttachmentLink>
         <ChatAttachmentDescription>description</ChatAttachmentDescription>
-      </ChatAttachment>
+      </ChatAttachment>,
     );
     expect(container.querySelector('[data-paste-element="ICON"]')).toBeDefined();
     expect(screen.getByRole('link')).toBeDefined();
@@ -93,7 +93,7 @@ describe('ComposerAttachmentCard', () => {
             <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
           </ChatAttachment>
         </ComposerAttachmentCard>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.getByRole('button')).toBeDefined();
   });
@@ -106,7 +106,7 @@ describe('ComposerAttachmentCard', () => {
             <ChatAttachmentDescription>123 MB</ChatAttachmentDescription>
           </ChatAttachment>
         </ComposerAttachmentCard>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.queryByRole('button')).toBeNull();
   });
@@ -123,7 +123,7 @@ describe('Customization', () => {
           <ChatAttachmentDescription data-testid="chat-attachment-description">123 MB</ChatAttachmentDescription>
         </ChatAttachment>
       </ComposerAttachmentCard>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const composerAttachmentCard = screen.getByTestId('composer-attachment-card');
@@ -136,7 +136,7 @@ describe('Customization', () => {
 
     expect(composerAttachmentCard.getAttribute('data-paste-element')).toEqual('COMPOSER_ATTACHMENT_CARD');
     expect(composerAttachmentCardRemoveButton.getAttribute('data-paste-element')).toEqual(
-      'COMPOSER_ATTACHMENT_CARD_REMOVE_BUTTON'
+      'COMPOSER_ATTACHMENT_CARD_REMOVE_BUTTON',
     );
     expect(chatAttachment.getAttribute('data-paste-element')).toEqual('CHAT_ATTACHMENT');
     expect(chatAttachmentIcon.getAttribute('data-paste-element')).toEqual('CHAT_ATTACHMENT_ICON');
@@ -169,7 +169,7 @@ describe('Customization', () => {
           </ChatAttachmentDescription>
         </ChatAttachment>
       </ComposerAttachmentCard>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const composerAttachmentCard = screen.getByTestId('composer-attachment-card');
@@ -182,7 +182,7 @@ describe('Customization', () => {
 
     expect(composerAttachmentCard.getAttribute('data-paste-element')).toEqual('MY_COMPOSER_ATTACHMENT_CARD');
     expect(composerAttachmentCardRemoveButton.getAttribute('data-paste-element')).toEqual(
-      'MY_COMPOSER_ATTACHMENT_CARD_REMOVE_BUTTON'
+      'MY_COMPOSER_ATTACHMENT_CARD_REMOVE_BUTTON',
     );
     expect(chatAttachment.getAttribute('data-paste-element')).toEqual('MY_CHAT_ATTACHMENT');
     expect(chatAttachmentIcon.getAttribute('data-paste-element')).toEqual('MY_CHAT_ATTACHMENT_ICON');
@@ -201,7 +201,7 @@ describe('Customization', () => {
           <ChatAttachmentDescription data-testid="chat-attachment-description">123 MB</ChatAttachmentDescription>
         </ChatAttachment>
       </ComposerAttachmentCard>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const composerAttachmentCard = screen.getByTestId('composer-attachment-card');
@@ -245,7 +245,7 @@ describe('Customization', () => {
           </ChatAttachmentDescription>
         </ChatAttachment>
       </ComposerAttachmentCard>,
-      {wrapper: CustomizationMyWrapper}
+      { wrapper: CustomizationMyWrapper },
     );
 
     const composerAttachmentCard = screen.getByTestId('composer-attachment-card');

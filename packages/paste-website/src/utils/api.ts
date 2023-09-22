@@ -2,10 +2,10 @@
 import fs from 'fs';
 import path from 'path';
 
-import {globby} from 'globby-esm';
+import { globby } from 'globby-esm';
 import groupBy from 'lodash/groupBy';
 
-import {roadmapTable} from './airtable.mjs';
+import { roadmapTable } from './airtable.mjs';
 import {
   groupPropsByExternal,
   type GroupedComponentApi,
@@ -109,31 +109,31 @@ export const getAllPackages = async (): Promise<PastePackages> => {
   return JSON.parse(data);
 };
 
-export const getRoadmap = async (): Promise<{[release: string]: Release[]}> => {
+export const getRoadmap = async (): Promise<{ [release: string]: Release[] }> => {
   const roadmap = await roadmapTable
     .select({
       filterByFormula: 'IS_AFTER({Release date}, TODAY())',
-      sort: [{field: 'Release'}, {field: 'Status'}, {field: 'Release feature name'}],
+      sort: [{ field: 'Release' }, { field: 'Status' }, { field: 'Release feature name' }],
       fields: ['Release feature name', 'Release', 'Release Description', 'Public Description (from System)', 'Status'],
     })
     .all();
-  const items = roadmap.map(({fields}) => fields) as Release[];
+  const items = roadmap.map(({ fields }) => fields) as Release[];
   const releases = groupBy<Release>(items, 'Release');
 
   Object.values(releases).forEach((val) =>
-    val.sort((a, b) => a['Release feature name'].localeCompare(b['Release feature name']))
+    val.sort((a, b) => a['Release feature name'].localeCompare(b['Release feature name'])),
   );
 
   return releases;
 };
 
 export const getComponentApi = (
-  packageName: string
-): {componentApi: GroupedComponentApi; componentApiTocData: {value: string; depth: number}[]} => {
+  packageName: string,
+): { componentApi: GroupedComponentApi; componentApiTocData: { value: string; depth: number }[] } => {
   const pathToPackage = getPathFromPackageName(packageName);
   const data = fs.readFileSync(path.resolve(pathToPackage, 'type-docs.json'), 'utf8');
   const JSONData = JSON.parse(data);
-  return {componentApi: groupPropsByExternal(JSONData), componentApiTocData: getTocDataFromComponentApi(JSONData)};
+  return { componentApi: groupPropsByExternal(JSONData), componentApiTocData: getTocDataFromComponentApi(JSONData) };
 };
 
 export const getArticles = async (): Promise<ArticleData[]> => {
@@ -154,7 +154,7 @@ export const getArticles = async (): Promise<ArticleData[]> => {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
-      }
+      },
     );
 
     return {

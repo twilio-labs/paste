@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box, type BoxProps} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {useSliderState, useSlider, useSliderThumb} from '@twilio-paste/react-spectrum-library';
-import {useMergeRefs} from '@twilio-paste/utils';
+import { Box, type BoxProps } from '@twilio-paste/box';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { useSliderState, useSlider, useSliderThumb } from '@twilio-paste/react-spectrum-library';
+import { useMergeRefs } from '@twilio-paste/utils';
 
-import {SliderThumb} from './SliderThumb';
-import {SliderTrack} from './SliderTrack';
+import { SliderThumb } from './SliderThumb';
+import { SliderTrack } from './SliderTrack';
 
 const DefaultNumberFormatter = new Intl.NumberFormat('en-US');
 
@@ -67,14 +67,14 @@ export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref)
 
   // These hooks manage the state of the slider
   const state = useSliderState(remappedProps);
-  const {trackProps} = useSlider(remappedProps, state, trackRef);
-  const {thumbProps, inputProps, isDragging} = useSliderThumb(
+  const { trackProps } = useSlider(remappedProps, state, trackRef);
+  const { thumbProps, inputProps, isDragging } = useSliderThumb(
     {
       index: 0,
       trackRef,
       inputRef,
     },
-    state
+    state,
   );
 
   // Used to determine the UI styling of the track and thumb

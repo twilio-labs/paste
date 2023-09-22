@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Topbar} from '../src';
+import { Topbar } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {

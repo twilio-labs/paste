@@ -1,20 +1,20 @@
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import {createRoot} from 'testing-tools/react-dom-create-root';
-import {render, act} from '@testing-library/react';
+import { createRoot } from 'testing-tools/react-dom-create-root';
+import { render, act } from '@testing-library/react';
 
-import {Theme} from '../src';
+import { Theme } from '../src';
 
 const ThemeConsumerExampleComponent = (): React.ReactElement => {
   return (
     <Theme.Consumer>
-      {({theme}) => <p>{theme.breakpoints.map((breakpoint: string) => `${breakpoint},`)}</p>}
+      {({ theme }) => <p>{theme.breakpoints.map((breakpoint: string) => `${breakpoint},`)}</p>}
     </Theme.Consumer>
   );
 };
 
 const ThemeConsumerExampleTextColor = (): React.ReactElement => {
-  return <Theme.Consumer>{({theme}) => <p>Color: {theme.textColors.colorTextLink}</p>}</Theme.Consumer>;
+  return <Theme.Consumer>{({ theme }) => <p>Color: {theme.textColors.colorTextLink}</p>}</Theme.Consumer>;
 };
 
 describe('Theme.Provider', () => {
@@ -26,10 +26,10 @@ describe('Theme.Provider', () => {
   });
 
   it('should render the sendgrid link text color', (): void => {
-    const {getByText} = render(
+    const { getByText } = render(
       <Theme.Provider theme="sendgrid">
         <ThemeConsumerExampleTextColor />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     expect(getByText('Color: rgb(2, 99, 224)')).toBeDefined();
@@ -43,19 +43,19 @@ describe('Theme.Provider', () => {
     // @ts-ignore
     window.location = new URL('https://www.example.com#paste-theme-override=evergreen');
 
-    const {getByText} = render(
+    const { getByText } = render(
       <Theme.Provider>
         <ThemeConsumerExampleTextColor />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(getByText('Color: rgb(51, 102, 255)')).toBeDefined();
   });
 
   it('should rely on the default breakpoints set on the theme object', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <Theme.Provider theme="default">
         <ThemeConsumerExampleComponent />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     expect(getByText('400px,1024px,1232px,')).toBeDefined();
@@ -64,10 +64,10 @@ describe('Theme.Provider', () => {
   it('should set custom breakpoints when provided', () => {
     const customBreakpoints = ['480px', '320px', '1440px'];
 
-    const {getByText} = render(
+    const { getByText } = render(
       <Theme.Provider customBreakpoints={customBreakpoints}>
         <ThemeConsumerExampleComponent />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     expect(getByText('480px,320px,1440px,')).toBeDefined();

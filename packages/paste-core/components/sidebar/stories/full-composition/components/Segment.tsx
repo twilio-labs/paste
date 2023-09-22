@@ -1,17 +1,17 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import {ProductConnectionsIcon} from '@twilio-paste/icons/esm/ProductConnectionsIcon';
-import {ProductReverseETLIcon} from '@twilio-paste/icons/esm/ProductReverseETLIcon';
-import {ProductPrivacyIcon} from '@twilio-paste/icons/esm/ProductPrivacyIcon';
-import {ProductProtocolsIcon} from '@twilio-paste/icons/esm/ProductProtocolsIcon';
-import {ProductEngageIcon} from '@twilio-paste/icons/esm/ProductEngageIcon';
-import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
-import {ProductHomeIcon} from '@twilio-paste/icons/esm/ProductHomeIcon';
+import { Button } from '@twilio-paste/button';
+import { Box } from '@twilio-paste/box';
+import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import { ProductConnectionsIcon } from '@twilio-paste/icons/esm/ProductConnectionsIcon';
+import { ProductReverseETLIcon } from '@twilio-paste/icons/esm/ProductReverseETLIcon';
+import { ProductPrivacyIcon } from '@twilio-paste/icons/esm/ProductPrivacyIcon';
+import { ProductProtocolsIcon } from '@twilio-paste/icons/esm/ProductProtocolsIcon';
+import { ProductEngageIcon } from '@twilio-paste/icons/esm/ProductEngageIcon';
+import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
+import { ProductHomeIcon } from '@twilio-paste/icons/esm/ProductHomeIcon';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import {useUID} from '@twilio-paste/uid-library';
-import {Topbar, TopbarActions} from '@twilio-paste/topbar';
+import { useUID } from '@twilio-paste/uid-library';
+import { Topbar, TopbarActions } from '@twilio-paste/topbar';
 
 import {
   Sidebar,
@@ -30,13 +30,13 @@ import {
   SidebarNavigationItem,
   SidebarBetaBadge,
 } from '../../../src';
-import {SearchBox} from './SearchBox';
-import {SupportMenu} from './SupportMenu';
-import {NotificationsDialog} from './NotificationsDialog';
-import {AppSwitcher} from './AppSwitcher';
-import {UserDialogExample} from './UserDialogSegment';
-import {WorkspaceSwitcherMenu} from './WorkspaceSwitcher';
-import {UpgradeBadge} from './UpgradeBadge';
+import { SearchBox } from './SearchBox';
+import { SupportMenu } from './SupportMenu';
+import { NotificationsDialog } from './NotificationsDialog';
+import { AppSwitcher } from './AppSwitcher';
+import { UserDialogExample } from './UserDialogSegment';
+import { WorkspaceSwitcherMenu } from './WorkspaceSwitcher';
+import { UpgradeBadge } from './UpgradeBadge';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -44,7 +44,7 @@ export default {
 };
 
 /* eslint-disable react/jsx-max-depth */
-export const Segment: React.FC<React.PropsWithChildren<{collapsed: boolean; setCollapsed: (collapsed) => void}>> = ({
+export const Segment: React.FC<React.PropsWithChildren<{ collapsed: boolean; setCollapsed: (collapsed) => void }>> = ({
   collapsed,
   setCollapsed,
 }) => {

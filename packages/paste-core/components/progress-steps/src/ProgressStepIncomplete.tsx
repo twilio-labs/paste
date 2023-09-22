@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 
-import {ProgressIncompleteIcon} from './icons/ProgressIncompleteIcon';
-import type {ProgressStepIncompleteProps} from './types';
+import { ProgressIncompleteIcon } from './icons/ProgressIncompleteIcon';
+import type { ProgressStepIncompleteProps } from './types';
 
 export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressStepIncompleteProps>(
   (
@@ -14,7 +14,7 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
       i18nIncompleteLabel = 'Incomplete',
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <div role="listitem">
@@ -40,9 +40,9 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
           borderRadius="borderRadius20"
           cursor={as !== 'div' ? 'pointer' : 'default'}
           color={disabled ? 'colorTextWeaker' : 'colorTextWeak'}
-          _hover={as !== 'div' ? {textDecoration: 'none', color: 'colorTextPrimary'} : undefined}
-          _focus={as !== 'div' ? {boxShadow: 'shadowFocus'} : undefined}
-          _disabled={{textDecoration: 'none', color: 'colorTextWeaker', cursor: 'not-allowed'}}
+          _hover={as !== 'div' ? { textDecoration: 'none', color: 'colorTextPrimary' } : undefined}
+          _focus={as !== 'div' ? { boxShadow: 'shadowFocus' } : undefined}
+          _disabled={{ textDecoration: 'none', color: 'colorTextWeaker', cursor: 'not-allowed' }}
         >
           <ProgressIncompleteIcon decorative={false} title={i18nIncompleteLabel} />
           <Box as="span" textAlign="left">
@@ -51,6 +51,6 @@ export const ProgressStepIncomplete = React.forwardRef<HTMLDivElement, ProgressS
         </Box>
       </div>
     );
-  }
+  },
 );
 ProgressStepIncomplete.displayName = 'ProgressStepIncomplete';

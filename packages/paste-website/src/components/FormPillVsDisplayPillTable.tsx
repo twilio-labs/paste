@@ -1,7 +1,7 @@
-import {Box} from '@twilio-paste/box';
-import {Table, Tr, THead, Th, TBody, Td} from '@twilio-paste/table';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import { Box } from '@twilio-paste/box';
+import { Table, Tr, THead, Th, TBody, Td } from '@twilio-paste/table';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
 
 const FormPillVsDisplayPillTable = (): JSX.Element => {
   return (
@@ -205,4 +205,4 @@ const DisplayPillVsFormPillTable = (): JSX.Element => {
   );
 };
 
-export {FormPillVsDisplayPillTable, DisplayPillVsFormPillTable};
+export { FormPillVsDisplayPillTable, DisplayPillVsFormPillTable };

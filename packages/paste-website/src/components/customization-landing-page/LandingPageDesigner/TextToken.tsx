@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {useUIDSeed} from '@twilio-paste/uid-library';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import { Box } from '@twilio-paste/box';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
 
-import type {DesignerContextProps} from './DesignerContext';
+import type { DesignerContextProps } from './DesignerContext';
 
 type TextTokenInputProps = {
   bucket: keyof GenericTokensShape;
@@ -32,7 +32,7 @@ export const TextTokenInput: React.FC<React.PropsWithChildren<TextTokenInputProp
         type="text"
         value={tokenValue}
         onChange={(event) => {
-          const {value} = event.target;
+          const { value } = event.target;
           // TODO validate
           if (value === '') return;
           if (onChange != null) {

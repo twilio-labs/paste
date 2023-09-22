@@ -1,4 +1,4 @@
-import {add} from 'date-fns';
+import { add } from 'date-fns';
 
 import {
   filterBySearchString,
@@ -96,14 +96,14 @@ describe('filterByDateTimeRange', () => {
   });
 
   it('should include the date if it is after the filter', () => {
-    const twoDaysAgo = add(new Date(), {days: -2});
+    const twoDaysAgo = add(new Date(), { days: -2 });
 
     const result = filterByDateTimeRange(twoDaysAgo, 'threeDays', '', '', '', '');
     expect(result).toBeTruthy();
   });
 
   it('should exclude the date if it is before the filter', () => {
-    const twoDaysAgo = add(new Date(), {days: -2});
+    const twoDaysAgo = add(new Date(), { days: -2 });
 
     const result = filterByDateTimeRange(twoDaysAgo, '12hours', '', '', '', '');
     expect(result).toBeFalsy();

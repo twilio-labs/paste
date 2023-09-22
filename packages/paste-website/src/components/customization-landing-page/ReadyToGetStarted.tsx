@@ -1,12 +1,12 @@
-import {Heading} from '@twilio-paste/heading';
-import {Column, Grid} from '@twilio-paste/grid';
-import {Card} from '@twilio-paste/card';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Anchor} from '@twilio-paste/anchor';
-import {useTheme} from '@twilio-paste/theme';
-import {css} from '@twilio-paste/styling-library';
+import { Heading } from '@twilio-paste/heading';
+import { Column, Grid } from '@twilio-paste/grid';
+import { Card } from '@twilio-paste/card';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Anchor } from '@twilio-paste/anchor';
+import { useTheme } from '@twilio-paste/theme';
+import { css } from '@twilio-paste/styling-library';
 
-import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
+import { LandingPageSection, LandingPageSectionContent } from './LandingPageLayoutUtils';
 
 export const ReadyToGetStarted = (): JSX.Element => {
   const theme = useTheme();
@@ -14,7 +14,7 @@ export const ReadyToGetStarted = (): JSX.Element => {
     <LandingPageSection
       paddingTop={['space200', 'space200', 'space200']}
       paddingBottom={['space0', 'space0', 'space0']}
-      css={css({marginTop: ['50px', '250px', '300px']})(theme)}
+      css={css({ marginTop: ['50px', '250px', '300px'] })(theme)}
     >
       <LandingPageSectionContent variant="default">
         <Heading as="h2" variant="heading20">

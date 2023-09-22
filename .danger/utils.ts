@@ -1,4 +1,4 @@
-import type {PackageShape} from '../tools/utils/getRepoPackages';
+import type { PackageShape } from '../tools/utils/getRepoPackages';
 
 /**
  * Returns a list of public packages by filtering out the private ones
@@ -24,7 +24,7 @@ export const getRepoPackagePath = (location: string): string =>
  * @return {*}  {string[]}
  */
 export const getPackagePaths = (packages: PackageShape[]): string[] =>
-  packages.map(({location}) => getRepoPackagePath(location));
+  packages.map(({ location }) => getRepoPackagePath(location));
 
 /**
  *  From a list of files, return only the files that are located in

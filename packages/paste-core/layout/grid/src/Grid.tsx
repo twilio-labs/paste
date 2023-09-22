@@ -1,13 +1,13 @@
 import * as React from 'react';
-import type {MarginProps, Space} from '@twilio-paste/style-props';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type { MarginProps, Space } from '@twilio-paste/style-props';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 
-import type {ColumnProps, GridProps} from './types';
-import {getOuterGutterPull, getSpacing, getResponsiveSpacing} from './utils';
+import type { ColumnProps, GridProps } from './types';
+import { getOuterGutterPull, getSpacing, getResponsiveSpacing } from './utils';
 
 export const getGutterStyles = (
   gutter?: Space,
-  vertical: GridProps['vertical'] = false
+  vertical: GridProps['vertical'] = false,
 ): MarginProps | MarginProps[] => {
   const margin = getOuterGutterPull(gutter);
 
@@ -39,8 +39,8 @@ const getFlexDirection = (vertical: GridProps['vertical']): GetFlexDirectionRetu
 
 const Grid = React.forwardRef<HTMLDivElement, GridProps>(
   (
-    {as, children, element = 'GRID', equalColumnHeights, gutter, marginTop, marginBottom, vertical = false, ...props},
-    ref
+    { as, children, element = 'GRID', equalColumnHeights, gutter, marginTop, marginBottom, vertical = false, ...props },
+    ref,
   ) => {
     const GridColumns = React.useMemo(
       () =>
@@ -52,9 +52,9 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
                 vertical,
                 stretchColumnContent: equalColumnHeights,
               })
-            : child
+            : child,
         ),
-      [children, vertical, equalColumnHeights, gutter]
+      [children, vertical, equalColumnHeights, gutter],
     );
 
     const gutterStyles = React.useMemo(() => getGutterStyles(gutter, vertical), [gutter, vertical]);
@@ -78,9 +78,9 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
         {GridColumns}
       </Box>
     );
-  }
+  },
 );
 
 Grid.displayName = 'Grid';
 
-export {Grid};
+export { Grid };

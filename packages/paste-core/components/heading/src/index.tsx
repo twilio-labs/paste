@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type {TextStyleProps} from '@twilio-paste/text';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+import type { TextStyleProps } from '@twilio-paste/text';
+import { Text, safelySpreadTextProps } from '@twilio-paste/text';
 
-import type {HeadingVariants, HeadingProps, AsTags} from './types';
+import type { HeadingVariants, HeadingProps, AsTags } from './types';
 
 function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space0'): TextStyleProps {
   switch (headingVariant) {
@@ -63,7 +63,7 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: 'space
 }
 
 const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
-  ({as, children, display = 'block', element = 'HEADING', id, marginBottom, variant, ...props}, ref) => {
+  ({ as, children, display = 'block', element = 'HEADING', id, marginBottom, variant, ...props }, ref) => {
     return (
       <Text
         {...safelySpreadTextProps(props)}
@@ -79,10 +79,10 @@ const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
         {children}
       </Text>
     );
-  }
+  },
 );
 
 Heading.displayName = 'Heading';
 
-export type {HeadingProps, HeadingVariants, AsTags as asTags};
-export {Heading};
+export type { HeadingProps, HeadingVariants, AsTags as asTags };
+export { Heading };

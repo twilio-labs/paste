@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/core/uid-library';
-import {Modal, ModalHeader, ModalHeading, ModalBody} from '@twilio-paste/core/modal';
-import {AspectRatio} from '@twilio-paste/core/aspect-ratio';
-import {Paragraph} from '@twilio-paste/core/paragraph';
-import type {ModalProps} from '@twilio-paste/core/modal';
-import {Anchor} from '@twilio-paste/core/anchor';
+import { useUID } from '@twilio-paste/core/uid-library';
+import { Modal, ModalHeader, ModalHeading, ModalBody } from '@twilio-paste/core/modal';
+import { AspectRatio } from '@twilio-paste/core/aspect-ratio';
+import { Paragraph } from '@twilio-paste/core/paragraph';
+import type { ModalProps } from '@twilio-paste/core/modal';
+import { Anchor } from '@twilio-paste/core/anchor';
 
 export type BetaModalProps = Pick<ModalProps, 'isOpen' | 'onDismiss'>;
 
-const BetaModal: React.FC<React.PropsWithChildren<BetaModalProps>> = ({isOpen, onDismiss}) => {
+const BetaModal: React.FC<React.PropsWithChildren<BetaModalProps>> = ({ isOpen, onDismiss }) => {
   const modalID = useUID();
   return (
     <Modal isOpen={isOpen} ariaLabelledby={modalID} onDismiss={onDismiss} size="wide">
@@ -53,7 +53,7 @@ const BetaModal: React.FC<React.PropsWithChildren<BetaModalProps>> = ({isOpen, o
             src="https://www.loom.com/embed/6a2a434ea18e48e4850a48e4f734a797"
             frameBorder="0"
             allowFullScreen
-            style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+            style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
           />
         </AspectRatio>
       </ModalBody>
@@ -61,4 +61,4 @@ const BetaModal: React.FC<React.PropsWithChildren<BetaModalProps>> = ({isOpen, o
   );
 };
 
-export {BetaModal};
+export { BetaModal };

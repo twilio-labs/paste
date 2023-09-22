@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {screen, render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { screen, render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {ChatBookend, ChatBookendItem} from '../src';
+import { ChatBookend, ChatBookendItem } from '../src';
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -21,7 +21,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
   </CustomizationProvider>
 );
 
-const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -43,7 +43,7 @@ describe('ChatBookend', () => {
     render(
       <ChatBookend>
         <ChatBookendItem>Today</ChatBookendItem>
-      </ChatBookend>
+      </ChatBookend>,
     );
     expect(screen.getByText('Today')).toBeDefined();
   });
@@ -52,7 +52,7 @@ describe('ChatBookend', () => {
     render(
       <ChatBookend data-testid="bookend" aria-label="Today">
         <ChatBookendItem>Today</ChatBookendItem>
-      </ChatBookend>
+      </ChatBookend>,
     );
     expect(screen.getByTestId('bookend')).toHaveAttribute('aria-label', 'Today');
   });
@@ -64,7 +64,7 @@ describe('Customization', () => {
       <ChatBookend data-testid="bookend">
         <ChatBookendItem>Today</ChatBookendItem>
       </ChatBookend>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const bookend = screen.getByTestId('bookend');
@@ -79,7 +79,7 @@ describe('Customization', () => {
       <ChatBookend data-testid="bookend">
         <ChatBookendItem>Today</ChatBookendItem>
       </ChatBookend>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const bookend = screen.getByTestId('bookend');
@@ -94,7 +94,7 @@ describe('Customization', () => {
       <ChatBookend element="MY_CHAT_BOOKEND" data-testid="bookend">
         <ChatBookendItem element="MY_CHAT_BOOKEND_ITEM">Today</ChatBookendItem>
       </ChatBookend>,
-      {wrapper: MyCustomizationWrapper}
+      { wrapper: MyCustomizationWrapper },
     );
 
     const bookend = screen.getByTestId('bookend');
@@ -109,7 +109,7 @@ describe('Customization', () => {
       <ChatBookend element="MY_CHAT_BOOKEND" data-testid="bookend">
         <ChatBookendItem element="MY_CHAT_BOOKEND_ITEM">Today</ChatBookendItem>
       </ChatBookend>,
-      {wrapper: MyCustomizationWrapper}
+      { wrapper: MyCustomizationWrapper },
     );
 
     const bookend = screen.getByTestId('bookend');

@@ -1,7 +1,7 @@
 import ColorCombos from 'color-combos';
-import type {ColorCombo} from 'color-combos';
-import type {GenericTokensShape, AllGenericTokens} from '@twilio-paste/design-tokens/types/GenericTokensShape';
-import type {DesignToken, DesignTokensJSON, TokenPairContrastRating} from '@twilio-paste/design-tokens/types';
+import type { ColorCombo } from 'color-combos';
+import type { GenericTokensShape, AllGenericTokens } from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import type { DesignToken, DesignTokensJSON, TokenPairContrastRating } from '@twilio-paste/design-tokens/types';
 import DefaultRawTokenJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
 import camelCase from 'lodash/camelCase';
 
@@ -38,7 +38,7 @@ export const getNumberOfUIControlFailures = (ratings: TokenPairContrastRating[])
 export const flattenCategorizedTokens = (tokens: Partial<GenericTokensShape>): AllGenericTokens => {
   let flatTheme = {};
   Object.values(tokens).forEach((value) => {
-    flatTheme = {...flatTheme, ...value};
+    flatTheme = { ...flatTheme, ...value };
   });
   return flatTheme;
 };
@@ -105,7 +105,7 @@ export const getTokensWithDataVisualizationContrastRequirements = (rawTokens: De
 export const getContrastRatingForTokenPairing = (
   filteredTokens: DesignToken[],
   tokens: AllGenericTokens,
-  pairingKey: 'text_contrast_pairing' | 'uicontrol_contrast_pairing' | 'data_visualization_contrast_pairing'
+  pairingKey: 'text_contrast_pairing' | 'uicontrol_contrast_pairing' | 'data_visualization_contrast_pairing',
 ): TokenPairContrastRating[] => {
   return filteredTokens.reduce((tokenRatings: TokenPairContrastRating[], token: DesignToken) => {
     /** array of tokens that are paired with this token for the type of contrast checking we're doing */
@@ -124,7 +124,7 @@ export const getContrastRatingForTokenPairing = (
           /** value of the token we're comparing to based on finding it by it's name in the full token list */
           const tokenToCompareValue = tokens[tokenToCompareName];
           /** accessibility rating as per ColorCombos */
-          let comboRating = {aa: false, aaLarge: false, aaa: false, aaaLarge: false};
+          let comboRating = { aa: false, aaLarge: false, aaa: false, aaaLarge: false };
           /** color contrast ratio of the two colors */
           let comboContrast = 0;
           /** color combinations of the two colors */
@@ -174,7 +174,7 @@ export const getContrastRatingForTokenPairing = (
  * @return {*}  {TokenPairContrastRating[]}
  */
 export const getContrastRatingsOfTokensWithTextContrastRequirements = (
-  tokens: Partial<GenericTokensShape>
+  tokens: Partial<GenericTokensShape>,
 ): TokenPairContrastRating[] => {
   // always use the Default raw JSON to get the pairings as other themes won't inherit them automatically
   const defaultThemeRawJSON = DefaultRawTokenJSON.props;
@@ -194,7 +194,7 @@ export const getContrastRatingsOfTokensWithTextContrastRequirements = (
  * @return {*}  {TokenPairContrastRating[]}
  */
 export const getContrastRatingsOfTokensWithUIControlContrastRequirements = (
-  tokens: Partial<GenericTokensShape>
+  tokens: Partial<GenericTokensShape>,
 ): TokenPairContrastRating[] => {
   // always use the Default raw JSON to get the pairings as other themes won't inherit them automatically
   const defaultThemeRawJSON = DefaultRawTokenJSON.props;
@@ -203,7 +203,7 @@ export const getContrastRatingsOfTokensWithUIControlContrastRequirements = (
   return getContrastRatingForTokenPairing(
     tokenWithUIControlContrastRequirements,
     flattenedTokens,
-    'uicontrol_contrast_pairing'
+    'uicontrol_contrast_pairing',
   );
 };
 
@@ -218,7 +218,7 @@ export const getContrastRatingsOfTokensWithUIControlContrastRequirements = (
  * @return {*}  {TokenPairContrastRating[]}
  */
 export const getContrastRatingsOfTokensWithDataVisualizationContrastRequirements = (
-  tokens: Partial<GenericTokensShape>
+  tokens: Partial<GenericTokensShape>,
 ): TokenPairContrastRating[] => {
   // always use the Default raw JSON to get the pairings as other themes won't inherit them automatically
   const defaultThemeRawJSON = DefaultRawTokenJSON.props;
@@ -228,6 +228,6 @@ export const getContrastRatingsOfTokensWithDataVisualizationContrastRequirements
   return getContrastRatingForTokenPairing(
     tokenWithDataVisualizationContrastRequirements,
     flattenedTokens,
-    'data_visualization_contrast_pairing'
+    'data_visualization_contrast_pairing',
   );
 };

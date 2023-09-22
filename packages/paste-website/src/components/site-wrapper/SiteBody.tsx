@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {useRouter} from 'next/router';
-import {StylingGlobals, type CSSObject} from '@twilio-paste/styling-library';
-import {useTheme} from '@twilio-paste/theme';
-import {useWindowSize} from '@twilio-paste/utils';
-import {Box} from '@twilio-paste/box';
+import { useRouter } from 'next/router';
+import { StylingGlobals, type CSSObject } from '@twilio-paste/styling-library';
+import { useTheme } from '@twilio-paste/theme';
+import { useWindowSize } from '@twilio-paste/utils';
+import { Box } from '@twilio-paste/box';
 import {
   Sidebar,
   SidebarHeader,
@@ -14,10 +14,10 @@ import {
   SidebarFooter,
   SidebarCollapseButton,
 } from '@twilio-paste/sidebar';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
 
-import {SiteHeader} from './site-header';
-import {SiteFooter} from './site-footer';
+import { SiteHeader } from './site-header';
+import { SiteFooter } from './site-footer';
 import {
   PASTE_DOCS_CONTENT_AREA,
   TOKEN_STICKY_FILTER_HEIGHT,
@@ -26,9 +26,9 @@ import {
   PASTE_DOCS_SIDEBAR_NAV,
   SITE_TOPBAR_HEIGHT,
 } from '../../constants';
-import {docSearchStyles, docSearchVariable} from '../../styles/docSearch';
-import {SiteMain} from './SiteMain';
-import {SidebarNavigation} from './sidebar/SidebarNavigation';
+import { docSearchStyles, docSearchVariable } from '../../styles/docSearch';
+import { SiteMain } from './SiteMain';
+import { SidebarNavigation } from './sidebar/SidebarNavigation';
 
 // height of the topbar plus a little extra whitespace
 const defaultScrollOffset = `calc(${SITE_TOPBAR_HEIGHT}px + 24px)`;
@@ -41,8 +41,8 @@ const GlobalScrollBehaviourStyles = (scrollOffset = defaultScrollOffset): CSSObj
   },
 });
 
-export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
-  const {breakpointIndex} = useWindowSize();
+export const SiteBody: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const { breakpointIndex } = useWindowSize();
   const themeObject = useTheme();
   const router = useRouter();
   // sidebar is not collapsed by default, most common use case for desktop viewing
@@ -93,7 +93,7 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({children}) => {
       <StylingGlobals
         styles={{
           ...GlobalScrollBehaviourStyles(scrollOffset),
-          ...docSearchStyles({theme: themeObject}),
+          ...docSearchStyles({ theme: themeObject }),
           ...docSearchVariable(themeObject),
         }}
       />

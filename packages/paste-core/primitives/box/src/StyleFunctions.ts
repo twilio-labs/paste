@@ -1,11 +1,11 @@
-import {css, system} from '@twilio-paste/styling-library';
-import type {CSSObject, Config} from '@twilio-paste/styling-library';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
+import { css, system } from '@twilio-paste/styling-library';
+import type { CSSObject, Config } from '@twilio-paste/styling-library';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
 import merge from 'deepmerge';
 
-import {PseudoPropStyles} from './PseudoPropStyles';
-import type {StyledBoxProps} from './types';
-import {customStyleProps} from './CustomStyleProps';
+import { PseudoPropStyles } from './PseudoPropStyles';
+import type { StyledBoxProps } from './types';
+import { customStyleProps } from './CustomStyleProps';
 
 export const PasteStyleProps = system(customStyleProps as Config);
 
@@ -16,7 +16,7 @@ export const PasteStyleProps = system(customStyleProps as Config);
  * @return {*}  {(((props?: Record<string, unknown> | undefined) => CSSObject) | Record<string, never>)}
  */
 export const getPseudoStyles = (
-  props: Partial<StyledBoxProps>
+  props: Partial<StyledBoxProps>,
 ): ((props?: Record<string, unknown> | undefined) => CSSObject) | Record<string, never> => {
   const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_')) as Array<
     keyof typeof PseudoPropStyles
@@ -26,7 +26,7 @@ export const getPseudoStyles = (
     return {};
   }
 
-  const pseudoStyles: {[key: string]: any} = {};
+  const pseudoStyles: { [key: string]: any } = {};
   pseudoProps.forEach((pseudoProp) => {
     if (PseudoPropStyles[pseudoProp] != null) {
       pseudoStyles[PseudoPropStyles[pseudoProp]] = props[pseudoProp];
@@ -52,7 +52,7 @@ export const getCustomElementStyles = (props: StyledBoxProps): (() => PasteCusto
     if (themeElements[targetElement] != null) {
       const elementOverrides = themeElements[targetElement];
       const computedStyles = css(elementOverrides)(props) as PasteCustomCSS;
-      const {variants, ...elementStyles} = computedStyles;
+      const { variants, ...elementStyles } = computedStyles;
       let variantStyles = {};
 
       if (props.variant != null && variants != null && variants[props.variant] != null) {

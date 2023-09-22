@@ -5,7 +5,7 @@ describe('Docs website search', () => {
   });
 
   beforeEach(() => {
-    cy.intercept({url: 'https://**.algolia.net/**', method: 'POST'}).as('searchRequest');
+    cy.intercept({ url: 'https://**.algolia.net/**', method: 'POST' }).as('searchRequest');
   });
 
   beforeEach(() => {
@@ -13,7 +13,7 @@ describe('Docs website search', () => {
   });
 
   it('should handle a search string', () => {
-    cy.get('@searchButtonEl').scrollIntoView().should('be.visible').click({force: true});
+    cy.get('@searchButtonEl').scrollIntoView().should('be.visible').click({ force: true });
     cy.get('.DocSearch-Input').should('be.visible').should('be.focused').type('checkbox');
     cy.wait('@searchRequest');
     cy.get('.DocSearch-Hits').should('have.length.above', 0);

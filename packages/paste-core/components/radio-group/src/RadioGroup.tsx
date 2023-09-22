@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {InlineControlGroup} from '@twilio-paste/inline-control-group';
-import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
+import { InlineControlGroup } from '@twilio-paste/inline-control-group';
+import type { InlineControlGroupProps } from '@twilio-paste/inline-control-group';
 
-import {RadioContext} from './RadioContext';
+import { RadioContext } from './RadioContext';
 
 export interface RadioGroupProps extends InlineControlGroupProps {
   name: string;
@@ -24,7 +24,7 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
       i18nRequiredLabel = '(required)',
       ...props
     },
-    ref
+    ref,
   ) => {
     const onChangeHandler = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -32,7 +32,7 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
           onChange(event.target.value);
         }
       },
-      [onChange]
+      [onChange],
     );
 
     const contextValue = React.useMemo(() => {
@@ -60,9 +60,9 @@ const RadioGroup = React.forwardRef<HTMLFieldSetElement, RadioGroupProps>(
         </InlineControlGroup>
       </RadioContext.Provider>
     );
-  }
+  },
 );
 
 RadioGroup.displayName = 'RadioGroup';
 
-export {RadioGroup};
+export { RadioGroup };

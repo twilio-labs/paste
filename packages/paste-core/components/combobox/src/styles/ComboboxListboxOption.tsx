@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {SelectedIcon} from '@twilio-paste/icons/esm/SelectedIcon';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import type {PositionOptions} from '@twilio-paste/style-props';
-import type {VirtualItem} from 'react-virtual';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { SelectedIcon } from '@twilio-paste/icons/esm/SelectedIcon';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import type { PositionOptions } from '@twilio-paste/style-props';
+import type { VirtualItem } from 'react-virtual';
 
 export interface ComboboxListboxOptionProps extends Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
@@ -15,7 +15,7 @@ export interface ComboboxListboxOptionProps extends Pick<BoxProps, 'element'> {
   startHeight?: VirtualItem['start'];
 }
 
-const VariantStyles: {[key in ComboboxListboxOptionProps['variant']]: BoxStyleProps} = {
+const VariantStyles: { [key in ComboboxListboxOptionProps['variant']]: BoxStyleProps } = {
   groupOption: {
     paddingLeft: 'space90',
     paddingRight: 'space50',
@@ -46,7 +46,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
       startHeight,
       ...props
     },
-    ref
+    ref,
   ) => {
     const virtualItemStyles = startHeight != null ? getVirtualStyles(startHeight) : {};
 
@@ -109,8 +109,8 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         </Box>
       </Box>
     );
-  }
+  },
 );
 ComboboxListboxOption.displayName = 'ComboboxListboxOption';
 
-export {ComboboxListboxOption};
+export { ComboboxListboxOption };

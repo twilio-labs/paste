@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {renderHook} from '@testing-library/react';
-import {ThemeProvider} from '@twilio-paste/styling-library';
+import { renderHook } from '@testing-library/react';
+import { ThemeProvider } from '@twilio-paste/styling-library';
 
-import {useThemeContrastCheck} from '../src/useThemeContrastCheck';
+import { useThemeContrastCheck } from '../src/useThemeContrastCheck';
 
 describe('useThemeContrastCheck', () => {
   test('should return the results of the contrast check when inside a theme', () => {
-    const {result} = renderHook(() => useThemeContrastCheck(), {
+    const { result } = renderHook(() => useThemeContrastCheck(), {
       wrapper: (props) => (
         <ThemeProvider
           theme={{

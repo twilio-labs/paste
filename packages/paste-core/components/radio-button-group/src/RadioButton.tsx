@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { useUID } from '@twilio-paste/uid-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {RadioButtonContext} from './RadioButtonContext';
-import {HiddenRadio} from './HiddenRadio';
-import type {HiddenRadioState} from './HiddenRadio';
-import {StyledRadioButtonLabel} from './StyledRadioButtonLabel';
+import { RadioButtonContext } from './RadioButtonContext';
+import { HiddenRadio } from './HiddenRadio';
+import type { HiddenRadioState } from './HiddenRadio';
+import { StyledRadioButtonLabel } from './StyledRadioButtonLabel';
 
 export interface RadioButtonProps extends HTMLPasteProps<'input'> {
   id?: string;
@@ -48,11 +48,11 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
       children,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (checked != null && defaultChecked != null) {
       throw new Error(
-        `[Paste RadioButton] Do not provide both 'defaultChecked' and 'checked' to RadioButton at the same time. Please consider if you want this component to be controlled or uncontrolled.`
+        `[Paste RadioButton] Do not provide both 'defaultChecked' and 'checked' to RadioButton at the same time. Please consider if you want this component to be controlled or uncontrolled.`,
       );
     }
 
@@ -69,7 +69,7 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
           radioGroupContext.onChange(event);
         }
       },
-      [onChange, radioGroupContext.onChange]
+      [onChange, radioGroupContext.onChange],
     );
 
     const state: HiddenRadioState = {
@@ -115,9 +115,9 @@ const RadioButton = React.forwardRef<HTMLInputElement, RadioButtonProps>(
         </Button>
       </Box>
     );
-  }
+  },
 );
 
 RadioButton.displayName = 'RadioButton';
 
-export {RadioButton};
+export { RadioButton };

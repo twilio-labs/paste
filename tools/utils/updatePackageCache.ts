@@ -1,8 +1,8 @@
-import {resolve} from 'path';
+import { resolve } from 'path';
 
-import {getRepoPackages} from './getRepoPackages';
-import type {PackageShape} from './getRepoPackages';
-import {writeToFile} from './writeToFile';
+import { getRepoPackages } from './getRepoPackages';
+import type { PackageShape } from './getRepoPackages';
+import { writeToFile } from './writeToFile';
 
 const CACHE_FILE_PATH = resolve(__dirname, '../.cache/packages.json');
 

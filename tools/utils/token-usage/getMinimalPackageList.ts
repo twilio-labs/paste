@@ -1,7 +1,7 @@
 import omitBy from 'lodash/omitBy';
 import isEmpty from 'lodash/isEmpty';
 
-import type {PackageList, BestGuessMapper, TokenPackageMap} from './types';
+import type { PackageList, BestGuessMapper, TokenPackageMap } from './types';
 
 /**
  * Get minimal components using all tokens
@@ -27,7 +27,7 @@ export function getMinimalPackageList(tokenPackageMap: TokenPackageMap): string[
   // Step 1
   const ONE_ITEM_RESULT_MAP: TokenPackageMap = omitBy(
     tokenPackageMap,
-    (value: PackageList) => value.length === 0 || value.length > 1
+    (value: PackageList) => value.length === 0 || value.length > 1,
   );
   const MULTI_ITEM_RESULT_MAP: TokenPackageMap = omitBy(tokenPackageMap, (value: PackageList) => value.length < 2);
 

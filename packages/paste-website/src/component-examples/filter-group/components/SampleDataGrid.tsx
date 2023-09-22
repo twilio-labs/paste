@@ -1,11 +1,18 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
 import * as React from 'react';
-import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '@twilio-paste/data-grid';
+import {
+  DataGrid,
+  DataGridHead,
+  DataGridRow,
+  DataGridHeader,
+  DataGridBody,
+  DataGridCell,
+} from '@twilio-paste/data-grid';
 
-import {TABLE_HEADERS} from '../constants';
-import {formatDate, formatDateTime} from '../helpers';
-import type {SampleDataGridProps} from '../types';
+import { TABLE_HEADERS } from '../constants';
+import { formatDate, formatDateTime } from '../helpers';
+import type { SampleDataGridProps } from '../types';
 
 export const SampleDataGrid: React.FC<React.PropsWithChildren<SampleDataGridProps>> = ({
   data,
@@ -26,7 +33,7 @@ export const SampleDataGrid: React.FC<React.PropsWithChildren<SampleDataGridProp
         </DataGridRow>
       </DataGridHead>
       <DataGridBody>
-        {data.map(({sid, uniqueName, roomType, participants, dateCompleted}) => (
+        {data.map(({ sid, uniqueName, roomType, participants, dateCompleted }) => (
           <DataGridRow key={sid}>
             <DataGridCell>{sid}</DataGridCell>
             <DataGridCell>{uniqueName}</DataGridCell>

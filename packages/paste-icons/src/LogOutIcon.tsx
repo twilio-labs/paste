@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface LogOutIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface LogOutIconProps extends IconWrapperProps {
 }
 
 const LogOutIcon = React.forwardRef<HTMLElement, LogOutIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `LogOutIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -41,8 +41,8 @@ const LogOutIcon = React.forwardRef<HTMLElement, LogOutIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 LogOutIcon.displayName = 'LogOutIcon';
-export {LogOutIcon};
+export { LogOutIcon };

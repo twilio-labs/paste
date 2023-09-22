@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
-import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
+import { Menu, MenuButton, MenuItem, useMenuState } from '@twilio-paste/menu';
+import { SupportIcon } from '@twilio-paste/icons/esm/SupportIcon';
 
 export const SupportMenu: React.FC = () => {
   const menu = useMenuState();

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {useRouter} from 'next/router';
-import {Box} from '@twilio-paste/core/box';
-import {Label} from '@twilio-paste/core/label';
-import {Select, Option} from '@twilio-paste/core/select';
+import { useRouter } from 'next/router';
+import { Box } from '@twilio-paste/core/box';
+import { Label } from '@twilio-paste/core/label';
+import { Select, Option } from '@twilio-paste/core/select';
 
-import {Routes} from '../../../constants/Routes';
+import { Routes } from '../../../constants/Routes';
 
 const TokenSelector = (): JSX.Element => {
   const router = useRouter();
@@ -12,7 +12,7 @@ const TokenSelector = (): JSX.Element => {
 
   const handleChange = React.useCallback((event: any) => {
     setValue(event.target.value);
-    router.push(Routes.EDIT_BUCKET(event.target.value), undefined, {shallow: true});
+    router.push(Routes.EDIT_BUCKET(event.target.value), undefined, { shallow: true });
   }, []);
 
   return (
@@ -41,4 +41,4 @@ const TokenSelector = (): JSX.Element => {
   );
 };
 
-export {TokenSelector};
+export { TokenSelector };

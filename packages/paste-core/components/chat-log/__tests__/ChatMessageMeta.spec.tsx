@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {screen, render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { screen, render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {ChatMessage, ChatMessageMeta, ChatMessageMetaItem} from '../src';
+import { ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from '../src';
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -12,8 +12,8 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
       CHAT_MESSAGE_META: {
         columnGap: 'space50',
         variants: {
-          inbound: {justifyContent: 'flex-start'},
-          outbound: {justifyContent: 'flex-end'},
+          inbound: { justifyContent: 'flex-start' },
+          outbound: { justifyContent: 'flex-end' },
         },
       },
       CHAT_MESSAGE_META_ITEM: {
@@ -26,7 +26,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
   </CustomizationProvider>
 );
 
-const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -34,8 +34,8 @@ const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) 
       FOO_META: {
         columnGap: 'space50',
         variants: {
-          inbound: {justifyContent: 'flex-start'},
-          outbound: {justifyContent: 'flex-end'},
+          inbound: { justifyContent: 'flex-start' },
+          outbound: { justifyContent: 'flex-end' },
         },
       },
       FOO_META_ITEM: {
@@ -55,7 +55,7 @@ describe('ChatMessageMeta', () => {
         <ChatMessageMeta aria-label="sent at 5:04pm">
           <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
         </ChatMessageMeta>
-      </ChatMessage>
+      </ChatMessage>,
     );
     expect(screen.getByText('5:04pm')).toBeDefined();
   });
@@ -67,7 +67,7 @@ describe('ChatMessageMeta', () => {
           <ChatMessageMetaItem>Gibby Radki</ChatMessageMetaItem>
           <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
         </ChatMessageMeta>
-      </ChatMessage>
+      </ChatMessage>,
     );
     expect(screen.getByTestId('test-meta')).toHaveAttribute('aria-label', 'said by Gibby Radki at 5:04pm');
   });
@@ -85,7 +85,7 @@ describe('ChatMessageMeta', () => {
             <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
           </ChatMessageMeta>
         </ChatMessage>
-      </>
+      </>,
     );
     expect(screen.getByTestId('in-test-meta')).toHaveStyleRule('justify-content', 'flex-start');
     expect(screen.getByTestId('out-test-meta')).toHaveStyleRule('justify-content', 'flex-end');
@@ -97,7 +97,7 @@ describe('ChatMessageMeta', () => {
         <ChatMessageMeta data-testid="test-meta" aria-label="sent at 5:04pm">
           <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
         </ChatMessageMeta>
-      </ChatMessage>
+      </ChatMessage>,
     );
     expect(screen.getByTestId('test-meta')).toHaveStyleRule('text-align', 'right');
   });
@@ -109,7 +109,7 @@ describe('ChatMessageMeta', () => {
           <ChatMessageMetaItem>Gibby Radki</ChatMessageMetaItem>
           <ChatMessageMetaItem>5:04pm</ChatMessageMetaItem>
         </ChatMessageMeta>
-      </ChatMessage>
+      </ChatMessage>,
     );
     expect(screen.getByTestId('test-meta')).not.toHaveStyleRule('text-align', 'right');
   });
@@ -130,7 +130,7 @@ describe('Customization', () => {
           </ChatMessageMeta>
         </ChatMessage>
       </>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const inboundMeta = screen.getByTestId('inbound-meta');
@@ -156,7 +156,7 @@ describe('Customization', () => {
           </ChatMessageMeta>
         </ChatMessage>
       </>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const inboundMeta = screen.getByTestId('inbound-meta');
@@ -180,7 +180,7 @@ describe('Customization', () => {
           </ChatMessageMeta>
         </ChatMessage>
       </>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
 
     const inboundMeta = screen.getByTestId('inbound-meta');
@@ -206,7 +206,7 @@ describe('Customization', () => {
           </ChatMessageMeta>
         </ChatMessage>
       </>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
 
     const inboundMeta = screen.getByTestId('inbound-meta');
@@ -225,7 +225,7 @@ describe('ChatMessageMetaItem', () => {
           <ChatMessageMetaItem data-testid="meta-item">5:04pm</ChatMessageMetaItem>
         </ChatMessageMeta>
       </ChatMessage>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const metaItem = screen.getByTestId('meta-item');
@@ -240,7 +240,7 @@ describe('ChatMessageMetaItem', () => {
           <ChatMessageMetaItem data-testid="meta-item">5:04pm</ChatMessageMetaItem>
         </ChatMessageMeta>
       </ChatMessage>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const metaItem = screen.getByTestId('meta-item');
@@ -256,7 +256,7 @@ describe('ChatMessageMetaItem', () => {
           </ChatMessageMetaItem>
         </ChatMessageMeta>
       </ChatMessage>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
 
     const metaItem = screen.getByTestId('meta-item');
@@ -273,7 +273,7 @@ describe('ChatMessageMetaItem', () => {
           </ChatMessageMetaItem>
         </ChatMessageMeta>
       </ChatMessage>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
 
     const metaItem = screen.getByTestId('meta-item');

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type {BackgroundColorOptions} from '@twilio-paste/style-props';
-import {useTheme} from '@twilio-paste/theme';
-import {css} from '@twilio-paste/styling-library';
-import {useWindowSize} from '@twilio-paste/utils';
+import type { BackgroundColorOptions } from '@twilio-paste/style-props';
+import { useTheme } from '@twilio-paste/theme';
+import { css } from '@twilio-paste/styling-library';
+import { useWindowSize } from '@twilio-paste/utils';
 
 // https://codepen.io/enbee81/full/yLyrmyg
 const getSkewOffset = (width: number, skewAngle: number): number => Math.floor((Math.tan(skewAngle) * width) / 2);
@@ -12,7 +12,7 @@ export const HOMEPAGE_SKEW_ANGLE = -0.15708;
 
 // Make this shareable between several components implementing skew (footer, hero)
 export function useSlantedSkew(angle: number | undefined = HOMEPAGE_SKEW_ANGLE): [number] {
-  const {width = 1740} = useWindowSize();
+  const { width = 1740 } = useWindowSize();
   return [getSkewOffset(width, angle)];
 }
 
@@ -33,7 +33,7 @@ export const SlantedBackgroundGradient: React.FC<React.PropsWithChildren<Backgro
   ...props
 }) => {
   const [skewOffset] = useSlantedSkew(skewAngle);
-  const {backgroundColors, zIndices} = useTheme();
+  const { backgroundColors, zIndices } = useTheme();
 
   return (
     <div

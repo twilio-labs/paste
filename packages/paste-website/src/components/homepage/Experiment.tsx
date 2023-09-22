@@ -1,21 +1,21 @@
 import * as React from 'react';
 import Image from 'next/image';
-import {useTheme} from '@twilio-paste/theme';
-import {AspectRatio} from '@twilio-paste/aspect-ratio';
-import {Box} from '@twilio-paste/box';
-import {Anchor} from '@twilio-paste/anchor';
-import {DisplayHeading} from '@twilio-paste/display-heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {useWindowSize} from '@twilio-paste/utils';
+import { useTheme } from '@twilio-paste/theme';
+import { AspectRatio } from '@twilio-paste/aspect-ratio';
+import { Box } from '@twilio-paste/box';
+import { Anchor } from '@twilio-paste/anchor';
+import { DisplayHeading } from '@twilio-paste/display-heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { useWindowSize } from '@twilio-paste/utils';
 
-import {DoodleArrow} from '../../assets/illustrations/DoodleArrow';
-import {DoodleZigzag} from '../../assets/illustrations/DoodleZigzag';
-import {DoodleCloud} from '../../assets/illustrations/DoodleCloud';
-import {DoodleLoopLarge} from '../../assets/illustrations/DoodleLoopLarge';
-import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
-import {ExperimentMobileButton} from './ExperimentMobileButton';
-import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
-import {event} from '../../lib/gtag';
+import { DoodleArrow } from '../../assets/illustrations/DoodleArrow';
+import { DoodleZigzag } from '../../assets/illustrations/DoodleZigzag';
+import { DoodleCloud } from '../../assets/illustrations/DoodleCloud';
+import { DoodleLoopLarge } from '../../assets/illustrations/DoodleLoopLarge';
+import { SlantedBackgroundGradient } from '../SlantedBackgroundGradient';
+import { ExperimentMobileButton } from './ExperimentMobileButton';
+import { SITE_CONTENT_MAX_WIDTH } from '../../constants';
+import { event } from '../../lib/gtag';
 import CodesandboxMobile from '../../assets/images/home/codesandbox-mobile.png';
 
 interface ExperimentProps {
@@ -23,12 +23,12 @@ interface ExperimentProps {
 }
 
 const ExperimentEmbed = (): JSX.Element => {
-  const {breakpointIndex} = useWindowSize();
+  const { breakpointIndex } = useWindowSize();
 
   if (breakpointIndex !== undefined && breakpointIndex === 0) {
     return (
       <>
-        <Image src={CodesandboxMobile} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
+        <Image src={CodesandboxMobile} alt="" placeholder="blur" style={{ width: '100%', height: '100%' }} />
         <ExperimentMobileButton />
       </>
     );
@@ -44,7 +44,7 @@ const ExperimentEmbed = (): JSX.Element => {
   );
 };
 
-const Experiment: React.FC<React.PropsWithChildren<ExperimentProps>> = ({showIframe}) => {
+const Experiment: React.FC<React.PropsWithChildren<ExperimentProps>> = ({ showIframe }) => {
   const theme = useTheme();
 
   return (
@@ -53,7 +53,7 @@ const Experiment: React.FC<React.PropsWithChildren<ExperimentProps>> = ({showIfr
         gradientAngle="-180deg"
         startColor="colorBackgroundBody"
         endColor="colorBackgroundBrandHighlightWeakest"
-        styles={{bottom: theme.space.space30}}
+        styles={{ bottom: theme.space.space30 }}
       >
         <Box
           maxWidth={SITE_CONTENT_MAX_WIDTH}
@@ -106,4 +106,4 @@ const Experiment: React.FC<React.PropsWithChildren<ExperimentProps>> = ({showIfr
   );
 };
 
-export {Experiment};
+export { Experiment };

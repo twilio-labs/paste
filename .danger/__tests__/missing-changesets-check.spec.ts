@@ -1,4 +1,4 @@
-import missingChangesetCheck, {getMissingPackagesFromChangesets} from '../missing-changesets-check';
+import missingChangesetCheck, { getMissingPackagesFromChangesets } from '../missing-changesets-check';
 
 declare const global: any;
 
@@ -47,8 +47,8 @@ describe('getMissingPackagesFromChangesets()', () => {
           './.danger/__fixtures__/changeset/popular-cheetahs-punch.md',
           './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
         ],
-        ['@twilio-paste/avatar', '@twilio-paste/box', '@twilio-paste/icons', '@twilio-paste/core']
-      )
+        ['@twilio-paste/avatar', '@twilio-paste/box', '@twilio-paste/icons', '@twilio-paste/core'],
+      ),
     ).toEqual([]);
   });
 
@@ -66,15 +66,15 @@ describe('getMissingPackagesFromChangesets()', () => {
           '@twilio-paste/icons',
           '@twilio-paste/core',
           '@twilio-paste/design-tokens',
-        ]
-      )
+        ],
+      ),
     ).toEqual(['@twilio-paste/core', '@twilio-paste/design-tokens']);
 
     expect(
       getMissingPackagesFromChangesets(
         ['./.danger/__fixtures__/changeset/pretty-cameras-burn.md'],
-        ['@twilio-paste/avatar', '@twilio-paste/box', '@twilio-paste/icons', '@twilio-paste/core']
-      )
+        ['@twilio-paste/avatar', '@twilio-paste/box', '@twilio-paste/icons', '@twilio-paste/core'],
+      ),
     ).toEqual(['@twilio-paste/box', '@twilio-paste/icons', '@twilio-paste/core']);
   });
 });
@@ -168,7 +168,7 @@ describe('missingChangesetCheck()', () => {
     };
     missingChangesetCheck(mockPackList);
     expect(global.fail).toHaveBeenCalledWith(
-      'Looks like @twilio-paste/icons was not included in a changeset - *edit an existing changeset or run `yarn changeset` to create one*'
+      'Looks like @twilio-paste/icons was not included in a changeset - *edit an existing changeset or run `yarn changeset` to create one*',
     );
   });
 });

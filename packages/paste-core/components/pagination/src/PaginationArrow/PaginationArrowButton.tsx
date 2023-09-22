@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 
-import type {PaginationArrowButtonProps} from '../types';
+import type { PaginationArrowButtonProps } from '../types';
 
 const PaginationArrowButton = React.forwardRef<HTMLButtonElement, PaginationArrowButtonProps>(
-  ({children, element = 'PAGINATION_ARROW_BUTTON', disabled, visibleLabel, ...props}, ref) => {
+  ({ children, element = 'PAGINATION_ARROW_BUTTON', disabled, visibleLabel, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -43,14 +43,14 @@ const PaginationArrowButton = React.forwardRef<HTMLButtonElement, PaginationArro
           color: 'colorTextLinkStronger',
           textDecoration: 'none',
         }}
-        _active={{textDecoration: 'none'}}
+        _active={{ textDecoration: 'none' }}
       >
         {children}
       </Box>
     );
-  }
+  },
 );
 
 PaginationArrowButton.displayName = 'PaginationArrowButton';
 
-export {PaginationArrowButton};
+export { PaginationArrowButton };

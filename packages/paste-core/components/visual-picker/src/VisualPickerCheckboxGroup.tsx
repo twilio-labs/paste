@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {InlineControlGroup} from '@twilio-paste/inline-control-group';
+import { InlineControlGroup } from '@twilio-paste/inline-control-group';
 
-import {VisualPickerCheckboxContext} from './VisualPickerContext';
-import type {VisualPickerCheckboxGroupProps} from './types';
+import { VisualPickerCheckboxContext } from './VisualPickerContext';
+import type { VisualPickerCheckboxGroupProps } from './types';
 
 export const VisualPickerCheckboxGroup = React.forwardRef<HTMLFieldSetElement, VisualPickerCheckboxGroupProps>(
   (
@@ -16,7 +16,7 @@ export const VisualPickerCheckboxGroup = React.forwardRef<HTMLFieldSetElement, V
       i18nRequiredLabel = '(required)',
       ...props
     },
-    ref
+    ref,
   ) => {
     const contextValue = React.useMemo(() => {
       return {
@@ -47,7 +47,7 @@ export const VisualPickerCheckboxGroup = React.forwardRef<HTMLFieldSetElement, V
         </InlineControlGroup>
       </VisualPickerCheckboxContext.Provider>
     );
-  }
+  },
 );
 
 VisualPickerCheckboxGroup.displayName = 'VisualPickerCheckboxGroup';

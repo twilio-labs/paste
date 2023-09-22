@@ -1,11 +1,11 @@
 import * as React from 'react';
 import useComposedRef from 'use-composed-ref';
 
-import {calculateNodeHeight} from './calculateNodeHeight';
-import type {SizingData} from './getSizingData';
-import {getSizingData} from './getSizingData';
-import {useWindowResizeListener} from './useWindowResizeListener';
-import {useHiddenTextarea} from './useHiddenTextarea';
+import { calculateNodeHeight } from './calculateNodeHeight';
+import type { SizingData } from './getSizingData';
+import { getSizingData } from './getSizingData';
+import { useWindowResizeListener } from './useWindowResizeListener';
+import { useHiddenTextarea } from './useHiddenTextarea';
 
 type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 
@@ -35,7 +35,7 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
     onHeightChange = (): void => {},
     ...props
   },
-  userRef: React.Ref<HTMLTextAreaElement>
+  userRef: React.Ref<HTMLTextAreaElement>,
 ) => {
   if (process.env.NODE_ENV !== 'production' && props.style) {
     if ('maxHeight' in props.style) {
@@ -68,13 +68,13 @@ const TextareaAutosize: React.ForwardRefRenderFunction<HTMLTextAreaElement, Text
       nodeSizingData,
       node.value || node.placeholder || 'x',
       minRows,
-      maxRows
+      maxRows,
     );
 
     if (heightRef.current !== height) {
       heightRef.current = height;
       node.style.setProperty('height', `${height}px`, 'important');
-      onHeightChange(height, {rowHeight});
+      onHeightChange(height, { rowHeight });
     }
   };
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {styled, css} from '@twilio-paste/styling-library';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
+import { styled, css } from '@twilio-paste/styling-library';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
 
 export interface SiblingBoxProps extends BoxProps {
   _activeSibling?: BoxStyleProps;
@@ -81,7 +81,7 @@ const StyledSiblingBox = styled(Box)<SiblingBoxProps>(
       [invalidAndHover]: _invalidAndHoverSibling,
       [invalidAndDisabled]: _invalidAndDisabledSibling,
     });
-  }
+  },
 );
 
 const SiblingBox = React.forwardRef<HTMLSpanElement, React.PropsWithChildren<SiblingBoxProps>>(
@@ -96,7 +96,7 @@ const SiblingBox = React.forwardRef<HTMLSpanElement, React.PropsWithChildren<Sib
       transition = 'all 120ms',
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <StyledSiblingBox
@@ -111,9 +111,9 @@ const SiblingBox = React.forwardRef<HTMLSpanElement, React.PropsWithChildren<Sib
         {...props}
       />
     );
-  }
+  },
 );
 
 SiblingBox.displayName = 'SiblingBox';
 
-export {SiblingBox};
+export { SiblingBox };

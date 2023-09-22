@@ -1,4 +1,4 @@
-import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
+import type { GenericIconProps } from '@twilio-paste/icons/esm/types';
 
 export interface IconComponent {
   [key: string]: React.FunctionComponent<React.PropsWithChildren<GenericIconProps>>;

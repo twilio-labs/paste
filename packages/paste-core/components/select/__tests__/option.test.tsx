@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Option} from '../src';
-import type {OptionProps} from '../src';
-import {createAttributeMap} from '../test-utils';
+import { Option } from '../src';
+import type { OptionProps } from '../src';
+import { createAttributeMap } from '../test-utils';
 
 interface ExampleOptionProps extends OptionProps {
   suffix?: string;
@@ -34,10 +34,10 @@ describe('Option', () => {
       draggable: true,
       accessKey: 't e s t',
     };
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <ExampleOption {...additionalAttributes} value="option-1">
         Option 1
-      </ExampleOption>
+      </ExampleOption>,
     );
     const attributeMap = createAttributeMap(getByTestId('option-test'));
 
@@ -66,10 +66,10 @@ describe('Option', () => {
       size: 2,
       selected: true,
     };
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <ExampleOption {...blockListedPropsMap} value="option-1">
         Option 1
-      </ExampleOption>
+      </ExampleOption>,
     );
     const attributeMap = createAttributeMap(getByTestId('option-test'));
 
@@ -90,7 +90,7 @@ describe('Option', () => {
       render(
         <ExampleOption suffix="default-data-attribute" value="option-1">
           Option 1
-        </ExampleOption>
+        </ExampleOption>,
       );
       expect(screen.getByTestId('option-default-data-attribute').getAttribute('data-paste-element')).toEqual('OPTION');
     });
@@ -99,11 +99,11 @@ describe('Option', () => {
       render(
         <ExampleOption suffix="unique-data-attribute" element="UNIQUE_NAME" value="option-1">
           Option 1
-        </ExampleOption>
+        </ExampleOption>,
       );
 
       expect(screen.getByTestId('option-unique-data-attribute').getAttribute('data-paste-element')).toEqual(
-        'UNIQUE_NAME'
+        'UNIQUE_NAME',
       );
     });
   });
@@ -125,7 +125,7 @@ describe('Option', () => {
           <ExampleOption suffix="custom-styles" value="option-1">
             Option 1
           </ExampleOption>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       expect(screen.getByTestId('option-custom-styles')).toHaveStyleRule('color', 'rgb(3, 11, 93)');
@@ -147,7 +147,7 @@ describe('Option', () => {
           <ExampleOption suffix="custom-styles-unique-name" element="CAT" value="option-1">
             Option 1
           </ExampleOption>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       expect(screen.getByTestId('option-custom-styles-unique-name')).toHaveStyleRule('color', 'rgb(2, 99, 224)');

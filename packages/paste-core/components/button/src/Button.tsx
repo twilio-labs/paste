@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Spinner} from '@twilio-paste/spinner';
-import {secureExternalLink} from '@twilio-paste/anchor';
-import {useSpring, animated} from '@twilio-paste/animation-library';
-import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import { Box } from '@twilio-paste/box';
+import { Spinner } from '@twilio-paste/spinner';
+import { secureExternalLink } from '@twilio-paste/anchor';
+import { useSpring, animated } from '@twilio-paste/animation-library';
+import { ArrowForwardIcon } from '@twilio-paste/icons/esm/ArrowForwardIcon';
+import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
 
 import type {
   ButtonProps,
@@ -14,18 +14,18 @@ import type {
   ButtonVariants,
   ButtonStates,
 } from './types';
-import {PrimaryButton} from './PrimaryButton';
-import {PrimaryIconButton} from './PrimaryIconButton';
-import {SecondaryButton} from './SecondaryButton';
-import {SecondaryIconButton} from './SecondaryIconButton';
-import {DestructiveButton} from './DestructiveButton';
-import {DestructiveIconButton} from './DestructiveIconButton';
-import {DestructiveLinkButton} from './DestructiveLinkButton';
-import {DestructiveSecondaryButton} from './DestructiveSecondaryButton';
-import {LinkButton} from './LinkButton';
-import {InverseButton} from './InverseButton';
-import {InverseLinkButton} from './InverseLinkButton';
-import {ResetButton} from './ResetButton';
+import { PrimaryButton } from './PrimaryButton';
+import { PrimaryIconButton } from './PrimaryIconButton';
+import { SecondaryButton } from './SecondaryButton';
+import { SecondaryIconButton } from './SecondaryIconButton';
+import { DestructiveButton } from './DestructiveButton';
+import { DestructiveIconButton } from './DestructiveIconButton';
+import { DestructiveLinkButton } from './DestructiveLinkButton';
+import { DestructiveSecondaryButton } from './DestructiveSecondaryButton';
+import { LinkButton } from './LinkButton';
+import { InverseButton } from './InverseButton';
+import { InverseLinkButton } from './InverseLinkButton';
+import { ResetButton } from './ResetButton';
 
 const AnimatedBox = animated(Box);
 
@@ -122,7 +122,7 @@ const handlePropValidation = ({
   // Toggle button validaton
   if (pressed && !(variant === 'secondary' || variant === 'secondary_icon' || variant === 'destructive_secondary')) {
     throw new Error(
-      `[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" and "destructive_secondary" variants.`
+      `[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" and "destructive_secondary" variants.`,
     );
   }
 };
@@ -174,7 +174,7 @@ const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = (
 ButtonContents.displayName = 'ButtonContents';
 
 const getButtonComponent = (
-  variant: ButtonVariants
+  variant: ButtonVariants,
 ): React.ForwardRefExoticComponent<DirectButtonProps & React.RefAttributes<HTMLButtonElement>> => {
   switch (variant) {
     case 'primary_icon':
@@ -207,8 +207,8 @@ const getButtonComponent = (
 
 // memo
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({element = 'BUTTON', i18nExternalLinkLabel = '(link takes you to an external page)', ...props}, ref) => {
-    const {size, variant, children, disabled, loading, ...rest} = props;
+  ({ element = 'BUTTON', i18nExternalLinkLabel = '(link takes you to an external page)', ...props }, ref) => {
+    const { size, variant, children, disabled, loading, ...rest } = props;
     const [hovered, setHovered] = React.useState(false);
     const arrowIconStyles = useSpring({
       translateX: hovered ? '4px' : '0px',
@@ -223,7 +223,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return getButtonSize(variant, children, size);
     }, [size, variant, children]);
 
-    handlePropValidation({...props, size: smartDefaultSize});
+    handlePropValidation({ ...props, size: smartDefaultSize });
 
     const buttonState = getButtonState(disabled, loading);
     const showLoading = buttonState === 'loading';
@@ -277,7 +277,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         </ButtonContents>
       </ButtonComponent>
     );
-  }
+  },
 );
 
 Button.defaultProps = {
@@ -291,5 +291,5 @@ Button.defaultProps = {
 
 Button.displayName = 'Button';
 
-export type {ButtonProps};
-export {Button};
+export type { ButtonProps };
+export { Button };

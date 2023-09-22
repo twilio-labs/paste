@@ -1,11 +1,11 @@
 import * as React from 'react';
 import Tokens from '@twilio-paste/design-tokens/dist/tokens.generic';
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
 import camelCase from 'lodash/camelCase';
-import type {StoryFn, Meta} from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import {TokenCard} from '../src/components/tokens-list/token-card';
+import { TokenCard } from '../src/components/tokens-list/token-card';
 
 const defaultThemeTokens = Tokens.tokens;
 
@@ -28,14 +28,14 @@ export default {
     category: {
       control: false,
     },
-    value: {control: false},
+    value: { control: false },
     useCamelCase: {
-      control: {type: 'boolean'},
+      control: { type: 'boolean' },
     },
   },
 } as Meta<typeof TokenCard>;
 
-const Template: StoryFn<typeof TokenCard> = ({name, category, useCamelCase, text_contrast_pairing}) => {
+const Template: StoryFn<typeof TokenCard> = ({ name, category, useCamelCase, text_contrast_pairing }) => {
   const theme = useTheme();
   const categoryTokens = defaultThemeTokens[category];
   const backgroundColor = theme.backgroundColors.colorBackgroundBody;
@@ -45,7 +45,7 @@ const Template: StoryFn<typeof TokenCard> = ({name, category, useCamelCase, text
   const highlightColor = theme.backgroundColors.colorBackgroundStronger;
   const borderColor = theme.borderColors.colorBorder;
 
-  const {comment, altValue} =
+  const { comment, altValue } =
     categoryTokens.find((token) => {
       return token.name === name;
     }) || {};

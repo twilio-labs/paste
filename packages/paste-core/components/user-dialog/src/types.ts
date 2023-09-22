@@ -1,18 +1,18 @@
-import type {BoxProps} from '@twilio-paste/box';
-import type {GenericIconProps} from '@twilio-paste/icons/esm/types';
+import type { BoxProps } from '@twilio-paste/box';
+import type { GenericIconProps } from '@twilio-paste/icons/esm/types';
 import type {
   NonModalDialogPrimitiveStateReturn,
   NonModalDialogPrimitivePopoverInitialState,
   NonModalDialogDisclosurePrimitiveProps,
 } from '@twilio-paste/non-modal-dialog-primitive';
-import type {AvatarContentProps} from '@twilio-paste/avatar';
+import type { AvatarContentProps } from '@twilio-paste/avatar';
 import type {
   ListboxPrimitiveProps,
   ListboxPrimitiveItemProps,
   ListboxPrimitiveGroupProps,
 } from '@twilio-paste/listbox-primitive';
-import type {ButtonProps} from '@twilio-paste/button';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { ButtonProps } from '@twilio-paste/button';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export interface UserDialogUserInfoProps extends HTMLPasteProps<'div'> {
   children: NonNullable<React.ReactNode>;

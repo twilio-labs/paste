@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {render, screen} from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
 
-import {formatReturnDate} from '../src';
+import { formatReturnDate } from '../src';
 import {
   DefaultDatePicker,
   DisabledDatePicker,
@@ -48,7 +48,7 @@ describe('DatePicker', () => {
 
     it('should set disabled correctly', () => {
       expect(InnerDatePicker.getAttribute('disabled')).toEqual('');
-      expect(InnerDatePicker).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', {target: ':disabled'});
+      expect(InnerDatePicker).toHaveStyleRule('-webkit-text-fill-color', 'colorTextWeaker', { target: ':disabled' });
     });
 
     it('should set readOnly correctly', () => {
@@ -89,28 +89,28 @@ describe('DatePicker', () => {
       'data-testid': 'datepickerid',
     };
     it('should add the element dom attibute', () => {
-      const {container} = render(<DefaultDatePicker {...initialProps} />);
+      const { container } = render(<DefaultDatePicker {...initialProps} />);
       expect(container.querySelector('[data-paste-element="DATEPICKER"]')).toBeInTheDocument();
       expect(screen.getByTestId('datepickerid').getAttribute('data-paste-element')).toEqual('DATEPICKER_ELEMENT');
     });
     it('should add a custom element dom attibute', () => {
-      const {container} = render(<DefaultDatePicker element="CUSTOM_DATE" {...initialProps} />);
+      const { container } = render(<DefaultDatePicker element="CUSTOM_DATE" {...initialProps} />);
       expect(container.querySelector('[data-paste-element="CUSTOM_DATE"]')).toBeInTheDocument();
       expect(screen.getByTestId('datepickerid').getAttribute('data-paste-element')).toEqual('CUSTOM_DATE_ELEMENT');
     });
 
     it('should add custom styles to the DatePicker Component', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            DATEPICKER: {backgroundColor: 'colorBackgroundBrandStronger'},
-            DATEPICKER_ELEMENT: {backgroundColor: 'colorBackgroundBrandHighlight'},
+            DATEPICKER: { backgroundColor: 'colorBackgroundBrandStronger' },
+            DATEPICKER_ELEMENT: { backgroundColor: 'colorBackgroundBrandHighlight' },
           }}
         >
           <DefaultDatePicker {...initialProps} />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedDatepicker = container.querySelector('[data-paste-element="DATEPICKER"]');
       const renderedDatepickerElement = screen.getByTestId('datepickerid');
@@ -119,17 +119,17 @@ describe('DatePicker', () => {
     });
 
     it('should add custom styles to the DatePicker Component variant', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            DATEPICKER: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
-            DATEPICKER_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundBrand'}}},
+            DATEPICKER: { variants: { inverse: { backgroundColor: 'colorBackgroundBrand' } } },
+            DATEPICKER_ELEMENT: { variants: { inverse: { backgroundColor: 'colorBackgroundBrand' } } },
           }}
         >
           <DefaultDatePicker variant="inverse" {...initialProps} />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedDatepicker = container.querySelector('[data-paste-element="DATEPICKER"]');
       const renderedDatepickerElement = screen.getByTestId('datepickerid');
@@ -138,17 +138,17 @@ describe('DatePicker', () => {
     });
 
     it('should add custom styles to a custom DatePicker Component', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            CUSTOMDATE: {backgroundColor: 'colorBackgroundBusy'},
-            CUSTOMDATE_ELEMENT: {backgroundColor: 'colorBackgroundDestructive'},
+            CUSTOMDATE: { backgroundColor: 'colorBackgroundBusy' },
+            CUSTOMDATE_ELEMENT: { backgroundColor: 'colorBackgroundDestructive' },
           }}
         >
           <DefaultDatePicker element="CUSTOMDATE" {...initialProps} />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedDatepicker = container.querySelector('[data-paste-element="CUSTOMDATE"]');
       const renderedDatepickerElement = screen.getByTestId('datepickerid');
@@ -157,17 +157,17 @@ describe('DatePicker', () => {
     });
 
     it('should add custom styles to a custom DatePicker Component variant', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            CUSTOMDATE: {variants: {inverse: {backgroundColor: 'colorBackgroundNew'}}},
-            CUSTOMDATE_ELEMENT: {variants: {inverse: {backgroundColor: 'colorBackgroundSuccess'}}},
+            CUSTOMDATE: { variants: { inverse: { backgroundColor: 'colorBackgroundNew' } } },
+            CUSTOMDATE_ELEMENT: { variants: { inverse: { backgroundColor: 'colorBackgroundSuccess' } } },
           }}
         >
           <DefaultDatePicker variant="inverse" element="CUSTOMDATE" {...initialProps} />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedDatepicker = container.querySelector('[data-paste-element="CUSTOMDATE"]');
       const renderedDatepickerElement = screen.getByTestId('datepickerid');

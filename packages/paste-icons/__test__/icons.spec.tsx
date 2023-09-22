@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {AgentIcon} from '../src/AgentIcon';
-import {buildListTemplate} from '../tools/templates/buildListTemplate';
-import {createIconsFilesObject, jsonTemplate} from '../tools/templates/jsonTemplate';
-import {reactIconTemplate} from '../tools/templates/reactIconTemplate';
+import { AgentIcon } from '../src/AgentIcon';
+import { buildListTemplate } from '../tools/templates/buildListTemplate';
+import { createIconsFilesObject, jsonTemplate } from '../tools/templates/jsonTemplate';
+import { reactIconTemplate } from '../tools/templates/reactIconTemplate';
 import {
   getOutputComponentName,
   pascalCaseWordSplitter,
@@ -17,48 +17,48 @@ import {
   getBuildFileName,
   maybeHandleError,
 } from '../tools/utils';
-import {getIconNames} from '../tools/actions/listIconsAction';
-import {normalizeSourceFiles} from '../tools/actions/convertNewAction';
-import {filterBuiltFiles} from '../tools/actions/convertAllAction';
+import { getIconNames } from '../tools/actions/listIconsAction';
+import { normalizeSourceFiles } from '../tools/actions/convertNewAction';
+import { filterBuiltFiles } from '../tools/actions/convertAllAction';
 
 describe('Icons', () => {
   describe('HTML attributes', () => {
     it('should have the default element name', () => {
-      const {container} = render(<AgentIcon decorative />);
+      const { container } = render(<AgentIcon decorative />);
       expect(container.querySelector('[data-paste-element="ICON"]')).toBeInTheDocument();
     });
     it('should have a custom element name', () => {
-      const {container} = render(<AgentIcon element="CUSTOM_ICON" decorative />);
+      const { container } = render(<AgentIcon element="CUSTOM_ICON" decorative />);
       expect(container.querySelector('[data-paste-element="CUSTOM_ICON"]')).toBeInTheDocument();
     });
   });
 
   describe('Customization', () => {
     it('should apply custom styles to customizaed icons', () => {
-      const {container} = render(
+      const { container } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundSuccess'},
-            CUSTOM_ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundDestructive'},
+            ICON: { borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundSuccess' },
+            CUSTOM_ICON: { borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundDestructive' },
           }}
         >
           <>
             <AgentIcon decorative />
             <AgentIcon element="CUSTOM_ICON" decorative />
           </>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       expect(container.querySelector('[data-paste-element="ICON"]')).toHaveStyleRule('border-radius', '4px');
       expect(container.querySelector('[data-paste-element="ICON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(20, 176, 83)'
+        'rgb(20, 176, 83)',
       );
       expect(container.querySelector('[data-paste-element="CUSTOM_ICON"]')).toHaveStyleRule('border-radius', '4px');
       expect(container.querySelector('[data-paste-element="CUSTOM_ICON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(214, 31, 31)'
+        'rgb(214, 31, 31)',
       );
     });
   });
@@ -80,9 +80,9 @@ describe('icons util functions', () => {
   describe('tools/templates/jsonTemplate util', () => {
     it('accepts an array of icon names and returns an array of objects detaiil icon files', () => {
       const expectedOutput = [
-        {cjs: '/cjs/icon1.js', esm: '/esm/icon1.js', name: 'icon1', svg: '/svg/icon1.svg'},
-        {cjs: '/cjs/icon2.js', esm: '/esm/icon2.js', name: 'icon2', svg: '/svg/icon2.svg'},
-        {cjs: '/cjs/icon3.js', esm: '/esm/icon3.js', name: 'icon3', svg: '/svg/icon3.svg'},
+        { cjs: '/cjs/icon1.js', esm: '/esm/icon1.js', name: 'icon1', svg: '/svg/icon1.svg' },
+        { cjs: '/cjs/icon2.js', esm: '/esm/icon2.js', name: 'icon2', svg: '/svg/icon2.svg' },
+        { cjs: '/cjs/icon3.js', esm: '/esm/icon3.js', name: 'icon3', svg: '/svg/icon3.svg' },
       ];
       expect(createIconsFilesObject(testIconList)).toEqual(expectedOutput);
     });
@@ -95,7 +95,7 @@ describe('icons util functions', () => {
   });
 
   describe('tools/templates/reactIconTemplate util', () => {
-    const testReactIconTemplateArgs = {componentName: 'testIcon', svg: 'testIconSVG'};
+    const testReactIconTemplateArgs = { componentName: 'testIcon', svg: 'testIconSVG' };
     const name = testReactIconTemplateArgs.componentName;
     const TestReactIcon = reactIconTemplate(testReactIconTemplateArgs);
     it('accepts an object and creates a React component template literal', () => {
@@ -147,7 +147,7 @@ describe('icons util functions', () => {
     });
     it('getReactOutputPath util takes a file name and returns the complete path for the React component', () => {
       expect(
-        getReactOutputPath('iAmAFile.tsx').includes(`paste/packages/paste-icons/src/IAmAFileTsxIcon.tsx`)
+        getReactOutputPath('iAmAFile.tsx').includes(`paste/packages/paste-icons/src/IAmAFileTsxIcon.tsx`),
       ).toBeTruthy();
     });
     it('getBuildFileName util takes a file and adds src/ and .tsx', () => {
@@ -158,7 +158,7 @@ describe('icons util functions', () => {
       // hide console errors from terminal when throwing expected errors
       const spy = jest.spyOn(console, 'error');
       spy.mockImplementation(() => {});
-      const testError = {message: 'test error'};
+      const testError = { message: 'test error' };
       expect(() => maybeHandleError('test', testError)).toThrow();
       spy.mockRestore();
     });

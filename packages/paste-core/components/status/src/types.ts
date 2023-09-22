@@ -1,5 +1,5 @@
-import type {BadgeVariants} from '@twilio-paste/badge';
-import type {TextColorOptions} from '@twilio-paste/style-props';
+import type { BadgeVariants } from '@twilio-paste/badge';
+import type { TextColorOptions } from '@twilio-paste/style-props';
 
 export type StatusBadgeVariants =
   | 'ProcessError'

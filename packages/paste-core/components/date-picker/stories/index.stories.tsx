@@ -1,17 +1,17 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {Combobox} from '@twilio-paste/combobox';
-import {Stack} from '@twilio-paste/stack';
+import type { StoryFn } from '@storybook/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
+import { Anchor } from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import { Combobox } from '@twilio-paste/combobox';
+import { Stack } from '@twilio-paste/stack';
 
-import {DatePicker, formatReturnDate} from '../src';
-import type {DatePickerProps} from '../src';
+import { DatePicker, formatReturnDate } from '../src';
+import type { DatePickerProps } from '../src';
 
 export const DefaultDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
@@ -215,7 +215,7 @@ export const OnChangeDatePicker: React.FC<React.PropsWithChildren<DatePickerProp
         <Combobox
           items={dateFormatOptions}
           labelText="Return date format:"
-          onInputValueChange={({inputValue}) => {
+          onInputValueChange={({ inputValue }) => {
             if (inputValue !== undefined) setDateFormat(inputValue);
           }}
         />
@@ -324,7 +324,7 @@ export const DatePickerWithMinAndMax: React.FC<React.PropsWithChildren<DatePicke
   );
 };
 
-export const CustomizedDatePicker: StoryFn = (_args, {parameters: {isTestEnvironment}, props}) => {
+export const CustomizedDatePicker: StoryFn = (_args, { parameters: { isTestEnvironment }, props }) => {
   const activeTheme = useTheme();
   const uidSeed = useUIDSeed();
   return (

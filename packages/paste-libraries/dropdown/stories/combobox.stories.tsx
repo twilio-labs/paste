@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {StoryFn, Meta} from '@storybook/react';
+import type { StoryFn, Meta } from '@storybook/react';
 
-import {useCombobox} from '../src';
+import { useCombobox } from '../src';
 
 type Book = {
   author: string;
@@ -9,16 +9,16 @@ type Book = {
 };
 
 const books: Book[] = [
-  {author: 'Harper Lee', title: 'To Kill a Mockingbird'},
-  {author: 'Lev Tolstoy', title: 'War and Peace'},
-  {author: 'Fyodor Dostoyevsy', title: 'The Idiot'},
-  {author: 'Oscar Wilde', title: 'A Picture of Dorian Gray'},
-  {author: 'George Orwell', title: '1984'},
-  {author: 'Jane Austen', title: 'Pride and Prejudice'},
-  {author: 'Marcus Aurelius', title: 'Meditations'},
-  {author: 'Fyodor Dostoevsky', title: 'The Brothers Karamazov'},
-  {author: 'Lev Tolstoy', title: 'Anna Karenina'},
-  {author: 'Fyodor Dostoevsky', title: 'Crime and Punishment'},
+  { author: 'Harper Lee', title: 'To Kill a Mockingbird' },
+  { author: 'Lev Tolstoy', title: 'War and Peace' },
+  { author: 'Fyodor Dostoyevsy', title: 'The Idiot' },
+  { author: 'Oscar Wilde', title: 'A Picture of Dorian Gray' },
+  { author: 'George Orwell', title: '1984' },
+  { author: 'Jane Austen', title: 'Pride and Prejudice' },
+  { author: 'Marcus Aurelius', title: 'Meditations' },
+  { author: 'Fyodor Dostoevsky', title: 'The Brothers Karamazov' },
+  { author: 'Lev Tolstoy', title: 'Anna Karenina' },
+  { author: 'Fyodor Dostoevsky', title: 'Crime and Punishment' },
 ];
 
 function getBooksFilter(inputValue: string | undefined) {
@@ -42,7 +42,7 @@ export const ComboBox: StoryFn = () => {
     getItemProps,
     selectedItem,
   } = useCombobox({
-    onInputValueChange({inputValue}) {
+    onInputValueChange({ inputValue }) {
       setItems(books.filter(getBooksFilter(inputValue)));
     },
     items,
@@ -72,7 +72,7 @@ export const ComboBox: StoryFn = () => {
                 color: highlightedIndex === index ? 'blue' : selectedItem === item ? 'green' : 'black',
               }}
               key={`${item.title}${index}`}
-              {...getItemProps({item, index})}
+              {...getItemProps({ item, index })}
             >
               <span>{item.title}</span>
               <span> - {item.author}</span>

@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
-import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
+import { NeutralIcon } from '@twilio-paste/icons/esm/NeutralIcon';
+import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
+import { WarningIcon } from '@twilio-paste/icons/esm/WarningIcon';
+import type { BoxStyleProps, BoxProps } from '@twilio-paste/box';
 
 type CalloutVariants = 'neutral' | 'warning' | 'error' | 'success' | 'new';
 
@@ -63,7 +63,7 @@ const defaultIconLabels: Record<CalloutVariants, string> = {
 };
 
 export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
-  ({children, variant, element = 'CALLOUT', i18nLabel, marginY, ...props}, ref) => {
+  ({ children, variant, element = 'CALLOUT', i18nLabel, marginY, ...props }, ref) => {
     const IconComponent = variantIcons[variant];
     const iconLabel = i18nLabel ? i18nLabel : defaultIconLabels[variant];
 
@@ -90,7 +90,7 @@ export const Callout = React.forwardRef<HTMLDivElement, CalloutProps>(
         </Box>
       </Box>
     );
-  }
+  },
 );
 
 Callout.displayName = 'Callout';

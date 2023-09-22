@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {useUIDSeed} from '@twilio-paste/uid-library';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
-import type {LayoutProps, FlexboxProps, MarginProps, SpaceOptions} from '@twilio-paste/style-props';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
+import type { LayoutProps, FlexboxProps, MarginProps, SpaceOptions } from '@twilio-paste/style-props';
+import type { BoxElementProps } from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 type StackChildMargins = Pick<MarginProps, 'marginRight' | 'marginBottom'>;
 type DisplayOptions = 'block' | 'flex';
@@ -75,21 +75,21 @@ export const getStackChildMargins = (orientation: StackOrientation, spacing: Spa
   }
 
   if (orientation === 'horizontal') {
-    styles = {marginRight: spacing};
+    styles = { marginRight: spacing };
   }
 
   if (orientation === 'vertical') {
-    styles = {marginBottom: spacing};
+    styles = { marginBottom: spacing };
   }
 
   return styles;
 };
 
 const Stack = React.forwardRef<HTMLDivElement, StackProps>(
-  ({children, orientation, spacing, element = 'STACK', ...props}, ref) => {
+  ({ children, orientation, spacing, element = 'STACK', ...props }, ref) => {
     const [childrenCount, validChildren] = React.useMemo(() => {
       const filteredChildren = React.Children.toArray(children).filter(
-        (child) => React.isValidElement(child) || typeof child === 'string'
+        (child) => React.isValidElement(child) || typeof child === 'string',
       );
       return [filteredChildren.length, filteredChildren];
     }, [children]);
@@ -112,9 +112,9 @@ const Stack = React.forwardRef<HTMLDivElement, StackProps>(
         })}
       </Box>
     );
-  }
+  },
 );
 
 Stack.displayName = 'Stack';
 
-export {Stack};
+export { Stack };

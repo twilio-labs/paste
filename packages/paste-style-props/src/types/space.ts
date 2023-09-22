@@ -1,6 +1,6 @@
 // https://styled-system.com/api/#space
-import type {ThemeShape} from '@twilio-paste/theme';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type { ThemeShape } from '@twilio-paste/theme';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
 
 // Tokens
 export type SpaceOptions = keyof ThemeShape['space'];

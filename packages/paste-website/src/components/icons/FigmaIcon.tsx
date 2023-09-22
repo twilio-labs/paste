@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
 export interface FigmaIconProps {
   className?: string;
@@ -11,7 +11,7 @@ export interface FigmaIconProps {
 }
 
 const FigmaIcon = React.forwardRef<HTMLDivElement, FigmaIconProps>(
-  ({title, decorative, className, color = 'currentColor', display = 'block', size = 'sizeIcon30', ...props}, ref) => {
+  ({ title, decorative, className, color = 'currentColor', display = 'block', size = 'sizeIcon30', ...props }, ref) => {
     const titleId = `FigmaIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -20,7 +20,7 @@ const FigmaIcon = React.forwardRef<HTMLDivElement, FigmaIconProps>(
 
     return (
       <div
-        style={{color, display, width: size, height: size, lineHeight: 0}}
+        style={{ color, display, width: size, height: size, lineHeight: 0 }}
         className={className}
         ref={ref}
         {...props}
@@ -63,8 +63,8 @@ const FigmaIcon = React.forwardRef<HTMLDivElement, FigmaIconProps>(
         </svg>
       </div>
     );
-  }
+  },
 );
 
 FigmaIcon.displayName = 'FigmaIcon';
-export {FigmaIcon};
+export { FigmaIcon };

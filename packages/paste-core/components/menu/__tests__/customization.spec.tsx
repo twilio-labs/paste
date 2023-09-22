@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import type {RenderOptions} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import type { RenderOptions } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {initStyles, BaseMenu} from '../stories/customization.stories';
+import { initStyles, BaseMenu } from '../stories/customization.stories';
 
 const PASTE_ELEMENT = 'data-paste-element';
 
 const initWrapper = (element: string): RenderOptions['wrapper'] =>
-  function Wrapper({children}) {
+  function Wrapper({ children }) {
     return (
       <CustomizationProvider theme={TestTheme} elements={initStyles(element.toUpperCase())}>
         {children}
@@ -89,21 +89,21 @@ describe('Menu Customization', () => {
         expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
 
         expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', { target: ':hover' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', { target: ':hover' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', { target: ':hover' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', { target: ':hover' });
 
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', {target: ':focus'});
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', { target: ':focus' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', { target: ':focus' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', { target: ':focus' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', { target: ':focus' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', { target: ':focus' });
 
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
+        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', { target: ':hover' });
+        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', { target: ':hover' });
+        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', { target: ':hover' });
+        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', { target: ':hover' });
 
         expect(nodeCalledMenuSeparator).toHaveStyleRule('border-style', 'inset');
         expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
@@ -136,21 +136,21 @@ describe('Menu Customization', () => {
         expect(nodeCalledMenuButton).toHaveStyleRule('background-color', 'rgb(2, 99, 224)');
 
         expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '500');
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', { target: ':hover' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', { target: ':hover' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', { target: ':hover' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', { target: ':hover' });
 
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', {target: ':focus'});
-        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', {target: ':focus'});
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-width', '4px', { target: ':focus' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-style', 'solid', { target: ':focus' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', { target: ':focus' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('text-decoration', 'none', { target: ':focus' });
+        expect(nodeCalledMenuItem).toHaveStyleRule('font-weight', '700', { target: ':focus' });
 
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', {target: ':hover'});
-        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', {target: ':hover'});
+        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-width', '4px', { target: ':hover' });
+        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-style', 'solid', { target: ':hover' });
+        expect(nodeCalledSubmenuButton).toHaveStyleRule('border-left-color', 'rgb(2, 99, 224)', { target: ':hover' });
+        expect(nodeCalledSubmenuButton).toHaveStyleRule('text-decoration', 'none', { target: ':hover' });
 
         expect(nodeCalledMenuSeparator).toHaveStyleRule('border-style', 'inset');
         expect(nodeCalledMenuSeparator).toHaveStyleRule('opacity', '0.5');
@@ -179,12 +179,12 @@ jest.mock('../src/useMenuState', () => {
       groups: [],
       hide: NOOP,
       items: [
-        {disabled: false, groupId: undefined, id: 'primary-menu-customization-story-1', ref: {current: 'button'}},
-        {disabled: false, groupId: undefined, id: 'primary-menu-customization-story-2', ref: {}},
-        {disabled: false, groupId: undefined, id: 'primary-menu-customization-story-3', ref: {}},
-        {disabled: false, groupId: undefined, id: 'primary-menu-customization-story-4', ref: {}},
-        {disabled: false, groupId: undefined, id: 'primary-menu-customization-story-5', ref: {}},
-        {disabled: false, groupId: undefined, id: 'primary-menu-customization-story-6', ref: {}},
+        { disabled: false, groupId: undefined, id: 'primary-menu-customization-story-1', ref: { current: 'button' } },
+        { disabled: false, groupId: undefined, id: 'primary-menu-customization-story-2', ref: {} },
+        { disabled: false, groupId: undefined, id: 'primary-menu-customization-story-3', ref: {} },
+        { disabled: false, groupId: undefined, id: 'primary-menu-customization-story-4', ref: {} },
+        { disabled: false, groupId: undefined, id: 'primary-menu-customization-story-5', ref: {} },
+        { disabled: false, groupId: undefined, id: 'primary-menu-customization-story-6', ref: {} },
       ],
       last: NOOP,
       loop: false,
@@ -216,16 +216,16 @@ jest.mock('../src/useMenuState', () => {
       toggle: NOOP,
       unregisterGroup: NOOP,
       unregisterItem: NOOP,
-      unstable_arrowRef: {current: null},
+      unstable_arrowRef: { current: null },
       unstable_arrowStyles: {},
-      unstable_disclosureRef: {current: undefined},
+      unstable_disclosureRef: { current: undefined },
       unstable_hasActiveWidget: false,
-      unstable_idCountRef: {current: 6},
+      unstable_idCountRef: { current: 6 },
       unstable_includesBaseElement: false,
       unstable_moves: 2,
       unstable_originalPlacement: 'bottom-start',
-      unstable_popoverRef: {current: undefined},
-      unstable_referenceRef: {current: undefined},
+      unstable_popoverRef: { current: undefined },
+      unstable_referenceRef: { current: undefined },
       unstable_setHasActiveWidget: NOOP,
       unstable_setIncludesBaseElement: NOOP,
       unstable_setValue: NOOP,

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {ChevronUpIcon} from '@twilio-paste/icons/esm/ChevronUpIcon';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import type {BoxProps} from '@twilio-paste/box';
-import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { ChevronUpIcon } from '@twilio-paste/icons/esm/ChevronUpIcon';
+import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import type { BoxProps } from '@twilio-paste/box';
+import { MinusIcon } from '@twilio-paste/icons/esm/MinusIcon';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {MinimizableDialogContext} from './MinimizableDialogContext';
+import { MinimizableDialogContext } from './MinimizableDialogContext';
 
 export interface MinimizableDialogHeaderProps extends HTMLPasteProps<'div'> {
   children?: React.ReactNode;
@@ -26,11 +26,11 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
       i18nMinimizeLabel = 'minimize',
       ...props
     },
-    ref
+    ref,
   ) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore Property 'hide' does not exist on type 'Partial<PopoverState>', but reakit docs suggest using it (https://reakit.io/docs/popover/#initial-focus)
-    const {hide, minimized, minimize, expand} = React.useContext(MinimizableDialogContext);
+    const { hide, minimized, minimize, expand } = React.useContext(MinimizableDialogContext);
 
     return (
       <Box
@@ -81,9 +81,9 @@ const MinimizableDialogHeader = React.forwardRef<HTMLDivElement, MinimizableDial
         </Button>
       </Box>
     );
-  }
+  },
 );
 
 MinimizableDialogHeader.displayName = 'MinimizableDialogHeader';
 
-export {MinimizableDialogHeader};
+export { MinimizableDialogHeader };

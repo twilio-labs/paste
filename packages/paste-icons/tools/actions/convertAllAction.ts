@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 
-import {convertNewAction} from './convertNewAction';
-import {listIconsAction} from './listIconsAction';
-import {REACT_PATH} from '../constants';
+import { convertNewAction } from './convertNewAction';
+import { listIconsAction } from './listIconsAction';
+import { REACT_PATH } from '../constants';
 
 export function filterBuiltFiles(files: string[]): string[] {
   return files.filter((fileName) => fileName.includes('.tsx'));

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
 import {
   Form,
@@ -23,7 +23,7 @@ describe('Form', () => {
         <FormControlTwoColumn>Two column content</FormControlTwoColumn>
         <FormControl>Control content</FormControl>
         <FormActions>Actions content</FormActions>
-      </Form>
+      </Form>,
     );
 
     const form = screen.getByRole('form');
@@ -33,7 +33,7 @@ describe('Form', () => {
     const description = screen.getByTestId('section-desc');
     expect(description.id).toBe('foo-section-description');
 
-    const section = screen.getByRole('group', {name: 'Settings'});
+    const section = screen.getByRole('group', { name: 'Settings' });
     expect(section).toBeDefined();
     expect(section).toHaveAttribute('aria-describedby', description.id);
 
@@ -48,12 +48,12 @@ describe('Form', () => {
       <FormSection>
         <FormSectionHeading>Section</FormSectionHeading>
         <FormSectionDescription data-testid="section-desc">Description</FormSectionDescription>
-      </FormSection>
+      </FormSection>,
     );
 
-    expect(screen.getByRole('group', {name: 'Section'})).toHaveAttribute(
+    expect(screen.getByRole('group', { name: 'Section' })).toHaveAttribute(
       'aria-describedby',
-      screen.getByTestId('section-desc').id
+      screen.getByTestId('section-desc').id,
     );
   });
 });
@@ -69,11 +69,11 @@ describe('Form customization', () => {
         <FormControlTwoColumn>Two column content</FormControlTwoColumn>
         <FormControl>Control content</FormControl>
         <FormActions>Actions content</FormActions>
-      </Form>
+      </Form>,
     );
 
     expect(screen.getByRole('form').dataset.pasteElement).toBe('FORM');
-    expect(screen.getByRole('group', {name: 'Settings'}).dataset.pasteElement).toBe('FORM_SECTION');
+    expect(screen.getByRole('group', { name: 'Settings' }).dataset.pasteElement).toBe('FORM_SECTION');
     expect(screen.getByTestId('section-heading').dataset.pasteElement).toBe('FORM_SECTION_HEADING');
     expect(screen.getByText('Two column content').dataset.pasteElement).toBe('FORM_CONTROL_TWO_COLUMN');
     expect(screen.getByText('Control content').dataset.pasteElement).toBe('FORM_CONTROL');
@@ -94,11 +94,11 @@ describe('Form customization', () => {
         <FormControlTwoColumn element="MY_FORM_CONTROL_TWO_COLUMN">Two column content</FormControlTwoColumn>
         <FormControl element="MY_FORM_CONTROL">Control content</FormControl>
         <FormActions element="MY_FORM_ACTIONS">Actions content</FormActions>
-      </Form>
+      </Form>,
     );
 
     expect(screen.getByRole('form').dataset.pasteElement).toBe('MY_FORM');
-    expect(screen.getByRole('group', {name: 'Settings'}).dataset.pasteElement).toBe('MY_FORM_SECTION');
+    expect(screen.getByRole('group', { name: 'Settings' }).dataset.pasteElement).toBe('MY_FORM_SECTION');
     expect(screen.getByTestId('section-heading').dataset.pasteElement).toBe('MY_FORM_SECTION_HEADING');
     expect(screen.getByText('Two column content').dataset.pasteElement).toBe('MY_FORM_CONTROL_TWO_COLUMN');
     expect(screen.getByText('Control content').dataset.pasteElement).toBe('MY_FORM_CONTROL');
@@ -110,13 +110,13 @@ describe('Form customization', () => {
       <CustomizationProvider
         theme={TestTheme}
         elements={{
-          FORM: {rowGap: 'space20'},
-          FORM_ACTIONS: {justifyContent: 'center'},
-          FORM_CONTROL: {flexGrow: 'unset'},
-          FORM_CONTROL_TWO_COLUMN: {columnGap: 'space20'},
-          FORM_SECTION: {borderWidth: 'borderWidth10', borderStyle: 'solid', borderColor: 'colorBorder'},
-          FORM_SECTION_DESCRIPTION: {fontWeight: 'fontWeightBold'},
-          FORM_SECTION_HEADING: {backgroundColor: 'colorBackgroundErrorWeakest'},
+          FORM: { rowGap: 'space20' },
+          FORM_ACTIONS: { justifyContent: 'center' },
+          FORM_CONTROL: { flexGrow: 'unset' },
+          FORM_CONTROL_TWO_COLUMN: { columnGap: 'space20' },
+          FORM_SECTION: { borderWidth: 'borderWidth10', borderStyle: 'solid', borderColor: 'colorBorder' },
+          FORM_SECTION_DESCRIPTION: { fontWeight: 'fontWeightBold' },
+          FORM_SECTION_HEADING: { backgroundColor: 'colorBackgroundErrorWeakest' },
         }}
       >
         <Form aria-label="My Form">
@@ -128,11 +128,11 @@ describe('Form customization', () => {
           <FormControl>Control content</FormControl>
           <FormActions>Actions content</FormActions>
         </Form>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     expect(screen.getByRole('form')).toHaveStyleRule('row-gap', '0.25rem');
-    expect(screen.getByRole('group', {name: 'Settings'})).toHaveStyleRule('border-style', 'solid');
+    expect(screen.getByRole('group', { name: 'Settings' })).toHaveStyleRule('border-style', 'solid');
     expect(screen.getByTestId('section-heading')).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
     expect(screen.getByText('Two column content')).toHaveStyleRule('column-gap', '0.25rem');
     expect(screen.getByText('Control content')).toHaveStyleRule('flex-grow', 'unset');
@@ -144,13 +144,13 @@ describe('Form customization', () => {
       <CustomizationProvider
         theme={TestTheme}
         elements={{
-          MY_FORM: {rowGap: 'space20'},
-          MY_FORM_ACTIONS: {justifyContent: 'center'},
-          MY_FORM_CONTROL: {flexGrow: 'unset'},
-          MY_FORM_CONTROL_TWO_COLUMN: {columnGap: 'space20'},
-          MY_FORM_SECTION: {borderWidth: 'borderWidth10', borderStyle: 'solid', borderColor: 'colorBorder'},
-          MY_FORM_SECTION_DESCRIPTION: {fontWeight: 'fontWeightBold'},
-          MY_FORM_SECTION_HEADING: {backgroundColor: 'colorBackgroundErrorWeakest'},
+          MY_FORM: { rowGap: 'space20' },
+          MY_FORM_ACTIONS: { justifyContent: 'center' },
+          MY_FORM_CONTROL: { flexGrow: 'unset' },
+          MY_FORM_CONTROL_TWO_COLUMN: { columnGap: 'space20' },
+          MY_FORM_SECTION: { borderWidth: 'borderWidth10', borderStyle: 'solid', borderColor: 'colorBorder' },
+          MY_FORM_SECTION_DESCRIPTION: { fontWeight: 'fontWeightBold' },
+          MY_FORM_SECTION_HEADING: { backgroundColor: 'colorBackgroundErrorWeakest' },
         }}
       >
         <Form aria-label="My Form" element="MY_FORM">
@@ -166,11 +166,11 @@ describe('Form customization', () => {
           <FormControl element="MY_FORM_CONTROL">Control content</FormControl>
           <FormActions element="MY_FORM_ACTIONS">Actions content</FormActions>
         </Form>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     expect(screen.getByRole('form')).toHaveStyleRule('row-gap', '0.25rem');
-    expect(screen.getByRole('group', {name: 'Settings'})).toHaveStyleRule('border-style', 'solid');
+    expect(screen.getByRole('group', { name: 'Settings' })).toHaveStyleRule('border-style', 'solid');
     expect(screen.getByTestId('section-heading')).toHaveStyleRule('background-color', 'rgb(254, 236, 236)');
     expect(screen.getByText('Two column content')).toHaveStyleRule('column-gap', '0.25rem');
     expect(screen.getByText('Control content')).toHaveStyleRule('flex-grow', 'unset');

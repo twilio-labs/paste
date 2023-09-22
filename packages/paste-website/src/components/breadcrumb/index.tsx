@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {styled, css} from '@twilio-paste/styling-library';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
+import { styled, css } from '@twilio-paste/styling-library';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
 
-import {SiteLink} from '../SiteLink';
+import { SiteLink } from '../SiteLink';
 
 const CrumbSlash = (): JSX.Element => (
   <Box display="inline" paddingLeft="space20" paddingRight="space20">
@@ -13,7 +13,7 @@ const CrumbSlash = (): JSX.Element => (
   </Box>
 );
 
-const Breadcrumb: React.FC<React.PropsWithChildren> = ({children}) => {
+const Breadcrumb: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <nav aria-label="breadcrumb">
       <Box
@@ -41,7 +41,7 @@ const BreadcrumbItem = styled(SiteLink)(
     fontSize: 'fontSize30',
     lineHeight: 'lineHeight30',
     letterSpacing: 'normal',
-  })
+  }),
 );
 
-export {Breadcrumb, BreadcrumbItem};
+export { Breadcrumb, BreadcrumbItem };

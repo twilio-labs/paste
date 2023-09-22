@@ -1,4 +1,4 @@
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
 
 export const modalHeaderStyles = {
   borderBottomStyle: 'solid',

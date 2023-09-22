@@ -1,5 +1,5 @@
-import type {ValueOf} from '@twilio-paste/types';
-import type {BoxElementProps, BoxStyleProps} from '@twilio-paste/box';
+import type { ValueOf } from '@twilio-paste/types';
+import type { BoxElementProps, BoxStyleProps } from '@twilio-paste/box';
 import type {
   MenuPrimitiveItemProps,
   MenuPrimitiveItemCheckboxProps,
@@ -8,9 +8,9 @@ import type {
   MenuPrimitiveSeparatorProps,
 } from '@twilio-paste/menu-primitive';
 
-import type {MenuItemVariants} from './constants';
+import type { MenuItemVariants } from './constants';
 
-export type MenuProps = MenuPrimitiveProps & {'aria-label': string; element?: BoxElementProps['element']};
+export type MenuProps = MenuPrimitiveProps & { 'aria-label': string; element?: BoxElementProps['element'] };
 
 export type MenuItemVariant = ValueOf<typeof MenuItemVariants>;
 
@@ -44,4 +44,4 @@ export interface MenuGroupProps {
   element?: BoxElementProps['element'];
 }
 
-export type MenuSeparatorProps = MenuPrimitiveSeparatorProps & {element?: BoxElementProps['element']};
+export type MenuSeparatorProps = MenuPrimitiveSeparatorProps & { element?: BoxElementProps['element'] };

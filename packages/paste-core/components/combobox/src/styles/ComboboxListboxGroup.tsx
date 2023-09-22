@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
 
-import type {ComboboxProps} from '../types';
+import type { ComboboxProps } from '../types';
 
 export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, 'groupLabelTemplate' | 'element'> {
   children: NonNullable<React.ReactNode>;
@@ -10,7 +10,7 @@ export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, 'groupLab
 }
 
 const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxGroupProps>(
-  ({children, element = 'COMBOBOX', groupName, groupLabelTemplate}, ref) => {
+  ({ children, element = 'COMBOBOX', groupName, groupLabelTemplate }, ref) => {
     return (
       <Box
         as="ul"
@@ -56,9 +56,9 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
         {children}
       </Box>
     );
-  }
+  },
 );
 
 ComboboxListboxGroup.displayName = 'ComboboxListboxGroup';
 
-export {ComboboxListboxGroup};
+export { ComboboxListboxGroup };

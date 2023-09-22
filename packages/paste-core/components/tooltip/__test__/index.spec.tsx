@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {render, screen, waitFor} from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {Button} from '@twilio-paste/button';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { Button } from '@twilio-paste/button';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {StateHookExample} from '../stories/index.stories';
-import {Tooltip} from '../src';
+import { StateHookExample } from '../stories/index.stories';
+import { Tooltip } from '../src';
 
-const TooltipWithoutTheme: React.FC<React.PropsWithChildren<{elementName?: string}>> = ({elementName}) => {
+const TooltipWithoutTheme: React.FC<React.PropsWithChildren<{ elementName?: string }>> = ({ elementName }) => {
   return (
     <Tooltip text="Welcome to Paste!" element={elementName} data-testid="tooltip-example">
       <Button variant="primary">Open Tooltip</Button>
@@ -20,7 +20,7 @@ describe('Tooltip', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <TooltipWithoutTheme />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     it('should render a tooltip button with aria attributes', () => {
       const renderedTooltipButton = screen.getByRole('button');
@@ -80,7 +80,7 @@ describe('Tooltip', () => {
               Open Tooltip
             </Button>
           </Tooltip>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const tooltip = screen.getByTestId('tooltip-children-example');
 
@@ -108,7 +108,7 @@ describe('Tooltip', () => {
       render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <TooltipWithoutTheme />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
@@ -121,7 +121,7 @@ describe('Tooltip', () => {
       render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <TooltipWithoutTheme elementName="CUSTOM_TOOLTIP" />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
@@ -147,7 +147,7 @@ describe('Tooltip', () => {
           }}
         >
           <TooltipWithoutTheme />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');
@@ -173,7 +173,7 @@ describe('Tooltip', () => {
           }}
         >
           <TooltipWithoutTheme elementName="CUSTOM_TOOLTIP" />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const tooltip = screen.getByTestId('tooltip-example');
       const tooltipText = screen.getByText('Welcome to Paste!');

@@ -1,12 +1,12 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {Truncate} from '@twilio-paste/truncate';
-import {useUID} from '@twilio-paste/uid-library';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
+import { Truncate } from '@twilio-paste/truncate';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {Breadcrumb, BreadcrumbItem} from '../src';
+import { Breadcrumb, BreadcrumbItem } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -54,7 +54,7 @@ export const AnchorsWithTruncation = (): React.ReactNode => {
 
 AnchorsWithTruncation.storyName = 'Anchors with truncation ';
 
-export const CustomizationBreadcrumb: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizationBreadcrumb: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const uniqueLandmarkIdentifier = useUID();
   return (
@@ -62,14 +62,14 @@ export const CustomizationBreadcrumb: StoryFn = (_args, {parameters: {isTestEnvi
       disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        BREADCRUMB: {fontVariantNumeric: 'slashed-zero'},
-        BREADCRUMB_ITEM: {fontWeight: 'fontWeightMedium'},
+        BREADCRUMB: { fontVariantNumeric: 'slashed-zero' },
+        BREADCRUMB_ITEM: { fontWeight: 'fontWeightMedium' },
         BREADCRUMB_ANCHOR: {
           textDecoration: 'underline wavy',
           color: 'colorTextWeak',
-          ':hover': {color: 'colorLinkStronger'},
+          ':hover': { color: 'colorLinkStronger' },
         },
-        BREADCRUMB_TEXT: {letterSpacing: '0.25rem'},
+        BREADCRUMB_TEXT: { letterSpacing: '0.25rem' },
         BREADCRUMB_SEPARATOR: {
           color: 'colorTextBrandHighlight',
         },
@@ -94,7 +94,7 @@ CustomizationBreadcrumb.parameters = {
   },
 };
 
-export const CustomizationBreadcrumbWithCustomName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizationBreadcrumbWithCustomName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const uniqueLandmarkIdentifier = useUID();
   return (
@@ -102,18 +102,18 @@ export const CustomizationBreadcrumbWithCustomName: StoryFn = (_args, {parameter
       disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        DOGS_BREADCRUMB: {marginY: 'space60', fontVariantNumeric: 'ordinal'},
-        GOOD: {fontWeight: 'fontWeightLight'},
-        GOOD_ANCHOR: {fontWeight: 'fontWeightBold'},
-        GOOD_SEPARATOR: {fontWeight: 'fontWeightLight'},
-        DOGS: {fontWeight: 'fontWeightNormal'},
-        DOGS_SEPARATOR: {fontWeight: 'fontWeightNormal'},
-        SAY: {fontWeight: 'fontWeightMedium'},
-        SAY_SEPARATOR: {fontWeight: 'fontWeightMedium'},
-        BORK: {fontWeight: 'fontWeightSemibold'},
-        BORK_SEPARATOR: {fontWeight: 'fontWeightSemibold'},
-        WOOF: {fontWeight: 'fontWeightBold'},
-        WOOF_SEPARATOR: {fontWeight: 'fontWeightBold'},
+        DOGS_BREADCRUMB: { marginY: 'space60', fontVariantNumeric: 'ordinal' },
+        GOOD: { fontWeight: 'fontWeightLight' },
+        GOOD_ANCHOR: { fontWeight: 'fontWeightBold' },
+        GOOD_SEPARATOR: { fontWeight: 'fontWeightLight' },
+        DOGS: { fontWeight: 'fontWeightNormal' },
+        DOGS_SEPARATOR: { fontWeight: 'fontWeightNormal' },
+        SAY: { fontWeight: 'fontWeightMedium' },
+        SAY_SEPARATOR: { fontWeight: 'fontWeightMedium' },
+        BORK: { fontWeight: 'fontWeightSemibold' },
+        BORK_SEPARATOR: { fontWeight: 'fontWeightSemibold' },
+        WOOF: { fontWeight: 'fontWeightBold' },
+        WOOF_SEPARATOR: { fontWeight: 'fontWeightBold' },
       }}
     >
       <Breadcrumb element="DOGS_BREADCRUMB" aria-label={`breadcrumb ${uniqueLandmarkIdentifier}`}>

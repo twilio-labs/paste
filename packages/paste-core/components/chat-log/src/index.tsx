@@ -12,4 +12,4 @@ export * from './ChatBookendItem';
 export * from './ChatEvent';
 export * from './ChatLogger';
 export * from './useChatLogger';
-export type {MessageVariants} from './MessageVariantContext';
+export type { MessageVariants } from './MessageVariantContext';

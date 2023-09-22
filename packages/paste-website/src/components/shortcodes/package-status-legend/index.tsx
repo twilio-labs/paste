@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {StatusBadge} from '@twilio-paste/status';
-import type {BadgeProps} from '@twilio-paste/badge';
-import {PopoverContainer, PopoverBadgeButton, Popover} from '@twilio-paste/popover';
-import {useUID} from '@twilio-paste/uid-library';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import { Box } from '@twilio-paste/box';
+import { StatusBadge } from '@twilio-paste/status';
+import type { BadgeProps } from '@twilio-paste/badge';
+import { PopoverContainer, PopoverBadgeButton, Popover } from '@twilio-paste/popover';
+import { useUID } from '@twilio-paste/uid-library';
+import { NewIcon } from '@twilio-paste/icons/esm/NewIcon';
 
-import {StatusDescriptions} from '../../../constants';
+import { StatusDescriptions } from '../../../constants';
 
 type BadgeVariants = BadgeProps['variant'];
 interface PackageStatusLegendProps {
@@ -21,7 +21,7 @@ interface StatusData {
   popoverContent: string;
 }
 
-const statusMap: {[index: string]: StatusData} = {
+const statusMap: { [index: string]: StatusData } = {
   Alpha: {
     badgeVariant: 'new',
     popoverContent: StatusDescriptions.ALPHA,
@@ -32,7 +32,7 @@ const statusMap: {[index: string]: StatusData} = {
   },
 };
 
-const PackageStatusBadge: React.FC<React.PropsWithChildren<{status: string}>> = ({status}) => {
+const PackageStatusBadge: React.FC<React.PropsWithChildren<{ status: string }>> = ({ status }) => {
   const statusData = statusMap[status];
   const uid = useUID();
 
@@ -84,4 +84,4 @@ const PackageStatusLegend: React.FC<React.PropsWithChildren<PackageStatusLegendP
   return null;
 };
 
-export {PackageStatusLegend};
+export { PackageStatusLegend };

@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
+import { render } from '@testing-library/react';
 
-import {AspectRatio} from '../src';
+import { AspectRatio } from '../src';
 
 describe('AspectRatio', () => {
   it('should render a 4:3 aspect ratio div', () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <div data-testid="wrapper">
         <AspectRatio ratio="4:3">
           <p>This is the AspectRatio utility.</p>
         </AspectRatio>
-      </div>
+      </div>,
     );
 
     expect(getByTestId('wrapper').firstChild).toHaveAttribute('style', 'padding-bottom: 75%;');
@@ -26,8 +26,8 @@ describe('handlePropValidation function', () => {
       render(
         <AspectRatio ratio="">
           <p>This is the AspectRatio utility without a passed ratio.</p>
-        </AspectRatio>
-      )
+        </AspectRatio>,
+      ),
     ).toThrow(`[Paste: AspectRatio] Missing 'ratio' prop.`);
   });
 
@@ -39,8 +39,8 @@ describe('handlePropValidation function', () => {
       render(
         <AspectRatio ratio="10:a">
           <p>This is the AspectRatio utility without a valid ratio.</p>
-        </AspectRatio>
-      )
+        </AspectRatio>,
+      ),
     ).toThrow(`[Paste: AspectRatio] 'ratio' is invalid. Use a colon-separated number pattern (4:3).`);
   });
 
@@ -52,8 +52,8 @@ describe('handlePropValidation function', () => {
       render(
         <AspectRatio ratio="5:8">
           <p>This is the AspectRatio utility with a valid ratio.</p>
-        </AspectRatio>
-      )
+        </AspectRatio>,
+      ),
     ).not.toThrow();
   });
 });

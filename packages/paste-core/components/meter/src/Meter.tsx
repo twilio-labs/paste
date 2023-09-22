@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {type BoxProps, Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import type {HTMLPasteProps} from '@twilio-paste/types';
-import {useMeter} from '@twilio-paste/react-spectrum-library';
+import { type BoxProps, Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import type { HTMLPasteProps } from '@twilio-paste/types';
+import { useMeter } from '@twilio-paste/react-spectrum-library';
 
-import {LABEL_SUFFIX} from './constants';
+import { LABEL_SUFFIX } from './constants';
 
 export interface MeterProps extends HTMLPasteProps<'meter'>, Pick<BoxProps, 'element'> {
   minValue?: number;
@@ -19,9 +19,9 @@ export interface MeterProps extends HTMLPasteProps<'meter'>, Pick<BoxProps, 'ele
 }
 
 const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
-  ({element = 'METER', id, minLabel, maxLabel, ...props}, ref) => {
-    const {value = 0, minValue = 0, maxValue = 100} = props;
-    const {meterProps} = useMeter(props);
+  ({ element = 'METER', id, minLabel, maxLabel, ...props }, ref) => {
+    const { value = 0, minValue = 0, maxValue = 100 } = props;
+    const { meterProps } = useMeter(props);
 
     // Calculate the width of the bar as a percentage
     const percentage = (value - minValue) / (maxValue - minValue);
@@ -102,9 +102,9 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
         )}
       </Box>
     );
-  }
+  },
 );
 
 Meter.displayName = 'Meter';
 
-export {Meter};
+export { Meter };

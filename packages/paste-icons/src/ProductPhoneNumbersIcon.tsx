@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductPhoneNumbersIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ProductPhoneNumbersIconProps extends IconWrapperProps {
 }
 
 const ProductPhoneNumbersIcon = React.forwardRef<HTMLElement, ProductPhoneNumbersIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProductPhoneNumbersIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -40,8 +40,8 @@ const ProductPhoneNumbersIcon = React.forwardRef<HTMLElement, ProductPhoneNumber
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProductPhoneNumbersIcon.displayName = 'ProductPhoneNumbersIcon';
-export {ProductPhoneNumbersIcon};
+export { ProductPhoneNumbersIcon };

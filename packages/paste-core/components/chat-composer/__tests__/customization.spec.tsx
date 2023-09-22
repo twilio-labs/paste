@@ -1,18 +1,18 @@
 import * as React from 'react';
-import {screen, render, waitFor} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import type {RenderOptions} from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
+import type { RenderOptions } from '@testing-library/react';
 
-import {ChatComposer} from '../src';
+import { ChatComposer } from '../src';
 
-const getStyles = (element = 'CHAT_COMPOSER'): {[key: string]: PasteCustomCSS} => ({
-  [element]: {maxWidth: 'size10', backgroundColor: 'colorBackgroundNeutralWeakest'},
-  [`${element}_PLACEHOLDER_WRAPPER`]: {color: 'colorTextNeutral', fontSize: 'fontSize10'},
+const getStyles = (element = 'CHAT_COMPOSER'): { [key: string]: PasteCustomCSS } => ({
+  [element]: { maxWidth: 'size10', backgroundColor: 'colorBackgroundNeutralWeakest' },
+  [`${element}_PLACEHOLDER_WRAPPER`]: { color: 'colorTextNeutral', fontSize: 'fontSize10' },
 });
 
 const initCustomizationWrapper = (elementName?: string | undefined): RenderOptions['wrapper'] =>
-  function Wrapper({children}) {
+  function Wrapper({ children }) {
     return (
       <CustomizationProvider theme={TestTheme} elements={getStyles(elementName)}>
         {children}

@@ -1,12 +1,12 @@
-import {renderHook, act} from '@testing-library/react';
+import { renderHook, act } from '@testing-library/react';
 
-import {useToaster} from '../src/useToaster';
+import { useToaster } from '../src/useToaster';
 
 jest.useFakeTimers();
 
 describe('useToaster', () => {
   it('should use toaster', () => {
-    const {result} = renderHook(() => useToaster());
+    const { result } = renderHook(() => useToaster());
     expect(result.current.toasts).toEqual([]);
     expect(typeof result.current.pop).toBe('function');
     expect(typeof result.current.push).toBe('function');
@@ -14,7 +14,7 @@ describe('useToaster', () => {
 
   describe('push', () => {
     it('should push toasts', () => {
-      const {result} = renderHook(() => useToaster());
+      const { result } = renderHook(() => useToaster());
       expect(result.current.toasts).toEqual([]);
 
       act(() => {
@@ -28,7 +28,7 @@ describe('useToaster', () => {
     });
 
     it('should generate an id when none is passed', () => {
-      const {result} = renderHook(() => useToaster());
+      const { result } = renderHook(() => useToaster());
 
       act(() => {
         result.current.push({
@@ -40,7 +40,7 @@ describe('useToaster', () => {
     });
 
     it('should take an id when one is passed', () => {
-      const {result} = renderHook(() => useToaster());
+      const { result } = renderHook(() => useToaster());
 
       act(() => {
         result.current.push({
@@ -53,7 +53,7 @@ describe('useToaster', () => {
     });
 
     it('should setFocus on new toasts only', () => {
-      const {result} = renderHook(() => useToaster());
+      const { result } = renderHook(() => useToaster());
 
       act(() => {
         result.current.push({
@@ -73,7 +73,7 @@ describe('useToaster', () => {
     });
 
     it('should set a timeOutId if dismissAfter is set', () => {
-      const {result} = renderHook(() => useToaster());
+      const { result } = renderHook(() => useToaster());
 
       const setTimeoutSpy = jest.spyOn(window, 'setTimeout');
 
@@ -91,7 +91,7 @@ describe('useToaster', () => {
 
   describe('pop', () => {
     it('should pop toasts', () => {
-      const {result} = renderHook(() => useToaster());
+      const { result } = renderHook(() => useToaster());
 
       act(() => {
         result.current.push({
@@ -108,7 +108,7 @@ describe('useToaster', () => {
     });
 
     it('should clearTimeout when popping a toast with a timeout', () => {
-      const {result} = renderHook(() => useToaster());
+      const { result } = renderHook(() => useToaster());
       const clearTimeoutSpy = jest.spyOn(window, 'clearTimeout');
 
       act(() => {
@@ -127,7 +127,7 @@ describe('useToaster', () => {
     });
 
     it('should pop a toast with a timeout after time has past', () => {
-      const {result} = renderHook(() => useToaster());
+      const { result } = renderHook(() => useToaster());
 
       act(() => {
         result.current.push({

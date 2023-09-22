@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps, BoxProps} from '@twilio-paste/box';
-import {TabPrimitive} from '@twilio-paste/tabs-primitive';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxStyleProps, BoxProps } from '@twilio-paste/box';
+import { TabPrimitive } from '@twilio-paste/tabs-primitive';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {TabsContext} from './TabsContext';
-import type {Orientation, Variants} from './types';
-import {getElementName} from './utils';
+import { TabsContext } from './TabsContext';
+import type { Orientation, Variants } from './types';
+import { getElementName } from './utils';
 
 /*
  * TODO:
@@ -123,11 +123,11 @@ export interface TabProps extends HTMLPasteProps<'div'> {
   'aria-disabled'?: boolean;
 }
 
-const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...tabProps}, ref) => {
+const Tab = React.forwardRef<HTMLDivElement, TabProps>(({ children, element, ...tabProps }, ref) => {
   const tab = React.useContext(TabsContext);
   const boxStyles = React.useMemo(() => getTabBoxStyles(tab.orientation, tab.variant), [tab.orientation, tab.variant]);
 
-  const {orientation} = tab;
+  const { orientation } = tab;
   const elementName = getElementName(orientation, 'TAB', element);
 
   return (
@@ -165,4 +165,4 @@ const Tab = React.forwardRef<HTMLDivElement, TabProps>(({children, element, ...t
 
 Tab.displayName = 'Tab';
 
-export {Tab};
+export { Tab };

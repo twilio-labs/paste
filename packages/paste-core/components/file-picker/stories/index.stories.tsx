@@ -1,13 +1,13 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Box} from '@twilio-paste/box';
+import type { StoryFn } from '@storybook/react';
+import { useUID } from '@twilio-paste/uid-library';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Box } from '@twilio-paste/box';
 
-import {FilePicker, FilePickerButton} from '../src';
+import { FilePicker, FilePickerButton } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -15,7 +15,7 @@ export default {
   component: FilePicker,
 };
 
-export const Default: StoryFn = ({...props}) => {
+export const Default: StoryFn = ({ ...props }) => {
   const id = useUID();
   const helpText = useUID();
   return (
@@ -29,7 +29,7 @@ export const Default: StoryFn = ({...props}) => {
   );
 };
 
-export const Required: StoryFn = ({...props}) => {
+export const Required: StoryFn = ({ ...props }) => {
   const id = useUID();
   return (
     <>
@@ -100,7 +100,7 @@ export const OnChange: StoryFn = () => {
   );
 };
 
-export const Customized: StoryFn = ({element = 'FILEPICKER', ...props}) => {
+export const Customized: StoryFn = ({ element = 'FILEPICKER', ...props }) => {
   const id = useUID();
   const helpText = useUID();
   const theme = useTheme();
@@ -108,9 +108,9 @@ export const Customized: StoryFn = ({element = 'FILEPICKER', ...props}) => {
     <CustomizationProvider
       theme={theme}
       elements={{
-        [`${element}`]: {fontFamily: 'fontFamilyCode'},
-        [`${element}_BUTTON`]: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
-        [`${element}_TEXT`]: {marginLeft: 'space10'},
+        [`${element}`]: { fontFamily: 'fontFamilyCode' },
+        [`${element}_BUTTON`]: { backgroundColor: 'colorBackgroundBrandHighlightWeakest' },
+        [`${element}_TEXT`]: { marginLeft: 'space10' },
       }}
     >
       <Label htmlFor={id}>What&apos;s your favorite song?</Label>

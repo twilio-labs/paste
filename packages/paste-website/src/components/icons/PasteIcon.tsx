@@ -8,7 +8,7 @@ import type {
   OpacityProperty,
   TransitionProperty,
 } from '@twilio-paste/style-props';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
 export interface PasteIconProps {
   decorative?: boolean;
@@ -38,7 +38,7 @@ const PasteIcon = React.memo(
   }: PasteIconProps) => {
     const uid = useUID();
     return (
-      <span style={{color, display, opacity, transition, position, top, left, width: size, height: size}}>
+      <span style={{ color, display, opacity, transition, position, top, left, width: size, height: size }}>
         <svg
           role="img"
           aria-hidden={decorative}
@@ -70,7 +70,7 @@ const PasteIcon = React.memo(
         </svg>
       </span>
     );
-  }
+  },
 );
 
-export {PasteIcon};
+export { PasteIcon };

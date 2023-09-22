@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import type {StoryFn} from '@storybook/react';
+import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import type { StoryFn } from '@storybook/react';
 import snakeCase from 'lodash/snakeCase';
 
 import {
@@ -18,7 +18,7 @@ import {
   FileUploaderHelpText,
   FileUploaderErrorText,
 } from '../src';
-import type {FileUploaderItemProps} from '../src';
+import type { FileUploaderItemProps } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -154,11 +154,11 @@ export const DragDropExample: StoryFn = () => {
   }, [files, setFiles]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    const {files: newFiles} = event.target;
+    const { files: newFiles } = event.target;
     let newFilesNames = '';
 
     if (newFiles !== null) {
-      Array.from(newFiles).forEach(({name}) => {
+      Array.from(newFiles).forEach(({ name }) => {
         newFilesNames = `${newFilesNames} ${name}`;
         setFiles((prev) => {
           return [
@@ -180,21 +180,21 @@ export const DragDropExample: StoryFn = () => {
   };
 
   const handleDragEnter = (event: React.DragEvent<HTMLLabelElement>): void => {
-    const {items} = event.dataTransfer;
+    const { items } = event.dataTransfer;
     setScreenReaderText(`Dragging ${items.length} files`);
   };
 
   const handleDragLeave = (event: React.DragEvent<HTMLLabelElement>): void => {
-    const {items} = event.dataTransfer;
+    const { items } = event.dataTransfer;
     setScreenReaderText(`Cancelled dragging ${items.length} files`);
   };
 
   const handleDrop = (event: React.DragEvent<HTMLLabelElement>): void => {
-    const {files: newFiles} = event.dataTransfer;
+    const { files: newFiles } = event.dataTransfer;
     setScreenReaderText(`Dropped ${newFiles.length} files`);
 
     if (newFiles !== null) {
-      Array.from(newFiles).forEach(({name}) => {
+      Array.from(newFiles).forEach(({ name }) => {
         setFiles((prev) => {
           return [
             ...prev,
@@ -226,7 +226,7 @@ export const DragDropExample: StoryFn = () => {
           <FileUploaderDropzoneText>Browse files or drag them here</FileUploaderDropzoneText>
         </FileUploaderDropzone>
         <FileUploaderItemsList>
-          {files.map(({variant, title, description, id}) => (
+          {files.map(({ variant, title, description, id }) => (
             <FileUploaderItem
               variant={variant}
               key={id}
@@ -249,7 +249,7 @@ export const DragDropExample: StoryFn = () => {
 };
 
 DragDropExample.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 export const ReallyLongText: StoryFn = () => {
@@ -287,23 +287,23 @@ export const ReallyLongText: StoryFn = () => {
   );
 };
 
-export const Customized: StoryFn = ({element = 'FILE_UPLOADER', ...props}) => {
+export const Customized: StoryFn = ({ element = 'FILE_UPLOADER', ...props }) => {
   const theme = useTheme();
 
   return (
     <CustomizationProvider
       theme={theme}
       elements={{
-        [`${element}`]: {maxWidth: 'size30'},
-        [`${element}_DROPZONE_TEXT`]: {fontFamily: 'fontFamilyCode'},
-        [`${element}_DROPZONE`]: {borderRadius: 'borderRadius0'},
-        [`${element}_HELP_TEXT`]: {marginBottom: 'space10'},
-        [`${element}_ITEM_CONTENT`]: {rowGap: 'space30'},
-        [`${element}_ITEM_DESCRIPTION`]: {fontSize: 'fontSize40'},
-        [`${element}_ITEM_TITLE`]: {fontSize: 'fontSize40'},
-        [`${element}_ITEM`]: {padding: 'space10'},
-        [`${element}_ITEMS_LIST`]: {rowGap: 'space10'},
-        [`${element}_LABEL`]: {fontWeight: 'fontWeightNormal'},
+        [`${element}`]: { maxWidth: 'size30' },
+        [`${element}_DROPZONE_TEXT`]: { fontFamily: 'fontFamilyCode' },
+        [`${element}_DROPZONE`]: { borderRadius: 'borderRadius0' },
+        [`${element}_HELP_TEXT`]: { marginBottom: 'space10' },
+        [`${element}_ITEM_CONTENT`]: { rowGap: 'space30' },
+        [`${element}_ITEM_DESCRIPTION`]: { fontSize: 'fontSize40' },
+        [`${element}_ITEM_TITLE`]: { fontSize: 'fontSize40' },
+        [`${element}_ITEM`]: { padding: 'space10' },
+        [`${element}_ITEMS_LIST`]: { rowGap: 'space10' },
+        [`${element}_LABEL`]: { fontWeight: 'fontWeightNormal' },
       }}
     >
       <FileUploader name="Default File Uploader" {...props}>

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import type {Properties} from 'csstype';
-import {remToPx} from '@twilio-paste/theme';
+import type { Properties } from 'csstype';
+import { remToPx } from '@twilio-paste/theme';
 
 interface SpacingExampleProps {
   tokenName: string;
@@ -8,7 +8,11 @@ interface SpacingExampleProps {
   color: Properties['color'];
 }
 
-export const SpacingExample: React.FC<React.PropsWithChildren<SpacingExampleProps>> = ({tokenName, spacing, color}) => {
+export const SpacingExample: React.FC<React.PropsWithChildren<SpacingExampleProps>> = ({
+  tokenName,
+  spacing,
+  color,
+}) => {
   if (spacing === '0') return null;
 
   const lineStart = 1;

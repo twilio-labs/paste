@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
 type BoxExampleProps = Pick<
   BoxProps,

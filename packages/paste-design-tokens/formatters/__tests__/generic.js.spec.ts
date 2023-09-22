@@ -1,8 +1,8 @@
-import {resolve} from 'path';
+import { resolve } from 'path';
 
 import * as theo from 'theo';
 
-import {genericJsTokenFormat} from '../generic';
+import { genericJsTokenFormat } from '../generic';
 
 theo.registerFormat('generic.js', genericJsTokenFormat);
 

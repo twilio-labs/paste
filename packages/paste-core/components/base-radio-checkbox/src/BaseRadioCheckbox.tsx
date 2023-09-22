@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {TextProps} from '@twilio-paste/text';
-import {Text} from '@twilio-paste/text';
-import type {SiblingBoxProps} from '@twilio-paste/sibling-box';
-import {SiblingBox} from '@twilio-paste/sibling-box';
-import type {LabelProps} from '@twilio-paste/label';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
+import type { TextProps } from '@twilio-paste/text';
+import { Text } from '@twilio-paste/text';
+import type { SiblingBoxProps } from '@twilio-paste/sibling-box';
+import { SiblingBox } from '@twilio-paste/sibling-box';
+import type { LabelProps } from '@twilio-paste/label';
+import { Label } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
+import type { BoxProps } from '@twilio-paste/box';
 
 export interface BaseRadioCheckboxControlProps extends SiblingBoxProps, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
@@ -15,7 +15,7 @@ export interface BaseRadioCheckboxControlProps extends SiblingBoxProps, Pick<Box
   applyHoverStyles?: boolean; // only used in Visual Picker
 }
 const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxControlProps>(
-  ({children, disabled, applyHoverStyles = false, element = 'BASE_RADIO_CHECKBOX_CONTROL', ...props}, ref) => {
+  ({ children, disabled, applyHoverStyles = false, element = 'BASE_RADIO_CHECKBOX_CONTROL', ...props }, ref) => {
     return (
       <SiblingBox
         as="span"
@@ -109,7 +109,7 @@ const BaseRadioCheckboxControl = React.forwardRef<HTMLSpanElement, BaseRadioChec
         {children}
       </SiblingBox>
     );
-  }
+  },
 );
 BaseRadioCheckboxControl.displayName = 'BaseRadioCheckboxControl';
 
@@ -117,7 +117,7 @@ export type BaseRadioCheckboxLabelProps = LabelProps & {
   children: NonNullable<React.ReactNode>;
 };
 const BaseRadioCheckboxLabel = React.forwardRef<HTMLLabelElement, BaseRadioCheckboxLabelProps>(
-  ({children, ...props}, ref) => {
+  ({ children, ...props }, ref) => {
     return (
       <Label {...props} marginBottom="space0" ref={ref}>
         <Box as="span" display="flex">
@@ -125,7 +125,7 @@ const BaseRadioCheckboxLabel = React.forwardRef<HTMLLabelElement, BaseRadioCheck
         </Box>
       </Label>
     );
-  }
+  },
 );
 BaseRadioCheckboxLabel.displayName = 'BaseRadioCheckboxLabel';
 
@@ -133,13 +133,13 @@ export interface BaseRadioCheckboxLabelTextProps extends Omit<TextProps, 'as'>, 
   children: NonNullable<React.ReactNode>;
 }
 const BaseRadioCheckboxLabelText = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxLabelTextProps>(
-  ({children, element = 'BASE_RADIO_CHECKBOX_LABEL_TEXT', ...props}, ref) => {
+  ({ children, element = 'BASE_RADIO_CHECKBOX_LABEL_TEXT', ...props }, ref) => {
     return (
       <Text as="span" color="currentColor" marginLeft="space20" element={element} ref={ref} {...props}>
         {children}
       </Text>
     );
-  }
+  },
 );
 BaseRadioCheckboxLabelText.displayName = 'BaseRadioCheckboxLabelText';
 
@@ -148,7 +148,7 @@ export interface BaseRadioCheckboxHelpTextProps extends Pick<BoxProps, 'element'
   helpTextId: string;
 }
 const BaseRadioCheckboxHelpText = React.forwardRef<HTMLSpanElement, BaseRadioCheckboxHelpTextProps>(
-  ({children, helpTextId, element = 'BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER'}, ref) => {
+  ({ children, helpTextId, element = 'BASE_RADIO_CHECKBOX_HELP_TEXT_WRAPPER' }, ref) => {
     return (
       <Box as="span" display="block" element={element} marginLeft="space70" ref={ref}>
         <HelpText id={helpTextId} marginTop="space0">
@@ -156,8 +156,8 @@ const BaseRadioCheckboxHelpText = React.forwardRef<HTMLSpanElement, BaseRadioChe
         </HelpText>
       </Box>
     );
-  }
+  },
 );
 BaseRadioCheckboxHelpText.displayName = 'BaseRadioCheckboxHelpText';
 
-export {BaseRadioCheckboxHelpText, BaseRadioCheckboxControl, BaseRadioCheckboxLabel, BaseRadioCheckboxLabelText};
+export { BaseRadioCheckboxHelpText, BaseRadioCheckboxControl, BaseRadioCheckboxLabel, BaseRadioCheckboxLabelText };

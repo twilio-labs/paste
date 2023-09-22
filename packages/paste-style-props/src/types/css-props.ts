@@ -1,5 +1,5 @@
-import type {Properties} from 'csstype';
-import {type ResponsiveValue} from '@twilio-paste/styling-library';
+import type { Properties } from 'csstype';
+import { type ResponsiveValue } from '@twilio-paste/styling-library';
 
 export type AnimationProperty = Properties['animation'];
 export type AppearanceProperty = Properties['appearance'];

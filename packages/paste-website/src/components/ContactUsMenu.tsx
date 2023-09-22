@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
-import {ProductSupportIcon} from '@twilio-paste/icons/esm/ProductSupportIcon';
+import { Menu, MenuButton, MenuItem, useMenuState } from '@twilio-paste/menu';
+import { ProductSupportIcon } from '@twilio-paste/icons/esm/ProductSupportIcon';
 
-import {event} from '../lib/gtag';
+import { event } from '../lib/gtag';
 
 export const ContactUsMenu: React.FC = () => {
   const menu = useMenuState();

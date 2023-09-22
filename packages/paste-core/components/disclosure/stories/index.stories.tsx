@@ -1,16 +1,16 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Truncate} from '@twilio-paste/truncate';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {ProductInternetOfThingsIcon} from '@twilio-paste/icons/esm/ProductInternetOfThingsIcon';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { Truncate } from '@twilio-paste/truncate';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { ProductInternetOfThingsIcon } from '@twilio-paste/icons/esm/ProductInternetOfThingsIcon';
+import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/media-object';
 
-import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
-import type {DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants} from '../src';
+import { Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState } from '../src';
+import type { DisclosureHeadingProps, DisclosureInitialState, DisclosureStateReturn, DisclosureVariants } from '../src';
 
 export const ExampleDisclosures: React.FC<
   React.PropsWithChildren<{
@@ -50,7 +50,10 @@ export const ExampleDisclosures: React.FC<
 interface UseDelayedDisclosureStateProps extends DisclosureInitialState {
   delay: number;
 }
-const useDelayedDisclosureState = ({delay, ...initialState}: UseDelayedDisclosureStateProps): DisclosureStateReturn => {
+const useDelayedDisclosureState = ({
+  delay,
+  ...initialState
+}: UseDelayedDisclosureStateProps): DisclosureStateReturn => {
   const disclosure = useDisclosureState(initialState);
   const [transitioning, setTransitioning] = React.useState(false);
   return {
@@ -72,7 +75,7 @@ export default {
   decorators: [],
   excludeStories: ['ExampleDisclosures'],
   component: Disclosure,
-  subcomponents: {DisclosureHeading, DisclosureContent},
+  subcomponents: { DisclosureHeading, DisclosureContent },
 };
 
 export const HeadingVariant10 = (): React.ReactNode => {
@@ -275,7 +278,7 @@ export const ContainedMultilineHeading = (): React.ReactNode => {
 ContainedMultilineHeading.storyName = 'Contained multiline heading';
 
 export const StateHook = (): React.ReactNode => {
-  const {transitioning, ...disclosure} = useDelayedDisclosureState({
+  const { transitioning, ...disclosure } = useDelayedDisclosureState({
     delay: 500,
   });
   const clickableHeading = disclosure.visible ? 'Hide with delay' : 'Show with delay';
@@ -299,19 +302,19 @@ export const StateHook = (): React.ReactNode => {
 
 StateHook.storyName = 'State hook';
 
-export const Customization: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Customization: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
       disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        DISCLOSURE: {padding: 'space30', variants: {contained: {borderColor: 'colorBorderError'}}},
-        DISCLOSURE_CONTENT: {color: 'colorTextErrorStrong'},
+        DISCLOSURE: { padding: 'space30', variants: { contained: { borderColor: 'colorBorderError' } } },
+        DISCLOSURE_CONTENT: { color: 'colorTextErrorStrong' },
         DISCLOSURE_HEADING: {
           color: 'colorText',
           backgroundColor: 'colorBackgroundErrorWeakest',
-          ':hover': {backgroundColor: 'colorBackgroundErrorWeak'},
+          ':hover': { backgroundColor: 'colorBackgroundErrorWeak' },
         },
         DISCLOSURE_HEADING_ICON: {
           color: 'colorTextIconError',

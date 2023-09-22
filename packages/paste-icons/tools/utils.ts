@@ -1,9 +1,9 @@
-import {join} from 'path';
+import { join } from 'path';
 import fs from 'fs';
 
 import startcase from 'lodash/startCase';
 
-import {SVG_PATH, REACT_PATH} from './constants';
+import { SVG_PATH, REACT_PATH } from './constants';
 
 // Ramda-like general purpose functional pipe method
 const pipe =
@@ -36,7 +36,7 @@ const normalizeFileName = pipe(
   removeIconSuffix,
   removeDashes,
   cleanFileName,
-  lowerCase
+  lowerCase,
 );
 
 const getBuildFileName = pipe((str: string) => `src/${str}`, addTsxExtension);

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Prefix} from '../src';
+import { Prefix } from '../src';
 
 describe('HTML attributes', () => {
   it('should set a element data attribute for Prefix', () => {
@@ -22,11 +22,11 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          INPUT_PREFIX: {backgroundColor: 'colorBackground'},
+          INPUT_PREFIX: { backgroundColor: 'colorBackground' },
         }}
       >
         <Prefix element="INPUT">prefix</Prefix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedPrefix = screen.getByText('prefix');
     expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -50,7 +50,7 @@ describe('Customization', () => {
         <Prefix element="INPUT" variant="inverse">
           prefix
         </Prefix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedPrefix = screen.getByText('prefix');
     expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
@@ -61,11 +61,11 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          FOO_PREFIX: {backgroundColor: 'colorBackground'},
+          FOO_PREFIX: { backgroundColor: 'colorBackground' },
         }}
       >
         <Prefix element="FOO">prefix</Prefix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedPrefix = screen.getByText('prefix');
     expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -89,7 +89,7 @@ describe('Customization', () => {
         <Prefix element="FOO" variant="inverse">
           prefix
         </Prefix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedPrefix = screen.getByText('prefix');
     expect(renderedPrefix).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');

@@ -1,6 +1,6 @@
-import {css} from '@twilio-paste/styling-library';
-import type {CSSObject} from '@twilio-paste/styling-library';
-import {useTheme} from '@twilio-paste/theme';
+import { css } from '@twilio-paste/styling-library';
+import type { CSSObject } from '@twilio-paste/styling-library';
+import { useTheme } from '@twilio-paste/theme';
 
 export const getPasteSyntaxTheme = (maxLines?: number): CSSObject => {
   const theme = useTheme();

@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface VideoOffIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface VideoOffIconProps extends IconWrapperProps {
 }
 
 const VideoOffIcon = React.forwardRef<HTMLElement, VideoOffIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `VideoOffIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -48,8 +48,8 @@ const VideoOffIcon = React.forwardRef<HTMLElement, VideoOffIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 VideoOffIcon.displayName = 'VideoOffIcon';
-export {VideoOffIcon};
+export { VideoOffIcon };

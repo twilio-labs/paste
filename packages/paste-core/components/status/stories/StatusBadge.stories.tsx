@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {Meta, StoryFn} from '@storybook/react';
+import type { Meta, StoryFn } from '@storybook/react';
 
-import {StatusBadge} from '../src';
+import { StatusBadge } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -17,7 +17,7 @@ export default {
   },
 } as Meta<typeof StatusBadge>;
 
-const Template: StoryFn<typeof StatusBadge> = ({variant}) => (
+const Template: StoryFn<typeof StatusBadge> = ({ variant }) => (
   <StatusBadge as="span" variant={variant}>
     {variant}
   </StatusBadge>

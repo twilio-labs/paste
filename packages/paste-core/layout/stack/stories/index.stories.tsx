@@ -1,15 +1,15 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import type {ThemeShape} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import type { ThemeShape } from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { Card } from '@twilio-paste/card';
+import { Heading } from '@twilio-paste/heading';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import type {StackOrientation} from '../src';
-import {Stack} from '../src';
+import type { StackOrientation } from '../src';
+import { Stack } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -137,7 +137,7 @@ export const OneChild = (): React.ReactNode => {
 
 OneChild.storyName = 'Stack - One Child';
 
-export const CustomizedStack: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedStack: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <>

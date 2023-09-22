@@ -1,6 +1,6 @@
 import type * as React from 'react';
 
-import {sectionIntros} from '../src/components/tokens-list/sectionIntros';
+import { sectionIntros } from '../src/components/tokens-list/sectionIntros';
 
 export default {
   title: 'Website/Token Section Intros',

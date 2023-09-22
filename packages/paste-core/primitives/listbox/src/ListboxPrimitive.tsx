@@ -1,8 +1,8 @@
 import * as React from 'react';
-import type {CompositeProps} from '@twilio-paste/reakit-library';
-import {Composite} from '@twilio-paste/reakit-library';
+import type { CompositeProps } from '@twilio-paste/reakit-library';
+import { Composite } from '@twilio-paste/reakit-library';
 
-import type {As, ListboxPrimitiveVariants} from './types';
+import type { As, ListboxPrimitiveVariants } from './types';
 
 export interface ListboxPrimitiveProps
   extends Omit<
@@ -14,7 +14,7 @@ export interface ListboxPrimitiveProps
 }
 
 export const ListboxPrimitive = React.forwardRef<HTMLDivElement, ListboxPrimitiveProps>(
-  ({variant = 'single', orientation, ...props}, ref) => (
+  ({ variant = 'single', orientation, ...props }, ref) => (
     <Composite
       as="div"
       {...props}
@@ -23,7 +23,7 @@ export const ListboxPrimitive = React.forwardRef<HTMLDivElement, ListboxPrimitiv
       aria-multiselectable={variant === 'multiple'}
       aria-orientation={orientation}
     />
-  )
+  ),
 );
 
 ListboxPrimitive.displayName = 'ListboxPrimitive';

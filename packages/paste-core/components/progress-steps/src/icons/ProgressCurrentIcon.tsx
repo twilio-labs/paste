@@ -2,9 +2,9 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import type {IconWrapperProps} from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import { useUID } from '@twilio-paste/uid-library';
+import { IconWrapper } from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import type { IconWrapperProps } from '@twilio-paste/icons/esm/helpers/IconWrapper';
 
 export interface ProgressCurrentIconProps extends IconWrapperProps {
   title?: string;
@@ -12,7 +12,7 @@ export interface ProgressCurrentIconProps extends IconWrapperProps {
 }
 
 const ProgressCurrentIcon = React.forwardRef<HTMLElement, ProgressCurrentIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProgressCurrentIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -41,8 +41,8 @@ const ProgressCurrentIcon = React.forwardRef<HTMLElement, ProgressCurrentIconPro
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProgressCurrentIcon.displayName = 'ProgressCurrentIcon';
-export {ProgressCurrentIcon};
+export { ProgressCurrentIcon };

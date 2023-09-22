@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {SkeletonLoader} from '../src';
-import {Default} from '../stories/index.stories';
+import { SkeletonLoader } from '../src';
+import { Default } from '../stories/index.stories';
 
 describe('SkeletonLoader', () => {
   it('should render', () => {
@@ -25,7 +25,7 @@ describe('SkeletonLoader', () => {
         minHeight="size30"
         maxHeight="size30"
         size="size30"
-      />
+      />,
     );
     expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('display', 'block');
     expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('width', 'size30');
@@ -90,7 +90,7 @@ describe('SkeletonLoader', () => {
           }}
         >
           <Default />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('margin', '1.75rem');
     });
@@ -107,7 +107,7 @@ describe('SkeletonLoader', () => {
           }}
         >
           <Default element="CUSTOM_SKELETON_LOADER" />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       expect(screen.getByTestId('default-skeleton')).toHaveStyleRule('padding', '0.5rem');
     });

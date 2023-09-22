@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import type {ButtonProps} from '@twilio-paste/button';
-import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
+import { Button } from '@twilio-paste/button';
+import type { ButtonProps } from '@twilio-paste/button';
+import { NonModalDialogDisclosurePrimitive } from '@twilio-paste/non-modal-dialog-primitive';
 
-import {SideModalContext} from './SideModalContext';
+import { SideModalContext } from './SideModalContext';
 
 type SideModalButtonProps = Omit<ButtonProps, 'as'> & {
   id?: string;
 };
 
 const SideModalButton = React.forwardRef<HTMLButtonElement, SideModalButtonProps>(
-  ({children, element = 'SIDE_MODAL_BUTTON', ...props}, ref) => {
+  ({ children, element = 'SIDE_MODAL_BUTTON', ...props }, ref) => {
     const dialog = React.useContext(SideModalContext);
 
     return (
@@ -18,8 +18,8 @@ const SideModalButton = React.forwardRef<HTMLButtonElement, SideModalButtonProps
         {children}
       </NonModalDialogDisclosurePrimitive>
     );
-  }
+  },
 );
 
 SideModalButton.displayName = 'SideModalButton';
-export {SideModalButton};
+export { SideModalButton };

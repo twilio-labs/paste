@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { CalendarIcon } from '@twilio-paste/icons/esm/CalendarIcon';
 
-import {DisplayPillGroup} from '../src/DisplayPillGroup';
-import {DisplayPill} from '../src/DisplayPill';
+import { DisplayPillGroup } from '../src/DisplayPillGroup';
+import { DisplayPill } from '../src/DisplayPill';
 
 export const CustomDisplayPillGroup = (): JSX.Element => {
   const currentTheme = useTheme();
@@ -13,8 +13,8 @@ export const CustomDisplayPillGroup = (): JSX.Element => {
       disableAnimations={true}
       theme={{
         ...currentTheme,
-        textColors: {...currentTheme.textColors, colorTextLink: 'red'},
-        fonts: {...currentTheme.fonts, fontFamilyText: 'arial'},
+        textColors: { ...currentTheme.textColors, colorTextLink: 'red' },
+        fonts: { ...currentTheme.fonts, fontFamilyText: 'arial' },
       }}
       elements={{
         DISPLAY_PILL_GROUP: {

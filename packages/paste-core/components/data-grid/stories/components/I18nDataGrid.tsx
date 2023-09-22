@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
 
 import {
   DataGrid,
@@ -10,8 +10,8 @@ import {
   DataGridBody,
   DataGridCell,
 } from '../../src';
-import type {SortDirection} from '../../src';
-import {I18nTableHeaderData, I18nTableBodyData} from './constants';
+import type { SortDirection } from '../../src';
+import { I18nTableHeaderData, I18nTableBodyData } from './constants';
 
 // Sorting function
 const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId: number): number => {
@@ -45,7 +45,7 @@ export const I18nDataGrid = (): React.ReactNode => {
 
     // Update the table data to be sorted correctly
     setSortedData(
-      I18nTableBodyData.sort((a, b) => simpleComparator(a, b, newSortedColumns[columnId] === 'ascending', columnId))
+      I18nTableBodyData.sort((a, b) => simpleComparator(a, b, newSortedColumns[columnId] === 'ascending', columnId)),
     );
   };
 

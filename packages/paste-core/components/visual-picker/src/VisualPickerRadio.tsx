@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {HiddenRadio, type HiddenRadioState} from '@twilio-paste/radio-group';
-import {Box} from '@twilio-paste/box';
-import {useUID} from '@twilio-paste/uid-library';
-import {BaseRadioCheckboxControl, BaseRadioCheckboxLabel} from '@twilio-paste/base-radio-checkbox';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {useMergeRefs} from '@twilio-paste/utils';
-import {type BorderColor} from '@twilio-paste/style-props';
+import { HiddenRadio, type HiddenRadioState } from '@twilio-paste/radio-group';
+import { Box } from '@twilio-paste/box';
+import { useUID } from '@twilio-paste/uid-library';
+import { BaseRadioCheckboxControl, BaseRadioCheckboxLabel } from '@twilio-paste/base-radio-checkbox';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { useMergeRefs } from '@twilio-paste/utils';
+import { type BorderColor } from '@twilio-paste/style-props';
 
-import {VisualPickerRadioContext} from './VisualPickerContext';
-import {type VisualPickerRadioProps} from './types';
+import { VisualPickerRadioContext } from './VisualPickerContext';
+import { type VisualPickerRadioProps } from './types';
 
 export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPickerRadioProps>(
   (
-    {id, name, element = 'VISUAL_PICKER_RADIO', value, disabled, hasError, onChange, children, labelText, ...props},
-    ref
+    { id, name, element = 'VISUAL_PICKER_RADIO', value, disabled, hasError, onChange, children, labelText, ...props },
+    ref,
   ) => {
     const [isHovering, setIsHovering] = React.useState(false);
 
@@ -30,7 +30,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
           visualPickerRadioGroupContext.onChange(event);
         }
       },
-      [onChange, visualPickerRadioGroupContext.onChange]
+      [onChange, visualPickerRadioGroupContext.onChange],
     );
 
     // Prioritizing direct props values over whatever visualPickerRadioGroupContext passes down, except for `name` which should always be consistent across radios in a group
@@ -41,7 +41,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
       checked: visualPickerRadioGroupContext.value === value,
     };
 
-    const {groupHasError, groupIsDisabled} = visualPickerRadioGroupContext;
+    const { groupHasError, groupIsDisabled } = visualPickerRadioGroupContext;
 
     const internalRef = React.useRef<HTMLInputElement>();
     const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
@@ -80,7 +80,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
           internalRef.current?.focus();
           e.stopPropagation();
         }}
-        _hover={{cursor: disabled || groupIsDisabled ? 'not-allowed' : 'pointer'}}
+        _hover={{ cursor: disabled || groupIsDisabled ? 'not-allowed' : 'pointer' }}
       >
         <HiddenRadio
           {...props}
@@ -127,6 +127,6 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
         </Box>
       </Box>
     );
-  }
+  },
 );
 VisualPickerRadio.displayName = 'VisualPickerRadio';

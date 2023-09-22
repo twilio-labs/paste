@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useComboboxPrimitive} from '@twilio-paste/combobox-primitive';
+import { useComboboxPrimitive } from '@twilio-paste/combobox-primitive';
 import type {
   UseComboboxPrimitiveState,
   UseComboboxPrimitiveStateChange,
@@ -8,7 +8,7 @@ import type {
 } from '@twilio-paste/combobox-primitive';
 import isEmpty from 'lodash/isEmpty';
 
-import type {ComboboxProps} from '../types';
+import type { ComboboxProps } from '../types';
 
 type DefaultStateProps = {
   onInputValueChange: ComboboxProps['onInputValueChange'];
@@ -43,7 +43,7 @@ const getDefaultState = ({
 }: DefaultStateProps): Partial<UseComboboxPrimitiveReturnValue<any>> => {
   const stateReducer = (
     state: UseComboboxPrimitiveState<any>,
-    actionAndChanges: UseComboboxPrimitiveStateChangeOptions<any>
+    actionAndChanges: UseComboboxPrimitiveStateChangeOptions<any>,
   ): Partial<UseComboboxPrimitiveState<any>> => {
     // If the item to be selected is disabled, return the current state without changes
     if (disabledItems?.includes(actionAndChanges.changes.selectedItem)) {
@@ -63,25 +63,25 @@ const getDefaultState = ({
           onHighlightedIndexChange(changes);
         }
       },
-      [onHighlightedIndexChange]
+      [onHighlightedIndexChange],
     ),
     onInputValueChange,
     onIsOpenChange,
     onSelectedItemChange,
-    ...(itemToString != null && {itemToString}),
-    ...(initialIsOpen != null && {initialIsOpen}),
+    ...(itemToString != null && { itemToString }),
+    ...(initialIsOpen != null && { initialIsOpen }),
     // We remap inputValue to defaultInputValue because we want downshift to manage the state of controlled inputs
-    ...(inputValue != null && {defaultInputValue: inputValue}),
-    ...(selectedItem != null && {selectedItem}),
-    ...(getA11yStatusMessage != null && {getA11yStatusMessage}),
-    ...(getA11ySelectionMessage != null && {getA11ySelectionMessage}),
+    ...(inputValue != null && { defaultInputValue: inputValue }),
+    ...(selectedItem != null && { selectedItem }),
+    ...(getA11yStatusMessage != null && { getA11yStatusMessage }),
+    ...(getA11ySelectionMessage != null && { getA11ySelectionMessage }),
   });
 };
 
 export const extractPropsFromState = ({
   state,
   ...props
-}: DefaultStateProps & {state?: Partial<UseComboboxPrimitiveReturnValue<any>>}): Partial<
+}: DefaultStateProps & { state?: Partial<UseComboboxPrimitiveReturnValue<any>> }): Partial<
   UseComboboxPrimitiveReturnValue<any>
 > => {
   if (state != null && !isEmpty(state)) {

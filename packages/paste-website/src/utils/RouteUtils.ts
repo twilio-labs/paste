@@ -1,15 +1,15 @@
 import kebabCase from 'lodash/kebabCase';
 import startCase from 'lodash/startCase';
 import toLower from 'lodash/toLower';
-import {useRouter} from 'next/router';
+import { useRouter } from 'next/router';
 
-import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';
+import { PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes } from '../constants';
 
 export const hasWindowObject = (): boolean => typeof window !== 'undefined' && window.location != null;
 
 // Gets the current browser pathname
 export function useLocationPathname(): string {
-  const {pathname} = hasWindowObject() ? window.location : useRouter();
+  const { pathname } = hasWindowObject() ? window.location : useRouter();
   return pathname;
 }
 

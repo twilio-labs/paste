@@ -1,7 +1,7 @@
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
 import merge from 'deepmerge';
 
-import type {ButtonStates, ButtonSizes} from './types';
+import type { ButtonStates, ButtonSizes } from './types';
 
 const ResetStyles: BoxStyleProps = {
   appearance: 'none',
@@ -19,15 +19,15 @@ const ResetStyles: BoxStyleProps = {
    * defensively resetting from over zealous legacy global
    * styles "a {...}" when button is set as an anchor
    */
-  _hover: {textDecoration: 'none'},
-  _focus: {textDecoration: 'none', boxShadow: 'shadowFocus'},
-  _active: {textDecoration: 'none'},
+  _hover: { textDecoration: 'none' },
+  _focus: { textDecoration: 'none', boxShadow: 'shadowFocus' },
+  _active: { textDecoration: 'none' },
 };
 
-export const BaseStyles: {[key in ButtonStates]: BoxStyleProps} = {
+export const BaseStyles: { [key in ButtonStates]: BoxStyleProps } = {
   default: merge(ResetStyles, {
     cursor: 'pointer',
-    _active: {boxShadow: 'none'},
+    _active: { boxShadow: 'none' },
   }),
   disabled: merge(ResetStyles, {
     cursor: 'not-allowed',
@@ -37,7 +37,7 @@ export const BaseStyles: {[key in ButtonStates]: BoxStyleProps} = {
   }),
 };
 
-export const SizeStyles: {[key in ButtonSizes]: BoxStyleProps} = {
+export const SizeStyles: { [key in ButtonSizes]: BoxStyleProps } = {
   default: {
     paddingTop: 'space30',
     paddingBottom: 'space30',

@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {ValueOf} from '@twilio-paste/types';
-import {useReducedMotion} from '@twilio-paste/animation-library';
+import { Box } from '@twilio-paste/box';
+import type { ValueOf } from '@twilio-paste/types';
+import { useReducedMotion } from '@twilio-paste/animation-library';
 import lottie from 'lottie-web';
 import VisibilitySensor from 'react-visibility-sensor';
 import Image from 'next/image';
 
 import HomeHeroIllu from '../../assets/illustrations/home_hero.svg';
-import {inCypress} from '../../utils/inCypress';
+import { inCypress } from '../../utils/inCypress';
 
 const IllustrationStates = {
   UNINITIALIZED: 0, // This is SSR too
@@ -16,7 +16,7 @@ const IllustrationStates = {
 };
 type IllustrationStatesType = ValueOf<typeof IllustrationStates>;
 
-const IllustrationChildren: React.FC<React.PropsWithChildren<{state: IllustrationStatesType}>> = ({state}) => {
+const IllustrationChildren: React.FC<React.PropsWithChildren<{ state: IllustrationStatesType }>> = ({ state }) => {
   switch (state) {
     case IllustrationStates.STATIC:
       return <Image src={HomeHeroIllu} aria-hidden="true" role="img" alt="" fill />;
@@ -99,4 +99,4 @@ const HomeHeroIllustration: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-export {HomeHeroIllustration};
+export { HomeHeroIllustration };

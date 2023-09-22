@@ -1,6 +1,6 @@
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
 
-import type {BadgeVariants} from './constants';
+import type { BadgeVariants } from './constants';
 
 export const badgeBaseStyles: BoxStyleProps = {
   alignItems: 'center',
@@ -158,8 +158,8 @@ export const badgeButtonStyles: {
 export const badgeAnchorStyles: BoxStyleProps = {
   textDecoration: 'underline',
   cursor: 'pointer',
-  _hover: {textDecoration: 'none'},
-  _focus: {textDecoration: 'none', boxShadow: 'shadowFocus'},
+  _hover: { textDecoration: 'none' },
+  _focus: { textDecoration: 'none', boxShadow: 'shadowFocus' },
 };
 
 export const getBadgeButtonStyles = (variant: typeof BadgeVariants[number]): BoxStyleProps => {
@@ -167,7 +167,7 @@ export const getBadgeButtonStyles = (variant: typeof BadgeVariants[number]): Box
   return {
     ...variantButtonStyle,
     cursor: 'pointer',
-    _hover: {top: '1px', boxShadow: 'none'},
-    _focus: {top: '1px', boxShadow: 'shadowFocus'},
+    _hover: { top: '1px', boxShadow: 'none' },
+    _focus: { top: '1px', boxShadow: 'shadowFocus' },
   };
 };

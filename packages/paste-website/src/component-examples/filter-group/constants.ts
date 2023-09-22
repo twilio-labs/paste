@@ -1,21 +1,21 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import {formatDate} from './helpers';
-import type {TableDataRow, DateTimeFormValues} from './types';
+import { formatDate } from './helpers';
+import type { TableDataRow, DateTimeFormValues } from './types';
 
 export const ROOM_TYPES = ['All', 'Group', 'WebRTC Go', 'Peer to Peer'];
 export const DATE_RANGES = [
-  {name: 'All', value: 'all'},
-  {name: 'Last 24 hours', value: 'day'},
-  {name: 'Last 7 days', value: 'oneWeek'},
-  {name: 'Last 14 days', value: 'twoWeeks'},
+  { name: 'All', value: 'all' },
+  { name: 'Last 24 hours', value: 'day' },
+  { name: 'Last 7 days', value: 'oneWeek' },
+  { name: 'Last 14 days', value: 'twoWeeks' },
 ];
 export const DATE_TIME_RANGES = [
-  {name: 'All', value: 'all'},
-  {name: 'Last 12 hours', value: '12hours'},
-  {name: 'Last 24 hours', value: 'day'},
-  {name: 'Last 3 days', value: 'threeDays'},
-  {name: 'Custom', value: 'custom'},
+  { name: 'All', value: 'all' },
+  { name: 'Last 12 hours', value: '12hours' },
+  { name: 'Last 24 hours', value: 'day' },
+  { name: 'Last 3 days', value: 'threeDays' },
+  { name: 'Custom', value: 'custom' },
 ];
 export const TABLE_HEADERS = ['Room SID', 'Unique Name', 'Room Type', 'Participants', 'Date Completed'];
 

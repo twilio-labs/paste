@@ -15,7 +15,7 @@ module.exports = {
   create(context) {
     const checkModulePath = (path, node) => {
       if (path.startsWith('@twilio-paste') && path.includes('src')) {
-        context.report({messageId: 'src', node});
+        context.report({ messageId: 'src', node });
       }
     };
 

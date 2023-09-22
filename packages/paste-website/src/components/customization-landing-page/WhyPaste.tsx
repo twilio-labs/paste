@@ -1,23 +1,23 @@
 import Image from 'next/image';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {DisplayHeading} from '@twilio-paste/display-heading';
-import {Column, Grid} from '@twilio-paste/grid';
+import { Box } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
+import { DisplayHeading } from '@twilio-paste/display-heading';
+import { Column, Grid } from '@twilio-paste/grid';
 
-import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
-import {ReasonBlock} from './ReasonBlock';
-import {A11yIcon} from '../icons/A11yIcon';
-import {CustomizableIcon} from '../icons/CustomizableIcon';
-import {ThemableIcon} from '../icons/ThemableIcon';
-import {useSlantedSkew} from '../SlantedBackgroundGradient';
-import {DoodleLoopArrowLarge} from '../../assets/illustrations/DoodleLoopArrowLarge';
-import {useDarkModeContext} from '../../context/DarkModeContext';
+import { LandingPageSection, LandingPageSectionContent } from './LandingPageLayoutUtils';
+import { ReasonBlock } from './ReasonBlock';
+import { A11yIcon } from '../icons/A11yIcon';
+import { CustomizableIcon } from '../icons/CustomizableIcon';
+import { ThemableIcon } from '../icons/ThemableIcon';
+import { useSlantedSkew } from '../SlantedBackgroundGradient';
+import { DoodleLoopArrowLarge } from '../../assets/illustrations/DoodleLoopArrowLarge';
+import { useDarkModeContext } from '../../context/DarkModeContext';
 import WhyPasteMobile from '../../assets/images/customization/why-paste-mobile.png';
 import WhyPasteImg from '../../assets/images/customization/why-paste.png';
 
 const WhyPasteTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
-  const {theme} = useDarkModeContext();
+  const { theme } = useDarkModeContext();
 
   return (
     <Box
@@ -38,7 +38,7 @@ const WhyPasteTopAngle = (): JSX.Element => {
 
 const WhyPasteBottomAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew(-0.35);
-  const {theme} = useDarkModeContext();
+  const { theme } = useDarkModeContext();
 
   return (
     <Box
@@ -111,7 +111,7 @@ export const WhyPaste = (): JSX.Element => {
             </Column>
           </Grid>
           <Box display={['block', 'none']} width="100%" maxWidth="400px" marginX="auto" marginTop="space70">
-            <Image src={WhyPasteMobile} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
+            <Image src={WhyPasteMobile} alt="" placeholder="blur" style={{ width: '100%', height: '100%' }} />
           </Box>
           <Box as="span" position="absolute" display={['none', 'none', 'block']} bottom={-280} left={0}>
             <DoodleLoopArrowLarge />
@@ -125,7 +125,7 @@ export const WhyPaste = (): JSX.Element => {
           width={['700px', '700px', '700px', '800px']}
           maxWidth="100%"
         >
-          <Image src={WhyPasteImg} alt="" placeholder="blur" style={{width: '100%', height: '100%'}} />
+          <Image src={WhyPasteImg} alt="" placeholder="blur" style={{ width: '100%', height: '100%' }} />
         </Box>
       </Box>
     </LandingPageSection>

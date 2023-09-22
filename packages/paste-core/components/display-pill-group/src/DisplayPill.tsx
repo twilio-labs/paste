@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
-import {secureExternalLink} from '@twilio-paste/anchor';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxElementProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
+import { secureExternalLink } from '@twilio-paste/anchor';
 
 type DisplayPillProps = HTMLPasteProps<'a'> & Pick<BoxElementProps, 'element'>;
 
@@ -24,7 +24,7 @@ type DisplayPillProps = HTMLPasteProps<'a'> & Pick<BoxElementProps, 'element'>;
  * @see https://paste.twilio.design/components/display-pill-group
  */
 export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>(
-  ({element = 'DISPLAY_PILL', ...props}, ref) => {
+  ({ element = 'DISPLAY_PILL', ...props }, ref) => {
     return (
       <Box as="li" listStyleType="none">
         <Box
@@ -65,7 +65,7 @@ export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>
         </Box>
       </Box>
     );
-  }
+  },
 );
 
 DisplayPill.displayName = 'DisplayPill';

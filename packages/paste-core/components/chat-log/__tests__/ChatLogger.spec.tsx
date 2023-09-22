@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {screen, render} from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 
-import {ChatLogger, ChatMessage, ChatBubble} from '../src';
-import type {Chat} from '../src/useChatLogger';
+import { ChatLogger, ChatMessage, ChatBubble } from '../src';
+import type { Chat } from '../src/useChatLogger';
 
 const chats: Chat[] = [
   {

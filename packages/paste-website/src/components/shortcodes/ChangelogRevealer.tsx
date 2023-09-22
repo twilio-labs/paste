@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Separator} from '@twilio-paste/separator';
-import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
+import { Box } from '@twilio-paste/box';
+import { Separator } from '@twilio-paste/separator';
+import { Disclosure, DisclosureContent, DisclosureHeading } from '@twilio-paste/disclosure';
 
-export const ChangelogRevealer: React.FC<React.PropsWithChildren<{children: NonNullable<React.ReactNode>}>> = ({
+export const ChangelogRevealer: React.FC<React.PropsWithChildren<{ children: NonNullable<React.ReactNode> }>> = ({
   children,
 }) => {
   return (

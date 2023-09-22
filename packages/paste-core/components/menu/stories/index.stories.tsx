@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {useUID} from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { Text } from '@twilio-paste/text';
+import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/media-object';
+import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
+import { ProductVoiceIcon } from '@twilio-paste/icons/esm/ProductVoiceIcon';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
+import { useUID } from '@twilio-paste/uid-library';
 
 import {
   Menu,
@@ -54,7 +54,7 @@ const PlainMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
 };
 
 const AutoplacedMenu = (): JSX.Element => {
-  const menu = useMenuState({visible: true});
+  const menu = useMenuState({ visible: true });
   return (
     <>
       <MenuButton {...menu} variant="primary">
@@ -223,10 +223,10 @@ const MenuGroups = (): JSX.Element => {
 export default {
   title: 'Components/Menu',
   component: Menu,
-  subcomponents: {MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator},
+  subcomponents: { MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator },
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000},
+    chromatic: { delay: 3000 },
   },
 };
 

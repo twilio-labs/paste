@@ -20,7 +20,7 @@ describe('danger utils', () => {
             private: false,
             location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
           },
-        ])
+        ]),
       ).toEqual([
         {
           name: '@twilio-paste/style-props',
@@ -44,7 +44,7 @@ describe('danger utils', () => {
             private: false,
             location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
           },
-        ])
+        ]),
       ).toEqual([
         {
           name: '@twilio-paste/public',
@@ -62,7 +62,7 @@ describe('danger utils', () => {
             private: true,
             location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
           },
-        ])
+        ]),
       ).toEqual([]);
     });
   });
@@ -70,14 +70,14 @@ describe('danger utils', () => {
   describe('getRepoPackagePath', () => {
     it('should return a file path after and including the packages/', () => {
       expect(getRepoPackagePath('/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props')).toEqual(
-        'packages/paste-style-props'
+        'packages/paste-style-props',
       );
       expect(getRepoPackagePath('/dev/twilio/design-systems/paste/packages/paste-style-props')).toEqual(
-        'packages/paste-style-props'
+        'packages/paste-style-props',
       );
       expect(getRepoPackagePath('paste/packages/paste-style-props')).toEqual('packages/paste-style-props');
       expect(getRepoPackagePath('/design-systems/paste/packages/paste-style-props/foo/bar')).toEqual(
-        'packages/paste-style-props/foo/bar'
+        'packages/paste-style-props/foo/bar',
       );
       expect(getRepoPackagePath('packages/paste-style-props/foo/')).toEqual('packages/paste-style-props/foo/');
     });
@@ -99,7 +99,7 @@ describe('danger utils', () => {
             private: false,
             location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
           },
-        ])
+        ]),
       ).toEqual(['packages/box', 'packages/paste-style-props']);
     });
   });
@@ -115,15 +115,15 @@ describe('danger utils', () => {
             'yarn.lock',
             '.changeset/pretty-cameras-burn.md',
           ],
-          ['packages/box', 'packages/paste-core/components/alert-dialog']
-        )
+          ['packages/box', 'packages/paste-core/components/alert-dialog'],
+        ),
       ).toEqual(['packages/box/package.json', 'packages/paste-core/components/alert-dialog/stories/index.stories.tsx']);
 
       expect(
         getPublicPackageFilesFromFiles(
           ['package.json', 'yarn.lock', '.changeset/pretty-cameras-burn.md'],
-          ['packages/box', 'packages/paste-core/components/alert-dialog']
-        )
+          ['packages/box', 'packages/paste-core/components/alert-dialog'],
+        ),
       ).toEqual([]);
     });
   });
@@ -144,7 +144,7 @@ describe('danger utils', () => {
             private: false,
             location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
           },
-        ])
+        ]),
       ).toEqual('@twilio-paste/private');
     });
   });
@@ -173,8 +173,8 @@ describe('danger utils', () => {
               private: false,
               location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
             },
-          ]
-        )
+          ],
+        ),
       ).toEqual([]);
     });
 
@@ -201,8 +201,8 @@ describe('danger utils', () => {
               private: false,
               location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
             },
-          ]
-        )
+          ],
+        ),
       ).toEqual(['@twilio-paste/style-props']);
 
       expect(
@@ -228,8 +228,8 @@ describe('danger utils', () => {
               private: false,
               location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-style-props',
             },
-          ]
-        )
+          ],
+        ),
       ).toEqual(['@twilio-paste/style-props', '@twilio-paste/alert-dialog']);
     });
 
@@ -270,8 +270,8 @@ describe('danger utils', () => {
               private: false,
               location: '/Users/simon/dev/twilio/design-systems/paste/packages/paste-codemods',
             },
-          ]
-        )
+          ],
+        ),
       ).toEqual(['@twilio-paste/style-props', '@twilio-paste/design-tokens', '@twilio-paste/codemods']);
     });
   });
@@ -285,7 +285,7 @@ describe('danger utils', () => {
           'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
-        ])
+        ]),
       ).toEqual(['.changeset/pretty-cameras-burn.md']);
     });
 
@@ -298,7 +298,7 @@ describe('danger utils', () => {
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
           '.changeset/pretty-silly-sheep.md',
-        ])
+        ]),
       ).toEqual(['.changeset/pretty-cameras-burn.md', '.changeset/pretty-silly-sheep.md']);
     });
   });
@@ -312,7 +312,7 @@ describe('danger utils', () => {
           'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
-        ])
+        ]),
       ).toEqual(['packages/paste-core/components/alert-dialog/package.json']);
     });
 
@@ -325,7 +325,7 @@ describe('danger utils', () => {
           'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
           'yarn.lock',
           '.changeset/pretty-cameras-burn.md',
-        ])
+        ]),
       ).toEqual(['packages/paste-core/components/alert-dialog/package.json', 'packages/box/package.json']);
     });
   });

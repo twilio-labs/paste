@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-export const SiteMain: React.FC<React.PropsWithChildren<HTMLPasteProps<'div'>>> = ({children, ...props}) => {
+export const SiteMain: React.FC<React.PropsWithChildren<HTMLPasteProps<'div'>>> = ({ children, ...props }) => {
   return (
     <Box as="main" element="SITE_MAIN" backgroundColor="colorBackgroundBody" position="relative" {...props}>
       {children}

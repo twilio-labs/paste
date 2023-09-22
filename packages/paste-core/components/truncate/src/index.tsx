@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export interface TruncateProps extends HTMLPasteProps<'span'>, Pick<BoxProps, 'as'> {
   children: NonNullable<React.ReactNode>;
   title: string;
 }
 
-const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({children, ...props}, ref) => {
+const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({ children, ...props }, ref) => {
   return (
     <Box
       {...props}
@@ -28,4 +28,4 @@ const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({children, ..
 });
 Truncate.displayName = 'Truncate';
 
-export {Truncate};
+export { Truncate };

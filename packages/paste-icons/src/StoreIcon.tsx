@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface StoreIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface StoreIconProps extends IconWrapperProps {
 }
 
 const StoreIcon = React.forwardRef<HTMLElement, StoreIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `StoreIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -42,8 +42,8 @@ const StoreIcon = React.forwardRef<HTMLElement, StoreIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 StoreIcon.displayName = 'StoreIcon';
-export {StoreIcon};
+export { StoreIcon };

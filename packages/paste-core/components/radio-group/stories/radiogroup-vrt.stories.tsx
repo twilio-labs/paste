@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
+import { useUID } from '@twilio-paste/uid-library';
+import { Anchor } from '@twilio-paste/anchor';
+import { Text } from '@twilio-paste/text';
 
-import {Radio, RadioGroup} from '../src';
+import { Radio, RadioGroup } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Radio',
   component: Radio,
-  subcomponents: {RadioGroup},
+  subcomponents: { RadioGroup },
 };
 
 export const RadioDefault = (): React.ReactNode => {

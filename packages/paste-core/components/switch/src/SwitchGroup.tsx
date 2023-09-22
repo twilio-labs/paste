@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {InlineControlGroup} from '@twilio-paste/inline-control-group';
-import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
+import { InlineControlGroup } from '@twilio-paste/inline-control-group';
+import type { InlineControlGroupProps } from '@twilio-paste/inline-control-group';
 
-import {SwitchContext} from './SwitchContext';
+import { SwitchContext } from './SwitchContext';
 
 export interface SwitchGroupProps extends InlineControlGroupProps {
   name: string;
@@ -22,7 +22,7 @@ const SwitchGroup = React.forwardRef<HTMLFieldSetElement, SwitchGroupProps>(
       i18nRequiredLabel = '(required)',
       ...props
     },
-    ref
+    ref,
   ) => {
     const onChangeHandler = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -30,7 +30,7 @@ const SwitchGroup = React.forwardRef<HTMLFieldSetElement, SwitchGroupProps>(
           onChange(event.target.checked);
         }
       },
-      [onChange]
+      [onChange],
     );
 
     const contextValue = React.useMemo(() => {
@@ -58,9 +58,9 @@ const SwitchGroup = React.forwardRef<HTMLFieldSetElement, SwitchGroupProps>(
         </InlineControlGroup>
       </SwitchContext.Provider>
     );
-  }
+  },
 );
 
 SwitchGroup.displayName = 'SwitchGroup';
 
-export {SwitchGroup};
+export { SwitchGroup };

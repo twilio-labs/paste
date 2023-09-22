@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Anchor} from '@twilio-paste/core/anchor';
-import {Stack} from '@twilio-paste/core/stack';
-import {Text} from '@twilio-paste/core/text';
-import {Toast} from '@twilio-paste/core/toast';
+import { Anchor } from '@twilio-paste/core/anchor';
+import { Stack } from '@twilio-paste/core/stack';
+import { Text } from '@twilio-paste/core/text';
+import { Toast } from '@twilio-paste/core/toast';
 
 const ToastPreview = (): JSX.Element => {
   return (
@@ -28,4 +28,4 @@ const ToastPreview = (): JSX.Element => {
   );
 };
 
-export {ToastPreview};
+export { ToastPreview };

@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProcessNeutralIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ProcessNeutralIconProps extends IconWrapperProps {
 }
 
 const ProcessNeutralIcon = React.forwardRef<HTMLElement, ProcessNeutralIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProcessNeutralIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -42,8 +42,8 @@ const ProcessNeutralIcon = React.forwardRef<HTMLElement, ProcessNeutralIconProps
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProcessNeutralIcon.displayName = 'ProcessNeutralIcon';
-export {ProcessNeutralIcon};
+export { ProcessNeutralIcon };

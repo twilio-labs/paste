@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductMicrovisorIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ProductMicrovisorIconProps extends IconWrapperProps {
 }
 
 const ProductMicrovisorIcon = React.forwardRef<HTMLElement, ProductMicrovisorIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProductMicrovisorIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -47,8 +47,8 @@ const ProductMicrovisorIcon = React.forwardRef<HTMLElement, ProductMicrovisorIco
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProductMicrovisorIcon.displayName = 'ProductMicrovisorIcon';
-export {ProductMicrovisorIcon};
+export { ProductMicrovisorIcon };

@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface DragVerticalIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface DragVerticalIconProps extends IconWrapperProps {
 }
 
 const DragVerticalIcon = React.forwardRef<HTMLElement, DragVerticalIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `DragVerticalIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -36,8 +36,8 @@ const DragVerticalIcon = React.forwardRef<HTMLElement, DragVerticalIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 DragVerticalIcon.displayName = 'DragVerticalIcon';
-export {DragVerticalIcon};
+export { DragVerticalIcon };

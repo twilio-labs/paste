@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import type {StoryFn} from '@storybook/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
+import type { StoryFn } from '@storybook/react';
 
-import {ChatComposer} from '../src';
-import type {ChatComposerProps} from '../src';
+import { ChatComposer } from '../src';
+import type { ChatComposerProps } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -24,7 +24,7 @@ const defaultConfig: ChatComposerProps['config'] = {
   },
 };
 
-export const Default: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Default: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (

@@ -183,4 +183,4 @@ for (var i = 0, len = SITEMAP.length; i < len; i += CHUNK_SIZE) {
   SITEMAP_CHUNKS.push(SITEMAP.slice(i, i + CHUNK_SIZE));
 }
 
-export {SITEMAP_CHUNKS};
+export { SITEMAP_CHUNKS };

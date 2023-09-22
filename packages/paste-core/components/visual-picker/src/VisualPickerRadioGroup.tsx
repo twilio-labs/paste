@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {InlineControlGroup} from '@twilio-paste/inline-control-group';
+import { InlineControlGroup } from '@twilio-paste/inline-control-group';
 
-import {VisualPickerRadioContext} from './VisualPickerContext';
-import {type VisualPickerRadioGroupProps} from './types';
+import { VisualPickerRadioContext } from './VisualPickerContext';
+import { type VisualPickerRadioGroupProps } from './types';
 
 export const VisualPickerRadioGroup = React.forwardRef<HTMLFieldSetElement, VisualPickerRadioGroupProps>(
   (
@@ -19,13 +19,13 @@ export const VisualPickerRadioGroup = React.forwardRef<HTMLFieldSetElement, Visu
       i18nRequiredLabel = '(required)',
       ...props
     },
-    ref
+    ref,
   ) => {
     const onChangeHandler = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
         onChange(event.target.value);
       },
-      [onChange]
+      [onChange],
     );
 
     const contextValue = React.useMemo(() => {
@@ -60,7 +60,7 @@ export const VisualPickerRadioGroup = React.forwardRef<HTMLFieldSetElement, Visu
         </InlineControlGroup>
       </VisualPickerRadioContext.Provider>
     );
-  }
+  },
 );
 
 VisualPickerRadioGroup.displayName = 'VisualPickerRadioGroup';

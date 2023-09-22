@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {ValueOf} from '@twilio-paste/types';
+import type { ValueOf } from '@twilio-paste/types';
 import {
   StatusMenu,
   StatusMenuBadge,
@@ -32,7 +32,7 @@ const ConnectivityObject = {
 } as const;
 export const StatusMenuExample: React.FC = () => {
   const [availability, setConnectivity] = React.useState<ValueOf<typeof ConnectivityObject>>(
-    ConnectivityObject.Available
+    ConnectivityObject.Available,
   );
   const menu = useStatusMenuState();
   const onClick = (status): void => {

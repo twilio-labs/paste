@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {styled, css} from '@twilio-paste/styling-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { styled, css } from '@twilio-paste/styling-library';
 
 export const StyledDescriptionListSet = styled.div(
   css({
@@ -17,7 +17,7 @@ export const StyledDescriptionListSet = styled.div(
     '& > dt:not(:last-of-type)': {
       marginBottom: 'space10',
     },
-  })
+  }),
 );
 
 export interface DescriptionSetListProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
@@ -26,16 +26,16 @@ export interface DescriptionSetListProps extends Omit<React.ComponentPropsWithRe
 }
 
 const DescriptionListSet = React.forwardRef<HTMLDivElement, DescriptionSetListProps>(
-  ({element = 'DESCRIPTION_LIST_SET', children, ...props}, ref) => {
+  ({ element = 'DESCRIPTION_LIST_SET', children, ...props }, ref) => {
     return (
       // @ts-expect-error Use Box as styled div to apply complex css to the child terms and details
       <Box {...safelySpreadBoxProps(props)} as={StyledDescriptionListSet} ref={ref} element={element}>
         {children}
       </Box>
     );
-  }
+  },
 );
 
 DescriptionListSet.displayName = 'DescriptionListSet';
 
-export {DescriptionListSet};
+export { DescriptionListSet };

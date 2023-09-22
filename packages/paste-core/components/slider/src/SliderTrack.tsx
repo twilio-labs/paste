@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, type BoxProps} from '@twilio-paste/box';
+import { Box, type BoxProps } from '@twilio-paste/box';
 
-import {getColorToken} from './helpers';
-import type {UIStates} from './types';
+import { getColorToken } from './helpers';
+import type { UIStates } from './types';
 
 export interface SliderTrackProps extends UIStates {
   children?: React.ReactNode;

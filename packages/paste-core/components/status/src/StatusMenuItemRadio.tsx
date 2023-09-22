@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {MenuItemRadio} from '@twilio-paste/menu';
-import type {MenuItemRadioProps} from '@twilio-paste/menu';
+import { MenuItemRadio } from '@twilio-paste/menu';
+import type { MenuItemRadioProps } from '@twilio-paste/menu';
 
 export type StatusMenuItemRadioProps = MenuItemRadioProps;
 
@@ -9,4 +9,4 @@ const StatusMenuItemRadio = React.forwardRef<HTMLDivElement, StatusMenuItemRadio
 });
 
 StatusMenuItemRadio.displayName = 'StatusMenuItemRadio';
-export {StatusMenuItemRadio};
+export { StatusMenuItemRadio };

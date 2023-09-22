@@ -1,4 +1,4 @@
-import {matches} from './reakit-matches';
+import { matches } from './reakit-matches';
 
 const selector =
   "input:not([type='hidden']):not([disabled]), select:not([disabled]), " +

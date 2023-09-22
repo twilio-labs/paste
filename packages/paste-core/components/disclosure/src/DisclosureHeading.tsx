@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {useTheme} from '@twilio-paste/theme';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {ChevronDisclosureIcon} from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
-import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import type {HeadingProps} from '@twilio-paste/heading';
-import type {DisclosurePrimitiveProps} from '@twilio-paste/disclosure-primitive';
+import { useTheme } from '@twilio-paste/theme';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
+import { ChevronDisclosureIcon } from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
+import { DisclosurePrimitive } from '@twilio-paste/disclosure-primitive';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import type { HeadingProps } from '@twilio-paste/heading';
+import type { DisclosurePrimitiveProps } from '@twilio-paste/disclosure-primitive';
 
-import {DisclosureContext} from './DisclosureContext';
-import type {DisclosureVariants} from './types';
-import {IconSizeFromHeading} from './constants';
+import { DisclosureContext } from './DisclosureContext';
+import type { DisclosureVariants } from './types';
+import { IconSizeFromHeading } from './constants';
 
 const baseContainedStyles: BoxStyleProps = {
   borderWidth: 'borderWidth10',
@@ -57,7 +57,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
       setIsHovered,
       ...props
     },
-    ref
+    ref,
   ) => {
     const theme = useTheme();
     const disabledProp = props['aria-disabled'];
@@ -151,7 +151,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
         </Box>
       </Heading>
     );
-  }
+  },
 );
 
 StyledDisclosureHeading.displayName = 'StyledDisclosureHeading';
@@ -173,7 +173,7 @@ const DisclosureHeading: React.FC<React.PropsWithChildren<DisclosureHeadingProps
   focusable,
   ...props
 }) => {
-  const {disclosure, variant, setIsDisabled, setIsHeadingHovered, isHeadingHovered, isDisabled} =
+  const { disclosure, variant, setIsDisabled, setIsHeadingHovered, isHeadingHovered, isDisabled } =
     React.useContext(DisclosureContext);
   return (
     <DisclosurePrimitive
@@ -199,4 +199,4 @@ const DisclosureHeading: React.FC<React.PropsWithChildren<DisclosureHeadingProps
 
 DisclosureHeading.displayName = 'DisclosureHeading';
 
-export {DisclosureHeading};
+export { DisclosureHeading };

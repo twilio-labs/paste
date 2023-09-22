@@ -2,9 +2,9 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import type {IconWrapperProps} from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import { useUID } from '@twilio-paste/uid-library';
+import { IconWrapper } from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import type { IconWrapperProps } from '@twilio-paste/icons/esm/helpers/IconWrapper';
 
 export interface A11yIconProps extends IconWrapperProps {
   title?: string;
@@ -42,4 +42,4 @@ const A11yIcon: React.FC<React.PropsWithChildren<A11yIconProps>> = ({
 };
 
 A11yIcon.displayName = 'A11yIcon';
-export {A11yIcon};
+export { A11yIcon };

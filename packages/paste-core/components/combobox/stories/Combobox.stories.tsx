@@ -1,21 +1,21 @@
 import * as React from 'react';
 import _ from 'lodash';
-import type {StoryFn, Meta, StoryContext} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {Text} from '@twilio-paste/text';
-import {Select, Option} from '@twilio-paste/select';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
+import type { StoryFn, Meta, StoryContext } from '@storybook/react';
+import { useUID } from '@twilio-paste/uid-library';
+import { Anchor } from '@twilio-paste/anchor';
+import { Button } from '@twilio-paste/button';
+import { Box } from '@twilio-paste/box';
+import { Label } from '@twilio-paste/label';
+import { Text } from '@twilio-paste/text';
+import { Select, Option } from '@twilio-paste/select';
+import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
+import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
+import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
+import { Modal, ModalBody, ModalHeader, ModalHeading } from '@twilio-paste/modal';
 
-import {Combobox, useCombobox} from '../src';
+import { Combobox, useCombobox } from '../src';
 
 const items = [
   'Alert',
@@ -30,7 +30,7 @@ const items = [
 ];
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
-  template: (index?: number | undefined) => TemplateResult
+  template: (index?: number | undefined) => TemplateResult,
 ): TemplateResult[] {
   // eslint-disable-next-line unicorn/prefer-spread
   return Array.from(new Array(1000), (_empty, index) => template(index));
@@ -42,14 +42,14 @@ interface IconItems {
   iconLeft?: undefined;
 }
 const iconItems = [
-  {label: 'Alert', iconRight: true},
-  {label: 'Anchor'},
-  {label: 'Button', iconLeft: true},
-  {label: 'Card', iconRight: true},
-  {label: 'Heading'},
-  {label: 'List', iconRight: true},
-  {label: 'Modal', iconLeft: true},
-  {label: 'Paragraph', iconRight: true},
+  { label: 'Alert', iconRight: true },
+  { label: 'Anchor' },
+  { label: 'Button', iconLeft: true },
+  { label: 'Card', iconRight: true },
+  { label: 'Heading' },
+  { label: 'List', iconRight: true },
+  { label: 'Modal', iconLeft: true },
+  { label: 'Paragraph', iconRight: true },
 ];
 
 interface ObjectItem {
@@ -58,33 +58,33 @@ interface ObjectItem {
   phone: string;
 }
 const objectItems = [
-  {code: 'AD', label: 'Andorra', phone: '376'},
-  {code: 'AE', label: 'United Arab Emirates', phone: '971'},
-  {code: 'AF', label: 'Afghanistan', phone: '93'},
-  {code: 'AG', label: 'Antigua and Barbuda', phone: '1-268'},
-  {code: 'AI', label: 'Anguilla', phone: '1-264'},
-  {code: 'AL', label: 'Albania', phone: '355'},
-  {code: 'AM', label: 'Armenia', phone: '374'},
-  {code: 'AO', label: 'Angola', phone: '244'},
-  {code: 'AQ', label: 'Antarctica', phone: '672'},
-  {code: 'AR', label: 'Argentina', phone: '54'},
-  {code: 'AS', label: 'American Samoa', phone: '1-684'},
-  {code: 'AT', label: 'Austria', phone: '44'},
-  {code: 'BS', label: 'Bahamas', phone: '43'},
-  {code: 'BH', label: 'Bahrain', phone: '48'},
-  {code: 'BD', label: 'Bangladesh', phone: '50'},
-  {code: 'BB', label: 'Barbados', phone: '52'},
-  {code: 'BY', label: 'Belarus', phone: '112'},
-  {code: 'BE', label: 'Belgium', phone: '56'},
-  {code: 'BZ', label: 'Belize', phone: '84'},
-  {code: 'BJ', label: 'Benin', phone: '204'},
-  {code: 'BM', label: 'Bermuda', phone: '60'},
-  {code: 'BT', label: 'Bhutan', phone: '64'},
-  {code: 'BO', label: 'Bolivia', phone: '68'},
-  {code: 'BW', label: 'Botswana', phone: '72'},
-  {code: 'BR', label: 'Brazil', phone: '76'},
-  {code: 'KH', label: 'Cambodia', phone: '116'},
-  {code: 'CA', label: 'Canada', phone: '124'},
+  { code: 'AD', label: 'Andorra', phone: '376' },
+  { code: 'AE', label: 'United Arab Emirates', phone: '971' },
+  { code: 'AF', label: 'Afghanistan', phone: '93' },
+  { code: 'AG', label: 'Antigua and Barbuda', phone: '1-268' },
+  { code: 'AI', label: 'Anguilla', phone: '1-264' },
+  { code: 'AL', label: 'Albania', phone: '355' },
+  { code: 'AM', label: 'Armenia', phone: '374' },
+  { code: 'AO', label: 'Angola', phone: '244' },
+  { code: 'AQ', label: 'Antarctica', phone: '672' },
+  { code: 'AR', label: 'Argentina', phone: '54' },
+  { code: 'AS', label: 'American Samoa', phone: '1-684' },
+  { code: 'AT', label: 'Austria', phone: '44' },
+  { code: 'BS', label: 'Bahamas', phone: '43' },
+  { code: 'BH', label: 'Bahrain', phone: '48' },
+  { code: 'BD', label: 'Bangladesh', phone: '50' },
+  { code: 'BB', label: 'Barbados', phone: '52' },
+  { code: 'BY', label: 'Belarus', phone: '112' },
+  { code: 'BE', label: 'Belgium', phone: '56' },
+  { code: 'BZ', label: 'Belize', phone: '84' },
+  { code: 'BJ', label: 'Benin', phone: '204' },
+  { code: 'BM', label: 'Bermuda', phone: '60' },
+  { code: 'BT', label: 'Bhutan', phone: '64' },
+  { code: 'BO', label: 'Bolivia', phone: '68' },
+  { code: 'BW', label: 'Botswana', phone: '72' },
+  { code: 'BR', label: 'Brazil', phone: '76' },
+  { code: 'KH', label: 'Cambodia', phone: '116' },
+  { code: 'CA', label: 'Canada', phone: '124' },
 ];
 
 interface GroupedItem {
@@ -92,19 +92,19 @@ interface GroupedItem {
   label: string;
 }
 const groupedItems = [
-  {group: 'Components', label: 'Alert'},
-  {group: 'Components', label: 'Anchor'},
-  {group: 'Components', label: 'Button'},
-  {group: 'Components', label: 'Card'},
-  {group: 'Components', label: 'Heading'},
-  {group: 'Components', label: 'List'},
-  {group: 'Components', label: 'Modal'},
-  {group: 'Components', label: 'Paragraph'},
-  {group: 'Primitives', label: 'Box'},
-  {group: 'Primitives', label: 'Text'},
-  {group: 'Primitives', label: 'Non-modal dialog'},
-  {group: 'Layout', label: 'Grid'},
-  {label: 'Design Tokens'},
+  { group: 'Components', label: 'Alert' },
+  { group: 'Components', label: 'Anchor' },
+  { group: 'Components', label: 'Button' },
+  { group: 'Components', label: 'Card' },
+  { group: 'Components', label: 'Heading' },
+  { group: 'Components', label: 'List' },
+  { group: 'Components', label: 'Modal' },
+  { group: 'Components', label: 'Paragraph' },
+  { group: 'Primitives', label: 'Box' },
+  { group: 'Primitives', label: 'Text' },
+  { group: 'Primitives', label: 'Non-modal dialog' },
+  { group: 'Layout', label: 'Grid' },
+  { label: 'Design Tokens' },
 ];
 
 // eslint-disable-next-line import/no-default-export
@@ -181,10 +181,10 @@ export const BottomOfScreen: StoryFn = () => {
 };
 BottomOfScreen.storyName = 'Bottom of screen';
 BottomOfScreen.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
-const ItemToString = ({name}: {name: string}): string => name;
+const ItemToString = ({ name }: { name: string }): string => name;
 
 export const VirtualizedCombobox: StoryFn = () => {
   const itemsForVirtualCombobox = React.useMemo(() => createLargeArray((index) => (index as number).toString()), []);
@@ -210,7 +210,7 @@ export const VirtualizedCombobox1: StoryFn = () => {
         name: `Item ${index as number}`,
         subtext: 'Virtualized combobox from Twilio Paste',
       })),
-    []
+    [],
   );
 
   return (
@@ -219,7 +219,7 @@ export const VirtualizedCombobox1: StoryFn = () => {
         initialIsOpen
         itemToString={ItemToString}
         items={itemsForVirtualCombobox}
-        optionTemplate={({name, subtext}: {name: string; subtext: string}): string => `${name} - ${subtext}`}
+        optionTemplate={({ name, subtext }: { name: string; subtext: string }): string => `${name} - ${subtext}`}
         labelText="Select a virtualized item"
         helpText="This large list is virtualized"
       />
@@ -236,7 +236,7 @@ export const VirtualizedCombobox2: StoryFn = () => {
         name: `Item ${index as number}`,
         subtext: 'Virtualized combobox from Twilio Paste',
       })),
-    []
+    [],
   );
   return (
     <Box width="20%">
@@ -244,7 +244,7 @@ export const VirtualizedCombobox2: StoryFn = () => {
         initialIsOpen
         items={itemsForVirtualCombobox}
         itemToString={ItemToString}
-        optionTemplate={({name, subtext}) => (
+        optionTemplate={({ name, subtext }) => (
           <Box as="span" display="flex" flexDirection="column">
             <Box as="span">{name}</Box>
             <Box as="span" color="colorTextWeak">
@@ -299,7 +299,7 @@ export const ComboboxAutocomplete: StoryFn = () => {
     <Combobox
       autocomplete
       items={inputItems}
-      onInputValueChange={({inputValue}) => {
+      onInputValueChange={({ inputValue }) => {
         if (inputValue !== undefined) {
           setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
         }
@@ -516,10 +516,10 @@ export const ComboboxObject: StoryFn = () => {
           {item.code} | {item.label} | {item.phone}
         </div>
       )}
-      onInputValueChange={({inputValue}) => {
+      onInputValueChange={({ inputValue }) => {
         if (inputValue !== undefined) {
           setInputItems(
-            _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+            _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase())),
           );
         }
       }}
@@ -540,7 +540,7 @@ export const ComboboxOverflowLongValue: StoryFn = () => {
         helpText="This is the help text"
         labelText="Choose a component:"
         initialSelectedItem={inputItems[5]}
-        onInputValueChange={({inputValue}) => {
+        onInputValueChange={({ inputValue }) => {
           if (inputValue !== undefined) {
             setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
           }
@@ -555,7 +555,7 @@ ComboboxOverflowLongValue.storyName = 'Combobox - overflow long value';
 
 export const ComboboxControlled: StoryFn = () => {
   const [value, setValue] = React.useState('United Arab Emirates');
-  const [selectedItem, setSelectedItem] = React.useState({code: 'AE', label: 'United Arab Emirates', phone: '971'});
+  const [selectedItem, setSelectedItem] = React.useState({ code: 'AE', label: 'United Arab Emirates', phone: '971' });
   const [inputItems, setInputItems] = React.useState(objectItems);
   return (
     <>
@@ -578,10 +578,12 @@ export const ComboboxControlled: StoryFn = () => {
             </Box>
           );
         }}
-        onInputValueChange={({inputValue}) => {
+        onInputValueChange={({ inputValue }) => {
           if (inputValue !== undefined) {
             setInputItems(
-              _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+              _.filter(objectItems, (item: ObjectItem) =>
+                item.label.toLowerCase().startsWith(inputValue.toLowerCase()),
+              ),
             );
             setValue(inputValue);
           }
@@ -607,7 +609,7 @@ export const ComboboxControlledUsingState: StoryFn = () => {
     phone: '971',
   } as ObjectItem);
   const [inputItems, setInputItems] = React.useState<ObjectItem[] | never[]>(objectItems as ObjectItem[]);
-  const {reset, ...state} = useCombobox<ObjectItem>({
+  const { reset, ...state } = useCombobox<ObjectItem>({
     initialInputValue: value,
     items: inputItems,
     itemToString: (item) => (item ? item.label : ''),
@@ -616,10 +618,10 @@ export const ComboboxControlledUsingState: StoryFn = () => {
         setSelectedItem(changes.selectedItem);
       }
     },
-    onInputValueChange: ({inputValue}) => {
+    onInputValueChange: ({ inputValue }) => {
       if (inputValue !== undefined) {
         setInputItems(
-          _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+          _.filter(objectItems, (item: ObjectItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase())),
         );
         setValue(inputValue);
       }
@@ -634,7 +636,7 @@ export const ComboboxControlledUsingState: StoryFn = () => {
         Selected item state: {JSON.stringify(selectedItem)}
       </Box>
       <Combobox
-        state={{...state, reset}}
+        state={{ ...state, reset }}
         items={inputItems}
         autocomplete
         itemToString={(item) => (item ? item.label : '')}
@@ -738,10 +740,12 @@ export const ComboboxOptionGroupsAutocomplete: StoryFn = () => {
       labelText="Choose a component:"
       helpText="This is the help text"
       optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
-      onInputValueChange={({inputValue}) => {
+      onInputValueChange={({ inputValue }) => {
         if (inputValue !== undefined) {
           setInputItems(
-            _.filter(groupedItems, (item: GroupedItem) => item.label.toLowerCase().startsWith(inputValue.toLowerCase()))
+            _.filter(groupedItems, (item: GroupedItem) =>
+              item.label.toLowerCase().startsWith(inputValue.toLowerCase()),
+            ),
           );
         }
       }}
@@ -814,7 +818,7 @@ export const ComboboxEmptyState: StoryFn = () => {
       autocomplete
       items={inputItems}
       inputValue="test123"
-      onInputValueChange={({inputValue}) => {
+      onInputValueChange={({ inputValue }) => {
         if (inputValue !== undefined) {
           setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
         }

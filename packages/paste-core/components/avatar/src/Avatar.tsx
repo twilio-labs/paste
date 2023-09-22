@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {isValidElementType} from 'react-is';
-import {Text} from '@twilio-paste/text';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps} from '@twilio-paste/box';
+import { isValidElementType } from 'react-is';
+import { Text } from '@twilio-paste/text';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
 
-import {getComputedTokenNames, getInitialsFromName} from './utils';
-import type {AvatarProps, AvatarContentProps, ColorVariants, AvatarVariants} from './types';
-import {AvatarGroupContext} from './AvatarGroup';
+import { getComputedTokenNames, getInitialsFromName } from './utils';
+import type { AvatarProps, AvatarContentProps, ColorVariants, AvatarVariants } from './types';
+import { AvatarGroupContext } from './AvatarGroup';
 
 const DEFAULT_SIZE = 'sizeIcon70';
 
@@ -16,7 +16,7 @@ const AvatarContents: React.FC<React.PropsWithChildren<AvatarContentProps>> = ({
   src,
   icon: Icon,
 }) => {
-  const {size: groupSize} = React.useContext(AvatarGroupContext);
+  const { size: groupSize } = React.useContext(AvatarGroupContext);
   const computedTokenNames = getComputedTokenNames(groupSize || size);
 
   if (src != null) {
@@ -91,12 +91,15 @@ const variantStyles: Record<AvatarVariants, BoxStyleProps> = {
 };
 
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
-  ({name, size = DEFAULT_SIZE, element = 'AVATAR', src, icon, color = 'default', variant = 'user', ...props}, ref) => {
+  (
+    { name, size = DEFAULT_SIZE, element = 'AVATAR', src, icon, color = 'default', variant = 'user', ...props },
+    ref,
+  ) => {
     if (name === undefined) {
       // eslint-disable-next-line no-console
       console.error('[Paste Avatar]: name prop is required');
     }
-    const {variant: groupVariant, size: groupSize} = React.useContext(AvatarGroupContext);
+    const { variant: groupVariant, size: groupSize } = React.useContext(AvatarGroupContext);
 
     return (
       <Box
@@ -111,12 +114,12 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
         {...colorPropStyles[color]}
         {...variantStyles[groupVariant || variant]}
         // when its an image set specific styles that are unrelated to color or variants
-        {...(src && {backgroundColor: 'colorBackgroundBody', boxShadow: 'shadowBorderWeaker'})}
+        {...(src && { backgroundColor: 'colorBackgroundBody', boxShadow: 'shadowBorderWeaker' })}
       >
         <AvatarContents name={name} size={groupSize || size} icon={icon} src={src} />
       </Box>
     );
-  }
+  },
 );
 
 Avatar.displayName = 'Avatar';

@@ -1,6 +1,6 @@
 import Downshift from '@twilio-paste/dropdown-library';
 
-export {Downshift as ComboboxPrimitive};
+export { Downshift as ComboboxPrimitive };
 
 export {
   useCombobox as useComboboxPrimitive,

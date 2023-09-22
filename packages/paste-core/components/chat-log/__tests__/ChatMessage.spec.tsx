@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {screen, render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { screen, render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {ChatMessage} from '../src';
+import { ChatMessage } from '../src';
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -12,8 +12,8 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
       CHAT_MESSAGE: {
         marginBottom: 'space100',
         variants: {
-          inbound: {marginRight: 'space100'},
-          outbound: {marginLeft: 'space100'},
+          inbound: { marginRight: 'space100' },
+          outbound: { marginLeft: 'space100' },
         },
       },
     }}
@@ -22,7 +22,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
   </CustomizationProvider>
 );
 
-const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -30,8 +30,8 @@ const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) 
       FOO_MESSAGE: {
         marginBottom: 'space100',
         variants: {
-          inbound: {marginRight: 'space100'},
-          outbound: {marginLeft: 'space100'},
+          inbound: { marginRight: 'space100' },
+          outbound: { marginLeft: 'space100' },
         },
       },
     }}
@@ -58,7 +58,7 @@ describe('Customization', () => {
           test
         </ChatMessage>
       </>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const inboundMessage = screen.getByTestId('inbound-message');
@@ -80,7 +80,7 @@ describe('Customization', () => {
           test
         </ChatMessage>
       </>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
     const inboundMessage = screen.getByTestId('inbound-message');
@@ -100,7 +100,7 @@ describe('Customization', () => {
           test
         </ChatMessage>
       </>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
 
     const inboundMessage = screen.getByTestId('inbound-message');
@@ -122,7 +122,7 @@ describe('Customization', () => {
           test
         </ChatMessage>
       </>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
     const inboundMessage = screen.getByTestId('inbound-message');
     const outboundMessage = screen.getByTestId('outbound-message');

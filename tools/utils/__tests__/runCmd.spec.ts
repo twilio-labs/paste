@@ -1,4 +1,4 @@
-import {runCmd} from '../runCmd';
+import { runCmd } from '../runCmd';
 
 describe('runCmd', () => {
   it('receives output from completed processes', async () => {

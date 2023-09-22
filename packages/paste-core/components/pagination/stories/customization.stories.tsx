@@ -1,13 +1,13 @@
 import * as React from 'react';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Stack} from '@twilio-paste/stack';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {useUID} from '@twilio-paste/uid-library';
-import {useTheme} from '@twilio-paste/theme';
-import type {StoryFn} from '@storybook/react';
+import type { BoxElementProps } from '@twilio-paste/box';
+import { Card } from '@twilio-paste/card';
+import { Heading } from '@twilio-paste/heading';
+import { Stack } from '@twilio-paste/stack';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { useUID } from '@twilio-paste/uid-library';
+import { useTheme } from '@twilio-paste/theme';
+import type { StoryFn } from '@storybook/react';
 
 import {
   Pagination,
@@ -20,7 +20,7 @@ import {
 } from '../src';
 
 // Wrapper to abstract the rendering of the default and customized pagination versions
-const BeforeAndAfter: React.FC<React.PropsWithChildren<{before: React.ReactNode; after: React.ReactNode}>> = ({
+const BeforeAndAfter: React.FC<React.PropsWithChildren<{ before: React.ReactNode; after: React.ReactNode }>> = ({
   before,
   after,
 }) => (
@@ -36,7 +36,7 @@ const BeforeAndAfter: React.FC<React.PropsWithChildren<{before: React.ReactNode;
   </Stack>
 );
 
-export const WrapperAndArrows: React.FC<React.PropsWithChildren<{element?: BoxElementProps['element']}>> = ({
+export const WrapperAndArrows: React.FC<React.PropsWithChildren<{ element?: BoxElementProps['element'] }>> = ({
   element = 'PAGINATION',
 }) => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
@@ -62,7 +62,7 @@ export const WrapperAndArrows: React.FC<React.PropsWithChildren<{element?: BoxEl
     </Pagination>
   );
 };
-export const NumbersAndLabel: React.FC<React.PropsWithChildren<{element?: BoxElementProps['element']}>> = ({
+export const NumbersAndLabel: React.FC<React.PropsWithChildren<{ element?: BoxElementProps['element'] }>> = ({
   element = 'PAGINATION',
 }) => {
   // we use this to create unique labels for landmark elements when stacked or side-by-side
@@ -103,9 +103,9 @@ export const NumbersAndLabel: React.FC<React.PropsWithChildren<{element?: BoxEle
   );
 };
 
-const paginationStyles = {fontSize: 'fontSize60', fontWeight: 'fontWeightBold'} as PasteCustomCSS;
-const getCustomizedStyles = (prefix = 'PAGINATION'): {[key: string]: any} => ({
-  [`${prefix}`]: {borderColor: 'colorBorder', borderStyle: 'solid', borderWidth: 'borderWidth10'},
+const paginationStyles = { fontSize: 'fontSize60', fontWeight: 'fontWeightBold' } as PasteCustomCSS;
+const getCustomizedStyles = (prefix = 'PAGINATION'): { [key: string]: any } => ({
+  [`${prefix}`]: { borderColor: 'colorBorder', borderStyle: 'solid', borderWidth: 'borderWidth10' },
   [`${prefix}_ITEMS`]: {
     borderColor: 'colorBorder',
     borderStyle: 'solid',
@@ -143,7 +143,7 @@ const getCustomizedStyles = (prefix = 'PAGINATION'): {[key: string]: any} => ({
   [`${prefix}_NUMBER_TEXT`]: paginationStyles,
 });
 
-export const PaginationWrapperAndArrows: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const PaginationWrapperAndArrows: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <BeforeAndAfter
@@ -161,7 +161,7 @@ export const PaginationWrapperAndArrows: StoryFn = (_args, {parameters: {isTestE
   );
 };
 
-export const PaginationNumbersAndLabel: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const PaginationNumbersAndLabel: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <BeforeAndAfter

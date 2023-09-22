@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import type { BoxProps } from '@twilio-paste/box';
 
 type AsTags = 'ul' | 'ol';
 
@@ -12,7 +12,7 @@ export interface CalloutListProps extends Partial<Omit<HTMLElement, 'children'>>
 }
 
 export const CalloutList = React.forwardRef<HTMLElement, CalloutListProps>(
-  ({element = 'CALLOUT_LIST', children, as, ...props}, ref) => (
+  ({ element = 'CALLOUT_LIST', children, as, ...props }, ref) => (
     <Box
       {...safelySpreadBoxProps(props)}
       element={element}
@@ -26,7 +26,7 @@ export const CalloutList = React.forwardRef<HTMLElement, CalloutListProps>(
     >
       {children}
     </Box>
-  )
+  ),
 );
 
 CalloutList.displayName = 'CalloutList';
@@ -37,11 +37,11 @@ export interface CalloutListItemProps extends Partial<Omit<HTMLLIElement, 'child
 }
 
 export const CalloutListItem = React.forwardRef<HTMLLIElement, CalloutListItemProps>(
-  ({element = 'CALLOUT_LIST_ITEM', children, ...props}, ref) => (
+  ({ element = 'CALLOUT_LIST_ITEM', children, ...props }, ref) => (
     <Text {...safelySpreadTextProps(props)} element={element} ref={ref} as="li" color="currentColor">
       {children}
     </Text>
-  )
+  ),
 );
 
 CalloutListItem.displayName = 'CalloutListItem';

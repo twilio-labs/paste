@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
-import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
-import {TableBodyData} from './constants';
+import { DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell } from '../../src';
+import { TableBodyData } from './constants';
 
-export const ColumnSpanDataGrid: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({
+export const ColumnSpanDataGrid: React.FC<React.PropsWithChildren<{ element?: BoxProps['element'] }>> = ({
   element = 'DATA_GRID',
 }) => {
   return (

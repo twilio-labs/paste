@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {DetailText} from '../src';
+import { DetailText } from '../src';
 
 describe('DetailText', () => {
   it('should render', () => {
@@ -26,7 +26,7 @@ describe('DetailText', () => {
       render(
         <DetailText data-testid="detail-text" element="MY_DETAIL_TEXT">
           test
-        </DetailText>
+        </DetailText>,
       );
 
       expect(screen.getByTestId('detail-text').dataset.pasteElement).toEqual('MY_DETAIL_TEXT');
@@ -44,7 +44,7 @@ describe('DetailText', () => {
           }}
         >
           <DetailText data-testid="detail-text">test</DetailText>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       expect(screen.getByTestId('detail-text')).toHaveStyleRule('color', 'rgb(109, 46, 209)');
     });
@@ -63,7 +63,7 @@ describe('DetailText', () => {
           <DetailText data-testid="detail-text" element="MY_DETAIL_TEXT">
             test
           </DetailText>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       expect(screen.getByTestId('detail-text')).toHaveStyleRule('color', 'rgb(109, 46, 209)');

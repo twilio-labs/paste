@@ -1,12 +1,12 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Card} from '@twilio-paste/card';
-import {useTheme, DefaultTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {IconSize, TextColorOptions} from '@twilio-paste/style-props';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Card } from '@twilio-paste/card';
+import { useTheme, DefaultTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { IconSize, TextColorOptions } from '@twilio-paste/style-props';
 
-import {Spinner} from '../src';
+import { Spinner } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -14,7 +14,7 @@ export default {
   component: Spinner,
 };
 
-const {textColors: defaultThemeTextColors, iconSizes} = DefaultTheme;
+const { textColors: defaultThemeTextColors, iconSizes } = DefaultTheme;
 
 const textColorTokens = Object.keys(defaultThemeTextColors);
 const inverse = textColorTokens.filter((tokenName) => tokenName.toLowerCase().includes('inverse'));
@@ -73,7 +73,7 @@ export const Sizes: React.FC = () => (
   </Box>
 );
 
-export const CustomizedSpinner: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedSpinner: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

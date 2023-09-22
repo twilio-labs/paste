@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-import {PaginationBackArrow} from './PaginationBackArrow';
-import {PaginationForwardArrow} from './PaginationForwardArrow';
-import type {PaginationArrowProps} from '../types';
-import {handleLinkValidation} from '../utils';
+import { PaginationBackArrow } from './PaginationBackArrow';
+import { PaginationForwardArrow } from './PaginationForwardArrow';
+import type { PaginationArrowProps } from '../types';
+import { handleLinkValidation } from '../utils';
 
 const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps>(
   (
@@ -18,11 +18,11 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
       visibleLabel,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [hovered, setHovered] = React.useState(false);
     const [focused, setFocused] = React.useState(false);
-    handleLinkValidation({as, href});
+    handleLinkValidation({ as, href });
     return variant === 'back' ? (
       <PaginationBackArrow
         {...props}
@@ -100,9 +100,9 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
         }}
       />
     );
-  }
+  },
 );
 
 PaginationArrow.displayName = 'PaginationArrow';
 
-export {PaginationArrow};
+export { PaginationArrow };

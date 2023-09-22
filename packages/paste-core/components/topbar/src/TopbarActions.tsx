@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxElementProps } from '@twilio-paste/box';
+import type { ResponsiveValue } from '@twilio-paste/styling-library';
 
 type Justify = 'start' | 'end';
 export interface TopbarActionsProps {
@@ -11,7 +11,7 @@ export interface TopbarActionsProps {
   display?: ResponsiveValue<'none' | 'flex'>;
 }
 const TopbarActions = React.forwardRef<HTMLDivElement, TopbarActionsProps>(
-  ({children, element = 'TOPBAR_ACTIONS', justify, display = 'flex', ...props}, ref) => {
+  ({ children, element = 'TOPBAR_ACTIONS', justify, display = 'flex', ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -28,8 +28,8 @@ const TopbarActions = React.forwardRef<HTMLDivElement, TopbarActionsProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 TopbarActions.displayName = 'TopbarActions';
 
-export {TopbarActions};
+export { TopbarActions };

@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface TextFormatIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface TextFormatIconProps extends IconWrapperProps {
 }
 
 const TextFormatIcon = React.forwardRef<HTMLElement, TextFormatIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `TextFormatIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -46,8 +46,8 @@ const TextFormatIcon = React.forwardRef<HTMLElement, TextFormatIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 TextFormatIcon.displayName = 'TextFormatIcon';
-export {TextFormatIcon};
+export { TextFormatIcon };

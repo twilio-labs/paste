@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {action} from '@storybook/addon-actions';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Truncate} from '@twilio-paste/truncate';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import { action } from '@storybook/addon-actions';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Truncate } from '@twilio-paste/truncate';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
 
-import {Alert} from '../src';
+import { Alert } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -103,7 +103,7 @@ export const Warning = (): React.ReactNode => {
   );
 };
 
-export const CustomAlert: StoryFn = (_args, {parameters: {isTestEnvironment = false}}) => {
+export const CustomAlert: StoryFn = (_args, { parameters: { isTestEnvironment = false } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

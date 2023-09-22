@@ -1,24 +1,24 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Separator} from '../src';
+import { Separator } from '../src';
 
 describe('Separator', () => {
   describe('Render', () => {
     it('should render', () => {
-      const {getByRole} = render(<Separator orientation="horizontal" />);
+      const { getByRole } = render(<Separator orientation="horizontal" />);
       expect(getByRole('separator')).not.toBeNull();
     });
 
     it('should render correctly when the value of orientation prop is horizontal', () => {
-      const {getByRole} = render(<Separator orientation="horizontal" />);
+      const { getByRole } = render(<Separator orientation="horizontal" />);
       expect(getByRole('separator').getAttribute('aria-orientation')).toBe('horizontal');
     });
 
     it('should render correctly when the value of orientation prop is vertical', () => {
-      const {getByRole} = render(<Separator orientation="vertical" />);
+      const { getByRole } = render(<Separator orientation="vertical" />);
       expect(getByRole('separator').getAttribute('aria-orientation')).toBe('vertical');
     });
 
@@ -26,7 +26,7 @@ describe('Separator', () => {
       render(
         <Theme.Provider theme="default">
           <Separator data-testid="separator" orientation="vertical" horizontalSpacing="space50" />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       expect(screen.getByTestId('separator')).toHaveStyleRule('margin-right', '1rem');
       expect(screen.getByTestId('separator')).toHaveStyleRule('margin-left', '1rem');
@@ -36,7 +36,7 @@ describe('Separator', () => {
       render(
         <Theme.Provider theme="default">
           <Separator data-testid="separator" orientation="horizontal" verticalSpacing="space100" />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       expect(screen.getByTestId('separator')).toHaveStyleRule('margin-top', '2.25rem');
       expect(screen.getByTestId('separator')).toHaveStyleRule('margin-bottom', '2.25rem');
@@ -50,7 +50,7 @@ describe('Separator', () => {
             orientation="vertical"
             horizontalSpacing={['space20', 'space100', 'space190']}
           />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       expect(screen.getByTestId('separator')).toHaveStyleRule('margin-right', '0.25rem');
       expect(screen.getByTestId('separator')).toHaveStyleRule('margin-right', '2.25rem', {
@@ -76,7 +76,7 @@ describe('Separator', () => {
             orientation="horizontal"
             verticalSpacing={['space20', 'space100', 'space190']}
           />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       expect(screen.getByTestId('separator')).toHaveStyleRule('margin-top', '0.25rem');
       expect(screen.getByTestId('separator')).toHaveStyleRule('margin-top', '2.25rem', {
@@ -112,10 +112,10 @@ describe('Separator', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{SEPARATOR: {borderColor: 'colorBorderStrong', margin: 'space50'}}}
+          elements={{ SEPARATOR: { borderColor: 'colorBorderStrong', margin: 'space50' } }}
         >
           <Separator orientation="horizontal" data-testid="custom-separator" />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedSeparator = screen.getByTestId('custom-separator');
       expect(renderedSeparator).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');
@@ -127,10 +127,10 @@ describe('Separator', () => {
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
-          elements={{foo: {borderColor: 'colorBorderStrong', margin: 'space50'}}}
+          elements={{ foo: { borderColor: 'colorBorderStrong', margin: 'space50' } }}
         >
           <Separator orientation="horizontal" data-testid="custom-separator" element="foo" />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedSeparator = screen.getByTestId('custom-separator');
       expect(renderedSeparator).toHaveStyleRule('border-color', 'rgb(96, 107, 133)');

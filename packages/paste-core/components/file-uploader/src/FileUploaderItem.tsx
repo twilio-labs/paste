@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Spinner} from '@twilio-paste/spinner';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { Spinner } from '@twilio-paste/spinner';
+import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
+import { DeleteIcon } from '@twilio-paste/icons/esm/DeleteIcon';
+import { CloseIcon } from '@twilio-paste/icons/esm/CloseIcon';
 
-import {FileUploaderItemContext} from './FileUploaderItemContext';
-import type {FileUploaderItemContextProps} from './FileUploaderItemContext';
+import { FileUploaderItemContext } from './FileUploaderItemContext';
+import type { FileUploaderItemContextProps } from './FileUploaderItemContext';
 
 export interface FileUploaderItemProps extends Omit<React.ComponentPropsWithRef<'li'>, 'children'> {
   children?: BoxProps['children'];
@@ -61,7 +61,7 @@ export const FileUploaderItem = React.forwardRef<HTMLLIElement, FileUploaderItem
       onButtonClick,
       ...props
     },
-    ref
+    ref,
   ) => {
     let icon = fileIcon;
     if (variant === 'error')
@@ -75,7 +75,7 @@ export const FileUploaderItem = React.forwardRef<HTMLLIElement, FileUploaderItem
     }
 
     return (
-      <FileUploaderItemContext.Provider value={{variant}}>
+      <FileUploaderItemContext.Provider value={{ variant }}>
         <Box
           as="li"
           ref={ref}
@@ -105,7 +105,7 @@ export const FileUploaderItem = React.forwardRef<HTMLLIElement, FileUploaderItem
         </Box>
       </FileUploaderItemContext.Provider>
     );
-  }
+  },
 );
 
 FileUploaderItem.displayName = 'FileUploaderItem';

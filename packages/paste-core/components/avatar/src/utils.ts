@@ -8,7 +8,7 @@ import type {
   SpaceOptions,
 } from '@twilio-paste/style-props';
 
-import type {AvatarVariants} from './types';
+import type { AvatarVariants } from './types';
 
 export const getInitialsFromName = (fullname: string): string => {
   return fullname
@@ -87,8 +87,8 @@ export const getCorrespondingIconSizeFromSizeToken = (size: IconSizeOptions): Ic
 
 // this function takes in a size and exports an object w/ lineheight and fontsize and iconsize
 export const getComputedTokenNames = (
-  size: IconSize
-): {lineHeight: LineHeight; fontSize: FontSize; iconSize: IconSize} => {
+  size: IconSize,
+): { lineHeight: LineHeight; fontSize: FontSize; iconSize: IconSize } => {
   if (typeof size === 'string') {
     // if size is a string, put it into the correspondingSize function
     return {

@@ -1,18 +1,18 @@
 import * as React from 'react';
-import type {BackgroundColorOptions, BorderColorOptions, TextColorOptions} from '@twilio-paste/core/style-props';
-import {useUIDSeed} from '@twilio-paste/core/uid-library';
-import {Box} from '@twilio-paste/core/box';
-import {Truncate} from '@twilio-paste/core/truncate';
-import {MediaBody, MediaFigure, MediaObject} from '@twilio-paste/core/media-object';
-import {SuccessIcon} from '@twilio-paste/icons/cjs/SuccessIcon';
-import {ErrorIcon} from '@twilio-paste/icons/cjs/ErrorIcon';
-import {InformationIcon} from '@twilio-paste/icons/cjs/InformationIcon';
+import type { BackgroundColorOptions, BorderColorOptions, TextColorOptions } from '@twilio-paste/core/style-props';
+import { useUIDSeed } from '@twilio-paste/core/uid-library';
+import { Box } from '@twilio-paste/core/box';
+import { Truncate } from '@twilio-paste/core/truncate';
+import { MediaBody, MediaFigure, MediaObject } from '@twilio-paste/core/media-object';
+import { SuccessIcon } from '@twilio-paste/icons/cjs/SuccessIcon';
+import { ErrorIcon } from '@twilio-paste/icons/cjs/ErrorIcon';
+import { InformationIcon } from '@twilio-paste/icons/cjs/InformationIcon';
 import camelCase from 'lodash/camelCase';
 
 interface ContrastRatioProps {
   ratio: number;
 }
-const ContrastRatio: React.FC<React.PropsWithChildren<ContrastRatioProps>> = ({ratio}) => (
+const ContrastRatio: React.FC<React.PropsWithChildren<ContrastRatioProps>> = ({ ratio }) => (
   <Box width="80px" textAlign="right">
     <Box as="span" fontSize="fontSize40" fontWeight="fontWeightBold">
       {Math.round(ratio * 100) / 100}
@@ -91,4 +91,4 @@ const TokenPairRating: React.FC<React.PropsWithChildren<TokenPairRatingProps>> =
   );
 };
 
-export {TokenPairRating};
+export { TokenPairRating };

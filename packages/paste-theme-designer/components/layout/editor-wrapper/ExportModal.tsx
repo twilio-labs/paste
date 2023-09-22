@@ -1,20 +1,20 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/core/button';
-import {Paragraph} from '@twilio-paste/core/paragraph';
-import {useUID} from '@twilio-paste/core/uid-library';
-import {TextArea} from '@twilio-paste/core/textarea';
-import {generateThemeFromTokens} from '@twilio-paste/core/theme';
-import {Modal, ModalHeading, ModalHeader, ModalBody, ModalFooter, ModalFooterActions} from '@twilio-paste/core/modal';
-import type {ModalProps} from '@twilio-paste/core/modal';
+import { Button } from '@twilio-paste/core/button';
+import { Paragraph } from '@twilio-paste/core/paragraph';
+import { useUID } from '@twilio-paste/core/uid-library';
+import { TextArea } from '@twilio-paste/core/textarea';
+import { generateThemeFromTokens } from '@twilio-paste/core/theme';
+import { Modal, ModalHeading, ModalHeader, ModalBody, ModalFooter, ModalFooterActions } from '@twilio-paste/core/modal';
+import type { ModalProps } from '@twilio-paste/core/modal';
 
-import {TokenContext} from '../../../context/TokenContext';
+import { TokenContext } from '../../../context/TokenContext';
 
 type ExportModalProps = {
   isOpen: ModalProps['isOpen'];
   onDismiss: ModalProps['onDismiss'];
 };
-const ExportModal: React.FC<React.PropsWithChildren<ExportModalProps>> = ({isOpen, onDismiss}) => {
-  const {tokens} = React.useContext(TokenContext);
+const ExportModal: React.FC<React.PropsWithChildren<ExportModalProps>> = ({ isOpen, onDismiss }) => {
+  const { tokens } = React.useContext(TokenContext);
   const modalHeadingID = useUID();
   const modalTextareaID = useUID();
 
@@ -62,4 +62,4 @@ const ExportModal: React.FC<React.PropsWithChildren<ExportModalProps>> = ({isOpe
   );
 };
 
-export {ExportModal};
+export { ExportModal };

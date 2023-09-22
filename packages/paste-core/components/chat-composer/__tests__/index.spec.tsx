@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {screen, render, waitFor, fireEvent} from '@testing-library/react';
+import { screen, render, waitFor, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
-import {Theme} from '@twilio-paste/theme';
+import { $getRoot, $createParagraphNode, $createTextNode } from '@twilio-paste/lexical-library';
+import { Theme } from '@twilio-paste/theme';
 
-import {ChatComposer} from '../src';
+import { ChatComposer } from '../src';
 
 const initialText = (): void => {
   const root = $getRoot();
@@ -40,7 +40,7 @@ describe('ChatComposer', () => {
         ariaOwns="foo"
         ariaActiveDescendant="foo"
         config={baseConfig}
-      />
+      />,
     );
 
     const contentEditable = screen.getByRole('textbox');
@@ -69,7 +69,7 @@ describe('ChatComposer', () => {
           ...baseConfig,
           editorState: initialText,
         }}
-      />
+      />,
     );
 
     const contentEditable = screen.getByRole('textbox');
@@ -82,7 +82,7 @@ describe('ChatComposer', () => {
     render(
       <Theme.Provider theme="default">
         <ChatComposer maxHeight="size10" config={baseConfig} />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const wrapper = screen.getByRole('textbox').parentElement;

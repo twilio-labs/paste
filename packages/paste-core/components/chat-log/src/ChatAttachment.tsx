@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {Box} from '@twilio-paste/box';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {Stack} from '@twilio-paste/stack';
+import type { BoxElementProps } from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
+import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import { Stack } from '@twilio-paste/stack';
 
-import {MessageVariantContext} from './MessageVariantContext';
+import { MessageVariantContext } from './MessageVariantContext';
 
 export interface ChatAttachmentProps {
   children: NonNullable<React.ReactNode>;
@@ -13,7 +13,7 @@ export interface ChatAttachmentProps {
 }
 
 const ChatAttachment = React.forwardRef<HTMLDivElement, ChatAttachmentProps>(
-  ({children, element = 'CHAT_ATTACHMENT', attachmentIcon, ...props}, ref) => {
+  ({ children, element = 'CHAT_ATTACHMENT', attachmentIcon, ...props }, ref) => {
     const variant = React.useContext(MessageVariantContext);
     return (
       <MediaObject {...props} as="div" ref={ref} verticalAlign="center" element={element}>
@@ -29,9 +29,9 @@ const ChatAttachment = React.forwardRef<HTMLDivElement, ChatAttachmentProps>(
         </MediaBody>
       </MediaObject>
     );
-  }
+  },
 );
 
 ChatAttachment.displayName = 'ChatAttachment';
 
-export {ChatAttachment};
+export { ChatAttachment };

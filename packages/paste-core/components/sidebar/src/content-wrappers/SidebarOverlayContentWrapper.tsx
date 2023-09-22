@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {useWindowSize} from '@twilio-paste/utils';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { useWindowSize } from '@twilio-paste/utils';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import type {Variants} from '../types';
+import type { Variants } from '../types';
 
 export interface SidebarOverlayContentWrapper extends HTMLPasteProps<'div'> {
   children: React.ReactNode;
@@ -14,8 +14,8 @@ export interface SidebarOverlayContentWrapper extends HTMLPasteProps<'div'> {
 }
 
 export const SidebarOverlayContentWrapper = React.forwardRef<HTMLDivElement, SidebarOverlayContentWrapper>(
-  ({variant = 'default', element = 'SIDEBAR_OVERLAY_CONTENT_WRAPPER', children, ...props}, ref) => {
-    const {breakpointIndex} = useWindowSize();
+  ({ variant = 'default', element = 'SIDEBAR_OVERLAY_CONTENT_WRAPPER', children, ...props }, ref) => {
+    const { breakpointIndex } = useWindowSize();
     const isMobile = breakpointIndex === 0;
 
     if (!isMobile && variant === 'compact') {
@@ -33,6 +33,6 @@ export const SidebarOverlayContentWrapper = React.forwardRef<HTMLDivElement, Sid
         {children}
       </Box>
     );
-  }
+  },
 );
 SidebarOverlayContentWrapper.displayName = 'SidebarOverlayContentWrapper';

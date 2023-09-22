@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {MinimizableDialogContext} from './MinimizableDialogContext';
+import { MinimizableDialogContext } from './MinimizableDialogContext';
 
 export interface MinimizableDialogContentProps extends HTMLPasteProps<'div'> {
   children?: React.ReactNode;
@@ -11,8 +11,8 @@ export interface MinimizableDialogContentProps extends HTMLPasteProps<'div'> {
 }
 
 const MinimizableDialogContent = React.forwardRef<HTMLDivElement, MinimizableDialogContentProps>(
-  ({children, element = 'MINIMIZABLE_DIALOG_CONTENT', ...props}, ref) => {
-    const {minimized} = React.useContext(MinimizableDialogContext);
+  ({ children, element = 'MINIMIZABLE_DIALOG_CONTENT', ...props }, ref) => {
+    const { minimized } = React.useContext(MinimizableDialogContext);
 
     return (
       <Box
@@ -26,8 +26,8 @@ const MinimizableDialogContent = React.forwardRef<HTMLDivElement, MinimizableDia
         {children}
       </Box>
     );
-  }
+  },
 );
 
 MinimizableDialogContent.displayName = 'MinimizableDialogContent';
-export {MinimizableDialogContent};
+export { MinimizableDialogContent };

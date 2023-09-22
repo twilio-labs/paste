@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {render, screen, waitFor} from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {Theme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Text} from '@twilio-paste/text';
+import { Theme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Text } from '@twilio-paste/text';
 
-import {PopoverTop, StateHookExample, BadgePopover, InitialFocus} from '../stories/index.stories';
-import {Popover, PopoverContainer, PopoverButton} from '../src';
+import { PopoverTop, StateHookExample, BadgePopover, InitialFocus } from '../stories/index.stories';
+import { Popover, PopoverContainer, PopoverButton } from '../src';
 
 describe('Popover', () => {
   describe('Render', () => {
@@ -14,7 +14,7 @@ describe('Popover', () => {
       render(
         <Theme.Provider theme="default">
           <PopoverTop />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       const renderedPopoverButton = screen.getByRole('button');
       const renderedPopover = screen.getByTestId('top-popover');
@@ -33,7 +33,7 @@ describe('Popover', () => {
       render(
         <Theme.Provider theme="default">
           <PopoverTop />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       const renderedPopover = screen.getByLabelText('Popover');
       expect(renderedPopover.getAttribute('role')).toEqual('dialog');
@@ -43,7 +43,7 @@ describe('Popover', () => {
       render(
         <Theme.Provider theme="default">
           <PopoverTop />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const renderedPopoverButton = screen.getByRole('button');
@@ -52,14 +52,14 @@ describe('Popover', () => {
         userEvent.click(renderedPopoverButton);
       });
 
-      expect(document.activeElement).toEqual(screen.getByRole('button', {name: 'Close popover'}));
+      expect(document.activeElement).toEqual(screen.getByRole('button', { name: 'Close popover' }));
     });
 
     it('should focus the initialFocusRef when the popver opens', async () => {
       render(
         <Theme.Provider theme="default">
           <InitialFocus />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const renderedPopoverButton = screen.getByRole('button');
@@ -68,14 +68,14 @@ describe('Popover', () => {
         userEvent.click(renderedPopoverButton);
       });
 
-      expect(document.activeElement).toEqual(screen.getByRole('button', {name: 'Click me'}));
+      expect(document.activeElement).toEqual(screen.getByRole('button', { name: 'Click me' }));
     });
 
     it('should render a popover and show/hide on external button click', async () => {
       render(
         <Theme.Provider theme="default">
           <StateHookExample />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const ButtonOne = screen.queryByTestId('show-button');
@@ -114,9 +114,9 @@ describe('Popover', () => {
       render(
         <Theme.Provider theme="default">
           <BadgePopover />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
-      const popoverButton = screen.getByRole('button', {name: 'Open popover'});
+      const popoverButton = screen.getByRole('button', { name: 'Open popover' });
       expect(popoverButton).toHaveAttribute('data-paste-element', 'POPOVER_BADGE');
     });
 
@@ -124,9 +124,9 @@ describe('Popover', () => {
       render(
         <Theme.Provider theme="default">
           <BadgePopover />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
-      const renderedPopoverButton = screen.getByRole('button', {name: 'Open popover'});
+      const renderedPopoverButton = screen.getByRole('button', { name: 'Open popover' });
       const renderedPopover = screen.getByTestId('badge-popover');
       expect(renderedPopoverButton.getAttribute('aria-haspopup')).toEqual('dialog');
       expect(renderedPopoverButton.getAttribute('aria-controls')).toEqual(renderedPopover.id);
@@ -168,7 +168,7 @@ describe('Popover', () => {
               <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
             </Popover>
           </PopoverContainer>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const popoverComp = screen.getByTestId('popover');
@@ -183,15 +183,15 @@ describe('Popover', () => {
       // applied style rules
       expect(popoverComp.querySelector('[data-paste-element="POPOVER"]')).toHaveStyleRule(
         'background-color',
-        'rgb(244, 244, 246)'
+        'rgb(244, 244, 246)',
       );
       expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_BUTTON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(18, 28, 45)'
+        'rgb(18, 28, 45)',
       );
       expect(popoverComp.querySelector('[data-paste-element="POPOVER_CLOSE_ICON"]')).toHaveStyleRule(
         'color',
-        'rgb(255, 255, 255)'
+        'rgb(255, 255, 255)',
       );
       expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6, 3, 58)');
     });
@@ -223,7 +223,7 @@ describe('Popover', () => {
               <Text as="span">This is the Twilio styled popover that you can use in all your applications.</Text>
             </Popover>
           </PopoverContainer>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const popoverComp = screen.getByTestId('popover');
@@ -231,15 +231,15 @@ describe('Popover', () => {
 
       expect(popoverComp.querySelector('[data-paste-element="MYPOPOVER"]')).toHaveStyleRule(
         'background-color',
-        'rgb(244, 244, 246)'
+        'rgb(244, 244, 246)',
       );
       expect(popoverComp.querySelector('[data-paste-element="MYPOPOVER_CLOSE_BUTTON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(18, 28, 45)'
+        'rgb(18, 28, 45)',
       );
       expect(popoverComp.querySelector('[data-paste-element="MYPOPOVER_CLOSE_ICON"]')).toHaveStyleRule(
         'color',
-        'rgb(255, 255, 255)'
+        'rgb(255, 255, 255)',
       );
 
       expect(popoverButton).toHaveStyleRule('background-color', 'rgb(6, 3, 58)');
@@ -254,7 +254,7 @@ describe('Popover', () => {
             <PopoverButton variant="primary">Open popover</PopoverButton>
             <Popover aria-label="Popover">Foo</Popover>
           </PopoverContainer>
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const popoverButton = screen.getByRole('button');
@@ -262,7 +262,7 @@ describe('Popover', () => {
         userEvent.click(popoverButton);
       });
 
-      const dismissButton = screen.getByRole('button', {name: 'Close popover'});
+      const dismissButton = screen.getByRole('button', { name: 'Close popover' });
       expect(dismissButton).toBeDefined();
     });
 
@@ -275,7 +275,7 @@ describe('Popover', () => {
               Foo
             </Popover>
           </PopoverContainer>
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const popoverButton = screen.getByRole('button');
@@ -283,7 +283,7 @@ describe('Popover', () => {
         userEvent.click(popoverButton);
       });
 
-      const dismissButton = screen.getByRole('button', {name: 'Cerrar popover'});
+      const dismissButton = screen.getByRole('button', { name: 'Cerrar popover' });
       expect(dismissButton).toBeDefined();
     });
   });

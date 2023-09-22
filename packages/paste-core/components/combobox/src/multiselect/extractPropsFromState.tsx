@@ -1,8 +1,8 @@
-import {useMultiSelectPrimitive} from '@twilio-paste/combobox-primitive';
-import type {UseMultiSelectPrimitiveReturnValue} from '@twilio-paste/combobox-primitive';
+import { useMultiSelectPrimitive } from '@twilio-paste/combobox-primitive';
+import type { UseMultiSelectPrimitiveReturnValue } from '@twilio-paste/combobox-primitive';
 import isEmpty from 'lodash/isEmpty';
 
-import type {Item, MultiselectComboboxProps} from '../types';
+import type { Item, MultiselectComboboxProps } from '../types';
 
 interface DefaultStateProps {
   initialSelectedItems: MultiselectComboboxProps['initialSelectedItems'];

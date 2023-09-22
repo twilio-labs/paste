@@ -141,7 +141,7 @@ suite('Extension Test Suite', () => {
           description: '0',
           label: 'borderRadius0',
         },
-        vscode.CompletionItemKind.Constant
+        vscode.CompletionItemKind.Constant,
       );
       assert.deepStrictEqual(result, expected);
     });

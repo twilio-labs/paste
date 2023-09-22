@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {styled} from '@twilio-paste/styling-library';
-import {Text} from '@twilio-paste/text';
-import {Button} from '@twilio-paste/button';
+import { styled } from '@twilio-paste/styling-library';
+import { Text } from '@twilio-paste/text';
+import { Button } from '@twilio-paste/button';
 
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '../src';
+import { ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent } from '../src';
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   position: 'fixed',
@@ -31,7 +31,7 @@ interface BasicModalDialogProps {
   handleClose: () => void;
 }
 
-const BasicModalDialog: React.FC<React.PropsWithChildren<BasicModalDialogProps>> = ({isOpen, handleClose}) => {
+const BasicModalDialog: React.FC<React.PropsWithChildren<BasicModalDialogProps>> = ({ isOpen, handleClose }) => {
   const inputRef: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
@@ -52,7 +52,7 @@ const BasicModalDialog: React.FC<React.PropsWithChildren<BasicModalDialogProps>>
 export default {
   title: 'Primitives/ModalDialog',
   component: ModalDialogPrimitiveOverlay,
-  subcomponents: {ModalDialogPrimitiveContent},
+  subcomponents: { ModalDialogPrimitiveContent },
 };
 
 export const CustomOverlayAndContent = (): React.ReactNode => {

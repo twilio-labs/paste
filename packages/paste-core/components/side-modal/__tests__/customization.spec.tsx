@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {fireEvent, act, render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Button} from '@twilio-paste/button';
+import { fireEvent, act, render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Button } from '@twilio-paste/button';
 
 import {
   SideModal,
@@ -14,7 +14,7 @@ import {
   SideModalFooterActions,
 } from '../src';
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -55,7 +55,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
   </CustomizationProvider>
 );
 
-const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -112,16 +112,16 @@ describe('Customization', () => {
             </SideModalFooterActions>
           </SideModalFooter>
         </SideModal>
-      </SideModalContainer>
+      </SideModalContainer>,
     );
 
-    const showButton = screen.getByRole('button', {name: 'Button'});
+    const showButton = screen.getByRole('button', { name: 'Button' });
     await act(async () => {
       fireEvent.click(showButton);
     });
 
-    const closeButton = screen.getByRole('button', {name: 'close', hidden: true});
-    const dialog = screen.getByRole('dialog', {hidden: true});
+    const closeButton = screen.getByRole('button', { name: 'close', hidden: true });
+    const dialog = screen.getByRole('dialog', { hidden: true });
     const dialogContents = screen.getByTestId('dialog-contents');
     const dialogHeader = screen.getByTestId('dialog-header');
     const dialogHeading = screen.getByText('My custom dialog');
@@ -156,14 +156,14 @@ describe('Customization', () => {
           </SideModalFooter>
         </SideModal>
       </SideModalContainer>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
-    const showButton = screen.getByRole('button', {name: 'Button'});
+    const showButton = screen.getByRole('button', { name: 'Button' });
     await act(async () => {
       fireEvent.click(showButton);
     });
-    const closeButton = screen.getByRole('button', {name: 'close'});
+    const closeButton = screen.getByRole('button', { name: 'close' });
     const closeIcon = closeButton.querySelector('[data-paste-element="SIDE_MODAL_HEADER_CLOSE_ICON"]');
     const dialog = screen.getByRole('dialog');
     const dialogContents = screen.getByTestId('dialog-contents');
@@ -179,7 +179,7 @@ describe('Customization', () => {
     expect(dialog).toHaveStyleRule('width', '400px');
     expect(dialog.querySelector('[data-paste-element="SIDE_MODAL"]')).toHaveStyleRule(
       'box-shadow',
-      '0 0 0 4px rgba(2, 99, 224, 0.7)'
+      '0 0 0 4px rgba(2, 99, 224, 0.7)',
     );
     expect(closeButton).toHaveStyleRule('border-color', 'rgb(202, 205, 216)');
     expect(closeIcon).toHaveStyleRule('width', '1.75rem');
@@ -206,16 +206,16 @@ describe('Customization', () => {
             </SideModalFooterActions>
           </SideModalFooter>
         </SideModal>
-      </SideModalContainer>
+      </SideModalContainer>,
     );
 
-    const showButton = screen.getByRole('button', {name: 'Button'});
+    const showButton = screen.getByRole('button', { name: 'Button' });
     await act(async () => {
       fireEvent.click(showButton);
     });
 
-    const closeButton = screen.getByRole('button', {name: 'close', hidden: true});
-    const dialog = screen.getByRole('dialog', {hidden: true});
+    const closeButton = screen.getByRole('button', { name: 'close', hidden: true });
+    const dialog = screen.getByRole('dialog', { hidden: true });
     const dialogContents = screen.getByTestId('dialog-contents');
     const dialogHeader = screen.getByTestId('dialog-header');
     const dialogHeading = screen.getByText('My custom dialog');
@@ -254,16 +254,16 @@ describe('Customization', () => {
           </SideModalFooter>
         </SideModal>
       </SideModalContainer>,
-      {wrapper: MyCustomizationWrapper}
+      { wrapper: MyCustomizationWrapper },
     );
 
-    const dialogButton = screen.getByRole('button', {name: 'Button'});
+    const dialogButton = screen.getByRole('button', { name: 'Button' });
 
     await act(async () => {
       fireEvent.click(dialogButton);
     });
 
-    const closeButton = screen.getByRole('button', {name: 'close'});
+    const closeButton = screen.getByRole('button', { name: 'close' });
     const closeIcon = closeButton.querySelector('[data-paste-element="FOO_DIALOG_HEADER_CLOSE_ICON"]');
     const dialog = screen.getByRole('dialog');
     const dialogContents = screen.getByTestId('dialog-contents');
@@ -279,7 +279,7 @@ describe('Customization', () => {
     expect(dialog).toHaveStyleRule('width', '400px');
     expect(dialog.querySelector('[data-paste-element="FOO_DIALOG"]')).toHaveStyleRule(
       'box-shadow',
-      '0 0 0 4px rgba(2, 99, 224, 0.7)'
+      '0 0 0 4px rgba(2, 99, 224, 0.7)',
     );
     expect(closeButton).toHaveStyleRule('border-color', 'rgb(202, 205, 216)');
     expect(closeIcon).toHaveStyleRule('width', '1.75rem');

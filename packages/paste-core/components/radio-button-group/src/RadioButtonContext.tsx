@@ -19,4 +19,4 @@ const RadioButtonContext = React.createContext<RadioButtonContextValue>({
   attached: false,
 });
 
-export {RadioButtonContext};
+export { RadioButtonContext };

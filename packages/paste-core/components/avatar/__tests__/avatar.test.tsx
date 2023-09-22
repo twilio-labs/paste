@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
+import { Box } from '@twilio-paste/box';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Avatar} from '../src';
+import { Avatar } from '../src';
 import {
   getCorrespondingLineHeightFromSizeToken,
   getCorrespondingFontSizeFromSizeToken,
@@ -143,7 +143,7 @@ describe('Avatar', () => {
           size={['sizeIcon30', 'sizeIcon40', 'sizeIcon90']}
           name="avatar example"
           src="/avatars/avatar2.png"
-        />
+        />,
       );
       const renderedAvatar = screen.getByTestId('avatar');
       expect(renderedAvatar).toHaveStyleRule('width', 'sizeIcon30');
@@ -163,7 +163,7 @@ describe('Avatar', () => {
           name="avatar example"
           icon={UserIcon}
           src="/avatars/avatar2.png"
-        />
+        />,
       );
 
       expect(screen.getByRole('img').getAttribute('src')).toEqual('/avatars/avatar2.png');
@@ -221,18 +221,21 @@ describe('Avatar', () => {
 
     it('should add custom styles to Avatar', () => {
       render(
-        <CustomizationProvider baseTheme="default" elements={{AVATAR: {backgroundColor: 'colorBackgroundAvailable'}}}>
+        <CustomizationProvider
+          baseTheme="default"
+          elements={{ AVATAR: { backgroundColor: 'colorBackgroundAvailable' } }}
+        >
           <Avatar data-testid="avatar" size="sizeIcon20" name="avatar example" />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedAvatar = screen.getByTestId('avatar');
       expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');
     });
     it('should add custom styles to custom element Avatar', () => {
       render(
-        <CustomizationProvider baseTheme="default" elements={{FOO: {backgroundColor: 'colorBackgroundAvailable'}}}>
+        <CustomizationProvider baseTheme="default" elements={{ FOO: { backgroundColor: 'colorBackgroundAvailable' } }}>
           <Avatar data-testid="avatar" element="FOO" size="sizeIcon20" name="avatar example" />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedAvatar = screen.getByTestId('avatar');
       expect(renderedAvatar).toHaveStyleRule('background-color', 'rgb(20, 176, 83)');

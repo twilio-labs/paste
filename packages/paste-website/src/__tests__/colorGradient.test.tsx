@@ -1,4 +1,4 @@
-import {sortAliasNames, filterAliasNames, getAliasValuesFromPrefix} from '../components/color-swatch/ColorGradient';
+import { sortAliasNames, filterAliasNames, getAliasValuesFromPrefix } from '../components/color-swatch/ColorGradient';
 
 const sampleAliases = ['palette-gray-80', 'palette-gray-100', 'palette-gray-20', 'palette-gray-60'];
 const sortedAliases = ['palette-gray-100', 'palette-gray-80', 'palette-gray-60', 'palette-gray-20'];

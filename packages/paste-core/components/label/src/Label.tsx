@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import type {TextColor} from '@twilio-paste/style-props';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import type { TextColor } from '@twilio-paste/style-props';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {RequiredDot} from './RequiredDot';
+import { RequiredDot } from './RequiredDot';
 
 export type LabelVariants = 'default' | 'inverse';
 type LabelBaseProps = Pick<BoxProps, 'element'> & {
@@ -53,7 +53,7 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
       i18nRequiredLabel = '',
       ...props
     },
-    ref
+    ref,
   ) => {
     let textColor = 'colorText' as TextColor;
     if (disabled && variant === 'inverse') {
@@ -103,9 +103,9 @@ const Label = React.forwardRef<HTMLLabelElement, LabelProps>(
         </MediaObject>
       </Box>
     );
-  }
+  },
 );
 
 Label.displayName = 'Label';
 
-export {Label};
+export { Label };

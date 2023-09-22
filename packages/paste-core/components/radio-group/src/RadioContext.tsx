@@ -17,4 +17,4 @@ const RadioContext = React.createContext<RadioContextValue>({
   onChange: () => {},
 });
 
-export {RadioContext};
+export { RadioContext };

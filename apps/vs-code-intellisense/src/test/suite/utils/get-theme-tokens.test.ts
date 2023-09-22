@@ -1,6 +1,6 @@
 import assert from 'assert';
 
-import {getThemeTokens} from '../../../utils';
+import { getThemeTokens } from '../../../utils';
 import {
   darkThemeTokens,
   defaultThemeTokens,
@@ -9,7 +9,7 @@ import {
   twilioDarkThemeTokens,
   twilioThemeTokens,
 } from '../../../tokens';
-import {Theme} from '../../../types';
+import { Theme } from '../../../types';
 
 suite('getThemeTokens', () => {
   ['Default', 'default', undefined, null, 'foo'].forEach((theme) => {

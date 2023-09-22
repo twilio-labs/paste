@@ -1,4 +1,4 @@
-const {getMinimalPackageList} = require('../getMinimalPackageList');
+const { getMinimalPackageList } = require('../getMinimalPackageList');
 
 const tokenPackageMap = {
   colorBackgroundPrimaryLightest: ['@twilio-paste/pagination'],

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Image from 'next/image';
-import {css} from '@twilio-paste/styling-library';
-import {useTheme} from '@twilio-paste/theme';
+import { css } from '@twilio-paste/styling-library';
+import { useTheme } from '@twilio-paste/theme';
 
 import Chrome from '../../assets/images/time-picker/chrome.png';
 import Safari from '../../assets/images/time-picker/safari.png';

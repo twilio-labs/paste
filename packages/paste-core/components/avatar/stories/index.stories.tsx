@@ -1,20 +1,20 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Stack} from '@twilio-paste/stack';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
-import {BusinessIcon} from '@twilio-paste/icons/esm/BusinessIcon';
-import {useTheme} from '@twilio-paste/theme';
+import type { StoryFn } from '@storybook/react';
+import { Stack } from '@twilio-paste/stack';
+import { Box } from '@twilio-paste/box';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { UserIcon } from '@twilio-paste/icons/esm/UserIcon';
+import { BusinessIcon } from '@twilio-paste/icons/esm/BusinessIcon';
+import { useTheme } from '@twilio-paste/theme';
 
-import {Avatar, AvatarGroup} from '../src';
+import { Avatar, AvatarGroup } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Avatar',
   component: Avatar,
   // Sets the diffThreshold for all stories
-  chromatic: {diffThreshold: 0.3},
+  chromatic: { diffThreshold: 0.3 },
 };
 
 export const Initials = (): React.ReactNode => {
@@ -84,7 +84,7 @@ export const Image = (): React.ReactNode => {
 };
 
 Image.parameters = {
-  chromatic: {delay: 3000},
+  chromatic: { delay: 3000 },
 };
 
 export const Icon = (): React.ReactNode => {
@@ -398,10 +398,10 @@ export const ResponsiveIcon = (): React.ReactNode => {
 };
 
 ResponsiveImage.parameters = {
-  chromatic: {delay: 3000},
+  chromatic: { delay: 3000 },
 };
 
-export const CustomAvatar: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomAvatar: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <>

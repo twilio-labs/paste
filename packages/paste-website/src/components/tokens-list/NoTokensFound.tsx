@@ -1,12 +1,12 @@
 import * as React from 'react';
 import Image from 'next/image';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Heading} from '@twilio-paste/heading';
-import {Card} from '@twilio-paste/card';
-import {Button} from '@twilio-paste/button';
-import {Text} from '@twilio-paste/text';
-import {Anchor} from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { Heading } from '@twilio-paste/heading';
+import { Card } from '@twilio-paste/card';
+import { Button } from '@twilio-paste/button';
+import { Text } from '@twilio-paste/text';
+import { Anchor } from '@twilio-paste/anchor';
 
 import NotFound from '../../assets/images/not-found.svg';
 
@@ -14,7 +14,7 @@ interface NoTokensFoundProps {
   onClearSearch: () => void;
 }
 
-export const NoTokensFound: React.FC<React.PropsWithChildren<NoTokensFoundProps>> = ({onClearSearch}) => (
+export const NoTokensFound: React.FC<React.PropsWithChildren<NoTokensFoundProps>> = ({ onClearSearch }) => (
   <Card data-cy="tokens-empty-state" padding="space150">
     <Box display="flex" columnGap="space110">
       <Box flexShrink={0} size="size20" position="relative">

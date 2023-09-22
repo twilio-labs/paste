@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ElasticSIPTrunkingCapableIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ElasticSIPTrunkingCapableIconProps extends IconWrapperProps {
 }
 
 const ElasticSIPTrunkingCapableIcon = React.forwardRef<HTMLElement, ElasticSIPTrunkingCapableIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ElasticSIPTrunkingCapableIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -40,8 +40,8 @@ const ElasticSIPTrunkingCapableIcon = React.forwardRef<HTMLElement, ElasticSIPTr
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ElasticSIPTrunkingCapableIcon.displayName = 'ElasticSIPTrunkingCapableIcon';
-export {ElasticSIPTrunkingCapableIcon};
+export { ElasticSIPTrunkingCapableIcon };

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {TextColor} from '@twilio-paste/style-props';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
+import type { HTMLPasteProps, ValueOf } from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { TextColor } from '@twilio-paste/style-props';
+import { ErrorIcon } from '@twilio-paste/icons/esm/ErrorIcon';
+import { SuccessIcon } from '@twilio-paste/icons/esm/SuccessIcon';
+import { WarningIcon } from '@twilio-paste/icons/esm/WarningIcon';
 
 export const HelpTextVariants = {
   DEFAULT: 'default',
@@ -74,8 +74,8 @@ const VariantOptions: VariantOptionsProps = {
 };
 
 const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(
-  ({marginTop, children, variant = 'default', element = 'HELP_TEXT', ...props}, ref) => {
-    const {textColor, icon} = VariantOptions[variant];
+  ({ marginTop, children, variant = 'default', element = 'HELP_TEXT', ...props }, ref) => {
+    const { textColor, icon } = VariantOptions[variant];
 
     return (
       <Box
@@ -95,9 +95,9 @@ const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(
         <span>{children}</span>
       </Box>
     );
-  }
+  },
 );
 
 HelpText.displayName = 'HelpText';
 
-export {HelpText};
+export { HelpText };

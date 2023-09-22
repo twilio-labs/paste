@@ -1,20 +1,20 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
-import {Anchor} from '@twilio-paste/anchor';
-import {Button} from '@twilio-paste/button';
-import {Truncate} from '@twilio-paste/truncate';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/media-object';
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from '@twilio-paste/menu';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
+import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
+import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
+import { Text } from '@twilio-paste/text';
+import { Heading } from '@twilio-paste/heading';
+import { Anchor } from '@twilio-paste/anchor';
+import { Button } from '@twilio-paste/button';
+import { Truncate } from '@twilio-paste/truncate';
 
-import {Table, THead, TBody, TFoot, Tr, Td, Th} from '../src';
+import { Table, THead, TBody, TFoot, Tr, Td, Th } from '../src';
 
 const MoreMenu = (): JSX.Element => {
   const menu = useMenuState();
@@ -46,7 +46,7 @@ const MoreMenu = (): JSX.Element => {
 export default {
   title: 'Components/Table',
   component: Table,
-  subcomponents: {THead, TBody, TFoot, Tr, Td, Th},
+  subcomponents: { THead, TBody, TFoot, Tr, Td, Th },
 };
 
 export const DefaultTable = (): React.ReactNode => {
@@ -1435,7 +1435,7 @@ export const Layouts = (): React.ReactNode => {
   );
 };
 
-export const CustomTable: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomTable: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (
@@ -1443,14 +1443,14 @@ export const CustomTable: StoryFn = (_args, {parameters: {isTestEnvironment}}) =
       disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        TABLE: {fontFamily: 'fontFamilyCode'},
-        TH_HEAD_LARGE: {fontSize: 'fontSize50'},
-        TH: {fontWeight: 'fontWeightBold'},
-        TH_BODY: {fontWeight: 'fontWeightMedium'},
-        TH_FOOTER: {textDecoration: 'underline'},
-        TR_DESTRUCTIVE: {color: 'colorTextLinkDestructive', fontWeight: 'fontWeightBold'},
-        TR_NEUTRAL: {color: 'colorTextNeutral', fontFamily: 'fontFamilyText'},
-        TR: {color: 'colorTextWeak'},
+        TABLE: { fontFamily: 'fontFamilyCode' },
+        TH_HEAD_LARGE: { fontSize: 'fontSize50' },
+        TH: { fontWeight: 'fontWeightBold' },
+        TH_BODY: { fontWeight: 'fontWeightMedium' },
+        TH_FOOTER: { textDecoration: 'underline' },
+        TR_DESTRUCTIVE: { color: 'colorTextLinkDestructive', fontWeight: 'fontWeightBold' },
+        TR_NEUTRAL: { color: 'colorTextNeutral', fontFamily: 'fontFamilyText' },
+        TR: { color: 'colorTextWeak' },
         TD_FOOT_HIGHLIGHT: {
           backgroundColor: 'colorBackgroundSuccessWeakest',
           fontWeight: 'fontWeightSemibold',

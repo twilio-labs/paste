@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
-import type {AnchorProps} from '@twilio-paste/anchor';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {Truncate} from '@twilio-paste/truncate';
+import { Anchor } from '@twilio-paste/anchor';
+import type { AnchorProps } from '@twilio-paste/anchor';
+import type { BoxElementProps } from '@twilio-paste/box';
+import { Truncate } from '@twilio-paste/truncate';
 
-import {MessageVariantContext} from './MessageVariantContext';
+import { MessageVariantContext } from './MessageVariantContext';
 
 export interface ChatAttachmentLinkProps extends AnchorProps {
   children: string;
@@ -12,7 +12,7 @@ export interface ChatAttachmentLinkProps extends AnchorProps {
 }
 
 const ChatAttachmentLink = React.forwardRef<HTMLAnchorElement, ChatAttachmentLinkProps>(
-  ({children, href, element = 'CHAT_ATTACHMENT_LINK', ...props}, ref) => {
+  ({ children, href, element = 'CHAT_ATTACHMENT_LINK', ...props }, ref) => {
     const variant = React.useContext(MessageVariantContext);
     return (
       <Anchor
@@ -25,9 +25,9 @@ const ChatAttachmentLink = React.forwardRef<HTMLAnchorElement, ChatAttachmentLin
         <Truncate title={children}>{children}</Truncate>
       </Anchor>
     );
-  }
+  },
 );
 
 ChatAttachmentLink.displayName = 'ChatAttachmentLink';
 
-export {ChatAttachmentLink};
+export { ChatAttachmentLink };

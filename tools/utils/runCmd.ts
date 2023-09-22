@@ -1,5 +1,5 @@
 import spawnAsync from '@expo/spawn-async';
-import type {SpawnResult} from '@expo/spawn-async';
+import type { SpawnResult } from '@expo/spawn-async';
 import chalk from 'chalk';
 
 /**

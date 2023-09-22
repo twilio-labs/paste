@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import {ProductMessagingIcon} from '@twilio-paste/icons/esm/ProductMessagingIcon';
-import {ProductVideoIcon} from '@twilio-paste/icons/esm/ProductVideoIcon';
-import {ProductLookupIcon} from '@twilio-paste/icons/esm/ProductLookupIcon';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+import { Button } from '@twilio-paste/button';
+import { Box } from '@twilio-paste/box';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { ProductMessagingIcon } from '@twilio-paste/icons/esm/ProductMessagingIcon';
+import { ProductVideoIcon } from '@twilio-paste/icons/esm/ProductVideoIcon';
+import { ProductLookupIcon } from '@twilio-paste/icons/esm/ProductLookupIcon';
+import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
+import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import {useUID} from '@twilio-paste/uid-library';
-import {Topbar, TopbarActions} from '@twilio-paste/topbar';
-import {Menu, MenuButton, MenuItem, useMenuState} from '@twilio-paste/menu';
+import { useUID } from '@twilio-paste/uid-library';
+import { Topbar, TopbarActions } from '@twilio-paste/topbar';
+import { Menu, MenuButton, MenuItem, useMenuState } from '@twilio-paste/menu';
 
 import {
   Sidebar,
@@ -30,19 +30,19 @@ import {
   SidebarNavigationSeparator,
   SidebarBetaBadge,
 } from '../../../src';
-import {AccountSwitcherMenu} from './AccountSwitcher';
-import {TrialBadge} from './TrialBadge';
-import {SearchBox} from './SearchBox';
-import {SupportMenu} from './SupportMenu';
-import {AppSwitcher} from './AppSwitcher';
-import {UserDialogExample} from './UserDialogConsole';
-import {AccountMenu} from './AccountMenu';
-import {BillingMenu} from './BillingMenu';
+import { AccountSwitcherMenu } from './AccountSwitcher';
+import { TrialBadge } from './TrialBadge';
+import { SearchBox } from './SearchBox';
+import { SupportMenu } from './SupportMenu';
+import { AppSwitcher } from './AppSwitcher';
+import { UserDialogExample } from './UserDialogConsole';
+import { AccountMenu } from './AccountMenu';
+import { BillingMenu } from './BillingMenu';
 
 const onClick = (): void => {};
 
 /* eslint-disable react/jsx-max-depth */
-export const Console: React.FC<React.PropsWithChildren<{collapsed: boolean; setCollapsed: (collapsed) => void}>> = ({
+export const Console: React.FC<React.PropsWithChildren<{ collapsed: boolean; setCollapsed: (collapsed) => void }>> = ({
   collapsed,
   setCollapsed,
 }) => {

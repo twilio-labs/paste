@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
+import { useUID } from '@twilio-paste/uid-library';
+import { Anchor } from '@twilio-paste/anchor';
 
-import {Radio, RadioGroup} from '../src';
+import { Radio, RadioGroup } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Components/Radio/Radio (Controlled)',
   component: Radio,
-  subcomponents: {RadioGroup},
+  subcomponents: { RadioGroup },
 };
 
 /**
@@ -60,7 +60,7 @@ export const RadioUnchecked = (): React.ReactNode => {
 
 RadioUnchecked.storyName = 'Radio - No initial checked';
 RadioUnchecked.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
@@ -112,5 +112,5 @@ export const RadioChecked = (): React.ReactNode => {
 
 RadioChecked.storyName = 'Radio - initial checked';
 RadioChecked.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };

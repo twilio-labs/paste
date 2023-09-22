@@ -1,20 +1,20 @@
 import * as React from 'react';
-import {render, fireEvent, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
+import { render, fireEvent, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
 
-import {Switch, SwitchGroup} from '../src';
+import { Switch, SwitchGroup } from '../src';
 
-const getCustomizationStyles = (element = 'SWITCH'): {[key: string]: PasteCustomCSS} => ({
-  [`${element}_GROUP`]: {padding: 'space60'},
-  [`${element}_GROUP_SET`]: {marginLeft: 'space60'},
-  [`${element}_GROUP_FIELD`]: {marginBottom: 'space60'},
-  [`${element}_GROUP_ERROR_TEXT_WRAPPER`]: {marginBottom: 'space60'},
-  [`${element}`]: {padding: 'space30'},
-  [`${element}_CONTROL`]: {borderRadius: 'borderRadius20'},
-  [`${element}_ICON`]: {color: 'colorTextIconNeutral'},
-  [`${element}_LABEL_TEXT`]: {color: 'colorTextNeutral'},
-  [`${element}_HELP_TEXT_WRAPPER`]: {marginBottom: 'space60'},
+const getCustomizationStyles = (element = 'SWITCH'): { [key: string]: PasteCustomCSS } => ({
+  [`${element}_GROUP`]: { padding: 'space60' },
+  [`${element}_GROUP_SET`]: { marginLeft: 'space60' },
+  [`${element}_GROUP_FIELD`]: { marginBottom: 'space60' },
+  [`${element}_GROUP_ERROR_TEXT_WRAPPER`]: { marginBottom: 'space60' },
+  [`${element}`]: { padding: 'space30' },
+  [`${element}_CONTROL`]: { borderRadius: 'borderRadius20' },
+  [`${element}_ICON`]: { color: 'colorTextIconNeutral' },
+  [`${element}_LABEL_TEXT`]: { color: 'colorTextNeutral' },
+  [`${element}_HELP_TEXT_WRAPPER`]: { marginBottom: 'space60' },
 });
 
 const NOOP = (): void => {};
@@ -33,7 +33,7 @@ const defaultGroupProps = {
 
 describe('Switch', () => {
   it('should render on and off correctly', () => {
-    const {container} = render(<Switch {...defaultProps}>foo</Switch>);
+    const { container } = render(<Switch {...defaultProps}>foo</Switch>);
     const switchElement = screen.getByRole('switch');
     expect(switchElement).not.toBeNull();
     expect(switchElement.id).toBeDefined();
@@ -45,10 +45,10 @@ describe('Switch', () => {
   });
 
   it('should render as invalid', () => {
-    const {getByRole} = render(
+    const { getByRole } = render(
       <Switch {...defaultProps} hasError>
         foo
-      </Switch>
+      </Switch>,
     );
     expect(getByRole('switch').getAttribute('aria-invalid')).toBeTruthy();
   });
@@ -57,17 +57,17 @@ describe('Switch', () => {
     render(
       <Switch {...defaultProps} id="my-id" onChange={NOOP}>
         foo
-      </Switch>
+      </Switch>,
     );
     const switchElement = screen.getByRole('switch');
     expect(switchElement.id).toBe('my-id');
   });
 
   it('should render as checked when defaultChecked', () => {
-    const {getByLabelText, container} = render(
+    const { getByLabelText, container } = render(
       <Switch {...defaultProps} defaultChecked onChange={NOOP}>
         foo
-      </Switch>
+      </Switch>,
     );
     expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
 
@@ -76,10 +76,10 @@ describe('Switch', () => {
   });
 
   it('should render as checked when controlled', () => {
-    const {getByLabelText, container} = render(
+    const { getByLabelText, container } = render(
       <Switch {...defaultProps} checked onChange={NOOP}>
         foo
-      </Switch>
+      </Switch>,
     );
     expect((getByLabelText('foo') as HTMLInputElement).checked).toBeTruthy();
 
@@ -91,7 +91,7 @@ describe('Switch', () => {
     render(
       <Switch {...defaultProps} required onChange={NOOP}>
         foo
-      </Switch>
+      </Switch>,
     );
     const label = screen.getByText('foo');
     const requiredDot = label.querySelector('[data-paste-element="REQUIRED_DOT"]');
@@ -100,29 +100,29 @@ describe('Switch', () => {
   });
 
   it('should render as disabled', () => {
-    const {getByLabelText} = render(
+    const { getByLabelText } = render(
       <Switch {...defaultProps} disabled>
         foo
-      </Switch>
+      </Switch>,
     );
     expect((getByLabelText('foo') as HTMLInputElement).disabled).toBeTruthy();
   });
 
   it('should render an id', () => {
-    const {getByLabelText} = render(<Switch {...defaultProps}>foo</Switch>);
+    const { getByLabelText } = render(<Switch {...defaultProps}>foo</Switch>);
     expect(getByLabelText('foo').id).toBe('foo');
   });
 
   it('should render a name', () => {
-    const {getByLabelText} = render(<Switch {...defaultProps}>foo</Switch>);
+    const { getByLabelText } = render(<Switch {...defaultProps}>foo</Switch>);
     expect((getByLabelText('foo') as HTMLInputElement).name).toBe('foo');
   });
 
   it('should render aria attributes', () => {
-    const {getByLabelText} = render(
+    const { getByLabelText } = render(
       <Switch {...defaultProps} aria-label="foo" aria-labelledby="bar" aria-busy="true">
         foo
-      </Switch>
+      </Switch>,
     );
     expect(getByLabelText('foo').getAttribute('aria-label')).toBe('foo');
     expect(getByLabelText('foo').getAttribute('aria-labelledby')).toBe('bar');
@@ -131,10 +131,10 @@ describe('Switch', () => {
 
   it('renders a helpText message when helpText prop is present', () => {
     const helpText = 'I am a helpText message';
-    const {getByText} = render(
+    const { getByText } = render(
       <Switch {...defaultProps} helpText={helpText}>
         foo
-      </Switch>
+      </Switch>,
     );
     expect(getByText(helpText)).toBeDefined();
   });
@@ -142,10 +142,10 @@ describe('Switch', () => {
 
 describe('Switch Group', () => {
   it('should render a fieldset and legend', () => {
-    const {container} = render(
+    const { container } = render(
       <SwitchGroup {...defaultGroupProps}>
         <Switch {...defaultProps}>foo</Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
     expect(container.querySelector('fieldset')).not.toBeNull();
     expect(screen.getByText('This is a group legend')).not.toBeNull();
@@ -155,7 +155,7 @@ describe('Switch Group', () => {
     render(
       <SwitchGroup {...defaultGroupProps} required>
         <Switch {...defaultProps}>foo</Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
 
     const fieldset = screen.getByRole('group');
@@ -165,41 +165,41 @@ describe('Switch Group', () => {
   });
 
   it('should render a name', () => {
-    const {getByRole} = render(
+    const { getByRole } = render(
       <SwitchGroup {...defaultGroupProps}>
         <Switch {...defaultProps}>foo</Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
     expect((getByRole('switch') as HTMLInputElement).name).toBe(defaultProps.name);
   });
 
   it('should render a disabled switch in the switch group', () => {
-    const {getByRole} = render(
+    const { getByRole } = render(
       <SwitchGroup {...defaultGroupProps}>
         <Switch {...defaultProps} disabled>
           foo
         </Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
     expect((getByRole('switch') as HTMLInputElement).disabled).toBeTruthy();
   });
 
   it('renders a helpText message when helpText prop is present', () => {
     const helpText = 'I am a helpText message';
-    const {getByText} = render(
+    const { getByText } = render(
       <SwitchGroup {...defaultGroupProps} helpText={helpText}>
         <Switch {...defaultProps}>foo</Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
     expect(getByText(helpText)).toBeDefined();
   });
 
   it('renders an errorText message when errorText prop is present', () => {
     const errorText = 'I am an errorText message';
-    const {getByText} = render(
+    const { getByText } = render(
       <SwitchGroup {...defaultGroupProps} errorText={errorText}>
         <Switch {...defaultProps}>foo</Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
     expect(getByText(errorText)).toBeDefined();
   });
@@ -211,7 +211,7 @@ describe('Switch event handlers', () => {
     const onFocusMock: jest.Mock = jest.fn();
     const onBlurMock: jest.Mock = jest.fn();
 
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <Switch
         data-testid="switch-button"
         id="foo"
@@ -222,7 +222,7 @@ describe('Switch event handlers', () => {
         onBlur={onBlurMock}
       >
         foo
-      </Switch>
+      </Switch>,
     );
 
     fireEvent.click(getByTestId('switch-button'));
@@ -236,10 +236,10 @@ describe('Switch event handlers', () => {
   it('Should not call onChange handler when uncontrolled', () => {
     const onChangeMock: jest.Mock = jest.fn();
 
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <Switch data-testid="switch-button" id="foo" name="foo" onChange={onChangeMock}>
         foo
-      </Switch>
+      </Switch>,
     );
 
     fireEvent.click(getByTestId('switch-button'));
@@ -292,12 +292,12 @@ describe('Switch event handlers', () => {
 
 describe('Customization', () => {
   it('Should set an element data attribute for Switch', (): void => {
-    const {container} = render(
+    const { container } = render(
       <SwitchGroup data-testid="switch-group" {...defaultGroupProps} errorText="error">
         <Switch {...defaultProps} helpText="bar">
           foo
         </Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
 
     expect(screen.getByTestId('switch-group')).toHaveAttribute('data-paste-element', 'SWITCH_GROUP');
@@ -311,12 +311,12 @@ describe('Customization', () => {
     expect(container.querySelector('[data-paste-element="SWITCH_HELP_TEXT_WRAPPER"]')).toBeInTheDocument();
   });
   it('Should set a custom element data attribute on Switch', (): void => {
-    const {container} = render(
+    const { container } = render(
       <SwitchGroup element="MY_SWITCH_GROUP" data-testid="switch-group" {...defaultGroupProps} errorText="error">
         <Switch element="SPECIAL_SWITCH" {...defaultProps} helpText="bar">
           foo
         </Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
 
     expect(screen.getByTestId('switch-group')).toHaveAttribute('data-paste-element', 'MY_SWITCH_GROUP');
@@ -331,77 +331,77 @@ describe('Customization', () => {
   });
 
   it('should add custom styling to default Switch', (): void => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles()}>
         <SwitchGroup data-testid="switch-group" {...defaultGroupProps} errorText="error">
           <Switch {...defaultProps} helpText="bar">
             foo
           </Switch>
         </SwitchGroup>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('switch-group')).toHaveStyleRule('padding', '1.25rem');
     expect(container.querySelector('[data-paste-element="SWITCH_GROUP_SET"]')).toHaveStyleRule(
       'margin-left',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="SWITCH_GROUP_FIELD"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="SWITCH_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="SWITCH"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="SWITCH_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
     expect(container.querySelector('[data-paste-element="SWITCH_ICON"]')).toHaveStyleRule('color', 'rgb(0, 20, 137)');
     expect(container.querySelector('[data-paste-element="SWITCH_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0, 20, 137)'
+      'rgb(0, 20, 137)',
     );
     expect(container.querySelector('[data-paste-element="SWITCH_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
   });
 
   it('should add custom styling to a custom named Switch', (): void => {
-    const {container} = render(
+    const { container } = render(
       <CustomizationProvider theme={TestTheme} elements={getCustomizationStyles('MY_SWITCH')}>
         <SwitchGroup element="MY_SWITCH_GROUP" data-testid="switch-group" {...defaultGroupProps} errorText="error">
           <Switch element="MY_SWITCH" {...defaultProps} helpText="bar">
             foo
           </Switch>
         </SwitchGroup>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(screen.getByTestId('switch-group')).toHaveStyleRule('padding', '1.25rem');
     expect(container.querySelector('[data-paste-element="MY_SWITCH_GROUP_SET"]')).toHaveStyleRule(
       'margin-left',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="MY_SWITCH_GROUP_FIELD"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="MY_SWITCH_GROUP_ERROR_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
     expect(container.querySelector('[data-paste-element="MY_SWITCH"]')).toHaveStyleRule('padding', '0.5rem');
     expect(container.querySelector('[data-paste-element="MY_SWITCH_CONTROL"]')).toHaveStyleRule('border-radius', '4px');
     expect(container.querySelector('[data-paste-element="MY_SWITCH_ICON"]')).toHaveStyleRule(
       'color',
-      'rgb(0, 20, 137)'
+      'rgb(0, 20, 137)',
     );
     expect(container.querySelector('[data-paste-element="MY_SWITCH_LABEL_TEXT"]')).toHaveStyleRule(
       'color',
-      'rgb(0, 20, 137)'
+      'rgb(0, 20, 137)',
     );
     expect(container.querySelector('[data-paste-element="MY_SWITCH_HELP_TEXT_WRAPPER"]')).toHaveStyleRule(
       'margin-bottom',
-      '1.25rem'
+      '1.25rem',
     );
   });
 });
@@ -411,7 +411,7 @@ describe('i18n', () => {
     render(
       <SwitchGroup {...defaultGroupProps} required>
         <Switch {...defaultProps}>foo</Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
 
     const fieldset = screen.getByRole('group');
@@ -424,7 +424,7 @@ describe('i18n', () => {
     render(
       <SwitchGroup {...defaultGroupProps} required i18nRequiredLabel="(requis)">
         <Switch {...defaultProps}>foo</Switch>
-      </SwitchGroup>
+      </SwitchGroup>,
     );
 
     const fieldset = screen.getByRole('group');

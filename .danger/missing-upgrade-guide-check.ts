@@ -1,8 +1,8 @@
 import * as fs from 'fs';
-import {getChangesetsFromFiles} from './utils';
+import { getChangesetsFromFiles } from './utils';
 // you kind of have to treat Danger plugins as global?
 // https://danger.systems/js/usage/extending-danger.html#writing-your-plugin
-import {DangerDSLType} from 'danger/distribution/dsl/DangerDSL';
+import { DangerDSLType } from 'danger/distribution/dsl/DangerDSL';
 declare const danger: DangerDSLType;
 export declare function fail(message: string): void;
 

@@ -2,7 +2,7 @@
 // @ts-nocheck copied from official highcharts docs
 import Highcharts from 'highcharts';
 
-import {usdEurData} from '../data/usdEurData';
+import { usdEurData } from '../data/usdEurData';
 
 export const timeSeriesOptions: Highcharts.Options = {
   chart: {
@@ -37,7 +37,12 @@ export const timeSeriesOptions: Highcharts.Options = {
         },
         stops: [
           [0, Highcharts.getOptions().colors[0]],
-          [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')],
+          [
+            1,
+            Highcharts.color(Highcharts.getOptions().colors[0])
+              .setOpacity(0)
+              .get('rgba'),
+          ],
         ],
       },
       marker: {

@@ -1,5 +1,5 @@
 import type React from 'react';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
 import type {
   UseComboboxPrimitiveProps,
   UseComboboxPrimitiveState,
@@ -7,8 +7,8 @@ import type {
   UseMultiSelectPrimitiveReturnValue,
   UseMultiSelectPrimitiveStateChange,
 } from '@twilio-paste/combobox-primitive';
-import type {InputVariants, InputProps} from '@twilio-paste/input';
-import type {VirtualItem} from 'react-virtual';
+import type { InputVariants, InputProps } from '@twilio-paste/input';
+import type { VirtualItem } from 'react-virtual';
 
 export type {
   UseComboboxPrimitiveGetItemPropsOptions,

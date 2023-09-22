@@ -1,4 +1,4 @@
-import {filterTokenList} from '../components/tokens-list/helpers';
+import { filterTokenList } from '../components/tokens-list/helpers';
 
 const DefaultThemeTokens = {
   'border-widths': [

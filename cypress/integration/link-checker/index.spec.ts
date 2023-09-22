@@ -45,7 +45,7 @@ describe('Broken link checker', () => {
       // so it omits the need to wait for the JS to execute.
       // This makes this crawler much more performant, but it only
       // works because we SSR our website.
-      cy.request({url: pagePath})
+      cy.request({ url: pagePath })
         .its('body')
         .then((html) => {
           // Cyprus has a jQuery like syntax (called Cheerio) to traverse

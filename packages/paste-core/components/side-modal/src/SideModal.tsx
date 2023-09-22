@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {useTransition, animated} from '@twilio-paste/animation-library';
-import {Box, safelySpreadBoxProps, type BoxProps} from '@twilio-paste/box';
-import {StyledBase} from '@twilio-paste/theme';
-import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { useTransition, animated } from '@twilio-paste/animation-library';
+import { Box, safelySpreadBoxProps, type BoxProps } from '@twilio-paste/box';
+import { StyledBase } from '@twilio-paste/theme';
+import { NonModalDialogPrimitive } from '@twilio-paste/non-modal-dialog-primitive';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {SideModalContext} from './SideModalContext';
+import { SideModalContext } from './SideModalContext';
 
 export const AnimatedBox = animated(Box);
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getAnimationStates = (): any => ({
-  from: {opacity: 0, transform: `translateX(100%)`},
-  enter: {opacity: 1, transform: `translateX(0%)`},
-  leave: {opacity: 0, transform: `translateX(100%)`},
+  from: { opacity: 0, transform: `translateX(100%)` },
+  enter: { opacity: 1, transform: `translateX(0%)` },
+  leave: { opacity: 0, transform: `translateX(100%)` },
   // https://www.react-spring.dev/docs/advanced/config
   config: {
     mass: 0.5,
@@ -30,7 +30,7 @@ export interface SideModalProps extends HTMLPasteProps<'div'> {
 }
 
 export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
-  ({children, element = 'SIDE_MODAL', hideOnEsc = true, ...props}, ref) => {
+  ({ children, element = 'SIDE_MODAL', hideOnEsc = true, ...props }, ref) => {
     const dialog = React.useContext(SideModalContext);
     const transitions = useTransition(dialog.visible, getAnimationStates());
 
@@ -82,7 +82,7 @@ export const SideModal = React.forwardRef<HTMLDivElement, SideModalProps>(
         </StyledBase>
       </NonModalDialogPrimitive>
     );
-  }
+  },
 );
 
 SideModal.displayName = 'SideModal';

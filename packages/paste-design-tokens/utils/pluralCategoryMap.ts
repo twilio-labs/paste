@@ -30,14 +30,14 @@ export const pluralCategoryMap = new Map(
     'text-shadow': 'text-shadows',
     time: 'time',
     'z-index': 'z-indices',
-  })
+  }),
 );
 
 export const getPluralCatName = (name: string): string => {
   const pluralName = pluralCategoryMap.get(name);
   if (pluralName === undefined) {
     throw new Error(
-      `[@twilio-paste/design-tokens]: This category ${name} doesn't have a plural equivelant, please add one`
+      `[@twilio-paste/design-tokens]: This category ${name} doesn't have a plural equivelant, please add one`,
     );
   }
   return pluralName;

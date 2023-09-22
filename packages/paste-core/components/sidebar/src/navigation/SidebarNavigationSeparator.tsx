@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {SidebarContext} from '../SidebarContext';
+import { SidebarContext } from '../SidebarContext';
 
 export type SidebarNavigationSeparatorProps = HTMLPasteProps<'hr'> & Pick<BoxProps, 'element'>;
 
 const SidebarNavigationSeparator = React.forwardRef<HTMLHRElement, SidebarNavigationSeparatorProps>(
-  ({element = 'SIDEBAR_NAVIGATION_SEPARATOR', ...props}, ref) => {
-    const {collapsed} = React.useContext(SidebarContext);
+  ({ element = 'SIDEBAR_NAVIGATION_SEPARATOR', ...props }, ref) => {
+    const { collapsed } = React.useContext(SidebarContext);
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -25,9 +25,9 @@ const SidebarNavigationSeparator = React.forwardRef<HTMLHRElement, SidebarNaviga
         ref={ref}
       />
     );
-  }
+  },
 );
 
 SidebarNavigationSeparator.displayName = 'SidebarNavigationSeparator';
 
-export {SidebarNavigationSeparator};
+export { SidebarNavigationSeparator };

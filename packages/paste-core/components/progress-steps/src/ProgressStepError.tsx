@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 
-import {ProgressErrorIcon} from './icons/ProgressErrorIcon';
-import type {ProgressStepErrorProps} from './types';
+import { ProgressErrorIcon } from './icons/ProgressErrorIcon';
+import type { ProgressStepErrorProps } from './types';
 
 export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepErrorProps>(
-  ({element = 'PROGRESS_STEP_ERROR', as = 'div', children, i18nErrorLabel = 'Error', ...props}, ref) => {
+  ({ element = 'PROGRESS_STEP_ERROR', as = 'div', children, i18nErrorLabel = 'Error', ...props }, ref) => {
     return (
       <div role="listitem">
         <Box
@@ -29,8 +29,8 @@ export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepEr
           borderRadius="borderRadius20"
           cursor={as !== 'div' ? 'pointer' : 'default'}
           color="colorTextError"
-          _hover={as !== 'div' ? {textDecoration: 'none', color: 'colorTextErrorStrongest'} : undefined}
-          _focus={as !== 'div' ? {boxShadow: 'shadowFocus'} : undefined}
+          _hover={as !== 'div' ? { textDecoration: 'none', color: 'colorTextErrorStrongest' } : undefined}
+          _focus={as !== 'div' ? { boxShadow: 'shadowFocus' } : undefined}
         >
           <ProgressErrorIcon decorative={false} title={i18nErrorLabel} />
           <Box as="span" textAlign="left">
@@ -39,6 +39,6 @@ export const ProgressStepError = React.forwardRef<HTMLDivElement, ProgressStepEr
         </Box>
       </div>
     );
-  }
+  },
 );
 ProgressStepError.displayName = 'ProgressStepError';

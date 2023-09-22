@@ -1,4 +1,4 @@
-import type {editor} from 'monaco-editor';
+import type { editor } from 'monaco-editor';
 
 // Night-Owl theme from https://github.com/brijeshb42/monaco-themes
 export const PasteTheme: editor.IStandaloneThemeData = {

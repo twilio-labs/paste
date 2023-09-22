@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import type {TextStyleProps} from '@twilio-paste/text';
+import type { BoxElementProps } from '@twilio-paste/box';
+import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import type { TextStyleProps } from '@twilio-paste/text';
 
-import {FileUploaderItemContext} from './FileUploaderItemContext';
-import type {FileUploaderItemContextProps} from './FileUploaderItemContext';
+import { FileUploaderItemContext } from './FileUploaderItemContext';
+import type { FileUploaderItemContextProps } from './FileUploaderItemContext';
 
 export interface FileUploaderItemDescriptionProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
   children: string;
@@ -24,8 +24,8 @@ const variantStyles: Record<FileUploaderItemContextProps['variant'], TextStylePr
 };
 
 export const FileUploaderItemDescription = React.forwardRef<HTMLElement, FileUploaderItemDescriptionProps>(
-  ({children, element = 'FILE_UPLOADER_ITEM_DESCRIPTION', ...props}, ref) => {
-    const {variant} = React.useContext(FileUploaderItemContext);
+  ({ children, element = 'FILE_UPLOADER_ITEM_DESCRIPTION', ...props }, ref) => {
+    const { variant } = React.useContext(FileUploaderItemContext);
 
     return (
       <Text
@@ -41,7 +41,7 @@ export const FileUploaderItemDescription = React.forwardRef<HTMLElement, FileUpl
         {children}
       </Text>
     );
-  }
+  },
 );
 
 FileUploaderItemDescription.displayName = 'FileUploaderItemDescription';

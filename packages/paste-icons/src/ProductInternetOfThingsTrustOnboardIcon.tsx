@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductInternetOfThingsTrustOnboardIconProps extends IconWrapperProps {
   title?: string;
@@ -15,7 +15,7 @@ export interface ProductInternetOfThingsTrustOnboardIconProps extends IconWrappe
 const ProductInternetOfThingsTrustOnboardIcon = React.forwardRef<
   HTMLElement,
   ProductInternetOfThingsTrustOnboardIconProps
->(({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+>(({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
   const titleId = `ProductInternetOfThingsTrustOnboardIcon-${useUID()}`;
 
   if (!decorative && title == null) {
@@ -47,4 +47,4 @@ const ProductInternetOfThingsTrustOnboardIcon = React.forwardRef<
 });
 
 ProductInternetOfThingsTrustOnboardIcon.displayName = 'ProductInternetOfThingsTrustOnboardIcon';
-export {ProductInternetOfThingsTrustOnboardIcon};
+export { ProductInternetOfThingsTrustOnboardIcon };

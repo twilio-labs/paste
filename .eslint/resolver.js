@@ -47,16 +47,16 @@ const keyedPackages = cachedPackages.reduce((acc, currentPackage) => {
  */
 exports.resolve = function customResolver(source, file, config) {
   if (source.includes('@twilio-paste/') && keyedPackages[source] != null) {
-    return {found: true, path: keyedPackages[source].location};
+    return { found: true, path: keyedPackages[source].location };
   }
 
   if (resolve.isCore(source)) {
-    return {found: true, path: null};
+    return { found: true, path: null };
   }
 
   try {
-    return {found: true, path: resolve.sync(source, opts(file, config))};
+    return { found: true, path: resolve.sync(source, opts(file, config)) };
   } catch (err) {
-    return {found: false};
+    return { found: false };
   }
 };

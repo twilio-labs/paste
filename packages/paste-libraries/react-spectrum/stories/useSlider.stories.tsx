@@ -1,9 +1,9 @@
 import * as React from 'react';
-import type {StoryFn, Meta} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import type { StoryFn, Meta } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
 
-import {useSliderState, useSlider, useSliderThumb, type SliderStateOptions, type SliderState} from '../src';
+import { useSliderState, useSlider, useSliderThumb, type SliderStateOptions, type SliderState } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -18,16 +18,16 @@ interface ThumbProps {
   isDisabled?: boolean;
 }
 
-const Thumb: React.FC<ThumbProps> = ({state, trackRef, index, isDisabled}) => {
+const Thumb: React.FC<ThumbProps> = ({ state, trackRef, index, isDisabled }) => {
   const inputRef = React.useRef(null);
   const [focused, setFocused] = React.useState(false);
-  const {thumbProps, inputProps, isDragging} = useSliderThumb(
+  const { thumbProps, inputProps, isDragging } = useSliderThumb(
     {
       index,
       trackRef,
       inputRef,
     },
-    state
+    state,
   );
 
   return (
@@ -50,7 +50,7 @@ const Thumb: React.FC<ThumbProps> = ({state, trackRef, index, isDisabled}) => {
 const Slider: React.FC<SliderStateOptions<number | number[]>> = (props) => {
   const trackRef = React.useRef(null);
   const state = useSliderState(props);
-  const {groupProps, trackProps, labelProps, outputProps} = useSlider(props, state, trackRef);
+  const { groupProps, trackProps, labelProps, outputProps } = useSlider(props, state, trackRef);
 
   return (
     <Box {...groupProps} className={`slider ${state.orientation}`}>

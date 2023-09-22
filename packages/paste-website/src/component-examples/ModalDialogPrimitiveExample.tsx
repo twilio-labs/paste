@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {styled} from '@twilio-paste/styling-library';
-import {Text} from '@twilio-paste/text';
-import {Button} from '@twilio-paste/button';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
+import { styled } from '@twilio-paste/styling-library';
+import { Text } from '@twilio-paste/text';
+import { Button } from '@twilio-paste/button';
+import { ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent } from '@twilio-paste/modal-dialog-primitive';
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
   position: 'fixed',
@@ -30,7 +30,7 @@ interface BasicModalDialogProps {
   handleClose: () => void;
 }
 
-const BasicModalDialog: React.FC<React.PropsWithChildren<BasicModalDialogProps>> = ({isOpen, handleClose}) => {
+const BasicModalDialog: React.FC<React.PropsWithChildren<BasicModalDialogProps>> = ({ isOpen, handleClose }) => {
   const inputRef = React.useRef(null);
 
   return (

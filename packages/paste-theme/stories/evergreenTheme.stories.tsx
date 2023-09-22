@@ -1,24 +1,24 @@
 import * as React from 'react';
-import {Avatar} from '@twilio-paste/avatar';
-import type {AvatarProps} from '@twilio-paste/avatar';
-import {Alert} from '@twilio-paste/alert';
-import type {AlertProps} from '@twilio-paste/alert';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import type {ButtonProps} from '@twilio-paste/button';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import type {CalloutProps} from '@twilio-paste/callout';
-import {Input} from '@twilio-paste/input';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Heading} from '@twilio-paste/heading';
-import {Select, Option} from '@twilio-paste/select';
-import {Stack} from '@twilio-paste/stack';
-import {ButtonGroup} from '@twilio-paste/button-group';
-import {TextArea} from '@twilio-paste/textarea';
-import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
-import type {DisclosureHeadingProps} from '@twilio-paste/disclosure';
+import { Avatar } from '@twilio-paste/avatar';
+import type { AvatarProps } from '@twilio-paste/avatar';
+import { Alert } from '@twilio-paste/alert';
+import type { AlertProps } from '@twilio-paste/alert';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import type { ButtonProps } from '@twilio-paste/button';
+import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
+import type { CalloutProps } from '@twilio-paste/callout';
+import { Input } from '@twilio-paste/input';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Heading } from '@twilio-paste/heading';
+import { Select, Option } from '@twilio-paste/select';
+import { Stack } from '@twilio-paste/stack';
+import { ButtonGroup } from '@twilio-paste/button-group';
+import { TextArea } from '@twilio-paste/textarea';
+import { Disclosure, DisclosureHeading, DisclosureContent } from '@twilio-paste/disclosure';
+import type { DisclosureHeadingProps } from '@twilio-paste/disclosure';
 
-import {ThemeProvider} from '../src/themeProvider';
+import { ThemeProvider } from '../src/themeProvider';
 
 // eslint-disable-next-line import/no-default-export
 export default {

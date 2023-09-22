@@ -1,15 +1,15 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
-import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
-import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {useUID} from '@twilio-paste/uid-library';
-import type {ButtonProps} from '@twilio-paste/button';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { SearchIcon } from '@twilio-paste/icons/esm/SearchIcon';
+import { SupportIcon } from '@twilio-paste/icons/esm/SupportIcon';
+import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { useUID } from '@twilio-paste/uid-library';
+import type { ButtonProps } from '@twilio-paste/button';
 
 import {
   Menu,
@@ -33,10 +33,14 @@ export const initStyles = (element: string): ElementOverrides => ({
   },
   [`${element}_BUTTON`]: {
     variants: {
-      secondary: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
-      destructive: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
-      destructive_secondary: {backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong'},
-      link: {padding: 'space40', borderRadius: 'borderRadiusCircle', backgroundColor: 'colorBackgroundNeutralWeakest'},
+      secondary: { color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest' },
+      destructive: { color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest' },
+      destructive_secondary: { backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong' },
+      link: {
+        padding: 'space40',
+        borderRadius: 'borderRadiusCircle',
+        backgroundColor: 'colorBackgroundNeutralWeakest',
+      },
       destructive_link: {
         padding: 'space40',
         borderRadius: 'borderRadiusCircle',
@@ -111,10 +115,10 @@ const getElementName = (elementName: string | undefined, suffix?: string, prefix
 export default {
   title: 'Components/Menu/Customization',
   component: Menu,
-  subcomponents: {MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator},
+  subcomponents: { MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator },
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000},
+    chromatic: { delay: 3000 },
     a11y: {
       // no need to a11y check customization
       disable: true,
@@ -123,15 +127,15 @@ export default {
   excludeStories: ['initStyles', 'BaseMenu'],
 };
 
-export const BaseMenu: React.FC<React.PropsWithChildren<{menuButtonVariant?: ButtonVariants; element?: string}>> =
-  React.memo(function BaseMenu({menuButtonVariant = 'primary', element}) {
+export const BaseMenu: React.FC<React.PropsWithChildren<{ menuButtonVariant?: ButtonVariants; element?: string }>> =
+  React.memo(function BaseMenu({ menuButtonVariant = 'primary', element }) {
     const uniqueBaseID = useUID();
     const menu = useMenuState({
       visible: true,
       baseId: `${uniqueBaseID}-${menuButtonVariant}-menu-customization-story`,
     });
 
-    const subMenu = useMenuState({baseId: `${uniqueBaseID}-${menuButtonVariant}-menu-submenu`});
+    const subMenu = useMenuState({ baseId: `${uniqueBaseID}-${menuButtonVariant}-menu-submenu` });
     const onClick = React.useCallback(() => {
       menu.hide();
     }, [menu.hide]);
@@ -233,7 +237,7 @@ export const BaseMenu: React.FC<React.PropsWithChildren<{menuButtonVariant?: But
     );
   });
 
-export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithDefaultElementName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('MENU')}>
@@ -248,7 +252,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
   );
 };
 
-export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithCustomElementName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('CUSTOM')}>

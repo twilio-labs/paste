@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/styling-library';
-import {AspectRatio} from '@twilio-paste/aspect-ratio';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
+import { styled, themeGet } from '@twilio-paste/styling-library';
+import { AspectRatio } from '@twilio-paste/aspect-ratio';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { Heading } from '@twilio-paste/heading';
 
 const StyledWrapper = styled(Box)`
   display: grid;
@@ -31,7 +31,7 @@ interface DoProps {
   title: string;
 }
 
-const Item: React.FC<React.PropsWithChildren<DoProps>> = ({center = false, ...props}) => {
+const Item: React.FC<React.PropsWithChildren<DoProps>> = ({ center = false, ...props }) => {
   let preview = props.children;
 
   if (center) {
@@ -91,4 +91,4 @@ const Dont: React.FC<React.PropsWithChildren<DoProps>> = (props) => {
   return <Item {...props} do={false} />;
 };
 
-export {DoDont, Do, Dont};
+export { DoDont, Do, Dont };

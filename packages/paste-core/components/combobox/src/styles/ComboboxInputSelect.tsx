@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {InputElement} from '@twilio-paste/input';
+import { InputElement } from '@twilio-paste/input';
 
-import type {ComboboxProps} from '../types';
+import type { ComboboxProps } from '../types';
 
-const ComboboxInputSelect = React.forwardRef<HTMLInputElement, ComboboxProps>(({...props}, ref) => {
+const ComboboxInputSelect = React.forwardRef<HTMLInputElement, ComboboxProps>(({ ...props }, ref) => {
   return (
     <InputElement
       paddingRight={props.autocomplete ? undefined : 'space100'}
@@ -18,4 +18,4 @@ const ComboboxInputSelect = React.forwardRef<HTMLInputElement, ComboboxProps>(({
 
 ComboboxInputSelect.displayName = 'ComboboxInputSelect';
 
-export {ComboboxInputSelect};
+export { ComboboxInputSelect };

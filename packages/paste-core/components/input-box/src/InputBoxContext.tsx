@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import type {Variants} from './types';
+import type { Variants } from './types';
 
 interface InputBoxContextData {
   disabled: boolean;

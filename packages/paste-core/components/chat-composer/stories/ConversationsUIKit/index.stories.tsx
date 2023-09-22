@@ -6,10 +6,10 @@ import {
   MinimizableDialogHeader,
   MinimizableDialogContent,
 } from '@twilio-paste/minimizable-dialog';
-import {$getRoot, ClearEditorPlugin} from '@twilio-paste/lexical-library';
-import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
-import {Box} from '@twilio-paste/box';
-import type {StoryFn} from '@storybook/react';
+import { $getRoot, ClearEditorPlugin } from '@twilio-paste/lexical-library';
+import { ChatIcon } from '@twilio-paste/icons/esm/ChatIcon';
+import { Box } from '@twilio-paste/box';
+import type { StoryFn } from '@storybook/react';
 import {
   ChatLogger,
   useChatLogger,
@@ -25,12 +25,12 @@ import {
   ChatBookendItem,
   ComposerAttachmentCard,
 } from '@twilio-paste/chat-log';
-import {Avatar} from '@twilio-paste/avatar';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import type {EditorState} from '@twilio-paste/lexical-library';
+import { Avatar } from '@twilio-paste/avatar';
+import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
+import type { EditorState } from '@twilio-paste/lexical-library';
 
-import {ChatComposer} from '../../src';
-import {SendButtonPlugin, EnterKeySubmitPlugin, createNewMessage} from './helpers';
+import { ChatComposer } from '../../src';
+import { SendButtonPlugin, EnterKeySubmitPlugin, createNewMessage } from './helpers';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -60,7 +60,7 @@ const ComposerAttachmentExample: React.FC = () => (
 );
 
 export const ConversationsUIKitExample: StoryFn = () => {
-  const {chats, push} = useChatLogger(
+  const { chats, push } = useChatLogger(
     {
       content: (
         <ChatBookend>
@@ -108,7 +108,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
           </ChatMessageMeta>
         </ChatMessage>
       ),
-    }
+    },
   );
   const [message, setMessage] = React.useState('');
   const [mounted, setMounted] = React.useState(false);
@@ -121,7 +121,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
 
   React.useEffect(() => {
     if (!mounted || !loggerRef.current) return;
-    scrollerRef.current?.scrollTo({top: loggerRef.current.scrollHeight, behavior: 'smooth'});
+    scrollerRef.current?.scrollTo({ top: loggerRef.current.scrollHeight, behavior: 'smooth' });
   }, [chats, mounted]);
 
   const handleComposerChange = (editorState: EditorState): void => {

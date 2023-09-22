@@ -1,4 +1,4 @@
-import {getTokenContrastPairs} from '../components/tokens-list/helpers';
+import { getTokenContrastPairs } from '../components/tokens-list/helpers';
 
 describe('Color token pairing display', () => {
   describe('getTokenContrastPairs', () => {

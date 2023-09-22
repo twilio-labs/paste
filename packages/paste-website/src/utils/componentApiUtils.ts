@@ -22,7 +22,7 @@ export type GroupedComponentApi = {
 
 export const getPathFromPackageName = (packageName: string): string => {
   let packagePath = '';
-  PackageCache.forEach((pkg: {name: string; version: string; private: boolean; location: string}) => {
+  PackageCache.forEach((pkg: { name: string; version: string; private: boolean; location: string }) => {
     if (pkg.name === packageName) {
       packagePath = pkg.location;
     }
@@ -56,7 +56,7 @@ export function groupPropsByExternal(api: ComponentApi): GroupedComponentApi {
   return newApi;
 }
 
-export function getTocDataFromComponentApi(api: ComponentApi): {value: string; depth: number}[] {
+export function getTocDataFromComponentApi(api: ComponentApi): { value: string; depth: number }[] {
   return Object.keys(api).map((componentName) => {
     return {
       value: componentName,

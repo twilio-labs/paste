@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type {EditorState} from '@twilio-paste/lexical-library';
-import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
+import type { EditorState } from '@twilio-paste/lexical-library';
+import { $getRoot, $createParagraphNode, $createTextNode } from '@twilio-paste/lexical-library';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { SendIcon } from '@twilio-paste/icons/esm/SendIcon';
+import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
 
-import {ChatComposer} from '../src';
-import type {ChatComposerProps} from '../src';
+import { ChatComposer } from '../src';
+import type { ChatComposerProps } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -68,7 +68,7 @@ const myOnChange = (editorState: EditorState): void => {
   });
 };
 
-const ComposerWrapperExample: React.FC<React.PropsWithChildren> = ({children}) => (
+const ComposerWrapperExample: React.FC<React.PropsWithChildren> = ({ children }) => (
   <Box
     borderStyle="solid"
     borderWidth="borderWidth0"
@@ -142,7 +142,7 @@ export const WithOnChange: StoryFn = () => {
 };
 
 WithOnChange.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 export const WithInitialValue: StoryFn = () => {

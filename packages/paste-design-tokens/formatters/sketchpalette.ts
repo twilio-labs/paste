@@ -1,6 +1,6 @@
 import * as color from 'color';
 import * as Immutable from 'immutable';
-import type {ImmutableStyleMap} from 'theo';
+import type { ImmutableStyleMap } from 'theo';
 
 interface SketchPaletteColor {
   name: string;
@@ -16,7 +16,7 @@ interface ColorRGB {
   valpha: string;
 }
 
-const convertToSketchPaletteColor = (input: string): {[key: string]: number} => {
+const convertToSketchPaletteColor = (input: string): { [key: string]: number } => {
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore FIXME
   const convertedColor: ColorRGB = color.rgb(input);
@@ -45,7 +45,7 @@ const convertColorArray = (result: ImmutableStyleMap): SketchPaletteColor[] =>
       if (typeof value !== 'string') {
         throw new TypeError(`[SketchPallete.ts] Value must be of type "string".`);
       }
-      return Immutable.Map({name}).merge(convertToSketchPaletteColor(value));
+      return Immutable.Map({ name }).merge(convertToSketchPaletteColor(value));
     })
     .toJS();
 

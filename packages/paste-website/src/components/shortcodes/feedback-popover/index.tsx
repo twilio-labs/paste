@@ -1,27 +1,27 @@
 import * as React from 'react';
-import {Heading} from '@twilio-paste/heading';
-import {Text} from '@twilio-paste/text';
-import {PopoverContainer, PopoverButton, Popover} from '@twilio-paste/popover';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Separator} from '@twilio-paste/separator';
-import {Anchor} from '@twilio-paste/anchor';
-import {Button} from '@twilio-paste/button';
-import {ThumbsUpIcon} from '@twilio-paste/icons/esm/ThumbsUpIcon';
-import {ThumbsDownIcon} from '@twilio-paste/icons/esm/ThumbsDownIcon';
-import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
+import { Heading } from '@twilio-paste/heading';
+import { Text } from '@twilio-paste/text';
+import { PopoverContainer, PopoverButton, Popover } from '@twilio-paste/popover';
+import { useUID } from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { Separator } from '@twilio-paste/separator';
+import { Anchor } from '@twilio-paste/anchor';
+import { Button } from '@twilio-paste/button';
+import { ThumbsUpIcon } from '@twilio-paste/icons/esm/ThumbsUpIcon';
+import { ThumbsDownIcon } from '@twilio-paste/icons/esm/ThumbsDownIcon';
+import { SupportIcon } from '@twilio-paste/icons/esm/SupportIcon';
 
-import {SimpleStorage} from '../../../utils/SimpleStorage';
-import {useLocationPathname} from '../../../utils/RouteUtils';
-import {event} from '../../../lib/gtag';
+import { SimpleStorage } from '../../../utils/SimpleStorage';
+import { useLocationPathname } from '../../../utils/RouteUtils';
+import { event } from '../../../lib/gtag';
 
 type RatingProps = {
   likePage: (event: React.MouseEvent) => void;
   dislikePage: (event: React.MouseEvent) => void;
 };
 
-export const UnratedPage: React.FC<React.PropsWithChildren<RatingProps>> = ({likePage, dislikePage}) => {
+export const UnratedPage: React.FC<React.PropsWithChildren<RatingProps>> = ({ likePage, dislikePage }) => {
   const pathname = useLocationPathname();
   return (
     <>

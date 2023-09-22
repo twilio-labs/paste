@@ -1,4 +1,4 @@
-import type {Properties} from 'csstype';
+import type { Properties } from 'csstype';
 import Color from 'color';
 
 enum ContrastRatingScores {
@@ -10,7 +10,7 @@ enum ContrastRatingScores {
 
 export function contrastScore(
   color1: Properties['backgroundColor'],
-  color2: Properties['backgroundColor']
+  color2: Properties['backgroundColor'],
 ): ContrastRatingScores | null {
   const color = Color(color1);
   const compareColor = Color(color2);

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
 
-import type {AnchorProps} from './types';
+import type { AnchorProps } from './types';
 
 const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, ref) => (
   <Box
@@ -34,4 +34,4 @@ const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
 
 InverseAnchor.displayName = 'InverseAnchor';
 
-export {InverseAnchor};
+export { InverseAnchor };

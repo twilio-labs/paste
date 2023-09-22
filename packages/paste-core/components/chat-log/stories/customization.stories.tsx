@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Avatar} from '@twilio-paste/avatar';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import {useTheme} from '@twilio-paste/theme';
-import type {StoryFn} from '@storybook/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Avatar } from '@twilio-paste/avatar';
+import { DownloadIcon } from '@twilio-paste/icons/esm/DownloadIcon';
+import { useTheme } from '@twilio-paste/theme';
+import type { StoryFn } from '@storybook/react';
 
 import {
   ChatMessage,
@@ -31,7 +31,7 @@ export default {
   },
 };
 
-export const CustomizedMessages: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedMessages: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -41,22 +41,22 @@ export const CustomizedMessages: StoryFn = (_args, {parameters: {isTestEnvironme
         CHAT_MESSAGE: {
           marginBottom: 'space100',
           variants: {
-            inbound: {marginRight: 'space100'},
-            outbound: {marginLeft: 'space100'},
+            inbound: { marginRight: 'space100' },
+            outbound: { marginLeft: 'space100' },
           },
         },
         CHAT_BUBBLE: {
           color: 'colorTextInverse',
           variants: {
-            inbound: {backgroundColor: 'colorBackgroundPrimary'},
-            outbound: {backgroundColor: 'colorBackgroundPrimaryStronger'},
+            inbound: { backgroundColor: 'colorBackgroundPrimary' },
+            outbound: { backgroundColor: 'colorBackgroundPrimaryStronger' },
           },
         },
         CHAT_MESSAGE_META: {
           columnGap: 'space50',
           variants: {
-            inbound: {justifyContent: 'flex-start'},
-            outbound: {justifyContent: 'flex-end'},
+            inbound: { justifyContent: 'flex-start' },
+            outbound: { justifyContent: 'flex-end' },
           },
         },
         CHAT_MESSAGE_META_ITEM: {
@@ -90,7 +90,7 @@ export const CustomizedMessages: StoryFn = (_args, {parameters: {isTestEnvironme
   );
 };
 
-export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedChatAttachments: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -174,7 +174,7 @@ export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEn
   );
 };
 
-export const CustomizedChatBookend: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedChatBookend: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -198,7 +198,7 @@ export const CustomizedChatBookend: StoryFn = (_args, {parameters: {isTestEnviro
   );
 };
 
-export const CustomizedChatEvent: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedChatEvent: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {act, render, screen} from '@testing-library/react';
+import { Button } from '@twilio-paste/button';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import {DataGridCell, DataGridHeaderSort, DataGridHeader} from '../src';
+import { DataGridCell, DataGridHeaderSort, DataGridHeader } from '../src';
 import {
   ColumnSpanDataGrid,
   ComposableCellsDataGrid,
@@ -18,7 +18,7 @@ describe('Data Grid', () => {
   describe('Semantics', () => {
     // eslint-disable-next-line jest/expect-expect
     it('uses table elements in the DOM', () => {
-      const {getByTestId} = render(<PlainDataGrid />);
+      const { getByTestId } = render(<PlainDataGrid />);
       const dataGrid = getByTestId('data-grid');
       checkTagName(dataGrid, 'table');
 
@@ -38,7 +38,7 @@ describe('Data Grid', () => {
     });
 
     it('has the correct aria label and role', () => {
-      const {getByTestId} = render(<PlainDataGrid />);
+      const { getByTestId } = render(<PlainDataGrid />);
       const dataGrid = getByTestId('data-grid');
       expect(dataGrid.getAttribute('aria-label')).toBeDefined();
       expect(dataGrid.getAttribute('role')).toBe('grid');
@@ -47,7 +47,7 @@ describe('Data Grid', () => {
 
   describe('Column Span', () => {
     it('applies colSpan attribute as expected', () => {
-      const {getByTestId} = render(<ColumnSpanDataGrid />);
+      const { getByTestId } = render(<ColumnSpanDataGrid />);
       const th = getByTestId('data-grid-header');
       expect(th).toHaveAttribute('colspan', '5');
     });
@@ -55,7 +55,7 @@ describe('Data Grid', () => {
 
   describe('Composable Cells functionality', () => {
     it('has proper keyboard navigation behavior', () => {
-      const {getByTestId} = render(<ComposableCellsDataGrid />);
+      const { getByTestId } = render(<ComposableCellsDataGrid />);
       const headerCell = getByTestId('header-1');
       const firstRowFirstInputCell = getByTestId('input-0-0');
       const firstInputCell = firstRowFirstInputCell?.parentElement?.parentElement;
@@ -86,7 +86,7 @@ describe('Data Grid', () => {
     });
 
     it('toggles actionable mode with [enter] and [escape] keys', () => {
-      const {getByTestId} = render(<ComposableCellsDataGrid />);
+      const { getByTestId } = render(<ComposableCellsDataGrid />);
       const wrapper = getByTestId('data-grid');
       const headerCell = getByTestId('header-1');
       const firstRowFirstInputCell = getByTestId('input-0-0');
@@ -113,7 +113,7 @@ describe('Data Grid', () => {
     });
 
     it('should correctly tab through focusable elements in actionable mode', () => {
-      const {getByTestId} = render(<ComposableCellsDataGrid />);
+      const { getByTestId } = render(<ComposableCellsDataGrid />);
       const headerCell = getByTestId('header-1');
       const firstRowFirstInputCell = getByTestId('input-0-0');
       const firstRowSecondInputCell = getByTestId('input-0-1');
@@ -157,7 +157,7 @@ describe('Data Grid', () => {
     });
 
     it('has one tab stop in navigational mode and remembers the last focus', async () => {
-      const {getByTestId} = render(
+      const { getByTestId } = render(
         <div>
           <Button variant="primary" data-testid="before">
             Before
@@ -166,7 +166,7 @@ describe('Data Grid', () => {
           <Button variant="primary" data-testid="after">
             After
           </Button>
-        </div>
+        </div>,
       );
 
       const beforeDataGridButton = getByTestId('before');
@@ -194,13 +194,13 @@ describe('Data Grid', () => {
       userEvent.tab();
       expect(afterDataGridButton).toHaveFocus();
       // Return into the DataGrid
-      userEvent.tab({shift: true});
+      userEvent.tab({ shift: true });
       expect(firstInputCell).toHaveFocus();
       expect(firstInputCell.getAttribute('tabindex')).toBe('0');
     });
 
     it('should change the focus correctly when swapping to and from actionable mode', async () => {
-      const {getByTestId} = render(<ComposableCellsDataGrid />);
+      const { getByTestId } = render(<ComposableCellsDataGrid />);
       const headerCell = getByTestId('header-1');
       const firstRowFirstInputCell = getByTestId('input-0-0');
 
@@ -225,7 +225,7 @@ describe('Data Grid', () => {
 
   describe('Paginated data grid', () => {
     it('returns the first focused cell to the first cell in the datatable after pagination', async () => {
-      const {getByTestId} = render(<PaginatedDataGrid />);
+      const { getByTestId } = render(<PaginatedDataGrid />);
       const firstThCell = getByTestId('first-cell');
       const firstTdCell = getByTestId('cell-0-0');
 
@@ -244,9 +244,9 @@ describe('Data Grid', () => {
       userEvent.tab();
       userEvent.keyboard('{enter}');
       // Bring the focus back to the DataGrid
-      userEvent.tab({shift: true});
-      userEvent.tab({shift: true});
-      userEvent.tab({shift: true}); // 3rd one because left arrow appears
+      userEvent.tab({ shift: true });
+      userEvent.tab({ shift: true });
+      userEvent.tab({ shift: true }); // 3rd one because left arrow appears
 
       // The first cell is focused, rather than the last cell we were on
       expect(firstThCell).toHaveFocus();
@@ -255,7 +255,7 @@ describe('Data Grid', () => {
 
   describe('Sorting', () => {
     it('should correctly set aria-sort on TH when sorting is enabled', () => {
-      const {getByTestId} = render(<SortableColumnsDataGrid />);
+      const { getByTestId } = render(<SortableColumnsDataGrid />);
       const header = getByTestId('header');
       const headerSort = getByTestId('header-sort');
 
@@ -276,37 +276,37 @@ describe('i18n', () => {
   describe('DataGridHeaderSort', () => {
     it('should have default ascending label', () => {
       render(<DataGridHeaderSort direction="ascending" />);
-      const button = screen.getByRole('button', {name: 'Sort ascending'});
+      const button = screen.getByRole('button', { name: 'Sort ascending' });
       expect(button).toBeDefined();
     });
 
     it('should have default descending label', () => {
       render(<DataGridHeaderSort direction="descending" />);
-      const button = screen.getByRole('button', {name: 'Sort descending'});
+      const button = screen.getByRole('button', { name: 'Sort descending' });
       expect(button).toBeDefined();
     });
 
     it('should have default unsorted label', () => {
       render(<DataGridHeaderSort direction="none" />);
-      const button = screen.getByRole('button', {name: 'Unsorted'});
+      const button = screen.getByRole('button', { name: 'Unsorted' });
       expect(button).toBeDefined();
     });
 
     it('should use i18nAscendingLabel for the ascending label', () => {
       render(<DataGridHeaderSort direction="ascending" i18nAscendingLabel="Tri croissant" />);
-      const button = screen.getByRole('button', {name: 'Tri croissant'});
+      const button = screen.getByRole('button', { name: 'Tri croissant' });
       expect(button).toBeDefined();
     });
 
     it('should use i18nDescendingLabel for the descending label', () => {
       render(<DataGridHeaderSort direction="descending" i18nDescendingLabel="Tri décroissant" />);
-      const button = screen.getByRole('button', {name: 'Tri décroissant'});
+      const button = screen.getByRole('button', { name: 'Tri décroissant' });
       expect(button).toBeDefined();
     });
 
     it('should use i18nUnsortedLabel for the unsorted label', () => {
       render(<DataGridHeaderSort direction="none" i18nUnsortedLabel="Non triés" />);
-      const button = screen.getByRole('button', {name: 'Non triés'});
+      const button = screen.getByRole('button', { name: 'Non triés' });
       expect(button).toBeDefined();
     });
   });

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from '@storybook/react';
 
 import {
   AccountSwitcher,
@@ -17,7 +17,7 @@ export default {
 };
 
 export const AccountSwitcherMenu: StoryFn = () => {
-  const accountSwitcher = useAccountSwitcherState({visible: true});
+  const accountSwitcher = useAccountSwitcherState({ visible: true });
   const [selectedAccount, setSelectedAccount] = React.useState('Owl Telehealth');
   return (
     <>

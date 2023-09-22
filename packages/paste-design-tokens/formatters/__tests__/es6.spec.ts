@@ -1,8 +1,8 @@
-import {resolve} from 'path';
+import { resolve } from 'path';
 
 import * as theo from 'theo';
 
-import {es6TokenFormat} from '../es6';
+import { es6TokenFormat } from '../es6';
 
 theo.registerFormat('es6.js', es6TokenFormat);
 

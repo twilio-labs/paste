@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Input} from '@twilio-paste/input';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import { Input } from '@twilio-paste/input';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { CheckboxGroup, Checkbox } from '@twilio-paste/checkbox';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
 import {
   Pagination,
   PaginationItems,
@@ -13,7 +13,7 @@ import {
   PaginationEllipsis,
 } from '@twilio-paste/pagination';
 
-import type {SortDirection} from '../../src';
+import type { SortDirection } from '../../src';
 import {
   DataGrid,
   DataGridHead,
@@ -23,7 +23,7 @@ import {
   DataGridBody,
   DataGridCell,
 } from '../../src';
-import {TableHeaderData, PaginatedTableBodyData} from './constants';
+import { TableHeaderData, PaginatedTableBodyData } from './constants';
 
 // Sorting function
 const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId: number): number => {
@@ -46,7 +46,7 @@ const initialHeaderData = [...new Array(numColumns)].map((_, index) => {
 const initialBodyData = PaginatedTableBodyData.map((row) => [false, ...row]).sort(
   (a, b) =>
     // @ts-expect-error won't be boolean
-    simpleComparator(a, b, true, 1) // passing 1 instead of 0 to skip checkbox column
+    simpleComparator(a, b, true, 1), // passing 1 instead of 0 to skip checkbox column
 );
 
 const getRange = (start: number, end: number): number[] => {
@@ -200,7 +200,7 @@ const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
       }
       return undefined;
     },
-    [onClick, checkboxRef]
+    [onClick, checkboxRef],
   );
 
   return (
@@ -257,8 +257,8 @@ export const KitchenSinkDataGrid = (): JSX.Element => {
     setSortedData(
       initialBodyData.sort((a, b) =>
         // @ts-expect-error won't be boolean
-        simpleComparator(a, b, newSortedColumns[columnId] === 'ascending', columnId)
-      )
+        simpleComparator(a, b, newSortedColumns[columnId] === 'ascending', columnId),
+      ),
     );
   };
 

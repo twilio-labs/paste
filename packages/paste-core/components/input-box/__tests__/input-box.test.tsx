@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {InputBox} from '../src';
+import { InputBox } from '../src';
 
 describe('HTML attributes', () => {
   it('should set a element data attribute for InputBox', () => {
@@ -22,11 +22,11 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          INPUT_BOX: {backgroundColor: 'colorBackground'},
+          INPUT_BOX: { backgroundColor: 'colorBackground' },
         }}
       >
         <InputBox element="INPUT_BOX">input-box</InputBox>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInputBox = screen.getByText('input-box');
     expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -50,7 +50,7 @@ describe('Customization', () => {
         <InputBox element="INPUT_BOX" variant="inverse">
           input-box
         </InputBox>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInputBox = screen.getByText('input-box');
     expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');
@@ -61,11 +61,11 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          foo: {backgroundColor: 'colorBackground'},
+          foo: { backgroundColor: 'colorBackground' },
         }}
       >
         <InputBox element="foo">input-box</InputBox>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInputBox = screen.getByText('input-box');
     expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -89,7 +89,7 @@ describe('Customization', () => {
         <InputBox element="foo" variant="inverse">
           input-box
         </InputBox>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInputBox = screen.getByText('input-box');
     expect(renderedInputBox).toHaveStyleRule('background-color', 'rgb(0, 20, 137)');

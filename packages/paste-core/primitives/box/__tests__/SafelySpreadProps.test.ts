@@ -1,4 +1,4 @@
-import {safelySpreadBoxProps} from '../src/SafelySpreadProps';
+import { safelySpreadBoxProps } from '../src/SafelySpreadProps';
 
 const badProps = {
   foo: 'bar',

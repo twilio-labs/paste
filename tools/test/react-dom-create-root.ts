@@ -6,7 +6,7 @@
  */
 import ReactDOM from 'react-dom';
 
-type createRootReturnType = {render: (elem: JSX.Element) => void};
+type createRootReturnType = { render: (elem: JSX.Element) => void };
 
 let ReactDOMClient;
 try {
@@ -18,7 +18,7 @@ try {
 
 function attachRootToDom(domNode: HTMLElement): createRootReturnType {
   if (ReactDOMClient) {
-    const {createRoot} = ReactDOMClient;
+    const { createRoot } = ReactDOMClient;
     return createRoot(domNode);
   }
 
@@ -30,4 +30,4 @@ function attachRootToDom(domNode: HTMLElement): createRootReturnType {
   };
 }
 
-export {attachRootToDom as createRoot};
+export { attachRootToDom as createRoot };

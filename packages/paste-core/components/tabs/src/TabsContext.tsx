@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {TabPrimitiveState} from '@twilio-paste/tabs-primitive';
+import type { TabPrimitiveState } from '@twilio-paste/tabs-primitive';
 
-import type {Variants} from './types';
+import type { Variants } from './types';
 
 interface TabState extends Omit<TabPrimitiveState, 'orientation'> {
   variant?: Variants;
@@ -10,4 +10,4 @@ interface TabState extends Omit<TabPrimitiveState, 'orientation'> {
 
 const TabsContext = React.createContext<TabState>({} as TabState);
 
-export {TabsContext};
+export { TabsContext };

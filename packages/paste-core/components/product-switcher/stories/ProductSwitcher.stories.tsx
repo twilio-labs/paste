@@ -1,11 +1,11 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
-import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+import type { StoryFn } from '@storybook/react';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { ProductEmailAPIIcon } from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
 
-import {ProductSwitcher, ProductSwitcherButton, ProductSwitcherItem, useProductSwitcherState} from '../src';
+import { ProductSwitcher, ProductSwitcherButton, ProductSwitcherItem, useProductSwitcherState } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -13,7 +13,7 @@ export default {
 };
 
 export const ProductSwitcherMenu: StoryFn = () => {
-  const productSwitcher = useProductSwitcherState({visible: true});
+  const productSwitcher = useProductSwitcherState({ visible: true });
   const [product, setProduct] = React.useState('twilio');
   return (
     <>

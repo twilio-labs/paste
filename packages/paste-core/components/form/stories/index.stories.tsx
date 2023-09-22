@@ -1,23 +1,23 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/types';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Callout, CalloutHeading, CalloutList, CalloutListItem} from '@twilio-paste/callout';
-import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {Combobox, MultiselectCombobox} from '@twilio-paste/combobox';
-import {Heading} from '@twilio-paste/heading';
-import {HelpText} from '@twilio-paste/help-text';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {RadioGroup, Radio} from '@twilio-paste/radio-group';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {Select, Option} from '@twilio-paste/select';
-import {Separator} from '@twilio-paste/separator';
-import {useTheme} from '@twilio-paste/theme';
-import {useUIDSeed, useUID} from '@twilio-paste/uid-library';
+import type { StoryFn } from '@storybook/types';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { Callout, CalloutHeading, CalloutList, CalloutListItem } from '@twilio-paste/callout';
+import { CheckboxGroup, Checkbox } from '@twilio-paste/checkbox';
+import { Combobox, MultiselectCombobox } from '@twilio-paste/combobox';
+import { Heading } from '@twilio-paste/heading';
+import { HelpText } from '@twilio-paste/help-text';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { RadioGroup, Radio } from '@twilio-paste/radio-group';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { Select, Option } from '@twilio-paste/select';
+import { Separator } from '@twilio-paste/separator';
+import { useTheme } from '@twilio-paste/theme';
+import { useUIDSeed, useUID } from '@twilio-paste/uid-library';
 
 import {
   Form,
@@ -59,22 +59,22 @@ const countriesList = [
 ];
 
 const statesList = [
-  {value: 'AK', name: 'Alaska'},
-  {value: 'AL', name: 'Alabama'},
-  {value: 'AZ', name: 'Arizona'},
-  {value: 'CA', name: 'California'},
-  {value: 'CO', name: 'Colorado'},
-  {value: 'CT', name: 'Connecticut'},
-  {value: 'ID', name: 'Idaho'},
-  {value: 'IL', name: 'Illinois'},
-  {value: 'IN', name: 'Indiana'},
-  {value: 'KS', name: 'Kansas'},
-  {value: 'KY', name: 'Kentucky'},
-  {value: 'LA', name: 'Louisiana'},
-  {value: 'MN', name: 'Minnesota'},
-  {value: 'MO', name: 'Missouri'},
-  {value: 'MS', name: 'Mississippi'},
-  {value: 'MT', name: 'Montana'},
+  { value: 'AK', name: 'Alaska' },
+  { value: 'AL', name: 'Alabama' },
+  { value: 'AZ', name: 'Arizona' },
+  { value: 'CA', name: 'California' },
+  { value: 'CO', name: 'Colorado' },
+  { value: 'CT', name: 'Connecticut' },
+  { value: 'ID', name: 'Idaho' },
+  { value: 'IL', name: 'Illinois' },
+  { value: 'IN', name: 'Indiana' },
+  { value: 'KS', name: 'Kansas' },
+  { value: 'KY', name: 'Kentucky' },
+  { value: 'LA', name: 'Louisiana' },
+  { value: 'MN', name: 'Minnesota' },
+  { value: 'MO', name: 'Missouri' },
+  { value: 'MS', name: 'Mississippi' },
+  { value: 'MT', name: 'Montana' },
 ];
 
 const componentsList = [
@@ -103,7 +103,7 @@ export const Default: StoryFn = () => {
   const [comboboxInputValue, setComboboxInputValue] = React.useState('');
   const filteredItems = React.useMemo(
     () => getMultiselectComboboxFilteredItems(comboboxInputValue),
-    [comboboxInputValue]
+    [comboboxInputValue],
   );
 
   return (
@@ -136,7 +136,7 @@ export const Default: StoryFn = () => {
             helpText="Paste components are the building blocks of your product UI."
             items={filteredItems}
             initialSelectedItems={componentsList.slice(1, 3)}
-            onInputValueChange={({inputValue: newInputValue = ''}) => {
+            onInputValueChange={({ inputValue: newInputValue = '' }) => {
               setComboboxInputValue(newInputValue);
             }}
           />
@@ -174,7 +174,7 @@ export const Default: StoryFn = () => {
           <FormControl>
             <Label htmlFor={seed('state')}>State</Label>
             <Select id={seed('state')}>
-              {statesList.map(({value, name}) => (
+              {statesList.map(({ value, name }) => (
                 <Option value={value} key={value}>
                   {name}
                 </Option>
@@ -266,7 +266,7 @@ export const ErrorForm: StoryFn = () => {
         <FormControl>
           <Label htmlFor={seed('state')}>State</Label>
           <Select id={seed('state')}>
-            {statesList.map(({value, name}) => (
+            {statesList.map(({ value, name }) => (
               <Option value={value} key={value}>
                 {name}
               </Option>
@@ -359,7 +359,7 @@ export const FixedWidthForm: StoryFn = () => {
           <FormControl>
             <Label htmlFor={seed('state')}>State</Label>
             <Select id={seed('state')}>
-              {statesList.map(({value, name}) => (
+              {statesList.map(({ value, name }) => (
                 <Option value={value} key={value}>
                   {name}
                 </Option>
@@ -398,13 +398,13 @@ export const CustomizedForm: StoryFn = () => {
     <CustomizationProvider
       theme={theme}
       elements={{
-        FORM: {rowGap: 'space20'},
-        FORM_ACTIONS: {justifyContent: 'center'},
-        FORM_CONTROL: {padding: 'space40'},
-        FORM_CONTROL_TWO_COLUMNS: {columnGap: 'space20'},
-        FORM_SECTION: {borderWidth: 'borderWidth10', borderStyle: 'solid', borderColor: 'colorBorder'},
-        FORM_SECTION_DESCRIPTION: {fontWeight: 'fontWeightBold'},
-        FORM_SECTION_HEADING: {backgroundColor: 'colorBackgroundErrorWeakest'},
+        FORM: { rowGap: 'space20' },
+        FORM_ACTIONS: { justifyContent: 'center' },
+        FORM_CONTROL: { padding: 'space40' },
+        FORM_CONTROL_TWO_COLUMNS: { columnGap: 'space20' },
+        FORM_SECTION: { borderWidth: 'borderWidth10', borderStyle: 'solid', borderColor: 'colorBorder' },
+        FORM_SECTION_DESCRIPTION: { fontWeight: 'fontWeightBold' },
+        FORM_SECTION_HEADING: { backgroundColor: 'colorBackgroundErrorWeakest' },
       }}
     >
       {/* Added UID to the heading because forms are HTML Landmarks. Axe was failing because in the stacked view, there were 4 forms with the same name and landmarks have to have unique names. */}
@@ -440,7 +440,7 @@ export const CustomizedForm: StoryFn = () => {
             <FormControl>
               <Label htmlFor={seed('state')}>State</Label>
               <Select id={seed('state')}>
-                {statesList.map(({value, name}) => (
+                {statesList.map(({ value, name }) => (
                   <Option value={value} key={value}>
                     {name}
                   </Option>

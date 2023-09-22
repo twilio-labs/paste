@@ -28,7 +28,7 @@ describe('getChangesetsNotTaggingCore', () => {
         './.danger/__fixtures__/changeset/pink-masks-walk.md',
         './.danger/__fixtures__/changeset/popular-cheetahs-punch.md',
         './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
-      ])
+      ]),
     ).toEqual([
       './.danger/__fixtures__/changeset/popular-cheetahs-punch.md',
       './.danger/__fixtures__/changeset/pretty-cameras-burn.md',
@@ -109,7 +109,7 @@ describe('changesetsThatNeedCoreCheck()', () => {
     };
     changesetsThatNeedCoreCheck();
     expect(global.fail).toHaveBeenCalledWith(
-      'Changeset ./.danger/__fixtures__/changeset/popular-cheetahs-punch.md does not mention a change to Paste Core. Please include core with this changeset.'
+      'Changeset ./.danger/__fixtures__/changeset/popular-cheetahs-punch.md does not mention a change to Paste Core. Please include core with this changeset.',
     );
   });
 });

@@ -43,7 +43,7 @@ export function formatValue(value: string | undefined): null | string | boolean 
   return x;
 }
 
-export function sortByRequiredProperties(properties: ComponentTypeProperties): {[key: string]: ComponentTypeInfo} {
+export function sortByRequiredProperties(properties: ComponentTypeProperties): { [key: string]: ComponentTypeInfo } {
   return Object.fromEntries(
     Object.entries(properties)
       .sort(([aName], [bName]) => aName.localeCompare(bName))
@@ -54,7 +54,7 @@ export function sortByRequiredProperties(properties: ComponentTypeProperties): {
           return -1;
         }
         return 1;
-      })
+      }),
   );
 }
 
@@ -113,7 +113,7 @@ export function extractTypeExports(code: string): string[] {
 
   const exportedTypes = Object.keys(exported).filter(Boolean);
 
-  log({exportedTypes});
+  log({ exportedTypes });
 
   return exportedTypes;
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
 
-import type {RadioButtonProps} from './RadioButton';
+import type { RadioButtonProps } from './RadioButton';
 
 type HiddenRadioProps = Pick<RadioButtonProps, 'checked' | 'value' | 'id' | 'disabled' | 'name' | 'onChange'>;
 export const HiddenRadio = React.forwardRef<HTMLInputElement, HiddenRadioProps>((props, ref) => (

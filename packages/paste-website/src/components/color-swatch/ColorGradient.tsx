@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {styled, themeGet} from '@twilio-paste/styling-library';
+import { styled, themeGet } from '@twilio-paste/styling-library';
 import DefaultRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.raw.json';
 import DarkRawTokens from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.raw.json';
-import {Box} from '@twilio-paste/box';
-import {useUID} from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {useDarkModeContext} from '../../context/DarkModeContext';
-import type {Themes} from '../../types';
+import { useDarkModeContext } from '../../context/DarkModeContext';
+import type { Themes } from '../../types';
 
 type ThemeShape = Record<string, Record<string, string | number>>;
 
@@ -22,7 +22,7 @@ const aliasPrefixes = [
 const excludedAliases = new Set(['palette-gray-0', 'palette-gray-110', 'palette-orange-65', 'palette-gray-05']);
 
 export const sortAliasNames = (aliasNames: string[]): string[] => {
-  return aliasNames.sort((nameA, nameB) => nameA.localeCompare(nameB, undefined, {numeric: true})).reverse();
+  return aliasNames.sort((nameA, nameB) => nameA.localeCompare(nameB, undefined, { numeric: true })).reverse();
 };
 
 export const filterAliasNames = (aliasName: string, prefix: string): boolean =>
@@ -39,7 +39,7 @@ export const getAliasValuesFromPrefix = (prefix: string, theme: Themes): string[
 };
 
 // Need to use styled div because the alias names aren't valid backgroundColors on Box
-const StyledGradientSwatch = styled.div<{backgroundColor: string}>`
+const StyledGradientSwatch = styled.div<{ backgroundColor: string }>`
   background-color: ${(props) => props.backgroundColor};
   height: ${themeGet('space.space60')};
 `;
@@ -52,8 +52,8 @@ const StyledGrid = styled.div`
   grid-template-columns: repeat(7, 1fr);
 `;
 
-export const ColorGradient: React.FC<React.PropsWithChildren<{aliasPrefix: string}>> = ({aliasPrefix}) => {
-  const {theme} = useDarkModeContext();
+export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: string }>> = ({ aliasPrefix }) => {
+  const { theme } = useDarkModeContext();
   const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme);
 
   return (

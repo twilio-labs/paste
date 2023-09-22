@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ChevronDisclosureIcon} from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
-import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
-import type {BoxProps} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { ChevronDisclosureIcon } from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
+import { DisclosurePrimitive } from '@twilio-paste/disclosure-primitive';
+import type { BoxProps } from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
 
-import {SidebarContext} from '../SidebarContext';
-import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
+import { SidebarContext } from '../SidebarContext';
+import { SidebarNavigationDisclosureContext } from './SidebarNavigationDisclosureContext';
 import {
   sidebarNavigationLabelStyles,
   sidebarNavigationLabelNestedStyles,
@@ -21,10 +21,10 @@ export interface SidebarNavigationDisclosureHeadingProps extends React.Component
 }
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
-  ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING', selected, icon, ...props}, ref) => {
-    const {collapsed, variant} = React.useContext(SidebarContext);
+  ({ children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING', selected, icon, ...props }, ref) => {
+    const { collapsed, variant } = React.useContext(SidebarContext);
     const [shouldIconMove, setShouldIconMove] = React.useState(false);
-    const {nested} = React.useContext(SidebarNavigationDisclosureContext);
+    const { nested } = React.useContext(SidebarNavigationDisclosureContext);
     const isExpanded = props['aria-expanded'];
     const theme = useTheme();
     const isCompact = variant === 'compact';
@@ -81,16 +81,16 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigati
         </Box>
       </Box>
     );
-  }
+  },
 );
 StyledDisclosureHeading.displayName = 'StyledDisclosureHeading';
 
 const SidebarNavigationDisclosureHeading = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureHeadingProps>(
   (props, ref) => {
-    const {disclosure} = React.useContext(SidebarNavigationDisclosureContext);
+    const { disclosure } = React.useContext(SidebarNavigationDisclosureContext);
     return <DisclosurePrimitive {...disclosure} ref={ref} {...props} as={StyledDisclosureHeading} />;
-  }
+  },
 );
 SidebarNavigationDisclosureHeading.displayName = 'SidebarNavigationDisclosureHeading';
 
-export {SidebarNavigationDisclosureHeading};
+export { SidebarNavigationDisclosureHeading };

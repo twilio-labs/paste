@@ -1,7 +1,7 @@
 import assert from 'assert';
 
-import {isColorCategory} from '../../../utils/is-color-category';
-import {TokenCategory} from '../../../types';
+import { isColorCategory } from '../../../utils/is-color-category';
+import { TokenCategory } from '../../../types';
 
 const COLOR_CATEGORIES: TokenCategory[] = ['border-color', 'background-color', 'color', 'text-color'];
 

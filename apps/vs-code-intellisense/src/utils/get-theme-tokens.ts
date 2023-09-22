@@ -6,7 +6,7 @@ import {
   twilioDarkThemeTokens,
   twilioThemeTokens,
 } from '../tokens';
-import {Theme, TokenMap} from '../types';
+import { Theme, TokenMap } from '../types';
 
 export const getThemeTokens = (theme?: Theme): TokenMap => {
   switch (theme) {

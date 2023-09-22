@@ -1,12 +1,12 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
-import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import type { StoryFn } from '@storybook/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { ProductEmailAPIIcon } from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
 
-import {ProductSwitcher, ProductSwitcherButton, ProductSwitcherItem, useProductSwitcherState} from '../src';
+import { ProductSwitcher, ProductSwitcherButton, ProductSwitcherItem, useProductSwitcherState } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -14,14 +14,14 @@ export default {
 };
 
 export const DefaultElementName: StoryFn = () => {
-  const productSwitcher = useProductSwitcherState({visible: true});
+  const productSwitcher = useProductSwitcherState({ visible: true });
   const [product, setProduct] = React.useState('twilio');
   return (
     <CustomizationProvider
       elements={{
-        PRODUCT_SWITCHER_BUTTON: {backgroundColor: 'colorBackgroundPrimary', color: 'colorTextWeakest'},
-        PRODUCT_SWITCHER: {borderColor: 'colorBorderDestructiveStrong'},
-        PRODUCT_SWITCHER_ITEM: {textDecoration: 'underline'},
+        PRODUCT_SWITCHER_BUTTON: { backgroundColor: 'colorBackgroundPrimary', color: 'colorTextWeakest' },
+        PRODUCT_SWITCHER: { borderColor: 'colorBorderDestructiveStrong' },
+        PRODUCT_SWITCHER_ITEM: { textDecoration: 'underline' },
       }}
     >
       <ProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
@@ -92,14 +92,14 @@ export const DefaultElementName: StoryFn = () => {
 };
 
 export const CustomElementName: StoryFn = () => {
-  const productSwitcher = useProductSwitcherState({visible: true});
+  const productSwitcher = useProductSwitcherState({ visible: true });
   const [product, setProduct] = React.useState('twilio');
   return (
     <CustomizationProvider
       elements={{
-        FOO: {backgroundColor: 'colorBackgroundPrimary', color: 'colorTextWeakest'},
-        BAR: {borderColor: 'colorBorderDestructiveStrong'},
-        BAZ: {textDecoration: 'underline'},
+        FOO: { backgroundColor: 'colorBackgroundPrimary', color: 'colorTextWeakest' },
+        BAR: { borderColor: 'colorBorderDestructiveStrong' },
+        BAZ: { textDecoration: 'underline' },
       }}
     >
       <ProductSwitcherButton {...productSwitcher} element="FOO" i18nButtonLabel="Switch products" />

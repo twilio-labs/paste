@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
-import {Heading} from '@twilio-paste/heading';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {TextArea} from '@twilio-paste/textarea';
-import {useUID} from '@twilio-paste/uid-library';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { ChatIcon } from '@twilio-paste/icons/esm/ChatIcon';
+import { Heading } from '@twilio-paste/heading';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { TextArea } from '@twilio-paste/textarea';
+import { useUID } from '@twilio-paste/uid-library';
 
 import {
   MinimizableDialog,
@@ -18,8 +18,8 @@ import {
   MinimizableDialogContent,
   useMinimizableDialogState,
 } from '../src';
-import {MinimizableDialogContext} from '../src/MinimizableDialogContext';
-import {StyledMinimizableDialog} from '../src/StyledMinimizableDialog';
+import { MinimizableDialogContext } from '../src/MinimizableDialogContext';
+import { StyledMinimizableDialog } from '../src/StyledMinimizableDialog';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -27,15 +27,15 @@ export default {
   component: MinimizableDialog,
 };
 
-const DialogExample: React.FC<React.PropsWithChildren<{minimized?: boolean}>> = ({minimized = false}) => {
+const DialogExample: React.FC<React.PropsWithChildren<{ minimized?: boolean }>> = ({ minimized = false }) => {
   const nameID = useUID();
   const emailID = useUID();
   const questionID = useUID();
 
-  const dialog = useMinimizableDialogState({minimized, visible: true});
+  const dialog = useMinimizableDialogState({ minimized, visible: true });
 
   return (
-    <MinimizableDialogContext.Provider value={{...dialog}}>
+    <MinimizableDialogContext.Provider value={{ ...dialog }}>
       <StyledMinimizableDialog>
         <MinimizableDialogHeader>Live chat</MinimizableDialogHeader>
         <MinimizableDialogContent>
@@ -80,7 +80,7 @@ export const FloatingButton: StoryFn = () => {
   const emailID = useUID();
   const questionID = useUID();
 
-  const dialog = useMinimizableDialogState({visible: true});
+  const dialog = useMinimizableDialogState({ visible: true });
 
   return (
     <Box position="absolute" bottom="space70" right="space70">
@@ -176,5 +176,5 @@ export const StateHookExample: StoryFn = () => {
 };
 
 StateHookExample.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };

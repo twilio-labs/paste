@@ -1,7 +1,7 @@
-import {css} from '@twilio-paste/styling-library';
-import type {CSSObject} from '@twilio-paste/styling-library';
-import {pasteBaseStyles} from '@twilio-paste/theme';
-import type {GenericThemeShape} from '@twilio-paste/theme';
+import { css } from '@twilio-paste/styling-library';
+import type { CSSObject } from '@twilio-paste/styling-library';
+import { pasteBaseStyles } from '@twilio-paste/theme';
+import type { GenericThemeShape } from '@twilio-paste/theme';
 
 export const docSearchVariable = (theme: GenericThemeShape): CSSObject => {
   return {

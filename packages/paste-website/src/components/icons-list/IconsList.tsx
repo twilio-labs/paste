@@ -1,26 +1,26 @@
 import * as React from 'react';
 import debounce from 'lodash/debounce';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Label} from '@twilio-paste/label';
-import {Input} from '@twilio-paste/input';
-import {Heading} from '@twilio-paste/heading';
-import {Card} from '@twilio-paste/card';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Anchor} from '@twilio-paste/anchor';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import { Composite, useCompositeState } from '@twilio-paste/reakit-library';
+import { Box } from '@twilio-paste/box';
+import { Grid, Column } from '@twilio-paste/grid';
+import { Label } from '@twilio-paste/label';
+import { Input } from '@twilio-paste/input';
+import { Heading } from '@twilio-paste/heading';
+import { Card } from '@twilio-paste/card';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { UnorderedList, ListItem } from '@twilio-paste/list';
+import { Anchor } from '@twilio-paste/anchor';
 
-import type {IconObject, IconComponent, IconsListProps, GroupedList} from './types';
-import {IconCard} from './IconCard';
-import {SiteLink} from '../SiteLink';
-import {IconListItem} from './IconListItem';
-import {event} from '../../lib/gtag';
+import type { IconObject, IconComponent, IconsListProps, GroupedList } from './types';
+import { IconCard } from './IconCard';
+import { SiteLink } from '../SiteLink';
+import { IconListItem } from './IconListItem';
+import { event } from '../../lib/gtag';
 
-const {icons: iconsJson} = require('@twilio-paste/icons/json/icons.json');
+const { icons: iconsJson } = require('@twilio-paste/icons/json/icons.json');
 
-const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, {name}: IconObject) => {
+const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, { name }: IconObject) => {
   return {
     ...icons,
     // eslint-disable-next-line import/no-dynamic-require,global-require, @typescript-eslint/no-var-requires
@@ -31,7 +31,7 @@ const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, {n
 const getGroupedList = (icons: IconsListProps['icons']): GroupedList =>
   icons.reduce(
     (prev: GroupedList, current): GroupedList => {
-      const Icon = {...current, Component: IconComponents[current.name]};
+      const Icon = { ...current, Component: IconComponents[current.name] };
       if (current.name.startsWith('Product') || current.name.startsWith('Logo')) {
         return {
           logos: [...prev.logos, Icon],
@@ -43,7 +43,7 @@ const getGroupedList = (icons: IconsListProps['icons']): GroupedList =>
         ui: [...prev.ui, Icon],
       };
     },
-    {logos: [], ui: []}
+    { logos: [], ui: [] },
   );
 
 const getFirstIcon = (iconsList: GroupedList): IconObject | null => {
@@ -77,7 +77,7 @@ const IconsList: React.FC<React.PropsWithChildren<IconsListProps>> = () => {
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
     const filter = e.currentTarget.value;
-    const filteredList = iconsJson.filter(({name}: IconObject) => name.toLowerCase().includes(filter.toLowerCase()));
+    const filteredList = iconsJson.filter(({ name }: IconObject) => name.toLowerCase().includes(filter.toLowerCase()));
     const filteredGroupedList = getGroupedList(filteredList);
     setIconsList(filteredGroupedList);
     setSelectedIcon(getFirstIcon(filteredGroupedList));
@@ -214,4 +214,4 @@ const IconsList: React.FC<React.PropsWithChildren<IconsListProps>> = () => {
 };
 
 IconsList.displayName = 'IconsList';
-export {IconsList};
+export { IconsList };

@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import {contrastScore} from '../contrastScore';
+import { contrastScore } from '../contrastScore';
 
 describe('contrastScore', (): void => {
   it('should return a failing score on a failing color combo', (): void => {

@@ -1,12 +1,12 @@
 import React from 'react';
 // eslint-disable-next-line import/no-unresolved
-import {createRoot} from 'testing-tools/react-dom-create-root';
-import {render, act} from '@testing-library/react';
+import { createRoot } from 'testing-tools/react-dom-create-root';
+import { render, act } from '@testing-library/react';
 
-import type {ThemeShape} from '../src';
-import {Theme, withTheme} from '../src';
+import type { ThemeShape } from '../src';
+import { Theme, withTheme } from '../src';
 
-const MockComponent = ({theme}: {theme: ThemeShape}): React.ReactElement => <p>{theme.textColors.colorText}</p>;
+const MockComponent = ({ theme }: { theme: ThemeShape }): React.ReactElement => <p>{theme.textColors.colorText}</p>;
 const MockComponentWithTheme = withTheme(MockComponent);
 
 describe('withTheme', () => {
@@ -16,16 +16,16 @@ describe('withTheme', () => {
       root.render(
         <Theme.Provider theme="default">
           <MockComponentWithTheme />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
     });
   });
 
   it('should be able to access the theme object', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <Theme.Provider theme="default">
         <MockComponentWithTheme />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     expect(getByText('rgb(18, 28, 45)')).toBeDefined();

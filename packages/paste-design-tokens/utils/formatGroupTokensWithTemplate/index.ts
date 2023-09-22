@@ -1,15 +1,15 @@
-import type {ImmutableStyleMap} from 'theo';
+import type { ImmutableStyleMap } from 'theo';
 
-import type {DesignToken} from '../../types';
-import {getPluralCatName} from '../pluralCategoryMap';
+import type { DesignToken } from '../../types';
+import { getPluralCatName } from '../pluralCategoryMap';
 
 export const formatGroupTokensWithTemplate = (
   tokens: ImmutableStyleMap,
   categories: any,
   categoryTemplate: (cat: string, props: DesignToken[]) => string,
-  additionalFilterFn?: (key: DesignToken[]) => any[]
+  additionalFilterFn?: (key: DesignToken[]) => any[],
 ): string => {
-  const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+  const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
 
   return categories
     .map((cat: string): string | null => {

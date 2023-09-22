@@ -1,6 +1,6 @@
-import type {BoxStyleProps} from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
 
-import type {VariantStyles} from './types';
+import type { VariantStyles } from './types';
 
 /**
  * Wrapper styles

@@ -1,5 +1,5 @@
-import type {StorybookConfig} from '@storybook/react-vite';
-import {mergeConfig} from 'vite';
+import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
 import turbosnap from 'vite-plugin-turbosnap';
 import path from 'path';
 const config: StorybookConfig = {
@@ -24,7 +24,7 @@ const config: StorybookConfig = {
     // enable type checking
     check: true,
   },
-  async viteFinal(config, {configType}) {
+  async viteFinal(config, { configType }) {
     const isTest = process.env.NODE_ENV === 'test';
     return mergeConfig(config, {
       plugins:
@@ -44,7 +44,7 @@ const config: StorybookConfig = {
           // Avoid initial render issues for code blocks in prod build
           'react-syntax-highlighter/dist/esm': path.resolve(
             __dirname,
-            '../node_modules/react-syntax-highlighter/dist/cjs'
+            '../node_modules/react-syntax-highlighter/dist/cjs',
           ),
           'react-syntax-highlighter': path.resolve(__dirname, '../node_modules/react-syntax-highlighter/dist/cjs'),
         },

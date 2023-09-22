@@ -1,20 +1,20 @@
 import * as React from 'react';
-import {Stack} from '@twilio-paste/stack';
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {useUIDSeed} from '@twilio-paste/uid-library';
-import {Button} from '@twilio-paste/button';
-import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
+import { Stack } from '@twilio-paste/stack';
+import { Box } from '@twilio-paste/box';
+import { Grid, Column } from '@twilio-paste/grid';
+import { useUIDSeed } from '@twilio-paste/uid-library';
+import { Button } from '@twilio-paste/button';
+import { CheckboxCheckIcon } from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import { PlusIcon } from '@twilio-paste/icons/esm/PlusIcon';
+import { MinusIcon } from '@twilio-paste/icons/esm/MinusIcon';
 
-import {useListboxPrimitiveState, ListboxPrimitive, ListboxPrimitiveGroup, ListboxPrimitiveItem} from '../src';
+import { useListboxPrimitiveState, ListboxPrimitive, ListboxPrimitiveGroup, ListboxPrimitiveItem } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
   title: 'Primitives/Listbox',
   component: ListboxPrimitive,
-  subcomponents: {ListboxPrimitiveItem, ListboxPrimitiveGroup},
+  subcomponents: { ListboxPrimitiveItem, ListboxPrimitiveGroup },
 };
 
 const ITEMS = ['Item 1', 'Item 2', 'Item 3'];
@@ -32,7 +32,7 @@ export const VerticalListbox = (): React.ReactNode => {
             {...listbox}
             selected={selected === item}
             style={{
-              ...(selected === item && {backgroundColor: '#0263e0', color: 'white'}),
+              ...(selected === item && { backgroundColor: '#0263e0', color: 'white' }),
             }}
             onSelect={() => {
               setSelected(item);
@@ -50,7 +50,7 @@ export const VerticalListbox = (): React.ReactNode => {
 
 export const HorizontalListbox = (): React.ReactNode => {
   const [selected, setSelected] = React.useState<string>();
-  const listbox = useListboxPrimitiveState({orientation: 'horizontal'});
+  const listbox = useListboxPrimitiveState({ orientation: 'horizontal' });
   return (
     <ListboxPrimitive {...listbox} aria-label="Horizontal">
       {ITEMS.map((item, index) => (
@@ -60,7 +60,7 @@ export const HorizontalListbox = (): React.ReactNode => {
           {...listbox}
           selected={selected === item}
           style={{
-            ...(selected === item && {backgroundColor: '#0263e0', color: 'white'}),
+            ...(selected === item && { backgroundColor: '#0263e0', color: 'white' }),
           }}
           onSelect={() => {
             setSelected(item);
@@ -91,7 +91,7 @@ export const GroupedOptions = (): React.ReactNode => {
               {...listbox}
               selected={selected === item}
               style={{
-                ...(selected === item && {backgroundColor: '#0263e0', color: 'white'}),
+                ...(selected === item && { backgroundColor: '#0263e0', color: 'white' }),
               }}
               onSelect={() => {
                 setSelected(item);
@@ -113,7 +113,7 @@ export const GroupedOptions = (): React.ReactNode => {
               {...listbox}
               selected={selected === item}
               style={{
-                ...(selected === item && {backgroundColor: '#0263e0', color: 'white'}),
+                ...(selected === item && { backgroundColor: '#0263e0', color: 'white' }),
               }}
               onSelect={() => {
                 setSelected(item);
@@ -132,7 +132,7 @@ export const GroupedOptions = (): React.ReactNode => {
 
 export const MultiselectListbox = (): React.ReactNode => {
   const [selectedSet, updateSelectedSet] = React.useState<Set<string>>(new Set());
-  const listbox = useListboxPrimitiveState({orientation: 'horizontal'});
+  const listbox = useListboxPrimitiveState({ orientation: 'horizontal' });
 
   return (
     <ListboxPrimitive {...listbox} aria-label="Multiselect" variant="multiple">
@@ -143,7 +143,7 @@ export const MultiselectListbox = (): React.ReactNode => {
           {...listbox}
           selected={selectedSet.has(item)}
           style={{
-            ...(selectedSet.has(item) && {backgroundColor: '#0263e0', color: 'white'}),
+            ...(selectedSet.has(item) && { backgroundColor: '#0263e0', color: 'white' }),
           }}
           onSelect={() => {
             const newSelectedSet = new Set(selectedSet);

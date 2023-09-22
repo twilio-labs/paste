@@ -1,9 +1,16 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from '@storybook/react';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {CodeBlock, CodeBlockWrapper, CodeBlockHeader, CodeBlockTabList, CodeBlockTab, CodeBlockTabPanel} from '../src';
+import {
+  CodeBlock,
+  CodeBlockWrapper,
+  CodeBlockHeader,
+  CodeBlockTabList,
+  CodeBlockTab,
+  CodeBlockTabPanel,
+} from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -59,7 +66,7 @@ $client->messages->create(
     )
 );`;
 
-export const CustomizedCodeBlock: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCodeBlock: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (
@@ -95,7 +102,7 @@ export const CustomizedCodeBlock: StoryFn = (_args, {parameters: {isTestEnvironm
   );
 };
 
-export const CustomizedCodeBlockGroup: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCodeBlockGroup: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (

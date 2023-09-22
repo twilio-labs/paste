@@ -1,19 +1,19 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
-import {Stack} from '@twilio-paste/stack';
-import {useUID} from '@twilio-paste/uid-library';
-import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
-import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
-import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
-import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
+import { Box } from '@twilio-paste/box';
+import { Table, THead, TBody, Tr, Td, Th } from '@twilio-paste/table';
+import { Stack } from '@twilio-paste/stack';
+import { useUID } from '@twilio-paste/uid-library';
+import { ProcessInProgressIcon } from '@twilio-paste/icons/esm/ProcessInProgressIcon';
+import { ProcessDraftIcon } from '@twilio-paste/icons/esm/ProcessDraftIcon';
+import { ProcessWarningIcon } from '@twilio-paste/icons/esm/ProcessWarningIcon';
+import { ProcessSuccessIcon } from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 
-import {Statuses} from './constants';
-import type {RoadmapProps, ReleaseData} from './types';
-import {slugify} from '../../utils/RouteUtils';
-import {AnchoredHeading} from '../Heading';
+import { Statuses } from './constants';
+import type { RoadmapProps, ReleaseData } from './types';
+import { slugify } from '../../utils/RouteUtils';
+import { AnchoredHeading } from '../Heading';
 
-const StatusIconWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const StatusIconWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <Box display="flex" columnGap="space20" justifyContent="flex-start">
     {children}
   </Box>
@@ -46,7 +46,7 @@ const StatusIcons = {
   ),
 };
 
-const Roadmap: React.FC<RoadmapProps> = ({data}) => {
+const Roadmap: React.FC<RoadmapProps> = ({ data }) => {
   return (
     <Box width="100%">
       <Stack orientation="vertical" spacing="space190">
@@ -91,4 +91,4 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
     </Box>
   );
 };
-export {Roadmap};
+export { Roadmap };

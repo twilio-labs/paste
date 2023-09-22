@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ProductDebuggerIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ProductDebuggerIconProps extends IconWrapperProps {
 }
 
 const ProductDebuggerIcon = React.forwardRef<HTMLElement, ProductDebuggerIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ProductDebuggerIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -42,8 +42,8 @@ const ProductDebuggerIcon = React.forwardRef<HTMLElement, ProductDebuggerIconPro
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ProductDebuggerIcon.displayName = 'ProductDebuggerIcon';
-export {ProductDebuggerIcon};
+export { ProductDebuggerIcon };

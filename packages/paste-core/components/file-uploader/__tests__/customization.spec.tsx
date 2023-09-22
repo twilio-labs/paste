@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
 import {
   FileUploader,
@@ -17,19 +17,19 @@ import {
   FileUploaderErrorText,
 } from '../src';
 
-const getCustomizationStyles = (element = 'FILE_UPLOADER'): {[key: string]: PasteCustomCSS} => ({
-  [`${element}`]: {maxWidth: 'size30'},
-  [`${element}_DROPZONE_TEXT`]: {fontFamily: 'fontFamilyCode'},
-  [`${element}_DROPZONE`]: {borderRadius: 'borderRadius0'},
-  [`${element}_HELP_TEXT`]: {marginBottom: 'space10'},
-  [`${element}_ERROR_TEXT`]: {marginBottom: 'space10'},
-  [`${element}_ITEM_CONTENT`]: {rowGap: 'space30'},
-  [`${element}_ITEM_DESCRIPTION`]: {fontSize: 'fontSize40'},
-  [`${element}_ITEM_TITLE`]: {fontSize: 'fontSize40'},
-  [`${element}_ITEM_BUTTON`]: {padding: 'space10'},
-  [`${element}_ITEM`]: {padding: 'space10'},
-  [`${element}_ITEMS_LIST`]: {rowGap: 'space10'},
-  [`${element}_LABEL`]: {fontWeight: 'fontWeightNormal'},
+const getCustomizationStyles = (element = 'FILE_UPLOADER'): { [key: string]: PasteCustomCSS } => ({
+  [`${element}`]: { maxWidth: 'size30' },
+  [`${element}_DROPZONE_TEXT`]: { fontFamily: 'fontFamilyCode' },
+  [`${element}_DROPZONE`]: { borderRadius: 'borderRadius0' },
+  [`${element}_HELP_TEXT`]: { marginBottom: 'space10' },
+  [`${element}_ERROR_TEXT`]: { marginBottom: 'space10' },
+  [`${element}_ITEM_CONTENT`]: { rowGap: 'space30' },
+  [`${element}_ITEM_DESCRIPTION`]: { fontSize: 'fontSize40' },
+  [`${element}_ITEM_TITLE`]: { fontSize: 'fontSize40' },
+  [`${element}_ITEM_BUTTON`]: { padding: 'space10' },
+  [`${element}_ITEM`]: { padding: 'space10' },
+  [`${element}_ITEMS_LIST`]: { rowGap: 'space10' },
+  [`${element}_LABEL`]: { fontWeight: 'fontWeightNormal' },
 });
 
 describe('FileUploader customization', () => {
@@ -52,7 +52,7 @@ describe('FileUploader customization', () => {
             </FileUploaderItem>
           </FileUploaderItemsList>
         </FileUploader>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const uploader = screen.getByTestId('my-uploader');
@@ -66,7 +66,7 @@ describe('FileUploader customization', () => {
     const itemTitle = screen.getByText('File1.png');
     const itemContent = itemTitle.parentElement;
     const itemDescription = screen.getByText('Uploading...');
-    const itemButton = screen.getAllByRole('button', {name: 'Remove file'})[0];
+    const itemButton = screen.getAllByRole('button', { name: 'Remove file' })[0];
 
     expect(uploader.dataset.pasteElement).toBe('FILE_UPLOADER');
     expect(label.dataset.pasteElement).toBe('FILE_UPLOADER_LABEL');
@@ -112,7 +112,7 @@ describe('FileUploader customization', () => {
             </FileUploaderItem>
           </FileUploaderItemsList>
         </FileUploader>
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const uploader = screen.getByTestId('my-uploader');
@@ -126,7 +126,7 @@ describe('FileUploader customization', () => {
     const itemTitle = screen.getByText('File1.png');
     const itemContent = itemTitle.parentElement;
     const itemDescription = screen.getByText('Uploading...');
-    const itemButton = screen.getAllByRole('button', {name: 'Remove file'})[0];
+    const itemButton = screen.getAllByRole('button', { name: 'Remove file' })[0];
 
     expect(uploader.dataset.pasteElement).toBe('MY_UPLOADER');
     expect(label.dataset.pasteElement).toBe('MY_UPLOADER_LABEL');
@@ -161,7 +161,7 @@ describe('FileUploader customization', () => {
             </FileUploaderItem>
           </FileUploaderItemsList>
         </FileUploader>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const uploader = screen.getByTestId('my-uploader');
@@ -175,7 +175,7 @@ describe('FileUploader customization', () => {
     const itemTitle = screen.getByText('File1.png');
     const itemContent = itemTitle.parentElement;
     const itemDescription = screen.getByText('Uploading...');
-    const itemButton = screen.getAllByRole('button', {name: 'Remove file'})[0];
+    const itemButton = screen.getAllByRole('button', { name: 'Remove file' })[0];
 
     expect(uploader).toHaveStyleRule('max-width', '18.5rem');
     expect(label).toHaveStyleRule('font-weight', '400');
@@ -221,7 +221,7 @@ describe('FileUploader customization', () => {
             </FileUploaderItem>
           </FileUploaderItemsList>
         </FileUploader>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
 
     const uploader = screen.getByTestId('my-uploader');
@@ -235,7 +235,7 @@ describe('FileUploader customization', () => {
     const itemTitle = screen.getByText('File1.png');
     const itemContent = itemTitle.parentElement;
     const itemDescription = screen.getByText('Uploading...');
-    const itemButton = screen.getAllByRole('button', {name: 'Remove file'})[0];
+    const itemButton = screen.getAllByRole('button', { name: 'Remove file' })[0];
 
     expect(uploader).toHaveStyleRule('max-width', '18.5rem');
     expect(label).toHaveStyleRule('font-weight', '400');

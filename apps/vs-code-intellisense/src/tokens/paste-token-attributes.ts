@@ -1,4 +1,4 @@
-import {TokenCategory} from '../types';
+import { TokenCategory } from '../types';
 
 export const pasteTokenAttributes: Record<string, TokenCategory> = {
   margin: 'spacing',

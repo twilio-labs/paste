@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {secureExternalLink} from '@twilio-paste/anchor';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {SelectedIcon} from '@twilio-paste/icons/esm/SelectedIcon';
+import { secureExternalLink } from '@twilio-paste/anchor';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { SelectedIcon } from '@twilio-paste/icons/esm/SelectedIcon';
 
-import type {MenuItemProps, MenuItemVariantStyles, MenuItemVariant} from './types';
-import {MenuItemVariants} from './constants';
+import type { MenuItemProps, MenuItemVariantStyles, MenuItemVariant } from './types';
+import { MenuItemVariants } from './constants';
 
 const baseVariantStyles: MenuItemVariantStyles = {
   [MenuItemVariants.DEFAULT]: {
@@ -72,7 +72,7 @@ export const getComputedVariant = (variant: MenuItemVariant, isGrouped: boolean)
 };
 
 export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, MenuItemProps>(
-  ({element = 'STYLED_MENU_ITEM', href, variant = 'default', tabIndex, children, ...props}, ref) => {
+  ({ element = 'STYLED_MENU_ITEM', href, variant = 'default', tabIndex, children, ...props }, ref) => {
     return (
       <Box
         variant={variant}
@@ -112,7 +112,7 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
           <Box as="span" display="flex" columnGap="space50" justifyContent="space-between" alignItems="center">
             {children}
             <Box as="span" visibility={props['aria-checked'] ? 'visible' : 'hidden'}>
-              <SelectedIcon decorative color={getCheckedIconColor({disabled: props.disabled, variant})} />
+              <SelectedIcon decorative color={getCheckedIconColor({ disabled: props.disabled, variant })} />
             </Box>
           </Box>
         ) : (
@@ -120,7 +120,7 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         )}
       </Box>
     );
-  }
+  },
 );
 
 StyledMenuItem.displayName = 'StyledMenuItem';

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import type { GenericTokensShape } from '@twilio-paste/design-tokens/types/GenericTokensShape';
 
-import type {TokenContextProps} from '../../context/TokenContext';
-import {ColorTokenInput} from './ColorTokenInput';
-import {UnitTokenInput} from './UnitTokenInput';
-import {FontTokenInput} from './FontTokenInput';
-import {TextTokenInput} from './TextTokenInput';
+import type { TokenContextProps } from '../../context/TokenContext';
+import { ColorTokenInput } from './ColorTokenInput';
+import { UnitTokenInput } from './UnitTokenInput';
+import { FontTokenInput } from './FontTokenInput';
+import { TextTokenInput } from './TextTokenInput';
 
 type OptionsListProps = {
   bucket: keyof GenericTokensShape;
@@ -14,9 +14,9 @@ type OptionsListProps = {
   handleChange: TokenContextProps['updateToken'];
 };
 
-const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
 
-export const OptionsList: React.FC<React.PropsWithChildren<OptionsListProps>> = ({bucket, options, handleChange}) => {
+export const OptionsList: React.FC<React.PropsWithChildren<OptionsListProps>> = ({ bucket, options, handleChange }) => {
   const sortedNames = React.useMemo(() => Object.keys(options).sort(collator.compare), [options]);
 
   switch (bucket) {

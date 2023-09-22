@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {DisplayPillGroup, DisplayPill} from '../src';
-import {Basic} from '../stories/index.stories';
-import {CustomDisplayPillGroup} from '../stories/customization.stories';
+import { DisplayPillGroup, DisplayPill } from '../src';
+import { Basic } from '../stories/index.stories';
+import { CustomDisplayPillGroup } from '../stories/customization.stories';
 
 describe('DisplayPillGroup', () => {
   // Verifies that the correct aria attributes and semantics are met
   describe('Rendered shape', () => {
     it('should render correctly', () => {
-      const {getByTestId, getByText} = render(<Basic />);
+      const { getByTestId, getByText } = render(<Basic />);
       expect(getByText('Tennis')).toBeDefined();
 
       const group = getByTestId('display-pill-group');
@@ -31,7 +31,7 @@ describe('DisplayPillGroup', () => {
   // Verifies the component is fully customizable
   describe('Customization', () => {
     it('should set an element data attribute for DisplayPillGroup & DisplayPill', () => {
-      const {getByTestId} = render(<Basic />);
+      const { getByTestId } = render(<Basic />);
       const group = getByTestId('display-pill-group');
       expect(group.getAttribute('data-paste-element')).toEqual('DISPLAY_PILL_GROUP');
 
@@ -43,12 +43,12 @@ describe('DisplayPillGroup', () => {
     });
 
     it('should set a custom element data attribute for DisplayPillGroup & DisplayPill', () => {
-      const {getByTestId} = render(
+      const { getByTestId } = render(
         <DisplayPillGroup element="CUSTOM_GROUP" data-testid="group" aria-label="Your favorite sports:">
           <DisplayPill element="CUSTOM_PILL" data-testid="pill">
             A
           </DisplayPill>
-        </DisplayPillGroup>
+        </DisplayPillGroup>,
       );
       const group = getByTestId('group');
       expect(group.getAttribute('data-paste-element')).toEqual('CUSTOM_GROUP');
@@ -57,7 +57,7 @@ describe('DisplayPillGroup', () => {
     });
 
     it('should add custom styles to DisplayPillGroup & DisplayPill', () => {
-      const {getByTestId} = render(<CustomDisplayPillGroup />);
+      const { getByTestId } = render(<CustomDisplayPillGroup />);
 
       const group = getByTestId('display-pill-group');
       expect(group).toHaveStyleRule('margin', '0.75rem');
@@ -69,7 +69,7 @@ describe('DisplayPillGroup', () => {
       expect(pillStandard).toHaveStyleRule('background-color', 'rgb(245, 240, 252)');
     });
     it('should add custom styles to custom element DisplayPillGroup & DisplayPill', () => {
-      const {getByTestId} = render(
+      const { getByTestId } = render(
         <CustomizationProvider
           baseTheme="default"
           theme={TestTheme}
@@ -96,7 +96,7 @@ describe('DisplayPillGroup', () => {
               Football
             </DisplayPill>
           </DisplayPillGroup>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const group = getByTestId('display-pill-group');
       expect(group).toHaveStyleRule('margin', '0.75rem');

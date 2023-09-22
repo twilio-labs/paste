@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
 /**
  * Inline Code style variants.
@@ -23,7 +23,7 @@ export interface InlineCodeProps extends Partial<Omit<HTMLDivElement, 'children'
 }
 
 const InlineCode = React.forwardRef<HTMLDivElement, InlineCodeProps>(
-  ({children, element = 'INLINE_CODE', variant = 'default', ...props}, ref) => {
+  ({ children, element = 'INLINE_CODE', variant = 'default', ...props }, ref) => {
     return (
       <Box
         as="code"
@@ -46,9 +46,9 @@ const InlineCode = React.forwardRef<HTMLDivElement, InlineCodeProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
 InlineCode.displayName = 'InlineCode';
 
-export {InlineCode};
+export { InlineCode };

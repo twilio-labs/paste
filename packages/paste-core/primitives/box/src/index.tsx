@@ -14,12 +14,12 @@ import {
   createShouldForwardProp,
   props as defaultStylingProps,
 } from '@twilio-paste/styling-library';
-import type {StyledComponent} from '@twilio-paste/styling-library';
+import type { StyledComponent } from '@twilio-paste/styling-library';
 
-import type {BoxProps, StyledBoxProps} from './types';
-import {getPseudoStyles, PasteStyleProps, getCustomElementStyles} from './StyleFunctions';
-import {customStyleProps} from './CustomStyleProps';
-import {PseudoPropStyles} from './PseudoPropStyles';
+import type { BoxProps, StyledBoxProps } from './types';
+import { getPseudoStyles, PasteStyleProps, getCustomElementStyles } from './StyleFunctions';
+import { customStyleProps } from './CustomStyleProps';
+import { PseudoPropStyles } from './PseudoPropStyles';
 
 const coreVersionNumberPlaceholder: string = '[VI]{{inject}}[/VI]';
 
@@ -28,24 +28,24 @@ const stylingPropsWithoutSize = defaultStylingProps.filter((item: string) => ite
 
 const shouldForwardProp = createShouldForwardProp([
   ...stylingPropsWithoutSize,
-  ...Object.keys({...customStyleProps, ...PseudoPropStyles}),
+  ...Object.keys({ ...customStyleProps, ...PseudoPropStyles }),
 ]);
 
 // @ts-expect-error can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
-export const StyledBox = styled('div', {shouldForwardProp})<StyledBoxProps>(
+export const StyledBox = styled('div', { shouldForwardProp })<StyledBoxProps>(
   {
     boxSizing: 'border-box',
   },
   compose(space, layout, flexbox, grid, background, border, boxShadow, position, typography, PasteStyleProps),
   getPseudoStyles,
-  getCustomElementStyles
+  getCustomElementStyles,
 ) as unknown as StyledComponent<
   Omit<React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>, 'color'>,
   BoxProps,
   Record<string, unknown>
 >;
 
-const Box = React.forwardRef<HTMLElement, BoxProps>(({children, element = 'BOX', ...props}, ref) => {
+const Box = React.forwardRef<HTMLElement, BoxProps>(({ children, element = 'BOX', ...props }, ref) => {
   return (
     <StyledBox data-paste-element={element} data-paste-core-version={coreVersionNumberPlaceholder} ref={ref} {...props}>
       {children}
@@ -55,6 +55,6 @@ const Box = React.forwardRef<HTMLElement, BoxProps>(({children, element = 'BOX',
 
 Box.displayName = 'Box';
 
-export {Box, getCustomElementStyles};
+export { Box, getCustomElementStyles };
 export * from './types';
 export * from './SafelySpreadProps';

@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import {useListboxPrimitiveState, ListboxPrimitive, ListboxPrimitiveItem} from '../src';
+import { useListboxPrimitiveState, ListboxPrimitive, ListboxPrimitiveItem } from '../src';
 
 const FIRST_ITEM = 'first-listbox-item';
 const SECOND_ITEM = 'second-listbox-item';
 
 const ListboxMock: React.FC = () => {
   const [selected, setSelected] = React.useState<number>();
-  const listbox = useListboxPrimitiveState({baseId: 'listbox-example'});
+  const listbox = useListboxPrimitiveState({ baseId: 'listbox-example' });
   return (
     <ListboxPrimitive {...listbox} aria-label="Code">
       <ListboxPrimitiveItem
@@ -35,7 +35,7 @@ const ListboxMock: React.FC = () => {
 };
 
 const ListboxHorizontalMock: React.FC = () => {
-  const listbox = useListboxPrimitiveState({baseId: 'listbox-horizontal-example', orientation: 'horizontal'});
+  const listbox = useListboxPrimitiveState({ baseId: 'listbox-horizontal-example', orientation: 'horizontal' });
   return (
     <ListboxPrimitive {...listbox} aria-label="Code">
       <ListboxPrimitiveItem {...listbox} data-testid={FIRST_ITEM}>
@@ -48,7 +48,7 @@ const ListboxHorizontalMock: React.FC = () => {
 
 const ListboxMultipleMock: React.FC = () => {
   const [selectedSet, updateSelectedSet] = React.useState<Set<number>>(new Set());
-  const listbox = useListboxPrimitiveState({baseId: 'listbox-multi-example'});
+  const listbox = useListboxPrimitiveState({ baseId: 'listbox-multi-example' });
   const updateSelection = (item: number): void => {
     const newSelectedSet = new Set(selectedSet);
     if (newSelectedSet.has(item)) {

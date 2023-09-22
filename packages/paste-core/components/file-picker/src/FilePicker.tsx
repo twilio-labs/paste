@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Text} from '@twilio-paste/text';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {SiblingBox} from '@twilio-paste/sibling-box';
-import type {TextColor} from '@twilio-paste/style-props';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Text } from '@twilio-paste/text';
+import { useUID } from '@twilio-paste/uid-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { SiblingBox } from '@twilio-paste/sibling-box';
+import type { TextColor } from '@twilio-paste/style-props';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export interface FilePickerProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'element'> {
   accept?: string;
@@ -37,7 +37,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
       onChange,
       ...props
     },
-    ref
+    ref,
   ) => {
     const [fileDescription, setFileDescription] = React.useState(i18nNoSelectionText);
 
@@ -101,7 +101,7 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
               boxShadow: 'shadowBorderWeaker',
             }}
           >
-            {React.cloneElement(children, {disabled, element: `${element}_BUTTON`})}
+            {React.cloneElement(children, { disabled, element: `${element}_BUTTON` })}
             <Text
               id={textId}
               as="span"
@@ -117,9 +117,9 @@ const FilePicker = React.forwardRef<HTMLInputElement, FilePickerProps>(
         </label>
       </>
     );
-  }
+  },
 );
 
 FilePicker.displayName = 'FilePicker';
 
-export {FilePicker};
+export { FilePicker };

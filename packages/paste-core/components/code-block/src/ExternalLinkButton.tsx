@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
-import {Tooltip, useTooltipState} from '@twilio-paste/tooltip';
-import type {BoxProps} from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
+import { Tooltip, useTooltipState } from '@twilio-paste/tooltip';
+import type { BoxProps } from '@twilio-paste/box';
 
 interface ExternalLinkButtonProps {
   href: string;

@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface RecordIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface RecordIconProps extends IconWrapperProps {
 }
 
 const RecordIcon = React.forwardRef<HTMLElement, RecordIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `RecordIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -37,8 +37,8 @@ const RecordIcon = React.forwardRef<HTMLElement, RecordIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 RecordIcon.displayName = 'RecordIcon';
-export {RecordIcon};
+export { RecordIcon };

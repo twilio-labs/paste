@@ -1,5 +1,5 @@
-const {getStoryContext} = require('@storybook/test-runner');
-const {injectAxe, configureAxe, checkA11y} = require('axe-playwright');
+const { getStoryContext } = require('@storybook/test-runner');
+const { injectAxe, configureAxe, checkA11y } = require('axe-playwright');
 
 const a11yConfig = {
   async preRender(page, context) {

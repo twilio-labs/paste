@@ -1,6 +1,6 @@
 import merge from 'deepmerge';
 
-import type {CustomTheme, CreateCustomTheme} from './types';
+import type { CustomTheme, CreateCustomTheme } from './types';
 
 export const createCustomTheme = ({
   baseTheme,
@@ -15,7 +15,7 @@ export const createCustomTheme = ({
     const uniqueElements = [...new Set(Object.keys(elements).map((element) => element.toLowerCase()))];
     if (uniqueElements.length !== Object.keys(elements).length) {
       throw new Error(
-        '[CustomizationProvider]: duplicate element names, even when using a different casing, is not supported with Paste.'
+        '[CustomizationProvider]: duplicate element names, even when using a different casing, is not supported with Paste.',
       );
     }
   }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
 export interface ComponentsIconProps {
   size?: number;
@@ -7,10 +7,10 @@ export interface ComponentsIconProps {
   decorative?: boolean;
 }
 
-const Logo = React.memo(({title = 'Paste Logo', decorative = true, size}: ComponentsIconProps) => {
+const Logo = React.memo(({ title = 'Paste Logo', decorative = true, size }: ComponentsIconProps) => {
   const titleId = useUID();
   return (
-    <span style={{width: size, height: size, display: 'inline-block'}}>
+    <span style={{ width: size, height: size, display: 'inline-block' }}>
       <svg role="img" aria-hidden={decorative} aria-labelledby={titleId} viewBox="0 0 785.65 785.65">
         {title ? <title id={titleId}>{title}</title> : null}
         <rect fill="#f22f46" height="785.65" rx="60" width="785.65" />
@@ -23,4 +23,4 @@ const Logo = React.memo(({title = 'Paste Logo', decorative = true, size}: Compon
   );
 });
 
-export {Logo};
+export { Logo };

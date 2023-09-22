@@ -1,13 +1,13 @@
 import * as React from 'react';
 import Link from 'next/link';
-import {Text} from '@twilio-paste/core/text';
-import {Box} from '@twilio-paste/core/box';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/core/media-object';
-import {styled} from '@twilio-paste/core/styling-library';
-import {useTheme} from '@twilio-paste/core/theme';
+import { Text } from '@twilio-paste/core/text';
+import { Box } from '@twilio-paste/core/box';
+import { MediaObject, MediaBody, MediaFigure } from '@twilio-paste/core/media-object';
+import { styled } from '@twilio-paste/core/styling-library';
+import { useTheme } from '@twilio-paste/core/theme';
 
-import {PasteIconInverse} from './PasteIconInverse';
-import {BetaBadge} from './BetaBadge';
+import { PasteIconInverse } from './PasteIconInverse';
+import { BetaBadge } from './BetaBadge';
 
 const StyledA = styled(Link)`
   text-decoration: none;
@@ -27,7 +27,7 @@ type SiteHeaderLogoProps = {
  * Note: 'subtitle' isn't passed for the mobile view, so we use that fact
  * to render different sizes and spacing in mobile
  */
-const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({title, subtitle}) => {
+const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({ title, subtitle }) => {
   const theme = useTheme();
   return (
     <Box
@@ -67,4 +67,4 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
   );
 };
 
-export {SiteHeaderLogo};
+export { SiteHeaderLogo };

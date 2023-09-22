@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Input} from '@twilio-paste/input';
-import {Menu, useMenuState, MenuButton, MenuItem, MenuSeparator} from '@twilio-paste/menu';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Select, Option} from '@twilio-paste/select';
+import { Box } from '@twilio-paste/box';
+import { Input } from '@twilio-paste/input';
+import { Menu, useMenuState, MenuButton, MenuItem, MenuSeparator } from '@twilio-paste/menu';
+import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
+import { Select, Option } from '@twilio-paste/select';
 
-import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
-import {TableHeaderData, TableBodyData} from './constants';
+import { DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell } from '../../src';
+import { TableHeaderData, TableBodyData } from './constants';
 
 const ActionMenu = (): JSX.Element => {
   const menu = useMenuState();

@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import type {RenderOptions} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import type { RenderOptions } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {makeBadge, getStyles} from '../stories/StatusBadgeCustomization.stories';
+import { makeBadge, getStyles } from '../stories/StatusBadgeCustomization.stories';
 
 const makeCustomizationWrapper = (element: string | undefined = 'STATUS_BADGE'): RenderOptions['wrapper'] =>
-  function Wrapper({children}) {
+  function Wrapper({ children }) {
     return (
       <CustomizationProvider theme={TestTheme} elements={getStyles(element)}>
         {children}
@@ -27,13 +27,13 @@ describe('StatusBadge data-paste-element attribute', () => {
 
 describe('StatusBadge customization', () => {
   it('should set styles on StatusBadge', () => {
-    render(makeBadge('ConnectivityAvailable'), {wrapper: makeCustomizationWrapper()});
+    render(makeBadge('ConnectivityAvailable'), { wrapper: makeCustomizationWrapper() });
     expect(screen.getByTestId('ConnectivityAvailable_badge')).toHaveStyleRule('cursor', 'help');
     expect(screen.getByTestId('ConnectivityAvailable_badge')).toHaveStyleRule('padding-top', '1.25rem');
   });
   it('should set styles on StatusBadge with custom element prop', () => {
     const customElement = 'FOO';
-    render(makeBadge('ConnectivityAvailable', customElement), {wrapper: makeCustomizationWrapper(customElement)});
+    render(makeBadge('ConnectivityAvailable', customElement), { wrapper: makeCustomizationWrapper(customElement) });
     expect(screen.getByTestId('ConnectivityAvailable_badge')).toHaveStyleRule('cursor', 'help');
     expect(screen.getByTestId('ConnectivityAvailable_badge')).toHaveStyleRule('padding-top', '1.25rem');
   });

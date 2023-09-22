@@ -1,16 +1,16 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {UnorderedListIcon} from '@twilio-paste/icons/esm/UnorderedListIcon';
-import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
-import {DataLineChartIcon} from '@twilio-paste/icons/esm/DataLineChartIcon';
-import {DataPieChartIcon} from '@twilio-paste/icons/esm/DataPieChartIcon';
-import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
-import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
-import {UnderlineIcon} from '@twilio-paste/icons/esm/UnderlineIcon';
-import {ItalicIcon} from '@twilio-paste/icons/esm/ItalicIcon';
-import {StrikethroughIcon} from '@twilio-paste/icons/esm/StrikethroughIcon';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { UnorderedListIcon } from '@twilio-paste/icons/esm/UnorderedListIcon';
+import { DataBarChartIcon } from '@twilio-paste/icons/esm/DataBarChartIcon';
+import { DataLineChartIcon } from '@twilio-paste/icons/esm/DataLineChartIcon';
+import { DataPieChartIcon } from '@twilio-paste/icons/esm/DataPieChartIcon';
+import { DataTableIcon } from '@twilio-paste/icons/esm/DataTableIcon';
+import { BoldIcon } from '@twilio-paste/icons/esm/BoldIcon';
+import { UnderlineIcon } from '@twilio-paste/icons/esm/UnderlineIcon';
+import { ItalicIcon } from '@twilio-paste/icons/esm/ItalicIcon';
+import { StrikethroughIcon } from '@twilio-paste/icons/esm/StrikethroughIcon';
 
 import {
   Menu,
@@ -28,10 +28,10 @@ import {
 export default {
   title: 'Components/Menu/CheckableItems',
   component: Menu,
-  subcomponents: {MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator},
+  subcomponents: { MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator },
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000},
+    chromatic: { delay: 3000 },
   },
 };
 

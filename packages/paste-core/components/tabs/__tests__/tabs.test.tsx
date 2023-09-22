@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {render, screen, waitFor} from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {HorizontalTabs, StateHookTabs} from '../stories/index.stories';
-import {Tabs, Tab, TabList, TabPanels, TabPanel} from '../src';
-import {getElementName} from '../src/utils';
+import { HorizontalTabs, StateHookTabs } from '../stories/index.stories';
+import { Tabs, Tab, TabList, TabPanels, TabPanel } from '../src';
+import { getElementName } from '../src/utils';
 
 describe('Tabs', () => {
   describe('Utils', () => {
@@ -32,7 +32,7 @@ describe('Tabs', () => {
     // eslint-disable-next-line consistent-return
     it('relevant html and aria attributes', async () => {
       const [tabOneId, tabTwoId, tabThreeId, panelOneId, panelTwoId, panelThreeId] = [...new Array(6)].map(
-        (_, i) => `${i}`
+        (_, i) => `${i}`,
       );
 
       const ManualIdExample = (): JSX.Element => {
@@ -131,7 +131,7 @@ describe('Tabs', () => {
             <TabPanel data-testid="tab-panel-2">Tab 2</TabPanel>
             <TabPanel data-testid="tab-panel-3">Tab 3</TabPanel>
           </TabPanels>
-        </Tabs>
+        </Tabs>,
       );
 
       const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
@@ -139,7 +139,7 @@ describe('Tabs', () => {
       expect(outerDiv.getAttribute('data-paste-element')).toEqual('HORIZONTAL_TABS');
       expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('HORIZONTAL_TAB_LIST');
       expect((screen.getByTestId('tab-list').firstChild as HTMLElement).getAttribute('data-paste-element')).toEqual(
-        'HORIZONTAL_TAB_LIST_CHILD'
+        'HORIZONTAL_TAB_LIST_CHILD',
       );
       expect(screen.getByTestId('tab-1').getAttribute('data-paste-element')).toEqual('HORIZONTAL_TAB');
       expect(screen.getByTestId('tab-2').getAttribute('data-paste-element')).toEqual('HORIZONTAL_TAB');
@@ -163,7 +163,7 @@ describe('Tabs', () => {
             <TabPanel data-testid="tab-panel-2">Tab 2</TabPanel>
             <TabPanel data-testid="tab-panel-3">Tab 3</TabPanel>
           </TabPanels>
-        </Tabs>
+        </Tabs>,
       );
 
       const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
@@ -171,7 +171,7 @@ describe('Tabs', () => {
       expect(outerDiv.getAttribute('data-paste-element')).toEqual('VERTICAL_TABS');
       expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('VERTICAL_TAB_LIST');
       expect((screen.getByTestId('tab-list').firstChild as HTMLElement).getAttribute('data-paste-element')).toEqual(
-        'VERTICAL_TAB_LIST_CHILD'
+        'VERTICAL_TAB_LIST_CHILD',
       );
       expect(screen.getByTestId('tab-1').getAttribute('data-paste-element')).toEqual('VERTICAL_TAB');
       expect(screen.getByTestId('tab-2').getAttribute('data-paste-element')).toEqual('VERTICAL_TAB');
@@ -207,7 +207,7 @@ describe('Tabs', () => {
               Tab 3
             </TabPanel>
           </TabPanels>
-        </Tabs>
+        </Tabs>,
       );
 
       const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
@@ -215,7 +215,7 @@ describe('Tabs', () => {
       expect(outerDiv.getAttribute('data-paste-element')).toEqual('HORSE');
       expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('CAT');
       expect((screen.getByTestId('tab-list').firstChild as HTMLElement).getAttribute('data-paste-element')).toEqual(
-        'CAT_CHILD'
+        'CAT_CHILD',
       );
       expect(screen.getByTestId('tab-1').getAttribute('data-paste-element')).toEqual('TIGER');
       expect(screen.getByTestId('tab-2').getAttribute('data-paste-element')).toEqual('PANTHER');
@@ -251,7 +251,7 @@ describe('Tabs', () => {
               Tab 3
             </TabPanel>
           </TabPanels>
-        </Tabs>
+        </Tabs>,
       );
 
       const outerDiv = screen.getByTestId('tab-list').parentElement as HTMLElement;
@@ -259,7 +259,7 @@ describe('Tabs', () => {
       expect(outerDiv.getAttribute('data-paste-element')).toEqual('HORSE');
       expect(screen.getByTestId('tab-list').getAttribute('data-paste-element')).toEqual('CAT');
       expect((screen.getByTestId('tab-list').firstChild as HTMLElement).getAttribute('data-paste-element')).toEqual(
-        'CAT_CHILD'
+        'CAT_CHILD',
       );
       expect(screen.getByTestId('tab-1').getAttribute('data-paste-element')).toEqual('TIGER');
       expect(screen.getByTestId('tab-2').getAttribute('data-paste-element')).toEqual('PANTHER');
@@ -289,7 +289,7 @@ describe('Tabs', () => {
               borderColor: 'colorBorderDestructive',
               marginY: 'space100',
             },
-            HORIZONTAL_TAB_LIST_CHILD: {borderColor: 'colorBorderDestructive'},
+            HORIZONTAL_TAB_LIST_CHILD: { borderColor: 'colorBorderDestructive' },
             HORIZONTAL_TAB: {
               fontFamily: 'fontFamilyCode',
             },
@@ -313,7 +313,7 @@ describe('Tabs', () => {
               <TabPanel data-testid="tab-panel-3">Tab 3</TabPanel>
             </TabPanels>
           </Tabs>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('margin', '2.25rem');
@@ -355,7 +355,7 @@ describe('Tabs', () => {
               borderColor: 'colorBorderDestructive',
               marginY: 'space100',
             },
-            CATS_CHILD: {borderColor: 'colorBorderDestructive'},
+            CATS_CHILD: { borderColor: 'colorBorderDestructive' },
             RAGDOLL: {
               fontFamily: 'fontFamilyCode',
             },
@@ -403,7 +403,7 @@ describe('Tabs', () => {
               </TabPanel>
             </TabPanels>
           </Tabs>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       expect(screen.getByTestId('tab-list').parentElement).toHaveStyleRule('margin', '2.25rem');

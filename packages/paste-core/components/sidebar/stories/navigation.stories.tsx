@@ -1,27 +1,27 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import type {StoryFn} from '@storybook/react';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import { Button } from '@twilio-paste/button';
+import { Box } from '@twilio-paste/box';
+import type { StoryFn } from '@storybook/react';
+import { ProductFlexIcon } from '@twilio-paste/icons/esm/ProductFlexIcon';
+import { LogoTwilioIcon } from '@twilio-paste/icons/esm/LogoTwilioIcon';
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 // import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
-import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
-import {ProductContactCenterTasksIcon} from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
-import {ProductContactCenterAdminIcon} from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
-import {ProductContactCenterTeamsIcon} from '@twilio-paste/icons/esm/ProductContactCenterTeamsIcon';
-import {ProductPrivacyIcon} from '@twilio-paste/icons/esm/ProductPrivacyIcon';
-import {ProductUsageIcon} from '@twilio-paste/icons/esm/ProductUsageIcon';
-import {ProductContactCenterQueuesIcon} from '@twilio-paste/icons/esm/ProductContactCenterQueuesIcon';
-import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import {ProductHomeIcon} from '@twilio-paste/icons/esm/ProductHomeIcon';
-import {ProductConnectionsIcon} from '@twilio-paste/icons/esm/ProductConnectionsIcon';
-import {ProductReverseETLIcon} from '@twilio-paste/icons/esm/ProductReverseETLIcon';
-import {ProductProtocolsIcon} from '@twilio-paste/icons/esm/ProductProtocolsIcon';
-import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
-import {ProductEngageIcon} from '@twilio-paste/icons/esm/ProductEngageIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from '@twilio-paste/menu';
+import { ProductContactCenterTasksIcon } from '@twilio-paste/icons/esm/ProductContactCenterTasksIcon';
+import { ProductContactCenterAdminIcon } from '@twilio-paste/icons/esm/ProductContactCenterAdminIcon';
+import { ProductContactCenterTeamsIcon } from '@twilio-paste/icons/esm/ProductContactCenterTeamsIcon';
+import { ProductPrivacyIcon } from '@twilio-paste/icons/esm/ProductPrivacyIcon';
+import { ProductUsageIcon } from '@twilio-paste/icons/esm/ProductUsageIcon';
+import { ProductContactCenterQueuesIcon } from '@twilio-paste/icons/esm/ProductContactCenterQueuesIcon';
+import { ProductSegmentIcon } from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import { ProductHomeIcon } from '@twilio-paste/icons/esm/ProductHomeIcon';
+import { ProductConnectionsIcon } from '@twilio-paste/icons/esm/ProductConnectionsIcon';
+import { ProductReverseETLIcon } from '@twilio-paste/icons/esm/ProductReverseETLIcon';
+import { ProductProtocolsIcon } from '@twilio-paste/icons/esm/ProductProtocolsIcon';
+import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
+import { ProductEngageIcon } from '@twilio-paste/icons/esm/ProductEngageIcon';
+import { MoreIcon } from '@twilio-paste/icons/esm/MoreIcon';
 
 import {
   Sidebar,
@@ -496,7 +496,7 @@ export const StateHookDisclosure: StoryFn = () => {
   const mainContentSkipLinkID = useUID();
 
   // Custom state hook to control state of disclosure
-  const {transitioning, ...disclosure} = useDelayedDisclosureState({
+  const { transitioning, ...disclosure } = useDelayedDisclosureState({
     delay: 1000,
   });
   const clickableHeading = disclosure.visible ? 'Hide with delay' : 'Show with delay';

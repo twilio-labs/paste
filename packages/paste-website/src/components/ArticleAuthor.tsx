@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Stack} from '@twilio-paste/stack';
-import {Avatar} from '@twilio-paste/avatar';
-import {Anchor} from '@twilio-paste/anchor';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { Stack } from '@twilio-paste/stack';
+import { Avatar } from '@twilio-paste/avatar';
+import { Anchor } from '@twilio-paste/anchor';
 
 export interface ArticleAuthorProps {
   author: string;
@@ -52,4 +52,4 @@ const ArticleAuthor: React.FC<React.PropsWithChildren<ArticleAuthorProps>> = ({
 
 ArticleAuthor.displayName = 'ArticleAuthor';
 
-export {ArticleAuthor};
+export { ArticleAuthor };

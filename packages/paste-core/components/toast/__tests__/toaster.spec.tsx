@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {fireEvent, render, screen, waitFor, renderHook, act} from '@testing-library/react';
-import {loremIpsum} from 'lorem-ipsum';
-import {Button} from '@twilio-paste/button';
-import {Theme} from '@twilio-paste/theme';
+import { fireEvent, render, screen, waitFor, renderHook, act } from '@testing-library/react';
+import { loremIpsum } from 'lorem-ipsum';
+import { Button } from '@twilio-paste/button';
+import { Theme } from '@twilio-paste/theme';
 
-import {Toaster} from '../src/Toaster';
-import type {ToasterProps, ToasterToast} from '../src';
-import {useToaster} from '../src';
-import {ToastVariantObject} from '../src/constants';
+import { Toaster } from '../src/Toaster';
+import type { ToasterProps, ToasterToast } from '../src';
+import { useToaster } from '../src';
+import { ToastVariantObject } from '../src/constants';
 
 jest.useFakeTimers();
 
@@ -51,7 +51,7 @@ describe('Toaster', () => {
     render(
       <Theme.Provider theme="default">
         <Toaster toasts={[]} pop={mockDismiss} data-testid="toaster" />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     const renderedToaster = screen.getByTestId('toaster');
     expect(renderedToaster).toBeDefined();
@@ -62,7 +62,7 @@ describe('Toaster', () => {
       render(
         <Theme.Provider theme="default">
           <Toaster {...mockToasterState} data-testid="toaster" />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       const renderedToasts = screen.getAllByRole('status');
       expect(renderedToasts.length).toEqual(1);
@@ -72,14 +72,14 @@ describe('Toaster', () => {
       render(
         <Theme.Provider theme="default">
           <Toaster {...mockToasterState} data-testid="toaster" />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
-      const dismissButton = screen.getByRole('button', {name: /dismiss toast/i});
+      const dismissButton = screen.getByRole('button', { name: /dismiss toast/i });
       expect(document.activeElement).toEqual(dismissButton);
     });
 
     it('should add two toasts to toaster', () => {
-      const extraToast: ToasterToast = {message: 'hi2', variant: 'success', id: 'idstring'};
+      const extraToast: ToasterToast = { message: 'hi2', variant: 'success', id: 'idstring' };
       const toasterState = {
         ...mockToasterState,
         toasts: [...mockToasterState.toasts, extraToast],
@@ -87,7 +87,7 @@ describe('Toaster', () => {
       render(
         <Theme.Provider theme="default">
           <Toaster {...toasterState} data-testid="toaster" />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       const renderedToasts = screen.getAllByRole('status');
       expect(renderedToasts.length).toEqual(2);
@@ -99,7 +99,7 @@ describe('Toaster', () => {
       render(
         <Theme.Provider theme="default">
           <Toaster {...mockToasterState} data-testid="toaster" />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
       const dismissButton = screen.getByText('Dismiss toast');
       fireEvent.click(dismissButton);
@@ -107,11 +107,11 @@ describe('Toaster', () => {
     });
 
     it('should call onDismiss when unmounting', () => {
-      const {result} = renderHook(() => useToaster());
+      const { result } = renderHook(() => useToaster());
       render(
         <Theme.Provider theme="default">
           <Toaster {...result.current} data-testid="toaster" />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const onDismissMock: jest.Mock = jest.fn();
@@ -158,15 +158,15 @@ describe('Toaster', () => {
       fireEvent.click(triggerButton);
       const renderedToasts = screen.getAllByRole('status');
       expect(renderedToasts.length).toEqual(1);
-      expect(document.activeElement).toEqual(screen.getByRole('button', {name: /dismiss toast/i}));
+      expect(document.activeElement).toEqual(screen.getByRole('button', { name: /dismiss toast/i }));
     });
 
     it('should handle clicking the dismiss button', async () => {
-      const {rerender} = render(<MockToasterTrigger />);
+      const { rerender } = render(<MockToasterTrigger />);
       const triggerButton = screen.getByText('Add toast');
       fireEvent.click(triggerButton);
       rerender(<MockToasterTrigger />);
-      const dismissButton = screen.getByRole('button', {name: /dismiss toast/i});
+      const dismissButton = screen.getByRole('button', { name: /dismiss toast/i });
       fireEvent.click(dismissButton);
       rerender(<MockToasterTrigger />);
       await waitFor(() => {

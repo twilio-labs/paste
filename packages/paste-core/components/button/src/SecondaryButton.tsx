@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import merge from 'deepmerge';
 
-import {SizeStyles, BaseStyles, ToggleStyles} from './styles';
-import type {DirectButtonProps} from './types';
+import { SizeStyles, BaseStyles, ToggleStyles } from './styles';
+import type { DirectButtonProps } from './types';
 
 /*
  * defensively resetting interaction color from over zealous legacy
@@ -72,7 +72,7 @@ const ButtonStyleMapping = {
 };
 
 const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, pressed, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, pressed, ...props }, ref) => {
     const toggleStyles = pressed === undefined ? {} : ToggleStyles;
 
     // Must spread size styles after button styles
@@ -87,7 +87,7 @@ const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 SecondaryButton.defaultProps = {
   as: 'button',
@@ -95,4 +95,4 @@ SecondaryButton.defaultProps = {
 
 SecondaryButton.displayName = 'SecondaryButton';
 
-export {SecondaryButton};
+export { SecondaryButton };

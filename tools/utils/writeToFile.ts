@@ -1,4 +1,4 @@
-import {writeFile} from 'fs';
+import { writeFile } from 'fs';
 
 import chalk from 'chalk';
 
@@ -9,7 +9,7 @@ export function writeToFile(
     successMessage,
     errorMessage,
     formatJson = false,
-  }: {successMessage?: string; errorMessage?: string; formatJson?: boolean}
+  }: { successMessage?: string; errorMessage?: string; formatJson?: boolean },
 ): void {
   const output: string | NodeJS.ArrayBufferView = formatJson
     ? JSON.stringify(content, null, 2)

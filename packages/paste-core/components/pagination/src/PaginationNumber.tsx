@@ -1,13 +1,13 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
 
-import type {PaginationNumberProps} from './types';
-import {handleLinkValidation} from './utils';
+import type { PaginationNumberProps } from './types';
+import { handleLinkValidation } from './utils';
 
 const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberProps>(
-  ({as = 'button', element = 'PAGINATION_NUMBER', children, href, isCurrent, label, ...props}, ref) => {
-    handleLinkValidation({as, href});
+  ({ as = 'button', element = 'PAGINATION_NUMBER', children, href, isCurrent, label, ...props }, ref) => {
+    handleLinkValidation({ as, href });
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -54,7 +54,7 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
           textDecoration: 'none',
           color: 'colorTextLink',
         }}
-        _active={{textDecoration: 'none'}}
+        _active={{ textDecoration: 'none' }}
       >
         {children ? (
           <Text aria-hidden="true" as="span" color="inherit" fontWeight="fontWeightMedium" element={`${element}_TEXT`}>
@@ -63,9 +63,9 @@ const PaginationNumber = React.forwardRef<HTMLButtonElement, PaginationNumberPro
         ) : null}
       </Box>
     );
-  }
+  },
 );
 
 PaginationNumber.displayName = 'PaginationNumber';
 
-export {PaginationNumber};
+export { PaginationNumber };

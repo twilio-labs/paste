@@ -1,4 +1,4 @@
-import type {BoxProps} from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
 export type InputBoxTypes =
   | 'text'

@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {render, screen, waitFor} from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {Theme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { Theme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState} from '../src';
-import type {DisclosureHeadingProps, DisclosureProps} from '../src';
+import { Disclosure, DisclosureContent, DisclosureHeading, useDisclosureState } from '../src';
+import type { DisclosureHeadingProps, DisclosureProps } from '../src';
 
 const MockDisclosure: React.FC<
   React.PropsWithChildren<{
@@ -13,7 +13,7 @@ const MockDisclosure: React.FC<
     disabled?: DisclosureHeadingProps['disabled'];
     focusable?: DisclosureHeadingProps['focusable'];
   }>
-> = ({visible, disabled, focusable}) => {
+> = ({ visible, disabled, focusable }) => {
   return (
     <Theme.Provider theme="default">
       <Disclosure baseId="disclosure" visible={visible}>
@@ -131,7 +131,7 @@ describe('Disclosure', () => {
       render(
         <Theme.Provider theme="default">
           <MockDefaultElementDisclosure />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
@@ -147,7 +147,7 @@ describe('Disclosure', () => {
       render(
         <Theme.Provider theme="default">
           <MockCustomElementDisclosure />
-        </Theme.Provider>
+        </Theme.Provider>,
       );
 
       const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
@@ -165,14 +165,14 @@ describe('Disclosure', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            DISCLOSURE: {padding: 'space100'},
-            DISCLOSURE_CONTENT: {color: 'colorTextErrorStrong'},
-            DISCLOSURE_HEADING: {color: 'colorTextWeakest', backgroundColor: 'colorBackgroundDestructiveStrong'},
-            DISCLOSURE_HEADING_ICON: {color: 'colorTextIconError'},
+            DISCLOSURE: { padding: 'space100' },
+            DISCLOSURE_CONTENT: { color: 'colorTextErrorStrong' },
+            DISCLOSURE_HEADING: { color: 'colorTextWeakest', backgroundColor: 'colorBackgroundDestructiveStrong' },
+            DISCLOSURE_HEADING_ICON: { color: 'colorTextIconError' },
           }}
         >
           <MockDefaultElementDisclosure />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
@@ -193,14 +193,14 @@ describe('Disclosure', () => {
           baseTheme="default"
           theme={TestTheme}
           elements={{
-            MY_DISCLOSURE: {padding: 'space100'},
-            MY_DISCLOSURE_CONTENT: {color: 'colorTextErrorStrong'},
-            MY_DISCLOSURE_HEADING: {color: 'colorTextWeakest', backgroundColor: 'colorBackgroundDestructiveStrong'},
-            MY_DISCLOSURE_HEADING_ICON: {color: 'colorTextIconError'},
+            MY_DISCLOSURE: { padding: 'space100' },
+            MY_DISCLOSURE_CONTENT: { color: 'colorTextErrorStrong' },
+            MY_DISCLOSURE_HEADING: { color: 'colorTextWeakest', backgroundColor: 'colorBackgroundDestructiveStrong' },
+            MY_DISCLOSURE_HEADING_ICON: { color: 'colorTextIconError' },
           }}
         >
           <MockCustomElementDisclosure />
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
       const renderedDisclosureHeading = screen.getByTestId('disclosure-heading');
       const renderedDisclosureHeadingIcon = renderedDisclosureHeading.firstChild;

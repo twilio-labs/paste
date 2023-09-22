@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {act, fireEvent, render, screen, waitFor} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { act, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
 import {
   MinimizableDialog,
@@ -10,7 +10,7 @@ import {
   MinimizableDialogContent,
 } from '../src';
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -48,7 +48,7 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
   </CustomizationProvider>
 );
 
-const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const MyCustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
@@ -95,13 +95,13 @@ describe('Customization', () => {
           <MinimizableDialogHeader data-testid="dialog-header">My custom dialog</MinimizableDialogHeader>
           <MinimizableDialogContent data-testid="dialog-contents">This is a dialog.</MinimizableDialogContent>
         </MinimizableDialog>
-      </MinimizableDialogContainer>
+      </MinimizableDialogContainer>,
     );
 
-    const dialogButton = screen.getByRole('button', {name: 'Button'});
-    const minimizeButton = screen.getByRole('button', {name: 'minimize', hidden: true});
-    const closeButton = screen.getByRole('button', {name: 'close', hidden: true});
-    const dialog = screen.getByRole('dialog', {hidden: true});
+    const dialogButton = screen.getByRole('button', { name: 'Button' });
+    const minimizeButton = screen.getByRole('button', { name: 'minimize', hidden: true });
+    const closeButton = screen.getByRole('button', { name: 'close', hidden: true });
+    const dialog = screen.getByRole('dialog', { hidden: true });
     const dialogContents = screen.getByTestId('dialog-contents');
     const dialogHeader = screen.getByTestId('dialog-header');
     const dialogHeading = screen.getByText('My custom dialog');
@@ -115,10 +115,10 @@ describe('Customization', () => {
 
     expect(dialog.querySelector('[data-paste-element="MINIMIZABLE_DIALOG"]')).toBeInTheDocument();
     expect(
-      minimizeButton.querySelector('[data-paste-element="MINIMIZABLE_DIALOG_HEADER_MINIMIZE_ICON"]')
+      minimizeButton.querySelector('[data-paste-element="MINIMIZABLE_DIALOG_HEADER_MINIMIZE_ICON"]'),
     ).toBeInTheDocument();
     expect(
-      closeButton.querySelector('[data-paste-element="MINIMIZABLE_DIALOG_HEADER_CLOSE_ICON"]')
+      closeButton.querySelector('[data-paste-element="MINIMIZABLE_DIALOG_HEADER_CLOSE_ICON"]'),
     ).toBeInTheDocument();
   });
 
@@ -131,17 +131,17 @@ describe('Customization', () => {
           <MinimizableDialogContent data-testid="dialog-contents">This is a dialog.</MinimizableDialogContent>
         </MinimizableDialog>
       </MinimizableDialogContainer>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
-    const dialogButton = screen.getByRole('button', {name: 'Button'});
+    const dialogButton = screen.getByRole('button', { name: 'Button' });
 
     await waitFor(() => {
       fireEvent.click(dialogButton);
     });
 
-    const minimizeButton = screen.getByRole('button', {name: 'minimize'});
-    const closeButton = screen.getByRole('button', {name: 'close'});
+    const minimizeButton = screen.getByRole('button', { name: 'minimize' });
+    const closeButton = screen.getByRole('button', { name: 'close' });
     const dialog = screen.getByRole('dialog').querySelector('[data-paste-element="MINIMIZABLE_DIALOG"]');
     const dialogContents = screen.getByTestId('dialog-contents');
     const dialogHeader = screen.getByTestId('dialog-header');
@@ -174,13 +174,13 @@ describe('Customization', () => {
             This is a dialog.
           </MinimizableDialogContent>
         </MinimizableDialog>
-      </MinimizableDialogContainer>
+      </MinimizableDialogContainer>,
     );
 
-    const dialogButton = screen.getByRole('button', {name: 'Button'});
-    const minimizeButton = screen.getByRole('button', {name: 'minimize', hidden: true});
-    const closeButton = screen.getByRole('button', {name: 'close', hidden: true});
-    const dialog = screen.getByRole('dialog', {hidden: true});
+    const dialogButton = screen.getByRole('button', { name: 'Button' });
+    const minimizeButton = screen.getByRole('button', { name: 'minimize', hidden: true });
+    const closeButton = screen.getByRole('button', { name: 'close', hidden: true });
+    const dialog = screen.getByRole('dialog', { hidden: true });
     const dialogContents = screen.getByTestId('dialog-contents');
     const dialogHeader = screen.getByTestId('dialog-header');
     const dialogHeading = screen.getByText('My custom dialog');
@@ -212,17 +212,17 @@ describe('Customization', () => {
           </MinimizableDialogContent>
         </MinimizableDialog>
       </MinimizableDialogContainer>,
-      {wrapper: MyCustomizationWrapper}
+      { wrapper: MyCustomizationWrapper },
     );
 
-    const dialogButton = screen.getByRole('button', {name: 'Button'});
+    const dialogButton = screen.getByRole('button', { name: 'Button' });
 
     await waitFor(() => {
       fireEvent.click(dialogButton);
     });
 
-    const minimizeButton = screen.getByRole('button', {name: 'minimize'});
-    const closeButton = screen.getByRole('button', {name: 'close'});
+    const minimizeButton = screen.getByRole('button', { name: 'minimize' });
+    const closeButton = screen.getByRole('button', { name: 'close' });
     const dialog = screen.getByRole('dialog').querySelector('[data-paste-element="FOO_DIALOG"]');
     const dialogContents = screen.getByTestId('dialog-contents');
     const dialogHeader = screen.getByTestId('dialog-header');

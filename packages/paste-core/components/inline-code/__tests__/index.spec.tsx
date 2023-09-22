@@ -1,30 +1,30 @@
 import * as React from 'react';
-import {render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Box} from '@twilio-paste/box';
+import { render } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Box } from '@twilio-paste/box';
 
-import {InlineCode} from '../src';
+import { InlineCode } from '../src';
 
 describe('InlineCode', () => {
   it('should render text in a <code> tag', () => {
-    const {getByTestId} = render(
+    const { getByTestId } = render(
       <Box data-testid="inline-code">
         <InlineCode>sid</InlineCode>
-      </Box>
+      </Box>,
     );
     expect(getByTestId('inline-code').querySelector('code')).not.toBeNull();
   });
 
   it('should have a default element attribute', () => {
-    const {getByText} = render(<InlineCode>sid</InlineCode>);
+    const { getByText } = render(<InlineCode>sid</InlineCode>);
     expect(getByText('sid').getAttribute('data-paste-element')).toEqual('INLINE_CODE');
   });
   it('should have a custom element attribute when set', () => {
-    const {getByText} = render(<InlineCode element="MY_INLINE_CODE">sid</InlineCode>);
+    const { getByText } = render(<InlineCode element="MY_INLINE_CODE">sid</InlineCode>);
     expect(getByText('sid').getAttribute('data-paste-element')).toEqual('MY_INLINE_CODE');
   });
   it('should set custom styles using the default element attribute', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <CustomizationProvider
         baseTheme="default"
         theme={TestTheme}
@@ -35,12 +35,12 @@ describe('InlineCode', () => {
         }}
       >
         <InlineCode>sid</InlineCode>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(getByText('sid')).toHaveStyleRule('border-width', '2px');
   });
   it('should set custom styles using a custom element attribute', () => {
-    const {getByText} = render(
+    const { getByText } = render(
       <CustomizationProvider
         baseTheme="default"
         theme={TestTheme}
@@ -51,7 +51,7 @@ describe('InlineCode', () => {
         }}
       >
         <InlineCode element="MY_INLINE_CODE">sid</InlineCode>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     expect(getByText('sid')).toHaveStyleRule('border-width', '2px');
   });

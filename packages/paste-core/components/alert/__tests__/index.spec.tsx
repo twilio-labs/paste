@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Alert} from '../src';
+import { Alert } from '../src';
 
 const onDismissMock: jest.Mock = jest.fn();
 
@@ -11,10 +11,10 @@ describe('Alert', () => {
   describe('Dismiss button', () => {
     it('Should add a dismiss button when onDismiss is passed as a function to call', () => {
       const eventHandlerMock: jest.Mock = jest.fn();
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Alert onDismiss={eventHandlerMock} variant="neutral">
           This is an alert
-        </Alert>
+        </Alert>,
       );
 
       expect(getByRole('button')).toBeInTheDocument();
@@ -23,10 +23,10 @@ describe('Alert', () => {
     it('Should call the onDismiss event handler when close button clicked', () => {
       const eventHandlerMock: jest.Mock = jest.fn();
 
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Alert onDismiss={eventHandlerMock} variant="neutral">
           This is an alert
-        </Alert>
+        </Alert>,
       );
 
       const button = getByRole('button');
@@ -37,25 +37,25 @@ describe('Alert', () => {
 
   describe('Aria roles', () => {
     it('Should add the role of status to the neutral alert', () => {
-      const {getByRole} = render(<Alert variant="neutral">This is an alert</Alert>);
+      const { getByRole } = render(<Alert variant="neutral">This is an alert</Alert>);
       expect(getByRole('status')).toBeInTheDocument();
     });
 
     it('Should add the role of alert to the error alert', () => {
-      const {getByRole} = render(<Alert variant="error">This is an alert</Alert>);
+      const { getByRole } = render(<Alert variant="error">This is an alert</Alert>);
       expect(getByRole('alert')).toBeInTheDocument();
     });
 
     it('Should add the role of alert to the warning alert', () => {
-      const {getByRole} = render(<Alert variant="warning">This is an alert</Alert>);
+      const { getByRole } = render(<Alert variant="warning">This is an alert</Alert>);
       expect(getByRole('alert')).toBeInTheDocument();
     });
 
     it('Should add the provided role to the alert', () => {
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Alert role="tab" variant="error">
           This is an alert
-        </Alert>
+        </Alert>,
       );
       expect(getByRole('tab')).toBeInTheDocument();
     });
@@ -68,7 +68,7 @@ describe('Alert', () => {
           <Alert data-testid="alert-customization" variant="neutral" onDismiss={onDismissMock}>
             This is my test alert
           </Alert>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const alert = screen.getByTestId('alert-customization');
@@ -101,7 +101,7 @@ describe('Alert', () => {
           <Alert data-testid="alert-customization" variant="neutral" onDismiss={onDismissMock}>
             This is my test alert
           </Alert>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const alert = screen.getByTestId('alert-customization');
@@ -110,11 +110,11 @@ describe('Alert', () => {
       expect(alert.querySelector('[data-paste-element="ALERT_ICON"]')).toHaveStyleRule('color', 'rgb(0, 20, 137)');
       expect(alert.querySelector('[data-paste-element="ALERT_DISMISS_BUTTON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(18, 28, 45)'
+        'rgb(18, 28, 45)',
       );
       expect(alert.querySelector('[data-paste-element="ALERT_DISMISS_ICON"]')).toHaveStyleRule(
         'color',
-        'rgb(255, 255, 255)'
+        'rgb(255, 255, 255)',
       );
     });
 
@@ -140,7 +140,7 @@ describe('Alert', () => {
           <Alert data-testid="alert-customization" element="MYALERT" variant="neutral" onDismiss={onDismissMock}>
             This is my test alert
           </Alert>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
       const alert = screen.getByTestId('alert-customization');
@@ -154,11 +154,11 @@ describe('Alert', () => {
       expect(alert.querySelector('[data-paste-element="MYALERT_ICON"]')).toHaveStyleRule('color', 'rgb(0, 20, 137)');
       expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_BUTTON"]')).toHaveStyleRule(
         'background-color',
-        'rgb(18, 28, 45)'
+        'rgb(18, 28, 45)',
       );
       expect(alert.querySelector('[data-paste-element="MYALERT_DISMISS_ICON"]')).toHaveStyleRule(
         'color',
-        'rgb(255, 255, 255)'
+        'rgb(255, 255, 255)',
       );
     });
   });
@@ -168,9 +168,9 @@ describe('Alert', () => {
       render(
         <Alert variant="neutral" onDismiss={onDismissMock}>
           This is an alert
-        </Alert>
+        </Alert>,
       );
-      const dismissButton = screen.getByRole('button', {name: 'Dismiss alert'});
+      const dismissButton = screen.getByRole('button', { name: 'Dismiss alert' });
       expect(dismissButton).toBeDefined();
     });
 
@@ -178,9 +178,9 @@ describe('Alert', () => {
       render(
         <Alert variant="neutral" i18nDismissLabel="Fermez l'alerte" onDismiss={onDismissMock}>
           C&apos;est une alerte neutre.
-        </Alert>
+        </Alert>,
       );
-      const dismissButton = screen.getByRole('button', {name: "Fermez l'alerte"});
+      const dismissButton = screen.getByRole('button', { name: "Fermez l'alerte" });
       expect(dismissButton).toBeDefined();
     });
 
@@ -188,7 +188,7 @@ describe('Alert', () => {
       render(
         <Alert data-testid="alert-i18n" variant="error">
           This is an alert
-        </Alert>
+        </Alert>,
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
@@ -199,7 +199,7 @@ describe('Alert', () => {
       render(
         <Alert data-testid="alert-i18n" variant="neutral">
           This is an alert
-        </Alert>
+        </Alert>,
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
@@ -210,7 +210,7 @@ describe('Alert', () => {
       render(
         <Alert data-testid="alert-i18n" variant="warning">
           This is an alert
-        </Alert>
+        </Alert>,
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
@@ -221,7 +221,7 @@ describe('Alert', () => {
       render(
         <Alert data-testid="alert-i18n" variant="error" i18nErrorLabel="(erreur)">
           C&apos;est une alerte.
-        </Alert>
+        </Alert>,
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
@@ -232,7 +232,7 @@ describe('Alert', () => {
       render(
         <Alert data-testid="alert-i18n" variant="neutral" i18nNeutralLabel="(information)">
           C&apos;est une alerte.
-        </Alert>
+        </Alert>,
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');
@@ -243,7 +243,7 @@ describe('Alert', () => {
       render(
         <Alert data-testid="alert-i18n" variant="warning" i18nWarningLabel="(avertissement)">
           C&apos;est une alerte.
-        </Alert>
+        </Alert>,
       );
       const alert = screen.getByTestId('alert-i18n');
       const icon = alert.querySelector('[data-paste-element="ALERT_ICON"]');

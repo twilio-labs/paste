@@ -9,7 +9,7 @@ import * as RawJSON from '../__fixtures__/tokens.raw.json';
 import * as RawExtraJSON from '../__fixtures__/tokensWithExtraPairings.raw.json';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore type declaration warning for these token fixtures
-import {tokens} from '../__fixtures__/tokens';
+import { tokens } from '../__fixtures__/tokens';
 
 describe('convertRawTokenJSONToArray', () => {
   test('it should convert raw JSON to an array of tokens', () => {
@@ -32,7 +32,7 @@ describe('convertRawTokenJSONToArray', () => {
           originalValue: '{!palette-red-30}',
           name: 'color-text-link-destructive-light',
         },
-      })
+      }),
     ).toEqual([
       {
         type: 'color',
@@ -192,7 +192,7 @@ describe('getContrastRatingForTokenPairing', () => {
   test('it should get the contrast ratio rating for only ui control color contrast requirements', () => {
     const filteredUIControlContrastTokens = getTokensWithUIControlContrastRequirements(RawJSON.props);
     expect(
-      getContrastRatingForTokenPairing(filteredUIControlContrastTokens, tokens, 'uicontrol_contrast_pairing')
+      getContrastRatingForTokenPairing(filteredUIControlContrastTokens, tokens, 'uicontrol_contrast_pairing'),
     ).toEqual([
       {
         aa: false,

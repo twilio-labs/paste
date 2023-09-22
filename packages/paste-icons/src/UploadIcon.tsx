@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface UploadIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface UploadIconProps extends IconWrapperProps {
 }
 
 const UploadIcon = React.forwardRef<HTMLElement, UploadIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `UploadIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -39,8 +39,8 @@ const UploadIcon = React.forwardRef<HTMLElement, UploadIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 UploadIcon.displayName = 'UploadIcon';
-export {UploadIcon};
+export { UploadIcon };

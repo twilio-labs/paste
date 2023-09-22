@@ -1,4 +1,4 @@
-import {styled} from '@twilio-paste/styling-library';
+import { styled } from '@twilio-paste/styling-library';
 
 interface GridProps {
   columnWidth: number;
@@ -37,4 +37,4 @@ const Grid = styled.div<GridProps>`
   }
 `;
 
-export {Grid};
+export { Grid };

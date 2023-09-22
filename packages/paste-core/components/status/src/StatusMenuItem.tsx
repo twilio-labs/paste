@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {MenuItem} from '@twilio-paste/menu';
-import type {MenuItemProps} from '@twilio-paste/menu';
+import { MenuItem } from '@twilio-paste/menu';
+import type { MenuItemProps } from '@twilio-paste/menu';
 
 export type StatusMenuItemProps = MenuItemProps;
 
@@ -9,4 +9,4 @@ const StatusMenuItem = React.forwardRef<HTMLDivElement, StatusMenuItemProps>((pr
 });
 
 StatusMenuItem.displayName = 'StatusMenuItem';
-export {StatusMenuItem};
+export { StatusMenuItem };

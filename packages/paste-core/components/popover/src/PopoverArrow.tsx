@@ -1,7 +1,7 @@
 import * as React from 'react';
-import type {NonModalDialogArrowPrimitiveProps} from '@twilio-paste/non-modal-dialog-primitive';
-import {NonModalDialogArrowPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
-import {useTheme} from '@twilio-paste/theme';
+import type { NonModalDialogArrowPrimitiveProps } from '@twilio-paste/non-modal-dialog-primitive';
+import { NonModalDialogArrowPrimitive } from '@twilio-paste/non-modal-dialog-primitive';
+import { useTheme } from '@twilio-paste/theme';
 
 export type PopoverArrowProps = NonModalDialogArrowPrimitiveProps;
 
@@ -19,4 +19,4 @@ const PopoverArrow: React.FC<React.PropsWithChildren<PopoverArrowProps>> = (prop
 };
 
 PopoverArrow.displayName = 'PopoverArrow';
-export {PopoverArrow};
+export { PopoverArrow };

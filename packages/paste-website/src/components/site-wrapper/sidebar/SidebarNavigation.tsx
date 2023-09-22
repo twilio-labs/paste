@@ -11,15 +11,15 @@ import {
   SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationSeparator,
 } from '@twilio-paste/sidebar';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import { LinkExternalIcon } from '@twilio-paste/icons/esm/LinkExternalIcon';
 
-import {SidebarCategoryRoutes} from '../../../constants';
-import {alphabetizeComponents} from '../../../utils/componentFilters';
-import {getNormalizedNavigationData} from '../../../utils/DataUtils';
-import {useNavigationContext} from '../../../context/NavigationContext';
-import {SidebarAnchor} from './SidebarAnchor';
-import {event} from '../../../lib/gtag';
-import {useLocationPathname} from '../../../utils/RouteUtils';
+import { SidebarCategoryRoutes } from '../../../constants';
+import { alphabetizeComponents } from '../../../utils/componentFilters';
+import { getNormalizedNavigationData } from '../../../utils/DataUtils';
+import { useNavigationContext } from '../../../context/NavigationContext';
+import { SidebarAnchor } from './SidebarAnchor';
+import { event } from '../../../lib/gtag';
+import { useLocationPathname } from '../../../utils/RouteUtils';
 
 const CY_BASE = 'sidebar-disclosure';
 
@@ -30,7 +30,7 @@ const NavigationDisclosure: React.FC<
     buttonText: string;
     onClick?: SidebarNavigationDisclosureHeadingProps['onClick'];
   }>
-> = ({children, categoryRoute, buttonText, onClick}) => {
+> = ({ children, categoryRoute, buttonText, onClick }) => {
   const pathname = useLocationPathname();
   const disclosure = useSidebarNavigationDisclosureState({
     visible: pathname.startsWith(categoryRoute),
@@ -60,7 +60,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
   const pathname = useLocationPathname();
 
   // take airtable feature data and mutate it into navigation data
-  const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern, allPastePageTemplate} =
+  const { allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern, allPastePageTemplate } =
     getNormalizedNavigationData(navigationData);
 
   const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout];
@@ -187,7 +187,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
         }
       >
         <SidebarAnchor href={SidebarCategoryRoutes.PATTERNS}>Overview</SidebarAnchor>
-        {allPastePattern.map(({name, slug}: {[key: string]: string}) => (
+        {allPastePattern.map(({ name, slug }: { [key: string]: string }) => (
           <SidebarAnchor href={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
             {name}
           </SidebarAnchor>
@@ -195,7 +195,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
       </NavigationDisclosure>
       <NavigationDisclosure buttonText="Page templates" categoryRoute={SidebarCategoryRoutes.PAGE_TEMPLATES}>
         <SidebarAnchor href={SidebarCategoryRoutes.PAGE_TEMPLATES}>Overview</SidebarAnchor>
-        {allPastePageTemplate.map(({name, slug}: {[key: string]: string}) => (
+        {allPastePageTemplate.map(({ name, slug }: { [key: string]: string }) => (
           <SidebarAnchor href={`${SidebarCategoryRoutes.PAGE_TEMPLATES}/${slug}`} key={slug}>
             {name}
           </SidebarAnchor>
@@ -214,7 +214,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
         }
       >
         <SidebarAnchor href={SidebarCategoryRoutes.COMPONENTS}>Overview</SidebarAnchor>
-        {filteredComponentSidebarItems.map(({name, slug}: {[key: string]: string}) => {
+        {filteredComponentSidebarItems.map(({ name, slug }: { [key: string]: string }) => {
           const selected = pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/${slug}`);
           if (name === 'Icon') {
             return (
@@ -343,7 +343,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
         }
       >
         <SidebarAnchor href={SidebarCategoryRoutes.PRIMITIVES}>Overview</SidebarAnchor>
-        {filteredPrimitives.map(({name, slug}: {[key: string]: string}) => {
+        {filteredPrimitives.map(({ name, slug }: { [key: string]: string }) => {
           const selected = pathname.includes(`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`);
           return (
             <SidebarAnchor selected={selected} href={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
@@ -472,4 +472,4 @@ const SiteSidebarNavigation = (): JSX.Element => {
   );
 };
 
-export {SiteSidebarNavigation as SidebarNavigation};
+export { SiteSidebarNavigation as SidebarNavigation };

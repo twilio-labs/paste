@@ -5,7 +5,7 @@
  */
 // eslint-disable-next-line import/no-unresolved
 import userEvent from '@testing-library/real-user-event';
-import {act} from '@testing-library/react';
+import { act } from '@testing-library/react';
 
 const original = {
   hover: userEvent.hover,

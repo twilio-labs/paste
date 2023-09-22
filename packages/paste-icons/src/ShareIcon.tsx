@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface ShareIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface ShareIconProps extends IconWrapperProps {
 }
 
 const ShareIcon = React.forwardRef<HTMLElement, ShareIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `ShareIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -43,8 +43,8 @@ const ShareIcon = React.forwardRef<HTMLElement, ShareIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 ShareIcon.displayName = 'ShareIcon';
-export {ShareIcon};
+export { ShareIcon };

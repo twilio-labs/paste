@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Stack} from '@twilio-paste/stack';
-import {useTheme} from '@twilio-paste/theme';
+import type { StoryFn } from '@storybook/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { Stack } from '@twilio-paste/stack';
+import { useTheme } from '@twilio-paste/theme';
 
-import {Paragraph} from '../src';
+import { Paragraph } from '../src';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -31,7 +31,7 @@ export const Default = (): React.ReactNode => {
   );
 };
 
-export const CustomParagraph: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomParagraph: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">

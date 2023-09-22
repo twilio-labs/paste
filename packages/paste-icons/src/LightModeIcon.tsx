@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface LightModeIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface LightModeIconProps extends IconWrapperProps {
 }
 
 const LightModeIcon = React.forwardRef<HTMLElement, LightModeIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `LightModeIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -50,8 +50,8 @@ const LightModeIcon = React.forwardRef<HTMLElement, LightModeIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 LightModeIcon.displayName = 'LightModeIcon';
-export {LightModeIcon};
+export { LightModeIcon };

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
 import {
   getGrow,
@@ -12,8 +12,8 @@ import {
   vAlignToProps,
   hAlignToProps,
 } from '../src/helpers';
-import {Flex} from '../src';
-import type {FlexProps} from '../src/types';
+import { Flex } from '../src';
+import type { FlexProps } from '../src/types';
 
 describe('Flex Unit Tests', () => {
   it('should return grow: 1', (): void => {
@@ -206,7 +206,7 @@ describe('Flex Display', () => {
     render(
       <Flex data-testid="renderedFlexArticle" as="article">
         child
-      </Flex>
+      </Flex>,
     );
     const renderedFlex = screen.getByTestId('renderedFlexArticle');
     expect(renderedFlex.tagName).toEqual('ARTICLE');
@@ -236,7 +236,7 @@ describe('Flex Options', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" grow={[true, false, 1]} />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-grow', '0', {
@@ -252,7 +252,7 @@ describe('Flex Options', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" grow shrink={[true, false, 1]} />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-shrink', '0', {
@@ -268,7 +268,7 @@ describe('Flex Options', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" basis={[400, 100, 200]} />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-basis', '100px', {
@@ -292,7 +292,7 @@ describe('Flex Row', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" display="flex" vertical={[true, false, false]} />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-direction', 'row', {
@@ -316,7 +316,7 @@ describe('Flex Wrap', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" wrap={[true, true, false]} />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('flex-wrap', 'wrap', {
@@ -340,7 +340,7 @@ describe('Vertical Alignment', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" vAlignContent={['top', 'center', 'bottom']} />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('align-items', 'center', {
@@ -364,7 +364,7 @@ describe('Horizontal Alignment', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Flex data-testid="renderedFlexElement" hAlignContent={['left', 'center', 'right']} />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('justify-content', 'center', {
@@ -387,7 +387,7 @@ describe('Flex style props', () => {
         minWidth="size50"
         minHeight="size60"
         maxHeight="size70"
-      />
+      />,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('margin', 'space20');
@@ -413,7 +413,7 @@ describe('Flex style props', () => {
         marginRight="space30"
         marginBottom="space40"
         marginLeft="space50"
-      />
+      />,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('margin-top', 'space20');
@@ -430,7 +430,7 @@ describe('Flex style props', () => {
         paddingRight="space30"
         paddingBottom="space40"
         paddingLeft="space50"
-      />
+      />,
     );
     const renderedFlex = screen.getByTestId('renderedFlexElement');
     expect(renderedFlex).toHaveStyleRule('padding-top', 'space20');
@@ -491,10 +491,10 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{FLEX: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        elements={{ FLEX: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
       >
         <Flex data-testid="renderedFlexElement" />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('renderedFlexElement');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -504,10 +504,10 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{MY_FLEX: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        elements={{ MY_FLEX: { color: 'colorTextWeak', backgroundColor: 'colorBackground' } }}
       >
         <Flex data-testid="renderedFlexElement" element="MY_FLEX" />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedBox = screen.getByTestId('renderedFlexElement');
     expect(renderedBox).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');

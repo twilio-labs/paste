@@ -1,8 +1,8 @@
-import {resolve} from 'path';
+import { resolve } from 'path';
 
 import * as theo from 'theo';
 
-import {commonTokenFormat} from '../common';
+import { commonTokenFormat } from '../common';
 
 theo.registerFormat('common.js', commonTokenFormat);
 

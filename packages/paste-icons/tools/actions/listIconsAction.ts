@@ -1,10 +1,10 @@
 import path from 'path';
 
-import {writeToFile} from '../../../../tools/utils/writeToFile';
-import {REACT_PATH, BLOCKLIST_FILES} from '../constants';
-import {readdirAsync, removeTsxExtension, maybeHandleError} from '../utils';
-import {jsonTemplate} from '../templates/jsonTemplate';
-import {buildListTemplate} from '../templates/buildListTemplate';
+import { writeToFile } from '../../../../tools/utils/writeToFile';
+import { REACT_PATH, BLOCKLIST_FILES } from '../constants';
+import { readdirAsync, removeTsxExtension, maybeHandleError } from '../utils';
+import { jsonTemplate } from '../templates/jsonTemplate';
+import { buildListTemplate } from '../templates/buildListTemplate';
 
 export async function getIconNames(): Promise<any> {
   try {

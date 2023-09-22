@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
-import {SITE_TOPBAR_HEIGHT} from '../../constants';
-import {TableOfContents} from './table-of-contents';
-import {FeedbackPopover} from './feedback-popover';
+import { SITE_TOPBAR_HEIGHT } from '../../constants';
+import { TableOfContents } from './table-of-contents';
+import { FeedbackPopover } from './feedback-popover';
 
 type ToCHeading = {
   value: string;
@@ -42,4 +42,4 @@ const PageAside: React.FC<React.PropsWithChildren<PageAsideProps>> = ({
   );
 };
 
-export {PageAside};
+export { PageAside };

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import {InlineControlGroup} from '@twilio-paste/inline-control-group';
-import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
+import { InlineControlGroup } from '@twilio-paste/inline-control-group';
+import type { InlineControlGroupProps } from '@twilio-paste/inline-control-group';
 
-import type {CheckboxProps} from './Checkbox';
-import {CheckboxContext} from './CheckboxContext';
+import type { CheckboxProps } from './Checkbox';
+import { CheckboxContext } from './CheckboxContext';
 
 export interface CheckboxGroupProps extends InlineControlGroupProps {
   isSelectAll?: boolean;
@@ -26,7 +26,7 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
       i18nRequiredLabel = '(required)',
       ...props
     },
-    ref
+    ref,
   ) => {
     const onChangeHandler = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -34,7 +34,7 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
           onChange(event.target.checked);
         }
       },
-      [onChange]
+      [onChange],
     );
 
     const contextValue = React.useMemo(() => {
@@ -69,9 +69,9 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
         </InlineControlGroup>
       </CheckboxContext.Provider>
     );
-  }
+  },
 );
 
 CheckboxGroup.displayName = 'CheckboxGroup';
 
-export {CheckboxGroup};
+export { CheckboxGroup };

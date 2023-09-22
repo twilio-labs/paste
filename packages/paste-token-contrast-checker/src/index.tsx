@@ -3,7 +3,7 @@ import * as ReactDOM from 'react-dom';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {IndexPage} from './pages/IndexPage';
+import { IndexPage } from './pages/IndexPage';
 
 export const Index = (): JSX.Element => {
   return (
@@ -17,7 +17,7 @@ const root = ReactDOM.createRoot(document.querySelector('#root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <Index />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 /**

@@ -1,10 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore react import is flagged as unused by tsx but required when running the tests
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
+import { render, screen } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
 
-import {PackageStatusLegend} from '../components/shortcodes/package-status-legend';
+import { PackageStatusLegend } from '../components/shortcodes/package-status-legend';
 
 // This component only exists to use React (to silence a config catch-22 error)
 const PackageStatusEmpty = (): JSX.Element => (
@@ -18,7 +18,7 @@ describe('PackageStatusLegend', () => {
     render(
       <Theme.Provider theme="default">
         <PackageStatusLegend packageStatus="Alpha" />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.getByText('Alpha')).toBeDefined();
   });
@@ -27,7 +27,7 @@ describe('PackageStatusLegend', () => {
     render(
       <Theme.Provider theme="default">
         <PackageStatusLegend packageStatus="Beta" />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.getByText('Beta')).toBeDefined();
   });
@@ -36,7 +36,7 @@ describe('PackageStatusLegend', () => {
     render(
       <Theme.Provider theme="default">
         <PackageStatusLegend figmaStatus={null} />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.getByText('Design assets pending')).toBeDefined();
   });
@@ -45,7 +45,7 @@ describe('PackageStatusLegend', () => {
     render(
       <Theme.Provider theme="default">
         <PackageStatusLegend designCommitteeReview={null} />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.getByText('Peer review pending')).toBeDefined();
   });
@@ -54,7 +54,7 @@ describe('PackageStatusLegend', () => {
     render(
       <Theme.Provider theme="default">
         <PackageStatusLegend engineerCommitteeReview={null} />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.getByText('Peer review pending')).toBeDefined();
   });
@@ -63,7 +63,7 @@ describe('PackageStatusLegend', () => {
     render(
       <Theme.Provider theme="default">
         <PackageStatusLegend engineerCommitteeReview={null} designCommitteeReview={null} />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.getByText('Peer review pending')).toBeDefined();
   });
@@ -72,7 +72,7 @@ describe('PackageStatusLegend', () => {
     render(
       <Theme.Provider theme="default">
         <PackageStatusEmpty />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.queryByText('Alpha')).toBeNull();
     expect(screen.queryByText('Beta')).toBeNull();
@@ -89,7 +89,7 @@ describe('PackageStatusLegend', () => {
           designCommitteeReview="yes"
           engineerCommitteeReview="yes"
         />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     expect(screen.queryByText('Alpha')).toBeNull();
     expect(screen.queryByText('Beta')).toBeNull();

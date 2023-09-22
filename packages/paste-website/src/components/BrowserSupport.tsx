@@ -1,4 +1,4 @@
-import {Anchor} from '@twilio-paste/anchor';
+import { Anchor } from '@twilio-paste/anchor';
 
 export const BrowserSupport = (): JSX.Element => (
   <span>

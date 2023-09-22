@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 
 export interface FileUploaderItemsListProps extends Omit<React.ComponentPropsWithRef<'ul'>, 'children'> {
   children?: React.ReactNode;
@@ -8,7 +8,7 @@ export interface FileUploaderItemsListProps extends Omit<React.ComponentPropsWit
 }
 
 export const FileUploaderItemsList = React.forwardRef<HTMLUListElement, FileUploaderItemsListProps>(
-  ({children, element = 'FILE_UPLOADER_ITEMS_LIST', ...props}, ref) => {
+  ({ children, element = 'FILE_UPLOADER_ITEMS_LIST', ...props }, ref) => {
     return (
       <Box
         ref={ref}
@@ -25,7 +25,7 @@ export const FileUploaderItemsList = React.forwardRef<HTMLUListElement, FileUplo
         {children}
       </Box>
     );
-  }
+  },
 );
 
 FileUploaderItemsList.displayName = 'FileUploaderItemsList';

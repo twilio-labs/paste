@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
+import { useReducedMotion, Globals as AnimatedGlobals } from '@twilio-paste/animation-library';
 import {
   styled,
   StylingGlobals,
@@ -7,14 +7,14 @@ import {
   createCache,
   CacheProvider as EmotionCacheProvider,
 } from '@twilio-paste/styling-library';
-import type {CreateCacheOptions} from '@twilio-paste/styling-library';
+import type { CreateCacheOptions } from '@twilio-paste/styling-library';
 
-import {getThemeFromHash} from './utils/getThemeFromHash';
-import {DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme, EvergreenTheme} from './themes';
-import {pasteGlobalStyles} from './styles/global';
-import {pasteBaseStyles} from './styles/base';
-import {pasteFonts} from './styles/fonts';
-import {ThemeVariants} from './constants';
+import { getThemeFromHash } from './utils/getThemeFromHash';
+import { DefaultTheme, SendGridTheme, DarkTheme, TwilioTheme, TwilioDarkTheme, EvergreenTheme } from './themes';
+import { pasteGlobalStyles } from './styles/global';
+import { pasteBaseStyles } from './styles/base';
+import { pasteFonts } from './styles/fonts';
+import { ThemeVariants } from './constants';
 
 export const StyledBase = styled.div(pasteBaseStyles);
 
@@ -103,7 +103,7 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
     return (
       <EmotionCacheProvider value={cache}>
         <EmotionThemeProvider theme={providerThemeProps}>
-          <StylingGlobals styles={pasteGlobalStyles({theme: providerThemeProps})} />
+          <StylingGlobals styles={pasteGlobalStyles({ theme: providerThemeProps })} />
           <StylingGlobals styles={pasteFonts} />
           <StyledBase className="paste-theme-provider" {...props} />
         </EmotionThemeProvider>
@@ -113,7 +113,7 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
 
   return (
     <EmotionThemeProvider theme={providerThemeProps}>
-      <StylingGlobals styles={pasteGlobalStyles({theme: providerThemeProps})} />
+      <StylingGlobals styles={pasteGlobalStyles({ theme: providerThemeProps })} />
       <StylingGlobals styles={pasteFonts} />
       <StyledBase className="paste-theme-provider" {...props} />
     </EmotionThemeProvider>
@@ -122,4 +122,4 @@ const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProvid
 
 ThemeProvider.displayName = 'PasteThemeProvider';
 
-export {ThemeProvider};
+export { ThemeProvider };

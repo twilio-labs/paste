@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
-import {HelpText} from '@twilio-paste/help-text';
-import {Label} from '@twilio-paste/label';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { InlineControlGroupProps } from '@twilio-paste/inline-control-group';
+import { HelpText } from '@twilio-paste/help-text';
+import { Label } from '@twilio-paste/label';
 
-import {RadioButtonContext} from './RadioButtonContext';
-import {AttachedRadioButtonGroupWrapper, UnattachedRadioButtonGroupWrapper} from './StyledRadioButtonGroupWrapper';
+import { RadioButtonContext } from './RadioButtonContext';
+import { AttachedRadioButtonGroupWrapper, UnattachedRadioButtonGroupWrapper } from './StyledRadioButtonGroupWrapper';
 
 export interface RadioButtonGroupProps extends InlineControlGroupProps {
   name: string;
@@ -32,7 +32,7 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
       attached = false,
       ...props
     },
-    ref
+    ref,
   ) => {
     const onChangeHandler = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -40,7 +40,7 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
           onChange(event.target.value);
         }
       },
-      [onChange]
+      [onChange],
     );
 
     const contextValue = React.useMemo(() => {
@@ -93,9 +93,9 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
         </Box>
       </RadioButtonContext.Provider>
     );
-  }
+  },
 );
 
 RadioButtonGroup.displayName = 'RadioButtonGroup';
 
-export {RadioButtonGroup};
+export { RadioButtonGroup };

@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {FormPill, FormPillGroup, useFormPillState} from '@twilio-paste/form-pill-group';
-import {ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption} from '@twilio-paste/combobox';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { useUID, useUIDSeed } from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { Input } from '@twilio-paste/input';
+import { Label } from '@twilio-paste/label';
+import { FormPill, FormPillGroup, useFormPillState } from '@twilio-paste/form-pill-group';
+import { ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption } from '@twilio-paste/combobox';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
 
-import {ComboboxPrimitive, useComboboxPrimitive, useMultiSelectPrimitive} from '../src';
+import { ComboboxPrimitive, useComboboxPrimitive, useMultiSelectPrimitive } from '../src';
 
 const items = ['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List', 'Modal', 'Paragraph'];
 
@@ -29,18 +29,18 @@ export const DropdownCombobox = (): React.ReactNode => {
     highlightedIndex,
     isOpen,
     selectedItem,
-  } = useComboboxPrimitive({items});
+  } = useComboboxPrimitive({ items });
   const uid = useUID();
   return (
     <>
       <Label htmlFor={uid} {...getLabelProps()}>
         Choose a component:
       </Label>
-      <Box {...getComboboxProps({role: 'combobox'})}>
+      <Box {...getComboboxProps({ role: 'combobox' })}>
         <Input
           id={uid}
           type="text"
-          {...getToggleButtonProps({tabIndex: 0})}
+          {...getToggleButtonProps({ tabIndex: 0 })}
           {...getInputProps()}
           value={selectedItem || ''}
         />
@@ -49,10 +49,10 @@ export const DropdownCombobox = (): React.ReactNode => {
         {isOpen &&
           items.map((item, index) => (
             <li
-              style={highlightedIndex === index ? {backgroundColor: '#bde4ff'} : {}}
+              style={highlightedIndex === index ? { backgroundColor: '#bde4ff' } : {}}
               // eslint-disable-next-line react/no-array-index-key
               key={`${item}${index}`}
-              {...getItemProps({item, index})}
+              {...getItemProps({ item, index })}
             >
               {item}
             </li>
@@ -75,7 +75,7 @@ export const AutocompleteCombobox = (): React.ReactNode => {
     isOpen,
   } = useComboboxPrimitive({
     items: inputItems,
-    onInputValueChange: ({inputValue}) => {
+    onInputValueChange: ({ inputValue }) => {
       if (inputValue != null) {
         setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
       }
@@ -97,10 +97,10 @@ export const AutocompleteCombobox = (): React.ReactNode => {
         {isOpen &&
           inputItems.map((item, index) => (
             <li
-              style={highlightedIndex === index ? {backgroundColor: '#bde4ff'} : {}}
+              style={highlightedIndex === index ? { backgroundColor: '#bde4ff' } : {}}
               // eslint-disable-next-line react/no-array-index-key
               key={`${item}${index}`}
-              {...getItemProps({item, index})}
+              {...getItemProps({ item, index })}
             >
               {item}
             </li>
@@ -130,7 +130,7 @@ export const ComboboxNonHooks = (): React.ReactNode => {
             display="flex"
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
-            {...getRootProps({}, {suppressRefError: true})}
+            {...getRootProps({}, { suppressRefError: true })}
           >
             <Input {...getInputProps()} type="text" />
             <Button {...getToggleButtonProps()} variant="primary" aria-label="toggle menu">
@@ -172,7 +172,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
 
   const formPillState = useFormPillState();
 
-  const {getSelectedItemProps, getDropdownProps, addSelectedItem, removeSelectedItem, selectedItems} =
+  const { getSelectedItemProps, getDropdownProps, addSelectedItem, removeSelectedItem, selectedItems } =
     useMultiSelectPrimitive({});
 
   const handleSelectItemOnClick = React.useCallback(
@@ -181,7 +181,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
 
       setFilteredItems((currentFilteredItems) => currentFilteredItems.filter((item) => item !== selectedItem));
     },
-    [addSelectedItem, setFilteredItems]
+    [addSelectedItem, setFilteredItems],
   );
 
   const handleRemoveItemOnClick = React.useCallback(
@@ -189,10 +189,10 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
       removeSelectedItem(selectedItem);
 
       setFilteredItems((currentFilteredItems) =>
-        [...currentFilteredItems, selectedItem].sort((a, b) => a.localeCompare(b))
+        [...currentFilteredItems, selectedItem].sort((a, b) => a.localeCompare(b)),
       );
     },
-    [removeSelectedItem]
+    [removeSelectedItem],
   );
 
   const {
@@ -209,7 +209,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
   } = useComboboxPrimitive({
     items: filteredItems,
     initialInputValue: '',
-    onSelectedItemChange: ({selectedItem: selected}) => {
+    onSelectedItemChange: ({ selectedItem: selected }) => {
       if (selected != null) {
         handleSelectItemOnClick(selected);
       }
@@ -225,14 +225,14 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
         <Label htmlFor={uid} {...getLabelProps()}>
           Choose a component
         </Label>
-        <Box {...getComboboxProps({role: 'combobox'})}>
+        <Box {...getComboboxProps({ role: 'combobox' })}>
           <Input
             id={uid}
             type="text"
             {...getInputProps({
               ...getDropdownProps({
                 preventKeyAction: isOpen,
-                ...getToggleButtonProps({tabIndex: 0}),
+                ...getToggleButtonProps({ tabIndex: 0 }),
               }),
             })}
             value={selectedItem || ''}
@@ -245,7 +245,7 @@ export const MultiSelectionCombobox = (): React.ReactNode => {
                 key={filteredItem}
                 highlighted={highlightedIndex === index}
                 variant="default"
-                {...getItemProps({item: filteredItem, index, key: seed(`filtered-item-${filteredItem}`)})}
+                {...getItemProps({ item: filteredItem, index, key: seed(`filtered-item-${filteredItem}`) })}
               >
                 {filteredItem}
               </ComboboxListboxOption>

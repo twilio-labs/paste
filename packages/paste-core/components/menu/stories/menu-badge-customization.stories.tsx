@@ -1,23 +1,23 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {ProductSettingsIcon} from '@twilio-paste/icons/esm/ProductSettingsIcon';
-import {useUID} from '@twilio-paste/uid-library';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { ProductSettingsIcon } from '@twilio-paste/icons/esm/ProductSettingsIcon';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {Menu, MenuBadge, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
-import type {MenuBadgeProps} from '../src';
+import { Menu, MenuBadge, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState } from '../src';
+import type { MenuBadgeProps } from '../src';
 
 type ElementOverrides = Record<string, PasteCustomCSS>;
 
 export const initStyles = (element: string): ElementOverrides => ({
   [`${element}_BADGE`]: {
     variants: {
-      decorative10: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
-      error: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
-      neutral: {backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong'},
+      decorative10: { color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest' },
+      error: { color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest' },
+      neutral: { backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong' },
       subaccount: {
         padding: 'space40',
         borderRadius: 'borderRadiusCircle',
@@ -32,7 +32,7 @@ export const initStyles = (element: string): ElementOverrides => ({
       },
     },
   },
-  [`${element}_BADGE_BUTTON`]: {backgroundColor: 'colorBackgroundErrorStrong'},
+  [`${element}_BADGE_BUTTON`]: { backgroundColor: 'colorBackgroundErrorStrong' },
 });
 
 const getElementName = (elementName: string | undefined, suffix?: string, prefix?: string): string | undefined => {
@@ -45,10 +45,10 @@ const getElementName = (elementName: string | undefined, suffix?: string, prefix
 export default {
   title: 'Components/Menu/MenuBadge/Customization',
   component: Menu,
-  subcomponents: {MenuBadge, SubMenuButton, MenuGroup, MenuItem, MenuSeparator},
+  subcomponents: { MenuBadge, SubMenuButton, MenuGroup, MenuItem, MenuSeparator },
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000},
+    chromatic: { delay: 3000 },
     a11y: {
       // no need to a11y check customization
       disable: true,
@@ -58,14 +58,14 @@ export default {
 };
 
 export const BaseMenu: React.FC<
-  React.PropsWithChildren<{menuBadgeVariant?: MenuBadgeProps['variant']; element?: string}>
-> = React.memo(function BaseMenu({menuBadgeVariant = 'decorative10', element}) {
+  React.PropsWithChildren<{ menuBadgeVariant?: MenuBadgeProps['variant']; element?: string }>
+> = React.memo(function BaseMenu({ menuBadgeVariant = 'decorative10', element }) {
   const uniqueBaseID = useUID();
   const menu = useMenuState({
     baseId: `${uniqueBaseID}-${menuBadgeVariant}-menu-customization-story`,
   });
 
-  const subMenu = useMenuState({baseId: `${uniqueBaseID}-${menuBadgeVariant}-menu-submenu`});
+  const subMenu = useMenuState({ baseId: `${uniqueBaseID}-${menuBadgeVariant}-menu-submenu` });
   const onClick = React.useCallback(() => {
     menu.hide();
   }, [menu]);
@@ -109,7 +109,7 @@ export const BaseMenu: React.FC<
   );
 });
 
-export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithDefaultElementName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('MENU')}>
@@ -124,7 +124,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
   );
 };
 
-export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithCustomElementName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('CUSTOM')}>

@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { Heading } from '@twilio-paste/heading';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
 export interface AlertDialogHeaderProps extends HTMLPasteProps<'header'>, Pick<BoxProps, 'element'> {
   children: string;
@@ -10,7 +10,7 @@ export interface AlertDialogHeaderProps extends HTMLPasteProps<'header'>, Pick<B
 }
 
 export const AlertDialogHeader = React.forwardRef<HTMLHeadElement, AlertDialogHeaderProps>(
-  ({children, element = 'ALERT_DIALOG_HEADER', headingID, ...props}, ref) => {
+  ({ children, element = 'ALERT_DIALOG_HEADER', headingID, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -26,7 +26,7 @@ export const AlertDialogHeader = React.forwardRef<HTMLHeadElement, AlertDialogHe
         </Heading>
       </Box>
     );
-  }
+  },
 );
 
 AlertDialogHeader.displayName = 'AlertDialogHeader';

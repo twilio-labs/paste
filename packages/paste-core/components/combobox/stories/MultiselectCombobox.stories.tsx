@@ -1,21 +1,21 @@
 import * as React from 'react';
-import type {Meta, StoryFn, StoryContext} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Anchor} from '@twilio-paste/anchor';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
+import type { Meta, StoryFn, StoryContext } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { Anchor } from '@twilio-paste/anchor';
+import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import { InformationIcon } from '@twilio-paste/icons/esm/InformationIcon';
+import { AttachIcon } from '@twilio-paste/icons/esm/AttachIcon';
 import filter from 'lodash/filter';
-import {Form} from '@twilio-paste/form';
-import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {Button} from '@twilio-paste/button';
-import {useUID} from '@twilio-paste/uid-library';
+import { Form } from '@twilio-paste/form';
+import { Modal, ModalBody, ModalHeader, ModalHeading } from '@twilio-paste/modal';
+import { Button } from '@twilio-paste/button';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {MultiselectCombobox, useMultiselectCombobox} from '../src';
+import { MultiselectCombobox, useMultiselectCombobox } from '../src';
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
-  template: (index?: number | undefined) => TemplateResult
+  template: (index?: number | undefined) => TemplateResult,
 ): TemplateResult[] {
   // eslint-disable-next-line unicorn/prefer-spread
   return Array.from(new Array(1000), (_empty, index) => template(index));
@@ -54,7 +54,7 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -78,7 +78,7 @@ export const BottomOfScreen = (): React.ReactNode => {
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = '' }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems) => {
@@ -91,7 +91,7 @@ export const BottomOfScreen = (): React.ReactNode => {
 };
 BottomOfScreen.storyName = 'Bottom of screen';
 BottomOfScreen.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /*
@@ -109,7 +109,7 @@ export const MultiselectComboboxInverse = (): React.ReactNode => {
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = '' }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems) => {
@@ -137,7 +137,7 @@ export const MultiselectComboboxDisabled = (): React.ReactNode => {
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -166,7 +166,7 @@ export const MultiselectComboboxDisabledInverseRequired = (): React.ReactNode =>
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = '' }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems) => {
@@ -195,7 +195,7 @@ export const MultiselectComboboxError = (): React.ReactNode => {
       items={filteredItems}
       initialSelectedItems={['Alert', 'Anchor']}
       initialIsOpen
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -229,7 +229,7 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
         helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
         initialSelectedItems={['Alert', 'Anchor']}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = '' }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems) => {
@@ -256,7 +256,7 @@ export const MultiselectComboboxInitialSelectedItems = (): React.ReactNode => {
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
       initialSelectedItems={['Alert', 'Anchor']}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -314,7 +314,7 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
           <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
         </Anchor>
       }
-      optionTemplate={({title, author}: Book) => (
+      optionTemplate={({ title, author }: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
           <Box as="span" color="colorTextWeak">
@@ -322,7 +322,7 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
           </Box>
         </Box>
       )}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -360,7 +360,7 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
           <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
         </Anchor>
       }
-      optionTemplate={({title, author}: Book) => (
+      optionTemplate={({ title, author }: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
           <Box as="span" color="colorTextWeak">
@@ -368,7 +368,7 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
           </Box>
         </Box>
       )}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -394,7 +394,7 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
       itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
-      optionTemplate={({title, author}: Book) => (
+      optionTemplate={({ title, author }: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
           <Box as="span" color="colorTextWeak">
@@ -402,7 +402,7 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
           </Box>
         </Box>
       )}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -428,7 +428,7 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
       itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
-      optionTemplate={({title, author}: Book) => (
+      optionTemplate={({ title, author }: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
           <Box as="span" color="colorTextWeak">
@@ -438,7 +438,7 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
       )}
       disabledItems={filteredItems.slice(2, 8)}
       initialIsOpen
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -458,19 +458,19 @@ interface GroupedItem {
   label: string;
 }
 const groupedItems = [
-  {group: 'Components', label: 'Alert'},
-  {group: 'Components', label: 'Anchor'},
-  {group: 'Components', label: 'Button'},
-  {group: 'Components', label: 'Card'},
-  {group: 'Components', label: 'Heading'},
-  {group: 'Components', label: 'List'},
-  {group: 'Components', label: 'Modal'},
-  {group: 'Components', label: 'Paragraph'},
-  {group: 'Primitives', label: 'Box'},
-  {group: 'Primitives', label: 'Text'},
-  {group: 'Primitives', label: 'Non-modal dialog'},
-  {group: 'Layout', label: 'Grid'},
-  {label: 'Design Tokens'},
+  { group: 'Components', label: 'Alert' },
+  { group: 'Components', label: 'Anchor' },
+  { group: 'Components', label: 'Button' },
+  { group: 'Components', label: 'Card' },
+  { group: 'Components', label: 'Heading' },
+  { group: 'Components', label: 'List' },
+  { group: 'Components', label: 'Modal' },
+  { group: 'Components', label: 'Paragraph' },
+  { group: 'Primitives', label: 'Box' },
+  { group: 'Primitives', label: 'Text' },
+  { group: 'Primitives', label: 'Non-modal dialog' },
+  { group: 'Layout', label: 'Grid' },
+  { label: 'Design Tokens' },
 ];
 
 function getFilteredGroupedItems(inputValue: string): GroupedItem[] {
@@ -487,7 +487,7 @@ export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
       groupItemsBy="group"
       items={filteredItems}
       itemToString={(item: GroupedItem) => (item ? item.label : '')}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -538,7 +538,7 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
       emptyState={SampleEmptyState}
       inputValue={inputValue}
       itemToString={(item: GroupedItem) => (item ? item.label : '')}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -597,7 +597,7 @@ export const MultiselectComboboxStateHook = (): React.ReactNode => {
         emptyState={SampleEmptyState}
         inputValue={inputValue}
         itemToString={(item: GroupedItem) => (item ? item.label : '')}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = '' }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={onSelectedItemsChange}
@@ -653,7 +653,7 @@ export const MultiselectComboboxInModal: StoryFn = () => {
             selectedItemsLabelText="Selected Paste components"
             helpText="Paste components are the building blocks of your product UI."
             items={filteredItems}
-            onInputValueChange={({inputValue: newInputValue = ''}) => {
+            onInputValueChange={({ inputValue: newInputValue = '' }) => {
               setInputValue(newInputValue);
             }}
             onSelectedItemsChange={(selectedItems) => {

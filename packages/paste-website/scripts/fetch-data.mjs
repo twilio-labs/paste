@@ -1,10 +1,10 @@
 import * as fs from 'fs/promises';
 import path from 'path';
-import {fileURLToPath} from 'url';
+import { fileURLToPath } from 'url';
 
-import {globby} from 'globby-esm';
+import { globby } from 'globby-esm';
 
-import {systemTable} from '../src/utils/airtable.mjs';
+import { systemTable } from '../src/utils/airtable.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -34,11 +34,11 @@ const getAllPatterns = async () => {
   const patterns = await systemTable
     .select({
       filterByFormula: 'AND({Component Category} = "pattern", Documentation, status, status != "in development")',
-      sort: [{field: 'Feature'}],
+      sort: [{ field: 'Feature' }],
       fields: ['Feature', 'status'],
     })
     .all();
-  return patterns.map(({fields}) => fields);
+  return patterns.map(({ fields }) => fields);
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
@@ -46,11 +46,11 @@ const getAllPageTemplates = async () => {
   const patterns = await systemTable
     .select({
       filterByFormula: 'AND({Component Category} = "page_template", Documentation, status, status != "in development")',
-      sort: [{field: 'Feature'}],
+      sort: [{ field: 'Feature' }],
       fields: ['Feature', 'status'],
     })
     .all();
-  return patterns.map(({fields}) => fields);
+  return patterns.map(({ fields }) => fields);
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
@@ -75,8 +75,8 @@ const getAllPackages = async () => {
     if (category) {
       // eslint-disable-next-line unicorn/prefer-json-parse-buffer
       const fileContents = await fs.readFile(`${root}/${packageJson}`, 'utf8');
-      const {name, status, version, description} = JSON.parse(fileContents);
-      data[category].push({name, status: status || null, version, description});
+      const { name, status, version, description } = JSON.parse(fileContents);
+      data[category].push({ name, status: status || null, version, description });
     }
   });
 
@@ -86,7 +86,7 @@ const getAllPackages = async () => {
   const pageTemplates = await getAllPageTemplates();
   data.allPastePageTemplate = [...pageTemplates];
 
-  await fs.mkdir(dataPath, {recursive: true}, (err) => {
+  await fs.mkdir(dataPath, { recursive: true }, (err) => {
     if (err) {
       // eslint-disable-next-line no-console
       console.log(err);
@@ -101,7 +101,7 @@ export const getAllFeatures = async () => {
   const features = await systemTable
     .select({
       filterByFormula: 'status',
-      sort: [{field: 'Feature'}],
+      sort: [{ field: 'Feature' }],
       fields: [
         'Component Category',
         'Feature',
@@ -115,9 +115,9 @@ export const getAllFeatures = async () => {
       ],
     })
     .all();
-  const items = features.map(({fields}) => fields);
+  const items = features.map(({ fields }) => fields);
 
-  await fs.mkdir(dataPath, {recursive: true}, (err) => {
+  await fs.mkdir(dataPath, { recursive: true }, (err) => {
     if (err) {
       // eslint-disable-next-line no-console
       console.log(err);

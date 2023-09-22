@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Head from 'next/head';
-import {DocSearchButton, useDocSearchKeyboardEvents} from '@docsearch/react';
-import type {DocSearchModal as DocSearchModalType} from '@docsearch/react';
+import { DocSearchButton, useDocSearchKeyboardEvents } from '@docsearch/react';
+import type { DocSearchModal as DocSearchModalType } from '@docsearch/react';
 import '@docsearch/css';
 
-import {DOCSEARCHV3_APIKEY, DOCSEARCHV3_INDEXNAME, DOCSEARCHV3_APPID} from '../../../constants';
+import { DOCSEARCHV3_APIKEY, DOCSEARCHV3_INDEXNAME, DOCSEARCHV3_APPID } from '../../../constants';
 
 // https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-theme-search-algolia/src/theme/SearchBar/index.tsx
 let DocSearchModal: typeof DocSearchModalType | null = null;
@@ -17,7 +17,7 @@ const SiteHeaderSearch: React.FC = () => {
     if (DocSearchModal) {
       return;
     }
-    const {DocSearchModal: Modal}: typeof import('@docsearch/react') = await import(
+    const { DocSearchModal: Modal }: typeof import('@docsearch/react') = await import(
       /* webpackChunkName: 'DocSearchModal' */ '@docsearch/react/modal'
     );
     DocSearchModal = Modal;
@@ -71,4 +71,4 @@ const SiteHeaderSearch: React.FC = () => {
   );
 };
 
-export {SiteHeaderSearch};
+export { SiteHeaderSearch };

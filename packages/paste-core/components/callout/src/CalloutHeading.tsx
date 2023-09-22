@@ -1,7 +1,7 @@
 import * as React from 'react';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import type {asTags} from '@twilio-paste/heading';
-import type {BoxProps} from '@twilio-paste/box';
+import { Text, safelySpreadTextProps } from '@twilio-paste/text';
+import type { asTags } from '@twilio-paste/heading';
+import type { BoxProps } from '@twilio-paste/box';
 
 export interface CalloutHeadingProps extends Partial<Omit<HTMLHeadingElement, 'children'>> {
   as?: asTags;
@@ -10,7 +10,7 @@ export interface CalloutHeadingProps extends Partial<Omit<HTMLHeadingElement, 'c
 }
 
 export const CalloutHeading = React.forwardRef<HTMLHeadingElement, CalloutHeadingProps>(
-  ({element = 'CALLOUT_HEADING', children, as = 'h3', ...props}, ref) => (
+  ({ element = 'CALLOUT_HEADING', children, as = 'h3', ...props }, ref) => (
     <Text
       {...safelySpreadTextProps(props)}
       as={as}
@@ -22,7 +22,7 @@ export const CalloutHeading = React.forwardRef<HTMLHeadingElement, CalloutHeadin
     >
       {children}
     </Text>
-  )
+  ),
 );
 
 CalloutHeading.displayName = 'CalloutHeading';

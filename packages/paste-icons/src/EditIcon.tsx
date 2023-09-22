@@ -2,10 +2,10 @@
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from './helpers/IconWrapper';
+import type { IconWrapperProps } from './helpers/IconWrapper';
 
 export interface EditIconProps extends IconWrapperProps {
   title?: string;
@@ -13,7 +13,7 @@ export interface EditIconProps extends IconWrapperProps {
 }
 
 const EditIcon = React.forwardRef<HTMLElement, EditIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = 'ICON', size, color, title, decorative }, ref) => {
     const titleId = `EditIcon-${useUID()}`;
 
     if (!decorative && title == null) {
@@ -40,8 +40,8 @@ const EditIcon = React.forwardRef<HTMLElement, EditIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
 EditIcon.displayName = 'EditIcon';
-export {EditIcon};
+export { EditIcon };

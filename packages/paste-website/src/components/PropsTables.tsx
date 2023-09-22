@@ -1,18 +1,18 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {RequiredDot} from '@twilio-paste/label';
-import {InlineCode} from '@twilio-paste/inline-code';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import { Disclosure, DisclosureContent, DisclosureHeading } from '@twilio-paste/disclosure';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { RequiredDot } from '@twilio-paste/label';
+import { InlineCode } from '@twilio-paste/inline-code';
 
 import {
   type ComponentApiPropDetails,
   type ComponentApiProp,
   type GroupedComponentApi,
 } from '../utils/componentApiUtils';
-import {AnchoredHeading} from './Heading';
+import { AnchoredHeading } from './Heading';
 
 export interface PropsTableProps {
   componentApi: GroupedComponentApi;
@@ -28,7 +28,7 @@ export interface PropTypeProps {
   children: NonNullable<React.ReactNode>;
 }
 
-const MarkdownConverter: React.FC<{description: string}> = ({description}) => {
+const MarkdownConverter: React.FC<{ description: string }> = ({ description }) => {
   return (
     <Markdown
       options={{
@@ -44,7 +44,7 @@ const MarkdownConverter: React.FC<{description: string}> = ({description}) => {
   );
 };
 
-const PropType: React.FC<React.PropsWithChildren<PropTypeProps>> = ({children}) => {
+const PropType: React.FC<React.PropsWithChildren<PropTypeProps>> = ({ children }) => {
   return (
     <Box as="code" fontFamily="fontFamilyCode" color="colorTextDecorative30">
       {children}
@@ -53,7 +53,7 @@ const PropType: React.FC<React.PropsWithChildren<PropTypeProps>> = ({children}) 
 };
 PropType.displayName = 'PropType';
 
-const PropPair: React.FC<PropPairProps> = ({term, description}) => {
+const PropPair: React.FC<PropPairProps> = ({ term, description }) => {
   return (
     <Box display="flex" marginBottom="space20" columnGap="space20" paddingX="space30">
       <Box as="dt" fontSize="fontSize20" fontWeight="fontWeightMedium" minWidth="80px">
@@ -67,7 +67,7 @@ const PropPair: React.FC<PropPairProps> = ({term, description}) => {
 };
 PropPair.displayName = 'PropPair';
 
-const PropsList: React.FC<PropsListProps> = ({props}) => {
+const PropsList: React.FC<PropsListProps> = ({ props }) => {
   return (
     <Box>
       {Object.keys(props).map((propName) => {
@@ -140,13 +140,13 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
 };
 PropsList.displayName = 'PropsList';
 
-const PropsTable: React.FC<PropsTableProps> = ({componentApi}) => {
+const PropsTable: React.FC<PropsTableProps> = ({ componentApi }) => {
   const propsTable = React.useMemo(() => componentApi, [componentApi]);
 
   return (
     <>
       {Object.keys(propsTable).map((componentName) => {
-        const {internalProps, externalProps} = propsTable[componentName];
+        const { internalProps, externalProps } = propsTable[componentName];
         return (
           <Box marginTop="space90" marginBottom="space200" key={componentName}>
             <AnchoredHeading as="h3" variant="heading30" existingSlug={componentName.toLowerCase()}>
@@ -177,4 +177,4 @@ const PropsTable: React.FC<PropsTableProps> = ({componentApi}) => {
 
 PropsTable.displayName = 'PropsTable';
 
-export {PropsTable};
+export { PropsTable };

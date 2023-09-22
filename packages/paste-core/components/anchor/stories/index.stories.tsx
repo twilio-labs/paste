@@ -1,14 +1,14 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {action} from '@storybook/addon-actions';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Heading} from '@twilio-paste/heading';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import type { StoryFn } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { Box } from '@twilio-paste/box';
+import { Stack } from '@twilio-paste/stack';
+import { Heading } from '@twilio-paste/heading';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import { useTheme } from '@twilio-paste/theme';
 
-import {Anchor} from '../src';
-import type {AnchorTargets, AnchorTabIndexes} from '../src/types';
+import { Anchor } from '../src';
+import type { AnchorTargets, AnchorTabIndexes } from '../src/types';
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -72,7 +72,7 @@ export const ShowExternalProp = (): React.ReactNode => {
 
 ShowExternalProp.storyName = 'showExternal prop';
 
-export const CustomAnchor: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomAnchor: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider

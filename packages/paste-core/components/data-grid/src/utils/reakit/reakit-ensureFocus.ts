@@ -1,4 +1,4 @@
-import {hasFocus} from './reakit-hasFocus';
+import { hasFocus } from './reakit-hasFocus';
 
 type EnsureFocusOptions = FocusOptions & {
   isActive?: typeof hasFocus;
@@ -27,15 +27,15 @@ type EnsureFocusOptions = FocusOptions & {
  */
 export function ensureFocus(
   element: HTMLElement,
-  {preventScroll, isActive = hasFocus}: EnsureFocusOptions = {}
+  { preventScroll, isActive = hasFocus }: EnsureFocusOptions = {},
 ): number {
   if (isActive(element)) return -1;
 
-  element.focus({preventScroll});
+  element.focus({ preventScroll });
 
   if (isActive(element)) return -1;
 
   return requestAnimationFrame(() => {
-    element.focus({preventScroll});
+    element.focus({ preventScroll });
   });
 }

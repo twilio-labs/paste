@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Avatar} from '@twilio-paste/avatar';
-import {Button} from '@twilio-paste/button';
-import {NonModalDialogPrimitive, NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {StyledBase} from '@twilio-paste/theme';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { Avatar } from '@twilio-paste/avatar';
+import { Button } from '@twilio-paste/button';
+import { NonModalDialogPrimitive, NonModalDialogDisclosurePrimitive } from '@twilio-paste/non-modal-dialog-primitive';
+import { ChevronDownIcon } from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { StyledBase } from '@twilio-paste/theme';
 
-import type {UserDialogProps, UserDialogPopoverProps, UserDialogButtonProps} from './types';
-import {UserDialogContext} from './UserDialogContainer';
+import type { UserDialogProps, UserDialogPopoverProps, UserDialogButtonProps } from './types';
+import { UserDialogContext } from './UserDialogContainer';
 
 // styled popover for UserDialog Non Modal Dialog Primitive
-const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProps>(({style, ...props}, ref) => {
+const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProps>(({ style, ...props }, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -33,7 +33,7 @@ const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProp
 UserDialogPopover.displayName = 'UserDialogPopover';
 
 const UserDialogButton = React.forwardRef<HTMLButtonElement, UserDialogButtonProps>(
-  ({children, element, ...props}, ref) => {
+  ({ children, element, ...props }, ref) => {
     return (
       <Button
         {...props}
@@ -46,13 +46,13 @@ const UserDialogButton = React.forwardRef<HTMLButtonElement, UserDialogButtonPro
         {children}
       </Button>
     );
-  }
+  },
 );
 UserDialogButton.displayName = 'UserDialogButton';
 
 export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
-  ({children, 'aria-label': label, element = 'USER_DIALOG', ...props}, ref) => {
-    const {userDialogState, avatarProps} = React.useContext(UserDialogContext);
+  ({ children, 'aria-label': label, element = 'USER_DIALOG', ...props }, ref) => {
+    const { userDialogState, avatarProps } = React.useContext(UserDialogContext);
     return (
       <>
         <NonModalDialogDisclosurePrimitive {...userDialogState} as={UserDialogButton} element={element}>
@@ -62,7 +62,7 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
             alignItems="center"
             element={`${element}_BUTTON_CONTENTS`}
             color="colorTextIcon"
-            _hover={{color: 'colorTextPrimaryStrongest'}}
+            _hover={{ color: 'colorTextPrimaryStrongest' }}
           >
             <Avatar
               variant="user"
@@ -89,6 +89,6 @@ export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
         </NonModalDialogPrimitive>
       </>
     );
-  }
+  },
 );
 UserDialog.displayName = 'UserDialog';

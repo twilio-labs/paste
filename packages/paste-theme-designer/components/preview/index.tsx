@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {generateThemeFromTokens} from '@twilio-paste/core/theme';
-import {CustomizationProvider} from '@twilio-paste/core/customization';
-import {Box} from '@twilio-paste/core/box';
-import {Column, Grid} from '@twilio-paste/core/grid';
+import { generateThemeFromTokens } from '@twilio-paste/core/theme';
+import { CustomizationProvider } from '@twilio-paste/core/customization';
+import { Box } from '@twilio-paste/core/box';
+import { Column, Grid } from '@twilio-paste/core/grid';
 
-import {TabbedContent} from './TabbedContent';
-import {FormPreview} from './FormPreview';
-import {TokenContext} from '../../context/TokenContext';
-import {SITE_MASTHEAD_HEIGHT} from '../../constants';
+import { TabbedContent } from './TabbedContent';
+import { FormPreview } from './FormPreview';
+import { TokenContext } from '../../context/TokenContext';
+import { SITE_MASTHEAD_HEIGHT } from '../../constants';
 
 const Preview = (): JSX.Element => {
-  const {tokens} = React.useContext(TokenContext);
+  const { tokens } = React.useContext(TokenContext);
 
   // @ts-expect-error tokens from context are based on GenericTokenShape which states that sizing keys are as optional as the rest, but generateThemeFromTokens expects sizing keys to be required
   const customTheme = generateThemeFromTokens(tokens);
@@ -52,4 +52,4 @@ const Preview = (): JSX.Element => {
   );
 };
 
-export {Preview};
+export { Preview };

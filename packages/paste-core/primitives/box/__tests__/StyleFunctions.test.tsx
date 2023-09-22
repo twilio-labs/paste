@@ -1,4 +1,4 @@
-import {getPseudoStyles, getCustomElementStyles} from '../src/StyleFunctions';
+import { getPseudoStyles, getCustomElementStyles } from '../src/StyleFunctions';
 
 /*
  * When rendered the theme object is injected onto Box props via emotions theming context
@@ -39,7 +39,7 @@ const mockTheme = {
 
 describe('getPseudoStyles', () => {
   it('should return resolved object styles when called with pseudo selector props set', () => {
-    const cssFunc = getPseudoStyles({_hover: {padding: 'space10', textDecoration: 'underline'}});
+    const cssFunc = getPseudoStyles({ _hover: { padding: 'space10', textDecoration: 'underline' } });
     if (typeof cssFunc === 'function') {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(cssFunc(mockTheme)).toEqual({
@@ -52,7 +52,7 @@ describe('getPseudoStyles', () => {
   });
   it('should return an empty object styles when called with pseudo selector props set that do not match our expected pseudo selectors', () => {
     // @ts-expect-error testing invalid pseudo selectors
-    const cssFunc = getPseudoStyles({_hovered: {padding: 'space10'}});
+    const cssFunc = getPseudoStyles({ _hovered: { padding: 'space10' } });
     if (typeof cssFunc === 'function') {
       // eslint-disable-next-line jest/no-conditional-expect
       expect(cssFunc(mockTheme)).toEqual({});

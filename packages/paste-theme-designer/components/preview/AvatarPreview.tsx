@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Avatar} from '@twilio-paste/core/avatar';
-import {Stack} from '@twilio-paste/core/stack';
+import { Avatar } from '@twilio-paste/core/avatar';
+import { Stack } from '@twilio-paste/core/stack';
 
 const AvatarPreview = (): JSX.Element => {
   return (
@@ -18,4 +18,4 @@ const AvatarPreview = (): JSX.Element => {
   );
 };
 
-export {AvatarPreview};
+export { AvatarPreview };

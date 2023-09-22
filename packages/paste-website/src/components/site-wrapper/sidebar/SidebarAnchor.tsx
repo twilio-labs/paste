@@ -1,8 +1,8 @@
 import * as React from 'react';
 import Link from 'next/link';
-import {SidebarNavigationItem} from '@twilio-paste/sidebar';
+import { SidebarNavigationItem } from '@twilio-paste/sidebar';
 
-import {useLocationPathname} from '../../../utils/RouteUtils';
+import { useLocationPathname } from '../../../utils/RouteUtils';
 
 interface SidebarAnchorProps {
   children: NonNullable<React.ReactNode>;
@@ -32,4 +32,4 @@ const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({
   );
 };
 
-export {SidebarAnchor};
+export { SidebarAnchor };

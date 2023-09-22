@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {ButtonProps} from '@twilio-paste/button';
-import {secureExternalLink} from '@twilio-paste/anchor';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import type { ButtonProps } from '@twilio-paste/button';
+import { secureExternalLink } from '@twilio-paste/anchor';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {SidebarContext} from '../SidebarContext';
-import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
+import { SidebarContext } from '../SidebarContext';
+import { SidebarNavigationDisclosureContext } from './SidebarNavigationDisclosureContext';
 import {
   sidebarNavigationItemStyles,
   sidebarNavigationItemNestedStyles,
@@ -14,7 +14,7 @@ import {
   sidebarNavigationItemCollapsedStyles,
   sidebarNavigationItemHierarchicalStyles,
 } from './styles';
-import {SidebarNavigationContext} from './SidebarNavigationContext';
+import { SidebarNavigationContext } from './SidebarNavigationContext';
 
 export interface SidebarNavigationItemProps extends HTMLPasteProps<'a'> {
   href: ButtonProps['href'];
@@ -25,10 +25,10 @@ export interface SidebarNavigationItemProps extends HTMLPasteProps<'a'> {
 }
 
 const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigationItemProps>(
-  ({element = 'SIDEBAR_NAVIGATION_ITEM', selected, children, icon, ...props}, ref) => {
-    const {collapsed, variant} = React.useContext(SidebarContext);
-    const {disclosure} = React.useContext(SidebarNavigationDisclosureContext);
-    const {hideItemsOnCollapse, hierarchical} = React.useContext(SidebarNavigationContext);
+  ({ element = 'SIDEBAR_NAVIGATION_ITEM', selected, children, icon, ...props }, ref) => {
+    const { collapsed, variant } = React.useContext(SidebarContext);
+    const { disclosure } = React.useContext(SidebarNavigationDisclosureContext);
+    const { hideItemsOnCollapse, hierarchical } = React.useContext(SidebarNavigationContext);
     const isCompact = variant === 'compact';
     const [visible, setVisible] = React.useState(!isCompact ? true : !collapsed);
     const timeout = React.useRef(0);
@@ -59,7 +59,7 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         display: collapsed && hideItemsOnCollapse ? 'none' : 'flex',
         width: collapsed ? '36px' : '100%',
       }),
-      [isNested, selected, collapsed, hideItemsOnCollapse, hierarchical]
+      [isNested, selected, collapsed, hideItemsOnCollapse, hierarchical],
     );
 
     return (
@@ -93,8 +93,8 @@ const SidebarNavigationItem = React.forwardRef<HTMLAnchorElement, SidebarNavigat
         </Box>
       </Box>
     );
-  }
+  },
 );
 SidebarNavigationItem.displayName = 'SidebarNavigationItem';
 
-export {SidebarNavigationItem};
+export { SidebarNavigationItem };

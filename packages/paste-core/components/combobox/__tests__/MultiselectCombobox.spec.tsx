@@ -1,14 +1,14 @@
 import * as React from 'react';
-import {render, act, screen, fireEvent} from '@testing-library/react';
-import type {RenderOptions} from '@testing-library/react';
-import {Theme} from '@twilio-paste/theme';
-import {Form} from '@twilio-paste/form';
-import {Button} from '@twilio-paste/button';
+import { render, act, screen, fireEvent } from '@testing-library/react';
+import type { RenderOptions } from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import { Form } from '@twilio-paste/form';
+import { Button } from '@twilio-paste/button';
 import filter from 'lodash/filter';
 import uniq from 'lodash/uniq';
 
-import {MultiselectCombobox, useMultiselectCombobox} from '../src';
-import type {MultiselectComboboxProps} from '../src';
+import { MultiselectCombobox, useMultiselectCombobox } from '../src';
+import type { MultiselectComboboxProps } from '../src';
 
 const items = [
   'Alert',
@@ -30,7 +30,7 @@ function getFilteredItems(inputValue: string): string[] {
   });
 }
 
-const ThemeWrapper: RenderOptions['wrapper'] = ({children}) => (
+const ThemeWrapper: RenderOptions['wrapper'] = ({ children }) => (
   <Theme.Provider theme="default">{children}</Theme.Provider>
 );
 
@@ -45,7 +45,7 @@ const MultiselectComboboxMock: React.FC<Partial<MultiselectComboboxProps>> = (pr
       items={filteredItems}
       disabledItems={[items[3]]}
       initialIsOpen
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = '' }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={() => {
@@ -63,19 +63,19 @@ interface GroupedItem {
   label: string;
 }
 const groupedItems = [
-  {group: 'Components', label: 'Alert'},
-  {group: 'Components', label: 'Anchor'},
-  {group: 'Components', label: 'Button'},
-  {group: 'Components', label: 'Card'},
-  {group: 'Components', label: 'Heading'},
-  {group: 'Components', label: 'List'},
-  {group: 'Components', label: 'Modal'},
-  {group: 'Components', label: 'Paragraph'},
-  {group: 'Primitives', label: 'Box'},
-  {group: 'Primitives', label: 'Text'},
-  {group: 'Primitives', label: 'Non-modal dialog'},
-  {group: 'Layout', label: 'Grid'},
-  {label: 'Design Tokens'},
+  { group: 'Components', label: 'Alert' },
+  { group: 'Components', label: 'Anchor' },
+  { group: 'Components', label: 'Button' },
+  { group: 'Components', label: 'Card' },
+  { group: 'Components', label: 'Heading' },
+  { group: 'Components', label: 'List' },
+  { group: 'Components', label: 'Modal' },
+  { group: 'Components', label: 'Paragraph' },
+  { group: 'Primitives', label: 'Box' },
+  { group: 'Primitives', label: 'Text' },
+  { group: 'Primitives', label: 'Non-modal dialog' },
+  { group: 'Layout', label: 'Grid' },
+  { label: 'Design Tokens' },
 ];
 
 function getFilteredGroupedItems(inputValue: string): GroupedItem[] {
@@ -97,7 +97,7 @@ const GroupedMultiselectComboboxMock: React.FC<Partial<MultiselectComboboxProps>
         groupItemsBy="group"
         items={filteredItems}
         itemToString={(item: GroupedItem) => (item ? item.label : '')}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = '' }) => {
           setInputValue(newInputValue);
         }}
         labelText="Choose a component:"
@@ -130,7 +130,7 @@ const StateHookMock: React.FC<Partial<MultiselectComboboxProps>> = (props) => {
         items={filteredItems}
         inputValue={inputValue}
         itemToString={(item: GroupedItem) => (item ? item.label : '')}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = '' }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={props.onSelectedItemsChange}
@@ -202,7 +202,7 @@ describe('MultiselectCombobox', () => {
       // Value should be ''
       expect(renderedTextbox.getAttribute('value')).toEqual('');
       // Change the value to 'Al'
-      fireEvent.change(renderedTextbox, {target: {value: 'Al'}});
+      fireEvent.change(renderedTextbox, { target: { value: 'Al' } });
       expect(renderedTextbox.getAttribute('value')).toEqual('Al');
 
       // Selecting an option clears the value in the input box
@@ -225,7 +225,7 @@ describe('MultiselectCombobox', () => {
       renderedTextbox.focus();
 
       expect(onKeyDownMock).toHaveBeenCalledTimes(0);
-      fireEvent.keyDown(renderedTextbox, {key: 'Enter', code: 'Enter'});
+      fireEvent.keyDown(renderedTextbox, { key: 'Enter', code: 'Enter' });
       expect(onKeyDownMock).toHaveBeenCalledTimes(1);
 
       // No form submit
@@ -235,7 +235,7 @@ describe('MultiselectCombobox', () => {
 
   describe('Groups', () => {
     it('should render a group of options', () => {
-      render(<GroupedMultiselectComboboxMock />, {wrapper: ThemeWrapper});
+      render(<GroupedMultiselectComboboxMock />, { wrapper: ThemeWrapper });
       const renderedGroups = screen.getAllByRole('group');
       // check groups, group label and number of options per group
       expect(renderedGroups[0].getAttribute('aria-label')).toEqual('Components');
@@ -247,7 +247,7 @@ describe('MultiselectCombobox', () => {
     });
 
     it('should render any items not identified as part of the group as ungrouped options', () => {
-      const {getAllByRole} = render(<GroupedMultiselectComboboxMock />, {wrapper: ThemeWrapper});
+      const { getAllByRole } = render(<GroupedMultiselectComboboxMock />, { wrapper: ThemeWrapper });
       const [pillGroupListbox, dropdownListbox] = getAllByRole('listbox');
       const renderedGroups = getAllByRole('group');
 
@@ -258,12 +258,12 @@ describe('MultiselectCombobox', () => {
       expect(renderedGroups.length).toEqual(3);
       // check any options that are not nested in groups
       expect(
-        dropdownListbox.querySelectorAll('[role="listbox"] > [role="presentation"] > [role="option"]').length
+        dropdownListbox.querySelectorAll('[role="listbox"] > [role="presentation"] > [role="option"]').length,
       ).toEqual(1);
     });
 
     it('should render a listbox with groups of options that contains no duplicate ids', () => {
-      render(<GroupedMultiselectComboboxMock />, {wrapper: ThemeWrapper});
+      render(<GroupedMultiselectComboboxMock />, { wrapper: ThemeWrapper });
       const renderedOptions = screen.getAllByRole('option');
       const optionIDs = renderedOptions.map((option) => option.id);
       const uniqueIDs = uniq(optionIDs);
@@ -276,13 +276,13 @@ describe('MultiselectCombobox', () => {
       });
       const renderedGroups = screen.getAllByRole('group');
       expect(renderedGroups[0].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
-        'hi Components'
+        'hi Components',
       );
       expect(renderedGroups[1].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
-        'hi Primitives'
+        'hi Primitives',
       );
       expect(renderedGroups[2].querySelector('[role="group"] > li[role="presentation"]')!.textContent).toEqual(
-        'hi Layout'
+        'hi Layout',
       );
     });
 
@@ -294,26 +294,26 @@ describe('MultiselectCombobox', () => {
       // open the combobox
       fireEvent.click(screen.getByRole('textbox'));
       // select the third item using ArrowDown keyDown
-      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
-      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
-      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowDown', code: 'ArrowDown'});
-      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
+      fireEvent.keyDown(screen.getByRole('textbox'), { key: 'ArrowDown', code: 'ArrowDown' });
+      fireEvent.keyDown(screen.getByRole('textbox'), { key: 'ArrowDown', code: 'ArrowDown' });
+      fireEvent.keyDown(screen.getByRole('textbox'), { key: 'ArrowDown', code: 'ArrowDown' });
+      fireEvent.keyDown(screen.getByRole('textbox'), { key: 'Enter', code: 'Enter' });
       expect(mockSelectedItemsChangeFn).toHaveBeenCalledTimes(1);
-      expect(mockSelectedItemsChangeFn.mock.results[0].value).toEqual([{group: 'Components', label: 'Button'}]);
+      expect(mockSelectedItemsChangeFn.mock.results[0].value).toEqual([{ group: 'Components', label: 'Button' }]);
 
       // select the first item using ArrowUp keyDown
-      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowUp', code: 'ArrowUp'});
-      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'ArrowUp', code: 'ArrowUp'});
-      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
+      fireEvent.keyDown(screen.getByRole('textbox'), { key: 'ArrowUp', code: 'ArrowUp' });
+      fireEvent.keyDown(screen.getByRole('textbox'), { key: 'ArrowUp', code: 'ArrowUp' });
+      fireEvent.keyDown(screen.getByRole('textbox'), { key: 'Enter', code: 'Enter' });
       expect(mockSelectedItemsChangeFn).toHaveBeenCalledTimes(2);
       expect(mockSelectedItemsChangeFn.mock.results[1].value).toEqual([
-        {group: 'Components', label: 'Button'},
-        {group: 'Components', label: 'Alert'},
+        { group: 'Components', label: 'Button' },
+        { group: 'Components', label: 'Alert' },
       ]);
 
-      fireEvent.keyDown(screen.getByRole('textbox'), {key: 'Enter', code: 'Enter'});
+      fireEvent.keyDown(screen.getByRole('textbox'), { key: 'Enter', code: 'Enter' });
       expect(mockSelectedItemsChangeFn).toHaveBeenCalledTimes(3);
-      expect(mockSelectedItemsChangeFn.mock.results[2].value).toEqual([{group: 'Components', label: 'Button'}]);
+      expect(mockSelectedItemsChangeFn.mock.results[2].value).toEqual([{ group: 'Components', label: 'Button' }]);
     });
   });
 
@@ -328,12 +328,12 @@ describe('MultiselectCombobox', () => {
       expect(pillGroup?.childNodes.length).toBe(2);
 
       act(() => {
-        screen.getByRole('button', {name: 'Clear'}).click();
+        screen.getByRole('button', { name: 'Clear' }).click();
       });
 
       expect(pillGroup?.childNodes.length).toBe(0);
       expect(mockSelectedItemsChangeFn).toHaveBeenCalledTimes(1);
-      expect(mockSelectedItemsChangeFn.mock.results[0].value).toEqual({activeIndex: -1, selectedItems: [], type: 10});
+      expect(mockSelectedItemsChangeFn.mock.results[0].value).toEqual({ activeIndex: -1, selectedItems: [], type: 10 });
     });
   });
 });

@@ -16,14 +16,14 @@ export type {
   EmotionLabel,
   CSSObject,
 } from '@styled-system/css';
-export type {Options as CreateCacheOptions} from '@emotion/cache';
-export {css} from './css-function';
-export {themeGet} from '@styled-system/theme-get';
-export {createShouldForwardProp, props} from '@styled-system/should-forward-prop';
+export type { Options as CreateCacheOptions } from '@emotion/cache';
+export { css } from './css-function';
+export { themeGet } from '@styled-system/theme-get';
+export { createShouldForwardProp, props } from '@styled-system/should-forward-prop';
 export * from 'styled-system';
 
-export type {StyledComponent, Interpolation} from '@emotion/styled';
-export type {SerializedStyles} from '@emotion/react';
+export type { StyledComponent, Interpolation } from '@emotion/styled';
+export type { SerializedStyles } from '@emotion/react';
 export {
   Global as StylingGlobals,
   ThemeContext,
@@ -34,4 +34,4 @@ export {
   withTheme,
 } from '@emotion/react';
 
-export {styled, createCache};
+export { styled, createCache };

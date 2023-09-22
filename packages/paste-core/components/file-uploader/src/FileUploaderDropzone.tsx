@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import {UploadToCloudIcon} from '@twilio-paste/icons/esm/UploadToCloudIcon';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import { UploadToCloudIcon } from '@twilio-paste/icons/esm/UploadToCloudIcon';
 
-import {FileUploaderContext} from './FileUploaderContext';
-import {arrayToCsv} from './utils';
+import { FileUploaderContext } from './FileUploaderContext';
+import { arrayToCsv } from './utils';
 
 export interface FileUploaderDropzoneProps
   extends Omit<
@@ -60,9 +60,9 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
       onDrop,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const {id, disabled, required, name} = React.useContext(FileUploaderContext);
+    const { id, disabled, required, name } = React.useContext(FileUploaderContext);
 
     /**
      * The underlying <input type="file" /> DOM element won't accept the same file after it has been
@@ -75,7 +75,7 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
 
     let stateStyles = baseStyles;
     if (disabled) stateStyles = disabledStyles;
-    if (dragActive) stateStyles = {...stateStyles, ...hoverDragStyles};
+    if (dragActive) stateStyles = { ...stateStyles, ...hoverDragStyles };
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
       setFileInputKey((prev) => prev + 1);
@@ -182,7 +182,7 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
           as="input"
           type="file"
           ref={ref}
-          {...safelySpreadBoxProps({...props, id, disabled, required, name})}
+          {...safelySpreadBoxProps({ ...props, id, disabled, required, name })}
           size="size0"
           border="none"
           overflow="hidden"
@@ -199,7 +199,7 @@ export const FileUploaderDropzone = React.forwardRef<HTMLInputElement, FileUploa
         />
       </Box>
     );
-  }
+  },
 );
 
 FileUploaderDropzone.displayName = 'FileUploaderDropzone';

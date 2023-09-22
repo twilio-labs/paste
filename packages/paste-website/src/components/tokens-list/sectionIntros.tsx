@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
-import {InlineCode} from '@twilio-paste/inline-code';
+import { Box } from '@twilio-paste/box';
+import { Paragraph } from '@twilio-paste/paragraph';
+import { Callout, CalloutHeading, CalloutText } from '@twilio-paste/callout';
+import { InlineCode } from '@twilio-paste/inline-code';
 
-import {SiteLink} from '../SiteLink';
-import type {Token} from './types';
+import { SiteLink } from '../SiteLink';
+import type { Token } from './types';
 
 const ColorGuidelinesLink: React.FC = () => <SiteLink href="/foundations/colors">Read the color guidelines</SiteLink>;
 
@@ -80,7 +80,7 @@ const ZIndicesIntro = (): JSX.Element => (
   <Paragraph>Z indices define the vertical stacking order of UI elements that overlap.</Paragraph>
 );
 
-export const sectionIntros: {[key: Token['category']]: JSX.Element} = {
+export const sectionIntros: { [key: Token['category']]: JSX.Element } = {
   'background-colors': <BackgroundColorsIntro />,
   'border-colors': <BorderColorsIntro />,
   'box-shadows': <BoxShadowsIntro />,

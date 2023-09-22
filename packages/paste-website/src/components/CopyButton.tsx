@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {useClipboard} from '@twilio-paste/clipboard-copy-library';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CopyIcon} from '@twilio-paste/icons/esm/CopyIcon';
+import { Button } from '@twilio-paste/button';
+import { useClipboard } from '@twilio-paste/clipboard-copy-library';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { CopyIcon } from '@twilio-paste/icons/esm/CopyIcon';
 
 interface CopyButtonProps {
   text: string;
   copiedTimeout?: number;
 }
 
-export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({text, copiedTimeout = 1500}) => {
-  const clipboard = useClipboard({copiedTimeout});
+export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({ text, copiedTimeout = 1500 }) => {
+  const clipboard = useClipboard({ copiedTimeout });
 
   const handleCopy = React.useCallback(() => {
     clipboard.copy(text);

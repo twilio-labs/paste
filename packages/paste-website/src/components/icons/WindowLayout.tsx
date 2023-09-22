@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from '@twilio-paste/uid-library';
 
 export interface WindowLayoutProps {
   className?: string;
@@ -10,10 +10,10 @@ export interface WindowLayoutProps {
 }
 
 const WindowLayout = React.memo(
-  ({title = 'Window Layout', decorative = true, className, color, size}: WindowLayoutProps) => {
+  ({ title = 'Window Layout', decorative = true, className, color, size }: WindowLayoutProps) => {
     const uid = useUID();
     return (
-      <div style={{color, width: size, height: size}} className={className}>
+      <div style={{ color, width: size, height: size }} className={className}>
         <svg role="img" aria-hidden={decorative} aria-labelledby={uid} width="100%" height="100%" viewBox="0 0 24 24">
           <title id={uid}>{title}</title>
           <path
@@ -24,7 +24,7 @@ const WindowLayout = React.memo(
         </svg>
       </div>
     );
-  }
+  },
 );
 
-export {WindowLayout};
+export { WindowLayout };

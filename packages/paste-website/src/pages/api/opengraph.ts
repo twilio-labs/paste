@@ -14,10 +14,10 @@
  */
 import puppeteer from 'puppeteer-core';
 import chromium from '@sparticuz/chromium';
-import type {NextApiRequest, NextApiResponse} from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import Rollbar from 'rollbar';
 
-import {logger} from '../../functions-utils/logger';
+import { logger } from '../../functions-utils/logger';
 
 /**
  * The code below determines the executable location for Chrome to
@@ -39,7 +39,7 @@ const PlatformPath = {
 // @ts-ignore complaining about process.platform containing more options than listed in PlatformPath object
 const exePath = PlatformPath[process.platform] || PlatformPath.darwin;
 
-async function getOptions(isDev: boolean): Promise<{args: any; executablePath: any; headless: any}> {
+async function getOptions(isDev: boolean): Promise<{ args: any; executablePath: any; headless: any }> {
   if (isDev) {
     return {
       args: [],
@@ -75,15 +75,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
    */
   const isDev = req.query.isDev === 'true';
   const hostURL = isDev ? 'http://localhost:3000' : `https://${req.headers.host}`;
-  const {componentRequested} = req.query;
+  const { componentRequested } = req.query;
   const pageToVisit = `${hostURL}/opengraph/?path=${componentRequested}`;
 
-  logger.info('Page to visit', {pageToVisit});
+  logger.info('Page to visit', { pageToVisit });
 
   // check for a legit link
   if (!componentRequested || !componentRequested.includes('/')) {
     logger.error('Page not found');
-    rollbar.error('Page not found for screenshotting', {page: pageToVisit});
+    rollbar.error('Page not found for screenshotting', { page: pageToVisit });
     res.status(404).json({
       body: "Sorry, we couldn't screenshot that page. Did you include a page?",
     });
@@ -133,7 +133,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     });
     res.end(imageResp);
   } catch (error) {
-    logger.error('500 error', {error});
+    logger.error('500 error', { error });
     rollbar.error(error as Error);
     res.status(500).json({
       body: JSON.stringify(error),

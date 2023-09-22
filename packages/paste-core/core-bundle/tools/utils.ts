@@ -1,10 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 
-import {getRepoPackages} from '../../../../tools/utils/getRepoPackages';
-import {writeToFile} from '../../../../tools/utils/writeToFile';
-import {mkdir} from '../../../../tools/utils/mkdir';
-import type {PackageShape, PackageList} from './types';
+import { getRepoPackages } from '../../../../tools/utils/getRepoPackages';
+import { writeToFile } from '../../../../tools/utils/writeToFile';
+import { mkdir } from '../../../../tools/utils/mkdir';
+import type { PackageShape, PackageList } from './types';
 import {
   getPackageName,
   getUnbarreledFileFullPath,

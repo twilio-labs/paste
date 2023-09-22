@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Theme} from '@twilio-paste/theme';
-import {render, screen} from '@testing-library/react';
+import { Theme } from '@twilio-paste/theme';
+import { render, screen } from '@testing-library/react';
 
-import {TokenCard} from '../components/tokens-list/token-card';
+import { TokenCard } from '../components/tokens-list/token-card';
 
 describe('TokenCard', () => {
   const testTokenName = 'color-background';
@@ -17,7 +17,7 @@ describe('TokenCard', () => {
   const testExampleTextColor = '#121C2D';
   const testExampleTextColorInverse = '#FFFFFF';
 
-  const BaseTokenCardComponent: React.FC<React.PropsWithChildren<{useCamelCase?: boolean}>> = ({
+  const BaseTokenCardComponent: React.FC<React.PropsWithChildren<{ useCamelCase?: boolean }>> = ({
     useCamelCase = false,
   }) => (
     <Theme.Provider theme="default">
@@ -69,7 +69,7 @@ describe('TokenCard', () => {
           comment="Generic sizing token scale for UI components."
           selectedTheme="default"
         />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     expect(screen.getByText('1128px')).toBeDefined();
@@ -90,7 +90,7 @@ describe('TokenCard', () => {
           textColorInverse={testExampleTextColorInverse}
           selectedTheme="default"
         />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     expect(screen.getByText('AA Conditional')).toBeDefined();
@@ -110,7 +110,7 @@ describe('TokenCard', () => {
           backgroundColorInverse={testExampleBackgroundInverse}
           selectedTheme="default"
         />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const previewDiv = screen.getByTestId('alertInverse').querySelector('[data-paste-element=TOKEN_EXAMPLE]');
@@ -133,7 +133,7 @@ describe('TokenCard', () => {
           textColorInverse={testExampleTextColorInverse}
           selectedTheme="default"
         />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
     // @ts-expect-error toHaveStyleRule definitely exists
     expect(screen.getByText('AAA')).toHaveStyleRule('color', testExampleTextColorInverse);
@@ -156,7 +156,7 @@ describe('TokenCard', () => {
           textColorInverse={testExampleTextColorInverse}
           selectedTheme="default"
         />
-      </Theme.Provider>
+      </Theme.Provider>,
     );
 
     const testElement = screen.getByTestId('highlightToken').querySelector('[data-paste-element=TOKEN_EXAMPLE] > div');

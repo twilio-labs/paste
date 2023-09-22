@@ -2,9 +2,9 @@
 
 import program from 'commander';
 
-import {listIconsAction} from './actions/listIconsAction';
-import {convertNewAction} from './actions/convertNewAction';
-import {convertAllAction} from './actions/convertAllAction';
+import { listIconsAction } from './actions/listIconsAction';
+import { convertNewAction } from './actions/convertNewAction';
+import { convertAllAction } from './actions/convertAllAction';
 
 program.version('0.1.0');
 program

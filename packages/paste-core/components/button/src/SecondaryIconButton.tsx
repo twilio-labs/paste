@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import type { BoxStyleProps } from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
 import merge from 'deepmerge';
 
-import {SizeStyles, BaseStyles, ToggleIconButtonStyles} from './styles';
-import type {DirectButtonProps} from './types';
+import { SizeStyles, BaseStyles, ToggleIconButtonStyles } from './styles';
+import type { DirectButtonProps } from './types';
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
@@ -43,7 +43,7 @@ const ButtonStyleMapping = {
 };
 
 const SecondaryIconButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, pressed, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, pressed, ...props }, ref) => {
     const toggleStyles = pressed === undefined ? {} : ToggleIconButtonStyles;
 
     // Must spread size styles after button styles
@@ -58,7 +58,7 @@ const SecondaryIconButton = React.forwardRef<HTMLButtonElement, DirectButtonProp
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 SecondaryIconButton.defaultProps = {
   as: 'button',
@@ -66,4 +66,4 @@ SecondaryIconButton.defaultProps = {
 
 SecondaryIconButton.displayName = 'SecondaryIconButton';
 
-export {SecondaryIconButton};
+export { SecondaryIconButton };

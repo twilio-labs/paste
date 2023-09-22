@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
-import {ArrowUpIcon} from '@twilio-paste/icons/esm/ArrowUpIcon';
-import {UnsortedIcon} from '@twilio-paste/icons/esm/UnsortedIcon';
+import type { BoxProps } from '@twilio-paste/box';
+import { Button } from '@twilio-paste/button';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { ArrowDownIcon } from '@twilio-paste/icons/esm/ArrowDownIcon';
+import { ArrowUpIcon } from '@twilio-paste/icons/esm/ArrowUpIcon';
+import { UnsortedIcon } from '@twilio-paste/icons/esm/UnsortedIcon';
 
 export type SortDirection = 'ascending' | 'descending' | 'none';
 

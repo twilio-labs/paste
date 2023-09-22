@@ -1,12 +1,12 @@
 import * as React from 'react';
-import {SyntaxHighlighter} from '@twilio-paste/syntax-highlighter-library';
-import type {SnippetLanguages} from '@twilio-paste/syntax-highlighter-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
+import { SyntaxHighlighter } from '@twilio-paste/syntax-highlighter-library';
+import type { SnippetLanguages } from '@twilio-paste/syntax-highlighter-library';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
 
-import {getPasteSyntaxTheme} from './CodeBlockTheme';
-import {CopyButton} from './CopyButton';
-import {ExternalLinkButton} from './ExternalLinkButton';
+import { getPasteSyntaxTheme } from './CodeBlockTheme';
+import { CopyButton } from './CopyButton';
+import { ExternalLinkButton } from './ExternalLinkButton';
 
 type CodeBlockVariants = 'multi-line' | 'single-line';
 
@@ -60,7 +60,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
       copyTextFormatter,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <Box
@@ -117,7 +117,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
         </Box>
       </Box>
     );
-  }
+  },
 );
 
 CodeBlock.displayName = 'CodeBlock';

@@ -5,7 +5,7 @@ describe('Landing Page', function () {
 
   describe('Visual regression tests', () => {
     it('Basic VRT', () => {
-      cy.visualRegressionTestUrl({url: '/', testName: `${testSuiteName}-landing-page-check`});
+      cy.visualRegressionTestUrl({ url: '/', testName: `${testSuiteName}-landing-page-check` });
     });
   });
 });

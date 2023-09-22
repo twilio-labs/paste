@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {getInputChevronIconColor, InputChevronWrapper, InputBox} from '../src';
+import { getInputChevronIconColor, InputChevronWrapper, InputBox } from '../src';
 
 describe('HTML attributes', () => {
   it('should set a element data attribute for InputChevronWrapper', () => {
     render(
       <InputBox element="INPUT_BOX">
         <InputChevronWrapper element="INPUT_CHEVRON_WRAPPER">input-chevron</InputChevronWrapper>
-      </InputBox>
+      </InputBox>,
     );
     expect(screen.getByText('input-chevron').getAttribute('data-paste-element')).toEqual('INPUT_CHEVRON_WRAPPER');
   });
@@ -18,7 +18,7 @@ describe('HTML attributes', () => {
     render(
       <InputBox element="INPUT_BOX">
         <InputChevronWrapper element="FOO_CHEVRON_WRAPPER">input-chevron</InputChevronWrapper>
-      </InputBox>
+      </InputBox>,
     );
     expect(screen.getByText('input-chevron').getAttribute('data-paste-element')).toEqual('FOO_CHEVRON_WRAPPER');
   });
@@ -49,13 +49,13 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          INPUT_CHEVRON_WRAPPER: {backgroundColor: 'colorBackground'},
+          INPUT_CHEVRON_WRAPPER: { backgroundColor: 'colorBackground' },
         }}
       >
         <InputBox element="INPUT_BOX">
           <InputChevronWrapper element="INPUT_CHEVRON_WRAPPER">input-chevron</InputChevronWrapper>
         </InputBox>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInputChevronWrapper = screen.getByText('input-chevron');
     expect(renderedInputChevronWrapper).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -66,13 +66,13 @@ describe('Customization', () => {
       <CustomizationProvider
         baseTheme="default"
         elements={{
-          FOO_CHEVRON_WRAPPER: {backgroundColor: 'colorBackground'},
+          FOO_CHEVRON_WRAPPER: { backgroundColor: 'colorBackground' },
         }}
       >
         <InputBox element="INPUT_BOX">
           <InputChevronWrapper element="FOO_CHEVRON_WRAPPER">input-chevron</InputChevronWrapper>
         </InputBox>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedInputChevronWrapper = screen.getByText('input-chevron');
     expect(renderedInputChevronWrapper).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');

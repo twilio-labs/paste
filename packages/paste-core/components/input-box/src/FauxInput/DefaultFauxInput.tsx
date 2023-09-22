@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxShadow, BackgroundColor} from '@twilio-paste/style-props';
+import { Box } from '@twilio-paste/box';
+import type { BoxShadow, BackgroundColor } from '@twilio-paste/style-props';
 
-import type {FauxInputProps} from '../types';
+import type { FauxInputProps } from '../types';
 
 const DefaultFauxInput = React.forwardRef<HTMLDivElement, React.PropsWithChildren<FauxInputProps>>(
-  ({disabled, element, hasError, readOnly, children, type, variant}, ref) => {
+  ({ disabled, element, hasError, readOnly, children, type, variant }, ref) => {
     let backgroundColor = 'colorBackgroundBody' as BackgroundColor;
     let boxShadow = 'shadowBorder' as BoxShadow;
     let boxShadowHover = 'shadowBorderPrimary' as BoxShadow;
@@ -53,9 +53,9 @@ const DefaultFauxInput = React.forwardRef<HTMLDivElement, React.PropsWithChildre
         {children}
       </Box>
     );
-  }
+  },
 );
 
 DefaultFauxInput.displayName = 'DefaultFauxInput';
 
-export {DefaultFauxInput};
+export { DefaultFauxInput };

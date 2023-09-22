@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
 import {
   // Create and manages the Lexical editor instance
   LexicalComposer,
@@ -27,14 +27,14 @@ import {
    */
   HistoryPlugin,
 } from '@twilio-paste/lexical-library';
-import {StylingGlobals} from '@twilio-paste/styling-library';
-import type {LexicalComposerProps, ContentEditableProps, OnChangeFunction} from '@twilio-paste/lexical-library';
+import { StylingGlobals } from '@twilio-paste/styling-library';
+import type { LexicalComposerProps, ContentEditableProps, OnChangeFunction } from '@twilio-paste/lexical-library';
 import merge from 'deepmerge';
 
-import {chatComposerLexicalStyles} from './styles';
-import {AutoLinkPlugin} from './AutoLinkPlugin';
-import {PlaceholderWrapper} from './PlaceholderWrapper';
-import {baseConfig, renderInitialText} from './helpers';
+import { chatComposerLexicalStyles } from './styles';
+import { AutoLinkPlugin } from './AutoLinkPlugin';
+import { PlaceholderWrapper } from './PlaceholderWrapper';
+import { baseConfig, renderInitialText } from './helpers';
 
 export interface ChatComposerProps extends Omit<ContentEditableProps, 'style' | 'className' | 'onChange'> {
   children?: LexicalComposerProps['children'];
@@ -59,7 +59,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
       disabled,
       ...props
     },
-    ref
+    ref,
   ) => {
     const baseConfigWithEditorState = {
       ...baseConfig,
@@ -77,7 +77,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         paddingY="space30"
         paddingX="space40"
         borderRadius="borderRadius20"
-        _focusWithin={{boxShadow: 'shadowFocus'}}
+        _focusWithin={{ boxShadow: 'shadowFocus' }}
         overflowY="scroll"
         maxHeight={maxHeight}
         disabled={disabled}
@@ -103,7 +103,7 @@ export const ChatComposer = React.forwardRef<HTMLDivElement, ChatComposerProps>(
         </LexicalComposer>
       </Box>
     );
-  }
+  },
 );
 
 ChatComposer.displayName = 'ChatComposer';

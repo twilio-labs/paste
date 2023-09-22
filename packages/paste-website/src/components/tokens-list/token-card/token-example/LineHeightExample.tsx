@@ -1,8 +1,8 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import type {BoxProps} from '@twilio-paste/box';
-import type {ThemeShape} from '@twilio-paste/theme';
+import { Box } from '@twilio-paste/box';
+import { Text } from '@twilio-paste/text';
+import type { BoxProps } from '@twilio-paste/box';
+import type { ThemeShape } from '@twilio-paste/theme';
 
 type LineHeightExampleProps = Pick<BoxProps, 'lineHeight' | 'color' | 'backgroundColor'> & {
   tokenName: string;

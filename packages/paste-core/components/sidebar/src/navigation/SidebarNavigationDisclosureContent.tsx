@@ -1,10 +1,10 @@
 import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {DisclosurePrimitiveContent} from '@twilio-paste/disclosure-primitive';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import type {DisclosurePrimitiveContentProps} from '@twilio-paste/disclosure-primitive';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import { DisclosurePrimitiveContent } from '@twilio-paste/disclosure-primitive';
+import type { BoxProps, BoxStyleProps } from '@twilio-paste/box';
+import type { DisclosurePrimitiveContentProps } from '@twilio-paste/disclosure-primitive';
 
-import {SidebarNavigationDisclosureContext} from './SidebarNavigationDisclosureContext';
+import { SidebarNavigationDisclosureContext } from './SidebarNavigationDisclosureContext';
 
 export interface SidebarNavigationDisclosureContentProps
   extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
@@ -13,8 +13,8 @@ export interface SidebarNavigationDisclosureContentProps
 }
 
 const SidebarNavigationDisclosureContent = React.forwardRef<HTMLDivElement, SidebarNavigationDisclosureContentProps>(
-  ({children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT', ...props}, ref) => {
-    const {disclosure} = React.useContext(SidebarNavigationDisclosureContext);
+  ({ children, element = 'SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT', ...props }, ref) => {
+    const { disclosure } = React.useContext(SidebarNavigationDisclosureContext);
 
     return (
       <DisclosurePrimitiveContent
@@ -30,9 +30,9 @@ const SidebarNavigationDisclosureContent = React.forwardRef<HTMLDivElement, Side
         {children}
       </DisclosurePrimitiveContent>
     );
-  }
+  },
 );
 
 SidebarNavigationDisclosureContent.displayName = 'SidebarNavigationDisclosureContent';
 
-export {SidebarNavigationDisclosureContent};
+export { SidebarNavigationDisclosureContent };

@@ -1,17 +1,17 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Text} from '@twilio-paste/text';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {SiblingBox} from '@twilio-paste/sibling-box';
-import {Label, RequiredDot} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { useUID } from '@twilio-paste/uid-library';
+import { Text } from '@twilio-paste/text';
+import { Box, safelySpreadBoxProps } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
+import { SiblingBox } from '@twilio-paste/sibling-box';
+import { Label, RequiredDot } from '@twilio-paste/label';
+import { HelpText } from '@twilio-paste/help-text';
+import { MediaObject, MediaFigure, MediaBody } from '@twilio-paste/media-object';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {SWITCH_HEIGHT, SWITCH_KNOB_SIZE, SWITCH_WIDTH} from './constants';
-import {SwitchContext} from './SwitchContext';
-import {SwitchKnob} from './SwitchKnob';
+import { SWITCH_HEIGHT, SWITCH_KNOB_SIZE, SWITCH_WIDTH } from './constants';
+import { SwitchContext } from './SwitchContext';
+import { SwitchKnob } from './SwitchKnob';
 
 export interface SwitchProps extends HTMLPasteProps<'input'>, Pick<BoxProps, 'element'> {
   children: NonNullable<React.ReactNode>;
@@ -48,10 +48,10 @@ const HiddenSwitch = React.forwardRef<HTMLInputElement, HiddenSwitchProps>((prop
 HiddenSwitch.displayName = 'HiddenSwitch';
 
 const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
-  ({checked, defaultChecked, element = 'SWITCH', children, helpText, id, required, onChange, ...props}, ref) => {
+  ({ checked, defaultChecked, element = 'SWITCH', children, helpText, id, required, onChange, ...props }, ref) => {
     if (checked != null && defaultChecked != null) {
       throw new Error(
-        `[Paste Switch] Do not provide both 'defaultChecked' and 'checked' to Switch at the same time. Please consider if you want this component to be controlled or uncontrolled.`
+        `[Paste Switch] Do not provide both 'defaultChecked' and 'checked' to Switch at the same time. Please consider if you want this component to be controlled or uncontrolled.`,
       );
     }
 
@@ -90,7 +90,7 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
           SwitchGroupContext.onChange(event);
         }
       },
-      [onChange, SwitchGroupContext.onChange, disabled]
+      [onChange, SwitchGroupContext.onChange, disabled],
     );
 
     return (
@@ -212,8 +212,8 @@ const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
         )}
       </Box>
     );
-  }
+  },
 );
 Switch.displayName = 'Switch';
 
-export {Switch};
+export { Switch };

@@ -1,10 +1,10 @@
 import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {useUID} from '@twilio-paste/uid-library';
+import type { StoryFn } from '@storybook/react';
+import { Box } from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
+import { CustomizationProvider } from '@twilio-paste/customization';
+import type { PasteCustomCSS } from '@twilio-paste/customization';
+import { useUID } from '@twilio-paste/uid-library';
 
 import {
   StatusMenu,
@@ -15,16 +15,16 @@ import {
   StatusMenuItemChild,
   useStatusMenuState,
 } from '../src';
-import type {StatusMenuBadgeProps} from '../src';
+import type { StatusMenuBadgeProps } from '../src';
 
 type ElementOverrides = Record<string, PasteCustomCSS>;
 
 export const initStyles = (element: string): ElementOverrides => ({
   [`${element}_BADGE`]: {
     variants: {
-      ProcessSuccess: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
-      ProcessNeutral: {color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest'},
-      ConnectivityAvailable: {backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong'},
+      ProcessSuccess: { color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest' },
+      ProcessNeutral: { color: 'colorText', backgroundColor: 'colorBackgroundNeutralWeakest' },
+      ConnectivityAvailable: { backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong' },
       ConnectivityOffline: {
         padding: 'space40',
         borderRadius: 'borderRadiusCircle',
@@ -76,7 +76,7 @@ export default {
   component: StatusMenu,
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000, diffThreshold: 0.2},
+    chromatic: { delay: 3000, diffThreshold: 0.2 },
     a11y: {
       // no need to a11y check customization
       disable: true,
@@ -86,8 +86,8 @@ export default {
 };
 
 export const BaseMenu: React.FC<
-  React.PropsWithChildren<{menuBadgeStatusVariant?: StatusMenuBadgeProps['variant']; element?: string}>
-> = React.memo(function BaseMenu({menuBadgeStatusVariant = 'ProcessError', element}) {
+  React.PropsWithChildren<{ menuBadgeStatusVariant?: StatusMenuBadgeProps['variant']; element?: string }>
+> = React.memo(function BaseMenu({ menuBadgeStatusVariant = 'ProcessError', element }) {
   const uniqueBaseID = useUID();
   const menu = useStatusMenuState({
     visible: true,
@@ -171,7 +171,7 @@ export const BaseMenu: React.FC<
   );
 });
 
-export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithDefaultElementName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -190,7 +190,7 @@ export const WithDefaultElementName: StoryFn = (_args, {parameters: {isTestEnvir
   );
 };
 
-export const WithCustomElementName: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const WithCustomElementName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider disableAnimations={isTestEnvironment} theme={currentTheme} elements={initStyles('CUSTOM')}>

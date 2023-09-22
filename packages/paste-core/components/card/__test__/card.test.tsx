@@ -1,15 +1,15 @@
 import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from '@testing-library/react';
+import { CustomizationProvider } from '@twilio-paste/customization';
 
-import {Card} from '../src';
+import { Card } from '../src';
 
 describe('Card', () => {
   it('should render', (): void => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card data-testid="card" />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedCard = screen.getByTestId('card');
     expect(renderedCard).toBeDefined();
@@ -19,7 +19,7 @@ describe('Card', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card data-testid="card" />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedCard = screen.getByTestId('card');
     expect(renderedCard).toHaveStyleRule('padding', '2.25rem');
@@ -35,7 +35,7 @@ describe('Card', () => {
           paddingBottom="space40"
           paddingLeft="space50"
         />
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedCard = screen.getByTestId('card');
     expect(renderedCard).toHaveStyleRule('padding-top', '0.25rem');
@@ -48,7 +48,7 @@ describe('Card', () => {
     render(
       <CustomizationProvider baseTheme="default" theme={TestTheme}>
         <Card>I AM A JEDI!!!!</Card>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedCardContent = screen.getByText('I AM A JEDI!!!!');
     expect(renderedCardContent).toBeDefined();
@@ -71,10 +71,10 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{CARD: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
+        elements={{ CARD: { backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive' } }}
       >
         <Card data-testid="customizable-card">Custom card</Card>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedCard = screen.getByTestId('customizable-card');
     expect(renderedCard).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
@@ -85,12 +85,12 @@ describe('Customization', () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{foo: {backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive'}}}
+        elements={{ foo: { backgroundColor: 'colorBackground', borderColor: 'colorBorderDestructive' } }}
       >
         <Card element="foo" data-testid="customizable-card">
           Custom card
         </Card>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
     const renderedCard = screen.getByTestId('customizable-card');
     expect(renderedCard).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');

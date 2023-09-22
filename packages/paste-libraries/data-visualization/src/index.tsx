@@ -1,1 +1,1 @@
-export {usePasteHighchartsTheme} from './usePasteHighchartsTheme';
+export { usePasteHighchartsTheme } from './usePasteHighchartsTheme';

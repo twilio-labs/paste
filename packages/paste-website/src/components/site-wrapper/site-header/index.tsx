@@ -1,22 +1,22 @@
 import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Topbar, TopbarActions} from '@twilio-paste/topbar';
+import { Box } from '@twilio-paste/box';
+import { Topbar, TopbarActions } from '@twilio-paste/topbar';
 import GitHubButton from 'react-github-button';
-import {Button} from '@twilio-paste/button';
+import { Button } from '@twilio-paste/button';
 import 'react-github-button/assets/style.css';
 
-import {HamburgerToggle} from './HamburgerToggle';
-import {SiteHeaderLogo} from './SiteHeaderLogo';
-import {SiteHeaderSearch} from './SiteHeaderSearch';
-import {DarkModeToggle} from './DarkModeToggle';
-import {FigmaButton} from './FigmaButton';
-import {ContactUsMenu} from '../../ContactUsMenu';
-import {PASTE_DOCS_TOPBAR} from '../../../constants';
+import { HamburgerToggle } from './HamburgerToggle';
+import { SiteHeaderLogo } from './SiteHeaderLogo';
+import { SiteHeaderSearch } from './SiteHeaderSearch';
+import { DarkModeToggle } from './DarkModeToggle';
+import { FigmaButton } from './FigmaButton';
+import { ContactUsMenu } from '../../ContactUsMenu';
+import { PASTE_DOCS_TOPBAR } from '../../../constants';
 
 export const SiteHeader: React.FC<{
   sidebarMobileCollapsed: boolean;
   setSidebarMobileCollapsed: (collapsed: boolean) => void;
-}> = ({sidebarMobileCollapsed, setSidebarMobileCollapsed}): JSX.Element => {
+}> = ({ sidebarMobileCollapsed, setSidebarMobileCollapsed }): JSX.Element => {
   return (
     <Topbar id={PASTE_DOCS_TOPBAR}>
       <TopbarActions display={['flex', 'none']} justify="start">

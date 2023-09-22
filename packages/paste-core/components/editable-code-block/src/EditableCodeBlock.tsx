@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {Box, type BoxProps} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
+import { Box, type BoxProps } from '@twilio-paste/box';
+import { useTheme } from '@twilio-paste/theme';
 import {
   CodeEditor,
   CodeEditorPasteTheme,
@@ -10,11 +10,11 @@ import {
   type IRange,
   type IMarkdownString,
 } from '@twilio-paste/code-editor-library';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {Spinner} from '@twilio-paste/spinner';
-import {StylingGlobals} from '@twilio-paste/styling-library';
+import { ScreenReaderOnly } from '@twilio-paste/screen-reader-only';
+import { Spinner } from '@twilio-paste/spinner';
+import { StylingGlobals } from '@twilio-paste/styling-library';
 
-const EditableCodeblockLoadingMessage: React.FC<{i18nLoadingLabel: string}> = ({i18nLoadingLabel}) => (
+const EditableCodeblockLoadingMessage: React.FC<{ i18nLoadingLabel: string }> = ({ i18nLoadingLabel }) => (
   <>
     <Spinner color="colorTextPrimaryWeak" decorative />
     <ScreenReaderOnly>{i18nLoadingLabel}</ScreenReaderOnly>
@@ -22,7 +22,7 @@ const EditableCodeblockLoadingMessage: React.FC<{i18nLoadingLabel: string}> = ({
 );
 EditableCodeblockLoadingMessage.displayName = 'EditableCodeblockLoadingMessage';
 
-const InlineErrorStyles: {[key: string]: any} = {
+const InlineErrorStyles: { [key: string]: any } = {
   '.paste-editable-code-editor-margin-error': {
     ':before': {
       content: '""',
@@ -132,7 +132,7 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
               inlineErrorRange.startLineNumber,
               inlineErrorRange.startColumn,
               inlineErrorRange.endLineNumber,
-              inlineErrorRange.endColumn
+              inlineErrorRange.endColumn,
             ),
             // https://microsoft.github.io/monaco-editor/docs.html#interfaces/editor.IModelDecorationOptions.html
             options: {
@@ -159,7 +159,7 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
        */
       onMount?.(editor, monaco);
     },
-    [onMount, inlineErrorHoverMessage, inlineErrorRange, inlineErrorIsWholeLine]
+    [onMount, inlineErrorHoverMessage, inlineErrorRange, inlineErrorIsWholeLine],
   );
 
   return (

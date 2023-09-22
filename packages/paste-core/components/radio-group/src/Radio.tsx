@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { useUID } from '@twilio-paste/uid-library';
+import { Box } from '@twilio-paste/box';
+import type { BoxProps } from '@twilio-paste/box';
 import {
   BaseRadioCheckboxControl,
   BaseRadioCheckboxLabel,
   BaseRadioCheckboxLabelText,
   BaseRadioCheckboxHelpText,
 } from '@twilio-paste/base-radio-checkbox';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { HTMLPasteProps } from '@twilio-paste/types';
 
-import {RadioContext} from './RadioContext';
+import { RadioContext } from './RadioContext';
 
 export interface RadioProps extends HTMLPasteProps<'input'> {
   id?: string;
@@ -81,11 +81,11 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       helpText,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (checked != null && defaultChecked != null) {
       throw new Error(
-        `[Paste Radio] Do not provide both 'defaultChecked' and 'checked' to Radio at the same time. Please consider if you want this component to be controlled or uncontrolled.`
+        `[Paste Radio] Do not provide both 'defaultChecked' and 'checked' to Radio at the same time. Please consider if you want this component to be controlled or uncontrolled.`,
       );
     }
 
@@ -113,7 +113,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
           setCheckedState(event.target.checked);
         }
       },
-      [onChange, radioGroupContext, isControlled]
+      [onChange, radioGroupContext, isControlled],
     );
 
     const state: HiddenRadioState = {
@@ -194,9 +194,9 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
         )}
       </Box>
     );
-  }
+  },
 );
 
 Radio.displayName = 'Radio';
 
-export {Radio, HiddenRadio, type HiddenRadioState};
+export { Radio, HiddenRadio, type HiddenRadioState };
