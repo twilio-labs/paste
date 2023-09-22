@@ -2,6 +2,7 @@ import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { SyntaxHighlighter } from "@twilio-paste/syntax-highlighter-library";
 import type { SnippetLanguages } from "@twilio-paste/syntax-highlighter-library";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { getPasteSyntaxTheme } from "./CodeBlockTheme";
@@ -10,19 +11,84 @@ import { ExternalLinkButton } from "./ExternalLinkButton";
 
 type CodeBlockVariants = "multi-line" | "single-line";
 
-export interface CodeBlockProps extends Partial<Omit<HTMLDivElement, "children">> {
+export interface CodeBlockProps extends HTMLPasteProps<"div"> {
   children?: never;
+  /**
+   * The language of the code snipped
+   *
+   * @type {SnippetLanguages}
+   * @memberof CodeBlockProps
+   */
   language: SnippetLanguages;
+  /**
+   * The code snippet to be rendered
+   *
+   * @type {string}
+   * @memberof CodeBlockProps
+   */
   code: string;
+  /**
+   * Variant of code block to render
+   *
+   * @default "multi-line"
+   * @type {CodeBlockVariants}
+   * @memberof CodeBlockProps
+   */
   variant?: CodeBlockVariants;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CODE_BLOCK"
+   * @type {BoxElementProps["element"]}
+   * @memberof CodeBlockProps
+   */
   element?: BoxProps["element"];
+  /**
+   *
+   * @type {boolean}
+   * @memberof CodeBlockProps
+   */
   showLineNumbers?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof CodeBlockProps
+   */
   wrapLines?: boolean;
+  /**
+   *
+   * @type {number}
+   * @memberof CodeBlockProps
+   */
   maxLines?: number;
+  /**
+   *
+   * @type {string}
+   * @memberof CodeBlockProps
+   */
   externalLink?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof CodeBlockProps
+   */
   i18nCopyLabelBefore?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof CodeBlockProps
+   */
   i18nCopyLabelAfter?: string;
+  /**
+   *
+   * @type {string}
+   * @memberof CodeBlockProps
+   */
   i18nLinkLabel?: string;
+  /**
+   *
+   * @memberof CodeBlockProps
+   */
   copyTextFormatter?: (code: string) => string;
 }
 

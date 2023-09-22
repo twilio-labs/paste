@@ -14,6 +14,5 @@ describe("Alert-dialog component documentation page", function () {
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
     cy.checkLivePreviews();
-    cy.checkChangelogRevealer();
   });
 });

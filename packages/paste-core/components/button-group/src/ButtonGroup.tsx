@@ -1,6 +1,7 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 const AttachedStyled = styled.span(
@@ -48,8 +49,21 @@ const UnattachedStyled = styled.span(
   }),
 );
 
-export interface ButtonGroupProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+export interface ButtonGroupProps extends HTMLPasteProps<"div"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "BUTTON_GROUP"
+   * @type {BoxProps["element"]}
+   * @memberof ButtonGroupProps
+   */
   element?: BoxProps["element"];
+  /**
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof ButtonGroupProps
+   */
   attached?: boolean;
   children: React.ReactElement[];
 }

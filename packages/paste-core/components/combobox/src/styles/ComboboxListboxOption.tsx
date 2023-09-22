@@ -3,16 +3,52 @@ import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
 import type { PositionOptions } from "@twilio-paste/style-props";
 import { Text } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 import type { VirtualItem } from "react-virtual";
 
-export interface ComboboxListboxOptionProps extends Pick<BoxProps, "element"> {
+export interface ComboboxListboxOptionProps extends HTMLPasteProps<"li"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   *
+   * @type {boolean}
+   * @memberof ComboboxListboxOptionProps
+   */
   highlighted?: boolean;
+  /**
+   *
+   * @type {boolean}
+   * @memberof ComboboxListboxOptionProps
+   */
   selected?: boolean;
+  /**
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof ComboboxListboxOptionProps
+   */
   disabled?: boolean;
+  /**
+   *
+   * @default "default"
+   * @type {"default" | "groupOption"}
+   * @memberof ComboboxListboxOptionProps
+   */
   variant: "default" | "groupOption";
+  /**
+   *
+   * @type {VirtualItem["start"]}
+   * @memberof ComboboxListboxOptionProps
+   */
   startHeight?: VirtualItem["start"];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "COMBOBOX"
+   * @type {BoxElementProps["element"]}
+   * @memberof ComboboxListboxOptionProps
+   */
+  element?: BoxProps["element"];
 }
 
 const VariantStyles: { [key in ComboboxListboxOptionProps["variant"]]: BoxStyleProps } = {
@@ -56,7 +92,7 @@ const ComboboxListboxOption = React.forwardRef<HTMLLIElement, ComboboxListboxOpt
         {...safelySpreadBoxProps(props)}
         /*
          * FIX: Manually control aria-selected state to be true when an item has been selected.
-         * Downshift sets aria-selected to true when an item is highlighted, which we don't want.
+         * Downshift sets aria-selected to true when an item is highlighted, which we don"t want.
          */
         aria-selected={selected}
         aria-disabled={disabled}

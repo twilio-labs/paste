@@ -1,12 +1,27 @@
-import { Box } from "@twilio-paste/box";
+import { Box, type BoxProps } from "@twilio-paste/box";
 import { Text } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import type { ComboboxProps } from "../types";
 
-export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, "groupLabelTemplate" | "element"> {
+export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, "groupLabelTemplate">, HTMLPasteProps<"ul"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @type {string | undefined}
+   * @memberof ComboboxListboxGroupProps
+   */
   groupName?: string | undefined;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "COMBOBOX"
+   * @type {BoxElementProps["element"]}
+   * @memberof ComboboxListboxGroupProps
+   */
+  element?: BoxProps["element"];
 }
 
 const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxGroupProps>(

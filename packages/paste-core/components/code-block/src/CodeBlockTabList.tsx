@@ -5,6 +5,13 @@ import type { TabListProps } from "@twilio-paste/tabs";
 import * as React from "react";
 
 export interface CodeBlockTabListProps extends Omit<TabListProps, "aria-label"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CODE_BLOCK_TAB_LIST"
+   * @type {BoxElementProps["element"]}
+   * @memberof CodeBlockTabListProps
+   */
   element?: BoxProps["element"];
 }
 

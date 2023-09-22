@@ -58,6 +58,8 @@ export type {
   MenuItemRadioProps,
   MenuButtonProps,
   MenuSeparatorProps,
+  MenuStateReturn,
+  MenuInitialState,
   PopoverState,
   PopoverStateReturn,
   PopoverInitialState,

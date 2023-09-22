@@ -1,9 +1,17 @@
 import type { BoxProps } from "@twilio-paste/box";
 import { TabPanel } from "@twilio-paste/tabs";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface CodeBlockTabPanelProps extends Partial<Omit<HTMLDivElement, "children">> {
+export interface CodeBlockTabPanelProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CODE_BLOCK_TAB_PANEL"
+   * @type {BoxElementProps["element"]}
+   * @memberof CodeBlockTabPanelProps
+   */
   element?: BoxProps["element"];
 }
 

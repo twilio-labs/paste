@@ -28,10 +28,10 @@ import {
   MenuExample,
 } from '../../../component-examples/ButtonGroupExamples';
 import packageJson from '@twilio-paste/button-group/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -43,25 +43,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button-group',
+        storybookUrl: '/?path=/story/components-button-group--attached',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button-group"
-  storybookUrl="/?path=/story/components-button-group--attached"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   noInline
@@ -196,46 +186,3 @@ Button Groups:
 - Should have between 2–6 options
 - Are comprised of independent buttons
 - Labels should use sentence case
-
-## Implementation Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/button-group - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {ButtonGroup} from '@twilio-paste/core/button-group';
-import {Button} from '@twilio-paste/core/button';
-
-const Component = () => (
-  <ButtonGroup attached>
-    <Button variant="primary">First button</Button>
-    <Button variant="secondary">Second button</Button>
-    <Button variant="destructive">Destructive button</Button>
-  </ButtonGroup>
-);
-```
-
-#### Props
-
-All the valid HTML attributes for `div` are supported including the following props:
-
-| Prop      | Type                   | Description                                                                               | Default        |
-| --------- | ---------------------- | ----------------------------------------------------------------------------------------- | -------------- |
-| children  | `React.ReactElement[]` | The Buttons rendered in the ButtonGroup                                                   |                |
-| attached? | `boolean`              | If the group of buttons are visually attached                                             | `false`        |
-| element?  | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'BUTTON_GROUP' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -215,12 +215,13 @@ const SiteSidebarNavigation = (): JSX.Element => {
       >
         <SidebarAnchor href={SidebarCategoryRoutes.COMPONENTS}>Overview</SidebarAnchor>
         {filteredComponentSidebarItems.map(({ name, slug }: { [key: string]: string }) => {
-          const selected = pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/${slug}`);
+          const categoryRoute = `${SidebarCategoryRoutes.COMPONENTS}/${slug}`;
+          const selected = pathname.endsWith(categoryRoute) || pathname.includes(`${categoryRoute}/`);
           if (name === "Icon") {
             return (
               <NavigationDisclosure
                 buttonText={name}
-                categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}
+                categoryRoute={categoryRoute}
                 key={slug}
                 onClick={() =>
                   event({
@@ -230,7 +231,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
                   })
                 }
               >
-                <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}>{name} list</SidebarAnchor>
+                <SidebarAnchor href={categoryRoute}>{name} list</SidebarAnchor>
                 <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/${slug}/usage-guidelines`}>
                   Usage
                 </SidebarAnchor>
@@ -241,7 +242,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
             return (
               <NavigationDisclosure
                 buttonText={name}
-                categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}
+                categoryRoute={categoryRoute}
                 key={slug}
                 onClick={() =>
                   event({
@@ -270,7 +271,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
             return (
               <NavigationDisclosure
                 buttonText={name}
-                categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}
+                categoryRoute={categoryRoute}
                 key={slug}
                 onClick={() =>
                   event({
@@ -299,7 +300,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
             return (
               <NavigationDisclosure
                 buttonText={name}
-                categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}
+                categoryRoute={categoryRoute}
                 key={slug}
                 onClick={() =>
                   event({
@@ -325,7 +326,7 @@ const SiteSidebarNavigation = (): JSX.Element => {
             );
           }
           return (
-            <SidebarAnchor selected={selected} href={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
+            <SidebarAnchor selected={selected} href={categoryRoute} key={slug}>
               {name}
             </SidebarAnchor>
           );

@@ -22,10 +22,10 @@ import {
   controlledCheckbox,
 } from '../../../component-examples/CheckboxExamples';
 import packageJson from '@twilio-paste/checkbox/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -37,24 +37,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox',
+        storybookUrl: '/?path=/story/components-checkbox--default-checkbox',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox"
-  storybookUrl="/?path=/story/components-checkbox--default-checkbox"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Checkbox}} noInline>
   {checkedCheckbox}
@@ -396,90 +387,3 @@ Use inline error text to explain how to fix an error. Because space is typically
     body="Don’t focus on whether the field is required. For example, 'Accepting the terms of agreement is required.'"
   />
 </DoDont>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/checkbox - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Checkbox, CheckboxGroup} from '@twilio-paste/core/checkbox';
-
-const Component = () => (
-  <CheckboxGroup name="foo" legend="foo">
-    <Checkbox id="foo" value="foo" name="foo">
-      Foo
-    </Checkbox>
-  </CheckboxGroup>
-);
-```
-
-#### Checkbox props
-
-All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
-
-| Prop              | Type                                     | Description                                                                               | Default    |
-| ----------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ---------- |
-| children          | `ReactNode`                              |                                                                                           | null       |
-| id?               | `string`                                 |                                                                                           | null       |
-| checked?          | `boolean`                                |                                                                                           | false      |
-| defaultChecked?   | `boolean`                                |                                                                                           | null       |
-| hasError?         | `boolean`                                |                                                                                           | false      |
-| helpText?         | `string` or `ReactNode`                  |                                                                                           | null       |
-| indeterminate?    | `boolean`                                |                                                                                           | false      |
-| isSelectAll?      | `boolean`                                |                                                                                           | false      |
-| isSelectAllChild? | `boolean`                                |                                                                                           | false      |
-| onChange?         | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| onFocus?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| onBlur?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| element?          | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'CHECKBOX' |
-
-#### CheckboxGroup props
-
-| Prop               | Type                                | Description                                                                               | Default          |
-| ------------------ | ----------------------------------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| children           | `ReactNode`                         |                                                                                           | null             |
-| legend             | `string` or `ReactNode`             |                                                                                           | null             |
-| name               | `string`                            |                                                                                           | null             |
-| value              | `string`                            |                                                                                           | null             |
-| orientation        | `oneOf(['vertical', 'horizontal'])` |                                                                                           | vertical         |
-| errorText?         | `string` or `ReactNode`             |                                                                                           | null             |
-| helpText?          | `string` or `ReactNode`             |                                                                                           | null             |
-| disabled?          | `boolean`                           |                                                                                           | false            |
-| required?          | `boolean`                           |                                                                                           | false            |
-| isSelectAll?       | `boolean`                           |                                                                                           | false            |
-| i18nRequiredLabel? | `string`                            | Label text for the required dot in the legend                                             | '(required)'     |
-| element?           | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider | 'CHECKBOX_GROUP' |
-
-#### CheckboxDisclaimer props
-
-All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
-
-| Prop            | Type                                     | Description                                                                               | Default               |
-| --------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------- |
-| children        | `ReactNode`                              |                                                                                           | null                  |
-| id?             | `string`                                 |                                                                                           | null                  |
-| checked?        | `boolean`                                |                                                                                           | false                 |
-| defaultChecked? | `boolean`                                |                                                                                           | null                  |
-| errorText?      | `string` or `ReactNode`                  |                                                                                           | null                  |
-| onChange?       | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null                  |
-| onFocus?        | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null                  |
-| onBlur?         | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null                  |
-| element?        | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'CHECKBOX_DISCLAIMER' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

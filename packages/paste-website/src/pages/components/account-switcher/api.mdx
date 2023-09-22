@@ -1,0 +1,119 @@
+export const meta = {
+  title: 'Account Switcher - API',
+  package: '@twilio-paste/account-switcher',
+  description: "An Account Switcher is a stylized Menu Badge with a list of actions related to a user's accounts.",
+  slug: '/components/account-switcher/api',
+};
+
+import Changelog from '@twilio-paste/account-switcher/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/account-switcher/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Account Switcher');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/account-switcher');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/account-switcher',
+        storybookUrl: '/?path=/story/components-accountswitcher--account-switcher-menu',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/account-switcher - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  AccountSwitcher,
+  AccountSwitcherBadge,
+  AccountSwitcherGroup,
+  AccountSwitcherItem,
+  AccountSwitcherItemRadio,
+  AccountSwitcherSeparator,
+  useAccountSwitcherState,
+} from '@twilio-paste/core/account-switcher';
+
+const AccountSwitcherMenu = () => {
+  const accountSwitcher = useAccountSwitcherState();
+  const [selectedAccount, setSelectedAccount] = React.useState('Owl Telehealth');
+  return (
+    <>
+      <AccountSwitcherBadge {...accountSwitcher} i18nButtonLabel="Switch accounts">
+        Owl Telehealth
+      </AccountSwitcherBadge>
+      <AccountSwitcher {...accountSwitcher} aria-label="Avaiable accounts">
+        <AccountSwitcherGroup label="Recent accounts">
+          <AccountSwitcherItemRadio
+            name="recent_accounts"
+            value="Owl Telehealth"
+            checked={selectedAccount === 'Owl Telehealth'}
+            onChange={() => setSelectedAccount('Owl Telehealth')}
+            {...accountSwitcher}
+          >
+            Owl Telehealth
+          </AccountSwitcherItemRadio>
+          <AccountSwitcherItemRadio
+            name="recent_accounts"
+            value="Owl Health Demo"
+            checked={selectedAccount === 'Owl Health Demo'}
+            onChange={() => setSelectedAccount('Owl Health Demo')}
+            {...accountSwitcher}
+          >
+            Owl Health Demo
+          </AccountSwitcherItemRadio>
+          <AccountSwitcherItemRadio
+            name="recent_accounts"
+            value="Owl Subway"
+            checked={selectedAccount === 'Owl Subway'}
+            onChange={() => setSelectedAccount('Owl Subway')}
+            {...accountSwitcher}
+          >
+            Owl Subway
+          </AccountSwitcherItemRadio>
+        </AccountSwitcherGroup>
+        <AccountSwitcherSeparator />
+        <AccountSwitcherItem {...accountSwitcher} href="#">
+          Account settings
+        </AccountSwitcherItem>
+        <AccountSwitcherSeparator />
+        <AccountSwitcherItem {...accountSwitcher} href="#">
+          View all accounts
+        </AccountSwitcherItem>
+        <AccountSwitcherItem {...accountSwitcher} href="#">
+          View all subaccounts
+        </AccountSwitcherItem>
+        <AccountSwitcherSeparator />
+        <AccountSwitcherItem {...accountSwitcher} href="#">
+          Admin Center
+        </AccountSwitcherItem>
+      </AccountSwitcher>
+    </>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

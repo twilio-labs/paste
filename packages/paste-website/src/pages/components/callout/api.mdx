@@ -1,0 +1,60 @@
+export const meta = {
+  title: 'Callout',
+  package: '@twilio-paste/callout',
+  description: 'A Callout is a banner that highlights important information on a page.',
+  slug: '/components/callout/api',
+};
+
+import Changelog from '@twilio-paste/callout/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/callout/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Callout');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/callout');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/callout/',
+        storybookUrl: '/?path=/story/components-callout--variants',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/callout - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/core/callout';
+
+const ExampleCallout = () => (
+  <Callout variant="neutral">
+    <CalloutHeading as="h2">Heads up!</CalloutHeading>
+    <CalloutText>This is some information you need to know.</CalloutText>
+  </Callout>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

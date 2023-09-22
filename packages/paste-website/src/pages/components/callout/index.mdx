@@ -9,13 +9,12 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Callout, CalloutHeading, CalloutText, CalloutList, CalloutListItem} from '@twilio-paste/callout';
-import Changelog from '@twilio-paste/callout/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import packageJson from '@twilio-paste/callout/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -27,25 +26,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/callout/',
+        storybookUrl: '/?path=/story/components-callout--variants',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/callout/"
-  storybookUrl="/?path=/story/components-callout--variants"
-  description={meta.description}
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Callout, CalloutHeading, CalloutText}} language="jsx">
   {`<Callout variant='neutral'>
@@ -205,92 +194,3 @@ Help Text
 
 - Help Text communicates contextual responses.
 - Help Text can result from a user action, but don’t have to.
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/callout - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/core/callout';
-
-const ExampleCallout = () => (
-  <Callout variant="neutral">
-    <CalloutHeading as="h2">Heads up!</CalloutHeading>
-    <CalloutText>This is some information you need to know.</CalloutText>
-  </Callout>
-);
-```
-
-#### Props
-
-##### Callout
-
-| Prop       | Type                                              | Description                                                                               | Default                                                                  |
-| ---------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| children?  | `React.ReactNode`                                 | Child components to render into the Callout                                               |                                                                          |
-| variant    | `'neutral', 'warning', 'error', 'success', 'new'` | The variant of Callout to render                                                          |                                                                          |
-| marginY    | `ResponsiveValue<keyof ThemeShape['space']>`      | Any of our space tokens                                                                   | 'space0'                                                                 |
-| element?   | `string`                                          | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT'                                                                |
-| i18nLabel? | `string`                                          | Icon label text. The default depends on the `variant`.                                    | '(error)', '(information)', '(warning)', '(error)', '(success)', '(new)' |
-
-##### CalloutHeading
-
-| Prop      | Type                                                                   | Description                                                                               | Default           |
-| --------- | ---------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------- |
-| children? | `React.ReactNode`                                                      | Child components to render into the heading                                               |                   |
-| as        | `'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span', 'header'` | The HTML element to render                                                                | 'h3'              |
-| element?  | `string`                                                               | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT_HEADING' |
-
-##### CalloutText
-
-| Prop      | Type              | Description                                                                               | Default        |
-| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------------- |
-| children? | `React.ReactNode` | Child components to render into the paragraph                                             |                |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT_TEXT' |
-
-##### CalloutList
-
-| Prop      | Type              | Description                                                                               | Default        |
-| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------------- |
-| children? | `React.ReactNode` | Child components to render into the list                                                  |                |
-| as        | `'ol', 'ul'`      | The type of list to render                                                                |                |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT_LIST' |
-
-##### CalloutListItem
-
-| Prop      | Type              | Description                                                                               | Default             |
-| --------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------- |
-| children? | `React.ReactNode` | Child components to render into the list item                                             |                     |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'CALLOUT_LIST_ITEM' |
-
-### Figma
-
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="span">Figma usage guidelines coming soon</CalloutHeading>
-  <CalloutText>
-    You can find the Callout component in{' '}
-    <Anchor
-      href="https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=14784%3A85847"
-      showExternal
-    >
-      the Paste Components library
-    </Anchor>
-    .
-  </CalloutText>
-</Callout>
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,4 +1,10 @@
-export * from "./Callout";
-export * from "./CalloutHeading";
-export * from "./CalloutList";
-export * from "./CalloutText";
+export { Callout } from "./Callout";
+export type { CalloutProps } from "./Callout";
+export { CalloutHeading } from "./CalloutHeading";
+export type { CalloutHeadingProps } from "./CalloutHeading";
+export { CalloutList } from "./CalloutList";
+export type { CalloutListProps } from "./CalloutList";
+export { CalloutListItem } from "./CalloutList";
+export type { CalloutListItemProps } from "./CalloutList";
+export { CalloutText } from "./CalloutText";
+export type { CalloutTextProps } from "./CalloutText";

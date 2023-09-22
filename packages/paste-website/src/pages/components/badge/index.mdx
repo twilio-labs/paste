@@ -52,10 +52,10 @@ import {
   counterExample,
 } from '../../../component-examples/BadgeExamples';
 import packageJson from '@twilio-paste/badge/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -67,24 +67,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/badge',
+        storybookUrl: '/?path=/story/components-badge--all-badges',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/badge"
-  storybookUrl="/?path=/story/components-badge--all-badges"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
@@ -660,11 +651,3 @@ const BadgeExample = () => (
 | href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                       | `undefined` |
 | onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                                | `undefined` |
 | element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                                         | 'BADGE'     |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

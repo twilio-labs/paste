@@ -23,10 +23,10 @@ import PrimaryDont from '../../../assets/images/dont1-primary-button.png';
 import HeadingDo from '../../../assets/images/do2-heading-in-card.png';
 import MultipleDont from '../../../assets/images/dont2-multiple-primary.png';
 import packageJson from '@twilio-paste/card/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -38,24 +38,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/card/',
+        storybookUrl: '/?path=/story/components-card--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/card/"
-  storybookUrl="/?path=/story/components-card--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Card, Paragraph, Heading, Anchor}} language="jsx">
   {`<Card>
@@ -213,38 +204,3 @@ When a Card contains text content, use the following guidelines:
   />
 
 </DoDont>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/card - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Card} from '@twilio-paste/core/card';
-
-const Card = () => <Card>Hello world</Card>;
-```
-
-#### Props
-
-| Prop            | Type              | Description                                                                               | Default   |
-| --------------- | ----------------- | ----------------------------------------------------------------------------------------- | --------- |
-| children?       | `React.ReactNode` | Child components to render into the card                                                  | undefined |
-| padding         | `Spacing`         | Internal spacing of the card                                                              | space60   |
-| globalHtmlAttrs | `string`          | Any html attrs like aria, data etc.                                                       | undefined |
-| element?        | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'CARD'    |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

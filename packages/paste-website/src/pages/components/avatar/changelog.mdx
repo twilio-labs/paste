@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Avatar',
+  package: '@twilio-paste/avatar',
+  description:
+    'An Avatar is a graphical representation of a user or entity and an Avatar Group is a collection of Avatars.',
+  slug: '/components/avatar/changelog',
+};
+
+import Changelog from '@twilio-paste/avatar/CHANGELOG.md';
+import packageJson from '@twilio-paste/avatar/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Avatar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/avatar',
+        storybookUrl: '/?path=/story/components-avatar--initials',
+      },
+    },
+  };
+};
+
+<Changelog />

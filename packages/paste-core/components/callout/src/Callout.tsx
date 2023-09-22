@@ -6,15 +6,42 @@ import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
 import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
 import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 type CalloutVariants = "neutral" | "warning" | "error" | "success" | "new";
 
-export interface CalloutProps extends Partial<Omit<HTMLDivElement, "children">> {
+export interface CalloutProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
+  /**
+   *
+   * @default null
+   * @type {CalloutVariants}
+   * @memberof CalloutProps
+   */
   variant: CalloutVariants;
+  /**
+   * Accessible label for the Callout icon.
+   *
+   * @default '(neutral)' | '(warning)' | '(error)' | '(success)' | '(new)'
+   * @type {string}
+   * @memberof CalloutProps
+   */
   i18nLabel?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'CALLOUT'
+   * @type {BoxProps['element']}
+   * @memberof CalloutProps
+   */
   element?: BoxProps["element"];
+  /**
+   *
+   * @default null
+   * @type {BoxStyleProps['marginY']}
+   * @memberof CalloutProps
+   */
   marginY?: BoxStyleProps["marginY"];
 }
 
