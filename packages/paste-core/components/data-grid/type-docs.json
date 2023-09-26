@@ -2095,10 +2095,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'THEAD'",
+      "defaultValue": "'DATA_GRID_HEAD'",
       "required": false,
       "externalProp": false,
-      "description": "Overrides the default element name ('THEAD') to apply unique styles with the Customization Provider.\n\n\nOverrides the default element name to apply unique styles with the Customization Provider"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
@@ -3287,7 +3287,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Visally displays a row highlight indicating selection and sets `aria-selected`"
     }
   },
   "DataGridHeader": {
@@ -3725,10 +3726,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'TH'",
+      "defaultValue": "'DATA_GRID_HEADER'",
       "required": false,
       "externalProp": false,
-      "description": "Overrides the default element name ('TH') to apply unique styles with the Customization Provider.\n\n\nOverrides the default element name to apply unique styles with the Customization Provider"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "headers": {
       "type": "string",
@@ -4928,7 +4929,8 @@
       "type": "SortDirection",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sort direction matching aria spec"
     },
     "element": {
       "type": "string",
@@ -4939,27 +4941,31 @@
     },
     "i18nAscendingLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "'Sort ascending'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sort button label text when `direction` is \"ascending\""
     },
     "i18nDescendingLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "'Sort descending'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sort button label text when `direction` is \"descending\""
     },
     "i18nUnsortedLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "'Unsorted'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sort button label text when `direction` is \"none\""
     },
     "onClick": {
       "type": "() => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Callback when the sort button is pressed. Used to handle sorting."
     }
   },
   "DataGridBody": {
@@ -6550,13 +6556,15 @@
       "type": "CellType",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Cells can either be th or td, so rows can have headers."
     },
     "colSpan": {
       "type": "number",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "How many columns the cell spans across"
     },
     "element": {
       "type": "string",

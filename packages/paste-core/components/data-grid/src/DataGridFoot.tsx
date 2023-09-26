@@ -2,7 +2,7 @@ import { TFoot } from "@twilio-paste/table";
 import type { TFootProps } from "@twilio-paste/table";
 import * as React from "react";
 
-export type DataGridFootProps = TFootProps & {
+export interface DataGridFootProps extends TFootProps {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -10,7 +10,7 @@ export type DataGridFootProps = TFootProps & {
    * @type {TFootProps['element']}
    */
   element?: TFootProps["element"];
-};
+}
 
 /**
  * DataGrid foot wrapper component.

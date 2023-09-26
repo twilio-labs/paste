@@ -4,7 +4,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The name for the input within the FileUploader"
     },
     "about": {
       "type": "string",
@@ -12,7 +13,19 @@
       "required": false,
       "externalProp": true
     },
+    "accept": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "accessKey": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "alt": {
       "type": "string",
       "defaultValue": null,
       "required": false,
@@ -82,7 +95,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -360,8 +373,20 @@
       "required": false,
       "externalProp": true
     },
+    "autoComplete": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "autoCorrect": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "autoFocus": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -372,14 +397,14 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
+    "capture": {
+      "type": "boolean | \"user\" | \"environment\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
-    "color": {
-      "type": "string",
+    "checked": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -392,6 +417,12 @@
     },
     "contextMenu": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "crossOrigin": {
+      "type": "\"\" | \"anonymous\" | \"use-credentials\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -430,7 +461,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Disables the FileUploader"
     },
     "draggable": {
       "type": "Booleanish",
@@ -445,6 +477,54 @@
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
+    "enterKeyHint": {
+      "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "form": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "formAction": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "formEncType": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "formMethod": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "formNoValidate": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "formTarget": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "height": {
+      "type": "string | number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,
@@ -455,7 +535,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The id of the FileUploader. Used to create ids for the elements within the FileUploader."
     },
     "inlist": {
       "type": "any",
@@ -464,7 +545,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -519,6 +600,42 @@
       "required": false,
       "externalProp": true
     },
+    "list": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "max": {
+      "type": "string | number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "maxLength": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "min": {
+      "type": "string | number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "minLength": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "multiple": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "nonce": {
       "type": "string",
       "defaultValue": null,
@@ -526,967 +643,973 @@
       "externalProp": true
     },
     "onAbort": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAbortCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationEnd": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationEndCapture": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationIteration": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationIterationCapture": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationStart": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationStartCapture": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAuxClick": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAuxClickCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBeforeInput": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBeforeInputCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBlur": {
-      "type": "FocusEventHandler<HTMLDivElement>",
+      "type": "FocusEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBlurCapture": {
-      "type": "FocusEventHandler<HTMLDivElement>",
+      "type": "FocusEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlay": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlayCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlayThrough": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlayThroughCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onChangeCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onClick": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onClickCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionEnd": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionEndCapture": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionStart": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionStartCapture": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionUpdate": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionUpdateCapture": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onContextMenu": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onContextMenuCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCopy": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCopyCapture": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCut": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCutCapture": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDoubleClick": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDoubleClickCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDrag": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEnd": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEndCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEnter": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEnterCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragExit": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragExitCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragLeave": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragLeaveCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragOver": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragOverCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragStart": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragStartCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDrop": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDropCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDurationChange": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDurationChangeCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEmptied": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEmptiedCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEncrypted": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEncryptedCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEnded": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEndedCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onError": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onErrorCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onFocus": {
-      "type": "FocusEventHandler<HTMLDivElement>",
+      "type": "FocusEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onFocusCapture": {
-      "type": "FocusEventHandler<HTMLDivElement>",
+      "type": "FocusEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onGotPointerCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onGotPointerCaptureCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInput": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInputCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInvalid": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInvalidCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyDown": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyDownCapture": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyPress": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyPressCapture": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyUp": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyUpCapture": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoad": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedData": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedDataCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedMetadata": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedMetadataCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadStart": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadStartCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLostPointerCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLostPointerCaptureCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseDown": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseDownCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseEnter": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseLeave": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseMove": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseMoveCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOut": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOutCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOver": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOverCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseUp": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseUpCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPaste": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPasteCapture": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPause": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPauseCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlay": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlayCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlaying": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlayingCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerCancel": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerCancelCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerDown": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerDownCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerEnter": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerLeaveCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerMove": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerMoveCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOut": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOutCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOver": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOverCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerUp": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerUpCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onProgress": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onProgressCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onRateChange": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onRateChangeCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onReset": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onResetCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onResize": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onResizeCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onScroll": {
-      "type": "UIEventHandler<HTMLDivElement>",
+      "type": "UIEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onScrollCapture": {
-      "type": "UIEventHandler<HTMLDivElement>",
+      "type": "UIEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeeked": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeekedCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeeking": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeekingCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSelect": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSelectCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onStalled": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onStalledCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSubmit": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSubmitCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSuspend": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSuspendCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTimeUpdate": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTimeUpdateCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchCancel": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchCancelCapture": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchEnd": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchEndCapture": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchMove": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchMoveCapture": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchStart": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchStartCapture": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTransitionEnd": {
-      "type": "TransitionEventHandler<HTMLDivElement>",
+      "type": "TransitionEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTransitionEndCapture": {
-      "type": "TransitionEventHandler<HTMLDivElement>",
+      "type": "TransitionEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onVolumeChange": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onVolumeChangeCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWaiting": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWaitingCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWheel": {
-      "type": "WheelEventHandler<HTMLDivElement>",
+      "type": "WheelEventHandler<HTMLInputElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWheelCapture": {
-      "type": "WheelEventHandler<HTMLDivElement>",
+      "type": "WheelEventHandler<HTMLInputElement>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "pattern": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1515,8 +1638,8 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
+    "readOnly": {
+      "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1525,7 +1648,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "If the FileUploader is required."
     },
     "resource": {
       "type": "string",
@@ -1551,6 +1675,12 @@
       "required": false,
       "externalProp": true
     },
+    "size": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "slot": {
       "type": "string",
       "defaultValue": null,
@@ -1563,8 +1693,14 @@
       "required": false,
       "externalProp": true
     },
-    "style": {
-      "type": "CSSProperties",
+    "src": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "step": {
+      "type": "string | number",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1599,6 +1735,12 @@
       "required": false,
       "externalProp": true
     },
+    "type": {
+      "type": "HTMLInputTypeAttribute",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "typeof": {
       "type": "string",
       "defaultValue": null,
@@ -1611,8 +1753,20 @@
       "required": false,
       "externalProp": true
     },
+    "value": {
+      "type": "string | number | readonly string[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "vocab": {
       "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "width": {
+      "type": "string | number",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1695,7 +1849,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -1985,18 +2139,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -2071,7 +2213,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -3128,12 +3270,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -3166,12 +3302,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3302,7 +3432,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -3592,18 +3722,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -3690,7 +3808,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -4747,12 +4865,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLLabelElement | null) => void)\n  | RefObject<HTMLLabelElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -4785,12 +4897,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4921,7 +5027,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -5211,18 +5317,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -5282,7 +5376,8 @@
       "type": "NonNullable<ReactNode>",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The icon displayed when it is not loading or error variant."
     },
     "hidden": {
       "type": "boolean",
@@ -5292,21 +5387,24 @@
     },
     "i18nButtonText": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "'Remove file'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The hidden text for the dismiss button"
     },
     "i18nErrorText": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "'(error)'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The hidden text for the error icon"
     },
     "i18nLoadingText": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "'(loading)'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The hidden text for the loading spinner"
     },
     "id": {
       "type": "string",
@@ -5321,7 +5419,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -6384,12 +6482,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLLIElement | null) => void)\n  | RefObject<HTMLLIElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -6422,12 +6514,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6482,9 +6568,10 @@
     },
     "variant": {
       "type": "\"default\" | \"error\" | \"loading\"",
-      "defaultValue": null,
+      "defaultValue": "'default'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The variant of FileUploaderItem"
     },
     "vocab": {
       "type": "string",
@@ -6570,7 +6657,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -6860,18 +6947,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -6946,7 +7021,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -8003,12 +8078,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLUListElement | null) => void)\n  | RefObject<HTMLUListElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -8041,12 +8110,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -8177,7 +8240,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -8467,18 +8530,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -8553,7 +8604,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -9610,12 +9661,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -9648,12 +9693,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -9784,7 +9823,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -10074,18 +10113,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -10160,7 +10187,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -11217,12 +11244,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -11255,12 +11276,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -11319,7 +11334,8 @@
       "type": "string[]",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The allowed mime types for the input. It is convereted to a string and passed to the accept attribute."
     },
     "about": {
       "type": "string",
@@ -11409,7 +11425,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -11723,18 +11739,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -11803,7 +11807,7 @@
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "enterKeyHint": {
-      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -11869,7 +11873,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -12198,7 +12202,8 @@
       "type": "(event: DragEvent<HTMLLabelElement>) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "A function that runs on drag leave on the label that wraps the FileUploaderDropzone"
     },
     "onDragEndCapture": {
       "type": "DragEventHandler<HTMLInputElement>",
@@ -12210,7 +12215,8 @@
       "type": "(event: DragEvent<HTMLLabelElement>) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "A function that runs on drag leave on the label that wraps the FileUploaderDropzone"
     },
     "onDragEnterCapture": {
       "type": "DragEventHandler<HTMLInputElement>",
@@ -12234,7 +12240,8 @@
       "type": "(event: DragEvent<HTMLLabelElement>) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "A function that runs on drag leave on the label that wraps the FileUploaderDropzone"
     },
     "onDragLeaveCapture": {
       "type": "DragEventHandler<HTMLInputElement>",
@@ -12246,7 +12253,8 @@
       "type": "(event: DragEvent<HTMLLabelElement>) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "A function that runs on drag over on the label that wraps the FileUploaderDropzone"
     },
     "onDragOverCapture": {
       "type": "DragEventHandler<HTMLInputElement>",
@@ -12258,7 +12266,8 @@
       "type": "(event: DragEvent<HTMLLabelElement>) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "A function that runs on drag leave on the label that wraps the FileUploaderDropzone"
     },
     "onDragStartCapture": {
       "type": "DragEventHandler<HTMLInputElement>",
@@ -12270,7 +12279,8 @@
       "type": "(event: DragEvent<HTMLLabelElement>) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "A function that runs on drop on the label that wraps the FileUploaderDropzone"
     },
     "onDropCapture": {
       "type": "DragEventHandler<HTMLInputElement>",
@@ -12378,7 +12388,8 @@
       "type": "(event: ChangeEvent<HTMLInputElement>) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "A function that runs when the input within the Dropzone is changed"
     },
     "onInvalid": {
       "type": "FormEventHandler<HTMLInputElement>",
@@ -12980,12 +12991,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLInputElement | null) => void)\n  | RefObject<HTMLInputElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "required": {
       "type": "boolean",
       "defaultValue": null,
@@ -13042,12 +13047,6 @@
     },
     "step": {
       "type": "string | number",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -13196,7 +13195,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -13486,18 +13485,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -13572,7 +13559,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -14629,12 +14616,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -14667,12 +14648,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -14803,7 +14778,7 @@
       "description": "Identifies the element (or elements) whose contents or presence are controlled by the current element."
     },
     "aria-current": {
-      "type": "| boolean\n  | \"time\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"step\"\n  | \"location\"\n  | \"date\"",
+      "type": "| boolean\n  | \"time\"\n  | \"step\"\n  | \"date\"\n  | \"true\"\n  | \"false\"\n  | \"page\"\n  | \"location\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -15093,18 +15068,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -15179,7 +15142,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"email\"\n  | \"tel\"\n  | \"url\"\n  | \"none\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -16236,12 +16199,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -16274,12 +16231,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true

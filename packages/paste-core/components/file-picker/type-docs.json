@@ -10,7 +10,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Specify the desired file type. Note: file type should still be validated server-side, as this prop is not a complete validation. [Read more about the accept prop](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept)"
     },
     "accessKey": {
       "type": "string",
@@ -452,9 +453,10 @@
     },
     "disabled": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": "'false'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Disables the File Picker."
     },
     "draggable": {
       "type": "Booleanish",
@@ -525,9 +527,10 @@
     },
     "i18nNoSelectionText": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "'No file uploaded'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The text string displayed when no files are selected."
     },
     "id": {
       "type": "string",
@@ -757,7 +760,8 @@
       "type": "(event: ChangeEvent<HTMLInputElement>) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Function will run when the uploaded file changes"
     },
     "onChangeCapture": {
       "type": "FormEventHandler<HTMLInputElement>",
@@ -1655,9 +1659,10 @@
     },
     "required": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": "'false'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the File Picker as required."
     },
     "resource": {
       "type": "string",
@@ -2223,10 +2228,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'BUTTON'",
+      "defaultValue": "'FILEPICKER_BUTTON'",
       "required": false,
       "externalProp": false,
-      "description": "Overrides the default element name to apply unique styles with the Customization Provider.\n\n\nOverrides the default element name to apply unique styles with the Customization Provider"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "form": {
       "type": "string",

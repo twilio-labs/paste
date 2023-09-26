@@ -31,7 +31,8 @@
       "type": "DisclosureVariants",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Changes the styling on the component based on the variant selected."
     },
     "visible": {
       "type": "boolean",
@@ -3417,6 +3418,114 @@
       "required": false,
       "externalProp": true,
       "description": "Function returned by the hook to wrap the element to which html props\nwill be passed."
+    }
+  },
+  "DisclosureStateReturn": {
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "animating": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Whether it's animating or not."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "hide": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Changes the `visible` state to `false`"
+    },
+    "setAnimated": {
+      "type": "Dispatch<SetStateAction<number | boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `animated`."
+    },
+    "setBaseId": {
+      "type": "Dispatch<SetStateAction<string>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `baseId`."
+    },
+    "setVisible": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `visible`."
+    },
+    "show": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Changes the `visible` state to `true`"
+    },
+    "stopAnimation": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Stops animation. It's called automatically if there's a CSS transition."
+    },
+    "toggle": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Toggles the `visible` state"
+    },
+    "unstable_idCountRef": {
+      "type": "MutableRefObject<number>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
+    }
+  },
+  "DisclosureInitialState": {
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
     }
   }
 }

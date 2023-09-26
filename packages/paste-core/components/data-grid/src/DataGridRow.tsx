@@ -7,6 +7,12 @@ import { Tr } from "./table/Tr";
 
 export interface DataGridRowProps {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Visally displays a row highlight indicating selection and sets `aria-selected`
+   *
+   * @type {boolean}
+   * @memberof DataGridRowProps
+   */
   selected?: boolean;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider

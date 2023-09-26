@@ -535,7 +535,8 @@
       "type": "| string\n  | number\n  | (string & {})\n  | (MaxWidthOptions | null)[]\n  | { [x: string]: MaxWidthOptions; [x: number]: MaxWidthOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The maximum width of the Form."
     },
     "method": {
       "type": "string",
@@ -11315,9 +11316,10 @@
     },
     "variant": {
       "type": "HeadingVariants",
-      "defaultValue": null,
+      "defaultValue": "'heading40'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The style variant you want to render the heading with. This maps directly to the [heading variant](/components/heading)."
     },
     "vocab": {
       "type": "string",

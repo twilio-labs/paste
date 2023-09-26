@@ -4,13 +4,15 @@
       "type": "AsTags",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "HTML element to render, e.g., `h1`, `h2`, etc."
     },
     "variant": {
       "type": "DisplayHeadingVariants",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The variant of the display heading"
     },
     "about": {
       "type": "string",
@@ -422,9 +424,10 @@
     },
     "display": {
       "type": "| Display\n  | (Display | null | undefined)[]\n  | { [x: string]: Display | undefined; [x: number]: Display | undefined }",
-      "defaultValue": null,
+      "defaultValue": "'block'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "CSS display property"
     },
     "draggable": {
       "type": "Booleanish",
@@ -517,7 +520,8 @@
       "type": "\"space0\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Currently we only allow space0 to remove bottom margin"
     },
     "nonce": {
       "type": "string",

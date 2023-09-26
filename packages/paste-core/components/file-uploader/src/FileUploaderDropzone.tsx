@@ -1,6 +1,7 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { UploadToCloudIcon } from "@twilio-paste/icons/esm/UploadToCloudIcon";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { FileUploaderContext } from "./FileUploaderContext";
@@ -8,9 +9,15 @@ import { arrayToCsv } from "./utils";
 
 export interface FileUploaderDropzoneProps
   extends Omit<
-    React.ComponentPropsWithRef<"input">,
-    "children" | "onChange" | "onDragEnter" | "onDragLeave" | "onDrop" | "onDragStart" | "onDragEnd" | "onDragOver"
+    HTMLPasteProps<"input">,
+    "onChange" | "onDragEnter" | "onDragLeave" | "onDrop" | "onDragStart" | "onDragEnd" | "onDragOver"
   > {
+  /**
+   * The allowed mime types for the input. It is convereted to a string and passed to the accept attribute.
+   *
+   * @type {string[]}
+   * @memberof FileUploaderDropzoneProps
+   */
   acceptedMimeTypes: string[];
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
@@ -21,12 +28,47 @@ export interface FileUploaderDropzoneProps
    */
   element?: BoxProps["element"];
   children?: React.ReactNode;
+  /**
+   * A function that runs when the input within the Dropzone is changed
+   *
+   * @memberof FileUploaderDropzoneProps
+   */
   onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  /**
+   * A function that runs on drag leave on the label that wraps the FileUploaderDropzone
+   *
+   * @memberof FileUploaderDropzoneProps
+   */
   onDragEnd?: (event: React.DragEvent<HTMLLabelElement>) => void;
+  /**
+   * A function that runs on drag leave on the label that wraps the FileUploaderDropzone
+   *
+   * @memberof FileUploaderDropzoneProps
+   */
   onDragEnter?: (event: React.DragEvent<HTMLLabelElement>) => void;
+  /**
+   * A function that runs on drag leave on the label that wraps the FileUploaderDropzone
+   *
+   * @memberof FileUploaderDropzoneProps
+   */
   onDragLeave?: (event: React.DragEvent<HTMLLabelElement>) => void;
+  /**
+   * A function that runs on drag over on the label that wraps the FileUploaderDropzone
+   *
+   * @memberof FileUploaderDropzoneProps
+   */
   onDragOver?: (event: React.DragEvent<HTMLLabelElement>) => void;
+  /**
+   * A function that runs on drag leave on the label that wraps the FileUploaderDropzone
+   *
+   * @memberof FileUploaderDropzoneProps
+   */
   onDragStart?: (event: React.DragEvent<HTMLLabelElement>) => void;
+  /**
+   * A function that runs on drop on the label that wraps the FileUploaderDropzone
+   *
+   * @memberof FileUploaderDropzoneProps
+   */
   onDrop?: (event: React.DragEvent<HTMLLabelElement>) => void;
 }
 

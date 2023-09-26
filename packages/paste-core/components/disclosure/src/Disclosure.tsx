@@ -18,6 +18,13 @@ export interface DisclosureProps extends DisclosurePrimitiveInitialState {
   element?: BoxProps["element"];
   children: NonNullable<React.ReactNode>;
   state?: DisclosureStateReturn;
+  /**
+   * Changes the styling on the component based on the variant selected.
+   *
+   *
+   * @type {DisclosureVariants}
+   * @memberof DisclosureProps
+   */
   variant?: DisclosureVariants;
 }
 

@@ -350,9 +350,10 @@
     },
     "as": {
       "type": "keyof IntrinsicElements",
-      "defaultValue": null,
+      "defaultValue": "'div'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The HTML tag to render the Detail Text as"
     },
     "autoCapitalize": {
       "type": "string",
@@ -515,9 +516,10 @@
     },
     "marginTop": {
       "type": "\"space0\" | \"space30\"",
-      "defaultValue": null,
+      "defaultValue": "'space30'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The marginTop of the DetailText. Currently we only allow space0 to remove top margin."
     },
     "nonce": {
       "type": "string",

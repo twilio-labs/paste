@@ -1642,7 +1642,7 @@
       "defaultValue": null,
       "required": true,
       "externalProp": false,
-      "description": "Defines a string value that labels the current element."
+      "description": "Defines a string value that labels the DisplayPillGroup"
     },
     "about": {
       "type": "string",

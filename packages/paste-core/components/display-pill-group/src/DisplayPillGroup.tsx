@@ -4,6 +4,12 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 export interface DisplayPillGroupProps extends HTMLPasteProps<"ol"> {
+  /**
+   * Defines a string value that labels the DisplayPillGroup
+   *
+   * @type {string}
+   * @memberof DisplayPillGroupProps
+   */
   "aria-label": string;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider

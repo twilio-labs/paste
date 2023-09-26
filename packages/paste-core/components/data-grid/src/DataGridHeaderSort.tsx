@@ -9,6 +9,12 @@ import * as React from "react";
 export type SortDirection = "ascending" | "descending" | "none";
 
 interface DataGridHeaderSortIconProps {
+  /**
+   * Sort direction matching aria spec
+   *
+   * @type {SortDirection}
+   * @memberof DataGridHeaderSortIconProps
+   */
   direction: SortDirection;
   element?: BoxProps["element"];
 }
@@ -40,9 +46,35 @@ export interface DataGridHeaderSortProps extends DataGridHeaderSortIconProps {
    * @memberof DataGridHeaderSortProps
    */
   element?: BoxProps["element"];
+  /**
+   * Callback when the sort button is pressed. Used to handle sorting.
+   *
+   * @memberof DataGridHeaderSortProps
+   */
   onClick?: () => void;
+  /**
+   * Sort button label text when `direction` is "ascending"
+   *
+   * @default 'Sort ascending'
+   * @type {string}
+   * @memberof DataGridHeaderSortProps
+   */
   i18nAscendingLabel?: string;
+  /**
+   * Sort button label text when `direction` is "descending"
+   *
+   * @default 'Sort descending'
+   * @type {string}
+   * @memberof DataGridHeaderSortProps
+   */
   i18nDescendingLabel?: string;
+  /**
+   * Sort button label text when `direction` is "none"
+   *
+   * @default 'Unsorted'
+   * @type {string}
+   * @memberof DataGridHeaderSortProps
+   */
   i18nUnsortedLabel?: string;
 }
 

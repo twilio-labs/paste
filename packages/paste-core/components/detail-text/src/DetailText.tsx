@@ -12,7 +12,21 @@ export interface DetailTextProps extends Omit<React.ComponentPropsWithRef<"div">
    * @memberof DetailTextProps
    */
   element?: BoxProps["element"];
+  /**
+   * The HTML tag to render the Detail Text as
+   *
+   * @default 'div'
+   * @type {BoxProps['as']}
+   * @memberof DetailTextProps
+   */
   as?: BoxProps["as"];
+  /**
+   * The marginTop of the DetailText. Currently we only allow space0 to remove top margin.
+   *
+   * @default 'space30'
+   * @type {('space0' | 'space30')}
+   * @memberof DetailTextProps
+   */
   marginTop?: "space0" | "space30";
 }
 

@@ -4,13 +4,15 @@
       "type": "AsTags",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The HTML element to render."
     },
     "variant": {
       "type": "HeadingVariants",
-      "defaultValue": null,
+      "defaultValue": "'heading20'",
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Style variant to apply to the heading, affects the visual appearance of the heading."
     },
     "about": {
       "type": "string",
@@ -449,7 +451,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Same as the HTML `id` attribute."
     },
     "inlist": {
       "type": "any",
@@ -517,7 +520,8 @@
       "type": "\"space0\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Currently we only allow `space0` to remove bottom margin"
     },
     "nonce": {
       "type": "string",

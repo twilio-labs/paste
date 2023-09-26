@@ -1,11 +1,12 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import { HelpText } from "@twilio-paste/help-text";
 import type { HelpTextProps } from "@twilio-paste/help-text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { FileUploaderContext } from "./FileUploaderContext";
 
-export interface FileUploaderHelpTextProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+export interface FileUploaderHelpTextProps extends HTMLPasteProps<"div"> {
   children?: HelpTextProps["children"];
   /**
    *  Overrides the default element name to apply unique styles with the Customization Provider

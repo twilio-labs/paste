@@ -14,6 +14,13 @@ export interface FormSectionHeadingProps extends Omit<React.ComponentPropsWithRe
    */
   element?: BoxProps["element"];
   children: React.ReactNode;
+  /**
+   * The style variant you want to render the heading with. This maps directly to the [heading variant](/components/heading).
+   *
+   * @default 'heading40'
+   * @type {HeadingProps['variant']}
+   * @memberof FormSectionHeadingProps
+   */
   variant?: HeadingProps["variant"];
 }
 

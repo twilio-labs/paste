@@ -473,7 +473,7 @@
       "defaultValue": "'DATEPICKER'",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization\n\n\nOverrides the default element name to apply unique styles with the Customization Provider"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "enterKeyHint": {
       "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",

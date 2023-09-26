@@ -111,9 +111,5 @@ export function extractTypeExports(code: string): string[] {
     match = exportedTypeRegex.exec(code);
   }
 
-  const exportedTypes = Object.keys(exported).filter(Boolean);
-
-  log({ exportedTypes });
-
-  return exportedTypes;
+  return Object.keys(exported).filter(Boolean);
 }

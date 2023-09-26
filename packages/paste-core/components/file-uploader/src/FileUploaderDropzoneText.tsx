@@ -1,10 +1,11 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { FileUploaderContext } from "./FileUploaderContext";
 
-export interface FileUploaderDropzoneTextProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+export interface FileUploaderDropzoneTextProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider

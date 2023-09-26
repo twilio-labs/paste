@@ -18,18 +18,60 @@ export interface FormPillProps extends CompositeStateReturn {
    * @memberof FormPillProps
    */
   element?: BoxProps["element"];
+  /**
+   * Set if a pill is in a selected state
+   *
+   * @type {boolean}
+   * @memberof FormPillProps
+   */
   selected?: boolean;
+  /**
+   * Set if a pill is disabled
+   *
+   * @type {boolean}
+   * @memberof FormPillProps
+   */
   disabled?: boolean;
   children: React.ReactNode;
+  /**
+   * Sets the variant of the pill
+   *
+   * @default 'default'
+   * @type {PillVariant}
+   * @memberof FormPillProps
+   */
   variant?: PillVariant;
-  /** Event handler to respond to selection events */
+  /**
+   * Event handler called when a pill is selected
+   *
+   * @memberof FormPillProps
+   */
   onSelect?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  /** Event handler to respond to dismiss events */
+  /**
+   * Event handler called when a pill is dismissed
+   *
+   * @memberof FormPillProps
+   */
   onDismiss?: (event: React.MouseEvent<Element> | React.KeyboardEvent<Element>) => void;
-  /** Event handler to respond to focus events */
+  /**
+   * Event handler called when a pill is focused
+   *
+   * @memberof FormPillProps
+   */
   onFocus?: () => void;
-  /** Event handler to respond to blur events */
+  /**
+   * Event handler called when a pill is blurred
+   *
+   * @memberof FormPillProps
+   */
   onBlur?: () => void;
+  /**
+   * Alternative text for the error icon in the error variant
+   *
+   * @default '(error)'
+   * @type {string}
+   * @memberof FormPillProps
+   */
   i18nErrorLabel?: string;
 }
 

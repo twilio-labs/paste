@@ -14,6 +14,12 @@ import { ensureFocus, isCell, updateTabIndexForActionable } from "./utils";
 
 type CellType = "th" | "td";
 export interface DataGridCellProps extends Pick<TdProps, "textAlign"> {
+  /**
+   * Cells can either be th or td, so rows can have headers.
+   *
+   * @type {CellType}
+   * @memberof DataGridCellProps
+   */
   as?: CellType;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
@@ -23,6 +29,12 @@ export interface DataGridCellProps extends Pick<TdProps, "textAlign"> {
    * @memberof DataGridCellProps
    */
   element?: BoxElementProps["element"];
+  /**
+   * How many columns the cell spans across
+   *
+   * @type {number}
+   * @memberof DataGridCellProps
+   */
   colSpan?: number;
 }
 

@@ -497,9 +497,10 @@
     },
     "marginTop": {
       "type": "\"space0\"",
-      "defaultValue": null,
+      "defaultValue": "'space30'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the top margin on the div element."
     },
     "nonce": {
       "type": "string",
@@ -1583,9 +1584,10 @@
     },
     "variant": {
       "type": "HelpTextVariants",
-      "defaultValue": null,
+      "defaultValue": "'default'",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The style variant of the help text."
     },
     "vocab": {
       "type": "string",

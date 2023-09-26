@@ -3,7 +3,7 @@ import * as React from "react";
 import { DataGridCell } from "./DataGridCell";
 import type { ThProps } from "./table/Th";
 
-export type DataGridHeaderProps = ThProps & {
+export interface DataGridHeaderProps extends ThProps {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -11,7 +11,7 @@ export type DataGridHeaderProps = ThProps & {
    * @type {ThProps['element']}
    */
   element?: ThProps["element"];
-};
+}
 
 /**
  * DataGrid header (th) component.

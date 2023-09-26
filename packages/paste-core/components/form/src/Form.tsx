@@ -11,6 +11,12 @@ export interface FormProps extends Omit<React.ComponentPropsWithRef<"form">, "ch
    */
   element?: BoxProps["element"];
   children: React.ReactNode;
+  /**
+   * The maximum width of the Form.
+   *
+   * @type {BoxStyleProps['maxWidth']}
+   * @memberof FormProps
+   */
   maxWidth?: BoxStyleProps["maxWidth"];
 }
 

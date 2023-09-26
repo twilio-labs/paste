@@ -7,8 +7,7 @@ type DisplayHeadingVariants = "displayHeading10" | "displayHeading20" | "display
 type AsTags = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "span" | "header";
 
 export interface DisplayHeadingProps
-  extends HTMLPasteProps<"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "span" | "header">,
-    Pick<TextProps, "display"> {
+  extends HTMLPasteProps<"h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "div" | "span" | "header"> {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -17,9 +16,35 @@ export interface DisplayHeadingProps
    * @memberof DisplayHeadingProps
    */
   element?: TextProps["element"];
+  /**
+   * CSS display property
+   *
+   * @default 'block'
+   * @type {TextProps['display']}
+   * @memberof DisplayHeadingProps
+   */
+  display?: TextProps["display"];
+  /**
+   * HTML element to render, e.g., `h1`, `h2`, etc.
+   *
+   * @type {AsTags}
+   * @memberof DisplayHeadingProps
+   */
   as: AsTags;
   id?: string;
+  /**
+   * Currently we only allow space0 to remove bottom margin
+   *
+   * @type {'space0'}
+   * @memberof DisplayHeadingProps
+   */
   marginBottom?: "space0";
+  /**
+   * The variant of the display heading
+   *
+   * @type {DisplayHeadingVariants}
+   * @memberof DisplayHeadingProps
+   */
   variant: DisplayHeadingVariants;
 }
 

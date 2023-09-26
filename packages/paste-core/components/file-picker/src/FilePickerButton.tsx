@@ -3,7 +3,7 @@ import type { ButtonProps } from "@twilio-paste/button";
 import { Button } from "@twilio-paste/button";
 import * as React from "react";
 
-export type FilePickerButtonProps = ButtonProps & {
+export type FilePickerButtonProps = Omit<ButtonProps, "element"> & {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *

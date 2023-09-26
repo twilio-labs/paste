@@ -3,7 +3,7 @@ import type { asTags } from "@twilio-paste/heading";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface EditableCodeBlockHeaderProps extends HTMLPasteProps<"h1" | "h2" | "h3" | "h4" | "h5" | "h6"> {
+export interface EditableCodeBlockHeaderProps extends HTMLPasteProps<asTags> {
   children: string;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
@@ -13,6 +13,13 @@ export interface EditableCodeBlockHeaderProps extends HTMLPasteProps<"h1" | "h2"
    * @memberof EditableCodeBlockHeaderProps
    */
   element?: BoxProps["element"];
+  /**
+   * Replaces the underlying HTML tag, same as Heading
+   *
+   * @default 'h3'
+   * @type {asTags}
+   * @memberof EditableCodeBlockHeaderProps
+   */
   as?: asTags;
 }
 
