@@ -6,12 +6,7 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "workspaces": {
-    "packages": [
-      "apps/**/*",
-      "packages/**/*",
-      "templates/**/*",
-      "!packages/paste-core/core-bundle/**/*"
-    ]
+    "packages": ["apps/**/*", "packages/**/*", "templates/**/*", "!packages/paste-core/core-bundle/**/*"]
   },
   "types": "./types/index.d.ts",
   "engines": {
@@ -226,9 +221,5 @@
     }
   },
   "packageManager": "yarn@3.6.3",
-  "browserslist": [
-    "last 2 versions",
-    "not dead",
-    "not IE 11"
-  ]
+  "browserslist": ["last 2 versions", "not dead", "not IE 11"]
 }

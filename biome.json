@@ -15,8 +15,10 @@
       "packages/paste-theme-designer/public",
       "packages/paste-theme-designer/out",
       "packages/paste-token-contrast-checker/public",
+      "packages/paste-website/data",
       ".cache",
       ".next",
+      ".netlify",
       ".yarn",
       "packages/**/dist/*",
       "tsconfig.build.tsbuildinfo",
@@ -33,8 +35,15 @@
     "enabled": true,
     "rules": {
       "recommended": true,
+      "a11y": {
+        "noSvgWithoutTitle": "off"
+      },
       "suspicious": {
         "noExplicitAny": "off"
+      },
+      "complexity": {
+        "noUselessSwitchCase": "off",
+        "noMultipleSpacesInRegularExpressionLiterals": "off"
       }
     }
   },
