@@ -13,6 +13,7 @@
  */
 import type {NextRequest} from 'next/server';
 import {createClient} from '@supabase/supabase-js';
+// @ts-expect-error not typed
 import {codeBlock, oneLine} from 'common-tags';
 import GPT3Tokenizer from 'gpt3-tokenizer';
 import {
