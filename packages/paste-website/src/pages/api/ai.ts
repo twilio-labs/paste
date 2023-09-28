@@ -73,7 +73,7 @@ export default async function handler(req: NextRequest) {
     }
 
     if (!query) {
-      throw new UserError("Missing 'query' in request data");
+      throw new UserError("Missing 'prompt' in request data");
     }
 
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
@@ -84,6 +84,11 @@ export default async function handler(req: NextRequest) {
       .createModeration({input: sanitizedQuery})
       .then((res: any) => res.json());
 
+    // @ts-ignore this is a bug in the types
+    if (moderationResponse.error) {
+      // @ts-ignore this is a bug in the types
+      throw new ApplicationError('Failed to moderate content', moderationResponse.error.message);
+    }
     const [results] = moderationResponse.results;
 
     if (results.flagged) {
@@ -198,7 +203,6 @@ export default async function handler(req: NextRequest) {
       console.error(err);
     }
 
-    // TODO: include more response info in debug environments
     return new Response(
       JSON.stringify({
         error: 'There was an error processing your request',
