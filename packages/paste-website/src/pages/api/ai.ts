@@ -1,3 +1,4 @@
+/* eslint-disable max-classes-per-file */
 /**
  * API endpoint for querying our doc site with ChatGPT4
  * Copied from Supabase article.
@@ -26,6 +27,7 @@ import {
 import {OpenAIStream, StreamingTextResponse} from 'ai';
 
 class ApplicationError extends Error {
+  // eslint-disable-next-line @typescript-eslint/no-parameter-properties
   constructor(message: string, public data: Record<string, any> = {}) {
     super(message);
   }
@@ -44,7 +46,7 @@ const openai = new OpenAIApi(config);
 
 export const runtime = 'edge';
 
-export default async function handler(req: NextRequest) {
+export default async function handler(req: NextRequest): Promise<void | Response> {
   try {
     if (!openAiKey) {
       throw new ApplicationError('Missing environment variable OPENAI_API_KEY');
@@ -85,9 +87,9 @@ export default async function handler(req: NextRequest) {
       .createModeration({input: sanitizedQuery})
       .then((res: any) => res.json());
 
-    // @ts-ignore this is a bug in the types
+    // @ts-expect-error this is a bug in the types
     if (moderationResponse.error) {
-      // @ts-ignore this is a bug in the types
+      // @ts-expect-error this is a bug in the types
       throw new ApplicationError('Failed to moderate content', moderationResponse.error.message);
     }
     const [results] = moderationResponse.results;
@@ -115,9 +117,11 @@ export default async function handler(req: NextRequest) {
 
     const {error: matchError, data: pageSections} = await supabaseClient.rpc('match_page_sections', {
       embedding,
+      /* eslint-disable camelcase */
       match_threshold: 0.78,
       match_count: 10,
       min_content_length: 50,
+      /* eslint-enable camelcase */
     });
 
     if (matchError) {
@@ -128,9 +132,8 @@ export default async function handler(req: NextRequest) {
     let tokenCount = 0;
     let contextText = '';
 
-    for (let i = 0; i < pageSections.length; i++) {
-      const pageSection = pageSections[i];
-      const content = pageSection.content;
+    // eslint-disable-next-line unicorn/no-for-loop
+    for (const {content} of pageSections) {
       const encoded = tokenizer.encode(content);
       tokenCount += encoded.text.length;
 
@@ -169,6 +172,7 @@ export default async function handler(req: NextRequest) {
     const response = await openai.createChatCompletion({
       model: 'gpt-4',
       messages: [chatMessage],
+      // eslint-disable-next-line camelcase
       max_tokens: 512,
       temperature: 0,
       stream: true,
@@ -184,24 +188,26 @@ export default async function handler(req: NextRequest) {
 
     // Return a StreamingTextResponse, which can be consumed by the client
     return new StreamingTextResponse(stream);
-  } catch (err: unknown) {
-    if (err instanceof UserError) {
+  } catch (error: unknown) {
+    if (error instanceof UserError) {
       return new Response(
         JSON.stringify({
-          error: err.message,
-          data: err.data,
+          error: error.message,
+          data: error.data,
         }),
         {
           status: 400,
           headers: {'Content-Type': 'application/json'},
         }
       );
-    } else if (err instanceof ApplicationError) {
+    } else if (error instanceof ApplicationError) {
       // Print out application errors with their additional data
-      console.error(`${err.message}: ${JSON.stringify(err.data)}`);
+      // eslint-disable-next-line no-console
+      console.error(`${error.message}: ${JSON.stringify(error.data)}`);
     } else {
       // Print out unexpected errors as is to help with debugging
-      console.error(err);
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
 
     return new Response(
@@ -215,3 +221,4 @@ export default async function handler(req: NextRequest) {
     );
   }
 }
+/* eslint-enable max-classes-per-file */
