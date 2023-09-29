@@ -7,8 +7,8 @@
  * Requires four environment variables:
  * - OPENAI_API_KEY: Your OpenAI API key
  * - OPENAI_API_SECRET: Custom secret to block unauthorized requests
- * - NEXT_PUBLIC_SUPABASE_URL: Url to your Supabase project
- * - SUPABASE_SERVICE_ROLE_KEY: Service role key for your Supabase project
+ * - SUPABASE_URL: Url to your Supabase project
+ * - SUPABASE_KEY: Service role key for your Supabase project
  *
  * Please set these in your .env file and on your deployment boxes configuration.
  */
@@ -20,9 +20,9 @@ import GPT3Tokenizer from 'gpt3-tokenizer';
 import {
   Configuration,
   OpenAIApi,
-  CreateModerationResponse,
-  CreateEmbeddingResponse,
-  ChatCompletionRequestMessage,
+  type CreateModerationResponse,
+  type CreateEmbeddingResponse,
+  type ChatCompletionRequestMessage,
 } from 'openai-edge';
 import {OpenAIStream, StreamingTextResponse} from 'ai';
 
@@ -36,8 +36,8 @@ class UserError extends ApplicationError {}
 
 const openAiKey = process.env.OPENAI_API_KEY;
 const openAiSecret = process.env.OPENAI_API_SECRET;
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_KEY;
 
 const config = new Configuration({
   apiKey: openAiKey,
@@ -60,7 +60,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
     }
 
     if (!supabaseServiceKey) {
-      throw new ApplicationError('Missing environment variable SUPABASE_SERVICE_ROLE_KEY');
+      throw new ApplicationError('Missing environment variable SUPABASE_KEY');
     }
 
     const requestData = await req.json();

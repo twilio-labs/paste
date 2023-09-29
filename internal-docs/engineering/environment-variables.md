@@ -29,5 +29,5 @@ Full list of Environment variables and where they are needed.
 | NX_CLOUD_ACCESS_TOKEN              | Token to enable nx cloud cache for builds                             | ✅    | ✅         | ✅            | ✅            |
 | OPENAI_API_KET                     | ChatGPT4 API Key                                                      | ✅    |            | ✅            |               |
 | OPENAI_API_SECRET                  | To prevent unauthorized usage of OpenAI                               | ✅    |            | ✅            |               |
-| NEXT_PUBLIC_SUPABASE_URL           | Supabase db url                                                       | ✅    |            | ✅            |               |
-| SUPABASE_SERVICE_ROLE_KEY          | API Key to query supabase db OpenAI                                   | ✅    |            | ✅            |               |
+| SUPABASE_URL                       | Supabase API url                                                      | ✅    |            | ✅            |               |
+| SUPABASE_KEY                       | API Key to query supabase db                                          | ✅    |            | ✅            |               |
