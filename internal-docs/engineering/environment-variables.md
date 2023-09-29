@@ -26,4 +26,8 @@ Full list of Environment variables and where they are needed.
 | CYPRESS_RECORD_KEY                 | Cypress record key so we can record our cypress runs                  | ✅    | ✅         |               |               |
 | PERCY_TOKEN                        | Percy.io token                                                        | ✅    | ✅         |               |               |
 | USE_CYPRESS_VRT                    | Key to enable the cypress vrt integration                             | ✅    |            |               |               |
-| NX_CLOUD_ACCESS_TOKEN             | Token to enable nx cloud cache for builds                             | ✅    | ✅         | ✅            | ✅            |
+| NX_CLOUD_ACCESS_TOKEN              | Token to enable nx cloud cache for builds                             | ✅    | ✅         | ✅            | ✅            |
+| OPENAI_API_KET                     | ChatGPT4 API Key                                                      | ✅    |            | ✅            |               |
+| OPENAI_API_SECRET                  | To prevent unauthorized usage of OpenAI                               | ✅    |            | ✅            |               |
+| SUPABASE_URL                       | Supabase API url                                                      | ✅    |            | ✅            |               |
+| SUPABASE_KEY                       | API Key to query supabase db                                          | ✅    |            | ✅            |               |
