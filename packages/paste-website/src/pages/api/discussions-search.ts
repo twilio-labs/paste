@@ -1,30 +1,7 @@
 /* eslint-disable max-classes-per-file */
-/**
- * API endpoint for querying our doc site with ChatGPT4
- * Copied from Supabase article.
- * https://supabase.com/blog/chatgpt-supabase-docs
- *
- * Requires four environment variables:
- * - OPENAI_API_KEY: Your OpenAI API key
- * - OPENAI_API_SECRET: Custom secret to block unauthorized requests
- * - SUPABASE_URL: Url to your Supabase project
- * - SUPABASE_KEY: Service role key for your Supabase project
- *
- * Please set these in your .env file and on your deployment boxes configuration.
- */
 import { createClient } from "@supabase/supabase-js";
-import { OpenAIStream, StreamingTextResponse } from "ai";
-// @ts-expect-error not typed
-import { codeBlock, oneLine } from "common-tags";
-import GPT3Tokenizer from "gpt3-tokenizer";
 import type { NextRequest } from "next/server";
-import {
-  type ChatCompletionRequestMessage,
-  Configuration,
-  type CreateEmbeddingResponse,
-  type CreateModerationResponse,
-  OpenAIApi,
-} from "openai-edge";
+import { Configuration, type CreateEmbeddingResponse, OpenAIApi } from "openai-edge";
 
 class ApplicationError extends Error {
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
@@ -81,25 +58,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
 
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Moderate the content to comply with OpenAI T&C
     const sanitizedQuery = query.trim();
-    const moderationResponse: CreateModerationResponse = await openai
-      .createModeration({ input: sanitizedQuery })
-      .then((res: any) => res.json());
-
-    // @ts-expect-error this is a bug in the types
-    if (moderationResponse.error) {
-      // @ts-expect-error this is a bug in the types
-      throw new ApplicationError("Failed to moderate content", moderationResponse.error.message);
-    }
-    const [results] = moderationResponse.results;
-
-    if (results.flagged) {
-      throw new UserError("Flagged content", {
-        flagged: true,
-        categories: results.categories,
-      });
-    }
 
     // Create embedding from query
     const embeddingResponse = await openai.createEmbedding({
@@ -115,11 +74,11 @@ export default async function handler(req: NextRequest): Promise<void | Response
       data: [{ embedding }],
     }: CreateEmbeddingResponse = await embeddingResponse.json();
 
-    const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_page_sections_for_ai", {
+    const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_discussions", {
       embedding,
       /* eslint-disable camelcase */
       match_threshold: 0.78,
-      match_count: 10,
+      match_count: 20,
       min_content_length: 50,
       /* eslint-enable camelcase */
     });
@@ -128,66 +87,14 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError("Failed to match page sections", matchError);
     }
 
-    const tokenizer = new GPT3Tokenizer({ type: "gpt3" });
-    let tokenCount = 0;
-    let contextText = "";
-
-    // eslint-disable-next-line unicorn/no-for-loop
-    for (const { content } of pageSections) {
-      const encoded = tokenizer.encode(content);
-      tokenCount += encoded.text.length;
-
-      if (tokenCount >= 1500) {
-        break;
-      }
-
-      contextText += `${content.trim()}\n---\n`;
-    }
-
-    const prompt = codeBlock`
-      ${oneLine`
-        You are a very enthusiastic Paste design system representative who loves
-        to help people! Given the following sections from the Paste
-        documentation, answer the question using only that information,
-        outputted in markdown format. If you are unsure and the answer
-        is not explicitly written in the documentation, say
-        "Sorry, I don't know how to help with that."
-      `}
-
-      Context sections:
-      ${contextText}
-
-      Question: """
-      ${sanitizedQuery}
-      """
-
-      Answer as markdown (including related code snippets if available):
-    `;
-
-    const chatMessage: ChatCompletionRequestMessage = {
-      role: "user",
-      content: prompt,
-    };
-
-    const response = await openai.createChatCompletion({
-      model: "gpt-4",
-      messages: [chatMessage],
-      // eslint-disable-next-line camelcase
-      max_tokens: 512,
-      temperature: 0,
-      stream: true,
-    });
-
-    if (!response.ok) {
-      const error = await response.json();
-      throw new ApplicationError("Failed to generate completion", error);
-    }
-
-    // Transform the response into a readable stream
-    const stream = OpenAIStream(response);
-
-    // Return a StreamingTextResponse, which can be consumed by the client
-    return new StreamingTextResponse(stream);
+    return new Response(
+      JSON.stringify({
+        data: pageSections,
+      }),
+      {
+        headers: { "Content-Type": "application/json" },
+      },
+    );
   } catch (error: unknown) {
     if (error instanceof UserError) {
       return new Response(
