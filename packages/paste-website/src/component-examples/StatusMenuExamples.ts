@@ -1,31 +1,31 @@
 export const ProcessObject = {
   Success: {
-    variant: 'ProcessSuccess',
-    children: 'Complete',
+    variant: "ProcessSuccess",
+    children: "Complete",
   },
   Neutral: {
-    variant: 'ProcessNeutral',
-    children: 'In review',
+    variant: "ProcessNeutral",
+    children: "In review",
   },
   Warning: {
-    variant: 'ProcessWarning',
-    children: 'Needs attention',
+    variant: "ProcessWarning",
+    children: "Needs attention",
   },
   Error: {
-    variant: 'ProcessError',
-    children: 'Rejected',
+    variant: "ProcessError",
+    children: "Rejected",
   },
   InProgress: {
-    variant: 'ProcessInProgress',
-    children: 'In-progress',
+    variant: "ProcessInProgress",
+    children: "In-progress",
   },
   Disabled: {
-    variant: 'ProcessDisabled',
-    children: 'Paused',
+    variant: "ProcessDisabled",
+    children: "Paused",
   },
   Draft: {
-    variant: 'ProcessDraft',
-    children: 'Draft',
+    variant: "ProcessDraft",
+    children: "Draft",
   },
 } as const;
 export const processStatusMenuExample = `
@@ -124,24 +124,24 @@ render(
 
 export const ConnectivityObject = {
   Available: {
-    variant: 'ConnectivityAvailable',
-    children: 'Available',
+    variant: "ConnectivityAvailable",
+    children: "Available",
   },
   Busy: {
-    variant: 'ConnectivityBusy',
-    children: 'Busy',
+    variant: "ConnectivityBusy",
+    children: "Busy",
   },
   Unavailable: {
-    variant: 'ConnectivityUnavailable',
-    children: 'Unavailable',
+    variant: "ConnectivityUnavailable",
+    children: "Unavailable",
   },
   Neutral: {
-    variant: 'ConnectivityNeutral',
-    children: 'Neutral',
+    variant: "ConnectivityNeutral",
+    children: "Neutral",
   },
   Offline: {
-    variant: 'ConnectivityOffline',
-    children: 'Offline',
+    variant: "ConnectivityOffline",
+    children: "Offline",
   },
 };
 export const availabilityStatusMenuExample = `

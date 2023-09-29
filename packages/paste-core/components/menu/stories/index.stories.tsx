@@ -1,25 +1,25 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {useUID} from '@twilio-paste/uid-library';
+import { Box } from "@twilio-paste/box";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { ProductVoiceIcon } from "@twilio-paste/icons/esm/ProductVoiceIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   Menu,
   MenuButton,
-  SubMenuButton,
   MenuGroup,
   MenuItem,
-  MenuSeparator,
-  useMenuState,
   MenuItemCheckbox,
   MenuItemRadio,
-} from '../src';
+  MenuSeparator,
+  SubMenuButton,
+  useMenuState,
+} from "../src";
 
 const PlainMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
   const menu = useMenuState();
@@ -54,7 +54,7 @@ const PlainMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
 };
 
 const AutoplacedMenu = (): JSX.Element => {
-  const menu = useMenuState({visible: true});
+  const menu = useMenuState({ visible: true });
   return (
     <>
       <MenuButton {...menu} variant="primary">
@@ -91,7 +91,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement>((props, ref) => {
   );
 });
 
-PreferencesMenu.displayName = 'PreferencesMenu';
+PreferencesMenu.displayName = "PreferencesMenu";
 
 const SubMenu = (): JSX.Element => {
   const menu = useMenuState();
@@ -180,7 +180,7 @@ const WithActionsMenu = (): JSX.Element => {
           {...menu}
           onClick={() => {
             // eslint-disable-next-line no-alert
-            alert('you clicked me');
+            alert("you clicked me");
             menu.hide();
           }}
         >
@@ -221,12 +221,12 @@ const MenuGroups = (): JSX.Element => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Menu',
+  title: "Components/Menu",
   component: Menu,
-  subcomponents: {MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator},
+  subcomponents: { MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator },
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000},
+    chromatic: { delay: 3000 },
   },
 };
 
@@ -234,25 +234,25 @@ export const Default = (): React.ReactNode => {
   return <PlainMenu />;
 };
 
-Default.storyName = 'default';
+Default.storyName = "default";
 
 export const SubMenuStory = (): React.ReactNode => {
   return <SubMenu />;
 };
 
-SubMenuStory.storyName = 'sub menu';
+SubMenuStory.storyName = "sub menu";
 
 export const ActionsDemoMenu = (): React.ReactNode => {
   return <WithActionsMenu />;
 };
 
-ActionsDemoMenu.storyName = 'actions demo menu';
+ActionsDemoMenu.storyName = "actions demo menu";
 
 export const MenuGroupsStory = (): React.ReactNode => {
   return <MenuGroups />;
 };
 
-MenuGroupsStory.storyName = 'menu groups';
+MenuGroupsStory.storyName = "menu groups";
 
 export const MenuDropdown = (): React.ReactNode => {
   const uniqueMenuLabelID = useUID();
@@ -431,7 +431,7 @@ export const MenuDropdown = (): React.ReactNode => {
   );
 };
 
-MenuDropdown.storyName = 'menu dropdown';
+MenuDropdown.storyName = "menu dropdown";
 
 export const DifferentButtonTriggers = (): React.ReactNode => {
   return (
@@ -446,7 +446,7 @@ export const DifferentButtonTriggers = (): React.ReactNode => {
   );
 };
 
-DifferentButtonTriggers.storyName = 'different button triggers';
+DifferentButtonTriggers.storyName = "different button triggers";
 
 export const AutoPlacementMenuStory = (): React.ReactNode => {
   return (
@@ -456,4 +456,4 @@ export const AutoPlacementMenuStory = (): React.ReactNode => {
   );
 };
 
-AutoPlacementMenuStory.storyName = 'auto placed menu';
+AutoPlacementMenuStory.storyName = "auto placed menu";

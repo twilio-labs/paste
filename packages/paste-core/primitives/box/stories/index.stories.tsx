@@ -1,54 +1,54 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import type {ThemeShape} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Separator} from '@twilio-paste/separator';
-import {Text} from '@twilio-paste/text';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Separator } from "@twilio-paste/separator";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import type { ThemeShape } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {Box} from '../src';
-import {CustomizableBoxExample} from '../__fixtures__/CustomizableBox';
+import { CustomizableBoxExample } from "../__fixtures__/CustomizableBox";
+import { Box } from "../src";
 
 const demoString = `I'm some text in a box`;
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Primitives/Box',
+  title: "Primitives/Box",
   component: Box,
 };
 
 export const Default = (): React.ReactNode => {
-  const backgroudColorValue = 'colorBackgroundPrimaryWeak' as keyof ThemeShape['backgroundColors'];
+  const backgroudColorValue = "colorBackgroundPrimaryWeak" as keyof ThemeShape["backgroundColors"];
 
-  const borderRadiusValue = 'borderRadius20' as keyof ThemeShape['radii'];
-  const borderTopLeftRadiusValue = '' as keyof ThemeShape['radii'];
-  const borderTopRightRadiusValue = '' as keyof ThemeShape['radii'];
-  const borderBottomLeftRadiusValue = '' as keyof ThemeShape['radii'];
+  const borderRadiusValue = "borderRadius20" as keyof ThemeShape["radii"];
+  const borderTopLeftRadiusValue = "" as keyof ThemeShape["radii"];
+  const borderTopRightRadiusValue = "" as keyof ThemeShape["radii"];
+  const borderBottomLeftRadiusValue = "" as keyof ThemeShape["radii"];
 
-  const borderBottomRightRadiusValue = '' as keyof ThemeShape['radii'];
+  const borderBottomRightRadiusValue = "" as keyof ThemeShape["radii"];
 
-  const borderWidthValue = '' as keyof ThemeShape['borderWidths'];
-  const borderTopWidthValue = '' as keyof ThemeShape['borderWidths'];
-  const borderRightWidthValue = '' as keyof ThemeShape['borderWidths'];
-  const borderBottomWidthValue = '' as keyof ThemeShape['borderWidths'];
-  const borderLeftWidthValue = '' as keyof ThemeShape['borderWidths'];
-  const borderColorValue = 'colorBorderPrimaryStrong' as keyof ThemeShape['borderColors'];
-  const borderStyleValue = 'solid';
+  const borderWidthValue = "" as keyof ThemeShape["borderWidths"];
+  const borderTopWidthValue = "" as keyof ThemeShape["borderWidths"];
+  const borderRightWidthValue = "" as keyof ThemeShape["borderWidths"];
+  const borderBottomWidthValue = "" as keyof ThemeShape["borderWidths"];
+  const borderLeftWidthValue = "" as keyof ThemeShape["borderWidths"];
+  const borderColorValue = "colorBorderPrimaryStrong" as keyof ThemeShape["borderColors"];
+  const borderStyleValue = "solid";
 
-  const paddingValue = 'space20' as keyof ThemeShape['space'];
-  const marginValue = 'space40' as keyof ThemeShape['space'];
+  const paddingValue = "space20" as keyof ThemeShape["space"];
+  const marginValue = "space40" as keyof ThemeShape["space"];
 
-  const widthValue = '' as keyof ThemeShape['widths'];
-  const minWidthValue = '' as keyof ThemeShape['minWidths'];
-  const maxWidthValue = '' as keyof ThemeShape['maxWidths'];
-  const heightValue = 'size10' as keyof ThemeShape['heights'];
-  const minHeightValue = '' as keyof ThemeShape['minHeights'];
-  const maxHeightValue = '' as keyof ThemeShape['maxHeights'];
+  const widthValue = "" as keyof ThemeShape["widths"];
+  const minWidthValue = "" as keyof ThemeShape["minWidths"];
+  const maxWidthValue = "" as keyof ThemeShape["maxWidths"];
+  const heightValue = "size10" as keyof ThemeShape["heights"];
+  const minHeightValue = "" as keyof ThemeShape["minHeights"];
+  const maxHeightValue = "" as keyof ThemeShape["maxHeights"];
 
-  const boxShadowValue = '' as keyof ThemeShape['shadows'];
-  const zIndexValue = '' as keyof ThemeShape['zIndices'];
-  const displayValue = 'block';
-  const overflowValue = 'hidden';
+  const boxShadowValue = "" as keyof ThemeShape["shadows"];
+  const zIndexValue = "" as keyof ThemeShape["zIndices"];
+  const displayValue = "block";
+  const overflowValue = "hidden";
 
   return (
     <Box
@@ -88,9 +88,9 @@ export const Default = (): React.ReactNode => {
 export const Responsive = (): React.ReactNode => {
   return (
     <Box
-      backgroundColor={['colorBackgroundPrimaryWeak', 'colorBackgroundSuccessWeakest']}
-      padding={['space20', 'space70']}
-      height={['size10', 'size20']}
+      backgroundColor={["colorBackgroundPrimaryWeak", "colorBackgroundSuccessWeakest"]}
+      padding={["space20", "space70"]}
+      height={["size10", "size20"]}
     >
       <Text as="p" color="colorText">
         DO NOTE: width is not currently responsive due to a bug in Styled System v4. To be fixed in an upgrade.
@@ -105,10 +105,10 @@ export const PseudoClassesWithProps = (): React.ReactNode => {
       backgroundColor="colorBackgroundPrimaryWeak"
       height="size20"
       position="relative"
-      _hover={{padding: 'space20', backgroundColor: 'colorBackgroundPrimaryWeaker'}}
-      _first={{margin: 'space10'}}
-      _before={{content: `"Before text"`, position: 'absolute', bottom: 0, left: 0}}
-      _after={{content: `"After text"`, position: 'absolute', bottom: 0, right: 0}}
+      _hover={{ padding: "space20", backgroundColor: "colorBackgroundPrimaryWeaker" }}
+      _first={{ margin: "space10" }}
+      _before={{ content: `"Before text"`, position: "absolute", bottom: 0, left: 0 }}
+      _after={{ content: `"After text"`, position: "absolute", bottom: 0, right: 0 }}
     >
       <Text as="p" color="colorText">
         Hover this box
@@ -117,7 +117,7 @@ export const PseudoClassesWithProps = (): React.ReactNode => {
   );
 };
 
-PseudoClassesWithProps.storyName = 'Pseudo-classes with props';
+PseudoClassesWithProps.storyName = "Pseudo-classes with props";
 
 const CustomBoxCollection = (): JSX.Element => {
   return (
@@ -140,7 +140,7 @@ const CustomBoxCollection = (): JSX.Element => {
   );
 };
 
-export const CustomBox: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomBox: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <>
@@ -151,37 +151,37 @@ export const CustomBox: StoryFn = (_args, {parameters: {isTestEnvironment}}) => 
         theme={currentTheme}
         elements={{
           RECTANGLE: {
-            borderRadius: 'borderRadius20',
+            borderRadius: "borderRadius20",
             variants: {
               primary: {
-                backgroundColor: 'colorBackgroundPrimaryWeakest',
-                padding: 'space30',
-                textDecoration: 'underline',
+                backgroundColor: "colorBackgroundPrimaryWeakest",
+                padding: "space30",
+                textDecoration: "underline",
               },
               secondary: {
-                backgroundColor: 'colorBackgroundSuccessWeakest',
-                margin: 'space30',
+                backgroundColor: "colorBackgroundSuccessWeakest",
+                margin: "space30",
               },
             },
           },
           SQUARE: {
-            padding: 'space20',
-            ':hover': {
-              backgroundColor: 'colorBackgroundSuccess',
-              cursor: 'pointer',
+            padding: "space20",
+            ":hover": {
+              backgroundColor: "colorBackgroundSuccess",
+              cursor: "pointer",
             },
             variants: {
               primary: {
-                color: 'colorTextNew',
-                ':hover': {
-                  backgroundColor: 'colorBackgroundWarning',
+                color: "colorTextNew",
+                ":hover": {
+                  backgroundColor: "colorBackgroundWarning",
                 },
               },
               secondary: {
-                color: 'colorTextWarning',
-                backgroundColor: 'colorBackground',
-                ':hover': {
-                  backgroundColor: 'colorBackgroundError',
+                color: "colorTextWarning",
+                backgroundColor: "colorBackground",
+                ":hover": {
+                  backgroundColor: "colorBackgroundError",
                 },
               },
             },

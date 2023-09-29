@@ -1,36 +1,36 @@
-import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {Button} from '@twilio-paste/button';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
-import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
+import type { BoxProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { NeutralIcon } from "@twilio-paste/icons/esm/NeutralIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
+import * as React from "react";
 
-type AlertVariantKeys = 'ERROR' | 'NEUTRAL' | 'WARNING';
+type AlertVariantKeys = "ERROR" | "NEUTRAL" | "WARNING";
 
 export const AlertRoles = {
-  ERROR: 'alert',
-  NEUTRAL: 'status',
-  WARNING: 'alert',
+  ERROR: "alert",
+  NEUTRAL: "status",
+  WARNING: "alert",
 } as const;
 export const AlertVariants = {
-  ERROR: 'error',
-  NEUTRAL: 'neutral',
-  WARNING: 'warning',
+  ERROR: "error",
+  NEUTRAL: "neutral",
+  WARNING: "warning",
 } as const;
 export const AlertBackgroundColors = {
-  ERROR: 'colorBackgroundErrorWeakest',
-  NEUTRAL: 'colorBackgroundNeutralWeakest',
-  WARNING: 'colorBackgroundWarningWeakest',
+  ERROR: "colorBackgroundErrorWeakest",
+  NEUTRAL: "colorBackgroundNeutralWeakest",
+  WARNING: "colorBackgroundWarningWeakest",
 } as const;
 export const AlertTextColors = {
-  ERROR: 'colorTextError',
-  NEUTRAL: 'colorTextNeutral',
-  WARNING: 'colorTextWarningStrong',
+  ERROR: "colorTextError",
+  NEUTRAL: "colorTextNeutral",
+  WARNING: "colorTextWarningStrong",
 } as const;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
@@ -42,7 +42,7 @@ export type AlertRoles = ValueOf<typeof AlertRoles>;
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type AlertTextColors = ValueOf<typeof AlertTextColors>;
 
-export interface AlertProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
+export interface AlertProps extends HTMLPasteProps<"div">, Pick<BoxProps, "element"> {
   children: NonNullable<React.ReactNode>;
   onDismiss?: () => void;
   role?: string;
@@ -96,14 +96,14 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       onDismiss,
       variant,
       role,
-      element = 'ALERT',
-      i18nDismissLabel = 'Dismiss alert',
-      i18nErrorLabel = '(error)',
-      i18nNeutralLabel = '(information)',
-      i18nWarningLabel = '(warning)',
+      element = "ALERT",
+      i18nDismissLabel = "Dismiss alert",
+      i18nErrorLabel = "(error)",
+      i18nNeutralLabel = "(information)",
+      i18nWarningLabel = "(warning)",
       ...props
     },
-    ref
+    ref,
   ) => {
     const i18nLabelVariantMap = {
       error: i18nErrorLabel,
@@ -131,7 +131,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
           <MediaBody as="div">
             <Box color={AlertTextColors[variant.toUpperCase() as AlertVariantKeys]}>{children}</Box>
           </MediaBody>
-          {onDismiss && typeof onDismiss === 'function' && (
+          {onDismiss && typeof onDismiss === "function" && (
             <MediaFigure align="end" spacing="space60">
               <Button onClick={onDismiss} variant="secondary_icon" size="reset" element={`${element}_DISMISS_BUTTON`}>
                 <CloseIcon element={`${element}_DISMISS_ICON`} decorative size="sizeIcon20" />
@@ -142,8 +142,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
         </MediaObject>
       </Box>
     );
-  }
+  },
 );
-Alert.displayName = 'Alert';
+Alert.displayName = "Alert";
 
-export {Alert};
+export { Alert };

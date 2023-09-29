@@ -1,17 +1,17 @@
-import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {StyledBase} from '@twilio-paste/theme';
-import {NonModalDialogPrimitive} from '@twilio-paste/non-modal-dialog-primitive';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type { BoxProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { NonModalDialogPrimitive } from "@twilio-paste/non-modal-dialog-primitive";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
+import { StyledBase } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {PopoverArrow} from './PopoverArrow';
-import {PopoverContext} from './PopoverContext';
+import { PopoverArrow } from "./PopoverArrow";
+import { PopoverContext } from "./PopoverContext";
 
-const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, width, ...props}, ref) => {
+const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({ style, width, ...props }, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -24,19 +24,19 @@ const StyledPopover = React.forwardRef<HTMLDivElement, BoxProps>(({style, width,
       boxShadow="shadowLow"
       maxWidth="size50"
       zIndex="zIndex80"
-      _focus={{outline: 'none'}}
+      _focus={{ outline: "none" }}
       style={style}
       ref={ref}
     />
   );
 });
 
-StyledPopover.displayName = 'StyledPopover';
+StyledPopover.displayName = "StyledPopover";
 
-type WidthOptions = 'size10' | 'size20' | 'size30' | 'size40' | 'size50';
+type WidthOptions = "size10" | "size20" | "size30" | "size40" | "size50";
 
-export interface PopoverProps extends Pick<BoxProps, 'element'> {
-  'aria-label': string;
+export interface PopoverProps extends Pick<BoxProps, "element"> {
+  "aria-label": string;
   children: React.ReactNode;
   i18nDismissLabel?: string;
   width?: ResponsiveValue<WidthOptions>;
@@ -44,7 +44,7 @@ export interface PopoverProps extends Pick<BoxProps, 'element'> {
 }
 
 const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
-  ({children, element = 'POPOVER', i18nDismissLabel = 'Close popover', initialFocusRef, ...props}, ref) => {
+  ({ children, element = "POPOVER", i18nDismissLabel = "Close popover", initialFocusRef, ...props }, ref) => {
     const popover = React.useContext(PopoverContext);
 
     React.useEffect(() => {
@@ -77,8 +77,8 @@ const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
         </StyledBase>
       </NonModalDialogPrimitive>
     );
-  }
+  },
 );
 
-Popover.displayName = 'Popover';
-export {Popover};
+Popover.displayName = "Popover";
+export { Popover };

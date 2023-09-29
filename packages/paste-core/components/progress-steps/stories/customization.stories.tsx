@@ -1,24 +1,24 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
 import {
-  ProgressSteps,
   ProgressStepComplete,
   ProgressStepCurrent,
   ProgressStepError,
   ProgressStepIncomplete,
   ProgressStepSeparator,
-} from '../src';
+  ProgressSteps,
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Progress Steps/Customization',
+  title: "Components/Progress Steps/Customization",
   component: ProgressSteps,
 };
 
-export const DefaultElementNames: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const DefaultElementNames: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -26,31 +26,31 @@ export const DefaultElementNames: StoryFn = (_args, {parameters: {isTestEnvironm
       theme={currentTheme}
       elements={{
         PROGRESS_STEPS: {
-          padding: 'space50',
+          padding: "space50",
         },
         PROGRESS_STEP_SEPARATOR: {
-          borderBottomWidth: 'borderWidth40',
-          borderRadius: 'borderRadiusCircle',
+          borderBottomWidth: "borderWidth40",
+          borderRadius: "borderRadiusCircle",
         },
         PROGRESS_STEP_COMPLETE: {
-          borderWidth: 'borderWidth10',
-          borderStyle: 'solid',
-          borderColor: 'colorBorderPrimary',
+          borderWidth: "borderWidth10",
+          borderStyle: "solid",
+          borderColor: "colorBorderPrimary",
         },
         PROGRESS_STEP_CURRENT: {
-          borderWidth: 'borderWidth10',
-          borderStyle: 'solid',
-          borderColor: 'colorBorderPrimary',
+          borderWidth: "borderWidth10",
+          borderStyle: "solid",
+          borderColor: "colorBorderPrimary",
         },
         PROGRESS_STEP_ERROR: {
-          borderWidth: 'borderWidth10',
-          borderStyle: 'solid',
-          borderColor: 'colorBorderPrimary',
+          borderWidth: "borderWidth10",
+          borderStyle: "solid",
+          borderColor: "colorBorderPrimary",
         },
         PROGRESS_STEP_INCOMPLETE: {
-          borderWidth: 'borderWidth10',
-          borderStyle: 'solid',
-          borderColor: 'colorBorderPrimary',
+          borderWidth: "borderWidth10",
+          borderStyle: "solid",
+          borderColor: "colorBorderPrimary",
         },
       }}
     >
@@ -71,7 +71,7 @@ export const DefaultElementNames: StoryFn = (_args, {parameters: {isTestEnvironm
   );
 };
 
-export const CustomElementNames: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomElementNames: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -79,31 +79,31 @@ export const CustomElementNames: StoryFn = (_args, {parameters: {isTestEnvironme
       theme={currentTheme}
       elements={{
         STEPS: {
-          padding: 'space50',
+          padding: "space50",
         },
         STEP_SEPARATOR: {
-          borderBottomWidth: 'borderWidth40',
-          borderRadius: 'borderRadiusCircle',
+          borderBottomWidth: "borderWidth40",
+          borderRadius: "borderRadiusCircle",
         },
         STEP_COMPLETE: {
-          borderWidth: 'borderWidth10',
-          borderStyle: 'solid',
-          borderColor: 'colorBorderPrimary',
+          borderWidth: "borderWidth10",
+          borderStyle: "solid",
+          borderColor: "colorBorderPrimary",
         },
         STEP_CURRENT: {
-          borderWidth: 'borderWidth10',
-          borderStyle: 'solid',
-          borderColor: 'colorBorderPrimary',
+          borderWidth: "borderWidth10",
+          borderStyle: "solid",
+          borderColor: "colorBorderPrimary",
         },
         STEP_ERROR: {
-          borderWidth: 'borderWidth10',
-          borderStyle: 'solid',
-          borderColor: 'colorBorderPrimary',
+          borderWidth: "borderWidth10",
+          borderStyle: "solid",
+          borderColor: "colorBorderPrimary",
         },
         STEP_INCOMPLETE: {
-          borderWidth: 'borderWidth10',
-          borderStyle: 'solid',
-          borderColor: 'colorBorderPrimary',
+          borderWidth: "borderWidth10",
+          borderStyle: "solid",
+          borderColor: "colorBorderPrimary",
         },
       }}
     >

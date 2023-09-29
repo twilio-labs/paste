@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface RefreshIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface RefreshIconProps extends IconWrapperProps {
 }
 
 const RefreshIcon = React.forwardRef<HTMLElement, RefreshIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `RefreshIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[RefreshIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[RefreshIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -40,8 +40,8 @@ const RefreshIcon = React.forwardRef<HTMLElement, RefreshIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-RefreshIcon.displayName = 'RefreshIcon';
-export {RefreshIcon};
+RefreshIcon.displayName = "RefreshIcon";
+export { RefreshIcon };

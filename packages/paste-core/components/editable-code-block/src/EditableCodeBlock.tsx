@@ -1,55 +1,55 @@
-import * as React from 'react';
-import {Box, type BoxProps} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
+import { Box, type BoxProps } from "@twilio-paste/box";
 import {
   CodeEditor,
   CodeEditorPasteTheme,
   type CodeEditorProps,
   type Editor,
-  type Monaco,
-  type IRange,
   type IMarkdownString,
-} from '@twilio-paste/code-editor-library';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {Spinner} from '@twilio-paste/spinner';
-import {StylingGlobals} from '@twilio-paste/styling-library';
+  type IRange,
+  type Monaco,
+} from "@twilio-paste/code-editor-library";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Spinner } from "@twilio-paste/spinner";
+import { StylingGlobals } from "@twilio-paste/styling-library";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-const EditableCodeblockLoadingMessage: React.FC<{i18nLoadingLabel: string}> = ({i18nLoadingLabel}) => (
+const EditableCodeblockLoadingMessage: React.FC<{ i18nLoadingLabel: string }> = ({ i18nLoadingLabel }) => (
   <>
     <Spinner color="colorTextPrimaryWeak" decorative />
     <ScreenReaderOnly>{i18nLoadingLabel}</ScreenReaderOnly>
   </>
 );
-EditableCodeblockLoadingMessage.displayName = 'EditableCodeblockLoadingMessage';
+EditableCodeblockLoadingMessage.displayName = "EditableCodeblockLoadingMessage";
 
-const InlineErrorStyles: {[key: string]: any} = {
-  '.paste-editable-code-editor-margin-error': {
-    ':before': {
+const InlineErrorStyles: { [key: string]: any } = {
+  ".paste-editable-code-editor-margin-error": {
+    ":before": {
       content: '""',
-      display: 'inline-block',
-      position: 'relative',
-      left: '2px',
-      width: '16px',
-      height: '16px',
+      display: "inline-block",
+      position: "relative",
+      left: "2px",
+      width: "16px",
+      height: "16px",
       background: `url(https://assets.twilio.com/public_assets/paste-assets/1.0.0/icons/editable-codeblock-error.svg) no-repeat center center`,
     },
   },
-  '.paste-editable-code-editor-row-error': {
-    backgroundColor: 'rgba(255, 0, 0, 0.3)',
+  ".paste-editable-code-editor-row-error": {
+    backgroundColor: "rgba(255, 0, 0, 0.3)",
   },
 };
 
 export interface EditableCodeBlockProps
-  extends Omit<CodeEditorProps, 'wrapperProps' | 'className' | 'loading' | 'theme' | 'options'> {
+  extends Omit<CodeEditorProps, "wrapperProps" | "className" | "loading" | "theme" | "options"> {
   children?: never;
   /*
    * NOTE: I leave these commented out because I'm not sure whether we want to allow users to override these options.
    * If we do, we can uncomment these easily in the future since the work is already done.
    */
   // monacoOptions?: CodeEditorProps['options'];
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   minimap?: boolean;
-  lineNumbers?: 'on' | 'off';
+  lineNumbers?: "on" | "off";
   folding?: boolean;
   readOnly?: boolean;
   indentationGuide?: boolean;
@@ -63,9 +63,9 @@ export interface EditableCodeBlockProps
 
 export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
   onMount,
-  element = 'EDITABLE_CODE_BLOCK',
+  element = "EDITABLE_CODE_BLOCK",
   // monacoOptions = {},
-  lineNumbers = 'on',
+  lineNumbers = "on",
   readOnly = false,
   folding = true,
   indentationGuide = true,
@@ -74,7 +74,7 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
   inlineErrorRange,
   inlineErrorHoverMessage,
   inlineErrorIsWholeLine = true,
-  i18nLoadingLabel = 'Loading code...',
+  i18nLoadingLabel = "Loading code...",
   ...props
 }) => {
   const theme = useTheme();
@@ -96,7 +96,7 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
         indentation: indentationGuide,
         // ...monacoOptions.guides,
       },
-    } as CodeEditorProps['options'];
+    } as CodeEditorProps["options"];
   }, [
     // monacoOptions,
     readOnly,
@@ -111,7 +111,7 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
 
   const globalStyles = React.useMemo(() => {
     return {
-      '.monaco-hover-content': {
+      ".monaco-hover-content": {
         fontFamily: theme.fonts.fontFamilyText,
       },
       ...(inlineErrorRange ? InlineErrorStyles : {}),
@@ -121,8 +121,8 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
   const handleEditorDidMount = React.useCallback(
     (editor: Editor.IStandaloneCodeEditor, monaco: Monaco): void => {
       // Sets the Paste theme for the editor
-      monaco.editor.defineTheme('paste', CodeEditorPasteTheme);
-      monaco.editor.setTheme('paste');
+      monaco.editor.defineTheme("paste", CodeEditorPasteTheme);
+      monaco.editor.setTheme("paste");
 
       if (inlineErrorRange) {
         editor.createDecorationsCollection([
@@ -132,19 +132,19 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
               inlineErrorRange.startLineNumber,
               inlineErrorRange.startColumn,
               inlineErrorRange.endLineNumber,
-              inlineErrorRange.endColumn
+              inlineErrorRange.endColumn,
             ),
             // https://microsoft.github.io/monaco-editor/docs.html#interfaces/editor.IModelDecorationOptions.html
             options: {
               isWholeLine: inlineErrorIsWholeLine,
-              className: '.paste-editable-code-editor-row-error',
+              className: ".paste-editable-code-editor-row-error",
               hoverMessage: inlineErrorHoverMessage,
-              glyphMarginClassName: '.paste-editable-code-editor-margin-error',
+              glyphMarginClassName: ".paste-editable-code-editor-margin-error",
               glyphMarginHoverMessage: inlineErrorHoverMessage,
               // Adds the red error line in the scrollbar canvas
               overviewRuler: {
-                color: '#b82430',
-                darkColor: '#b82430',
+                color: "#b82430",
+                darkColor: "#b82430",
                 position: monaco.editor.OverviewRulerLane.Right,
               },
             },
@@ -159,7 +159,7 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
        */
       onMount?.(editor, monaco);
     },
-    [onMount, inlineErrorHoverMessage, inlineErrorRange, inlineErrorIsWholeLine]
+    [onMount, inlineErrorHoverMessage, inlineErrorRange, inlineErrorIsWholeLine],
   );
 
   return (
@@ -175,4 +175,4 @@ export const EditableCodeBlock: React.FC<EditableCodeBlockProps> = ({
   );
 };
 
-EditableCodeBlock.displayName = 'EditableCodeBlock';
+EditableCodeBlock.displayName = "EditableCodeBlock";

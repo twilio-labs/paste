@@ -1,12 +1,12 @@
+import { render, screen } from "@testing-library/react";
+import { Theme } from "@twilio-paste/theme";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore react import is flagged as unused by tsx but required when running the tests
-import * as React from 'react';
-import {Theme} from '@twilio-paste/theme';
-import {render, screen} from '@testing-library/react';
+import * as React from "react";
 
-import {GenericHeader} from '../components/shortcodes/generic-header';
+import { GenericHeader } from "../components/shortcodes/generic-header";
 
-describe('GenericHeader', () => {
+describe("GenericHeader", () => {
   const FullHeader = (): JSX.Element => {
     return (
       <Theme.Provider theme="default">
@@ -27,35 +27,35 @@ describe('GenericHeader', () => {
     );
   };
 
-  it('should render an h1 tag using the name prop as text', () => {
+  it("should render an h1 tag using the name prop as text", () => {
     render(<FullHeader />);
-    const heading = screen.getByRole('heading', {level: 1});
-    expect(heading.textContent).toEqual('Alert');
+    const heading = screen.getByRole("heading", { level: 1 });
+    expect(heading.textContent).toEqual("Alert");
   });
 
-  it('should render text using the description prop', () => {
+  it("should render text using the description prop", () => {
     render(<FullHeader />);
-    const description = screen.getByText('This is an alert component.');
+    const description = screen.getByText("This is an alert component.");
     expect(description).toBeDefined();
   });
 
-  it('should render a version number if given', () => {
+  it("should render a version number if given", () => {
     render(<FullHeader />);
-    const versionText = screen.getByText('Version 1.0.0');
+    const versionText = screen.getByText("Version 1.0.0");
     expect(versionText).toBeDefined();
   });
 
-  it('should render a github link if given', () => {
+  it("should render a github link if given", () => {
     render(<FullHeader />);
-    const githubLink = screen.getByRole('link', {name: 'Github'});
-    expect(githubLink.getAttribute('href')).toEqual('https://google.com');
+    const githubLink = screen.getByRole("link", { name: "Github" });
+    expect(githubLink.getAttribute("href")).toEqual("https://google.com");
   });
 
-  it('should render a storybook link if given', () => {
+  it("should render a storybook link if given", () => {
     render(<FullHeader />);
-    const storybookLink = screen.getByRole('link', {name: 'Storybook'});
-    expect(storybookLink.getAttribute('href')).toEqual(
-      'https://paste-storybook.twilio.design/?path=/story/components-alert--'
+    const storybookLink = screen.getByRole("link", { name: "Storybook" });
+    expect(storybookLink.getAttribute("href")).toEqual(
+      "https://paste-storybook.twilio.design/?path=/story/components-alert--",
     );
   });
 
@@ -67,10 +67,10 @@ describe('GenericHeader', () => {
     );
   };
 
-  it('should not render gitub link, or storybook link if not given', () => {
+  it("should not render gitub link, or storybook link if not given", () => {
     render(<BasicHeader />);
 
-    expect(screen.queryByRole('link', {name: 'Github'})).toBeNull();
-    expect(screen.queryByRole('link', {name: 'Storybook'})).toBeNull();
+    expect(screen.queryByRole("link", { name: "Github" })).toBeNull();
+    expect(screen.queryByRole("link", { name: "Storybook" })).toBeNull();
   });
 });

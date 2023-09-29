@@ -1,36 +1,36 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import type {HeadingProps} from '@twilio-paste/heading';
-import {LinkIcon} from '@twilio-paste/icons/esm/LinkIcon';
+import { Box } from "@twilio-paste/box";
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import type { HeadingProps } from "@twilio-paste/heading";
+import { LinkIcon } from "@twilio-paste/icons/esm/LinkIcon";
+import * as React from "react";
 
-import {slugify} from '../utils/RouteUtils';
+import { slugify } from "../utils/RouteUtils";
 
 const anchoredHeadingSpacing: Partial<{
-  [key in HeadingProps['variant']]: Partial<BoxStyleProps>;
+  [key in HeadingProps["variant"]]: Partial<BoxStyleProps>;
 }> = {
   heading10: {
-    marginBottom: 'space70',
+    marginBottom: "space70",
   },
   heading20: {
-    marginBottom: 'space60',
+    marginBottom: "space60",
   },
   heading30: {
-    marginBottom: 'space50',
+    marginBottom: "space50",
   },
   heading40: {
-    marginBottom: 'space40',
+    marginBottom: "space40",
   },
   heading50: {
-    marginBottom: 'space30',
+    marginBottom: "space30",
   },
   heading60: {
-    marginBottom: 'space30',
+    marginBottom: "space30",
   },
 };
 
-const StyledAnchorHyperlink: React.FC<React.PropsWithChildren<{href: string}>> = ({children, ...props}) => {
+const StyledAnchorHyperlink: React.FC<React.PropsWithChildren<{ href: string }>> = ({ children, ...props }) => {
   return (
     <Box
       {...props}
@@ -41,8 +41,8 @@ const StyledAnchorHyperlink: React.FC<React.PropsWithChildren<{href: string}>> =
       outline="none"
       display="inline-block"
       verticalAlign="text-bottom"
-      _hover={{color: 'colorTextLinkStronger'}}
-      _focus={{boxShadow: 'shadowFocus', color: 'colorTextLinkStronger'}}
+      _hover={{ color: "colorTextLinkStronger" }}
+      _focus={{ boxShadow: "shadowFocus", color: "colorTextLinkStronger" }}
       as="a"
     >
       {children}
@@ -61,7 +61,7 @@ const AnchoredHeading: React.FC<React.PropsWithChildren<AnchoredHeadingProps>> =
   ...props
 }) => {
   // Only generate slugs for headings where children is 'string'
-  if (typeof props.children === 'string') {
+  if (typeof props.children === "string") {
     const id = slugify(props.children);
 
     // keeps the existingSlug if one is given (like in Roadmap)
@@ -82,4 +82,4 @@ const AnchoredHeading: React.FC<React.PropsWithChildren<AnchoredHeadingProps>> =
   return <Heading variant={variant} as={as} {...props} />;
 };
 
-export {AnchoredHeading, StyledAnchorHyperlink};
+export { AnchoredHeading, StyledAnchorHyperlink };

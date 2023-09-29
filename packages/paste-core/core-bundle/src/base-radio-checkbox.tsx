@@ -1,1 +1,1 @@
-export * from '@twilio-paste/base-radio-checkbox';
+export * from "@twilio-paste/base-radio-checkbox";

@@ -1,4 +1,4 @@
-type CircleGeometryProps = Pick<React.SVGProps<SVGCircleElement>, 'cx' | 'cy' | 'r'>;
+type CircleGeometryProps = Pick<React.SVGProps<SVGCircleElement>, "cx" | "cy" | "r">;
 
 const circleRadius = 45;
 export const circleGeometry: CircleGeometryProps = {

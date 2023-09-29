@@ -1,1 +1,1 @@
-export * from '@twilio-paste/slider';
+export * from "@twilio-paste/slider";

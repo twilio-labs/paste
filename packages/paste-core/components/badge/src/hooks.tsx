@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-const DEFAULT_ICON_SIZE = 'sizeIcon10';
+const DEFAULT_ICON_SIZE = "sizeIcon10";
 
 export const useResizeChildIcons = (children: NonNullable<React.ReactNode>): NonNullable<React.ReactNode> => {
   const seed = useUIDSeed();
@@ -12,10 +12,10 @@ export const useResizeChildIcons = (children: NonNullable<React.ReactNode>): Non
 
   return React.Children.map(children, (child) => {
     if (
-      typeof child === 'object' &&
+      typeof child === "object" &&
       !Array.isArray(child) &&
-      typeof child?.type?.displayName === 'string' &&
-      child?.type?.displayName.includes('Icon')
+      typeof child?.type?.displayName === "string" &&
+      child?.type?.displayName.includes("Icon")
     ) {
       return React.cloneElement(child, {
         ...child.props,

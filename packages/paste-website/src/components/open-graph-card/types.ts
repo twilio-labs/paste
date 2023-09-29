@@ -1,3 +1,3 @@
-import type {Feature, Package} from '../../utils/api';
+import type { Feature, Package } from "../../utils/api";
 
-export type PackageData = Package & Feature & {type: string};
+export type PackageData = Package & Feature & { type: string };

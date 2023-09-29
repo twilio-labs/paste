@@ -1,4 +1,4 @@
-import type {WordListShape} from './types';
+import type { WordListShape } from "./types";
 
 type FilterWordListArgs = (wordList: WordListShape, filterString: string) => Partial<WordListShape>;
 

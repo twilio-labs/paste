@@ -1,18 +1,18 @@
-import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
-import {Button, type ButtonProps} from '@twilio-paste/button';
-import {ChevronUpIcon} from '@twilio-paste/icons/esm/ChevronUpIcon';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { BoxProps } from "@twilio-paste/box";
+import { Button, type ButtonProps } from "@twilio-paste/button";
+import { ChevronUpIcon } from "@twilio-paste/icons/esm/ChevronUpIcon";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface IncrementButtonProps extends HTMLPasteProps<'button'> {
+export interface IncrementButtonProps extends HTMLPasteProps<"button"> {
   i18nStepUpLabel?: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   // Button component restricts tabIndex values
-  tabIndex?: ButtonProps['tabIndex'];
+  tabIndex?: ButtonProps["tabIndex"];
 }
 
 export const IncrementButton = React.forwardRef<HTMLButtonElement, IncrementButtonProps>(
-  ({i18nStepUpLabel = 'step value up', element, ...props}, ref) => {
+  ({ i18nStepUpLabel = "step value up", element, ...props }, ref) => {
     return (
       <Button
         {...props}
@@ -33,6 +33,6 @@ export const IncrementButton = React.forwardRef<HTMLButtonElement, IncrementButt
         />
       </Button>
     );
-  }
+  },
 );
-IncrementButton.displayName = 'Increment';
+IncrementButton.displayName = "Increment";

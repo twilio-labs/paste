@@ -1,5 +1,5 @@
-import {useEffect, useState} from 'react';
-import debounce from 'lodash/debounce';
+import debounce from "lodash/debounce";
+import { useEffect, useState } from "react";
 
 type Options = {
   config?: {
@@ -11,7 +11,7 @@ type Options = {
 };
 type Callback = (mutations: MutationRecord[]) => void;
 const DEFAULT_OPTIONS = {
-  config: {attributes: true, childList: true, subtree: true},
+  config: { attributes: true, childList: true, subtree: true },
   debounceTime: 0,
 };
 
@@ -31,14 +31,14 @@ export function useMutationObservable(targetEl: Element, cb: Callback, options: 
 
   /* Create an observer instance */
   useEffect(() => {
-    if (!cb || typeof cb !== 'function') {
+    if (!cb || typeof cb !== "function") {
       // eslint-disable-next-line no-console
       console.warn(`You must provide a valid callback function, instead you've provided ${cb}`);
       return;
     }
 
     const hasDebounceTime =
-      options.debounceTime && typeof options.debounceTime === 'number' && options.debounceTime > 0;
+      options.debounceTime && typeof options.debounceTime === "number" && options.debounceTime > 0;
 
     const obs = new MutationObserver(hasDebounceTime ? debounce(cb, options.debounceTime) : cb);
     setObserver(obs);
@@ -53,7 +53,7 @@ export function useMutationObservable(targetEl: Element, cb: Callback, options: 
       console.warn(`You must provide a valid DOM element to observe, instead you've provided ${targetEl}`);
     }
 
-    const {config} = options;
+    const { config } = options;
 
     try {
       observer.observe(targetEl, config);

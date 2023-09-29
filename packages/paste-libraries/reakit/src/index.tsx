@@ -1,7 +1,7 @@
-import {PopoverArrow} from './Popover/PopoverArrow';
-import type {PopoverArrowProps} from './Popover/PopoverArrow';
-import {TooltipArrow} from './Tooltip/TooltipArrow';
-import type {TooltipArrowProps} from './Tooltip/TooltipArrow';
+import { PopoverArrow } from "./Popover/PopoverArrow";
+import type { PopoverArrowProps } from "./Popover/PopoverArrow";
+import { TooltipArrow } from "./Tooltip/TooltipArrow";
+import type { TooltipArrowProps } from "./Tooltip/TooltipArrow";
 
 export {
   // https://reakit.io/docs/composite/
@@ -37,7 +37,7 @@ export {
   useTooltipState,
   Tooltip,
   TooltipReference,
-} from '@twilio-paste/paste-reakit-fork';
+} from "@twilio-paste/paste-reakit-fork";
 
 export type {
   CompositeState,
@@ -75,10 +75,10 @@ export type {
   TooltipStateReturn,
   TooltipProps,
   TooltipReferenceProps,
-} from '@twilio-paste/paste-reakit-fork';
+} from "@twilio-paste/paste-reakit-fork";
 
-export {PopoverArrow};
-export type {PopoverArrowProps};
+export { PopoverArrow };
+export type { PopoverArrowProps };
 
-export {TooltipArrow};
-export type {TooltipArrowProps};
+export { TooltipArrow };
+export type { TooltipArrowProps };

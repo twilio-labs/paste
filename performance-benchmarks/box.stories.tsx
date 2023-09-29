@@ -1,11 +1,11 @@
-import * as React from 'react';
-import type {Story} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import UIBox from 'ui-box';
-import {Pane} from 'evergreen-ui';
+import type { Story } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Pane } from "evergreen-ui";
+import * as React from "react";
+import UIBox from "ui-box";
 
 export default {
-  title: 'Performance/Box',
+  title: "Performance/Box",
   component: Box,
 };
 

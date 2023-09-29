@@ -6,12 +6,7 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "workspaces": {
-    "packages": [
-      "apps/**/*",
-      "packages/**/*",
-      "templates/**/*",
-      "!packages/paste-core/core-bundle/**/*"
-    ]
+    "packages": ["apps/**/*", "packages/**/*", "templates/**/*", "!packages/paste-core/core-bundle/**/*"]
   },
   "types": "./types/index.d.ts",
   "engines": {
@@ -43,7 +38,7 @@
     "build:theme-designer": "yarn nx run @twilio-paste/theme-designer:build",
     "build:nextjs-template": "yarn nx run @twilio-paste/nextjs-template:build",
     "build:contrast-checking": "yarn nx run @twilio-paste/token-contrast-checker:build",
-    "pre-push": "concurrently \"yarn:lint\" \"yarn:test\" \"yarn:prettier\" \"yarn:type-check\"",
+    "pre-push": "concurrently \"yarn:lint\" \"yarn:test\" \"yarn:format\" \"yarn:type-check\"",
     "prerelease": "yarn build && yarn lint && yarn test",
     "release": "yarn changeset publish",
     "release:next": "yarn lerna publish -m 'chore(release): pre release' --conventional-commits --canary --preid beta --dist-tag next",
@@ -63,8 +58,6 @@
     "start:test:storybook": "start-server-and-test 'NODE_ENV=test yarn start:storybook' http://localhost:9001 'yarn test:storybook'",
     "serve:website": "yarn workspace @twilio-paste/website start",
     "package-size-action-build": "yarn build",
-    "prettier": "prettier --list-different '{.storybook,packages,templates}/**/*.{ts,tsx}'",
-    "prettier-clean": "prettier --write '{.storybook,packages,templates}/**/*.{ts,tsx}'",
     "lint": "yarn pre-test && yarn lint:repo && yarn lint:core && yarn lint:website && yarn lint:remix && yarn lint:contrast-checker && yarn lint:nextjs-template && yarn lint:vscode-intellisense",
     "lint:core": "eslint -c .eslintrc.core.js --ext .tsx,.ts ./packages/{paste-color-contrast-utils,paste-core,paste-customization,paste-design-tokens,paste-icons,paste-libraries,paste-style-props,paste-theme,paste-types,paste-utils}/**/src",
     "lint:website": "eslint -c ./packages/paste-website/.eslintrc --ext .tsx,.ts ./packages/paste-website",
@@ -73,6 +66,9 @@
     "lint:nextjs-template": "eslint -c ./templates/paste-nextjs-template/.eslintrc.json --ext .tsx,.ts ./templates/paste-nextjs-template",
     "lint:vscode-intellisense": "eslint -c ./apps/vs-code-intellisense/.eslintrc.json --ext .tsx,.ts ./apps/vs-code-intellisense",
     "lint:repo": "eslint -c .eslintrc.repo.js --ext .tsx,.ts .",
+    "format": "biome format ./ && prettier --list-different ./packages/",
+    "format:write": "biome format ./ --write",
+    "format:ci": "biome ci ./ --linter-enabled=false && prettier --list-different ./packages/",
     "type-check": "yarn prebuild && yarn nx run-many --target=tsc",
     "tsc": "echo 'Did you mean to run yarn type-check?'",
     "chromatic": "chromatic",
@@ -94,6 +90,7 @@
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.21.4",
     "@babel/types": "^7.21.4",
+    "@biomejs/biome": "1.2.2",
     "@changesets/changelog-github": "^0.2.8",
     "@changesets/cli": "^2.13.1",
     "@commitlint/cli": "16.2.1",
@@ -224,9 +221,5 @@
     }
   },
   "packageManager": "yarn@3.6.3",
-  "browserslist": [
-    "last 2 versions",
-    "not dead",
-    "not IE 11"
-  ]
+  "browserslist": ["last 2 versions", "not dead", "not IE 11"]
 }

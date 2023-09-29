@@ -1,21 +1,21 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
+import { Anchor } from "@twilio-paste/anchor";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {Radio, RadioGroup} from '../src';
+import { Radio, RadioGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Radio/Radio (Controlled)',
+  title: "Components/Radio/Radio (Controlled)",
   component: Radio,
-  subcomponents: {RadioGroup},
+  subcomponents: { RadioGroup },
 };
 
 /**
  * No default `checked` passed to Radio
  */
 export const RadioUnchecked = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState('');
+  const [checked, setChecked] = React.useState("");
 
   return (
     <>
@@ -23,8 +23,8 @@ export const RadioUnchecked = (): React.ReactNode => {
         id={useUID()}
         value="1"
         name="foo"
-        checked={checked === '1'}
-        onChange={() => setChecked('1')}
+        checked={checked === "1"}
+        onChange={() => setChecked("1")}
         helpText="This is some help text."
       >
         First option
@@ -33,8 +33,8 @@ export const RadioUnchecked = (): React.ReactNode => {
         id={useUID()}
         value="2"
         name="foo"
-        checked={checked === '2'}
-        onChange={() => setChecked('2')}
+        checked={checked === "2"}
+        onChange={() => setChecked("2")}
         helpText={
           <>
             Some interesting help text with a <Anchor href="http://www.google.com">link</Anchor>
@@ -47,8 +47,8 @@ export const RadioUnchecked = (): React.ReactNode => {
         id={useUID()}
         value="3"
         name="foo"
-        checked={checked === '3'}
-        onChange={() => setChecked('3')}
+        checked={checked === "3"}
+        onChange={() => setChecked("3")}
         helpText="This is some help text."
         disabled
       >
@@ -58,16 +58,16 @@ export const RadioUnchecked = (): React.ReactNode => {
   );
 };
 
-RadioUnchecked.storyName = 'Radio - No initial checked';
+RadioUnchecked.storyName = "Radio - No initial checked";
 RadioUnchecked.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
  * `checked` passed to Radio
  */
 export const RadioChecked = (): React.ReactNode => {
-  const [checked, setChecked] = React.useState('2');
+  const [checked, setChecked] = React.useState("2");
 
   return (
     <>
@@ -75,8 +75,8 @@ export const RadioChecked = (): React.ReactNode => {
         id={useUID()}
         value="1"
         name="foo"
-        checked={checked === '1'}
-        onChange={() => setChecked('1')}
+        checked={checked === "1"}
+        onChange={() => setChecked("1")}
         helpText="This is some help text."
       >
         First option
@@ -85,8 +85,8 @@ export const RadioChecked = (): React.ReactNode => {
         id={useUID()}
         value="2"
         name="foo"
-        checked={checked === '2'}
-        onChange={() => setChecked('2')}
+        checked={checked === "2"}
+        onChange={() => setChecked("2")}
         helpText={
           <>
             Some interesting help text with a <Anchor href="http://www.google.com">link</Anchor>
@@ -99,8 +99,8 @@ export const RadioChecked = (): React.ReactNode => {
         id={useUID()}
         value="3"
         name="foo"
-        checked={checked === '3'}
-        onChange={() => setChecked('3')}
+        checked={checked === "3"}
+        onChange={() => setChecked("3")}
         helpText="This is some help text."
         disabled
       >
@@ -110,7 +110,7 @@ export const RadioChecked = (): React.ReactNode => {
   );
 };
 
-RadioChecked.storyName = 'Radio - initial checked';
+RadioChecked.storyName = "Radio - initial checked";
 RadioChecked.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };

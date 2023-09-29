@@ -1,1 +1,1 @@
-export * from '@twilio-paste/data-visualization-library';
+export * from "@twilio-paste/data-visualization-library";

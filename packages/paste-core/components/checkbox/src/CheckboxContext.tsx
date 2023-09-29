@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface CheckboxContextValue {
   disabled: boolean;
@@ -15,4 +15,4 @@ const CheckboxContext = React.createContext<CheckboxContextValue>({
   onChange: () => {},
 });
 
-export {CheckboxContext};
+export { CheckboxContext };

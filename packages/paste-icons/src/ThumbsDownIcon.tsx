@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ThumbsDownIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ThumbsDownIconProps extends IconWrapperProps {
 }
 
 const ThumbsDownIcon = React.forwardRef<HTMLElement, ThumbsDownIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ThumbsDownIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ThumbsDownIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ThumbsDownIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -42,8 +42,8 @@ const ThumbsDownIcon = React.forwardRef<HTMLElement, ThumbsDownIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ThumbsDownIcon.displayName = 'ThumbsDownIcon';
-export {ThumbsDownIcon};
+ThumbsDownIcon.displayName = "ThumbsDownIcon";
+export { ThumbsDownIcon };

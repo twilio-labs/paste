@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {styled, css} from '@twilio-paste/styling-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {TrProps as TableTrProps} from '@twilio-paste/table';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
+import type { TrProps as TableTrProps } from "@twilio-paste/table";
+import * as React from "react";
 
 export interface TrProps extends TableTrProps {
   role: string;
@@ -11,17 +11,17 @@ export interface TrProps extends TableTrProps {
 
 const StyledTr = styled.tr<TrProps>(
   css({
-    '&[aria-selected=true] > td': {
-      borderColor: 'colorBorderPrimaryWeaker',
+    "&[aria-selected=true] > td": {
+      borderColor: "colorBorderPrimaryWeaker",
     },
-    '&[aria-selected=true] > th': {
-      borderColor: 'colorBorderPrimaryWeaker',
+    "&[aria-selected=true] > th": {
+      borderColor: "colorBorderPrimaryWeaker",
     },
-  })
+  }),
 );
 
 export const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
-  ({element = 'DATA_GRID_TR', striped, ...props}, ref) => {
+  ({ element = "DATA_GRID_TR", striped, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -30,13 +30,13 @@ export const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
         // @ts-expect-error: we don't have polymorphic box typings yet
         as={StyledTr}
         aria-selected={props.selected}
-        _even={{backgroundColor: striped ? 'colorBackgroundRowStriped' : 'transparent'}}
+        _even={{ backgroundColor: striped ? "colorBackgroundRowStriped" : "transparent" }}
         _selected={{
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
         }}
       />
     );
-  }
+  },
 );
 
-Tr.displayName = 'Tr';
+Tr.displayName = "Tr";

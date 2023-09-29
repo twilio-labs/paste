@@ -1,15 +1,15 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {CompositeItem} from '@twilio-paste/reakit-library';
-import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { CompositeItem } from "@twilio-paste/reakit-library";
+import type { CompositeStateReturn } from "@twilio-paste/reakit-library";
+import * as React from "react";
 
-import {PillCloseIcon} from './PillCloseIcon';
-import {FormPillButton} from './FormPillButton';
-import type {PillVariant} from './types';
-import {selectedWrapperStyles, wrapperStyles} from './FormPill.styles';
+import { selectedWrapperStyles, wrapperStyles } from "./FormPill.styles";
+import { FormPillButton } from "./FormPillButton";
+import { PillCloseIcon } from "./PillCloseIcon";
+import type { PillVariant } from "./types";
 
-interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> {
+interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, "element"> {
   selected?: boolean;
   disabled?: boolean;
   children: React.ReactNode;
@@ -45,20 +45,20 @@ interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> 
 export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
   (
     {
-      element = 'FORM_PILL',
+      element = "FORM_PILL",
       onDismiss,
       onSelect,
       next,
       selected,
-      variant = 'default',
+      variant = "default",
       disabled = false,
       i18nErrorLabel,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (selected && disabled) {
-      throw new Error('[Paste FormPill] FormPills cannot be selected and disabled at the same time.');
+      throw new Error("[Paste FormPill] FormPills cannot be selected and disabled at the same time.");
     }
 
     const isHoverable = onSelect != null;
@@ -73,16 +73,16 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
     // Handles delete and backspace keypresses
     const handleKeydown = React.useCallback(
       (event: React.KeyboardEvent) => {
-        if ((event.key === 'Backspace' || event.key === 'Delete') && typeof onDismiss === 'function') {
+        if ((event.key === "Backspace" || event.key === "Delete") && typeof onDismiss === "function") {
           onDismiss(event);
 
           // Focus the next pill upon removing the current one
-          if (typeof next === 'function') {
+          if (typeof next === "function") {
             next();
           }
         }
       },
-      [onDismiss, next]
+      [onDismiss, next],
     );
     return (
       <Box
@@ -121,7 +121,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
         ) : null}
       </Box>
     );
-  }
+  },
 );
 
-FormPill.displayName = 'FormPill';
+FormPill.displayName = "FormPill";

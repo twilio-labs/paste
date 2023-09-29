@@ -1,17 +1,17 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useUID} from '@twilio-paste/uid-library';
-import {Button} from '@twilio-paste/button';
-import {Heading} from '@twilio-paste/heading';
-import {Anchor} from '@twilio-paste/anchor';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {useTabState, Tabs, TabList, Tab, TabPanels, TabPanel} from '../src';
-import type {TabStateReturn} from '../src';
+import { Tab, TabList, TabPanel, TabPanels, Tabs, useTabState } from "../src";
+import type { TabStateReturn } from "../src";
 
 export const HorizontalTabs = (): JSX.Element => {
   const selectedId = useUID();
@@ -322,7 +322,7 @@ const useButtonClickTabState = (uniqueBaseID: string): TabStateReturn => {
 
 export const StateHookTabs = (): JSX.Element => {
   const uniqueBaseID = useUID();
-  const {...tab} = useButtonClickTabState(uniqueBaseID);
+  const { ...tab } = useButtonClickTabState(uniqueBaseID);
 
   return (
     <Tabs state={tab}>
@@ -369,7 +369,7 @@ export const CenterAlignTabTest = (): JSX.Element => {
   );
 };
 
-export const CustomHorizontalTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomHorizontalTabs: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
   const uniqueBaseID = useUID();
@@ -379,50 +379,50 @@ export const CustomHorizontalTabs: StoryFn = (_args, {parameters: {isTestEnviron
       theme={currentTheme}
       elements={{
         HORIZONTAL_TABS: {
-          margin: 'space100',
-          padding: 'space100',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth30',
-          borderColor: 'colorBorderPrimary',
+          margin: "space100",
+          padding: "space100",
+          borderStyle: "solid",
+          borderWidth: "borderWidth30",
+          borderColor: "colorBorderPrimary",
         },
         HORIZONTAL_TAB: {
-          fontFamily: 'fontFamilyCode',
-          paddingLeft: 'space0',
+          fontFamily: "fontFamilyCode",
+          paddingLeft: "space0",
         },
         HORIZONTAL_TAB_LIST: {
-          borderColor: 'colorBorderDestructive',
-          marginY: 'space100',
+          borderColor: "colorBorderDestructive",
+          marginY: "space100",
         },
         HORIZONTAL_TAB_LIST_CHILD: {
-          borderColor: 'colorBorderDestructive',
+          borderColor: "colorBorderDestructive",
         },
         HORIZONTAL_TAB_PANELS: {
-          marginX: 'space100',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth30',
-          borderColor: 'colorBorderPrimaryWeak',
+          marginX: "space100",
+          borderStyle: "solid",
+          borderWidth: "borderWidth30",
+          borderColor: "colorBorderPrimaryWeak",
         },
         HORIZONTAL_TAB_PANEL: {
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth30',
-          borderColor: 'colorBorderDestructiveWeak',
-          marginY: 'space20',
+          borderStyle: "solid",
+          borderWidth: "borderWidth30",
+          borderColor: "colorBorderDestructiveWeak",
+          marginY: "space20",
         },
         HORIZONTAL_CUSTOM_TAB: {
-          paddingLeft: 'space40',
-          color: 'colorTextWarning',
-          fontSize: 'fontSize10',
-          borderBottomStyle: 'solid',
-          borderBottomWidth: 'borderWidth30',
-          borderBottomColor: 'colorBorderPrimary',
+          paddingLeft: "space40",
+          color: "colorTextWarning",
+          fontSize: "fontSize10",
+          borderBottomStyle: "solid",
+          borderBottomWidth: "borderWidth30",
+          borderBottomColor: "colorBorderPrimary",
         },
         HORIZONTAL_OTHER_TAB: {
-          paddingLeft: 'space100',
-          color: 'colorText',
-          backgroundColor: 'colorBackgroundNeutralWeakest',
+          paddingLeft: "space100",
+          color: "colorText",
+          backgroundColor: "colorBackgroundNeutralWeakest",
         },
         HORIZONTAL_DIFFERENT_PANEL: {
-          fontWeight: 'fontWeightBold',
+          fontWeight: "fontWeightBold",
         },
       }}
     >
@@ -485,7 +485,7 @@ CustomHorizontalTabs.parameters = {
   },
 };
 
-export const CustomVerticalTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomVerticalTabs: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
   const uniqueBaseID = useUID();
@@ -496,36 +496,36 @@ export const CustomVerticalTabs: StoryFn = (_args, {parameters: {isTestEnvironme
       theme={currentTheme}
       elements={{
         VERTICAL_TABS: {
-          margin: 'space100',
-          padding: 'space100',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth30',
-          borderColor: 'colorBorderPrimary',
+          margin: "space100",
+          padding: "space100",
+          borderStyle: "solid",
+          borderWidth: "borderWidth30",
+          borderColor: "colorBorderPrimary",
         },
         VERTICAL_TAB: {
-          fontFamily: 'fontFamilyCode',
-          paddingTop: 'space10',
-          fontSize: 'fontSize10',
+          fontFamily: "fontFamilyCode",
+          paddingTop: "space10",
+          fontSize: "fontSize10",
         },
         VERTICAL_CUSTOM_TAB: {
-          backgroundColor: 'colorBackgroundNeutralWeakest',
+          backgroundColor: "colorBackgroundNeutralWeakest",
         },
         VERTICAL_OTHER_TAB: {
-          color: 'colorText',
-          paddingTop: 'space100',
-          borderBottomStyle: 'solid',
-          borderBottomWidth: 'borderWidth30',
-          borderBottomColor: 'colorBorderPrimary',
+          color: "colorText",
+          paddingTop: "space100",
+          borderBottomStyle: "solid",
+          borderBottomWidth: "borderWidth30",
+          borderBottomColor: "colorBorderPrimary",
         },
         VERTICAL_TAB_LIST: {
-          borderColor: 'colorBorderDestructive',
-          marginY: 'space100',
+          borderColor: "colorBorderDestructive",
+          marginY: "space100",
         },
         VERTICAL_TAB_LIST_CHILD: {
-          borderColor: 'colorBorderDestructive',
+          borderColor: "colorBorderDestructive",
         },
         VERTICAL_DIFFERENT_PANEL: {
-          fontWeight: 'fontWeightBold',
+          fontWeight: "fontWeightBold",
         },
       }}
     >
@@ -589,7 +589,7 @@ CustomVerticalTabs.parameters = {
 };
 
 // @TODO
-export const CustomFittedTabs: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomFittedTabs: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   const selectedId = useUID();
   const uniqueBaseID = useUID();
@@ -600,34 +600,34 @@ export const CustomFittedTabs: StoryFn = (_args, {parameters: {isTestEnvironment
       theme={currentTheme}
       elements={{
         HORIZONTAL_TABS: {
-          margin: 'space100',
-          padding: 'space100',
-          borderStyle: 'dashed',
-          borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderPrimary',
+          margin: "space100",
+          padding: "space100",
+          borderStyle: "dashed",
+          borderWidth: "borderWidth10",
+          borderColor: "colorBorderPrimary",
         },
         HORIZONTAL_TAB: {
-          paddingTop: 'space10',
-          fontSize: 'fontSize10',
+          paddingTop: "space10",
+          fontSize: "fontSize10",
         },
         HORIZONTAL_CUSTOM_TAB: {
-          backgroundColor: 'colorBackgroundNeutralWeakest',
-          fontFamily: 'fontFamilyCode',
+          backgroundColor: "colorBackgroundNeutralWeakest",
+          fontFamily: "fontFamilyCode",
         },
         HORIZONTAL_OTHER_TAB: {
-          borderBottomStyle: 'dotted',
-          borderBottomWidth: 'borderWidth20',
-          borderBottomColor: 'colorBorderPrimary',
+          borderBottomStyle: "dotted",
+          borderBottomWidth: "borderWidth20",
+          borderBottomColor: "colorBorderPrimary",
         },
         HORIZONTAL_TAB_LIST: {
-          borderColor: 'colorBorderDestructive',
-          marginY: 'space100',
+          borderColor: "colorBorderDestructive",
+          marginY: "space100",
         },
         HORIZONTAL_TAB_LIST_CHILD: {
-          borderColor: 'colorBorderDestructive',
+          borderColor: "colorBorderDestructive",
         },
         HORIZONTAL_DIFFERENT_PANEL: {
-          fontWeight: 'fontWeightBold',
+          fontWeight: "fontWeightBold",
         },
       }}
     >
@@ -690,6 +690,6 @@ CustomVerticalTabs.parameters = {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Tabs',
+  title: "Components/Tabs",
   component: Tabs,
 };

@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {Box, type BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
-import {useProgressBar} from '@twilio-paste/react-spectrum-library';
-import {animated, useSpring} from '@twilio-paste/animation-library';
-import {keyframes} from '@twilio-paste/styling-library';
+import { animated, useSpring } from "@twilio-paste/animation-library";
+import { Box, type BoxProps } from "@twilio-paste/box";
+import { useProgressBar } from "@twilio-paste/react-spectrum-library";
+import { keyframes } from "@twilio-paste/styling-library";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import {LABEL_SUFFIX} from './constants';
+import { LABEL_SUFFIX } from "./constants";
 
 const AnimatedBox = animated(Box);
 const IndeterminateKeyframes = keyframes`
@@ -17,12 +17,12 @@ const IndeterminateKeyframes = keyframes`
   }
 `;
 
-export interface ProgressBarProps extends HTMLPasteProps<'progress'> {
-  element?: BoxProps['element'];
+export interface ProgressBarProps extends HTMLPasteProps<"progress"> {
+  element?: BoxProps["element"];
   id?: string;
-  'aria-label'?: string;
-  'aria-describedby'?: string;
-  'aria-labelledby'?: string;
+  "aria-label"?: string;
+  "aria-describedby"?: string;
+  "aria-labelledby"?: string;
   value?: number;
   valueLabel?: string;
   /**
@@ -39,32 +39,32 @@ export interface ProgressBarProps extends HTMLPasteProps<'progress'> {
 }
 
 export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((props, ref) => {
-  const {element = 'PROGRESS_BAR', id, value = 0, maxValue = 100, isIndeterminate = false} = props;
+  const { element = "PROGRESS_BAR", id, value = 0, maxValue = 100, isIndeterminate = false } = props;
   /*
    * Since ProgressBar isn't a form element, we cannot use htmlFor from the regular label
    * so we create a ProgressBarLabel component that behaves like a regular form Label
    * but leverages aria-labelledby instead of htmlFor transparently.
    */
-  let labelledBy = props['aria-labelledby'];
-  if (labelledBy == null && props['aria-label'] == null && id != null) {
+  let labelledBy = props["aria-labelledby"];
+  if (labelledBy == null && props["aria-label"] == null && id != null) {
     labelledBy = `${id}${LABEL_SUFFIX}`;
   }
 
-  const {progressBarProps} = useProgressBar({
+  const { progressBarProps } = useProgressBar({
     ...props,
     // Appeases useLabel's internal warning about missing labels because we're doing our own thing
-    'aria-labelledby': labelledBy,
+    "aria-labelledby": labelledBy,
   });
 
   const springConfig = React.useMemo(() => {
     if (!isIndeterminate) {
       const clampedValue = Math.min(Math.max(value, 0), maxValue);
       const percentage = Math.round((clampedValue / maxValue) * 100);
-      return {width: `${percentage}%`, config: {tension: 280, friction: 60}};
+      return { width: `${percentage}%`, config: { tension: 280, friction: 60 } };
     }
 
     return {
-      width: '15%',
+      width: "15%",
     };
   }, [isIndeterminate, value, maxValue]);
 
@@ -93,8 +93,8 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((p
         borderRadius="borderRadius30"
         backgroundImage={
           isIndeterminate
-            ? 'linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent)'
-            : 'none'
+            ? "linear-gradient(45deg, rgba(255, 255, 255, 0.2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.2) 75%, transparent 75%, transparent)"
+            : "none"
         }
         animation={isIndeterminate ? `${IndeterminateKeyframes} 3s linear infinite` : undefined}
       />
@@ -102,4 +102,4 @@ export const ProgressBar = React.forwardRef<HTMLDivElement, ProgressBarProps>((p
   );
 });
 
-ProgressBar.displayName = 'ProgressBar';
+ProgressBar.displayName = "ProgressBar";

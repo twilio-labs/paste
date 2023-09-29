@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {useReducedMotion, Globals as AnimatedGlobals} from '@twilio-paste/animation-library';
-import {StylingGlobals, ThemeProvider as StyledThemeProvider} from '@twilio-paste/styling-library';
-import {pasteGlobalStyles, StyledBase, DefaultTheme, DarkTheme} from '@twilio-paste/theme';
+import { Globals as AnimatedGlobals, useReducedMotion } from "@twilio-paste/animation-library";
+import { StylingGlobals, ThemeProvider as StyledThemeProvider } from "@twilio-paste/styling-library";
+import { DarkTheme, DefaultTheme, StyledBase, pasteGlobalStyles } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {createCustomTheme} from './utils';
-import type {CustomizationProviderProps} from './types';
+import type { CustomizationProviderProps } from "./types";
+import { createCustomTheme } from "./utils";
 
 /**
  * The customization provider can be used to wrap a Paste applications and customize the
@@ -23,7 +23,7 @@ import type {CustomizationProviderProps} from './types';
  * @return {*}
  */
 const CustomizationProvider: React.FC<React.PropsWithChildren<CustomizationProviderProps>> = ({
-  baseTheme = 'default',
+  baseTheme = "default",
   customBreakpoints,
   elements,
   theme,
@@ -40,22 +40,22 @@ const CustomizationProvider: React.FC<React.PropsWithChildren<CustomizationProvi
   const customTheme = React.useMemo(
     () =>
       createCustomTheme({
-        baseTheme: baseTheme === 'dark' ? DarkTheme : DefaultTheme,
+        baseTheme: baseTheme === "dark" ? DarkTheme : DefaultTheme,
         overrides: theme || {},
         elements: elements || {},
         customBreakpoints,
       }),
-    [baseTheme, customBreakpoints, elements, theme]
+    [baseTheme, customBreakpoints, elements, theme],
   );
 
   return (
     <StyledThemeProvider theme={customTheme}>
-      <StylingGlobals styles={pasteGlobalStyles({theme: customTheme})} />
+      <StylingGlobals styles={pasteGlobalStyles({ theme: customTheme })} />
       <StyledBase {...props} />
     </StyledThemeProvider>
   );
 };
 
-CustomizationProvider.displayName = 'PasteCustomizationProvider';
+CustomizationProvider.displayName = "PasteCustomizationProvider";
 
-export {CustomizationProvider};
+export { CustomizationProvider };

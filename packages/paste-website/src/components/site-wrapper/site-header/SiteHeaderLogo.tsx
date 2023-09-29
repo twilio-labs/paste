@@ -1,19 +1,19 @@
-import * as React from 'react';
-import Link from 'next/link';
-import {styled, themeGet} from '@twilio-paste/styling-library';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {useTheme} from '@twilio-paste/theme';
+import { Box } from "@twilio-paste/box";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { styled, themeGet } from "@twilio-paste/styling-library";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import Link from "next/link";
+import * as React from "react";
 
-import {PasteIcon} from '../../icons/PasteIcon';
-import {PasteIconPride} from '../../icons/PasteIconPride';
-import {event} from '../../../lib/gtag';
+import { event } from "../../../lib/gtag";
+import { PasteIcon } from "../../icons/PasteIcon";
+import { PasteIconPride } from "../../icons/PasteIconPride";
 
 const LogoLink = styled(Link)`
   position: relative;
   text-decoration: none;
-  color: ${themeGet('textColors.colorTextInverse')};
+  color: ${themeGet("textColors.colorTextInverse")};
 
   &:hover {
     text-decoration: underline;
@@ -21,8 +21,8 @@ const LogoLink = styled(Link)`
 
   &:focus {
     outline: none;
-    box-shadow: ${themeGet('shadows.shadowFocus')};
-    border-radius: ${themeGet('radii.borderRadius10')};
+    box-shadow: ${themeGet("shadows.shadowFocus")};
+    border-radius: ${themeGet("radii.borderRadius10")};
   }
 `;
 
@@ -35,21 +35,21 @@ interface SiteHeaderLogoProps {
  * Note: 'subtitle' isn't passed for the mobile view, so we use that fact
  * to render different sizes and spacing in mobile
  */
-const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({title, subtitle}) => {
+const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({ title, subtitle }) => {
   const theme = useTheme();
   const [logoOpacity, setLogoOpacity] = React.useState(1);
   const [hoverOpacity, setHoverOpacity] = React.useState(0);
-  const logoTransition = 'ease-out 350ms';
+  const logoTransition = "ease-out 350ms";
 
   return (
-    <Box display="flex" alignItems="center" minWidth={subtitle ? 'sizeSidebar' : 'size0'}>
+    <Box display="flex" alignItems="center" minWidth={subtitle ? "sizeSidebar" : "size0"}>
       <LogoLink
         href="/"
         onClick={() =>
           event({
-            category: 'Top Navigation',
-            action: 'click-paste-logo',
-            label: 'Paste logo',
+            category: "Top Navigation",
+            action: "click-paste-logo",
+            label: "Paste logo",
           })
         }
         onMouseEnter={() => {
@@ -97,4 +97,4 @@ const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = (
   );
 };
 
-export {SiteHeaderLogo};
+export { SiteHeaderLogo };

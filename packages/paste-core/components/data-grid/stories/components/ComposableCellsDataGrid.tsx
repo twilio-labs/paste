@@ -1,12 +1,12 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Input} from '@twilio-paste/input';
-import {Menu, useMenuState, MenuButton, MenuItem, MenuSeparator} from '@twilio-paste/menu';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Select, Option} from '@twilio-paste/select';
+import { Box } from "@twilio-paste/box";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { Input } from "@twilio-paste/input";
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
+import { Option, Select } from "@twilio-paste/select";
+import * as React from "react";
 
-import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
-import {TableHeaderData, TableBodyData} from './constants';
+import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from "../../src";
+import { TableBodyData, TableHeaderData } from "./constants";
 
 const ActionMenu = (): JSX.Element => {
   const menu = useMenuState();
@@ -53,7 +53,7 @@ export const ComposableCellsDataGrid = (): JSX.Element => {
                     <Input
                       aria-label={TableHeaderData[colIndex]}
                       data-testid={`input-${rowIndex}-${colIndex}`}
-                      value={col || ''}
+                      value={col || ""}
                       type="text"
                       onChange={() => {}}
                     />

@@ -1,2 +1,2 @@
-export * from './InPageNavigation';
-export * from './InPageNavigationItem';
+export * from "./InPageNavigation";
+export * from "./InPageNavigationItem";

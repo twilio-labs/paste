@@ -3,11 +3,11 @@
  * If the value is not a rem unit, it returns the original value.
  */
 export const remToPx = (value: string): string => {
-  if (!value.includes('rem')) {
+  if (!value.includes("rem")) {
     return value;
   }
 
-  const remValue = Number(value.replace('rem', '').trim());
+  const remValue = Number(value.replace("rem", "").trim());
   if (isNaN(remValue)) {
     return value;
   }

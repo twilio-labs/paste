@@ -3,7 +3,7 @@ export {
   Popover as NonModalDialogPrimitive,
   PopoverDisclosure as NonModalDialogDisclosurePrimitive,
   PopoverArrow as NonModalDialogArrowPrimitive,
-} from '@twilio-paste/reakit-library';
+} from "@twilio-paste/reakit-library";
 
 export type {
   PopoverState as NonModalDialogPrimitiveState,
@@ -12,4 +12,4 @@ export type {
   PopoverProps as NonModalDialogPrimitiveProps,
   PopoverDisclosureProps as NonModalDialogDisclosurePrimitiveProps,
   PopoverArrowProps as NonModalDialogArrowPrimitiveProps,
-} from '@twilio-paste/reakit-library';
+} from "@twilio-paste/reakit-library";

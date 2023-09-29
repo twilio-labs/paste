@@ -1,16 +1,16 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Box} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
-import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
-import {Text} from '@twilio-paste/text';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { ProcessSuccessIcon } from "@twilio-paste/icons/esm/ProcessSuccessIcon";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails} from '../src';
+import { DescriptionList, DescriptionListDetails, DescriptionListSet, DescriptionListTerm } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Description List',
+  title: "Components/Description List",
   component: DescriptionList,
 };
 
@@ -143,10 +143,10 @@ export const Customized: StoryFn = () => {
     <CustomizationProvider
       theme={theme}
       elements={{
-        DESCRIPTION_LIST: {color: 'colorTextDecorative20', fontFamily: 'fontFamilyCode'},
-        DESCRIPTION_LIST_SET: {backgroundColor: 'colorBackgroundDecorative30Weakest'},
-        DESCRIPTION_LIST_TERM: {fontWeight: 'fontWeightExtrabold'},
-        DESCRIPTION_LIST_DETAILS: {marginLeft: 'space50', color: 'colorTextDecorative40'},
+        DESCRIPTION_LIST: { color: "colorTextDecorative20", fontFamily: "fontFamilyCode" },
+        DESCRIPTION_LIST_SET: { backgroundColor: "colorBackgroundDecorative30Weakest" },
+        DESCRIPTION_LIST_TERM: { fontWeight: "fontWeightExtrabold" },
+        DESCRIPTION_LIST_DETAILS: { marginLeft: "space50", color: "colorTextDecorative40" },
       }}
     >
       <DescriptionList>

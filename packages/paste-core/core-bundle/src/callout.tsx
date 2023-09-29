@@ -1,1 +1,1 @@
-export * from '@twilio-paste/callout';
+export * from "@twilio-paste/callout";

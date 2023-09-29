@@ -1,9 +1,9 @@
-import * as React from 'react';
+import * as React from "react";
 
-import {TokensListFilter} from '../src/components/tokens-list/TokensListFilter';
+import { TokensListFilter } from "../src/components/tokens-list/TokensListFilter";
 
 export const TokensListFilterExample = (): React.ReactNode => {
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState("");
 
   return (
     <TokensListFilter
@@ -13,7 +13,7 @@ export const TokensListFilterExample = (): React.ReactNode => {
       }}
       handleFormatChange={() => {}}
       handleThemeChange={() => {}}
-      handleClearSearch={() => setValue('')}
+      handleClearSearch={() => setValue("")}
       selectedFormat="css"
       selectedTheme="default"
     />
@@ -21,6 +21,6 @@ export const TokensListFilterExample = (): React.ReactNode => {
 };
 
 export default {
-  title: 'Website/TokensListFilter',
+  title: "Website/TokensListFilter",
   component: TokensListFilter,
 };

@@ -1,12 +1,12 @@
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
 // https://styled-system.com/api/#space
-import type {ThemeShape} from '@twilio-paste/theme';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type { ThemeShape } from "@twilio-paste/theme";
 
 // Tokens
-export type SpaceOptions = keyof ThemeShape['space'];
+export type SpaceOptions = keyof ThemeShape["space"];
 export type Space = ResponsiveValue<SpaceOptions>;
 export type Padding = Space;
-export type Margin = Space | 'auto';
+export type Margin = Space | "auto";
 export type Gap = Space;
 
 // Styled-system groupings

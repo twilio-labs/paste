@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from "react";
 
-import type {UseDarkModeReturn} from '../hooks/useDarkMode';
+import type { UseDarkModeReturn } from "../hooks/useDarkMode";
 
 type DarkModeContextValue = {
   theme: UseDarkModeReturn[0];
@@ -13,7 +13,7 @@ export const DarkModeContext = React.createContext<DarkModeContextValue | null>(
 export const useDarkModeContext = (): DarkModeContextValue => {
   const context = React.useContext(DarkModeContext);
   if (!context) {
-    throw new Error('useDarkModeContext must be used with DarkModeContextProvider');
+    throw new Error("useDarkModeContext must be used with DarkModeContextProvider");
   }
   return context;
 };

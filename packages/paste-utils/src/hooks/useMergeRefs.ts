@@ -2,7 +2,7 @@
  * Credit to Chakra-UI
  * https://github.com/chakra-ui/chakra-ui/blob/main/packages/hooks/src/use-merge-refs.ts
  */
-import * as React from 'react';
+import * as React from "react";
 
 type ReactRef<T> = React.Ref<T> | React.MutableRefObject<T>;
 
@@ -10,7 +10,7 @@ type ReactRef<T> = React.Ref<T> | React.MutableRefObject<T>;
 export function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T): void {
   if (ref == null) return;
 
-  if (typeof ref === 'function') {
+  if (typeof ref === "function") {
     ref(value);
     return;
   }

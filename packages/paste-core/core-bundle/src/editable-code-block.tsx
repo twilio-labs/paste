@@ -1,1 +1,1 @@
-export * from '@twilio-paste/editable-code-block';
+export * from "@twilio-paste/editable-code-block";

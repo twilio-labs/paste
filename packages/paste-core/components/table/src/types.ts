@@ -1,13 +1,13 @@
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
-import type {WidthOptions} from '@twilio-paste/style-props';
+import type { BoxProps } from "@twilio-paste/box";
+import type { WidthOptions } from "@twilio-paste/style-props";
+import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
 
 import type {
   TableAlignmentObject,
   TableLayoutObject,
   TableVariantObject,
   TableVerticalAlignmentObject,
-} from './constants';
+} from "./constants";
 
 export type TableAlignmentOptions = ValueOf<typeof TableAlignmentObject>;
 export type TableLayoutOptions = ValueOf<typeof TableLayoutObject>;
@@ -18,7 +18,7 @@ export interface TableContextProps {
   striped: boolean;
 }
 
-export interface TableProps extends HTMLPasteProps<'table'> {
+export interface TableProps extends HTMLPasteProps<"table"> {
   children: NonNullable<React.ReactNode>;
   /**
    * Overrides the default element name ('TABLE') to apply unique styles with the Customization Provider.
@@ -27,7 +27,7 @@ export interface TableProps extends HTMLPasteProps<'table'> {
    * @type {BoxProps['element']}
    * @memberof TableProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   /**
    * Sets a background color for even rows within the table.
    *
@@ -66,7 +66,7 @@ export interface TableProps extends HTMLPasteProps<'table'> {
   isActionable?: boolean;
 }
 
-export interface THeadProps extends HTMLPasteProps<'thead'> {
+export interface THeadProps extends HTMLPasteProps<"thead"> {
   children: NonNullable<React.ReactNode>;
   /**
    * Overrides the default element name ('THEAD') to apply unique styles with the Customization Provider.
@@ -75,7 +75,7 @@ export interface THeadProps extends HTMLPasteProps<'thead'> {
    * @type {BoxProps['element']}
    * @memberof THeadProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   /**
    * Makes the table head stick to the top of the window as the user scrolls a long table
    *
@@ -89,13 +89,13 @@ export interface THeadProps extends HTMLPasteProps<'thead'> {
    * @type {BoxProps['top']}
    * @memberof THeadProps
    */
-  top?: BoxProps['top'];
+  top?: BoxProps["top"];
 }
-export interface TBodyProps extends HTMLPasteProps<'tbody'> {
+export interface TBodyProps extends HTMLPasteProps<"tbody"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
-export interface TrProps extends HTMLPasteProps<'tr'> {
+export interface TrProps extends HTMLPasteProps<"tr"> {
   children: NonNullable<React.ReactNode>;
   /**
    * Overrides the default element name ('TR') to apply unique styles with the Customization Provider.
@@ -104,7 +104,7 @@ export interface TrProps extends HTMLPasteProps<'tr'> {
    * @type {BoxProps['element']}
    * @memberof TrProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   /**
    * Sets the vertical alignment of the content within the Table row. Defaults to `middle`.
    *
@@ -113,7 +113,7 @@ export interface TrProps extends HTMLPasteProps<'tr'> {
    */
   verticalAlign?: TableVerticalAlignmentOptions;
 }
-export interface ThProps extends HTMLPasteProps<'th'> {
+export interface ThProps extends HTMLPasteProps<"th"> {
   children?: React.ReactNode;
   /**
    * Overrides the default element name ('TH') to apply unique styles with the Customization Provider.
@@ -122,7 +122,7 @@ export interface ThProps extends HTMLPasteProps<'th'> {
    * @type {BoxProps['element']}
    * @memberof ThProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   /**
    * Sets the text alignment of the content within the Table cell. Defaults to `left`.
    *
@@ -138,7 +138,7 @@ export interface ThProps extends HTMLPasteProps<'th'> {
    */
   width?: WidthOptions;
 }
-export interface TdProps extends HTMLPasteProps<'td'> {
+export interface TdProps extends HTMLPasteProps<"td"> {
   children?: React.ReactNode;
   /**
    * Overrides the default element name ('TD') to apply unique styles with the Customization Provider.
@@ -147,7 +147,7 @@ export interface TdProps extends HTMLPasteProps<'td'> {
    * @type {BoxProps['element']}
    * @memberof TdProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   /**
    * Sets the text alignment of the content within the Table cell. Defaults to `left`.
    *
@@ -156,7 +156,7 @@ export interface TdProps extends HTMLPasteProps<'td'> {
    */
   textAlign?: TableAlignmentOptions;
 }
-export interface TFootProps extends HTMLPasteProps<'tfoot'> {
+export interface TFootProps extends HTMLPasteProps<"tfoot"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }

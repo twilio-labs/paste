@@ -1,1 +1,1 @@
-export * from '@twilio-paste/popover';
+export * from "@twilio-paste/popover";

@@ -1,11 +1,11 @@
-import * as React from 'react';
-import type {Meta, StoryFn} from '@storybook/react';
+import type { Meta, StoryFn } from "@storybook/react";
+import * as React from "react";
 
-import {StatusBadge} from '../src';
+import { StatusBadge } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Status/StatusBadge',
+  title: "Components/Status/StatusBadge",
   component: StatusBadge,
   argTypes: {
     variant: {
@@ -17,7 +17,7 @@ export default {
   },
 } as Meta<typeof StatusBadge>;
 
-const Template: StoryFn<typeof StatusBadge> = ({variant}) => (
+const Template: StoryFn<typeof StatusBadge> = ({ variant }) => (
   <StatusBadge as="span" variant={variant}>
     {variant}
   </StatusBadge>
@@ -25,49 +25,49 @@ const Template: StoryFn<typeof StatusBadge> = ({variant}) => (
 
 export const ProcessSuccessStatusBadge = Template.bind({});
 ProcessSuccessStatusBadge.args = {
-  variant: 'ProcessSuccess',
+  variant: "ProcessSuccess",
 };
 export const ProcessErrorStatusBadge = Template.bind({});
 ProcessErrorStatusBadge.args = {
-  variant: 'ProcessError',
+  variant: "ProcessError",
 };
 export const ProcessWarningStatusBadge = Template.bind({});
 ProcessWarningStatusBadge.args = {
-  variant: 'ProcessWarning',
+  variant: "ProcessWarning",
 };
 export const ProcessNeutralStatusBadge = Template.bind({});
 ProcessNeutralStatusBadge.args = {
-  variant: 'ProcessNeutral',
+  variant: "ProcessNeutral",
 };
 export const ProcessInProgressStatusBadge = Template.bind({});
 ProcessInProgressStatusBadge.args = {
-  variant: 'ProcessInProgress',
+  variant: "ProcessInProgress",
 };
 export const ProcessDisabledStatusBadge = Template.bind({});
 ProcessDisabledStatusBadge.args = {
-  variant: 'ProcessDisabled',
+  variant: "ProcessDisabled",
 };
 export const ProcessDraftStatusBadge = Template.bind({});
 ProcessDraftStatusBadge.args = {
-  variant: 'ProcessDraft',
+  variant: "ProcessDraft",
 };
 export const ConnectivityAvailableStatusBadge = Template.bind({});
 ConnectivityAvailableStatusBadge.args = {
-  variant: 'ConnectivityAvailable',
+  variant: "ConnectivityAvailable",
 };
 export const ConnectivityBusyStatusBadge = Template.bind({});
 ConnectivityBusyStatusBadge.args = {
-  variant: 'ConnectivityBusy',
+  variant: "ConnectivityBusy",
 };
 export const ConnectivityUnavailableStatusBadge = Template.bind({});
 ConnectivityUnavailableStatusBadge.args = {
-  variant: 'ConnectivityUnavailable',
+  variant: "ConnectivityUnavailable",
 };
 export const ConnectivityNeutralStatusBadge = Template.bind({});
 ConnectivityNeutralStatusBadge.args = {
-  variant: 'ConnectivityNeutral',
+  variant: "ConnectivityNeutral",
 };
 export const ConnectivityOfflineStatusBadge = Template.bind({});
 ConnectivityOfflineStatusBadge.args = {
-  variant: 'ConnectivityOffline',
+  variant: "ConnectivityOffline",
 };

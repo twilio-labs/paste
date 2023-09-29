@@ -1,1 +1,1 @@
-export * from '@twilio-paste/screen-reader-only';
+export * from "@twilio-paste/screen-reader-only";

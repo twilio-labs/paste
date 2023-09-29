@@ -1,1 +1,1 @@
-export * from '@twilio-paste/media-object';
+export * from "@twilio-paste/media-object";

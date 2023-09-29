@@ -1,11 +1,11 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from "@storybook/react";
+import * as React from "react";
 
-import {ChatMessage, ChatBubble, ChatLog} from '../../src';
+import { ChatBubble, ChatLog, ChatMessage } from "../../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatLog',
+  title: "Components/ChatLog",
 };
 
 export const InboundChatMessage: StoryFn = () => (

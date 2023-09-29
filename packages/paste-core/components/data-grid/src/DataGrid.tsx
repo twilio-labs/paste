@@ -1,22 +1,22 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {useCompositeState, Composite} from '@twilio-paste/reakit-library';
-import {Table} from '@twilio-paste/table';
-import type {TableProps} from '@twilio-paste/table';
+import { Composite, useCompositeState } from "@twilio-paste/reakit-library";
+import { Table } from "@twilio-paste/table";
+import type { TableProps } from "@twilio-paste/table";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {DataGridContext} from './DataGridContext';
+import { DataGridContext } from "./DataGridContext";
 import {
+  delayedSetFocusable,
   ensureFocus,
   getActiveElement,
-  getFirstFocusableIn,
   getClosestCellFrom,
   getClosestGridCellFromCurrentFocus,
+  getFirstFocusableIn,
   isCell,
-  delayedSetFocusable,
-} from './utils';
+} from "./utils";
 
 export interface DataGridProps extends TableProps {
-  'aria-label': string;
+  "aria-label": string;
 }
 
 /**
@@ -27,10 +27,10 @@ export interface DataGridProps extends TableProps {
  * @param {string} element - customization element
  */
 export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
-  ({element = 'DATA_GRID', striped = false, ...props}, ref) => {
+  ({ element = "DATA_GRID", striped = false, ...props }, ref) => {
     const dataGridId = `data-grid-${useUID()}`;
     const lastFocusedElement = React.useRef<Element | null>(null);
-    const compositeState = useCompositeState({unstable_virtual: false});
+    const compositeState = useCompositeState({ unstable_virtual: false });
     const [actionable, setActionable] = React.useState<boolean>(false);
 
     /**
@@ -73,7 +73,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
           }
         }
       },
-      [dataGridId]
+      [dataGridId],
     );
 
     /**
@@ -86,7 +86,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
            * Wrapping cases in {} to avoid ESLint error
            * https://eslint.org/docs/rules/no-case-declarations
            */
-          case 'Enter': {
+          case "Enter": {
             // Set the actionable state
             setActionable(true);
 
@@ -105,7 +105,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
             }
             break;
           }
-          case 'Escape': {
+          case "Escape": {
             // Set the actionable state
             setActionable(false);
             // From the current focus target, find the closest parent cell
@@ -122,7 +122,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
             break;
         }
       },
-      [actionable, dataGridId]
+      [actionable, dataGridId],
     );
 
     const dataGridState = {
@@ -150,7 +150,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
         />
       </DataGridContext.Provider>
     );
-  }
+  },
 );
 
-DataGrid.displayName = 'DataGrid';
+DataGrid.displayName = "DataGrid";

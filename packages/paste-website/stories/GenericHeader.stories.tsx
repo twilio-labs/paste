@@ -1,6 +1,6 @@
-import * as React from 'react';
+import * as React from "react";
 
-import {GenericHeader} from '../src/components/shortcodes/generic-header';
+import { GenericHeader } from "../src/components/shortcodes/generic-header";
 
 export const BasicHeader = (): React.ReactNode => {
   return <GenericHeader name="Alert" categoryRoute="/components" />;
@@ -22,6 +22,6 @@ export const FullHeader = (): React.ReactNode => {
 };
 
 export default {
-  title: 'Website/GenericPageHeader',
+  title: "Website/GenericPageHeader",
   component: BasicHeader,
 };

@@ -1,4 +1,4 @@
-import {removeTsconfigBuildFiles} from '../utils/removeTsconfigBuildFiles';
+import { removeTsconfigBuildFiles } from "../utils/removeTsconfigBuildFiles";
 
 (async () => {
   await Promise.all([removeTsconfigBuildFiles()]);

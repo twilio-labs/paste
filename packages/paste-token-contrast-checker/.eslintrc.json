@@ -1,5 +1,5 @@
 {
   "extends": "../../.eslintrc.js",
   "root": true,
-  "rules": {"react/display-name": "off"}
+  "rules": { "react/display-name": "off" }
 }

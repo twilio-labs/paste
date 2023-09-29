@@ -1,5 +1,5 @@
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import { useTheme } from "@twilio-paste/theme";
 
 const PopularSectionHeader = (): JSX.Element => {
   const theme = useTheme();
@@ -12,15 +12,15 @@ const PopularSectionHeader = (): JSX.Element => {
       marginTop="space0"
       position="relative"
       _after={{
-        borderTopColor: 'colorBorderWeak',
-        borderTopStyle: 'solid',
-        borderTopWidth: 'borderWidth10',
+        borderTopColor: "colorBorderWeak",
+        borderTopStyle: "solid",
+        borderTopWidth: "borderWidth10",
         content: `""`,
-        display: 'block',
-        height: '1px',
-        marginLeft: 'space160',
-        position: 'absolute',
-        top: '50%',
+        display: "block",
+        height: "1px",
+        marginLeft: "space160",
+        position: "absolute",
+        top: "50%",
         width: `calc(100% - ${theme.space.space160})`,
       }}
     >
@@ -29,4 +29,4 @@ const PopularSectionHeader = (): JSX.Element => {
   );
 };
 
-export {PopularSectionHeader};
+export { PopularSectionHeader };

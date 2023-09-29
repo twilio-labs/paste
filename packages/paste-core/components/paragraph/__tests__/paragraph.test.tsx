@@ -1,65 +1,65 @@
-import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from "@testing-library/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import * as React from "react";
 
-import {Paragraph} from '../src';
+import { Paragraph } from "../src";
 
-describe('General', () => {
-  it('should render', (): void => {
+describe("General", () => {
+  it("should render", (): void => {
     const textContent = `This is a paragraph`;
-    const {getByText} = render(<Paragraph>{textContent}</Paragraph>);
+    const { getByText } = render(<Paragraph>{textContent}</Paragraph>);
     expect(getByText(textContent)).toBeDefined();
-    expect(getByText(textContent).tagName).toEqual('P');
+    expect(getByText(textContent).tagName).toEqual("P");
   });
-  it('should allow for global html Attributes', (): void => {
+  it("should allow for global html Attributes", (): void => {
     const textContent = `This is a paragraph`;
     render(
       <Paragraph aria-label="foo" data-testid="bar">
         {textContent}
-      </Paragraph>
+      </Paragraph>,
     );
-    expect(screen.getByTestId('bar')).toBeDefined();
-    expect(screen.getByLabelText('foo')).toBeDefined();
+    expect(screen.getByTestId("bar")).toBeDefined();
+    expect(screen.getByLabelText("foo")).toBeDefined();
   });
 });
 
-describe('HTML attributes', () => {
-  it('should set a element data attribute for Paragraph', () => {
+describe("HTML attributes", () => {
+  it("should set a element data attribute for Paragraph", () => {
     render(<Paragraph>paragraph</Paragraph>);
-    expect(screen.getByText('paragraph').getAttribute('data-paste-element')).toEqual('PARAGRAPH');
+    expect(screen.getByText("paragraph").getAttribute("data-paste-element")).toEqual("PARAGRAPH");
   });
-  it('should set a custom element data attribute for Paragraph', () => {
+  it("should set a custom element data attribute for Paragraph", () => {
     render(<Paragraph element="foo">paragraph</Paragraph>);
-    expect(screen.getByText('paragraph').getAttribute('data-paste-element')).toEqual('foo');
+    expect(screen.getByText("paragraph").getAttribute("data-paste-element")).toEqual("foo");
   });
 });
 
-describe('Customization', () => {
-  it('should add custom styles to Paragraph', (): void => {
+describe("Customization", () => {
+  it("should add custom styles to Paragraph", (): void => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{PARAGRAPH: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        elements={{ PARAGRAPH: { color: "colorTextWeak", backgroundColor: "colorBackground" } }}
       >
         <Paragraph>Custom paragraph</Paragraph>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
-    const renderedParagraph = screen.getByText('Custom paragraph');
-    expect(renderedParagraph).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
-    expect(renderedParagraph).toHaveStyleRule('color', 'rgb(96, 107, 133)');
+    const renderedParagraph = screen.getByText("Custom paragraph");
+    expect(renderedParagraph).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
+    expect(renderedParagraph).toHaveStyleRule("color", "rgb(96, 107, 133)");
   });
 
-  it('should add custom styles to Paragraph with a custom element data attribute', (): void => {
+  it("should add custom styles to Paragraph with a custom element data attribute", (): void => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{foo: {color: 'colorTextWeak', backgroundColor: 'colorBackground'}}}
+        elements={{ foo: { color: "colorTextWeak", backgroundColor: "colorBackground" } }}
       >
         <Paragraph element="foo">Custom paragraph</Paragraph>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
-    const renderedParagraph = screen.getByText('Custom paragraph');
-    expect(renderedParagraph).toHaveStyleRule('background-color', 'rgb(244, 244, 246)');
-    expect(renderedParagraph).toHaveStyleRule('color', 'rgb(96, 107, 133)');
+    const renderedParagraph = screen.getByText("Custom paragraph");
+    expect(renderedParagraph).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
+    expect(renderedParagraph).toHaveStyleRule("color", "rgb(96, 107, 133)");
   });
 });

@@ -1,6 +1,6 @@
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-import {Theme} from '../types';
+import { Theme } from "../types";
 
 export const getThemeSetting = (): Theme =>
-  (vscode.workspace.getConfiguration('vs-code-intellisense').get('theme') as Theme) ?? 'Default';
+  (vscode.workspace.getConfiguration("vs-code-intellisense").get("theme") as Theme) ?? "Default";

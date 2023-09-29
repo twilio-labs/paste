@@ -1,38 +1,38 @@
-import * as React from 'react';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import merge from 'deepmerge';
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import merge from "deepmerge";
+import * as React from "react";
 
-import {SizeStyles, BaseStyles, ToggleIconButtonStyles} from './styles';
-import type {DirectButtonProps} from './types';
+import { BaseStyles, SizeStyles, ToggleIconButtonStyles } from "./styles";
+import type { DirectButtonProps } from "./types";
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
  * legacy global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextIcon',
+  color: "colorTextIcon",
   _hover: {
-    color: 'colorTextPrimaryStrongest',
+    color: "colorTextPrimaryStrongest",
   },
   _active: {
-    color: 'colorTextPrimaryStrongest',
+    color: "colorTextPrimaryStrongest",
   },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextPrimary',
+  color: "colorTextPrimary",
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {
-  color: 'colorTextWeaker',
+  color: "colorTextWeaker",
   _pressed: {
-    backgroundColor: 'colorBackgroundStrong',
-    color: 'colorTextWeak',
+    backgroundColor: "colorBackgroundStrong",
+    color: "colorTextWeak",
   },
   _pressed_hover: {
-    backgroundColor: 'colorBackgroundStrong',
-    color: 'colorTextWeak',
+    backgroundColor: "colorBackgroundStrong",
+    color: "colorTextWeak",
   },
 });
 
@@ -43,7 +43,7 @@ const ButtonStyleMapping = {
 };
 
 const SecondaryIconButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, pressed, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, pressed, ...props }, ref) => {
     const toggleStyles = pressed === undefined ? {} : ToggleIconButtonStyles;
 
     // Must spread size styles after button styles
@@ -51,19 +51,19 @@ const SecondaryIconButton = React.forwardRef<HTMLButtonElement, DirectButtonProp
       <Box
         ref={ref}
         aria-pressed={pressed}
-        width={fullWidth ? '100%' : 'auto'}
+        width={fullWidth ? "100%" : "auto"}
         {...safelySpreadBoxProps(props)}
         {...toggleStyles}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 SecondaryIconButton.defaultProps = {
-  as: 'button',
+  as: "button",
 };
 
-SecondaryIconButton.displayName = 'SecondaryIconButton';
+SecondaryIconButton.displayName = "SecondaryIconButton";
 
-export {SecondaryIconButton};
+export { SecondaryIconButton };

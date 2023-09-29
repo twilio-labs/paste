@@ -1,4 +1,4 @@
-import type {PackageShape} from '../tools/utils/getRepoPackages';
+import type { PackageShape } from "../tools/utils/getRepoPackages";
 
 /**
  * Returns a list of public packages by filtering out the private ones
@@ -15,7 +15,7 @@ export const getPublicPackages = (packageList: PackageShape[]) => packageList.fi
  * @return {*}  {string}
  */
 export const getRepoPackagePath = (location: string): string =>
-  location.slice(location.indexOf('packages'), location.length);
+  location.slice(location.indexOf("packages"), location.length);
 
 /**
  * Returns file paths relative to the root of the project from a list of packages
@@ -24,7 +24,7 @@ export const getRepoPackagePath = (location: string): string =>
  * @return {*}  {string[]}
  */
 export const getPackagePaths = (packages: PackageShape[]): string[] =>
-  packages.map(({location}) => getRepoPackagePath(location));
+  packages.map(({ location }) => getRepoPackagePath(location));
 
 /**
  *  From a list of files, return only the files that are located in
@@ -71,13 +71,13 @@ export const getUnpublishedPackageNames = (touchedFiles: string[], publicPackage
     // all packages are uniform, except for design tokens. Source files are in the src directory.
     // any changes to tokens, formatters or types in design tokens also need to be released
     if (
-      filePath.includes('/src/') ||
-      filePath.includes('/paste-design-tokens/tokens/') ||
-      filePath.includes('/paste-design-tokens/formatters/') ||
-      filePath.includes('/paste-design-tokens/types/') ||
-      filePath.includes('/paste-codemods/bin/') ||
-      filePath.includes('/paste-codemods/transforms/') ||
-      filePath.includes('/paste-codemods/tools/.cache/')
+      filePath.includes("/src/") ||
+      filePath.includes("/paste-design-tokens/tokens/") ||
+      filePath.includes("/paste-design-tokens/formatters/") ||
+      filePath.includes("/paste-design-tokens/types/") ||
+      filePath.includes("/paste-codemods/bin/") ||
+      filePath.includes("/paste-codemods/transforms/") ||
+      filePath.includes("/paste-codemods/tools/.cache/")
     ) {
       uniquePackages.add(packageName);
     }
@@ -91,14 +91,14 @@ export const getUnpublishedPackageNames = (touchedFiles: string[], publicPackage
  * @param {string[]} fileList
  */
 export const getChangesetsFromFiles = (fileList: string[]) =>
-  fileList.filter((filePath) => filePath.includes('changeset') && filePath.includes('.md'));
+  fileList.filter((filePath) => filePath.includes("changeset") && filePath.includes(".md"));
 
 export const IGNORE_LIST = [
-  'paste-website',
-  'paste-nextjs-template',
-  'paste-theme-designer',
-  'paste-color-contrast-utils',
-  'paste-token-contrast-checker',
+  "paste-website",
+  "paste-nextjs-template",
+  "paste-theme-designer",
+  "paste-color-contrast-utils",
+  "paste-token-contrast-checker",
 ];
 
 /**
@@ -109,8 +109,8 @@ export const IGNORE_LIST = [
 export const getPackJsonsFromFiles = (fileList: string[]) =>
   fileList.filter((filePath) => {
     return (
-      filePath !== 'package.json' && // Ignore root package.json
-      filePath.includes('package.json') && // Only include package.json files
+      filePath !== "package.json" && // Ignore root package.json
+      filePath.includes("package.json") && // Only include package.json files
       !IGNORE_LIST.some((ignorePath) => filePath.includes(ignorePath)) // Unless they are in the ignore list
     );
   });

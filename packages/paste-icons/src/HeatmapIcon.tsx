@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface HeatmapIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface HeatmapIconProps extends IconWrapperProps {
 }
 
 const HeatmapIcon = React.forwardRef<HTMLElement, HeatmapIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `HeatmapIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[HeatmapIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[HeatmapIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -48,8 +48,8 @@ const HeatmapIcon = React.forwardRef<HTMLElement, HeatmapIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-HeatmapIcon.displayName = 'HeatmapIcon';
-export {HeatmapIcon};
+HeatmapIcon.displayName = "HeatmapIcon";
+export { HeatmapIcon };

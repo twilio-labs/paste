@@ -1,15 +1,15 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '../src';
+import { Checkbox, CheckboxDisclaimer, CheckboxGroup } from "../src";
 
-export const CustomizedCheckboxGroup: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCheckboxGroup: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const [checked1, setChecked1] = React.useState(true);
   const [checked2, setChecked2] = React.useState(false);
   const [checked3, setChecked3] = React.useState(false);
@@ -23,19 +23,19 @@ export const CustomizedCheckboxGroup: StoryFn = (_args, {parameters: {isTestEnvi
       disableAnimations={isTestEnvironment}
       theme={theme}
       elements={{
-        CHECKBOX_GROUP: {padding: 'space30'},
-        CHECKBOX_GROUP_SET: {marginLeft: 'space60'},
-        CHECKBOX_GROUP_ITEM: {marginBottom: 'space60'},
-        CHECKBOX_GROUP_ERROR_TEXT_WRAPPER: {marginBottom: 'space60'},
-        CHECKBOX: {padding: 'space30'}, // the whole box
-        CHECKBOX_CONTROL: {borderRadius: 'borderRadius20'},
-        CHECKBOX_LABEL_TEXT: {color: 'colorTextNeutral'},
-        MY_CHECKBOX_GROUP: {padding: 'space30'},
-        MY_CHECKBOX_GROUP_SET: {marginLeft: 'space60'},
-        MY_CHECKBOX_GROUP_ITEM: {marginBottom: 'space60'},
-        MY_CHECKBOX: {padding: 'space30'}, // the whole box
-        MY_CHECKBOX_CONTROL: {borderRadius: 'borderRadius20'},
-        MY_CHECKBOX_LABEL_TEXT: {color: 'colorTextNeutral'},
+        CHECKBOX_GROUP: { padding: "space30" },
+        CHECKBOX_GROUP_SET: { marginLeft: "space60" },
+        CHECKBOX_GROUP_ITEM: { marginBottom: "space60" },
+        CHECKBOX_GROUP_ERROR_TEXT_WRAPPER: { marginBottom: "space60" },
+        CHECKBOX: { padding: "space30" }, // the whole box
+        CHECKBOX_CONTROL: { borderRadius: "borderRadius20" },
+        CHECKBOX_LABEL_TEXT: { color: "colorTextNeutral" },
+        MY_CHECKBOX_GROUP: { padding: "space30" },
+        MY_CHECKBOX_GROUP_SET: { marginLeft: "space60" },
+        MY_CHECKBOX_GROUP_ITEM: { marginBottom: "space60" },
+        MY_CHECKBOX: { padding: "space30" }, // the whole box
+        MY_CHECKBOX_CONTROL: { borderRadius: "borderRadius20" },
+        MY_CHECKBOX_LABEL_TEXT: { color: "colorTextNeutral" },
       }}
     >
       <Paragraph>Using default element name:</Paragraph>
@@ -146,17 +146,17 @@ export const CustomizedCheckboxGroup: StoryFn = (_args, {parameters: {isTestEnvi
   );
 };
 
-export const CustomizedCheckboxDisclaimer: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCheckboxDisclaimer: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const theme = useTheme();
   return (
     <CustomizationProvider
       disableAnimations={isTestEnvironment}
       theme={theme}
       elements={{
-        CHECKBOX_DISCLAIMER: {backgroundColor: 'colorBackgroundDestructiveWeakest'},
-        CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER: {marginBottom: 'space80'},
-        MY_CHECKBOX_DISCLAIMER: {backgroundColor: 'colorBackgroundDestructiveWeakest'},
-        MY_CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER: {marginTop: 'space80'},
+        CHECKBOX_DISCLAIMER: { backgroundColor: "colorBackgroundDestructiveWeakest" },
+        CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER: { marginBottom: "space80" },
+        MY_CHECKBOX_DISCLAIMER: { backgroundColor: "colorBackgroundDestructiveWeakest" },
+        MY_CHECKBOX_DISCLAIMER_ERROR_TEXT_WRAPPER: { marginTop: "space80" },
       }}
     >
       <Paragraph>Using default element name:</Paragraph>
@@ -190,7 +190,7 @@ export const CustomizedCheckboxDisclaimer: StoryFn = (_args, {parameters: {isTes
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Checkbox/Customization',
+  title: "Components/Checkbox/Customization",
   component: CustomizedCheckboxGroup,
   parameters: {
     a11y: {

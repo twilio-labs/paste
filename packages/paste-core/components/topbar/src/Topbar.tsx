@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface TopbarProps extends HTMLPasteProps<'div'> {
+export interface TopbarProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   /**
    * Create a unique ID for the topbar and provide it to the Sidebar component for accessible skip links
    */
@@ -13,7 +13,7 @@ export interface TopbarProps extends HTMLPasteProps<'div'> {
 }
 
 export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(
-  ({element = 'TOPBAR', id, children, ...props}, ref) => {
+  ({ element = "TOPBAR", id, children, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -37,6 +37,6 @@ export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
-Topbar.displayName = 'Topbar';
+Topbar.displayName = "Topbar";

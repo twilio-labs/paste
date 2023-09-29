@@ -1,30 +1,30 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {action} from '@storybook/addon-actions';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Heading} from '@twilio-paste/heading';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import { action } from "@storybook/addon-actions";
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {Anchor} from '../src';
-import type {AnchorTargets, AnchorTabIndexes} from '../src/types';
+import { Anchor } from "../src";
+import type { AnchorTabIndexes, AnchorTargets } from "../src/types";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Anchor',
+  title: "Components/Anchor",
   component: Anchor,
 };
 
 export const Default = (): React.ReactNode => {
   const tabIndexOptions = 0 as AnchorTabIndexes;
-  const targetOptions = '_self' as AnchorTargets;
+  const targetOptions = "_self" as AnchorTargets;
   return (
     <Anchor
       href="/app"
-      onBlur={action('handleBlur')}
-      onClick={action('handleClick')}
-      onFocus={action('handleFocus')}
+      onBlur={action("handleBlur")}
+      onClick={action("handleClick")}
+      onFocus={action("handleFocus")}
       rel=""
       tabIndex={tabIndexOptions}
       target={targetOptions}
@@ -36,14 +36,14 @@ export const Default = (): React.ReactNode => {
 
 export const Inverse = (): React.ReactNode => {
   const tabIndexOptions = 0 as AnchorTabIndexes;
-  const targetOptions = '_self' as AnchorTargets;
+  const targetOptions = "_self" as AnchorTargets;
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Anchor
         href="/app"
-        onBlur={action('handleBlur')}
-        onClick={action('handleClick')}
-        onFocus={action('handleFocus')}
+        onBlur={action("handleBlur")}
+        onClick={action("handleClick")}
+        onFocus={action("handleFocus")}
         rel=""
         tabIndex={tabIndexOptions}
         target={targetOptions}
@@ -70,9 +70,9 @@ export const ShowExternalProp = (): React.ReactNode => {
   );
 };
 
-ShowExternalProp.storyName = 'showExternal prop';
+ShowExternalProp.storyName = "showExternal prop";
 
-export const CustomAnchor: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomAnchor: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -80,17 +80,17 @@ export const CustomAnchor: StoryFn = (_args, {parameters: {isTestEnvironment}}) 
       theme={currentTheme}
       elements={{
         ANCHOR: {
-          color: 'colorTextError',
-          padding: 'space40',
-          ':hover': {
-            color: 'colorTextLink',
+          color: "colorTextError",
+          padding: "space40",
+          ":hover": {
+            color: "colorTextLink",
           },
         },
         CUSTOM_ANCHOR: {
-          backgroundColor: 'colorBackgroundPrimary',
-          color: 'colorTextInverse',
-          ':hover': {
-            color: 'colorTextInverse',
+          backgroundColor: "colorBackgroundPrimary",
+          color: "colorTextInverse",
+          ":hover": {
+            color: "colorTextInverse",
           },
         },
       }}
@@ -134,4 +134,4 @@ export const i18nAnchor = (): React.ReactNode => {
   );
 };
 
-i18nAnchor.storyName = 'i18n Anchor';
+i18nAnchor.storyName = "i18n Anchor";

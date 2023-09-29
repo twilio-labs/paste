@@ -1,21 +1,21 @@
-import * as React from 'react';
-import type {VirtualItem} from 'react-virtual';
-import find from 'lodash/find';
-import {Box} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import find from "lodash/find";
+import * as React from "react";
+import type { VirtualItem } from "react-virtual";
 
-import {ComboboxListboxOption} from './styles/ComboboxListboxOption';
-import {ComboboxListboxGroup} from './styles/ComboboxListboxGroup';
-import {getIndexedItems, getGroupedItems} from './helpers';
-import type {ComboboxItemsProps} from './types';
+import { getGroupedItems, getIndexedItems } from "./helpers";
+import { ComboboxListboxGroup } from "./styles/ComboboxListboxGroup";
+import { ComboboxListboxOption } from "./styles/ComboboxListboxOption";
+import type { ComboboxItemsProps } from "./types";
 
 const ComboboxItems: React.FC<
-  React.PropsWithChildren<ComboboxItemsProps> & {ref: React.Ref<HTMLUListElement & ComboboxItemsProps>}
+  React.PropsWithChildren<ComboboxItemsProps> & { ref: React.Ref<HTMLUListElement & ComboboxItemsProps> }
 > = React.memo(
   React.forwardRef<HTMLUListElement, ComboboxItemsProps>(
     (
       {
         items,
-        element = 'COMBOBOX',
+        element = "COMBOBOX",
         getItemProps,
         highlightedIndex,
         selectedItems,
@@ -27,14 +27,14 @@ const ComboboxItems: React.FC<
         virtualItems,
         emptyState: EmptyState,
       },
-      ref
+      ref,
     ) => {
       /*
        * Use option template if provided
        * otherwise, return the items array.
        */
       const templatizedItems = React.useMemo(() => {
-        return optionTemplate != null && typeof optionTemplate === 'function'
+        return optionTemplate != null && typeof optionTemplate === "function"
           ? items.map((item) => optionTemplate(item))
           : items;
       }, [JSON.stringify(items), optionTemplate]);
@@ -60,13 +60,13 @@ const ComboboxItems: React.FC<
 
         return (
           <ComboboxListboxGroup element={element} ref={ref}>
-            <li role="presentation" key="total-size" style={{margin: 0, height: totalSize}} />
-            {virtualItems.map(({measureRef, index: virtualItemIndex, start}: VirtualItem) => {
+            <li role="presentation" key="total-size" style={{ margin: 0, height: totalSize }} />
+            {virtualItems.map(({ measureRef, index: virtualItemIndex, start }: VirtualItem) => {
               const item = templatizedItems[virtualItemIndex];
               const disabled = disabledItems != null && disabledItems.includes(items[virtualItemIndex]);
               return (
                 <ComboboxListboxOption
-                  {...getItemProps({item, index: virtualItemIndex, ref: measureRef, disabled})}
+                  {...getItemProps({ item, index: virtualItemIndex, ref: measureRef, disabled })}
                   key={virtualItemIndex}
                   element={element}
                   highlighted={highlightedIndex === virtualItemIndex}
@@ -117,9 +117,9 @@ const ComboboxItems: React.FC<
       return (
         <>
           {groupedItemKeys.map((groupedItemKey) => {
-            const isUncategorized = groupedItemKey === 'undefined';
+            const isUncategorized = groupedItemKey === "undefined";
             // Wrapped in '$' characters in case of clash with a provided group named "Uncategorized"
-            const groupKey = isUncategorized ? '$$$Uncategorized$$$' : groupedItemKey;
+            const groupKey = isUncategorized ? "$$$Uncategorized$$$" : groupedItemKey;
 
             return (
               <ComboboxListboxGroup
@@ -128,17 +128,17 @@ const ComboboxItems: React.FC<
                 groupName={isUncategorized ? undefined : groupKey}
                 groupLabelTemplate={groupLabelTemplate}
               >
-                {groupedItems[groupedItemKey].map(({index, ...item}: Record<string, unknown>) => {
+                {groupedItems[groupedItemKey].map(({ index, ...item }: Record<string, unknown>) => {
                   const disabled = disabledItems != null && find(disabledItems, item);
                   return (
                     <ComboboxListboxOption
-                      {...getItemProps({item, index, disabled})}
+                      {...getItemProps({ item, index, disabled })}
                       element={element}
                       highlighted={highlightedIndex === index}
                       selected={find(selectedItems, item) != null}
                       disabled={disabled}
                       key={index}
-                      variant={isUncategorized ? 'default' : 'groupOption'}
+                      variant={isUncategorized ? "default" : "groupOption"}
                     >
                       {optionTemplate ? optionTemplate(item) : item}
                     </ComboboxListboxOption>
@@ -149,10 +149,10 @@ const ComboboxItems: React.FC<
           })}
         </>
       );
-    }
-  )
+    },
+  ),
 );
 
-ComboboxItems.displayName = 'ComboboxItems';
+ComboboxItems.displayName = "ComboboxItems";
 
-export {ComboboxItems};
+export { ComboboxItems };

@@ -1,4 +1,4 @@
-import {keyframes} from '@twilio-paste/styling-library';
+import { keyframes } from "@twilio-paste/styling-library";
 
 export const SkeletonLoaderKeyframes = keyframes`
   0% {

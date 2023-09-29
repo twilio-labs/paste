@@ -1,14 +1,14 @@
-import * as React from 'react';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import type {BoxProps} from '@twilio-paste/box';
+import type { BoxProps } from "@twilio-paste/box";
+import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import * as React from "react";
 
-export interface CalloutTextProps extends Partial<Omit<HTMLParagraphElement, 'children'>> {
+export interface CalloutTextProps extends Partial<Omit<HTMLParagraphElement, "children">> {
   children?: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 export const CalloutText = React.forwardRef<HTMLParagraphElement, CalloutTextProps>(
-  ({element = 'CALLOUT_TEXT', children, ...props}, ref) => (
+  ({ element = "CALLOUT_TEXT", children, ...props }, ref) => (
     <Text
       {...safelySpreadTextProps(props)}
       as="p"
@@ -19,7 +19,7 @@ export const CalloutText = React.forwardRef<HTMLParagraphElement, CalloutTextPro
     >
       {children}
     </Text>
-  )
+  ),
 );
 
-CalloutText.displayName = 'CalloutText';
+CalloutText.displayName = "CalloutText";

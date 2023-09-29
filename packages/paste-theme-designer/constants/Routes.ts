@@ -1,4 +1,4 @@
 export const Routes = {
-  EDIT: '/',
+  EDIT: "/",
   EDIT_BUCKET: (bucket: string): string => `/${bucket}`,
 };

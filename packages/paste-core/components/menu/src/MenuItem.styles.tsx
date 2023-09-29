@@ -1,46 +1,46 @@
-import * as React from 'react';
-import {secureExternalLink} from '@twilio-paste/anchor';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {SelectedIcon} from '@twilio-paste/icons/esm/SelectedIcon';
+import { secureExternalLink } from "@twilio-paste/anchor";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { SelectedIcon } from "@twilio-paste/icons/esm/SelectedIcon";
+import * as React from "react";
 
-import type {MenuItemProps, MenuItemVariantStyles, MenuItemVariant} from './types';
-import {MenuItemVariants} from './constants';
+import { MenuItemVariants } from "./constants";
+import type { MenuItemProps, MenuItemVariant, MenuItemVariantStyles } from "./types";
 
 const baseVariantStyles: MenuItemVariantStyles = {
   [MenuItemVariants.DEFAULT]: {
-    color: 'colorText',
+    color: "colorText",
     _hover: {
-      color: 'colorTextPrimary',
-      backgroundColor: 'colorBackgroundPrimaryWeakest',
-      borderColor: 'colorBorderPrimary',
+      color: "colorTextPrimary",
+      backgroundColor: "colorBackgroundPrimaryWeakest",
+      borderColor: "colorBorderPrimary",
     },
     _focus: {
-      color: 'colorTextPrimary',
-      backgroundColor: 'colorBackgroundPrimaryWeakest',
-      borderColor: 'colorBorderPrimary',
+      color: "colorTextPrimary",
+      backgroundColor: "colorBackgroundPrimaryWeakest",
+      borderColor: "colorBorderPrimary",
     },
   },
   [MenuItemVariants.DESTRUCTIVE]: {
-    color: 'colorTextDestructive',
+    color: "colorTextDestructive",
     _hover: {
-      backgroundColor: 'colorBackgroundDestructiveWeakest',
-      borderColor: 'colorBorderDestructive',
+      backgroundColor: "colorBackgroundDestructiveWeakest",
+      borderColor: "colorBorderDestructive",
     },
     _focus: {
-      backgroundColor: 'colorBackgroundDestructiveWeakest',
-      borderColor: 'colorBorderDestructive',
+      backgroundColor: "colorBackgroundDestructiveWeakest",
+      borderColor: "colorBorderDestructive",
     },
   },
 };
 const groupVariantStyles: MenuItemVariantStyles = {
   [MenuItemVariants.GROUP_ITEM]: {
     ...baseVariantStyles[MenuItemVariants.DEFAULT],
-    paddingLeft: 'space90',
+    paddingLeft: "space90",
   },
   [MenuItemVariants.DESTRUCTIVE_GROUP_ITEM]: {
     ...baseVariantStyles[MenuItemVariants.DESTRUCTIVE],
-    paddingLeft: 'space90',
+    paddingLeft: "space90",
   },
 };
 const variantStyles: MenuItemVariantStyles = {
@@ -54,11 +54,11 @@ const getCheckedIconColor = ({
 }: {
   disabled?: boolean;
   variant: MenuItemVariant;
-}): BoxProps['color'] => {
+}): BoxProps["color"] => {
   if (disabled || variant === MenuItemVariants.DESTRUCTIVE || variant === MenuItemVariants.DESTRUCTIVE_GROUP_ITEM) {
-    return 'inherit';
+    return "inherit";
   }
-  return 'colorTextPrimary';
+  return "colorTextPrimary";
 };
 
 export const getComputedVariant = (variant: MenuItemVariant, isGrouped: boolean): MenuItemVariant => {
@@ -72,13 +72,13 @@ export const getComputedVariant = (variant: MenuItemVariant, isGrouped: boolean)
 };
 
 export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElement, MenuItemProps>(
-  ({element = 'STYLED_MENU_ITEM', href, variant = 'default', tabIndex, children, ...props}, ref) => {
+  ({ element = "STYLED_MENU_ITEM", href, variant = "default", tabIndex, children, ...props }, ref) => {
     return (
       <Box
         variant={variant}
         {...(href && secureExternalLink(href))}
         href={href}
-        as={href ? 'a' : 'button'}
+        as={href ? "a" : "button"}
         {...safelySpreadBoxProps(props)}
         element={element}
         appearance="none"
@@ -101,18 +101,18 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         width="100%"
         {...variantStyles[variant]}
         _disabled={{
-          color: 'colorTextWeaker',
-          cursor: 'not-allowed',
-          backgroundColor: 'colorBackgroundBody',
-          borderColor: 'transparent',
+          color: "colorTextWeaker",
+          cursor: "not-allowed",
+          backgroundColor: "colorBackgroundBody",
+          borderColor: "transparent",
         }}
         ref={ref}
       >
-        {props['aria-checked'] != null ? (
+        {props["aria-checked"] != null ? (
           <Box as="span" display="flex" columnGap="space50" justifyContent="space-between" alignItems="center">
             {children}
-            <Box as="span" visibility={props['aria-checked'] ? 'visible' : 'hidden'}>
-              <SelectedIcon decorative color={getCheckedIconColor({disabled: props.disabled, variant})} />
+            <Box as="span" visibility={props["aria-checked"] ? "visible" : "hidden"}>
+              <SelectedIcon decorative color={getCheckedIconColor({ disabled: props.disabled, variant })} />
             </Box>
           </Box>
         ) : (
@@ -120,7 +120,7 @@ export const StyledMenuItem = React.forwardRef<HTMLDivElement | HTMLAnchorElemen
         )}
       </Box>
     );
-  }
+  },
 );
 
-StyledMenuItem.displayName = 'StyledMenuItem';
+StyledMenuItem.displayName = "StyledMenuItem";

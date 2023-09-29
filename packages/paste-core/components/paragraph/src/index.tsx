@@ -1,15 +1,15 @@
-import * as React from 'react';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import type {TextProps} from '@twilio-paste/text';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import type { TextProps } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface ParagraphProps extends HTMLPasteProps<'p'>, Pick<TextProps, 'element'> {
+export interface ParagraphProps extends HTMLPasteProps<"p">, Pick<TextProps, "element"> {
   id?: never;
-  marginBottom?: 'space0';
+  marginBottom?: "space0";
 }
 
 const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
-  ({children, element = 'PARAGRAPH', marginBottom, ...props}, ref) => {
+  ({ children, element = "PARAGRAPH", marginBottom, ...props }, ref) => {
     return (
       <Text
         {...safelySpreadTextProps(props)}
@@ -19,15 +19,15 @@ const Paragraph = React.forwardRef<HTMLParagraphElement, ParagraphProps>(
         fontSize="fontSize30"
         fontWeight="fontWeightNormal"
         lineHeight="lineHeight40"
-        marginBottom={marginBottom || 'space70'}
+        marginBottom={marginBottom || "space70"}
         ref={ref}
       >
         {children}
       </Text>
     );
-  }
+  },
 );
 
-Paragraph.displayName = 'Paragraph';
+Paragraph.displayName = "Paragraph";
 
-export {Paragraph};
+export { Paragraph };

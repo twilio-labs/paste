@@ -1,1 +1,1 @@
-export * from '@twilio-paste/code-editor-library';
+export * from "@twilio-paste/code-editor-library";

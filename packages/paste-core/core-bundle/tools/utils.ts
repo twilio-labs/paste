@@ -1,22 +1,22 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
-import {getRepoPackages} from '../../../../tools/utils/getRepoPackages';
-import {writeToFile} from '../../../../tools/utils/writeToFile';
-import {mkdir} from '../../../../tools/utils/mkdir';
-import type {PackageShape, PackageList} from './types';
+import { getRepoPackages } from "../../../../tools/utils/getRepoPackages";
+import { mkdir } from "../../../../tools/utils/mkdir";
+import { writeToFile } from "../../../../tools/utils/writeToFile";
 import {
+  BASE_CODESANDBOX_CI,
+  BLOCKLIST,
+  CODESANDBOX_CI_JSON_PATH,
+  PACKAGES_ROOT_PATH,
   getPackageName,
   getUnbarreledFileFullPath,
-  BLOCKLIST,
-  BASE_CODESANDBOX_CI,
-  PACKAGES_ROOT_PATH,
-  CODESANDBOX_CI_JSON_PATH,
-} from './constants';
+} from "./constants";
+import type { PackageList, PackageShape } from "./types";
 
 // Given a list of packages, output the index.tsx exports string
 function generateIndexFromPackageList(packageList: PackageList): string {
-  let output = '';
+  let output = "";
   packageList.forEach((item) => {
     output = `${output}export * from '${item.name}';\n`;
   });
@@ -55,7 +55,7 @@ function getAllJsFiles(dirPath: string): string[] {
   const arrayOfFiles: string[] = [];
 
   files.forEach((file) => {
-    arrayOfFiles.push(path.join(dirPath, '/', file));
+    arrayOfFiles.push(path.join(dirPath, "/", file));
   });
   return arrayOfFiles.filter((file) => file.match(/\.js$/));
 }
@@ -63,21 +63,21 @@ function getAllJsFiles(dirPath: string): string[] {
 function createRelativePackageFolders(packageList: PackageList): void {
   packageList.forEach((item: PackageShape) => {
     const packageName = getPackageName(item);
-    const relativePackagePath = path.join(__dirname, '../', packageName);
+    const relativePackagePath = path.join(__dirname, "../", packageName);
 
     // Make the folder
     mkdir(relativePackagePath, {
       callback: () => {
         // Make its package.json file
-        const packageJsonPath = path.join(relativePackagePath, 'package.json');
+        const packageJsonPath = path.join(relativePackagePath, "package.json");
         const packageJsonContents = {
           /*
            * This name really doesn't matter, it just can't match an existing package
            * or Lerna and TS gets confused as there are multiple references.
            * Package names must be globally unique
            */
-          name: item.name.replace('@twilio-paste/', '@twilio-paste-core/'),
-          version: '0.0.0',
+          name: item.name.replace("@twilio-paste/", "@twilio-paste-core/"),
+          version: "0.0.0",
           private: true,
           sideEffects: false,
           main: `../dist/${packageName}.js`,
@@ -97,25 +97,25 @@ function createGitIgnore(packageList: PackageList): void {
 
   const output = `# Automatically generated from "yarn generate-packages"
 /dist
-${ignoreList.join('\n')}`;
+${ignoreList.join("\n")}`;
 
-  writeToFile(path.join(__dirname, '../.gitignore'), output, {
-    successMessage: 'Successfully generated core-bundle .gitignore file',
-    errorMessage: 'Failed to generate code-bundle .gitignore file',
+  writeToFile(path.join(__dirname, "../.gitignore"), output, {
+    successMessage: "Successfully generated core-bundle .gitignore file",
+    errorMessage: "Failed to generate code-bundle .gitignore file",
   });
 }
 
 function createCodeSandboxCIjson(packageList: PackageList): void {
   // create a list of package locations based on the repo root, not including machine file structure
-  const packageLocationList = packageList.map((item) => item.location.replace(PACKAGES_ROOT_PATH, ''));
+  const packageLocationList = packageList.map((item) => item.location.replace(PACKAGES_ROOT_PATH, ""));
   const newCodeSandboxConfig = {
     ...BASE_CODESANDBOX_CI,
     packages: [...BASE_CODESANDBOX_CI.packages, ...packageLocationList],
   };
   writeToFile(CODESANDBOX_CI_JSON_PATH, newCodeSandboxConfig, {
     formatJson: true,
-    successMessage: 'Successfully generated codesandbox ci.json file',
-    errorMessage: 'Failed to generate codesandbox ci.json file',
+    successMessage: "Successfully generated codesandbox ci.json file",
+    errorMessage: "Failed to generate codesandbox ci.json file",
   });
 }
 

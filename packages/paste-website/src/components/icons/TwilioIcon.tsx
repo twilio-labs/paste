@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface TwilioIconProps {
   className?: string;
@@ -11,10 +11,10 @@ export interface TwilioIconProps {
 }
 
 const TwilioIcon = React.memo(
-  ({title = 'Twilio Icon', className, color, decorative = true, display, size}: TwilioIconProps) => {
+  ({ title = "Twilio Icon", className, color, decorative = true, display, size }: TwilioIconProps) => {
     const uid = useUID();
     return (
-      <span style={{color, display, width: size, height: size}} className={className}>
+      <span style={{ color, display, width: size, height: size }} className={className}>
         <svg role="img" aria-hidden={decorative} aria-labelledby={uid} viewBox="0 0 30 30" width="100%" height="100%">
           <title id={uid}>{title}</title>
           <path
@@ -24,7 +24,7 @@ const TwilioIcon = React.memo(
         </svg>
       </span>
     );
-  }
+  },
 );
 
-export {TwilioIcon};
+export { TwilioIcon };

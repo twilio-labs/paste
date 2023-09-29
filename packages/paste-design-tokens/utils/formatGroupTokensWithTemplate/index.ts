@@ -1,27 +1,27 @@
-import type {ImmutableStyleMap} from 'theo';
+import type { ImmutableStyleMap } from "theo";
 
-import type {DesignToken} from '../../types';
-import {getPluralCatName} from '../pluralCategoryMap';
+import type { DesignToken } from "../../types";
+import { getPluralCatName } from "../pluralCategoryMap";
 
 export const formatGroupTokensWithTemplate = (
   tokens: ImmutableStyleMap,
   categories: any,
   categoryTemplate: (cat: string, props: DesignToken[]) => string,
-  additionalFilterFn?: (key: DesignToken[]) => any[]
+  additionalFilterFn?: (key: DesignToken[]) => any[],
 ): string => {
-  const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+  const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
 
   return categories
     .map((cat: string): string | null => {
       let catProps = tokens
-        .get('props')
+        .get("props")
         .sort((a, b) => {
-          if (cat === 'font-weight') {
-            return collator.compare(a.get('value') as string, b.get('value') as string);
+          if (cat === "font-weight") {
+            return collator.compare(a.get("value") as string, b.get("value") as string);
           }
-          return collator.compare(a.get('name') as string, b.get('name') as string);
+          return collator.compare(a.get("name") as string, b.get("name") as string);
         })
-        .filter((prop) => prop !== undefined && cat === prop.get('category'))
+        .filter((prop) => prop !== undefined && cat === prop.get("category"))
         .toJS();
 
       /*
@@ -32,10 +32,10 @@ export const formatGroupTokensWithTemplate = (
         catProps = additionalFilterFn(catProps);
       }
 
-      if (typeof cat === 'string') {
+      if (typeof cat === "string") {
         return categoryTemplate(getPluralCatName(cat), catProps);
       }
       return null;
     })
-    .join('\n');
+    .join("\n");
 };

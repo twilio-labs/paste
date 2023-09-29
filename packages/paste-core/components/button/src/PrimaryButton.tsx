@@ -1,44 +1,44 @@
-import * as React from 'react';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import merge from 'deepmerge';
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import merge from "deepmerge";
+import * as React from "react";
 
-import {SizeStyles, BaseStyles} from './styles';
-import type {DirectButtonProps} from './types';
+import { BaseStyles, SizeStyles } from "./styles";
+import type { DirectButtonProps } from "./types";
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
  * legacy global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextInverse',
-  backgroundColor: 'colorBackgroundPrimary',
-  boxShadow: 'shadowBorderPrimary',
+  color: "colorTextInverse",
+  backgroundColor: "colorBackgroundPrimary",
+  boxShadow: "shadowBorderPrimary",
   _hover: {
-    color: 'colorTextPrimary',
-    backgroundColor: 'colorBackgroundBody',
-    boxShadow: 'shadowBorderPrimary',
+    color: "colorTextPrimary",
+    backgroundColor: "colorBackgroundBody",
+    boxShadow: "shadowBorderPrimary",
   },
   _focus: {
-    boxShadow: 'shadowFocus',
+    boxShadow: "shadowFocus",
   },
   _active: {
-    color: 'colorTextPrimaryStrong',
-    backgroundColor: 'colorBackgroundPrimaryWeakest',
-    boxShadow: 'shadowBorderPrimaryStrong',
+    color: "colorTextPrimaryStrong",
+    backgroundColor: "colorBackgroundPrimaryWeakest",
+    boxShadow: "shadowBorderPrimaryStrong",
   },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextPrimary',
-  backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderWeak',
+  color: "colorTextPrimary",
+  backgroundColor: "colorBackgroundBody",
+  boxShadow: "shadowBorderWeak",
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {
-  color: 'colorTextWeakest',
-  backgroundColor: 'colorBackgroundStrong',
-  boxShadow: 'shadowBorderWeaker',
+  color: "colorTextWeakest",
+  backgroundColor: "colorBackgroundStrong",
+  boxShadow: "shadowBorderWeaker",
 });
 
 const ButtonStyleMapping = {
@@ -48,23 +48,23 @@ const ButtonStyleMapping = {
 };
 
 const PrimaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
-        width={fullWidth ? '100%' : 'auto'}
+        width={fullWidth ? "100%" : "auto"}
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 PrimaryButton.defaultProps = {
-  as: 'button',
+  as: "button",
 };
 
-PrimaryButton.displayName = 'PrimaryButton';
+PrimaryButton.displayName = "PrimaryButton";
 
-export {PrimaryButton};
+export { PrimaryButton };

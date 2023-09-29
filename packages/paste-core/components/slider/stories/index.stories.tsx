@@ -1,22 +1,22 @@
-import * as React from 'react';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {useUID} from '@twilio-paste/uid-library';
-import {Form, FormControl} from '@twilio-paste/form';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Form, FormControl } from "@twilio-paste/form";
+import { HelpText } from "@twilio-paste/help-text";
+import { Label } from "@twilio-paste/label";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {Slider} from '../src';
+import { Slider } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Slider',
+  title: "Components/Slider",
 };
 
-const NumberFormatter = new Intl.NumberFormat('en-US');
-const PercentFormatter = new Intl.NumberFormat('en-US', {style: 'percent'});
+const NumberFormatter = new Intl.NumberFormat("en-US");
+const PercentFormatter = new Intl.NumberFormat("en-US", { style: "percent" });
 
 export const Default = (): React.ReactNode => {
   const [value, setValue] = React.useState<number>(0.75);
@@ -213,28 +213,28 @@ export const CustomizedSlider = (): React.ReactNode => {
       theme={activeTheme}
       elements={{
         // SLIDER
-        SLOODER: {borderWidth: 'borderWidth10', borderRadius: 'borderRadius20', padding: 'space20'},
+        SLOODER: { borderWidth: "borderWidth10", borderRadius: "borderRadius20", padding: "space20" },
         // TRACK
         SLOODER_TRACK_CONTAINER: {
-          height: '32px',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth10',
-          borderColor: 'colorBorder',
+          height: "32px",
+          borderStyle: "solid",
+          borderWidth: "borderWidth10",
+          borderColor: "colorBorder",
         },
-        SLOODER_TRACK: {height: '8px'},
-        SLOODER_TRACK_BACKGROUND: {backgroundColor: 'colorBackgroundStrongest'},
-        SLOODER_TRACK_FILL: {backgroundColor: 'colorBackgroundSuccess'},
+        SLOODER_TRACK: { height: "8px" },
+        SLOODER_TRACK_BACKGROUND: { backgroundColor: "colorBackgroundStrongest" },
+        SLOODER_TRACK_FILL: { backgroundColor: "colorBackgroundSuccess" },
         // THUMB
         SLOODER_THUMB: {
-          width: '32px',
-          height: '32px',
-          borderRadius: 'borderRadius0',
-          backgroundColor: 'colorBackgroundStrongest',
+          width: "32px",
+          height: "32px",
+          borderRadius: "borderRadius0",
+          backgroundColor: "colorBackgroundStrongest",
         },
         // RANGE LABELS
-        SLOODER_RANGE_LABELS: {color: 'colorTextSuccess', fontSize: 'fontSize50', fontWeight: 'fontWeightBold'},
-        SLOODER_RANGE_LABELS_MIN: {fontSize: 'fontSize70', fontWeight: 'fontWeightBold'},
-        SLOODER_RANGE_LABELS_MAX: {fontSize: 'fontSize80', fontWeight: 'fontWeightBold'},
+        SLOODER_RANGE_LABELS: { color: "colorTextSuccess", fontSize: "fontSize50", fontWeight: "fontWeightBold" },
+        SLOODER_RANGE_LABELS_MIN: { fontSize: "fontSize70", fontWeight: "fontWeightBold" },
+        SLOODER_RANGE_LABELS_MAX: { fontSize: "fontSize80", fontWeight: "fontWeightBold" },
       }}
     >
       <Form>

@@ -1,10 +1,10 @@
-import * as React from 'react';
+import * as React from "react";
 
-import {CodeEditor, CodeEditorPasteTheme, type Monaco, type Editor} from '../src';
+import { CodeEditor, CodeEditorPasteTheme, type Editor, type Monaco } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/code-editor/Editor',
+  title: "Libraries/code-editor/Editor",
 };
 
 const JavascriptExample = `// program that checks if the number is positive, negative or zero
@@ -72,8 +72,8 @@ export const CEditor = (): React.ReactNode => {
 
 const handleEditorDidMount = (editor: Editor.IStandaloneCodeEditor, monaco: Monaco): void => {
   // you can also store it in `useRef` for further usage
-  monaco.editor.defineTheme('paste', CodeEditorPasteTheme);
-  monaco.editor.setTheme('paste');
+  monaco.editor.defineTheme("paste", CodeEditorPasteTheme);
+  monaco.editor.setTheme("paste");
 };
 
 export const PasteThemeEditor = (): React.ReactNode => {
@@ -83,7 +83,7 @@ export const PasteThemeEditor = (): React.ReactNode => {
       options={{
         scrollBeyondLastLine: false,
         readOnly: false,
-        wordWrap: 'wordWrapColumn',
+        wordWrap: "wordWrapColumn",
         wordWrapColumn: 120,
         scrollbar: {
           verticalScrollbarSize: 8,

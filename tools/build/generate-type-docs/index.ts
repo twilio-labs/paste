@@ -6,34 +6,34 @@
  * an official API documentor later, but it looks pretty complex.
  */
 
-import path from 'path';
-import {readFile} from 'fs/promises';
-import {writeFileSync} from 'fs';
+import { writeFileSync } from "fs";
+import path from "path";
+import { readFile } from "fs/promises";
 
-import prettier from 'prettier';
-import ts from 'typescript';
+import prettier from "prettier";
+import ts from "typescript";
 
 import {
   type ComponentTypeProperties,
+  extractTypeExports,
   formatValue,
   getSourceFileName,
   log,
   shouldIgnoreProperty,
   sortByRequiredProperties,
   tryPrettier,
-  extractTypeExports,
-} from './utils';
+} from "./utils";
 
 function extractPropertiesOfTypeName(
   searchTerm: string | RegExp,
   sourceFile: ts.SourceFile,
-  typeChecker: ts.TypeChecker
+  typeChecker: ts.TypeChecker,
 ): null | Record<string, ComponentTypeProperties> {
-  const regexSearchTerm = typeof searchTerm === 'string' ? `^${searchTerm}$` : searchTerm;
+  const regexSearchTerm = typeof searchTerm === "string" ? `^${searchTerm}$` : searchTerm;
   const typeStatements = sourceFile.statements.filter(
     (statement) =>
       (ts.isInterfaceDeclaration(statement) || ts.isTypeAliasDeclaration(statement)) &&
-      new RegExp(regexSearchTerm).test(statement.name.getText())
+      new RegExp(regexSearchTerm).test(statement.name.getText()),
   );
 
   const results: Record<string, ComponentTypeProperties> = {};
@@ -57,15 +57,15 @@ function extractPropertiesOfTypeName(
 
       const defaultValue =
         docTags
-          .find((tag) => tag.name === 'default')
+          .find((tag) => tag.name === "default")
           ?.text?.map((doc) => doc.text)
-          ?.join('\n') || undefined;
+          ?.join("\n") || undefined;
 
       const nonNullableType = propertyType.getNonNullableType();
 
       const typeName = typeChecker.typeToString(nonNullableType);
-      const required = nonNullableType === propertyType && typeName !== 'any';
-      const externalProp = sourceFileName ? sourceFileName.includes('node_modules') : false;
+      const required = nonNullableType === propertyType && typeName !== "any";
+      const externalProp = sourceFileName ? sourceFileName.includes("node_modules") : false;
 
       const prettyType = tryPrettier(typeName);
 
@@ -78,17 +78,17 @@ function extractPropertiesOfTypeName(
           property
             .getDocumentationComment(typeChecker)
             .map((comment) => comment.text)
-            .join('\n') || undefined,
+            .join("\n") || undefined,
       };
     }
 
     let typeName = (typeStatement as any).name.getText() as string;
 
-    if (typeName.endsWith('Props')) {
-      typeName = typeName.replace(/Props$/, '');
+    if (typeName.endsWith("Props")) {
+      typeName = typeName.replace(/Props$/, "");
       results[typeName] = sortByRequiredProperties(properties);
     } else {
-      log('Omitting type', `\`${typeName}\``);
+      log("Omitting type", `\`${typeName}\``);
     }
   }
 
@@ -96,11 +96,11 @@ function extractPropertiesOfTypeName(
 }
 
 function createTypeSearch(
-  tsConfigPath: string
+  tsConfigPath: string,
 ): (searchTerm: Parameters<typeof extractPropertiesOfTypeName>[0]) => Record<string, ComponentTypeProperties> {
   const configFile = ts.readConfigFile(tsConfigPath, ts.sys.readFile);
   const basePath = path.dirname(tsConfigPath);
-  const {fileNames, options} = ts.parseJsonConfigFileContent(configFile.config, ts.sys, basePath);
+  const { fileNames, options } = ts.parseJsonConfigFileContent(configFile.config, ts.sys, basePath);
 
   const program = ts.createProgram(fileNames, options);
   const sourceFiles = program.getSourceFiles();
@@ -116,13 +116,13 @@ function createTypeSearch(
 }
 
 const main = async (): Promise<void> => {
-  const fileContent = await readFile(path.join('src', 'index.tsx'), 'utf8');
-  const searchType = createTypeSearch('tsconfig.json');
+  const fileContent = await readFile(path.join("src", "index.tsx"), "utf8");
+  const searchType = createTypeSearch("tsconfig.json");
 
   const typeExports = extractTypeExports(fileContent)
     ?.map(searchType)
     .filter((value) => Object.keys(value).length > 0)
-    .reduce((acc, value) => ({...acc, ...value}), {});
+    .reduce((acc, value) => ({ ...acc, ...value }), {});
 
   const typeExportsWithThemeProps: Record<string, unknown> = {};
 
@@ -136,10 +136,10 @@ const main = async (): Promise<void> => {
 
   if (!isEmpty) {
     writeFileSync(
-      'type-docs.json',
+      "type-docs.json",
       prettier.format(JSON.stringify(typeExportsWithThemeProps), {
-        parser: 'json',
-      })
+        parser: "json",
+      }),
     );
   }
 };

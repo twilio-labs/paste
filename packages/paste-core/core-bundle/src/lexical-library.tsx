@@ -1,1 +1,1 @@
-export * from '@twilio-paste/lexical-library';
+export * from "@twilio-paste/lexical-library";

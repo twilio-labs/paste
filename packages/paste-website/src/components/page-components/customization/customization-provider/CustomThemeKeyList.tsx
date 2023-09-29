@@ -1,5 +1,5 @@
-import {Grid, Column} from '@twilio-paste/grid';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
+import { Column, Grid } from "@twilio-paste/grid";
+import { ListItem, UnorderedList } from "@twilio-paste/list";
 
 export const CustomThemeKeyList = (): JSX.Element => {
   return (

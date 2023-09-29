@@ -1,11 +1,11 @@
+import { act } from "@testing-library/react";
 /*
  * Patch taken from this github issue: https://github.com/testing-library/user-event/issues/938#issuecomment-1111976312
  * Initially intended to wrap all userEvent apis with asynchronous act methods - specifically to help with user-event v14
  * act method is still being used here but with sychronous api calls to help with running tests across different versions of react
  */
 // eslint-disable-next-line import/no-unresolved
-import userEvent from '@testing-library/real-user-event';
-import {act} from '@testing-library/react';
+import userEvent from "@testing-library/real-user-event";
 
 const original = {
   hover: userEvent.hover,

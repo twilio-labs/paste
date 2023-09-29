@@ -1,11 +1,11 @@
-import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
-import {TableBodyData} from './constants';
+import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from "../../src";
+import { TableBodyData } from "./constants";
 
-export const ColumnSpanDataGrid: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({
-  element = 'DATA_GRID',
+export const ColumnSpanDataGrid: React.FC<React.PropsWithChildren<{ element?: BoxProps["element"] }>> = ({
+  element = "DATA_GRID",
 }) => {
   return (
     <DataGrid aria-label="User information table" data-testid="data-grid" element={element} striped>
@@ -20,15 +20,15 @@ export const ColumnSpanDataGrid: React.FC<React.PropsWithChildren<{element?: Box
         {TableBodyData.map((row, rowIndex) => (
           <DataGridRow
             key={`row-${rowIndex}`}
-            data-testid={rowIndex === 0 ? 'data-grid-row' : null}
+            data-testid={rowIndex === 0 ? "data-grid-row" : null}
             element={`${element}_ROW`}
           >
             {row.map((col, colIndex) => (
               <DataGridCell
                 element={`${element}_CELL`}
                 key={`col-${colIndex}`}
-                data-testid={rowIndex === 0 && colIndex === 0 ? 'data-grid-cell' : null}
-                textAlign={colIndex === 4 ? 'right' : 'left'}
+                data-testid={rowIndex === 0 && colIndex === 0 ? "data-grid-cell" : null}
+                textAlign={colIndex === 4 ? "right" : "left"}
               >
                 {col}
               </DataGridCell>

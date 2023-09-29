@@ -1,16 +1,16 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {asTags} from '@twilio-paste/heading';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { asTags } from "@twilio-paste/heading";
+import * as React from "react";
 
-export interface CodeBlockHeaderProps extends Partial<Omit<HTMLHeadingElement, 'children'>> {
+export interface CodeBlockHeaderProps extends Partial<Omit<HTMLHeadingElement, "children">> {
   children: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   as?: asTags;
 }
 
 export const CodeBlockHeader = React.forwardRef<HTMLHeadingElement, CodeBlockHeaderProps>(
-  ({children, element = 'CODE_BLOCK_HEADER', as = 'h3', ...props}, ref) => (
+  ({ children, element = "CODE_BLOCK_HEADER", as = "h3", ...props }, ref) => (
     <Box
       {...safelySpreadBoxProps(props)}
       ref={ref}
@@ -28,7 +28,7 @@ export const CodeBlockHeader = React.forwardRef<HTMLHeadingElement, CodeBlockHea
     >
       {children}
     </Box>
-  )
+  ),
 );
 
-CodeBlockHeader.displayName = 'CodeBlockHeader';
+CodeBlockHeader.displayName = "CodeBlockHeader";

@@ -1,12 +1,12 @@
-import * as React from 'react';
-import Head from 'next/head';
-import {Box} from '@twilio-paste/box';
-import {useTheme, generateTokensFromTheme} from '@twilio-paste/theme';
-import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import { Box } from "@twilio-paste/box";
+import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
+import { generateTokensFromTheme, useTheme } from "@twilio-paste/theme";
+import Head from "next/head";
+import * as React from "react";
 
-import {DesignerPreview} from './DesignerPreview';
-import {DesignerControls} from './DesignerControls';
-import {DesignerContext} from './DesignerContext';
+import { DesignerContext } from "./DesignerContext";
+import { DesignerControls } from "./DesignerControls";
+import { DesignerPreview } from "./DesignerPreview";
 
 export const LandingPageDesigner = (): JSX.Element => {
   const theme = useTheme();
@@ -22,7 +22,7 @@ export const LandingPageDesigner = (): JSX.Element => {
     setTokens((currentTokens) => ({
       ...currentTokens,
       [key]: value, // update the root key
-      [bucket]: {...currentTokens[bucket], [key]: value}, // update the bucketed key
+      [bucket]: { ...currentTokens[bucket], [key]: value }, // update the bucketed key
     }));
   }, []);
 
@@ -43,7 +43,7 @@ export const LandingPageDesigner = (): JSX.Element => {
           rel="stylesheet"
         />
       </Head>
-      <DesignerContext.Provider value={{tokens, updateToken}}>
+      <DesignerContext.Provider value={{ tokens, updateToken }}>
         <DesignerPreview />
         <DesignerControls />
       </DesignerContext.Provider>

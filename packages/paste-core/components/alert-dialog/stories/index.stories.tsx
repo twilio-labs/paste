@@ -1,32 +1,32 @@
-import * as React from 'react';
-import type {Story} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Button} from '@twilio-paste/button';
-import {Heading} from '@twilio-paste/heading';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
+import type { Story } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { HelpText } from "@twilio-paste/help-text";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/modal";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {AlertDialog} from '../src';
-import {AlertDialogHeader} from '../src/AlertDialogHeader';
-import {AlertDialogBody} from '../src/AlertDialogBody';
-import {AlertDialogContent} from '../src/AlertDialogContent';
-import {AlertDialogFooter} from '../src/AlertDialogFooter';
+import { AlertDialog } from "../src";
+import { AlertDialogBody } from "../src/AlertDialogBody";
+import { AlertDialogContent } from "../src/AlertDialogContent";
+import { AlertDialogFooter } from "../src/AlertDialogFooter";
+import { AlertDialogHeader } from "../src/AlertDialogHeader";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Alert Dialog',
+  title: "Components/Alert Dialog",
   component: AlertDialog,
   excludeStories: [
-    'AlertDialogWithTwoActions',
-    'DestructiveAlertDialog',
-    'OpenAlertDialogFromButton',
-    'OpenAlertDialogFromModal',
+    "AlertDialogWithTwoActions",
+    "DestructiveAlertDialog",
+    "OpenAlertDialogFromButton",
+    "OpenAlertDialogFromModal",
   ],
 };
 
@@ -49,9 +49,9 @@ export const AlertDialogWithTwoActionsStory = (): React.ReactNode => {
   return <AlertDialogWithTwoActions />;
 };
 
-AlertDialogWithTwoActionsStory.storyName = 'Alert Dialog With Two Actions';
+AlertDialogWithTwoActionsStory.storyName = "Alert Dialog With Two Actions";
 AlertDialogWithTwoActionsStory.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -78,22 +78,22 @@ export const DestructiveAlertDialogStory = (): React.ReactNode => {
   return <DestructiveAlertDialog />;
 };
 
-DestructiveAlertDialogStory.storyName = 'Destructive Alert Dialog';
+DestructiveAlertDialogStory.storyName = "Destructive Alert Dialog";
 DestructiveAlertDialogStory.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
   },
 };
 
-export const DisabledButtonDestructiveAlertDialog = ({dialogIsOpen = false}): JSX.Element => {
+export const DisabledButtonDestructiveAlertDialog = ({ dialogIsOpen = false }): JSX.Element => {
   const [isOpen, setIsOpen] = React.useState(dialogIsOpen);
-  const [inputString, setInputString] = React.useState('');
+  const [inputString, setInputString] = React.useState("");
   const [inputHasError, setInputHasError] = React.useState(false);
   const [isDisabled, setIsDisabled] = React.useState(true);
   const handleOpen = (): void => {
-    if (inputString !== '') setIsDisabled(false);
+    if (inputString !== "") setIsDisabled(false);
     setIsOpen(true);
   };
   const handleDismiss = (): void => {
@@ -102,9 +102,9 @@ export const DisabledButtonDestructiveAlertDialog = ({dialogIsOpen = false}): JS
     setInputHasError(false);
   };
   const handleConfirm = (): void => {
-    if (inputString === 'Toyota TCB Automobile (Gevelsberg)') {
+    if (inputString === "Toyota TCB Automobile (Gevelsberg)") {
       setIsOpen(false);
-      setInputString('');
+      setInputString("");
       setInputHasError(false);
       setIsDisabled(true);
     } else {
@@ -113,7 +113,7 @@ export const DisabledButtonDestructiveAlertDialog = ({dialogIsOpen = false}): JS
   };
   const handleChange = (e): void => {
     setInputString(e.target.value);
-    if (e.target.value !== '') setIsDisabled(false);
+    if (e.target.value !== "") setIsDisabled(false);
     else setIsDisabled(true);
   };
   return (
@@ -146,7 +146,7 @@ export const DisabledButtonDestructiveAlertDialog = ({dialogIsOpen = false}): JS
             hasError={inputHasError}
             value={inputString}
           />
-          <HelpText id="delete-help-text" variant={inputHasError ? 'error' : 'default'}>
+          <HelpText id="delete-help-text" variant={inputHasError ? "error" : "default"}>
             To confirm this deletion, please input the name of this regulatory bundle.
           </HelpText>
         </Box>
@@ -183,9 +183,9 @@ export const OpenAlertDialogFromButtonStory = (): React.ReactNode => {
   return <OpenAlertDialogFromButton />;
 };
 
-OpenAlertDialogFromButtonStory.storyName = 'Open Alert Dialog From Button';
+OpenAlertDialogFromButtonStory.storyName = "Open Alert Dialog From Button";
 OpenAlertDialogFromButtonStory.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -247,9 +247,9 @@ export const OpenAlertDialogFromModalStory = (): React.ReactNode => {
   return <OpenAlertDialogFromModal />;
 };
 
-OpenAlertDialogFromModalStory.storyName = 'Open Alert Dialog From Modal';
+OpenAlertDialogFromModalStory.storyName = "Open Alert Dialog From Modal";
 OpenAlertDialogFromModalStory.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
   a11y: {
     // no need to a11y check customization
     disable: true,
@@ -270,7 +270,7 @@ export const AlertDialogVRT = (): React.ReactNode => {
   );
 };
 
-AlertDialogVRT.storyName = 'Alert Dialog for VRT';
+AlertDialogVRT.storyName = "Alert Dialog for VRT";
 
 export const DestructiveAlertDialogVRT = (): React.ReactNode => {
   const alertDialogHeadingID = useUID();
@@ -292,7 +292,7 @@ export const DestructiveAlertDialogVRT = (): React.ReactNode => {
   );
 };
 
-DestructiveAlertDialogVRT.storyName = 'Destructive Alert Dialog for VRT';
+DestructiveAlertDialogVRT.storyName = "Destructive Alert Dialog for VRT";
 
 export const CustomizedAlertDialog: Story = () => {
   const theme = useTheme();
@@ -301,11 +301,11 @@ export const CustomizedAlertDialog: Story = () => {
       disableAnimations={true}
       theme={theme}
       elements={{
-        ALERT_DIALOG: {backgroundColor: 'colorBackgroundSubaccount'},
-        ALERT_DIALOG_HEADER_WRAPPER: {border: 'inherit'},
-        ALERT_DIALOG_HEADER: {fontFamily: 'fontFamilyCode', backgroundColor: 'colorBackgroundNeutralWeakest'},
-        ALERT_DIALOG_BODY: {backgroundColor: 'colorBackgroundSuccessWeakest'},
-        ALERT_DIALOG_FOOTER: {paddingTop: 'space50', backgroundColor: 'colorBackgroundWarningWeakest'},
+        ALERT_DIALOG: { backgroundColor: "colorBackgroundSubaccount" },
+        ALERT_DIALOG_HEADER_WRAPPER: { border: "inherit" },
+        ALERT_DIALOG_HEADER: { fontFamily: "fontFamilyCode", backgroundColor: "colorBackgroundNeutralWeakest" },
+        ALERT_DIALOG_BODY: { backgroundColor: "colorBackgroundSuccessWeakest" },
+        ALERT_DIALOG_FOOTER: { paddingTop: "space50", backgroundColor: "colorBackgroundWarningWeakest" },
       }}
     >
       <AlertDialog
@@ -336,11 +336,11 @@ export const CustomizedDestructiveAlertDialog: Story = () => {
       disableAnimations={true}
       theme={currentTheme}
       elements={{
-        FOO: {backgroundColor: 'colorBackgroundError'},
-        FOO_HEADER_WRAPPER: {border: 'inherit'},
-        FOO_HEADER: {fontFamily: 'fontFamilyCode', backgroundColor: 'colorBackgroundNeutralWeakest'},
-        FOO_BODY: {backgroundColor: 'colorBackgroundSuccessWeakest'},
-        FOO_FOOTER: {paddingTop: 'space50', backgroundColor: 'colorBackgroundWarningWeakest'},
+        FOO: { backgroundColor: "colorBackgroundError" },
+        FOO_HEADER_WRAPPER: { border: "inherit" },
+        FOO_HEADER: { fontFamily: "fontFamilyCode", backgroundColor: "colorBackgroundNeutralWeakest" },
+        FOO_BODY: { backgroundColor: "colorBackgroundSuccessWeakest" },
+        FOO_FOOTER: { paddingTop: "space50", backgroundColor: "colorBackgroundWarningWeakest" },
       }}
     >
       <AlertDialog

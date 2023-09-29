@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface DisplayPillGroupProps extends HTMLPasteProps<'ol'> {
-  'aria-label': string;
+export interface DisplayPillGroupProps extends HTMLPasteProps<"ol"> {
+  "aria-label": string;
   element?: string;
   children: React.ReactNode;
 }
@@ -18,7 +18,7 @@ export interface DisplayPillGroupProps extends HTMLPasteProps<'ol'> {
  * @see https://paste.twilio.design/components/display-pill-group
  */
 export const DisplayPillGroup = React.forwardRef<HTMLUListElement, DisplayPillGroupProps>(
-  ({element = 'DISPLAY_PILL_GROUP', ...props}, ref) => {
+  ({ element = "DISPLAY_PILL_GROUP", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -35,7 +35,7 @@ export const DisplayPillGroup = React.forwardRef<HTMLUListElement, DisplayPillGr
         {props.children}
       </Box>
     );
-  }
+  },
 );
 
-DisplayPillGroup.displayName = 'DisplayPillGroup';
+DisplayPillGroup.displayName = "DisplayPillGroup";

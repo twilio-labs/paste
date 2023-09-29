@@ -1,1 +1,1 @@
-export * from '@twilio-paste/combobox-primitive';
+export * from "@twilio-paste/combobox-primitive";

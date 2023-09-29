@@ -1,16 +1,16 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {Box} from '@twilio-paste/box';
-import {Combobox} from '@twilio-paste/combobox';
-import {Stack} from '@twilio-paste/stack';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Combobox } from "@twilio-paste/combobox";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { HelpText } from "@twilio-paste/help-text";
+import { Label } from "@twilio-paste/label";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {TimePicker, formatReturnTime} from '../src';
-import type {TimePickerProps} from '../src';
+import { TimePicker, formatReturnTime } from "../src";
+import type { TimePickerProps } from "../src";
 
 export const DefaultTimePicker: React.FC<React.PropsWithChildren<TimePickerProps>> = (props) => {
   const uidTP = useUID();
@@ -171,11 +171,11 @@ export const DefaultValueTimePicker: React.FC<React.PropsWithChildren<TimePicker
 };
 
 export const OnChangeTimePicker: React.FC<React.PropsWithChildren<TimePickerProps>> = (props) => {
-  const [value, setValue] = React.useState('');
-  const [timeFormat, setTimeFormat] = React.useState('HH:mm');
+  const [value, setValue] = React.useState("");
+  const [timeFormat, setTimeFormat] = React.useState("HH:mm");
   const uidTP = useUID();
   const uidHT = useUID();
-  const timeFormatOptions = ['hh:mm aa', 'hh:mm aaaa', 'HH:mm'];
+  const timeFormatOptions = ["hh:mm aa", "hh:mm aaaa", "HH:mm"];
   const handleChange = (val: string, format: string): string => {
     setValue(formatReturnTime(val, format));
     return value;
@@ -186,7 +186,7 @@ export const OnChangeTimePicker: React.FC<React.PropsWithChildren<TimePickerProp
         <Combobox
           items={timeFormatOptions}
           labelText="Return time format:"
-          onInputValueChange={({inputValue}) => {
+          onInputValueChange={({ inputValue }) => {
             if (inputValue !== undefined) setTimeFormat(inputValue);
           }}
         />
@@ -202,8 +202,8 @@ export const OnChangeTimePicker: React.FC<React.PropsWithChildren<TimePickerProp
       />
       <HelpText id={uidHT}>Select a time above.</HelpText>
       <Box marginTop="space60">
-        {' '}
-        <b>Return value:</b> {value}{' '}
+        {" "}
+        <b>Return value:</b> {value}{" "}
       </Box>
     </>
   );
@@ -257,7 +257,7 @@ export const StackOfPickers: React.FC<React.PropsWithChildren<TimePickerProps>> 
   );
 };
 
-export const CustomizedTimePicker: StoryFn = (_args, {parameters: {isTestEnvironment}, props}) => {
+export const CustomizedTimePicker: StoryFn = (_args, { parameters: { isTestEnvironment }, props }) => {
   const activeTheme = useTheme();
   const uidSeed = useUIDSeed();
   return (
@@ -266,67 +266,67 @@ export const CustomizedTimePicker: StoryFn = (_args, {parameters: {isTestEnviron
       theme={activeTheme}
       elements={{
         TIMEPICKER: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderPrimary',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth10",
+          borderColor: "colorBorderPrimary",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
-              borderColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
+              borderColor: "colorBorderDestructive",
             },
           },
         },
         TIMEPICKER_ELEMENT: {
-          color: 'colorTextLinkStronger',
-          padding: 'space50',
-          '::placeholder': {
-            color: 'colorTextLink',
+          color: "colorTextLinkStronger",
+          padding: "space50",
+          "::placeholder": {
+            color: "colorTextLink",
           },
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
           },
         },
         CUSTOM_TIME: {
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth20',
-          borderColor: 'colorBorderDestructive',
+          backgroundColor: "colorBackgroundDestructiveWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth20",
+          borderColor: "colorBorderDestructive",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderColor: 'colorBorderPrimary',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderColor: "colorBorderPrimary",
             },
           },
         },
         CUSTOM_TIME_ELEMENT: {
-          color: 'colorTextLinkDestructive',
-          padding: 'space70',
-          '::placeholder': {
-            color: 'colorTextLinkDestructive',
+          color: "colorTextLinkDestructive",
+          padding: "space70",
+          "::placeholder": {
+            color: "colorTextLinkDestructive",
           },
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderRadius: 'borderRadius30',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderRadius: "borderRadius30",
             },
           },
         },
@@ -334,24 +334,24 @@ export const CustomizedTimePicker: StoryFn = (_args, {parameters: {isTestEnviron
     >
       <Stack orientation="vertical" spacing="space40">
         <div>
-          <Label htmlFor={uidSeed('appointment')}>What time is your appointment?</Label>
-          <TimePicker id={uidSeed('appointment')} {...props} />
+          <Label htmlFor={uidSeed("appointment")}>What time is your appointment?</Label>
+          <TimePicker id={uidSeed("appointment")} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidSeed('appointment2')}>
+          <Label variant="inverse" htmlFor={uidSeed("appointment2")}>
             What time is your appointment?
           </Label>
-          <TimePicker variant="inverse" id={uidSeed('appointment2')} {...props} />
+          <TimePicker variant="inverse" id={uidSeed("appointment2")} {...props} />
         </Box>
         <div>
-          <Label htmlFor={uidSeed('appointment3')}>What time is your appointment?</Label>
-          <TimePicker element="CUSTOM_TIME" id={uidSeed('appointment3')} {...props} />
+          <Label htmlFor={uidSeed("appointment3")}>What time is your appointment?</Label>
+          <TimePicker element="CUSTOM_TIME" id={uidSeed("appointment3")} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidSeed('appointment4')}>
+          <Label variant="inverse" htmlFor={uidSeed("appointment4")}>
             What time is your appointment?
           </Label>
-          <TimePicker variant="inverse" element="CUSTOM_TIME" id={uidSeed('appointment4')} {...props} />
+          <TimePicker variant="inverse" element="CUSTOM_TIME" id={uidSeed("appointment4")} {...props} />
         </Box>
       </Stack>
     </CustomizationProvider>
@@ -366,6 +366,6 @@ CustomizedTimePicker.parameters = {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Time Picker',
+  title: "Components/Time Picker",
   component: TimePicker,
 };

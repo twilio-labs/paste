@@ -1,23 +1,23 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Flex} from '@twilio-paste/flex';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Flex } from "@twilio-paste/flex";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import {useModalContext} from './ModalContext';
+import { useModalContext } from "./ModalContext";
 
-export interface ModalHeaderProps extends HTMLPasteProps<'head'> {
+export interface ModalHeaderProps extends HTMLPasteProps<"head"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
   i18nDismissLabel?: string;
 }
 
 const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(
-  ({children, element = 'MODAL_HEADER', i18nDismissLabel = 'Close modal', ...props}, ref) => {
-    const {onDismiss} = useModalContext();
+  ({ children, element = "MODAL_HEADER", i18nDismissLabel = "Close modal", ...props }, ref) => {
+    const { onDismiss } = useModalContext();
     return (
       <Box {...safelySpreadBoxProps(props)} as="div" element={element} ref={ref} padding="space90" flexShrink={0}>
         <Flex hAlignContent="between">
@@ -31,8 +31,8 @@ const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(
         </Flex>
       </Box>
     );
-  }
+  },
 );
-ModalHeader.displayName = 'ModalHeader';
+ModalHeader.displayName = "ModalHeader";
 
-export {ModalHeader};
+export { ModalHeader };

@@ -1,1 +1,1 @@
-export * from '@twilio-paste/skeleton-loader';
+export * from "@twilio-paste/skeleton-loader";

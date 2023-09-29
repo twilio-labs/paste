@@ -1,20 +1,20 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
-import {Anchor} from '@twilio-paste/anchor';
-import {Button} from '@twilio-paste/button';
-import {Truncate} from '@twilio-paste/truncate';
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { Truncate } from "@twilio-paste/truncate";
+import * as React from "react";
 
-import {Table, THead, TBody, TFoot, Tr, Td, Th} from '../src';
+import { TBody, TFoot, THead, Table, Td, Th, Tr } from "../src";
 
 const MoreMenu = (): JSX.Element => {
   const menu = useMenuState();
@@ -44,9 +44,9 @@ const MoreMenu = (): JSX.Element => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Table',
+  title: "Components/Table",
   component: Table,
-  subcomponents: {THead, TBody, TFoot, Tr, Td, Th},
+  subcomponents: { THead, TBody, TFoot, Tr, Td, Th },
 };
 
 export const DefaultTable = (): React.ReactNode => {
@@ -106,7 +106,7 @@ export const DefaultTable = (): React.ReactNode => {
   );
 };
 
-DefaultTable.storyName = 'Default table';
+DefaultTable.storyName = "Default table";
 
 export const DefaultFooterTable = (): React.ReactNode => {
   return (
@@ -196,7 +196,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
   );
 };
 
-DefaultFooterTable.storyName = 'Default table with footer';
+DefaultFooterTable.storyName = "Default table with footer";
 
 export const BorderlessTable = (): React.ReactNode => {
   return (
@@ -255,7 +255,7 @@ export const BorderlessTable = (): React.ReactNode => {
   );
 };
 
-BorderlessTable.storyName = 'Borderless table';
+BorderlessTable.storyName = "Borderless table";
 
 export const BorderlessFooterTable = (): React.ReactNode => {
   return (
@@ -345,7 +345,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
   );
 };
 
-BorderlessFooterTable.storyName = 'Borderless table with footer';
+BorderlessFooterTable.storyName = "Borderless table with footer";
 
 export const BorderlessStripedFooterTable = (): React.ReactNode => {
   return (
@@ -435,7 +435,7 @@ export const BorderlessStripedFooterTable = (): React.ReactNode => {
   );
 };
 
-BorderlessStripedFooterTable.storyName = 'Borderless striped table with footer';
+BorderlessStripedFooterTable.storyName = "Borderless striped table with footer";
 
 export const StripedTable = (): React.ReactNode => {
   return (
@@ -494,7 +494,7 @@ export const StripedTable = (): React.ReactNode => {
   );
 };
 
-StripedTable.storyName = 'Striped table';
+StripedTable.storyName = "Striped table";
 
 export const StripedTableFooter = (): React.ReactNode => {
   return (
@@ -584,7 +584,7 @@ export const StripedTableFooter = (): React.ReactNode => {
   );
 };
 
-StripedTableFooter.storyName = 'Striped table with footer';
+StripedTableFooter.storyName = "Striped table with footer";
 
 export const TableLayoutFixedTable = (): React.ReactNode => {
   return (
@@ -656,7 +656,7 @@ export const TableLayoutFixedTable = (): React.ReactNode => {
   );
 };
 
-TableLayoutFixedTable.storyName = 'TableLayout: Fixed table';
+TableLayoutFixedTable.storyName = "TableLayout: Fixed table";
 
 export const ColumnWidth = (): React.ReactNode => {
   return (
@@ -738,7 +738,7 @@ export const ColumnWidth = (): React.ReactNode => {
   );
 };
 
-ColumnWidth.storyName = 'Column width';
+ColumnWidth.storyName = "Column width";
 
 export const ColumnTextAlign = (): React.ReactNode => {
   return (
@@ -814,7 +814,7 @@ export const ColumnTextAlign = (): React.ReactNode => {
   );
 };
 
-ColumnTextAlign.storyName = 'Column textAlign';
+ColumnTextAlign.storyName = "Column textAlign";
 
 export const RowVerticalAlign = (): React.ReactNode => {
   return (
@@ -890,7 +890,7 @@ export const RowVerticalAlign = (): React.ReactNode => {
   );
 };
 
-RowVerticalAlign.storyName = 'Row verticalAlign';
+RowVerticalAlign.storyName = "Row verticalAlign";
 
 export const RowHeaders = (): React.ReactNode => {
   return (
@@ -927,7 +927,7 @@ export const RowHeaders = (): React.ReactNode => {
   );
 };
 
-RowHeaders.storyName = 'Row headers';
+RowHeaders.storyName = "Row headers";
 
 export const StickyHeaders = (): React.ReactNode => {
   return (
@@ -969,7 +969,7 @@ export const StickyHeaders = (): React.ReactNode => {
   );
 };
 
-StickyHeaders.storyName = 'Sticky headers';
+StickyHeaders.storyName = "Sticky headers";
 
 export const BorderlessStickyHeaders = (): React.ReactNode => {
   return (
@@ -994,7 +994,7 @@ export const BorderlessStickyHeaders = (): React.ReactNode => {
   );
 };
 
-BorderlessStickyHeaders.storyName = 'Borderless Sticky headers';
+BorderlessStickyHeaders.storyName = "Borderless Sticky headers";
 
 export const Truncation = (): React.ReactNode => {
   return (
@@ -1435,7 +1435,7 @@ export const Layouts = (): React.ReactNode => {
   );
 };
 
-export const CustomTable: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomTable: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (
@@ -1443,18 +1443,18 @@ export const CustomTable: StoryFn = (_args, {parameters: {isTestEnvironment}}) =
       disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        TABLE: {fontFamily: 'fontFamilyCode'},
-        TH_HEAD_LARGE: {fontSize: 'fontSize50'},
-        TH: {fontWeight: 'fontWeightBold'},
-        TH_BODY: {fontWeight: 'fontWeightMedium'},
-        TH_FOOTER: {textDecoration: 'underline'},
-        TR_DESTRUCTIVE: {color: 'colorTextLinkDestructive', fontWeight: 'fontWeightBold'},
-        TR_NEUTRAL: {color: 'colorTextNeutral', fontFamily: 'fontFamilyText'},
-        TR: {color: 'colorTextWeak'},
+        TABLE: { fontFamily: "fontFamilyCode" },
+        TH_HEAD_LARGE: { fontSize: "fontSize50" },
+        TH: { fontWeight: "fontWeightBold" },
+        TH_BODY: { fontWeight: "fontWeightMedium" },
+        TH_FOOTER: { textDecoration: "underline" },
+        TR_DESTRUCTIVE: { color: "colorTextLinkDestructive", fontWeight: "fontWeightBold" },
+        TR_NEUTRAL: { color: "colorTextNeutral", fontFamily: "fontFamilyText" },
+        TR: { color: "colorTextWeak" },
         TD_FOOT_HIGHLIGHT: {
-          backgroundColor: 'colorBackgroundSuccessWeakest',
-          fontWeight: 'fontWeightSemibold',
-          color: 'colorTextWeak',
+          backgroundColor: "colorBackgroundSuccessWeakest",
+          fontWeight: "fontWeightSemibold",
+          color: "colorTextWeak",
         },
       }}
     >
@@ -1507,7 +1507,7 @@ export const CustomTable: StoryFn = (_args, {parameters: {isTestEnvironment}}) =
   );
 };
 
-CustomTable.storyName = 'Custom table';
+CustomTable.storyName = "Custom table";
 CustomTable.parameters = {
   a11y: {
     // no need to a11y check customization

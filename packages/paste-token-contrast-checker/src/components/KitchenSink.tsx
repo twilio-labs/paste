@@ -1,31 +1,31 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/core/uid-library';
-import {Alert} from '@twilio-paste/core/alert';
-import {Anchor} from '@twilio-paste/core/anchor';
-import {Box} from '@twilio-paste/core/box';
-import {Button} from '@twilio-paste/core/button';
-import {Card} from '@twilio-paste/core/card';
-import {Column, Grid} from '@twilio-paste/core/grid';
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import {Heading} from '@twilio-paste/core/heading';
-import {MediaBody, MediaFigure, MediaObject} from '@twilio-paste/core/media-object';
-import {Toast} from '@twilio-paste/core/toast';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/core/modal';
-import {Paragraph} from '@twilio-paste/core/paragraph';
-import {Separator} from '@twilio-paste/core/separator';
-import {Stack} from '@twilio-paste/core/stack';
-import {Text} from '@twilio-paste/core/text';
-import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/core/disclosure';
-import {PlusIcon} from '@twilio-paste/icons/cjs/PlusIcon';
-import {ProductTwilioOrgIcon} from '@twilio-paste/icons/cjs/ProductTwilioOrgIcon';
+import { Alert } from "@twilio-paste/core/alert";
+import { Anchor } from "@twilio-paste/core/anchor";
+import { Box } from "@twilio-paste/core/box";
+import { Button } from "@twilio-paste/core/button";
+import { Card } from "@twilio-paste/core/card";
+import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/core/disclosure";
+import { Column, Grid } from "@twilio-paste/core/grid";
+import { Heading } from "@twilio-paste/core/heading";
+import { Input } from "@twilio-paste/core/input";
+import { Label } from "@twilio-paste/core/label";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/core/media-object";
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/core/modal";
+import { Paragraph } from "@twilio-paste/core/paragraph";
+import { Separator } from "@twilio-paste/core/separator";
+import { Stack } from "@twilio-paste/core/stack";
+import { Text } from "@twilio-paste/core/text";
+import { Toast } from "@twilio-paste/core/toast";
+import { useUID } from "@twilio-paste/core/uid-library";
+import { PlusIcon } from "@twilio-paste/icons/cjs/PlusIcon";
+import { ProductTwilioOrgIcon } from "@twilio-paste/icons/cjs/ProductTwilioOrgIcon";
+import * as React from "react";
 
-import {ExampleForm} from './Form';
-import {PlainMenu} from './Menu';
+import { ExampleForm } from "./Form";
+import { PlainMenu } from "./Menu";
 
 const handleClick = (): void => {
   // eslint-disable-next-line no-alert
-  alert('clicked');
+  alert("clicked");
 };
 
 export const KitchenSink = (): JSX.Element => {
@@ -36,7 +36,7 @@ export const KitchenSink = (): JSX.Element => {
   const modalHeadingID = useUID();
 
   // Content properties
-  const [projectName, setProjectName] = React.useState('');
+  const [projectName, setProjectName] = React.useState("");
   const projectInputID = useUID();
 
   return (
@@ -83,7 +83,7 @@ export const KitchenSink = (): JSX.Element => {
                 Hello Paste
               </Heading>
               <Paragraph>
-                Some more text that is set as a Paragraph.{' '}
+                Some more text that is set as a Paragraph.{" "}
                 <Anchor href="http://paste.twilio.design">I&rsquo;m an anchor</Anchor>
               </Paragraph>
             </Box>

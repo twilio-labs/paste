@@ -1,24 +1,24 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import {SidebarContext} from '../SidebarContext';
+import { SidebarContext } from "../SidebarContext";
 
-export interface SidebarHeaderLabelProps extends HTMLPasteProps<'div'> {
+export interface SidebarHeaderLabelProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 export const SidebarHeaderLabel = React.forwardRef<HTMLButtonElement, SidebarHeaderLabelProps>(
-  ({element = 'SIDEBAR_HEADER_LABEL', children, ...props}, ref) => {
-    const {collapsed} = React.useContext(SidebarContext);
+  ({ element = "SIDEBAR_HEADER_LABEL", children, ...props }, ref) => {
+    const { collapsed } = React.useContext(SidebarContext);
 
     return (
       <Box
         ref={ref}
         {...safelySpreadBoxProps(props)}
-        opacity={collapsed ? '0' : '1'}
+        opacity={collapsed ? "0" : "1"}
         element={element}
         fontSize="fontSize30"
         fontWeight="fontWeightSemibold"
@@ -33,7 +33,7 @@ export const SidebarHeaderLabel = React.forwardRef<HTMLButtonElement, SidebarHea
         {children}
       </Box>
     );
-  }
+  },
 );
 
-SidebarHeaderLabel.displayName = 'SidebarHeaderLabel';
+SidebarHeaderLabel.displayName = "SidebarHeaderLabel";

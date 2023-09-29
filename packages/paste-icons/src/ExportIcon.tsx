@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ExportIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ExportIconProps extends IconWrapperProps {
 }
 
 const ExportIcon = React.forwardRef<HTMLElement, ExportIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ExportIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ExportIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ExportIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -42,8 +42,8 @@ const ExportIcon = React.forwardRef<HTMLElement, ExportIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ExportIcon.displayName = 'ExportIcon';
-export {ExportIcon};
+ExportIcon.displayName = "ExportIcon";
+export { ExportIcon };

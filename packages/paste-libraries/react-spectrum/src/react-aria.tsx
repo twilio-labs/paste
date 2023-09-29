@@ -6,4 +6,4 @@ export {
   useProgressBar,
   // Meter
   useMeter,
-} from 'react-aria';
+} from "react-aria";

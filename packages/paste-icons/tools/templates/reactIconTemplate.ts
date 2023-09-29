@@ -4,7 +4,7 @@ interface ReactIconTemplateArgs {
 }
 
 // Note on a11y: https://css-tricks.com/can-make-icon-system-accessible/
-export const reactIconTemplate = ({componentName, svg}: ReactIconTemplateArgs): string => `
+export const reactIconTemplate = ({ componentName, svg }: ReactIconTemplateArgs): string => `
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */

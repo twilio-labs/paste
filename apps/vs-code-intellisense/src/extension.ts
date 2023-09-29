@@ -1,12 +1,12 @@
+import camelCase from "lodash.camelcase";
+import kebabCase from "lodash.kebabcase";
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
-import camelCase from 'lodash.camelcase';
-import kebabCase from 'lodash.kebabcase';
+import * as vscode from "vscode";
 
-import {pasteTokenAttributes} from './tokens';
-import {PasteToken} from './types';
-import {getColorPreview, getThemeSetting, getThemeTokens, remToPx, isColorCategory} from './utils';
+import { pasteTokenAttributes } from "./tokens";
+import { PasteToken } from "./types";
+import { getColorPreview, getThemeSetting, getThemeTokens, isColorCategory, remToPx } from "./utils";
 
 const DIVIDER = `___\n`;
 
@@ -22,12 +22,12 @@ export function findPasteToken(word?: string): PasteToken | undefined {
 }
 
 export function getAttributeName(linePrefix: string) {
-  let attributeName = '';
+  let attributeName = "";
   for (let endIdx = linePrefix.length - 2; endIdx >= 0; endIdx -= 1) {
-    if (linePrefix[endIdx] === ' ') {
+    if (linePrefix[endIdx] === " ") {
       break;
     }
-    if (linePrefix[endIdx] === '=') {
+    if (linePrefix[endIdx] === "=") {
       continue;
     }
     attributeName = linePrefix[endIdx] + attributeName;
@@ -37,9 +37,9 @@ export function getAttributeName(linePrefix: string) {
 }
 
 export function getCompletionItem(token: PasteToken) {
-  const {name, value, type} = token;
+  const { name, value, type } = token;
   const label = camelCase(name);
-  if (type === 'color') {
+  if (type === "color") {
     return {
       label,
       documentation: value,
@@ -69,7 +69,7 @@ export function activate(context: vscode.ExtensionContext) {
   console.log('Congratulations, your extension "vs-code-intellisense" is now active!');
 
   const hoverProvider = vscode.languages.registerHoverProvider(
-    ['javascript', 'typescript', 'javascriptreact', 'typescriptreact'],
+    ["javascript", "typescript", "javascriptreact", "typescriptreact"],
     {
       provideHover(document, position) {
         const word = document.getText(document.getWordRangeAtPosition(position));
@@ -80,7 +80,7 @@ export function activate(context: vscode.ExtensionContext) {
 
         const hoverMessage = new vscode.MarkdownString();
 
-        const {name, value, comment, category} = foundPasteToken;
+        const { name, value, comment, category } = foundPasteToken;
 
         // Run any formatters/converters on value before appending
         const formattedValue = remToPx(value);
@@ -100,11 +100,11 @@ export function activate(context: vscode.ExtensionContext) {
 
         return new vscode.Hover(hoverMessage);
       },
-    }
+    },
   );
 
   const completionProvider = vscode.languages.registerCompletionItemProvider(
-    ['javascript', 'typescript', 'javascriptreact', 'typescriptreact'],
+    ["javascript", "typescript", "javascriptreact", "typescriptreact"],
     {
       provideCompletionItems(document: vscode.TextDocument, position: vscode.Position) {
         const linePrefix = document.lineAt(position).text.slice(0, position.character);
@@ -113,10 +113,10 @@ export function activate(context: vscode.ExtensionContext) {
 
         const items = getAttributeTokens(attributeName);
 
-        return {isIncomplete: false, items};
+        return { isIncomplete: false, items };
       },
     },
-    '"' // triggered when we type '"'
+    '"', // triggered when we type '"'
   );
 
   context.subscriptions.push(hoverProvider);

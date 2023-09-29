@@ -1,8 +1,8 @@
-import websitePageVrtCheck, {FAIL_MESSAGE} from '../website-page-vrt-check';
+import websitePageVrtCheck, { FAIL_MESSAGE } from "../website-page-vrt-check";
 
 declare const global: any;
 
-describe('websitePageVrtCheck()', () => {
+describe("websitePageVrtCheck()", () => {
   beforeEach(() => {
     global.warn = jest.fn();
     global.message = jest.fn();
@@ -17,26 +17,26 @@ describe('websitePageVrtCheck()', () => {
     global.markdown = undefined;
   });
 
-  describe('checking for missing vrt updates', () => {
+  describe("checking for missing vrt updates", () => {
     afterEach(() => {
       global.danger = undefined;
     });
 
-    it('should fail when new website pages are created without a sitemap vrt modification', () => {
+    it("should fail when new website pages are created without a sitemap vrt modification", () => {
       global.danger = {
         git: {
           modified_files: [],
-          created_files: ['packages/paste-website/src/pages/index.tsx'],
+          created_files: ["packages/paste-website/src/pages/index.tsx"],
         },
       };
       websitePageVrtCheck();
       expect(global.fail).toHaveBeenCalledWith(FAIL_MESSAGE);
     });
 
-    it('should not fail when no new website pages are created', () => {
+    it("should not fail when no new website pages are created", () => {
       global.danger = {
         git: {
-          modified_files: ['cypress/integration/sitemap-vrt/constants.ts'],
+          modified_files: ["cypress/integration/sitemap-vrt/constants.ts"],
           created_files: [],
         },
       };
@@ -44,11 +44,11 @@ describe('websitePageVrtCheck()', () => {
       expect(global.fail).not.toHaveBeenCalled();
     });
 
-    it('should not fail when new website pages are created with a sitemap vrt modification', () => {
+    it("should not fail when new website pages are created with a sitemap vrt modification", () => {
       global.danger = {
         git: {
-          modified_files: ['cypress/integration/sitemap-vrt/constants.ts'],
-          created_files: ['packages/paste-website/src/pages/index.tsx'],
+          modified_files: ["cypress/integration/sitemap-vrt/constants.ts"],
+          created_files: ["packages/paste-website/src/pages/index.tsx"],
         },
       };
       websitePageVrtCheck();

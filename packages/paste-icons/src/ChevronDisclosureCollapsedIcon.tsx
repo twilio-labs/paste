@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ChevronDisclosureCollapsedIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ChevronDisclosureCollapsedIconProps extends IconWrapperProps {
 }
 
 const ChevronDisclosureCollapsedIcon = React.forwardRef<HTMLElement, ChevronDisclosureCollapsedIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ChevronDisclosureCollapsedIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ChevronDisclosureCollapsedIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ChevronDisclosureCollapsedIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -40,8 +40,8 @@ const ChevronDisclosureCollapsedIcon = React.forwardRef<HTMLElement, ChevronDisc
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ChevronDisclosureCollapsedIcon.displayName = 'ChevronDisclosureCollapsedIcon';
-export {ChevronDisclosureCollapsedIcon};
+ChevronDisclosureCollapsedIcon.displayName = "ChevronDisclosureCollapsedIcon";
+export { ChevronDisclosureCollapsedIcon };

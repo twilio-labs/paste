@@ -1,1 +1,1 @@
-export * from '@twilio-paste/progress-bar';
+export * from "@twilio-paste/progress-bar";

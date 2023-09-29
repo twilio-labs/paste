@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {TooltipPrimitiveArrow} from '@twilio-paste/tooltip-primitive';
-import type {TooltipPrimitiveArrowProps} from '@twilio-paste/tooltip-primitive';
-import {useTheme} from '@twilio-paste/theme';
+import { useTheme } from "@twilio-paste/theme";
+import { TooltipPrimitiveArrow } from "@twilio-paste/tooltip-primitive";
+import type { TooltipPrimitiveArrowProps } from "@twilio-paste/tooltip-primitive";
+import * as React from "react";
 
 export type TooltipArrowProps = TooltipPrimitiveArrowProps;
 
@@ -18,5 +18,5 @@ const TooltipArrow: React.FC<React.PropsWithChildren<TooltipArrowProps>> = (prop
   );
 };
 
-TooltipArrow.displayName = 'TooltipArrow';
-export {TooltipArrow};
+TooltipArrow.displayName = "TooltipArrow";
+export { TooltipArrow };

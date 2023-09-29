@@ -1,15 +1,15 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
+import { Anchor } from "@twilio-paste/anchor";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {Radio, RadioGroup} from '../src';
+import { Radio, RadioGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Radio',
+  title: "Components/Radio",
   component: Radio,
-  subcomponents: {RadioGroup},
+  subcomponents: { RadioGroup },
 };
 
 export const RadioDefault = (): React.ReactNode => {
@@ -20,7 +20,7 @@ export const RadioDefault = (): React.ReactNode => {
   );
 };
 
-RadioDefault.storyName = 'Radio';
+RadioDefault.storyName = "Radio";
 
 export const RadioChecked = (): React.ReactNode => {
   return (
@@ -30,7 +30,7 @@ export const RadioChecked = (): React.ReactNode => {
   );
 };
 
-RadioChecked.storyName = 'Radio - checked';
+RadioChecked.storyName = "Radio - checked";
 
 export const RadioDisabled = (): React.ReactNode => {
   return (
@@ -40,7 +40,7 @@ export const RadioDisabled = (): React.ReactNode => {
   );
 };
 
-RadioDisabled.storyName = 'Radio - disabled';
+RadioDisabled.storyName = "Radio - disabled";
 
 export const RadioCheckedDisabled = (): React.ReactNode => {
   return (
@@ -50,7 +50,7 @@ export const RadioCheckedDisabled = (): React.ReactNode => {
   );
 };
 
-RadioCheckedDisabled.storyName = 'Radio - checked & disabled';
+RadioCheckedDisabled.storyName = "Radio - checked & disabled";
 
 export const RadioError = (): React.ReactNode => {
   return (
@@ -60,7 +60,7 @@ export const RadioError = (): React.ReactNode => {
   );
 };
 
-RadioError.storyName = 'Radio - Error';
+RadioError.storyName = "Radio - Error";
 
 export const RadioErrorDisabled = (): React.ReactNode => {
   return (
@@ -70,7 +70,7 @@ export const RadioErrorDisabled = (): React.ReactNode => {
   );
 };
 
-RadioErrorDisabled.storyName = 'Radio - Error and disabled';
+RadioErrorDisabled.storyName = "Radio - Error and disabled";
 
 export const RadioErrorDefaultChecked = (): React.ReactNode => {
   return (
@@ -80,7 +80,7 @@ export const RadioErrorDefaultChecked = (): React.ReactNode => {
   );
 };
 
-RadioErrorDefaultChecked.storyName = 'Radio - Error & checked';
+RadioErrorDefaultChecked.storyName = "Radio - Error & checked";
 
 export const RadioErrorCheckedDisabled = (): React.ReactNode => {
   return (
@@ -90,11 +90,11 @@ export const RadioErrorCheckedDisabled = (): React.ReactNode => {
   );
 };
 
-RadioErrorCheckedDisabled.storyName = 'Radio - Error & checked & disabled';
+RadioErrorCheckedDisabled.storyName = "Radio - Error & checked & disabled";
 
 export const RadioGroupDefault = (): React.ReactNode => {
   const name = useUID();
-  const [value, setValue] = React.useState('2');
+  const [value, setValue] = React.useState("2");
   return (
     <RadioGroup
       name={name}
@@ -130,11 +130,11 @@ export const RadioGroupDefault = (): React.ReactNode => {
   );
 };
 
-RadioGroupDefault.storyName = 'Radio Group';
+RadioGroupDefault.storyName = "Radio Group";
 
 export const RadioGroupDisabled = (): React.ReactNode => {
   const name = useUID();
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <RadioGroup
       name={name}
@@ -158,11 +158,11 @@ export const RadioGroupDisabled = (): React.ReactNode => {
   );
 };
 
-RadioGroupDisabled.storyName = 'Radio Group - Disabled';
+RadioGroupDisabled.storyName = "Radio Group - Disabled";
 
 export const RadioGroupOverrideDisable = (): React.ReactNode => {
   const name = useUID();
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <RadioGroup
       name={name}
@@ -186,11 +186,11 @@ export const RadioGroupOverrideDisable = (): React.ReactNode => {
   );
 };
 
-RadioGroupOverrideDisable.storyName = 'Radio Group - Override Disable';
+RadioGroupOverrideDisable.storyName = "Radio Group - Override Disable";
 
 export const RadioGroupError = (): React.ReactNode => {
   const name = useUID();
-  const [value, setValue] = React.useState('2');
+  const [value, setValue] = React.useState("2");
   return (
     <RadioGroup
       name={name}
@@ -227,11 +227,11 @@ export const RadioGroupError = (): React.ReactNode => {
   );
 };
 
-RadioGroupError.storyName = 'Radio Group - Error';
+RadioGroupError.storyName = "Radio Group - Error";
 
 export const RadioGroupHorizontal = (): React.ReactNode => {
   const name = useUID();
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <RadioGroup
       name={name}
@@ -256,11 +256,11 @@ export const RadioGroupHorizontal = (): React.ReactNode => {
   );
 };
 
-RadioGroupHorizontal.storyName = 'Radio Group - Horizontal';
+RadioGroupHorizontal.storyName = "Radio Group - Horizontal";
 
 export const RadioGroupHorizontalDisabled = (): React.ReactNode => {
   const name = useUID();
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <RadioGroup
       name={name}
@@ -285,11 +285,11 @@ export const RadioGroupHorizontalDisabled = (): React.ReactNode => {
   );
 };
 
-RadioGroupHorizontalDisabled.storyName = 'Radio Group - Horizontal disabled';
+RadioGroupHorizontalDisabled.storyName = "Radio Group - Horizontal disabled";
 
 export const RadioGroupHorizontalError = (): React.ReactNode => {
   const name = useUID();
-  const [value, setValue] = React.useState('1');
+  const [value, setValue] = React.useState("1");
   return (
     <RadioGroup
       name={name}
@@ -315,4 +315,4 @@ export const RadioGroupHorizontalError = (): React.ReactNode => {
   );
 };
 
-RadioGroupHorizontalError.storyName = 'Radio Group - Horizontal error';
+RadioGroupHorizontalError.storyName = "Radio Group - Horizontal error";

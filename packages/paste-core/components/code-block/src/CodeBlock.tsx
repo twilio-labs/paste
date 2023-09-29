@@ -1,21 +1,21 @@
-import * as React from 'react';
-import {SyntaxHighlighter} from '@twilio-paste/syntax-highlighter-library';
-import type {SnippetLanguages} from '@twilio-paste/syntax-highlighter-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { SyntaxHighlighter } from "@twilio-paste/syntax-highlighter-library";
+import type { SnippetLanguages } from "@twilio-paste/syntax-highlighter-library";
+import * as React from "react";
 
-import {getPasteSyntaxTheme} from './CodeBlockTheme';
-import {CopyButton} from './CopyButton';
-import {ExternalLinkButton} from './ExternalLinkButton';
+import { getPasteSyntaxTheme } from "./CodeBlockTheme";
+import { CopyButton } from "./CopyButton";
+import { ExternalLinkButton } from "./ExternalLinkButton";
 
-type CodeBlockVariants = 'multi-line' | 'single-line';
+type CodeBlockVariants = "multi-line" | "single-line";
 
-export interface CodeBlockProps extends Partial<Omit<HTMLDivElement, 'children'>> {
+export interface CodeBlockProps extends Partial<Omit<HTMLDivElement, "children">> {
   children?: never;
   language: SnippetLanguages;
   code: string;
   variant?: CodeBlockVariants;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   showLineNumbers?: boolean;
   wrapLines?: boolean;
   maxLines?: number;
@@ -27,29 +27,29 @@ export interface CodeBlockProps extends Partial<Omit<HTMLDivElement, 'children'>
 }
 
 const CodeBlockVariantStyles: Record<CodeBlockVariants, BoxStyleProps> = {
-  'single-line': {
-    gridTemplateColumns: '1fr auto',
+  "single-line": {
+    gridTemplateColumns: "1fr auto",
     gridTemplateAreas: '"code-block button-group"',
-    columnGap: 'space40',
-    borderRadius: 'borderRadius20',
-    paddingY: 'space60',
+    columnGap: "space40",
+    borderRadius: "borderRadius20",
+    paddingY: "space60",
   },
-  'multi-line': {
-    gridTemplateRows: 'auto 1fr',
+  "multi-line": {
+    gridTemplateRows: "auto 1fr",
     gridTemplateAreas: '"button-group" "code-block"',
-    rowGap: 'space20',
-    paddingTop: 'space50',
-    paddingBottom: 'space90',
+    rowGap: "space20",
+    paddingTop: "space50",
+    paddingBottom: "space90",
   },
 };
 
 export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
   (
     {
-      element = 'CODE_BLOCK',
+      element = "CODE_BLOCK",
       language,
       code,
-      variant = 'multi-line',
+      variant = "multi-line",
       showLineNumbers,
       wrapLines,
       maxLines,
@@ -60,7 +60,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
       copyTextFormatter,
       ...props
     },
-    ref
+    ref,
   ) => {
     return (
       <Box
@@ -78,7 +78,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
           flexDirection="row"
           alignItems="center"
           columnGap="space40"
-          justifyContent={variant === 'multi-line' ? 'flex-end' : undefined}
+          justifyContent={variant === "multi-line" ? "flex-end" : undefined}
           gridArea="button-group"
         >
           <Box>
@@ -117,7 +117,7 @@ export const CodeBlock = React.forwardRef<HTMLDivElement, CodeBlockProps>(
         </Box>
       </Box>
     );
-  }
+  },
 );
 
-CodeBlock.displayName = 'CodeBlock';
+CodeBlock.displayName = "CodeBlock";

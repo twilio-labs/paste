@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {InlineControlGroupProps} from '@twilio-paste/inline-control-group';
-import {HelpText} from '@twilio-paste/help-text';
-import {Label} from '@twilio-paste/label';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { HelpText } from "@twilio-paste/help-text";
+import type { InlineControlGroupProps } from "@twilio-paste/inline-control-group";
+import { Label } from "@twilio-paste/label";
+import * as React from "react";
 
-import {RadioButtonContext} from './RadioButtonContext';
-import {AttachedRadioButtonGroupWrapper, UnattachedRadioButtonGroupWrapper} from './StyledRadioButtonGroupWrapper';
+import { RadioButtonContext } from "./RadioButtonContext";
+import { AttachedRadioButtonGroupWrapper, UnattachedRadioButtonGroupWrapper } from "./StyledRadioButtonGroupWrapper";
 
 export interface RadioButtonGroupProps extends InlineControlGroupProps {
   name: string;
@@ -19,20 +19,20 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
   (
     {
       name,
-      element = 'RADIO_BUTTON_GROUP',
+      element = "RADIO_BUTTON_GROUP",
       value,
       onChange,
       disabled = false,
       errorText,
       children,
-      i18nRequiredLabel = '(required)',
+      i18nRequiredLabel = "(required)",
       helpText,
       legend,
       required,
       attached = false,
       ...props
     },
-    ref
+    ref,
   ) => {
     const onChangeHandler = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -40,13 +40,13 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
           onChange(event.target.value);
         }
       },
-      [onChange]
+      [onChange],
     );
 
     const contextValue = React.useMemo(() => {
       return {
         name,
-        value: value || '',
+        value: value || "",
         disabled,
         hasError: errorText != null,
         onChange: onChangeHandler,
@@ -93,9 +93,9 @@ const RadioButtonGroup = React.forwardRef<HTMLFieldSetElement, RadioButtonGroupP
         </Box>
       </RadioButtonContext.Provider>
     );
-  }
+  },
 );
 
-RadioButtonGroup.displayName = 'RadioButtonGroup';
+RadioButtonGroup.displayName = "RadioButtonGroup";
 
-export {RadioButtonGroup};
+export { RadioButtonGroup };

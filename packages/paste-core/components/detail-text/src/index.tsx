@@ -1,16 +1,16 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-export interface DetailTextProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
+export interface DetailTextProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
   children?: React.ReactNode;
-  element?: BoxProps['element'];
-  as?: BoxProps['as'];
-  marginTop?: 'space0' | 'space30';
+  element?: BoxProps["element"];
+  as?: BoxProps["as"];
+  marginTop?: "space0" | "space30";
 }
 
 export const DetailText = React.forwardRef<HTMLDivElement, DetailTextProps>(
-  ({element = 'DETAIL_TEXT', as = 'div', children, marginTop = 'space30', ...props}, ref) => {
+  ({ element = "DETAIL_TEXT", as = "div", children, marginTop = "space30", ...props }, ref) => {
     return (
       <Box
         as={as}
@@ -26,7 +26,7 @@ export const DetailText = React.forwardRef<HTMLDivElement, DetailTextProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
-DetailText.displayName = 'DetailText';
+DetailText.displayName = "DetailText";

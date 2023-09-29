@@ -1,31 +1,31 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Spinner} from '@twilio-paste/spinner';
-import {secureExternalLink} from '@twilio-paste/anchor';
-import {useSpring, animated} from '@twilio-paste/animation-library';
-import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import { secureExternalLink } from "@twilio-paste/anchor";
+import { animated, useSpring } from "@twilio-paste/animation-library";
+import { Box } from "@twilio-paste/box";
+import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
+import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
+import { Spinner } from "@twilio-paste/spinner";
+import * as React from "react";
 
+import { DestructiveButton } from "./DestructiveButton";
+import { DestructiveIconButton } from "./DestructiveIconButton";
+import { DestructiveLinkButton } from "./DestructiveLinkButton";
+import { DestructiveSecondaryButton } from "./DestructiveSecondaryButton";
+import { InverseButton } from "./InverseButton";
+import { InverseLinkButton } from "./InverseLinkButton";
+import { LinkButton } from "./LinkButton";
+import { PrimaryButton } from "./PrimaryButton";
+import { PrimaryIconButton } from "./PrimaryIconButton";
+import { ResetButton } from "./ResetButton";
+import { SecondaryButton } from "./SecondaryButton";
+import { SecondaryIconButton } from "./SecondaryIconButton";
 import type {
+  ButtonContentsProps,
   ButtonProps,
   ButtonSizes,
-  ButtonContentsProps,
-  DirectButtonProps,
-  ButtonVariants,
   ButtonStates,
-} from './types';
-import {PrimaryButton} from './PrimaryButton';
-import {PrimaryIconButton} from './PrimaryIconButton';
-import {SecondaryButton} from './SecondaryButton';
-import {SecondaryIconButton} from './SecondaryIconButton';
-import {DestructiveButton} from './DestructiveButton';
-import {DestructiveIconButton} from './DestructiveIconButton';
-import {DestructiveLinkButton} from './DestructiveLinkButton';
-import {DestructiveSecondaryButton} from './DestructiveSecondaryButton';
-import {LinkButton} from './LinkButton';
-import {InverseButton} from './InverseButton';
-import {InverseLinkButton} from './InverseLinkButton';
-import {ResetButton} from './ResetButton';
+  ButtonVariants,
+  DirectButtonProps,
+} from "./types";
 
 const AnimatedBox = animated(Box);
 
@@ -36,21 +36,21 @@ const AnimatedBox = animated(Box);
  * - 'default' otherwise
  */
 const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?: ButtonSizes): ButtonSizes => {
-  let smartSize: ButtonSizes = 'default';
+  let smartSize: ButtonSizes = "default";
   if (size != null) {
     smartSize = size;
-  } else if (variant === 'link' || variant === 'destructive_link' || variant === 'reset') {
-    smartSize = 'reset';
+  } else if (variant === "link" || variant === "destructive_link" || variant === "reset") {
+    smartSize = "reset";
   } else if (React.Children.count(children) === 1) {
     React.Children.forEach(children, (child) => {
       if (
         React.isValidElement(child) &&
         // @ts-expect-error we know displayName will exist in React
-        typeof child.type.displayName === 'string' &&
+        typeof child.type.displayName === "string" &&
         // @ts-expect-error we know displayName will exist in React
-        child.type.displayName.includes('Icon')
+        child.type.displayName.includes("Icon")
       ) {
-        smartSize = 'icon';
+        smartSize = "icon";
       }
     });
   }
@@ -59,12 +59,12 @@ const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?
 
 const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => {
   if (disabled) {
-    return 'disabled';
+    return "disabled";
   }
   if (loading) {
-    return 'loading';
+    return "loading";
   }
-  return 'default';
+  return "default";
 };
 
 const handlePropValidation = ({
@@ -79,21 +79,21 @@ const handlePropValidation = ({
   loading,
   pressed,
 }: ButtonProps): void => {
-  const hasHref = href != null && href !== '';
+  const hasHref = href != null && href !== "";
   const hasTabIndex = tabIndex != null;
 
   // Link validation
-  if (as !== 'a' && hasHref) {
+  if (as !== "a" && hasHref) {
     throw new Error(`[Paste: Button] You cannot pass href into a button without the 'a' tag.  Use 'as="a"'.`);
   }
-  if (as === 'a') {
+  if (as === "a") {
     if (!hasHref) {
       throw new Error(`[Paste: Button] Missing href prop for link button.`);
     }
-    if (variant === 'link' || variant === 'inverse_link') {
+    if (variant === "link" || variant === "inverse_link") {
       throw new Error(`[Paste: Button] Using Button component as an Anchor. Use the Paste Anchor component instead.`);
     }
-    if (variant !== 'primary' && variant !== 'secondary' && variant !== 'reset' && variant !== 'inverse') {
+    if (variant !== "primary" && variant !== "secondary" && variant !== "reset" && variant !== "inverse") {
       throw new Error(`[Paste: Button] <Button as="a"> only works with the following variants: primary and secondary.`);
     }
     if (disabled || loading) {
@@ -102,13 +102,13 @@ const handlePropValidation = ({
   }
 
   // Reset validation
-  if (variant === 'reset' && size !== 'reset') {
+  if (variant === "reset" && size !== "reset") {
     throw new Error('[Paste: Button] The "RESET" variant can only be used with the "RESET" size.');
   }
 
   // Icon validation
-  if ((size === 'icon' || size === 'icon_small' || size === 'circle' || size === 'circle_small') && fullWidth) {
-    throw new Error('[Paste: Button] Icon buttons should not be fullWidth.');
+  if ((size === "icon" || size === "icon_small" || size === "circle" || size === "circle_small") && fullWidth) {
+    throw new Error("[Paste: Button] Icon buttons should not be fullWidth.");
   }
 
   // Button validation
@@ -120,14 +120,14 @@ const handlePropValidation = ({
   }
 
   // Toggle button validaton
-  if (pressed && !(variant === 'secondary' || variant === 'secondary_icon' || variant === 'destructive_secondary')) {
+  if (pressed && !(variant === "secondary" || variant === "secondary_icon" || variant === "destructive_secondary")) {
     throw new Error(
-      `[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" and "destructive_secondary" variants.`
+      `[Paste: Button] pressed can only be used with "secondary" and "secondary_icon" and "destructive_secondary" variants.`,
     );
   }
 };
 
-const variantsWithoutBoundingBox = new Set(['link', 'destructive_link', 'inverse_link', 'reset']);
+const variantsWithoutBoundingBox = new Set(["link", "destructive_link", "inverse_link", "reset"]);
 
 const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = ({
   buttonState,
@@ -143,8 +143,8 @@ const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = (
         as="span"
         display="flex"
         textDecoration="inherit"
-        opacity={buttonState === 'loading' ? '0' : '1'}
-        justifyContent={buttonVariantHasBoundingBox ? null : 'center'}
+        opacity={buttonState === "loading" ? "0" : "1"}
+        justifyContent={buttonVariantHasBoundingBox ? null : "center"}
         columnGap="space20"
         alignItems="center"
         width="100%"
@@ -171,35 +171,35 @@ const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = (
   );
 };
 
-ButtonContents.displayName = 'ButtonContents';
+ButtonContents.displayName = "ButtonContents";
 
 const getButtonComponent = (
-  variant: ButtonVariants
+  variant: ButtonVariants,
 ): React.ForwardRefExoticComponent<DirectButtonProps & React.RefAttributes<HTMLButtonElement>> => {
   switch (variant) {
-    case 'primary_icon':
+    case "primary_icon":
       return PrimaryIconButton;
-    case 'secondary':
+    case "secondary":
       return SecondaryButton;
-    case 'secondary_icon':
+    case "secondary_icon":
       return SecondaryIconButton;
-    case 'destructive':
+    case "destructive":
       return DestructiveButton;
-    case 'destructive_icon':
+    case "destructive_icon":
       return DestructiveIconButton;
-    case 'destructive_secondary':
+    case "destructive_secondary":
       return DestructiveSecondaryButton;
-    case 'link':
+    case "link":
       return LinkButton;
-    case 'destructive_link':
+    case "destructive_link":
       return DestructiveLinkButton;
-    case 'reset':
+    case "reset":
       return ResetButton;
-    case 'inverse':
+    case "inverse":
       return InverseButton;
-    case 'inverse_link':
+    case "inverse_link":
       return InverseLinkButton;
-    case 'primary':
+    case "primary":
     default:
       return PrimaryButton;
   }
@@ -207,11 +207,11 @@ const getButtonComponent = (
 
 // memo
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({element = 'BUTTON', i18nExternalLinkLabel = '(link takes you to an external page)', ...props}, ref) => {
-    const {size, variant, children, disabled, loading, ...rest} = props;
+  ({ element = "BUTTON", i18nExternalLinkLabel = "(link takes you to an external page)", ...props }, ref) => {
+    const { size, variant, children, disabled, loading, ...rest } = props;
     const [hovered, setHovered] = React.useState(false);
     const arrowIconStyles = useSpring({
-      translateX: hovered ? '4px' : '0px',
+      translateX: hovered ? "4px" : "0px",
       config: {
         mass: 0.1,
         tension: 275,
@@ -223,17 +223,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return getButtonSize(variant, children, size);
     }, [size, variant, children]);
 
-    handlePropValidation({...props, size: smartDefaultSize});
+    handlePropValidation({ ...props, size: smartDefaultSize });
 
     const buttonState = getButtonState(disabled, loading);
-    const showLoading = buttonState === 'loading';
-    const showDisabled = buttonState !== 'default';
+    const showLoading = buttonState === "loading";
+    const showDisabled = buttonState !== "default";
     const ButtonComponent = getButtonComponent(variant);
     const externalLinkProps = props.href != null ? secureExternalLink(props.href) : null;
 
     // Automatically inject AnchorForwardIcon for link's dressed as buttons when possible
     let injectIconChildren = children;
-    if (props.as === 'a' && props.href != null && typeof children === 'string' && variant !== 'reset') {
+    if (props.as === "a" && props.href != null && typeof children === "string" && variant !== "reset") {
       injectIconChildren = (
         <>
           {children}
@@ -253,13 +253,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...externalLinkProps}
         {...rest}
         onMouseEnter={(event) => {
-          if (typeof rest.onMouseEnter === 'function') {
+          if (typeof rest.onMouseEnter === "function") {
             rest.onMouseEnter(event);
           }
           setHovered(true);
         }}
         onMouseLeave={(event) => {
-          if (typeof rest.onMouseLeave === 'function') {
+          if (typeof rest.onMouseLeave === "function") {
             rest.onMouseLeave(event);
           }
           setHovered(false);
@@ -269,7 +269,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         element={element}
         variant={variant}
         size={smartDefaultSize as ButtonSizes}
-        aria-busy={buttonState === 'loading' ? 'true' : 'false'}
+        aria-busy={buttonState === "loading" ? "true" : "false"}
         ref={ref}
       >
         <ButtonContents buttonState={buttonState} showLoading={showLoading} variant={variant}>
@@ -277,19 +277,19 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         </ButtonContents>
       </ButtonComponent>
     );
-  }
+  },
 );
 
 Button.defaultProps = {
-  as: 'button',
+  as: "button",
   fullWidth: false,
   disabled: false,
   loading: false,
-  type: 'button',
-  variant: 'primary',
+  type: "button",
+  variant: "primary",
 };
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
-export type {ButtonProps};
-export {Button};
+export type { ButtonProps };
+export { Button };

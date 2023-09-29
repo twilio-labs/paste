@@ -1,36 +1,36 @@
-import * as React from 'react';
-import type {Meta, StoryFn, StoryContext} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Anchor} from '@twilio-paste/anchor';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import filter from 'lodash/filter';
-import {Form} from '@twilio-paste/form';
-import {Modal, ModalBody, ModalHeader, ModalHeading} from '@twilio-paste/modal';
-import {Button} from '@twilio-paste/button';
-import {useUID} from '@twilio-paste/uid-library';
+import type { Meta, StoryContext, StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Form } from "@twilio-paste/form";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Modal, ModalBody, ModalHeader, ModalHeading } from "@twilio-paste/modal";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import filter from "lodash/filter";
+import * as React from "react";
 
-import {MultiselectCombobox, useMultiselectCombobox} from '../src';
+import { MultiselectCombobox, useMultiselectCombobox } from "../src";
 
 function createLargeArray<TemplateResult = string & Record<string, string>>(
-  template: (index?: number | undefined) => TemplateResult
+  template: (index?: number | undefined) => TemplateResult,
 ): TemplateResult[] {
   // eslint-disable-next-line unicorn/prefer-spread
   return Array.from(new Array(1000), (_empty, index) => template(index));
 }
 
 const items = [
-  'Alert',
-  'Anchor',
-  'Button',
-  'Card',
-  'Heading',
-  'A component with a really really really really really really really really long name',
-  'List',
-  'Modal',
-  'Paragraph',
+  "Alert",
+  "Anchor",
+  "Button",
+  "Card",
+  "Heading",
+  "A component with a really really really really really really really really long name",
+  "List",
+  "Modal",
+  "Paragraph",
 ];
 
 function getFilteredItems(inputValue: string): string[] {
@@ -45,7 +45,7 @@ function getFilteredItems(inputValue: string): string[] {
  * Basic
  */
 export const MultiselectComboboxBasic = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   return (
@@ -54,7 +54,7 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -64,10 +64,10 @@ export const MultiselectComboboxBasic = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxBasic.storyName = 'Basic';
+MultiselectComboboxBasic.storyName = "Basic";
 
 export const BottomOfScreen = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   return (
@@ -78,7 +78,7 @@ export const BottomOfScreen = (): React.ReactNode => {
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems) => {
@@ -89,16 +89,16 @@ export const BottomOfScreen = (): React.ReactNode => {
     </>
   );
 };
-BottomOfScreen.storyName = 'Bottom of screen';
+BottomOfScreen.storyName = "Bottom of screen";
 BottomOfScreen.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /*
  * Basic - Inverse
  */
 export const MultiselectComboboxInverse = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   return (
@@ -109,7 +109,7 @@ export const MultiselectComboboxInverse = (): React.ReactNode => {
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems) => {
@@ -120,13 +120,13 @@ export const MultiselectComboboxInverse = (): React.ReactNode => {
     </Box>
   );
 };
-MultiselectComboboxInverse.storyName = 'variant Inverse';
+MultiselectComboboxInverse.storyName = "variant Inverse";
 
 /*
  * Basic - Disabled
  */
 export const MultiselectComboboxDisabled = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   return (
@@ -137,7 +137,7 @@ export const MultiselectComboboxDisabled = (): React.ReactNode => {
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -147,13 +147,13 @@ export const MultiselectComboboxDisabled = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxDisabled.storyName = 'Basic - Disabled';
+MultiselectComboboxDisabled.storyName = "Basic - Disabled";
 
 /*
  * Basic - Disabled, Inverse, Required
  */
 export const MultiselectComboboxDisabledInverseRequired = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   return (
@@ -166,7 +166,7 @@ export const MultiselectComboboxDisabledInverseRequired = (): React.ReactNode =>
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems) => {
@@ -177,13 +177,13 @@ export const MultiselectComboboxDisabledInverseRequired = (): React.ReactNode =>
     </Box>
   );
 };
-MultiselectComboboxDisabledInverseRequired.storyName = 'Basic - Disabled, Inverse, Required';
+MultiselectComboboxDisabledInverseRequired.storyName = "Basic - Disabled, Inverse, Required";
 
 /*
  * Basic - Error
  */
 export const MultiselectComboboxError = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   return (
@@ -193,9 +193,9 @@ export const MultiselectComboboxError = (): React.ReactNode => {
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
-      initialSelectedItems={['Alert', 'Anchor']}
+      initialSelectedItems={["Alert", "Anchor"]}
       initialIsOpen
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -205,13 +205,13 @@ export const MultiselectComboboxError = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxError.storyName = 'Basic - Error';
+MultiselectComboboxError.storyName = "Basic - Error";
 
 /*
  * Basic - Required
  */
 export const MultiselectComboboxRequired = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   return (
@@ -219,7 +219,7 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
       onSubmit={(event) => {
         event.preventDefault();
         // eslint-disable-next-line no-console
-        console.log('The form was submit');
+        console.log("The form was submit");
       }}
     >
       <MultiselectCombobox
@@ -228,8 +228,8 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
         items={filteredItems}
-        initialSelectedItems={['Alert', 'Anchor']}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        initialSelectedItems={["Alert", "Anchor"]}
+        onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={(selectedItems) => {
@@ -240,13 +240,13 @@ export const MultiselectComboboxRequired = (): React.ReactNode => {
     </Form>
   );
 };
-MultiselectComboboxRequired.storyName = 'Basic - Required';
+MultiselectComboboxRequired.storyName = "Basic - Required";
 
 /*
  * initialSelectedItems
  */
 export const MultiselectComboboxInitialSelectedItems = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
 
   return (
@@ -255,8 +255,8 @@ export const MultiselectComboboxInitialSelectedItems = (): React.ReactNode => {
       selectedItemsLabelText="Selected Paste components"
       helpText="Paste components are the building blocks of your product UI."
       items={filteredItems}
-      initialSelectedItems={['Alert', 'Anchor']}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      initialSelectedItems={["Alert", "Anchor"]}
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -266,7 +266,7 @@ export const MultiselectComboboxInitialSelectedItems = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxInitialSelectedItems.storyName = 'with initialSelectedItems';
+MultiselectComboboxInitialSelectedItems.storyName = "with initialSelectedItems";
 
 /*
  * insertBefore and insertAfter
@@ -293,7 +293,7 @@ function getFilteredBooks(inputValue: string): Book[] {
 }
 
 export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredBooks(inputValue), [inputValue]);
 
   return (
@@ -302,7 +302,7 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
       selectedItemsLabelText="Selected books:"
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
-      itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
+      itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : "")}
       initialSelectedItems={filteredItems.slice(20, 50)}
       insertBefore={
         <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
@@ -314,7 +314,7 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
           <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
         </Anchor>
       }
-      optionTemplate={({title, author}: Book) => (
+      optionTemplate={({ title, author }: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
           <Box as="span" color="colorTextWeak">
@@ -322,7 +322,7 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
           </Box>
         </Box>
       )}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -332,13 +332,13 @@ export const MultiselectComboboxBeforeAfter = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxBeforeAfter.storyName = 'with insertBefore and insertAfter';
+MultiselectComboboxBeforeAfter.storyName = "with insertBefore and insertAfter";
 
 /*
  * maxHeight
  */
 export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredBooks(inputValue), [inputValue]);
 
   return (
@@ -347,7 +347,7 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
       selectedItemsLabelText="Selected books:"
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
-      itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
+      itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : "")}
       initialSelectedItems={filteredItems.slice(20, 80)}
       maxHeight="100px"
       insertBefore={
@@ -360,7 +360,7 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
           <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
         </Anchor>
       }
-      optionTemplate={({title, author}: Book) => (
+      optionTemplate={({ title, author }: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
           <Box as="span" color="colorTextWeak">
@@ -368,7 +368,7 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
           </Box>
         </Box>
       )}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -378,13 +378,13 @@ export const MultiselectComboboxMaxHeight = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxMaxHeight.storyName = 'with maxHeight';
+MultiselectComboboxMaxHeight.storyName = "with maxHeight";
 
 /*
  * optionTemplate
  */
 export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredBooks(inputValue), [inputValue]);
 
   return (
@@ -393,8 +393,8 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
       selectedItemsLabelText="Selected books:"
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
-      itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
-      optionTemplate={({title, author}: Book) => (
+      itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : "")}
+      optionTemplate={({ title, author }: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
           <Box as="span" color="colorTextWeak">
@@ -402,7 +402,7 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
           </Box>
         </Box>
       )}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -412,13 +412,13 @@ export const MultiselectComboboxOptionTemplate = (): React.ReactNode => {
     />
   );
 };
-MultiselectComboboxOptionTemplate.storyName = 'with optionTemplate';
+MultiselectComboboxOptionTemplate.storyName = "with optionTemplate";
 
 /*
  * optionTemplate - disabled options
  */
 export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredBooks(inputValue), [inputValue]);
 
   return (
@@ -427,8 +427,8 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
       selectedItemsLabelText="Selected books:"
       helpText="Reading books can be good for your mental health."
       items={filteredItems}
-      itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : '')}
-      optionTemplate={({title, author}: Book) => (
+      itemToString={(item: Book) => (item ? `${item.title} - ${item.author}` : "")}
+      optionTemplate={({ title, author }: Book) => (
         <Box as="span" display="flex" flexDirection="column">
           <Box as="span">{title}</Box>
           <Box as="span" color="colorTextWeak">
@@ -438,7 +438,7 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
       )}
       disabledItems={filteredItems.slice(2, 8)}
       initialIsOpen
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -448,7 +448,7 @@ export const MultiselectComboboxOptionTemplatedisabled = (): React.ReactNode => 
     />
   );
 };
-MultiselectComboboxOptionTemplatedisabled.storyName = 'with optionTemplate - disabled options';
+MultiselectComboboxOptionTemplatedisabled.storyName = "with optionTemplate - disabled options";
 
 /*
  * groupedItemsBy
@@ -458,19 +458,19 @@ interface GroupedItem {
   label: string;
 }
 const groupedItems = [
-  {group: 'Components', label: 'Alert'},
-  {group: 'Components', label: 'Anchor'},
-  {group: 'Components', label: 'Button'},
-  {group: 'Components', label: 'Card'},
-  {group: 'Components', label: 'Heading'},
-  {group: 'Components', label: 'List'},
-  {group: 'Components', label: 'Modal'},
-  {group: 'Components', label: 'Paragraph'},
-  {group: 'Primitives', label: 'Box'},
-  {group: 'Primitives', label: 'Text'},
-  {group: 'Primitives', label: 'Non-modal dialog'},
-  {group: 'Layout', label: 'Grid'},
-  {label: 'Design Tokens'},
+  { group: "Components", label: "Alert" },
+  { group: "Components", label: "Anchor" },
+  { group: "Components", label: "Button" },
+  { group: "Components", label: "Card" },
+  { group: "Components", label: "Heading" },
+  { group: "Components", label: "List" },
+  { group: "Components", label: "Modal" },
+  { group: "Components", label: "Paragraph" },
+  { group: "Primitives", label: "Box" },
+  { group: "Primitives", label: "Text" },
+  { group: "Primitives", label: "Non-modal dialog" },
+  { group: "Layout", label: "Grid" },
+  { label: "Design Tokens" },
 ];
 
 function getFilteredGroupedItems(inputValue: string): GroupedItem[] {
@@ -479,15 +479,15 @@ function getFilteredGroupedItems(inputValue: string): GroupedItem[] {
 }
 
 export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
 
   return (
     <MultiselectCombobox
       groupItemsBy="group"
       items={filteredItems}
-      itemToString={(item: GroupedItem) => (item ? item.label : '')}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      itemToString={(item: GroupedItem) => (item ? item.label : "")}
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -500,7 +500,7 @@ export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
       initialIsOpen
       optionTemplate={(item: GroupedItem) => <div>{item.label}</div>}
       groupLabelTemplate={(groupName: string) => {
-        if (groupName === 'Components') {
+        if (groupName === "Components") {
           return (
             <MediaObject verticalAlign="center">
               <MediaFigure spacing="space20">
@@ -516,7 +516,7 @@ export const MultiselectComboboxOptionGroups = (): React.ReactNode => {
   );
 };
 
-MultiselectComboboxOptionGroups.storyName = 'with groups';
+MultiselectComboboxOptionGroups.storyName = "with groups";
 
 const SampleEmptyState: React.FC = () => (
   <>
@@ -528,7 +528,7 @@ const SampleEmptyState: React.FC = () => (
 );
 
 export const MultiselectComboboxEmptyState = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('test123');
+  const [inputValue, setInputValue] = React.useState("test123");
   const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
 
   return (
@@ -537,8 +537,8 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
       items={filteredItems}
       emptyState={SampleEmptyState}
       inputValue={inputValue}
-      itemToString={(item: GroupedItem) => (item ? item.label : '')}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
+      itemToString={(item: GroupedItem) => (item ? item.label : "")}
+      onInputValueChange={({ inputValue: newInputValue = "" }) => {
         setInputValue(newInputValue);
       }}
       onSelectedItemsChange={(selectedItems) => {
@@ -553,7 +553,7 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
         return <div>{item.label}</div>;
       }}
       groupLabelTemplate={(groupName: string) => {
-        if (groupName === 'Components') {
+        if (groupName === "Components") {
           return (
             <MediaObject verticalAlign="center">
               <MediaFigure spacing="space20">
@@ -569,10 +569,10 @@ export const MultiselectComboboxEmptyState = (): React.ReactNode => {
   );
 };
 
-MultiselectComboboxEmptyState.storyName = 'with empty state';
+MultiselectComboboxEmptyState.storyName = "with empty state";
 
 export const MultiselectComboboxStateHook = (): React.ReactNode => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredGroupedItems(inputValue), [inputValue]);
 
   const onSelectedItemsChange = React.useCallback((selectedItems) => {
@@ -596,8 +596,8 @@ export const MultiselectComboboxStateHook = (): React.ReactNode => {
         items={filteredItems}
         emptyState={SampleEmptyState}
         inputValue={inputValue}
-        itemToString={(item: GroupedItem) => (item ? item.label : '')}
-        onInputValueChange={({inputValue: newInputValue = ''}) => {
+        itemToString={(item: GroupedItem) => (item ? item.label : "")}
+        onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
         }}
         onSelectedItemsChange={onSelectedItemsChange}
@@ -609,7 +609,7 @@ export const MultiselectComboboxStateHook = (): React.ReactNode => {
           return <div>{item.label}</div>;
         }}
         groupLabelTemplate={(groupName: string) => {
-          if (groupName === 'Components') {
+          if (groupName === "Components") {
             return (
               <MediaObject verticalAlign="center">
                 <MediaFigure spacing="space20">
@@ -626,13 +626,13 @@ export const MultiselectComboboxStateHook = (): React.ReactNode => {
   );
 };
 
-MultiselectComboboxStateHook.storyName = 'with state hook';
+MultiselectComboboxStateHook.storyName = "with state hook";
 
 export const MultiselectComboboxInModal: StoryFn = () => {
   const [modalIsOpen, setModalIsOpen] = React.useState(true);
   const handleOpen = (): void => setModalIsOpen(true);
   const handleClose = (): void => setModalIsOpen(false);
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
   const modalHeadingId = useUID();
 
@@ -653,7 +653,7 @@ export const MultiselectComboboxInModal: StoryFn = () => {
             selectedItemsLabelText="Selected Paste components"
             helpText="Paste components are the building blocks of your product UI."
             items={filteredItems}
-            onInputValueChange={({inputValue: newInputValue = ''}) => {
+            onInputValueChange={({ inputValue: newInputValue = "" }) => {
               setInputValue(newInputValue);
             }}
             onSelectedItemsChange={(selectedItems) => {
@@ -677,7 +677,7 @@ MultiselectComboboxInModal.parameters = {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Combobox/MultiselectCombobox',
+  title: "Components/Combobox/MultiselectCombobox",
   // wraps each story in a div that has a fixed height. This makes it so chromatic takes a large enough screenshot to see the listbox.
   decorators: [
     (Story: StoryFn, context: StoryContext): React.ReactNode => (

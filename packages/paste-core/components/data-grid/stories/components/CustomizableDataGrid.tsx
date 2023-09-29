@@ -1,40 +1,40 @@
-import * as React from 'react';
-import {Heading} from '@twilio-paste/heading';
-import {Stack} from '@twilio-paste/stack';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {PlainDataGrid} from './PlainDataGrid';
+import { PlainDataGrid } from "./PlainDataGrid";
 
-export const customElementStyles = (prefix = 'DATA_GRID'): {[key: string]: any} => ({
+export const customElementStyles = (prefix = "DATA_GRID"): { [key: string]: any } => ({
   [prefix]: {
-    fontSize: 'fontSize20',
-    borderColor: 'colorBorderStrong',
+    fontSize: "fontSize20",
+    borderColor: "colorBorderStrong",
   },
   [`${prefix}_HEAD`]: {
-    backgroundColor: 'colorBackgroundStrong',
-    fontWeight: 'fontWeightSemibold',
-    borderColor: 'colorBorderStrong',
-    color: 'colorText',
+    backgroundColor: "colorBackgroundStrong",
+    fontWeight: "fontWeightSemibold",
+    borderColor: "colorBorderStrong",
+    color: "colorText",
   },
   [`${prefix}_FOOT`]: {
-    backgroundColor: 'colorBackgroundStrong',
-    fontWeight: 'fontWeightSemibold',
-    borderColor: 'colorBorderStrong',
-    color: 'colorText',
+    backgroundColor: "colorBackgroundStrong",
+    fontWeight: "fontWeightSemibold",
+    borderColor: "colorBorderStrong",
+    color: "colorText",
   },
   [`${prefix}_HEADER`]: {
-    padding: 'space10',
+    padding: "space10",
   },
   [`${prefix}_ROW`]: {
-    borderColor: 'colorBorderStrong',
+    borderColor: "colorBorderStrong",
     // _even
-    '&:nth-of-type(2n)': {
-      backgroundColor: 'colorBackgroundBody',
+    "&:nth-of-type(2n)": {
+      backgroundColor: "colorBackgroundBody",
     },
   },
   [`${prefix}_CELL`]: {
-    padding: 'space10',
+    padding: "space10",
   },
 });
 
@@ -53,7 +53,7 @@ export const CustomizableDataGrid = (): JSX.Element => {
       <Heading as="h2" variant="heading20">
         Custom element
       </Heading>
-      <CustomizationProvider theme={currentTheme} elements={customElementStyles('FOO')}>
+      <CustomizationProvider theme={currentTheme} elements={customElementStyles("FOO")}>
         <PlainDataGrid element="FOO" />
       </CustomizationProvider>
     </Stack>

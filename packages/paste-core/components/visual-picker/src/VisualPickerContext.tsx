@@ -1,10 +1,10 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface VisualPickerCheckboxContextProps {
   groupIsDisabled: boolean;
   name: string;
   groupHasError: boolean;
-  orientation: 'horizontal' | 'vertical';
+  orientation: "horizontal" | "vertical";
 }
 
 interface VisualPickerRadioContextProps extends VisualPickerCheckboxContextProps {
@@ -14,17 +14,17 @@ interface VisualPickerRadioContextProps extends VisualPickerCheckboxContextProps
 
 export const VisualPickerRadioContext = React.createContext<VisualPickerRadioContextProps>({
   groupIsDisabled: false,
-  name: '',
+  name: "",
   groupHasError: false,
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: () => {},
-  value: '',
-  orientation: 'vertical',
+  value: "",
+  orientation: "vertical",
 });
 
 export const VisualPickerCheckboxContext = React.createContext<VisualPickerCheckboxContextProps>({
   groupIsDisabled: false,
-  name: '',
+  name: "",
   groupHasError: false,
-  orientation: 'vertical',
+  orientation: "vertical",
 });

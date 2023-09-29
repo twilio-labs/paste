@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
-import {secureExternalLink} from '@twilio-paste/anchor';
+import { secureExternalLink } from "@twilio-paste/anchor";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-type DisplayPillProps = HTMLPasteProps<'a'> & Pick<BoxElementProps, 'element'>;
+type DisplayPillProps = HTMLPasteProps<"a"> & Pick<BoxElementProps, "element">;
 
 /**
  * Display represents a saved entity as part of a collection, usually as a result of multi selection.
@@ -24,7 +24,7 @@ type DisplayPillProps = HTMLPasteProps<'a'> & Pick<BoxElementProps, 'element'>;
  * @see https://paste.twilio.design/components/display-pill-group
  */
 export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>(
-  ({element = 'DISPLAY_PILL', ...props}, ref) => {
+  ({ element = "DISPLAY_PILL", ...props }, ref) => {
     return (
       <Box as="li" listStyleType="none">
         <Box
@@ -32,14 +32,14 @@ export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>
           {...(props.href ? secureExternalLink(props.href) : {})}
           ref={ref}
           element={element}
-          as={props.href ? 'a' : 'div'}
+          as={props.href ? "a" : "div"}
           alignItems="center"
           backgroundColor="colorBackgroundWeak"
           borderRadius="borderRadiusPill"
           boxShadow="shadowBorderWeaker"
           color="colorTextWeak"
           columnGap="space20"
-          cursor={props.href ? 'pointer' : 'default'}
+          cursor={props.href ? "pointer" : "default"}
           display="flex"
           fontSize="fontSize20"
           fontWeight="fontWeightMedium"
@@ -50,22 +50,22 @@ export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>
           _hover={
             props.href
               ? {
-                  backgroundColor: 'colorBackground',
-                  boxShadow: 'shadowBorder',
-                  textDecoration: 'none',
+                  backgroundColor: "colorBackground",
+                  boxShadow: "shadowBorder",
+                  textDecoration: "none",
                 }
               : undefined
           }
           _focus={{
-            boxShadow: 'shadowFocus',
-            textDecoration: 'none',
+            boxShadow: "shadowFocus",
+            textDecoration: "none",
           }}
         >
           {props.children}
         </Box>
       </Box>
     );
-  }
+  },
 );
 
-DisplayPill.displayName = 'DisplayPill';
+DisplayPill.displayName = "DisplayPill";

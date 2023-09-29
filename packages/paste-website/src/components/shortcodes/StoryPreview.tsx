@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {CodeBlock, CodeBlockWrapper} from '@twilio-paste/code-block';
+import { Box } from "@twilio-paste/box";
+import { CodeBlock, CodeBlockWrapper } from "@twilio-paste/code-block";
+import * as React from "react";
 
 export interface StoryPreviewProps {
   storyID: string;
@@ -8,10 +8,10 @@ export interface StoryPreviewProps {
   code: string;
 }
 
-const ENV = process.env.NODE_ENV || 'development';
-const BASE_URL = ENV === 'production' ? 'https://paste-storybook.twilio.design' : 'http://localhost:9001';
+const ENV = process.env.NODE_ENV || "development";
+const BASE_URL = ENV === "production" ? "https://paste-storybook.twilio.design" : "http://localhost:9001";
 
-const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({storyID, title, code}) => {
+const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({ storyID, title, code }) => {
   return (
     <Box
       padding="space20"
@@ -24,11 +24,11 @@ const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({sto
       <iframe
         src={`${BASE_URL}/iframe.html?args=&id=${storyID}&viewMode=story`}
         style={{
-          width: '100%',
-          height: '500px',
+          width: "100%",
+          height: "500px",
           border: 0,
-          overflow: 'hidden',
-          padding: '1.5rem',
+          overflow: "hidden",
+          padding: "1.5rem",
         }}
         title={`${title}`}
         allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
@@ -47,5 +47,5 @@ const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({sto
   );
 };
 
-StoryPreview.displayName = 'StoryPreview';
-export {StoryPreview};
+StoryPreview.displayName = "StoryPreview";
+export { StoryPreview };

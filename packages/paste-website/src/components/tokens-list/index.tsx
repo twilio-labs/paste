@@ -1,60 +1,60 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import DefaultThemeTokens from '@twilio-paste/design-tokens/dist/tokens.generic';
-import DarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/dark/tokens.generic';
-import TwilioThemeTokens from '@twilio-paste/design-tokens/dist/themes/twilio/tokens.generic';
-import TwilioDarkThemeTokens from '@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.generic';
-import EvergreenThemeTokens from '@twilio-paste/design-tokens/dist/themes/evergreen/tokens.generic';
-import {useClipboard} from '@twilio-paste/clipboard-copy-library';
-import kebabCase from 'lodash/kebabCase';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { useClipboard } from "@twilio-paste/clipboard-copy-library";
+import DarkThemeTokens from "@twilio-paste/design-tokens/dist/themes/dark/tokens.generic";
+import EvergreenThemeTokens from "@twilio-paste/design-tokens/dist/themes/evergreen/tokens.generic";
+import TwilioDarkThemeTokens from "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.generic";
+import TwilioThemeTokens from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.generic";
+import DefaultThemeTokens from "@twilio-paste/design-tokens/dist/tokens.generic";
+import kebabCase from "lodash/kebabCase";
+import * as React from "react";
 
-import {AnchoredHeading} from '../Heading';
-import {trackTokenFilterString, filterTokenList, getTokenExampleColors, getTokenContrastPairs} from './helpers';
-import type {Tokens, TokenExampleColors} from './types';
-import type {Themes} from '../../types';
-import {PageAside} from '../shortcodes/PageAside';
-import {NoTokensFound} from './NoTokensFound';
-import {TokenCard} from './token-card';
-import {TokensListFilter} from './TokensListFilter';
-import {SimpleStorage} from '../../utils/SimpleStorage';
-import {sectionIntros} from './sectionIntros';
-import {ScrollToTopLink} from './ScrollToTopLink';
+import type { Themes } from "../../types";
+import { SimpleStorage } from "../../utils/SimpleStorage";
+import { AnchoredHeading } from "../Heading";
+import { PageAside } from "../shortcodes/PageAside";
+import { NoTokensFound } from "./NoTokensFound";
+import { ScrollToTopLink } from "./ScrollToTopLink";
+import { TokensListFilter } from "./TokensListFilter";
+import { filterTokenList, getTokenContrastPairs, getTokenExampleColors, trackTokenFilterString } from "./helpers";
+import { sectionIntros } from "./sectionIntros";
+import { TokenCard } from "./token-card";
+import type { TokenExampleColors, Tokens } from "./types";
 
 const sentenceCase = (catName: string): string => {
   return catName
-    .split('-')
-    .join(' ')
+    .split("-")
+    .join(" ")
     .replace(/[a-z]/i, (letter): string => {
       return letter.toUpperCase();
     });
 };
 
 const ContentWrapper: React.FC<React.PropsWithChildren<BoxProps>> = (props) => (
-  <Box as="div" display={['block', 'block', 'flex']} {...props} />
+  <Box as="div" display={["block", "block", "flex"]} {...props} />
 );
 const Content: React.FC<React.PropsWithChildren<BoxProps>> = (props) => (
   <Box as="div" position="relative" maxWidth="size70" minWidth="0" width="100%" {...props} />
 );
 
-const defaultTheme = 'twilio';
-const defaultFormat = 'css';
+const defaultTheme = "twilio";
+const defaultFormat = "css";
 
 const getTokenListByTheme = (theme: Themes): Tokens => {
   let tokenList: Tokens = TwilioThemeTokens.tokens;
 
   // Set the theme tokens based on the user's preference
   switch (theme) {
-    case 'default':
+    case "default":
       tokenList = DefaultThemeTokens.tokens;
       break;
-    case 'dark':
+    case "dark":
       tokenList = DarkThemeTokens.tokens;
       break;
-    case 'twilio-dark':
+    case "twilio-dark":
       tokenList = TwilioDarkThemeTokens.tokens;
       break;
-    case 'evergreen':
+    case "evergreen":
       tokenList = EvergreenThemeTokens.tokens;
       break;
     default:
@@ -74,13 +74,13 @@ export const TokensList = (): JSX.Element => {
   const [showJumpLink, setShowJumpLink] = React.useState(false);
 
   // State related to select and filter controls
-  const [filterString, setFilterString] = React.useState('');
+  const [filterString, setFilterString] = React.useState("");
   const [selectedTheme, setSelectedTheme] = React.useState<Themes>(defaultTheme);
   const [selectedFormat, setSelectedFormat] = React.useState(defaultFormat);
   const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
 
   // State related to the clipboard
-  const [lastCopiedValue, setLastCopiedValue] = React.useState('');
+  const [lastCopiedValue, setLastCopiedValue] = React.useState("");
 
   // Get a static list of tokens and color contrast pairs
   const tokenContrastPairs = getTokenContrastPairs(DefaultThemeTokens);
@@ -90,14 +90,14 @@ export const TokensList = (): JSX.Element => {
    * and populates the token list.
    */
   React.useEffect(() => {
-    const userTheme = (SimpleStorage.get('themeControl') as Themes) || defaultTheme;
-    const userFormat = SimpleStorage.get('formatControl') || defaultFormat;
+    const userTheme = (SimpleStorage.get("themeControl") as Themes) || defaultTheme;
+    const userFormat = SimpleStorage.get("formatControl") || defaultFormat;
 
     const tokenList = getTokenListByTheme(userTheme);
 
     setSelectedTheme(userTheme);
     setSelectedFormat(userFormat);
-    setUseJavascriptNames(userFormat === 'javascript');
+    setUseJavascriptNames(userFormat === "javascript");
     setTokens(tokenList);
     setFilteredTokens(tokenList);
     setExampleColors(getTokenExampleColors(tokenList));
@@ -107,7 +107,7 @@ export const TokensList = (): JSX.Element => {
    * Set up code needed for passing & receiving clipboard copy functionality
    * into the TokenCard components.
    */
-  const clipboard = useClipboard({copiedTimeout: 2000});
+  const clipboard = useClipboard({ copiedTimeout: 2000 });
   const handleCopyName = React.useCallback((_tokenName: string): void => {
     clipboard.copy(_tokenName);
     // The inverse of what we do in TokenCard
@@ -116,16 +116,16 @@ export const TokensList = (): JSX.Element => {
 
   // Event handler for Tokens Filter
   const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
-    const {value} = e.currentTarget;
+    const { value } = e.currentTarget;
     setFilterString(value);
   };
 
   // Event handler for Theme select change
   const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const {value} = e.currentTarget;
+    const { value } = e.currentTarget;
     const newTokens = getTokenListByTheme(value as Themes);
 
-    SimpleStorage.set('themeControl', value);
+    SimpleStorage.set("themeControl", value);
     setSelectedTheme(value as Themes);
     setTokens(newTokens);
     setExampleColors(getTokenExampleColors(newTokens));
@@ -133,10 +133,10 @@ export const TokensList = (): JSX.Element => {
 
   // Event handler for Format select change
   const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    const {value} = e.currentTarget;
-    SimpleStorage.set('formatControl', value);
+    const { value } = e.currentTarget;
+    SimpleStorage.set("formatControl", value);
     setSelectedFormat(value);
-    setUseJavascriptNames(value === 'javascript');
+    setUseJavascriptNames(value === "javascript");
   };
 
   // The rendered tokens should update every time the filterString changes
@@ -167,12 +167,12 @@ export const TokensList = (): JSX.Element => {
       },
       {
         root: null,
-        rootMargin: '0px',
+        rootMargin: "0px",
         threshold: [1, 0.8, 0.6, 0.4, 0.2, 0],
-      }
+      },
     );
 
-    const tokensFilter = document.querySelector('#filter-canary');
+    const tokensFilter = document.querySelector("#filter-canary");
     if (tokensFilter) {
       intObserver.observe(tokensFilter);
     }
@@ -187,8 +187,8 @@ export const TokensList = (): JSX.Element => {
     <ContentWrapper>
       <PageAside
         data={tokenCategories
-          .filter((value) => value !== 'colors') // filter out colors section
-          .map((value) => ({value: sentenceCase(value), depth: 2}))}
+          .filter((value) => value !== "colors") // filter out colors section
+          .map((value) => ({ value: sentenceCase(value), depth: 2 }))}
         stickyTop="0px"
         topPadding="space130"
       />
@@ -199,17 +199,17 @@ export const TokensList = (): JSX.Element => {
           handleThemeChange={handleThemeChange}
           handleFormatChange={handleFormatChange}
           handleInput={handleInput}
-          handleClearSearch={() => setFilterString('')}
+          handleClearSearch={() => setFilterString("")}
           selectedFormat={selectedFormat}
           selectedTheme={selectedTheme}
           shadowOpacity={shadowOpacity}
         />
         {filteredTokens === null ? (
-          <NoTokensFound onClearSearch={() => setFilterString('')} />
+          <NoTokensFound onClearSearch={() => setFilterString("")} />
         ) : (
           tokenCategories.map((tokenCategory) => {
             // do not render colors section
-            if (tokenCategory === 'colors') return undefined;
+            if (tokenCategory === "colors") return undefined;
 
             const sectionIntro = sectionIntros[tokenCategory];
             const categoryTokens = filteredTokens[tokenCategory] ?? null;
@@ -222,7 +222,7 @@ export const TokensList = (): JSX.Element => {
                 {sectionIntro}
                 <Box as="ul" padding="space0" marginBottom="space130" data-cy="tokens-table-container">
                   {categoryTokens ? (
-                    categoryTokens.map(({name, value, altValue, comment}) => (
+                    categoryTokens.map(({ name, value, altValue, comment }) => (
                       <TokenCard
                         key={`token${name}`}
                         category={tokenCategory}

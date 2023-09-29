@@ -1,23 +1,23 @@
-import * as React from 'react';
-import {Stack} from '@twilio-paste/stack';
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {useUIDSeed} from '@twilio-paste/uid-library';
-import {Button} from '@twilio-paste/button';
-import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Column, Grid } from "@twilio-paste/grid";
+import { CheckboxCheckIcon } from "@twilio-paste/icons/esm/CheckboxCheckIcon";
+import { MinusIcon } from "@twilio-paste/icons/esm/MinusIcon";
+import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
+import { Stack } from "@twilio-paste/stack";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {useListboxPrimitiveState, ListboxPrimitive, ListboxPrimitiveGroup, ListboxPrimitiveItem} from '../src';
+import { ListboxPrimitive, ListboxPrimitiveGroup, ListboxPrimitiveItem, useListboxPrimitiveState } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Primitives/Listbox',
+  title: "Primitives/Listbox",
   component: ListboxPrimitive,
-  subcomponents: {ListboxPrimitiveItem, ListboxPrimitiveGroup},
+  subcomponents: { ListboxPrimitiveItem, ListboxPrimitiveGroup },
 };
 
-const ITEMS = ['Item 1', 'Item 2', 'Item 3'];
+const ITEMS = ["Item 1", "Item 2", "Item 3"];
 
 export const VerticalListbox = (): React.ReactNode => {
   const [selected, setSelected] = React.useState<string>();
@@ -32,7 +32,7 @@ export const VerticalListbox = (): React.ReactNode => {
             {...listbox}
             selected={selected === item}
             style={{
-              ...(selected === item && {backgroundColor: '#0263e0', color: 'white'}),
+              ...(selected === item && { backgroundColor: "#0263e0", color: "white" }),
             }}
             onSelect={() => {
               setSelected(item);
@@ -50,7 +50,7 @@ export const VerticalListbox = (): React.ReactNode => {
 
 export const HorizontalListbox = (): React.ReactNode => {
   const [selected, setSelected] = React.useState<string>();
-  const listbox = useListboxPrimitiveState({orientation: 'horizontal'});
+  const listbox = useListboxPrimitiveState({ orientation: "horizontal" });
   return (
     <ListboxPrimitive {...listbox} aria-label="Horizontal">
       {ITEMS.map((item, index) => (
@@ -60,7 +60,7 @@ export const HorizontalListbox = (): React.ReactNode => {
           {...listbox}
           selected={selected === item}
           style={{
-            ...(selected === item && {backgroundColor: '#0263e0', color: 'white'}),
+            ...(selected === item && { backgroundColor: "#0263e0", color: "white" }),
           }}
           onSelect={() => {
             setSelected(item);
@@ -82,16 +82,16 @@ export const GroupedOptions = (): React.ReactNode => {
 
   return (
     <ListboxPrimitive {...listbox} aria-label="Grouped">
-      <ListboxPrimitiveGroup aria-labelledby={seed('group-1')}>
+      <ListboxPrimitiveGroup aria-labelledby={seed("group-1")}>
         <Stack orientation="vertical" spacing="space0">
-          <span id={seed('group-1')}>Even</span>
+          <span id={seed("group-1")}>Even</span>
           {ITEMS.filter((item, index) => (index + 1) % 2 === 0).map((item) => (
             <ListboxPrimitiveItem
               key={item}
               {...listbox}
               selected={selected === item}
               style={{
-                ...(selected === item && {backgroundColor: '#0263e0', color: 'white'}),
+                ...(selected === item && { backgroundColor: "#0263e0", color: "white" }),
               }}
               onSelect={() => {
                 setSelected(item);
@@ -104,16 +104,16 @@ export const GroupedOptions = (): React.ReactNode => {
           ))}
         </Stack>
       </ListboxPrimitiveGroup>
-      <ListboxPrimitiveGroup aria-labelledby={seed('group-2')}>
+      <ListboxPrimitiveGroup aria-labelledby={seed("group-2")}>
         <Stack orientation="vertical" spacing="space0">
-          <span id={seed('group-2')}>Odd</span>
+          <span id={seed("group-2")}>Odd</span>
           {ITEMS.filter((item, index) => (index + 1) % 2 === 1).map((item) => (
             <ListboxPrimitiveItem
               key={item}
               {...listbox}
               selected={selected === item}
               style={{
-                ...(selected === item && {backgroundColor: '#0263e0', color: 'white'}),
+                ...(selected === item && { backgroundColor: "#0263e0", color: "white" }),
               }}
               onSelect={() => {
                 setSelected(item);
@@ -132,7 +132,7 @@ export const GroupedOptions = (): React.ReactNode => {
 
 export const MultiselectListbox = (): React.ReactNode => {
   const [selectedSet, updateSelectedSet] = React.useState<Set<string>>(new Set());
-  const listbox = useListboxPrimitiveState({orientation: 'horizontal'});
+  const listbox = useListboxPrimitiveState({ orientation: "horizontal" });
 
   return (
     <ListboxPrimitive {...listbox} aria-label="Multiselect" variant="multiple">
@@ -143,7 +143,7 @@ export const MultiselectListbox = (): React.ReactNode => {
           {...listbox}
           selected={selectedSet.has(item)}
           style={{
-            ...(selectedSet.has(item) && {backgroundColor: '#0263e0', color: 'white'}),
+            ...(selectedSet.has(item) && { backgroundColor: "#0263e0", color: "white" }),
           }}
           onSelect={() => {
             const newSelectedSet = new Set(selectedSet);
@@ -165,11 +165,11 @@ export const MultiselectListbox = (): React.ReactNode => {
 };
 
 export const DualExample = (): React.ReactNode => {
-  const [components, updateComponents] = React.useState(['Alert', 'Anchor', 'Button', 'Card', 'Heading', 'List']);
+  const [components, updateComponents] = React.useState(["Alert", "Anchor", "Button", "Card", "Heading", "List"]);
   const [selectedComps, updateSelectedComps] = React.useState(new Set());
   const compListbox = useListboxPrimitiveState();
 
-  const [favs, updateFavs] = React.useState(['Modal']);
+  const [favs, updateFavs] = React.useState(["Modal"]);
   const [selectedFavs, updateSelectedFavs] = React.useState(new Set());
   const favListbox = useListboxPrimitiveState();
 

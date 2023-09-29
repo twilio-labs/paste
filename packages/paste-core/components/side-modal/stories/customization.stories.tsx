@@ -1,23 +1,23 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Button} from '@twilio-paste/button';
+import type { StoryFn } from "@storybook/react";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
 import {
   SideModal,
-  SideModalButton,
-  SideModalHeader,
-  SideModalHeading,
-  SideModalContainer,
   SideModalBody,
+  SideModalButton,
+  SideModalContainer,
   SideModalFooter,
   SideModalFooterActions,
-} from '../src';
+  SideModalHeader,
+  SideModalHeading,
+} from "../src";
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Side Modal/Customization',
+  title: "Components/Side Modal/Customization",
   component: SideModal,
   parameters: {
     a11y: {
@@ -27,7 +27,7 @@ export default {
   },
 };
 
-export const CustomizedDialog: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedDialog: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (
@@ -36,41 +36,41 @@ export const CustomizedDialog: StoryFn = (_args, {parameters: {isTestEnvironment
       theme={currentTheme}
       elements={{
         SIDE_MODAL_BUTTON: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          color: 'colorTextErrorStronger',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
         },
         SIDE_MODAL_CONTAINER: {
-          width: '400px',
+          width: "400px",
         },
         SIDE_MODAL: {
-          boxShadow: 'shadowFocus',
+          boxShadow: "shadowFocus",
         },
         SIDE_MODAL_BODY: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          color: 'colorTextErrorStronger',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
         },
         SIDE_MODAL_HEADER: {
-          padding: 'space80',
-          borderBottomWidth: 'borderWidth30',
+          padding: "space80",
+          borderBottomWidth: "borderWidth30",
         },
         SIDE_MODAL_HEADING: {
-          fontSize: 'fontSize60',
-          lineHeight: 'lineHeight60',
+          fontSize: "fontSize60",
+          lineHeight: "lineHeight60",
         },
         SIDE_MODAL_HEADER_CLOSE_BUTTON: {
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderWeak',
+          borderStyle: "solid",
+          borderWidth: "borderWidth10",
+          borderColor: "colorBorderWeak",
         },
         SIDE_MODAL_HEADER_CLOSE_ICON: {
-          width: 'sizeIcon50',
+          width: "sizeIcon50",
         },
         SIDE_MODAL_FOOTER: {
-          borderTopWidth: 'borderWidth30',
-          padding: 'space10',
+          borderTopWidth: "borderWidth30",
+          padding: "space10",
         },
         SIDE_MODAL_FOOTER_ACTIONS: {
-          justifyContent: 'flex-start',
+          justifyContent: "flex-start",
         },
       }}
     >

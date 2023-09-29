@@ -1,11 +1,11 @@
-import * as React from 'react';
-import Image from 'next/image';
-import {css} from '@twilio-paste/styling-library';
-import {useTheme} from '@twilio-paste/theme';
+import { css } from "@twilio-paste/styling-library";
+import { useTheme } from "@twilio-paste/theme";
+import Image from "next/image";
+import * as React from "react";
 
-import Chrome from '../../assets/images/date-picker/chrome.png';
-import Safari from '../../assets/images/date-picker/safari.png';
-import Firefox from '../../assets/images/date-picker/firefox.png';
+import Chrome from "../../assets/images/date-picker/chrome.png";
+import Firefox from "../../assets/images/date-picker/firefox.png";
+import Safari from "../../assets/images/date-picker/safari.png";
 
 export const ChromeImage: React.FC = () => {
   const theme = useTheme();
@@ -16,10 +16,10 @@ export const ChromeImage: React.FC = () => {
       width={300}
       placeholder="blur"
       css={css({
-        margin: 'space20',
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        margin: "space20",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
       })(theme)}
     />
   );
@@ -32,12 +32,12 @@ export const SafariImage = (): JSX.Element => {
       src={Safari}
       alt="Safari implementation of date picker"
       css={css({
-        margin: 'space20',
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: '300px',
-        height: 'auto',
+        margin: "space20",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
+        maxWidth: "300px",
+        height: "auto",
       })(theme)}
     />
   );
@@ -50,12 +50,12 @@ export const FirefoxImage = (): JSX.Element => {
       src={Firefox}
       alt="Firefox implementation of date picker"
       css={css({
-        margin: 'space20',
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: '300px',
-        height: 'auto',
+        margin: "space20",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
+        maxWidth: "300px",
+        height: "auto",
       })(theme)}
     />
   );

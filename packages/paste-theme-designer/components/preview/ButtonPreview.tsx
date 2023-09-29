@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {Button} from '@twilio-paste/core/button';
-import {Stack} from '@twilio-paste/core/stack';
+import { Button } from "@twilio-paste/core/button";
+import { Stack } from "@twilio-paste/core/stack";
+import * as React from "react";
 
 const ButtonPreview = (): JSX.Element => {
   return (
@@ -27,4 +27,4 @@ const ButtonPreview = (): JSX.Element => {
   );
 };
 
-export {ButtonPreview};
+export { ButtonPreview };

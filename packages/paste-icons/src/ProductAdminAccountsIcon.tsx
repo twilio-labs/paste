@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductAdminAccountsIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductAdminAccountsIconProps extends IconWrapperProps {
 }
 
 const ProductAdminAccountsIcon = React.forwardRef<HTMLElement, ProductAdminAccountsIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductAdminAccountsIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductAdminAccountsIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductAdminAccountsIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -40,8 +40,8 @@ const ProductAdminAccountsIcon = React.forwardRef<HTMLElement, ProductAdminAccou
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ProductAdminAccountsIcon.displayName = 'ProductAdminAccountsIcon';
-export {ProductAdminAccountsIcon};
+ProductAdminAccountsIcon.displayName = "ProductAdminAccountsIcon";
+export { ProductAdminAccountsIcon };

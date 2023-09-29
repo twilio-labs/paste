@@ -1,10 +1,10 @@
-import type {BoxProps} from '@twilio-paste/box';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
-import type {LayoutProps, FlexboxProps, PaddingProps, Space, Padding, SpaceProps} from '@twilio-paste/style-props';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { BoxProps } from "@twilio-paste/box";
+import type { FlexboxProps, LayoutProps, Padding, PaddingProps, Space, SpaceProps } from "@twilio-paste/style-props";
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 
 /** element identifier from BoxProps for customization */
-export interface GridProps extends HTMLPasteProps<'div'>, SpaceProps {
+export interface GridProps extends HTMLPasteProps<"div">, SpaceProps {
   as?: keyof JSX.IntrinsicElements;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
@@ -13,7 +13,7 @@ export interface GridProps extends HTMLPasteProps<'div'>, SpaceProps {
    * @type {BoxProps['element']}
    * @memberof GridProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   children: NonNullable<React.ReactNode>;
   /**
    * Sets the height of columns in a row to be equal.
@@ -38,7 +38,7 @@ export interface GridProps extends HTMLPasteProps<'div'>, SpaceProps {
   vertical?: ResponsiveValue<boolean>;
 }
 
-export type ColumnMinWidth = ResponsiveValue<'100%' | '0'>;
+export type ColumnMinWidth = ResponsiveValue<"100%" | "0">;
 export type ColumnWidthSpan = ResponsiveValue<string>;
 export type ColumnOffsetOptions = number;
 export type ColumnOffset = ResponsiveValue<ColumnOffsetOptions>;
@@ -51,15 +51,15 @@ export type ColumnPadding = {
   paddingLeft?: Padding;
 };
 
-export interface ColumnStyleProps extends Omit<LayoutProps, 'minWidth' | 'width'>, PaddingProps {
-  alignContent?: FlexboxProps['alignContent'];
+export interface ColumnStyleProps extends Omit<LayoutProps, "minWidth" | "width">, PaddingProps {
+  alignContent?: FlexboxProps["alignContent"];
   marginLeft?: Space;
   minWidth?: ColumnMinWidth;
   width?: ColumnWidthSpan;
 }
 
 /** element identifier from BoxProps for customization */
-export interface ColumnProps extends HTMLPasteProps<'div'>, ColumnStyleProps {
+export interface ColumnProps extends HTMLPasteProps<"div">, ColumnStyleProps {
   as?: keyof JSX.IntrinsicElements;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
@@ -68,7 +68,7 @@ export interface ColumnProps extends HTMLPasteProps<'div'>, ColumnStyleProps {
    * @type {BoxProps['element']}
    * @memberof ColumnProps
    */
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   children?: React.ReactNode;
   count?: number;
   gutter?: Space;

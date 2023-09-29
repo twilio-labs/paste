@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {Text} from '@twilio-paste/text';
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-import type {UserDialogUserTextProps} from './types';
+import type { UserDialogUserTextProps } from "./types";
 
 export const UserDialogUserName = React.forwardRef<HTMLDivElement, UserDialogUserTextProps>(
-  ({children, element = 'USER_DIALOG_USER_NAME', ...props}, ref) => {
+  ({ children, element = "USER_DIALOG_USER_NAME", ...props }, ref) => {
     return (
       <Text
         {...props}
@@ -19,6 +19,6 @@ export const UserDialogUserName = React.forwardRef<HTMLDivElement, UserDialogUse
         {children}
       </Text>
     );
-  }
+  },
 );
-UserDialogUserName.displayName = 'UserDialogName';
+UserDialogUserName.displayName = "UserDialogName";

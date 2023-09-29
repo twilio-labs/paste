@@ -1,22 +1,22 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
+import { Anchor } from "@twilio-paste/anchor";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {Radio, RadioGroup} from '../src';
+import { Radio, RadioGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Radio/Radio Group (Controlled)',
+  title: "Components/Radio/Radio Group (Controlled)",
   component: Radio,
-  subcomponents: {RadioGroup},
+  subcomponents: { RadioGroup },
 };
 
 /**
  * D) value is passed down from context and neither (default)checked is set
  */
 export const ControlledRadioGroupA = (): React.ReactNode => {
-  const [value, setValue] = React.useState('2');
+  const [value, setValue] = React.useState("2");
 
   return (
     <RadioGroup
@@ -31,7 +31,7 @@ export const ControlledRadioGroupA = (): React.ReactNode => {
       required
       onChange={(newValue) => {
         // eslint-disable-next-line no-console
-        console.log('new value is:', newValue);
+        console.log("new value is:", newValue);
         setValue(newValue);
       }}
     >
@@ -56,16 +56,16 @@ export const ControlledRadioGroupA = (): React.ReactNode => {
   );
 };
 
-ControlledRadioGroupA.storyName = 'Controlled RadioGroup with no (default)checked on radios';
+ControlledRadioGroupA.storyName = "Controlled RadioGroup with no (default)checked on radios";
 ControlledRadioGroupA.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
  * E) value is passed down from context and defaultChecked is set (value wins)
  */
 export const ControlledRadioGroupB = (): React.ReactNode => {
-  const [value, setValue] = React.useState('2');
+  const [value, setValue] = React.useState("2");
 
   return (
     <RadioGroup
@@ -80,7 +80,7 @@ export const ControlledRadioGroupB = (): React.ReactNode => {
       required
       onChange={(newValue) => {
         // eslint-disable-next-line no-console
-        console.log('new value is:', newValue);
+        console.log("new value is:", newValue);
         setValue(newValue);
       }}
     >
@@ -105,16 +105,16 @@ export const ControlledRadioGroupB = (): React.ReactNode => {
   );
 };
 
-ControlledRadioGroupB.storyName = 'Controlled RadioGroup with defaultChecked set on different Radio';
+ControlledRadioGroupB.storyName = "Controlled RadioGroup with defaultChecked set on different Radio";
 ControlledRadioGroupB.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
  * F) value is passed down from context and checked is set (context wins)
  */
 export const ControlledRadioGroupC = (): React.ReactNode => {
-  const [value, setValue] = React.useState('2');
+  const [value, setValue] = React.useState("2");
 
   return (
     <RadioGroup
@@ -129,7 +129,7 @@ export const ControlledRadioGroupC = (): React.ReactNode => {
       required
       onChange={(newValue) => {
         // eslint-disable-next-line no-console
-        console.log('new value is:', newValue);
+        console.log("new value is:", newValue);
         setValue(newValue);
       }}
     >
@@ -154,9 +154,9 @@ export const ControlledRadioGroupC = (): React.ReactNode => {
   );
 };
 
-ControlledRadioGroupC.storyName = 'Controlled RadioGroup with checked set on different Radio';
+ControlledRadioGroupC.storyName = "Controlled RadioGroup with checked set on different Radio";
 ControlledRadioGroupC.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
@@ -164,7 +164,7 @@ ControlledRadioGroupC.parameters = {
  */
 
 export const ControlledRadioGroupD = (): React.ReactNode => {
-  const [value, setValue] = React.useState('2');
+  const [value, setValue] = React.useState("2");
 
   return (
     <RadioGroup
@@ -179,7 +179,7 @@ export const ControlledRadioGroupD = (): React.ReactNode => {
       required
       onChange={(newValue) => {
         // eslint-disable-next-line no-console
-        console.log('new value is:', newValue);
+        console.log("new value is:", newValue);
         setValue(newValue);
       }}
     >
@@ -205,7 +205,7 @@ export const ControlledRadioGroupD = (): React.ReactNode => {
   );
 };
 
-ControlledRadioGroupD.storyName = 'Controlled RadioGroup with checked and defaultChecked set on different Radios';
+ControlledRadioGroupD.storyName = "Controlled RadioGroup with checked and defaultChecked set on different Radios";
 ControlledRadioGroupD.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };

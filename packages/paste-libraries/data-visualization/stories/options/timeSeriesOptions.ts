@@ -1,26 +1,26 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck copied from official highcharts docs
-import Highcharts from 'highcharts';
+import Highcharts from "highcharts";
 
-import {usdEurData} from '../data/usdEurData';
+import { usdEurData } from "../data/usdEurData";
 
 export const timeSeriesOptions: Highcharts.Options = {
   chart: {
-    zoomType: 'x',
+    zoomType: "x",
   },
   title: {
-    text: 'USD to EUR exchange rate over time',
+    text: "USD to EUR exchange rate over time",
   },
   subtitle: {
     text:
-      document.ontouchstart === undefined ? 'Click and drag in the plot area to zoom in' : 'Pinch the chart to zoom in',
+      document.ontouchstart === undefined ? "Click and drag in the plot area to zoom in" : "Pinch the chart to zoom in",
   },
   xAxis: {
-    type: 'datetime',
+    type: "datetime",
   },
   yAxis: {
     title: {
-      text: 'Exchange rate',
+      text: "Exchange rate",
     },
   },
   legend: {
@@ -37,7 +37,12 @@ export const timeSeriesOptions: Highcharts.Options = {
         },
         stops: [
           [0, Highcharts.getOptions().colors[0]],
-          [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')],
+          [
+            1,
+            Highcharts.color(Highcharts.getOptions().colors[0])
+              .setOpacity(0)
+              .get("rgba"),
+          ],
         ],
       },
       marker: {
@@ -54,8 +59,8 @@ export const timeSeriesOptions: Highcharts.Options = {
   },
   series: [
     {
-      type: 'area',
-      name: 'USD to EUR',
+      type: "area",
+      name: "USD to EUR",
       data: usdEurData,
     },
   ],

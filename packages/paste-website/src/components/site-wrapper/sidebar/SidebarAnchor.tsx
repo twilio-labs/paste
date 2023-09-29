@@ -1,8 +1,8 @@
-import * as React from 'react';
-import Link from 'next/link';
-import {SidebarNavigationItem} from '@twilio-paste/sidebar';
+import { SidebarNavigationItem } from "@twilio-paste/sidebar";
+import Link from "next/link";
+import * as React from "react";
 
-import {useLocationPathname} from '../../../utils/RouteUtils';
+import { useLocationPathname } from "../../../utils/RouteUtils";
 
 interface SidebarAnchorProps {
   children: NonNullable<React.ReactNode>;
@@ -19,7 +19,7 @@ const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({
   ...props
 }) => {
   const pathname = useLocationPathname();
-  const pathnameWithoutTrailingSlash = pathname.endsWith('/') ? pathname.slice(0, -1) : pathname;
+  const pathnameWithoutTrailingSlash = pathname.endsWith("/") ? pathname.slice(0, -1) : pathname;
   const itemSelected = selected || pathnameWithoutTrailingSlash === href;
 
   return (
@@ -32,4 +32,4 @@ const SidebarAnchor: React.FC<React.PropsWithChildren<SidebarAnchorProps>> = ({
   );
 };
 
-export {SidebarAnchor};
+export { SidebarAnchor };

@@ -1,1 +1,1 @@
-export * from '@twilio-paste/dropdown-library';
+export * from "@twilio-paste/dropdown-library";

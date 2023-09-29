@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/core/breadcrumb';
+import { Breadcrumb, BreadcrumbItem } from "@twilio-paste/core/breadcrumb";
+import * as React from "react";
 
 const BreadcrumbPreview = (): JSX.Element => {
   return (
@@ -10,4 +10,4 @@ const BreadcrumbPreview = (): JSX.Element => {
   );
 };
 
-export {BreadcrumbPreview};
+export { BreadcrumbPreview };

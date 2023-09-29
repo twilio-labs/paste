@@ -1,12 +1,12 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Card} from '@twilio-paste/card';
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import * as React from "react";
 
 interface ListProps {
   children: React.ReactNode;
 }
 
-const Ingredients: React.FC<ListProps> = ({children}) => {
+const Ingredients: React.FC<ListProps> = ({ children }) => {
   return (
     <Box display="flex" flexDirection="row" columnGap="space130" justifyContent="center" marginBottom="space70">
       {children}
@@ -14,7 +14,7 @@ const Ingredients: React.FC<ListProps> = ({children}) => {
   );
 };
 
-const Required: React.FC<ListProps> = ({children}) => {
+const Required: React.FC<ListProps> = ({ children }) => {
   return (
     <Box maxWidth="size40">
       <Card padding="space0">
@@ -27,7 +27,7 @@ const Required: React.FC<ListProps> = ({children}) => {
   );
 };
 
-const Related: React.FC<ListProps> = ({children}) => {
+const Related: React.FC<ListProps> = ({ children }) => {
   return (
     <Box maxWidth="size40">
       <Card padding="space0">
@@ -40,4 +40,4 @@ const Related: React.FC<ListProps> = ({children}) => {
   );
 };
 
-export {Ingredients, Required, Related};
+export { Ingredients, Required, Related };

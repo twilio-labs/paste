@@ -1,18 +1,18 @@
-import type {ImmutableStyleMap} from 'theo';
+import type { ImmutableStyleMap } from "theo";
 
-import type {DesignToken} from '../../types';
+import type { DesignToken } from "../../types";
 
 export const formatSingleTokensWithTemplate = (
   tokens: ImmutableStyleMap,
-  tokenTemplate: (prop: DesignToken) => string
+  tokenTemplate: (prop: DesignToken) => string,
 ): string => {
   return (
     tokens
-      .get('props')
+      .get("props")
       // eslint-disable-next-line consistent-return
       .sortBy((prop) => {
         if (prop !== undefined) {
-          return prop.get('name');
+          return prop.get("name");
         }
       })
       .map((prop): string | null => {
@@ -21,6 +21,6 @@ export const formatSingleTokensWithTemplate = (
         }
         return null;
       })
-      .join('\n')
+      .join("\n")
   );
 };

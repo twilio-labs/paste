@@ -1,13 +1,20 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {CodeBlock, CodeBlockWrapper, CodeBlockHeader, CodeBlockTabList, CodeBlockTab, CodeBlockTabPanel} from '../src';
+import {
+  CodeBlock,
+  CodeBlockHeader,
+  CodeBlockTab,
+  CodeBlockTabList,
+  CodeBlockTabPanel,
+  CodeBlockWrapper,
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Code Block/Customization',
+  title: "Components/Code Block/Customization",
   component: CodeBlock,
   parameters: {
     a11y: {
@@ -59,7 +66,7 @@ $client->messages->create(
     )
 );`;
 
-export const CustomizedCodeBlock: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCodeBlock: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (
@@ -68,22 +75,22 @@ export const CustomizedCodeBlock: StoryFn = (_args, {parameters: {isTestEnvironm
       theme={currentTheme}
       elements={{
         CODE_BLOCK_WRAPPER: {
-          width: 'size50',
+          width: "size50",
         },
         CODE_BLOCK_HEADER: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          color: 'colorTextErrorStronger',
-          borderTopLeftRadius: 'borderRadius30',
-          borderTopRightRadius: 'borderRadius30',
-          fontSize: 'fontSize20',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
+          borderTopLeftRadius: "borderRadius30",
+          borderTopRightRadius: "borderRadius30",
+          fontSize: "fontSize20",
         },
         CODE_BLOCK_COPY_BUTTON: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          color: 'colorTextErrorStronger',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
         },
         CODE_BLOCK_EXTERNAL_LINK: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          color: 'colorTextErrorStronger',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
         },
       }}
     >
@@ -95,7 +102,7 @@ export const CustomizedCodeBlock: StoryFn = (_args, {parameters: {isTestEnvironm
   );
 };
 
-export const CustomizedCodeBlockGroup: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedCodeBlockGroup: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (
@@ -104,37 +111,37 @@ export const CustomizedCodeBlockGroup: StoryFn = (_args, {parameters: {isTestEnv
       theme={currentTheme}
       elements={{
         CODE_BLOCK_WRAPPER: {
-          width: 'size50',
+          width: "size50",
         },
         CODE_BLOCK_HEADER: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          color: 'colorTextErrorStronger',
-          borderTopLeftRadius: 'borderRadius30',
-          borderTopRightRadius: 'borderRadius30',
-          fontSize: 'fontSize20',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
+          borderTopLeftRadius: "borderRadius30",
+          borderTopRightRadius: "borderRadius30",
+          fontSize: "fontSize20",
         },
         CODE_BLOCK_TAB_LIST: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          columnGap: 'space0',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          columnGap: "space0",
         },
         CODE_BLOCK_TAB: {
-          borderRadius: 'borderRadius0',
+          borderRadius: "borderRadius0",
         },
         CODE_BLOCK_TAB_PANEL: {
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth20',
-          borderColor: 'colorBorderDestructiveWeak',
-          borderBottomLeftRadius: 'borderRadius30',
-          borderBottomRightRadius: 'borderRadius30',
-          overflow: 'hidden',
+          borderStyle: "solid",
+          borderWidth: "borderWidth20",
+          borderColor: "colorBorderDestructiveWeak",
+          borderBottomLeftRadius: "borderRadius30",
+          borderBottomRightRadius: "borderRadius30",
+          overflow: "hidden",
         },
         CODE_BLOCK_COPY_BUTTON: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          color: 'colorTextErrorStronger',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
         },
         CODE_BLOCK_EXTERNAL_LINK: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          color: 'colorTextErrorStronger',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          color: "colorTextErrorStronger",
         },
       }}
     >

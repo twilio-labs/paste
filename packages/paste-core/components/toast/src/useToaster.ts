@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {uid} from '@twilio-paste/uid-library';
+import { uid } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import type {ToasterToast, ToasterPush, UseToasterReturnedProps} from './types';
+import type { ToasterPush, ToasterToast, UseToasterReturnedProps } from "./types";
 
 export const useToaster = (): UseToasterReturnedProps => {
   const isMounted = React.useRef<boolean | null>(null);
@@ -22,7 +22,7 @@ export const useToaster = (): UseToasterReturnedProps => {
     };
   }, []);
 
-  const pop = (id: ToasterToast['id']): void => {
+  const pop = (id: ToasterToast["id"]): void => {
     if (!isMounted.current) {
       return;
     }
@@ -40,7 +40,7 @@ export const useToaster = (): UseToasterReturnedProps => {
         }
 
         return toast.id !== id;
-      })
+      }),
     );
   };
 
@@ -69,8 +69,8 @@ export const useToaster = (): UseToasterReturnedProps => {
       return tmpToast;
     });
     // add the new toast with a generatedID, timeoutid and setFocus to true. Allow for user to override
-    setToasts([{id: generatedID, timeOutId, setFocus: true, ...newToast}, ...existingToasts]);
+    setToasts([{ id: generatedID, timeOutId, setFocus: true, ...newToast }, ...existingToasts]);
   };
 
-  return {toasts, push, pop};
+  return { toasts, push, pop };
 };

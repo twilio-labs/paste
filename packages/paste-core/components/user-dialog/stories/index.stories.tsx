@@ -1,41 +1,41 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
-import {ThemeIcon} from '@twilio-paste/icons/esm/ThemeIcon';
-import {TranslationIcon} from '@twilio-paste/icons/esm/TranslationIcon';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {useUID} from '@twilio-paste/uid-library';
+import type { StoryFn } from "@storybook/react";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import {Badge} from '@twilio-paste/badge';
+import { Badge } from "@twilio-paste/badge";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { ThemeIcon } from "@twilio-paste/icons/esm/ThemeIcon";
+import { TranslationIcon } from "@twilio-paste/icons/esm/TranslationIcon";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
-  useUserDialogState,
   UserDialog,
-  UserDialogUserInfo,
-  UserDialogUserName,
-  UserDialogUserEmail,
   UserDialogContainer,
   UserDialogList,
   UserDialogListItem,
-  useUserDialogListState,
   UserDialogSeparator,
-} from '../src';
+  UserDialogUserEmail,
+  UserDialogUserInfo,
+  UserDialogUserName,
+  useUserDialogListState,
+  useUserDialogState,
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/User Dialog',
+  title: "Components/User Dialog",
 };
 
-export const BasicUserDialog: StoryFn = ({visible = true}) => {
+export const BasicUserDialog: StoryFn = ({ visible = true }) => {
   const id1 = useUID();
   const id2 = useUID();
   const id3 = useUID();
-  const userDialog = useUserDialogState({visible});
+  const userDialog = useUserDialogState({ visible });
   const userDialogList = useUserDialogListState();
-  const [selected, setSelected] = React.useState('');
+  const [selected, setSelected] = React.useState("");
   return (
     <UserDialogContainer {...userDialog} name="User Name" icon={UserIcon} baseId="i-am-user-dialog">
       <UserDialog aria-label="user menu" data-testid="basic-user-dialog">
@@ -82,7 +82,7 @@ export const BasicUserDialog: StoryFn = ({visible = true}) => {
               </Badge>
             </Box>
           </UserDialogListItem>
-          <UserDialogListItem {...userDialogList} key="4" selected={selected === '4'} onSelect={() => setSelected('4')}>
+          <UserDialogListItem {...userDialogList} key="4" selected={selected === "4"} onSelect={() => setSelected("4")}>
             <TranslationIcon decorative />
             <Box width="100%" display="flex" justifyContent="space-between">
               Language
@@ -99,7 +99,7 @@ export const BasicUserDialog: StoryFn = ({visible = true}) => {
 
 export const ImageUserDialog: StoryFn = () => {
   const userDialogList = useUserDialogListState();
-  const [selected, setSelected] = React.useState('');
+  const [selected, setSelected] = React.useState("");
   const id1 = useUID();
   const id2 = useUID();
   return (
@@ -133,10 +133,10 @@ export const ImageUserDialog: StoryFn = () => {
   );
 };
 
-export const StateHookUserDialog: StoryFn = ({visible = true}) => {
-  const userDialog = useUserDialogState({placement: 'right', gutter: 50, baseId: 'baseIdNoraKrantz', visible});
+export const StateHookUserDialog: StoryFn = ({ visible = true }) => {
+  const userDialog = useUserDialogState({ placement: "right", gutter: 50, baseId: "baseIdNoraKrantz", visible });
   const userDialogList = useUserDialogListState();
-  const [selected, setSelected] = React.useState('');
+  const [selected, setSelected] = React.useState("");
   const id1 = useUID();
   const id2 = useUID();
   return (
@@ -194,7 +194,7 @@ export const StateHookUserDialog: StoryFn = ({visible = true}) => {
 export const CustomizedUserDialog: StoryFn = () => {
   const theme = useTheme();
   const userDialogList = useUserDialogListState();
-  const [selected, setSelected] = React.useState('');
+  const [selected, setSelected] = React.useState("");
   const id1a = useUID();
   const id2a = useUID();
   const id1b = useUID();
@@ -204,41 +204,41 @@ export const CustomizedUserDialog: StoryFn = () => {
       theme={theme}
       elements={{
         // Default element names
-        USER_DIALOG_BUTTON: {backgroundColor: 'colorBackgroundDecorative10Weakest'},
-        USER_DIALOG_BUTTON_CONTENTS: {padding: 'space20'},
+        USER_DIALOG_BUTTON: { backgroundColor: "colorBackgroundDecorative10Weakest" },
+        USER_DIALOG_BUTTON_CONTENTS: { padding: "space20" },
         USER_DIALOG_BUTTON_AVATAR: {
-          backgroundColor: 'colorBackgroundDecorative30Weakest',
-          color: 'colorTextDecorative20',
+          backgroundColor: "colorBackgroundDecorative30Weakest",
+          color: "colorTextDecorative20",
         },
-        USER_DIALOG_BUTTON_ICON: {marginLeft: 'space30'},
-        USER_DIALOG: {padding: 'space40'},
-        USER_DIALOG_USER_INFO: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
+        USER_DIALOG_BUTTON_ICON: { marginLeft: "space30" },
+        USER_DIALOG: { padding: "space40" },
+        USER_DIALOG_USER_INFO: { backgroundColor: "colorBackgroundBrandHighlightWeakest" },
         USER_DIALOG_USER_AVATAR: {
-          backgroundColor: 'colorBackgroundDecorative30Weakest',
-          color: 'colorTextDecorative20',
+          backgroundColor: "colorBackgroundDecorative30Weakest",
+          color: "colorTextDecorative20",
         },
-        USER_DIALOG_USER_NAME: {color: 'colorTextDecorative30'},
-        USER_DIALOG_USER_EMAIL: {color: 'colorTextDecorative20'},
-        USER_DIALOG_LIST: {backgroundColor: 'colorBackgroundDecorative30Weakest'},
-        USER_DIALOG_LIST_ITEM: {borderLeftColor: 'colorBorderDestructiveStrong'},
+        USER_DIALOG_USER_NAME: { color: "colorTextDecorative30" },
+        USER_DIALOG_USER_EMAIL: { color: "colorTextDecorative20" },
+        USER_DIALOG_LIST: { backgroundColor: "colorBackgroundDecorative30Weakest" },
+        USER_DIALOG_LIST_ITEM: { borderLeftColor: "colorBorderDestructiveStrong" },
         // Custom element names
-        FOO_BUTTON: {backgroundColor: 'colorBackgroundDecorative10Weakest'},
-        FOO_BUTTON_CONTENTS: {padding: 'space20'},
+        FOO_BUTTON: { backgroundColor: "colorBackgroundDecorative10Weakest" },
+        FOO_BUTTON_CONTENTS: { padding: "space20" },
         FOO_BUTTON_AVATAR: {
-          backgroundColor: 'colorBackgroundDecorative30Weakest',
-          color: 'colorTextDecorative20',
+          backgroundColor: "colorBackgroundDecorative30Weakest",
+          color: "colorTextDecorative20",
         },
-        FOO_BUTTON_ICON: {marginLeft: 'space30'},
-        FOO: {padding: 'space40'},
-        FAZ_USER_INFO: {backgroundColor: 'colorBackgroundBrandHighlightWeakest'},
+        FOO_BUTTON_ICON: { marginLeft: "space30" },
+        FOO: { padding: "space40" },
+        FAZ_USER_INFO: { backgroundColor: "colorBackgroundBrandHighlightWeakest" },
         FAZ_USER_AVATAR: {
-          backgroundColor: 'colorBackgroundDecorative30Weakest',
-          color: 'colorTextDecorative20',
+          backgroundColor: "colorBackgroundDecorative30Weakest",
+          color: "colorTextDecorative20",
         },
-        BAR: {color: 'colorTextDecorative30'},
-        BAZ: {color: 'colorTextDecorative20'},
-        FOO_LIST: {backgroundColor: 'colorBackgroundDecorative30Weakest'},
-        FOO_LIST_ITEM: {borderLeftColor: 'colorBorderDestructiveStrong'},
+        BAR: { color: "colorTextDecorative30" },
+        BAZ: { color: "colorTextDecorative20" },
+        FOO_LIST: { backgroundColor: "colorBackgroundDecorative30Weakest" },
+        FOO_LIST_ITEM: { borderLeftColor: "colorBorderDestructiveStrong" },
       }}
     >
       <Box display="flex" columnGap="space50">

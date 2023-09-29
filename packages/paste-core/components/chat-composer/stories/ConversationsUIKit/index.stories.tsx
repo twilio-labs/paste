@@ -1,40 +1,40 @@
-import * as React from 'react';
+import type { StoryFn } from "@storybook/react";
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
 import {
-  MinimizableDialog,
-  MinimizableDialogButton,
-  MinimizableDialogContainer,
-  MinimizableDialogHeader,
-  MinimizableDialogContent,
-} from '@twilio-paste/minimizable-dialog';
-import {$getRoot, ClearEditorPlugin} from '@twilio-paste/lexical-library';
-import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
-import {Box} from '@twilio-paste/box';
-import type {StoryFn} from '@storybook/react';
-import {
-  ChatLogger,
-  useChatLogger,
-  ChatMessage,
-  ChatMessageMeta,
-  ChatMessageMetaItem,
-  ChatBubble,
   ChatAttachment,
-  ChatEvent,
   ChatAttachmentDescription,
   ChatAttachmentLink,
   ChatBookend,
   ChatBookendItem,
+  ChatBubble,
+  ChatEvent,
+  ChatLogger,
+  ChatMessage,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
   ComposerAttachmentCard,
-} from '@twilio-paste/chat-log';
-import {Avatar} from '@twilio-paste/avatar';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import type {EditorState} from '@twilio-paste/lexical-library';
+  useChatLogger,
+} from "@twilio-paste/chat-log";
+import { ChatIcon } from "@twilio-paste/icons/esm/ChatIcon";
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { $getRoot, ClearEditorPlugin } from "@twilio-paste/lexical-library";
+import type { EditorState } from "@twilio-paste/lexical-library";
+import {
+  MinimizableDialog,
+  MinimizableDialogButton,
+  MinimizableDialogContainer,
+  MinimizableDialogContent,
+  MinimizableDialogHeader,
+} from "@twilio-paste/minimizable-dialog";
+import * as React from "react";
 
-import {ChatComposer} from '../../src';
-import {SendButtonPlugin, EnterKeySubmitPlugin, createNewMessage} from './helpers';
+import { ChatComposer } from "../../src";
+import { EnterKeySubmitPlugin, SendButtonPlugin, createNewMessage } from "./helpers";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Conversations UI Kit',
+  title: "Components/Conversations UI Kit",
   component: ChatComposer,
 };
 
@@ -60,7 +60,7 @@ const ComposerAttachmentExample: React.FC = () => (
 );
 
 export const ConversationsUIKitExample: StoryFn = () => {
-  const {chats, push} = useChatLogger(
+  const { chats, push } = useChatLogger(
     {
       content: (
         <ChatBookend>
@@ -72,7 +72,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
       ),
     },
     {
-      variant: 'inbound',
+      variant: "inbound",
       content: (
         <ChatMessage variant="inbound">
           <ChatBubble>Quisque ullamcorper ipsum vitae lorem euismod sodales.</ChatBubble>
@@ -96,7 +96,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
       ),
     },
     {
-      variant: 'inbound',
+      variant: "inbound",
       content: (
         <ChatMessage variant="inbound">
           <ChatBubble>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</ChatBubble>
@@ -108,9 +108,9 @@ export const ConversationsUIKitExample: StoryFn = () => {
           </ChatMessageMeta>
         </ChatMessage>
       ),
-    }
+    },
   );
-  const [message, setMessage] = React.useState('');
+  const [message, setMessage] = React.useState("");
   const [mounted, setMounted] = React.useState(false);
   const loggerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLDivElement>(null);
@@ -121,7 +121,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
 
   React.useEffect(() => {
     if (!mounted || !loggerRef.current) return;
-    scrollerRef.current?.scrollTo({top: loggerRef.current.scrollHeight, behavior: 'smooth'});
+    scrollerRef.current?.scrollTo({ top: loggerRef.current.scrollHeight, behavior: "smooth" });
   }, [chats, mounted]);
 
   const handleComposerChange = (editorState: EditorState): void => {
@@ -132,7 +132,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
   };
 
   const submitMessage = (): void => {
-    if (message === '') return;
+    if (message === "") return;
     push(createNewMessage(message));
   };
 
@@ -161,7 +161,7 @@ export const ConversationsUIKitExample: StoryFn = () => {
             <ChatComposer
               maxHeight="size10"
               config={{
-                namespace: 'foo',
+                namespace: "foo",
                 onError: (error: Error) => {
                   throw error;
                 },

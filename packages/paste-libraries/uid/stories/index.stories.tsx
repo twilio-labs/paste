@@ -1,13 +1,13 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
+import { Box } from "@twilio-paste/box";
+import { HelpText } from "@twilio-paste/help-text";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Paragraph } from "@twilio-paste/paragraph";
+import * as React from "react";
 
-import {useUID, useUIDSeed, UIDFork} from '../src';
+import { UIDFork, useUID, useUIDSeed } from "../src";
 
-const SignupForm: React.FC<React.PropsWithChildren<{emailId: string; passwordId: string}>> = ({
+const SignupForm: React.FC<React.PropsWithChildren<{ emailId: string; passwordId: string }>> = ({
   emailId,
   passwordId,
 }) => {
@@ -32,12 +32,12 @@ const UseUIDExample = (): JSX.Element => {
 
 const UseUIDSeedExample = (): JSX.Element => {
   const uidSeed = useUIDSeed();
-  return <SignupForm emailId={uidSeed('email')} passwordId={uidSeed('password')} />;
+  return <SignupForm emailId={uidSeed("email")} passwordId={uidSeed("password")} />;
 };
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/uid',
+  title: "Libraries/uid",
 };
 
 export const UseUid = (): React.ReactNode => {
@@ -53,8 +53,8 @@ export const UseUid = (): React.ReactNode => {
   );
 };
 
-UseUid.storyName = 'useUID';
-UseUid.parameters = {chromatic: {disable: true}};
+UseUid.storyName = "useUID";
+UseUid.parameters = { chromatic: { disable: true } };
 
 export const UseUidSeed = (): React.ReactNode => {
   return (
@@ -70,8 +70,8 @@ export const UseUidSeed = (): React.ReactNode => {
   );
 };
 
-UseUidSeed.storyName = 'useUIDSeed';
-UseUidSeed.parameters = {chromatic: {disable: true}};
+UseUidSeed.storyName = "useUIDSeed";
+UseUidSeed.parameters = { chromatic: { disable: true } };
 
 export const UidFork = (): React.ReactNode => {
   return (
@@ -92,23 +92,23 @@ export const UidFork = (): React.ReactNode => {
   );
 };
 
-UidFork.storyName = 'UIDFork';
-UidFork.parameters = {chromatic: {disable: true}};
+UidFork.storyName = "UIDFork";
+UidFork.parameters = { chromatic: { disable: true } };
 
 export const VanillaUid = (): React.ReactNode => {
   return (
     <Box>
       <Paragraph>
-        Vanilla <code>uid</code> should only be used outside of React; for example in a utility function. This API is{' '}
+        Vanilla <code>uid</code> should only be used outside of React; for example in a utility function. This API is{" "}
         <strong>not SSR friendly</strong>.
         <br />
         This method takes two arguments: <code>uid(item, [index])</code>. <code>item</code> should be an object. If it
-        isn&apos;t, then the result may not be unique in some cases. If not passing an object, add the second argument{' '}
+        isn&apos;t, then the result may not be unique in some cases. If not passing an object, add the second argument{" "}
         <code>(index)</code> to improve uniqueness.
       </Paragraph>
     </Box>
   );
 };
 
-VanillaUid.storyName = 'vanilla uid';
-VanillaUid.parameters = {chromatic: {disable: true}};
+VanillaUid.storyName = "vanilla uid";
+VanillaUid.parameters = { chromatic: { disable: true } };

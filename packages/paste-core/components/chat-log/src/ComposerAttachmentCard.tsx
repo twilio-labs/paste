@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps, BoxStyleProps} from '@twilio-paste/box';
-import {ClearIcon} from '@twilio-paste/icons/esm/ClearIcon';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ClearIcon } from "@twilio-paste/icons/esm/ClearIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import * as React from "react";
 
 /*
  *These style props are specific to our ClearIcon use case in ComposerAttachmentCard.
@@ -14,26 +14,26 @@ import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
  *be reconsidered (and possibly removed).
  */
 const closeButtonBackgroundStyles: BoxStyleProps = {
-  backgroundColor: 'colorBackgroundBody',
-  borderRadius: 'borderRadiusCircle',
-  width: '12px',
-  height: '12px',
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
+  backgroundColor: "colorBackgroundBody",
+  borderRadius: "borderRadiusCircle",
+  width: "12px",
+  height: "12px",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
 export interface ComposerAttachmentCardProps {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
   i18nDismissLabel?: string;
   onDismiss?: () => void;
 }
 
 const ComposerAttachmentCard = React.forwardRef<HTMLDivElement, ComposerAttachmentCardProps>(
   (
-    {children, onDismiss, i18nDismissLabel = 'Remove attachment', element = 'COMPOSER_ATTACHMENT_CARD', ...props},
-    ref
+    { children, onDismiss, i18nDismissLabel = "Remove attachment", element = "COMPOSER_ATTACHMENT_CARD", ...props },
+    ref,
   ) => {
     return (
       <Box
@@ -68,9 +68,9 @@ const ComposerAttachmentCard = React.forwardRef<HTMLDivElement, ComposerAttachme
         )}
       </Box>
     );
-  }
+  },
 );
 
-ComposerAttachmentCard.displayName = 'ComposerAttachmentCard';
+ComposerAttachmentCard.displayName = "ComposerAttachmentCard";
 
-export {ComposerAttachmentCard};
+export { ComposerAttachmentCard };

@@ -1,4 +1,4 @@
-import {EmotionCSS} from '@twilio-paste/styling-library';
+import { EmotionCSS } from "@twilio-paste/styling-library";
 
 export const pasteFonts = EmotionCSS`
 /* -------------------------------------------------------

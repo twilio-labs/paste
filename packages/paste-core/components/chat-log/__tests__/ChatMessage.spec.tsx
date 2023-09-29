@@ -1,19 +1,19 @@
-import * as React from 'react';
-import {screen, render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from "@testing-library/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import * as React from "react";
 
-import {ChatMessage} from '../src';
+import { ChatMessage } from "../src";
 
-const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
     elements={{
       CHAT_MESSAGE: {
-        marginBottom: 'space100',
+        marginBottom: "space100",
         variants: {
-          inbound: {marginRight: 'space100'},
-          outbound: {marginLeft: 'space100'},
+          inbound: { marginRight: "space100" },
+          outbound: { marginLeft: "space100" },
         },
       },
     }}
@@ -22,16 +22,16 @@ const CustomizationWrapper: React.FC<React.PropsWithChildren> = ({children}) => 
   </CustomizationProvider>
 );
 
-const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) => (
+const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <CustomizationProvider
     baseTheme="default"
     theme={TestTheme}
     elements={{
       FOO_MESSAGE: {
-        marginBottom: 'space100',
+        marginBottom: "space100",
         variants: {
-          inbound: {marginRight: 'space100'},
-          outbound: {marginLeft: 'space100'},
+          inbound: { marginRight: "space100" },
+          outbound: { marginLeft: "space100" },
         },
       },
     }}
@@ -40,15 +40,15 @@ const CustomizationFooWrapper: React.FC<React.PropsWithChildren> = ({children}) 
   </CustomizationProvider>
 );
 
-describe('ChatMessage', () => {
-  it('should render a list element', () => {
+describe("ChatMessage", () => {
+  it("should render a list element", () => {
     render(<ChatMessage variant="inbound">test</ChatMessage>);
-    expect(screen.getByRole('listitem')).toBeDefined();
+    expect(screen.getByRole("listitem")).toBeDefined();
   });
 });
 
-describe('Customization', () => {
-  it('should add custom styles', () => {
+describe("Customization", () => {
+  it("should add custom styles", () => {
     render(
       <>
         <ChatMessage variant="inbound" data-testid="inbound-message">
@@ -58,19 +58,19 @@ describe('Customization', () => {
           test
         </ChatMessage>
       </>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
-    const inboundMessage = screen.getByTestId('inbound-message');
-    expect(inboundMessage).toHaveStyleRule('margin-bottom', '2.25rem');
-    expect(inboundMessage).toHaveStyleRule('margin-right', '2.25rem');
+    const inboundMessage = screen.getByTestId("inbound-message");
+    expect(inboundMessage).toHaveStyleRule("margin-bottom", "2.25rem");
+    expect(inboundMessage).toHaveStyleRule("margin-right", "2.25rem");
 
-    const outboundMessage = screen.getByTestId('outbound-message');
-    expect(outboundMessage).toHaveStyleRule('margin-bottom', '2.25rem');
-    expect(outboundMessage).toHaveStyleRule('margin-left', '2.25rem');
+    const outboundMessage = screen.getByTestId("outbound-message");
+    expect(outboundMessage).toHaveStyleRule("margin-bottom", "2.25rem");
+    expect(outboundMessage).toHaveStyleRule("margin-left", "2.25rem");
   });
 
-  it('should set element data attribute', () => {
+  it("should set element data attribute", () => {
     render(
       <>
         <ChatMessage variant="inbound" data-testid="inbound-message">
@@ -80,17 +80,17 @@ describe('Customization', () => {
           test
         </ChatMessage>
       </>,
-      {wrapper: CustomizationWrapper}
+      { wrapper: CustomizationWrapper },
     );
 
-    const inboundMessage = screen.getByTestId('inbound-message');
-    expect(inboundMessage.getAttribute('data-paste-element')).toEqual('CHAT_MESSAGE');
+    const inboundMessage = screen.getByTestId("inbound-message");
+    expect(inboundMessage.getAttribute("data-paste-element")).toEqual("CHAT_MESSAGE");
 
-    const outboundMessage = screen.getByTestId('outbound-message');
-    expect(outboundMessage.getAttribute('data-paste-element')).toEqual('CHAT_MESSAGE');
+    const outboundMessage = screen.getByTestId("outbound-message");
+    expect(outboundMessage.getAttribute("data-paste-element")).toEqual("CHAT_MESSAGE");
   });
 
-  it('should add custom styles with a custom element data attribute', () => {
+  it("should add custom styles with a custom element data attribute", () => {
     render(
       <>
         <ChatMessage element="FOO_MESSAGE" variant="inbound" data-testid="inbound-message">
@@ -100,19 +100,19 @@ describe('Customization', () => {
           test
         </ChatMessage>
       </>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
 
-    const inboundMessage = screen.getByTestId('inbound-message');
-    expect(inboundMessage).toHaveStyleRule('margin-bottom', '2.25rem');
-    expect(inboundMessage).toHaveStyleRule('margin-right', '2.25rem');
+    const inboundMessage = screen.getByTestId("inbound-message");
+    expect(inboundMessage).toHaveStyleRule("margin-bottom", "2.25rem");
+    expect(inboundMessage).toHaveStyleRule("margin-right", "2.25rem");
 
-    const outboundMessage = screen.getByTestId('outbound-message');
-    expect(outboundMessage).toHaveStyleRule('margin-bottom', '2.25rem');
-    expect(outboundMessage).toHaveStyleRule('margin-left', '2.25rem');
+    const outboundMessage = screen.getByTestId("outbound-message");
+    expect(outboundMessage).toHaveStyleRule("margin-bottom", "2.25rem");
+    expect(outboundMessage).toHaveStyleRule("margin-left", "2.25rem");
   });
 
-  it('should set custom element data attribute', () => {
+  it("should set custom element data attribute", () => {
     render(
       <>
         <ChatMessage element="FOO_MESSAGE" variant="inbound" data-testid="inbound-message">
@@ -122,12 +122,12 @@ describe('Customization', () => {
           test
         </ChatMessage>
       </>,
-      {wrapper: CustomizationFooWrapper}
+      { wrapper: CustomizationFooWrapper },
     );
-    const inboundMessage = screen.getByTestId('inbound-message');
-    const outboundMessage = screen.getByTestId('outbound-message');
+    const inboundMessage = screen.getByTestId("inbound-message");
+    const outboundMessage = screen.getByTestId("outbound-message");
 
-    expect(inboundMessage.getAttribute('data-paste-element')).toEqual('FOO_MESSAGE');
-    expect(outboundMessage.getAttribute('data-paste-element')).toEqual('FOO_MESSAGE');
+    expect(inboundMessage.getAttribute("data-paste-element")).toEqual("FOO_MESSAGE");
+    expect(outboundMessage.getAttribute("data-paste-element")).toEqual("FOO_MESSAGE");
   });
 });

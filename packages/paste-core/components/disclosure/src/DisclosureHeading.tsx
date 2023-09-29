@@ -1,35 +1,35 @@
-import * as React from 'react';
-import {useTheme} from '@twilio-paste/theme';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {ChevronDisclosureIcon} from '@twilio-paste/icons/esm/ChevronDisclosureIcon';
-import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import type {HeadingProps} from '@twilio-paste/heading';
-import type {DisclosurePrimitiveProps} from '@twilio-paste/disclosure-primitive';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { DisclosurePrimitive } from "@twilio-paste/disclosure-primitive";
+import type { DisclosurePrimitiveProps } from "@twilio-paste/disclosure-primitive";
+import { Heading } from "@twilio-paste/heading";
+import type { HeadingProps } from "@twilio-paste/heading";
+import { ChevronDisclosureIcon } from "@twilio-paste/icons/esm/ChevronDisclosureIcon";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {DisclosureContext} from './DisclosureContext';
-import type {DisclosureVariants} from './types';
-import {IconSizeFromHeading} from './constants';
+import { DisclosureContext } from "./DisclosureContext";
+import { IconSizeFromHeading } from "./constants";
+import type { DisclosureVariants } from "./types";
 
 const baseContainedStyles: BoxStyleProps = {
-  borderWidth: 'borderWidth10',
-  borderStyle: 'solid',
-  borderRadius: 'borderRadius20',
+  borderWidth: "borderWidth10",
+  borderStyle: "solid",
+  borderRadius: "borderRadius20",
 };
 
 const containedStyles: BoxStyleProps = {
   ...baseContainedStyles,
-  borderColor: 'colorBorderWeaker',
+  borderColor: "colorBorderWeaker",
 };
 
 const containedHoverStyles: BoxStyleProps = {
   ...baseContainedStyles,
-  borderColor: 'colorBorderWeak',
+  borderColor: "colorBorderWeak",
 };
 
-export interface StyledDisclosureHeadingProps extends Omit<DisclosureHeadingProps, 'as'>, Pick<BoxProps, 'element'> {
-  renderAs: HeadingProps['as'];
+export interface StyledDisclosureHeadingProps extends Omit<DisclosureHeadingProps, "as">, Pick<BoxProps, "element"> {
+  renderAs: HeadingProps["as"];
   customDisabled?: boolean;
   customFocusable?: boolean;
   disclosureVariant: DisclosureVariants;
@@ -57,12 +57,12 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
       setIsHovered,
       ...props
     },
-    ref
+    ref,
   ) => {
     const theme = useTheme();
-    const disabledProp = props['aria-disabled'];
-    const isExpanded = props['aria-expanded'];
-    const iconSize = IconSizeFromHeading[variant] || 'sizeIcon20';
+    const disabledProp = props["aria-disabled"];
+    const isExpanded = props["aria-expanded"];
+    const iconSize = IconSizeFromHeading[variant] || "sizeIcon20";
     const shouldIconMove = isHovered && !isDisabled;
     const buttonRef = React.useRef<HTMLDivElement>(null);
 
@@ -77,17 +77,17 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
 
       const node = buttonRef.current;
       if (node) {
-        node.addEventListener('mouseover', handleMouseOver);
-        node.addEventListener('mouseout', handleMouseOut);
+        node.addEventListener("mouseover", handleMouseOver);
+        node.addEventListener("mouseout", handleMouseOut);
         return () => {
-          node.removeEventListener('mouseover', handleMouseOver);
-          node.removeEventListener('mouseout', handleMouseOut);
+          node.removeEventListener("mouseover", handleMouseOver);
+          node.removeEventListener("mouseout", handleMouseOut);
         };
       }
     }, [buttonRef, setIsHovered]);
 
     let variantStyles: BoxStyleProps = {};
-    if (disclosureVariant === 'contained') {
+    if (disclosureVariant === "contained") {
       variantStyles = containedStyles;
       if (isHovered && !isDisabled) {
         variantStyles = containedHoverStyles;
@@ -96,9 +96,9 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
       if (isExpanded) {
         variantStyles = {
           ...variantStyles,
-          borderBottomLeftRadius: 'borderRadius0',
-          borderBottomRightRadius: 'borderRadius0',
-          borderBottom: 'none',
+          borderBottomLeftRadius: "borderRadius0",
+          borderBottomRightRadius: "borderRadius0",
+          borderBottom: "none",
         };
       }
     }
@@ -108,7 +108,7 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
         <Box
           {...safelySpreadBoxProps(props)}
           as="div"
-          backgroundColor={isExpanded ? 'colorBackgroundWeak' : 'colorBackgroundBody'}
+          backgroundColor={isExpanded ? "colorBackgroundWeak" : "colorBackgroundBody"}
           borderRadius="borderRadius20"
           cursor="pointer"
           display="flex"
@@ -121,15 +121,15 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
           zIndex="zIndex10"
           transition="background-color, border-color, border-radius 100ms ease"
           _hover={{
-            backgroundColor: 'colorBackground',
+            backgroundColor: "colorBackground",
           }}
           _focus={{
-            boxShadow: 'shadowFocus',
+            boxShadow: "shadowFocus",
           }}
           _disabled={{
-            backgroundColor: 'colorBackgroundStrong',
-            color: 'colorTextWeaker',
-            cursor: 'not-allowed',
+            backgroundColor: "colorBackgroundStrong",
+            color: "colorTextWeaker",
+            cursor: "not-allowed",
           }}
           {...variantStyles}
         >
@@ -137,13 +137,13 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
             as="span"
             element={`${element}_ICON`}
             display="flex"
-            color={isDisabled ? 'colorTextWeaker' : 'colorTextIcon'}
+            color={isDisabled ? "colorTextWeaker" : "colorTextIcon"}
             transition="transform 170ms ease"
             height={iconSize}
             width={iconSize}
             transform={`
-             ${shouldIconMove ? `translateX(${theme.space.space10})` : 'translateX(0)'}
-             ${isExpanded ? `rotate(90deg)` : 'rotate(0deg)'}`}
+             ${shouldIconMove ? `translateX(${theme.space.space10})` : "translateX(0)"}
+             ${isExpanded ? `rotate(90deg)` : "rotate(0deg)"}`}
           >
             <ChevronDisclosureIcon color="inherit" decorative size={iconSize} />
           </Box>
@@ -151,29 +151,29 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
         </Box>
       </Heading>
     );
-  }
+  },
 );
 
-StyledDisclosureHeading.displayName = 'StyledDisclosureHeading';
+StyledDisclosureHeading.displayName = "StyledDisclosureHeading";
 
 export interface DisclosureHeadingProps
-  extends Omit<DisclosurePrimitiveProps, 'baseId' | 'toggle' | keyof BoxStyleProps>,
-    Pick<BoxProps, 'element'> {
+  extends Omit<DisclosurePrimitiveProps, "baseId" | "toggle" | keyof BoxStyleProps>,
+    Pick<BoxProps, "element"> {
   children: NonNullable<React.ReactNode>;
-  as: HeadingProps['as'];
-  marginBottom?: HeadingProps['marginBottom'];
-  variant: HeadingProps['variant'];
+  as: HeadingProps["as"];
+  marginBottom?: HeadingProps["marginBottom"];
+  variant: HeadingProps["variant"];
 }
 
 const DisclosureHeading: React.FC<React.PropsWithChildren<DisclosureHeadingProps>> = ({
   children,
   as,
-  element = 'DISCLOSURE_HEADING',
+  element = "DISCLOSURE_HEADING",
   disabled,
   focusable,
   ...props
 }) => {
-  const {disclosure, variant, setIsDisabled, setIsHeadingHovered, isHeadingHovered, isDisabled} =
+  const { disclosure, variant, setIsDisabled, setIsHeadingHovered, isHeadingHovered, isDisabled } =
     React.useContext(DisclosureContext);
   return (
     <DisclosurePrimitive
@@ -197,6 +197,6 @@ const DisclosureHeading: React.FC<React.PropsWithChildren<DisclosureHeadingProps
   );
 };
 
-DisclosureHeading.displayName = 'DisclosureHeading';
+DisclosureHeading.displayName = "DisclosureHeading";
 
-export {DisclosureHeading};
+export { DisclosureHeading };

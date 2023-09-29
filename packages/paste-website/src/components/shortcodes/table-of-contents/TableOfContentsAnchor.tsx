@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
-import type {TableOfContentsAnchorProps} from './types';
+import type { TableOfContentsAnchorProps } from "./types";
 
 export const TableOfContentsAnchor: React.FC<React.PropsWithChildren<TableOfContentsAnchorProps>> = ({
   href,
@@ -22,13 +22,13 @@ export const TableOfContentsAnchor: React.FC<React.PropsWithChildren<TableOfCont
       borderLeftStyle="solid"
       borderLeftWidth="borderWidth20"
       _focus={{
-        outline: 'none',
-        borderLeftColor: 'colorBorderPrimaryStronger',
-        color: 'colorTextLinkStronger',
+        outline: "none",
+        borderLeftColor: "colorBorderPrimaryStronger",
+        color: "colorTextLinkStronger",
       }}
       _hover={{
-        borderLeftColor: 'colorBorderPrimaryStronger',
-        color: 'colorTextLinkStronger',
+        borderLeftColor: "colorBorderPrimaryStronger",
+        color: "colorTextLinkStronger",
       }}
     >
       {children}

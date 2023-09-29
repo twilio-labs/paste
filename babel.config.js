@@ -1,7 +1,7 @@
 const getPresets = (isDev) => [
-  '@babel/preset-env',
-  '@babel/preset-react',
-  '@babel/preset-typescript',
+  "@babel/preset-env",
+  "@babel/preset-react",
+  "@babel/preset-typescript",
   [
     /** [@emotion/babel-preset-css-prop]
      * This preset is used to automatically enable Emotion’s css prop when using the classic JSX runtime.
@@ -14,22 +14,22 @@ const getPresets = (isDev) => [
      * 1. remove this preset
      * 2. add the `@emotion/babel` plugin to our plugin section.
      */
-    '@emotion/babel-preset-css-prop',
+    "@emotion/babel-preset-css-prop",
     {
       sourceMap: isDev,
-      autoLabel: 'dev-only',
-      labelFormat: '[local]',
+      autoLabel: "dev-only",
+      labelFormat: "[local]",
       cssPropOptimization: !isDev,
     },
   ],
 ];
 
 const BASE_PLUGINS = [
-  'macros',
-  ['@babel/proposal-class-properties', {loose: true}],
-  '@babel/proposal-object-rest-spread',
-  ['@babel/proposal-private-property-in-object', {loose: true}],
-  '@babel/plugin-proposal-optional-chaining',
+  "macros",
+  ["@babel/proposal-class-properties", { loose: true }],
+  "@babel/proposal-object-rest-spread",
+  ["@babel/proposal-private-property-in-object", { loose: true }],
+  "@babel/plugin-proposal-optional-chaining",
 ];
 
 module.exports = {

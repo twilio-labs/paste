@@ -1,1 +1,1 @@
-export * from '@twilio-paste/tabs-primitive';
+export * from "@twilio-paste/tabs-primitive";

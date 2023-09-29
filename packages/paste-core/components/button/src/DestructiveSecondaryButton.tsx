@@ -1,38 +1,38 @@
-import * as React from 'react';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import merge from 'deepmerge';
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import merge from "deepmerge";
+import * as React from "react";
 
-import {SizeStyles, BaseStyles, DestructiveSecondaryToggleStyles} from './styles';
-import type {DirectButtonProps} from './types';
+import { BaseStyles, DestructiveSecondaryToggleStyles, SizeStyles } from "./styles";
+import type { DirectButtonProps } from "./types";
 
 /*
  * defensively resetting interaction color from over zealous legacy
  * global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextDestructive',
-  backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderWeak',
+  color: "colorTextDestructive",
+  backgroundColor: "colorBackgroundBody",
+  boxShadow: "shadowBorderWeak",
   _hover: {
-    color: 'colorTextDestructive',
-    backgroundColor: 'colorBackgroundBody',
-    boxShadow: 'shadowBorderDestructive',
+    color: "colorTextDestructive",
+    backgroundColor: "colorBackgroundBody",
+    boxShadow: "shadowBorderDestructive",
   },
   _focus: {
-    boxShadow: 'shadowFocusShadowBorder',
+    boxShadow: "shadowFocusShadowBorder",
   },
   _active: {
-    color: 'colorTextDestructive',
-    backgroundColor: 'colorBackgroundDestructiveWeakest',
-    boxShadow: 'shadowBorderDestructive',
+    color: "colorTextDestructive",
+    backgroundColor: "colorBackgroundDestructiveWeakest",
+    boxShadow: "shadowBorderDestructive",
   },
 });
 
 const baseLoadingStyles: BoxStyleProps = {
-  color: 'colorTextDestructive',
-  backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderWeak',
+  color: "colorTextDestructive",
+  backgroundColor: "colorBackgroundBody",
+  boxShadow: "shadowBorderWeak",
 };
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
@@ -43,9 +43,9 @@ const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
 });
 
 const baseDisabledStyles: BoxStyleProps = {
-  color: 'colorTextWeaker',
-  backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderWeaker',
+  color: "colorTextWeaker",
+  backgroundColor: "colorBackgroundBody",
+  boxShadow: "shadowBorderWeaker",
 };
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
@@ -62,14 +62,14 @@ const ButtonStyleMapping = {
 };
 
 const DestructiveSecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, pressed, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, pressed, ...props }, ref) => {
     const toggleStyles = pressed === undefined ? {} : DestructiveSecondaryToggleStyles;
 
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
-        width={fullWidth ? '100%' : 'auto'}
+        width={fullWidth ? "100%" : "auto"}
         aria-pressed={pressed}
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
@@ -77,11 +77,11 @@ const DestructiveSecondaryButton = React.forwardRef<HTMLButtonElement, DirectBut
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 DestructiveSecondaryButton.defaultProps = {
-  as: 'button',
+  as: "button",
 };
-DestructiveSecondaryButton.displayName = 'DestructiveSecondaryButton';
+DestructiveSecondaryButton.displayName = "DestructiveSecondaryButton";
 
-export {DestructiveSecondaryButton};
+export { DestructiveSecondaryButton };

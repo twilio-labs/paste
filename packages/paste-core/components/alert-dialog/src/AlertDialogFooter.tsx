@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Stack} from '@twilio-paste/stack';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Stack } from "@twilio-paste/stack";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface AlertDialogFooterProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
+export interface AlertDialogFooterProps extends HTMLPasteProps<"div">, Pick<BoxProps, "element"> {
   destructive?: boolean;
   onConfirm: () => void;
   onConfirmLabel: string;
@@ -18,7 +18,7 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
   (
     {
       destructive,
-      element = 'ALERT_DIALOG_FOOTER',
+      element = "ALERT_DIALOG_FOOTER",
       onConfirm,
       onConfirmLabel,
       onDismiss,
@@ -26,9 +26,9 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
       onConfirmDisabled = false,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const primaryVariant = destructive ? 'destructive' : 'primary';
+    const primaryVariant = destructive ? "destructive" : "primary";
 
     return (
       <Box
@@ -53,7 +53,7 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
         </Stack>
       </Box>
     );
-  }
+  },
 );
 
-AlertDialogFooter.displayName = 'AlertDialogFooter';
+AlertDialogFooter.displayName = "AlertDialogFooter";

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/core/uid-library';
+import { useUID } from "@twilio-paste/core/uid-library";
+import * as React from "react";
 
 type PasteIconInverseProps = {
   className?: string;
@@ -11,10 +11,10 @@ type PasteIconInverseProps = {
 };
 
 const PasteIconInverse: React.FC<React.PropsWithChildren<PasteIconInverseProps>> = React.memo(
-  ({title = 'Twilio Paste', className, color, decorative = true, display, size}) => {
+  ({ title = "Twilio Paste", className, color, decorative = true, display, size }) => {
     const titleId = `paste-icon-${useUID()}`;
     return (
-      <span style={{color, display, width: size, height: size}} className={className}>
+      <span style={{ color, display, width: size, height: size }} className={className}>
         <svg
           role="img"
           aria-hidden={decorative}
@@ -31,7 +31,7 @@ const PasteIconInverse: React.FC<React.PropsWithChildren<PasteIconInverseProps>>
         </svg>
       </span>
     );
-  }
+  },
 );
 
-export {PasteIconInverse};
+export { PasteIconInverse };

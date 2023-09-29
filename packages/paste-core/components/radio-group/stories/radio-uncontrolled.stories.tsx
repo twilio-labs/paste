@@ -1,14 +1,14 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
+import { Anchor } from "@twilio-paste/anchor";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {Radio, RadioGroup} from '../src';
+import { Radio, RadioGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Radio/Radio (Uncontrolled)',
+  title: "Components/Radio/Radio (Uncontrolled)",
   component: Radio,
-  subcomponents: {RadioGroup},
+  subcomponents: { RadioGroup },
 };
 
 /**
@@ -30,9 +30,9 @@ export const RadioBasic = (): React.ReactNode => {
   );
 };
 
-RadioBasic.storyName = 'Radio - no initial defaultChecked';
+RadioBasic.storyName = "Radio - no initial defaultChecked";
 RadioBasic.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
@@ -54,9 +54,9 @@ export const RadioWithNoID = (): React.ReactNode => {
   );
 };
 
-RadioWithNoID.storyName = 'Radio - with no ID';
+RadioWithNoID.storyName = "Radio - with no ID";
 RadioWithNoID.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 /**
@@ -88,7 +88,7 @@ export const RadioDefaultChecked = (): React.ReactNode => {
   );
 };
 
-RadioDefaultChecked.storyName = 'Radio - initial defaultChecked';
+RadioDefaultChecked.storyName = "Radio - initial defaultChecked";
 RadioDefaultChecked.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };

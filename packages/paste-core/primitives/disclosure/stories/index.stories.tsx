@@ -1,16 +1,16 @@
-import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Separator} from '@twilio-paste/separator';
+import { Anchor } from "@twilio-paste/anchor";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Separator } from "@twilio-paste/separator";
+import * as React from "react";
 
-import {useDisclosurePrimitiveState, DisclosurePrimitive, DisclosurePrimitiveContent} from '../src';
+import { DisclosurePrimitive, DisclosurePrimitiveContent, useDisclosurePrimitiveState } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Primitives/Disclosure',
+  title: "Primitives/Disclosure",
   component: DisclosurePrimitive,
-  subcomponents: {DisclosurePrimitiveContent},
+  subcomponents: { DisclosurePrimitiveContent },
 };
 
 export const BasicExample = (): JSX.Element => {
@@ -18,7 +18,7 @@ export const BasicExample = (): JSX.Element => {
   return (
     <>
       <Heading as="h3" variant="heading30">
-        Basic Example{' '}
+        Basic Example{" "}
         <sup>
           <Anchor href="https://reakit.io/docs/disclosure/#usage">1</Anchor>
         </sup>
@@ -36,7 +36,7 @@ export const ConditionalRendering = (): JSX.Element => {
   return (
     <>
       <Heading as="h3" variant="heading30">
-        Conditionally rendering{' '}
+        Conditionally rendering{" "}
         <sup>
           <Anchor href="https://reakit.io/docs/disclosure/#conditionally-rendering">1</Anchor>
         </sup>
@@ -63,7 +63,7 @@ export const MultipleComponents = (): JSX.Element => {
   return (
     <>
       <Heading as="h3" variant="heading30">
-        Multiple components{' '}
+        Multiple components{" "}
         <sup>
           <Anchor href="https://reakit.io/docs/disclosure/#multiple-components">1</Anchor>
         </sup>

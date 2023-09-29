@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface TranslationIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface TranslationIconProps extends IconWrapperProps {
 }
 
 const TranslationIcon = React.forwardRef<HTMLElement, TranslationIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `TranslationIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[TranslationIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[TranslationIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -41,8 +41,8 @@ const TranslationIcon = React.forwardRef<HTMLElement, TranslationIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-TranslationIcon.displayName = 'TranslationIcon';
-export {TranslationIcon};
+TranslationIcon.displayName = "TranslationIcon";
+export { TranslationIcon };

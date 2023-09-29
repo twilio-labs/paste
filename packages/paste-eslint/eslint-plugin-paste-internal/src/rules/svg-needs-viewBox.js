@@ -12,7 +12,7 @@ const getJSXIdentifier = (node) => {
   if (node === undefined) {
     return;
   }
-  if (node.type === 'JSXIdentifier') {
+  if (node.type === "JSXIdentifier") {
     return node;
   }
   if (node.name !== undefined) {
@@ -26,7 +26,7 @@ const getJSXIdentifier = (node) => {
 
 module.exports = {
   meta: {
-    type: 'problem',
+    type: "problem",
   },
 
   create(context) {
@@ -50,7 +50,7 @@ module.exports = {
          *getting it with the helper function will return undefined. The '|| {}' snippet is added to
          *create a falsey result from this undefined return.
          */
-        if ((getJSXIdentifier(elementDetails) || {}).name === 'svg') {
+        if ((getJSXIdentifier(elementDetails) || {}).name === "svg") {
           /*
            * There can be multiple attributes, so we go thru each attribute
            * to see if any are viewBox
@@ -60,7 +60,7 @@ module.exports = {
              * Each attribute node is described by its own JSXIdentifier. If it's a viewBox attribute,
              * the name of this JSXIdentifer node will be 'viewBox'.
              */
-            if (getJSXIdentifier(attribute).name === 'viewBox') {
+            if (getJSXIdentifier(attribute).name === "viewBox") {
               // If any attribute is 'viewBox', we are done here.
               return;
             }
@@ -74,7 +74,7 @@ module.exports = {
            */
           context.report({
             node,
-            message: 'An svg must have a viewbox attribute',
+            message: "An svg must have a viewbox attribute",
           });
         }
       },

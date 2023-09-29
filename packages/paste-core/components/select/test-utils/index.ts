@@ -1,11 +1,11 @@
 export interface AttributesMap {
   class?: string;
-  'data-testid'?: string;
+  "data-testid"?: string;
   id?: string;
-  'aria-invalid'?: string;
+  "aria-invalid"?: string;
   disabled?: boolean;
   label?: string;
-  'data-attr'?: string;
+  "data-attr"?: string;
   selected?: string;
   title?: string;
   spellcheck?: string;
@@ -28,7 +28,7 @@ export const createAttributeMap = (element: HTMLElement): AttributesMap => {
   return Object.keys(attributesNodeList).reduce((attributesMap, key) => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore implicit any on key
-    const {name, value} = attributesNodeList[key];
-    return {...attributesMap, [name]: value};
+    const { name, value } = attributesNodeList[key];
+    return { ...attributesMap, [name]: value };
   }, {});
 };

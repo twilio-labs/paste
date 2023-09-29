@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface DeleteIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface DeleteIconProps extends IconWrapperProps {
 }
 
 const DeleteIcon = React.forwardRef<HTMLElement, DeleteIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `DeleteIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[DeleteIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[DeleteIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -40,8 +40,8 @@ const DeleteIcon = React.forwardRef<HTMLElement, DeleteIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-DeleteIcon.displayName = 'DeleteIcon';
-export {DeleteIcon};
+DeleteIcon.displayName = "DeleteIcon";
+export { DeleteIcon };
