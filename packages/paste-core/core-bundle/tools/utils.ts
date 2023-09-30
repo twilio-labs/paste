@@ -18,7 +18,7 @@ import type { PackageList, PackageShape } from "./types";
 function generateIndexFromPackageList(packageList: PackageList): string {
   let output = "";
   packageList.forEach((item) => {
-    output = `${output}export * from '${item.name}';\n`;
+    output = `${output}export * from "${item.name}";\n`;
   });
   return output;
 }
@@ -26,7 +26,7 @@ function generateIndexFromPackageList(packageList: PackageList): string {
 // See: https://stackoverflow.com/questions/58527907/barrel-file-and-tree-shaking
 function generateUnbarreledExports(packageList: PackageList): void {
   packageList.forEach((item) => {
-    writeToFile(getUnbarreledFileFullPath(item), `export * from '${item.name}';\n`, {
+    writeToFile(getUnbarreledFileFullPath(item), `export * from "${item.name}";\n`, {
       errorMessage: `[@twilio-paste/core] ${item.name} export file was not generated.`,
     });
   });

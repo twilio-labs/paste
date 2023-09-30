@@ -25,7 +25,8 @@
       "**/*.d.ts",
       ".codesandbox/ci.json",
       "build.icon-list.js",
-      "**/*.hbs"
+      "**/*.hbs",
+      "docs"
     ]
   },
   "organizeImports": {
