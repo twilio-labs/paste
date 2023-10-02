@@ -20,7 +20,7 @@ export {
   PopoverArrow as NonModalDialogArrowPrimitive,
 } from "@twilio-paste/reakit-library";
 
-export type {NonModalDialogPrimitivePopoverInitialState, NonModalDialogPrimitiveStateReturn};
+export type { NonModalDialogPrimitivePopoverInitialState, NonModalDialogPrimitiveStateReturn };
 export type {
   PopoverState as NonModalDialogPrimitiveState,
   PopoverProps as NonModalDialogPrimitiveProps,
