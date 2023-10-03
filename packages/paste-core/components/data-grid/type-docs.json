@@ -3276,18 +3276,6 @@
     }
   },
   "DataGridRow": {
-    "role": {
-      "type": "string",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": false
-    },
-    "striped": {
-      "type": "boolean",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": false
-    },
     "about": {
       "type": "string",
       "defaultValue": null,
@@ -4797,6 +4785,12 @@
       "required": false,
       "externalProp": true
     },
+    "role": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
     "security": {
       "type": "string",
       "defaultValue": null,
@@ -4821,6 +4815,12 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
+    },
+    "striped": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
     },
     "suppressContentEditableWarning": {
       "type": "boolean",
