@@ -8,14 +8,14 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'BADGE'",
+      "defaultValue": "BADGE",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "size": {
       "type": "BadgeSizes",
-      "defaultValue": "'default'",
+      "defaultValue": "default",
       "required": false,
       "externalProp": false
     }
@@ -26,7 +26,7 @@
       "defaultValue": "null",
       "required": true,
       "externalProp": false,
-      "description": "Underlying HTML element to render. Can be 'span', 'button', or 'a'."
+      "description": "Underlying HTML element to render. Can be \"span\", \"button\", or \"a\"."
     },
     "variant": {
       "type": "| \"neutral\"\n  | \"warning\"\n  | \"error\"\n  | \"success\"\n  | \"new\"\n  | \"subaccount\"\n  | \"decorative10\"\n  | \"decorative20\"\n  | \"decorative30\"\n  | \"decorative40\"\n  | \"neutral_counter\"\n  | \"error_counter\"\n  | \"default\"\n  | \"info\"",
@@ -450,7 +450,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'BADGE'",
+      "defaultValue": "BADGE",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
@@ -1563,7 +1563,7 @@
     },
     "size": {
       "type": "BadgeSizes",
-      "defaultValue": "'default'",
+      "defaultValue": "default",
       "required": false,
       "externalProp": false
     },
@@ -1634,7 +1634,7 @@
       "defaultValue": "null",
       "required": true,
       "externalProp": false,
-      "description": "Underlying HTML element to render. Can be 'span', 'button', or 'a'."
+      "description": "Underlying HTML element to render. Can be \"span\", \"button\", or \"a\"."
     },
     "about": {
       "type": "string",
@@ -3289,7 +3289,7 @@
       "defaultValue": "null",
       "required": true,
       "externalProp": false,
-      "description": "Underlying HTML element to render. Can be 'span', 'button', or 'a'."
+      "description": "Underlying HTML element to render. Can be \"span\", \"button\", or \"a\"."
     },
     "about": {
       "type": "string",

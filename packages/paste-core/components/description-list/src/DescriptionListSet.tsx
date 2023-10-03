@@ -1,6 +1,7 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 export const StyledDescriptionListSet = styled.div(
@@ -20,8 +21,15 @@ export const StyledDescriptionListSet = styled.div(
   }),
 );
 
-export interface DescriptionSetListProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+export interface DescriptionSetListProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DESCRIPTION_LIST_SET'
+   * @type {BoxProps['element']}
+   * @memberof DescriptionSetListProps
+   */
   element?: BoxProps["element"];
 }
 

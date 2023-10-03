@@ -1,0 +1,55 @@
+export const meta = {
+  title: 'Detail Text - API',
+  package: '@twilio-paste/detail-text',
+  description: 'Detail Text is typography used for short pieces of secondary text content.',
+  slug: '/components/detail-text/api',
+};
+
+import Changelog from '@twilio-paste/detail-text/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/detail-text/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Detail Text');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/detail-text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/detail-text',
+        storybookUrl: '/?path=/story/components-detail-text--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/detail-text - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {DetailText} from '@twilio-paste/core/detail-text';
+
+const Component = () => <DetailText>This is my detail text.</DetailText>;
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

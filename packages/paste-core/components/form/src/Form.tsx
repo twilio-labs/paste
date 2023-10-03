@@ -1,10 +1,23 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface FormProps extends Omit<React.ComponentPropsWithRef<"form">, "children"> {
+export interface FormProps extends HTMLPasteProps<"form"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   * @default 'FORM'
+   * @type {BoxProps['element']}
+   * @memberof FormProps
+   */
   element?: BoxProps["element"];
   children: React.ReactNode;
+  /**
+   * The maximum width of the Form.
+   *
+   * @type {BoxStyleProps['maxWidth']}
+   * @memberof FormProps
+   */
   maxWidth?: BoxStyleProps["maxWidth"];
 }
 

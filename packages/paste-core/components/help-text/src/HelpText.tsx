@@ -19,8 +19,30 @@ export const HelpTextVariants = {
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type HelpTextVariants = ValueOf<typeof HelpTextVariants>;
 
-export interface HelpTextProps extends HTMLPasteProps<"div">, Pick<BoxProps, "element"> {
+export interface HelpTextProps extends HTMLPasteProps<"div"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'HELP_TEXT'
+   * @type {BoxProps['element']}
+   * @memberof HelpTextProps
+   */
+  element?: BoxProps["element"];
+  /**
+   * Sets the top margin on the div element.
+   *
+   * @default 'space30'
+   * @type {'space0'}
+   * @memberof HelpTextProps
+   */
   marginTop?: "space0";
+  /**
+   * The style variant of the help text.
+   *
+   * @default 'default'
+   * @type {HelpTextVariants}
+   * @memberof HelpTextProps
+   */
   variant?: HelpTextVariants;
 }
 

@@ -1,0 +1,65 @@
+export const meta = {
+  title: 'Help Text - API',
+  package: '@twilio-paste/help-text',
+  description: 'Help Text that can be paired with a Paste form component.',
+  slug: '/components/help-text/api',
+};
+
+import Changelog from '@twilio-paste/help-text/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/help-text/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Help Text');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/help-text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/help-text',
+        storybookUrl: '/?path=/story/components-help-text--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/help-text - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Input} from '@twilio-paste/core/input';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/help-text';
+
+const Component = () => (
+  <>
+    <Label htmlFor="foo" required>
+      Foo
+    </Label>
+    <Input id="foo" type="text" value="" onChange={() => {}} aria-describedby="foo_text" />
+    <HelpText id="foo_text">Enter some text.</HelpText>
+  </>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

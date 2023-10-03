@@ -13996,6 +13996,7 @@ __metadata:
     lodash: 4.17.21
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
@@ -14083,6 +14084,7 @@ __metadata:
     date-fns: 2.21.3
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
@@ -14127,6 +14129,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14178,6 +14181,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14235,6 +14239,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14278,6 +14283,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14317,6 +14323,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
@@ -14383,6 +14390,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
@@ -14441,6 +14449,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
@@ -14496,6 +14505,7 @@ __metadata:
     lodash: 4.17.21
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
@@ -14583,6 +14593,7 @@ __metadata:
     deepmerge: 4.2.2
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14625,6 +14636,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14699,6 +14711,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
@@ -14736,6 +14749,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
+    tsx: ^3.12.10
     typescript: ^4.9.4
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0

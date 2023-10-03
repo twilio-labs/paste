@@ -28,12 +28,10 @@ const containedHoverStyles: BoxStyleProps = {
   borderColor: "colorBorderWeak",
 };
 
-export interface StyledDisclosureHeadingProps extends Omit<DisclosureHeadingProps, "as">, Pick<BoxProps, "element"> {
+export interface StyledDisclosureHeadingProps extends Omit<DisclosureHeadingProps, "as"> {
   renderAs: HeadingProps["as"];
-  customDisabled?: boolean;
-  customFocusable?: boolean;
   disclosureVariant: DisclosureVariants;
-  element: string;
+  element: BoxProps["element"];
   isHovered: boolean;
   isDisabled: boolean;
   setIsHovered: (value: boolean) => void;
@@ -45,11 +43,8 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
     {
       children,
       element,
-      marginBottom,
       renderAs,
       disclosureVariant,
-      customDisabled,
-      customFocusable,
       variant,
       isHovered,
       isDisabled,
@@ -157,9 +152,16 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
 StyledDisclosureHeading.displayName = "StyledDisclosureHeading";
 
 export interface DisclosureHeadingProps
-  extends Omit<DisclosurePrimitiveProps, "baseId" | "toggle" | keyof BoxStyleProps>,
-    Pick<BoxProps, "element"> {
+  extends Omit<DisclosurePrimitiveProps, "baseId" | "toggle" | keyof BoxStyleProps> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DISCLOSURE_HEADING'
+   * @type {BoxProps['element']}
+   * @memberof DisclosureHeadingProps
+   */
+  element?: BoxProps["element"];
   as: HeadingProps["as"];
   marginBottom?: HeadingProps["marginBottom"];
   variant: HeadingProps["variant"];
@@ -180,8 +182,6 @@ const DisclosureHeading: React.FC<React.PropsWithChildren<DisclosureHeadingProps
       {...disclosure}
       {...props}
       as={StyledDisclosureHeading}
-      customDisabled={disabled}
-      customFocusable={focusable}
       disabled={disabled}
       disclosureVariant={variant}
       element={element}

@@ -1,0 +1,60 @@
+export const meta = {
+  title: 'Display Heading - API',
+  package: '@twilio-paste/display-heading',
+  description:
+    'Display heading is large, expressive text that stands out from traditional headings and is used for marketing and attention grabbing purposes.',
+  slug: '/components/display-heading/',
+};
+
+import Changelog from '@twilio-paste/display-heading/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/display-heading/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Display Heading');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/display-heading');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/display-heading',
+        storybookUrl: '/?path=/story/components-display-heading--all-variants',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/display-heading - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {DisplayHeading} from '@twilio-paste/core/display-heading';
+
+const Component = () => (
+  <DisplayHeading as="h2" variant="displayHeading20">
+    Display Heading
+  </DisplayHeading>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

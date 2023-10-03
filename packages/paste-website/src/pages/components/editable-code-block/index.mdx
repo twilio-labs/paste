@@ -12,10 +12,10 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Blockquote} from '../../../components/Blockquote';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -27,24 +27,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/editable-code-block',
+        storybookUrl: '/?path=/story/components-editable-code-block--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  storybookUrl="/?path=/story/components-editable-code-block--default"
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/editable-code-block"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <StoryPreview
   title="Default Editable Code Block"
@@ -278,71 +269,3 @@ or [Card](/components/card).
     body="Don’t use an Editable Code Block without clear, contextual guidance or links to documentation. Provide immediate feedback or code previews when possible."
   />
 </DoDont>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/editable-code-block - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  EditableCodeBlockHeader,
-  EditableCodeBlockWrapper,
-  EditableCodeBlock,
-} from '@twilio-paste/core/editable-code-block';
-
-const Component = () => {
-  return (
-    <EditableCodeBlockWrapper>
-      <EditableCodeBlockHeader>My cool example</EditableCodeBlockHeader>
-      <EditableCodeBlock height="45vh" defaultLanguage="typescript" defaultValue={TypeScriptExample} />
-    </EditableCodeBlockWrapper>
-  );
-};
-```
-
-#### EditableCodeBlockWrapper Props
-
-| Prop      | Type        | Description                                                                               | Default                       |
-| --------- | ----------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
-| children? | `ReactNode` |                                                                                           | null                          |
-| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'EDITABLE_CODE_BLOCK_WRAPPER' |
-
-#### EditableCodeBlockHeader Props
-
-| Prop      | Type                                               | Description                                                                               | Default                      |
-| --------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------------------------- |
-| children? | `ReactNode`                                        |                                                                                           | null                         |
-| element?  | `string`                                           | Overrides the default element name to apply unique styles with the Customization Provider | 'EDITABLE_CODE_BLOCK_HEADER' |
-| as?       | `h1, h2, h3, h4, h5, h6, div, label, span, header` | Replaces the underlying HTML tag                                                          | 'h3'                         |
-
-#### EditableCodeBlock Props
-
-| Prop                     | Type              | Description                                                                               | Default               |
-| ------------------------ | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
-| lineNumbers?             | `on, off`         | Show line numbers in the gutter                                                           | 'on'                  |
-| folding?                 | `boolean`         | Enable code folding                                                                       | true                  |
-| readOnly                 | `boolean`         | Disable editing                                                                           | false                 |
-| indentationGuide?        | `boolean`         | Show indentation guides                                                                   | true                  |
-| showMinimap?             | `boolean`         | Show minimap                                                                              | false                 |
-| scrollBeyondLastLine?    | `boolean`         | Allow scrolling beyond the last line                                                      | false                 |
-| inlineErrorRange?        | `IRange`          | Range of the error in the editor                                                          | null                  |
-| inlineErrorHoverMessage? | `IMarkdownString` | Hover message for the error in the editor. If null, the hover message will be cleared.    | null                  |
-| inlineErrorIsWholeLine?  | `boolean`         | Whether the error is a whole line or not.                                                 | false                 |
-| i18nLoadingLabel?        | `string`          | Loading label for the editor.                                                             | 'Loading code...'     |
-| element?                 | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'EDITABLE_CODE_BLOCK' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

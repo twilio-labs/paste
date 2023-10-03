@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Form Pill Group - Changelog',
+  package: '@twilio-paste/form-pill-group',
+  description:
+    'A Form Pill Group is an editable set of Pills that represent a collection of selectable or removable objects.',
+  slug: '/components/form-pill-group/changelog',
+};
+
+import Changelog from '@twilio-paste/form-pill-group/CHANGELOG.md';
+import packageJson from '@twilio-paste/form-pill-group/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Form Pill Group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form-pill-group',
+        storybookUrl: '/?path=/story/components-form-pill-group--basic',
+      },
+    },
+  };
+};
+
+<Changelog />

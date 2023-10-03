@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Display Pill Group - Changelog',
+  package: '@twilio-paste/display-pill-group',
+  description: 'A Display Pill Group is a non-editable set of Pills that represent a collection of static objects.',
+  slug: '/components/display-pill-group/changelog',
+};
+
+import Changelog from '@twilio-paste/display-pill-group/CHANGELOG.md';
+import packageJson from '@twilio-paste/display-pill-group/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Display Pill Group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/display-pill-group',
+        storybookUrl: '/?path=/story/components-display-pill-group--basic',
+      },
+    },
+  };
+};
+
+<Changelog />

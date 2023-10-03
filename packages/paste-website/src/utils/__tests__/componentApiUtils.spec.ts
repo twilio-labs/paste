@@ -54,6 +54,12 @@ describe("groupPropsByExternal", () => {
           description: "The content of the button",
           externalProp: false,
         },
+        foo: {
+          type: "ReactNode",
+          required: false,
+          description: "The content of the button",
+          externalProp: true,
+        },
       },
       Input: {
         value: {
@@ -65,6 +71,12 @@ describe("groupPropsByExternal", () => {
         onChange: {
           type: "function",
           required: true,
+          description: "Function to be called when the input value changes",
+          externalProp: true,
+        },
+        bar: {
+          type: "function",
+          required: false,
           description: "Function to be called when the input value changes",
           externalProp: true,
         },
@@ -80,8 +92,6 @@ describe("groupPropsByExternal", () => {
             description: "The content of the button",
             externalProp: false,
           },
-        },
-        externalProps: {
           onClick: {
             type: "function",
             required: true,
@@ -89,10 +99,17 @@ describe("groupPropsByExternal", () => {
             externalProp: true,
           },
         },
+        externalProps: {
+          foo: {
+            type: "ReactNode",
+            required: false,
+            description: "The content of the button",
+            externalProp: true,
+          },
+        },
       },
       Input: {
-        internalProps: {},
-        externalProps: {
+        internalProps: {
           value: {
             type: "string",
             required: true,
@@ -102,6 +119,14 @@ describe("groupPropsByExternal", () => {
           onChange: {
             type: "function",
             required: true,
+            description: "Function to be called when the input value changes",
+            externalProp: true,
+          },
+        },
+        externalProps: {
+          bar: {
+            type: "function",
+            required: false,
             description: "Function to be called when the input value changes",
             externalProp: true,
           },

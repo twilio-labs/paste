@@ -5,19 +5,61 @@ import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
 import { DeleteIcon } from "@twilio-paste/icons/esm/DeleteIcon";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { Spinner } from "@twilio-paste/spinner";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { FileUploaderItemContext } from "./FileUploaderItemContext";
 import type { FileUploaderItemContextProps } from "./FileUploaderItemContext";
 
-export interface FileUploaderItemProps extends Omit<React.ComponentPropsWithRef<"li">, "children"> {
+export interface FileUploaderItemProps extends HTMLPasteProps<"li"> {
   children?: BoxProps["children"];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FILE_UPLOADER_ITEM'
+   * @type {BoxProps['element']}
+   * @memberof FileUploaderItemProps
+   */
   element?: BoxProps["element"];
+  /**
+   * The variant of FileUploaderItem
+   *
+   * @default 'default'
+   * @type {FileUploaderItemContextProps['variant']}
+   * @memberof FileUploaderItemProps
+   */
   variant?: FileUploaderItemContextProps["variant"];
+  /**
+   * The icon displayed when it is not loading or error variant.
+   *
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof FileUploaderItemProps
+   */
   fileIcon?: NonNullable<React.ReactNode>;
   onButtonClick?: () => void;
+  /**
+   * The hidden text for the error icon
+   *
+   * @default '(error)'
+   * @type {string}
+   * @memberof FileUploaderItemProps
+   */
   i18nErrorText?: string;
+  /**
+   * The hidden text for the dismiss button
+   *
+   * @default 'Remove file'
+   * @type {string}
+   * @memberof FileUploaderItemProps
+   */
   i18nButtonText?: string;
+  /**
+   * The hidden text for the loading spinner
+   *
+   * @default '(loading)'
+   * @type {string}
+   * @memberof FileUploaderItemProps
+   */
   i18nLoadingText?: string;
 }
 

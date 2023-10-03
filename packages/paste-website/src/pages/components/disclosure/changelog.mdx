@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Disclosure - Changelog',
+  package: '@twilio-paste/disclosure',
+  description: 'The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.',
+  slug: '/components/disclosure/changelog',
+};
+
+import Changelog from '@twilio-paste/disclosure/CHANGELOG.md';
+import packageJson from '@twilio-paste/disclosure/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Disclosure');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/disclosure',
+        storybookUrl: '/?path=/story/components-disclosure--heading-variant-10',
+      },
+    },
+  };
+};
+
+<Changelog />

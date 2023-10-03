@@ -27,10 +27,10 @@ import {
   detailTextAsFootnote,
 } from '../../../component-examples/DetailTextExamples.ts';
 import packageJson from '@twilio-paste/detail-text/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -42,24 +42,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/detail-text',
+        storybookUrl: '/?path=/story/components-detail-text--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/detail-text"
-  storybookUrl="/?path=/story/components-detail-text--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{DetailText, Box}} noInline>
   {detailTextWithImage}
@@ -146,52 +137,3 @@ Use Detail Text to add a footnote below a paragraph.
     body="Don’t use Detail Text for stylistic purposes within other typography. Consider using the Text primitive instead."
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/detail-text - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {DetailText} from '@twilio-paste/core/detail-text';
-
-const Component = () => <DetailText>This is my detail text.</DetailText>;
-```
-
-### Detail Text props
-
-| Prop       | Type                    | Description                                                                               | Default       |
-| ---------- | ----------------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| as?        | `string`                | The HTML tag to render the Detail Text as                                                 | 'div'         |
-| marginTop? | `'space0' \| 'space30'` | The marginTop of the DetailText. Currently we only allow space0 to remove top margin.     | 'space30'     |
-| children?  | `React.ReactNode`       | The content of the DetailText                                                             |               |
-| element?   | `string`                | Overrides the default element name to apply unique styles with the Customization Provider | 'DETAIL_TEXT' |
-
-## Figma
-
-### Usage
-
-Detail Text is available in the Paste Components Figma library.
-
-### Properties
-
-| Property | Variants    | Description                                     | Default |
-| -------- | ----------- | ----------------------------------------------- | ------- |
-| Margin   | "Yes", "No" | If there is a margin on top of the Detail Text. | "Yes"   |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,9 +1,17 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface FileUploaderItemsListProps extends Omit<React.ComponentPropsWithRef<"ul">, "children"> {
+export interface FileUploaderItemsListProps extends HTMLPasteProps<"ul"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FILE_UPLOADER_ITEMS_LIST'
+   * @type {BoxProps['element']}
+   * @memberof FileUploaderItemsListProps
+   */
   element?: BoxProps["element"];
 }
 

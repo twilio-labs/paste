@@ -16,6 +16,14 @@ import {
 } from "./utils";
 
 export interface DataGridProps extends TableProps {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID'
+   * @type {TableProps['element']}
+   * @memberof DataGridProps
+   */
+  element?: TableProps["element"];
   "aria-label": string;
 }
 

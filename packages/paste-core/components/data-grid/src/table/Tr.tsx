@@ -4,8 +4,8 @@ import type { TrProps as TableTrProps } from "@twilio-paste/table";
 import * as React from "react";
 
 export interface TrProps extends TableTrProps {
-  role: string;
-  striped: boolean;
+  role?: string;
+  striped?: boolean;
   selected?: boolean;
 }
 

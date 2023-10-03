@@ -8,10 +8,36 @@ import * as React from "react";
 
 export interface FormPillGroupProps
   extends Omit<CompositeProps, "unstable_virtual" | "unstable_moves" | "unstable_system" | "wrapElement" | "wrap"> {
+  /**
+   *
+   *
+   * @type {string}
+   * @memberof FormPillGroupProps
+   */
   "aria-label": string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_PILL_GROUP'
+   * @type {BoxElementProps['element']}
+   * @memberof FormPillGroupProps
+   */
   element?: BoxElementProps["element"];
   children: React.ReactNode;
+  /**
+   * Visually hidden string that has instructions for how to remove and select pills with a keyboard.
+   *
+   * @default 'Press Delete or Backspace to remove. Press Enter to toggle selection.'
+   * @type {string}
+   * @memberof FormPillGroupProps
+   */
   i18nKeyboardControls?: string;
+  /**
+   * Determines if the FormPillGroup should be rendered as a flex or inline-flex container
+   *
+   * @type {('flex' | 'inline-flex')}
+   * @memberof FormPillGroupProps
+   */
   display?: "flex" | "inline-flex";
 }
 

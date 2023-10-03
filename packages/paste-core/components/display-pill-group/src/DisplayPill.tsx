@@ -4,7 +4,15 @@ import type { BoxElementProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-type DisplayPillProps = HTMLPasteProps<"a"> & Pick<BoxElementProps, "element">;
+export type DisplayPillProps = HTMLPasteProps<"a"> & {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DISPLAY_PILL'
+   * @type {BoxElementProps['element']}
+   */
+  element?: BoxElementProps["element"];
+};
 
 /**
  * Display represents a saved entity as part of a collection, usually as a result of multi selection.

@@ -31,30 +31,37 @@ export interface TableProps extends HTMLPasteProps<"table"> {
   /**
    * Sets a background color for even rows within the table.
    *
+   * @default 'false'
    * @type {boolean}
    * @memberof TableProps
    */
   striped?: boolean;
   /**
-   * Sets the `table-layout` style of the Table. Defaults to `auto`.
+   * Sets the `table-layout` style of the Table.
    *
+   * @default 'auto'
    * @type {TableLayoutOptions}
    * @memberof TableProps
    */
   tableLayout?: TableLayoutOptions;
   /**
-   * Sets the `border` style of the Table. Defaults to `default`.
+   * Sets the `border` style of the Table.
    *
+   * @default 'default'
    * @type {TableVariantOptions}
    * @memberof TableProps
    */
   variant?: TableVariantOptions;
   /**
    * Sets the table to scroll horizontally on small screens.
+   *
+   * @default 'false'
    */
   scrollHorizontally?: boolean;
   /**
    * Sets the table cells to not line wrap.
+   *
+   * @default 'false'
    */
   noWrap?: boolean;
   /**
@@ -106,8 +113,9 @@ export interface TrProps extends HTMLPasteProps<"tr"> {
    */
   element?: BoxProps["element"];
   /**
-   * Sets the vertical alignment of the content within the Table row. Defaults to `middle`.
+   * Sets the vertical alignment of the content within the Table row.
    *
+   * @default 'middle'
    * @type {TableVerticalAlignmentOptions}
    * @memberof TrProps
    */
@@ -124,8 +132,9 @@ export interface ThProps extends HTMLPasteProps<"th"> {
    */
   element?: BoxProps["element"];
   /**
-   * Sets the text alignment of the content within the Table cell. Defaults to `left`.
+   * Sets the text alignment of the content within the Table cell.
    *
+   * @default 'left'
    * @type {TableAlignmentOptions}
    * @memberof ThProps
    */
@@ -149,8 +158,9 @@ export interface TdProps extends HTMLPasteProps<"td"> {
    */
   element?: BoxProps["element"];
   /**
-   * Sets the text alignment of the content within the Table cell. Defaults to `left`.
+   * Sets the text alignment of the content within the Table cell.
    *
+   * @default 'left'
    * @type {TableAlignmentOptions}
    * @memberof TdProps
    */

@@ -8,16 +8,38 @@ import { DataGridContext } from "./DataGridContext";
 import { Td } from "./table/Td";
 import type { TdProps } from "./table/Td";
 import { Th } from "./table/Th";
+import type { ThProps } from "./table/Th";
 import { ensureFocus, isCell, updateTabIndexForActionable } from "./utils";
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
 
-type CellType = "th" | "td";
-export interface DataGridCellProps extends Pick<TdProps, "textAlign"> {
-  as?: CellType;
+export type DataGridCellBasePropsProps = {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID_CELL'
+   * @type {BoxElementProps['element']}
+   * @memberof DataGridCellProps
+   */
   element?: BoxElementProps["element"];
+  /**
+   * How many columns the cell spans across
+   *
+   * @type {number}
+   * @memberof DataGridCellProps
+   */
   colSpan?: number;
-}
+};
+type DataGridCellAsThProps = ThProps &
+  DataGridCellBasePropsProps & {
+    as?: "th";
+  };
+type DataGridCellAsTdProps = TdProps &
+  DataGridCellBasePropsProps & {
+    as?: "td";
+  };
+
+export type DataGridCellProps = DataGridCellAsThProps | DataGridCellAsTdProps;
 
 /**
  * DataGrid cell component. Every visible box in a data grid is powered by the cell.

@@ -1,10 +1,18 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { FormSectionContext } from "./FormSectionContext";
 
-export interface FormSectionDescriptionProps extends Omit<React.ComponentPropsWithRef<"div">, "children" | "id"> {
+export interface FormSectionDescriptionProps extends HTMLPasteProps<"div"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_SECTION_DESCRIPTION'
+   * @type {BoxProps['element']}
+   * @memberof FormSectionDescriptionProps
+   */
   element?: BoxProps["element"];
   children: React.ReactNode;
 }

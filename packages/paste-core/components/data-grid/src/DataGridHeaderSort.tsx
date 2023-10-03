@@ -1,14 +1,22 @@
 import type { BoxProps } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import type { ButtonProps } from "@twilio-paste/button";
 import { ArrowDownIcon } from "@twilio-paste/icons/esm/ArrowDownIcon";
 import { ArrowUpIcon } from "@twilio-paste/icons/esm/ArrowUpIcon";
 import { UnsortedIcon } from "@twilio-paste/icons/esm/UnsortedIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 export type SortDirection = "ascending" | "descending" | "none";
 
 interface DataGridHeaderSortIconProps {
+  /**
+   * Sort direction matching aria spec
+   *
+   * @type {SortDirection}
+   * @memberof DataGridHeaderSortIconProps
+   */
   direction: SortDirection;
   element?: BoxProps["element"];
 }
@@ -31,11 +39,46 @@ const DataGridHeaderSortIcon: React.FC<React.PropsWithChildren<DataGridHeaderSor
 
 DataGridHeaderSortIcon.displayName = "DataGridHeaderSortIcon";
 
-export interface DataGridHeaderSortProps extends DataGridHeaderSortIconProps {
+export interface DataGridHeaderSortProps extends HTMLPasteProps<"button">, DataGridHeaderSortIconProps {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID_HEADER_SORT'
+   * @type {BoxProps['element']}
+   * @memberof DataGridHeaderSortProps
+   */
+  element?: BoxProps["element"];
+  /**
+   * Callback when the sort button is pressed. Used to handle sorting.
+   *
+   * @memberof DataGridHeaderSortProps
+   */
   onClick?: () => void;
+  /**
+   * Sort button label text when `direction` is "ascending"
+   *
+   * @default 'Sort ascending'
+   * @type {string}
+   * @memberof DataGridHeaderSortProps
+   */
   i18nAscendingLabel?: string;
+  /**
+   * Sort button label text when `direction` is "descending"
+   *
+   * @default 'Sort descending'
+   * @type {string}
+   * @memberof DataGridHeaderSortProps
+   */
   i18nDescendingLabel?: string;
+  /**
+   * Sort button label text when `direction` is "none"
+   *
+   * @default 'Unsorted'
+   * @type {string}
+   * @memberof DataGridHeaderSortProps
+   */
   i18nUnsortedLabel?: string;
+  tabIndex?: ButtonProps["tabIndex"];
 }
 
 /**

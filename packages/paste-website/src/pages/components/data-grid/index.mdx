@@ -23,12 +23,11 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {standardDataGrid, TableHeaderData, TableBodyData} from '../../../component-examples/DataGridExamples';
-import Changelog from '@twilio-paste/data-grid/CHANGELOG.md';
 import packageJson from '@twilio-paste/data-grid/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -40,24 +39,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/data-grid',
+        storybookUrl: '/?path=/story/components-data-grid--plain-data-grid',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/data-grid"
-  storybookUrl="/?path=/story/components-data-grid--plain-data-grid"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -273,158 +263,3 @@ Avoid documenting an entire error message within a row. Use an indicator, like a
   <Do title="Do" body="Use data grid for interactive, tabular data" />
   <Dont title="Don't" body="Don't use data grid for static data" />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
-  DataGridBody,
-  DataGridCell,
-  DataGridFoot,
-} from '@twilio-paste/core/data-grid';
-
-const Component = () => (
-  <DataGrid aria-label="User information table" striped>
-    <DataGridHead>
-      <DataGridRow>
-        <DataGridHeader>First Name</DataGridHeader>
-        <DataGridHeader>Last Name</DataGridHeader>
-        <DataGridHeader>Country</DataGridHeader>
-        <DataGridHeader>Email</DataGridHeader>
-        <DataGridHeader>Phone</DataGridHeader>
-      </DataGridRow>
-    </DataGridHead>
-    <DataGridBody>
-      <DataGridRow>
-        <DataGridCell>Devyn</DataGridCell>
-        <DataGridCell>Weimann</DataGridCell>
-        <DataGridCell>Congo</DataGridCell>
-        <DataGridCell>Matilde86@gmail.com</DataGridCell>
-        <DataGridCell>652-441-1766 x377</DataGridCell>
-      </DataGridRow>
-      <DataGridRow>
-        <DataGridCell>Fritz</DataGridCell>
-        <DataGridCell>Bashirian</DataGridCell>
-        <DataGridCell>France</DataGridCell>
-        <DataGridCell>Magali.Harber@hotmail.com</DataGridCell>
-        <DataGridCell>1-229-278-7567</DataGridCell>
-      </DataGridRow>
-      <DataGridRow>
-        <DataGridCell>Jovanny</DataGridCell>
-        <DataGridCell>Mante</DataGridCell>
-        <DataGridCell>Pitcairn Islands</DataGridCell>
-        <DataGridCell>Fausto_Vandervort15@gmail.com</DataGridCell>
-        <DataGridCell>(629) 375-5743 x726</DataGridCell>
-      </DataGridRow>
-    </DataGridBody>
-    <DataGridFoot>
-      <DataGridRow>
-        <DataGridCell>Devyn</DataGridCell>
-        <DataGridCell>Weimann</DataGridCell>
-        <DataGridCell>Congo</DataGridCell>
-        <DataGridCell>Matilde86@gmail.com</DataGridCell>
-        <DataGridCell>652-441-1766 x377</DataGridCell>
-      </DataGridRow>
-    </DataGridFoot>
-  </DataGrid>
-);
-```
-
-#### DataGrid Props
-
-| Prop                | Type                    | Description                                                                               | Default     |
-| ------------------- | ----------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| aria-label          | `string`                | Defines a string value that labels the current element.                                   | null        |
-| striped?            | `boolean`               | Toggles row zebra striping                                                                | false       |
-| scrollHorizontally? | `boolean`               | Sets the table to scroll horizontally on small screens.                                   | false       |
-| noWrap?             | `boolean`               | Sets the table cells to not line wrap.                                                    | false       |
-| tableLayout?        | "auto", "fixed"         | Sets the `table-layout` style of the Table. Defaults to `auto`.                           | false       |
-| variant?            | "default", "borderless" | Sets the `border` style of the Table. Defaults to `default`.                              | false       |
-| element?            | `string`                | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID` |
-| children?           | `ReactNode`             |                                                                                           | null        |
-
-#### DataGridHead Props
-
-| Prop          | Type             | Description                                                                               | Default          |
-| ------------- | ---------------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| element?      | `string`         | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEAD` |
-| children?     | `ReactNode`      |                                                                                           | null             |
-| stickyHeader? | `boolean`        | Makes the data grid head stick to the top of the window as the user scrolls a long table  | null             |
-| top?          | `string, number` | Allows manual control of the top offset, used in conjunction with `stickyHeader`          | null             |
-
-#### DataGridBody Props
-
-| Prop      | Type        | Description                                                                               | Default          |
-| --------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_BODY` |
-| children? | `ReactNode` |                                                                                           | null             |
-
-#### DataGridFoot Props
-
-| Prop      | Type        | Description                                                                               | Default          |
-| --------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_FOOT` |
-| children? | `ReactNode` |                                                                                           | null             |
-
-#### DataGridHeader Props
-
-| Prop       | Type        | Description                                                                               | Default            |
-| ---------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| textAlign? | `string`    | CSS text align for this cell                                                              | `left`             |
-| width?     | `string`    | Allows setting column width programmatically                                              | null               |
-| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEADER` |
-| colSpan?   | `number`    | How many columns the cell spans across                                                    | null               |
-| children?  | `ReactNode` |                                                                                           | null               |
-
-#### DataGridHeaderSort Props
-
-| Prop                 | Type                              | Description                                                                               | Default                 |
-| -------------------- | --------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| direction            | "ascending", "descending", "none" | Sort direction matching aria spec                                                         | null                    |
-| onClick?             | `() => {}`                        | Callback when the sort button is pressed. Used to handle sorting.                         | null                    |
-| element?             | `string`                          | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEADER_SORT` |
-| i18nAscendingLabel?  | `string`                          | Sort button label text when `direction` is "ascending"                                    | `'Sort ascending'`      |
-| i18nDescendingLabel? | `string`                          | Sort button label text when `direction` is "descending"                                   | `'Sort descending'`     |
-| i18nUnsortedLabel?   | `string`                          | Sort button label text when `direction` is "none"                                         | `'Unsorted'`            |
-
-#### DataGridRow Props
-
-| Prop      | Type        | Description                                                                               | Default         |
-| --------- | ----------- | ----------------------------------------------------------------------------------------- | --------------- |
-| selected? | `boolean`   | Visally displays a row highlight indicating selection and sets `aria-selected`            | false           |
-| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_ROW` |
-| children? | `ReactNode` |                                                                                           | null            |
-
-#### DataGridCell Props
-
-| Prop       | Type        | Description                                                                               | Default          |
-| ---------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| as?        | "th", "td"  | Cells can either be th or td, so rows can have headers.                                   | `td`             |
-| textAlign? | `string`    | CSS text align for this cell                                                              | `left`           |
-| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_CELL` |
-| colSpan?   | `number`    | How many columns the cell spans across                                                    | null             |
-| children?  | `ReactNode` |                                                                                           | null             |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'File Picker - Changelog',
+  package: '@twilio-paste/file-picker',
+  description: 'A File Picker is a form element used to upload files.',
+  slug: '/components/file-picker/changelog',
+};
+
+import Changelog from '@twilio-paste/file-picker/CHANGELOG.md';
+import packageJson from '@twilio-paste/file-picker/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('File Picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-picker',
+        storybookUrl: '/?path=/story/components-file-picker--default',
+      },
+    },
+  };
+};
+
+<Changelog />

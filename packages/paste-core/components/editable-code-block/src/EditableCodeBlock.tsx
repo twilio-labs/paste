@@ -47,17 +47,91 @@ export interface EditableCodeBlockProps
    * If we do, we can uncomment these easily in the future since the work is already done.
    */
   // monacoOptions?: CodeEditorProps['options'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'EDITABLE_CODE_BLOCK'
+   * @type {BoxProps['element']}
+   * @memberof EditableCodeBlockProps
+   */
   element?: BoxProps["element"];
-  minimap?: boolean;
+  /**
+   * Show line numbers in the gutter
+   *
+   * @default 'on'
+   * @type {('on' | 'off')}
+   * @memberof EditableCodeBlockProps
+   */
   lineNumbers?: "on" | "off";
+  /**
+   * Enable code folding
+   *
+   * @default 'true'
+   * @type {boolean}
+   * @memberof EditableCodeBlockProps
+   */
   folding?: boolean;
+  /**
+   * Disable editing
+   *
+   * @default 'false'
+   * @type {boolean}
+   * @memberof EditableCodeBlockProps
+   */
   readOnly?: boolean;
+  /**
+   * Show indentation guides
+   *
+   * @default 'true'
+   * @type {boolean}
+   * @memberof EditableCodeBlockProps
+   */
   indentationGuide?: boolean;
+  /**
+   * Show minimap
+   *
+   * @default 'false'
+   * @type {boolean}
+   * @memberof EditableCodeBlockProps
+   */
   showMinimap?: boolean;
+  /**
+   * Allow scrolling beyond the last line
+   *
+   * @default 'false'
+   * @type {boolean}
+   * @memberof EditableCodeBlockProps
+   */
   scrollBeyondLastLine?: boolean;
+  /**
+   * Range of the error in the editor
+   *
+   * @type {IRange}
+   * @memberof EditableCodeBlockProps
+   */
   inlineErrorRange?: IRange;
+  /**
+   * Hover message for the error in the editor. If null, the hover message will be cleared.
+   *
+   * @type {(IMarkdownString | IMarkdownString[] | null)}
+   * @memberof EditableCodeBlockProps
+   */
   inlineErrorHoverMessage?: IMarkdownString | IMarkdownString[] | null;
+  /**
+   * Whether the error is a whole line or not.
+   *
+   * @default 'false'
+   * @type {boolean}
+   * @memberof EditableCodeBlockProps
+   */
   inlineErrorIsWholeLine?: boolean;
+  /**
+   * Loading label for the editor.
+   *
+   * @default 'Loading code...'
+   * @type {string}
+   * @memberof EditableCodeBlockProps
+   */
   i18nLoadingLabel?: string;
 }
 

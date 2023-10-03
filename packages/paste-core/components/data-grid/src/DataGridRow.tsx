@@ -4,10 +4,24 @@ import * as React from "react";
 
 import { DataGridContext } from "./DataGridContext";
 import { Tr } from "./table/Tr";
+import type { TrProps } from "./table/Tr";
 
-export interface DataGridRowProps {
+export interface DataGridRowProps extends TrProps {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Visally displays a row highlight indicating selection and sets `aria-selected`
+   *
+   * @type {boolean}
+   * @memberof DataGridRowProps
+   */
   selected?: boolean;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID_ROW'
+   * @type {BoxElementProps['element']}
+   * @memberof DataGridRowProps
+   */
   element?: BoxElementProps["element"];
 }
 
