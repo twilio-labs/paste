@@ -1,11 +1,26 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import type { asTags } from "@twilio-paste/heading";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface CodeBlockHeaderProps extends Partial<Omit<HTMLHeadingElement, "children">> {
+export interface CodeBlockHeaderProps extends HTMLPasteProps<asTags> {
   children: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CODE_BLOCK_HEADER"
+   * @type {BoxElementProps["element"]}
+   * @memberof CodeBlockHeaderProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Heading level to render
+   *
+   * @default "h3"
+   * @type {asTags}
+   * @memberof CodeBlockHeaderProps
+   */
   as?: asTags;
 }
 

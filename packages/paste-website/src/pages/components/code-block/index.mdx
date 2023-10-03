@@ -18,10 +18,10 @@ import Changelog from '@twilio-paste/code-block/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {singleLine, multiLine, tab, formattedCopyText} from '../../../component-examples/CodeBlockExamples.ts';
 import packageJson from '@twilio-paste/code-block/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -33,25 +33,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/code-block',
+        storybookUrl: '/?path=/story/components-code-block--single-line',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/code-block"
-  storybookUrl="/?path=/story/components-code-block--single-line"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{CodeBlock}} language="jsx" noInline>
   {singleLine}
@@ -114,109 +104,3 @@ To modify what text is copied when the copy button is clicked, use the `copyText
 <LivePreview scope={{CodeBlock}} language="jsx" noInline>
   {formattedCopyText}
 </LivePreview>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/code-block - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {CodeBlockWrapper, CodeBlockHeader, CodeBlock} from '@twilio-paste/core/code-block';
-
-const rubyCode = `#!/usr/bin/ruby
-
-# Import the library.
-require 'tk'
-
-# Root window.
-root = TkRoot.new  {
-  title 'Push Me'
-  background '#111188'
-}
-
-# Add a label to the root window.
-lab = TkLabel.new(root) {
-  text "Hey there,\nPush a button!"
-  background '#3333AA'
-  foreground '#CCCCFF'
-}`;
-
-export const Basic = () => {
-  return (
-    <CodeBlockWrapper>
-      <CodeBlockHeader>Build a button</CodeBlockHeader>
-      <CodeBlock showLineNumbers language="ruby" code={rubyCode} />
-    </CodeBlockWrapper>
-  );
-};
-```
-
-#### Props
-
-##### CodeBlock
-
-| Prop                   | Type                                                                                                                    | Description                                                                               | Default                         |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------- |
-| `code`                 | `string`                                                                                                                | The code snippet to be rendered.                                                          |                                 |
-| `language`             | `'javascript', 'jsx', 'csharp', 'php', 'ruby', 'python', 'java', 'json', 'c', 'bash', 'shell-session', 'go', 'groovy',` | The language of the code snippet.                                                         |                                 |
-| `element?`             | `string`                                                                                                                | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK'`                  |
-| `variant?`             | `'single-line', 'multi-line'`                                                                                           | Which variant of code block to render.                                                    | `'multi-line'`                  |
-| `showLineNumbers?`     | `boolean`                                                                                                               | Include line numbers in code block.                                                       | `false`                         |
-| `wrapLines?`           | `boolean`                                                                                                               | Wraps long lines of code.                                                                 | `false`                         |
-| `maxLines?`            | `boolean`                                                                                                               | Constrains the height of code block to a set number of lines.                             |                                 |
-| `externalLink?`        | `string`                                                                                                                | Optional link to an external source for the code                                          |                                 |
-| `i18nCopyLabelBefore?` | `string`                                                                                                                | The content of the copy button tooltip before it is clicked.                              | `'Copy code block'`             |
-| `i18nCopyLabelAfter?`  | `string`                                                                                                                | The content of the copy button tooltip after the user clicks it.                          | `'Copied!'`                     |
-| `i18nLinkLabel?`       | `string`                                                                                                                | The content of the external link button tooltip.                                          | `'Open code block in new page'` |
-| `copyTextFormatter?`   | `(code: string) => string`                                                                                              | A function that formats the text that gets copied when the copy button is clicked.        |                                 |
-
-##### CodeBlockWrapper
-
-| Prop       | Type     | Description                                                                               | Default                |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | ---------------------- |
-| `children` | `string` | The code snippet to be rendered.                                                          |                        |
-| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_WRAPPER'` |
-
-##### CodeBlockHeader
-
-| Prop       | Type                                                         | Description                                                                               | Default               |
-| ---------- | ------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | --------------------- |
-| `children` | `string`                                                     | The code snippet to be rendered.                                                          |                       |
-| `element?` | `string`                                                     | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_HEADER'` |
-| `as?`      | `'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'` | The HTML element to render                                                                | `'h3'`                |
-
-##### CodeBlockTabList
-
-| Prop       | Type     | Description                                                                               | Default                 |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| `children` | `string` | The code snippet to be rendered.                                                          |                         |
-| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_TAB_LIST'` |
-
-##### CodeBlockTab
-
-| Prop       | Type     | Description                                                                               | Default            |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| `children` | `string` | The code snippet to be rendered.                                                          |                    |
-| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_TAB'` |
-
-##### CodeBlockTabPanel
-
-| Prop       | Type     | Description                                                                               | Default                  |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | ------------------------ |
-| `children` | `string` | The code snippet to be rendered.                                                          |                          |
-| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CODE_BLOCK_TAB_PANEL'` |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

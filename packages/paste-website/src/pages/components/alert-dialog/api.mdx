@@ -1,0 +1,78 @@
+export const meta = {
+  title: 'Alert Dialog - Components',
+  package: '@twilio-paste/alert-dialog',
+  description: 'An alert dialog displays content over the main page and blocks any interaction with the page.',
+  slug: '/components/alert-dialog/api',
+};
+
+import Changelog from '@twilio-paste/alert-dialog/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/alert-dialog/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Alert Dialog');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/alert-dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert-dialog',
+        storybookUrl: '/?path=/story/components-alert-dialog--alert-dialog-with-two-actions-story',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/alert-dialog - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {AlertDialog} from '@twilio-paste/core/alert-dialog';
+import {Button} from '@twilio-paste/core/button';
+
+const AlertDialogExample = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+
+  return (
+    <div>
+      <Button variant="primary" onClick={handleOpen}>
+        Open alert dialog
+      </Button>
+      <AlertDialog
+        heading="Submit application"
+        isOpen={isOpen}
+        onConfirm={() => {}}
+        onConfirmLabel="Submit"
+        onDismiss={handleClose}
+        onDismissLabel="Cancel"
+      >
+        Are you sure you want to submit this application? No information can be changed after submitting.
+      </AlertDialog>
+    </div>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

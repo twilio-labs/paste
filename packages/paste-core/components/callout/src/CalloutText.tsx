@@ -1,9 +1,17 @@
 import type { BoxProps } from "@twilio-paste/box";
 import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface CalloutTextProps extends Partial<Omit<HTMLParagraphElement, "children">> {
+export interface CalloutTextProps extends HTMLPasteProps<"p"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CALLOUT_TEXT"
+   * @type {BoxProps["element"]}
+   * @memberof CalloutTextProps
+   */
   element?: BoxProps["element"];
 }
 

@@ -8,6 +8,13 @@ import { MessageVariantContext } from "./MessageVariantContext";
 
 export interface ChatAttachmentLinkProps extends AnchorProps {
   children: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_ATTACHMENT_LINK"
+   * @type {BoxProps["element"]}
+   * @memberof ChatAttachmentLinkProps
+   */
   element?: BoxElementProps["element"];
 }
 

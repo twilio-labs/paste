@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Alert Dialog - Components',
+  package: '@twilio-paste/alert-dialog',
+  description: 'An alert dialog displays content over the main page and blocks any interaction with the page.',
+  slug: '/components/alert-dialog/changelog',
+};
+
+import Changelog from '@twilio-paste/alert-dialog/CHANGELOG.md';
+import packageJson from '@twilio-paste/alert-dialog/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Alert Dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert-dialog',
+        storybookUrl: '/?path=/story/components-alert-dialog--alert-dialog-with-two-actions-story',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -1,0 +1,65 @@
+export const meta = {
+  title: 'Avatar',
+  package: '@twilio-paste/avatar',
+  description:
+    'An Avatar is a graphical representation of a user or entity and an Avatar Group is a collection of Avatars.',
+  slug: '/components/avatar/api',
+};
+
+import Changelog from '@twilio-paste/avatar/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/avatar/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Avatar');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/avatar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/avatar',
+        storybookUrl: '/?path=/story/components-avatar--initials',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/avatar - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Avatar, AvatarGroup} from '@twilio-paste/core/avatar';
+
+const AvatarExample = () => {
+  return (
+    <AvatarGroup size="sizeIcon70" variant="user">
+      <Avatar name="Aayush Iyer" />
+      <Avatar name="Simon Taggart" />
+      <Avatar name="Sarah Li" />
+      <Avatar name="Shadi Isber" />
+    </AvatarGroup>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

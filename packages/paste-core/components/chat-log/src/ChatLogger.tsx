@@ -1,5 +1,6 @@
 import { animated, useReducedMotion, useTransition } from "@twilio-paste/animation-library";
 import { Box } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { ChatLog } from "./ChatLog";
@@ -8,7 +9,14 @@ import type { Chat } from "./useChatLogger";
 const AnimatedChat = animated(Box);
 type StyleProps = React.ComponentProps<typeof AnimatedChat>["style"];
 
-export interface ChatLoggerProps {
+export interface ChatLoggerProps extends HTMLPasteProps<"div"> {
+  /**
+   * Array of chats in the log. Use with useChatLogger()
+   *
+   * @default 'CHAT_ATTACHMENT'
+   * @type {BoxProps['element']}
+   * @memberof ChatAttachmentProps
+   */
   chats: Chat[];
   children?: never;
 }

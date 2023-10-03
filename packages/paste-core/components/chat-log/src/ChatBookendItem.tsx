@@ -1,10 +1,18 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import type { BoxElementProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface ChatBookendItemProps {
+export interface ChatBookendItemProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
-  element?: BoxElementProps["element"];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_BOOKEND_ITEM"
+   * @type {BoxProps["element"]}
+   * @memberof ChatBookendItemProps
+   */
+  element?: BoxProps["element"];
 }
 
 const ChatBookendItem = React.forwardRef<HTMLDivElement, ChatBookendItemProps>(

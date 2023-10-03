@@ -1,0 +1,66 @@
+export const meta = {
+  title: 'Chat Composer',
+  package: '@twilio-paste/chat-composer',
+  description: 'A Chat Composer is an input made for users to type rich chat messages.',
+  slug: '/components/chat-composer/api',
+};
+
+import Changelog from '@twilio-paste/chat-composer/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/chat-composer/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Chat Composer');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/chat-composer');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-composer',
+        storybookUrl: '/?path=/story/components-chat-composer--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/chat-composer - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {ChatComposer} from '@twilio-paste/core/chat-composer';
+
+export const BasicChatComposer = () => (
+  <ChatComposer
+    config={{
+      namespace: 'customer-chat',
+      onError: (e) => {
+        throw e;
+      },
+    }}
+    ariaLabel="A basic chat composer"
+    placeholder="Chat text"
+  />
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

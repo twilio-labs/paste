@@ -5,9 +5,10 @@ import { useClipboard } from "@twilio-paste/clipboard-copy-library";
 import { CopyIcon } from "@twilio-paste/icons/esm/CopyIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Tooltip, useTooltipState } from "@twilio-paste/tooltip";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-interface CopyButtonProps {
+interface CopyButtonProps extends Omit<HTMLPasteProps<"button">, "tabIndex"> {
   text: string;
   i18nCopyLabelBefore?: string;
   i18nCopyLabelAfter?: string;
@@ -27,6 +28,7 @@ export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
   i18nCopyLabelAfter = "Copied!",
   element = "COPY_BUTTON",
   copyTextFormatter,
+  ...props
 }) => {
   const tooltipState = useTooltipState();
   const [tooltipText, setTooltipText] = React.useState(i18nCopyLabelBefore);
@@ -63,7 +65,7 @@ export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
 
   return (
     <Tooltip text={tooltipText} state={tooltipState} element={`${element}_TOOLTIP`}>
-      <Button variant="inverse" size="icon_small" onClick={handleCopy} element={element}>
+      <Button variant="inverse" size="icon_small" onClick={handleCopy} element={element} {...props}>
         <Box as="span">
           <CopyIcon decorative />
           <Box as="span" aria-live="polite">

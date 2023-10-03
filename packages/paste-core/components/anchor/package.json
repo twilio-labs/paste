@@ -14,9 +14,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",

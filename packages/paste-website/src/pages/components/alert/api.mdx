@@ -1,0 +1,55 @@
+export const meta = {
+  title: 'Alert',
+  package: '@twilio-paste/alert',
+  description: 'An alert notifies a user to high-priority or time-sensitive information.',
+  slug: '/components/alert/api',
+};
+
+import Changelog from '@twilio-paste/alert/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/alert/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Alert');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/alert');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: '/?path=/story/components-alert--neutral',
+        storybookUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/alert - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Alert} from '@twilio-paste/core/alert';
+
+const Component = () => <Alert variant="error">There is an error in the system.</Alert>;
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

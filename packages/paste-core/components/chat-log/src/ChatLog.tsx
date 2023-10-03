@@ -1,9 +1,17 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface ChatLogProps {
+export interface ChatLogProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_LOG"
+   * @type {BoxProps["element"]}
+   * @memberof ChatLogProps
+   */
   element?: BoxElementProps["element"];
 }
 
