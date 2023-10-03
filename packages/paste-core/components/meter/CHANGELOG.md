@@ -1,5 +1,11 @@
 # @twilio-paste/meter
 
+## 1.0.2
+
+### Patch Changes
+
+- [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848) [#3488](https://github.com/twilio-labs/paste/pull/3488) Thanks [@nkrantz](https://github.com/nkrantz)! - [Meter] Add spacing between the min and max labels for readability, right-align the max label, and make overflow min/max labels wrap to second line.
+
 ## 1.0.1
 
 ### Patch Changes

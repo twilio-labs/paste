@@ -1,5 +1,17 @@
 # Change Log
 
+## 8.1.0
+
+### Minor Changes
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+### Patch Changes
+
+- [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Grid]: Improved TsDoc annotations
+
 ## 8.0.0
 
 ### Major Changes

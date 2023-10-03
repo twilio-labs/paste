@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.2.0
+
+### Minor Changes
+
+- [`6bc4a8ade`](https://github.com/twilio-labs/paste/commit/6bc4a8ade1b3b9f76bfeee8a954fe3b3969c36d2) [#3501](https://github.com/twilio-labs/paste/pull/3501) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add new icons: ProductCommsIcon and TaskIcon
+
 ## 12.1.0
 
 ### Minor Changes
