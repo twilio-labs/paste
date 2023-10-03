@@ -6,12 +6,7 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "workspaces": {
-    "packages": [
-      "apps/**/*",
-      "packages/**/*",
-      "templates/**/*",
-      "!packages/paste-core/core-bundle/**/*"
-    ]
+    "packages": ["apps/**/*", "packages/**/*", "templates/**/*", "!packages/paste-core/core-bundle/**/*"]
   },
   "types": "./types/index.d.ts",
   "engines": {
@@ -43,6 +38,7 @@
     "build:theme-designer": "yarn nx run @twilio-paste/theme-designer:build",
     "build:nextjs-template": "yarn nx run @twilio-paste/nextjs-template:build",
     "build:contrast-checking": "yarn nx run @twilio-paste/token-contrast-checker:build",
+    "check:type-docs": "bash ./tools/build/generate-type-docs/check-uncommited-type.sh",
     "pre-push": "concurrently \"yarn:lint\" \"yarn:test\" \"yarn:format\" \"yarn:type-check\"",
     "prerelease": "yarn build && yarn lint && yarn test",
     "release": "yarn changeset publish",
@@ -226,9 +222,5 @@
     }
   },
   "packageManager": "yarn@3.6.3",
-  "browserslist": [
-    "last 2 versions",
-    "not dead",
-    "not IE 11"
-  ]
+  "browserslist": ["last 2 versions", "not dead", "not IE 11"]
 }
