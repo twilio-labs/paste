@@ -19,4 +19,3 @@ declare module '*.mdx' {
   }
 }
 
-declare module '@docsearch/react/modal';

@@ -28,8 +28,8 @@
       ".codesandbox/ci.json",
       "build.icon-list.js",
       "**/*.hbs",
-      "docs",
-      "apps/backend/supabase/schema.gen.ts"
+      "apps/backend/supabase/schema.gen.ts",
+      "package.json"
     ]
   },
   "organizeImports": {

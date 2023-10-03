@@ -1,72 +1,70 @@
-import "@docsearch/css";
-import { DocSearchButton, useDocSearchKeyboardEvents } from "@docsearch/react";
-import type { DocSearchModal as DocSearchModalType } from "@docsearch/react";
-import Head from "next/head";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
+import { InlineCode } from "@twilio-paste/inline-code";
+import { Text } from "@twilio-paste/text";
 import * as React from "react";
+import { useHotkeys } from "react-hotkeys-hook";
 
-import { DOCSEARCHV3_APIKEY, DOCSEARCHV3_APPID, DOCSEARCHV3_INDEXNAME } from "../../../constants";
-
-// https://github.com/facebook/docusaurus/blob/main/packages/docusaurus-theme-search-algolia/src/theme/SearchBar/index.tsx
-let DocSearchModal: typeof DocSearchModalType | null = null;
+import { SiteSearch } from "../../site-search";
 
 const SiteHeaderSearch: React.FC = () => {
   const [isOpen, setIsOpen] = React.useState(false);
-  const searchButtonRef = React.useRef<HTMLButtonElement>(null);
 
-  const importDocSearch = React.useCallback(async () => {
-    if (DocSearchModal) {
-      return;
-    }
-    const { DocSearchModal: Modal }: typeof import("@docsearch/react") = await import(
-      /* webpackChunkName: 'DocSearchModal' */ "@docsearch/react/modal"
-    );
-    DocSearchModal = Modal;
-  }, []);
-
-  const onOpen = React.useCallback(async () => {
-    await importDocSearch();
+  const onOpen = (): void => {
     setIsOpen(true);
-  }, [importDocSearch, setIsOpen]);
+  };
 
-  const onClose = React.useCallback(() => {
+  const onClose = (): void => {
     setIsOpen(false);
-  }, [setIsOpen]);
+  };
 
-  const onInput = React.useCallback(async () => {
-    await importDocSearch();
-    setIsOpen(true);
-  }, [importDocSearch, setIsOpen]);
-
-  useDocSearchKeyboardEvents({
-    isOpen,
-    onOpen,
-    onClose,
-    onInput,
-    searchButtonRef,
-  });
+  useHotkeys("mod+k", onOpen);
 
   return (
     <>
-      <Head>
-        <link rel="preconnect" href={`https://${DOCSEARCHV3_APPID}-dsn.algolia.net`} crossOrigin="anonymous" />
-      </Head>
-      <DocSearchButton
-        onTouchStart={importDocSearch}
-        onFocus={importDocSearch}
-        onMouseOver={importDocSearch}
+      <Button
+        backgroundColor="colorBackgroundBody"
+        fontSize="fontSize30"
+        fontWeight="fontWeightMedium"
+        lineHeight="lineHeight50"
+        paddingBottom="space20"
+        paddingLeft="space30"
+        paddingRight="space50"
+        paddingTop="space20"
+        borderStyle="solid"
+        boxShadow="shadowBorder"
+        minWidth="200px"
+        color="colorTextIcon"
+        variant="reset"
+        size="reset"
+        borderRadius="borderRadius20"
+        transition="box-shadow 100ms ease-in"
         onClick={onOpen}
-        ref={searchButtonRef}
-      />
-      {isOpen && DocSearchModal ? (
-        <DocSearchModal
-          placeholder={`Try "button" or "token"`}
-          appId={DOCSEARCHV3_APPID}
-          indexName={DOCSEARCHV3_INDEXNAME || ""}
-          apiKey={DOCSEARCHV3_APIKEY || ""}
-          initialScrollY={window.scrollY}
-          onClose={onClose}
-        />
-      ) : null}
+        _hover={{
+          boxShadow: "shadowBorderPrimary",
+        }}
+        _focus={{
+          boxShadow: "shadowFocusShadowBorder",
+        }}
+        _active={{
+          boxShadow: "shadowBorderPrimaryStronger",
+        }}
+      >
+        <Box as="span" display="flex" justifyContent="space-between" width="100%" alignItems="center">
+          <Box as="span" display="flex" columnGap="space20" alignItems="center">
+            <SearchIcon decorative={false} title="Search" size="sizeIcon40" />
+            <Text as="span" fontStyle="italic">
+              Search
+            </Text>
+          </Box>
+          <Box as="span">
+            <InlineCode>⌘</InlineCode>
+            <InlineCode>K</InlineCode>
+          </Box>
+        </Box>
+      </Button>
+      <SiteSearch isOpen={isOpen} onDismiss={onClose} />
     </>
   );
 };

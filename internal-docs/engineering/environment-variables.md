@@ -12,9 +12,6 @@ Full list of Environment variables and where they are needed.
 | DATADOG_CLIENT_TOKEN                 | Datadog client token for remix RUM tracking                           | ✅    |            |               | ✅            |
 | NEXT_PUBLIC_DATADOG_APPLICATION_ID   | Datadog application ID for docsite RUM tracking                       | ✅    |            | ✅            |               |
 | NEXT_PUBLIC_DATADOG_CLIENT_TOKEN     | Datadog client token for docsite RUM tracking                         | ✅    |            | ✅            |               |
-| NEXT_PUBLIC_DOCSEARCHV3_APIKEY       | Algolia API key                                                       | ✅    |            | ✅            |               |
-| NEXT_PUBLIC_DOCSEARCHV3_APPID        | Algolia app ID                                                        | ✅    |            | ✅            |               |
-| NEXT_PUBLIC_DOCSEARCHV3_INDEXNAME    | Algolia Index name                                                    | ✅    |            | ✅            |               |
 | NEXT_PUBLIC_ENVIRONMENT_CONTEXT      | Informs Next which deployment environment its in                      | ✅    |            | ✅            |               |
 | NETLIFY_SITE_ID                      | Docsite site ID for Netlify deployment wait in GH actions             |       | ✅         |               |               |
 | NETLIFY_TOKEN                        | Docsite token for Netlify deployment wait in GH actions               |       | ✅         |               |               |

@@ -20,7 +20,9 @@ export const ContactUsMenu: React.FC = () => {
     <>
       <MenuButton
         {...menu}
-        variant="secondary_icon"
+        color="colorTextIcon"
+        variant="reset"
+        borderRadius="borderRadius10"
         size="reset"
         onClick={() =>
           event({
@@ -30,7 +32,7 @@ export const ContactUsMenu: React.FC = () => {
           })
         }
       >
-        <ProductSupportIcon decorative={false} title="Contact us" />
+        <ProductSupportIcon decorative={false} title="Contact us" size="sizeIcon40" />
       </MenuButton>
       <Menu {...menu} aria-label="Contact us">
         <MenuItem

@@ -3,11 +3,6 @@ export const TWILIO_BLUE = "#0D122B";
 export const PSA_ALERT_HEIGHT = 40;
 export const PASTE_THEME_ALERT_HEIGHT = 54;
 export const SITE_TOPBAR_HEIGHT = 77;
-/*
- * Note:
- * Changing the mobile breakpoint should be reflected
- * in styles/docSearch.ts
- */
 export const SITE_BREAKPOINTS = ["768px", "1024px", "1220px", "1880px"];
 export const SITE_CONTENT_MAX_WIDTH = "1440px";
 
@@ -33,10 +28,6 @@ export const TOKEN_LIST_PAGE_REGEX = /^\/tokens\/list$/;
 // env variables
 export const DATADOG_APPLICATION_ID = process.env.NEXT_PUBLIC_DATADOG_APPLICATION_ID || "no env variable";
 export const DATADOG_CLIENT_TOKEN = process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN || "no env variable";
-export const DOCSEARCH_APIKEY = process.env.NEXT_PUBLIC_DOCSEARCH_APIKEY || "no env variable";
-export const DOCSEARCHV3_APIKEY = process.env.NEXT_PUBLIC_DOCSEARCHV3_APIKEY || "no env variable";
-export const DOCSEARCHV3_INDEXNAME = process.env.NEXT_PUBLIC_DOCSEARCHV3_INDEXNAME || "no env variable";
-export const DOCSEARCHV3_APPID = process.env.NEXT_PUBLIC_DOCSEARCHV3_APPID || "no env variable";
 /*
  * Netlify provides an environment variable called CONTEXT which reflects their build context https://docs.netlify.com/site-deploys/overview/#deploy-contexts
  * We need to use this to know where the Next site is being run for metrics tracking. Next env variables all need
