@@ -681,7 +681,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'CHAT_COMPOSER'",
+      "defaultValue": "CHAT_COMPOSER",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"

@@ -430,7 +430,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'AVATAR'",
+      "defaultValue": "AVATAR",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
@@ -2046,7 +2046,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'AVATAR_GROUP'",
+      "defaultValue": "AVATAR_GROUP",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
