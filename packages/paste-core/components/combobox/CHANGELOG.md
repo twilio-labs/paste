@@ -1,5 +1,17 @@
 # Change Log
 
+## 16.2.0
+
+### Minor Changes
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+### Patch Changes
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Combobox] Improved TsDoc type annotations
+
 ## 16.1.0
 
 ### Minor Changes

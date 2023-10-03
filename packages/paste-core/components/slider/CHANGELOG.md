@@ -1,5 +1,14 @@
 # @twilio-paste/slider
 
+## 3.0.0
+
+### Patch Changes
+
+- [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848) [#3488](https://github.com/twilio-labs/paste/pull/3488) Thanks [@nkrantz](https://github.com/nkrantz)! - [Slider] Add spacing between min and max range labels, wrap overflow content onto second line, and right-align max range label.
+
+- Updated dependencies [[`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85)]:
+  - @twilio-paste/screen-reader-only@13.1.0
+
 ## 2.0.2
 
 ### Patch Changes

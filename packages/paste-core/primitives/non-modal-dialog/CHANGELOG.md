@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- [`f1121febc`](https://github.com/twilio-labs/paste/commit/f1121febcc818f964ef74e2a36aeb667d7f74ab7) [#3514](https://github.com/twilio-labs/paste/pull/3514) Thanks [@TheSisb](https://github.com/TheSisb)! - [Non-modal Dialog Primitive] Fix to always use a portal when rendering, even when using the state hook.
+
 ## 2.0.0
 
 ### Major Changes

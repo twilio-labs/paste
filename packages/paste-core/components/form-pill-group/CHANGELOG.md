@@ -1,5 +1,11 @@
 # @twilio-paste/form-pill-group
 
+## 8.0.1
+
+### Patch Changes
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Form Pill Group]: Improved TsDoc type annotations
+
 ## 8.0.0
 
 ### Major Changes
