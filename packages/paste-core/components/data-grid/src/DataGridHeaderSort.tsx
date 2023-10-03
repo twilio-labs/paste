@@ -1,9 +1,11 @@
 import type { BoxProps } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import type { ButtonProps } from "@twilio-paste/button";
 import { ArrowDownIcon } from "@twilio-paste/icons/esm/ArrowDownIcon";
 import { ArrowUpIcon } from "@twilio-paste/icons/esm/ArrowUpIcon";
 import { UnsortedIcon } from "@twilio-paste/icons/esm/UnsortedIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 export type SortDirection = "ascending" | "descending" | "none";
@@ -37,7 +39,7 @@ const DataGridHeaderSortIcon: React.FC<React.PropsWithChildren<DataGridHeaderSor
 
 DataGridHeaderSortIcon.displayName = "DataGridHeaderSortIcon";
 
-export interface DataGridHeaderSortProps extends DataGridHeaderSortIconProps {
+export interface DataGridHeaderSortProps extends HTMLPasteProps<"button">, DataGridHeaderSortIconProps {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -76,6 +78,7 @@ export interface DataGridHeaderSortProps extends DataGridHeaderSortIconProps {
    * @memberof DataGridHeaderSortProps
    */
   i18nUnsortedLabel?: string;
+  tabIndex?: ButtonProps["tabIndex"];
 }
 
 /**

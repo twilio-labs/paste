@@ -1,8 +1,9 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface FormActionsProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+export interface FormActionsProps extends HTMLPasteProps<"div"> {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *

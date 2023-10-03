@@ -373,18 +373,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
       "defaultValue": null,
@@ -1523,12 +1511,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -1561,12 +1543,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true

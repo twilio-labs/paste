@@ -1,11 +1,12 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
 import { FormSectionContext } from "./FormSectionContext";
 
-export interface FormSectionProps extends Omit<React.ComponentPropsWithRef<"fieldset">, "children"> {
+export interface FormSectionProps extends HTMLPasteProps<"fieldset"> {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *

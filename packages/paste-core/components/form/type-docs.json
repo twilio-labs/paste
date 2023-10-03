@@ -384,18 +384,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "\"inherit\" | Booleanish",
       "defaultValue": null,
@@ -1558,12 +1546,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLFormElement | null) => void)\n  | RefObject<HTMLFormElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "rel": {
       "type": "string",
       "defaultValue": null,
@@ -1602,12 +1584,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2029,18 +2005,6 @@
       "externalProp": true
     },
     "autoSave": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
       "type": "string",
       "defaultValue": null,
       "required": false,
@@ -3177,12 +3141,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -3215,12 +3173,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3636,18 +3588,6 @@
       "externalProp": true
     },
     "autoSave": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
       "type": "string",
       "defaultValue": null,
       "required": false,
@@ -4784,12 +4724,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -4822,12 +4756,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -5248,18 +5176,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "\"inherit\" | Booleanish",
       "defaultValue": null,
@@ -5396,973 +5312,973 @@
       "externalProp": true
     },
     "onAbort": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAbortCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationEnd": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationEndCapture": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationIteration": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationIterationCapture": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationStart": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationStartCapture": {
-      "type": "AnimationEventHandler<HTMLDivElement>",
+      "type": "AnimationEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAuxClick": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAuxClickCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBeforeInput": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBeforeInputCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBlur": {
-      "type": "FocusEventHandler<HTMLDivElement>",
+      "type": "FocusEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBlurCapture": {
-      "type": "FocusEventHandler<HTMLDivElement>",
+      "type": "FocusEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlay": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlayCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlayThrough": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlayThroughCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onChange": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onChangeCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onClick": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onClickCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionEnd": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionEndCapture": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionStart": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionStartCapture": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionUpdate": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionUpdateCapture": {
-      "type": "CompositionEventHandler<HTMLDivElement>",
+      "type": "CompositionEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onContextMenu": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onContextMenuCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCopy": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCopyCapture": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCut": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCutCapture": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDoubleClick": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDoubleClickCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDrag": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEnd": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEndCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEnter": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEnterCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragExit": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragExitCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragLeave": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragLeaveCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragOver": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragOverCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragStart": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragStartCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDrop": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDropCapture": {
-      "type": "DragEventHandler<HTMLDivElement>",
+      "type": "DragEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDurationChange": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDurationChangeCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEmptied": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEmptiedCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEncrypted": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEncryptedCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEnded": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEndedCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onError": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onErrorCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onFocus": {
-      "type": "FocusEventHandler<HTMLDivElement>",
+      "type": "FocusEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onFocusCapture": {
-      "type": "FocusEventHandler<HTMLDivElement>",
+      "type": "FocusEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onGotPointerCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onGotPointerCaptureCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInput": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInputCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInvalid": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInvalidCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyDown": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyDownCapture": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyPress": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyPressCapture": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyUp": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyUpCapture": {
-      "type": "KeyboardEventHandler<HTMLDivElement>",
+      "type": "KeyboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoad": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedData": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedDataCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedMetadata": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedMetadataCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadStart": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadStartCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLostPointerCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLostPointerCaptureCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseDown": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseDownCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseEnter": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseLeave": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseMove": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseMoveCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOut": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOutCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOver": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOverCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseUp": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseUpCapture": {
-      "type": "MouseEventHandler<HTMLDivElement>",
+      "type": "MouseEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPaste": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPasteCapture": {
-      "type": "ClipboardEventHandler<HTMLDivElement>",
+      "type": "ClipboardEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPause": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPauseCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlay": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlayCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlaying": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlayingCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerCancel": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerCancelCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerDown": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerDownCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerEnter": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerLeaveCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerMove": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerMoveCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOut": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOutCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOver": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOverCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerUp": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerUpCapture": {
-      "type": "PointerEventHandler<HTMLDivElement>",
+      "type": "PointerEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onProgress": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onProgressCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onRateChange": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onRateChangeCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onReset": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onResetCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onResize": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onResizeCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onScroll": {
-      "type": "UIEventHandler<HTMLDivElement>",
+      "type": "UIEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onScrollCapture": {
-      "type": "UIEventHandler<HTMLDivElement>",
+      "type": "UIEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeeked": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeekedCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeeking": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeekingCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSelect": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSelectCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onStalled": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onStalledCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSubmit": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSubmitCapture": {
-      "type": "FormEventHandler<HTMLDivElement>",
+      "type": "FormEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSuspend": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSuspendCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTimeUpdate": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTimeUpdateCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchCancel": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchCancelCapture": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchEnd": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchEndCapture": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchMove": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchMoveCapture": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchStart": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchStartCapture": {
-      "type": "TouchEventHandler<HTMLDivElement>",
+      "type": "TouchEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTransitionEnd": {
-      "type": "TransitionEventHandler<HTMLDivElement>",
+      "type": "TransitionEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTransitionEndCapture": {
-      "type": "TransitionEventHandler<HTMLDivElement>",
+      "type": "TransitionEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onVolumeChange": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onVolumeChangeCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWaiting": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWaitingCapture": {
-      "type": "ReactEventHandler<HTMLDivElement>",
+      "type": "ReactEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWheel": {
-      "type": "WheelEventHandler<HTMLDivElement>",
+      "type": "WheelEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWheelCapture": {
-      "type": "WheelEventHandler<HTMLDivElement>",
+      "type": "WheelEventHandler<HTMLLegendElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6387,12 +6303,6 @@
     },
     "radioGroup": {
       "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6429,12 +6339,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6850,18 +6754,6 @@
       "externalProp": true
     },
     "autoSave": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
       "type": "string",
       "defaultValue": null,
       "required": false,
@@ -8016,12 +7908,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLFieldSetElement | null) => void)\n  | RefObject<HTMLFieldSetElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -8054,12 +7940,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -8480,18 +8360,6 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "contentEditable": {
       "type": "\"inherit\" | Booleanish",
       "defaultValue": null,
@@ -8549,6 +8417,12 @@
     },
     "hidden": {
       "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "id": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -9617,12 +9491,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLDivElement | null) => void)\n  | RefObject<HTMLDivElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -9655,12 +9523,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -10076,18 +9938,6 @@
       "externalProp": true
     },
     "autoSave": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "color": {
       "type": "string",
       "defaultValue": null,
       "required": false,
@@ -11224,12 +11074,6 @@
       "required": false,
       "externalProp": true
     },
-    "ref": {
-      "type": "| ((instance: HTMLLegendElement | null) => void)\n  | RefObject<HTMLLegendElement>",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -11262,12 +11106,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true

@@ -4,8 +4,9 @@ import * as React from "react";
 
 import { DataGridContext } from "./DataGridContext";
 import { Tr } from "./table/Tr";
+import type { TrProps } from "./table/Tr";
 
-export interface DataGridRowProps {
+export interface DataGridRowProps extends TrProps {
   children: NonNullable<React.ReactNode>;
   /**
    * Visally displays a row highlight indicating selection and sets `aria-selected`
