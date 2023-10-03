@@ -1,6 +1,12 @@
-export * from "./CodeBlock";
-export * from "./CodeBlockHeader";
-export * from "./CodeBlockTab";
-export * from "./CodeBlockTabList";
-export * from "./CodeBlockTabPanel";
-export * from "./CodeBlockWrapper";
+export { CodeBlock } from "./CodeBlock";
+export type { CodeBlockProps } from "./CodeBlock";
+export { CodeBlockHeader } from "./CodeBlockHeader";
+export type { CodeBlockHeaderProps } from "./CodeBlockHeader";
+export { CodeBlockTab } from "./CodeBlockTab";
+export type { CodeBlockTabProps } from "./CodeBlockTab";
+export { CodeBlockTabList } from "./CodeBlockTabList";
+export type { CodeBlockTabListProps } from "./CodeBlockTabList";
+export { CodeBlockTabPanel } from "./CodeBlockTabPanel";
+export type { CodeBlockTabPanelProps } from "./CodeBlockTabPanel";
+export { CodeBlockWrapper } from "./CodeBlockWrapper";
+export type { CodeBlockWrapperProps, CodeBlockTabStateReturn } from "./CodeBlockWrapper";

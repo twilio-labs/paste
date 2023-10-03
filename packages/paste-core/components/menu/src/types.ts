@@ -6,7 +6,7 @@ import type {
   MenuPrimitiveProps,
   MenuPrimitiveSeparatorProps,
 } from "@twilio-paste/menu-primitive";
-import type { ValueOf } from "@twilio-paste/types";
+import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
 
 import type { MenuItemVariants } from "./constants";
 
@@ -37,7 +37,7 @@ export interface MenuItemRadioProps extends MenuPrimitiveItemRadioProps {
   as?: any;
 }
 
-export interface MenuGroupProps {
+export interface MenuGroupProps extends HTMLPasteProps<"div"> {
   label: string;
   icon?: React.ReactNode;
   children: React.ReactNode;

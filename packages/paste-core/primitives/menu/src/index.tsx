@@ -17,4 +17,6 @@ export type {
   MenuItemRadioProps as MenuPrimitiveItemRadioProps,
   MenuButtonProps as MenuPrimitiveButtonProps,
   MenuSeparatorProps as MenuPrimitiveSeparatorProps,
+  MenuInitialState as MenuPrimitiveInitialState,
+  MenuStateReturn as MenuPrimitiveStateReturn,
 } from "@twilio-paste/reakit-library";

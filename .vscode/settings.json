@@ -22,6 +22,9 @@
   "[jsonc]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  },
   "search.exclude": {
     "**/dist": true,
     "**/docs": true

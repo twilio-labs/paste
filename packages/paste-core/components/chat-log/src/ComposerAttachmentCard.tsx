@@ -1,8 +1,9 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ClearIcon } from "@twilio-paste/icons/esm/ClearIcon";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 /*
@@ -23,10 +24,30 @@ const closeButtonBackgroundStyles: BoxStyleProps = {
   alignItems: "center",
 };
 
-export interface ComposerAttachmentCardProps {
+export interface ComposerAttachmentCardProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps["element"];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "COMPOSER_ATTACHMENT_CARD"
+   * @type {BoxProps["element"]}
+   * @memberof ComposerAttachmentCardProps
+   */
+  element?: BoxProps["element"];
+  /**
+   * Accessible label for the dismiss button if dismissable
+   *
+   * @default "Remove attachment"
+   * @type {string}
+   * @memberof ComposerAttachmentCardProps
+   */
   i18nDismissLabel?: string;
+  /**
+   * Function to run when ComposerAttachmentCard is dismissed. Adds a close button
+   *
+   * @default null
+   * @memberof ComposerAttachmentCardProps
+   */
   onDismiss?: () => void;
 }
 

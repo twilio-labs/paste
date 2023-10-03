@@ -38,11 +38,49 @@ import { chatComposerLexicalStyles } from "./styles";
 
 export interface ChatComposerProps extends Omit<ContentEditableProps, "style" | "className" | "onChange"> {
   children?: LexicalComposerProps["children"];
+  /**
+   * Utilize the Lexical API directly
+   *
+   * @default null
+   * @type {LexicalComposerProps["initialConfig"]}
+   * @memberof ChatComposerProps
+   */
   config: LexicalComposerProps["initialConfig"];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_COMPOSER"
+   * @type {BoxProps["element"]}
+   * @memberof ChatComposerProps
+   */
   element?: BoxProps["element"];
+  /**
+   *
+   * @default null
+   * @type {BoxStyleProps["maxHeight"]}
+   * @memberof ChatComposerProps
+   */
   maxHeight?: BoxStyleProps["maxHeight"];
+  /**
+   *
+   * @default null
+   * @type {string}
+   * @memberof ChatComposerProps
+   */
   initialValue?: string;
+  /**
+   *
+   * @default null
+   * @type {boolean}
+   * @memberof ChatComposerProps
+   */
   disabled?: boolean;
+  /**
+   *
+   * @default null
+   * @type {OnChangeFunction}
+   * @memberof ChatComposerProps
+   */
   onChange?: OnChangeFunction;
 }
 

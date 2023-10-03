@@ -4,6 +4,13 @@ import type { TabProps } from "@twilio-paste/tabs";
 import * as React from "react";
 
 export interface CodeBlockTabProps extends TabProps {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CODE_BLOCK_TAB"
+   * @type {BoxElementProps["element"]}
+   * @memberof CodeBlockTabProps
+   */
   element?: BoxProps["element"];
 }
 

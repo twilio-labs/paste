@@ -23,10 +23,10 @@ import {ProductStudioIcon} from '@twilio-paste/icons/esm/ProductStudioIcon';
 import {ProductInterconnectIcon} from '@twilio-paste/icons/esm/ProductInterconnectIcon';
 import {BusinessIcon} from '@twilio-paste/icons/esm/BusinessIcon';
 import packageJson from '@twilio-paste/avatar/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -38,24 +38,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/avatar',
+        storybookUrl: '/?path=/story/components-avatar--initials',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/avatar"
-  storybookUrl="/?path=/story/components-avatar--initials"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -320,61 +311,3 @@ The following tokens are used with each size of Avatar.
 | size-icon-90  | font-size-40 | line-height-90  | size-icon-50 |
 | size-icon-100 | font-size-60 | line-height-100 | size-icon-70 |
 | size-icon-110 | font-size-70 | line-height-110 | size-icon-80 |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/avatar - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Avatar, AvatarGroup} from '@twilio-paste/core/avatar';
-
-const AvatarExample = () => {
-  return (
-    <AvatarGroup size="sizeIcon70" variant="user">
-      <Avatar name="Aayush Iyer" />
-      <Avatar name="Simon Taggart" />
-      <Avatar name="Sarah Li" />
-      <Avatar name="Shadi Isber" />
-    </AvatarGroup>
-  );
-};
-```
-
-#### Avatar Props
-
-| Prop     | Type                                                                        | Description                                                                               | Default      |
-| -------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------ |
-| name     | `string`                                                                    | Provide the name of the user, entity or object.                                           |              |
-| size?    | `IconSize[]`                                                                | Responsive size property that takes IconSize token names.                                 | `sizeIcon70` |
-| src?     | `string`                                                                    | Used to set the image `src` attribute when setting an image as the Avatar.                |              |
-| icon?    | `React.FC<React.PropsWithChildren<GenericIconProps>>`                       | Specify a Paste Icon to be displayed in the Avatar.                                       |              |
-| variant? | `'user', 'entity'`                                                          | Specify the variant of the Avatar based on what it represents.                            | `'user'`     |
-| color?   | `'default', 'decorative10', 'decorative20', 'decorative30', 'decorative40'` | Used to set the color of the Avatar.                                                      | `'default'`  |
-| element? | `string`                                                                    | Overrides the default element name to apply unique styles with the Customization Provider | `'AVATAR'`   |
-
-#### AvatarGroup Props
-
-| Prop     | Type               | Description                                                                                                                                 | Default          |
-| -------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- | ---------------- |
-| size?    | `IconSize[]`       | Responsive size property that takes IconSize token names. Sets size for all Avatars in the group. Overrides any sizes set on child Avatars. |                  |
-| variant? | `'user', 'entity'` | Sets variant for all Avatars in the group. Overrides any variants set on Avatars in the group.                                              |                  |
-| children | `React.ReactNode`  | Avatar component                                                                                                                            |                  |
-| element? | `string`           | Overrides the default element name to apply unique styles with the Customization Provider                                                   | `'AVATAR_GROUP'` |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

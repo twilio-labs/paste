@@ -16,10 +16,10 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {defaultExample, destructiveExample, modalExample} from '../../../component-examples/AlertDialogExamples';
 import packageJson from '@twilio-paste/alert-dialog/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -31,24 +31,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert-dialog',
+        storybookUrl: '/?path=/story/components-alert-dialog--alert-dialog-with-two-actions-story',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert-dialog"
-  storybookUrl="/?path=/story/components-alert-dialog--alert-dialog-with-two-actions-story"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{AlertDialog, Button}} noInline>
   {defaultExample}
@@ -114,66 +105,3 @@ When the Alert Dialog opens, focus moves to an element contained in it (by defau
 >
   {modalExample}
 </LivePreview>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/alert-dialog - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {AlertDialog} from '@twilio-paste/core/alert-dialog';
-import {Button} from '@twilio-paste/core/button';
-
-const AlertDialogExample = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
-
-  return (
-    <div>
-      <Button variant="primary" onClick={handleOpen}>
-        Open alert dialog
-      </Button>
-      <AlertDialog
-        heading="Submit application"
-        isOpen={isOpen}
-        onConfirm={() => {}}
-        onConfirmLabel="Submit"
-        onDismiss={handleClose}
-        onDismissLabel="Cancel"
-      >
-        Are you sure you want to submit this application? No information can be changed after submitting.
-      </AlertDialog>
-    </div>
-  );
-};
-```
-
-#### Props
-
-| Prop               | Type                 | Description                                                                                       | Default        |
-| ------------------ | -------------------- | ------------------------------------------------------------------------------------------------- | -------------- |
-| children           | `ReactNode`          |                                                                                                   | null           |
-| isOpen             | `boolean`            |                                                                                                   | null           |
-| destructive?       | `boolean`            |                                                                                                   | null           |
-| onConfirmDisabled? | `boolean`            | Disables the confirm button on destructive Alert Dialogs for high severity deletion confirmations | null           |
-| onConfirmLabel     | `string`             |                                                                                                   | null           |
-| onConfirm          | `Function() => void` |                                                                                                   | null           |
-| onDismissLabel     | `string`             |                                                                                                   | null           |
-| onDismiss          | `Function() => void` |                                                                                                   | null           |
-| element?           | `string`             | Overrides the default element name to apply unique styles with the Customization Provider         | 'ALERT_DIALOG' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

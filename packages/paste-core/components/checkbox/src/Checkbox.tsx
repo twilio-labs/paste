@@ -35,16 +35,74 @@ const selectAllChildStyleProps = {
   paddingRight: "space30",
 };
 
-export interface CheckboxProps extends HTMLPasteProps<"input">, Pick<BoxProps, "element"> {
+export interface CheckboxProps extends HTMLPasteProps<"input"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   *
+   * @default null
+   * @type {boolean}
+   * @memberof CheckboxProps
+   */
   hasError?: boolean;
+  /**
+   *
+   * @default null
+   * @type {string | React.ReactNode}
+   * @memberof CheckboxProps
+   */
   helpText?: string | React.ReactNode;
+  /**
+   *
+   * @default unique id
+   * @type {string}
+   * @memberof CheckboxProps
+   */
   id?: string;
+  /**
+   *
+   * @default null
+   * @type {boolean}
+   * @memberof CheckboxProps
+   */
   indeterminate?: boolean;
+  /**
+   *
+   * @default null
+   * @type {boolean}
+   * @memberof CheckboxProps
+   */
   isSelectAll?: boolean;
+  /**
+   *
+   * @default null
+   * @type {boolean}
+   * @memberof CheckboxProps
+   */
   isSelectAllChild?: boolean;
+  /**
+   * Use on the currently selected checkbox
+   *
+   * @default null
+   * @type {boolean}
+   * @memberof CheckboxProps
+   */
   checked?: boolean;
+  /**
+   * Only for use with uncontrolled checkboxes
+   *
+   * @default null
+   * @type {boolean}
+   * @memberof CheckboxProps
+   */
   defaultChecked?: boolean;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHECKBOX"
+   * @type {BoxElementProps["element"]}
+   * @memberof CheckboxProps
+   */
+  element?: BoxProps["element"];
 }
 
 type HiddenCheckboxProps = Pick<
@@ -121,7 +179,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   ) => {
     if (checked != null && defaultChecked != null) {
       throw new Error(
-        `[Paste Checkbox] Do not provide both 'defaultChecked' and 'checked' to Checkbox at the same time. Please consider if you want this component to be controlled or uncontrolled.`,
+        `[Paste Checkbox] Do not provide both "defaultChecked" and "checked" to Checkbox at the same time. Please consider if you want this component to be controlled or uncontrolled.`,
       );
     }
 
@@ -134,7 +192,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
     const checkboxGroupContext = React.useContext(CheckboxContext);
     const helpTextId = useUID();
     const checkboxId = id ? id : useUID();
-    // We shouldn't change between controlled and uncontrolled after mount, so we memo this for safety
+    // We shouldn"t change between controlled and uncontrolled after mount, so we memo this for safety
     const isControlled = React.useMemo(() => checked !== undefined, []);
 
     // Determines if the checkbox is checked in either controlled or uncontrolled environments

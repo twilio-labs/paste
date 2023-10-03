@@ -1,12 +1,20 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { MessageVariantContext } from "./MessageVariantContext";
 import type { MessageVariants } from "./MessageVariantContext";
 
-export interface ChatBubbleProps {
+export interface ChatBubbleProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_BUBBLE"
+   * @type {BoxProps["element"]}
+   * @memberof ChatBubbleProps
+   */
   element?: BoxElementProps["element"];
 }
 

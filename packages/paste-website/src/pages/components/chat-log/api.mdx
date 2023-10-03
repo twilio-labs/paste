@@ -1,0 +1,83 @@
+export const meta = {
+  title: 'Chat Log',
+  package: '@twilio-paste/chat-log',
+  description: 'A Chat Log is a collection of Chat components for displaying conversations between people.',
+  slug: '/components/chat-log/api',
+};
+
+import Changelog from '@twilio-paste/chat-log/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/chat-log/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Chat Log');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/chat-log');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-log',
+        storybookUrl: '/?path=/story/components-chatlog--example-chat-log',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/chat-log - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  ChatLog,
+  ChatMessage,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
+  ChatBubble,
+  ChatBookend,
+  ChatBookendItem,
+} from '@twilio-paste/core/chat-log';
+
+export const Basic = () => {
+  return (
+    <ChatLog>
+      <ChatMessage variant="inbound">
+        <ChatBubble>Ahoy!</ChatBubble>
+        <ChatMessageMeta aria-label="said by Gibby Radki 4 minutes ago">
+          <ChatMessageMetaItem>Gibby Radki ・ 4 minutes ago</ChatMessageMetaItem>
+        </ChatMessageMeta>
+      </ChatMessage>
+      <ChatMessage variant="outbound">
+        <ChatBubble>Howdy!</ChatBubble>
+        <ChatMessageMeta aria-label="said by you 2 minutes ago">
+          <ChatMessageMetaItem>2 minutes ago</ChatMessageMetaItem>
+        </ChatMessageMeta>
+        <ChatMessageMeta aria-label="(read)">
+          <ChatMessageMetaItem>Read</ChatMessageMetaItem>
+        </ChatMessageMeta>
+      </ChatMessage>
+    </ChatLog>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

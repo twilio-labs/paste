@@ -1,3 +1,4 @@
+import type { BoxProps } from "@twilio-paste/box";
 import { InlineControlGroup } from "@twilio-paste/inline-control-group";
 import type { InlineControlGroupProps } from "@twilio-paste/inline-control-group";
 import * as React from "react";
@@ -6,10 +7,42 @@ import type { CheckboxProps } from "./Checkbox";
 import { CheckboxContext } from "./CheckboxContext";
 
 export interface CheckboxGroupProps extends InlineControlGroupProps {
+  /**
+   *
+   * @default null
+   * @type {boolean}
+   * @memberof CheckboxGroupProps
+   */
   isSelectAll?: boolean;
+  /**
+   *
+   * @default null
+   * @type {string}
+   * @memberof CheckboxGroupProps
+   */
   name: string;
+  /**
+   *
+   * @default "null"
+   * @memberof CheckboxGroupProps
+   */
   onChange?: (checked: boolean) => void;
+  /**
+   * Accessible label for the required dot
+   *
+   * @default "(required)"
+   * @type {string}
+   * @memberof CheckboxGroupProps
+   */
   i18nRequiredLabel?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHECKBOX_GROUP"
+   * @type {BoxElementProps["element"]}
+   * @memberof CheckboxGroupProps
+   */
+  element?: BoxProps["element"];
 }
 
 const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(

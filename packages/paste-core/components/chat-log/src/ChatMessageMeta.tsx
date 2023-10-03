@@ -1,12 +1,26 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { MessageVariantContext } from "./MessageVariantContext";
 
-export interface ChatMessageMetaProps {
-  ["aria-label"]: string;
+export interface ChatMessageMetaProps extends HTMLPasteProps<"div"> {
+  /**
+   *
+   * @default null
+   * @type {string}
+   * @memberof ChatMessageMetaProps
+   */
+  "aria-label": string;
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_MESSAGE_META"
+   * @type {BoxProps["element"]}
+   * @memberof ChatMessageMetaProps
+   */
   element?: BoxElementProps["element"];
 }
 
