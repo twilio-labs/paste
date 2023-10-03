@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/form': minor
-'@twilio-paste/core': minor
+'@twilio-paste/form': patch
+'@twilio-paste/core': patch
 ---
 
 [Form]: Improved TsDoc type annotations

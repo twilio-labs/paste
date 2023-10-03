@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/file-picker': minor
-'@twilio-paste/core': minor
+'@twilio-paste/file-picker': patch
+'@twilio-paste/core': patch
 ---
 
 [File Picker]: Improved TsDoc type annotations

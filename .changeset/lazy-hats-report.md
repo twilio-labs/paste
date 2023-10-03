@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/display-heading': minor
-'@twilio-paste/core': minor
+'@twilio-paste/display-heading': patch
+'@twilio-paste/core': patch
 ---
 
 [Display Heading]: Improved TsDoc type annotations

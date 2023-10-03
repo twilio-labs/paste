@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/help-text': minor
-'@twilio-paste/core': minor
+'@twilio-paste/help-text': patch
+'@twilio-paste/core': patch
 ---
 
 [Healp Text]: Improved TsDoc type annotations

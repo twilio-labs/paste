@@ -40,7 +40,7 @@ export function groupPropsByExternal(api: ComponentApi): GroupedComponentApi {
 
     Object.keys(component).forEach((propName) => {
       const prop = component[propName];
-      if (prop.externalProp) {
+      if (prop.externalProp && !prop.required) {
         externalProps[propName] = prop;
       } else {
         internalProps[propName] = prop;

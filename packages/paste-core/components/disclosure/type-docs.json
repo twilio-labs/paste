@@ -25,11 +25,12 @@
       "type": "DisclosureStateReturn",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provide the Disclosure state returned from `useDisclosureState` if you want to control the state of the Disclosure."
     },
     "variant": {
       "type": "DisclosureVariants",
-      "defaultValue": null,
+      "defaultValue": "'default'",
       "required": false,
       "externalProp": false,
       "description": "Changes the styling on the component based on the variant selected."

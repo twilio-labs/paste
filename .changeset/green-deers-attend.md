@@ -1,6 +1,6 @@
 ---
-'@twilio-paste/editable-code-block': minor
-'@twilio-paste/core': minor
+'@twilio-paste/editable-code-block': patch
+'@twilio-paste/core': patch
 ---
 
 [Editable Code Block]: Improved TsDoc type annotations

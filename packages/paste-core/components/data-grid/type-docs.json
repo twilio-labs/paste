@@ -546,7 +546,7 @@
     },
     "noWrap": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": "'false'",
       "required": false,
       "externalProp": false,
       "description": "Sets the table cells to not line wrap."
@@ -1573,7 +1573,7 @@
     },
     "scrollHorizontally": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": "'false'",
       "required": false,
       "externalProp": false,
       "description": "Sets the table to scroll horizontally on small screens."
@@ -1598,7 +1598,7 @@
     },
     "striped": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": "'false'",
       "required": false,
       "externalProp": false,
       "description": "Sets a background color for even rows within the table."
@@ -1629,10 +1629,10 @@
     },
     "tableLayout": {
       "type": "TableLayoutOptions",
-      "defaultValue": null,
+      "defaultValue": "'auto'",
       "required": false,
       "externalProp": false,
-      "description": "Sets the `table-layout` style of the Table. Defaults to `auto`."
+      "description": "Sets the `table-layout` style of the Table."
     },
     "title": {
       "type": "string",
@@ -1660,10 +1660,10 @@
     },
     "variant": {
       "type": "TableVariantOptions",
-      "defaultValue": null,
+      "defaultValue": "'default'",
       "required": false,
       "externalProp": false,
-      "description": "Sets the `border` style of the Table. Defaults to `default`."
+      "description": "Sets the `border` style of the Table."
     },
     "vocab": {
       "type": "string",
@@ -4881,10 +4881,10 @@
     },
     "textAlign": {
       "type": "TableAlignmentOptions",
-      "defaultValue": null,
+      "defaultValue": "'left'",
       "required": false,
       "externalProp": false,
-      "description": "Sets the text alignment of the content within the Table cell. Defaults to `left`."
+      "description": "Sets the text alignment of the content within the Table cell."
     },
     "title": {
       "type": "string",
@@ -6575,10 +6575,10 @@
     },
     "textAlign": {
       "type": "TableAlignmentOptions",
-      "defaultValue": null,
+      "defaultValue": "'left'",
       "required": false,
       "externalProp": false,
-      "description": "Sets the text alignment of the content within the Table cell. Defaults to `left`."
+      "description": "Sets the text alignment of the content within the Table cell."
     }
   },
   "DataGridFoot": {
