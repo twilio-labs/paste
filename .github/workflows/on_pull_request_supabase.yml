@@ -14,8 +14,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v3
-
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v3
         with:

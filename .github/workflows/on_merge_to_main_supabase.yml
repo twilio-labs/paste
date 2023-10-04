@@ -21,8 +21,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v3
-
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v3
         with:
@@ -58,5 +56,5 @@ jobs:
         with:
           version: latest
 
-      - run: supabase link --project-ref $SUPABASE_PROJECT_ID
-      - run: supabase db push
+      - run: yarn workspace @twilio-paste/backend supabase link --project-ref $SUPABASE_PROJECT_ID
+      - run: yarn workspace @twilio-paste/backend supabase db push
