@@ -87,6 +87,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
     res.status(404).json({
       body: "Sorry, we couldn't screenshot that page. Did you include a page?",
     });
+    return;
   }
 
   try {
