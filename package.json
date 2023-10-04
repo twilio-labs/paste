@@ -6,12 +6,7 @@
   "author": "Twilio Inc.",
   "license": "MIT",
   "workspaces": {
-    "packages": [
-      "apps/**/*",
-      "packages/**/*",
-      "templates/**/*",
-      "!packages/paste-core/core-bundle/**/*"
-    ]
+    "packages": ["apps/**/*", "packages/**/*", "templates/**/*", "!packages/paste-core/core-bundle/**/*"]
   },
   "types": "./types/index.d.ts",
   "engines": {
@@ -30,6 +25,8 @@
     "start:token-contrast-checker": "yarn workspace @twilio-paste/token-contrast-checker start",
     "start:nextjs-template": "yarn workspace @twilio-paste/nextjs-template dev",
     "start:contrast-checking": "concurrently \"yarn:start:tokens\" \"yarn:start:token-contrast-checker\"",
+    "start:backend:dev": "yarn workspace @twilio-paste/backend start",
+    "stop:backend:dev": "yarn workspace @twilio-paste/backend stop",
     "prebuild": "tsx ./tools/build/pre-test.ts && tsx ./tools/build/pre-build.ts && yarn packages:check",
     "build": "yarn prebuild && yarn nx run-many --target=build --exclude @twilio-paste/website @twilio-paste/theme-designer @twilio-paste/nextjs-template @twilio-paste/token-contrast-checker",
     "build:js": "yarn prebuild && yarn nx run-many --target=build:js --exclude @twilio-paste/website @twilio-paste/theme-designer",
@@ -44,6 +41,9 @@
     "build:nextjs-template": "yarn nx run @twilio-paste/nextjs-template:build",
     "build:contrast-checking": "yarn nx run @twilio-paste/token-contrast-checker:build",
     "check:type-docs": "bash ./tools/build/generate-type-docs/check-uncommited-type.sh",
+    "generate:embeddings": "yarn nx run @twilio-paste/website:generate:embeddings",
+    "generate:embeddings:refresh": "yarn nx run @twilio-paste/website:generate:embeddings:refresh",
+    "generate:db-types": "yarn nx run @twilio-paste/backend:generate:db-types",
     "pre-push": "concurrently \"yarn:lint\" \"yarn:test\" \"yarn:format\" \"yarn:type-check\"",
     "prerelease": "yarn build && yarn lint && yarn test",
     "release": "yarn changeset publish",
@@ -227,9 +227,5 @@
     }
   },
   "packageManager": "yarn@3.6.3",
-  "browserslist": [
-    "last 2 versions",
-    "not dead",
-    "not IE 11"
-  ]
+  "browserslist": ["last 2 versions", "not dead", "not IE 11"]
 }

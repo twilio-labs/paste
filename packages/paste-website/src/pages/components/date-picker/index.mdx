@@ -226,13 +226,8 @@ Paste pickers don't currently support date time range selections in a single com
 In addition to the Date Picker, this package exports a <inlineCode>formatReturnDate()</inlineCode> function that can be used to format the date value that's being <em>returned</em> from the Date Picker.
 
 <strong>Note:</strong> the format of the date being displayed by the Date Picker <em>cannot</em> be changed. The display
-value is formatted according to the <Anchor
-  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#value"
-  showExternal
->
-  locale of the user's browser
-</Anchor>
-. The parsed <inlineCode>value</inlineCode>, however, is always returned in <inlineCode>yyyy-mm-dd</inlineCode> format.
+value is formatted according to the <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#value" showExternal>locale of the user's browser</Anchor>.
+The parsed <inlineCode>value</inlineCode>, however, is always returned in <inlineCode>yyyy-mm-dd</inlineCode> format.
 
 To change the format of the return date value, we recommend using the <inlineCode>formatReturnDate()</inlineCode> function on the Date Picker's <inlineCode>onChange()</inlineCode> or <inlineCode>onBlur()</inlineCode> handler.
 
