@@ -98,15 +98,15 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
             // Set the actionable state
             setActionable(true);
 
-            const activeElement = getActiveElement() as HTMLElement;
+            const activeElement = getActiveElement();
             // Only if it's a DataGrid cell
-            if (isCell(activeElement)) {
+            if (activeElement && isCell(activeElement)) {
               // Get the first focusable child
               const firstFocusableElement = getFirstFocusableIn(activeElement);
 
               // If there is a focusable child focus it
               if (firstFocusableElement) {
-                ensureFocus(firstFocusableElement as HTMLElement);
+                ensureFocus(firstFocusableElement);
                 // First shift+tab fix upon entering actionable mode
                 activeElement.tabIndex = actionable ? 0 : -1;
               }
