@@ -7,6 +7,8 @@
       "bower_components",
       "dist",
       "bin",
+      "docs",
+      ".temp",
       "__testfixtures__",
       "__fixtures__",
       "packages/paste-icons/cjs",
@@ -26,7 +28,8 @@
       ".codesandbox/ci.json",
       "build.icon-list.js",
       "**/*.hbs",
-      "docs"
+      "docs",
+      "apps/backend/supabase/schema.gen.ts"
     ]
   },
   "organizeImports": {

@@ -142,18 +142,6 @@ Use when informing a user that a “friendly name” or "unique name” field is
 
 <LivePreview scope={{Label, Input, HelpText, Anchor, Button, Heading, Box}}>{FriendlyName}</LivePreview>
 
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="h4">Need a variation that isn't included here?</CalloutHeading>
-  <CalloutText>
-    Variations of this pattern will be added as there are more non-PII fields where users may unintentionally input
-    personal data. Please{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
-      create a GitHub Discussion
-    </Anchor>{' '}
-    if there is a variant you would like added.
-  </CalloutText>
-</Callout>
-
 ## Composition
 
 ### Positioning with additional help text
@@ -178,13 +166,7 @@ If an input containing a privacy indicator is in an error state, the error messa
       <Label htmlFor="do-1">Friendly name</Label>
       <Input type="text" id="do-1" aria-describedby="do-1-ht" value="My favorite service" />
       <HelpText id="do-1-ht">
-        Avoid entering{' '}
-        <Anchor
-          href="https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii"
-          showExternal
-        >
-          personal data
-        </Anchor>{' '}
+        Avoid entering <Anchor href="https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii" showExternal>personal data</Anchor>
         like your name, email address, or phone number.
       </HelpText>
     </Box>
@@ -207,13 +189,7 @@ If an input containing a privacy indicator is in an error state, the error messa
       <Label htmlFor="do-2">Friendly name</Label>
       <Input type="text" id="do-2" aria-describedby="do-2-ht" value="My favorite service" />
       <HelpText id="do-2-ht">
-        [Additional help text]. Avoid entering{' '}
-        <Anchor
-          href="https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii"
-          showExternal
-        >
-          personal data
-        </Anchor>{' '}
+        [Additional help text]. Avoid entering <Anchor href="https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii" showExternal>personal data</Anchor>
         like your name, email address, or phone number.
       </HelpText>
     </Box>
@@ -223,13 +199,7 @@ If an input containing a privacy indicator is in an error state, the error messa
       <Label htmlFor="dont-2">Friendly name</Label>
       <Input type="text" id="dont-2" aria-describedby="dont-2-ht" value="My favorite service" />
       <HelpText id="dont-2-ht">
-        Avoid entering{' '}
-        <Anchor
-          href="https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii"
-          showExternal
-        >
-          personal data
-        </Anchor>{' '}
+        Avoid entering <Anchor href="https://www.twilio.com/docs/glossary/what-is-personally-identifiable-information-pii" showExternal>personal data</Anchor>
         like your name, email address, or phone number. [Additional help text].
       </HelpText>
     </Box>
