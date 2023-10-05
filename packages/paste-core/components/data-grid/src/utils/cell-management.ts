@@ -73,7 +73,7 @@ export const getClosestGridCellFromCurrentFocus = (dataGridId: string): HTMLElem
     return null;
   }
   if (isCell(focusedElement)) {
-    return focusedElement
+    return focusedElement;
   }
   return getClosestCellFrom(focusedElement, dataGridId);
 };
