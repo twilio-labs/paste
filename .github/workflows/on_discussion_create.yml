@@ -1,40 +1,20 @@
 name: Discussion auto-responder
-
 on:
   discussion:
     types: [created]
-
 env:
   GITHUB_TOKEN: ${{ github.token }}
-
 jobs:
   on_discussion_open:
     runs-on: ubuntu-latest
     permissions:
       discussions: write
     steps:
-      - name: Get answer from Discussion
-        id: httpRequest
-        uses: fjogeleit/http-request-action@v1
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Deno
+        uses: denolib/setup-deno@v2
         with:
-          url: "https://paste.twilio.design/api/ai"
-          method: "POST"
-          customHeaders: '{"Content-Type": "application/json"}'
-          data: '{"secret": "${{ secrets.OPENAI_API_SECRET }}", "prompt": "${{ github.event.discussion.body }}"}'
-      - name: Show Response
-        run: |
-          echo ${{ steps.httpRequest.outputs.response }}
-      - name: Add bot comment to discussion
-        uses: octokit/graphql-action@v2.x
-        with:
-          query: |
-            mutation discussion($discussionid:ID!,$body:String!) {
-              addDiscussionComment(input: { discussionId:$discussionid,body:$body}) {
-                comment {
-                  id
-                }
-              }
-            }
-          variables: |
-            discussionid: ${{ github.event.discussion.node_id }}
-            body: ${{ steps.httpRequest.outputs.response }}
+          deno-version: "v1.x"
+      - name: Run Deno script
+        run: npm run ci:autorespond -- "${{ github.event.discussion.body }}" "${{ github.event.discussion.node_id }}"
