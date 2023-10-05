@@ -125,7 +125,9 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
     const [childrenCount, validChildren] = React.useMemo(
       () => [
         React.Children.count(children),
-        React.Children.toArray(children).filter((child) => React.isValidElement(child) || typeof child === "string"),
+        React.Children.toArray(children).filter(
+          (child): child is React.ReactElement => React.isValidElement(child) || typeof child === "string",
+        ),
       ],
       [children],
     );
@@ -135,7 +137,7 @@ const Breadcrumb = React.forwardRef<HTMLDivElement, BreadcrumbProps>(
       <Box aria-label="breadcrumb" {...safelySpreadBoxProps(props)} as="nav" element={element} ref={ref}>
         <Box alignItems="center" as="ol" display="inline-flex" listStyleType="none" margin="space0" padding="space0">
           {validChildren.map((child, index) => {
-            return React.cloneElement(child as React.ReactElement<any>, {
+            return React.cloneElement(child, {
               last: childrenCount === index + 1,
               key: keySeed(`breadcrumb-${index}`),
               parentElement: element,
