@@ -1,27 +1,27 @@
 export const meta = {
-  title: 'Separator - Components',
-  package: '@twilio-paste/separator',
+  title: "Separator - Components",
+  package: "@twilio-paste/separator",
   description:
-    'The Separator component can be used to create visual and semantic separation between UI elements or sections.',
-  slug: '/components/separator/',
+    "The Separator component can be used to create visual and semantic separation between UI elements or sections.",
+  slug: "/components/separator/",
 };
 
-import {Separator} from '@twilio-paste/separator';
-import {Text} from '@twilio-paste/text';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Box} from '@twilio-paste/box';
-import Changelog from '@twilio-paste/separator/CHANGELOG.md';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {SidebarCategoryRoutes} from '../../../constants';
-import packageJson from '@twilio-paste/separator/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
-import {getFeature, getNavigationData} from '../../../utils/api';
+import { Separator } from "@twilio-paste/separator";
+import { Text } from "@twilio-paste/text";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Box } from "@twilio-paste/box";
+import Changelog from "@twilio-paste/separator/CHANGELOG.md";
+import { DoDont, Do, Dont } from "../../../components/DoDont";
+import { SidebarCategoryRoutes } from "../../../constants";
+import packageJson from "@twilio-paste/separator/package.json";
+import DefaultLayout from "../../../layouts/DefaultLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
 
 export default DefaultLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Separator');
+  const feature = await getFeature("Separator");
   return {
     props: {
       data: {
@@ -48,7 +48,7 @@ export const getStaticProps = async () => {
 
 <content>
 
-<LivePreview scope={{Box, Separator}} language="jsx">
+<LivePreview scope={{ Box, Separator }} language="jsx">
   {`<Box backgroundColor="colorBackgroundBody" padding="space50">
   <Separator orientation="horizontal" verticalSpacing="space50" />
 </Box>`}
@@ -72,7 +72,7 @@ It is heavily inspired by the [Chakra UI](https://chakra-ui.com/divider) impleme
 
 Vertical separation can be created by using a horizontal separator. This is achieved by setting `orientation="horizontal"`. A `verticalSpacing` styling property is provided to let you to create space above and below the separator. `verticalSpacing` will take any [Spacing Token](/tokens#spacings) as its value.
 
-<LivePreview scope={{Box, Separator}} language="jsx">
+<LivePreview scope={{ Box, Separator }} language="jsx">
   {`<Box backgroundColor="colorBackgroundBody" padding="space50">
   <Separator orientation="horizontal" verticalSpacing="space50" />
 </Box>`}
@@ -82,7 +82,7 @@ Vertical separation can be created by using a horizontal separator. This is achi
 
 Horizontal separation can be created by using a vertical separator. This is achieved by setting `orientation="vertical"`. A `horizontalSpacing` styling property is provided to let you to create space on either side of the separator. `horizontalSpacing` will take any [Spacing Token](/tokens#spacings) as its value.
 
-<LivePreview scope={{Separator, Text, Box}} language="jsx">
+<LivePreview scope={{ Separator, Text, Box }} language="jsx">
   {`<Box backgroundColor="colorBackgroundBody" padding="space50" display="flex">
   <Text as="span">Option 1</Text>
   <Separator orientation="vertical" horizontalSpacing="space40" />
@@ -106,7 +106,7 @@ When used, the spacing properties create equal space in both directions along th
 
 `horizontalSpacing` and `verticalSpacing` are responsive props. You can provide them an array of spacing values to change the spacing based on the screen sizes supported by your [theme](/theme/#theme-provider).
 
-<LivePreview scope={{Separator, Text, Box}} language="jsx">
+<LivePreview scope={{ Separator, Text, Box }} language="jsx">
   {`<Box backgroundColor="colorBackgroundBody" padding="space50">
   <Box display="flex">
     <Text as="span">Option 1</Text>
@@ -160,7 +160,7 @@ yarn add @twilio-paste/separator - or - yarn add @twilio-paste/core
 #### Usage
 
 ```jsx
-import {Separator} from '@twilio-paste/core/separator';
+import { Separator } from "@twilio-paste/core/separator";
 
 const Component = () => <Separator orientation="horizontal" />;
 ```
@@ -169,12 +169,12 @@ const Component = () => <Separator orientation="horizontal" />;
 
 All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
 
-| Prop               | Type                                               | Description                                                                               | Default     |
-| ------------------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| orientation?       | 'horizontal', 'vertical'                           | Separator direction                                                                       |             |
-| horizontalSpacing? | ResponsiveValue<[Spacing](/tokens/list/#spacings)> | Space left and right of the separator                                                     |             |
-| verticalSpacing?   | ResponsiveValue<[Spacing](/tokens/list/#spacings)> | Space top and bottom of the separator                                                     |             |
-| element?           | `string`                                           | Overrides the default element name to apply unique styles with the Customization Provider | 'SEPARATOR' |
+| Prop               | Type                       | Description                                                                               | Default     |
+| ------------------ | -------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| orientation?       | 'horizontal', 'vertical'   | Separator direction                                                                       |             |
+| horizontalSpacing? | `ResponsiveValue<Spacing>` | Space left and right of the separator                                                     |             |
+| verticalSpacing?   | `ResponsiveValue<Spacing>` | Space top and bottom of the separator                                                     |             |
+| element?           | `string`                   | Overrides the default element name to apply unique styles with the Customization Provider | 'SEPARATOR' |
 
 <ChangelogRevealer>
   <Changelog />

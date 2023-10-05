@@ -1,0 +1,77 @@
+name: Generate Embeddings for AI Search
+
+on:
+  workflow_dispatch:
+    inputs:
+      refresh:
+        description: "Refresh all pages"
+        required: false
+        type: boolean
+  schedule:
+    - cron: "0 0 * * *"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      SUPABASE_ACCESS_TOKEN: ${{ secrets.SUPABASE_ACCESS_TOKEN }}
+      PROJECT_ID: ${{ secrets.SUPABASE_PRODUCTION_PROJECT_ID }}
+      GH_SERVICE_ACC_DISCUSSIONS_TOKEN: ${{ secrets.GH_SERVICE_ACC_DISCUSSIONS_TOKEN }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_PRODUCTION_URL }}
+      SUPABASE_KEY: ${{ secrets.SUPABASE_PRODUCTION_KEY }}
+      SUPABASE_DB_PASSWORD: ${{ secrets.SUPABASE_PRODUCTION_DB_PASSWORD }}
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Load Yarn cache
+        uses: actions/cache@v3
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      - name: Node modules cache
+        uses: actions/cache@v3
+        id: node_modules_cache_id
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Link Supabase project
+        run: yarn workspace @twilio-paste/backend supabase link --project-ref $PROJECT_ID
+
+      - name: Run migrations
+        run: yarn workspace @twilio-paste/backend supabase db push
+
+      - name: Update embeddings
+        if: ${{ !inputs.refresh }}
+        run: yarn generate:embeddings
+
+      - name: Refresh embeddings
+        if: ${{ inputs.refresh }}
+        run: yarn generate:embeddings:refresh

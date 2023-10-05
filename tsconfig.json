@@ -27,6 +27,7 @@
     "esModuleInterop": true
   },
   "include": [
+    "apps/**/*",
     "packages/**/*",
     "templates/**/*",
     "performance-benchmarks/**/*",

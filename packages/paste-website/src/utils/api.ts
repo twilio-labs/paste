@@ -53,6 +53,7 @@ export type Release = {
   "Public Description (from System)": string[];
   "Release Description": string;
   "Release feature name": string;
+  Release: string;
   Status: string;
 };
 
@@ -118,7 +119,7 @@ export const getRoadmap = async (): Promise<{ [release: string]: Release[] }> =>
     })
     .all();
   const items = roadmap.map(({ fields }) => fields) as Release[];
-  const releases = groupBy<Release>(items, "Release");
+  const releases = groupBy<Release[]>(items, "Release") as { [release: string]: Release[] };
 
   Object.values(releases).forEach((val) =>
     val.sort((a, b) => a["Release feature name"].localeCompare(b["Release feature name"])),

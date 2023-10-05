@@ -29,3 +29,4 @@ tsconfig.build.tsbuildinfo
 build.icon-list.js
 
 **/*.hbs
+apps/backend/supabase/schema.gen.ts
