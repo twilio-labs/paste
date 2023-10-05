@@ -38,7 +38,7 @@ export const delayedSetFocusable = (element?: HTMLElement): void => {
  *
  * @returns {boolean}.
  */
-export const isCell = (element: Element): boolean => {
+export const isCell = (element: Element): element is HTMLTableCellElement => {
   return element.tagName === "TD" || element.tagName === "TH";
 };
 
@@ -73,7 +73,7 @@ export const getClosestGridCellFromCurrentFocus = (dataGridId: string): HTMLElem
     return null;
   }
   if (isCell(focusedElement)) {
-    return focusedElement as HTMLElement;
+    return focusedElement;
   }
   return getClosestCellFrom(focusedElement, dataGridId);
 };
