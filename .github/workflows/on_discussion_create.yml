@@ -3,7 +3,8 @@ on:
   discussion:
     types: [created]
 env:
-  GITHUB_TOKEN: ${{ github.token }}
+  GH_SERVICE_ACC_DISCUSSIONS_TOKEN: ${{ github.token }}
+  API_SECRET: ${{ secrets.API_SECRET }}
 jobs:
   on_discussion_open:
     runs-on: ubuntu-latest
@@ -17,4 +18,7 @@ jobs:
         with:
           deno-version: "v1.x"
       - name: Run Deno script
-        run: npm run ci:autorespond -- "${{ github.event.discussion.body }}" "${{ github.event.discussion.node_id }}"
+        run: npm run ci:autorespond
+        env:
+          DISCUSSION_NODE_ID: ${{ github.event.discussion.node_id }}
+          DISCUSSION_BODY: ${{ github.event.discussion.body }}

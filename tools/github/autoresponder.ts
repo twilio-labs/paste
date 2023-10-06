@@ -1,19 +1,21 @@
 /* eslint-disable no-console,import/no-unresolved,import/extensions */
 // @ts-expect-error deno
-import { config } from "https://deno.land/x/dotenv/mod.ts";
-
-// Load .env file
-const env = config();
-const { API_SECRET, GH_SERVICE_ACC_DISCUSSIONS_TOKEN } = env;
-
+import { Octokit } from "https://esm.sh/octokit?dts";
 // @ts-expect-error deno
-const discussionBody = Deno.args[0];
+const API_SECRET = Deno.env.get("API_SECRET");
 // @ts-expect-error deno
-const discussionNodeId = Deno.args[1];
+const GH_SERVICE_ACC_DISCUSSIONS_TOKEN = Deno.env.get(
+  "GH_SERVICE_ACC_DISCUSSIONS_TOKEN"
+);
+// @ts-expect-error deno
+const DISCUSSION_NODE_ID = Deno.env.get("DISCUSSION_NODE_ID");
+// @ts-expect-error deno
+const DISCUSSION_BODY = Deno.env.get("DISCUSSION_BODY");
 
-console.log("discussion body:", discussionBody);
-console.log("discussion node_id:", discussionNodeId);
+console.log("discussion body:", DISCUSSION_BODY);
+console.log("discussion node_id:", DISCUSSION_NODE_ID);
 
+const octokit = new Octokit({ auth: GH_SERVICE_ACC_DISCUSSIONS_TOKEN });
 
 type Discussion = {
   path: string;
@@ -25,113 +27,122 @@ type Discussion = {
   heading: string;
   slug: string;
 };
-type DiscussionsResponse = {
-  data: Discussion[];
-};
-interface SimilarDiscussion {
-  title: string;
-  url: string;
-  similarity: number;
-  updatedAt: string;
-}
 
-const getSimilarDiscussions = async (secret: string, question: string): Promise<SimilarDiscussion[]> => {
-  const response = await fetch("https://paste.twilio.design/api/discussions-search", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      secret,
-      prompt: question,
-    }),
-  });
-  const responseJson = await response.json();
+const getSimilarDiscussions = async (
+  secret: string,
+  question: string
+): Promise<string> => {
+  try {
+    const response = await fetch(
+      "https://paste.twilio.design/api/discussions-search",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          secret,
+          prompt: question,
+        }),
+      }
+    );
+    const responseJson = JSON.parse(await response.text());
 
-  return (
-    // Get the top 3 results at most
-    responseJson.data
-      .slice(0, 3)
-      // Remove unnecessary data from the response
-      .map((item: Discussion) => ({
-        title: item.heading,
-        url: item.path,
-        similarity: item.similarity,
-        updatedAt: item.meta.updatedAt,
-      }))
-      // We only want results that are fairly similar, not guesses
-      .filter((item: SimilarDiscussion) => item.similarity > 0.78)
-      // Convert to markdown
-      .map((item: SimilarDiscussion) => `[${item.title}](${item.url}) (updated: ${item.updatedAt}, similarity score: ${item.similarity.toFixed(2)})`)
-      // Convert to string
-      .join("\n - ")
-  );
-};
-
-const getAnswerFromAi = async (secret: string, question: string): Promise<string> => {
-  const response = await fetch("https://paste.twilio.design/api/ai", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      secret,
-      prompt: question,
-    }),
-  });
-
-  return response.text();
+    return (
+      // Get the top 3 results at most
+      responseJson.data
+        .slice(0, 3)
+        // We only want results that are fairly similar, not guesses
+        .filter((item: Discussion) => item.similarity > 0.78)
+        // Convert to markdown
+        .map(
+          (item: Discussion) =>
+            `- [${item.heading}](${item.path}) (updated: ${
+              item.meta.updatedAt
+            }, similarity score: ${item.similarity.toFixed(2)})`
+        )
+        // Convert to string
+        .join("\n")
+    );
+  } catch (error) {
+    console.log("Error fetching similar discussions", error);
+  }
+  return "No similar discussions found.";
 };
 
-// @ts-expect-error deno
-const similarDiscussions = await getSimilarDiscussions(API_SECRET, discussionBody);
+const getAnswerFromAi = async (
+  secret: string,
+  question: string
+): Promise<string> => {
+  try {
+    const response = await fetch("https://paste.twilio.design/api/ai", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        secret,
+        prompt: question,
+      }),
+    });
 
-console.log("Similar discussions:", similarDiscussions);
+    return response.text();
+  } catch (error) {
+    console.log("Error fetching answer from AI", error);
+    throw error;
+  }
+};
 
-// @ts-expect-error deno
-const answerFromAi = await getAnswerFromAi(API_SECRET, discussionBody);
-
-console.log("AI answer:", answerFromAi);
-
-
-const writeAnswerToDiscussion = async (discussionId: string, body: string): Promise<any> => {
-
+const writeAnswerToDiscussion = async (
+  discussionId: string,
+  body: string
+): Promise<string> => {
   const mutation = `
-    mutation {
-      addDiscussionComment(input: { discussionId:${discussionId},body:${body}}) {
+    mutation comment($discussionId:ID!,$body:String!){
+      addDiscussionComment(input: { discussionId:$discussionId,body:$body}) {
         comment {
           id
         }
       }
     }
   `;
+  // console.log("\n\nThe graphQL query:", mutation);
 
-  const response = await fetch(`https://api.github.com/graphql`, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${GH_SERVICE_ACC_DISCUSSIONS_TOKEN}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ query: mutation }),
-  });
-
-  return response.json();
+  try {
+    const { addDiscussionComment } = await octokit.graphql(mutation, {
+      discussionId,
+      body,
+    });
+    return addDiscussionComment.comment.id;
+  } catch (error) {
+    console.log("Error writing answer to discussion", error);
+    throw error;
+  }
 };
 
-
 const commentHeader = `
-  This is a very experimental bot that uses OpenAI's GPT-4 to respond to discussions. The answers are not guaranteed to be correct.
-
-  We hope it provides a quicker way to get or find answers to your questions. Please wait for a member of the Design System team to confirm the answer.
+  **Disclaimer:** This is a very experimental bot using OpenAI's GPT-4. The answers may not be correct, a human will review the answer and update it if necessary.
 
   ---
 
 `;
-const fullBody = `${commentHeader}${answerFromAi}\n\n---\n\n${similarDiscussions}`;
+// @ts-expect-error deno
+const similarDiscussions = await getSimilarDiscussions(
+  API_SECRET,
+  DISCUSSION_BODY
+);
+console.log("similar discussions:", similarDiscussions);
 
-// Call the fetchGraphQL function and log the response
-writeAnswerToDiscussion(discussionNodeId, fullBody)
-  .then((result) => console.log("Write to discussion:", result))
-  .catch((error) => console.log(error));
+// @ts-expect-error deno
+const answerFromAi = await getAnswerFromAi(API_SECRET, DISCUSSION_BODY);
+console.log("response from AI:", answerFromAi.trim().slice(0, 300));
 
+const fullBody = `${commentHeader}${answerFromAi}\n\n---\n\nHere are some similar discussions:\n\n${similarDiscussions}`;
+
+// @ts-expect-error deno
+const commentId = await writeAnswerToDiscussion(DISCUSSION_NODE_ID, fullBody);
+console.log(`Comment added with ID: ${commentId}`);
+
+// @ts-expect-error deno
+Deno.exit(0);
 /* eslint-enable no-console,import/no-unresolved,import/extensions */
