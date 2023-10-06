@@ -3,8 +3,8 @@ on:
   discussion:
     types: [created]
 env:
-  GH_SERVICE_ACC_DISCUSSIONS_TOKEN: ${{ github.token }}
-  API_SECRET: ${{ secrets.API_SECRET }}
+  GH_SERVICE_ACC_DISCUSSIONS_TOKEN: ${{ secrets.GH_SERVICE_ACC_DISCUSSIONS_TOKEN }}
+  API_SECRET: ${{ secrets.OPENAI_API_SECRET }}
 jobs:
   on_discussion_open:
     runs-on: ubuntu-latest
