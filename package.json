@@ -83,7 +83,8 @@
     "changeset": "changeset",
     "create:package": "plop create-package",
     "token-usage": "tsx tools/build/token-usage-detector.ts",
-    "nx": "nx"
+    "nx": "nx",
+    "ci:autorespond": "deno run --allow-all ./tools/github/autoresponder.ts"
   },
   "dependencies": {
     "@babel/cli": "^7.21.0",
