@@ -4,9 +4,7 @@ import { Octokit } from "https://esm.sh/octokit?dts";
 // @ts-expect-error deno
 const API_SECRET = Deno.env.get("API_SECRET");
 // @ts-expect-error deno
-const GH_SERVICE_ACC_DISCUSSIONS_TOKEN = Deno.env.get(
-  "GH_SERVICE_ACC_DISCUSSIONS_TOKEN"
-);
+const GH_SERVICE_ACC_DISCUSSIONS_TOKEN = Deno.env.get("GH_SERVICE_ACC_DISCUSSIONS_TOKEN");
 // @ts-expect-error deno
 const DISCUSSION_NODE_ID = Deno.env.get("DISCUSSION_NODE_ID");
 // @ts-expect-error deno
@@ -28,24 +26,18 @@ type Discussion = {
   slug: string;
 };
 
-const getSimilarDiscussions = async (
-  secret: string,
-  question: string
-): Promise<string> => {
+const getSimilarDiscussions = async (secret: string, question: string): Promise<string> => {
   try {
-    const response = await fetch(
-      "https://paste.twilio.design/api/discussions-search",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          secret,
-          prompt: question,
-        }),
-      }
-    );
+    const response = await fetch("https://paste.twilio.design/api/discussions-search", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        secret,
+        prompt: question,
+      }),
+    });
     const responseJson = JSON.parse(await response.text());
 
     return (
@@ -59,7 +51,7 @@ const getSimilarDiscussions = async (
           (item: Discussion) =>
             `- [${item.heading}](${item.path}) (updated: ${
               item.meta.updatedAt
-            }, similarity score: ${item.similarity.toFixed(2)})`
+            }, similarity score: ${item.similarity.toFixed(2)})`,
         )
         // Convert to string
         .join("\n")
@@ -70,10 +62,7 @@ const getSimilarDiscussions = async (
   return "No similar discussions found.";
 };
 
-const getAnswerFromAi = async (
-  secret: string,
-  question: string
-): Promise<string> => {
+const getAnswerFromAi = async (secret: string, question: string): Promise<string> => {
   try {
     const response = await fetch("https://paste.twilio.design/api/ai", {
       method: "POST",
@@ -93,10 +82,7 @@ const getAnswerFromAi = async (
   }
 };
 
-const writeAnswerToDiscussion = async (
-  discussionId: string,
-  body: string
-): Promise<string> => {
+const writeAnswerToDiscussion = async (discussionId: string, body: string): Promise<string> => {
   const mutation = `
     mutation comment($discussionId:ID!,$body:String!){
       addDiscussionComment(input: { discussionId:$discussionId,body:$body}) {
@@ -127,10 +113,7 @@ const commentHeader = `
 
 `;
 // @ts-expect-error deno
-const similarDiscussions = await getSimilarDiscussions(
-  API_SECRET,
-  DISCUSSION_BODY
-);
+const similarDiscussions = await getSimilarDiscussions(API_SECRET, DISCUSSION_BODY);
 console.log("similar discussions:", similarDiscussions);
 
 // @ts-expect-error deno

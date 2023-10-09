@@ -6,6 +6,7 @@ export const meta = {
 };
 
 import {ObjectDetailsIngredients} from '../../../components/ingredients/ObjectDetailsIngredients';
+import {FullObjectDetailsExample, DefaultObjectDetailsExample} from '../../../component-examples/page-templates/ObjectDetailsExamples';
 import {SidebarCategoryRoutes} from '../../../constants';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -43,6 +44,12 @@ export const getStaticProps = async () => {
 
 <content>
 
+<StoryPreview
+  title="Object details page template"
+  storyID="website-pagetemplateexamples--full-object-details-example"
+  code={FullObjectDetailsExample}
+/>
+
 ## About Object details
 
 Object details give customers a primarily read-only view of the properties of an object, such as a message log or sent email.
@@ -68,6 +75,12 @@ To structure a page:
 <ObjectDetailsIngredients />
 
 ## How to use this template
+
+<StoryPreview
+  title="Object details page template"
+  storyID="website-pagetemplateexamples--default-object-details-example"
+  code={DefaultObjectDetailsExample}
+/>
 
 ### Page header
 
