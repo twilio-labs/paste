@@ -18,7 +18,7 @@ export interface DescriptionListProps extends HTMLPasteProps<"dl"> {
 const DescriptionList = React.forwardRef<HTMLDListElement, DescriptionListProps>(
   ({ element = "DESCRIPTION_LIST", children, ...props }, ref) => {
     return (
-      <Box {...safelySpreadBoxProps(props)} as="dl" ref={ref} element={element}>
+      <Box {...safelySpreadBoxProps(props)} as="dl" marginY="space0" ref={ref} element={element}>
         {children}
       </Box>
     );

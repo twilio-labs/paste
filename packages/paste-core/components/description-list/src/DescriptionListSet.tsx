@@ -6,7 +6,7 @@ import * as React from "react";
 
 export const StyledDescriptionListSet = styled.div(
   css({
-    "& > dd:last-of-type": {
+    ":not(:last-of-type)": {
       marginBottom: "space60",
     },
     "& > dd:not(:last-of-type)": {
