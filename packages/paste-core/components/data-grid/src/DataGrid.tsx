@@ -25,6 +25,14 @@ export interface DataGridProps extends TableProps {
    */
   element?: TableProps["element"];
   "aria-label": string;
+  /**
+   * If creating a treegrid, set this to "treegrid" to override the default role of "grid"
+   *
+   * @default "grid"
+   * @type {"treegrid"}
+   * @memberof DataGridProps
+   */
+  role?: "treegrid";
 }
 
 /**
@@ -35,7 +43,7 @@ export interface DataGridProps extends TableProps {
  * @param {string} element - customization element
  */
 export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
-  ({ element = "DATA_GRID", striped = false, ...props }, ref) => {
+  ({ element = "DATA_GRID", role = "grid", striped = false, ...props }, ref) => {
     const dataGridId = `data-grid-${useUID()}`;
     const lastFocusedElement = React.useRef<Element | null>(null);
     const compositeState = useCompositeState({ unstable_virtual: false });
@@ -148,7 +156,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
           ref={ref}
           as={Table}
           element={element}
-          role="grid"
+          role={role}
           onKeyDown={handleKeypress}
           onMouseDown={handleMouseDown}
           onFocus={handleFocus}
