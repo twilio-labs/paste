@@ -2,7 +2,6 @@ import { render } from "@testing-library/react";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import * as React from "react";
 
-import { get } from "@twilio-paste/styling-library";
 import { InPageNavigation, InPageNavigationItem } from "../src";
 
 describe("InPageNavigation", () => {
