@@ -7,6 +7,7 @@ export const meta = {
 import {SettingsIngredients} from '../../../components/ingredients/SettingsIngredients';
 import {SidebarCategoryRoutes} from '../../../constants';
 import DefaultLayout from '../../../layouts/DefaultLayout';
+import {FullSettingsExample, SettingsOverviewExample} from '../../../component-examples/page-templates/SettingsExamples';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
 export default DefaultLayout;
@@ -43,6 +44,12 @@ export const getStaticProps = async () => {
 
 <content>
 
+<StoryPreview
+  title="Settings page template - full"
+  storyID="website-pagetemplateexamples--full-settings-example"
+  code={FullSettingsExample}
+/>
+
 ## About Settings
 
 Settings pages let customers edit information and update simple settings.
@@ -76,6 +83,12 @@ Use customer research to inform how to order sections on the Settings page.
 If there are too many settings to fit on a single page, split related settings into separate pages or Modals, and link to them from a Settings overview page. On a Settings overview page, use [Cards](/components/card) to group sections and surface the most relevant information with [Description Lists](components/description-list).
 
 Position the page content in the center with a max width of `$size-90`.
+
+<StoryPreview
+  title="Settings page template - full"
+  storyID="website-pagetemplateexamples--settings-overview-example"
+  code={SettingsOverviewExample}
+/>
 
 ### Using Switches
 
