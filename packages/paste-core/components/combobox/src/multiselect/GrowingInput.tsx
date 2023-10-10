@@ -9,10 +9,11 @@ interface GrowingInputProps {
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   id: string;
   value?: HTMLInputElement["value"];
+  placeholder?: string;
 }
 
 export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps>(
-  ({ element = "GROWING_INPUT", onChange, initialValue = "", value, ...props }, ref) => {
+  ({ element = "GROWING_INPUT", onChange, initialValue = "", value, placeholder = "", ...props }, ref) => {
     const [text, setText] = React.useState(value || initialValue);
 
     React.useEffect(() => {
@@ -42,7 +43,7 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
         height="28px"
         alignContent="center"
         _after={{
-          content: `"${text}"`,
+          content: `"${text || placeholder || ""}"`,
           fontFamily: "inherit",
           fontSize: "fontSize30",
           fontWeight: "fontWeightMedium",
@@ -58,6 +59,7 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
           element={element}
           type="text"
           value={value != null ? value.replace(/  +/g, " ") : text}
+          placeholder={placeholder}
           padding="space0"
           onChange={(event) => {
             event.preventDefault();

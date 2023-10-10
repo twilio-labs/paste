@@ -77,6 +77,7 @@ export const BottomOfScreen = (): React.ReactNode => {
         labelText="Choose a Paste Component"
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
+        placeholder="Search by SID or name"
         items={filteredItems}
         onInputValueChange={({ inputValue: newInputValue = "" }) => {
           setInputValue(newInputValue);
