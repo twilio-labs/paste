@@ -1,0 +1,36 @@
+export const meta = {
+  title: 'Label - Components',
+  package: '@twilio-paste/label',
+  description: 'The Label component is used to provide a visible, accessible name to any form element.',
+  slug: '/components/label/changelog',
+};
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/label/CHANGELOG.md';
+import packageJson from '@twilio-paste/label/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Label');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/label',
+        storybookUrl: '/?path=/story/components-label--default',
+      },
+    },
+  };
+};
+
+<Changelog />

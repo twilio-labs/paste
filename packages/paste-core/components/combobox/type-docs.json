@@ -5274,7 +5274,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Disables the input."
     },
     "disabledItems": {
       "type": "any[]",
@@ -5362,7 +5363,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input to an error state."
     },
     "height": {
       "type": "never",
@@ -5394,13 +5396,15 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides an accessible label for the decrement button on inputs of type \"number\" when using non-English languages."
     },
     "i18nStepUpLabel": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides an accessible label for the increment button on inputs of type \"number\" when using non-English languages."
     },
     "initialIsOpen": {
       "type": "boolean",
@@ -5440,13 +5444,15 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Used to add a suffix to an input. Often used with text or an icon."
     },
     "insertBefore": {
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Used to add a prefix to an input. Often used with text or an icon."
     },
     "is": {
       "type": "string",
@@ -5551,7 +5557,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the name of the input."
     },
     "nonce": {
       "type": "string",
@@ -6590,7 +6597,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the placeholder of the input."
     },
     "prefix": {
       "type": "string",
@@ -6614,13 +6622,15 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input to readonly."
     },
     "required": {
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input as required."
     },
     "resource": {
       "type": "string",
@@ -7225,7 +7235,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Disables the input."
     },
     "disabledItems": {
       "type": "any[]",
@@ -7327,7 +7338,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input to an error state."
     },
     "height": {
       "type": "never",
@@ -7358,13 +7370,15 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides an accessible label for the decrement button on inputs of type \"number\" when using non-English languages."
     },
     "i18nStepUpLabel": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides an accessible label for the increment button on inputs of type \"number\" when using non-English languages."
     },
     "initialIsOpen": {
       "type": "boolean",
@@ -7404,13 +7418,15 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Used to add a suffix to an input. Often used with text or an icon."
     },
     "insertBefore": {
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Used to add a prefix to an input. Often used with text or an icon."
     },
     "is": {
       "type": "string",
@@ -7508,7 +7524,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the name of the input."
     },
     "nonce": {
       "type": "string",
@@ -8547,7 +8564,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the placeholder of the input."
     },
     "prefix": {
       "type": "string",
@@ -8571,13 +8589,15 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input to readonly."
     },
     "required": {
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input as required."
     },
     "resource": {
       "type": "string",

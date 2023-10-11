@@ -32,10 +32,10 @@ export const NormalizedComponentHeader: React.FC<React.PropsWithChildren<Normali
 
   return (
     <GenericHeader
-      name={name}
+      name={data.nameOverride || name}
       packageName={packageName}
       version={version}
-      description={description}
+      description={data.descriptionOverride || description}
       packageStatus={packageStatus}
       figmaStatus={figmaStatus}
       designCommitteeReview={designCommitteeReview}

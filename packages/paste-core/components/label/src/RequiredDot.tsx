@@ -1,9 +1,17 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface RequiredDotProps {
+export interface RequiredDotProps extends HTMLPasteProps<"span"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'REQUIRED_DOT'
+   * @type {BoxProps['element']}
+   * @memberof RequiredDotProps
+   */
   element?: BoxProps["element"];
   i18nLabel?: string;
 }

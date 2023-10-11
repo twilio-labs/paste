@@ -12,13 +12,13 @@ import {useUID} from '@twilio-paste/uid-library';
 import Changelog from '@twilio-paste/meter/CHANGELOG.md';
 import packageJson from '@twilio-paste/meter/package.json';
 
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {defaultMeter, minMaxMeter, hiddenValueLabel} from '../../../component-examples/MeterExamples';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -30,24 +30,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/meter',
+        storybookUrl: '/?path=/story/components-meter--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  storybookUrl="/?path=/story/components-meter--default"
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/meter"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Meter, MeterLabel, HelpText, useUID, Box}} language="jsx" noInline>
   {defaultMeter}
@@ -168,66 +159,3 @@ Use Help Text to offer additional information to contextualize or help the user 
     </Box>
   </Dont>
 </DoDont>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/core - or - yarn add @twilio-paste/meter
-```
-
-#### Usage
-
-```jsx
-import {Meter, MeterLabel} from '@twilio-paste/core/meter';
-import {HelpText} from '@twilio-paste/core/help-text'
-import {useUID} from '@twilio-paste/core/uid-library'
-
-const Component = () => {
-  const meterId = useUID();
-  const helpTextId = useUID(); // Help text is optional
-
-  return (
-    <>
-      <MeterLabel htmlFor={meterId} valueLabel="50%">Label</Label>
-      <Meter id={meterId} value={50} aria-describedby={helpTextId} />
-      <HelpText id={helpTextId}>Help text</HelpText>
-    </>
-  );
-};
-```
-
-#### Meter props
-
-| Prop              | Type     | Description                                                                                        | Default |
-| ----------------- | -------- | -------------------------------------------------------------------------------------------------- | ------- |
-| id                | `string` | Must provide an ID to match with a label                                                           |         |
-| aria-describedby? | `string` | Optional ID to pair the Meter to its help text                                                     |         |
-| aria-labelledby?  | `string` | Optional ID to pair the Meter to its label text (if not using a regular MeterLabel with `htmlFor`) |         |
-| aria-label?       | `string` | Label text of the Meter (if not using a regular MeterLabel with `htmlFor` or `aria-labelledby`)    |         |
-| minValue?         | `number` | Minimum value of the Meter                                                                         | 0       |
-| maxValue?         | `number` | Maximum valuae of the Meter                                                                        | 100     |
-| value?            | `number` | The current value                                                                                  | 0       |
-| minLabel?         | `string` | Label displayed for min value. Only shown when this prop is passed.                                |         |
-| maxLabel?         | `string` | Label displayed for max value. Only shown when this prop is passed.                                |         |
-| element?          | `string` | Overrides the default element name to apply unique styles with the Customization Provider          | 'METER' |
-
-#### MeterLabel props
-
-| Prop        | Type     | Description                                                                               | Default       |
-| ----------- | -------- | ----------------------------------------------------------------------------------------- | ------------- |
-| valueLabel? | `string` | Custom value label of the Meter                                                           |               |
-| children    | `string` | Label text                                                                                |               |
-| htmlFor     | `string` | Pass the id of the associated Meter                                                       |               |
-| element?    | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'METER_LABEL' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

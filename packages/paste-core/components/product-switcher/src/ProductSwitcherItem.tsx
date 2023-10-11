@@ -1,13 +1,41 @@
 import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
 import { MenuItemRadio } from "@twilio-paste/menu";
 import type { MenuItemRadioProps } from "@twilio-paste/menu";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
 export interface ProductSwitcherItemProps extends Omit<MenuItemRadioProps, "variant" | "children"> {
+  /**
+   * Name of the ProductSwitcherItem.
+   *
+   * @type {string}
+   * @memberof ProductSwitcherItemProps
+   */
   productName: string;
+  /**
+   * Subtext for the ProductSwitcherItem.
+   *
+   * @type {string}
+   * @memberof ProductSwitcherItemProps
+   */
   productStrapline: string;
+  /**
+   * Icon to use for the ProductSwitcherItem. Use a Paste Icon.
+   *
+   * @default 'PRODUCT_SWITCHER_ITEM'
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof ProductSwitcherItemProps
+   */
   productIcon: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'PRODUCT_SWITCHER_ITEM'
+   * @type {BoxProps['element']}
+   * @memberof ProductSwitcherItemProps
+   */
+  element?: BoxProps["element"];
 }
 
 const ProductSwitcherItem = React.forwardRef<HTMLDivElement, ProductSwitcherItemProps>(

@@ -7,6 +7,13 @@ import { MinimizableDialogContext } from "./MinimizableDialogContext";
 
 export interface MinimizableDialogContentProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MINIMIZABLE_DIALOG_CONTENT'
+   * @type {BoxProps['element']}
+   * @memberof MinimizableDialogContentProps
+   */
   element?: BoxProps["element"];
 }
 

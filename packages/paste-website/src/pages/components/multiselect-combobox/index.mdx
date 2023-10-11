@@ -2,7 +2,7 @@ export const meta = {
   title: 'Multiselect Combobox',
   package: '@twilio-paste/combobox',
   description:
-    'A multiselect combobox is a styled dropdown form element that allows users to select multiple values from a list.',
+    'A Multiselect Combobox is a styled dropdown form element that allows users to select multiple values from a list.',
   slug: '/components/multiselect-combobox/',
 };
 
@@ -40,10 +40,10 @@ import {
   stateHookExample,
 } from '../../../component-examples/MultiselectComboboxExamples';
 import packageJson from '@twilio-paste/combobox/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -53,28 +53,19 @@ export const getStaticProps = async () => {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'Multiselect Combobox',
+        descriptionOverride: 'A Multiselect Combobox is a styled dropdown form element that allows users to select multiple values from a list.'
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox/src/multiselect',
+        storybookUrl: '/?path=/story/components-combobox-multiselectcombobox--multiselect-combobox-basic',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox"
-  storybookUrl="/?path=/story/components-combobox-multiselectcombobox--multiselect-combobox-basic"
-  data={props.data}
-  name="Multiselect Combobox"
-  description="A Multiselect Combobox is a styled dropdown form element that allows users to select multiple values from a list."
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{MultiselectCombobox, Box, Text}} noInline language="jsx" showOverflow>
   {basicExample}
@@ -330,100 +321,3 @@ Use Help Text to show an inline error text beneath the combobox to explain how t
     body="Don’t use a Multiselect Combobox if there are less than 7 options in a list for users to select multiple values from. Use a Checkbox Group instead."
   />
 </DoDont>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/combobox - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {MultiselectCombobox} from '@twilio-paste/core/combobox';
-
-const items = [
-  'Alert',
-  'Anchor',
-  'Button',
-  'Card',
-  'Heading',
-  'List',
-  'Modal',
-  'Paragraph',
-  'Popover',
-  'Tooltip',
-];
-
-function getFilteredItems(inputValue) {
-  const lowerCasedInputValue = inputValue.toLowerCase();
-
-  return items.filter(function filterItems(item) {
-    return item.toLowerCase().includes(lowerCasedInputValue);
-  });
-}
-
-const MyComponent = () => (
-  const [inputValue, setInputValue] = React.useState('');
-  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
-
-  return (
-    <MultiselectCombobox
-      labelText="Choose a Paste Component"
-      selectedItemsLabelText="Selected Paste components"
-      items={filteredItems}
-      onInputValueChange={({inputValue: newInputValue = ''}) => {
-        setInputValue(newInputValue);
-      }}
-    />
-  );
-);
-```
-
-#### Component props
-
-| Prop                     | Type                                      | Description                                                                                        | Default                                                                   |
-| ------------------------ | ----------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `labelText`              | `string \| NonNullable<React.ReactNode>`  | The contents of the label text.                                                                    |                                                                           |
-| `selectedItemsLabelText` | `string`                                  | Hidden helper text for screen readers                                                              | `''`                                                                      |
-| `groupItemsBy?`          | `string`                                  | The name of the key in your item objects that you would like Combobox to group the items by.       |                                                                           |
-| `groupLabelTemplate?`    | `(groupName: string) => React.ReactNode`  | This function allows you to use your own `jsx` template for the group label in the drop-down list. |                                                                           |
-| `helpText?`              | `string \| React.ReactNode`               | The contents of the help and error text.                                                           |                                                                           |
-| `optionTemplate?`        | `(item: string \| {}) => React.ReactNode` | This function allows you to use your own `jsx` template for the items in the drop-down list.       |                                                                           |
-| `element?`               | `string`                                  | Overrides the default element name to apply unique styles with the Customization Provider          | `'MULTISELECT_COMBOBOX'`                                                  |
-| `variant?`               | `'default' \| 'inverse'`                  | The variant of the Combobox. Available variants are `default` or `inverse`.                        | `'default'`                                                               |
-| `disabled?`              | `boolean`                                 | Same as the HTML attribute                                                                         |                                                                           |
-| `hasError?`              | `boolean`                                 | Whether or not the Combobox has an error.                                                          | `false`                                                                   |
-| `required?`              | `boolean`                                 | Same as the HTML attribute                                                                         | `false`                                                                   |
-| `i18nKeyboardControls?`  | `string`                                  | Visually hidden string that has instructions for how to remove and select pills with a keyboard.   | `"Press Delete or Backspace to remove. Press Enter to toggle selection."` |
-| `maxHeight`              | `string`                                  | The maximum height of the Combobox listbox.                                                        |                                                                           |
-
-#### State props
-
-| Prop                        | Type                                    | Description                                                                                                                  | Default        |
-| --------------------------- | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `items`                     | `any[]`                                 | The items to be displayed in the Combobox listbox.                                                                           | `[]`           |
-| `itemToString?`             | `(item: any) => string`                 | A function that returns a string value that uniquely identifies each item in the items array.                                | `item => item` |
-| `inputValue?`               | `string`                                | Sets the value of the input inside the Combobox.                                                                             | `''`           |
-| `initialIsOpen?`            | `boolean`                               | Whether the Combobox is open on initial render.                                                                              | `false`        |
-| `initialSelectedItems?`     | `any[]`                                 | Sets the initial items selected when initialized.                                                                            | `[]`           |
-| `disabledItems?`            | `any[]`                                 | An array of items that should be disabled.                                                                                   | `[]`           |
-| `emptyState?`               | `React.FC`                              | A custom empty state component to render when there are no items in the list.                                                | `null`         |
-| `onSelectedItemsChange?`    | `(newSelectedItems: any[]) => void`     | Callback function for after an item is selected or deselected.                                                               |                |
-| `onHighlightedIndexChange?` | `(newHighlightedIndex: number) => void` | Callback function for after an item is highlighted. Items are highlighted if they are hovered over or with keyboard actions. |                |
-| `onInputValueChange?`       | `(newInputValue: string) => void`       | Callback function for after the input value is changed.                                                                      |                |
-| `onIsOpenChange?`           | `(newIsOpen: boolean) => void`          | Callback function for after the Combobox is opened or closed.                                                                |                |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

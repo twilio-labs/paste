@@ -12,6 +12,12 @@ import * as React from "react";
 export type MenuBadgeProps = MenuPrimitiveButtonProps &
   Omit<ButtonProps, "variant"> &
   Pick<BadgeProps, "variant"> & {
+    /**
+     * Accessible label for the button that opens the menu
+     *
+     * @type {string}
+     * @memberof MenuBadgeProps
+     */
     i18nButtonLabel: string;
   };
 

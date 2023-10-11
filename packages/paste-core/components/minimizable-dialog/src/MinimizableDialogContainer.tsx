@@ -11,7 +11,13 @@ export interface MinimizableDialogStateReturn extends NonModalDialogPrimitiveSta
   [key: string]: any;
 }
 
-interface UseMinimizableDialogStateArgs extends NonModalDialogPrimitivePopoverInitialState {
+export interface UseMinimizableDialogStateArgs extends NonModalDialogPrimitivePopoverInitialState {
+  /**
+   * Determines whether or not the dialog is minimized.
+   *
+   * @type {boolean}
+   * @memberof UseMinimizableDialogStateArgs
+   */
   minimized?: boolean;
 }
 
@@ -31,7 +37,18 @@ export const useMinimizableDialogState = ({
 
 export interface MinimizableDialogContainerProps extends NonModalDialogPrimitivePopoverInitialState {
   children: NonNullable<React.ReactNode>;
+  /**
+   *
+   * @type {MinimizableDialogStateReturn}
+   * @memberof MinimizableDialogContainerProps
+   */
   state?: MinimizableDialogStateReturn;
+  /**
+   * Determines whether or not the dialog is minimized.
+   *
+   * @type {boolean}
+   * @memberof MinimizableDialogContainerProps
+   */
   minimized?: boolean;
 }
 

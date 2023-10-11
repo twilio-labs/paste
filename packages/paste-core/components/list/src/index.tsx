@@ -1,5 +1,5 @@
-export * from "./List";
-export * from "./ListItem";
-export * from "./OrderedList";
-export * from "./UnorderedList";
-export * from "./types";
+export { List } from "./List";
+export { ListItem } from "./ListItem";
+export { OrderedList } from "./OrderedList";
+export { UnorderedList } from "./UnorderedList";
+export type { ListItemProps, OrderedListProps, UnorderedListProps } from "./types";

@@ -1,2 +1,4 @@
-export * from "./Label";
-export * from "./RequiredDot";
+export { Label } from "./Label";
+export type { LabelVariants, LabelProps } from "./Label";
+export { RequiredDot } from "./RequiredDot";
+export type { RequiredDotProps } from "./RequiredDot";

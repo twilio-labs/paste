@@ -7,10 +7,30 @@ export type ButtonBadgeProps = BadgeBaseProps &
     onClick?: BadgeButtonProps["onClick"];
   };
 
-type PopoverButtonBaseProps = Pick<BoxProps, "element"> & {
+type PopoverButtonBaseProps = {
   id?: string;
   toggle?: () => void;
 };
 
-export type PopoverButtonProps = PopoverButtonBaseProps & Omit<ButtonProps, "as">;
-export type PopoverBadgeButtonProps = PopoverButtonBaseProps & Omit<ButtonBadgeProps, "as">;
+export type PopoverButtonProps = PopoverButtonBaseProps &
+  Omit<ButtonProps, "as"> & {
+    /**
+     * Overrides the default element name to apply unique styles with the Customization Provider
+     *
+     * @default 'POPOVER_BUTTON'
+     * @type {BoxProps['element']}
+     * @memberof PopoverButtonProps
+     */
+    element?: BoxProps["element"];
+  };
+export type PopoverBadgeButtonProps = PopoverButtonBaseProps &
+  Omit<ButtonBadgeProps, "as"> & {
+    /**
+     * Overrides the default element name to apply unique styles with the Customization Provider
+     *
+     * @default 'POPOVER_BADGE'
+     * @type {BoxProps['element']}
+     * @memberof PopoverBadgeButtonProps
+     */
+    element?: BoxProps["element"];
+  };

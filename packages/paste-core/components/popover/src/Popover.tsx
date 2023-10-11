@@ -6,6 +6,7 @@ import { NonModalDialogPrimitive } from "@twilio-paste/non-modal-dialog-primitiv
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import type { ResponsiveValue } from "@twilio-paste/styling-library";
 import { StyledBase } from "@twilio-paste/theme";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { PopoverArrow } from "./PopoverArrow";
@@ -35,12 +36,44 @@ StyledPopover.displayName = "StyledPopover";
 
 type WidthOptions = "size10" | "size20" | "size30" | "size40" | "size50";
 
-export interface PopoverProps extends Pick<BoxProps, "element"> {
+export interface PopoverProps extends HTMLPasteProps<"div"> {
+  /**
+   * Required label for this Popover component. Titles the entire popover context for screen readers.
+   *
+   * @type {string}
+   * @memberof PopoverProps
+   */
   "aria-label": string;
   children: React.ReactNode;
+  /**
+   * Accessible label for the dismiss button in the Popover.
+   *
+   * @default 'Close popover'
+   * @type {string}
+   * @memberof PopoverProps
+   */
   i18nDismissLabel?: string;
+  /**
+   *
+   * @type {ResponsiveValue<WidthOptions>}
+   * @memberof PopoverProps
+   */
   width?: ResponsiveValue<WidthOptions>;
+  /**
+   * A ref to an interactive element that recieves focus when the Popover opens.
+   *
+   * @type {React.RefObject<any>}
+   * @memberof PopoverProps
+   */
   initialFocusRef?: React.RefObject<any>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'POPOVER'
+   * @type {BoxProps['element']}
+   * @memberof PopoverProps
+   */
+  element?: BoxProps["element"];
 }
 
 const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(

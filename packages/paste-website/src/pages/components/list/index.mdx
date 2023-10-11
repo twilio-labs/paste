@@ -14,10 +14,10 @@ import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/list/CHANGELOG.md';
 import packageJson from '@twilio-paste/list/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -29,24 +29,16 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/list',
+        storybookUrl: '/?path=/story/components-list--unordered-list',
+      },
     },
   };
 };
 
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/list"
-  storybookUrl="/?path=/story/components-list--unordered-list"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{UnorderedList, ListItem}} language="jsx">
   {`<UnorderedList>
@@ -283,65 +275,3 @@ Avoid listing very long lists. Where possible, make a big list into smaller ones
     </Box>
   </Dont>
 </DoDont>
-
-## Anatomy
-
-| Property      | Default token      | Modifiable? |
-| ------------- | ------------------ | ----------- |
-| font-size     | font-size-30       | No          |
-| line-height   | line-height-30     | No          |
-| font-weight   | font-weight-normal | No          |
-| margin-top    | null               | Yes         |
-| margin-bottom | space-70           | Yes         |
-| color         | color-text         | No          |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/list - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/core/list';
-
-const Component = () => (
-  <UnorderedList>
-    <ListItem>Point one</ListItem>
-    <ListItem>Point two</ListItem>
-    <ListItem>Point three</ListItem>
-  </UnorderedList>
-);
-
-const Component = () => (
-  <OrderedList>
-    <ListItem>Point one</ListItem>
-    <ListItem>Point two</ListItem>
-    <ListItem>Point three</ListItem>
-  </OrderedList>
-);
-```
-
-#### Props
-
-| Prop          | Type                                         | Description                                                                               | Default   |
-| ------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
-| children?     | `ReactNode`                                  |                                                                                           | null      |
-| marginTop?    | `ResponsiveValue<keyof ThemeShape['space']>` |                                                                                           | null      |
-| marginBottom? | `ResponsiveValue<keyof ThemeShape['space']>` |                                                                                           | 'space70' |
-| element?      | `string`                                     | Overrides the default element name to apply unique styles with the Customization Provider | 'LIST'    |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

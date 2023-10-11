@@ -22,10 +22,10 @@ import {Blockquote} from '../../../components/Blockquote';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/input/CHANGELOG.md';
 import packageJson from '@twilio-paste/input/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -37,24 +37,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input',
+        storybookUrl: '/?path=/story/components-input--default-input',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input"
-  storybookUrl="/?path=/story/components-input--default-input"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -510,64 +501,3 @@ For additional guidance on how to compose error messages, refer to the [error st
     </Box>
   </Dont>
 </DoDont>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/input - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-const Component = () => (
-  <>
-    <Label htmlFor="foo" required>
-      foo
-    </Label>
-    <Input aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
-    <HelpText id="foo_text">Please enter some text</HelpText>
-  </>
-);
-```
-
-#### Input props
-
-All the valid HTML attributes for `input` are supported including the following props:
-
-| Prop               | Type                                                                    | Description                                                                                                       | Default           |
-| ------------------ | ----------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ----------------- |
-| id?                | string                                                                  | Sets the id of the input. Should match the htmlFor of `Label`.                                                    | null              |
-| type               | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'url' | Sets the type of the input. Required.                                                                             | null              |
-| name?              | string                                                                  | Sets the name of the input.                                                                                       | null              |
-| value?             | string                                                                  | Sets the value of the input.                                                                                      | null              |
-| placeholder?       | string                                                                  | Sets the placeholder of the input.                                                                                | null              |
-| disabled?          | boolean                                                                 | Disables the input.                                                                                               | false             |
-| readOnly?          | boolean                                                                 | Sets the input to readonly.                                                                                       | false             |
-| required?          | boolean                                                                 | Sets the input as required.                                                                                       | false             |
-| hasError?          | boolean                                                                 | Sets the input to an error state.                                                                                 | false             |
-| onChange?          | `(event: React.MouseEvent<HTMLElement>)`                                |                                                                                                                   | null              |
-| onFocus?           | `(event: React.MouseEvent<HTMLElement>)`                                |                                                                                                                   | null              |
-| onBlur?            | `(event: React.MouseEvent<HTMLElement>)`                                |                                                                                                                   | null              |
-| variant?           | 'default', 'inverse'                                                    |                                                                                                                   | 'default'         |
-| element?           | `string`                                                                | Overrides the default element name to apply unique styles with the Customization Provider                         | 'INPUT'           |
-| i18nStepUpLabel?   | `string`                                                                | Provides an accessible label for the increment button on inputs of type "number" when using non-English languages | 'step value up'   |
-| i18nStepDownLabel? | `string`                                                                | Provides an accessible label for the decrement button on inputs of type "number" when using non-English languages | 'step value down' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -15,10 +15,10 @@ import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import Changelog from '@twilio-paste/inline-code/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import packageJson from '@twilio-paste/inline-code/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -30,25 +30,16 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: "https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/inline-code/",
+        storybookUrl: "/?path=/story/components-inline-code--default"
+      },
     },
   };
 };
 
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/inline-code/"
-  storybookUrl="/?path=/story/components-inline-code--default"
-  description={meta.description}
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
   <LivePreview scope={{InlineCode}} language="jsx">
     {`<InlineCode>
     console.log(mySustainabilityGoals)
@@ -85,42 +76,3 @@ Inline Code is also commonly used standalone for key pieces of code text, such a
     </Stack>
 `}
 </LivePreview>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/inline-code - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {InlineCode} from '@twilio-paste/inline-code';
-
-const ExampleInlineCode = () => <InlineCode>console.log(mySustainabilityGoals)</InlineCode>;
-```
-
-#### Props
-
-| Prop     | Type     | Description                                                                               | Default       |
-| -------- | -------- | ----------------------------------------------------------------------------------------- | ------------- |
-| children | `string` | text to display inline as code                                                            |               |
-| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'INLINE_CODE' |
-
-### Figma
-
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="span">Figma usage guidelines coming soon</CalloutHeading>
-</Callout>
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

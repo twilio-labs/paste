@@ -7,7 +7,16 @@ import * as React from "react";
 
 import { StyledMenuItem } from "./MenuItem.styles";
 
-export type SubMenuButtonProps = MenuPrimitiveButtonProps & { element?: BoxElementProps["element"] };
+export type SubMenuButtonProps = MenuPrimitiveButtonProps & {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default '"SUBMENU_BUTTON"
+   * @type {BoxProps['element']}
+   * @memberof SubMenuButtonProps
+   */
+  element?: BoxElementProps["element"];
+};
 
 const SubMenuButton = React.forwardRef<HTMLButtonElement, SubMenuButtonProps>(
   ({ element = "SUBMENU_BUTTON", ...props }, ref) => {

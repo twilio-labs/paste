@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Menu - Components',
+  package: '@twilio-paste/menu',
+  description: 'A menu presents a list of menu items that a user can choose to perform an action with.',
+  slug: '/components/menu/changelog',
+};
+
+import Changelog from '@twilio-paste/menu/CHANGELOG.md';
+import packageJson from '@twilio-paste/menu/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Menu');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/menu',
+        storybookUrl: '/?path=/story/components-menu--default',
+      },
+    },
+  };
+};
+
+<Changelog />

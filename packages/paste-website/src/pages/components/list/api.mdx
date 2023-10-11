@@ -1,0 +1,69 @@
+export const meta = {
+  title: 'List',
+  package: '@twilio-paste/list',
+  description: 'The list component is used to render text as a list of items.',
+  slug: '/components/list/api',
+};
+
+import Changelog from '@twilio-paste/list/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/list/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('List');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/list');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/list',
+        storybookUrl: '/?path=/story/components-list--unordered-list',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/list - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/core/list';
+
+const Component = () => (
+  <UnorderedList>
+    <ListItem>Point one</ListItem>
+    <ListItem>Point two</ListItem>
+    <ListItem>Point three</ListItem>
+  </UnorderedList>
+);
+
+const Component = () => (
+  <OrderedList>
+    <ListItem>Point one</ListItem>
+    <ListItem>Point two</ListItem>
+    <ListItem>Point three</ListItem>
+  </OrderedList>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

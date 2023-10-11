@@ -11,10 +11,10 @@ import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navi
 import {SidebarCategoryRoutes} from '../../../constants';
 import {basicExample, fullWidthExample} from '../../../component-examples/InPageNavigationExamples';
 import packageJson from '@twilio-paste/in-page-navigation/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -26,24 +26,16 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/in-page-navigation',
+        storybookUrl: '/?path=/story/components-in-page-navigation--default',
+      },
     },
   };
 };
 
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/in-page-navigation"
-  storybookUrl="/?path=/story/components-in-page-navigation--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -99,60 +91,3 @@ Full width In Page Navigation allows the component to expand and fit the width o
 >
   {fullWidthExample}
 </LivePreview>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/in-page-navigation - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/core/in-page-navigation';
-
-const InPageNavigationExample: React.FC = () => {
-  return (
-    <InPageNavigation aria-label="my-nav">
-      <InPageNavigationItem href="#">Home</InPageNavigationItem>
-      <InPageNavigationItem href="#" currentPage>
-        About
-      </InPageNavigationItem>
-    </InPageNavigation>
-  );
-};
-```
-
-#### InPageNavigation Props
-
-| Prop         | Type                                               | Description                                                                               | Default              |
-| ------------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------- |
-| aria-label   | `string`                                           | Unique label for the InPageNavigation                                                     | null                 |
-| children     | `ReactNode`                                        | InPageNavigationItem                                                                      | null                 |
-| marginBottom | `string`                                           | Allows removal of bottom margin by setting `space0`                                       | null                 |
-| variant?     | `'fullWidth' \| 'inverse' \| 'inverse_fullWidth' ` | InPageNavigation variant                                                                  | null                 |
-| element?     | `string`                                           | Overrides the default element name to apply unique styles with the Customization Provider | 'IN_PAGE_NAVIGATION' |
-
-#### InPageNavigationItem Props
-
-| Prop         | Type        | Description                                                                               | Default                   |
-| ------------ | ----------- | ----------------------------------------------------------------------------------------- | ------------------------- |
-| children     | `ReactNode` | Rendered text for the InPageNavigationItem                                                | null                      |
-| currentPage? | `boolean`   | Sets the InPageNavigationItem as the current page and adds `aria-current="page"`          | false                     |
-| href         | string      | A URL to route to. Required.                                                              | null                      |
-| rel?         | any         | Sets the anchor rel attribute.                                                            | null                      |
-| element?     | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'IN_PAGE_NAVIGATION_ITEM' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

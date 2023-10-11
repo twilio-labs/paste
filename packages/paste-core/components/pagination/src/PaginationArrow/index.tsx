@@ -12,7 +12,8 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
       element = "PAGINATION_ARROW",
       disabled,
       href,
-      isHovered,
+      isHovered = false,
+      isFocused = false,
       label,
       variant = "back",
       visibleLabel,
@@ -20,8 +21,8 @@ const PaginationArrow = React.forwardRef<HTMLButtonElement, PaginationArrowProps
     },
     ref,
   ) => {
-    const [hovered, setHovered] = React.useState(false);
-    const [focused, setFocused] = React.useState(false);
+    const [hovered, setHovered] = React.useState(isHovered);
+    const [focused, setFocused] = React.useState(isFocused);
     handleLinkValidation({ as, href });
     return variant === "back" ? (
       <PaginationBackArrow

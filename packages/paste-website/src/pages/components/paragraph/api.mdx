@@ -1,0 +1,65 @@
+export const meta = {
+  title: 'Paragraph',
+  package: '@twilio-paste/paragraph',
+  description:
+    'The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.',
+  slug: '/components/paragraph/api',
+};
+
+import Changelog from '@twilio-paste/paragraph/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/paragraph/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Paragraph');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/paragraph');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: '/?path=/story/components-alert--neutral',
+        storybookUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/paragraph - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Paragraph} from '@twilio-paste/core/paragraph';
+
+const Component = () => (
+  <Paragraph>
+    We have inherited a fear of memories of slavery. It is as if to remember and acknowledge slavery would amount to our
+    being consumed by it. As a matter of fact, in the popular black imagination, it is easier for us to construct
+    ourselves as children of Africa, as the sons and daughters of kings and queens, and thereby ignore the Middle
+    Passage and centuries of enforced servitude in the Americas. Although some of us might indeed be the descendants of
+    African royalty, most of us are probably descendants of their subjects, the daughters and sons of African peasants
+    or workers.
+  </Paragraph>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

@@ -23,11 +23,11 @@ import {
   i18nExample,
 } from '../../../component-examples/ProgressStepsExamples';
 import {SidebarCategoryRoutes} from '../../../constants';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -39,24 +39,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/progress-steps',
+        storybookUrl: '/?path=/story/components-progress-steps-horizontal--divs',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/progress-steps"
-  storybookUrl="/?path=/story/components-progress-steps-horizontal--divs"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -287,118 +278,3 @@ Check out the [Error state pattern](/patterns/error-state) for more guidance.
     body="Don’t embed a Progress Steps component within a task that’s already being tracked with another Progress Steps component. Don’t use multiple Progress Steps per page."
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/progress-steps - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  ProgressSteps,
-  ProgressStepIncomplete,
-  ProgressStepComplete,
-  ProgressStepCurrent,
-  ProgressStepError,
-  ProgressStepSeparator,
-} from '@twilio-paste/core/progress-steps';
-
-const PopoverExample: React.FC = () => {
-  return (
-    <ProgressSteps>
-      <ProgressStepComplete as="button" onClick={() => {}}>
-        Sign up
-      </ProgressStepComplete>
-      <ProgressStepSeparator />
-      <ProgressStepError as="button" onClick={() => {}}>
-        Validate email
-      </ProgressStepError>
-      <ProgressStepSeparator />
-      <ProgressStepCurrent as="button" onClick={() => {}}>
-        Complete profile
-      </ProgressStepCurrent>
-      <ProgressStepSeparator />
-      <ProgressStepIncomplete as="button" onClick={() => {}}>
-        Add friends
-      </ProgressStepIncomplete>
-      <ProgressStepSeparator />
-      <ProgressStepIncomplete as="button" onClick={() => {}} disabled>
-        Start event
-      </ProgressStepIncomplete>
-    </ProgressSteps>
-  );
-};
-```
-
-#### Props
-
-##### ProgressSteps
-
-| Prop         | Type                         | Description                                                                               | Default          |
-| ------------ | ---------------------------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| orientation? | `'horizontal' \| 'vertical'` | Sets the orientation for the progress steps component.                                    | 'horizontal'     |
-| element?     | `string`                     | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS' |
-
-##### ProgressStepsSeparator
-
-| Prop     | Type     | Description                                                                               | Default                   |
-| -------- | -------- | ----------------------------------------------------------------------------------------- | ------------------------- |
-| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEP_SEPARATOR' |
-
-##### ProgressStepComplete
-
-| Prop               | Type                   | Description                                                                               | Default                   |
-| ------------------ | ---------------------- | ----------------------------------------------------------------------------------------- | ------------------------- |
-| as                 | `'div', 'button', 'a'` | Sets the HTML element to render the component as.                                         | 'div'                     |
-| href?              | `string`               | Sets the URL for the anchor tag. Only used when `as` is set to `a`.                       | undefined                 |
-| onClick?           | `() => void`           | Sets the onClick for the button tag. Only used when `as` is set to `button`.              | undefined                 |
-| i18nCompleteLabel? | `string`               | Sets the title for the complete step icon.                                                | 'Completed'               |
-| element?           | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS_COMPLETE' |
-
-##### ProgressStepCurrent
-
-| Prop              | Type                   | Description                                                                               | Default                  |
-| ----------------- | ---------------------- | ----------------------------------------------------------------------------------------- | ------------------------ |
-| as                | `'div', 'button', 'a'` | Sets the HTML element to render the component as.                                         | 'div'                    |
-| href?             | `string`               | Sets the URL for the anchor tag. Only used when `as` is set to `a`.                       | undefined                |
-| onClick?          | `() => void`           | Sets the onClick for the button tag. Only used when `as` is set to `button`.              | undefined                |
-| i18nCurrentLabel? | `string`               | Sets the title for the complete step icon.                                                | 'Current'                |
-| element?          | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS_CURRENT' |
-
-##### ProgressStepError
-
-| Prop            | Type                   | Description                                                                               | Default                |
-| --------------- | ---------------------- | ----------------------------------------------------------------------------------------- | ---------------------- |
-| as              | `'div', 'button', 'a'` | Sets the HTML element to render the component as.                                         | 'div'                  |
-| href?           | `string`               | Sets the URL for the anchor tag. Only used when `as` is set to `a`.                       | undefined              |
-| onClick?        | `() => void`           | Sets the onClick for the button tag. Only used when `as` is set to `button`.              | undefined              |
-| i18nErrorLabel? | `string`               | Sets the title for the complete step icon.                                                | 'Error'                |
-| element?        | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS_ERROR' |
-
-##### ProgressStepIncomplete
-
-| Prop                 | Type                   | Description                                                                               | Default                     |
-| -------------------- | ---------------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
-| as                   | `'div', 'button', 'a'` | Sets the HTML element to render the component as.                                         | 'div'                       |
-| href?                | `string`               | Sets the URL for the anchor tag. Only used when `as` is set to `a`.                       | undefined                   |
-| onClick?             | `() => void`           | Sets the onClick for the button tag. Only used when `as` is set to `button`.              | undefined                   |
-| i18nIncompleteLabel? | `string`               | Sets the title for the complete step icon.                                                | 'Incomplete'                |
-| disabled?            | `boolean`              | Sets the disabled state for the button tag. Only used when `as` is set to `button`.       | undefined                   |
-| element?             | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'PROGRESS_STEPS_INCOMPLETE' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

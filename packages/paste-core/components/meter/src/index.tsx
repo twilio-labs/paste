@@ -1,2 +1,4 @@
-export * from "./Meter";
-export * from "./MeterLabel";
+export { Meter } from "./Meter";
+export type { MeterProps } from "./Meter";
+export { MeterLabel } from "./MeterLabel";
+export type { MeterLabelProps } from "./MeterLabel";
