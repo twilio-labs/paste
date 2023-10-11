@@ -40,7 +40,7 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"inline\" | \"list\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -152,7 +152,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"\n  | \"grid\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -476,7 +476,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -1560,10 +1560,11 @@
       "externalProp": true
     },
     "role": {
-      "type": "AriaRole",
-      "defaultValue": null,
+      "type": "\"treegrid\"",
+      "defaultValue": "grid",
       "required": false,
-      "externalProp": true
+      "externalProp": false,
+      "description": "If creating a treegrid, set this to \"treegrid\" to override the default role of \"grid\""
     },
     "rules": {
       "type": "\"none\" | \"groups\" | \"rows\" | \"columns\" | \"all\"",
@@ -1706,7 +1707,7 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"inline\" | \"list\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -1818,7 +1819,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"\n  | \"grid\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -2119,7 +2120,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -3303,7 +3304,7 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"inline\" | \"list\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -3415,7 +3416,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"\n  | \"grid\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -3716,7 +3717,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -4918,7 +4919,7 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"inline\" | \"list\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -5030,7 +5031,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"\n  | \"grid\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -5343,7 +5344,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -6546,7 +6547,7 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"inline\" | \"list\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -6658,7 +6659,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"\n  | \"grid\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -7028,7 +7029,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -8217,7 +8218,7 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"inline\" | \"list\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -8329,7 +8330,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"\n  | \"grid\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -8630,7 +8631,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -9812,7 +9813,7 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"inline\" | \"list\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -9924,7 +9925,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"\n  | \"grid\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -10244,7 +10245,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -11440,7 +11441,7 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"none\" | \"list\" | \"inline\" | \"both\"",
+      "type": "\"none\" | \"inline\" | \"list\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -11552,7 +11553,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"\n  | \"grid\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -11853,7 +11854,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"search\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
+      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
