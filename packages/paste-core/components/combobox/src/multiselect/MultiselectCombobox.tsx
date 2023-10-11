@@ -32,6 +32,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
       initialSelectedItems = [],
       disabledItems,
       inputValue,
+      placeholder,
       insertAfter,
       insertBefore,
       items,
@@ -355,6 +356,7 @@ export const MultiselectCombobox = React.forwardRef<HTMLInputElement, Multiselec
                 disabled,
                 onKeyDown: handleKeyDown,
               })}
+              placeholder={selectedItems.length === 0 ? placeholder : ""}
               aria-describedby={helpTextId}
               element={`${element}_ELEMENT`}
             />
