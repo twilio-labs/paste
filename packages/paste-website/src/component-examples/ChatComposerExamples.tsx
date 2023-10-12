@@ -213,7 +213,7 @@ export const ChatDialogExample = `const ChatDialog = () => {
 
   return (
     <Box>
-      <Box ref={scrollerRef} overflowX="hidden" overflowY="scroll" maxHeight="size50" tabIndex={0}>
+      <Box ref={scrollerRef} overflowX="hidden" overflowY="auto" maxHeight="size50" tabIndex={0}>
         <ChatLogger ref={loggerRef} chats={chats} />
       </Box>
       <Box
