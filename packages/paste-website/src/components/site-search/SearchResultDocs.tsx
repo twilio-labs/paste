@@ -50,19 +50,15 @@ export const SearchResultDocs: React.FC<{ searchItem: SearchItem }> = ({ searchI
       href={`${searchItem.meta.slug}#${searchItem.slug}`}
       paddingY="space30"
       paddingX="space40"
+      borderRadius="borderRadius30"
       outline="none"
-      borderLeftWidth="borderWidth20"
-      borderLeftStyle="solid"
-      borderLeftColor="transparent"
       _hover={{
         color: "colorTextPrimary",
         backgroundColor: "colorBackgroundPrimaryWeakest",
-        borderColor: "colorBorderPrimary",
       }}
       _focus={{
         color: "colorTextPrimary",
         backgroundColor: "colorBackgroundPrimaryWeakest",
-        borderColor: "colorBorderPrimary",
       }}
     >
       <Markdown

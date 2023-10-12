@@ -29,8 +29,8 @@ const DiscussionHeading: React.FC<{ title: string; path: string }> = ({ title, p
         padding="space20"
       >
         <Box as="span" display="flex" alignItems="center" columnGap="space40">
-          <Box size="sizeIcon30" color="colorTextIcon">
-            <GithubIcon decorative={true} size={30} />
+          <Box size="sizeIcon40" color="colorTextIcon">
+            <GithubIcon decorative={true} />
           </Box>
           {title}
         </Box>
@@ -39,12 +39,28 @@ const DiscussionHeading: React.FC<{ title: string; path: string }> = ({ title, p
   );
 };
 
-const DocumentationHeading: React.FC<{ title: string }> = ({ title }) => {
+const DocumentationHeading: React.FC<{ title: string; slug: string }> = ({ title, slug }) => {
   return (
-    <Heading as="h2" variant="heading40" marginBottom="space0">
+    <Heading as="h2" variant="heading40">
       <Box as="span" display="flex" alignItems="center" columnGap="space40">
-        <DocumentationIcon decorative={true} color="colorTextIcon" size="sizeIcon40" />
-        {title}
+        <DocumentationIcon decorative={true} color="colorTextIcon" size="sizeIcon60" />
+        <Box display="flex" flexDirection="column">
+          <Box fontWeight="fontWeightMedium" color="colorTextWeak" fontSize="fontSize20" lineHeight="lineHeight10">
+            {sentenceCase(slug.split("/")[1])}
+          </Box>
+          <Box
+            // @ts-expect-error its fine
+            as={Link}
+            href={slug}
+            color="colorText"
+            _hover={{ color: "colorTextPrimary", textDecoration: "none" }}
+            _focus={{ boxShadow: "shadowFocus", textDecoration: "none" }}
+            borderRadius="borderRadius20"
+            outline="none"
+          >
+            {title}
+          </Box>
+        </Box>
       </Box>
     </Heading>
   );
@@ -70,20 +86,15 @@ const SearchResultsList: React.FC<SearchResultsProps> = ({ results }) => {
             {resultType === "github-discussions" ? (
               <DiscussionHeading path={resultParent.path} title={resultParent.title} />
             ) : (
-              <DocumentationHeading title={resultParent.title} />
+              <DocumentationHeading title={resultParent.title} slug={resultParent.slug} />
             )}
             {resultParent.description && (
-              <Box fontSize="fontSize30" lineHeight="lineHeight20" marginY="space20">
+              <Box fontSize="fontSize30" lineHeight="lineHeight20" marginY="space40">
                 {resultParent.description}
               </Box>
             )}
-            {resultParent.slug && (
-              <Box fontWeight="fontWeightMedium" color="colorTextWeak" fontSize="fontSize20" marginBottom="space50">
-                {sentenceCase(resultParent.slug.split("/")[1])}
-              </Box>
-            )}
             {resultType === "markdown" && (
-              <Box paddingX="space40" marginLeft="space40">
+              <Box paddingX="space40" marginLeft="space50">
                 <Box as="ul" display="flex" flexDirection="column" rowGap="space30" padding="space0" margin="space0">
                   {resultSections.map((result) => {
                     return (
