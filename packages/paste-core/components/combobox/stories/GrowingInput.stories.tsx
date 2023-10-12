@@ -14,7 +14,7 @@ export const GrowingInputDemo: StoryFn = () => {
       <Label htmlFor={id}>Type in here:</Label>
       <Box display="flex" alignItems="center">
         <span> -&gt; </span>
-        <GrowingInput id={id} />
+        <GrowingInput id={id} placeholder="Long placeholder text with extra   long spaces    ." />
         <span> &lt;- </span>
       </Box>
     </>
