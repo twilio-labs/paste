@@ -73,15 +73,9 @@ export const LinkOverflowExample: StoryFn = () => {
   return (
     <InPageNavigation aria-label={`get started ${useUID()}`} orientation="vertical">
       <InPageNavigationItem href="#" currentPage>
-        Super SIM
+        Super SIMSuper SIMSuper SIM - Telephony Overflow Please Work
       </InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wireless</InPageNavigationItem>
-      <InPageNavigationItem href="#">Super Duper SIM</InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wirefull</InPageNavigationItem>
-      <InPageNavigationItem href="#">Super SIM</InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wireless</InPageNavigationItem>
-      <InPageNavigationItem href="#">Super Duper SIM</InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wirefull</InPageNavigationItem>
+      <InPageNavigationItem href="#">Programmable Wireless Telephony Overflow Please Work</InPageNavigationItem>
     </InPageNavigation>
   );
 };
