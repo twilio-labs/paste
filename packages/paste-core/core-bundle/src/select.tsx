@@ -1,1 +1,1 @@
-export * from '@twilio-paste/select';
+export * from "@twilio-paste/select";

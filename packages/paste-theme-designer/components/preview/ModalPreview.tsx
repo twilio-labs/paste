@@ -1,13 +1,13 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/core/uid-library';
-import {Button} from '@twilio-paste/core/button';
-import {Label} from '@twilio-paste/core/label';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/core/modal';
-import {Paragraph} from '@twilio-paste/core/paragraph';
-import {Select, Option} from '@twilio-paste/core/select';
+import { Button } from "@twilio-paste/core/button";
+import { Label } from "@twilio-paste/core/label";
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/core/modal";
+import { Paragraph } from "@twilio-paste/core/paragraph";
+import { Option, Select } from "@twilio-paste/core/select";
+import { useUID } from "@twilio-paste/core/uid-library";
+import * as React from "react";
 
 const ModalPreview = (): JSX.Element => {
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState("");
   const [isOpen, setIsOpen] = React.useState(false);
   const handleOpen = (): void => setIsOpen(true);
   const handleClose = (): void => setIsOpen(false);
@@ -62,4 +62,4 @@ const ModalPreview = (): JSX.Element => {
   );
 };
 
-export {ModalPreview};
+export { ModalPreview };

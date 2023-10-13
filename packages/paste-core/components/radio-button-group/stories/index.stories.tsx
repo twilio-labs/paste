@@ -1,22 +1,22 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {RadioButton, RadioButtonGroup} from '../src';
-import type {RadioButtonGroupProps} from '../src';
+import { RadioButton, RadioButtonGroup } from "../src";
+import type { RadioButtonGroupProps } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/RadioButtonGroup',
+  title: "Components/RadioButtonGroup",
   component: RadioButtonGroup,
-  subcomponents: {RadioButton},
+  subcomponents: { RadioButton },
 };
 
-type RadioButtonGroupStoryProps = Partial<Omit<RadioButtonGroupProps, 'children'>>;
+type RadioButtonGroupStoryProps = Partial<Omit<RadioButtonGroupProps, "children">>;
 
 export const Attached: StoryFn<RadioButtonGroupStoryProps> = (props) => (
   <RadioButtonGroup
@@ -106,7 +106,7 @@ export const ManyRadioButtons: StoryFn = () => (
     helpText="Help text should go here."
     attached
   >
-    {[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'].map((letter) => (
+    {[..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"].map((letter) => (
       <RadioButton key={letter} value={letter}>
         {letter}
       </RadioButton>
@@ -218,7 +218,7 @@ export const Uncontrolled: StoryFn = () => {
 };
 
 export const Controlled: StoryFn = () => {
-  const [value, setValue] = React.useState('2');
+  const [value, setValue] = React.useState("2");
   return (
     <RadioButtonGroup
       name="foo"
@@ -232,9 +232,9 @@ export const Controlled: StoryFn = () => {
       <RadioButton
         id={useUID()}
         value="1"
-        checked={value === '1'}
+        checked={value === "1"}
         onChange={() => {
-          setValue('1');
+          setValue("1");
         }}
       >
         First
@@ -242,9 +242,9 @@ export const Controlled: StoryFn = () => {
       <RadioButton
         id={useUID()}
         value="2"
-        checked={value === '2'}
+        checked={value === "2"}
         onChange={() => {
-          setValue('2');
+          setValue("2");
         }}
       >
         Second
@@ -252,9 +252,9 @@ export const Controlled: StoryFn = () => {
       <RadioButton
         id={useUID()}
         value="3"
-        checked={value === '3'}
+        checked={value === "3"}
         onChange={() => {
-          setValue('3');
+          setValue("3");
         }}
       >
         Third
@@ -270,9 +270,9 @@ export const Customized: StoryFn = () => {
       theme={currentTheme}
       elements={{
         RADIO_BUTTON_GROUP: {
-          padding: 'space40',
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderRadius: 'borderRadius30',
+          padding: "space40",
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderRadius: "borderRadius30",
         },
       }}
     >

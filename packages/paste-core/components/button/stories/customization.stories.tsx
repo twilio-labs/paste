@@ -1,33 +1,33 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Stack} from '@twilio-paste/stack';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import type { StoryFn } from "@storybook/react";
+import type { BoxElementProps } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import type { PasteCustomCSS } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {Button} from '../src';
-import type {ButtonVariants} from '../src/types';
+import { Button } from "../src";
+import type { ButtonVariants } from "../src/types";
 
 const customButtonStyles = {
-  backgroundColor: 'colorBackgroundBrand',
-  borderRadius: 'borderRadius0',
-  borderWidth: 'borderWidth40',
-  borderColor: 'colorBorderError',
-  fontWeight: 'fontWeightLight',
+  backgroundColor: "colorBackgroundBrand",
+  borderRadius: "borderRadius0",
+  borderWidth: "borderWidth40",
+  borderColor: "colorBorderError",
+  fontWeight: "fontWeightLight",
   variants: {
-    secondary: {backgroundColor: 'colorBackgroundNew'},
-    destructive: {backgroundColor: 'colorBackgroundDestructiveStrongest', color: 'colorTextWeakest'},
-    destructive_secondary: {backgroundColor: 'colorBackgroundNeutralWeakest', color: 'colorTextWarningStrong'},
-    link: {padding: 'space40', borderRadius: 'borderRadiusCircle', backgroundColor: 'colorBackgroundNeutralWeakest'},
+    secondary: { backgroundColor: "colorBackgroundNew" },
+    destructive: { backgroundColor: "colorBackgroundDestructiveStrongest", color: "colorTextWeakest" },
+    destructive_secondary: { backgroundColor: "colorBackgroundNeutralWeakest", color: "colorTextWarningStrong" },
+    link: { padding: "space40", borderRadius: "borderRadiusCircle", backgroundColor: "colorBackgroundNeutralWeakest" },
     destructive_link: {
-      padding: 'space40',
-      borderRadius: 'borderRadiusCircle',
-      backgroundColor: 'colorBackgroundDestructiveWeak',
-      color: 'colorTextWarningStrong',
-      fontWeight: 'fontWeightBold',
+      padding: "space40",
+      borderRadius: "borderRadiusCircle",
+      backgroundColor: "colorBackgroundDestructiveWeak",
+      color: "colorTextWarningStrong",
+      fontWeight: "fontWeightBold",
     },
   },
 } as PasteCustomCSS;
@@ -38,7 +38,7 @@ const ShowCustomization: React.FC<
     customButton: React.ReactNode;
     isTestEnvironment: boolean;
   }>
-> = ({button, customButton, isTestEnvironment}) => {
+> = ({ button, customButton, isTestEnvironment }) => {
   const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space90">
@@ -53,7 +53,7 @@ const ShowCustomization: React.FC<
         <CustomizationProvider
           disableAnimations={isTestEnvironment}
           theme={currentTheme}
-          elements={{BUTTON: customButtonStyles}}
+          elements={{ BUTTON: customButtonStyles }}
         >
           {button}
         </CustomizationProvider>
@@ -65,7 +65,7 @@ const ShowCustomization: React.FC<
         <CustomizationProvider
           disableAnimations={isTestEnvironment}
           theme={currentTheme}
-          elements={{foo: customButtonStyles}}
+          elements={{ foo: customButtonStyles }}
         >
           {customButton}
         </CustomizationProvider>
@@ -75,14 +75,14 @@ const ShowCustomization: React.FC<
 };
 
 export const AnyButton: React.FC<
-  React.PropsWithChildren<{element?: BoxElementProps['element']; variant: ButtonVariants}>
-> = ({element = 'BUTTON', variant}) => (
+  React.PropsWithChildren<{ element?: BoxElementProps["element"]; variant: ButtonVariants }>
+> = ({ element = "BUTTON", variant }) => (
   <Button variant={variant} element={element} data-testid="button_for_customization">
     Click me
   </Button>
 );
 
-export const CustomizedPrimaryButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedPrimaryButton: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="primary" />}
@@ -90,7 +90,7 @@ export const CustomizedPrimaryButton: StoryFn = (_args, {parameters: {isTestEnvi
   />
 );
 
-export const CustomizedSecondaryButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedSecondaryButton: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="secondary" />}
@@ -98,7 +98,7 @@ export const CustomizedSecondaryButton: StoryFn = (_args, {parameters: {isTestEn
   />
 );
 
-export const CustomizedLinkButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedLinkButton: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="link" />}
@@ -106,7 +106,7 @@ export const CustomizedLinkButton: StoryFn = (_args, {parameters: {isTestEnviron
   />
 );
 
-export const CustomizedDestructivePrimaryButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedDestructivePrimaryButton: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="destructive" />}
@@ -114,7 +114,7 @@ export const CustomizedDestructivePrimaryButton: StoryFn = (_args, {parameters: 
   />
 );
 
-export const CustomizedDestructiveSecondaryButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedDestructiveSecondaryButton: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="destructive_secondary" />}
@@ -122,7 +122,7 @@ export const CustomizedDestructiveSecondaryButton: StoryFn = (_args, {parameters
   />
 );
 
-export const CustomizedDestructiveLinkButton: StoryFn = (_args, {parameters: {isTestEnvironment}}) => (
+export const CustomizedDestructiveLinkButton: StoryFn = (_args, { parameters: { isTestEnvironment } }) => (
   <ShowCustomization
     isTestEnvironment={isTestEnvironment}
     button={<AnyButton variant="destructive_link" />}
@@ -132,8 +132,8 @@ export const CustomizedDestructiveLinkButton: StoryFn = (_args, {parameters: {is
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Button/Customization',
-  excludeStories: ['AnyButton'],
+  title: "Components/Button/Customization",
+  excludeStories: ["AnyButton"],
   parameters: {
     a11y: {
       // no need to a11y check customization

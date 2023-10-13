@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {Stack} from '@twilio-paste/stack';
+import { Stack } from "@twilio-paste/stack";
+import * as React from "react";
 
-import {ToastPortal} from './ToastPortal';
-import type {ToastContainerProps} from './types';
+import { ToastPortal } from "./ToastPortal";
+import type { ToastContainerProps } from "./types";
 
-const ToastContainer = React.forwardRef<HTMLDivElement, ToastContainerProps>(({children, ...props}, ref) => {
+const ToastContainer = React.forwardRef<HTMLDivElement, ToastContainerProps>(({ children, ...props }, ref) => {
   return (
     <ToastPortal {...props}>
       <Stack orientation="vertical" spacing="space40" ref={ref}>
@@ -14,6 +14,6 @@ const ToastContainer = React.forwardRef<HTMLDivElement, ToastContainerProps>(({c
   );
 });
 
-ToastContainer.displayName = 'ToastContainer';
+ToastContainer.displayName = "ToastContainer";
 
-export {ToastContainer};
+export { ToastContainer };

@@ -1,40 +1,40 @@
-import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
-import type {StoryFn} from '@storybook/react';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navigation';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
+import { InPageNavigation, InPageNavigationItem } from "@twilio-paste/in-page-navigation";
+import { Topbar, TopbarActions } from "@twilio-paste/topbar";
 // ONLY for storybook stacked view not to complain on duplicates. aria-label should be carefully selected strings
-import {useUID} from '@twilio-paste/uid-library';
-import {Topbar, TopbarActions} from '@twilio-paste/topbar';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 import {
   Sidebar,
   SidebarBody,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
   SidebarCollapseButton,
   SidebarFooter,
-  SidebarPushContentWrapper,
+  SidebarHeader,
+  SidebarHeaderIconButton,
+  SidebarHeaderLabel,
   SidebarNavigation,
   SidebarNavigationDisclosure,
-  SidebarNavigationDisclosureHeadingWrapper,
-  SidebarNavigationDisclosureHeading,
   SidebarNavigationDisclosureContent,
+  SidebarNavigationDisclosureHeading,
+  SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationItem,
-} from '../../src';
-import {SearchBox} from './components/SearchBox';
-import {SupportMenu} from './components/SupportMenu';
-import {NotificationsDialog} from './components/NotificationsDialog';
-import {AppSwitcher} from './components/AppSwitcher';
-import {UserDialogExample} from './components/UserDialogSegment';
-import {WorkspaceSwitcherMenu} from './components/WorkspaceSwitcher';
-import {UpgradeBadge} from './components/UpgradeBadge';
+  SidebarPushContentWrapper,
+} from "../../src";
+import { AppSwitcher } from "./components/AppSwitcher";
+import { NotificationsDialog } from "./components/NotificationsDialog";
+import { SearchBox } from "./components/SearchBox";
+import { SupportMenu } from "./components/SupportMenu";
+import { UpgradeBadge } from "./components/UpgradeBadge";
+import { UserDialogExample } from "./components/UserDialogSegment";
+import { WorkspaceSwitcherMenu } from "./components/WorkspaceSwitcher";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/FullCompositions',
+  title: "Components/Sidebar/FullCompositions",
 };
 
 /* eslint-disable react/jsx-max-depth */
@@ -127,7 +127,7 @@ export const Docs: StoryFn = () => {
               color="colorText"
               textDecoration="none"
               fontWeight="fontWeightMedium"
-              _hover={{textDecoration: 'underline'}}
+              _hover={{ textDecoration: "underline" }}
             >
               Log in
             </Box>
@@ -137,7 +137,7 @@ export const Docs: StoryFn = () => {
               color="colorText"
               textDecoration="none"
               fontWeight="fontWeightMedium"
-              _hover={{textDecoration: 'underline'}}
+              _hover={{ textDecoration: "underline" }}
             >
               Sign up
             </Box>

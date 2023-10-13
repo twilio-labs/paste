@@ -1,31 +1,39 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps, BoxElementProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import {MessageVariantContext} from './MessageVariantContext';
-import type {MessageVariants} from './MessageVariantContext';
+import { MessageVariantContext } from "./MessageVariantContext";
+import type { MessageVariants } from "./MessageVariantContext";
 
-export interface ChatBubbleProps {
+export interface ChatBubbleProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
-  element?: BoxElementProps['element'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_BUBBLE"
+   * @type {BoxProps["element"]}
+   * @memberof ChatBubbleProps
+   */
+  element?: BoxElementProps["element"];
 }
 
 const bubbleVariantStyles: {
   [key in MessageVariants]: BoxStyleProps;
 } = {
   inbound: {
-    backgroundColor: 'colorBackground',
-    alignSelf: 'flex-start',
+    backgroundColor: "colorBackground",
+    alignSelf: "flex-start",
   },
   outbound: {
-    backgroundColor: 'colorBackgroundInverseStronger',
-    alignSelf: 'flex-end',
-    color: 'colorTextInverse',
+    backgroundColor: "colorBackgroundInverseStronger",
+    alignSelf: "flex-end",
+    color: "colorTextInverse",
   },
 };
 
 export const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
-  ({children, element = 'CHAT_BUBBLE', ...props}, ref) => {
+  ({ children, element = "CHAT_BUBBLE", ...props }, ref) => {
     const variant = React.useContext(MessageVariantContext);
 
     return (
@@ -47,7 +55,7 @@ export const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
-ChatBubble.displayName = 'ChatBubble';
+ChatBubble.displayName = "ChatBubble";

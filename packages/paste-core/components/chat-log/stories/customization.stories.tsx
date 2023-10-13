@@ -1,28 +1,28 @@
-import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Avatar} from '@twilio-paste/avatar';
-import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
-import {useTheme} from '@twilio-paste/theme';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from "@storybook/react";
+import { Avatar } from "@twilio-paste/avatar";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { DownloadIcon } from "@twilio-paste/icons/esm/DownloadIcon";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
 import {
-  ChatMessage,
-  ChatBubble,
-  ChatMessageMeta,
-  ChatMessageMetaItem,
   ChatAttachment,
-  ComposerAttachmentCard,
-  ChatAttachmentLink,
   ChatAttachmentDescription,
+  ChatAttachmentLink,
   ChatBookend,
   ChatBookendItem,
+  ChatBubble,
   ChatEvent,
   ChatLog,
-} from '../src';
+  ChatMessage,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
+  ComposerAttachmentCard,
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ChatLog/Customization',
+  title: "Components/ChatLog/Customization",
   parameters: {
     a11y: {
       // no need to a11y check customization
@@ -31,7 +31,7 @@ export default {
   },
 };
 
-export const CustomizedMessages: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedMessages: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -39,29 +39,29 @@ export const CustomizedMessages: StoryFn = (_args, {parameters: {isTestEnvironme
       theme={currentTheme}
       elements={{
         CHAT_MESSAGE: {
-          marginBottom: 'space100',
+          marginBottom: "space100",
           variants: {
-            inbound: {marginRight: 'space100'},
-            outbound: {marginLeft: 'space100'},
+            inbound: { marginRight: "space100" },
+            outbound: { marginLeft: "space100" },
           },
         },
         CHAT_BUBBLE: {
-          color: 'colorTextInverse',
+          color: "colorTextInverse",
           variants: {
-            inbound: {backgroundColor: 'colorBackgroundPrimary'},
-            outbound: {backgroundColor: 'colorBackgroundPrimaryStronger'},
+            inbound: { backgroundColor: "colorBackgroundPrimary" },
+            outbound: { backgroundColor: "colorBackgroundPrimaryStronger" },
           },
         },
         CHAT_MESSAGE_META: {
-          columnGap: 'space50',
+          columnGap: "space50",
           variants: {
-            inbound: {justifyContent: 'flex-start'},
-            outbound: {justifyContent: 'flex-end'},
+            inbound: { justifyContent: "flex-start" },
+            outbound: { justifyContent: "flex-end" },
           },
         },
         CHAT_MESSAGE_META_ITEM: {
-          color: 'colorText',
-          columnGap: 'space0',
+          color: "colorText",
+          columnGap: "space0",
         },
       }}
     >
@@ -90,7 +90,7 @@ export const CustomizedMessages: StoryFn = (_args, {parameters: {isTestEnvironme
   );
 };
 
-export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedChatAttachments: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -98,43 +98,43 @@ export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEn
       theme={currentTheme}
       elements={{
         COMPOSER_ATTACHMENT_CARD: {
-          paddingY: 'space100',
+          paddingY: "space100",
         },
         COMPOSER_ATTACHMENT_CARD_REMOVE_BUTTON: {
-          color: 'colorTextIconNeutral',
+          color: "colorTextIconNeutral",
         },
         CHAT_ATTACHMENT: {
-          marginLeft: 'space50',
+          marginLeft: "space50",
         },
         CHAT_ATTACHMENT_BODY: {
-          padding: 'space20',
+          padding: "space20",
         },
         CHAT_ATTACHMENT_LINK: {
-          fontSize: 'fontSize50',
+          fontSize: "fontSize50",
         },
         CHAT_ATTACHMENT_DESCRIPTION: {
-          color: 'colorTextDecorative10',
+          color: "colorTextDecorative10",
         },
         CHAT_ATTACHMENT_ICON: {
-          color: 'colorTextBrandHighlight',
+          color: "colorTextBrandHighlight",
         },
         MY_COMPOSER_ATTACHMENT_CARD: {
-          paddingY: 'space60',
+          paddingY: "space60",
         },
         MY_COMPOSER_ATTACHMENT_CARD_REMOVE_BUTTON: {
-          color: 'colorTextIconSuccess',
+          color: "colorTextIconSuccess",
         },
         MY_CHAT_ATTACHMENT: {
-          marginLeft: 'space30',
+          marginLeft: "space30",
         },
         MY_CHAT_ATTACHMENT_BODY: {
-          padding: 'space40',
+          padding: "space40",
         },
         MY_CHAT_ATTACHMENT_LINK: {
-          fontSize: 'fontSize40',
+          fontSize: "fontSize40",
         },
         MY_CHAT_ATTACHMENT_DESCRIPTION: {
-          color: 'colorTextError',
+          color: "colorTextError",
         },
       }}
     >
@@ -174,7 +174,7 @@ export const CustomizedChatAttachments: StoryFn = (_args, {parameters: {isTestEn
   );
 };
 
-export const CustomizedChatBookend: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedChatBookend: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -182,10 +182,10 @@ export const CustomizedChatBookend: StoryFn = (_args, {parameters: {isTestEnviro
       theme={currentTheme}
       elements={{
         CHAT_BOOKEND: {
-          margin: 'space20',
+          margin: "space20",
         },
         CHAT_BOOKEND_ITEM: {
-          color: 'colorText',
+          color: "colorText",
         },
       }}
     >
@@ -198,7 +198,7 @@ export const CustomizedChatBookend: StoryFn = (_args, {parameters: {isTestEnviro
   );
 };
 
-export const CustomizedChatEvent: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedChatEvent: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -206,7 +206,7 @@ export const CustomizedChatEvent: StoryFn = (_args, {parameters: {isTestEnvironm
       theme={currentTheme}
       elements={{
         CHAT_EVENT: {
-          color: 'colorText',
+          color: "colorText",
         },
       }}
     >

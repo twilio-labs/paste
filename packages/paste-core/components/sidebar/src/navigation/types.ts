@@ -1,4 +1,7 @@
-import type {DisclosurePrimitiveInitialState, DisclosurePrimitveStateReturn} from '@twilio-paste/disclosure-primitive';
+import type {
+  DisclosurePrimitiveInitialState,
+  DisclosurePrimitveStateReturn,
+} from "@twilio-paste/disclosure-primitive";
 
 export type {
   DisclosurePrimitiveInitialState as SidebarNavigationDisclosureInitialState,

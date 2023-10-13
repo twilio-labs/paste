@@ -5,22 +5,22 @@ import {
   sendGridThemeTokens,
   twilioDarkThemeTokens,
   twilioThemeTokens,
-} from '../tokens';
-import {Theme, TokenMap} from '../types';
+} from "../tokens";
+import { Theme, TokenMap } from "../types";
 
 export const getThemeTokens = (theme?: Theme): TokenMap => {
   switch (theme) {
-    case 'Dark':
+    case "Dark":
       return darkThemeTokens as TokenMap;
-    case 'Evergreen':
+    case "Evergreen":
       return evergreenThemeTokens as TokenMap;
-    case 'SendGrid':
+    case "SendGrid":
       return sendGridThemeTokens as TokenMap;
-    case 'Twilio':
+    case "Twilio":
       return twilioThemeTokens as TokenMap;
-    case 'Twilio Dark':
+    case "Twilio Dark":
       return twilioDarkThemeTokens as TokenMap;
-    case 'Default':
+    case "Default":
     default:
       return defaultThemeTokens as TokenMap;
   }

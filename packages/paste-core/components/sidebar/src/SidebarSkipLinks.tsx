@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Anchor} from '@twilio-paste/anchor';
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
-export const SidebarSkipLinkContainer: React.FC<React.PropsWithChildren<{element?: string}>> = ({
+export const SidebarSkipLinkContainer: React.FC<React.PropsWithChildren<{ element?: string }>> = ({
   element,
   children,
 }) => {
@@ -22,13 +22,13 @@ export const SidebarSkipLinkContainer: React.FC<React.PropsWithChildren<{element
       zIndex="zIndex90"
       display="flex"
       columnGap="space60"
-      _focusWithin={{transform: 'translateY(0%)'}}
+      _focusWithin={{ transform: "translateY(0%)" }}
     >
       {children}
     </Box>
   );
 };
-SidebarSkipLinkContainer.displayName = 'SkipLinkContainer';
+SidebarSkipLinkContainer.displayName = "SkipLinkContainer";
 
 export type SidebarSkipLinksProps = {
   element?: string;
@@ -40,13 +40,13 @@ export type SidebarSkipLinksProps = {
   i18nTopbarSkipLinkText?: string;
 };
 export const SidebarSkipLinks: React.FC<SidebarSkipLinksProps> = ({
-  element = 'SIDEBAR_SKIPLINKS',
+  element = "SIDEBAR_SKIPLINKS",
   mainContentSkipLinkID,
   sidebarNavigationSkipLinkID,
   topbarSkipLinkID,
-  i18nMainContentSkipLinkText = 'Skip to content',
-  i18nNavigationSkipLinkText = 'Skip to navigation',
-  i18nTopbarSkipLinkText = 'Skip to topbar',
+  i18nMainContentSkipLinkText = "Skip to content",
+  i18nNavigationSkipLinkText = "Skip to navigation",
+  i18nTopbarSkipLinkText = "Skip to topbar",
 }) => {
   return (
     <SidebarSkipLinkContainer element={element}>
@@ -62,4 +62,4 @@ export const SidebarSkipLinks: React.FC<SidebarSkipLinksProps> = ({
     </SidebarSkipLinkContainer>
   );
 };
-SidebarSkipLinks.displayName = 'SkipLinks';
+SidebarSkipLinks.displayName = "SkipLinks";

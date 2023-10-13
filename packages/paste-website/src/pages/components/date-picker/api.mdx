@@ -1,0 +1,73 @@
+export const meta = {
+  title: 'Date Picker - API',
+  package: '@twilio-paste/date-picker',
+  description: 'A form component used to select a date.',
+  slug: '/components/date-picker/api',
+};
+
+import Changelog from '@twilio-paste/date-picker/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/date-picker/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Date Picker');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/date-picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/date-picker',
+        storybookUrl: '/?path=/story/components-date-picker--default-date-picker',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/date-picker - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {DatePicker, formatReturnDate} from '@twilio-paste/core/date-picker';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/helptext';
+
+const DatePickerExample = () => {
+  return (
+    <>
+      <Label htmlFor="foo" required>
+        Start date
+      </Label>
+      <DatePicker
+        aria-describedby="foo_text"
+        id="foo"
+        name="foo"
+        onChange={(evt) => formatReturnDate(evt.target.value, 'MM/dd/yyyy')}
+        required
+      />
+      <HelpText id="foo_text">Select a date.</HelpText>
+    </>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

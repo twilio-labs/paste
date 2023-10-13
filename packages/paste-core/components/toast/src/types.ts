@@ -1,12 +1,12 @@
-import type {BoxProps} from '@twilio-paste/box';
-import type {HTMLPasteProps, ValueOf} from '@twilio-paste/types';
-import type {Left} from '@twilio-paste/style-props';
+import type { BoxProps } from "@twilio-paste/box";
+import type { Left } from "@twilio-paste/style-props";
+import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
 
-import type {ToastVariantObject} from './constants';
+import type { ToastVariantObject } from "./constants";
 
 export type ToastVariants = ValueOf<typeof ToastVariantObject>;
 
-export interface ToastProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'element'> {
+export interface ToastProps extends HTMLPasteProps<"div">, Pick<BoxProps, "element"> {
   children: NonNullable<React.ReactNode>;
   /**
    * callback when user clicks the dismiss button
@@ -42,17 +42,17 @@ export interface ToastProps extends HTMLPasteProps<'div'>, Pick<BoxProps, 'eleme
   i18nWarningLabel?: string;
 }
 
-export interface ToastPortalProps extends HTMLPasteProps<'div'> {
+export interface ToastPortalProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
   left?: Left;
 }
 
-export interface ToastContainerProps extends HTMLPasteProps<'div'> {
+export interface ToastContainerProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
   left?: Left;
 }
 
-export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus' | 'onDismiss'> {
+export interface ToasterToast extends Pick<ToastProps, "variant" | "setFocus" | "onDismiss"> {
   id: string;
   message: React.ReactElement | string;
   /**
@@ -62,7 +62,7 @@ export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus' | 
   timeOutId?: number;
 }
 
-export interface ToasterPush extends Omit<ToasterToast, 'id'>, Pick<ToastProps, 'onDismiss'> {
+export interface ToasterPush extends Omit<ToasterToast, "id">, Pick<ToastProps, "onDismiss"> {
   id?: string;
 }
 
@@ -78,9 +78,9 @@ export interface UseToasterReturnedProps {
   /**
    * method used to pop a toast from the toast stack based on it's id
    */
-  pop: (id: ToasterToast['id']) => void;
+  pop: (id: ToasterToast["id"]) => void;
 }
 
-export interface ToasterProps extends Pick<UseToasterReturnedProps, 'toasts' | 'pop'> {
+export interface ToasterProps extends Pick<UseToasterReturnedProps, "toasts" | "pop"> {
   left?: Left;
 }

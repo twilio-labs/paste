@@ -1,13 +1,13 @@
-import * as fs from 'fs';
-import {getChangesetsFromFiles} from './utils';
+import * as fs from "fs";
 // you kind of have to treat Danger plugins as global?
 // https://danger.systems/js/usage/extending-danger.html#writing-your-plugin
-import {DangerDSLType} from 'danger/distribution/dsl/DangerDSL';
+import { DangerDSLType } from "danger/distribution/dsl/DangerDSL";
+import { getChangesetsFromFiles } from "./utils";
 declare const danger: DangerDSLType;
 export declare function fail(message: string): void;
 
 /** location in the repo where the upgrade guide lives */
-export const UPGRADE_GUIDE_PAGE_FILE = 'packages/paste-website/src/pages/core/upgrade-guide.mdx';
+export const UPGRADE_GUIDE_PAGE_FILE = "packages/paste-website/src/pages/core/upgrade-guide.mdx";
 
 export const FAIL_MESSAGE = `You have marked a Paste package as a MAJOR update via changeset, but have not provided a corresponding [upgrade guide](https://paste.twilio.design/core/upgrade-guide) entry.
 Please update the guide to inform our users what to do in response to this major update to Paste.`;
@@ -22,9 +22,9 @@ export const qualifyingMajorUpdate = (fileContent: string) => {
   const matches = Array.from(fileContent.matchAll(/'\@twilio-paste\/(\S+)': major/g), (m) => m[1]);
 
   // check if core has a major bump
-  if (matches.includes('core')) return true;
+  if (matches.includes("core")) return true;
   // check if other packages have major bump alongside a patch/minor core bump
-  if (matches.length && fileContent.includes('@twilio-paste/core')) return false;
+  if (matches.length && fileContent.includes("@twilio-paste/core")) return false;
   // check if other packages have a major bump without any core bump
   if (matches.length) return true;
 

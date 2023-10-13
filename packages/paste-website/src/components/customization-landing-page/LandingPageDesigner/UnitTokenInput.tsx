@@ -1,19 +1,19 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {useUIDSeed} from '@twilio-paste/uid-library';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import { Box } from "@twilio-paste/box";
+import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
+import { HelpText } from "@twilio-paste/help-text";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import type {DesignerContextProps} from './DesignerContext';
+import type { DesignerContextProps } from "./DesignerContext";
 
 type UnitTokenInputProps = {
   bucket: keyof GenericTokensShape;
   labelText: string;
   tokenName: string;
   tokenValue: string;
-  onChange: DesignerContextProps['updateToken'];
+  onChange: DesignerContextProps["updateToken"];
   unit: string;
 };
 
@@ -27,21 +27,21 @@ const getTokenNumberValue = (value: string): number | undefined => {
 };
 
 function validateInput(value: string, unit: string): string {
-  if (value === '') {
-    return 'Missing value.';
+  if (value === "") {
+    return "Missing value.";
   }
   if (!value.includes(unit)) {
     return `Missing unit: ${unit}`;
   }
 
-  const valueWithoutUnit = value.replace(unit, '');
+  const valueWithoutUnit = value.replace(unit, "");
   const numberifyInput = getTokenNumberValue(valueWithoutUnit);
 
   if (Number.isNaN(numberifyInput)) {
-    return 'Invalid input.';
+    return "Invalid input.";
   }
 
-  return '';
+  return "";
 }
 
 export const UnitTokenInput: React.FC<React.PropsWithChildren<UnitTokenInputProps>> = ({
@@ -50,16 +50,16 @@ export const UnitTokenInput: React.FC<React.PropsWithChildren<UnitTokenInputProp
   tokenName,
   tokenValue,
   onChange,
-  unit = 'rem',
+  unit = "rem",
 }) => {
-  const [errorText, setErrorText] = React.useState('');
-  const [localValue, setLocalValue] = React.useState(tokenValue === '0' ? `${tokenValue}${unit}` : tokenValue);
+  const [errorText, setErrorText] = React.useState("");
+  const [localValue, setLocalValue] = React.useState(tokenValue === "0" ? `${tokenValue}${unit}` : tokenValue);
   const seed = useUIDSeed();
   const inputId = seed(tokenName);
   const errorId = seed(`error-${tokenName}`);
 
   React.useEffect(() => {
-    setLocalValue(tokenValue === '0' ? `${tokenValue}${unit}` : tokenValue);
+    setLocalValue(tokenValue === "0" ? `${tokenValue}${unit}` : tokenValue);
   }, [tokenValue]);
 
   return (
@@ -71,12 +71,12 @@ export const UnitTokenInput: React.FC<React.PropsWithChildren<UnitTokenInputProp
         type="number"
         value={localValue}
         onChange={(event) => {
-          const {value} = event.target;
+          const { value } = event.target;
           const error = validateInput(value, unit);
           if (error) {
             setErrorText(error);
           } else {
-            setErrorText('');
+            setErrorText("");
             if (onChange != null) {
               onChange(bucket, tokenName, value);
             }

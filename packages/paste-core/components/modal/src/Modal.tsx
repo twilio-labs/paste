@@ -1,31 +1,31 @@
-import * as React from 'react';
-import {css, styled} from '@twilio-paste/styling-library';
-import {useTransition, animated} from '@twilio-paste/animation-library';
-import {safelySpreadBoxProps, Box, getCustomElementStyles} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {pasteBaseStyles} from '@twilio-paste/theme';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '@twilio-paste/modal-dialog-primitive';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { animated, useTransition } from "@twilio-paste/animation-library";
+import { Box, getCustomElementStyles, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay } from "@twilio-paste/modal-dialog-primitive";
+import { css, styled } from "@twilio-paste/styling-library";
+import { pasteBaseStyles } from "@twilio-paste/theme";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import {ModalContext} from './ModalContext';
+import { ModalContext } from "./ModalContext";
 
-type Sizes = 'default' | 'wide';
+type Sizes = "default" | "wide";
 
 export const ModalDialogOverlay = animated(
   // @ts-expect-error Just like in box I can't work out how to stop the styled div color prop from emotion clashing with our color style prop in BoxProps
-  styled(ModalDialogPrimitiveOverlay)<{variant?: Sizes}>(
+  styled(ModalDialogPrimitiveOverlay)<{ variant?: Sizes }>(
     css({
-      position: 'fixed',
+      position: "fixed",
       top: 0,
       right: 0,
       bottom: 0,
       left: 0,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: '100%',
-      backgroundColor: 'colorBackgroundOverlay',
-      zIndex: 'zIndex80',
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+      width: "100%",
+      backgroundColor: "colorBackgroundOverlay",
+      zIndex: "zIndex80",
     }),
     /*
      * import Paste Theme Based Styles due to portal positioning.
@@ -36,38 +36,38 @@ export const ModalDialogOverlay = animated(
      * of paste components in the modal are styled correctly.
      */
     pasteBaseStyles,
-    getCustomElementStyles
-  )
+    getCustomElementStyles,
+  ),
 );
 
 export interface ModalDialogContentProps {
   size?: Sizes;
   children: React.ReactNode;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
 }
 
 export const ModalDialogContent = animated(
-  styled(ModalDialogPrimitiveContent)<ModalDialogContentProps>(({size}) =>
+  styled(ModalDialogPrimitiveContent)<ModalDialogContentProps>(({ size }) =>
     css({
-      width: '100%',
-      maxWidth: size === 'wide' ? 'size80' : 'size60',
-      maxHeight: '90%',
-      minHeight: '170px',
-      backgroundColor: 'colorBackgroundBody',
-      borderColor: 'colorBorderWeaker',
-      borderRadius: 'borderRadius30',
-      borderStyle: 'solid',
-      borderWidth: 'borderWidth10',
-      boxShadow: 'shadow',
-      display: 'flex',
-      flexDirection: 'column',
-    })
-  )
+      width: "100%",
+      maxWidth: size === "wide" ? "size80" : "size60",
+      maxHeight: "90%",
+      minHeight: "170px",
+      backgroundColor: "colorBackgroundBody",
+      borderColor: "colorBorderWeaker",
+      borderRadius: "borderRadius30",
+      borderStyle: "solid",
+      borderWidth: "borderWidth10",
+      boxShadow: "shadow",
+      display: "flex",
+      flexDirection: "column",
+    }),
+  ),
 );
 
-export interface ModalProps extends HTMLPasteProps<'div'> {
+export interface ModalProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
   isOpen: boolean;
   onDismiss: VoidFunction;
   allowPinchZoom?: boolean;
@@ -78,9 +78,9 @@ export interface ModalProps extends HTMLPasteProps<'div'> {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const getAnimationStates = (): any => ({
-  from: {opacity: 0, transform: `scale(0.675)`},
-  enter: {opacity: 1, transform: `scale(1)`},
-  leave: {opacity: 0, transform: `scale(0.675)`},
+  from: { opacity: 0, transform: `scale(0.675)` },
+  enter: { opacity: 1, transform: `scale(1)` },
+  leave: { opacity: 0, transform: `scale(0.675)` },
   // https://www.react-spring.dev/docs/advanced/config
   config: {
     mass: 0.5,
@@ -93,7 +93,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
   (
     {
       children,
-      element = 'MODAL',
+      element = "MODAL",
       isOpen,
       onDismiss,
       allowPinchZoom = true,
@@ -102,12 +102,12 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
       size,
       ...props
     },
-    ref
+    ref,
   ) => {
     const transitions = useTransition(isOpen, getAnimationStates());
 
     return (
-      <ModalContext.Provider value={{onDismiss}}>
+      <ModalContext.Provider value={{ onDismiss }}>
         {transitions(
           (styles, item) =>
             item && (
@@ -115,7 +115,7 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
                 onDismiss={onDismiss}
                 allowPinchZoom={allowPinchZoom}
                 initialFocusRef={initialFocusRef}
-                style={{opacity: styles.opacity}}
+                style={{ opacity: styles.opacity }}
                 data-paste-element={`${element}_OVERLAY`}
                 variant={size}
               >
@@ -133,12 +133,12 @@ const Modal = React.forwardRef<HTMLDivElement, ModalProps>(
                   {children}
                 </Box>
               </ModalDialogOverlay>
-            )
+            ),
         )}
       </ModalContext.Provider>
     );
-  }
+  },
 );
-Modal.displayName = 'Modal';
+Modal.displayName = "Modal";
 
-export {Modal};
+export { Modal };

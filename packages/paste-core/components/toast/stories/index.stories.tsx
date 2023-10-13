@@ -1,39 +1,39 @@
-import * as React from 'react';
-import {action} from '@storybook/addon-actions';
-import {loremIpsum} from 'lorem-ipsum';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Button} from '@twilio-paste/button';
-import {Truncate} from '@twilio-paste/truncate';
-import {useUID} from '@twilio-paste/uid-library';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+import { action } from "@storybook/addon-actions";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Radio, RadioGroup } from "@twilio-paste/radio-group";
+import { Stack } from "@twilio-paste/stack";
+import { Truncate } from "@twilio-paste/truncate";
+import { useUID } from "@twilio-paste/uid-library";
+import { loremIpsum } from "lorem-ipsum";
+import * as React from "react";
 
-import type {ToastVariants} from '../src';
-import {Toast, ToastContainer, Toaster, useToaster} from '../src';
-import {ToastVariantObject} from '../src/constants';
+import type { ToastVariants } from "../src";
+import { Toast, ToastContainer, Toaster, useToaster } from "../src";
+import { ToastVariantObject } from "../src/constants";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Toast',
+  title: "Components/Toast",
   component: Toast,
-  subcomponents: {Toaster, ToastContainer},
+  subcomponents: { Toaster, ToastContainer },
 };
 
 export const Neutral = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer left={['space40', 'unset', 'unset']}>
+      <ToastContainer left={["space40", "unset", "unset"]}>
         <Toast variant="neutral">I am a toast</Toast>
-        <Toast variant="neutral" onDismiss={action('dismiss')}>
+        <Toast variant="neutral" onDismiss={action("dismiss")}>
           <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="neutral">
           Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
           commodo cursus magna.
         </Toast>
-        <Toast variant="neutral" onDismiss={action('dismiss')}>
+        <Toast variant="neutral" onDismiss={action("dismiss")}>
           Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
           commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
           porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
@@ -53,16 +53,16 @@ export const Neutral = (): React.ReactNode => {
 export const Success = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer left={['space40', 'unset', 'unset']}>
+      <ToastContainer left={["space40", "unset", "unset"]}>
         <Toast variant="success">I am a toast</Toast>
-        <Toast variant="success" onDismiss={action('dismiss')}>
+        <Toast variant="success" onDismiss={action("dismiss")}>
           <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="success">
           Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
           commodo cursus magna.
         </Toast>
-        <Toast variant="success" onDismiss={action('dismiss')}>
+        <Toast variant="success" onDismiss={action("dismiss")}>
           Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
           commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
           porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
@@ -82,16 +82,16 @@ export const Success = (): React.ReactNode => {
 export const Error = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer left={['space40', 'unset', 'unset']}>
+      <ToastContainer left={["space40", "unset", "unset"]}>
         <Toast variant="error">I am a toast</Toast>
-        <Toast variant="error" onDismiss={action('dismiss')}>
+        <Toast variant="error" onDismiss={action("dismiss")}>
           <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="error">
           Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
           commodo cursus magna.
         </Toast>
-        <Toast variant="error" onDismiss={action('dismiss')}>
+        <Toast variant="error" onDismiss={action("dismiss")}>
           Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
           commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
           porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
@@ -111,16 +111,16 @@ export const Error = (): React.ReactNode => {
 export const Warning = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer left={['space40', 'unset', 'unset']}>
+      <ToastContainer left={["space40", "unset", "unset"]}>
         <Toast variant="warning">I am a toast</Toast>
-        <Toast variant="warning" onDismiss={action('dismiss')}>
+        <Toast variant="warning" onDismiss={action("dismiss")}>
           <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="warning">
           Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
           commodo cursus magna.
         </Toast>
-        <Toast variant="warning" onDismiss={action('dismiss')}>
+        <Toast variant="warning" onDismiss={action("dismiss")}>
           Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
           commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
           porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
@@ -140,13 +140,13 @@ export const Warning = (): React.ReactNode => {
 export const I18n = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer left={['space40', 'unset', 'unset']}>
+      <ToastContainer left={["space40", "unset", "unset"]}>
         <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
           Soy una notificacion
         </Toast>
         <Toast
           variant="neutral"
-          onDismiss={action('dismiss')}
+          onDismiss={action("dismiss")}
           i18nDismissLabel="Cerrar notificacion"
           i18nNeutralLabel="(informacion)"
         >
@@ -158,7 +158,7 @@ export const I18n = (): React.ReactNode => {
         </Toast>
         <Toast
           variant="neutral"
-          onDismiss={action('dismiss')}
+          onDismiss={action("dismiss")}
           i18nDismissLabel="Cerrar notificacion"
           i18nNeutralLabel="(informacion)"
         >
@@ -178,7 +178,7 @@ export const I18n = (): React.ReactNode => {
   );
 };
 
-I18n.storyName = 'i18n Prop';
+I18n.storyName = "i18n Prop";
 
 interface ToastContainerExample {
   variant: ToastVariants;
@@ -195,13 +195,13 @@ export const ToastContainerStory = (): React.ReactNode => {
           // eslint-disable-next-line @typescript-eslint/no-shadow
           setToasts((toasts) => [
             ...toasts,
-            {variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum()},
+            { variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum() },
           ])
         }
       >
         Add toast
       </Button>
-      <ToastContainer left={['space40', 'unset', 'unset']}>
+      <ToastContainer left={["space40", "unset", "unset"]}>
         <Toast variant="success" onDismiss={() => {}}>
           I am a toast
         </Toast>
@@ -215,27 +215,27 @@ export const ToastContainerStory = (): React.ReactNode => {
   );
 };
 
-ToastContainerStory.storyName = 'Toast container';
+ToastContainerStory.storyName = "Toast container";
 
 export const ToasterStory = (): React.ReactNode => {
   const toaster = useToaster();
   const messageID = useUID();
   const dismissAfterID = useUID();
   const [messageText, setMessageText] = React.useState(
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis veniam, et deleniti sequi est ut aliquam suscipit autem explicabo quod, mollitia pariatur facere aut ab quidem enim molestiae magni.'
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis veniam, et deleniti sequi est ut aliquam suscipit autem explicabo quod, mollitia pariatur facere aut ab quidem enim molestiae magni.",
   );
-  const [variant, setVariant] = React.useState<ToastVariants>('success');
-  const [toastTimeout, setToastTimeout] = React.useState('');
+  const [variant, setVariant] = React.useState<ToastVariants>("success");
+  const [toastTimeout, setToastTimeout] = React.useState("");
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     toaster.push({
       variant,
       message: messageText,
-      ...(toastTimeout !== '0' && {dismissAfter: Number.parseInt(toastTimeout, 10)}),
+      ...(toastTimeout !== "0" && { dismissAfter: Number.parseInt(toastTimeout, 10) }),
       onDismiss: () => {
         // eslint-disable-next-line no-console
-        console.log('dismissed!');
+        console.log("dismissed!");
       },
     });
   };
@@ -293,9 +293,9 @@ export const ToasterStory = (): React.ReactNode => {
           </Button>
         </Stack>
       </form>
-      <Toaster left={['space40', 'unset', 'unset']} {...toaster} />
+      <Toaster left={["space40", "unset", "unset"]} {...toaster} />
     </div>
   );
 };
 
-ToasterStory.storyName = 'Toaster';
+ToasterStory.storyName = "Toaster";

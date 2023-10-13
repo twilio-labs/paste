@@ -1,6 +1,6 @@
-import {Box} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
 
-import {useSlantedSkew} from '../../SlantedBackgroundGradient';
+import { useSlantedSkew } from "../../SlantedBackgroundGradient";
 
 const SiteFooterTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
@@ -21,4 +21,4 @@ const SiteFooterTopAngle = (): JSX.Element => {
   );
 };
 
-export {SiteFooterTopAngle};
+export { SiteFooterTopAngle };

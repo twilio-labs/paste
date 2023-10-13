@@ -1,13 +1,13 @@
-import * as React from 'react';
-import {Badge} from '@twilio-paste/badge';
-import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
+import { Badge } from "@twilio-paste/badge";
+import { NonModalDialogDisclosurePrimitive } from "@twilio-paste/non-modal-dialog-primitive";
+import * as React from "react";
 
-import type {PopoverBadgeButtonProps, ButtonBadgeProps} from './types';
-import {PopoverContext} from './PopoverContext';
+import { PopoverContext } from "./PopoverContext";
+import type { ButtonBadgeProps, PopoverBadgeButtonProps } from "./types";
 
 const ButtonBadge = React.forwardRef<HTMLButtonElement, ButtonBadgeProps>(function ButtonBadge(
-  {children, ...props},
-  ref
+  { children, ...props },
+  ref,
 ) {
   return (
     <Badge {...props} as="button" ref={ref}>
@@ -16,10 +16,10 @@ const ButtonBadge = React.forwardRef<HTMLButtonElement, ButtonBadgeProps>(functi
   );
 });
 
-ButtonBadge.displayName = 'ButtonBadge';
+ButtonBadge.displayName = "ButtonBadge";
 
 const PopoverBadgeButton = React.forwardRef<HTMLButtonElement, PopoverBadgeButtonProps>(
-  ({children, element = 'POPOVER_BADGE', ...popoverButtonProps}, ref) => {
+  ({ children, element = "POPOVER_BADGE", ...popoverButtonProps }, ref) => {
     const popover = React.useContext(PopoverContext);
 
     return (
@@ -33,8 +33,8 @@ const PopoverBadgeButton = React.forwardRef<HTMLButtonElement, PopoverBadgeButto
         {children}
       </NonModalDialogDisclosurePrimitive>
     );
-  }
+  },
 );
 
-PopoverBadgeButton.displayName = 'PopoverBadgeButton';
-export {PopoverBadgeButton};
+PopoverBadgeButton.displayName = "PopoverBadgeButton";
+export { PopoverBadgeButton };

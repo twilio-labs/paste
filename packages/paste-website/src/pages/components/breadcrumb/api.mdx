@@ -1,0 +1,63 @@
+export const meta = {
+  title: 'Breadcrumb',
+  package: '@twilio-paste/breadcrumb',
+  description:
+    'Breadcrumbs are used to show navigation hierarchy on a page. They provide a way for users to navigate a nested path of parent pages.',
+  slug: '/components/breadcrumb/api',
+};
+
+import Changelog from '@twilio-paste/breadcrumb/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/breadcrumb/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Breadcrumb');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/breadcrumb');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb',
+        storybookUrl: '/?path=/story/components-breadcrumb--anchors',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/breadcrumb - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/core/breadcrumb';
+
+const BreadcrumbExample: React.FC = () => {
+  return (
+    <Breadcrumb>
+      <BreadcrumbItem href="#">Item One</BreadcrumbItem>
+      <BreadcrumbItem href="#">Item Two</BreadcrumbItem>
+    </Breadcrumb>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

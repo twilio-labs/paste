@@ -1,29 +1,29 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Input} from '@twilio-paste/input';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
+import { Box } from "@twilio-paste/box";
+import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
+import { Input } from "@twilio-paste/input";
 import {
   Pagination,
-  PaginationItems,
   PaginationArrow,
-  PaginationNumbers,
-  PaginationNumber,
   PaginationEllipsis,
-} from '@twilio-paste/pagination';
+  PaginationItems,
+  PaginationNumber,
+  PaginationNumbers,
+} from "@twilio-paste/pagination";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import type {SortDirection} from '../../src';
+import type { SortDirection } from "../../src";
 import {
   DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
-  DataGridHeaderSort,
   DataGridBody,
   DataGridCell,
-} from '../../src';
-import {TableHeaderData, PaginatedTableBodyData} from './constants';
+  DataGridHead,
+  DataGridHeader,
+  DataGridHeaderSort,
+  DataGridRow,
+} from "../../src";
+import { PaginatedTableBodyData, TableHeaderData } from "./constants";
 
 // Sorting function
 const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId: number): number => {
@@ -39,14 +39,14 @@ const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId
 const numColumns = TableHeaderData.length + 1; // +1 for checkbox;
 const initialHeaderData = [...new Array(numColumns)].map((_, index) => {
   if (index === 0) return null;
-  if (index === 1) return 'ascending';
-  return 'none';
+  if (index === 1) return "ascending";
+  return "none";
 });
 // Add the first column for checkbox state
 const initialBodyData = PaginatedTableBodyData.map((row) => [false, ...row]).sort(
   (a, b) =>
     // @ts-expect-error won't be boolean
-    simpleComparator(a, b, true, 1) // passing 1 instead of 0 to skip checkbox column
+    simpleComparator(a, b, true, 1), // passing 1 instead of 0 to skip checkbox column
 );
 
 const getRange = (start: number, end: number): number[] => {
@@ -200,7 +200,7 @@ const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
       }
       return undefined;
     },
-    [onClick, checkboxRef]
+    [onClick, checkboxRef],
   );
 
   return (
@@ -245,11 +245,11 @@ export const KitchenSinkDataGrid = (): JSX.Element => {
   // Handle sorting behavior
   const handleSortingColumn = (columnId: number): void => {
     // Update the state of the sort direction in column headers
-    const newSortedColumns: Array<SortDirection> = sortedColumns.map(() => 'none');
-    if (sortedColumns[columnId] === 'ascending') {
-      newSortedColumns[columnId] = 'descending';
+    const newSortedColumns: Array<SortDirection> = sortedColumns.map(() => "none");
+    if (sortedColumns[columnId] === "ascending") {
+      newSortedColumns[columnId] = "descending";
     } else {
-      newSortedColumns[columnId] = 'ascending';
+      newSortedColumns[columnId] = "ascending";
     }
     setSortedColumns(newSortedColumns);
 
@@ -257,8 +257,8 @@ export const KitchenSinkDataGrid = (): JSX.Element => {
     setSortedData(
       initialBodyData.sort((a, b) =>
         // @ts-expect-error won't be boolean
-        simpleComparator(a, b, newSortedColumns[columnId] === 'ascending', columnId)
-      )
+        simpleComparator(a, b, newSortedColumns[columnId] === "ascending", columnId),
+      ),
     );
   };
 
@@ -275,7 +275,7 @@ export const KitchenSinkDataGrid = (): JSX.Element => {
                     const newSortedData = sortedData.map(([_, ...row]) => [checked, ...row]);
                     setSortedData(newSortedData);
                   }}
-                  id={seed('select-all')}
+                  id={seed("select-all")}
                   checked={allChecked}
                   indeterminate={indeterminate}
                   label="Select all"

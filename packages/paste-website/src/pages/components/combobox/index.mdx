@@ -39,10 +39,10 @@ import {
   stateHookCombobox,
 } from '../../../component-examples/ComboboxExamples';
 import packageJson from '@twilio-paste/combobox/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -54,24 +54,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox',
+        storybookUrl: '/?path=/story/components-combobox-combobox--default-combobox',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox"
-  storybookUrl="/?path=/story/components-combobox-combobox--default-combobox"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {defaultExample}
@@ -316,118 +307,3 @@ intuitive to your user.
 Use help text to provide information to help users avoid errors.
 
 Use Help Text to show an inline error text beneath the combobox to explain how to fix an error. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/combobox - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Combobox} from '@twilio-paste/core/combobox';
-
-const authors = [
-  'James Baldwin',
-  'Adrienne Maree Brown',
-  'Octavia Butler',
-  'Ta-Nehisi Coates',
-  'Audre Lorde',
-  'Nnedi Okorafor',
-];
-
-const Component = () => <Combobox autocomplete items={authors} labelText="Select an author" required />;
-```
-
-#### Component props
-
-All the valid HTML attributes for `input` are supported including the following props:
-
-| Prop                       | Type                                      | Description                                                                                            | Default      |
-| -------------------------- | ----------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------ |
-| `autocomplete?`            | `boolean`                                 | Activates the autocomplete/typehead feature.                                                           | `false`      |
-| `labelText`                | `string \| NonNullable<React.ReactNode>`  | The contents of the label text.                                                                        |              |
-| `groupItemsBy?`            | `string`                                  | The name of the key in your item objects that you would like Combobox to group the items by.           |              |
-| `groupLabelTemplate?`      | `(groupName: string) => React.ReactNode`  | This function allows you to use your own `jsx` template for the group label in the drop-down list.     |              |
-| `helpText?`                | `string \| React.ReactNode`               | The contents of the help and error text.                                                               |              |
-| `optionTemplate?`          | `(item: string \| {}) => React.ReactNode` | This function allows you to use your own `jsx` template for the items in the drop-down list.           |              |
-| `element?`                 | `string`                                  | Overrides the default element name ('COMBOBOX') to apply unique styles with the Customization Provider | `'COMBOBOX'` |
-| `variant?`                 | `'default' \| 'inverse'`                  | The variant of the Combobox. Available variants are `default` or `inverse`.                            |              |
-| `disabled?`                | `boolean`                                 | Same as the HTML attribute                                                                             |              |
-| `hasError?`                | `boolean`                                 | Whether or not the Combobox has an error.                                                              | `false`      |
-| `required?`                | `boolean`                                 | Same as the HTML attribute                                                                             | `false`      |
-| `getA11yStatusMessage?`    | `() => string`                            | Useful to compose accessible status messages to assistive technology users, including translations.    |              |
-| `getA11ySelectionMessage?` | `() => string`                            | Useful to compose accessible status messages to assistive technology users, including translations.    |              |
-
-#### State props
-
-These props are used when want to create a Controlled Combobox. They control the state of the Combobox.
-
-| Prop                        | Type                                                  | Description                                                                                                                                               | Default        |
-| --------------------------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `items`                     | `string[] \| Record<string, unknown>[]`               | The items to be displayed in the Combobox listbox.                                                                                                        | `[]`           |
-| `itemToString?`             | `(item: string \| Record<string, unknown>) => string` | A function that returns a string value that uniquely identifies each item in the items array.                                                             | `item => item` |
-| `inputValue?`               | `string`                                              | Sets the value of the input inside the Combobox.                                                                                                          | `''`           |
-| `selectedItem?`             | any                                                   | Used to set the selected item of the combobox.                                                                                                            |                |
-| `initialIsOpen?`            | `boolean`                                             | Whether the Combobox is open on initial render.                                                                                                           | `false`        |
-| `initialSelectedItem?`      | `string \| Record<string, unknown>`                   | Sets the initial item selected when a Combobox is initialized.                                                                                            | `[]`           |
-| `disabledItems?`            | `any[]`                                               | An array of items that should be disabled.                                                                                                                | `[]`           |
-| `emptyState?`               | `React.FC`                                            | A custom empty state component to render when there are no items in the list.                                                                             | `null`         |
-| `onSelectedItemChange?`     | `(newSelectedItem: any[]) => void`                    | Callback function for after an item is selected or deselected.                                                                                            |                |
-| `onHighlightedIndexChange?` | `(newHighlightedIndex: number) => void`               | Callback function for after an item is highlighted. Items are highlighted if they are hovered over or with keyboard actions.                              |                |
-| `onInputValueChange?`       | `(newInputValue: string) => void`                     | Callback function for after the input value is changed.                                                                                                   |                |
-| `onIsOpenChange?`           | `(newIsOpen: boolean) => void`                        | Callback function for after the Combobox is opened or closed.                                                                                             |                |
-| `state?`                    | `UseComboboxPrimitiveReturnValue<any>`                | Used with the `useCombobox` hook. When using this prop, all other state props are **ignored**. They must be passed to `useCombobox` as arguments instead. |                |
-
-#### useCombobox arguments
-
-See the [Combobox Primitive](/primitives/combobox-primitive#usecomboboxprimitive-arguments).
-
-### Figma
-
-#### Usage
-
-Combobox is available in the Paste Components Figma library. It also has several base
-components with a ⚙️emoji in its layer name to indicate there are nested configurable properties available.
-
-#### Properties
-
-Here is a properties table for Combobox:
-
-| Property      | Variants                                                   | Description                                             | Default         |
-| ------------- | ---------------------------------------------------------- | ------------------------------------------------------- | --------------- |
-| Type          | `Single-select`, `Multi-select`                            | Swaps between combobox types.                           | “Single-select” |
-| State         | `Default`, `Error`, `Disabled`, `Open`                     | The state of the Combobox.                              | “Default”       |
-| Required      | “Yes”, “No”                                                | Toggles to display if the Combobox is a required field. | “No”            |
-| Help Text     | “Yes”, “No”                                                | Toggles to display help text below the field.           | “No”            |
-| Prefix/Suffix | `Prefix text`, `Prefix icon`, `Suffix text`, `Suffix icon` | Adds a prefix ahead or a suffix after the field text.   |                 |
-
-Here is a properties table for its nested component, Field:
-
-| Property | Variants                                                                 | Description                                               | Default   |
-| -------- | ------------------------------------------------------------------------ | --------------------------------------------------------- | --------- |
-| Value    | `Filled`, `Blank`                                                        | Toggles a different view of the Field if there’s a value. | “Filled”  |
-| State    | `Default`, `Hover`, `Hover (Autocomplete)`, `Focus`, `Error`, `Disabled` | The state of the Field.                                   | “Default” |
-
-Here is a properties table for Listbox Item, a nested component within Listbox:
-
-| Property | Variants                                                                                  | Description                                           | Default          |
-| -------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------- | ---------------- |
-| Variant  | `Ungrouped item`, `Group label`, `Grouped item`, `Loading state`, `Empty state`, `Create` | The variant of the Listbox item.                      | “Ungrouped item” |
-| Selected | “Yes”, “No”                                                                               | Toggles to show the selected state of a Listbox item. | “No”             |
-| State    | `Default`, `Hover/Active`, `Disabled`                                                     | The state of the Field.                               | "Default”        |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

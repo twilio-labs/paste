@@ -1,31 +1,31 @@
 export const customStyleProps = {
   color: {
-    property: 'color',
-    scale: 'textColors',
+    property: "color",
+    scale: "textColors",
   },
   backgroundColor: {
-    property: 'backgroundColor',
-    scale: 'backgroundColors',
+    property: "backgroundColor",
+    scale: "backgroundColors",
   },
   borderColor: {
-    property: 'borderColor',
-    scale: 'borderColors',
+    property: "borderColor",
+    scale: "borderColors",
   },
   borderBottomColor: {
-    property: 'borderBottomColor',
-    scale: 'borderColors',
+    property: "borderBottomColor",
+    scale: "borderColors",
   },
   borderLeftColor: {
-    property: 'borderLeftColor',
-    scale: 'borderColors',
+    property: "borderLeftColor",
+    scale: "borderColors",
   },
   borderRightColor: {
-    property: 'borderRightColor',
-    scale: 'borderColors',
+    property: "borderRightColor",
+    scale: "borderColors",
   },
   borderTopColor: {
-    property: 'borderTopColor',
-    scale: 'borderColors',
+    property: "borderTopColor",
+    scale: "borderColors",
   },
   content: true,
   cursor: true,
@@ -65,12 +65,12 @@ export const customStyleProps = {
   fontVariantNumeric: true,
   inset: true,
   columnGap: {
-    property: 'columnGap',
-    scale: 'space',
+    property: "columnGap",
+    scale: "space",
   },
   rowGap: {
-    property: 'rowGap',
-    scale: 'space',
+    property: "rowGap",
+    scale: "space",
   },
-  '-moz-appearance': true,
+  "-moz-appearance": true,
 };

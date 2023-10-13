@@ -20,12 +20,11 @@ import {
   requiredFilePicker,
   i18nFilePicker,
 } from '../../../component-examples/FilePickerExamples.ts';
-import Changelog from '@twilio-paste/file-picker/CHANGELOG.md';
 import packageJson from '@twilio-paste/file-picker/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -37,24 +36,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-picker',
+        storybookUrl: '/?path=/story/components-file-picker--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-picker"
-  storybookUrl="/?path=/story/components-file-picker--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
   {defaultFilePicker}
@@ -201,64 +191,3 @@ Recommended phrasing for File Picker error copy:
     <HelpText variant="error" id='error-ht'>This file is not an accepted format. You can upload .png and .jpeg file formats.</HelpText>
   </>`}
 </LivePreview>
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/file-picker - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {FilePicker, FilePickerButton} from '@twilio-paste/core/file-picker';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-const MyFilePicker = () => (
-  <>
-    <Label htmlFor="foo" required>
-      Profile photo
-    </Label>
-    <FilePicker id="foo" required aria-describedby="foo_text">
-      <FilePickerButton variant="secondary">Choose a file</FilePickerButton>
-    </FilePicker>
-    <HelpText id="foo_text">Upload an image</HelpText>
-  </>
-);
-```
-
-#### FilePickerButton Props
-
-All the valid attributes for `Button` are supported including the following props:
-
-| Prop     | Type                                     | Description                                                                                | Default             |
-| -------- | ---------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------- |
-| variant? | <inlineCode>ButtonVariants</inlineCode>  | Button variant used for the FilePickerButton. Recommended variant is 'secondary'.          | 'primary'           |
-| element? | <inlineCode>string</inlineCode>          | Overrides the default element name to apply unique styles with the Customization Provider. | 'FILEPICKER_BUTTON' |
-| children | <inlineCode>React.ReactNode</inlineCode> | The text displayed on the FilePickerButton. Recommended for English is "Choose a file".    | null                |
-
-#### FilePicker Props
-
-| Prop                 | Type                                        | Description                                                                                                                                                                                                                                                               | Default            |
-| -------------------- | ------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ |
-| accept?              | <inlineCode>string</inlineCode>             | Specify the desired file type. Note: file type should still be validated server-side, as this prop is not a complete validation. <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/accept" showExternal>Read more about the accept prop</Anchor> | null               |
-| children             | <inlineCode>React.ReactElement</inlineCode> | `<FilePickerButton />`                                                                                                                                                                                                                                                    | null               |
-| disabled?            | <inlineCode>boolean</inlineCode>            | Disables the File Picker.                                                                                                                                                                                                                                                 | false              |
-| required?            | <inlineCode>boolean</inlineCode>            | Sets the File Picker as required.                                                                                                                                                                                                                                         | false              |
-| i18nNoSelectionText? | <inlineCode>string</inlineCode>             | The text string displayed when no files are selected.                                                                                                                                                                                                                     | 'No file uploaded' |
-| element?             | <inlineCode>string</inlineCode>             | Overrides the default element name to apply unique styles with the Customization Provider.                                                                                                                                                                                | 'FILEPICKER'       |
-| onChange?            | `(event: React.MouseEvent<HTMLElement>)`    | Function will run when the uploaded file changes                                                                                                                                                                                                                          | null               |
-| name?                | <inlineCode>string</inlineCode>             |                                                                                                                                                                                                                                                                           | null               |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

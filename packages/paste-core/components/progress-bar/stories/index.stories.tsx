@@ -1,19 +1,19 @@
-import * as React from 'react';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {useUID} from '@twilio-paste/uid-library';
-import {Form, FormControl} from '@twilio-paste/form';
-import {Button} from '@twilio-paste/button';
-import {Box} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Form, FormControl } from "@twilio-paste/form";
+import { HelpText } from "@twilio-paste/help-text";
+import { Label } from "@twilio-paste/label";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {ProgressBar, ProgressBarLabel} from '../src';
+import { ProgressBar, ProgressBarLabel } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/ProgressBar',
+  title: "Components/ProgressBar",
 };
 
-const NumberFormatter = new Intl.NumberFormat('en-US');
+const NumberFormatter = new Intl.NumberFormat("en-US");
 
 export const Default = (): React.ReactNode => {
   const progressBarId = useUID();
@@ -126,7 +126,7 @@ export const CustomValueText = (): React.ReactNode => {
             value={21}
             maxValue={30}
             valueLabel="21 friends accepted"
-            formatOptions={{maximumFractionDigits: 0, minimumFractionDigits: 0}}
+            formatOptions={{ maximumFractionDigits: 0, minimumFractionDigits: 0 }}
           />
         </FormControl>
       </Form>

@@ -1,19 +1,19 @@
-import {globby} from 'globby-esm';
-import type {GetServerSideProps} from 'next';
+import { globby } from "globby-esm";
+import type { GetServerSideProps } from "next";
 
 const Sitemap = (): React.ReactElement | null => {
   return null;
 };
 
-export const getServerSideProps: GetServerSideProps = async ({res}) => {
-  const BASE_URL = 'https://paste.twilio.design';
+export const getServerSideProps: GetServerSideProps = async ({ res }) => {
+  const BASE_URL = "https://paste.twilio.design";
 
-  const paths = await globby(['**/*.js', '!sitemap.xml.js', '!404.js', '!_*.js'], {
+  const paths = await globby(["**/*.js", "!sitemap.xml.js", "!404.js", "!_*.js"], {
     cwd: __dirname,
   });
   const staticPaths = paths.map((staticPagePath) => {
-    const path = staticPagePath.replace('.js', '');
-    const route = path === 'index' ? '' : `${path}/`;
+    const path = staticPagePath.replace(".js", "");
+    const route = path === "index" ? "" : `${path}/`;
 
     return `${BASE_URL}/${route}`;
   });
@@ -30,11 +30,11 @@ export const getServerSideProps: GetServerSideProps = async ({res}) => {
             </url>
           `;
         })
-        .join('')}
+        .join("")}
     </urlset>
   `;
 
-  res.setHeader('Content-Type', 'text/xml');
+  res.setHeader("Content-Type", "text/xml");
   res.write(sitemap);
   res.end();
 

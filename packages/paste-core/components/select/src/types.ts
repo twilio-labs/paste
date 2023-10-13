@@ -1,5 +1,5 @@
-import type {BoxElementProps} from '@twilio-paste/box';
+import type { BoxElementProps } from "@twilio-paste/box";
 
-export type Element = BoxElementProps['element'];
+export type Element = BoxElementProps["element"];
 
-export type Variants = 'default' | 'inverse';
+export type Variants = "default" | "inverse";

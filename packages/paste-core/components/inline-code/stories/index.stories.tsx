@@ -1,17 +1,17 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Heading} from '@twilio-paste/heading';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {InlineCode} from '../src';
+import { InlineCode } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Inline Code',
+  title: "Components/Inline Code",
   component: InlineCode,
 };
 
@@ -94,7 +94,7 @@ export const DisplayingAPIKey: StoryFn = () => {
   );
 };
 
-export const Customization: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Customization: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
@@ -102,12 +102,12 @@ export const Customization: StoryFn = (_args, {parameters: {isTestEnvironment}})
       theme={currentTheme}
       elements={{
         INLINE_CODE: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          borderWidth: 'borderWidth20',
-          borderColor: 'colorBorderErrorWeak',
-          borderStyle: 'dotted',
-          borderRadius: 'borderRadius10',
-          color: 'colorTextErrorStronger',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          borderWidth: "borderWidth20",
+          borderColor: "colorBorderErrorWeak",
+          borderStyle: "dotted",
+          borderRadius: "borderRadius10",
+          color: "colorTextErrorStronger",
         },
       }}
     >

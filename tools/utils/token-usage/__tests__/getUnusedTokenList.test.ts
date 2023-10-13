@@ -1,14 +1,14 @@
-const {getUnusedTokenList} = require('../getUnusedTokenList');
+const { getUnusedTokenList } = require("../getUnusedTokenList");
 
-describe('getUnusedTokenList', () => {
+describe("getUnusedTokenList", () => {
   const tokenPackageMap = {
-    colorBackgroundPrimaryLightest: ['@twilio-paste/pagination'],
+    colorBackgroundPrimaryLightest: ["@twilio-paste/pagination"],
     colorBackgroundUser: [],
-    colorBackgroundPrimaryStronger: ['@twilio-paste/base-radio-checkbox', '@twilio-paste/button'],
+    colorBackgroundPrimaryStronger: ["@twilio-paste/base-radio-checkbox", "@twilio-paste/button"],
     colorBackgroundDestructiveStronger: [],
-    colorBackgroundPrimaryWeaker: ['@twilio-paste/button'],
+    colorBackgroundPrimaryWeaker: ["@twilio-paste/button"],
   };
-  it('gets all unused tokens', () => {
-    expect(getUnusedTokenList(tokenPackageMap)).toEqual(['colorBackgroundUser', 'colorBackgroundDestructiveStronger']);
+  it("gets all unused tokens", () => {
+    expect(getUnusedTokenList(tokenPackageMap)).toEqual(["colorBackgroundUser", "colorBackgroundDestructiveStronger"]);
   });
 });

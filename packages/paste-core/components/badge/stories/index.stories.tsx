@@ -1,30 +1,30 @@
-import * as React from 'react';
-import {Heading} from '@twilio-paste/heading';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
-import {UsersIcon} from '@twilio-paste/icons/esm/UsersIcon';
-import {styled, css} from '@twilio-paste/styling-library';
+import { Heading } from "@twilio-paste/heading";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { UsersIcon } from "@twilio-paste/icons/esm/UsersIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import { css, styled } from "@twilio-paste/styling-library";
+import * as React from "react";
 
-import {Badge} from '../src';
+import { Badge } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Badge',
+  title: "Components/Badge",
   component: Badge,
 };
 
 const Wrapper = styled.div(
   css({
-    display: 'flex',
-    columnGap: 'space60',
-    alignItems: 'center',
-    rowGap: 'space60',
-    flexWrap: 'wrap',
-    marginBottom: 'space80',
-  })
+    display: "flex",
+    columnGap: "space60",
+    alignItems: "center",
+    rowGap: "space60",
+    flexWrap: "wrap",
+    marginBottom: "space80",
+  }),
 );
 
 export const AllBadges = (): JSX.Element => (

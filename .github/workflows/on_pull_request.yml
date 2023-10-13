@@ -53,12 +53,15 @@ jobs:
       - name: Build packages
         run: yarn build
 
-      - name: Run type checker
-        run: yarn type-check
+      - run: yarn build:typedocs
+      - name: Verify generated types are checked in for website
+        run: yarn check:type-docs
 
   eslint:
     name: Lint repository
     runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -100,8 +103,6 @@ jobs:
 
       - name: Build packages
         run: yarn build
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Run eslint
         run: yarn lint
@@ -159,6 +160,8 @@ jobs:
   react17_tests:
     name: Test repository using React 17
     runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -193,8 +196,6 @@ jobs:
       # Note: Build first before we change the react version installed.
       - name: Build packages
         run: yarn build
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Install React 17
         run: |
@@ -210,6 +211,8 @@ jobs:
   react16_tests:
     name: Test repository using React 16
     runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
@@ -244,8 +247,6 @@ jobs:
       # Note: Build first before we change the react version installed.
       - name: Build packages
         run: yarn build
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Install React 16
         run: |
@@ -258,8 +259,8 @@ jobs:
       - name: Run tests
         run: yarn test
 
-  prettier:
-    name: Prettier checks
+  format:
+    name: Code format checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -300,13 +301,8 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Build packages
-        run: yarn build
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-
-      - name: Run prettier
-        run: yarn prettier
+      - name: Run BiomeJS + Prettier format for their respective files
+        run: yarn format:ci
 
   chromatic:
     name: Component Visual regression tests

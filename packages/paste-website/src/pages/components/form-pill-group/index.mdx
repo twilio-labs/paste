@@ -10,7 +10,6 @@ import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {FormPill, FormPillGroup, useFormPillState} from '@twilio-paste/form-pill-group';
-import Changelog from '@twilio-paste/form-pill-group/CHANGELOG.md';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
@@ -49,10 +48,10 @@ import {
   iconExample,
 } from '../../../component-examples/FormPillGroup';
 import packageJson from '@twilio-paste/form-pill-group/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -64,25 +63,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form-pill-group',
+        storybookUrl: '/?path=/story/components-form-pill-group--basic',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form-pill-group"
-  storybookUrl="/?path=/story/components-form-pill-group--basic"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
   {basicExample}
@@ -314,152 +303,3 @@ Use a Form Pill Group when you’re editing a collection of data within a form. 
     body="Don't pass FormPillGroup any other component type, and do not wrap FormPill in any other component of DOM element."
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/form-pill-group - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {useFormPillState, FormPillGroup, FormPill} from '@twilio-paste/core/form-pill-group';
-import {ProductVideoIcon} from '@twilio-paste/icons/esm/ProductVideoIcon';
-import {ProductVerifyIcon} from '@twilio-paste/icons/esm/ProductVerifyIcon';
-
-export const BasicFormPillGroup = () => {
-  const pillState = useFormPillState();
-
-  return (
-    <form>
-      <FormPillGroup {...pillState} aria-label="Products:">
-        <FormPill {...pillState}>Voice</FormPill>
-        <FormPill {...pillState}>
-          <ProductVideoIcon decorative />
-          Video
-        </FormPill>
-        <FormPill {...pillState}>
-          <ProductVerifyIcon decorative />
-          Verify
-        </FormPill>
-      </FormPillGroup>
-    </form>
-  );
-};
-```
-
-#### Props
-
-##### FormPillGroup
-
-**Note:** Most required props are provided by spreading the returned state from `useFormPillState`.
-
-| Prop                    | Type                                                    | Description                                                                                                                                            | Default                                                                   |
-| ----------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------- |
-| `aria-label`            | `string`                                                | The visually hidden label of the Form Pill Group                                                                                                       | `''`                                                                      |
-| `move`                  | `(id: string \| null) => void`                          | Moves focus to a given item ID                                                                                                                         |                                                                           |
-| `first`                 | `() => void`                                            | Moves focus to the first item                                                                                                                          |                                                                           |
-| `last`                  | `() => void`                                            | Moves focus to the last item                                                                                                                           |                                                                           |
-| `items`                 | `Item[]`                                                | Lists all the pill items with their id, DOM ref, disabled state and groupId if any. It is updated when registerItem and unregisterItem are called.     |                                                                           |
-| `setCurrentId`          | `Dispatch<SetStateAction<string \| null \| undefined>>` | Sets currentId. It only updates the currentId state without moving focus.                                                                              |                                                                           |
-| `element?`              | `string`                                                | Overrides the default element name to apply unique styles with the Customization Provider                                                              | `'FORM_PILL_GROUP'`                                                       |
-| `focusable?`            | `boolean`                                               | When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set. |                                                                           |
-| `disabled?`             | `boolean`                                               | Same as the HTML attribute                                                                                                                             |                                                                           |
-| `baseId?`               | `string`                                                | ID that will serve as a base for all the items IDs                                                                                                     |                                                                           |
-| `currentId?`            | `string`                                                | The current focused item id                                                                                                                            |                                                                           |
-| `groups?`               | `Group[]`                                               | Lists all the composite groups with their id and DOM ref. It is updated when registerGroup and unregisterGroup are called.                             |                                                                           |
-| `i18nKeyboardControls?` | `string`                                                | Visually hidden string that has instructions for how to remove and select pills with a keyboard.                                                       | `"Press Delete or Backspace to remove. Press Enter to toggle selection."` |
-
-##### FormPill
-
-**Note:** Most required props are provided by spreading the returned state from `useFormPillState`.
-
-| Prop              | Type                                                              | Description                                                                                                                                        | Default        |
-| ----------------- | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| `baseId`          | `string`                                                          | ID that will serve as a base for all the items IDs                                                                                                 |                |
-| `setBaseId`       | `Dispatch<SetStateAction<string>>`                                | Sets the baseId                                                                                                                                    |                |
-| `items`           | `Item[]`                                                          | Lists all the pill items with their id, DOM ref, disabled state and groupId if any. It is updated when registerItem and unregisterItem are called. |                |
-| `groups`          | `Group[]`                                                         | Lists all the composite groups with their id and DOM ref. It is updated when registerGroup and unregisterGroup are called.                         |                |
-| `rtl`             | `boolean`                                                         | Determines how next and previous functions will behave                                                                                             |                |
-| `loop`            | `boolean \| "horizontal" \| "vertical"`                           | Determines how the keyboard navigation loops through the items                                                                                     | `'horizontal'` |
-| `registerItem`    | `(item: Item) => void`                                            | Registers a composite item.                                                                                                                        |                |
-| `unregisterItem`  | `(item: Item) => void`                                            | Unregisters a composite item.                                                                                                                      |                |
-| `registerGroup`   | `(group: Group) => void`                                          | Registers a composite group.                                                                                                                       |                |
-| `unregisterGroup` | `(group: Group) => void`                                          | Unregisters a composite group.                                                                                                                     |                |
-| `move`            | `(id: string \| null) => void`                                    | Moves focus to a given item ID                                                                                                                     |                |
-| `next`            | `() => void`                                                      | Moves focus to the next item                                                                                                                       |                |
-| `previous`        | `() => void`                                                      | Moves focus to the previous item                                                                                                                   |                |
-| `up`              | `() => void`                                                      | Moves focus to the item above                                                                                                                      |                |
-| `down`            | `() => void`                                                      | Moves focus to the item below                                                                                                                      |                |
-| `first`           | `() => void`                                                      | Moves focus to the first item                                                                                                                      |                |
-| `last`            | `() => void`                                                      | Moves focus to the last item                                                                                                                       |                |
-| `sort`            | `() => void`                                                      | Sorts the items based on their position in the DOM                                                                                                 |                |
-| `setRTL`          | `Dispatch<SetStateAction<boolean>>`                               | Sets rtl                                                                                                                                           |                |
-| `setOrientation`  | `Dispatch<SetStateAction<boolean \| "horizontal" \| "vertical">>` | Sets orientation                                                                                                                                   |                |
-| `setCurrentId`    | `Dispatch<SetStateAction<string \| null \| undefined>>`           | Sets currentId. It only updates the currentId state without moving focus.                                                                          |                |
-| `setLoop`         | `Dispatch<SetStateAction<boolean \| "horizontal" \| "vertical">>` | Sets loop                                                                                                                                          |                |
-| `reset`           | `() => void`                                                      | Resets to the initial state                                                                                                                        |                |
-| `variant?`        | `"default" \| "error"`                                            | Sets the variant of the pill                                                                                                                       | `"default"`    |
-| `selected?`       | `boolean`                                                         | Set if a pill is in a selected state                                                                                                               |                |
-| `element?`        | `string`                                                          | Overrides the default element name to apply unique styles with the Customization Provider                                                          | `'FORM_PILL'`  |
-| `disabled?`       | `boolean`                                                         | Set if a pill is disabled                                                                                                                          |                |
-| `onSelect?`       | `() => void`                                                      | Event handler called when a pill is selected                                                                                                       |                |
-| `onDismiss?`      | `() => void`                                                      | Event handler called when a pill is dismissed                                                                                                      |                |
-| `onFocus?`        | `() => void`                                                      | Event handler called when a pill is focused                                                                                                        |                |
-| `onBlur?`         | `() => void`                                                      | Event handler called when a pill is blurred                                                                                                        |                |
-| `currentId?`      | `string`                                                          | The current focused item id                                                                                                                        |                |
-| `orientation?`    | `"horizontal" \| "vertical"`                                      | Defines the orientation of the pill                                                                                                                |                |
-| `i18nErrorLabel?` | `string`                                                          | Alternative text for the error icon in the error variant                                                                                           | `"(error)"`    |
-
-##### useFormPillState
-
-| Prop         | Type      | Description                                            | Default |
-| ------------ | --------- | ------------------------------------------------------ | ------- |
-| `baseId?`    | `string`  | ID that will serve as a base for all the items IDs     |         |
-| `rtl?`       | `boolean` | Determines how next and previous functions will behave |         |
-| `currentId?` | `string`  | The current focused item id                            |         |
-
-### Figma
-
-#### Usage
-
-Form Pill Group is available in the Paste Components Figma library. It has 1 base component, Form Pill, with a ⚙️ emoji in its layer name to indicate there are nested configurable properties available.
-
-In code, when there are more pills than the max width, they will wrap to the next row. To accomplish the same behavior in Figma, please use the `Row count` property to select a number of rows, or place multiple Form Pill Group components under one another.
-
-Form Pill Group also contains other Paste components as nested components, including [Avatar](/components/avatar) and [Icon](/components/icon).
-
-#### Properties
-
-Here is a properties table for Form Pill Group:
-
-| Property  | Variants   | Description                                     | Default |
-| --------- | ---------- | ----------------------------------------------- | ------- |
-| Row count | 1, 2, 3, 4 | Displays a number of rows in a Form Pill Group. | 1       |
-
-Here is a properties table for its nested component, Form Pill:
-
-| Property | Variants                                                            | Description                                                                                                                                          | Default   |
-| -------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| Variant  | `Basic`, `Selectable`, `Dismissible`, `Selectable + Dismissible`    | The variant of the Display Pill.                                                                                                                     | `Basic`   |
-| State    | `Default`, `Hover (Select)`, `Hover (Dismiss)`, `Focus`, `Disabled` | The state of the Display Pill.                                                                                                                       | `Default` |
-| Selected | "Yes", "No"                                                         | Toggles to show the selected state of a Form Pill. This property is only configurable if `Variant=Selectable` or `Variant=Selectable + Dismissible`. | "No"      |
-| Error    | "Yes", "No"                                                         | Toggles to show the error state of a Form Pill.                                                                                                      | "No"      |
-| Prefix   | `None`, `Icon`, `Avatar`                                            | Adds a prefix ahead of the Form Pill label. If set to `Avatar`, manage the nested properties of Avatar in the layer marked with a ⚙️ emoji.          | `None`    |
-| Icon     |                                                                     | Swaps the icon within a Form Pill. This property is visible in the Figma side panel if `Prefix=Icon`.                                                |           |
-| Label    |                                                                     | Sets the label of a Form Pill                                                                                                                        | "Label"   |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

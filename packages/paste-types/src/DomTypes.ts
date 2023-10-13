@@ -5,9 +5,9 @@
 export type As = React.ElementType;
 
 // These are not allowed to be passed as props to a Paste component because we block styling
-type BlockedGlobalHTMLAttrs = 'style' | 'className' | 'color';
+type BlockedGlobalHTMLAttrs = "style" | "className" | "color";
 
 // Extract the props of a React element or component
 export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T>;
 
-export type HTMLPasteProps<T extends As> = Omit<PropsOf<T>, 'ref' | BlockedGlobalHTMLAttrs>;
+export type HTMLPasteProps<T extends As> = Omit<PropsOf<T>, "ref" | BlockedGlobalHTMLAttrs>;

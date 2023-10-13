@@ -1,3 +1,3 @@
-export * from './Avatar';
-export {AvatarGroup} from './AvatarGroup';
-export * from './types';
+export { Avatar } from "./Avatar";
+export { AvatarGroup } from "./AvatarGroup";
+export type { AvatarProps, AvatarGroupProps, AvatarContentProps } from "./types";

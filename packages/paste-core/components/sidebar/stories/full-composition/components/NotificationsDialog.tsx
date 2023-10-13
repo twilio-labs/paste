@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {Popover, PopoverButton, PopoverContainer} from '@twilio-paste/popover';
-import {NotificationIcon} from '@twilio-paste/icons/esm/NotificationIcon';
+import { NotificationIcon } from "@twilio-paste/icons/esm/NotificationIcon";
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
+import * as React from "react";
 
 export const NotificationsDialog: React.FC = () => {
   return (

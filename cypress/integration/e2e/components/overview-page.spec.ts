@@ -1,11 +1,11 @@
-describe('Overview page', () => {
+describe("Overview page", () => {
   beforeEach(() => {
-    cy.visit('/components');
+    cy.visit("/components");
   });
 
-  it('should render the components overview page correctly', () => {
+  it("should render the components overview page correctly", () => {
     cy.pageHeaderShouldBeVisible({
-      headerText: 'Components',
+      headerText: "Components",
     });
 
     cy.overviewTableRendersCorrectly();

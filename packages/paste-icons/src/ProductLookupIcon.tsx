@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductLookupIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductLookupIconProps extends IconWrapperProps {
 }
 
 const ProductLookupIcon = React.forwardRef<HTMLElement, ProductLookupIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductLookupIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductLookupIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductLookupIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -40,8 +40,8 @@ const ProductLookupIcon = React.forwardRef<HTMLElement, ProductLookupIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ProductLookupIcon.displayName = 'ProductLookupIcon';
-export {ProductLookupIcon};
+ProductLookupIcon.displayName = "ProductLookupIcon";
+export { ProductLookupIcon };

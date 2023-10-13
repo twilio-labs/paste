@@ -1,50 +1,92 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Spinner} from '@twilio-paste/spinner';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { DeleteIcon } from "@twilio-paste/icons/esm/DeleteIcon";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { Spinner } from "@twilio-paste/spinner";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import {FileUploaderItemContext} from './FileUploaderItemContext';
-import type {FileUploaderItemContextProps} from './FileUploaderItemContext';
+import { FileUploaderItemContext } from "./FileUploaderItemContext";
+import type { FileUploaderItemContextProps } from "./FileUploaderItemContext";
 
-export interface FileUploaderItemProps extends Omit<React.ComponentPropsWithRef<'li'>, 'children'> {
-  children?: BoxProps['children'];
-  element?: BoxProps['element'];
-  variant?: FileUploaderItemContextProps['variant'];
+export interface FileUploaderItemProps extends HTMLPasteProps<"li"> {
+  children?: BoxProps["children"];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FILE_UPLOADER_ITEM'
+   * @type {BoxProps['element']}
+   * @memberof FileUploaderItemProps
+   */
+  element?: BoxProps["element"];
+  /**
+   * The variant of FileUploaderItem
+   *
+   * @default 'default'
+   * @type {FileUploaderItemContextProps['variant']}
+   * @memberof FileUploaderItemProps
+   */
+  variant?: FileUploaderItemContextProps["variant"];
+  /**
+   * The icon displayed when it is not loading or error variant.
+   *
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof FileUploaderItemProps
+   */
   fileIcon?: NonNullable<React.ReactNode>;
   onButtonClick?: () => void;
+  /**
+   * The hidden text for the error icon
+   *
+   * @default '(error)'
+   * @type {string}
+   * @memberof FileUploaderItemProps
+   */
   i18nErrorText?: string;
+  /**
+   * The hidden text for the dismiss button
+   *
+   * @default 'Remove file'
+   * @type {string}
+   * @memberof FileUploaderItemProps
+   */
   i18nButtonText?: string;
+  /**
+   * The hidden text for the loading spinner
+   *
+   * @default '(loading)'
+   * @type {string}
+   * @memberof FileUploaderItemProps
+   */
   i18nLoadingText?: string;
 }
 
-const variantStyles: Record<FileUploaderItemContextProps['variant'], BoxStyleProps> = {
+const variantStyles: Record<FileUploaderItemContextProps["variant"], BoxStyleProps> = {
   default: {
-    borderColor: 'colorBorderWeaker',
-    backgroundColor: 'colorBackgroundBody',
+    borderColor: "colorBorderWeaker",
+    backgroundColor: "colorBackgroundBody",
   },
   loading: {
-    borderColor: 'colorBorderWeaker',
-    backgroundColor: 'colorBackgroundBody',
+    borderColor: "colorBorderWeaker",
+    backgroundColor: "colorBackgroundBody",
   },
   error: {
-    borderColor: 'colorBorderError',
-    backgroundColor: 'colorBackgroundErrorWeakest',
+    borderColor: "colorBorderError",
+    backgroundColor: "colorBackgroundErrorWeakest",
   },
 };
 
-const iconStyles: Record<FileUploaderItemContextProps['variant'], BoxStyleProps> = {
+const iconStyles: Record<FileUploaderItemContextProps["variant"], BoxStyleProps> = {
   default: {
-    color: 'colorTextIcon',
+    color: "colorTextIcon",
   },
   loading: {
-    color: 'colorTextIcon',
+    color: "colorTextIcon",
   },
   error: {
-    color: 'colorTextIconError',
+    color: "colorTextIconError",
   },
 };
 
@@ -53,29 +95,29 @@ export const FileUploaderItem = React.forwardRef<HTMLLIElement, FileUploaderItem
     {
       children,
       fileIcon,
-      element = 'FILE_UPLOADER_ITEM',
-      variant = 'default',
-      i18nErrorText = '(error)',
-      i18nButtonText = 'Remove file',
-      i18nLoadingText = '(uploading file)',
+      element = "FILE_UPLOADER_ITEM",
+      variant = "default",
+      i18nErrorText = "(error)",
+      i18nButtonText = "Remove file",
+      i18nLoadingText = "(uploading file)",
       onButtonClick,
       ...props
     },
-    ref
+    ref,
   ) => {
     let icon = fileIcon;
-    if (variant === 'error')
+    if (variant === "error")
       icon = <ErrorIcon title={i18nErrorText} decorative={false} element={`${element}_ERROR_ICON`} />;
-    if (variant === 'loading')
+    if (variant === "loading")
       icon = <Spinner decorative={false} title={i18nLoadingText} element={`${element}_SPINNER`} />;
 
     let buttonIcon = <DeleteIcon title={i18nButtonText} decorative={false} element={`${element}_DELETE_ICON`} />;
-    if (variant === 'loading' || variant === 'error') {
+    if (variant === "loading" || variant === "error") {
       buttonIcon = <CloseIcon title={i18nButtonText} decorative={false} element={`${element}_DISMISS_ICON`} />;
     }
 
     return (
-      <FileUploaderItemContext.Provider value={{variant}}>
+      <FileUploaderItemContext.Provider value={{ variant }}>
         <Box
           as="li"
           ref={ref}
@@ -105,7 +147,7 @@ export const FileUploaderItem = React.forwardRef<HTMLLIElement, FileUploaderItem
         </Box>
       </FileUploaderItemContext.Provider>
     );
-  }
+  },
 );
 
-FileUploaderItem.displayName = 'FileUploaderItem';
+FileUploaderItem.displayName = "FileUploaderItem";

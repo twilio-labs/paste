@@ -1,24 +1,24 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxShadow, BackgroundColor} from '@twilio-paste/style-props';
+import { Box } from "@twilio-paste/box";
+import type { BackgroundColor, BoxShadow } from "@twilio-paste/style-props";
+import * as React from "react";
 
-import type {FauxInputProps} from '../types';
+import type { FauxInputProps } from "../types";
 
 const InverseFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
-  ({disabled, element, hasError, readOnly, children, type, variant}, ref) => {
-    let backgroundColor = 'colorBackgroundInverse' as BackgroundColor;
-    let boxShadow = 'shadowBorderInverse' as BoxShadow;
-    let boxShadowHover = 'shadowBorderInverseStrongest' as BoxShadow;
-    if (disabled && type !== 'hidden') {
-      backgroundColor = 'colorBackgroundInverse';
-      boxShadow = 'shadowBorderInverseWeaker';
-      boxShadowHover = 'shadowBorderInverseWeaker';
-    } else if (readOnly && type !== 'hidden') {
-      backgroundColor = 'colorBackgroundInverseStrong';
-      boxShadowHover = 'shadowBorderInverse';
-    } else if (hasError && type !== 'hidden') {
-      boxShadow = 'shadowBorderErrorWeak';
-    } else if (type === 'hidden') {
+  ({ disabled, element, hasError, readOnly, children, type, variant }, ref) => {
+    let backgroundColor = "colorBackgroundInverse" as BackgroundColor;
+    let boxShadow = "shadowBorderInverse" as BoxShadow;
+    let boxShadowHover = "shadowBorderInverseStrongest" as BoxShadow;
+    if (disabled && type !== "hidden") {
+      backgroundColor = "colorBackgroundInverse";
+      boxShadow = "shadowBorderInverseWeaker";
+      boxShadowHover = "shadowBorderInverseWeaker";
+    } else if (readOnly && type !== "hidden") {
+      backgroundColor = "colorBackgroundInverseStrong";
+      boxShadowHover = "shadowBorderInverse";
+    } else if (hasError && type !== "hidden") {
+      boxShadow = "shadowBorderErrorWeak";
+    } else if (type === "hidden") {
       backgroundColor = null;
       boxShadow = null;
       boxShadowHover = null;
@@ -35,14 +35,14 @@ const InverseFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
         borderRadius="borderRadius20"
         color="colorTextInverse"
         transition="box-shadow 100ms ease-in"
-        cursor={disabled ? 'not-allowed' : 'text'}
+        cursor={disabled ? "not-allowed" : "text"}
         variant={variant}
         _hover={{
           boxShadow: boxShadowHover,
         }}
         _focusWithin={{
-          backgroundColor: 'colorBackgroundInverse',
-          boxShadow: disabled ? boxShadow : 'shadowFocusInverse',
+          backgroundColor: "colorBackgroundInverse",
+          boxShadow: disabled ? boxShadow : "shadowFocusInverse",
         }}
         _active={{
           boxShadow: boxShadowHover,
@@ -51,9 +51,9 @@ const InverseFauxInput = React.forwardRef<HTMLDivElement, FauxInputProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
-InverseFauxInput.displayName = 'InverseFauxInput';
+InverseFauxInput.displayName = "InverseFauxInput";
 
-export {InverseFauxInput};
+export { InverseFauxInput };

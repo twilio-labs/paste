@@ -1,14 +1,22 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface FormActionsProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
-  element?: BoxProps['element'];
+export interface FormActionsProps extends HTMLPasteProps<"div"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_ACTIONS'
+   * @type {BoxProps['element']}
+   * @memberof FormActionsProps
+   */
+  element?: BoxProps["element"];
   children: React.ReactNode;
 }
 
 export const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
-  ({children, element = 'FORM_ACTIONS', ...props}, ref) => (
+  ({ children, element = "FORM_ACTIONS", ...props }, ref) => (
     <Box
       ref={ref}
       element={element}
@@ -20,7 +28,7 @@ export const FormActions = React.forwardRef<HTMLDivElement, FormActionsProps>(
     >
       {children}
     </Box>
-  )
+  ),
 );
 
-FormActions.displayName = 'FormActions';
+FormActions.displayName = "FormActions";

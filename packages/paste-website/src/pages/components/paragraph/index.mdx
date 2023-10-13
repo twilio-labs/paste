@@ -122,28 +122,33 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
 
 <DoDont>
   <Do title="Do" body="Break content up into small paragraphs that allow users to skim the information." center>
-    <Codeblock>{`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
-  mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
-</Paragraph>
-<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
-  mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
-</Paragraph>`}
+    <Codeblock>
+      {`
+        <Paragraph>
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
+          mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
+        </Paragraph>
+        <Paragraph>
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
+          mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
+        </Paragraph>
+      `}
     </Codeblock>
   </Do>
   <Dont title="Don't" body="Don’t create overly long paragraphs that make it difficult for the reader to find information.">
-    <Codeblock>{`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-
-</Paragraph>`}
+    <Codeblock>
+      {`
+        <Paragraph>
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+        </Paragraph>
+      `}
     </Codeblock>
   </Dont>
 </DoDont>
@@ -155,14 +160,16 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
     center
   >
     <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. <a href="#">Aenean lacinia</a> bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>
-<Paragraph marginBottom="space0">
-  Donec sed odio dui. <strong>Aenean lacinia bibendum</strong> nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>`}
+      {`
+        <Paragraph>
+          Donec sed odio dui. <a href="#">Aenean lacinia</a> bibendum nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+        </Paragraph>
+        <Paragraph marginBottom="space0">
+          Donec sed odio dui. <strong>Aenean lacinia bibendum</strong> nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+        </Paragraph>
+      `}
     </Codeblock>
   </Do>
   <Dont
@@ -170,14 +177,16 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
     body="Don’t nest paragraphs within each other either, only inline elements should be nested within a paragraph."
   >
     <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  <Paragraph marginBottom="space0">
-    Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-    Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  </Paragraph>
-</Paragraph>`}
+      {`
+        <Paragraph>
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          <Paragraph marginBottom="space0">
+            Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+            Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          </Paragraph>
+        </Paragraph>
+      `}
     </Codeblock>
   </Dont>
 </DoDont>

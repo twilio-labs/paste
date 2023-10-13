@@ -1,14 +1,22 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface ChatEventProps {
+export interface ChatEventProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
-  element?: BoxElementProps['element'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_EVENT"
+   * @type {BoxProps["element"]}
+   * @memberof ChatEventProps
+   */
+  element?: BoxElementProps["element"];
 }
 
 const ChatEvent = React.forwardRef<HTMLDivElement, ChatEventProps>(
-  ({children, element = 'CHAT_EVENT', ...props}, ref) => {
+  ({ children, element = "CHAT_EVENT", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -25,9 +33,9 @@ const ChatEvent = React.forwardRef<HTMLDivElement, ChatEventProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
 
-ChatEvent.displayName = 'ChatEvent';
+ChatEvent.displayName = "ChatEvent";
 
-export {ChatEvent};
+export { ChatEvent };

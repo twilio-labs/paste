@@ -1,16 +1,16 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
+import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
 
-export const LandingPageSection: React.FC<React.PropsWithChildren<BoxProps>> = ({children, ...props}) => {
+export const LandingPageSection: React.FC<React.PropsWithChildren<BoxProps>> = ({ children, ...props }) => {
   return (
     <Box
       as="section"
       element="LANDING_PAGE_SECTION"
-      paddingX={['space90', 'space120', 'space190']}
-      paddingY={['space90', 'space120', 'space200']}
+      paddingX={["space90", "space120", "space190"]}
+      paddingY={["space90", "space120", "space200"]}
       position="relative"
       {...props}
     >
@@ -24,7 +24,7 @@ const ContentVariants = {
     maxWidth: SITE_CONTENT_MAX_WIDTH,
   },
   narrow: {
-    maxWidth: 'size90',
+    maxWidth: "size90",
   },
 } as const;
 
@@ -33,7 +33,7 @@ type LandingPageSectionContentProps = {
 } & BoxProps;
 export const LandingPageSectionContent: React.FC<React.PropsWithChildren<LandingPageSectionContentProps>> = ({
   children,
-  variant = 'default',
+  variant = "default",
   ...props
 }) => {
   return (

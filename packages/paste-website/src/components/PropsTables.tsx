@@ -1,18 +1,18 @@
-import * as React from 'react';
-import Markdown from 'markdown-to-jsx';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Disclosure, DisclosureContent, DisclosureHeading} from '@twilio-paste/disclosure';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {RequiredDot} from '@twilio-paste/label';
-import {InlineCode} from '@twilio-paste/inline-code';
+import { Box } from "@twilio-paste/box";
+import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
+import { InlineCode } from "@twilio-paste/inline-code";
+import { RequiredDot } from "@twilio-paste/label";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
+import Markdown from "markdown-to-jsx";
+import * as React from "react";
 
 import {
-  type ComponentApiPropDetails,
   type ComponentApiProp,
+  type ComponentApiPropDetails,
   type GroupedComponentApi,
-} from '../utils/componentApiUtils';
-import {AnchoredHeading} from './Heading';
+} from "../utils/componentApiUtils";
+import { AnchoredHeading } from "./Heading";
 
 export interface PropsTableProps {
   componentApi: GroupedComponentApi;
@@ -28,7 +28,7 @@ export interface PropTypeProps {
   children: NonNullable<React.ReactNode>;
 }
 
-const MarkdownConverter: React.FC<{description: string}> = ({description}) => {
+const MarkdownConverter: React.FC<{ description: string }> = ({ description }) => {
   return (
     <Markdown
       options={{
@@ -44,16 +44,16 @@ const MarkdownConverter: React.FC<{description: string}> = ({description}) => {
   );
 };
 
-const PropType: React.FC<React.PropsWithChildren<PropTypeProps>> = ({children}) => {
+const PropType: React.FC<React.PropsWithChildren<PropTypeProps>> = ({ children }) => {
   return (
     <Box as="code" fontFamily="fontFamilyCode" color="colorTextDecorative30">
       {children}
     </Box>
   );
 };
-PropType.displayName = 'PropType';
+PropType.displayName = "PropType";
 
-const PropPair: React.FC<PropPairProps> = ({term, description}) => {
+const PropPair: React.FC<PropPairProps> = ({ term, description }) => {
   return (
     <Box display="flex" marginBottom="space20" columnGap="space20" paddingX="space30">
       <Box as="dt" fontSize="fontSize20" fontWeight="fontWeightMedium" minWidth="80px">
@@ -65,9 +65,9 @@ const PropPair: React.FC<PropPairProps> = ({term, description}) => {
     </Box>
   );
 };
-PropPair.displayName = 'PropPair';
+PropPair.displayName = "PropPair";
 
-const PropsList: React.FC<PropsListProps> = ({props}) => {
+const PropsList: React.FC<PropsListProps> = ({ props }) => {
   return (
     <Box>
       {Object.keys(props).map((propName) => {
@@ -81,7 +81,7 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
             marginBottom="space120"
             paddingBottom="space90"
             _last={{
-              marginBottom: 'space50',
+              marginBottom: "space50",
             }}
           >
             <Box marginBottom="space60">
@@ -108,7 +108,7 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
                   borderRadius="borderRadiusPill"
                 >
                   {propName}
-                </Box>{' '}
+                </Box>{" "}
                 {prop.required ? (
                   <Box as="span" display="flex" alignItems="center" columnGap="space30">
                     <RequiredDot />
@@ -117,7 +117,7 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
                     </Text>
                   </Box>
                 ) : (
-                  ''
+                  ""
                 )}
               </Box>
               {prop.description && (
@@ -128,7 +128,7 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
             </Box>
             <Box as="dl">
               <PropPair term="Type" description={<PropType>{prop.type}</PropType>} />
-              {prop.defaultValue && prop.defaultValue !== ' ' ? (
+              {prop.defaultValue && prop.defaultValue !== " " ? (
                 <PropPair term="Default" description={<PropType>{prop.defaultValue}</PropType>} />
               ) : null}
             </Box>
@@ -138,15 +138,15 @@ const PropsList: React.FC<PropsListProps> = ({props}) => {
     </Box>
   );
 };
-PropsList.displayName = 'PropsList';
+PropsList.displayName = "PropsList";
 
-const PropsTable: React.FC<PropsTableProps> = ({componentApi}) => {
+const PropsTable: React.FC<PropsTableProps> = ({ componentApi }) => {
   const propsTable = React.useMemo(() => componentApi, [componentApi]);
 
   return (
     <>
       {Object.keys(propsTable).map((componentName) => {
-        const {internalProps, externalProps} = propsTable[componentName];
+        const { internalProps, externalProps } = propsTable[componentName];
         return (
           <Box marginTop="space90" marginBottom="space200" key={componentName}>
             <AnchoredHeading as="h3" variant="heading30" existingSlug={componentName.toLowerCase()}>
@@ -175,6 +175,6 @@ const PropsTable: React.FC<PropsTableProps> = ({componentApi}) => {
   );
 };
 
-PropsTable.displayName = 'PropsTable';
+PropsTable.displayName = "PropsTable";
 
-export {PropsTable};
+export { PropsTable };

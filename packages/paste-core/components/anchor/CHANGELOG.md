@@ -1,5 +1,17 @@
 # Change Log
 
+## 12.1.0
+
+### Minor Changes
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+### Patch Changes
+
+- [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Anchor] Add TsDoc type annotations
+
 ## 12.0.0
 
 ### Major Changes

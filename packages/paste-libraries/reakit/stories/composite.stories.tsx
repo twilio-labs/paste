@@ -1,12 +1,12 @@
-import * as React from 'react';
+import * as React from "react";
 
-import {useCompositeState, Composite, CompositeGroup, CompositeItem} from '../src';
+import { Composite, CompositeGroup, CompositeItem, useCompositeState } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/Reakit/Composite',
+  title: "Libraries/Reakit/Composite",
   component: Composite,
-  subcomponents: {Composite, CompositeItem},
+  subcomponents: { Composite, CompositeItem },
 };
 
 const onClick =
@@ -35,7 +35,7 @@ export const BasicUsage = (): React.ReactNode => {
 
 // https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-activedescendant
 export const AriaActivedescendant = (): React.ReactNode => {
-  const composite = useCompositeState({unstable_virtual: true});
+  const composite = useCompositeState({ unstable_virtual: true });
   return (
     <Composite {...composite} role="listbox" aria-label="My toolbar">
       <CompositeItem {...composite} role="option" onClick={onClick(1)}>
@@ -56,7 +56,7 @@ const Grid: React.FC<any> = (props) => {
 };
 
 const GridRow: React.FC<any> = (props) => {
-  return <CompositeGroup role="row" {...props} style={{display: 'flex', columnGap: '10px'}} />;
+  return <CompositeGroup role="row" {...props} style={{ display: "flex", columnGap: "10px" }} />;
 };
 
 const GridCell: React.FC<any> = (props) => {
@@ -64,7 +64,7 @@ const GridCell: React.FC<any> = (props) => {
 };
 
 export const TwoDimensional = (): React.ReactNode => {
-  const composite = useCompositeState({wrap: true});
+  const composite = useCompositeState({ wrap: true });
   return (
     <Grid {...composite} aria-label="My grid">
       <GridRow {...composite}>

@@ -1,24 +1,24 @@
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { HideIcon } from "@twilio-paste/icons/esm/HideIcon";
+import { ShowIcon } from "@twilio-paste/icons/esm/ShowIcon";
+import { Theme, useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
 // https://github.com/FormidableLabs/react-live
-import * as React from 'react';
-import {LiveProvider, LiveEditor, LiveError, LivePreview as ReactLivePreview} from 'react-live';
-import type {LiveProviderProps} from 'react-live';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Theme, useTheme} from '@twilio-paste/theme';
-import {useUID} from '@twilio-paste/uid-library';
-import {ShowIcon} from '@twilio-paste/icons/esm/ShowIcon';
-import {HideIcon} from '@twilio-paste/icons/esm/HideIcon';
+import * as React from "react";
+import { LiveEditor, LiveError, LivePreview as ReactLivePreview, LiveProvider } from "react-live";
+import type { LiveProviderProps } from "react-live";
 
-import {CodeblockTheme} from './theme';
-import {CodeBlockOverlayShadow} from './CodeBlockOverlayShadow';
-import {CopyButton} from '../../CopyButton';
-import {ThemeSwitcher} from './ThemeSwitcher';
-import {usePreviewThemeContext} from '../../../context/PreviewThemeContext';
+import { usePreviewThemeContext } from "../../../context/PreviewThemeContext";
+import { CopyButton } from "../../CopyButton";
+import { CodeBlockOverlayShadow } from "./CodeBlockOverlayShadow";
+import { ThemeSwitcher } from "./ThemeSwitcher";
+import { CodeblockTheme } from "./theme";
 
 interface LivePreviewProps {
   children: string;
-  scope: {[key: string]: any};
-  language?: LiveProviderProps['language'];
+  scope: { [key: string]: any };
+  language?: LiveProviderProps["language"];
   disabled?: boolean;
   noInline?: boolean;
   showOverflow?: boolean;
@@ -26,7 +26,7 @@ interface LivePreviewProps {
 
 const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
   children,
-  language = 'jsx',
+  language = "jsx",
   disabled = false,
   noInline = false,
   showOverflow = false,
@@ -36,16 +36,16 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
   const id = useUID();
 
   const pasteTheme = useTheme();
-  const {theme: previewTheme} = usePreviewThemeContext();
+  const { theme: previewTheme } = usePreviewThemeContext();
 
   // Display different UI if codeblock is small
-  const isSmallCodeVariant = (children.match(/\n/g) || '').length + 1 <= 3;
+  const isSmallCodeVariant = (children.match(/\n/g) || "").length + 1 <= 3;
 
   const handleToggleCodeEditor = (): void => {
     setViewCode(!viewCode);
   };
 
-  const overflow = showOverflow ? 'visible' : 'auto';
+  const overflow = showOverflow ? "visible" : "auto";
 
   return (
     <Box marginBottom="space110" data-cy="live-preview">
@@ -90,7 +90,7 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
           borderTopWidth="borderWidth0"
           fontSize="fontSize20"
           position="relative"
-          height={isSmallCodeVariant || viewCode ? 'auto' : '112px'}
+          height={isSmallCodeVariant || viewCode ? "auto" : "112px"}
           overflow="hidden"
         >
           {isSmallCodeVariant ? null : (
@@ -121,7 +121,7 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
           <LiveEditor
             id={id}
             style={{
-              margin: '-10px',
+              margin: "-10px",
               fontFamily: pasteTheme.fonts.fontFamilyCode,
               backgroundColor: pasteTheme.backgroundColors.colorBackgroundBodyInverse,
             }}
@@ -139,4 +139,4 @@ const LivePreview: React.FC<React.PropsWithChildren<LivePreviewProps>> = ({
   );
 };
 
-export {LivePreview};
+export { LivePreview };

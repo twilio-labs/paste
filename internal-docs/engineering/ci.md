@@ -7,7 +7,7 @@
     - [Lint](#lint)
     - [Test React 17](#test-react-17)
     - [Test React 16](#test-react-16)
-    - [Prettier checks](#prettier-checks)
+    - [Code formatting checks](#code-formatting-checks)
     - [Categorize the PR using labels](#categorize-the-pr-using-labels)
     - [Danger checks](#danger-checks)
     - [Check package sizes](#check-package-sizes)
@@ -55,9 +55,12 @@ This job downloads the build cache of the monorepo, and then runs our Jest test 
 
 This job downloads the build cache of the monorepo, and then runs our Jest test suite using React 16.
 
-### Prettier checks
+### Code formatting checks
 
-This job downloads the build cache of the monorepo, and then runs Prettier.
+This job downloads the build cache of the monorepo, and then runs [BiomeJS](https://biomejs.dev/) and [Prettier](https://prettier.io/). BiomeJS runs on all TS(X) / JS(X) / JSON(C) / CSS files. Prettier runs on everything else, such as HTML, MDX, etc...
+
+Biome was selected due to its tremendous performance improvements over prettier to run on our main codebase. It lacks complete support for all file extensions, so prettier is still used where needed on unsupported file types.
+
 
 ### Categorize the PR using labels
 

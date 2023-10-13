@@ -1,17 +1,17 @@
-import * as React from 'react';
+import * as React from "react";
 
 import {
-  ProgressSteps,
   ProgressStepComplete,
   ProgressStepCurrent,
   ProgressStepError,
   ProgressStepIncomplete,
   ProgressStepSeparator,
-} from '../src';
+  ProgressSteps,
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Progress Steps/Vertical',
+  title: "Components/Progress Steps/Vertical",
   component: ProgressSteps,
 };
 

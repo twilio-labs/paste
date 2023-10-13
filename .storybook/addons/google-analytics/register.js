@@ -1,17 +1,17 @@
-const {addons} = require('@storybook/addons');
-const isChromatic = require('chromatic/isChromatic').default;
-const {STORY_ERRORED, STORY_MISSING, STORY_RENDERED} = require('@storybook/core-events');
-const ReactGA = require('react-ga');
+const { addons } = require("@storybook/addons");
+const isChromatic = require("chromatic/isChromatic").default;
+const { STORY_ERRORED, STORY_MISSING, STORY_RENDERED } = require("@storybook/core-events");
+const ReactGA = require("react-ga");
 
-addons.register('paste-google-analytics', (api) => {
+addons.register("paste-google-analytics", (api) => {
   if (!isChromatic()) {
-    ReactGA.initialize('G-1DZ9RS3QNT');
+    ReactGA.initialize("G-1DZ9RS3QNT");
 
     api.on(STORY_RENDERED, () => {
-      const {path} = api.getUrlState();
+      const { path } = api.getUrlState();
       ReactGA.pageview(path);
     });
-    api.on(STORY_ERRORED, ({description}) => {
+    api.on(STORY_ERRORED, ({ description }) => {
       ReactGA.exception({
         description,
         fatal: true,

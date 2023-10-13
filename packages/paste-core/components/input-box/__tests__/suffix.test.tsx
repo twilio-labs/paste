@@ -1,49 +1,49 @@
-import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from "@testing-library/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import * as React from "react";
 
-import {Suffix} from '../src';
+import { Suffix } from "../src";
 
-describe('HTML attributes', () => {
-  it('should set a element data attribute for Suffix', () => {
+describe("HTML attributes", () => {
+  it("should set a element data attribute for Suffix", () => {
     render(<Suffix element="INPUT">suffix</Suffix>);
-    expect(screen.getByText('suffix').getAttribute('data-paste-element')).toEqual('INPUT_SUFFIX');
+    expect(screen.getByText("suffix").getAttribute("data-paste-element")).toEqual("INPUT_SUFFIX");
   });
 
-  it('should set a custom element data attribute for Prefix', () => {
+  it("should set a custom element data attribute for Prefix", () => {
     render(<Suffix element="foo">suffix</Suffix>);
-    expect(screen.getByText('suffix').getAttribute('data-paste-element')).toEqual('foo_SUFFIX');
+    expect(screen.getByText("suffix").getAttribute("data-paste-element")).toEqual("foo_SUFFIX");
   });
 });
 
-describe('Customization', () => {
-  it('should add custom styles to Suffix', () => {
+describe("Customization", () => {
+  it("should add custom styles to Suffix", () => {
     render(
       <CustomizationProvider
         baseTheme="default"
         theme={TestTheme}
         elements={{
-          INPUT_SUFFIX: {backgroundColor: 'colorBackground'},
+          INPUT_SUFFIX: { backgroundColor: "colorBackground" },
         }}
       >
         <Suffix element="INPUT">suffix</Suffix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
-    const renderedSuffix = screen.getByText('suffix');
-    expect(renderedSuffix).toHaveStyleRule('background-color', TestTheme.backgroundColors.colorBackground);
+    const renderedSuffix = screen.getByText("suffix");
+    expect(renderedSuffix).toHaveStyleRule("background-color", TestTheme.backgroundColors.colorBackground);
   });
 
-  it('should add custom styles to a Suffix variant', () => {
+  it("should add custom styles to a Suffix variant", () => {
     render(
       <CustomizationProvider
         baseTheme="default"
         theme={TestTheme}
         elements={{
           INPUT_SUFFIX: {
-            backgroundColor: 'colorBackground',
+            backgroundColor: "colorBackground",
             variants: {
               inverse: {
-                backgroundColor: 'colorBackgroundBrand',
+                backgroundColor: "colorBackgroundBrand",
               },
             },
           },
@@ -52,39 +52,39 @@ describe('Customization', () => {
         <Suffix element="INPUT" variant="inverse">
           suffix
         </Suffix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
-    const renderedSuffix = screen.getByText('suffix');
-    expect(renderedSuffix).toHaveStyleRule('background-color', TestTheme.backgroundColors.colorBackgroundBrand);
+    const renderedSuffix = screen.getByText("suffix");
+    expect(renderedSuffix).toHaveStyleRule("background-color", TestTheme.backgroundColors.colorBackgroundBrand);
   });
 
-  it('should add custom styles to Suffix with a custom element data attribute', () => {
+  it("should add custom styles to Suffix with a custom element data attribute", () => {
     render(
       <CustomizationProvider
         baseTheme="default"
         theme={TestTheme}
         elements={{
-          FOO_SUFFIX: {backgroundColor: 'colorBackground'},
+          FOO_SUFFIX: { backgroundColor: "colorBackground" },
         }}
       >
         <Suffix element="FOO">suffix</Suffix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
-    const renderedSuffix = screen.getByText('suffix');
-    expect(renderedSuffix).toHaveStyleRule('background-color', TestTheme.backgroundColors.colorBackground);
+    const renderedSuffix = screen.getByText("suffix");
+    expect(renderedSuffix).toHaveStyleRule("background-color", TestTheme.backgroundColors.colorBackground);
   });
 
-  it('should add custom styles to a Suffix variant with a custom element data attribute', () => {
+  it("should add custom styles to a Suffix variant with a custom element data attribute", () => {
     render(
       <CustomizationProvider
         baseTheme="default"
         theme={TestTheme}
         elements={{
           FOO_SUFFIX: {
-            backgroundColor: 'colorBackground',
+            backgroundColor: "colorBackground",
             variants: {
               inverse: {
-                backgroundColor: 'colorBackgroundBrand',
+                backgroundColor: "colorBackgroundBrand",
               },
             },
           },
@@ -93,9 +93,9 @@ describe('Customization', () => {
         <Suffix element="FOO" variant="inverse">
           suffix
         </Suffix>
-      </CustomizationProvider>
+      </CustomizationProvider>,
     );
-    const renderedSuffix = screen.getByText('suffix');
-    expect(renderedSuffix).toHaveStyleRule('background-color', TestTheme.backgroundColors.colorBackgroundBrand);
+    const renderedSuffix = screen.getByText("suffix");
+    expect(renderedSuffix).toHaveStyleRule("background-color", TestTheme.backgroundColors.colorBackgroundBrand);
   });
 });

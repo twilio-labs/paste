@@ -1,1 +1,1 @@
-export * from '@twilio-paste/animation-library';
+export * from "@twilio-paste/animation-library";

@@ -1,17 +1,20 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {BaseRadioCheckboxControl, BaseRadioCheckboxLabel} from '@twilio-paste/base-radio-checkbox';
-import {HiddenCheckbox, CheckboxIcon} from '@twilio-paste/checkbox';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {useMergeRefs} from '@twilio-paste/utils';
-import {type BorderColor} from '@twilio-paste/style-props';
+import { BaseRadioCheckboxControl, BaseRadioCheckboxLabel } from "@twilio-paste/base-radio-checkbox";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { CheckboxIcon, HiddenCheckbox } from "@twilio-paste/checkbox";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { type BorderColor } from "@twilio-paste/style-props";
+import { useUID } from "@twilio-paste/uid-library";
+import { useMergeRefs } from "@twilio-paste/utils";
+import * as React from "react";
 
-import {VisualPickerCheckboxContext} from './VisualPickerContext';
-import {type VisualPickerCheckboxProps} from './types';
+import { VisualPickerCheckboxContext } from "./VisualPickerContext";
+import { type VisualPickerCheckboxProps } from "./types";
 
 export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPickerCheckboxProps>(
-  ({checked, element = 'VISUAL_PICKER_CHECKBOX', children, id, indeterminate, labelText, onChange, ...props}, ref) => {
+  (
+    { checked, element = "VISUAL_PICKER_CHECKBOX", children, id, indeterminate, labelText, onChange, ...props },
+    ref,
+  ) => {
     const [isHovering, setIsHovering] = React.useState(false);
 
     const visualPickerCheckboxGroupContext = React.useContext(VisualPickerCheckboxContext);
@@ -24,26 +27,26 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
     const name = visualPickerCheckboxGroupContext.name || props.name || visualPickerCheckboxGroupContext.name;
     const hasError = props.hasError != null ? props.hasError : visualPickerCheckboxGroupContext.groupHasError;
 
-    const {groupHasError, groupIsDisabled} = visualPickerCheckboxGroupContext;
+    const { groupHasError, groupIsDisabled } = visualPickerCheckboxGroupContext;
 
     const internalRef = React.useRef<HTMLInputElement>();
     const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
 
-    let pickerBorderColor = 'colorBorderWeak' as BorderColor;
-    if (disabled || groupIsDisabled) pickerBorderColor = 'colorBorderWeak';
-    else if (hasError || groupHasError) pickerBorderColor = 'colorBorderError' as BorderColor;
-    else if (checked) pickerBorderColor = 'colorBorderPrimary' as BorderColor;
+    let pickerBorderColor = "colorBorderWeak" as BorderColor;
+    if (disabled || groupIsDisabled) pickerBorderColor = "colorBorderWeak";
+    else if (hasError || groupHasError) pickerBorderColor = "colorBorderError" as BorderColor;
+    else if (checked) pickerBorderColor = "colorBorderPrimary" as BorderColor;
 
     return (
       <Box
         element={element}
         position="relative"
         display="inline-flex"
-        alignItems={visualPickerCheckboxGroupContext.orientation === 'vertical' ? 'center' : 'flex-start'}
+        alignItems={visualPickerCheckboxGroupContext.orientation === "vertical" ? "center" : "flex-start"}
         flexDirection="row"
         height="100%"
         width="100%"
-        backgroundColor={disabled || groupIsDisabled ? 'colorBackgroundWeak' : undefined}
+        backgroundColor={disabled || groupIsDisabled ? "colorBackgroundWeak" : undefined}
         borderStyle="solid"
         borderColor={pickerBorderColor}
         borderWidth="borderWidth10"
@@ -58,10 +61,10 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
         }}
         _hover={
           disabled || groupIsDisabled
-            ? {cursor: 'not-allowed'}
+            ? { cursor: "not-allowed" }
             : {
-                cursor: 'pointer',
-                borderColor: hasError || groupHasError ? 'colorBorderErrorStronger' : 'colorBorderPrimaryStrong',
+                cursor: "pointer",
+                borderColor: hasError || groupHasError ? "colorBorderErrorStronger" : "colorBorderPrimaryStrong",
               }
         }
       >
@@ -74,7 +77,7 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
             onChange(e);
           }}
           aria-describedby={helpTextId}
-          aria-checked={indeterminate ? 'mixed' : checked}
+          aria-checked={indeterminate ? "mixed" : checked}
           aria-labelledby={labelId}
           aria-invalid={hasError}
           id={checkboxId}
@@ -100,6 +103,6 @@ export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPic
         </Box>
       </Box>
     );
-  }
+  },
 );
-VisualPickerCheckbox.displayName = 'VisualPickerCheckbox';
+VisualPickerCheckbox.displayName = "VisualPickerCheckbox";

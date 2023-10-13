@@ -1,0 +1,78 @@
+export const meta = {
+  title: 'Form - API',
+  package: '@twilio-paste/form',
+  description: 'A Form groups related form elements that allow users to input information or configure options.',
+  slug: '/components/form/api',
+};
+
+import Changelog from '@twilio-paste/form/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/form/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Form');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/form');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form',
+        storybookUrl: '/?path=/story/components-form--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/form - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  Form,
+  FormSection,
+  FormSectionHeading,
+  FormControl
+} from '@twilio-paste/core/form;
+import {Input} from '@twilio-paste/core/input;
+import {Label} from '@twilio-paste/core/label;
+
+const SampleForm = () => (
+ <Form maxWidth="size30">
+   <FormSection>
+     <FormSectionHeading variant="heading30">
+       Personal information
+     </FormSectionHeading>
+     <FormControl>
+       <Label htmlFor="first-name">First name</Label>
+       <Input id="first-name" />
+     </FormControl>
+     <FormControl>
+       <Label htmlFor="last-name">Last name</Label>
+       <Input id="last-name" />
+     </FormControl>
+   </FormSection>
+ </CheckboxGroup>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

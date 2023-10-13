@@ -1,28 +1,28 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {action} from '@storybook/addon-actions';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Anchor} from '@twilio-paste/anchor';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
+import { action } from "@storybook/addon-actions";
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { HelpText } from "@twilio-paste/help-text";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { Label } from "@twilio-paste/label";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {Select, Option, OptionGroup} from '../src';
+import { Option, OptionGroup, Select } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Select',
+  title: "Components/Select",
   component: Select,
-  subcomponents: {Option, OptionGroup},
+  subcomponents: { Option, OptionGroup },
 };
 
 export const DefaultSelect = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select');
+  const [value, setValue] = React.useState("Select");
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
@@ -30,10 +30,10 @@ export const DefaultSelect = (): React.ReactNode => {
         id={uid}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
       >
         <Option value="option-1">Option 1</Option>
@@ -46,11 +46,11 @@ export const DefaultSelect = (): React.ReactNode => {
   );
 };
 
-DefaultSelect.storyName = 'Select';
+DefaultSelect.storyName = "Select";
 
 export const SelectRequired = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select - Required');
+  const [value, setValue] = React.useState("Select - Required");
   return (
     <>
       <Label required htmlFor={uid}>
@@ -61,10 +61,10 @@ export const SelectRequired = (): React.ReactNode => {
         required
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
       >
         <Option value="option-1">Option 1</Option>
@@ -77,11 +77,11 @@ export const SelectRequired = (): React.ReactNode => {
   );
 };
 
-SelectRequired.storyName = 'Select - Required';
+SelectRequired.storyName = "Select - Required";
 
 export const SelectRequiredInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select - Required');
+  const [value, setValue] = React.useState("Select - Required");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label required htmlFor={uid} variant="inverse">
@@ -92,10 +92,10 @@ export const SelectRequiredInverse = (): React.ReactNode => {
         required
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
         variant="inverse"
       >
@@ -109,11 +109,11 @@ export const SelectRequiredInverse = (): React.ReactNode => {
   );
 };
 
-SelectRequiredInverse.storyName = 'Select - Required inverse';
+SelectRequiredInverse.storyName = "Select - Required inverse";
 
 export const SelectError = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select - Error');
+  const [value, setValue] = React.useState("Select - Error");
   return (
     <>
       <Label required htmlFor={uid}>
@@ -124,10 +124,10 @@ export const SelectError = (): React.ReactNode => {
         hasError
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
       >
         <Option value="option-1">Option 1</Option>
@@ -140,11 +140,11 @@ export const SelectError = (): React.ReactNode => {
   );
 };
 
-SelectError.storyName = 'Select - Error';
+SelectError.storyName = "Select - Error";
 
 export const SelectErrorInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select - Error');
+  const [value, setValue] = React.useState("Select - Error");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label required htmlFor={uid} variant="inverse">
@@ -155,10 +155,10 @@ export const SelectErrorInverse = (): React.ReactNode => {
         required
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
         variant="inverse"
         hasError
@@ -173,11 +173,11 @@ export const SelectErrorInverse = (): React.ReactNode => {
   );
 };
 
-SelectErrorInverse.storyName = 'Select - Error inverse';
+SelectErrorInverse.storyName = "Select - Error inverse";
 
 export const SelectDisabled = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select - Disabled');
+  const [value, setValue] = React.useState("Select - Disabled");
   return (
     <>
       <Label htmlFor={uid} disabled>
@@ -188,10 +188,10 @@ export const SelectDisabled = (): React.ReactNode => {
         disabled
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
       >
         <Option value="option-1">Option 1</Option>
@@ -204,11 +204,11 @@ export const SelectDisabled = (): React.ReactNode => {
   );
 };
 
-SelectDisabled.storyName = 'Select - Disabled';
+SelectDisabled.storyName = "Select - Disabled";
 
 export const SelectDisabledInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select - Disabled');
+  const [value, setValue] = React.useState("Select - Disabled");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label disabled htmlFor={uid} variant="inverse">
@@ -219,10 +219,10 @@ export const SelectDisabledInverse = (): React.ReactNode => {
         disabled
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
         variant="inverse"
       >
@@ -236,7 +236,7 @@ export const SelectDisabledInverse = (): React.ReactNode => {
   );
 };
 
-SelectDisabledInverse.storyName = 'Select - Disabled inverse';
+SelectDisabledInverse.storyName = "Select - Disabled inverse";
 
 export const SelectMultiple = (): React.ReactNode => {
   const uid = useUID();
@@ -249,21 +249,21 @@ export const SelectMultiple = (): React.ReactNode => {
         id={uid}
         multiple
         size={2}
-        onChange={({target: options}) => {
+        onChange={({ target: options }) => {
           const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore implicit any with key
-            const {selected, value: optionValue} = options[key];
+            const { selected, value: optionValue } = options[key];
             if (selected) {
               return [...optionValues, optionValue] as unknown as [];
             }
             return optionValues;
           }, []);
           setValue(update);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
       >
         <Option value="option-1">Option 1</Option>
@@ -276,11 +276,11 @@ export const SelectMultiple = (): React.ReactNode => {
   );
 };
 
-SelectMultiple.storyName = 'Select - Multiple';
+SelectMultiple.storyName = "Select - Multiple";
 
 export const SelectInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select');
+  const [value, setValue] = React.useState("Select");
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
@@ -288,10 +288,10 @@ export const SelectInsertBeforeAndAfter = (): React.ReactNode => {
         id={uid}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
           <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             $10.99
@@ -314,11 +314,11 @@ export const SelectInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-SelectInsertBeforeAndAfter.storyName = 'Select - Insert before and after';
+SelectInsertBeforeAndAfter.storyName = "Select - Insert before and after";
 
 export const SelectDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select');
+  const [value, setValue] = React.useState("Select");
   return (
     <>
       <Label disabled htmlFor={uid}>
@@ -328,10 +328,10 @@ export const SelectDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         id={uid}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
           <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             $10.99
@@ -355,11 +355,11 @@ export const SelectDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   );
 };
 
-SelectDisabledInsertBeforeAndAfter.storyName = 'Select - Disabled insert before and after';
+SelectDisabledInsertBeforeAndAfter.storyName = "Select - Disabled insert before and after";
 
 export const SelectInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select');
+  const [value, setValue] = React.useState("Select");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse">
@@ -369,10 +369,10 @@ export const SelectInsertBeforeAndAfterInverse = (): React.ReactNode => {
         id={uid}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
           <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
@@ -396,11 +396,11 @@ export const SelectInsertBeforeAndAfterInverse = (): React.ReactNode => {
   );
 };
 
-SelectInsertBeforeAndAfterInverse.storyName = 'Select - Insert before and after inverse';
+SelectInsertBeforeAndAfterInverse.storyName = "Select - Insert before and after inverse";
 
 export const SelectDisabedInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select');
+  const [value, setValue] = React.useState("Select");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label disabled htmlFor={uid} variant="inverse">
@@ -410,10 +410,10 @@ export const SelectDisabedInsertBeforeAndAfterInverse = (): React.ReactNode => {
         id={uid}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
           <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
@@ -438,11 +438,11 @@ export const SelectDisabedInsertBeforeAndAfterInverse = (): React.ReactNode => {
   );
 };
 
-SelectDisabedInsertBeforeAndAfterInverse.storyName = 'Select - Disabed insert before and after inverse';
+SelectDisabedInsertBeforeAndAfterInverse.storyName = "Select - Disabed insert before and after inverse";
 
 export const SelectOptionGroups = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select - Error');
+  const [value, setValue] = React.useState("Select - Error");
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
@@ -450,10 +450,10 @@ export const SelectOptionGroups = (): React.ReactNode => {
         id={uid}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
       >
         <OptionGroup label="Group 1">
@@ -470,11 +470,11 @@ export const SelectOptionGroups = (): React.ReactNode => {
   );
 };
 
-SelectOptionGroups.storyName = 'Select - Option Groups';
+SelectOptionGroups.storyName = "Select - Option Groups";
 
 export const SelectOptionGroupsInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Select - Error');
+  const [value, setValue] = React.useState("Select - Error");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse">
@@ -484,10 +484,10 @@ export const SelectOptionGroupsInverse = (): React.ReactNode => {
         id={uid}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
         variant="inverse"
       >
@@ -505,7 +505,7 @@ export const SelectOptionGroupsInverse = (): React.ReactNode => {
   );
 };
 
-SelectOptionGroupsInverse.storyName = 'Select - Option Groups inverse';
+SelectOptionGroupsInverse.storyName = "Select - Option Groups inverse";
 
 export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
   const uid = useUID();
@@ -515,23 +515,23 @@ export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
       <Label htmlFor={uid}>Label</Label>
       <Select
         id={uid}
-        onChange={({target: options}) => {
+        onChange={({ target: options }) => {
           const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore implicit any with key
-            const {selected, value: optionValue} = options[key];
+            const { selected, value: optionValue } = options[key];
             if (selected) {
               return [...optionValues, optionValue] as unknown as [];
             }
             return optionValues;
           }, []);
           setValue(update);
-          action('handleChange');
+          action("handleChange");
         }}
         multiple
         size={4}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
       >
         <OptionGroup label="Group 1">
@@ -548,7 +548,7 @@ export const SelectOptionGroupsAndMultiple = (): React.ReactNode => {
   );
 };
 
-SelectOptionGroupsAndMultiple.storyName = 'Select - Option Groups and Multiple';
+SelectOptionGroupsAndMultiple.storyName = "Select - Option Groups and Multiple";
 
 export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -560,23 +560,23 @@ export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
       </Label>
       <Select
         id={uid}
-        onChange={({target: options}) => {
+        onChange={({ target: options }) => {
           const update: [] = Object.keys(options).reduce((optionValues: [], key): [] => {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore implicit any with key
-            const {selected, value: optionValue} = options[key];
+            const { selected, value: optionValue } = options[key];
             if (selected) {
               return [...optionValues, optionValue] as unknown as [];
             }
             return optionValues;
           }, []);
           setValue(update);
-          action('handleChange');
+          action("handleChange");
         }}
         multiple
         size={4}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
         variant="inverse"
       >
@@ -594,11 +594,11 @@ export const SelectOptionGroupsAndMultipleInverse = (): React.ReactNode => {
   );
 };
 
-SelectOptionGroupsAndMultipleInverse.storyName = 'Select - Option Groups and Multiple inverse';
+SelectOptionGroupsAndMultipleInverse.storyName = "Select - Option Groups and Multiple inverse";
 
 export const SelectOverflowLongValue = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('option-1');
+  const [value, setValue] = React.useState("option-1");
   return (
     <Box maxWidth="size40">
       <Label htmlFor={uid}>Label</Label>
@@ -606,10 +606,10 @@ export const SelectOverflowLongValue = (): React.ReactNode => {
         id={uid}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         value={value}
       >
         <Option value="option-1">
@@ -623,9 +623,9 @@ export const SelectOverflowLongValue = (): React.ReactNode => {
   );
 };
 
-SelectOverflowLongValue.storyName = 'Select - overflow long value';
+SelectOverflowLongValue.storyName = "Select - overflow long value";
 
-export const CustomizedSelect: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const CustomizedSelect: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   const seed = useUIDSeed();
@@ -637,44 +637,44 @@ export const CustomizedSelect: StoryFn = (_args, {parameters: {isTestEnvironment
         ...currentTheme,
         shadows: {
           ...currentTheme.shadows,
-          shadowFocus: '0 0 0 4px rgba(3, 154, 165, 0.9)',
+          shadowFocus: "0 0 0 4px rgba(3, 154, 165, 0.9)",
         },
       }}
       elements={{
         SELECT_ELEMENT: {
-          color: 'colorTextNew',
+          color: "colorTextNew",
           variants: {
             inverse: {
-              color: 'colorTextWarningStrong',
-              fontWeight: 'fontWeightBold',
+              color: "colorTextWarningStrong",
+              fontWeight: "fontWeightBold",
             },
           },
         },
         CUSTOM_SELECT_ELEMENT: {
-          fontWeight: 'fontWeightSemibold',
-          fontFamily: 'fontFamilyCode',
+          fontWeight: "fontWeightSemibold",
+          fontFamily: "fontFamilyCode",
           variants: {
             inverse: {
-              fontWeight: 'fontWeightMedium',
+              fontWeight: "fontWeightMedium",
             },
           },
         },
         SELECT_WRAPPER: {
-          boxShadow: 'shadowBorderPrimary',
-          ':hover': {boxShadow: 'shadowBorderError'},
-          ':focus-within': {boxShadow: 'shadowFocus'},
+          boxShadow: "shadowBorderPrimary",
+          ":hover": { boxShadow: "shadowBorderError" },
+          ":focus-within": { boxShadow: "shadowFocus" },
         },
         SELECT_CHEVRON_WRAPPER: {
-          transform: 'rotate(90deg) translateX(-50%) translateY(-20%)',
+          transform: "rotate(90deg) translateX(-50%) translateY(-20%)",
         },
         CUSTOM_SELECT_ICON: {
-          color: 'colorTextInverseWeak',
+          color: "colorTextInverseWeak",
         },
       }}
     >
       <Box maxWidth="size40" paddingX="space40" paddingY="space80">
-        <Label htmlFor={seed('default')}>Default variant</Label>
-        <Select variant="default" id={seed('default')}>
+        <Label htmlFor={seed("default")}>Default variant</Label>
+        <Select variant="default" id={seed("default")}>
           <OptionGroup element="CUSTOM_OPTION_GROUP" label="Group A">
             <Option value="option-1">Option 1</Option>
             <Option element="CUSTOM_OPTION" value="option-2">
@@ -689,10 +689,10 @@ export const CustomizedSelect: StoryFn = (_args, {parameters: {isTestEnvironment
       </Box>
 
       <Box maxWidth="size40" paddingX="space40" paddingY="space80" backgroundColor="colorBackgroundBodyInverse">
-        <Label variant="inverse" htmlFor={seed('inverse')}>
+        <Label variant="inverse" htmlFor={seed("inverse")}>
           Inverse variant
         </Label>
-        <Select variant="inverse" element="CUSTOM_SELECT" id={seed('inverse')}>
+        <Select variant="inverse" element="CUSTOM_SELECT" id={seed("inverse")}>
           <OptionGroup label="Group C">
             <Option value="option-1">Option 1</Option>
             <Option value="option-2">Option 2</Option>
@@ -707,7 +707,7 @@ export const CustomizedSelect: StoryFn = (_args, {parameters: {isTestEnvironment
   );
 };
 
-CustomizedSelect.storyName = 'Select - Customized';
+CustomizedSelect.storyName = "Select - Customized";
 CustomizedSelect.parameters = {
   a11y: {
     // no need to a11y check customization

@@ -1,16 +1,16 @@
-import * as React from 'react';
-import {Badge} from '@twilio-paste/core/badge';
-import {NewIcon} from '@twilio-paste/icons/cjs/NewIcon';
+import { Badge } from "@twilio-paste/core/badge";
+import { NewIcon } from "@twilio-paste/icons/cjs/NewIcon";
+import * as React from "react";
 
-import {BetaModal} from './BetaModal';
-import {SimpleStorage} from '../../utils/SimpleStorage';
+import { SimpleStorage } from "../../utils/SimpleStorage";
+import { BetaModal } from "./BetaModal";
 
 const BetaBadge = (): JSX.Element => {
-  const localStorageKey = 'beta-modal-dismissed';
+  const localStorageKey = "beta-modal-dismissed";
   const [showBetaModal, setShowBetaModal] = React.useState(false);
 
   React.useEffect(() => {
-    setShowBetaModal(SimpleStorage.get(localStorageKey) !== 'true' || false);
+    setShowBetaModal(SimpleStorage.get(localStorageKey) !== "true" || false);
   }, []);
 
   const handleClick = React.useCallback(() => {
@@ -19,7 +19,7 @@ const BetaBadge = (): JSX.Element => {
 
   const handleDismiss = React.useCallback(() => {
     setShowBetaModal(false);
-    SimpleStorage.set(localStorageKey, 'true');
+    SimpleStorage.set(localStorageKey, "true");
   }, []);
 
   return (
@@ -32,4 +32,4 @@ const BetaBadge = (): JSX.Element => {
   );
 };
 
-export {BetaBadge};
+export { BetaBadge };

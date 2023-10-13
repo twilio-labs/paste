@@ -18,7 +18,6 @@ import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
 import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
 import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
 import {Text} from '@twilio-paste/text';
-import Changelog from '@twilio-paste/description-list/CHANGELOG.md';
 
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
@@ -31,10 +30,10 @@ import {
   descriptionListWithEmptyState,
 } from '../../../component-examples/DescriptionListExamples.ts';
 import packageJson from '@twilio-paste/description-list/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -46,24 +45,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/description-list',
+        storybookUrl: '/?path=/story/components-description-list--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/description-list"
-  storybookUrl="/?path=/story/components-description-list--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails, Card}} noInline>
   {basicDescriptionList}
@@ -223,74 +213,3 @@ Instead, include an empty tag (or a symbol, such as `-`) to signify the empty st
   <Do title="Do" body="Use flow content as children to Description Term and Description Details." />
   <Dont title="Don't" body="Don’t use headers or footers as children to Description Term or Description Details." />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/description-list - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails} from '@twilio-paste/core/description-list';
-
-const Component = () => (
-  <DescriptionList>
-    <DescriptionListSet>
-      <DescriptionListTerm>Paste</DescriptionList>
-      <DescriptionListDetails>A design system used to build accessible, cohesive, and high-quality customer experiences at Twilio.</DescriptionListDetails>
-    </DescriptionListSet>
-  </DescriptionList>
-);
-```
-
-#### Description List Props
-
-All the valid attributes for `<dl>` are supported including the following props:
-
-| Prop      | Type                                                     | Description                                                                               | Default            |
-| --------- | -------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| children? | `DescriptionListTerm`, `DescriptionListDetails`, `<div>` |                                                                                           | null               |
-| element?  | `string`                                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'DESCRIPTION_LIST' |
-
-#### Description List Set Props
-
-All the valid attributes for `<div>` are supported including the following props:
-
-| Prop      | Type                                            | Description                                                                               | Default            |
-| --------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| children? | `DescriptionListTerm`, `DescriptionListDetails` |                                                                                           | null               |
-| element?  | `string`                                        | Overrides the default element name to apply unique styles with the Customization Provider | 'DESCRIPTION_LIST' |
-
-#### Description List Term Props
-
-All the valid attributes for `<dt>` are supported including the following props:
-
-| Prop      | Type              | Description                                                                               | Default                 |
-| --------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| children? | `React.ReactNode` |                                                                                           | null                    |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'DESCRIPTION_LIST_TERM' |
-
-#### Description List Details Props
-
-All the valid attributes for `<dd>` are supported including the following props:
-
-| Prop      | Type              | Description                                                                               | Default                    |
-| --------- | ----------------- | ----------------------------------------------------------------------------------------- | -------------------------- |
-| children? | `React.ReactNode` |                                                                                           | null                       |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'DESCRIPTION_LIST_DETAILS' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

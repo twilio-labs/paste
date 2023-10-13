@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {Box, type BoxStyleProps} from '@twilio-paste/box';
-import {useRect} from '@radix-ui/react-use-rect';
-import {useWindowSize} from '@twilio-paste/utils';
+import { useRect } from "@radix-ui/react-use-rect";
+import { Box, type BoxStyleProps } from "@twilio-paste/box";
+import { useWindowSize } from "@twilio-paste/utils";
+import * as React from "react";
 
 interface ListBoxPositionerProps {
   children: React.ReactNode;
@@ -9,8 +9,8 @@ interface ListBoxPositionerProps {
   dropdownBoxRef: React.RefObject<HTMLElement>;
 }
 
-export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({inputBoxRef, dropdownBoxRef, ...props}) => {
-  const {height: windowHeight} = useWindowSize();
+export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({ inputBoxRef, dropdownBoxRef, ...props }) => {
+  const { height: windowHeight } = useWindowSize();
   const inputBoxDimensions = useRect(inputBoxRef.current);
   const dropdownBoxDimensions = useRect(dropdownBoxRef.current);
   const dropdownBoxHeight = dropdownBoxDimensions?.height;
@@ -36,7 +36,7 @@ export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({inputBoxRef
     if (windowHeight) {
       if (dropdownBoxHeight >= windowHeight) {
         return {
-          position: 'fixed',
+          position: "fixed",
           top: 0,
           left: inputBoxDimensions?.left,
           right: inputBoxDimensions?.right,
@@ -48,7 +48,7 @@ export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({inputBoxRef
         inputBoxDimensions?.top - dropdownBoxHeight > 0
       ) {
         return {
-          position: 'fixed',
+          position: "fixed",
           // 6px to account for border things, should be fine on all themes
           top: inputBoxDimensions?.top - dropdownBoxHeight - 6,
           left: inputBoxDimensions?.left,
@@ -59,7 +59,7 @@ export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({inputBoxRef
     }
 
     return {
-      position: 'fixed',
+      position: "fixed",
       top: inputBoxDimensions?.bottom,
       left: inputBoxDimensions?.left,
       right: inputBoxDimensions?.right,
@@ -69,4 +69,4 @@ export const ListBoxPositioner: React.FC<ListBoxPositionerProps> = ({inputBoxRef
 
   return <Box {...props} {...styles} zIndex="zIndex90" />;
 };
-ListBoxPositioner.displayName = 'ListBoxPositioner';
+ListBoxPositioner.displayName = "ListBoxPositioner";

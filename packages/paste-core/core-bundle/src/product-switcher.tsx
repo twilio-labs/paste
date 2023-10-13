@@ -1,1 +1,1 @@
-export * from '@twilio-paste/product-switcher';
+export * from "@twilio-paste/product-switcher";

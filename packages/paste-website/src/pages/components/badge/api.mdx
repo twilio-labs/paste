@@ -1,0 +1,59 @@
+export const meta = {
+  title: 'Badge - Components',
+  package: '@twilio-paste/badge',
+  description: 'A badge is a visually highlighted text label that describes an attribute of an object.',
+  slug: '/components/badge/api',
+};
+
+import Changelog from '@twilio-paste/badge/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/badge/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Badge');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/badge');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/badge',
+        storybookUrl: '/?path=/story/components-badge--all-badges',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/badge - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Badge} from '@twilio-paste/core/badge';
+
+const BadgeExample = () => (
+  <Badge as="span" variant="neutral">
+    Default Badge
+  </Badge>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

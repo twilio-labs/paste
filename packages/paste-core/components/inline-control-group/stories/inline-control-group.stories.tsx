@@ -1,15 +1,15 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Column, Grid } from "@twilio-paste/grid";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {InlineControlGroup} from '../src';
-import type {InlineControlGroupProps} from '../src';
+import { InlineControlGroup } from "../src";
+import type { InlineControlGroupProps } from "../src";
 
-const MockChild: React.FC<React.PropsWithChildren> = ({children}) => {
+const MockChild: React.FC<React.PropsWithChildren> = ({ children }) => {
   return <Box backgroundColor="colorBackground">{children}</Box>;
 };
 
@@ -19,14 +19,14 @@ const MockControlGroup: React.FC<
     showHelpText?: boolean;
     showErrorText?: boolean;
     element?: string;
-    orientation?: InlineControlGroupProps['orientation'];
+    orientation?: InlineControlGroupProps["orientation"];
   }>
-> = ({showRequired, showHelpText, showErrorText, element, orientation = 'vertical'}) => {
+> = ({ showRequired, showHelpText, showErrorText, element, orientation = "vertical" }) => {
   return (
     <InlineControlGroup
       element={element}
-      errorText={showErrorText && 'It can take error text'}
-      helpText={showHelpText && 'It can take help text'}
+      errorText={showErrorText && "It can take error text"}
+      helpText={showHelpText && "It can take help text"}
       required={showRequired}
       orientation={orientation}
       legend="Inline control group is used for spacing inline controls such as checkboxes and radio groups"
@@ -40,7 +40,7 @@ const MockControlGroup: React.FC<
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Inline contol group',
+  title: "Components/Inline contol group",
 };
 
 export const Vertical = (): React.ReactNode => {
@@ -104,21 +104,21 @@ export const ControlSpacingTest = (): React.ReactNode => {
   );
 };
 
-export const Customized: StoryFn = (_args, {parameters: {isTestEnvironment}}) => {
+export const Customized: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
       disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        INLINE_CONTROL_GROUP: {margin: 'space60'},
-        INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},
-        INLINE_CONTROL_GROUP_FIELD: {color: 'colorTextSuccess', backgroundColor: 'colorBackgroundSuccessWeakest'},
-        INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
-        MY_INLINE_CONTROL_GROUP: {margin: 'space60'},
-        MY_INLINE_CONTROL_GROUP_SET: {marginLeft: 'space60'},
-        MY_INLINE_CONTROL_GROUP_FIELD: {color: 'colorTextSuccess', backgroundColor: 'colorBackgroundSuccessWeakest'},
-        MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: {marginTop: 'space60'},
+        INLINE_CONTROL_GROUP: { margin: "space60" },
+        INLINE_CONTROL_GROUP_SET: { marginLeft: "space60" },
+        INLINE_CONTROL_GROUP_FIELD: { color: "colorTextSuccess", backgroundColor: "colorBackgroundSuccessWeakest" },
+        INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: { marginTop: "space60" },
+        MY_INLINE_CONTROL_GROUP: { margin: "space60" },
+        MY_INLINE_CONTROL_GROUP_SET: { marginLeft: "space60" },
+        MY_INLINE_CONTROL_GROUP_FIELD: { color: "colorTextSuccess", backgroundColor: "colorBackgroundSuccessWeakest" },
+        MY_INLINE_CONTROL_GROUP_ERROR_TEXT_WRAPPER: { marginTop: "space60" },
       }}
     >
       <Paragraph>Using default element name:</Paragraph>

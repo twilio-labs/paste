@@ -1,3 +1,3 @@
-import {withTheme} from '@twilio-paste/styling-library';
+import { withTheme } from "@twilio-paste/styling-library";
 
-export {withTheme};
+export { withTheme };

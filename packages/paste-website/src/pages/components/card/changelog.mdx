@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Card',
+  package: '@twilio-paste/card',
+  description: 'The Twilio Paste Card',
+  slug: '/components/card/changelog',
+};
+
+import Changelog from '@twilio-paste/card/CHANGELOG.md';
+import packageJson from '@twilio-paste/card/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Card');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/card/',
+        storybookUrl: '/?path=/story/components-card--default',
+      },
+    },
+  };
+};
+
+<Changelog />

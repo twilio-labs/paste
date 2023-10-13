@@ -1,162 +1,162 @@
-import * as React from 'react';
-import {render, screen} from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
+import * as React from "react";
 
-import {Button} from '../src';
+import { Button } from "../src";
 
 const NOOP = (): void => {};
-const HREF = 'https://twilio.paste.design';
+const HREF = "https://twilio.paste.design";
 
-describe('Button', () => {
-  describe('Button Errors', () => {
+describe("Button", () => {
+  describe("Button Errors", () => {
     it('Throws an error when a href is passed but an "a" tag is not', () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       expect(() =>
         render(
           <Button variant="primary" href={HREF}>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
 
     it('Throws an error when an "a" tag is passed but a href is not', () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       expect(() =>
         render(
           <Button as="a" variant="primary">
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
 
-    it('Throws an error when the user should use an Anchor component instead', () => {
+    it("Throws an error when the user should use an Anchor component instead", () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       expect(() =>
         render(
           <Button as="a" variant="link" href={HREF}>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       expect(() =>
         render(
           <Button as="a" variant="inverse_link" href={HREF}>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
 
     it('Throws an error when an "a" tag is passed but not using correct variant', () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       expect(() =>
         render(
           <Button as="a" href="#" variant="destructive">
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       expect(() =>
         render(
           <Button as="a" href="#" variant="destructive_secondary">
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
 
     it('Throws an error when an "a" tag is passed with disabled or loading state', () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       expect(() =>
         render(
           <Button as="a" href="#" variant="primary" disabled>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
 
       expect(() =>
         render(
           <Button as="a" href="#" variant="primary" loading>
             Go to Paste
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
 
-    it('Throws an error when size=reset is not applied to variant=reset', () => {
+    it("Throws an error when size=reset is not applied to variant=reset", () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       expect(() =>
         render(
           <Button variant="reset" size="small">
             Submit
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
 
-    it('Throws an error when using fullWidth with an icon sizing', () => {
+    it("Throws an error when using fullWidth with an icon sizing", () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       expect(() =>
         render(
           <Button variant="primary" fullWidth size="icon">
             X
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
 
-    it('Throws an error when using fullWidth with an icon_small sizing', () => {
+    it("Throws an error when using fullWidth with an icon_small sizing", () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       expect(() =>
         render(
           <Button variant="primary" fullWidth size="icon_small">
             X
-          </Button>
-        )
+          </Button>,
+        ),
       ).toThrow();
       spy.mockRestore();
     });
 
-    it('Throws an error when not passing children', () => {
+    it("Throws an error when not passing children", () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       // @ts-expect-error expect button to throw
       expect(() => render(<Button variant="primary" />)).toThrow();
       spy.mockRestore();
     });
 
-    it('Throws an error when passing an invalid tabIndex', () => {
+    it("Throws an error when passing an invalid tabIndex", () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       // @ts-expect-error invalid tabindex
       expect(() => render(<Button variant="primary" tabIndex="-2" />)).toThrow();
@@ -164,9 +164,9 @@ describe('Button', () => {
       spy.mockRestore();
     });
 
-    it('Throws an error when passing pressed with invalid variant', () => {
+    it("Throws an error when passing pressed with invalid variant", () => {
       // hide console errors from terminal when throwing expected errors
-      const spy = jest.spyOn(console, 'error');
+      const spy = jest.spyOn(console, "error");
       spy.mockImplementation(() => {});
       // @ts-expect-error invalid tabindex
       expect(() => render(<Button variant="primary" pressed={true} />)).toThrow();
@@ -175,116 +175,116 @@ describe('Button', () => {
     });
   });
 
-  describe('Button aria attributes', () => {
-    it('Has an aria-expanded attribute', () => {
-      const {getByRole} = render(
+  describe("Button aria attributes", () => {
+    it("Has an aria-expanded attribute", () => {
+      const { getByRole } = render(
         <Button variant="secondary" aria-expanded="true">
           button
-        </Button>
+        </Button>,
       );
 
-      expect(getByRole('button')).toHaveAttribute('aria-expanded', 'true');
+      expect(getByRole("button")).toHaveAttribute("aria-expanded", "true");
     });
 
-    it('Has an aria-haspopup attribute', () => {
-      const {getByRole} = render(
+    it("Has an aria-haspopup attribute", () => {
+      const { getByRole } = render(
         <Button variant="secondary" aria-haspopup="true">
           button
-        </Button>
+        </Button>,
       );
 
-      expect(getByRole('button')).toHaveAttribute('aria-haspopup', 'true');
+      expect(getByRole("button")).toHaveAttribute("aria-haspopup", "true");
     });
 
-    it('Has an aria-controls attribute', () => {
-      const {getByRole} = render(
+    it("Has an aria-controls attribute", () => {
+      const { getByRole } = render(
         <Button variant="secondary" aria-controls="some-id">
           button
-        </Button>
+        </Button>,
       );
 
-      expect(getByRole('button')).toHaveAttribute('aria-controls', 'some-id');
+      expect(getByRole("button")).toHaveAttribute("aria-controls", "some-id");
     });
 
-    it('Has an aria-busy attribute when loading', () => {
-      const {getByRole} = render(
+    it("Has an aria-busy attribute when loading", () => {
+      const { getByRole } = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" loading>
             button
           </Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
-      const button = getByRole('button');
+      const button = getByRole("button");
 
-      expect(button).toHaveAttribute('aria-busy', 'true');
+      expect(button).toHaveAttribute("aria-busy", "true");
       expect(button).toBeDisabled();
     });
 
-    it('Has disabled set on HTML when disabled', () => {
-      const {getByRole} = render(
+    it("Has disabled set on HTML when disabled", () => {
+      const { getByRole } = render(
         <Button variant="secondary" disabled>
           button
-        </Button>
+        </Button>,
       );
 
-      expect(getByRole('button')).toBeDisabled();
+      expect(getByRole("button")).toBeDisabled();
     });
   });
 
-  describe('Button data attributes', () => {
-    it('Has an data-foo attribute', () => {
-      const {getByRole} = render(
+  describe("Button data attributes", () => {
+    it("Has an data-foo attribute", () => {
+      const { getByRole } = render(
         <Button variant="secondary" data-foo="test">
           button
-        </Button>
+        </Button>,
       );
 
-      expect(getByRole('button')).toHaveAttribute('data-foo', 'test');
+      expect(getByRole("button")).toHaveAttribute("data-foo", "test");
     });
   });
 
-  describe('Button render as', () => {
-    it('Renders a button as a link', () => {
-      const {getByRole} = render(
+  describe("Button render as", () => {
+    it("Renders a button as a link", () => {
+      const { getByRole } = render(
         <Button as="a" variant="secondary" href="/tests">
           button
-        </Button>
+        </Button>,
       );
 
-      expect(getByRole('link')).toBeInTheDocument();
+      expect(getByRole("link")).toBeInTheDocument();
     });
   });
 
-  describe('Button margin styles', () => {
-    it('Renders a button with margin: space0', () => {
-      const {getByTestId} = render(
+  describe("Button margin styles", () => {
+    it("Renders a button with margin: space0", () => {
+      const { getByTestId } = render(
         <Button variant="primary" data-testid="button-margin">
           button
-        </Button>
+        </Button>,
       );
-      expect(getByTestId('button-margin')).toHaveStyleRule('margin', 'space0');
+      expect(getByTestId("button-margin")).toHaveStyleRule("margin", "space0");
     });
   });
 
-  describe('Button inner padding', () => {
-    it('should not set padding for buttons with only one child', () => {
-      const {getByText} = render(<Button variant="primary">Hello</Button>);
-      expect(getByText('Hello')).not.toHaveStyleRule('padding', 'undefined');
+  describe("Button inner padding", () => {
+    it("should not set padding for buttons with only one child", () => {
+      const { getByText } = render(<Button variant="primary">Hello</Button>);
+      expect(getByText("Hello")).not.toHaveStyleRule("padding", "undefined");
     });
-    it('should set padding between rendered children', () => {
-      const {getByText} = render(
+    it("should set padding between rendered children", () => {
+      const { getByText } = render(
         <Button variant="primary">
           Hello
           <PlusIcon decorative />
-        </Button>
+        </Button>,
       );
-      expect(getByText('Hello')).toHaveStyleRule('column-gap', 'space20');
+      expect(getByText("Hello")).toHaveStyleRule("column-gap", "space20");
     });
   });
 
-  describe('button event handlers', () => {
-    it('Should call the appropriate event handlers', () => {
+  describe("button event handlers", () => {
+    it("Should call the appropriate event handlers", () => {
       const onClickMock: jest.Mock = jest.fn();
       const onMouseDownMock: jest.Mock = jest.fn();
       const onMouseUpMock: jest.Mock = jest.fn();
@@ -293,7 +293,7 @@ describe('Button', () => {
       const onFocusMock: jest.Mock = jest.fn();
       const onBlurMock: jest.Mock = jest.fn();
 
-      const {getByRole} = render(
+      const { getByRole } = render(
         <Button
           variant="primary"
           onClick={onClickMock}
@@ -305,10 +305,10 @@ describe('Button', () => {
           onBlur={onBlurMock}
         >
           Hello
-        </Button>
+        </Button>,
       );
 
-      const button = getByRole('button');
+      const button = getByRole("button");
 
       userEvent.click(button);
       expect(onMouseDownMock).toHaveBeenCalledTimes(1);
@@ -329,210 +329,210 @@ describe('Button', () => {
     });
   });
 
-  describe('button default styles', () => {
-    it('should have the correct styles for the primary variant', () => {
-      const {getByTestId, getByText} = render(
+  describe("button default styles", () => {
+    it("should have the correct styles for the primary variant", () => {
+      const { getByTestId, getByText } = render(
         <Button variant="primary" data-testid="primary-styles">
           Primary
-        </Button>
+        </Button>,
       );
 
-      const button = getByTestId('primary-styles');
+      const button = getByTestId("primary-styles");
 
-      expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextInverse');
-      expect(button).toHaveStyleRule('background-color', 'colorBackgroundPrimary');
-      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderPrimary');
+      expect(button).not.toHaveStyleRule("text-align", "left");
+      expect(button).toHaveStyleRule("color", "colorTextInverse");
+      expect(button).toHaveStyleRule("background-color", "colorBackgroundPrimary");
+      expect(button).toHaveStyleRule("box-shadow", "shadowBorderPrimary");
 
-      expect(getByText('Primary')).toHaveStyleRule('justify-content', 'center');
+      expect(getByText("Primary")).toHaveStyleRule("justify-content", "center");
     });
 
-    it('should have the correct styles for the primary_icon variant', () => {
-      const {getByTestId} = render(
+    it("should have the correct styles for the primary_icon variant", () => {
+      const { getByTestId } = render(
         <Button variant="primary_icon" data-testid="primary-icon-styles" size="reset" onClick={NOOP}>
           <PlusIcon decorative={false} title="add more" />
-        </Button>
+        </Button>,
       );
 
-      const button = getByTestId('primary-icon-styles');
+      const button = getByTestId("primary-icon-styles");
 
-      expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextPrimary');
+      expect(button).not.toHaveStyleRule("text-align", "left");
+      expect(button).toHaveStyleRule("color", "colorTextPrimary");
     });
 
-    it('should have the correct styles for the secondary variant', () => {
-      const {getByTestId, getByText} = render(
+    it("should have the correct styles for the secondary variant", () => {
+      const { getByTestId, getByText } = render(
         <Button variant="secondary" data-testid="secondary-styles">
           Secondary
-        </Button>
+        </Button>,
       );
 
-      const button = getByTestId('secondary-styles');
+      const button = getByTestId("secondary-styles");
 
-      expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorText');
-      expect(button).toHaveStyleRule('background-color', 'colorBackgroundBody');
-      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderWeak');
+      expect(button).not.toHaveStyleRule("text-align", "left");
+      expect(button).toHaveStyleRule("color", "colorText");
+      expect(button).toHaveStyleRule("background-color", "colorBackgroundBody");
+      expect(button).toHaveStyleRule("box-shadow", "shadowBorderWeak");
 
-      expect(getByText('Secondary')).toHaveStyleRule('justify-content', 'center');
+      expect(getByText("Secondary")).toHaveStyleRule("justify-content", "center");
     });
 
-    it('should have the correct styles for the secondary_icon variant', () => {
-      const {getByTestId} = render(
+    it("should have the correct styles for the secondary_icon variant", () => {
+      const { getByTestId } = render(
         <Button variant="secondary_icon" data-testid="secondary-icon-styles" size="reset" onClick={NOOP}>
           <PlusIcon decorative={false} title="add more" />
-        </Button>
+        </Button>,
       );
 
-      const button = getByTestId('secondary-icon-styles');
+      const button = getByTestId("secondary-icon-styles");
 
-      expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextIcon');
+      expect(button).not.toHaveStyleRule("text-align", "left");
+      expect(button).toHaveStyleRule("color", "colorTextIcon");
     });
 
-    it('should have the correct styles for the destructive variant', () => {
-      const {getByTestId, getByText} = render(
+    it("should have the correct styles for the destructive variant", () => {
+      const { getByTestId, getByText } = render(
         <Button variant="destructive" data-testid="destructive-styles">
           Destructive
-        </Button>
+        </Button>,
       );
 
-      const button = getByTestId('destructive-styles');
+      const button = getByTestId("destructive-styles");
 
-      expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextInverse');
-      expect(button).toHaveStyleRule('background-color', 'colorBackgroundDestructive');
-      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderDestructive');
+      expect(button).not.toHaveStyleRule("text-align", "left");
+      expect(button).toHaveStyleRule("color", "colorTextInverse");
+      expect(button).toHaveStyleRule("background-color", "colorBackgroundDestructive");
+      expect(button).toHaveStyleRule("box-shadow", "shadowBorderDestructive");
 
-      expect(getByText('Destructive')).toHaveStyleRule('justify-content', 'center');
+      expect(getByText("Destructive")).toHaveStyleRule("justify-content", "center");
     });
 
-    it('should have the correct styles for the destructive_icon variant', () => {
-      const {getByTestId} = render(
+    it("should have the correct styles for the destructive_icon variant", () => {
+      const { getByTestId } = render(
         <Button variant="destructive_icon" data-testid="destructive-icon-styles" size="reset" onClick={NOOP}>
           <PlusIcon decorative={false} title="add more" />
-        </Button>
+        </Button>,
       );
 
-      const button = getByTestId('destructive-icon-styles');
+      const button = getByTestId("destructive-icon-styles");
 
-      expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextDestructive');
+      expect(button).not.toHaveStyleRule("text-align", "left");
+      expect(button).toHaveStyleRule("color", "colorTextDestructive");
     });
 
-    it('should have the correct styles for the destructive_secondary variant', () => {
-      const {getByTestId, getByText} = render(
+    it("should have the correct styles for the destructive_secondary variant", () => {
+      const { getByTestId, getByText } = render(
         <Button variant="destructive_secondary" data-testid="destructive_secondary-styles">
           Destructive secondary
-        </Button>
+        </Button>,
       );
 
-      const button = getByTestId('destructive_secondary-styles');
-      expect(button).not.toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextDestructive');
-      expect(button).toHaveStyleRule('background-color', 'colorBackgroundBody');
-      expect(button).toHaveStyleRule('box-shadow', 'shadowBorderWeak');
+      const button = getByTestId("destructive_secondary-styles");
+      expect(button).not.toHaveStyleRule("text-align", "left");
+      expect(button).toHaveStyleRule("color", "colorTextDestructive");
+      expect(button).toHaveStyleRule("background-color", "colorBackgroundBody");
+      expect(button).toHaveStyleRule("box-shadow", "shadowBorderWeak");
 
-      expect(getByText('Destructive secondary')).toHaveStyleRule('justify-content', 'center');
+      expect(getByText("Destructive secondary")).toHaveStyleRule("justify-content", "center");
     });
 
-    it('should have the correct styles for the destructive_link variant', () => {
-      const {getByTestId, getByText} = render(
+    it("should have the correct styles for the destructive_link variant", () => {
+      const { getByTestId, getByText } = render(
         <Button variant="destructive_link" data-testid="destructive_link-styles">
           Destructive link
-        </Button>
+        </Button>,
       );
 
-      const button = getByTestId('destructive_link-styles');
+      const button = getByTestId("destructive_link-styles");
 
-      expect(button).toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextLinkDestructive');
-      expect(button).toHaveStyleRule('transition', 'none');
-      expect(getByText('Destructive link')).not.toHaveStyleRule('justify-content', 'center');
+      expect(button).toHaveStyleRule("text-align", "left");
+      expect(button).toHaveStyleRule("color", "colorTextLinkDestructive");
+      expect(button).toHaveStyleRule("transition", "none");
+      expect(getByText("Destructive link")).not.toHaveStyleRule("justify-content", "center");
     });
 
-    it('should have the correct styles for the link variant', () => {
-      const {getByTestId, getByText} = render(
+    it("should have the correct styles for the link variant", () => {
+      const { getByTestId, getByText } = render(
         <Button variant="link" data-testid="link-styles">
           Link
-        </Button>
+        </Button>,
       );
 
-      const button = getByTestId('link-styles');
+      const button = getByTestId("link-styles");
 
-      expect(button).toHaveStyleRule('text-align', 'left');
-      expect(button).toHaveStyleRule('color', 'colorTextPrimary');
-      expect(button).toHaveStyleRule('transition', 'none');
+      expect(button).toHaveStyleRule("text-align", "left");
+      expect(button).toHaveStyleRule("color", "colorTextPrimary");
+      expect(button).toHaveStyleRule("transition", "none");
 
-      expect(getByText('Link')).not.toHaveStyleRule('justify-content', 'center');
+      expect(getByText("Link")).not.toHaveStyleRule("justify-content", "center");
     });
 
-    it('should have the correct styles for the reset variant', () => {
-      const {getByText, getByTestId} = render(
+    it("should have the correct styles for the reset variant", () => {
+      const { getByText, getByTestId } = render(
         <Button variant="reset" data-testid="reset-styles">
           Reset
-        </Button>
+        </Button>,
       );
 
-      expect(getByText('Reset')).not.toHaveStyleRule('justify-content', 'center');
-      expect(getByTestId('reset-styles')).not.toHaveStyleRule('text-align', 'left');
+      expect(getByText("Reset")).not.toHaveStyleRule("justify-content", "center");
+      expect(getByTestId("reset-styles")).not.toHaveStyleRule("text-align", "left");
     });
 
-    it('should have the correct styles for a link button in loading state', () => {
-      const {getByText, getByTestId} = render(
+    it("should have the correct styles for a link button in loading state", () => {
+      const { getByText, getByTestId } = render(
         <CustomizationProvider baseTheme="default" data-testid="wrapping-div">
           <Button variant="link" loading data-testid="loading-link-styles">
             Loading link
           </Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
-      const buttonContent = getByText('Loading link');
-      const themeWrapper = getByTestId('wrapping-div').firstChild as ChildNode;
+      const buttonContent = getByText("Loading link");
+      const themeWrapper = getByTestId("wrapping-div").firstChild as ChildNode;
       const loadingIconWrapper = themeWrapper.lastChild as ChildNode;
 
-      expect(getByTestId('loading-link-styles')).toHaveStyleRule('text-align', 'left');
+      expect(getByTestId("loading-link-styles")).toHaveStyleRule("text-align", "left");
 
-      expect(buttonContent).toHaveStyleRule('opacity', '0');
+      expect(buttonContent).toHaveStyleRule("opacity", "0");
 
-      expect(loadingIconWrapper).toHaveStyleRule('position', 'absolute');
-      expect(loadingIconWrapper).toHaveStyleRule('top', '0');
-      expect(loadingIconWrapper).toHaveStyleRule('right', '0');
-      expect(loadingIconWrapper).toHaveStyleRule('bottom', '0');
-      expect(loadingIconWrapper).toHaveStyleRule('left', '0');
-      expect(loadingIconWrapper).toHaveStyleRule('display', 'flex');
-      expect(loadingIconWrapper).toHaveStyleRule('align-items', 'center');
-      expect(loadingIconWrapper).toHaveStyleRule('justify-content', 'center');
+      expect(loadingIconWrapper).toHaveStyleRule("position", "absolute");
+      expect(loadingIconWrapper).toHaveStyleRule("top", "0");
+      expect(loadingIconWrapper).toHaveStyleRule("right", "0");
+      expect(loadingIconWrapper).toHaveStyleRule("bottom", "0");
+      expect(loadingIconWrapper).toHaveStyleRule("left", "0");
+      expect(loadingIconWrapper).toHaveStyleRule("display", "flex");
+      expect(loadingIconWrapper).toHaveStyleRule("align-items", "center");
+      expect(loadingIconWrapper).toHaveStyleRule("justify-content", "center");
     });
 
-    it('should have the correct styles for the link variant in disabled state', () => {
-      const {getByTestId} = render(
+    it("should have the correct styles for the link variant in disabled state", () => {
+      const { getByTestId } = render(
         <Button variant="link" disabled data-testid="disabled-link-styles">
           Disabled link
-        </Button>
+        </Button>,
       );
 
-      const buttonComponent = getByTestId('disabled-link-styles');
+      const buttonComponent = getByTestId("disabled-link-styles");
 
-      expect(buttonComponent).toHaveStyleRule('text-align', 'left');
-      expect(buttonComponent).toHaveStyleRule('color', 'colorTextWeaker');
+      expect(buttonComponent).toHaveStyleRule("text-align", "left");
+      expect(buttonComponent).toHaveStyleRule("color", "colorTextWeaker");
 
-      expect(buttonComponent).toHaveStyleRule('cursor', 'not-allowed');
+      expect(buttonComponent).toHaveStyleRule("cursor", "not-allowed");
     });
   });
 
-  describe('i18n', () => {
-    it('should have showExternal icon text', () => {
+  describe("i18n", () => {
+    it("should have showExternal icon text", () => {
       render(
         <Button as="a" variant="primary" href="https://twilio.com">
           I am anchor
-        </Button>
+        </Button>,
       );
-      const externalAnchor = screen.getByRole('link');
+      const externalAnchor = screen.getByRole("link");
       const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
-      expect(showExternalIcon?.textContent).toEqual('(link takes you to an external page)');
+      expect(showExternalIcon?.textContent).toEqual("(link takes you to an external page)");
     });
-    it('should have showExternal icon text when i18nShowExternalLinkLabel prop is used', () => {
+    it("should have showExternal icon text when i18nShowExternalLinkLabel prop is used", () => {
       render(
         <Button
           as="a"
@@ -541,53 +541,53 @@ describe('Button', () => {
           i18nExternalLinkLabel="(este enlace redirige a una página externa)"
         >
           Ir a página externa
-        </Button>
+        </Button>,
       );
-      const externalAnchor = screen.getByRole('link');
+      const externalAnchor = screen.getByRole("link");
       const showExternalIcon = externalAnchor.querySelector('[data-paste-element="ICON"]');
-      expect(showExternalIcon?.textContent).toEqual('(este enlace redirige a una página externa)');
+      expect(showExternalIcon?.textContent).toEqual("(este enlace redirige a una página externa)");
     });
   });
 
-  describe('toggle button', () => {
-    it('Does not have aria-pressed attribute when pressed undefined', () => {
-      const {getByRole} = render(
+  describe("toggle button", () => {
+    it("Does not have aria-pressed attribute when pressed undefined", () => {
+      const { getByRole } = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary">button</Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
-      const button = getByRole('button');
+      const button = getByRole("button");
 
-      expect(button).not.toHaveAttribute('aria-pressed', 'false');
+      expect(button).not.toHaveAttribute("aria-pressed", "false");
     });
 
-    it('Has an aria-pressed attribute when pressed is false', () => {
-      const {getByRole} = render(
+    it("Has an aria-pressed attribute when pressed is false", () => {
+      const { getByRole } = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" pressed={false}>
             button
           </Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
-      const button = getByRole('button');
+      const button = getByRole("button");
 
-      expect(button).toHaveAttribute('aria-pressed', 'false');
+      expect(button).toHaveAttribute("aria-pressed", "false");
     });
 
-    it('Has an aria-pressed attribute when pressed is true', () => {
-      const {getByRole} = render(
+    it("Has an aria-pressed attribute when pressed is true", () => {
+      const { getByRole } = render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
           <Button variant="secondary" pressed={true}>
             button
           </Button>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
 
-      const button = getByRole('button');
+      const button = getByRole("button");
 
-      expect(button).toHaveAttribute('aria-pressed', 'true');
+      expect(button).toHaveAttribute("aria-pressed", "true");
     });
   });
 });

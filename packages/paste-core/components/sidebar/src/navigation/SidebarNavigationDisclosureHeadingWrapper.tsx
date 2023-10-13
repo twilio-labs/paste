@@ -1,16 +1,16 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-export interface SidebarNavigationDisclosureHeadingWrapperProps extends React.ComponentPropsWithRef<'div'> {
+export interface SidebarNavigationDisclosureHeadingWrapperProps extends React.ComponentPropsWithRef<"div"> {
   children: React.ReactNode;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
 }
 
 export const SidebarNavigationDisclosureHeadingWrapper = React.forwardRef<
   HTMLDivElement,
   SidebarNavigationDisclosureHeadingWrapperProps
->(({element = 'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING_WRAPPER', ...props}, ref) => {
+>(({ element = "SIDEBAR_NAVIGATION_DISCLOSURE_HEADING_WRAPPER", ...props }, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
@@ -24,4 +24,4 @@ export const SidebarNavigationDisclosureHeadingWrapper = React.forwardRef<
   );
 });
 
-SidebarNavigationDisclosureHeadingWrapper.displayName = 'SidebarNavigationDisclosureHeadingWrapper';
+SidebarNavigationDisclosureHeadingWrapper.displayName = "SidebarNavigationDisclosureHeadingWrapper";

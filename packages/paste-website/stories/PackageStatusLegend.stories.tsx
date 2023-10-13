@@ -1,25 +1,25 @@
-import * as React from 'react';
+import * as React from "react";
 
-import {PackageStatusLegend} from '../src/components/shortcodes/package-status-legend';
+import { PackageStatusLegend } from "../src/components/shortcodes/package-status-legend";
 
 const basicStatusProps = {
-  packageStatus: 'Production',
-  figmaStatus: 'yes',
-  designCommitteeReview: 'yes',
-  engineerCommitteeReview: 'yes',
+  packageStatus: "Production",
+  figmaStatus: "yes",
+  designCommitteeReview: "yes",
+  engineerCommitteeReview: "yes",
 };
 
 const alphaStatusProps = {
-  packageStatus: 'Alpha',
-  figmaStatus: 'yes',
+  packageStatus: "Alpha",
+  figmaStatus: "yes",
   designCommitteeReview: null,
-  engineerCommitteeReview: 'yes',
+  engineerCommitteeReview: "yes",
 };
 
 const betaStatusProps = {
-  packageStatus: 'Beta',
+  packageStatus: "Beta",
   figmaStatus: null,
-  designCommitteeReview: 'yes',
+  designCommitteeReview: "yes",
   engineerCommitteeReview: null,
 };
 
@@ -36,6 +36,6 @@ export const BetaStatusNeedsFigmaAndEngReview = (): React.ReactNode => {
 };
 
 export default {
-  title: 'Website/PackageStatusLegend',
+  title: "Website/PackageStatusLegend",
   component: EmptyStatusLegend,
 };

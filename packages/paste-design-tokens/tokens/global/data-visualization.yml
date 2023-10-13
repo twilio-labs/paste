@@ -9,7 +9,7 @@ props:
   # 3:1 contrast ratio to color-background-body
   # 2:1 contrast ratio to neighboring colors
   color-data-visualization-1:
-    value: '{!palette-blue-80}'
+    value: "{!palette-blue-80}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body
@@ -17,7 +17,7 @@ props:
       - color-data-visualization-10
       - color-data-visualization-2
   color-data-visualization-2:
-    value: '{!palette-green-70}'
+    value: "{!palette-green-70}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body
@@ -25,7 +25,7 @@ props:
       - color-data-visualization-1
       - color-data-visualization-3
   color-data-visualization-3:
-    value: '{!palette-green-90}'
+    value: "{!palette-green-90}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body
@@ -33,7 +33,7 @@ props:
       - color-data-visualization-2
       - color-data-visualization-4
   color-data-visualization-4:
-    value: '{!palette-blue-50}'
+    value: "{!palette-blue-50}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body
@@ -41,7 +41,7 @@ props:
       - color-data-visualization-3
       - color-data-visualization-5
   color-data-visualization-5:
-    value: '{!palette-gray-80}'
+    value: "{!palette-gray-80}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body
@@ -49,7 +49,7 @@ props:
       - color-data-visualization-4
       - color-data-visualization-6
   color-data-visualization-6:
-    value: '{!palette-purple-40}'
+    value: "{!palette-purple-40}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body
@@ -57,7 +57,7 @@ props:
       - color-data-visualization-5
       - color-data-visualization-7
   color-data-visualization-7:
-    value: '{!palette-purple-60}'
+    value: "{!palette-purple-60}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body
@@ -65,7 +65,7 @@ props:
       - color-data-visualization-6
       - color-data-visualization-8
   color-data-visualization-8:
-    value: '{!palette-gray-50}'
+    value: "{!palette-gray-50}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body
@@ -73,7 +73,7 @@ props:
       - color-data-visualization-7
       - color-data-visualization-9
   color-data-visualization-9:
-    value: '{!palette-red-80}'
+    value: "{!palette-red-80}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body
@@ -81,7 +81,7 @@ props:
       - color-data-visualization-8
       - color-data-visualization-10
   color-data-visualization-10:
-    value: '{!palette-red-50}'
+    value: "{!palette-red-50}"
     comment: Color used for data visualizations. Must be used in a sequence.
     uicontrol_contrast_pairing:
       - color-background-body

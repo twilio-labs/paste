@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface MicrophoneOnIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface MicrophoneOnIconProps extends IconWrapperProps {
 }
 
 const MicrophoneOnIcon = React.forwardRef<HTMLElement, MicrophoneOnIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `MicrophoneOnIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[MicrophoneOnIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[MicrophoneOnIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -46,8 +46,8 @@ const MicrophoneOnIcon = React.forwardRef<HTMLElement, MicrophoneOnIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-MicrophoneOnIcon.displayName = 'MicrophoneOnIcon';
-export {MicrophoneOnIcon};
+MicrophoneOnIcon.displayName = "MicrophoneOnIcon";
+export { MicrophoneOnIcon };

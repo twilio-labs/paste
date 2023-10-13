@@ -1,5 +1,5 @@
-import {TokenCategory} from './token-category';
-import {TokenType} from './token-type';
+import { TokenCategory } from "./token-category";
+import { TokenType } from "./token-type";
 
 export interface PasteToken {
   name: string;

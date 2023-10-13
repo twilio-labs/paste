@@ -1,23 +1,23 @@
-import * as React from 'react';
-import type {EditorState} from '@twilio-paste/lexical-library';
-import {$getRoot, $createParagraphNode, $createTextNode} from '@twilio-paste/lexical-library';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {SendIcon} from '@twilio-paste/icons/esm/SendIcon';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
+import type { EditorState } from "@twilio-paste/lexical-library";
+import { $createParagraphNode, $createTextNode, $getRoot } from "@twilio-paste/lexical-library";
+import * as React from "react";
 
-import {ChatComposer} from '../src';
-import type {ChatComposerProps} from '../src';
+import { ChatComposer } from "../src";
+import type { ChatComposerProps } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Chat Composer',
+  title: "Components/Chat Composer",
   component: ChatComposer,
 };
 
-const defaultConfig: ChatComposerProps['config'] = {
-  namespace: 'foo',
+const defaultConfig: ChatComposerProps["config"] = {
+  namespace: "foo",
   onError: (error: Error) => {
     throw error;
   },
@@ -28,7 +28,7 @@ const disabledInitialText = (): void => {
 
   if (root.getFirstChild() === null) {
     const paragraph = $createParagraphNode();
-    paragraph.append($createTextNode('Type here...').toggleFormat('italic'));
+    paragraph.append($createTextNode("Type here...").toggleFormat("italic"));
 
     root.append(paragraph);
   }
@@ -39,7 +39,7 @@ const initialText = (): void => {
 
   if (root.getFirstChild() === null) {
     const paragraph = $createParagraphNode();
-    paragraph.append($createTextNode('Hello'));
+    paragraph.append($createTextNode("Hello"));
 
     root.append(paragraph);
   }
@@ -52,7 +52,7 @@ const tallInitialText = (): void => {
     for (let i = 0; i < 10; i++) {
       const paragraph = $createParagraphNode();
       paragraph.append($createTextNode());
-      paragraph.append($createTextNode('this is a really really long initial value'));
+      paragraph.append($createTextNode("this is a really really long initial value"));
 
       root.append(paragraph);
     }
@@ -68,7 +68,7 @@ const myOnChange = (editorState: EditorState): void => {
   });
 };
 
-const ComposerWrapperExample: React.FC<React.PropsWithChildren> = ({children}) => (
+const ComposerWrapperExample: React.FC<React.PropsWithChildren> = ({ children }) => (
   <Box
     borderStyle="solid"
     borderWidth="borderWidth0"
@@ -108,7 +108,7 @@ export const Disabled: StoryFn = () => {
       disabled
       config={{
         editorState: disabledInitialText,
-        namespace: 'foo',
+        namespace: "foo",
         onError: (error: Error) => {
           throw error;
         },
@@ -142,7 +142,7 @@ export const WithOnChange: StoryFn = () => {
 };
 
 WithOnChange.parameters = {
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 export const WithInitialValue: StoryFn = () => {
@@ -151,7 +151,7 @@ export const WithInitialValue: StoryFn = () => {
       initialValue="This is my initial value"
       ariaLabel="Chat composer with initial value"
       config={{
-        namespace: 'foo',
+        namespace: "foo",
         onError: (error: Error) => {
           throw error;
         },
@@ -167,7 +167,7 @@ export const WithCustomInitialValue: StoryFn = () => {
       ariaLabel="Chat composer with custom initial value"
       config={{
         editorState: initialText,
-        namespace: 'foo',
+        namespace: "foo",
         onError: (error: Error) => {
           throw error;
         },
@@ -185,7 +185,7 @@ export const WithMaxHeight: StoryFn = () => {
         maxHeight="size10"
         config={{
           editorState: tallInitialText,
-          namespace: 'foo',
+          namespace: "foo",
           onError: (error: Error) => {
             throw error;
           },

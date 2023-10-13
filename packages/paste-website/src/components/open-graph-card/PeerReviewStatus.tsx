@@ -1,14 +1,14 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import { Box } from "@twilio-paste/box";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
 interface PeerReviewStatusProps {
   designStatus?: string | null;
   engineerStatus?: string | null;
 }
 
-const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engineerStatus}) => {
+const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({ designStatus, engineerStatus }) => {
   if (!designStatus || !engineerStatus) {
     return (
       <Text fontSize="fontSize60" lineHeight="lineHeight60" as="span" color="colorTextWeak">
@@ -29,4 +29,4 @@ const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engine
   );
 };
 
-export {PeerReviewStatus};
+export { PeerReviewStatus };

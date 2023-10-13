@@ -1,14 +1,14 @@
-import * as React from 'react';
-import {Table, TBody, Td, Th, THead, Tr} from '@twilio-paste/table';
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
+import * as React from "react";
 
-import {EmptyState} from './EmptyState';
-import wordsList from '../../data/word-list.json';
-import {filterWordList} from './utils';
-import type {WordListShape} from './types';
-import {WordFilter} from './WordFilter';
+import wordsList from "../../data/word-list.json";
+import { EmptyState } from "./EmptyState";
+import { WordFilter } from "./WordFilter";
+import type { WordListShape } from "./types";
+import { filterWordList } from "./utils";
 
 const WordsList: React.FC = () => {
-  const [filterString, setFilterString] = React.useState('');
+  const [filterString, setFilterString] = React.useState("");
   const [filteredWordList, setFilteredWordList] = React.useState<Partial<WordListShape>>(wordsList);
 
   const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
@@ -25,7 +25,7 @@ const WordsList: React.FC = () => {
 
   return (
     <>
-      <WordFilter value={filterString} onInput={handleInput} onClear={() => setFilterString('')} />
+      <WordFilter value={filterString} onInput={handleInput} onClear={() => setFilterString("")} />
       {filteredWordsArray.length > 0 ? (
         <Table data-cy="word-list-table">
           <THead>
@@ -46,12 +46,12 @@ const WordsList: React.FC = () => {
           </TBody>
         </Table>
       ) : (
-        <EmptyState onClearSearch={() => setFilterString('')} />
+        <EmptyState onClearSearch={() => setFilterString("")} />
       )}
     </>
   );
 };
 
-WordsList.displayName = 'WordsList';
+WordsList.displayName = "WordsList";
 
-export {WordsList};
+export { WordsList };

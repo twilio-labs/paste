@@ -1,27 +1,27 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Toaster, useToaster} from '@twilio-paste/toast';
-import type {ToastVariants} from '@twilio-paste/toast';
-import {Button} from '@twilio-paste/button';
-import {Stack} from '@twilio-paste/stack';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+import { Button } from "@twilio-paste/button";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Radio, RadioGroup } from "@twilio-paste/radio-group";
+import { Stack } from "@twilio-paste/stack";
+import { Toaster, useToaster } from "@twilio-paste/toast";
+import type { ToastVariants } from "@twilio-paste/toast";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export const ToasterExample = (): JSX.Element => {
   const toaster = useToaster();
   const messageID = useUID();
   const dismissAfterID = useUID();
-  const [messageText, setMessageText] = React.useState('Nice one, you just pushed a Toast to the Toaster!');
-  const [variantStyle, setVariantStyle] = React.useState<ToastVariants>('success');
-  const [toastTimeout, setToastTimeout] = React.useState('');
+  const [messageText, setMessageText] = React.useState("Nice one, you just pushed a Toast to the Toaster!");
+  const [variantStyle, setVariantStyle] = React.useState<ToastVariants>("success");
+  const [toastTimeout, setToastTimeout] = React.useState("");
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     toaster.push({
       variant: variantStyle,
       message: messageText,
-      ...(toastTimeout !== '0' && toastTimeout !== '' && {dismissAfter: Number.parseInt(toastTimeout, 10)}),
+      ...(toastTimeout !== "0" && toastTimeout !== "" && { dismissAfter: Number.parseInt(toastTimeout, 10) }),
     });
   };
   return (

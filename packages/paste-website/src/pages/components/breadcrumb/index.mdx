@@ -18,10 +18,10 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import packageJson from '@twilio-paste/breadcrumb/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -33,24 +33,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb',
+        storybookUrl: '/?path=/story/components-breadcrumb--anchors',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb"
-  storybookUrl="/?path=/story/components-breadcrumb--anchors"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Breadcrumb, BreadcrumbItem}} language="jsx">
   {`<Breadcrumb>
@@ -70,10 +61,7 @@ Breadcrumbs are listed in order and represent the hierarchy of the page in the p
 <Callout variant="warning" marginY="space70">
   <CalloutHeading as="h4">Using Breadcrumb in Console products</CalloutHeading>
   <CalloutText>
-    If you're planning on using Breadcrumbs in a Console product, please read the{' '}
-    <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit" showExternal>
-      Console Navigation guidelines
-    </Anchor>{' '}
+    If you're planning on using Breadcrumbs in a Console product, please read the <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit" showExternal>Console Navigation guidelines</Anchor>
     and reach out to the Console team (#help-console-beta). Breadcrumbs will eventually be provided through the
     navigation framework.
   </CalloutText>
@@ -205,53 +193,3 @@ Do not include the current page in the navigation, since the page header provide
 
 - [Breadcrumb without href or plain text](https://github.com/twilio-labs/paste/discussions/1234)
 - [Last separator using Breadcrumb](https://github.com/twilio-labs/paste/discussions/1135)
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/breadcrumb - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/core/breadcrumb';
-
-const BreadcrumbExample: React.FC = () => {
-  return (
-    <Breadcrumb>
-      <BreadcrumbItem href="#">Item One</BreadcrumbItem>
-      <BreadcrumbItem href="#">Item Two</BreadcrumbItem>
-    </Breadcrumb>
-  );
-};
-```
-
-#### Breadcrumb Props
-
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
-
-#### BreadcrumbItem Props
-
-| Prop     | Type        | Description                                                                               | Default      |
-| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------ |
-| children | `ReactNode` |                                                                                           | null         |
-| href?    | `string`    | The URL the breadcrumb routes to.                                                         | null         |
-| last?    | `boolean`   | If true, removes the `BreadcrumbSeparator` after the last breadcrumb item.                | null         |
-| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'BREADCRUMB' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

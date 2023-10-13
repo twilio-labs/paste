@@ -1,1 +1,1 @@
-export * from '@twilio-paste/design-tokens';
+export * from "@twilio-paste/design-tokens";

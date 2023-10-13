@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {useFormPillState, FormPillGroup, FormPill} from '../src';
+import { FormPill, FormPillGroup, useFormPillState } from "../src";
 
 export const CustomFormPillGroup = (): JSX.Element => {
   const currentTheme = useTheme();
@@ -15,21 +15,21 @@ export const CustomFormPillGroup = (): JSX.Element => {
       disableAnimations={true}
       theme={{
         ...currentTheme,
-        fonts: {fontFamilyText: 'arial'},
+        fonts: { fontFamilyText: "arial" },
       }}
       elements={{
         FORM_PILL_GROUP: {
-          margin: 'space40',
+          margin: "space40",
         },
         FORM_PILL: {
-          backgroundColor: 'colorBackgroundNew',
-          color: 'colorText',
-          height: 'sizeIcon20',
+          backgroundColor: "colorBackgroundNew",
+          color: "colorText",
+          height: "sizeIcon20",
         },
         FORM_PILL_CLOSE: {
-          color: 'colorText',
-          height: 'sizeIcon20',
-          width: 'sizeIcon20',
+          color: "colorText",
+          height: "sizeIcon20",
+          width: "sizeIcon20",
         },
       }}
     >
@@ -67,7 +67,7 @@ export const CustomFormPillGroup = (): JSX.Element => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Form Pill Group/Customization',
+  title: "Components/Form Pill Group/Customization",
   component: FormPillGroup,
   parameters: {
     a11y: {

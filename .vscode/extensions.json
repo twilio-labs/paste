@@ -2,6 +2,7 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
+    "biomejs.biome",
     "unifiedjs.vscode-mdx",
     "styled-components.vscode-styled-components",
     "eamodio.gitlens",

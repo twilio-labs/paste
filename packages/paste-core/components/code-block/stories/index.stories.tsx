@@ -1,12 +1,19 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
-import {CodeBlock, CodeBlockWrapper, CodeBlockHeader, CodeBlockTabList, CodeBlockTab, CodeBlockTabPanel} from '../src';
+import {
+  CodeBlock,
+  CodeBlockHeader,
+  CodeBlockTab,
+  CodeBlockTabList,
+  CodeBlockTabPanel,
+  CodeBlockWrapper,
+} from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Code Block',
+  title: "Components/Code Block",
   component: CodeBlock,
 };
 
@@ -150,7 +157,7 @@ export const CustomCopyFormatter: StoryFn = () => (
     language="shell"
     code={`$ curl -G https://api.twilio.com/2010-04-01/Accounts -u '[YOUR ACCOUNT SID]:[YOUR AUTH TOKEN]'`}
     copyTextFormatter={(code) => {
-      return code.replace('[YOUR ACCOUNT SID]', 'XXXXXXX').replace('[YOUR AUTH TOKEN]', '1234567890');
+      return code.replace("[YOUR ACCOUNT SID]", "XXXXXXX").replace("[YOUR AUTH TOKEN]", "1234567890");
     }}
   />
 );

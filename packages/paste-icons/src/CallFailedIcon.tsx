@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface CallFailedIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface CallFailedIconProps extends IconWrapperProps {
 }
 
 const CallFailedIcon = React.forwardRef<HTMLElement, CallFailedIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `CallFailedIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CallFailedIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[CallFailedIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -41,8 +41,8 @@ const CallFailedIcon = React.forwardRef<HTMLElement, CallFailedIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-CallFailedIcon.displayName = 'CallFailedIcon';
-export {CallFailedIcon};
+CallFailedIcon.displayName = "CallFailedIcon";
+export { CallFailedIcon };

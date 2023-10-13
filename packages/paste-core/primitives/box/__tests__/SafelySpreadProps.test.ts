@@ -1,26 +1,26 @@
-import {safelySpreadBoxProps} from '../src/SafelySpreadProps';
+import { safelySpreadBoxProps } from "../src/SafelySpreadProps";
 
 const badProps = {
-  foo: 'bar',
-  borderColor: 'borderColorSuccess',
+  foo: "bar",
+  borderColor: "borderColorSuccess",
 };
 
 const goodProps = {
-  baz: 'foo',
-  'aria-label': 'test',
+  baz: "foo",
+  "aria-label": "test",
 };
 
-describe('safelySpreadBoxProps', () => {
-  it('should not filter out good props', () => {
+describe("safelySpreadBoxProps", () => {
+  it("should not filter out good props", () => {
     expect(safelySpreadBoxProps(goodProps)).toEqual({
-      baz: 'foo',
-      'aria-label': 'test',
+      baz: "foo",
+      "aria-label": "test",
     });
   });
 
-  it('should filter out bad props', () => {
+  it("should filter out bad props", () => {
     expect(safelySpreadBoxProps(badProps)).toEqual({
-      foo: 'bar',
+      foo: "bar",
     });
   });
 });

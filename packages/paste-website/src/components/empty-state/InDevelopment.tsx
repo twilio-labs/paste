@@ -1,20 +1,24 @@
-import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Box} from '@twilio-paste/box';
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import * as React from "react";
 
-import {Breadcrumb, BreadcrumbItem} from '../breadcrumb';
-import {SidebarCategoryRoutes} from '../../constants';
-import {getHumanizedNameFromPackageName} from '../../utils/RouteUtils';
+import { SidebarCategoryRoutes } from "../../constants";
+import { getHumanizedNameFromPackageName } from "../../utils/RouteUtils";
+import { Breadcrumb, BreadcrumbItem } from "../breadcrumb";
 
 interface InDevelopmentProps {
-  type?: 'component' | 'primitive' | 'layout';
+  type?: "component" | "primitive" | "layout";
   name: string;
   showBreadcrumb?: boolean;
 }
 
-const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({type, showBreadcrumb = true, name}) => {
+const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({
+  type,
+  showBreadcrumb = true,
+  name,
+}) => {
   return (
     <>
       {showBreadcrumb ? (
@@ -31,10 +35,10 @@ const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({t
       <Box>
         <Paragraph>This {type} is in active development, but we haven&apos;t gotten to the docs yet.</Paragraph>
         <Paragraph>
-          Feel free to{' '}
+          Feel free to{" "}
           <Anchor showExternal href="https://github.com/twilio-labs/paste/discussions">
             start a discussion
-          </Anchor>{' '}
+          </Anchor>{" "}
           with details on how you want to use this {type} and we&apos;ll respond to you directly.
         </Paragraph>
       </Box>
@@ -42,4 +46,4 @@ const InDevelopment: React.FC<React.PropsWithChildren<InDevelopmentProps>> = ({t
   );
 };
 
-export {InDevelopment};
+export { InDevelopment };

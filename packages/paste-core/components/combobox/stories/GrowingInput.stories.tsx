@@ -1,10 +1,10 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {useUID} from '@twilio-paste/uid-library';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Label } from "@twilio-paste/label";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {GrowingInput} from '../src/multiselect/GrowingInput';
+import { GrowingInput } from "../src/multiselect/GrowingInput";
 
 export const GrowingInputDemo: StoryFn = () => {
   const id = useUID();
@@ -14,21 +14,21 @@ export const GrowingInputDemo: StoryFn = () => {
       <Label htmlFor={id}>Type in here:</Label>
       <Box display="flex" alignItems="center">
         <span> -&gt; </span>
-        <GrowingInput id={id} />
+        <GrowingInput id={id} placeholder="Long placeholder text with extra   long spaces    ." />
         <span> &lt;- </span>
       </Box>
     </>
   );
 };
 
-GrowingInputDemo.storyName = 'GrowingInput';
+GrowingInputDemo.storyName = "GrowingInput";
 GrowingInputDemo.parameters = {
   // Nothing to VRT. Story for developer experience
-  chromatic: {disableSnapshot: true},
+  chromatic: { disableSnapshot: true },
 };
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Combobox',
+  title: "Components/Combobox",
   component: GrowingInputDemo,
 };

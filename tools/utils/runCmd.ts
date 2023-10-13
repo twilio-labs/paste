@@ -1,6 +1,6 @@
-import spawnAsync from '@expo/spawn-async';
-import type {SpawnResult} from '@expo/spawn-async';
-import chalk from 'chalk';
+import spawnAsync from "@expo/spawn-async";
+import type { SpawnResult } from "@expo/spawn-async";
+import chalk from "chalk";
 
 /**
  * Simple wrapper for spawnSync to handle failures
@@ -12,7 +12,7 @@ import chalk from 'chalk';
  */
 export async function runCmd(cmd: string, args: Array<string> = [], options = {}): Promise<SpawnResult> {
   // eslint-disable-next-line no-console
-  console.log(chalk.yellow(`>> Running command: ${cmd} ${args.join(' ')}`));
+  console.log(chalk.yellow(`>> Running command: ${cmd} ${args.join(" ")}`));
   // eslint-disable-next-line sonarjs/prefer-immediate-return
   const result = await spawnAsync(cmd, args, options);
   return result;
@@ -20,7 +20,7 @@ export async function runCmd(cmd: string, args: Array<string> = [], options = {}
 
 // Takes a shell commands output and gets the JSON from stdout safely
 export function getJsonFromCmdResults(result: SpawnResult): JSON {
-  if (result == null || result.stdout == null || result.stdout === '') {
+  if (result == null || result.stdout == null || result.stdout === "") {
     throw new Error(`Invalid result passed to processCmdJsonOutput.  Provided: ${JSON.stringify(result)}`);
   }
 

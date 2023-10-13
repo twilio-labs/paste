@@ -1,18 +1,18 @@
-import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
-import {Button, type ButtonProps} from '@twilio-paste/button';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import type { BoxProps } from "@twilio-paste/box";
+import { Button, type ButtonProps } from "@twilio-paste/button";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface DecrementButtonProps extends HTMLPasteProps<'button'> {
+export interface DecrementButtonProps extends HTMLPasteProps<"button"> {
   i18nStepDownLabel?: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   // Button component restricts tabIndex values
-  tabIndex?: ButtonProps['tabIndex'];
+  tabIndex?: ButtonProps["tabIndex"];
 }
 
 export const DecrementButton = React.forwardRef<HTMLButtonElement, DecrementButtonProps>(
-  ({i18nStepDownLabel = 'step value down', element, ...props}, ref) => {
+  ({ i18nStepDownLabel = "step value down", element, ...props }, ref) => {
     return (
       <Button
         {...props}
@@ -33,6 +33,6 @@ export const DecrementButton = React.forwardRef<HTMLButtonElement, DecrementButt
         />
       </Button>
     );
-  }
+  },
 );
-DecrementButton.displayName = 'Decrement';
+DecrementButton.displayName = "Decrement";

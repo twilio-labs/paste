@@ -1,4 +1,4 @@
-import type {ColorCombinationAccessibility} from '../color-combos';
+import type { ColorCombinationAccessibility } from "../color-combos";
 
 interface ColorRating {
   small: string;
@@ -12,16 +12,16 @@ const colorRating = (accessibility: ColorCombinationAccessibility): ColorRating 
   let large: string;
 
   if (accessibility.aaa) {
-    small = 'AAA';
+    small = "AAA";
   } else {
-    small = accessibility.aa ? 'AA' : 'Fail';
+    small = accessibility.aa ? "AA" : "Fail";
   }
 
   if (accessibility.aaaLarge) {
-    bold = 'AAA';
-    large = 'AAA';
+    bold = "AAA";
+    large = "AAA";
   } else {
-    bold = accessibility.aaLarge ? 'AA' : 'Fail';
+    bold = accessibility.aaLarge ? "AA" : "Fail";
     large = bold;
   }
 

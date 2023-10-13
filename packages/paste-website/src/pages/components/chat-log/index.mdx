@@ -47,10 +47,10 @@ import {
   chatLoggerExample,
 } from '../../../component-examples/ChatLogExamples.ts';
 import packageJson from '@twilio-paste/chat-log/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -62,25 +62,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-log',
+        storybookUrl: '/?path=/story/components-chatlog--example-chat-log',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-log"
-  storybookUrl="/?path=/story/components-chatlog--example-chat-log"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, Avatar}} language="jsx">
   {`<ChatLog>
@@ -351,158 +341,3 @@ To convey an error related to whether a message was sent, use Help Text inside t
 To convey an error related to other actions taken in the Chat Log, like a file upload validation error, use a [Toast](/components/toast) at the top of the individual chat window.
 
 To convey an error that applies to the whole page, not just a particular Chat Log, use a page-level [Callout or Alert](/patterns/error-state#when-to-use-which-component).
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/chat-log - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  ChatLog,
-  ChatMessage,
-  ChatMessageMeta,
-  ChatMessageMetaItem,
-  ChatBubble,
-  ChatBookend,
-  ChatBookendItem,
-} from '@twilio-paste/core/chat-log';
-
-export const Basic = () => {
-  return (
-    <ChatLog>
-      <ChatMessage variant="inbound">
-        <ChatBubble>Ahoy!</ChatBubble>
-        <ChatMessageMeta aria-label="said by Gibby Radki 4 minutes ago">
-          <ChatMessageMetaItem>Gibby Radki ・ 4 minutes ago</ChatMessageMetaItem>
-        </ChatMessageMeta>
-      </ChatMessage>
-      <ChatMessage variant="outbound">
-        <ChatBubble>Howdy!</ChatBubble>
-        <ChatMessageMeta aria-label="said by you 2 minutes ago">
-          <ChatMessageMetaItem>2 minutes ago</ChatMessageMetaItem>
-        </ChatMessageMeta>
-        <ChatMessageMeta aria-label="(read)">
-          <ChatMessageMetaItem>Read</ChatMessageMetaItem>
-        </ChatMessageMeta>
-      </ChatMessage>
-    </ChatLog>
-  );
-};
-```
-
-#### Props
-
-##### ChatAttachment
-
-| Prop             | Type                           | Description                                                                               | Default             |
-| ---------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | ------------------- |
-| `attachmentIcon` | `NonNullable<React.ReactNode>` | Specify a Paste Icon or Spinner to be displayed in the Attachment                         |                     |
-| `children`       | `NonNullable<React.ReactNode>` |                                                                                           |                     |
-| `element?`       | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_ATTACHMENT'` |
-
-##### ChatAttachmentDescription
-
-| Prop       | Type     | Description                                                                               | Default                         |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | ------------------------------- |
-| `children` | `string` |                                                                                           |                                 |
-| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_ATTACHMENT_DESCRIPTION'` |
-
-##### ChatAttachmentLink
-
-ChatAttachmentLink inherits the same props as [Anchor](/components/anchor) as well as the following:
-
-| Prop       | Type     | Description                                                                               | Default                  |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | ------------------------ |
-| `href`     | `string` | A URL to route to                                                                         |                          |
-| `children` | `string` |                                                                                           |                          |
-| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_ATTACHMENT_LINK'` |
-
-##### ChatBookend
-
-| Prop        | Type              | Description                                                                               | Default          |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| `children?` | `React.ReactNode` |                                                                                           |                  |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_BOOKEND'` |
-
-##### ChatBookendItem
-
-| Prop        | Type              | Description                                                                               | Default               |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
-| `children?` | `React.ReactNode` |                                                                                           |                       |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_BOOKEND_ITEM'` |
-
-##### ChatBubble
-
-| Prop        | Type              | Description                                                                               | Default         |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------- |
-| `children?` | `React.ReactNode` |                                                                                           |                 |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_BUBBLE'` |
-
-##### ChatEvent
-
-| Prop        | Type              | Description                                                                               | Default        |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | -------------- |
-| `children?` | `React.ReactNode` |                                                                                           |                |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_EVENT'` |
-
-##### ChatLog
-
-| Prop        | Type              | Description                                                                               | Default      |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------ |
-| `children?` | `React.ReactNode` |                                                                                           |              |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_LOG'` |
-
-##### ChatMessage
-
-| Prop        | Type                    | Description                                                                               | Default          |
-| ----------- | ----------------------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| `variant`   | `'inbound', 'outbound'` | The variant of the message                                                                |                  |
-| `children?` | `React.ReactNode`       |                                                                                           |                  |
-| `element?`  | `string`                | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_MESSAGE'` |
-
-##### ChatMessageMeta
-
-| Prop         | Type                           | Description                                                                               | Default               |
-| ------------ | ------------------------------ | ----------------------------------------------------------------------------------------- | --------------------- |
-| `aria-label` | `string`                       | A label that summarizes the content of the ChatMessageMeta                                |                       |
-| `children`   | `NonNullable<React.ReactNode>` |                                                                                           |                       |
-| `element?`   | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_MESSAGE_META'` |
-
-##### ChatMessageMetaItem
-
-| Prop       | Type                           | Description                                                                               | Default                    |
-| ---------- | ------------------------------ | ----------------------------------------------------------------------------------------- | -------------------------- |
-| `children` | `NonNullable<React.ReactNode>` |                                                                                           |                            |
-| `element?` | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_MESSAGE_META_ITEM'` |
-
-### Figma
-
-<Callout variant="neutral" marginY="space70">
-  <CalloutHeading as="span">Figma usage guidelines coming soon</CalloutHeading>
-  <CalloutText>
-    You can find the Chat Log components in{' '}
-    <Anchor
-      href="https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=16157%3A123797"
-      showExternal
-    >
-      the Paste Components library
-    </Anchor>
-    .
-  </CalloutText>
-</Callout>
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,0 +1,24 @@
+name: Discussion auto-responder
+on:
+  discussion:
+    types: [created]
+env:
+  GH_SERVICE_ACC_DISCUSSIONS_TOKEN: ${{ secrets.GH_SERVICE_ACC_DISCUSSIONS_TOKEN }}
+  API_SECRET: ${{ secrets.OPENAI_API_SECRET }}
+jobs:
+  on_discussion_open:
+    runs-on: ubuntu-latest
+    permissions:
+      discussions: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up Deno
+        uses: denolib/setup-deno@v2
+        with:
+          deno-version: "v1.x"
+      - name: Run Deno script
+        run: npm run ci:autorespond
+        env:
+          DISCUSSION_NODE_ID: ${{ github.event.discussion.node_id }}
+          DISCUSSION_BODY: ${{ github.event.discussion.body }}

@@ -1,14 +1,22 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface FormControlTwoColumnProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
-  element?: BoxProps['element'];
+export interface FormControlTwoColumnProps extends HTMLPasteProps<"legend"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_CONTROL_TWO_COLUMN'
+   * @type {BoxProps['element']}
+   * @memberof FormControlTwoColumnProps
+   */
+  element?: BoxProps["element"];
   children: React.ReactNode;
 }
 
 export const FormControlTwoColumn = React.forwardRef<HTMLLegendElement, FormControlTwoColumnProps>(
-  ({children, element = 'FORM_CONTROL_TWO_COLUMN', ...props}, ref) => (
+  ({ children, element = "FORM_CONTROL_TWO_COLUMN", ...props }, ref) => (
     <Box
       display="grid"
       gridTemplateColumns="1fr 1fr"
@@ -19,7 +27,7 @@ export const FormControlTwoColumn = React.forwardRef<HTMLLegendElement, FormCont
     >
       {children}
     </Box>
-  )
+  ),
 );
 
-FormControlTwoColumn.displayName = 'FormControlTwoColumn';
+FormControlTwoColumn.displayName = "FormControlTwoColumn";

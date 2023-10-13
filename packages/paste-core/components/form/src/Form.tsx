@@ -1,15 +1,28 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface FormProps extends Omit<React.ComponentPropsWithRef<'form'>, 'children'> {
-  element?: BoxProps['element'];
+export interface FormProps extends HTMLPasteProps<"form"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   * @default 'FORM'
+   * @type {BoxProps['element']}
+   * @memberof FormProps
+   */
+  element?: BoxProps["element"];
   children: React.ReactNode;
-  maxWidth?: BoxStyleProps['maxWidth'];
+  /**
+   * The maximum width of the Form.
+   *
+   * @type {BoxStyleProps['maxWidth']}
+   * @memberof FormProps
+   */
+  maxWidth?: BoxStyleProps["maxWidth"];
 }
 
 export const Form = React.forwardRef<HTMLDivElement, FormProps>(
-  ({element = 'FORM', maxWidth, children, ...props}, ref) => (
+  ({ element = "FORM", maxWidth, children, ...props }, ref) => (
     <Box
       as="form"
       ref={ref}
@@ -22,7 +35,7 @@ export const Form = React.forwardRef<HTMLDivElement, FormProps>(
     >
       {children}
     </Box>
-  )
+  ),
 );
 
-Form.displayName = 'Form';
+Form.displayName = "Form";

@@ -1,1 +1,1 @@
-export * from '@twilio-paste/sibling-box';
+export * from "@twilio-paste/sibling-box";

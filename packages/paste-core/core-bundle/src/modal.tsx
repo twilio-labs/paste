@@ -1,1 +1,1 @@
-export * from '@twilio-paste/modal';
+export * from "@twilio-paste/modal";

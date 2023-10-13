@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Description List - Changelog',
+  package: '@twilio-paste/description-list',
+  description: 'A Description List is a set or sets of terms and their definitions, or details, used to display data.',
+  slug: '/components/description-list/changelog',
+};
+
+import Changelog from '@twilio-paste/description-list/CHANGELOG.md';
+import packageJson from '@twilio-paste/description-list/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Description List');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/description-list',
+        storybookUrl: '/?path=/story/components-description-list--default',
+      },
+    },
+  };
+};
+
+<Changelog />

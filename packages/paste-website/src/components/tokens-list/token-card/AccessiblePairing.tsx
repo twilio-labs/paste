@@ -1,14 +1,14 @@
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Popover, PopoverBadgeButton, PopoverContainer} from '@twilio-paste/popover';
-import {Heading} from '@twilio-paste/heading';
-import camelCase from 'lodash/camelCase';
-import {Theme} from '@twilio-paste/theme';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Popover, PopoverBadgeButton, PopoverContainer } from "@twilio-paste/popover";
+import { Theme } from "@twilio-paste/theme";
+import camelCase from "lodash/camelCase";
 
-import type {TokenCardProps} from '../types';
+import type { TokenCardProps } from "../types";
 
-export const AccessiblePairing: React.FC<Pick<TokenCardProps, 'text_contrast_pairing' | 'name' | 'selectedTheme'>> = ({
+export const AccessiblePairing: React.FC<Pick<TokenCardProps, "text_contrast_pairing" | "name" | "selectedTheme">> = ({
   text_contrast_pairing,
   name,
   selectedTheme,
@@ -31,8 +31,8 @@ export const AccessiblePairing: React.FC<Pick<TokenCardProps, 'text_contrast_pai
             <Box display="flex" rowGap="space30" columnGap="space30" flexWrap="wrap">
               {text_contrast_pairing?.map((color) => (
                 <Box
-                  backgroundColor={camelCase(color) as BoxProps['backgroundColor']}
-                  color={camelCase(name) as BoxProps['color']}
+                  backgroundColor={camelCase(color) as BoxProps["backgroundColor"]}
+                  color={camelCase(name) as BoxProps["color"]}
                   borderRadius="borderRadius20"
                   paddingX="space30"
                   paddingY="space10"

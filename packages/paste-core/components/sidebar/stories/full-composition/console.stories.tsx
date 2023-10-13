@@ -1,11 +1,11 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from "@storybook/react";
+import * as React from "react";
 
-import {Console as ConsoleComposition} from './components/Console';
+import { Console as ConsoleComposition } from "./components/Console";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/FullCompositions',
+  title: "Components/Sidebar/FullCompositions",
 };
 
 export const Console: StoryFn = () => {

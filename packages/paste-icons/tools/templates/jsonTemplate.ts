@@ -1,4 +1,4 @@
-import {DEPRECATED_ICONS} from '../constants';
+import { DEPRECATED_ICONS } from "../constants";
 
 type IconFiles = {
   name: string;

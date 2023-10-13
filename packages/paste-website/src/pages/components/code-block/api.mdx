@@ -1,0 +1,80 @@
+export const meta = {
+  title: 'Code Block',
+  package: '@twilio-paste/code-block',
+  description: 'A component used to display readable blocks of code.',
+  slug: '/components/code-block/api',
+};
+
+import Changelog from '@twilio-paste/code-block/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/code-block/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Code Block');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/code-block');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/code-block',
+        storybookUrl: '/?path=/story/components-code-block--single-line',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/code-block - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {CodeBlockWrapper, CodeBlockHeader, CodeBlock} from '@twilio-paste/core/code-block';
+
+const rubyCode = `#!/usr/bin/ruby
+
+# Import the library.
+require 'tk'
+
+# Root window.
+root = TkRoot.new  {
+  title 'Push Me'
+  background '#111188'
+}
+
+# Add a label to the root window.
+lab = TkLabel.new(root) {
+  text "Hey there,\nPush a button!"
+  background '#3333AA'
+  foreground '#CCCCFF'
+}`;
+
+export const Basic = () => {
+  return (
+    <CodeBlockWrapper>
+      <CodeBlockHeader>Build a button</CodeBlockHeader>
+      <CodeBlock showLineNumbers language="ruby" code={rubyCode} />
+    </CodeBlockWrapper>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

@@ -1,14 +1,22 @@
-import * as React from 'react';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
+import type { BoxElementProps } from "@twilio-paste/box";
+import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface FileUploaderItemTitleProps extends Omit<React.ComponentPropsWithRef<'div'>, 'children'> {
+export interface FileUploaderItemTitleProps extends HTMLPasteProps<"div"> {
   children: string;
-  element?: BoxElementProps['element'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FILE_UPLOADER_ITEM_TITLE'
+   * @type {BoxElementProps['element']}
+   * @memberof FileUploaderItemTitleProps
+   */
+  element?: BoxElementProps["element"];
 }
 
 export const FileUploaderItemTitle = React.forwardRef<HTMLElement, FileUploaderItemTitleProps>(
-  ({children, element = 'FILE_UPLOADER_ITEM_TITLE', ...props}, ref) => {
+  ({ children, element = "FILE_UPLOADER_ITEM_TITLE", ...props }, ref) => {
     return (
       <Text
         {...safelySpreadTextProps(props)}
@@ -23,7 +31,7 @@ export const FileUploaderItemTitle = React.forwardRef<HTMLElement, FileUploaderI
         {children}
       </Text>
     );
-  }
+  },
 );
 
-FileUploaderItemTitle.displayName = 'FileUploaderItemTitle';
+FileUploaderItemTitle.displayName = "FileUploaderItemTitle";

@@ -1,17 +1,17 @@
-import * as React from 'react';
-import type {Story} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {Card} from '@twilio-paste/card';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import type { Story } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {Label, RequiredDot} from '../src';
+import { Label, RequiredDot } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Label',
+  title: "Components/Label",
   component: Label,
 };
 
@@ -62,7 +62,7 @@ export const I18n = (): React.ReactNode => {
   );
 };
 
-I18n.storyName = 'i18n label';
+I18n.storyName = "i18n label";
 
 export const Customized: Story = () => {
   const currentTheme = useTheme();
@@ -87,10 +87,10 @@ export const Customized: Story = () => {
             disableAnimations={true}
             theme={currentTheme}
             elements={{
-              LABEL: {color: 'colorTextWarningStrong', fontWeight: 'fontWeightLight'},
-              LABEL_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveStrong'},
-              REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveStrong'},
-              REQUIRED_DOT_WRAPPER: {cursor: 'help'},
+              LABEL: { color: "colorTextWarningStrong", fontWeight: "fontWeightLight" },
+              LABEL_REQUIRED_DOT: { backgroundColor: "colorBackgroundDestructiveStrong" },
+              REQUIRED_DOT: { backgroundColor: "colorBackgroundDestructiveStrong" },
+              REQUIRED_DOT_WRAPPER: { cursor: "help" },
             }}
           >
             <Label htmlFor="label">Label</Label>
@@ -110,10 +110,10 @@ export const Customized: Story = () => {
             disableAnimations={true}
             theme={currentTheme}
             elements={{
-              FOO: {color: 'colorTextWarningStrong', fontWeight: 'fontWeightLight'},
-              FOO_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveStrong'},
-              BAR: {backgroundColor: 'colorBackgroundDestructiveStrong'},
-              BAR_WRAPPER: {cursor: 'help'},
+              FOO: { color: "colorTextWarningStrong", fontWeight: "fontWeightLight" },
+              FOO_REQUIRED_DOT: { backgroundColor: "colorBackgroundDestructiveStrong" },
+              BAR: { backgroundColor: "colorBackgroundDestructiveStrong" },
+              BAR_WRAPPER: { cursor: "help" },
             }}
           >
             <Label htmlFor="label" element="FOO">

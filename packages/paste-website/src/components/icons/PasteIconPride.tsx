@@ -1,6 +1,6 @@
-import * as React from 'react';
-import type {DisplayOptions, OpacityProperty, TransitionProperty} from '@twilio-paste/style-props';
-import {useUID} from '@twilio-paste/uid-library';
+import type { DisplayOptions, OpacityProperty, TransitionProperty } from "@twilio-paste/style-props";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface PasteIconPrideProps {
   decorative?: boolean;
@@ -12,10 +12,10 @@ export interface PasteIconPrideProps {
 }
 
 const PasteIconPride = React.memo(
-  ({title = 'Twilio Paste', decorative = true, display, size, opacity, transition}: PasteIconPrideProps) => {
+  ({ title = "Twilio Paste", decorative = true, display, size, opacity, transition }: PasteIconPrideProps) => {
     const titleId = `paste-icon-${useUID()}`;
     return (
-      <span style={{display, opacity, transition, width: size, height: size}}>
+      <span style={{ display, opacity, transition, width: size, height: size }}>
         <svg
           role="img"
           aria-hidden={decorative}
@@ -106,7 +106,7 @@ const PasteIconPride = React.memo(
         </svg>
       </span>
     );
-  }
+  },
 );
 
-export {PasteIconPride};
+export { PasteIconPride };

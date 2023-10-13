@@ -1,7 +1,7 @@
-import {runCmdJson} from './runCmd';
+import { runCmdJson } from "./runCmd";
 
-const LERNA_INDEX_PATH = require.resolve('lerna');
-const LERNA_CLI_PATH = LERNA_INDEX_PATH.replace('index.js', 'cli.js');
+const LERNA_INDEX_PATH = require.resolve("lerna");
+const LERNA_CLI_PATH = LERNA_INDEX_PATH.replace("index.js", "cli.js");
 
 export interface PackageShape {
   name: string;
@@ -27,6 +27,6 @@ export async function getRepoPackages(): Promise<PackageShape[] | null> {
     return repoPackages;
   }
 
-  repoPackages = (await runCmdJson(LERNA_CLI_PATH, ['la', '--json'])) as unknown as PackageShape[];
+  repoPackages = (await runCmdJson(LERNA_CLI_PATH, ["la", "--json"])) as unknown as PackageShape[];
   return repoPackages;
 }

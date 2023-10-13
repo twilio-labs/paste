@@ -1,22 +1,48 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {useUID} from '@twilio-paste/uid-library';
-import {Composite} from '@twilio-paste/reakit-library';
-import type {CompositeProps} from '@twilio-paste/reakit-library';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import { Composite } from "@twilio-paste/reakit-library";
+import type { CompositeProps } from "@twilio-paste/reakit-library";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface FormPillGroupProps
-  extends Omit<CompositeProps, 'unstable_virtual' | 'unstable_moves' | 'unstable_system' | 'wrapElement' | 'wrap'> {
-  'aria-label': string;
-  element?: BoxElementProps['element'];
+  extends Omit<CompositeProps, "unstable_virtual" | "unstable_moves" | "unstable_system" | "wrapElement" | "wrap"> {
+  /**
+   *
+   *
+   * @type {string}
+   * @memberof FormPillGroupProps
+   */
+  "aria-label": string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_PILL_GROUP'
+   * @type {BoxElementProps['element']}
+   * @memberof FormPillGroupProps
+   */
+  element?: BoxElementProps["element"];
   children: React.ReactNode;
+  /**
+   * Visually hidden string that has instructions for how to remove and select pills with a keyboard.
+   *
+   * @default 'Press Delete or Backspace to remove. Press Enter to toggle selection.'
+   * @type {string}
+   * @memberof FormPillGroupProps
+   */
   i18nKeyboardControls?: string;
-  display?: 'flex' | 'inline-flex';
+  /**
+   * Determines if the FormPillGroup should be rendered as a flex or inline-flex container
+   *
+   * @type {('flex' | 'inline-flex')}
+   * @memberof FormPillGroupProps
+   */
+  display?: "flex" | "inline-flex";
 }
 
 const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
-  ({element = 'FORM_PILL_GROUP', display = 'flex', ...props}, ref) => (
+  ({ element = "FORM_PILL_GROUP", display = "flex", ...props }, ref) => (
     <Box
       {...safelySpreadBoxProps(props)}
       element={element}
@@ -32,10 +58,10 @@ const FormPillGroupStyles = React.forwardRef<HTMLUListElement, FormPillGroupProp
     >
       {props.children}
     </Box>
-  )
+  ),
 );
 
-FormPillGroupStyles.displayName = 'StyledFormPillGroup';
+FormPillGroupStyles.displayName = "StyledFormPillGroup";
 
 /**
  * FormPillGroup should be used to wrap a collection of FormPills. It should be used in conjunction with
@@ -48,7 +74,10 @@ FormPillGroupStyles.displayName = 'StyledFormPillGroup';
  * @see http://paste.twilio.design/components/form-pill-group
  */
 export const FormPillGroup = React.forwardRef<HTMLUListElement, FormPillGroupProps>(
-  ({i18nKeyboardControls = 'Press Delete or Backspace to remove. Press Enter to toggle selection.', ...props}, ref) => {
+  (
+    { i18nKeyboardControls = "Press Delete or Backspace to remove. Press Enter to toggle selection.", ...props },
+    ref,
+  ) => {
     const keyboardControlsId = useUID();
     return (
       <>
@@ -58,7 +87,7 @@ export const FormPillGroup = React.forwardRef<HTMLUListElement, FormPillGroupPro
         <ScreenReaderOnly id={keyboardControlsId}>{i18nKeyboardControls}</ScreenReaderOnly>
       </>
     );
-  }
+  },
 );
 
-FormPillGroup.displayName = 'FormPillGroup';
+FormPillGroup.displayName = "FormPillGroup";

@@ -1,20 +1,20 @@
-import * as React from 'react';
-import {render, fireEvent, screen} from '@testing-library/react';
+import { fireEvent, render, screen } from "@testing-library/react";
+import * as React from "react";
 
 import {
-  useMenuPrimitiveState,
   MenuPrimitive,
-  MenuPrimitiveItem,
   MenuPrimitiveButton,
+  MenuPrimitiveItem,
   MenuPrimitiveSeparator,
-} from '../src';
-import type {MenuPrimitiveButtonProps} from '../src';
+  useMenuPrimitiveState,
+} from "../src";
+import type { MenuPrimitiveButtonProps } from "../src";
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonProps>(function PreferencesMenu(
   props,
-  ref
+  ref,
 ) {
-  const menu = useMenuPrimitiveState({baseId: 'sub-menu'});
+  const menu = useMenuPrimitiveState({ baseId: "sub-menu" });
   return (
     <>
       <MenuPrimitiveButton ref={ref} {...menu} {...props} data-testid="example-submenu-trigger">
@@ -35,7 +35,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement, MenuPrimitiveButtonP
 });
 
 const MenuMock = (): JSX.Element => {
-  const menu = useMenuPrimitiveState({baseId: 'menu-example'});
+  const menu = useMenuPrimitiveState({ baseId: "menu-example" });
   return (
     <>
       <MenuPrimitiveButton {...menu}>Code</MenuPrimitiveButton>
@@ -51,66 +51,66 @@ const MenuMock = (): JSX.Element => {
   );
 };
 
-describe('Menu Primitive', () => {
-  describe('Render', () => {
-    it('should render', () => {
-      const {asFragment} = render(<MenuMock />);
+describe("Menu Primitive", () => {
+  describe("Render", () => {
+    it("should render", () => {
+      const { asFragment } = render(<MenuMock />);
       expect(asFragment()).toMatchSnapshot();
     });
 
-    it('should render a menu button with aria attributes', () => {
+    it("should render a menu button with aria attributes", () => {
       render(<MenuMock />);
-      const renderedMenuButton = screen.getByRole('button');
-      expect(renderedMenuButton.getAttribute('aria-haspopup')).toEqual('menu');
-      expect(renderedMenuButton.getAttribute('aria-controls')).toEqual('menu-example');
+      const renderedMenuButton = screen.getByRole("button");
+      expect(renderedMenuButton.getAttribute("aria-haspopup")).toEqual("menu");
+      expect(renderedMenuButton.getAttribute("aria-controls")).toEqual("menu-example");
     });
 
-    it('should render a menu', () => {
+    it("should render a menu", () => {
       render(<MenuMock />);
-      const renderedMenu = screen.getByLabelText('Code');
-      expect(renderedMenu.getAttribute('role')).toEqual('menu');
-      expect(renderedMenu.getAttribute('aria-orientation')).toEqual('vertical');
+      const renderedMenu = screen.getByLabelText("Code");
+      expect(renderedMenu.getAttribute("role")).toEqual("menu");
+      expect(renderedMenu.getAttribute("aria-orientation")).toEqual("vertical");
     });
 
-    it('should render a menu item', () => {
+    it("should render a menu item", () => {
       render(<MenuMock />);
-      const renderedMenuItem = screen.getByTestId('example-menu-item');
-      expect(renderedMenuItem.getAttribute('role')).toEqual('menuitem');
+      const renderedMenuItem = screen.getByTestId("example-menu-item");
+      expect(renderedMenuItem.getAttribute("role")).toEqual("menuitem");
     });
 
-    it('should render a menu separator', () => {
+    it("should render a menu separator", () => {
       render(<MenuMock />);
-      const renderedMenuItem = screen.getByTestId('example-menu-separator');
-      expect(renderedMenuItem.getAttribute('aria-orientation')).toEqual('horizontal');
-      expect(renderedMenuItem.tagName).toEqual('HR');
+      const renderedMenuItem = screen.getByTestId("example-menu-separator");
+      expect(renderedMenuItem.getAttribute("aria-orientation")).toEqual("horizontal");
+      expect(renderedMenuItem.tagName).toEqual("HR");
     });
 
-    it('should render a sub menu trigger', () => {
+    it("should render a sub menu trigger", () => {
       render(<MenuMock />);
-      const renderedSubMenuTrigger = screen.getByTestId('example-submenu-trigger');
-      expect(renderedSubMenuTrigger.getAttribute('role')).toEqual('menuitem');
-      expect(renderedSubMenuTrigger.getAttribute('aria-haspopup')).toEqual('menu');
-      expect(renderedSubMenuTrigger.getAttribute('aria-expanded')).toEqual('false');
+      const renderedSubMenuTrigger = screen.getByTestId("example-submenu-trigger");
+      expect(renderedSubMenuTrigger.getAttribute("role")).toEqual("menuitem");
+      expect(renderedSubMenuTrigger.getAttribute("aria-haspopup")).toEqual("menu");
+      expect(renderedSubMenuTrigger.getAttribute("aria-expanded")).toEqual("false");
     });
 
-    it('should render a submenu', () => {
+    it("should render a submenu", () => {
       render(<MenuMock />);
-      const renderedMenu = screen.getByTestId('example-submenu');
-      expect(renderedMenu.getAttribute('role')).toEqual('menu');
-      expect(renderedMenu.getAttribute('aria-orientation')).toEqual('vertical');
+      const renderedMenu = screen.getByTestId("example-submenu");
+      expect(renderedMenu.getAttribute("role")).toEqual("menu");
+      expect(renderedMenu.getAttribute("aria-orientation")).toEqual("vertical");
     });
 
-    it('should render a sub menu item', () => {
+    it("should render a sub menu item", () => {
       render(<MenuMock />);
-      const renderedMenuItem = screen.getByTestId('example-submenu-item');
-      expect(renderedMenuItem.getAttribute('role')).toEqual('menuitem');
+      const renderedMenuItem = screen.getByTestId("example-submenu-item");
+      expect(renderedMenuItem.getAttribute("role")).toEqual("menuitem");
     });
 
-    it('should render a disabled sub menu item', () => {
+    it("should render a disabled sub menu item", () => {
       render(<MenuMock />);
-      const renderedMenuItem = screen.getByTestId('example-disabled-submenu-item');
-      expect(renderedMenuItem.getAttribute('role')).toEqual('menuitem');
-      expect(renderedMenuItem.getAttribute('aria-disabled')).toEqual('true');
+      const renderedMenuItem = screen.getByTestId("example-disabled-submenu-item");
+      expect(renderedMenuItem.getAttribute("role")).toEqual("menuitem");
+      expect(renderedMenuItem.getAttribute("aria-disabled")).toEqual("true");
     });
   });
 
@@ -119,47 +119,47 @@ describe('Menu Primitive', () => {
    * annoying, commenting out for review but will investigate
    */
   // eslint-disable-next-line jest/no-disabled-tests
-  describe.skip('interaction', () => {
-    it('should control expanded attribute on the button', () => {
+  describe.skip("interaction", () => {
+    it("should control expanded attribute on the button", () => {
       render(<MenuMock />);
-      const renderedMenuButton = screen.getByRole('button');
-      expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
+      const renderedMenuButton = screen.getByRole("button");
+      expect(renderedMenuButton.getAttribute("aria-expanded")).toEqual("false");
       fireEvent.click(renderedMenuButton);
-      expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('true');
+      expect(renderedMenuButton.getAttribute("aria-expanded")).toEqual("true");
       if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'Escape', code: 'Escape'});
+        fireEvent.keyDown(document.activeElement, { key: "Escape", code: "Escape" });
         // eslint-disable-next-line jest/no-conditional-expect
-        expect(renderedMenuButton.getAttribute('aria-expanded')).toEqual('false');
+        expect(renderedMenuButton.getAttribute("aria-expanded")).toEqual("false");
       }
     });
 
-    it('should focus first menu item in the menu when open', () => {
+    it("should focus first menu item in the menu when open", () => {
       render(<MenuMock />);
-      fireEvent.click(screen.getByRole('button'));
+      fireEvent.click(screen.getByRole("button"));
       if (document.activeElement != null) {
         // eslint-disable-next-line jest/no-conditional-expect
-        expect(screen.getAllByRole('menuitem')[0]).toEqual(document.activeElement);
+        expect(screen.getAllByRole("menuitem")[0]).toEqual(document.activeElement);
       }
     });
 
-    it('should move focus to the second menu item in the menu when down arrow pressed', () => {
+    it("should move focus to the second menu item in the menu when down arrow pressed", () => {
       render(<MenuMock />);
-      fireEvent.click(screen.getByRole('button'));
+      fireEvent.click(screen.getByRole("button"));
       if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
+        fireEvent.keyDown(document.activeElement, { key: "ArrowDown", code: "ArrowDown" });
         // eslint-disable-next-line jest/no-conditional-expect
-        expect(screen.getByText('Check for Updates...')).toEqual(document.activeElement);
+        expect(screen.getByText("Check for Updates...")).toEqual(document.activeElement);
       }
     });
 
-    it('should move focus to the first menu item in the menu when down up pressed', () => {
+    it("should move focus to the first menu item in the menu when down up pressed", () => {
       render(<MenuMock />);
-      fireEvent.click(screen.getByRole('button'));
+      fireEvent.click(screen.getByRole("button"));
       if (document.activeElement != null) {
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowDown', code: 'ArrowDown'});
-        fireEvent.keyDown(document.activeElement, {key: 'ArrowUp', code: 'ArrowUp'});
+        fireEvent.keyDown(document.activeElement, { key: "ArrowDown", code: "ArrowDown" });
+        fireEvent.keyDown(document.activeElement, { key: "ArrowUp", code: "ArrowUp" });
         // eslint-disable-next-line jest/no-conditional-expect
-        expect(screen.getByText('About Visual Studio Code')).toEqual(document.activeElement);
+        expect(screen.getByText("About Visual Studio Code")).toEqual(document.activeElement);
       }
     });
   });

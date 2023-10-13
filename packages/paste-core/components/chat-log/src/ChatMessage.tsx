@@ -1,32 +1,46 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxStyleProps, BoxElementProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import {MessageVariantContext} from './MessageVariantContext';
-import type {MessageVariants} from './MessageVariantContext';
+import { MessageVariantContext } from "./MessageVariantContext";
+import type { MessageVariants } from "./MessageVariantContext";
 
-export interface ChatMessageProps {
+export interface ChatMessageProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
+  /**
+   *
+   * @default null
+   * @type {MessageVariants}
+   * @memberof ChatMessageProps
+   */
   variant: MessageVariants;
-  element?: BoxElementProps['element'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_MESSAGE"
+   * @type {BoxProps["element"]}
+   * @memberof ChatMessageProps
+   */
+  element?: BoxElementProps["element"];
 }
 
 const messageVariantStyles: {
   [key in MessageVariants]: {
-    marginLeft?: BoxStyleProps['marginLeft'];
-    marginRight?: BoxStyleProps['marginRight'];
+    marginLeft?: BoxStyleProps["marginLeft"];
+    marginRight?: BoxStyleProps["marginRight"];
   };
 } = {
   inbound: {
-    marginRight: 'space70',
+    marginRight: "space70",
   },
   outbound: {
-    marginLeft: 'space70',
+    marginLeft: "space70",
   },
 };
 
 export const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
-  ({children, variant, element = 'CHAT_MESSAGE', ...props}, ref) => {
+  ({ children, variant, element = "CHAT_MESSAGE", ...props }, ref) => {
     return (
       <MessageVariantContext.Provider value={variant}>
         <Box
@@ -43,7 +57,7 @@ export const ChatMessage = React.forwardRef<HTMLDivElement, ChatMessageProps>(
         </Box>
       </MessageVariantContext.Provider>
     );
-  }
+  },
 );
 
-ChatMessage.displayName = 'ChatMessage';
+ChatMessage.displayName = "ChatMessage";

@@ -27,22 +27,22 @@ const TEXT_BETWEEN_PARENS_REGEX = /\(([^)]+)\)/;
 export const rgbToHex = (rgb: string): string => {
   const rgbString = rgb.match(TEXT_BETWEEN_PARENS_REGEX);
   if (rgbString == null || rgbString.length < 2) {
-    throw new Error('Invalid RGB passed into rgbToHex function.');
+    throw new Error("Invalid RGB passed into rgbToHex function.");
   }
-  const channels = rgbString[1].split(',');
+  const channels = rgbString[1].split(",");
   const rgbChannels = channels.slice(0, 3);
 
   // Go through each channel and convert to base 16
-  let hex = '#';
+  let hex = "#";
   rgbChannels.forEach((channel) => {
     const hexValue = Number.parseInt(channel, 10).toString(16);
-    hex += hexValue.padStart(2, '0');
+    hex += hexValue.padStart(2, "0");
   });
 
   // If an alpha channel is defined, append to hex
   if (channels[3] != null) {
     const alphaChannel = Math.round(Number.parseFloat(channels[3]) * 255).toString(16);
-    hex += alphaChannel.padStart(2, '0');
+    hex += alphaChannel.padStart(2, "0");
   }
 
   return hex.toUpperCase();

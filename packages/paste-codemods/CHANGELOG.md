@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- [`6bc4a8ade`](https://github.com/twilio-labs/paste/commit/6bc4a8ade1b3b9f76bfeee8a954fe3b3969c36d2) [#3501](https://github.com/twilio-labs/paste/pull/3501) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] New exports from icons package
+
+### Patch Changes
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - Updated exports for tsdoc additions
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated exports map
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated pacakge exports
+
+* [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
 ## 0.4.1
 
 ### Patch Changes

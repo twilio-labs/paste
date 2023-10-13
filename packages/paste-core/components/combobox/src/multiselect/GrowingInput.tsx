@@ -1,22 +1,23 @@
-import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
-import {Box} from '@twilio-paste/box';
-import {InputElement} from '@twilio-paste/input';
+import type { BoxProps } from "@twilio-paste/box";
+import { Box } from "@twilio-paste/box";
+import { InputElement } from "@twilio-paste/input";
+import * as React from "react";
 
 interface GrowingInputProps {
   initialValue?: string;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   id: string;
-  value?: HTMLInputElement['value'];
+  value?: HTMLInputElement["value"];
+  placeholder?: string;
 }
 
 export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps>(
-  ({element = 'GROWING_INPUT', onChange, initialValue = '', value, ...props}, ref) => {
+  ({ element = "GROWING_INPUT", onChange, initialValue = "", value, placeholder = "", ...props }, ref) => {
     const [text, setText] = React.useState(value || initialValue);
 
     React.useEffect(() => {
-      setText(value || '');
+      setText(value || "");
     }, [value]);
 
     /*
@@ -42,14 +43,14 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
         height="28px"
         alignContent="center"
         _after={{
-          content: `"${text}"`,
-          fontFamily: 'inherit',
-          fontSize: 'fontSize30',
-          fontWeight: 'fontWeightMedium',
-          paddingX: 'space40',
-          visibility: 'hidden',
-          height: 'size0',
-          whiteSpace: 'nowrap',
+          content: `"${text || placeholder || ""}"`,
+          fontFamily: "inherit",
+          fontSize: "fontSize30",
+          fontWeight: "fontWeightMedium",
+          paddingX: "space40",
+          visibility: "hidden",
+          height: "size0",
+          whiteSpace: "nowrap",
         }}
       >
         <InputElement
@@ -57,12 +58,13 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
           ref={ref}
           element={element}
           type="text"
-          value={value != null ? value.replace(/  +/g, ' ') : text}
+          value={value != null ? value.replace(/  +/g, " ") : text}
+          placeholder={placeholder}
           padding="space0"
           onChange={(event) => {
             event.preventDefault();
             // Used to set the width of the growing input
-            setText(event.currentTarget.value.replace(/  +/g, ' '));
+            setText(event.currentTarget.value.replace(/  +/g, " "));
 
             if (onChange != null) {
               onChange(event);
@@ -71,6 +73,6 @@ export const GrowingInput = React.forwardRef<HTMLInputElement, GrowingInputProps
         />
       </Box>
     );
-  }
+  },
 );
-GrowingInput.displayName = 'GrowingInput';
+GrowingInput.displayName = "GrowingInput";

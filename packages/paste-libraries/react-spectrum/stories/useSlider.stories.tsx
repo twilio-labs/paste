@@ -1,13 +1,13 @@
-import * as React from 'react';
-import type {StoryFn, Meta} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import type { Meta, StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import * as React from "react";
 
-import {useSliderState, useSlider, useSliderThumb, type SliderStateOptions, type SliderState} from '../src';
+import { type SliderState, type SliderStateOptions, useSlider, useSliderState, useSliderThumb } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/React-Spectrum/useSlider',
+  title: "Libraries/React-Spectrum/useSlider",
   parameters: {},
 } as Meta;
 
@@ -18,24 +18,24 @@ interface ThumbProps {
   isDisabled?: boolean;
 }
 
-const Thumb: React.FC<ThumbProps> = ({state, trackRef, index, isDisabled}) => {
+const Thumb: React.FC<ThumbProps> = ({ state, trackRef, index, isDisabled }) => {
   const inputRef = React.useRef(null);
   const [focused, setFocused] = React.useState(false);
-  const {thumbProps, inputProps, isDragging} = useSliderThumb(
+  const { thumbProps, inputProps, isDragging } = useSliderThumb(
     {
       index,
       trackRef,
       inputRef,
     },
-    state
+    state,
   );
 
   return (
     <Box
       {...thumbProps}
-      backgroundColor={isDisabled ? 'colorBackgroundPrimaryWeak' : 'colorBackgroundPrimaryStrong'}
+      backgroundColor={isDisabled ? "colorBackgroundPrimaryWeak" : "colorBackgroundPrimaryStrong"}
       borderRadius="borderRadiusCircle"
-      boxShadow={isDragging || focused ? 'shadowFocus' : 'none'}
+      boxShadow={isDragging || focused ? "shadowFocus" : "none"}
       width="18px"
       height="18px"
       marginTop="space10"
@@ -50,7 +50,7 @@ const Thumb: React.FC<ThumbProps> = ({state, trackRef, index, isDisabled}) => {
 const Slider: React.FC<SliderStateOptions<number | number[]>> = (props) => {
   const trackRef = React.useRef(null);
   const state = useSliderState(props);
-  const {groupProps, trackProps, labelProps, outputProps} = useSlider(props, state, trackRef);
+  const { groupProps, trackProps, labelProps, outputProps } = useSlider(props, state, trackRef);
 
   return (
     <Box {...groupProps} className={`slider ${state.orientation}`}>
@@ -64,7 +64,7 @@ const Slider: React.FC<SliderStateOptions<number | number[]>> = (props) => {
       {/* The track element holds the visible track line and the thumb. */}
       <Box {...trackProps} ref={trackRef} height="13px" width="100%" display="flex" alignItems="center">
         <Box
-          backgroundColor={props.isDisabled ? 'colorBackgroundPrimaryWeak' : 'colorBackgroundPrimary'}
+          backgroundColor={props.isDisabled ? "colorBackgroundPrimaryWeak" : "colorBackgroundPrimary"}
           height="4px"
           width="100%"
           borderRadius="borderRadius20"

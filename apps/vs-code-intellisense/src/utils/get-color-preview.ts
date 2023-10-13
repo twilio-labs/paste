@@ -1,8 +1,8 @@
-import * as base64 from 'base-64';
-import * as utf8 from 'utf8';
+import * as base64 from "base-64";
+import * as utf8 from "utf8";
 
 const HEIGHT = 50;
-const WIDTH = '100%';
+const WIDTH = "100%";
 
 /**
  * Generates markdown to render an svg of the provided color

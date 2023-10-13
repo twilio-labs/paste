@@ -1,1 +1,1 @@
-export type Variants = 'default' | 'compact';
+export type Variants = "default" | "compact";

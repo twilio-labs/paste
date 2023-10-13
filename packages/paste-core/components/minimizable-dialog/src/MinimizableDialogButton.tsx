@@ -1,17 +1,17 @@
-import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {NonModalDialogDisclosurePrimitive} from '@twilio-paste/non-modal-dialog-primitive';
-import type {ButtonProps} from '@twilio-paste/button';
+import { Button } from "@twilio-paste/button";
+import type { ButtonProps } from "@twilio-paste/button";
+import { NonModalDialogDisclosurePrimitive } from "@twilio-paste/non-modal-dialog-primitive";
+import * as React from "react";
 
-import {MinimizableDialogContext} from './MinimizableDialogContext';
+import { MinimizableDialogContext } from "./MinimizableDialogContext";
 
-export type MinimizableDialogButtonProps = Omit<ButtonProps, 'as'> & {
+export type MinimizableDialogButtonProps = Omit<ButtonProps, "as"> & {
   id?: string;
   toggle?: () => void;
 };
 
 const MinimizableDialogButton = React.forwardRef<HTMLButtonElement, MinimizableDialogButtonProps>(
-  ({children, element = 'MINIMIZABLE_DIALOG_BUTTON', ...props}, ref) => {
+  ({ children, element = "MINIMIZABLE_DIALOG_BUTTON", ...props }, ref) => {
     const dialog = React.useContext(MinimizableDialogContext);
 
     return (
@@ -19,8 +19,8 @@ const MinimizableDialogButton = React.forwardRef<HTMLButtonElement, MinimizableD
         {children}
       </NonModalDialogDisclosurePrimitive>
     );
-  }
+  },
 );
 
-MinimizableDialogButton.displayName = 'MinimizableDialogButton';
-export {MinimizableDialogButton};
+MinimizableDialogButton.displayName = "MinimizableDialogButton";
+export { MinimizableDialogButton };

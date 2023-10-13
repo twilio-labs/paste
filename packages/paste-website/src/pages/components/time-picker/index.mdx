@@ -227,13 +227,8 @@ Paste pickers don't currently support date time range selections in a single com
 In addition to the Time Picker, this package exports a <inlineCode>formatReturnTime()</inlineCode> function that can be used to format the time value that's being <em>returned</em> from the Time Picker.
 
 <strong>Note:</strong> the format of the time being displayed by the Time Picker <em>cannot</em> be changed. The display
-value is formatted according to the <Anchor
-  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time#time_value_format"
-  showExternal
->
-  locale of the user's browser
-</Anchor>
-. The parsed <inlineCode>value</inlineCode> format, however, which is returned in <inlineCode>HH:mm</inlineCode> format (using
+value is formatted according to the <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/time#time_value_format" showExternal>locale of the user's browser</Anchor>.
+The parsed <inlineCode>value</inlineCode> format, however, which is returned in <inlineCode>HH:mm</inlineCode> format (using
 a 24-hour time format), can be changed.
 
 To change the format of the return time value, we recommend using the <inlineCode>formatReturnTime()</inlineCode> function on the Time Picker's <inlineCode>onChange()</inlineCode> or <inlineCode>onBlur()</inlineCode> handler.

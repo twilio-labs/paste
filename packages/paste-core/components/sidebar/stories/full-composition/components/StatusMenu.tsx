@@ -1,38 +1,38 @@
-import * as React from 'react';
-import type {ValueOf} from '@twilio-paste/types';
 import {
   StatusMenu,
   StatusMenuBadge,
   StatusMenuItemChild,
   StatusMenuItemRadio,
   useStatusMenuState,
-} from '@twilio-paste/status';
+} from "@twilio-paste/status";
+import type { ValueOf } from "@twilio-paste/types";
+import * as React from "react";
 
 const ConnectivityObject = {
   Available: {
-    variant: 'ConnectivityAvailable',
-    children: 'Available',
+    variant: "ConnectivityAvailable",
+    children: "Available",
   },
   Busy: {
-    variant: 'ConnectivityBusy',
-    children: 'Busy',
+    variant: "ConnectivityBusy",
+    children: "Busy",
   },
   Unavailable: {
-    variant: 'ConnectivityUnavailable',
-    children: 'Unavailable',
+    variant: "ConnectivityUnavailable",
+    children: "Unavailable",
   },
   Neutral: {
-    variant: 'ConnectivityNeutral',
-    children: 'Neutral',
+    variant: "ConnectivityNeutral",
+    children: "Neutral",
   },
   Offline: {
-    variant: 'ConnectivityOffline',
-    children: 'Offline',
+    variant: "ConnectivityOffline",
+    children: "Offline",
   },
 } as const;
 export const StatusMenuExample: React.FC = () => {
   const [availability, setConnectivity] = React.useState<ValueOf<typeof ConnectivityObject>>(
-    ConnectivityObject.Available
+    ConnectivityObject.Available,
   );
   const menu = useStatusMenuState();
   const onClick = (status): void => {
@@ -47,10 +47,10 @@ export const StatusMenuExample: React.FC = () => {
       <StatusMenu {...menu} aria-label="Preferences">
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Available'}
+          checked={availability.children === "Available"}
           value="available"
           {...menu}
-          onClick={() => onClick('Available')}
+          onClick={() => onClick("Available")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityAvailable">
@@ -59,20 +59,20 @@ export const StatusMenuExample: React.FC = () => {
         </StatusMenuItemRadio>
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Busy'}
+          checked={availability.children === "Busy"}
           value="busy"
           {...menu}
-          onClick={() => onClick('Busy')}
+          onClick={() => onClick("Busy")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityBusy">{ConnectivityObject.Busy.children}</StatusMenuItemChild>
         </StatusMenuItemRadio>
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Unavailable'}
+          checked={availability.children === "Unavailable"}
           value="unavailable"
           {...menu}
-          onClick={() => onClick('Unavailable')}
+          onClick={() => onClick("Unavailable")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityUnavailable">
@@ -81,20 +81,20 @@ export const StatusMenuExample: React.FC = () => {
         </StatusMenuItemRadio>
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Neutral'}
+          checked={availability.children === "Neutral"}
           value="neutral"
           {...menu}
-          onClick={() => onClick('Neutral')}
+          onClick={() => onClick("Neutral")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityNeutral">{ConnectivityObject.Neutral.children}</StatusMenuItemChild>
         </StatusMenuItemRadio>
         <StatusMenuItemRadio
           name="availability"
-          checked={availability.children === 'Offline'}
+          checked={availability.children === "Offline"}
           value="offline"
           {...menu}
-          onClick={() => onClick('Offline')}
+          onClick={() => onClick("Offline")}
           variant="default"
         >
           <StatusMenuItemChild variant="ConnectivityOffline">{ConnectivityObject.Offline.children}</StatusMenuItemChild>

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
 export interface TerminalProps {
   className?: string;
@@ -9,10 +9,10 @@ export interface TerminalProps {
   decorative?: boolean;
 }
 
-const Terminal = React.memo(({title = 'Terminal', decorative = true, className, color, size}: TerminalProps) => {
+const Terminal = React.memo(({ title = "Terminal", decorative = true, className, color, size }: TerminalProps) => {
   const uid = useUID();
   return (
-    <div style={{color, width: size, height: size}} className={className}>
+    <div style={{ color, width: size, height: size }} className={className}>
       <svg role="img" aria-hidden={decorative} aria-labelledby={uid} width="100%" height="100%" viewBox="0 0 24 24">
         <title id={uid}>{title}</title>
         <path
@@ -25,4 +25,4 @@ const Terminal = React.memo(({title = 'Terminal', decorative = true, className, 
   );
 });
 
-export {Terminal};
+export { Terminal };

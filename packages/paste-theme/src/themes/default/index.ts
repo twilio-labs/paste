@@ -2,22 +2,22 @@ import {
   backgroundColors,
   borderColors,
   borderWidths,
-  radii,
-  fonts,
+  boxShadows,
+  colorSchemes,
+  colors,
+  dataVisualization,
   fontSizes,
   fontWeights,
+  fonts,
   lineHeights,
-  boxShadows,
+  radii,
   sizings,
   spacings,
   textColors,
   zIndices,
-  dataVisualization,
-  colors,
-  colorSchemes,
-} from '@twilio-paste/design-tokens';
+} from "@twilio-paste/design-tokens";
 
-import {generateThemeFromTokens} from '../../generateThemeFromTokens';
+import { generateThemeFromTokens } from "../../generateThemeFromTokens";
 
 export const DefaultTheme = generateThemeFromTokens({
   backgroundColors,

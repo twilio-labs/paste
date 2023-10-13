@@ -1,11 +1,11 @@
-import {css, system} from '@twilio-paste/styling-library';
-import type {CSSObject, Config} from '@twilio-paste/styling-library';
-import type {PasteCustomCSS} from '@twilio-paste/customization';
-import merge from 'deepmerge';
+import type { PasteCustomCSS } from "@twilio-paste/customization";
+import { css, system } from "@twilio-paste/styling-library";
+import type { CSSObject, Config } from "@twilio-paste/styling-library";
+import merge from "deepmerge";
 
-import {PseudoPropStyles} from './PseudoPropStyles';
-import type {StyledTextProps} from './types';
-import {customStyleProps} from './CustomStyleProps';
+import { customStyleProps } from "./CustomStyleProps";
+import { PseudoPropStyles } from "./PseudoPropStyles";
+import type { StyledTextProps } from "./types";
 
 export const PasteStyleProps = system(customStyleProps as Config);
 
@@ -16,9 +16,9 @@ export const PasteStyleProps = system(customStyleProps as Config);
  * @return {*}  {(((props?: Record<string, unknown> | undefined) => CSSObject) | Record<string, never>)}
  */
 export const getPseudoStyles = (
-  props: Partial<StyledTextProps>
+  props: Partial<StyledTextProps>,
 ): ((props?: Record<string, unknown> | undefined) => CSSObject) | Record<string, never> => {
-  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith('_')) as Array<
+  const pseudoProps = Object.keys(props).filter((propName) => propName.startsWith("_")) as Array<
     keyof typeof PseudoPropStyles
   >;
 
@@ -26,7 +26,7 @@ export const getPseudoStyles = (
     return {};
   }
 
-  const pseudoStyles: {[key: string]: any} = {};
+  const pseudoStyles: { [key: string]: any } = {};
   pseudoProps.forEach((pseudoProp) => {
     if (PseudoPropStyles[pseudoProp] != null) {
       pseudoStyles[PseudoPropStyles[pseudoProp]] = props[pseudoProp];
@@ -47,12 +47,12 @@ export const getPseudoStyles = (
 export const getCustomElementStyles = (props: StyledTextProps): (() => PasteCustomCSS) | Record<string, never> => {
   if (props != null && props.theme != null && props.theme.elements != null) {
     const themeElements = props.theme.elements;
-    const targetElement = props['data-paste-element'];
+    const targetElement = props["data-paste-element"];
 
     if (themeElements[targetElement] != null) {
       const elementOverrides = themeElements[targetElement];
       const computedStyles = css(elementOverrides)(props) as PasteCustomCSS;
-      const {variants, ...elementStyles} = computedStyles;
+      const { variants, ...elementStyles } = computedStyles;
       let variantStyles = {};
 
       if (props.variant != null && variants != null && variants[props.variant] != null) {

@@ -1,27 +1,77 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {CompositeItem} from '@twilio-paste/reakit-library';
-import type {CompositeStateReturn} from '@twilio-paste/reakit-library';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { CompositeItem } from "@twilio-paste/reakit-library";
+import type { CompositeStateReturn } from "@twilio-paste/reakit-library";
+import * as React from "react";
 
-import {PillCloseIcon} from './PillCloseIcon';
-import {FormPillButton} from './FormPillButton';
-import type {PillVariant} from './types';
-import {selectedWrapperStyles, wrapperStyles} from './FormPill.styles';
+import { selectedWrapperStyles, wrapperStyles } from "./FormPill.styles";
+import { FormPillButton } from "./FormPillButton";
+import { PillCloseIcon } from "./PillCloseIcon";
+import type { PillVariant } from "./types";
 
-interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> {
+export interface FormPillProps extends CompositeStateReturn {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'FORM_PILL'
+   * @type {BoxProps['element']}
+   * @memberof FormPillProps
+   */
+  element?: BoxProps["element"];
+  /**
+   * Set if a pill is in a selected state
+   *
+   * @type {boolean}
+   * @memberof FormPillProps
+   */
   selected?: boolean;
+  /**
+   * Set if a pill is disabled
+   *
+   * @type {boolean}
+   * @memberof FormPillProps
+   */
   disabled?: boolean;
   children: React.ReactNode;
+  /**
+   * Sets the variant of the pill
+   *
+   * @default 'default'
+   * @type {PillVariant}
+   * @memberof FormPillProps
+   */
   variant?: PillVariant;
-  /** Event handler to respond to selection events */
+  /**
+   * Event handler called when a pill is selected
+   *
+   * @memberof FormPillProps
+   */
   onSelect?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  /** Event handler to respond to dismiss events */
+  /**
+   * Event handler called when a pill is dismissed
+   *
+   * @memberof FormPillProps
+   */
   onDismiss?: (event: React.MouseEvent<Element> | React.KeyboardEvent<Element>) => void;
-  /** Event handler to respond to focus events */
+  /**
+   * Event handler called when a pill is focused
+   *
+   * @memberof FormPillProps
+   */
   onFocus?: () => void;
-  /** Event handler to respond to blur events */
+  /**
+   * Event handler called when a pill is blurred
+   *
+   * @memberof FormPillProps
+   */
   onBlur?: () => void;
+  /**
+   * Alternative text for the error icon in the error variant
+   *
+   * @default '(error)'
+   * @type {string}
+   * @memberof FormPillProps
+   */
   i18nErrorLabel?: string;
 }
 
@@ -45,20 +95,20 @@ interface FormPillProps extends CompositeStateReturn, Pick<BoxProps, 'element'> 
 export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
   (
     {
-      element = 'FORM_PILL',
+      element = "FORM_PILL",
       onDismiss,
       onSelect,
       next,
       selected,
-      variant = 'default',
+      variant = "default",
       disabled = false,
       i18nErrorLabel,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (selected && disabled) {
-      throw new Error('[Paste FormPill] FormPills cannot be selected and disabled at the same time.');
+      throw new Error("[Paste FormPill] FormPills cannot be selected and disabled at the same time.");
     }
 
     const isHoverable = onSelect != null;
@@ -73,16 +123,16 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
     // Handles delete and backspace keypresses
     const handleKeydown = React.useCallback(
       (event: React.KeyboardEvent) => {
-        if ((event.key === 'Backspace' || event.key === 'Delete') && typeof onDismiss === 'function') {
+        if ((event.key === "Backspace" || event.key === "Delete") && typeof onDismiss === "function") {
           onDismiss(event);
 
           // Focus the next pill upon removing the current one
-          if (typeof next === 'function') {
+          if (typeof next === "function") {
             next();
           }
         }
       },
-      [onDismiss, next]
+      [onDismiss, next],
     );
     return (
       <Box
@@ -121,7 +171,7 @@ export const FormPill = React.forwardRef<HTMLElement, FormPillProps>(
         ) : null}
       </Box>
     );
-  }
+  },
 );
 
-FormPill.displayName = 'FormPill';
+FormPill.displayName = "FormPill";

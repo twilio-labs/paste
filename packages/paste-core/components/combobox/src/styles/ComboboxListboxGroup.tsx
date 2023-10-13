@@ -1,22 +1,37 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
+import { Box, type BoxProps } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import type {ComboboxProps} from '../types';
+import type { ComboboxProps } from "../types";
 
-export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, 'groupLabelTemplate' | 'element'> {
+export interface ComboboxListboxGroupProps extends Pick<ComboboxProps, "groupLabelTemplate">, HTMLPasteProps<"ul"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @type {string | undefined}
+   * @memberof ComboboxListboxGroupProps
+   */
   groupName?: string | undefined;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "COMBOBOX"
+   * @type {BoxElementProps["element"]}
+   * @memberof ComboboxListboxGroupProps
+   */
+  element?: BoxProps["element"];
 }
 
 const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxGroupProps>(
-  ({children, element = 'COMBOBOX', groupName, groupLabelTemplate}, ref) => {
+  ({ children, element = "COMBOBOX", groupName, groupLabelTemplate }, ref) => {
     return (
       <Box
         as="ul"
         ref={ref}
         element={`${element}_LIST`}
-        role={!groupName ? 'presentation' : 'group'}
+        role={!groupName ? "presentation" : "group"}
         aria-label={groupName}
         margin="space0"
         padding="space0"
@@ -25,7 +40,7 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
         borderBottomWidth="borderWidth10"
         borderBottomColor="colorBorderWeaker"
         _last={{
-          borderWidth: 'borderWidth0',
+          borderWidth: "borderWidth0",
         }}
       >
         {groupName ? (
@@ -56,9 +71,9 @@ const ComboboxListboxGroup = React.forwardRef<HTMLUListElement, ComboboxListboxG
         {children}
       </Box>
     );
-  }
+  },
 );
 
-ComboboxListboxGroup.displayName = 'ComboboxListboxGroup';
+ComboboxListboxGroup.displayName = "ComboboxListboxGroup";
 
-export {ComboboxListboxGroup};
+export { ComboboxListboxGroup };

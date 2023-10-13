@@ -19,10 +19,10 @@ import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/alert/CHANGELOG.md';
 import packageJson from '@twilio-paste/alert/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -34,24 +34,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: '/?path=/story/components-alert--neutral',
+        storybookUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  storybookUrl="/?path=/story/components-alert--neutral"
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Alert, Text}} language="jsx">
   {`<Alert variant="warning">
@@ -312,43 +303,3 @@ In general, the persistence and behavior on scroll of an Alert should match the 
     center
   />
 </DoDont>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/alert - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Alert} from '@twilio-paste/core/alert';
-
-const Component = () => <Alert variant="error">There is an error in the system.</Alert>;
-```
-
-#### Props
-
-| Prop              | Type         | Description                                                                                      | Default                                                           |
-| ----------------- | ------------ | ------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------- |
-| children?         | `ReactNode`  |                                                                                                  | null                                                              |
-| onDismiss?        | `() => void` | Create dismissable alerts by providing an onDismiss callback                                     | null                                                              |
-| role?             | `string`     | Provide a specific ARIA role to the alert that overrides the calculated one set by the component | `status` for neutral alerts, `alert` for warning and error alerts |
-| variant?          | `string`     | `error` / `neutral` / `warning`                                                                  | null                                                              |
-| i18nDismissLabel? | `string`     | Label for the dismiss button in a dismissable alert                                              | 'Dismiss alert'                                                   |
-| i18nErrorLabel?   | `string`     | Icon label text for the `error` variant                                                          | '(error)'                                                         |
-| i18nNeutralLabel? | `string`     | Icon label text for the `neutral` variant                                                        | '(information)'                                                   |
-| i18nWarningLabel? | `string`     | Icon label text for the `warning` variant                                                        | '(warning)'                                                       |
-| element?          | `string`     | Overrides the default element name to apply unique styles with the Customization Provider        | 'ALERT'                                                           |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

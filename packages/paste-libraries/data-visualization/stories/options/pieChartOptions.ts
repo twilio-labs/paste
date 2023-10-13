@@ -1,80 +1,80 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck copied from official highcharts docs
-import type Highcharts from 'highcharts';
+import type Highcharts from "highcharts";
 
 export const pieChartOptions: Highcharts.Options = {
   chart: {
     plotBackgroundColor: null,
     plotBorderWidth: null,
     plotShadow: false,
-    type: 'pie',
+    type: "pie",
   },
   title: {
-    text: 'Browser market shares in January, 2018',
+    text: "Browser market shares in January, 2018",
   },
   tooltip: {
-    pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>',
+    pointFormat: "{series.name}: <b>{point.percentage:.1f}%</b>",
   },
   accessibility: {
     point: {
-      valueSuffix: '%',
+      valueSuffix: "%",
     },
   },
   plotOptions: {
     pie: {
       allowPointSelect: true,
-      cursor: 'pointer',
+      cursor: "pointer",
       dataLabels: {
         enabled: true,
-        format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+        format: "<b>{point.name}</b>: {point.percentage:.1f} %",
       },
     },
   },
   series: [
     {
-      name: 'Brands',
+      name: "Brands",
       colorByPoint: true,
       data: [
         {
-          name: 'Chrome',
+          name: "Chrome",
           y: 61.41,
           sliced: true,
           selected: true,
         },
         {
-          name: 'Internet Explorer',
+          name: "Internet Explorer",
           y: 11.84,
         },
         {
-          name: 'Firefox',
+          name: "Firefox",
           y: 10.85,
         },
         {
-          name: 'Edge',
+          name: "Edge",
           y: 4.67,
         },
         {
-          name: 'Safari',
+          name: "Safari",
           y: 4.18,
         },
         {
-          name: 'Sogou Explorer',
+          name: "Sogou Explorer",
           y: 1.64,
         },
         {
-          name: 'Opera',
+          name: "Opera",
           y: 1.6,
         },
         {
-          name: 'QQ',
+          name: "QQ",
           y: 1.2,
         },
         {
-          name: 'Brave',
+          name: "Brave",
           y: 1.2,
         },
         {
-          name: 'Other',
+          name: "Other",
           y: 2.61,
         },
       ],

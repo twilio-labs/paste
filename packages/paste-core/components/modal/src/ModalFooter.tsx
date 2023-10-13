@@ -1,14 +1,14 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import type {HTMLPasteProps} from '@twilio-paste/types';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface ModalFooterProps extends HTMLPasteProps<'div'> {
+export interface ModalFooterProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  element?: BoxElementProps["element"];
 }
 const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
-  ({children, element = 'MODAL_FOOTER', ...props}, ref) => {
+  ({ children, element = "MODAL_FOOTER", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -23,8 +23,8 @@ const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
         {children}
       </Box>
     );
-  }
+  },
 );
-ModalFooter.displayName = 'ModalFooter';
+ModalFooter.displayName = "ModalFooter";
 
-export {ModalFooter};
+export { ModalFooter };

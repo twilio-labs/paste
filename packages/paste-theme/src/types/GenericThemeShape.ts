@@ -2,20 +2,20 @@ import type {
   backgroundColors,
   borderColors,
   borderWidths,
-  radii,
-  fonts,
+  boxShadows,
+  colorSchemes,
+  colors,
+  dataVisualization,
   fontSizes,
   fontWeights,
+  fonts,
   lineHeights,
-  boxShadows,
+  radii,
   sizings,
   spacings,
   textColors,
   zIndices,
-  colors,
-  dataVisualization,
-  colorSchemes,
-} from '@twilio-paste/design-tokens';
+} from "@twilio-paste/design-tokens";
 
 export type BackgroundColorsKeys = keyof typeof backgroundColors;
 export type BorderColorsKeys = keyof typeof borderColors;

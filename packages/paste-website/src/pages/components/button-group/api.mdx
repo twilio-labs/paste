@@ -1,0 +1,62 @@
+export const meta = {
+  title: 'Button Group',
+  package: '@twilio-paste/button-group',
+  description: 'A Button Group displays a set of related actions.',
+  slug: '/components/button-group/api',
+};
+
+import Changelog from '@twilio-paste/button-group/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/button-group/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Button Group');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/button-group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button-group',
+        storybookUrl: '/?path=/story/components-button-group--attached',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/button-group - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {ButtonGroup} from '@twilio-paste/core/button-group';
+import {Button} from '@twilio-paste/core/button';
+
+const Component = () => (
+  <ButtonGroup attached>
+    <Button variant="primary">First button</Button>
+    <Button variant="secondary">Second button</Button>
+    <Button variant="destructive">Destructive button</Button>
+  </ButtonGroup>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

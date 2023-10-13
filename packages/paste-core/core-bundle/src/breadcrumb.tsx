@@ -1,1 +1,1 @@
-export * from '@twilio-paste/breadcrumb';
+export * from "@twilio-paste/breadcrumb";

@@ -1,18 +1,18 @@
-import * as React from 'react';
+import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
+import { ProductEmailAPIIcon } from "@twilio-paste/icons/esm/ProductEmailAPIIcon";
+import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
+import { ProductSegmentIcon } from "@twilio-paste/icons/esm/ProductSegmentIcon";
 import {
   ProductSwitcher,
   ProductSwitcherButton,
   ProductSwitcherItem,
   useProductSwitcherState,
-} from '@twilio-paste/product-switcher';
-import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
-import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
-import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+} from "@twilio-paste/product-switcher";
+import * as React from "react";
 
 export const AppSwitcher: React.FC = () => {
   const productSwitcher = useProductSwitcherState();
-  const [product, setProduct] = React.useState('twilio');
+  const [product, setProduct] = React.useState("twilio");
   return (
     <>
       <ProductSwitcherButton {...productSwitcher} i18nButtonLabel="Switch products" />
@@ -21,9 +21,9 @@ export const AppSwitcher: React.FC = () => {
           {...productSwitcher}
           name="product"
           value="twilio"
-          checked={product === 'twilio'}
+          checked={product === "twilio"}
           onChange={(e) => {
-            setProduct('twilio');
+            setProduct("twilio");
           }}
           productName="Twilio"
           productStrapline="SMS, Voice & Video"
@@ -33,9 +33,9 @@ export const AppSwitcher: React.FC = () => {
           {...productSwitcher}
           name="product"
           value="segment"
-          checked={product === 'segment'}
+          checked={product === "segment"}
           onChange={(e) => {
-            setProduct('segment');
+            setProduct("segment");
           }}
           productName="Segment"
           productStrapline="Customer data platform"
@@ -45,9 +45,9 @@ export const AppSwitcher: React.FC = () => {
           {...productSwitcher}
           name="product"
           value="flex"
-          checked={product === 'flex'}
+          checked={product === "flex"}
           onChange={(e) => {
-            setProduct('flex');
+            setProduct("flex");
           }}
           productName="Flex"
           productStrapline="Cloud-based contact center"
@@ -57,9 +57,9 @@ export const AppSwitcher: React.FC = () => {
           {...productSwitcher}
           name="product"
           value="sendgrid"
-          checked={product === 'sendgrid'}
+          checked={product === "sendgrid"}
           onChange={(e) => {
-            setProduct('sendgrid');
+            setProduct("sendgrid");
           }}
           productName="SendGrid"
           productStrapline="Email delivery and API"
@@ -69,9 +69,9 @@ export const AppSwitcher: React.FC = () => {
           {...productSwitcher}
           name="product"
           value="admin"
-          checked={product === 'admin'}
+          checked={product === "admin"}
           onChange={(e) => {
-            setProduct('admin');
+            setProduct("admin");
           }}
           productName="Console Admin"
           productStrapline="Admin center"

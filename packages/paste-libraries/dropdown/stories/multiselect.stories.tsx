@@ -1,7 +1,7 @@
-import * as React from 'react';
-import type {StoryFn, Meta} from '@storybook/react';
+import type { Meta, StoryFn } from "@storybook/react";
+import * as React from "react";
 
-import {useCombobox, useMultipleSelection} from '../src';
+import { useCombobox, useMultipleSelection } from "../src";
 
 type Book = {
   author: string;
@@ -9,16 +9,16 @@ type Book = {
 };
 
 const books: Book[] = [
-  {author: 'Harper Lee', title: 'To Kill a Mockingbird'},
-  {author: 'Lev Tolstoy', title: 'War and Peace'},
-  {author: 'Fyodor Dostoyevsy', title: 'The Idiot'},
-  {author: 'Oscar Wilde', title: 'A Picture of Dorian Gray'},
-  {author: 'George Orwell', title: '1984'},
-  {author: 'Jane Austen', title: 'Pride and Prejudice'},
-  {author: 'Marcus Aurelius', title: 'Meditations'},
-  {author: 'Fyodor Dostoevsky', title: 'The Brothers Karamazov'},
-  {author: 'Lev Tolstoy', title: 'Anna Karenina'},
-  {author: 'Fyodor Dostoevsky', title: 'Crime and Punishment'},
+  { author: "Harper Lee", title: "To Kill a Mockingbird" },
+  { author: "Lev Tolstoy", title: "War and Peace" },
+  { author: "Fyodor Dostoyevsy", title: "The Idiot" },
+  { author: "Oscar Wilde", title: "A Picture of Dorian Gray" },
+  { author: "George Orwell", title: "1984" },
+  { author: "Jane Austen", title: "Pride and Prejudice" },
+  { author: "Marcus Aurelius", title: "Meditations" },
+  { author: "Fyodor Dostoevsky", title: "The Brothers Karamazov" },
+  { author: "Lev Tolstoy", title: "Anna Karenina" },
+  { author: "Fyodor Dostoevsky", title: "Crime and Punishment" },
 ];
 const initialSelectedItems = [books[0], books[1]];
 
@@ -35,7 +35,7 @@ function getFilteredBooks(selectedItems: Book[], inputValue: string): Book[] {
 }
 
 export const MultiselectComboBox: StoryFn = () => {
-  const [inputValue, setInputValue] = React.useState('');
+  const [inputValue, setInputValue] = React.useState("");
   const [selectedItems, setSelectedItems] = React.useState<Book[]>(initialSelectedItems);
   const items = React.useMemo(() => getFilteredBooks(selectedItems, inputValue), [selectedItems, inputValue]);
 
@@ -48,7 +48,7 @@ export const MultiselectComboBox: StoryFn = () => {
     removeSelectedItem,
   } = useMultipleSelection<Book>({
     selectedItems,
-    onStateChange({selectedItems: newSelectedItems, type}) {
+    onStateChange({ selectedItems: newSelectedItems, type }) {
       switch (type) {
         case useMultipleSelection.stateChangeTypes.SelectedItemKeyDownBackspace:
         case useMultipleSelection.stateChangeTypes.SelectedItemKeyDownDelete:
@@ -99,7 +99,7 @@ export const MultiselectComboBox: StoryFn = () => {
      * we will return an empty string in this case.
      */
     itemToString(item) {
-      return item ? `${item.title} - ${item.author}` : '';
+      return item ? `${item.title} - ${item.author}` : "";
     },
     defaultHighlightedIndex: 0, // after selection, highlight the first item.
     /*
@@ -114,7 +114,7 @@ export const MultiselectComboBox: StoryFn = () => {
      * Handles how state in Downshift should change as a result of user action
      */
     stateReducer(_state, actionAndChanges) {
-      const {changes, type} = actionAndChanges;
+      const { changes, type } = actionAndChanges;
 
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
@@ -123,14 +123,14 @@ export const MultiselectComboBox: StoryFn = () => {
           return {
             ...changes,
             // If an item was selected, keep the menu open and reset the highlightedIndex to the first item.
-            ...(changes.selectedItem && {isOpen: true, highlightedIndex: 0}),
+            ...(changes.selectedItem && { isOpen: true, highlightedIndex: 0 }),
           };
         default:
           return changes;
       }
     },
     // https://www.downshift-js.com/use-combobox#controlling-state
-    onStateChange({inputValue: newInputValue = '', type, selectedItem: newSelectedItem}) {
+    onStateChange({ inputValue: newInputValue = "", type, selectedItem: newSelectedItem }) {
       switch (type) {
         case useCombobox.stateChangeTypes.InputKeyDownEnter:
         case useCombobox.stateChangeTypes.ItemClick:
@@ -177,7 +177,7 @@ export const MultiselectComboBox: StoryFn = () => {
             );
           })}
           <div {...getComboboxProps()}>
-            <input placeholder="Best book ever" {...getInputProps(getDropdownProps({preventKeyAction: isOpen}))} />
+            <input placeholder="Best book ever" {...getInputProps(getDropdownProps({ preventKeyAction: isOpen }))} />
             <button aria-label="toggle menu" type="button" {...getToggleButtonProps()}>
               &#8595;
             </button>
@@ -189,39 +189,39 @@ export const MultiselectComboBox: StoryFn = () => {
         style={{
           padding: 0,
           marginTop: 0,
-          position: 'absolute',
-          backgroundColor: 'white',
-          width: '100%',
-          maxHeight: '20rem',
-          overflowY: 'auto',
-          overflowX: 'hidden',
-          outline: '0',
-          transition: 'opacity .1s ease',
-          borderRadius: '0 0 .28571429rem .28571429rem',
-          boxShadow: '0 2px 3px 0 rgba(34,36,38,.15)',
+          position: "absolute",
+          backgroundColor: "white",
+          width: "100%",
+          maxHeight: "20rem",
+          overflowY: "auto",
+          overflowX: "hidden",
+          outline: "0",
+          transition: "opacity .1s ease",
+          borderRadius: "0 0 .28571429rem .28571429rem",
+          boxShadow: "0 2px 3px 0 rgba(34,36,38,.15)",
         }}
       >
         {isOpen &&
           items.map((item, index) => (
             <li
               key={`${item.author}${item.title}`}
-              {...getItemProps({item, index})}
+              {...getItemProps({ item, index })}
               style={{
-                position: 'relative',
-                cursor: 'pointer',
-                display: 'block',
-                border: 'none',
-                height: 'auto',
-                textAlign: 'left',
-                borderTop: 'none',
-                lineHeight: '1em',
-                fontSize: '1rem',
-                textTransform: 'none',
-                fontWeight: '400',
-                boxShadow: 'none',
-                padding: '.8rem 1.1rem',
-                whiteSpace: 'normal',
-                wordWrap: 'normal',
+                position: "relative",
+                cursor: "pointer",
+                display: "block",
+                border: "none",
+                height: "auto",
+                textAlign: "left",
+                borderTop: "none",
+                lineHeight: "1em",
+                fontSize: "1rem",
+                textTransform: "none",
+                fontWeight: "400",
+                boxShadow: "none",
+                padding: ".8rem 1.1rem",
+                whiteSpace: "normal",
+                wordWrap: "normal",
               }}
             >
               <span>
@@ -236,6 +236,6 @@ export const MultiselectComboBox: StoryFn = () => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/dropdown/useMultipleSelection',
+  title: "Libraries/dropdown/useMultipleSelection",
   parameters: {},
 } as Meta;

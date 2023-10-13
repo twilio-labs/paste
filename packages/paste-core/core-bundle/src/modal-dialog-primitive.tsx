@@ -1,1 +1,1 @@
-export * from '@twilio-paste/modal-dialog-primitive';
+export * from "@twilio-paste/modal-dialog-primitive";

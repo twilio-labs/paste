@@ -1,25 +1,25 @@
-import * as React from 'react';
-import {Button} from '@twilio-paste/core/button';
-import {useUID} from '@twilio-paste/core/uid-library';
-import {TextArea} from '@twilio-paste/core/textarea';
-import {useToaster, Toaster} from '@twilio-paste/core/toast';
-import {generateTokensFromTheme} from '@twilio-paste/core/theme';
-import {Modal, ModalHeading, ModalHeader, ModalBody, ModalFooter, ModalFooterActions} from '@twilio-paste/core/modal';
-import type {ModalProps} from '@twilio-paste/core/modal';
+import { Button } from "@twilio-paste/core/button";
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/core/modal";
+import type { ModalProps } from "@twilio-paste/core/modal";
+import { TextArea } from "@twilio-paste/core/textarea";
+import { generateTokensFromTheme } from "@twilio-paste/core/theme";
+import { Toaster, useToaster } from "@twilio-paste/core/toast";
+import { useUID } from "@twilio-paste/core/uid-library";
+import * as React from "react";
 
-import {TokenContext} from '../../../context/TokenContext';
+import { TokenContext } from "../../../context/TokenContext";
 
 type ImportModalProps = {
-  isOpen: ModalProps['isOpen'];
-  onDismiss: ModalProps['onDismiss'];
+  isOpen: ModalProps["isOpen"];
+  onDismiss: ModalProps["onDismiss"];
 };
 
-export const ImportModal: React.FC<React.PropsWithChildren<ImportModalProps>> = ({isOpen, onDismiss}) => {
+export const ImportModal: React.FC<React.PropsWithChildren<ImportModalProps>> = ({ isOpen, onDismiss }) => {
   const toaster = useToaster();
-  const {loadTokens} = React.useContext(TokenContext);
+  const { loadTokens } = React.useContext(TokenContext);
   const importModalHeadingID = useUID();
   const importModalTextareaID = useUID();
-  const [importValue, setImportValue] = React.useState('');
+  const [importValue, setImportValue] = React.useState("");
 
   const handleLoadTokens = (): void => {
     // TODO sanitize? meh for tweek
@@ -37,7 +37,7 @@ export const ImportModal: React.FC<React.PropsWithChildren<ImportModalProps>> = 
     if (hasError) {
       toaster.push({
         message: `Please make sure the theme is in the correct JSON format.`,
-        variant: 'error',
+        variant: "error",
         dismissAfter: 4000,
       });
     } else {
@@ -51,7 +51,7 @@ export const ImportModal: React.FC<React.PropsWithChildren<ImportModalProps>> = 
       }
       toaster.push({
         message: `🎉 Look at that new theme. That's nice!`,
-        variant: 'success',
+        variant: "success",
         dismissAfter: 4000,
       });
       onDismiss();

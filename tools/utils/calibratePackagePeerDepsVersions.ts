@@ -6,15 +6,15 @@
  * Until this bites us, we should automate this because not bumping peers has bit us.
  */
 
-import {resolve} from 'path';
+import { resolve } from "path";
 
-import chalk from 'chalk';
+import chalk from "chalk";
 
-import {getRepoPackages} from './getRepoPackages';
-import type {PackageShape} from './getRepoPackages';
-import {writeToFile} from './writeToFile';
+import { getRepoPackages } from "./getRepoPackages";
+import type { PackageShape } from "./getRepoPackages";
+import { writeToFile } from "./writeToFile";
 
-const isPasteDependency = (packageName: string): boolean => packageName.includes('@twilio-paste/');
+const isPasteDependency = (packageName: string): boolean => packageName.includes("@twilio-paste/");
 const getPasteDependencyList = (dependencyObject: Record<string, string>): string[] =>
   Object.keys(dependencyObject).filter(isPasteDependency);
 
@@ -25,11 +25,11 @@ async function updatePackagePeerDependencies(
     peerDependencies: Record<string, string>;
     name: string;
   },
-  packagesList: PackageShape[]
+  packagesList: PackageShape[],
 ): Promise<void> {
   const calibratedPeerDeps: Record<string, string> = {};
   peerDepsList.forEach((peerDepName) => {
-    const latestVersion = `^${packagesList.find(({name}) => name === peerDepName)?.version}`;
+    const latestVersion = `^${packagesList.find(({ name }) => name === peerDepName)?.version}`;
     const currentVersion = packageJsonData.peerDependencies[peerDepName];
     if (latestVersion !== currentVersion) {
       calibratedPeerDeps[peerDepName] = latestVersion;
@@ -42,7 +42,7 @@ async function updatePackagePeerDependencies(
 
   const newPackageJson = {
     ...packageJsonData,
-    peerDependencies: {...packageJsonData.peerDependencies, ...calibratedPeerDeps},
+    peerDependencies: { ...packageJsonData.peerDependencies, ...calibratedPeerDeps },
   };
 
   // Formatted and with a new line at the end for prettier
@@ -62,7 +62,7 @@ export async function calibratePackagePeerDepsVersions(): Promise<PackageShape[]
   const packagesList = await getRepoPackages();
 
   packagesList?.forEach(async (item) => {
-    const PACKAGE_JSON_PATH = resolve(item.location, 'package.json');
+    const PACKAGE_JSON_PATH = resolve(item.location, "package.json");
     // eslint-disable-next-line import/no-dynamic-require, global-require
     const packageJsonData = require(PACKAGE_JSON_PATH);
 
@@ -73,10 +73,10 @@ export async function calibratePackagePeerDepsVersions(): Promise<PackageShape[]
         // eslint-disable-next-line no-console
         console.log(
           chalk.red.bold.underline(
-            `[Error] ${packageJsonData.name}: do not declare @twilio-paste packages as dependencies!`
-          )
+            `[Error] ${packageJsonData.name}: do not declare @twilio-paste packages as dependencies!`,
+          ),
         );
-        throw new Error('Move deps to peerDeps and devDeps');
+        throw new Error("Move deps to peerDeps and devDeps");
       }
     }
 

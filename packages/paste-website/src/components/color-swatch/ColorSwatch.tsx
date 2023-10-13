@@ -1,22 +1,22 @@
-import * as React from 'react';
-import kebabCase from 'lodash/kebabCase';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import type {TextProps} from '@twilio-paste/text';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import type { TextProps } from "@twilio-paste/text";
+import kebabCase from "lodash/kebabCase";
+import * as React from "react";
 
-interface ColorSwatchTextProps extends Pick<TextProps, 'color' | 'fontSize' | 'fontFamily' | 'margin' | 'aria-hidden'> {
+interface ColorSwatchTextProps extends Pick<TextProps, "color" | "fontSize" | "fontFamily" | "margin" | "aria-hidden"> {
   children: string;
   shouldKebabText?: boolean;
 }
-interface ColorSwatchProps extends Pick<BoxProps, 'borderColor' | 'backgroundColor' | 'color'> {
+interface ColorSwatchProps extends Pick<BoxProps, "borderColor" | "backgroundColor" | "color"> {
   children?: React.ReactNode;
 }
 
 export const ColorSwatchText: React.FC<React.PropsWithChildren<ColorSwatchTextProps>> = ({
   children,
-  fontFamily = 'fontFamilyCode',
-  fontSize = 'fontSize20',
+  fontFamily = "fontFamilyCode",
+  fontSize = "fontSize20",
   shouldKebabText = true,
   ...props
 }) => {
@@ -41,13 +41,13 @@ export const ColorSwatch: React.FC<React.PropsWithChildren<ColorSwatchProps>> = 
       borderRadius="borderRadius20"
       backgroundColor={backgroundColor}
       borderColor={borderColor}
-      borderWidth={borderColor ? 'borderWidth20' : 'borderWidth0'}
+      borderWidth={borderColor ? "borderWidth20" : "borderWidth0"}
       borderStyle="solid"
       height="40px"
       display="flex"
-      justifyContent={color ? 'left' : 'center'}
+      justifyContent={color ? "left" : "center"}
       alignItems="center"
-      width={color ? 'max-content' : undefined}
+      width={color ? "max-content" : undefined}
     >
       {color && !children ? (
         <ColorSwatchText

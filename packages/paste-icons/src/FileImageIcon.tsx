@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface FileImageIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface FileImageIconProps extends IconWrapperProps {
 }
 
 const FileImageIcon = React.forwardRef<HTMLElement, FileImageIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `FileImageIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[FileImageIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[FileImageIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -49,8 +49,8 @@ const FileImageIcon = React.forwardRef<HTMLElement, FileImageIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-FileImageIcon.displayName = 'FileImageIcon';
-export {FileImageIcon};
+FileImageIcon.displayName = "FileImageIcon";
+export { FileImageIcon };

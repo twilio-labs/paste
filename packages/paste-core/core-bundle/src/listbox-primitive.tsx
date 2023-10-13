@@ -1,1 +1,1 @@
-export * from '@twilio-paste/listbox-primitive';
+export * from "@twilio-paste/listbox-primitive";

@@ -1,32 +1,32 @@
-import {Heading} from '@twilio-paste/heading';
-import {Column, Grid} from '@twilio-paste/grid';
-import {Card} from '@twilio-paste/card';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Anchor} from '@twilio-paste/anchor';
-import {useTheme} from '@twilio-paste/theme';
-import {css} from '@twilio-paste/styling-library';
+import { Anchor } from "@twilio-paste/anchor";
+import { Card } from "@twilio-paste/card";
+import { Column, Grid } from "@twilio-paste/grid";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { css } from "@twilio-paste/styling-library";
+import { useTheme } from "@twilio-paste/theme";
 
-import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
+import { LandingPageSection, LandingPageSectionContent } from "./LandingPageLayoutUtils";
 
 export const ReadyToGetStarted = (): JSX.Element => {
   const theme = useTheme();
   return (
     <LandingPageSection
-      paddingTop={['space200', 'space200', 'space200']}
-      paddingBottom={['space0', 'space0', 'space0']}
-      css={css({marginTop: ['50px', '250px', '300px']})(theme)}
+      paddingTop={["space200", "space200", "space200"]}
+      paddingBottom={["space0", "space0", "space0"]}
+      css={css({ marginTop: ["50px", "250px", "300px"] })(theme)}
     >
       <LandingPageSectionContent variant="default">
         <Heading as="h2" variant="heading20">
           Ready to get started?
         </Heading>
         <Grid
-          gutter={['space0', 'space40', 'space40', 'space40']}
+          gutter={["space0", "space40", "space40", "space40"]}
           vertical={[true, true, true, false]}
           equalColumnHeights
         >
           <Column span={[12, 12, 12, 6]}>
-            <Grid gutter={['space40', 'space40', 'space40']} vertical={[true, false, false]} equalColumnHeights>
+            <Grid gutter={["space40", "space40", "space40"]} vertical={[true, false, false]} equalColumnHeights>
               <Column span={[12, 6, 6]}>
                 <Card>
                   <Heading as="h3" variant="heading30">
@@ -50,7 +50,7 @@ export const ReadyToGetStarted = (): JSX.Element => {
             </Grid>
           </Column>
           <Column span={[12, 12, 12, 6]}>
-            <Grid gutter={['space40', 'space40', 'space40']} vertical={[true, false, false]} equalColumnHeights>
+            <Grid gutter={["space40", "space40", "space40"]} vertical={[true, false, false]} equalColumnHeights>
               <Column span={[12, 6, 6]}>
                 <Card>
                   <Heading as="h3" variant="heading30">

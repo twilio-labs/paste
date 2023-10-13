@@ -1,13 +1,13 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {TdProps as TableTdProps} from '@twilio-paste/table';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { TdProps as TableTdProps } from "@twilio-paste/table";
+import * as React from "react";
 
 export interface TdProps extends TableTdProps {
   onClick?: React.MouseEventHandler;
 }
 
 export const Td = React.forwardRef<HTMLTableCellElement, TdProps>(
-  ({textAlign = 'left', element = 'DATA_GRID_TD', ...props}, ref) => {
+  ({ textAlign = "left", element = "DATA_GRID_TD", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -27,18 +27,18 @@ export const Td = React.forwardRef<HTMLTableCellElement, TdProps>(
         wordWrap="break-word"
         color="inherit"
         _first={{
-          paddingLeft: 'space50',
+          paddingLeft: "space50",
         }}
         _last={{
-          paddingRight: 'space50',
+          paddingRight: "space50",
         }}
         _focus={{
-          outline: 'none',
-          boxShadow: 'shadowFocusInset',
+          outline: "none",
+          boxShadow: "shadowFocusInset",
         }}
       />
     );
-  }
+  },
 );
 
-Td.displayName = 'Td';
+Td.displayName = "Td";

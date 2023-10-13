@@ -1,17 +1,17 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {Combobox} from '@twilio-paste/combobox';
-import {Stack} from '@twilio-paste/stack';
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Combobox } from "@twilio-paste/combobox";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { HelpText } from "@twilio-paste/help-text";
+import { Label } from "@twilio-paste/label";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {DatePicker, formatReturnDate} from '../src';
-import type {DatePickerProps} from '../src';
+import { DatePicker, formatReturnDate } from "../src";
+import type { DatePickerProps } from "../src";
 
 export const DefaultDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
@@ -200,11 +200,11 @@ export const DefaultValueDatePicker: React.FC<React.PropsWithChildren<DatePicker
 };
 
 export const OnChangeDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
-  const [value, setValue] = React.useState('');
-  const [dateFormat, setDateFormat] = React.useState('MM dd yy');
+  const [value, setValue] = React.useState("");
+  const [dateFormat, setDateFormat] = React.useState("MM dd yy");
   const uidDP = useUID();
   const uidHT = useUID();
-  const dateFormatOptions = ['MM dd yyyy', 'MMMM do yyyy', 'EEEEEE MMM do yy', 'MM/dd/yyyy'];
+  const dateFormatOptions = ["MM dd yyyy", "MMMM do yyyy", "EEEEEE MMM do yy", "MM/dd/yyyy"];
   const handleChange = (val: string, format: string): string => {
     setValue(formatReturnDate(val, format));
     return value;
@@ -215,7 +215,7 @@ export const OnChangeDatePicker: React.FC<React.PropsWithChildren<DatePickerProp
         <Combobox
           items={dateFormatOptions}
           labelText="Return date format:"
-          onInputValueChange={({inputValue}) => {
+          onInputValueChange={({ inputValue }) => {
             if (inputValue !== undefined) setDateFormat(inputValue);
           }}
         />
@@ -251,7 +251,7 @@ export const LabelOnlyPicker: React.FC<React.PropsWithChildren<DatePickerProps>>
 };
 
 export const DateRangePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
-  const [startDate, setStartDate] = React.useState('');
+  const [startDate, setStartDate] = React.useState("");
   const startUidDP = useUID();
   const endUidDP = useUID();
   return (
@@ -324,7 +324,7 @@ export const DatePickerWithMinAndMax: React.FC<React.PropsWithChildren<DatePicke
   );
 };
 
-export const CustomizedDatePicker: StoryFn = (_args, {parameters: {isTestEnvironment}, props}) => {
+export const CustomizedDatePicker: StoryFn = (_args, { parameters: { isTestEnvironment }, props }) => {
   const activeTheme = useTheme();
   const uidSeed = useUIDSeed();
   return (
@@ -333,67 +333,67 @@ export const CustomizedDatePicker: StoryFn = (_args, {parameters: {isTestEnviron
       theme={activeTheme}
       elements={{
         DATEPICKER: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderPrimary',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth10",
+          borderColor: "colorBorderPrimary",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
-              borderColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
+              borderColor: "colorBorderDestructive",
             },
           },
         },
         DATEPICKER_ELEMENT: {
-          color: 'colorTextLinkStronger',
-          padding: 'space50',
-          '::placeholder': {
-            color: 'colorTextLink',
+          color: "colorTextLinkStronger",
+          padding: "space50",
+          "::placeholder": {
+            color: "colorTextLink",
           },
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
           },
         },
         CUSTOM_DATE: {
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth20',
-          borderColor: 'colorBorderDestructive',
+          backgroundColor: "colorBackgroundDestructiveWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth20",
+          borderColor: "colorBorderDestructive",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderColor: 'colorBorderPrimary',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderColor: "colorBorderPrimary",
             },
           },
         },
         CUSTOM_DATE_ELEMENT: {
-          color: 'colorTextLinkDestructive',
-          padding: 'space70',
-          '::placeholder': {
-            color: 'colorTextLinkDestructive',
+          color: "colorTextLinkDestructive",
+          padding: "space70",
+          "::placeholder": {
+            color: "colorTextLinkDestructive",
           },
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderRadius: 'borderRadius30',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderRadius: "borderRadius30",
             },
           },
         },
@@ -401,24 +401,24 @@ export const CustomizedDatePicker: StoryFn = (_args, {parameters: {isTestEnviron
     >
       <Stack orientation="vertical" spacing="space40">
         <div>
-          <Label htmlFor={uidSeed('pride')}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
-          <DatePicker id={uidSeed('pride')} {...props} />
+          <Label htmlFor={uidSeed("pride")}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
+          <DatePicker id={uidSeed("pride")} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidSeed('pride2')}>
+          <Label variant="inverse" htmlFor={uidSeed("pride2")}>
             When does this year&apos;s LGBTQ+ Pride month begin in the US?
           </Label>
-          <DatePicker variant="inverse" id={uidSeed('pride2')} {...props} />
+          <DatePicker variant="inverse" id={uidSeed("pride2")} {...props} />
         </Box>
         <div>
-          <Label htmlFor={uidSeed('pride3')}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
-          <DatePicker element="CUSTOM_DATE" id={uidSeed('pride3')} {...props} />
+          <Label htmlFor={uidSeed("pride3")}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
+          <DatePicker element="CUSTOM_DATE" id={uidSeed("pride3")} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidSeed('pride4')}>
+          <Label variant="inverse" htmlFor={uidSeed("pride4")}>
             When does this year&apos;s LGBTQ+ Pride month begin in the US?
           </Label>
-          <DatePicker variant="inverse" element="CUSTOM_DATE" id={uidSeed('pride4')} {...props} />
+          <DatePicker variant="inverse" element="CUSTOM_DATE" id={uidSeed("pride4")} {...props} />
         </Box>
       </Stack>
     </CustomizationProvider>
@@ -433,6 +433,6 @@ CustomizedDatePicker.parameters = {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Date Picker',
+  title: "Components/Date Picker",
   component: DatePicker,
 };

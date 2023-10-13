@@ -1,14 +1,14 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-import {DetailText} from '../src';
+import { DetailText } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Detail Text',
+  title: "Components/Detail Text",
   component: DetailText,
 };
 
@@ -33,8 +33,8 @@ export const Customized: StoryFn = () => {
       theme={theme}
       elements={{
         DETAIL_TEXT: {
-          color: 'colorTextNew',
-          marginTop: 'space60',
+          color: "colorTextNew",
+          marginTop: "space60",
         },
       }}
     >

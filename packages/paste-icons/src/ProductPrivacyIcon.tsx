@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductPrivacyIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ProductPrivacyIconProps extends IconWrapperProps {
 }
 
 const ProductPrivacyIcon = React.forwardRef<HTMLElement, ProductPrivacyIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductPrivacyIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductPrivacyIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductPrivacyIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -42,8 +42,8 @@ const ProductPrivacyIcon = React.forwardRef<HTMLElement, ProductPrivacyIconProps
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ProductPrivacyIcon.displayName = 'ProductPrivacyIcon';
-export {ProductPrivacyIcon};
+ProductPrivacyIcon.displayName = "ProductPrivacyIcon";
+export { ProductPrivacyIcon };

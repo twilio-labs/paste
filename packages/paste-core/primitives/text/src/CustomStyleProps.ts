@@ -1,7 +1,7 @@
 export const customStyleProps = {
   color: {
-    property: 'color',
-    scale: 'textColors',
+    property: "color",
+    scale: "textColors",
   },
   cursor: true,
   outline: true,

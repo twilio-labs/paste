@@ -1,1 +1,1 @@
-export * from '@twilio-paste/syntax-highlighter-library';
+export * from "@twilio-paste/syntax-highlighter-library";

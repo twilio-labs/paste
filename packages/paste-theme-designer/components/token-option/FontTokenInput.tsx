@@ -1,17 +1,17 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/core/box';
-import {useUIDSeed} from '@twilio-paste/core/uid-library';
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
+import { Box } from "@twilio-paste/core/box";
+import { Input } from "@twilio-paste/core/input";
+import { Label } from "@twilio-paste/core/label";
+import { useUIDSeed } from "@twilio-paste/core/uid-library";
+import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
+import * as React from "react";
 
-import type {TokenContextProps} from '../../context/TokenContext';
+import type { TokenContextProps } from "../../context/TokenContext";
 
 type FontTokenInputProps = {
   bucket: keyof GenericTokensShape;
   tokenName: string;
   tokenValue: string;
-  onChange: TokenContextProps['updateToken'];
+  onChange: TokenContextProps["updateToken"];
 };
 
 // TODO
@@ -31,9 +31,9 @@ export const FontTokenInput: React.FC<React.PropsWithChildren<FontTokenInputProp
         type="text"
         value={tokenValue}
         onChange={(event) => {
-          const {value} = event.target;
+          const { value } = event.target;
           // TODO validate
-          if (value === '') return;
+          if (value === "") return;
           if (onChange != null) {
             onChange(bucket, tokenName, event.target.value);
           }

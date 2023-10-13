@@ -1,19 +1,19 @@
-import * as React from 'react';
-import Head from 'next/head';
-import {useRouter} from 'next/router';
-import Link from 'next/link';
-import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navigation';
-import {Box} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import { InPageNavigation, InPageNavigationItem } from "@twilio-paste/in-page-navigation";
+import Head from "next/head";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import * as React from "react";
 
-import {SiteWrapper} from '../components/site-wrapper';
-import {PasteMDXProvider} from '../components/paste-mdx-provider';
-import {SiteMetaDefaults} from '../constants';
-import type {NavigationQuery} from '../context/NavigationContext';
-import {PageContentWrapper} from '../components/PageContentWrapper';
-import {NormalizedComponentHeader} from '../components/shortcodes/normalized-component-header';
-import type {ApiData} from '../utils/DataUtils';
-import {getPackagePath} from '../utils/RouteUtils';
-import {PageAside} from '../components/shortcodes/PageAside';
+import { PageContentWrapper } from "../components/PageContentWrapper";
+import { PasteMDXProvider } from "../components/paste-mdx-provider";
+import { PageAside } from "../components/shortcodes/PageAside";
+import { NormalizedComponentHeader } from "../components/shortcodes/normalized-component-header";
+import { SiteWrapper } from "../components/site-wrapper";
+import { SiteMetaDefaults } from "../constants";
+import type { NavigationQuery } from "../context/NavigationContext";
+import type { ApiData } from "../utils/DataUtils";
+import { getPackagePath } from "../utils/RouteUtils";
 
 interface ComponentPageLayoutProps {
   children?: React.ReactElement;
@@ -24,7 +24,7 @@ interface ComponentPageLayoutProps {
     package?: string;
   };
   navigationData: NavigationQuery;
-  mdxHeadings: {depth: number; value: string}[];
+  mdxHeadings: { depth: number; value: string }[];
   pageHeaderData: {
     categoryRoute: string;
     githubUrl: string;
@@ -51,7 +51,7 @@ const ComponentPageLayout: React.FC<React.PropsWithChildren<ComponentPageLayoutP
   navigationData,
   data,
   mdxHeadings,
-  pageHeaderData: {categoryRoute, githubUrl, storybookUrl},
+  pageHeaderData: { categoryRoute, githubUrl, storybookUrl },
 }) => {
   const pageTitle = meta.title ? `${meta.title} - ${SiteMetaDefaults.TITLE}` : SiteMetaDefaults.TITLE;
   const pageDescription = meta.description || SiteMetaDefaults.DESCRIPTION;
@@ -101,7 +101,7 @@ const ComponentPageLayout: React.FC<React.PropsWithChildren<ComponentPageLayoutP
             </Link>
           </InPageNavigation>
         </Box>
-        <Box element="CONTENT_WRAPPER" as="div" display={['block', 'block', 'flex']}>
+        <Box element="CONTENT_WRAPPER" as="div" display={["block", "block", "flex"]}>
           <PageAside data={mdxHeadings} />
           <Box element="CONTENT" as="div" maxWidth="size70" minWidth="0">
             <PasteMDXProvider componentOverrides={meta.package ? componentOverrides : {}}>{children}</PasteMDXProvider>

@@ -1,42 +1,42 @@
 import type {
-  GenericThemeShape,
-  ColorsKeys,
   BackgroundColorsKeys,
   BorderColorsKeys,
   BorderWidthsKeys,
+  BoxShadowsKeys,
   ColorSchemeKeys,
+  ColorsKeys,
   DataVisualizationKeys,
   FontSizesKeys,
   FontWeightsKeys,
   FontsKeys,
-  SizingKeys,
+  GenericThemeShape,
   LineHeightsKeys,
   RadiiKeys,
-  BoxShadowsKeys,
+  SizingKeys,
   SpacingsKeys,
   TextColorsKeys,
   ZIndicesKeys,
-} from './types/GenericThemeShape';
-import {remToPx} from './utils/remToPx';
+} from "./types/GenericThemeShape";
+import { remToPx } from "./utils/remToPx";
 
 interface GenerateThemeFromTokensArgs {
-  backgroundColors: Partial<{[key in BackgroundColorsKeys]: any}>;
-  borderColors: Partial<{[key in BorderColorsKeys]: any}>;
-  borderWidths: Partial<{[key in BorderWidthsKeys]: any}>;
-  radii: Partial<{[key in RadiiKeys]: any}>;
-  fonts: Partial<{[key in FontsKeys]: any}>;
-  fontSizes: Partial<{[key in FontSizesKeys]: any}>;
-  fontWeights: Partial<{[key in FontWeightsKeys]: any}>;
-  lineHeights: Partial<{[key in LineHeightsKeys]: any}>;
-  boxShadows: Partial<{[key in BoxShadowsKeys]: any}>;
+  backgroundColors: Partial<{ [key in BackgroundColorsKeys]: any }>;
+  borderColors: Partial<{ [key in BorderColorsKeys]: any }>;
+  borderWidths: Partial<{ [key in BorderWidthsKeys]: any }>;
+  radii: Partial<{ [key in RadiiKeys]: any }>;
+  fonts: Partial<{ [key in FontsKeys]: any }>;
+  fontSizes: Partial<{ [key in FontSizesKeys]: any }>;
+  fontWeights: Partial<{ [key in FontWeightsKeys]: any }>;
+  lineHeights: Partial<{ [key in LineHeightsKeys]: any }>;
+  boxShadows: Partial<{ [key in BoxShadowsKeys]: any }>;
   // there are some sizes we expect must appear to generate breakpoints and icons sizes
-  sizings: {[key in SizingKeys]: any};
-  spacings: Partial<{[key in SpacingsKeys]: any}>;
-  textColors: Partial<{[key in TextColorsKeys]: any}>;
-  zIndices: Partial<{[key in ZIndicesKeys]: any}>;
-  colors: Partial<{[key in ColorsKeys]: any}>;
-  colorSchemes: Partial<{[key in ColorSchemeKeys]: any}>;
-  dataVisualization: Partial<{[key in DataVisualizationKeys]: any}>;
+  sizings: { [key in SizingKeys]: any };
+  spacings: Partial<{ [key in SpacingsKeys]: any }>;
+  textColors: Partial<{ [key in TextColorsKeys]: any }>;
+  zIndices: Partial<{ [key in ZIndicesKeys]: any }>;
+  colors: Partial<{ [key in ColorsKeys]: any }>;
+  colorSchemes: Partial<{ [key in ColorSchemeKeys]: any }>;
+  dataVisualization: Partial<{ [key in DataVisualizationKeys]: any }>;
 }
 
 export const generateThemeFromTokens = ({
@@ -58,9 +58,9 @@ export const generateThemeFromTokens = ({
 }: GenerateThemeFromTokensArgs): GenericThemeShape => {
   // default breakpoints
   const breakpoints = [
-    remToPx(sizings.size40, 'string'),
-    remToPx(sizings.size100, 'string'),
-    remToPx(sizings.size120, 'string'),
+    remToPx(sizings.size40, "string"),
+    remToPx(sizings.size100, "string"),
+    remToPx(sizings.size120, "string"),
   ];
 
   return {

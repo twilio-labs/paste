@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {useNonModalDialogPrimitiveState} from '@twilio-paste/non-modal-dialog-primitive';
+import { useNonModalDialogPrimitiveState } from "@twilio-paste/non-modal-dialog-primitive";
 import type {
-  NonModalDialogPrimitiveStateReturn,
   NonModalDialogPrimitivePopoverInitialState,
-} from '@twilio-paste/non-modal-dialog-primitive';
+  NonModalDialogPrimitiveStateReturn,
+} from "@twilio-paste/non-modal-dialog-primitive";
+import * as React from "react";
 
-import type {UserDialogContainerProps, UserDialogContextProps} from './types';
+import type { UserDialogContainerProps, UserDialogContextProps } from "./types";
 
 export const UserDialogContext = React.createContext<UserDialogContextProps>({} as UserDialogContextProps);
 
@@ -22,21 +22,21 @@ export const UserDialogContainer: React.FC<UserDialogContainerProps> = ({
     useNonModalDialogPrimitiveState({
       modal: true,
       visible: false,
-      placement: 'bottom-start',
+      placement: "bottom-start",
       gutter: 0,
       ...initialState,
     });
-  const avatarProps = {name, src, icon};
+  const avatarProps = { name, src, icon };
   return (
-    <UserDialogContext.Provider value={{userDialogState: nonModalDialogState, avatarProps}}>
+    <UserDialogContext.Provider value={{ userDialogState: nonModalDialogState, avatarProps }}>
       {children}
     </UserDialogContext.Provider>
   );
 };
-UserDialogContainer.displayName = 'UserDialogContainer';
+UserDialogContainer.displayName = "UserDialogContainer";
 
 export const useUserDialogState = (
-  props?: NonModalDialogPrimitivePopoverInitialState
+  props?: NonModalDialogPrimitivePopoverInitialState,
 ): NonModalDialogPrimitiveStateReturn => {
-  return useNonModalDialogPrimitiveState({...props, placement: 'bottom-start', gutter: 0});
+  return useNonModalDialogPrimitiveState({ ...props, placement: "bottom-start", gutter: 0 });
 };

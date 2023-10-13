@@ -1,14 +1,14 @@
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
+import type { ThemeShape } from "@twilio-paste/theme";
 // https://styled-system.com/api/#border
-import type {Properties} from 'csstype';
-import type {ThemeShape} from '@twilio-paste/theme';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type { Properties } from "csstype";
 
-import type {StyleReset} from './helpers';
+import type { StyleReset } from "./helpers";
 
 // Tokens
-export type BorderRadiusOptions = keyof ThemeShape['radii'];
-export type BorderWidthOptions = keyof ThemeShape['borderWidths'];
-export type BorderColorOptions = keyof ThemeShape['borderColors'] | 'transparent' | 'inherit';
+export type BorderRadiusOptions = keyof ThemeShape["radii"];
+export type BorderWidthOptions = keyof ThemeShape["borderWidths"];
+export type BorderColorOptions = keyof ThemeShape["borderColors"] | "transparent" | "inherit";
 
 export type BorderRadius = ResponsiveValue<BorderRadiusOptions>;
 export type BorderWidth = ResponsiveValue<BorderWidthOptions>;
@@ -39,12 +39,12 @@ export interface BorderColorProps {
 }
 
 // CSS native
-export type BorderStyleOptions = Properties['borderStyle'];
+export type BorderStyleOptions = Properties["borderStyle"];
 
-export type BorderTopStyleOptions = Properties['borderStyle'];
-export type BorderRightStyleOptions = Properties['borderStyle'];
-export type BorderBottomStyleOptions = Properties['borderStyle'];
-export type BorderLeftStyleOptions = Properties['borderStyle'];
+export type BorderTopStyleOptions = Properties["borderStyle"];
+export type BorderRightStyleOptions = Properties["borderStyle"];
+export type BorderBottomStyleOptions = Properties["borderStyle"];
+export type BorderLeftStyleOptions = Properties["borderStyle"];
 
 export type BorderStyle = ResponsiveValue<BorderStyleOptions>;
 export type BorderTopStyle = ResponsiveValue<BorderTopStyleOptions>;
@@ -60,10 +60,10 @@ export interface BorderStyleProps {
   borderLeftStyle?: BorderLeftStyle;
 }
 
-export type BorderCollapseProperty = Properties['borderCollapse'];
+export type BorderCollapseProperty = Properties["borderCollapse"];
 export type BorderCollapse = ResponsiveValue<BorderCollapseProperty>;
 
-export type BorderSpacingProperty = Properties['borderSpacing'];
+export type BorderSpacingProperty = Properties["borderSpacing"];
 export type BorderSpacing = ResponsiveValue<BorderSpacingProperty>;
 
 // Styled-system grouping

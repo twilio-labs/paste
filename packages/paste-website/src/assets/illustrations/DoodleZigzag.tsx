@@ -1,7 +1,7 @@
-import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
-import {useSpring, animated} from '@twilio-paste/animation-library';
-import {useTheme} from '@twilio-paste/theme';
+import { animated, useSpring } from "@twilio-paste/animation-library";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
 const dashArray = 260;
 
@@ -17,7 +17,7 @@ export const DoodleZigzag = (): JSX.Element => {
 
   const styles = useSpring({
     x: show ? 0 : -1 * dashArray,
-    config: {mass: 1, tension: 280, friction: 40},
+    config: { mass: 1, tension: 280, friction: 40 },
   });
 
   return (

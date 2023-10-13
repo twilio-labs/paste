@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface CollapseIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface CollapseIconProps extends IconWrapperProps {
 }
 
 const CollapseIcon = React.forwardRef<HTMLElement, CollapseIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `CollapseIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[CollapseIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[CollapseIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -42,8 +42,8 @@ const CollapseIcon = React.forwardRef<HTMLElement, CollapseIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-CollapseIcon.displayName = 'CollapseIcon';
-export {CollapseIcon};
+CollapseIcon.displayName = "CollapseIcon";
+export { CollapseIcon };

@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/core/box';
+import { Box } from "@twilio-paste/core/box";
+import * as React from "react";
 
-import {KitchenSink} from '../components/KitchenSink';
-import {SideBar} from '../components/SideBar';
+import { KitchenSink } from "../components/KitchenSink";
+import { SideBar } from "../components/SideBar";
 
 export const IndexPage = (): JSX.Element => {
   return (

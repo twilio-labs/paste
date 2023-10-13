@@ -1,6 +1,6 @@
-import {keyframes} from '@twilio-paste/styling-library';
+import { keyframes } from "@twilio-paste/styling-library";
 
-import {circleCircumference} from './constants';
+import { circleCircumference } from "./constants";
 /*
  * Stroke dash offset is set with percentages of the circle circumference;
  * If we set our offset to be 100% of the circle circumference (or equal to the circumference), no visible stroke is drawn.

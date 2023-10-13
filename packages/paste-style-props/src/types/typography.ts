@@ -1,14 +1,14 @@
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
+import type { ThemeShape } from "@twilio-paste/theme";
 // https://styled-system.com/api/#typography
-import type {Properties} from 'csstype';
-import type {ThemeShape} from '@twilio-paste/theme';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type { Properties } from "csstype";
 
 // Tokens
-export type FontFamilyOptions = keyof ThemeShape['fonts'] | 'inherit';
-export type FontSizeOptions = keyof ThemeShape['fontSizes'] | '100%' | 'inherit';
-export type FontWeightOptions = keyof ThemeShape['fontWeights'] | 'inherit';
-export type LineHeightOptions = keyof ThemeShape['lineHeights'] | 'unset' | 'inherit';
-export type TextColorOptions = keyof ThemeShape['textColors'] | 'currentColor' | 'inherit' | 'transparent';
+export type FontFamilyOptions = keyof ThemeShape["fonts"] | "inherit";
+export type FontSizeOptions = keyof ThemeShape["fontSizes"] | "100%" | "inherit";
+export type FontWeightOptions = keyof ThemeShape["fontWeights"] | "inherit";
+export type LineHeightOptions = keyof ThemeShape["lineHeights"] | "unset" | "inherit";
+export type TextColorOptions = keyof ThemeShape["textColors"] | "currentColor" | "inherit" | "transparent";
 
 export type FontFamily = ResponsiveValue<FontFamilyOptions>;
 export type FontSize = ResponsiveValue<FontSizeOptions>;
@@ -17,20 +17,20 @@ export type LineHeight = ResponsiveValue<LineHeightOptions>;
 export type TextColor = ResponsiveValue<TextColorOptions>;
 
 // CSS native
-export type LetterSpacingOptions = Properties['letterSpacing'];
-export type TextAlignOptions = Properties['textAlign'];
-export type FontStyleOptions = Properties['fontStyle'];
-export type WhiteSpaceOptions = Properties['whiteSpace'];
-export type WordBreakOptions = Properties['wordBreak'];
-export type WordWrapOptions = Properties['wordWrap'];
-export type OverflowWrapOptions = Properties['overflowWrap'];
-export type TextDecorationOptions = Properties['textDecoration'];
-export type TextOverflowOptions = Properties['textOverflow'];
-export type TextTransformOptions = Properties['textTransform'];
-export type FontVariantNumericProperty = Properties['fontVariantNumeric'];
-export type ListStyleImageProperty = Properties['listStyleImage'];
-export type ListStylePositionProperty = Properties['listStylePosition'];
-export type ListStyleTypeProperty = Properties['listStyleType'];
+export type LetterSpacingOptions = Properties["letterSpacing"];
+export type TextAlignOptions = Properties["textAlign"];
+export type FontStyleOptions = Properties["fontStyle"];
+export type WhiteSpaceOptions = Properties["whiteSpace"];
+export type WordBreakOptions = Properties["wordBreak"];
+export type WordWrapOptions = Properties["wordWrap"];
+export type OverflowWrapOptions = Properties["overflowWrap"];
+export type TextDecorationOptions = Properties["textDecoration"];
+export type TextOverflowOptions = Properties["textOverflow"];
+export type TextTransformOptions = Properties["textTransform"];
+export type FontVariantNumericProperty = Properties["fontVariantNumeric"];
+export type ListStyleImageProperty = Properties["listStyleImage"];
+export type ListStylePositionProperty = Properties["listStylePosition"];
+export type ListStyleTypeProperty = Properties["listStyleType"];
 
 export type LetterSpacing = ResponsiveValue<LetterSpacingOptions>;
 export type TextAlign = ResponsiveValue<TextAlignOptions>;

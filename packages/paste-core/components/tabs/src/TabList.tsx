@@ -1,34 +1,34 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {TabPrimitiveList} from '@twilio-paste/tabs-primitive';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
+import * as React from "react";
 
-import {TabsContext} from './TabsContext';
-import type {Variants} from './types';
-import {getElementName} from './utils';
+import { TabsContext } from "./TabsContext";
+import type { Variants } from "./types";
+import { getElementName } from "./utils";
 
 export interface TabListProps {
-  'aria-label': string;
+  "aria-label": string;
   disabled?: boolean | undefined;
-  element?: BoxProps['element'];
+  element?: BoxProps["element"];
   focusable?: boolean | undefined;
   children: React.ReactNode;
   variant?: Variants;
 }
 
-const HorizontalTabList: React.FC<React.PropsWithChildren<{variant?: Variants; element?: BoxProps['element']}>> = ({
+const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; element?: BoxProps["element"] }>> = ({
   children,
   variant,
   element,
 }) => {
-  const isInverse = variant === 'inverse' || variant === 'inverse_fitted';
+  const isInverse = variant === "inverse" || variant === "inverse_fitted";
 
   return (
     <Box
       display="flex"
       borderBottomStyle="solid"
       borderBottomWidth="borderWidth10"
-      borderBottomColor={isInverse ? 'colorBorderInverseWeaker' : 'colorBorderWeak'}
+      borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
       columnGap="space20"
       element={element}
     >
@@ -37,21 +37,24 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{variant?: Variants; e
   );
 };
 
-HorizontalTabList.displayName = 'HorizontalTabList';
+HorizontalTabList.displayName = "HorizontalTabList";
 
-const VerticalTabList: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({children, element}) => (
+const VerticalTabList: React.FC<React.PropsWithChildren<{ element?: BoxProps["element"] }>> = ({
+  children,
+  element,
+}) => (
   <Box element={element} marginRight="space110" minWidth="size20" maxWidth="size40">
     {children}
   </Box>
 );
 
-VerticalTabList.displayName = 'VerticalTabList';
+VerticalTabList.displayName = "VerticalTabList";
 
-const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, element, variant, ...props}, ref) => {
+const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({ children, element, variant, ...props }, ref) => {
   const tab = React.useContext(TabsContext);
-  const {orientation} = tab;
-  const elementName = getElementName(orientation, 'TAB_LIST', element);
-  const TabListWrapper = orientation === 'vertical' ? VerticalTabList : HorizontalTabList;
+  const { orientation } = tab;
+  const elementName = getElementName(orientation, "TAB_LIST", element);
+  const TabListWrapper = orientation === "vertical" ? VerticalTabList : HorizontalTabList;
 
   return (
     <TabPrimitiveList {...(tab as any)} as={Box} {...props} element={elementName} ref={ref}>
@@ -62,5 +65,5 @@ const TabList = React.forwardRef<HTMLDivElement, TabListProps>(({children, eleme
   );
 });
 
-TabList.displayName = 'TabList';
-export {TabList};
+TabList.displayName = "TabList";
+export { TabList };

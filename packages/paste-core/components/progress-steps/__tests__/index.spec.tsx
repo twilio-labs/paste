@@ -1,24 +1,24 @@
-import * as React from 'react';
-import {render} from '@testing-library/react';
-import {CustomizationProvider} from '@twilio-paste/customization';
+import { render } from "@testing-library/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import * as React from "react";
 
 import {
-  ProgressSteps,
-  ProgressStepSeparator,
   ProgressStepComplete,
   ProgressStepCurrent,
   ProgressStepError,
   ProgressStepIncomplete,
-} from '../src';
-import {Divs, Buttons, Anchors} from '../stories/horizontal.stories';
+  ProgressStepSeparator,
+  ProgressSteps,
+} from "../src";
+import { Anchors, Buttons, Divs } from "../stories/horizontal.stories";
 
-describe('ProgressSteps', () => {
-  it('should render divs correctly', () => {
-    const {queryAllByText, getAllByRole} = render(<Divs />);
-    const [completeIcon, completeLabel] = queryAllByText('Completed');
-    const [incompleteIcon, incompleteLabel] = queryAllByText('Incomplete');
-    const [errorIcon, errorLabel] = queryAllByText('Error');
-    const [currentIcon, currentLabel] = queryAllByText('Current');
+describe("ProgressSteps", () => {
+  it("should render divs correctly", () => {
+    const { queryAllByText, getAllByRole } = render(<Divs />);
+    const [completeIcon, completeLabel] = queryAllByText("Completed");
+    const [incompleteIcon, incompleteLabel] = queryAllByText("Incomplete");
+    const [errorIcon, errorLabel] = queryAllByText("Error");
+    const [currentIcon, currentLabel] = queryAllByText("Current");
 
     expect(completeIcon).toBeDefined();
     expect(completeLabel).toBeDefined();
@@ -29,81 +29,81 @@ describe('ProgressSteps', () => {
     expect(currentIcon).toBeDefined();
     expect(currentLabel).toBeDefined();
 
-    expect(completeLabel.parentElement?.tagName).toEqual('DIV');
+    expect(completeLabel.parentElement?.tagName).toEqual("DIV");
 
     // Make sure each step is a listitem
-    const items = getAllByRole('listitem');
+    const items = getAllByRole("listitem");
     expect(items.length).toBe(4);
 
     // Make sure current step has correct aria attributes
-    expect(currentLabel.parentElement?.getAttribute('aria-current')).toEqual('step');
+    expect(currentLabel.parentElement?.getAttribute("aria-current")).toEqual("step");
   });
 
-  it('should render buttons correctly', () => {
-    const {getByRole} = render(<Buttons />);
-    const signupLabel = getByRole('button', {name: 'Completed Sign up'});
+  it("should render buttons correctly", () => {
+    const { getByRole } = render(<Buttons />);
+    const signupLabel = getByRole("button", { name: "Completed Sign up" });
 
-    expect(signupLabel?.tagName).toEqual('BUTTON');
-    expect(signupLabel?.getAttribute('type')).toEqual('button');
+    expect(signupLabel?.tagName).toEqual("BUTTON");
+    expect(signupLabel?.getAttribute("type")).toEqual("button");
   });
 
-  it('should render anchors correctly', () => {
-    const {getByRole} = render(<Anchors />);
-    const signupLabel = getByRole('link', {name: 'Completed Sign up'});
+  it("should render anchors correctly", () => {
+    const { getByRole } = render(<Anchors />);
+    const signupLabel = getByRole("link", { name: "Completed Sign up" });
 
-    expect(signupLabel?.tagName).toEqual('A');
-    expect(signupLabel?.getAttribute('href')).toEqual('#');
+    expect(signupLabel?.tagName).toEqual("A");
+    expect(signupLabel?.getAttribute("href")).toEqual("#");
   });
 
-  describe('element naming', () => {
-    it('should set all default element names', async () => {
-      const {getByRole} = render(<Buttons />);
-      const signupLabel = getByRole('button', {name: 'Completed Sign up'});
-      const validateEmail = getByRole('button', {name: 'Error Validate email'});
-      const completeProfile = getByRole('button', {name: 'Current Complete profile'});
-      const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
-      const wrapper = getByRole('list');
+  describe("element naming", () => {
+    it("should set all default element names", async () => {
+      const { getByRole } = render(<Buttons />);
+      const signupLabel = getByRole("button", { name: "Completed Sign up" });
+      const validateEmail = getByRole("button", { name: "Error Validate email" });
+      const completeProfile = getByRole("button", { name: "Current Complete profile" });
+      const addFriends = getByRole("button", { name: "Incomplete Add friends" });
+      const wrapper = getByRole("list");
 
-      expect(signupLabel?.dataset.pasteElement).toEqual('PROGRESS_STEP_COMPLETE');
-      expect(validateEmail?.dataset.pasteElement).toEqual('PROGRESS_STEP_ERROR');
-      expect(completeProfile?.dataset.pasteElement).toEqual('PROGRESS_STEP_CURRENT');
-      expect(addFriends?.dataset.pasteElement).toEqual('PROGRESS_STEP_INCOMPLETE');
-      expect(wrapper?.dataset.pasteElement).toEqual('PROGRESS_STEPS');
+      expect(signupLabel?.dataset.pasteElement).toEqual("PROGRESS_STEP_COMPLETE");
+      expect(validateEmail?.dataset.pasteElement).toEqual("PROGRESS_STEP_ERROR");
+      expect(completeProfile?.dataset.pasteElement).toEqual("PROGRESS_STEP_CURRENT");
+      expect(addFriends?.dataset.pasteElement).toEqual("PROGRESS_STEP_INCOMPLETE");
+      expect(wrapper?.dataset.pasteElement).toEqual("PROGRESS_STEPS");
     });
   });
-  describe('custom element naming', () => {
-    it('should set all custom element names', async () => {
-      const {getByRole} = render(
+  describe("custom element naming", () => {
+    it("should set all custom element names", async () => {
+      const { getByRole } = render(
         <CustomizationProvider
           disableAnimations
           theme={TestTheme}
           elements={{
             STEPS: {
-              padding: 'space50',
+              padding: "space50",
             },
             STEP_SEPARATOR: {
-              borderBottomWidth: 'borderWidth40',
-              borderRadius: 'borderRadiusCircle',
+              borderBottomWidth: "borderWidth40",
+              borderRadius: "borderRadiusCircle",
             },
             STEP_COMPLETE: {
-              borderWidth: 'borderWidth10',
-              borderStyle: 'solid',
-              borderColor: 'colorBorderPrimary',
+              borderWidth: "borderWidth10",
+              borderStyle: "solid",
+              borderColor: "colorBorderPrimary",
             },
             STEP_CURRENT: {
-              borderWidth: 'borderWidth10',
-              borderStyle: 'solid',
-              borderColor: 'colorBorderPrimary',
+              borderWidth: "borderWidth10",
+              borderStyle: "solid",
+              borderColor: "colorBorderPrimary",
             },
             STEP_ERROR: {
-              borderWidth: 'borderWidth10',
-              borderStyle: 'solid',
-              borderColor: 'colorBorderPrimary',
+              borderWidth: "borderWidth10",
+              borderStyle: "solid",
+              borderColor: "colorBorderPrimary",
             },
             STEP_INCOMPLETE: {
-              borderWidth: 'borderWidth10',
-              borderStyle: 'solid',
-              borderColor: 'colorBorderPrimary',
+              borderWidth: "borderWidth10",
+              borderStyle: "solid",
+              borderColor: "colorBorderPrimary",
             },
           }}
         >
@@ -128,25 +128,25 @@ describe('ProgressSteps', () => {
               Start event
             </ProgressStepIncomplete>
           </ProgressSteps>
-        </CustomizationProvider>
+        </CustomizationProvider>,
       );
-      const signupLabel = getByRole('link', {name: 'Completed Sign up'});
-      const validateEmail = getByRole('button', {name: 'Error Validate email'});
-      const completeProfile = getByRole('button', {name: 'Current Complete profile'});
-      const addFriends = getByRole('button', {name: 'Incomplete Add friends'});
-      const wrapper = getByRole('list');
+      const signupLabel = getByRole("link", { name: "Completed Sign up" });
+      const validateEmail = getByRole("button", { name: "Error Validate email" });
+      const completeProfile = getByRole("button", { name: "Current Complete profile" });
+      const addFriends = getByRole("button", { name: "Incomplete Add friends" });
+      const wrapper = getByRole("list");
 
-      expect(signupLabel?.dataset.pasteElement).toEqual('STEP_COMPLETE');
-      expect(validateEmail?.dataset.pasteElement).toEqual('STEP_ERROR');
-      expect(completeProfile?.dataset.pasteElement).toEqual('STEP_CURRENT');
-      expect(addFriends?.dataset.pasteElement).toEqual('STEP_INCOMPLETE');
-      expect(wrapper?.dataset.pasteElement).toEqual('STEPS');
+      expect(signupLabel?.dataset.pasteElement).toEqual("STEP_COMPLETE");
+      expect(validateEmail?.dataset.pasteElement).toEqual("STEP_ERROR");
+      expect(completeProfile?.dataset.pasteElement).toEqual("STEP_CURRENT");
+      expect(addFriends?.dataset.pasteElement).toEqual("STEP_INCOMPLETE");
+      expect(wrapper?.dataset.pasteElement).toEqual("STEPS");
 
-      expect(signupLabel).toHaveStyleRule('border-color', 'rgb(2, 99, 224)');
-      expect(validateEmail).toHaveStyleRule('border-color', 'rgb(2, 99, 224)');
-      expect(completeProfile).toHaveStyleRule('border-color', 'rgb(2, 99, 224)');
-      expect(addFriends).toHaveStyleRule('border-color', 'rgb(2, 99, 224)');
-      expect(wrapper).toHaveStyleRule('padding', '1rem');
+      expect(signupLabel).toHaveStyleRule("border-color", "rgb(2, 99, 224)");
+      expect(validateEmail).toHaveStyleRule("border-color", "rgb(2, 99, 224)");
+      expect(completeProfile).toHaveStyleRule("border-color", "rgb(2, 99, 224)");
+      expect(addFriends).toHaveStyleRule("border-color", "rgb(2, 99, 224)");
+      expect(wrapper).toHaveStyleRule("padding", "1rem");
     });
   });
 });

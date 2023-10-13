@@ -1,6 +1,6 @@
-import * as React from 'react';
-import {Menu, MenuButton, MenuGroup, MenuItem, useMenuState, MenuSeparator} from '@twilio-paste/menu';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { Menu, MenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
+import * as React from "react";
 
 export const AccountMenu: React.FC = () => {
   const menu = useMenuState();

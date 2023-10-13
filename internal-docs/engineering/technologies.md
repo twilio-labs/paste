@@ -118,4 +118,4 @@ Our icons are converted from SVG to React components at compile time using our o
 
 ## Code Style
 
-We use eslint (https://eslint.org/) and Prettier ([https://prettier.io/](https://prettier.io/)) to maintain a consistent, readable code style throughout the entire monorepo.
+We use eslint (https://eslint.org/), [BiomeJS](https://biomejs.dev/), and Prettier ([https://prettier.io/](https://prettier.io/)) to maintain a consistent, readable code style throughout the entire monorepo.

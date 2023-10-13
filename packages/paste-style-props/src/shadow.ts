@@ -1,1 +1,1 @@
-export const SHADOW_PROPS = ['boxShadow', 'textShadow'];
+export const SHADOW_PROPS = ["boxShadow", "textShadow"];

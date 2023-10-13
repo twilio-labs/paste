@@ -21,12 +21,11 @@ import {Callout, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/help-text/CHANGELOG.md';
 import packageJson from '@twilio-paste/help-text/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -38,24 +37,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/help-text',
+        storybookUrl: '/?path=/story/components-help-text--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/help-text"
-  storybookUrl="/?path=/story/components-help-text--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -327,97 +317,3 @@ Use Help Text when users might need additional information to fill out a form fi
     </Box>
   </Dont>
 </DoDont>
-
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Help Text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Help Text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/help-text - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-const Component = () => (
-  <>
-    <Label htmlFor="foo" required>
-      Foo
-    </Label>
-    <Input id="foo" type="text" value="" onChange={() => {}} aria-describedby="foo_text" />
-    <HelpText id="foo_text">Enter some text.</HelpText>
-  </>
-);
-```
-
-#### HelpText props
-
-All the [valid HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes) (role, aria-\*, type, and so on) are supported including the following props:
-
-| Prop       | Type                                                                 | Description                                                                               | Default     |
-| ---------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| children?  | `ReactNode`                                                          |                                                                                           | null        |
-| marginTop? | 'space0'                                                             | Sets the top margin on the `div` element.                                                 | 'space30'   |
-| variant?   | 'default', 'error', 'error_inverse', 'inverse', 'warning', 'success' | Changes the render state.                                                                 | 'default'   |
-| element?   | `string`                                                             | Overrides the default element name to apply unique styles with the Customization Provider | 'HELP_TEXT' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

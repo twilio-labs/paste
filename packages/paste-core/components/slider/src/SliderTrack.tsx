@@ -1,18 +1,18 @@
-import * as React from 'react';
-import {Box, type BoxProps} from '@twilio-paste/box';
+import { Box, type BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import {getColorToken} from './helpers';
-import type {UIStates} from './types';
+import { getColorToken } from "./helpers";
+import type { UIStates } from "./types";
 
 export interface SliderTrackProps extends UIStates {
   children?: React.ReactNode;
   fillPercent?: string | number;
-  element: BoxProps['element'];
+  element: BoxProps["element"];
   onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
 }
 export const SliderTrack: React.FC<SliderTrackProps> = ({
-  element = 'SLIDER_TRACK',
-  fillPercent = '0%',
+  element = "SLIDER_TRACK",
+  fillPercent = "0%",
   children,
   ...props
 }) => {
@@ -43,4 +43,4 @@ export const SliderTrack: React.FC<SliderTrackProps> = ({
     </Box>
   );
 };
-SliderTrack.displayName = 'SliderTrack';
+SliderTrack.displayName = "SliderTrack";

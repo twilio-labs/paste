@@ -5,8 +5,8 @@
  */
 export function convertFilePathsToPackageNames(filePaths: string[]): string[] {
   const packageNames = filePaths.map((filePath) => {
-    const componentPath = filePath.slice(filePath.indexOf('/paste-core/'));
-    const componentName = componentPath.split('/')[3];
+    const componentPath = filePath.slice(filePath.indexOf("/paste-core/"));
+    const componentName = componentPath.split("/")[3];
     return `@twilio-paste/${componentName}`;
   });
   return [...new Set(packageNames)];

@@ -1,10 +1,10 @@
-import * as React from 'react';
-import type {StoryFn} from '@storybook/react';
+import type { StoryFn } from "@storybook/react";
+import * as React from "react";
 
-import {Segment as SegmentComposition} from './components/Segment';
+import { Segment as SegmentComposition } from "./components/Segment";
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Sidebar/FullCompositions',
+  title: "Components/Sidebar/FullCompositions",
 };
 
 export const Segment: StoryFn = () => {

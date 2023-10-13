@@ -1,20 +1,20 @@
+import { Anchor } from "@twilio-paste/anchor";
+import { Avatar, AvatarGroup } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { AcceptIcon } from "@twilio-paste/icons/esm/AcceptIcon";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Text } from "@twilio-paste/text";
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
-import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
-import {Text} from '@twilio-paste/text';
-import {Avatar, AvatarGroup} from '@twilio-paste/avatar';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {AcceptIcon} from '@twilio-paste/icons/esm/AcceptIcon';
-import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
-import {Box} from '@twilio-paste/box';
-import {useUID} from 'react-uid';
+import * as React from "react";
+import { useUID } from "react-uid";
 
-import {VisualPickerCheckboxGroup, VisualPickerCheckbox} from '../src';
+import { VisualPickerCheckbox, VisualPickerCheckboxGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Visual Picker/Checkbox',
+  title: "Components/Visual Picker/Checkbox",
   component: VisualPickerCheckboxGroup,
 };
 

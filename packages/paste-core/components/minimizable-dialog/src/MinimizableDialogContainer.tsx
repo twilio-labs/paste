@@ -1,11 +1,11 @@
-import * as React from 'react';
 import type {
-  NonModalDialogPrimitiveStateReturn,
   NonModalDialogPrimitivePopoverInitialState,
-} from '@twilio-paste/non-modal-dialog-primitive';
-import {useNonModalDialogPrimitiveState} from '@twilio-paste/non-modal-dialog-primitive';
+  NonModalDialogPrimitiveStateReturn,
+} from "@twilio-paste/non-modal-dialog-primitive";
+import { useNonModalDialogPrimitiveState } from "@twilio-paste/non-modal-dialog-primitive";
+import * as React from "react";
 
-import {MinimizableDialogContext} from './MinimizableDialogContext';
+import { MinimizableDialogContext } from "./MinimizableDialogContext";
 
 export interface MinimizableDialogStateReturn extends NonModalDialogPrimitiveStateReturn {
   [key: string]: any;
@@ -24,9 +24,9 @@ export const useMinimizableDialogState = ({
   const expand = (): void => setMinimized(false);
   const toggleMinimized = (): void => setMinimized((prev) => !prev);
 
-  const dialog = useNonModalDialogPrimitiveState({...initialState});
+  const dialog = useNonModalDialogPrimitiveState({ ...initialState });
 
-  return {...dialog, minimized, minimize, expand, toggleMinimized};
+  return { ...dialog, minimized, minimize, expand, toggleMinimized };
 };
 
 export interface MinimizableDialogContainerProps extends NonModalDialogPrimitivePopoverInitialState {
@@ -52,11 +52,11 @@ const BaseMinimizableDialogContainer: React.FC<React.PropsWithChildren<Minimizab
       ...initialState,
     });
 
-  return <MinimizableDialogContext.Provider value={{...dialog}}>{children}</MinimizableDialogContext.Provider>;
+  return <MinimizableDialogContext.Provider value={{ ...dialog }}>{children}</MinimizableDialogContext.Provider>;
 };
-BaseMinimizableDialogContainer.displayName = 'BaseMinimizableDialogContainer';
+BaseMinimizableDialogContainer.displayName = "BaseMinimizableDialogContainer";
 
 const MinimizableDialogContainer = React.memo(BaseMinimizableDialogContainer);
 
-MinimizableDialogContainer.displayName = 'MinimizableDialogContainer';
-export {MinimizableDialogContainer};
+MinimizableDialogContainer.displayName = "MinimizableDialogContainer";
+export { MinimizableDialogContainer };

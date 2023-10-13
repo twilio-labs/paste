@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Checkbox - Components',
+  package: '@twilio-paste/checkbox',
+  description:
+    'The Checkbox and Checkbox Group are used to enable binary choices. These can either be used for an individual choice or to form a collection of choices.',
+  slug: '/components/checkbox/changelog',
+};
+
+import Changelog from '@twilio-paste/checkbox/CHANGELOG.md';
+import packageJson from '@twilio-paste/checkbox/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Checkbox');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox',
+        storybookUrl: '/?path=/story/components-checkbox--default-checkbox',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -44,10 +44,10 @@ import {
   createNewMessage,
 } from '../../../component-examples/ChatComposerExamples';
 import packageJson from '@twilio-paste/chat-composer/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -59,25 +59,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-composer',
+        storybookUrl: '/?path=/story/components-chat-composer--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/chat-composer"
-  storybookUrl="/?path=/story/components-chat-composer--default"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{ChatComposer}} language="jsx">
   {`<ChatComposer config={{namespace: 'customer-chat', onError: (e) => { throw e } }} placeholder="Chat text" ariaLabel="A basic chat composer" />`}
@@ -254,56 +244,3 @@ export const SendButtonPlugin = ({onClick}: {onClick: () => void}): JSX.Element 
 ```
 
 Here we're rendering a button that when clicked can call a callback function, and dispatch the `CLEAR_EDITOR_COMMAND` for the `ClearEditorPlugin` respond to. We use it to add a new chat message in the chat log, and then clear the composer ready for the next message to be typed.
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/chat-composer - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {ChatComposer} from '@twilio-paste/core/chat-composer';
-
-export const BasicChatComposer = () => (
-  <ChatComposer
-    config={{
-      namespace: 'customer-chat',
-      onError: (e) => {
-        throw e;
-      },
-    }}
-    ariaLabel="A basic chat composer"
-    placeholder="Chat text"
-  />
-);
-```
-
-#### Props
-
-| Prop            | Type                                                                                       | Description                                                                               | Default           |
-| --------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- | ----------------- |
-| `config`        | `LexicalComposerProps['initialConfig']`                                                    | Configuration provided to the Lexical Composer                                            |                   |
-| `children?`     | `LexicalComposerProps['children]`                                                          | Children provided to the Lexical Composer (i.e. Lexical plugins)                          |                   |
-| `element?`      | `string`                                                                                   | Overrides the default element name to apply unique styles with the Customization Provider | `'CHAT_COMPOSER'` |
-| `placeholder?`  | `string` or `JSX.Element`                                                                  | Placeholder content for the Chat Composer                                                 |                   |
-| `onChange?`     | `onChange?: (editorState: EditorState, editor: LexicalEditor, tags: Set<string>) => void;` | Callback invoked when changes occurs within the Chat Composer                             |                   |
-| `initialValue?` | `string`                                                                                   | Initial value for the Chat Composer                                                       |                   |
-| `maxHeight?`    | `string`                                                                                   | Maximum height for the Chat Composer                                                      |                   |
-
-### Figma
-
-You can find the Chat Composer components in [the Conversations UI Kit section of the Paste Components library](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/Paste-Components?type=design&node-id=15140-99225&mode=design&t=6zHUtRXfN2GWTR0g-0)
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

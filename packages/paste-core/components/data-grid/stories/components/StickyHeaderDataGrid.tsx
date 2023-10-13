@@ -1,10 +1,18 @@
-import * as React from 'react';
-import type {BoxProps} from '@twilio-paste/box';
+import type { BoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell, DataGridFoot} from '../../src';
+import {
+  DataGrid,
+  DataGridBody,
+  DataGridCell,
+  DataGridFoot,
+  DataGridHead,
+  DataGridHeader,
+  DataGridRow,
+} from "../../src";
 
-export const StickyHeaderDataGrid: React.FC<React.PropsWithChildren<{element?: BoxProps['element']}>> = ({
-  element = 'DATA_GRID',
+export const StickyHeaderDataGrid: React.FC<React.PropsWithChildren<{ element?: BoxProps["element"] }>> = ({
+  element = "DATA_GRID",
 }) => {
   /* eslint-disable react/no-array-index-key */
   return (

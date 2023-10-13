@@ -1,3 +1,4 @@
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
 // https://styled-system.com/api/#grid-layout
 /*
  * NOTE:
@@ -5,19 +6,18 @@
  * `rowGap` and `columnGap` are already defined elsewhere and used
  * in our system
  */
-import type {Properties} from 'csstype';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type { Properties } from "csstype";
 
 // CSS native
-export type GridRowOptions = Properties['gridRow'];
-export type GridColumnOptions = Properties['gridColumn'];
-export type GridAutoFlowOptions = Properties['gridAutoFlow'];
-export type GridAutoColumnsOptions = Properties['gridAutoColumns'];
-export type GridAutoRowsOptions = Properties['gridAutoRows'];
-export type GridTemplateColumnsOptions = Properties['gridTemplateColumns'];
-export type GridTemplateRowsOptions = Properties['gridTemplateRows'];
-export type GridTemplateAreasOptions = Properties['gridTemplateAreas'];
-export type GridAreaOptions = Properties['gridArea'];
+export type GridRowOptions = Properties["gridRow"];
+export type GridColumnOptions = Properties["gridColumn"];
+export type GridAutoFlowOptions = Properties["gridAutoFlow"];
+export type GridAutoColumnsOptions = Properties["gridAutoColumns"];
+export type GridAutoRowsOptions = Properties["gridAutoRows"];
+export type GridTemplateColumnsOptions = Properties["gridTemplateColumns"];
+export type GridTemplateRowsOptions = Properties["gridTemplateRows"];
+export type GridTemplateAreasOptions = Properties["gridTemplateAreas"];
+export type GridAreaOptions = Properties["gridArea"];
 
 export type GridRow = ResponsiveValue<GridRowOptions>;
 export type GridColumn = ResponsiveValue<GridColumnOptions>;

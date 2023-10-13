@@ -1,1 +1,1 @@
-export * from '@twilio-paste/display-pill-group';
+export * from "@twilio-paste/display-pill-group";

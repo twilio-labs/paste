@@ -1,5 +1,200 @@
 # Change Log
 
+## 20.4.0
+
+### Minor Changes
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Reakit library] export menu state return and menu initial state
+
+* [`6bc4a8ade`](https://github.com/twilio-labs/paste/commit/6bc4a8ade1b3b9f76bfeee8a954fe3b3969c36d2) [#3501](https://github.com/twilio-labs/paste/pull/3501) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] New exports from icons package
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Menu Primitive] new exports for use in the Account Switcher package: MenuPrimitiveInitialState and MenuPrimitiveStateReturn
+
+* [`6bc4a8ade`](https://github.com/twilio-labs/paste/commit/6bc4a8ade1b3b9f76bfeee8a954fe3b3969c36d2) [#3501](https://github.com/twilio-labs/paste/pull/3501) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add new icons: ProductCommsIcon and TaskIcon
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Menu] Add all inherited props from "div" element to MenuGroupProps, add new exports: MenuInitialState and MenuStateReturn
+
+### Patch Changes
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert Dialog] Improved TsDoc annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Breadcrumb] Improved TsDoc type annotations
+
+- [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848) [#3488](https://github.com/twilio-labs/paste/pull/3488) Thanks [@nkrantz](https://github.com/nkrantz)! - [Slider] Add spacing between min and max range labels, wrap overflow content onto second line, and right-align max range label.
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Media Object]: Improved type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Heading]: Improved TsDoc type annotations
+
+* [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848) [#3488](https://github.com/twilio-labs/paste/pull/3488) Thanks [@nkrantz](https://github.com/nkrantz)! - [Meter] Add spacing between the min and max labels for readability, right-align the max label, and make overflow min/max labels wrap to second line.
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Data Grid]: Improved TsDoc type annotation
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Card] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Improved TsDoc type annotations
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Editable Code Block]: Improved TsDoc type annotations
+
+- [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Flex]: Improved TsDoc annotations
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Aspect Ratio]: improved TsDoc annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Form]: Improved TsDoc type annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Combobox] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Base-radio-checkbox] Specify exports for clarity in index.js file
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Display Heading]: Improved TsDoc type annotations
+
+- [`f1121febc`](https://github.com/twilio-labs/paste/commit/f1121febcc818f964ef74e2a36aeb667d7f74ab7) [#3514](https://github.com/twilio-labs/paste/pull/3514) Thanks [@TheSisb](https://github.com/TheSisb)! - [Non-modal Dialog Primitive] Fix to always use a portal when rendering, even when using the state hook.
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Display Pill Group]: Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert] Improved TsDoc annotations
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Grid]: Improved TsDoc annotations
+
+- [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [User Dialog]: small improvement to the `UserDiaglogButton` types to omit the color prop type from Global HTML attributes, to prevent a type clash
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated exports map
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Description List] Improved TsDoc type annotations
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Stack]: Improved TsDoc annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Date Picker]: Improved TsDoc type annotation
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated pacakge exports
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Healp Text]: Improved TsDoc type annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Checkbox] Improved TsDoc type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [File Picker]: Improved TsDoc type annotations
+
+* [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Table] Added TsDoc type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Form Pill Group]: Improved TsDoc type annotations
+
+* [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] Added TsDoc type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Disclosure]: Improved TsDoc type annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Combobox] Improved TsDoc type annotations
+
+- [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Anchor] Add TsDoc type annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Log] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Callout] Improved TsDoc type annotations
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Table] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Improved TsDoc annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button Group] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Account Switcher] Improved TsDoc annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] Improved TsDoc type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [File Uploader]: Improved TsDoc type annotations
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Detail Text]: Improved TsDoc type annotations
+
+* Updated dependencies [[`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`f1121febc`](https://github.com/twilio-labs/paste/commit/f1121febcc818f964ef74e2a36aeb667d7f74ab7), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5)]:
+  - @twilio-paste/alert-dialog@9.2.0
+  - @twilio-paste/breadcrumb@11.1.0
+  - @twilio-paste/slider@3.0.0
+  - @twilio-paste/media-object@10.1.0
+  - @twilio-paste/heading@11.1.0
+  - @twilio-paste/meter@1.0.2
+  - @twilio-paste/data-grid@8.1.0
+  - @twilio-paste/card@9.1.0
+  - @twilio-paste/chat-composer@5.1.0
+  - @twilio-paste/editable-code-block@2.1.0
+  - @twilio-paste/flex@8.1.0
+  - @twilio-paste/aspect-ratio@10.1.0
+  - @twilio-paste/form@11.1.0
+  - @twilio-paste/combobox@16.2.0
+  - @twilio-paste/base-radio-checkbox@13.1.0
+  - @twilio-paste/reakit-library@2.1.0
+  - @twilio-paste/display-heading@4.1.0
+  - @twilio-paste/non-modal-dialog-primitive@2.0.1
+  - @twilio-paste/display-pill-group@8.0.1
+  - @twilio-paste/alert@14.1.0
+  - @twilio-paste/menu-primitive@2.1.0
+  - @twilio-paste/grid@8.1.0
+  - @twilio-paste/user-dialog@2.1.0
+  - @twilio-paste/description-list@4.1.0
+  - @twilio-paste/stack@8.1.0
+  - @twilio-paste/date-picker@6.1.0
+  - @twilio-paste/help-text@13.1.0
+  - @twilio-paste/checkbox@13.1.0
+  - @twilio-paste/file-picker@4.1.0
+  - @twilio-paste/table@8.1.0
+  - @twilio-paste/form-pill-group@8.0.1
+  - @twilio-paste/button@14.1.0
+  - @twilio-paste/disclosure@12.1.0
+  - @twilio-paste/account-switcher@3.0.0
+  - @twilio-paste/anchor@12.1.0
+  - @twilio-paste/avatar@9.1.0
+  - @twilio-paste/badge@8.1.0
+  - @twilio-paste/button-group@4.1.0
+  - @twilio-paste/callout@4.1.0
+  - @twilio-paste/chat-log@5.2.0
+  - @twilio-paste/code-block@4.1.0
+  - @twilio-paste/detail-text@3.1.0
+  - @twilio-paste/file-uploader@4.1.0
+  - @twilio-paste/in-page-navigation@4.1.0
+  - @twilio-paste/inline-code@4.1.0
+  - @twilio-paste/input@9.1.0
+  - @twilio-paste/input-box@10.1.0
+  - @twilio-paste/label@13.1.0
+  - @twilio-paste/list@8.1.0
+  - @twilio-paste/menu@14.1.0
+  - @twilio-paste/minimizable-dialog@4.1.0
+  - @twilio-paste/modal@16.1.0
+  - @twilio-paste/pagination@7.1.0
+  - @twilio-paste/paragraph@10.1.0
+  - @twilio-paste/popover@13.1.0
+  - @twilio-paste/product-switcher@3.0.0
+  - @twilio-paste/progress-steps@2.1.0
+  - @twilio-paste/radio-button-group@4.1.0
+  - @twilio-paste/radio-group@13.1.0
+  - @twilio-paste/screen-reader-only@13.1.0
+  - @twilio-paste/select@12.1.0
+  - @twilio-paste/separator@8.1.0
+  - @twilio-paste/side-modal@4.1.0
+  - @twilio-paste/sidebar@1.1.0
+  - @twilio-paste/skeleton-loader@6.1.0
+  - @twilio-paste/spinner@14.1.0
+  - @twilio-paste/status@2.1.0
+  - @twilio-paste/switch@5.1.0
+  - @twilio-paste/tabs@8.1.0
+  - @twilio-paste/textarea@10.1.0
+  - @twilio-paste/time-picker@6.1.0
+  - @twilio-paste/toast@12.1.0
+  - @twilio-paste/tooltip@11.1.0
+  - @twilio-paste/topbar@1.1.0
+  - @twilio-paste/truncate@14.1.0
+  - @twilio-paste/box@10.1.0
+  - @twilio-paste/combobox-primitive@2.1.0
+  - @twilio-paste/disclosure-primitive@2.1.0
+  - @twilio-paste/sibling-box@9.1.0
+  - @twilio-paste/text@10.1.0
+  - @twilio-paste/customization@8.1.0
+  - @twilio-paste/design-tokens@10.2.0
+  - @twilio-paste/lexical-library@4.1.0
+  - @twilio-paste/react-spectrum-library@2.2.0
+  - @twilio-paste/style-props@9.1.0
+
 ## 20.3.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/stack",
-  "version": "8.0.0",
+  "version": "8.1.0",
   "category": "layout",
   "status": "production",
   "description": "A horizontal and vertical flow component used to create space between components.",
@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "yarn clean && NODE_ENV=production node build.js && tsc && yarn build:typedocs",
+    "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
     "build:typedocs": "tsx ../../../../tools/build/generate-type-docs",
     "clean": "rm -rf ./dist",
@@ -42,11 +42,11 @@
   },
   "devDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",
-    "@twilio-paste/box": "^10.0.0",
+    "@twilio-paste/box": "^10.1.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
-    "@twilio-paste/customization": "^8.0.0",
-    "@twilio-paste/design-tokens": "^10.0.0",
-    "@twilio-paste/style-props": "^9.0.0",
+    "@twilio-paste/customization": "^8.1.0",
+    "@twilio-paste/design-tokens": "^10.2.0",
+    "@twilio-paste/style-props": "^9.1.0",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/theme": "^11.0.0",
     "@twilio-paste/types": "^6.0.0",

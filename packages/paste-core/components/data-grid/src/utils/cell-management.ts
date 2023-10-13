@@ -1,4 +1,4 @@
-import {getActiveElement, getAllFocusableIn} from './reakit';
+import { getActiveElement, getAllFocusableIn } from "./reakit";
 
 /**
  * Sets the correct tabindex for elements based on whether actionable
@@ -38,8 +38,8 @@ export const delayedSetFocusable = (element?: HTMLElement): void => {
  *
  * @returns {boolean}.
  */
-export const isCell = (element: Element): boolean => {
-  return element.tagName === 'TD' || element.tagName === 'TH';
+export const isCell = (element: Element): element is HTMLTableCellElement => {
+  return element.tagName === "TD" || element.tagName === "TH";
 };
 
 /**
@@ -73,7 +73,7 @@ export const getClosestGridCellFromCurrentFocus = (dataGridId: string): HTMLElem
     return null;
   }
   if (isCell(focusedElement)) {
-    return focusedElement as HTMLElement;
+    return focusedElement;
   }
   return getClosestCellFrom(focusedElement, dataGridId);
 };

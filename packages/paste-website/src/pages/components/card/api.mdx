@@ -1,0 +1,55 @@
+export const meta = {
+  title: 'Card',
+  package: '@twilio-paste/card',
+  description: 'The Twilio Paste Card',
+  slug: '/components/card/api',
+};
+
+import Changelog from '@twilio-paste/card/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/card/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Card');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/card');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/card/',
+        storybookUrl: '/?path=/story/components-card--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/card - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Card} from '@twilio-paste/core/card';
+
+const Card = () => <Card>Hello world</Card>;
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

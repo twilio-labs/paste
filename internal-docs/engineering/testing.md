@@ -9,7 +9,7 @@
   - [End-to-end testing](#end-to-end-testing)
   - [Visual Regression Testing (VRT)](#visual-regression-testing-vrt)
   - [Linting](#linting)
-    - [PrettierJS](#prettierjs)
+    - [BiomeJS and PrettierJS](#biomejs-and-prettierjs)
     - [Commit lint](#commit-lint)
   - [Running tests/checks](#running-testschecks)
     - [Locally](#locally)
@@ -98,11 +98,11 @@ Linting should be performed:
 
 If your code fails to meet the ESLint rules, you will “break the build”. This will prevent you from merging a PR or publishing new packages on `main`.
 
-### PrettierJS
+### BiomeJS and PrettierJS
 
-Manually formatting code can be tiresome so we use [PrettierJS](https://prettier.io/) (Prettier) to do the leg work for you. Prettier is an opinionated code formatter which is configured to respect our ESLint rules.
+Manually formatting code can be tiresome so we use [BiomeJS](https://biomejs.dev/) and [PrettierJS](https://prettier.io/) (Prettier) to do the leg work for you. They are both an opinionated code formatter which is configured to respect our ESLint rules.
 
-It is configured to format your code when you commit it to git automatically. If using an IDE or Code Editor it is also recommended, if your IDE or editor supports it, to set it to “format on save”. The setting is often found in the user settings of your editor, and may require a Prettier plugin or extension.
+It is configured to format your code when you commit it to git automatically. If using an IDE or Code Editor it is also recommended, if your IDE or editor supports it, to set it to “format on save”. The setting is often found in the user settings of your editor, and may require a plugin or extension.
 
 ### Commit lint
 

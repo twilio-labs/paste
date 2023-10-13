@@ -1,16 +1,30 @@
-import * as React from 'react';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import type {asTags} from '@twilio-paste/heading';
-import type {BoxProps} from '@twilio-paste/box';
+import type { BoxProps } from "@twilio-paste/box";
+import type { asTags } from "@twilio-paste/heading";
+import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface CalloutHeadingProps extends Partial<Omit<HTMLHeadingElement, 'children'>> {
+export interface CalloutHeadingProps extends HTMLPasteProps<asTags> {
+  /**
+   *
+   * @default "h3"
+   * @type {asTags}
+   * @memberof CalloutHeadingProps
+   */
   as?: asTags;
   children?: React.ReactNode;
-  element?: BoxProps['element'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CALLOUT_HEADING"
+   * @type {BoxProps["element"]}
+   * @memberof CalloutHeadingProps
+   */
+  element?: BoxProps["element"];
 }
 
 export const CalloutHeading = React.forwardRef<HTMLHeadingElement, CalloutHeadingProps>(
-  ({element = 'CALLOUT_HEADING', children, as = 'h3', ...props}, ref) => (
+  ({ element = "CALLOUT_HEADING", children, as = "h3", ...props }, ref) => (
     <Text
       {...safelySpreadTextProps(props)}
       as={as}
@@ -22,7 +36,7 @@ export const CalloutHeading = React.forwardRef<HTMLHeadingElement, CalloutHeadin
     >
       {children}
     </Text>
-  )
+  ),
 );
 
-CalloutHeading.displayName = 'CalloutHeading';
+CalloutHeading.displayName = "CalloutHeading";

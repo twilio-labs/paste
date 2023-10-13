@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import type {BoxProps} from '@twilio-paste/box';
-import type {ThemeShape} from '@twilio-paste/theme';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { Text } from "@twilio-paste/text";
+import type { ThemeShape } from "@twilio-paste/theme";
+import * as React from "react";
 
-type LineHeightExampleProps = Pick<BoxProps, 'lineHeight' | 'color' | 'backgroundColor'> & {
+type LineHeightExampleProps = Pick<BoxProps, "lineHeight" | "color" | "backgroundColor"> & {
   tokenName: string;
 };
 
@@ -15,7 +15,7 @@ export const LineHeightExample: React.FC<React.PropsWithChildren<LineHeightExamp
   backgroundColor,
 }) => {
   const lineHeightValue = tokenName ? tokenName.match(/\d+/) : null;
-  const fontSizeValue = `fontSize${lineHeightValue}` as keyof ThemeShape['fontSizes'];
+  const fontSizeValue = `fontSize${lineHeightValue}` as keyof ThemeShape["fontSizes"];
 
   return (
     <Box backgroundColor={backgroundColor} flex={1} textAlign="center">

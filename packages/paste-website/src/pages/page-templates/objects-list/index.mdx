@@ -6,6 +6,7 @@ export const meta = {
 };
 
 import {ObjectsListIngredients} from '../../../components/ingredients/ObjectsListIngredients';
+import {FullObjectsListExample, DefaultObjectsListExample} from '../../../component-examples/page-templates/ObjectsListExamples';
 import {SidebarCategoryRoutes} from '../../../constants';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -44,6 +45,12 @@ export const getStaticProps = async () => {
 
 <content>
 
+<StoryPreview
+  title="Object list page template - full"
+  storyID="website-pagetemplateexamples--full-objects-list-example"
+  code={FullObjectsListExample}
+/>
+
 ## About Objects list
 
 An Objects list shows a list of unique items or records (objects), such as logs or contacts. The page can include [search and filtering](/patterns/filter-group) to help customers find an item they’re looking for, and bulk actions like [export](/patterns/data-export) or [delete](/patterns/delete).
@@ -62,6 +69,12 @@ If the customer is primarily editing information, use the [Settings](/page-templ
 <ObjectsListIngredients />
 
 ## How to use this template
+
+<StoryPreview
+  title="Object list page template - example"
+  storyID="website-pagetemplateexamples--default-objects-list-example"
+  code={DefaultObjectsListExample}
+/>
 
 ### Page header
 
