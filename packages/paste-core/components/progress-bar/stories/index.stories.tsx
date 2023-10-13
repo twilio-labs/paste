@@ -1,8 +1,8 @@
+import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Form, FormControl } from "@twilio-paste/form";
 import { HelpText } from "@twilio-paste/help-text";
-import { Label } from "@twilio-paste/label";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
@@ -18,7 +18,7 @@ const NumberFormatter = new Intl.NumberFormat("en-US");
 export const Default = (): React.ReactNode => {
   const progressBarId = useUID();
   const helpTextId = useUID();
-  const [value, setValue] = React.useState<number>(0);
+  const [value, setValue] = React.useState<number>(5);
   const [rerun, setRerun] = React.useState<number>(1);
 
   // Randomly updates the value of the progress bar to simulate a real progress bar
@@ -31,7 +31,16 @@ export const Default = (): React.ReactNode => {
             setRerun(0);
             return 100;
           }
-          return previousValue + Math.random() * 12;
+          const newValue = previousValue + Math.random() * 12;
+
+          /*
+           * intentionally causes another loop for UX so that the
+           * submit button is not enabled until the progress fills cleanly
+           */
+          if (newValue > 100) {
+            return 100;
+          }
+          return newValue;
         });
       }, 600);
     }
@@ -42,8 +51,15 @@ export const Default = (): React.ReactNode => {
     <Box maxWidth="600px">
       <Form>
         <FormControl>
-          <ProgressBarLabel htmlFor={progressBarId}>Downloading more ram</ProgressBarLabel>
-          <ProgressBar id={progressBarId} aria-describedby={helpTextId} value={value} />
+          <ProgressBarLabel htmlFor={progressBarId} valueLabel={`${Math.round(value)}%`}>
+            Downloading more ram
+          </ProgressBarLabel>
+          <ProgressBar
+            id={progressBarId}
+            aria-describedby={helpTextId}
+            value={value}
+            valueLabel={`${Math.round(value)}%`}
+          />
           <HelpText id={helpTextId}>
             Increasing your ram helps your computer run faster. {NumberFormatter.format(value)}% complete.
           </HelpText>
@@ -80,6 +96,50 @@ export const Indeterminate = (): React.ReactNode => {
   );
 };
 
+export const ErrorStory = (): React.ReactNode => {
+  const progressBarId = useUID();
+  const helpTextId = useUID();
+
+  return (
+    <Box maxWidth="600px">
+      <Form>
+        <FormControl>
+          <ProgressBarLabel htmlFor={progressBarId} valueLabel="50%">
+            mtn_sunrise.png
+          </ProgressBarLabel>
+          <ProgressBar id={progressBarId} aria-describedby={helpTextId} value={50} valueLabel="50%" hasError />
+          <HelpText variant="error" id={helpTextId}>
+            Upload failed. <Anchor href="#">Retry upload</Anchor>
+          </HelpText>
+        </FormControl>
+      </Form>
+    </Box>
+  );
+};
+ErrorStory.displayName = "Error";
+
+export const DisabledStory = (): React.ReactNode => {
+  const progressBarId = useUID();
+  const helpTextId = useUID();
+
+  return (
+    <Box maxWidth="600px">
+      <Form>
+        <FormControl>
+          <ProgressBarLabel disabled htmlFor={progressBarId} valueLabel="50%">
+            Campaign registration
+          </ProgressBarLabel>
+          <ProgressBar id={progressBarId} aria-describedby={helpTextId} value={80} disabled />
+          <HelpText variant="default" id={helpTextId}>
+            Your profile is in review. You will receive an email about your application status in 3-5 business days.
+          </HelpText>
+        </FormControl>
+      </Form>
+    </Box>
+  );
+};
+DisabledStory.displayName = "Disabled";
+
 export const LabelingApproaches = (): React.ReactNode => {
   const labelId = useUID();
 
@@ -105,7 +165,9 @@ export const CustomRange = (): React.ReactNode => {
     <Box maxWidth="600px">
       <Form>
         <FormControl>
-          <ProgressBarLabel htmlFor={progressBarId}>Friends coming to your birthday</ProgressBarLabel>
+          <ProgressBarLabel htmlFor={progressBarId} valueLabel="21 of 30">
+            Friends coming to your birthday
+          </ProgressBarLabel>
           <ProgressBar id={progressBarId} value={21} maxValue={30} />
         </FormControl>
       </Form>
@@ -120,7 +182,9 @@ export const CustomValueText = (): React.ReactNode => {
     <Box maxWidth="600px">
       <Form>
         <FormControl>
-          <ProgressBarLabel htmlFor={progressBarId}>Friends coming to your birthday</ProgressBarLabel>
+          <ProgressBarLabel htmlFor={progressBarId} valueLabel="21 friends accepted">
+            Friends coming to your birthday
+          </ProgressBarLabel>
           <ProgressBar
             id={progressBarId}
             value={21}
