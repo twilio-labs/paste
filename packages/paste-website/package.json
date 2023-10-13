@@ -185,6 +185,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.6",
+    "@storybook/react": "7.0.6",
     "@testing-library/react": "^13.4.0",
     "tsx": "^3.12.10"
   },

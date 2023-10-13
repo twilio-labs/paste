@@ -13598,6 +13598,7 @@ __metadata:
     "@octokit/core": ^5.0.1
     "@octokit/plugin-paginate-graphql": ^4.0.0
     "@sparticuz/chromium": ^110.0.0
+    "@storybook/react": 7.0.6
     "@supabase/supabase-js": ^2.36.0
     "@testing-library/react": ^13.4.0
     "@twilio-paste/account-switcher": ^3.0.0
