@@ -7,7 +7,7 @@ import * as React from "react";
 
 import { type DocSearchItem } from "./types";
 
-export const FakeHeading: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const SearchResultHeading: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Box fontWeight="fontWeightSemibold" fontSize="fontSize20" marginY="space10" textDecoration="underline">
       {children}
@@ -15,7 +15,7 @@ export const FakeHeading: React.FC<React.PropsWithChildren> = ({ children }) => 
   );
 };
 
-export const FakeParagraph: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const SearchResultParagraph: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Box fontSize="fontSize20" marginY="space10">
       {children}
@@ -23,7 +23,7 @@ export const FakeParagraph: React.FC<React.PropsWithChildren> = ({ children }) =
   );
 };
 
-export const FakeList: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const SearchResultList: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Box as="ul" fontSize="fontSize20" paddingLeft="space50" marginY="space10">
       {children}
@@ -31,7 +31,7 @@ export const FakeList: React.FC<React.PropsWithChildren> = ({ children }) => {
   );
 };
 
-export const FakeListItem: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const SearchResultListItem: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <Box as="li" fontSize="fontSize20" marginY="space10">
       {children}
@@ -42,7 +42,7 @@ export const FakeListItem: React.FC<React.PropsWithChildren> = ({ children }) =>
 export const SearchResultDocs: React.FC<{ searchItem: DocSearchItem }> = ({ searchItem }) => {
   return (
     <Box
-      // @ts-expect-error its fine
+      // @ts-expect-error in this instance we're overriding our own guards for rendering Box as another component, as we're hooking into the NextJs Link component for client side routing, but we want to style it using our styling  primitives and Design Tokens for system consistency.
       as={Link}
       display="block"
       textDecoration="none"
@@ -71,25 +71,25 @@ export const SearchResultDocs: React.FC<{ searchItem: DocSearchItem }> = ({ sear
               component: Anchor,
             },
             h1: {
-              component: FakeHeading,
+              component: SearchResultHeading,
             },
             h2: {
-              component: FakeHeading,
+              component: SearchResultHeading,
             },
             h3: {
-              component: FakeHeading,
+              component: SearchResultHeading,
             },
             h4: {
-              component: FakeHeading,
+              component: SearchResultHeading,
             },
             p: {
-              component: FakeParagraph,
+              component: SearchResultParagraph,
             },
             ul: {
-              component: FakeList,
+              component: SearchResultList,
             },
             li: {
-              component: FakeListItem,
+              component: SearchResultListItem,
             },
           },
         }}

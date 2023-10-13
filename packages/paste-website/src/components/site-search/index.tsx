@@ -25,31 +25,42 @@ const SiteSearch: React.FC<React.PropsWithChildren<SiteSearchProps>> = ({ isOpen
 
   const inputRef = React.useRef<HTMLInputElement>(null);
 
+  const performSearch = React.useCallback(async (): Promise<void> => {
+    if (searchQuery === "") {
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      const cachedResults = sessionStorage.getItem(searchQuery);
+      if (cachedResults) {
+        setResults(JSON.parse(cachedResults));
+      } else {
+        const response = await fetch("/api/docs-search", {
+          method: "POST",
+          body: JSON.stringify({ prompt: searchQuery }),
+        });
+        const json = (await response.json()) as SearchResults;
+        const groupedResults = groupResults(json.data);
+        setResults(groupedResults);
+        sessionStorage.setItem(searchQuery, JSON.stringify(groupedResults));
+      }
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error(error);
+    }
+
+    setSearchInitialState(false);
+    setLoading(false);
+  }, [searchQuery]);
+
   React.useEffect(() => {
     if (searchQuery === "") {
       // reset the search state when we empty the search query to start again
       setSearchInitialState(true);
     }
   }, [searchQuery]);
-
-  const performSearch = async (): Promise<void> => {
-    setResults({});
-    setLoading(true);
-    try {
-      const response = await fetch("/api/docs-search", {
-        method: "POST",
-        body: JSON.stringify({ prompt: searchQuery }),
-      });
-      const json = (await response.json()) as SearchResults;
-      const groupedResults = groupResults(json.data);
-      setResults(groupedResults);
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.error(error);
-    }
-    setSearchInitialState(false);
-    setLoading(false);
-  };
 
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     setSearchQuery(event.target.value);

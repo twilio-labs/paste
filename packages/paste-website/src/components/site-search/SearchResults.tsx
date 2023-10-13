@@ -1,6 +1,8 @@
+import { secureExternalLink } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
 import { DocumentationIcon } from "@twilio-paste/icons/esm/DocumentationIcon";
+import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
 import Link from "next/link";
 import * as React from "react";
 
@@ -17,7 +19,7 @@ const DiscussionHeading: React.FC<{ title: string; path: string }> = ({ title, p
   return (
     <Heading as="h2" variant="heading40" marginBottom="space0">
       <Box
-        // @ts-expect-error its fine
+        // @ts-expect-error in this instance we're overriding our own guards for rendering Box as another component, as we're hooking into the NextJs Link component for client side routing, but we want to style it using our styling  primitives and Design Tokens for system consistency.
         as={Link}
         href={path}
         color="colorText"
@@ -27,12 +29,14 @@ const DiscussionHeading: React.FC<{ title: string; path: string }> = ({ title, p
         outline="none"
         display="block"
         padding="space20"
+        {...secureExternalLink(path)}
       >
         <Box as="span" display="flex" alignItems="center" columnGap="space40">
           <Box size="sizeIcon40" color="colorTextIcon">
             <GithubIcon decorative={true} />
           </Box>
           {title}
+          <LinkExternalIcon decorative={false} title="external page" />
         </Box>
       </Box>
     </Heading>
@@ -49,7 +53,7 @@ const DocumentationHeading: React.FC<{ title: string; slug: string }> = ({ title
             {sentenceCase(slug.split("/")[1])}
           </Box>
           <Box
-            // @ts-expect-error its fine
+            // @ts-expect-error in this instance we're overriding our own guards for rendering Box as another component, as we're hooking into the NextJs Link component for client side routing, but we want to style it using our styling  primitives and Design Tokens for system consistency.
             as={Link}
             href={slug}
             color="colorText"
@@ -134,7 +138,7 @@ const SearchResultsList: React.FC<SearchResultsProps> = ({ results }) => {
                           height: "100%",
                         }}
                         _last={{
-                          // @ts-expect-error we technically only allow design tokens
+                          // @ts-expect-error we technically only allow design tokens but we need access to override the after pseudo element
                           "&:after": {
                             display: "none",
                           },
