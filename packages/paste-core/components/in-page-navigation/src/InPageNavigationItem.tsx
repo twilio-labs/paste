@@ -7,15 +7,8 @@ import * as React from "react";
 import { InPageNavigationContext } from "./InPageNavigationContext";
 
 const BASE_STYLES: BoxStyleProps = {
-  borderBottomColor: "transparent",
-  borderBottomStyle: "solid",
-  borderBottomWidth: "borderWidth10",
   color: "colorTextWeak",
   minWidth: "sizeSquare130",
-  paddingBottom: "space40",
-  paddingLeft: "space20",
-  paddingRight: "space20",
-  paddingTop: "space40",
   textAlign: "center",
   fontSize: "fontSize30",
   fontWeight: "fontWeightMedium",
@@ -24,8 +17,6 @@ const BASE_STYLES: BoxStyleProps = {
   textOverflow: "ellipsis",
   transition: "border-color 100ms ease, color 100ms ease",
   whiteSpace: "nowrap",
-  display: "block",
-  width: "100%",
   textDecoration: "none",
   _hover: {
     borderBottomColor: "colorBorderPrimaryStronger",
@@ -38,8 +29,34 @@ const BASE_STYLES: BoxStyleProps = {
   },
 };
 
+const HORIZONTAL_BASE_STYLES: BoxStyleProps = {
+  ...BASE_STYLES,
+  width: "100%",
+  display: "block",
+  borderBottomColor: "transparent",
+  borderBottomStyle: "solid",
+  borderBottomWidth: "borderWidth10",
+  paddingBottom: "space40",
+  paddingLeft: "space20",
+  paddingRight: "space20",
+  paddingTop: "space40",
+};
+const VERTICAL_BASE_STYLES: BoxStyleProps = {
+  ...BASE_STYLES,
+  width: "auto",
+  display: "inline-block",
+  borderLeftColor: "transparent",
+  borderLeftStyle: "solid",
+  borderLeftWidth: "borderWidth10",
+  paddingBottom: "space30",
+  paddingTop: "space30",
+  paddingLeft: "space50",
+  paddingRight: "space50",
+};
+
 const CURRENT_PAGE_STYLES: BoxStyleProps = {
   borderBottomColor: "colorBorderPrimary",
+  borderLeftColor: "colorBorderPrimary",
   color: "colorTextLink",
 };
 
@@ -58,6 +75,7 @@ const INVERSE_STYLES: BoxStyleProps = {
 
 const INVERSE_CURRENT_PAGE_STYLES: BoxStyleProps = {
   borderBottomColor: "colorBorderInverseStrong",
+  borderLeftColor: "colorBorderInverseStrong",
   color: "colorTextInverse",
 };
 
@@ -70,7 +88,7 @@ export interface InPageNavigationItemProps extends HTMLPasteProps<"a"> {
 
 const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationItemProps>(
   ({ element = "IN_PAGE_NAVIGATION_ITEM", currentPage = false, href, children, ...props }, ref) => {
-    const { variant } = React.useContext(InPageNavigationContext);
+    const { variant, orientation } = React.useContext(InPageNavigationContext);
     const isFullWidth = variant === "fullWidth" || variant === "inverse_fullWidth";
     const isInverse = variant === "inverse" || variant === "inverse_fullWidth";
     let currentPageStyles = {};
@@ -78,6 +96,27 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
     if (currentPage) {
       if (isInverse) currentPageStyles = INVERSE_CURRENT_PAGE_STYLES;
       else currentPageStyles = CURRENT_PAGE_STYLES;
+    }
+
+    if (orientation === "vertical") {
+      return (
+        <Box as="li" ref={ref} element={element} minWidth="size0" marginBottom="space20" display="inline-flex">
+          <Box
+            {...secureExternalLink(href)}
+            {...safelySpreadBoxProps(props)}
+            {...VERTICAL_BASE_STYLES}
+            {...(isInverse ? INVERSE_STYLES : {})}
+            {...currentPageStyles}
+            as="a"
+            ref={ref}
+            element={`${element}_ANCHOR`}
+            aria-current={currentPage ? "page" : undefined}
+            href={href}
+          >
+            {children}
+          </Box>
+        </Box>
+      );
     }
 
     return (
@@ -94,7 +133,7 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
         <Box
           {...secureExternalLink(href)}
           {...safelySpreadBoxProps(props)}
-          {...BASE_STYLES}
+          {...HORIZONTAL_BASE_STYLES}
           {...(isInverse ? INVERSE_STYLES : {})}
           {...currentPageStyles}
           as="a"
