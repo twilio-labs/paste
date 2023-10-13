@@ -1,20 +1,31 @@
-export type SearchItem = {
-  type: string;
-  source: string;
-  path: string;
-  similarity: number;
-  slug: string;
+type CommonSearchItem = {
   content: string;
   heading: string;
+  path: string;
+  similarity: number;
+  source: string;
+  slug: string;
   meta: {
-    id?: string;
-    updatedAt?: string;
     title: string;
-    description?: string;
-    package?: string;
-    slug?: string;
   };
 };
+export type DocSearchItem = CommonSearchItem & {
+  type: "markdown";
+  meta: {
+    description: string;
+    package: string;
+    slug: string;
+  };
+};
+export type DiscussionSearchItem = CommonSearchItem & {
+  type: "github-discussions";
+  meta: {
+    id: string;
+    updatedAt: string;
+  };
+};
+
+export type SearchItem = DocSearchItem | DiscussionSearchItem;
 
 export type SearchResults = {
   data: SearchItem[];

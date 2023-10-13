@@ -7,7 +7,7 @@ import * as React from "react";
 import { sentenceCase } from "../../utils/SentenceCase";
 import GithubIcon from "../icons/GithubIcon";
 import { SearchResultDocs } from "./SearchResultDocs";
-import { type GroupedSearchResults } from "./types";
+import { type DocSearchItem, type GroupedSearchResults } from "./types";
 
 export interface SearchResultsProps {
   results?: GroupedSearchResults;
@@ -74,18 +74,21 @@ const SearchResultsList: React.FC<SearchResultsProps> = ({ results }) => {
     <>
       {Object.keys(results).map((path) => {
         const resultSections = results[path];
+        const resultType = resultSections[0].type;
         const resultParent = {
           path: resultSections[0].path,
           title: resultSections[0].meta.title,
-          description: resultSections[0].meta.description,
-          slug: resultSections[0].meta.slug,
+          ...(resultType === "markdown" && {
+            description: resultSections[0].meta.description,
+            slug: resultSections[0].meta.slug,
+          }),
         };
-        const resultType = resultSections[0].type;
         return (
           <Box key={path} marginTop="space20" marginBottom="space100" data-cy="paste-docsearch-hits">
-            {resultType === "github-discussions" ? (
+            {resultType === "github-discussions" && (
               <DiscussionHeading path={resultParent.path} title={resultParent.title} />
-            ) : (
+            )}
+            {resultType === "markdown" && resultParent.slug != null && (
               <DocumentationHeading title={resultParent.title} slug={resultParent.slug} />
             )}
             {resultParent.description && (
@@ -137,7 +140,7 @@ const SearchResultsList: React.FC<SearchResultsProps> = ({ results }) => {
                           },
                         }}
                       >
-                        <SearchResultDocs searchItem={result} />
+                        <SearchResultDocs searchItem={result as DocSearchItem} />
                       </Box>
                     );
                   })}

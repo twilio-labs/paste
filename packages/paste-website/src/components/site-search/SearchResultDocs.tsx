@@ -5,7 +5,7 @@ import Markdown from "markdown-to-jsx";
 import Link from "next/link";
 import * as React from "react";
 
-import { type SearchItem } from "./types";
+import { type DocSearchItem } from "./types";
 
 export const FakeHeading: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
@@ -39,7 +39,7 @@ export const FakeListItem: React.FC<React.PropsWithChildren> = ({ children }) =>
   );
 };
 
-export const SearchResultDocs: React.FC<{ searchItem: SearchItem }> = ({ searchItem }) => {
+export const SearchResultDocs: React.FC<{ searchItem: DocSearchItem }> = ({ searchItem }) => {
   return (
     <Box
       // @ts-expect-error its fine
