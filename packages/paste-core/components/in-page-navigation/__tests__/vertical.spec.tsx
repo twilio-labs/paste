@@ -7,7 +7,7 @@ import { InPageNavigation, InPageNavigationItem } from "../src";
 describe("InPageNavigation", () => {
   it("should render semantically correct with aria properly", () => {
     const { getByRole, getAllByRole, getByText } = render(
-      <InPageNavigation aria-label="my-nav">
+      <InPageNavigation aria-label="my-nav" orientation="vertical">
         <InPageNavigationItem data-test-id="page-1" href="#">
           page 1
         </InPageNavigationItem>
@@ -27,7 +27,7 @@ describe("InPageNavigation", () => {
 });
 
 describe("Customization", () => {
-  it("should add custom styles to the default element name", () => {
+  it("should set a default element name", () => {
     const { getByRole } = render(
       <CustomizationProvider
         baseTheme="default"
@@ -39,10 +39,9 @@ describe("Customization", () => {
           IN_PAGE_NAVIGATION_ITEM_ANCHOR: { fontSize: "fontSize40" },
         }}
       >
-        <InPageNavigation aria-label="my-nav">
+        <InPageNavigation aria-label="my-nav" orientation="vertical">
           <InPageNavigationItem href="#">page 1</InPageNavigationItem>
         </InPageNavigation>
-        ,
       </CustomizationProvider>,
     );
 
@@ -74,7 +73,7 @@ describe("Customization", () => {
           MY_IN_PAGE_NAVIGATION_ITEM_ANCHOR: { fontSize: "fontSize40" },
         }}
       >
-        <InPageNavigation element="MY_IN_PAGE_NAVIGATION" aria-label="my-nav">
+        <InPageNavigation element="MY_IN_PAGE_NAVIGATION" aria-label="my-nav" orientation="vertical">
           <InPageNavigationItem element="MY_IN_PAGE_NAVIGATION_ITEM" href="#">
             page 1
           </InPageNavigationItem>
