@@ -1,6 +1,6 @@
 # Docsearch
 
-The search is provided a custom index hosted on Supabase and created by us on a nightly Cron Github Action.
+The search is provided a custom index hosted on Supabase and created by us on a [nightly Cron Github Action](https://github.com/twilio-labs/paste/blob/main/.github/workflows/update_docs_embed.yml).
 
 The Supabase login is stored in OnePassword.
 
@@ -16,7 +16,7 @@ The same happens with Github discussions. The discussion is a page and is split 
 
 We can then perform a similarity search using the user input as the query.
 
-Embeddings are cerated using the the [embedding script](../../../packages/paste-website/scripts/search/).
+Embeddings are generated using the the [embedding script](../../../packages/paste-website/scripts/search/).
 
 ## Returning results
 

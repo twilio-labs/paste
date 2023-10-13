@@ -96,7 +96,7 @@ The documentation site is a [NextJS](https://nextjs.org/) website using the late
 
 The content is largely written in [MDX](https://mdxjs.com/) pages.
 
-The search is custom built based on OpenAI embeddings, a vector DB and a similarity search that allows us to return results across mdx pages and Github discussions.
+The search is custom built based on OpenAI embeddings, a vector DB and a similarity search that allows us to return results across mdx pages and Github discussions. [Learn more](https://github.com/twilio-labs/paste/blob/main/internal-docs/engineering/doc-site/docsearch.md).
 
 The [roadmap](https://paste.twilio.design/roadmap/) is stored in an [Airtable](https://airtable.com/) and imported upon building the website via the [Airtable JS client](https://github.com/Airtable/airtable.js).
 
