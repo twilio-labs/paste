@@ -82,6 +82,11 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
     },
     ref,
   ) => {
+    const [showOptions, setShowOptions] = React.useState(false);
+    React.useEffect(() => {
+      setShowOptions(true);
+    }, []);
+
     return (
       <InputBox
         disabled={disabled}
@@ -92,19 +97,24 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         variant={variant}
       >
         <Box display="flex" width="100%" position="relative">
-          <SelectElement
-            aria-invalid={hasError}
-            data-not-selectize="true"
-            disabled={disabled}
-            ref={ref}
-            element={`${element}_ELEMENT`}
-            {...props}
-            multiple={multiple}
-            size={multiple ? size : 0}
-            variant={variant}
-          >
-            {children}
-          </SelectElement>
+          {showOptions ? (
+            <SelectElement
+              aria-invalid={hasError}
+              data-not-selectize="true"
+              disabled={disabled}
+              ref={ref}
+              element={`${element}_ELEMENT`}
+              {...props}
+              multiple={multiple}
+              size={multiple ? size : 0}
+              variant={variant}
+              key={props.id}
+            >
+              {children}
+            </SelectElement>
+          ) : (
+            <SelectElement>{}</SelectElement>
+          )}
           {!multiple && (
             <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
               <ChevronDownIcon
