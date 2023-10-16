@@ -14,6 +14,7 @@ module.exports = {
     "<rootDir>/packages/(?:.+?)/.next/",
     "<rootDir>/templates/(?:.+?)/.next/",
     "<rootDir>/packages/(?:.+?)/.netlify/",
+    "<rootDir>/.netlify/",
   ],
   cacheDirectory: ".jest-cache",
   coverageDirectory: ".jest-coverage",
