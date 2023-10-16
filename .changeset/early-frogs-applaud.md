@@ -1,6 +1,6 @@
 ---
 "@twilio-paste/progress-bar": minor
-"@twilio-paste/core": core
+"@twilio-paste/core": minor
 ---
 
 [ProgressBar] Added new features and updated the design.
