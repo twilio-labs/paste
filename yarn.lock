@@ -12059,6 +12059,7 @@ __metadata:
     "@twilio-paste/media-object": ^10.0.0
     "@twilio-paste/react-spectrum-library": ^2.0.0
     "@twilio-paste/screen-reader-only": ^13.0.0
+    "@twilio-paste/skeleton-loader": ^6.1.0
     "@twilio-paste/style-props": ^9.0.0
     "@twilio-paste/styling-library": ^3.0.0
     "@twilio-paste/text": ^10.0.0
@@ -12080,6 +12081,7 @@ __metadata:
     "@twilio-paste/media-object": ^10.0.0
     "@twilio-paste/react-spectrum-library": ^2.0.0
     "@twilio-paste/screen-reader-only": ^13.0.0
+    "@twilio-paste/skeleton-loader": ^6.1.0
     "@twilio-paste/style-props": ^9.0.0
     "@twilio-paste/styling-library": ^3.0.0
     "@twilio-paste/text": ^10.0.0

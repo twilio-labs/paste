@@ -25,11 +25,11 @@
       "packages/**/dist/*",
       "tsconfig.build.tsbuildinfo",
       "**/*.d.ts",
+      "**/package.json",
       ".codesandbox/ci.json",
       "build.icon-list.js",
       "**/*.hbs",
-      "apps/backend/supabase/schema.gen.ts",
-      "package.json"
+      "apps/backend/supabase/schema.gen.ts"
     ]
   },
   "organizeImports": {
