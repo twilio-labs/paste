@@ -87,6 +87,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
       setShowOptions(true);
     }, []);
 
+    // N.B. `key` on SelectElement fixes an issue where defaultValue is not respected
     return (
       <InputBox
         disabled={disabled}
@@ -97,24 +98,20 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         variant={variant}
       >
         <Box display="flex" width="100%" position="relative">
-          {showOptions ? (
-            <SelectElement
-              aria-invalid={hasError}
-              data-not-selectize="true"
-              disabled={disabled}
-              ref={ref}
-              element={`${element}_ELEMENT`}
-              {...props}
-              multiple={multiple}
-              size={multiple ? size : 0}
-              variant={variant}
-              key={props.id}
-            >
-              {children}
-            </SelectElement>
-          ) : (
-            <SelectElement>{}</SelectElement>
-          )}
+          <SelectElement
+            aria-invalid={hasError}
+            data-not-selectize="true"
+            disabled={disabled}
+            ref={ref}
+            element={`${element}_ELEMENT`}
+            {...props}
+            multiple={multiple}
+            size={multiple ? size : 0}
+            variant={variant}
+            key={showOptions ? "show" : "hide"}
+          >
+            {showOptions && children}
+          </SelectElement>
           {!multiple && (
             <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
               <ChevronDownIcon
