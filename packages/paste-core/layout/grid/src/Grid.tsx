@@ -45,8 +45,8 @@ const Grid = React.forwardRef<HTMLDivElement, GridProps>(
     const GridColumns = React.useMemo(
       () =>
         React.Children.map(children, (child) =>
-          React.isValidElement(child)
-            ? React.cloneElement(child as React.ReactElement<ColumnProps>, {
+          React.isValidElement<ColumnProps>(child)
+            ? React.cloneElement(child, {
                 count: React.Children.count(children),
                 gutter,
                 vertical,

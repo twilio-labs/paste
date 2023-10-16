@@ -92,8 +92,8 @@ const CheckboxGroup = React.forwardRef<HTMLFieldSetElement, CheckboxGroupProps>(
           i18nRequiredLabel={i18nRequiredLabel}
         >
           {React.Children.map(children, (child, index) => {
-            return React.isValidElement(child)
-              ? React.cloneElement(child as React.ReactElement<CheckboxProps>, {
+            return React.isValidElement<CheckboxProps>(child)
+              ? React.cloneElement(child, {
                   isSelectAll: isSelectAll && index === 0,
                   isSelectAllChild: isSelectAll && orientation === "vertical" && index !== 0,
                 })
