@@ -1,6 +1,6 @@
 import { BaseRadioCheckboxControl, BaseRadioCheckboxLabel } from "@twilio-paste/base-radio-checkbox";
 import { Box } from "@twilio-paste/box";
-import { HiddenRadio, type HiddenRadioState } from "@twilio-paste/radio-group";
+import { HiddenRadio, type HiddenRadioState, type RadioProps } from "@twilio-paste/radio-group";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { type BorderColor } from "@twilio-paste/style-props";
 import { useUID } from "@twilio-paste/uid-library";
@@ -8,7 +8,11 @@ import { useMergeRefs } from "@twilio-paste/utils";
 import * as React from "react";
 
 import { VisualPickerRadioContext } from "./VisualPickerContext";
-import { type VisualPickerRadioProps } from "./types";
+
+export interface VisualPickerRadioProps extends Omit<RadioProps, "helpText" | "defaultChecked" | "checked"> {
+  labelText: string;
+  value: string;
+}
 
 export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPickerRadioProps>(
   (

@@ -1,9 +1,14 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
 import { ListboxPrimitiveItem } from "@twilio-paste/listbox-primitive";
+import type { ListboxPrimitiveItemProps } from "@twilio-paste/listbox-primitive";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-import type { UserDialogListItemProps, UserDialogListboxItemProps } from "./types";
-
+interface UserDialogListboxItemProps extends HTMLPasteProps<"div"> {
+  element?: BoxProps["element"];
+  href?: string;
+}
 const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogListboxItemProps>(
   ({ children, href, element = "USER_DIALOG", ...props }, ref) => {
     return (
@@ -48,6 +53,10 @@ const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogList
 );
 UserDialogListboxItem.displayName = "UserDialogListboxItem";
 
+export interface UserDialogListItemProps extends ListboxPrimitiveItemProps {
+  href?: string;
+  element?: BoxProps["element"];
+}
 export const UserDialogListItem = React.forwardRef<HTMLButtonElement, UserDialogListItemProps>(
   ({ children, ...props }, ref) => {
     return (

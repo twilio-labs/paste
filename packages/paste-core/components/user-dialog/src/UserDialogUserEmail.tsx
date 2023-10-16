@@ -3,7 +3,9 @@ import * as React from "react";
 
 import type { UserDialogUserTextProps } from "./types";
 
-export const UserDialogUserEmail = React.forwardRef<HTMLDivElement, UserDialogUserTextProps>(
+export type UserDialogUserEmailProps = UserDialogUserTextProps;
+
+export const UserDialogUserEmail = React.forwardRef<HTMLDivElement, UserDialogUserEmailProps>(
   ({ children, element = "USER_DIALOG_USER_EMAIL", ...props }, ref) => {
     return (
       <Text

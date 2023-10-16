@@ -1,6 +1,6 @@
 import { BaseRadioCheckboxControl, BaseRadioCheckboxLabel } from "@twilio-paste/base-radio-checkbox";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import { CheckboxIcon, HiddenCheckbox } from "@twilio-paste/checkbox";
+import { CheckboxIcon, type CheckboxProps, HiddenCheckbox } from "@twilio-paste/checkbox";
 import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { type BorderColor } from "@twilio-paste/style-props";
 import { useUID } from "@twilio-paste/uid-library";
@@ -8,8 +8,12 @@ import { useMergeRefs } from "@twilio-paste/utils";
 import * as React from "react";
 
 import { VisualPickerCheckboxContext } from "./VisualPickerContext";
-import { type VisualPickerCheckboxProps } from "./types";
 
+export interface VisualPickerCheckboxProps extends Omit<CheckboxProps, "helpText" | "required" | "defaultChecked"> {
+  labelText: string;
+  checked: boolean;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+}
 export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPickerCheckboxProps>(
   (
     { checked, element = "VISUAL_PICKER_CHECKBOX", children, id, indeterminate, labelText, onChange, ...props },
