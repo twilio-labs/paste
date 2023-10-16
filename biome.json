@@ -25,10 +25,10 @@
       "packages/**/dist/*",
       "tsconfig.build.tsbuildinfo",
       "**/*.d.ts",
+      "**/package.json",
       ".codesandbox/ci.json",
       "build.icon-list.js",
       "**/*.hbs",
-      "docs",
       "apps/backend/supabase/schema.gen.ts"
     ]
   },
