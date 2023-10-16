@@ -1,0 +1,72 @@
+export const meta = {
+  title: 'Progress Bar - API',
+  package: '@twilio-paste/progress-bar',
+  description: 'Progress Bar communicates the completion status of a process or task.',
+  slug: '/components/progress-bar/api',
+};
+
+import Changelog from '@twilio-paste/progress-bar/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/progress-bar/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Progress Bar');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/progress-bar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/progress-bar',
+        storybookUrl: '/?path=/story/components-progressbar--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/progress-bar - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+
+```jsx
+import {ProgressBar, ProgressBarLabel} from '@twilio-paste/core/progress-bar';
+import {Box} from '@twilio-paste/core/box';
+import {HelpText} from '@twilio-paste/core/help-text';
+import {useUID} from '@twilio-paste/core/uid-library';
+
+const AlertDialogExample = () => {
+  const progressBarId = useUID();
+  const helpTextId = useUID();
+
+  return (
+    <Box>
+      <ProgressBarLabel htmlFor={progressBarId}>Downloading more ram</ProgressBarLabel>
+      <ProgressBar id={progressBarId} aria-describedby={helpTextId} isIndeterminate />
+      <HelpText id={helpTextId}>Increasing your ram helps your computer run faster.</HelpText>
+    </Box>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />
+
+

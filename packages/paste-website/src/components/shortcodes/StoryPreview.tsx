@@ -6,12 +6,18 @@ export interface StoryPreviewProps {
   storyID: string;
   title: string;
   code: string;
+  height?: string;
 }
 
 const ENV = process.env.NODE_ENV || "development";
 const BASE_URL = ENV === "production" ? "https://paste-storybook.twilio.design" : "http://localhost:9001";
 
-const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({ storyID, title, code }) => {
+const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({
+  storyID,
+  title,
+  code,
+  height = "500px",
+}) => {
   return (
     <Box
       padding="space20"
@@ -25,7 +31,7 @@ const StoryPreview: React.FC<React.PropsWithChildren<StoryPreviewProps>> = ({ st
         src={`${BASE_URL}/iframe.html?args=&id=${storyID}&viewMode=story`}
         style={{
           width: "100%",
-          height: "500px",
+          height,
           border: 0,
           overflow: "hidden",
           padding: "1.5rem",
