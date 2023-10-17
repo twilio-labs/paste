@@ -1,10 +1,10 @@
 import { type StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
 import { SearchEmptyState } from "../src/components/site-search/SearchEmptyState";
 import { SearchForm } from "../src/components/site-search/SearchForm";
-import { SearchModal } from "../src/components/site-search/SearchModal";
 import { SearchResultsList } from "../src/components/site-search/SearchResults";
 import { SearchResultsLoading } from "../src/components/site-search/SearchResultsLoading";
 import { type GroupedSearchResults } from "../src/components/site-search/types";
@@ -20,7 +20,8 @@ const MockSearchModal: React.FC<{
   const modalHeadingId = useUID();
   const inputRef = React.useRef<HTMLInputElement>(null);
   return (
-    <SearchModal isOpen={true} ariaLabelledby={modalHeadingId} onDismiss={() => {}} initialFocusRef={inputRef}>
+    // we don't need to VRT a modal, we know what they look like else where, we only care about the content
+    <Box>
       <SearchForm
         onSubmit={() => {}}
         hasResults={Object.keys(results).length > 0}
@@ -33,11 +34,24 @@ const MockSearchModal: React.FC<{
       {loading && Object.keys(results).length === 0 && <SearchResultsLoading />}
       {showEmptyState && Object.keys(results).length === 0 && <SearchEmptyState searchQuery={searchQuery} />}
       <SearchResultsList results={results} />
-    </SearchModal>
+    </Box>
   );
 };
 export const SiteSearchTrigger: StoryFn = () => {
   return <SiteHeaderSearch />;
+};
+SiteSearchTrigger.parameters = {
+  a11y: {
+    config: {
+      rules: [
+        {
+          id: "color-contrast",
+          // This uses a symbol as text content and even though it's ignored aXe can't cope with figuring out if it's accessible or not
+          enabled: false,
+        },
+      ],
+    },
+  },
 };
 
 export const SiteSearchModalInitialState: StoryFn = () => {

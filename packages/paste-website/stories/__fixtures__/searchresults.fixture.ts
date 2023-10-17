@@ -1,3 +1,5 @@
+import type { GroupedSearchResults } from "../../src/components/site-search/types";
+
 export const mockResults = {
   "src/pages/components/in-page-navigation/index": [
     {
@@ -150,4 +152,4 @@ export const mockResults = {
       slug: "discussion-5372221",
     },
   ],
-};
+} as GroupedSearchResults;

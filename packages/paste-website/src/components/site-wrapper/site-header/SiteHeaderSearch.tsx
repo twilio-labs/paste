@@ -6,6 +6,7 @@ import { Text } from "@twilio-paste/text";
 import * as React from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { SiteSearch } from "../../site-search";
 
 const SiteHeaderSearch: React.FC = () => {
@@ -58,10 +59,11 @@ const SiteHeaderSearch: React.FC = () => {
               Search
             </Text>
           </Box>
-          <Box as="span">
+          <Box as="span" aria-hidden="true">
             <InlineCode>⌘</InlineCode>
             <InlineCode>K</InlineCode>
           </Box>
+          <ScreenReaderOnly>Keyboard shortcut: Command / Control K</ScreenReaderOnly>
         </Box>
       </Button>
       <SiteSearch isOpen={isOpen} onDismiss={onClose} />
