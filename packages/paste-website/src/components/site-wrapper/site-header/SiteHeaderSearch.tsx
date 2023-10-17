@@ -2,11 +2,11 @@ import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
 import { InlineCode } from "@twilio-paste/inline-code";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
 import { useHotkeys } from "react-hotkeys-hook";
 
-import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { SiteSearch } from "../../site-search";
 
 const SiteHeaderSearch: React.FC = () => {
