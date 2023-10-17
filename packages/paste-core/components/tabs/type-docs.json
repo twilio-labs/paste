@@ -4,7 +4,7 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
+      "externalProp": false,
       "description": "ID that will serve as a base for all the items IDs."
     },
     "currentId": {
@@ -16,9 +16,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "HORIZONTAL_TABS\" or \"VERTICAL_TABS",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "loop": {
       "type": "boolean | Orientation",
@@ -36,9 +37,9 @@
     },
     "orientation": {
       "type": "Orientation",
-      "defaultValue": "undefined",
+      "defaultValue": null,
       "required": false,
-      "externalProp": true,
+      "externalProp": false,
       "description": "Defines the orientation of the composite widget. If the composite has a\nsingle row or column (one-dimensional), the `orientation` value determines\nwhich arrow keys can be used to move focus:\n  - `undefined`: all arrow keys work.\n  - `horizontal`: only left and right arrow keys work.\n  - `vertical`: only up and down arrow keys work.\n\nIt doesn't have any effect on two-dimensional composites."
     },
     "rtl": {
@@ -52,7 +53,7 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
+      "externalProp": false,
       "description": "The current selected tab's `id`."
     },
     "shift": {
@@ -66,7 +67,8 @@
       "type": "TabStateReturn",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "When using the state hook to control the tab set your self, the state prop takes the returned state from the hook."
     },
     "unstable_includesBaseElement": {
       "type": "boolean",
@@ -85,7 +87,8 @@
       "type": "\"fitted\" | \"inverse\" | \"inverse_fitted\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Changes each Tab to either equally fit the width of the containing element or hug the contents of its label."
     },
     "wrap": {
       "type": "boolean | Orientation",
@@ -100,31 +103,22 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
-    },
-    "disabled": {
-      "type": "boolean",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Required label for this Tabs component. Titles the entire Tabbing context for screen readers."
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "HORIZONTAL_TAB_LIST\" or \"VERTICAL_TAB_LIST",
       "required": false,
-      "externalProp": false
-    },
-    "focusable": {
-      "type": "boolean",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "variant": {
       "type": "\"fitted\" | \"inverse\" | \"inverse_fitted\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Changes each Tab to either equally fit the width of the containing element or hug the contents of its label."
     }
   },
   "Tab": {
@@ -225,7 +219,7 @@
       "description": "Identifies the element that provides a detailed, extended description for the object."
     },
     "aria-disabled": {
-      "type": "boolean",
+      "type": "Booleanish",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -540,7 +534,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Same as HTML attribute."
     },
     "draggable": {
       "type": "Booleanish",
@@ -550,15 +545,17 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "HORIZONTAL_TAB\" or \"VERTICAL_TAB",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "focusable": {
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set."
     },
     "hidden": {
       "type": "boolean",
@@ -570,7 +567,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Same as the HTML attribute."
     },
     "inlist": {
       "type": "any",
@@ -1724,35 +1722,40 @@
   "TabPanels": {
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "HORIZONTAL_TAB_PANELS\" or \"VERTICAL_TAB_PANELS",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     }
   },
   "TabPanel": {
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "HORIZONTAL_TAB_PANEL\" or \"VERTICAL_TAB_PANEL",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "id": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Same as the HTML attribute."
     },
     "paddingTop": {
       "type": "\"space0\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Removes the default padding from the TabPanel."
     },
     "tabId": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The ID of the Tab component this Panel pairs with."
     }
   },
   "UseTabsState": {

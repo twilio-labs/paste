@@ -3339,7 +3339,7 @@
       "description": "Identifies the element that provides a detailed, extended description for the object."
     },
     "aria-disabled": {
-      "type": "boolean",
+      "type": "Booleanish",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -3654,7 +3654,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Same as HTML attribute."
     },
     "draggable": {
       "type": "Booleanish",
@@ -3673,7 +3674,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set."
     },
     "hidden": {
       "type": "boolean",
@@ -3685,7 +3687,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Same as the HTML attribute."
     },
     "inlist": {
       "type": "any",
@@ -4837,12 +4840,6 @@
     }
   },
   "CodeBlockTabList": {
-    "disabled": {
-      "type": "boolean",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "element": {
       "type": "string",
       "defaultValue": "CODE_BLOCK_TAB_LIST",
@@ -4850,17 +4847,12 @@
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
-    "focusable": {
-      "type": "boolean",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "variant": {
       "type": "\"fitted\" | \"inverse\" | \"inverse_fitted\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Changes each Tab to either equally fit the width of the containing element or hug the contents of its label."
     }
   },
   "CodeBlockTabPanel": {

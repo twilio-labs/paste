@@ -3,7 +3,15 @@ import * as React from "react";
 
 import type { UserDialogUserTextProps } from "./types";
 
-export type UserDialogUserNameProps = UserDialogUserTextProps;
+export type UserDialogUserNameProps = UserDialogUserTextProps & {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "USER_DIALOG_USER_NAME"
+   * @type {UserDialogUserTextProps["element"]}
+   */
+  element?: UserDialogUserTextProps["element"];
+};
 
 export const UserDialogUserName = React.forwardRef<HTMLDivElement, UserDialogUserTextProps>(
   ({ children, element = "USER_DIALOG_USER_NAME", ...props }, ref) => {

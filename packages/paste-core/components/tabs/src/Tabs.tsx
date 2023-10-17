@@ -17,9 +17,31 @@ export interface TabStateReturn extends TabPrimitiveStateReturn {
 
 export interface TabsProps extends TabPrimitiveInitialState {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "HORIZONTAL_TABS" or "VERTICAL_TABS"
+   * @type {BoxProps["element"]}
+   * @memberof TabsProps
+   */
   element?: BoxProps["element"];
+  /**
+   * When using the state hook to control the tab set your self, the state prop takes the returned state from the hook.
+   *
+   * @type {TabStateReturn}
+   * @memberof TabsProps
+   */
   state?: TabStateReturn;
+  /**
+   * Changes each Tab to either equally fit the width of the containing element or hug the contents of its label.
+   *
+   * @type {Variants}
+   * @memberof TabsProps
+   */
   variant?: Variants;
+  orientation?: TabPrimitiveInitialState["orientation"];
+  selectedId?: TabPrimitiveInitialState["selectedId"];
+  baseId?: TabPrimitiveInitialState["baseId"];
 }
 
 // Set orientation to horizontal because undefined enables all arrow key movement

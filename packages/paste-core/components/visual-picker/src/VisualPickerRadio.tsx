@@ -10,7 +10,27 @@ import * as React from "react";
 import { VisualPickerRadioContext } from "./VisualPickerContext";
 
 export interface VisualPickerRadioProps extends Omit<RadioProps, "helpText" | "defaultChecked" | "checked"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "VISUAL_PICKER_RADIO"
+   * @type {RadioProps["element"]}
+   * @memberof VisualPickerRadioProps
+   */
+  element?: RadioProps["element"];
+  /**
+   * Label text for the radio
+   *
+   * @type {string}
+   * @memberof VisualPickerRadioProps
+   */
   labelText: string;
+  /**
+   * Pass to VisualPickerRadioGroup value when checked
+   *
+   * @type {string}
+   * @memberof VisualPickerRadioProps
+   */
   value: string;
 }
 

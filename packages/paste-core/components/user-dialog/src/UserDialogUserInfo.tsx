@@ -10,6 +10,13 @@ import { UserDialogContext } from "./UserDialogContainer";
 
 export interface UserDialogUserInfoProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "USER_DIALOG_USER_INFO"
+   * @type {BoxProps["element"]}
+   * @memberof UserDialogUserInfoProps
+   */
   element?: BoxProps["element"];
 }
 

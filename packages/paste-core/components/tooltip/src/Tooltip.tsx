@@ -32,12 +32,33 @@ const StyledTooltip = React.forwardRef<HTMLDivElement, BoxProps>(({ style, eleme
 
 StyledTooltip.displayName = "StyledTooltip";
 
+export type UseTooltipInitialStateProps = TooltipPrimitiveInitialState;
 export interface TooltipStateReturn extends TooltipPrimitiveStateReturn {
   [key: string]: any;
 }
-export interface TooltipProps extends TooltipPrimitiveInitialState, Pick<BoxProps, "element"> {
+export interface TooltipProps extends TooltipPrimitiveInitialState {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "TOOLTIP"
+   * @type {BoxProps["element"]}
+   * @memberof TooltipProps
+   */
+  element?: BoxProps["element"];
   children: NonNullable<React.ReactElement>;
+  /**
+   * The returned state from the `useTooltipState` hook.
+   *
+   * @type {TooltipStateReturn}
+   * @memberof TooltipProps
+   */
   state?: TooltipStateReturn;
+  /**
+   * The text content of the Tooltip.
+   *
+   * @type {string}
+   * @memberof TooltipProps
+   */
   text: string;
 }
 

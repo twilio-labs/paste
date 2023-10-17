@@ -8,11 +8,28 @@ import type { Variants } from "./types";
 import { getElementName } from "./utils";
 
 export interface TabListProps {
+  /**
+   * Required label for this Tabs component. Titles the entire Tabbing context for screen readers.
+   *
+   * @type {string}
+   * @memberof TabListProps
+   */
   "aria-label": string;
-  disabled?: boolean | undefined;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "HORIZONTAL_TAB_LIST" or "VERTICAL_TAB_LIST"
+   * @type {BoxProps["element"]}
+   * @memberof TabListProps
+   */
   element?: BoxProps["element"];
-  focusable?: boolean | undefined;
   children: React.ReactNode;
+  /**
+   * Changes each Tab to either equally fit the width of the containing element or hug the contents of its label.
+   *
+   * @type {Variants}
+   * @memberof TabListProps
+   */
   variant?: Variants;
 }
 

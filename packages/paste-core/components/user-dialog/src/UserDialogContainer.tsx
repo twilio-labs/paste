@@ -1,5 +1,4 @@
 import type { AvatarContentProps } from "@twilio-paste/avatar";
-import type { BoxProps } from "@twilio-paste/box";
 import type { GenericIconProps } from "@twilio-paste/icons/esm/types";
 import { useNonModalDialogPrimitiveState } from "@twilio-paste/non-modal-dialog-primitive";
 import type {
@@ -23,11 +22,34 @@ export const useUserDialogState = (props?: UseUserDialogStateProps): UseUserDial
 
 export interface UserDialogContainerProps extends NonModalDialogPrimitivePopoverInitialState {
   children: NonNullable<React.ReactNode>;
+  /**
+   * useUserDialog state hook return value
+   *
+   * @type {UseUserDialogStateReturnProps}
+   * @memberof UserDialogContainerProps
+   */
   state?: UseUserDialogStateReturnProps;
+  /**
+   * Provides name for the Avatar initials
+   *
+   * @type {string}
+   * @memberof UserDialogContainerProps
+   */
   name: string;
+  /**
+   * Provides an image for the Avatar
+   *
+   * @type {string}
+   * @memberof UserDialogContainerProps
+   */
   src?: string;
+  /**
+   * Provides an icon for the Avatar
+   *
+   * @type {React.FC<React.PropsWithChildren<GenericIconProps>>}
+   * @memberof UserDialogContainerProps
+   */
   icon?: React.FC<React.PropsWithChildren<GenericIconProps>>;
-  element?: BoxProps["element"];
 }
 export const UserDialogContainer: React.FC<UserDialogContainerProps> = ({
   children,

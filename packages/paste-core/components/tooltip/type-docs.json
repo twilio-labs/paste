@@ -4,7 +4,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The text content of the Tooltip."
     },
     "animated": {
       "type": "number | boolean",
@@ -22,10 +23,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "TOOLTIP",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "gutter": {
       "type": "number",
@@ -45,7 +46,8 @@
       "type": "TooltipStateReturn",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The returned state from the `useTooltipState` hook."
     },
     "unstable_fixed": {
       "type": "boolean",
@@ -89,7 +91,78 @@
       "description": "Whether it's visible or not."
     }
   },
-  "TooltipStateReturn": {
+  "UseTooltipInitialState": {
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`."
+    },
+    "placement": {
+      "type": "Placement",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Actual `placement`."
+    },
+    "unstable_fixed": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether or not the popover should have `position` set to `fixed`."
+    },
+    "unstable_flip": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Flip the popover's placement when it starts to overlap its reference\nelement."
+    },
+    "unstable_offset": {
+      "type": "[string | number, string | number]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover: [main axis, alt axis]. Should not be combined with `gutter`."
+    },
+    "unstable_preventOverflow": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Prevents popover from being positioned outside the boundary."
+    },
+    "unstable_timeout": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
+    }
+  },
+  "UseTooltipStateReturn": {
     "animated": {
       "type": "number | boolean",
       "defaultValue": null,

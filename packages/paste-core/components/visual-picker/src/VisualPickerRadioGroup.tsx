@@ -5,6 +5,19 @@ import { VisualPickerRadioContext } from "./VisualPickerContext";
 import { type VisualPickerCheckboxRadioGroupProps } from "./types";
 
 export interface VisualPickerRadioGroupProps extends VisualPickerCheckboxRadioGroupProps {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "VISUAL_PICKER_RADIO_GROUP"
+   * @type {VisualPickerCheckboxRadioGroupProps["element"]}
+   */
+  element?: VisualPickerCheckboxRadioGroupProps["element"];
+  /**
+   * Set value equal to the value of the currently selected VisualPickerRadio
+   *
+   * @type {string}
+   * @memberof VisualPickerRadioGroupProps
+   */
   value: string;
   onChange: (value: string) => void;
 }

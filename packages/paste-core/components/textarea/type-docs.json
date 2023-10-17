@@ -436,7 +436,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Disables the textarea."
     },
     "draggable": {
       "type": "Booleanish",
@@ -446,10 +447,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "TEXTAREA",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "form": {
       "type": "string",
@@ -461,13 +462,15 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the textarea to an error state."
     },
     "height": {
       "type": "never",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The height of the textarea is strictly controlled by the component"
     },
     "hidden": {
       "type": "boolean",
@@ -479,7 +482,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the id of the textarea. Should match the htmlFor of `Label`."
     },
     "inlist": {
       "type": "any",
@@ -498,13 +502,15 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Ability to insert icon or other element to the left of the textarea."
     },
     "insertBefore": {
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Ability to insert icon or other element to the right of the textarea."
     },
     "is": {
       "type": "string",
@@ -571,7 +577,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the name of the textarea."
     },
     "nonce": {
       "type": "string",
@@ -1555,7 +1562,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the placeholder of the textarea."
     },
     "prefix": {
       "type": "string",
@@ -1579,19 +1587,22 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input to readonly."
     },
     "required": {
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input as required."
     },
     "resize": {
       "type": "\"none\" | \"vertical\"",
-      "defaultValue": null,
+      "defaultValue": "none",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the resize property of the textarea. We only support vertical resizing."
     },
     "resource": {
       "type": "string",
@@ -1627,7 +1638,8 @@
       "type": "never",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The size of the textarea is strictly controlled by the component"
     },
     "slot": {
       "type": "string",
@@ -1691,9 +1703,10 @@
     },
     "variant": {
       "type": "TextAreaVariants",
-      "defaultValue": null,
+      "defaultValue": "default",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Choose between default or inverse styles for the textarea."
     },
     "vocab": {
       "type": "string",
@@ -1705,7 +1718,8 @@
       "type": "never",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The width of the textarea is strictly controlled by the component"
     },
     "wrap": {
       "type": "string",

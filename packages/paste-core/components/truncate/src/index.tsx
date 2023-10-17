@@ -5,6 +5,12 @@ import * as React from "react";
 
 interface TruncateProps extends HTMLPasteProps<"span">, Pick<BoxProps, "as"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * An accessible label that should match the content of the truncated text. Allows users to see the truncated content.
+   *
+   * @type {string}
+   * @memberof TruncateProps
+   */
   title: string;
 }
 

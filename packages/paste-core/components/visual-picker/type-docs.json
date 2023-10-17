@@ -10,7 +10,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides name for the VisualPicker groups and items"
     },
     "onChange": {
       "type": "(value: string) => void",
@@ -22,7 +23,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Set value equal to the value of the currently selected VisualPickerRadio"
     },
     "about": {
       "type": "string",
@@ -446,19 +448,13 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "VISUAL_PICKER_RADIO_GROUP",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "errorText": {
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "fieldStyleProps": {
-      "type": "BoxStyleProps",
       "defaultValue": null,
       "required": false,
       "externalProp": false
@@ -483,9 +479,10 @@
     },
     "i18nRequiredLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "(required)",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Label text for the required dot in the legend"
     },
     "id": {
       "type": "string",
@@ -1529,9 +1526,10 @@
     },
     "orientation": {
       "type": "\"horizontal\" | \"vertical\"",
-      "defaultValue": null,
+      "defaultValue": "vertical",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the direction of the visual picker group"
     },
     "placeholder": {
       "type": "string",
@@ -1653,13 +1651,15 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Label text for the radio"
     },
     "value": {
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Pass to VisualPickerRadioGroup value when checked"
     },
     "about": {
       "type": "string",
@@ -2113,9 +2113,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "VISUAL_PICKER_RADIO",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "enterKeyHint": {
       "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
@@ -3433,7 +3434,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides name for the VisualPicker groups and items"
     },
     "about": {
       "type": "string",
@@ -3857,19 +3859,13 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "VISUAL_PICKER_CHECKBOX_GROUP",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "errorText": {
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "fieldStyleProps": {
-      "type": "BoxStyleProps",
       "defaultValue": null,
       "required": false,
       "externalProp": false
@@ -3894,9 +3890,10 @@
     },
     "i18nRequiredLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "(required)",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Label text for the required dot in the legend"
     },
     "id": {
       "type": "string",
@@ -4940,9 +4937,10 @@
     },
     "orientation": {
       "type": "\"horizontal\" | \"vertical\"",
-      "defaultValue": null,
+      "defaultValue": "vertical",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the direction of the visual picker group"
     },
     "placeholder": {
       "type": "string",
@@ -5065,19 +5063,21 @@
       "defaultValue": null,
       "required": true,
       "externalProp": false,
-      "description": "Use on the currently selected checkbox"
+      "description": "Determines the checked state of the checkbox"
     },
     "labelText": {
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Label text for the checkbox"
     },
     "onChange": {
       "type": "(event: ChangeEvent<HTMLInputElement>) => void",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Callback for when the checkbox changes"
     },
     "about": {
       "type": "string",
@@ -5531,10 +5531,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "CHECKBOX",
+      "defaultValue": "VISUAL_PICKER_CHECKBOX",
       "required": false,
       "externalProp": false,
-      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "enterKeyHint": {
       "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",

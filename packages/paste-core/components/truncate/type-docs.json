@@ -4,7 +4,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "An accessible label that should match the content of the truncated text. Allows users to see the truncated content."
     },
     "about": {
       "type": "string",

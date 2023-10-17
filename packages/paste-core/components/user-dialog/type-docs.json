@@ -5,7 +5,7 @@
       "defaultValue": null,
       "required": true,
       "externalProp": false,
-      "description": "Defines a string value that labels the current element."
+      "description": "Accessible label for the User Dialog"
     },
     "about": {
       "type": "string",
@@ -430,9 +430,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "USER_DIALOG",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "gutter": {
       "type": "number",
@@ -1656,7 +1657,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides name for the Avatar initials"
     },
     "animated": {
       "type": "number | boolean",
@@ -1672,12 +1674,6 @@
       "externalProp": true,
       "description": "ID that will serve as a base for all the items IDs."
     },
-    "element": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "gutter": {
       "type": "number",
       "defaultValue": null,
@@ -1689,7 +1685,8 @@
       "type": "FC<PropsWithChildren<GenericIconProps>>",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides an icon for the Avatar"
     },
     "modal": {
       "type": "boolean",
@@ -1709,13 +1706,15 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides an image for the Avatar"
     },
     "state": {
       "type": "PopoverStateReturn",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "useUserDialog state hook return value"
     },
     "unstable_fixed": {
       "type": "boolean",
@@ -2409,9 +2408,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "USER_DIALOG_USER_INFO",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "hidden": {
       "type": "boolean",
@@ -3991,9 +3991,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "USER_DIALOG_USER_NAME",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "hidden": {
       "type": "boolean",
@@ -5573,9 +5574,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "USER_DIALOG_USER_EMAIL",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "hidden": {
       "type": "boolean",
@@ -6744,7 +6746,7 @@
       "defaultValue": null,
       "required": true,
       "externalProp": false,
-      "description": "Defines a string value that labels the current element."
+      "description": "Accessible description of the list"
     },
     "first": {
       "type": "() => void",
@@ -7229,9 +7231,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "USER_DIALOG_LIST",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "focusable": {
       "type": "boolean",
@@ -9274,9 +9277,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "USER_DIALOG_LIST_ITEM",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "focusable": {
       "type": "boolean",
@@ -9295,7 +9299,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Providing an href will make the list item an `<a>` tag"
     },
     "id": {
       "type": "string",

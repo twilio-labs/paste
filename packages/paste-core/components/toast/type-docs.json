@@ -423,10 +423,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "TOAST",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "hidden": {
       "type": "boolean",
@@ -436,35 +436,35 @@
     },
     "i18nDismissLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "Dismiss toast",
       "required": false,
       "externalProp": false,
       "description": "Label for the dismiss button in a dismissable toast"
     },
     "i18nErrorLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "(error)",
       "required": false,
       "externalProp": false,
       "description": "Icon label text for the error variant"
     },
     "i18nNeutralLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "(information)",
       "required": false,
       "externalProp": false,
       "description": "Icon label text for the neutral variant"
     },
     "i18nSuccessLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "(success)",
       "required": false,
       "externalProp": false,
       "description": "Icon label text for the success variant"
     },
     "i18nWarningLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "(warning)",
       "required": false,
       "externalProp": false,
       "description": "Icon label text for the warning variant"
@@ -1572,7 +1572,7 @@
     },
     "setFocus": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": "'true'",
       "required": false,
       "externalProp": false,
       "description": "Use this to set focus within the toast when it is rendered"
@@ -1644,7 +1644,7 @@
       "defaultValue": null,
       "required": true,
       "externalProp": false,
-      "description": "method used to pop a toast from the toast stack based on it's id"
+      "description": "Method used to pop a toast from the toast stack based on it's id"
     },
     "toasts": {
       "type": "ToasterToast[]",
@@ -1657,7 +1657,8 @@
       "type": "Left<TLengthStyledSystem> | (Left<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Left<TLengthStyledSystem> | undefined; [x: number]: Left<...> | undefined; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the left value of the ToastContainer to add breakpoints for small screens"
     }
   },
   "ToastContainer": {
@@ -2153,7 +2154,8 @@
       "type": "Left<TLengthStyledSystem> | (Left<TLengthStyledSystem> | null | undefined)[] | { [x: string]: Left<TLengthStyledSystem> | undefined; [x: number]: Left<...> | undefined; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the left value of the ToastContainer to add breakpoints for small screens"
     },
     "nonce": {
       "type": "string",
@@ -3248,14 +3250,14 @@
       "defaultValue": null,
       "required": true,
       "externalProp": false,
-      "description": "method used to pop a toast from the toast stack based on it's id"
+      "description": "Method used to pop a toast from the toast stack based on it's id"
     },
     "push": {
       "type": "(toast: ToasterPush) => void",
       "defaultValue": null,
       "required": true,
       "externalProp": false,
-      "description": "method used to push a toast to the toast stack"
+      "description": "Method used to push a toast to the toast stack"
     },
     "toasts": {
       "type": "ToasterToast[]",

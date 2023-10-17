@@ -10,8 +10,33 @@ import * as React from "react";
 import { VisualPickerCheckboxContext } from "./VisualPickerContext";
 
 export interface VisualPickerCheckboxProps extends Omit<CheckboxProps, "helpText" | "required" | "defaultChecked"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "VISUAL_PICKER_CHECKBOX"
+   * @type {CheckboxProps["element"]}
+   * @memberof VisualPickerCheckboxProps
+   */
+  element?: CheckboxProps["element"];
+  /**
+   * Label text for the checkbox
+   *
+   * @type {string}
+   * @memberof VisualPickerCheckboxProps
+   */
   labelText: string;
+  /**
+   * Determines the checked state of the checkbox
+   *
+   * @type {boolean}
+   * @memberof VisualPickerCheckboxProps
+   */
   checked: boolean;
+  /**
+   * Callback for when the checkbox changes
+   *
+   * @memberof VisualPickerCheckboxProps
+   */
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 export const VisualPickerCheckbox = React.forwardRef<HTMLInputElement, VisualPickerCheckboxProps>(

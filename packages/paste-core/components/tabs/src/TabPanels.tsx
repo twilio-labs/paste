@@ -7,6 +7,13 @@ import { getElementName } from "./utils";
 
 export interface TabPanelsProps {
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "HORIZONTAL_TAB_PANELS" or "VERTICAL_TAB_PANELS"
+   * @type {BoxProps["element"]}
+   * @memberof TabPanelsProps
+   */
   element?: BoxProps["element"];
 }
 

@@ -38,8 +38,21 @@ UserDialogListbox.displayName = "UserDialogListbox";
 
 export interface UserDialogListProps extends ListboxPrimitiveProps {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "USER_DIALOG_LIST"
+   * @type {BoxProps["element"]}
+   * @memberof UserDialogListProps
+   */
   element?: BoxProps["element"];
-  ["aria-label"]: string;
+  /**
+   * Accessible description of the list
+   *
+   * @type {string}
+   * @memberof UserDialogListProps
+   */
+  "aria-label": string;
 }
 export const UserDialogList = React.forwardRef<HTMLDivElement, UserDialogListProps>(({ children, ...props }, ref) => {
   return (

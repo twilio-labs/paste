@@ -54,7 +54,20 @@ const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogList
 UserDialogListboxItem.displayName = "UserDialogListboxItem";
 
 export interface UserDialogListItemProps extends ListboxPrimitiveItemProps {
+  /**
+   * Providing an href will make the list item an `<a>` tag
+   *
+   * @type {string}
+   * @memberof UserDialogListItemProps
+   */
   href?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "USER_DIALOG_LIST_ITEM"
+   * @type {BoxProps["element"]}
+   * @memberof UserDialogListItemProps
+   */
   element?: BoxProps["element"];
 }
 export const UserDialogListItem = React.forwardRef<HTMLButtonElement, UserDialogListItemProps>(

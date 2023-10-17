@@ -61,7 +61,20 @@ UserDialogButton.displayName = "UserDialogButton";
 
 export interface UserDialogProps extends HTMLPasteProps<"div">, NonModalDialogPrimitivePopoverInitialState {
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "USER_DIALOG"
+   * @type {BoxProps["element"]}
+   * @memberof UserDialogProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Accessible label for the User Dialog
+   *
+   * @type {string}
+   * @memberof UserDialogProps
+   */
   "aria-label": string;
 }
 export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
