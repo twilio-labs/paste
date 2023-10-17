@@ -12,6 +12,8 @@ import {
   SortableColumnsDataGrid,
 } from "../stories/index.stories";
 
+jest.useFakeTimers();
+
 const checkTagName = (el: Element, name: string): void => expect(el.tagName).toBe(name.toUpperCase());
 
 describe("Data Grid", () => {
@@ -177,6 +179,9 @@ describe("Data Grid", () => {
       if (firstInputCell == null) {
         throw new Error("cannot find firstInputCell");
       }
+      act(() => {
+        jest.advanceTimersByTime(300);
+      });
 
       // Focus the button before the DataGrid
       beforeDataGridButton.focus();
@@ -231,6 +236,7 @@ describe("Data Grid", () => {
 
       // I added this particular sequence because it was a reproducable bug in my manual tests
       act(() => {
+        jest.advanceTimersByTime(300);
         firstThCell.focus();
       });
       expect(firstThCell).toHaveFocus();
@@ -243,6 +249,9 @@ describe("Data Grid", () => {
       userEvent.tab();
       userEvent.tab();
       userEvent.keyboard("{enter}");
+      act(() => {
+        jest.advanceTimersByTime(300);
+      });
       // Bring the focus back to the DataGrid
       userEvent.tab({ shift: true });
       userEvent.tab({ shift: true });

@@ -45,8 +45,23 @@ export const DefaultSelect = (): React.ReactNode => {
     </>
   );
 };
-
 DefaultSelect.storyName = "Select";
+
+export const DefaultValueSelect = (): React.ReactNode => {
+  const uid = useUID();
+  return (
+    <>
+      <Label htmlFor={uid}>Label</Label>
+      <Select id={uid} defaultValue="option-2" onFocus={action("handleFocus")} onBlur={action("handleBlur")}>
+        <Option value="option-1">Option 1</Option>
+        <Option value="option-2">Option 2</Option>
+        <Option value="option-3">Option 3</Option>
+        <Option value="option-4">Option 4</Option>
+      </Select>
+      <HelpText>Info that helps a user with this field.</HelpText>
+    </>
+  );
+};
 
 export const SelectRequired = (): React.ReactNode => {
   const uid = useUID();
