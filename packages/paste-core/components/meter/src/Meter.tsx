@@ -21,11 +21,6 @@ export interface MeterProps extends HTMLPasteProps<"meter">, Pick<BoxProps, "ele
 const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
   ({ element = "METER", id, minLabel, maxLabel, ...props }, ref) => {
     const { value = 0, minValue = 0, maxValue = 100 } = props;
-    const { meterProps } = useMeter(props);
-
-    // Calculate the width of the bar as a percentage
-    const percentage = (value - minValue) / (maxValue - minValue);
-    const fillWidth = `${Math.round(percentage * 100)}%`;
 
     /*
      * Since Meter isn't a form element, we cannot use htmlFor from the regular Label
@@ -37,6 +32,16 @@ const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(
     if (labelledBy == null && props["aria-label"] == null && id != null) {
       labelledBy = `${id}${LABEL_SUFFIX}`;
     }
+
+    const { meterProps } = useMeter({
+      ...props,
+      // Appeases useLabel's internal warning about missing labels because we're doing our own thing
+      "aria-labelledby": labelledBy,
+    });
+
+    // Calculate the width of the bar as a percentage
+    const percentage = (value - minValue) / (maxValue - minValue);
+    const fillWidth = `${Math.round(percentage * 100)}%`;
 
     return (
       <Box
