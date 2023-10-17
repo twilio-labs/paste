@@ -20,8 +20,6 @@
   },
   "dependencies": {
     "@datadog/browser-rum": "^4.46.0",
-    "@docsearch/css": "^3.3.3",
-    "@docsearch/react": "^3.3.3",
     "@hookform/error-message": "2.0.0",
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/mdx": "^1.6.22",
@@ -170,6 +168,7 @@
     "react-dom": "^18.0.0",
     "react-github-button": "^0.1.11",
     "react-hook-form": "^7.30.0",
+    "react-hotkeys-hook": "^4.4.1",
     "react-live": "^3.1.1",
     "react-scrollspy": "^3.4.0",
     "react-visibility-sensor": "5.1.1",
@@ -186,6 +185,7 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^13.1.6",
+    "@storybook/react": "7.0.6",
     "@testing-library/react": "^13.4.0",
     "tsx": "^3.12.10"
   },

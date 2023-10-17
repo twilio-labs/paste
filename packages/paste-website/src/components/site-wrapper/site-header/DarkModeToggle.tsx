@@ -24,7 +24,9 @@ export const DarkModeToggle = (): JSX.Element => {
     <>
       <MenuButton
         {...menu}
-        variant="secondary_icon"
+        color="colorTextIcon"
+        variant="reset"
+        borderRadius="borderRadius10"
         size="reset"
         onClick={() =>
           event({
@@ -34,7 +36,11 @@ export const DarkModeToggle = (): JSX.Element => {
           })
         }
       >
-        {theme === "twilio" ? <LightModeIcon decorative /> : <DarkModeIcon decorative />}
+        {theme === "twilio" ? (
+          <LightModeIcon decorative size="sizeIcon40" />
+        ) : (
+          <DarkModeIcon decorative size="sizeIcon40" />
+        )}
         <ScreenReaderOnly>Switch the site theme</ScreenReaderOnly>
       </MenuButton>
       <Menu {...menu} aria-label="Site theme mode">

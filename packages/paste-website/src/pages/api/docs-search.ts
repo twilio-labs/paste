@@ -16,7 +16,6 @@ class ApplicationError extends Error {
 class UserError extends ApplicationError {}
 
 const openAiKey = process.env.OPENAI_API_KEY;
-const openAiSecret = process.env.OPENAI_API_SECRET;
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_KEY;
 
@@ -31,9 +30,6 @@ export default async function handler(req: NextRequest): Promise<void | Response
   try {
     if (!openAiKey) {
       throw new ApplicationError("Missing environment variable OPENAI_API_KEY");
-    }
-    if (!openAiSecret) {
-      throw new ApplicationError("Missing environment variable OPENAI_API_SECRET");
     }
 
     if (!supabaseUrl) {
@@ -50,11 +46,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new UserError("Missing request data");
     }
 
-    const { prompt: query, secret } = requestData;
-
-    if (!secret || secret !== openAiSecret) {
-      throw new UserError("Incorrect 'secret' in request data");
-    }
+    const { prompt: query } = requestData;
 
     if (!query) {
       throw new UserError("Missing 'prompt' in request data");
@@ -82,7 +74,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
       embedding,
       /* eslint-disable camelcase */
       match_threshold: 0.78,
-      match_count: 20,
+      match_count: 10,
       min_content_length: 50,
       /* eslint-enable camelcase */
     });

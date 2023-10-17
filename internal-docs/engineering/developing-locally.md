@@ -180,24 +180,6 @@ DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
    <td>ID of the Airtable that contains our roadmap
    </td>
   </tr>
-  <tr>
-   <td>NEXT_PUBLIC_DOCSEARCHV3_APIKEY
-   </td>
-   <td>API key for powering our docs search
-   </td>
-  </tr>
-  <tr>
-   <td>NEXT_PUBLIC_DOCSEARCHV3_APPID
-   </td>
-   <td>Docs search app ID
-   </td>
-  </tr>
-  <tr>
-   <td>NEXT_PUBLIC_DOCSEARCHV3_INDEXNAME
-   </td>
-   <td>twilio_paste
-   </td>
-  </tr>
 </table>
 
 ## Building packages

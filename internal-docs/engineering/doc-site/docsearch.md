@@ -1,17 +1,23 @@
 # Docsearch
 
-The search is provided by [Algolia Docsearch v3](https://docsearch.algolia.com/docs/DocSearch-v3/).
+The search is provided a custom index hosted on Supabase and created by us on a [nightly Cron Github Action](https://github.com/twilio-labs/paste/blob/main/.github/workflows/update_docs_embed.yml).
 
-The docsearch app login is stored in OnePassword, where you can [login here](https://www.algolia.com/).
+The Supabase login is stored in OnePassword.
 
-The dashboard will give you analytics and some configurations and insights into the index that is created.
+## Creating Embeddings
 
-## Crawler
+We use the same technology that powers our GPT4 powered Discussions and Chat bot, to create our Site Search.
 
-Docsearch crawls the website automatically via the crawler. It is recrawled every day. To configure the website crawler you must log into the [crawler application](https://crawler.algolia.com/).
+On a nightly basis we index new or updated content in our MDX files and Github Discussions.
 
-The crawler is configured via the editor, and a configuration object. It controls where the sitemap live, how often to crawl, and how to extract data from the website pages into the search index.
+For MDX files we create "sections" of "pages" by chunking mdx files by headings. Those sections are then converted to OPENAI Vector embeds and stored in the Supabase Vector DB.
 
-Use the Crawler app to visualize what Algolia can extract from our web pages as it crawls, and test any configuration changes you make.
+The same happens with Github discussions. The discussion is a page and is split into two sections, the initial post and the answer.
 
-Crawler documentation can be found [here](https://www.algolia.com/doc/tools/crawler/apis/configuration/).
+We can then perform a similarity search using the user input as the query.
+
+Embeddings are generated using the the [embedding script](../../../packages/paste-website/scripts/search/).
+
+## Returning results
+
+We have a [NextJS API route](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) `/api/documentation-search`. It will return the top 10 most similar page sections across MDX and Github discussions based on a user `prompt`.

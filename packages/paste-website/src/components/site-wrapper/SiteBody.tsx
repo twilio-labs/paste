@@ -11,7 +11,6 @@ import {
   SidebarPushContentWrapper,
 } from "@twilio-paste/sidebar";
 import { type CSSObject, StylingGlobals } from "@twilio-paste/styling-library";
-import { useTheme } from "@twilio-paste/theme";
 import { useWindowSize } from "@twilio-paste/utils";
 import { useRouter } from "next/router";
 import * as React from "react";
@@ -24,7 +23,6 @@ import {
   TOKEN_LIST_PAGE_REGEX,
   TOKEN_STICKY_FILTER_HEIGHT,
 } from "../../constants";
-import { docSearchStyles, docSearchVariable } from "../../styles/docSearch";
 import { SiteMain } from "./SiteMain";
 import { SidebarNavigation } from "./sidebar/SidebarNavigation";
 import { SiteFooter } from "./site-footer";
@@ -43,7 +41,6 @@ const GlobalScrollBehaviourStyles = (scrollOffset = defaultScrollOffset): CSSObj
 
 export const SiteBody: React.FC<React.PropsWithChildren> = ({ children }) => {
   const { breakpointIndex } = useWindowSize();
-  const themeObject = useTheme();
   const router = useRouter();
   // sidebar is not collapsed by default, most common use case for desktop viewing
   const [sidebarCollapsed, setSidebarCollapsed] = React.useState(false);
@@ -93,8 +90,6 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({ children }) => {
       <StylingGlobals
         styles={{
           ...GlobalScrollBehaviourStyles(scrollOffset),
-          ...docSearchStyles({ theme: themeObject }),
-          ...docSearchVariable(themeObject),
         }}
       />
       {/**
