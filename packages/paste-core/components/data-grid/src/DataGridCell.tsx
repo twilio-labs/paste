@@ -101,9 +101,12 @@ export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> 
    * When actionable mode changes, toggle the tabindex of the cell and children
    */
   React.useEffect(() => {
-    if (cellRef.current) {
-      updateTabIndexForActionable(cellRef.current, dataGridState.actionable);
-    }
+    setTimeout(() => {
+      if (cellRef.current) {
+        // This delay solves issues around components that re-render immediately on mount, like the Select componenent
+        updateTabIndexForActionable(cellRef.current, dataGridState.actionable);
+      }
+    }, 10);
   }, [dataGridState.actionable]);
 
   return (
