@@ -63,7 +63,7 @@ import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
 import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
 import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
 import packageJson from '@twilio-paste/topbar/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {
   basicTopbarExample,
@@ -72,7 +72,7 @@ import {
   segmentTopbarExample,
 } from '../../../component-examples/TopbarExamples.ts';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -84,24 +84,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/topbar',
+        storybookUrl: '/?path=/story/components-topbar--push-default-topbar',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/topbar"
-  storybookUrl="/?path=/story/components-topbar--push-default-topbar"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -405,56 +396,3 @@ Each set of controls should be contained within a `TopbarActions` component, whi
 >
   {segmentTopbarExample}
 </LivePreview>
-
-## Usage guide
-
-### Figma
-
-The Topbar component is available in the Paste Components library as a [Navigation component](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=27837-187276&t=xcPacI1AN13MooNC-0).
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/topbar - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Topbar} from '@twilio-paste/core/topbar';
-
-const Topbar = () => {
-  return (
-    <Topbar id="topbar">
-      <TopbarActions justify="start">{actions}</TopbarActions>
-      <TopbarActions justify="end">{actions}</TopbarActions>
-    </Topbar>
-  );
-};
-```
-
-#### Topbar props
-
-| Prop      | Type              | Description                                                                                 | Default  |
-| --------- | ----------------- | ------------------------------------------------------------------------------------------- | -------- |
-| children? | `React.ReactNode` |                                                                                             |          |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider.s | 'TOPBAR' |
-| id        | `string`          | Unique ID used to identify the Topbar element for Skip Link functionality.                  |          |
-
-#### TopbarActions props
-
-| Prop      | Type              | Description                                                                                   | Default          |
-| --------- | ----------------- | --------------------------------------------------------------------------------------------- | ---------------- |
-| children? | `React.ReactNode` | Recommended: Account Switcher, User Dialog, Product Switcher, Search Input, etc.              |                  |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider,    | 'TOPBAR_ACTIONS' |
-| justify   | `"start", "end"`  | Used to control where the actions are aligned visually, to the start or end of the container. |                  |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

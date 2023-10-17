@@ -15,10 +15,10 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import Changelog from '@twilio-paste/truncate/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import packageJson from '@twilio-paste/truncate/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -29,25 +29,15 @@ export const getStaticProps = async () => {
         ...packageJson,
         ...feature,
       },
-      navigationData,
+      navigationData,mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/truncate',
+        storybookUrl: '/?path=/story/components-truncate--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/truncate"
-  storybookUrl="/?path=/story/components-truncate--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -152,45 +142,3 @@ spans the full width of a container.
   </Dont>
 </DoDont>
 
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/truncate - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Truncate} from '@twilio-paste/core/truncate';
-
-const Component: React.FC = () => {
-  return (
-    <Box maxWidth="size20">
-      <Text as="p">
-        <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
-      </Text>
-    </Box>
-  );
-};
-```
-
-#### Props
-
-| Prop     | Type        | Description                                                                                                         | Default |
-| -------- | ----------- | ------------------------------------------------------------------------------------------------------------------- | ------- |
-| title    | `string`    | An accessible label that should match the content of the truncated text. Allows users to see the truncated content. | null    |
-| children | `ReactNode` |                                                                                                                     | null    |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

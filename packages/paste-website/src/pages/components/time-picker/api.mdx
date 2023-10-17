@@ -1,0 +1,73 @@
+export const meta = {
+  title: 'Time Picker - API - Components',
+  package: '@twilio-paste/time-picker',
+  description: 'A form component used to select a time.',
+  slug: '/components/time-picker/api',
+};
+
+import Changelog from '@twilio-paste/time-picker/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/time-picker/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Time Picker');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/time-picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/time-picker',
+        storybookUrl: '/?path=/story/components-time-picker--default-time-picker',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/time-picker - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {TimePicker, formatReturnTime} from '@twilio-paste/core/time-picker';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/helptext';
+
+const TimePickerExample = () => {
+  return (
+    <>
+      <Label htmlFor="foo" required>
+        Start time
+      </Label>
+      <TimePicker
+        aria-describedby="foo_text"
+        id="foo"
+        name="foo"
+        onChange={(evt) => formatReturnTime(evt.target.value, 'hh:mm aa')}
+        required
+      />
+      <HelpText id="foo_text">Select a time.</HelpText>
+    </>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

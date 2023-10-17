@@ -14,9 +14,16 @@ interface UserDialogContextProps {
 }
 export const UserDialogContext = React.createContext<UserDialogContextProps>({} as UserDialogContextProps);
 
+export type UseUserDialogStateProps = NonModalDialogPrimitivePopoverInitialState;
+export type UseUserDialogStateReturnProps = NonModalDialogPrimitiveStateReturn;
+
+export const useUserDialogState = (props?: UseUserDialogStateProps): UseUserDialogStateReturnProps => {
+  return useNonModalDialogPrimitiveState({ ...props, placement: "bottom-start", gutter: 0 });
+};
+
 export interface UserDialogContainerProps extends NonModalDialogPrimitivePopoverInitialState {
   children: NonNullable<React.ReactNode>;
-  state?: NonModalDialogPrimitiveStateReturn;
+  state?: UseUserDialogStateReturnProps;
   name: string;
   src?: string;
   icon?: React.FC<React.PropsWithChildren<GenericIconProps>>;
@@ -47,9 +54,3 @@ export const UserDialogContainer: React.FC<UserDialogContainerProps> = ({
   );
 };
 UserDialogContainer.displayName = "UserDialogContainer";
-
-export const useUserDialogState = (
-  props?: NonModalDialogPrimitivePopoverInitialState,
-): NonModalDialogPrimitiveStateReturn => {
-  return useNonModalDialogPrimitiveState({ ...props, placement: "bottom-start", gutter: 0 });
-};

@@ -22,12 +22,11 @@ import {InlineCode} from '@twilio-paste/inline-code';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {ToasterExample, i18nExample} from '../../../component-examples/ToastExamples';
-import Changelog from '@twilio-paste/toast/CHANGELOG.md';
 import packageJson from '@twilio-paste/toast/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -39,24 +38,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/toast',
+        storybookUrl: '/?path=/story/components-toast--neutral',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/toast"
-  storybookUrl="/?path=/story/components-toast--neutral"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Toast}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="neutral">
@@ -512,7 +502,3 @@ If you choose to handle state entirely yourself, you can use `<Toaster />` on it
 <ChangelogRevealer>
   <Changelog />
 </ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

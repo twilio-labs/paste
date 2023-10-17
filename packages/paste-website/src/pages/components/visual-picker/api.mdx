@@ -1,0 +1,75 @@
+export const meta = {
+  title: 'Visual Picker - API',
+  package: '@twilio-paste/visual-picker',
+  description: 'Visual Picker is a stylistically enhanced checkbox or radio selection element.',
+  slug: '/components/visual-picker/api',
+};
+
+import Changelog from '@twilio-paste/visual-picker/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/visual-picker/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Visual Picker');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/visual-picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/visual-picker',
+        storybookUrl: '/?path=/story/components-visual-picker-checkbox--vertical-checkbox-group',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/visual-picker - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {VisualPickerRadioGroup, VisualPickerRadio} from '@twilio-paste/core/visual-picker';
+
+const VisualPickerExample = () => {
+  const [value, setValue] = React.useState('1');
+  return (
+    <VisualPickerRadioGroup
+      legend="Select an option"
+      name="visual-picker"
+      value={value}
+      onChange={(newValue) => setValue(newValue)}
+    >
+      <VisualPickerRadio labelText="one" value="1">
+        Option one
+      </VisualPickerRadio>
+      <VisualPickerRadio labelText="two" value="2">
+        Option two
+      </VisualPickerRadio>
+      <VisualPickerRadio labelText="three" value="3">
+        Option three
+      </VisualPickerRadio>
+    </VisualPickerRadioGroup>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

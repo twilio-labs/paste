@@ -95,311 +95,36 @@
       "description": "**Has effect only on two-dimensional composites**. If enabled, moving to\nthe next item from the last one in a row or column will focus the first\nitem in the next row or column and vice-versa.\n  - `true` wraps between rows and columns.\n  - `horizontal` wraps only between rows.\n  - `vertical` wraps only between columns.\n  - If `loop` matches the value of `wrap`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
     }
   },
-  "TabStateReturn": {
-    "baseId": {
+  "TabList": {
+    "aria-label": {
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": true,
-      "description": "ID that will serve as a base for all the items IDs."
+      "externalProp": false
     },
-    "down": {
-      "type": "(unstable_allTheWay?: boolean | undefined) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Moves focus to the item below."
-    },
-    "first": {
-      "type": "() => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Moves focus to the first item."
-    },
-    "groups": {
-      "type": "Group[]",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Lists all the composite groups with their `id` and DOM `ref`. This state\nis automatically updated when `registerGroup` and `unregisterGroup` are\ncalled."
-    },
-    "items": {
-      "type": "Item[]",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Lists all the composite items with their `id`, DOM `ref`, `disabled` state\nand `groupId` if any. This state is automatically updated when\n`registerItem` and `unregisterItem` are called."
-    },
-    "last": {
-      "type": "() => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Moves focus to the last item."
-    },
-    "loop": {
-      "type": "boolean | Orientation",
-      "defaultValue": false,
-      "required": true,
-      "externalProp": true,
-      "description": "On one-dimensional composites:\n  - `true` loops from the last item to the first item and vice-versa.\n  - `horizontal` loops only if `orientation` is `horizontal` or not set.\n  - `vertical` loops only if `orientation` is `vertical` or not set.\n  - If `currentId` is initially set to `null`, the composite element will\nbe focused in between the last and first items.\n\nOn two-dimensional composites:\n  - `true` loops from the last row/column item to the first item in the\nsame row/column and vice-versa. If it's the last item in the last row, it\nmoves to the first item in the first row and vice-versa.\n  - `horizontal` loops only from the last row item to the first item in\nthe same row.\n  - `vertical` loops only from the last column item to the first item in\nthe column row.\n  - If `currentId` is initially set to `null`, vertical loop will have no\neffect as moving down from the last row or up from the first row will\nfocus the composite element.\n  - If `wrap` matches the value of `loop`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
-    },
-    "manual": {
+    "disabled": {
       "type": "boolean",
       "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Whether the tab selection should be manual."
-    },
-    "move": {
-      "type": "(id: string | null) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Moves focus to a given item ID."
-    },
-    "next": {
-      "type": "(unstable_allTheWay?: boolean | undefined) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Moves focus to the next item."
-    },
-    "panels": {
-      "type": "Item[]",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Lists all the panels."
-    },
-    "previous": {
-      "type": "(unstable_allTheWay?: boolean | undefined) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Moves focus to the previous item."
-    },
-    "registerGroup": {
-      "type": "(group: Group) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Registers a composite group."
-    },
-    "registerItem": {
-      "type": "(item: Item) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Registers a composite item."
-    },
-    "registerPanel": {
-      "type": "(item: Item) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Registers a tab panel."
-    },
-    "reset": {
-      "type": "() => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Resets to initial state."
-    },
-    "rtl": {
-      "type": "boolean",
-      "defaultValue": false,
-      "required": true,
-      "externalProp": true,
-      "description": "Determines how `next` and `previous` functions will behave. If `rtl` is\nset to `true`, they will be inverted. This only affects the composite\nwidget behavior. You still need to set `dir=\"rtl\"` on HTML/CSS."
-    },
-    "select": {
-      "type": "(id: string | null) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Moves into and selects a tab by its `id`."
-    },
-    "setBaseId": {
-      "type": "Dispatch<SetStateAction<string>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `baseId`."
-    },
-    "setCurrentId": {
-      "type": "Dispatch<SetStateAction<string | null | undefined>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `currentId`. This is different from `composite.move` as this only\nupdates the `currentId` state without moving focus. When the composite\nwidget gets focused by the user, the item referred by the `currentId`\nstate will get focus."
-    },
-    "setLoop": {
-      "type": "Dispatch<SetStateAction<boolean | Orientation>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `loop`."
-    },
-    "setOrientation": {
-      "type": "Dispatch<SetStateAction<Orientation | undefined>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `orientation`."
-    },
-    "setRTL": {
-      "type": "Dispatch<SetStateAction<boolean>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `rtl`."
-    },
-    "setSelectedId": {
-      "type": "Dispatch<SetStateAction<string | null | undefined>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `selectedId`."
-    },
-    "setShift": {
-      "type": "Dispatch<SetStateAction<boolean>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `shift`."
-    },
-    "setWrap": {
-      "type": "Dispatch<SetStateAction<boolean | Orientation>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `wrap`."
-    },
-    "shift": {
-      "type": "boolean",
-      "defaultValue": false,
-      "required": true,
-      "externalProp": true,
-      "description": "**Has effect only on two-dimensional composites**. If enabled, moving up\nor down when there's no next item or the next item is disabled will shift\nto the item right before it."
-    },
-    "sort": {
-      "type": "() => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sorts the `composite.items` based on the items position in the DOM. This\nis especially useful after modifying the composite items order in the DOM.\nMost of the time, though, you don't need to manually call this function as\nthe re-ordering happens automatically."
-    },
-    "unregisterGroup": {
-      "type": "(id: string) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Unregisters a composite group."
-    },
-    "unregisterItem": {
-      "type": "(id: string) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Unregisters a composite item."
-    },
-    "unregisterPanel": {
-      "type": "(id: string) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Unregisters a tab panel."
-    },
-    "unstable_hasActiveWidget": {
-      "type": "boolean",
-      "defaultValue": false,
-      "required": true,
-      "externalProp": true
-    },
-    "unstable_idCountRef": {
-      "type": "MutableRefObject<number>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true
-    },
-    "unstable_includesBaseElement": {
-      "type": "boolean",
-      "defaultValue": false,
-      "required": true,
-      "externalProp": true
-    },
-    "unstable_moves": {
-      "type": "number",
-      "defaultValue": "0",
-      "required": true,
-      "externalProp": true,
-      "description": "Stores the number of moves that have been performed by calling `move`,\n`next`, `previous`, `up`, `down`, `first` or `last`."
-    },
-    "unstable_setHasActiveWidget": {
-      "type": "Dispatch<SetStateAction<boolean>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `hasActiveWidget`."
-    },
-    "unstable_setIncludesBaseElement": {
-      "type": "Dispatch<SetStateAction<boolean>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `includesBaseElement`."
-    },
-    "unstable_setVirtual": {
-      "type": "Dispatch<SetStateAction<boolean>>",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Sets `virtual`."
-    },
-    "unstable_virtual": {
-      "type": "boolean",
-      "defaultValue": false,
-      "required": true,
-      "externalProp": true,
-      "description": "If enabled, the composite element will act as an\n[aria-activedescendant](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_focus_activedescendant)\ncontainer instead of\n[roving tabindex](https://www.w3.org/TR/wai-aria-practices/#kbd_roving_tabindex).\nDOM focus will remain on the composite while its items receive virtual focus."
-    },
-    "up": {
-      "type": "(unstable_allTheWay?: boolean | undefined) => void",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": true,
-      "description": "Moves focus to the item above."
-    },
-    "wrap": {
-      "type": "boolean | Orientation",
-      "defaultValue": false,
-      "required": true,
-      "externalProp": true,
-      "description": "**Has effect only on two-dimensional composites**. If enabled, moving to\nthe next item from the last one in a row or column will focus the first\nitem in the next row or column and vice-versa.\n  - `true` wraps between rows and columns.\n  - `horizontal` wraps only between rows.\n  - `vertical` wraps only between columns.\n  - If `loop` matches the value of `wrap`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
-    },
-    "currentId": {
-      "type": "string",
-      "defaultValue": "undefined",
       "required": false,
-      "externalProp": true,
-      "description": "The current focused item `id`.\n  - `undefined` will automatically focus the first enabled composite item.\n  - `null` will focus the base composite element and users will be able to\nnavigate out of it using arrow keys.\n  - If `currentId` is initially set to `null`, the base composite element\nitself will have focus and users will be able to navigate to it using\narrow keys."
+      "externalProp": false
     },
-    "orientation": {
-      "type": "Orientation",
-      "defaultValue": "undefined",
-      "required": false,
-      "externalProp": true,
-      "description": "Defines the orientation of the composite widget. If the composite has a\nsingle row or column (one-dimensional), the `orientation` value determines\nwhich arrow keys can be used to move focus:\n  - `undefined`: all arrow keys work.\n  - `horizontal`: only left and right arrow keys work.\n  - `vertical`: only up and down arrow keys work.\n\nIt doesn't have any effect on two-dimensional composites."
-    },
-    "selectedId": {
+    "element": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "The current selected tab's `id`."
+      "externalProp": false
+    },
+    "focusable": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "variant": {
+      "type": "\"fitted\" | \"inverse\" | \"inverse_fitted\"",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
     }
   },
   "Tab": {
@@ -1996,33 +1721,9 @@
       "externalProp": true
     }
   },
-  "TabList": {
-    "aria-label": {
-      "type": "string",
-      "defaultValue": null,
-      "required": true,
-      "externalProp": false
-    },
-    "disabled": {
-      "type": "boolean",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
+  "TabPanels": {
     "element": {
       "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "focusable": {
-      "type": "boolean",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "variant": {
-      "type": "\"fitted\" | \"inverse\" | \"inverse_fitted\"",
       "defaultValue": null,
       "required": false,
       "externalProp": false
@@ -2054,12 +1755,389 @@
       "externalProp": false
     }
   },
-  "TabPanels": {
-    "element": {
+  "UseTabsState": {
+    "baseId": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "currentId": {
+      "type": "string",
+      "defaultValue": "undefined",
+      "required": false,
+      "externalProp": true,
+      "description": "The current focused item `id`.\n  - `undefined` will automatically focus the first enabled composite item.\n  - `null` will focus the base composite element and users will be able to\nnavigate out of it using arrow keys.\n  - If `currentId` is initially set to `null`, the base composite element\nitself will have focus and users will be able to navigate to it using\narrow keys."
+    },
+    "loop": {
+      "type": "boolean | Orientation",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true,
+      "description": "On one-dimensional composites:\n  - `true` loops from the last item to the first item and vice-versa.\n  - `horizontal` loops only if `orientation` is `horizontal` or not set.\n  - `vertical` loops only if `orientation` is `vertical` or not set.\n  - If `currentId` is initially set to `null`, the composite element will\nbe focused in between the last and first items.\n\nOn two-dimensional composites:\n  - `true` loops from the last row/column item to the first item in the\nsame row/column and vice-versa. If it's the last item in the last row, it\nmoves to the first item in the first row and vice-versa.\n  - `horizontal` loops only from the last row item to the first item in\nthe same row.\n  - `vertical` loops only from the last column item to the first item in\nthe column row.\n  - If `currentId` is initially set to `null`, vertical loop will have no\neffect as moving down from the last row or up from the first row will\nfocus the composite element.\n  - If `wrap` matches the value of `loop`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
+    },
+    "manual": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether the tab selection should be manual."
+    },
+    "orientation": {
+      "type": "Orientation",
+      "defaultValue": "undefined",
+      "required": false,
+      "externalProp": true,
+      "description": "Defines the orientation of the composite widget. If the composite has a\nsingle row or column (one-dimensional), the `orientation` value determines\nwhich arrow keys can be used to move focus:\n  - `undefined`: all arrow keys work.\n  - `horizontal`: only left and right arrow keys work.\n  - `vertical`: only up and down arrow keys work.\n\nIt doesn't have any effect on two-dimensional composites."
+    },
+    "rtl": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true,
+      "description": "Determines how `next` and `previous` functions will behave. If `rtl` is\nset to `true`, they will be inverted. This only affects the composite\nwidget behavior. You still need to set `dir=\"rtl\"` on HTML/CSS."
+    },
+    "selectedId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "The current selected tab's `id`."
+    },
+    "shift": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true,
+      "description": "**Has effect only on two-dimensional composites**. If enabled, moving up\nor down when there's no next item or the next item is disabled will shift\nto the item right before it."
+    },
+    "unstable_includesBaseElement": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true
+    },
+    "unstable_virtual": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true,
+      "description": "If enabled, the composite element will act as an\n[aria-activedescendant](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_focus_activedescendant)\ncontainer instead of\n[roving tabindex](https://www.w3.org/TR/wai-aria-practices/#kbd_roving_tabindex).\nDOM focus will remain on the composite while its items receive virtual focus."
+    },
+    "wrap": {
+      "type": "boolean | Orientation",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true,
+      "description": "**Has effect only on two-dimensional composites**. If enabled, moving to\nthe next item from the last one in a row or column will focus the first\nitem in the next row or column and vice-versa.\n  - `true` wraps between rows and columns.\n  - `horizontal` wraps only between rows.\n  - `vertical` wraps only between columns.\n  - If `loop` matches the value of `wrap`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
+    }
+  },
+  "TabStateReturn": {
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "down": {
+      "type": "(unstable_allTheWay?: boolean | undefined) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the item below."
+    },
+    "first": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the first item."
+    },
+    "groups": {
+      "type": "Group[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Lists all the composite groups with their `id` and DOM `ref`. This state\nis automatically updated when `registerGroup` and `unregisterGroup` are\ncalled."
+    },
+    "items": {
+      "type": "Item[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Lists all the composite items with their `id`, DOM `ref`, `disabled` state\nand `groupId` if any. This state is automatically updated when\n`registerItem` and `unregisterItem` are called."
+    },
+    "last": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the last item."
+    },
+    "loop": {
+      "type": "boolean | Orientation",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "On one-dimensional composites:\n  - `true` loops from the last item to the first item and vice-versa.\n  - `horizontal` loops only if `orientation` is `horizontal` or not set.\n  - `vertical` loops only if `orientation` is `vertical` or not set.\n  - If `currentId` is initially set to `null`, the composite element will\nbe focused in between the last and first items.\n\nOn two-dimensional composites:\n  - `true` loops from the last row/column item to the first item in the\nsame row/column and vice-versa. If it's the last item in the last row, it\nmoves to the first item in the first row and vice-versa.\n  - `horizontal` loops only from the last row item to the first item in\nthe same row.\n  - `vertical` loops only from the last column item to the first item in\nthe column row.\n  - If `currentId` is initially set to `null`, vertical loop will have no\neffect as moving down from the last row or up from the first row will\nfocus the composite element.\n  - If `wrap` matches the value of `loop`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
+    },
+    "manual": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Whether the tab selection should be manual."
+    },
+    "move": {
+      "type": "(id: string | null) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to a given item ID."
+    },
+    "next": {
+      "type": "(unstable_allTheWay?: boolean | undefined) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the next item."
+    },
+    "panels": {
+      "type": "Item[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Lists all the panels."
+    },
+    "previous": {
+      "type": "(unstable_allTheWay?: boolean | undefined) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the previous item."
+    },
+    "registerGroup": {
+      "type": "(group: Group) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Registers a composite group."
+    },
+    "registerItem": {
+      "type": "(item: Item) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Registers a composite item."
+    },
+    "registerPanel": {
+      "type": "(item: Item) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Registers a tab panel."
+    },
+    "reset": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Resets to initial state."
+    },
+    "rtl": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "Determines how `next` and `previous` functions will behave. If `rtl` is\nset to `true`, they will be inverted. This only affects the composite\nwidget behavior. You still need to set `dir=\"rtl\"` on HTML/CSS."
+    },
+    "select": {
+      "type": "(id: string | null) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves into and selects a tab by its `id`."
+    },
+    "setBaseId": {
+      "type": "Dispatch<SetStateAction<string>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `baseId`."
+    },
+    "setCurrentId": {
+      "type": "Dispatch<SetStateAction<string | null | undefined>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `currentId`. This is different from `composite.move` as this only\nupdates the `currentId` state without moving focus. When the composite\nwidget gets focused by the user, the item referred by the `currentId`\nstate will get focus."
+    },
+    "setLoop": {
+      "type": "Dispatch<SetStateAction<boolean | Orientation>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `loop`."
+    },
+    "setOrientation": {
+      "type": "Dispatch<SetStateAction<Orientation | undefined>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `orientation`."
+    },
+    "setRTL": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `rtl`."
+    },
+    "setSelectedId": {
+      "type": "Dispatch<SetStateAction<string | null | undefined>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `selectedId`."
+    },
+    "setShift": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `shift`."
+    },
+    "setWrap": {
+      "type": "Dispatch<SetStateAction<boolean | Orientation>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `wrap`."
+    },
+    "shift": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "**Has effect only on two-dimensional composites**. If enabled, moving up\nor down when there's no next item or the next item is disabled will shift\nto the item right before it."
+    },
+    "sort": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sorts the `composite.items` based on the items position in the DOM. This\nis especially useful after modifying the composite items order in the DOM.\nMost of the time, though, you don't need to manually call this function as\nthe re-ordering happens automatically."
+    },
+    "unregisterGroup": {
+      "type": "(id: string) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Unregisters a composite group."
+    },
+    "unregisterItem": {
+      "type": "(id: string) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Unregisters a composite item."
+    },
+    "unregisterPanel": {
+      "type": "(id: string) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Unregisters a tab panel."
+    },
+    "unstable_hasActiveWidget": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_idCountRef": {
+      "type": "MutableRefObject<number>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_includesBaseElement": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_moves": {
+      "type": "number",
+      "defaultValue": "0",
+      "required": true,
+      "externalProp": true,
+      "description": "Stores the number of moves that have been performed by calling `move`,\n`next`, `previous`, `up`, `down`, `first` or `last`."
+    },
+    "unstable_setHasActiveWidget": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `hasActiveWidget`."
+    },
+    "unstable_setIncludesBaseElement": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `includesBaseElement`."
+    },
+    "unstable_setVirtual": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `virtual`."
+    },
+    "unstable_virtual": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "If enabled, the composite element will act as an\n[aria-activedescendant](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_focus_activedescendant)\ncontainer instead of\n[roving tabindex](https://www.w3.org/TR/wai-aria-practices/#kbd_roving_tabindex).\nDOM focus will remain on the composite while its items receive virtual focus."
+    },
+    "up": {
+      "type": "(unstable_allTheWay?: boolean | undefined) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the item above."
+    },
+    "wrap": {
+      "type": "boolean | Orientation",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "**Has effect only on two-dimensional composites**. If enabled, moving to\nthe next item from the last one in a row or column will focus the first\nitem in the next row or column and vice-versa.\n  - `true` wraps between rows and columns.\n  - `horizontal` wraps only between rows.\n  - `vertical` wraps only between columns.\n  - If `loop` matches the value of `wrap`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
+    },
+    "currentId": {
+      "type": "string",
+      "defaultValue": "undefined",
+      "required": false,
+      "externalProp": true,
+      "description": "The current focused item `id`.\n  - `undefined` will automatically focus the first enabled composite item.\n  - `null` will focus the base composite element and users will be able to\nnavigate out of it using arrow keys.\n  - If `currentId` is initially set to `null`, the base composite element\nitself will have focus and users will be able to navigate to it using\narrow keys."
+    },
+    "orientation": {
+      "type": "Orientation",
+      "defaultValue": "undefined",
+      "required": false,
+      "externalProp": true,
+      "description": "Defines the orientation of the composite widget. If the composite has a\nsingle row or column (one-dimensional), the `orientation` value determines\nwhich arrow keys can be used to move focus:\n  - `undefined`: all arrow keys work.\n  - `horizontal`: only left and right arrow keys work.\n  - `vertical`: only up and down arrow keys work.\n\nIt doesn't have any effect on two-dimensional composites."
+    },
+    "selectedId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "The current selected tab's `id`."
     }
   }
 }

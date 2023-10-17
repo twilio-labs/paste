@@ -9,6 +9,12 @@ import { ListboxPrimitive, useListboxPrimitiveState } from "@twilio-paste/listbo
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+export type UseUserDialogListStateProps = ListboxPrimitiveInitialState;
+export type UseUserDialogListStateReturnProps = ListboxPrimitiveStateReturn;
+export const useUserDialogListState = (props?: UseUserDialogListStateProps): UseUserDialogListStateReturnProps => {
+  return useListboxPrimitiveState({ ...props, orientation: "vertical" });
+};
+
 interface UserDialogListboxProps extends HTMLPasteProps<"div"> {
   element?: BoxProps["element"];
 }
@@ -43,7 +49,3 @@ export const UserDialogList = React.forwardRef<HTMLDivElement, UserDialogListPro
   );
 });
 UserDialogList.displayName = "UserDialogList";
-
-export const useUserDialogListState = (props?: ListboxPrimitiveInitialState): ListboxPrimitiveStateReturn => {
-  return useListboxPrimitiveState({ ...props, orientation: "vertical" });
-};

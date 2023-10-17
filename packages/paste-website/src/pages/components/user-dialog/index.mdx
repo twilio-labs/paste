@@ -26,10 +26,10 @@ import {Badge} from '@twilio-paste/badge';
 import {Box} from '@twilio-paste/box';
 import {useUID} from '@twilio-paste/uid-library';
 import packageJson from '@twilio-paste/user-dialog/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {defaultUserDialogExample, imageUserDialogExample} from '../../../component-examples/UserDialogExamples.ts';
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -41,24 +41,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/user-dialog',
+        storybookUrl: '/?path=/story/components-user-dialog--basic-user-dialog',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/user-dialog"
-  storybookUrl="/?path=/story/components-user-dialog--basic-user-dialog"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -131,104 +122,3 @@ In order to use links as options for the UserDialogList items, provide the `href
 >
   {imageUserDialogExample}
 </LivePreview>
-
-## Usage guide
-
-### Figma
-
-The User Dialog component is available in the Paste Components library as a [Navigation component](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=27837-187276&t=xcPacI1AN13MooNC-0).
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/user-dialog - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {UserDialog} from '@twilio-paste/core/user-dialog';
-
-const UserDialog = () => {
-  const userDialogList = useUserDialogListState();
-  return (
-    <UserDialogContainer name="Nora Krantz">
-      <UserDialog aria-label="my_user_menu">
-        <UserDialogUserInfo>
-          <UserDialogUserName>Name</UserDialogUserName>
-          <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
-        </UserDialogUserInfo>
-        <UserDialogList {...userDialogList} aria-label="User menu actions">
-          <UserDialogListItem {...userDialogList} onSelect={() => {}}>One</UserDialogListItem>
-          <UserDialogListItem {...userDialogList} href="www.#.com"}>Two</UserDialogListItem>
-        </UserDialogList>
-      </UserDialog>
-    </UserDialogContainer>
-  );
-};
-```
-
-#### UserDialogContainer props
-
-| Prop     | Type                                                  | Description                           | Default |
-| -------- | ----------------------------------------------------- | ------------------------------------- | ------- |
-| children | `NonNullable<React.ReactNode>`                        |                                       |         |
-| state?   | `NonModalDialogPrimitiveStateReturn`                  | User Dialog state hook                |         |
-| name     | `string`                                              | Provides name for the Avatar initials |         |
-| src?     | `string`                                              | Provides an image for the Avatar      |         |
-| icon?    | `React.FC<React.PropsWithChildren<GenericIconProps>>` | Provides an icon for the Avatar       |         |
-
-#### UserDialog props
-
-| Prop       | Type              | Description                                                                               | Default       |
-| ---------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| children   | `React.ReactNode` |                                                                                           |               |
-| aria-label | `string`          | Accessible label for the User Dialog                                                      |               |
-| element?   | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG' |
-
-#### UserDialogUserInfo props
-
-| Prop     | Type              | Description                                                                               | Default                 |
-| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| children | `React.ReactNode` |                                                                                           |                         |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_USER_INFO' |
-
-#### UserDialogUserName props
-
-| Prop     | Type              | Description                                                                               | Default                 |
-| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| children | `React.ReactNode` |                                                                                           |                         |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_USER_NAME' |
-
-#### UserDialogUserEmail props
-
-| Prop     | Type              | Description                                                                               | Default                  |
-| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------ |
-| children | `React.ReactNode` |                                                                                           |                          |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_USER_EMAIL' |
-
-#### UserDialogList props
-
-| Prop       | Type              | Description                                                                               | Default            |
-| ---------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| children   | `React.ReactNode` |                                                                                           |                    |
-| element?   | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_LIST' |
-| aria-label | `string`          | Description of the list                                                                   |                    |
-
-#### UserDialogListItem props
-
-| Prop     | Type              | Description                                                                               | Default                 |
-| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| children | `React.ReactNode` |                                                                                           |                         |
-| href?    | `string`          | Providing an href will make the list item an `<a>` tag                                    |                         |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'USER_DIALOG_LIST_ITEM' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

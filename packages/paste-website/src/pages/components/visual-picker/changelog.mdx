@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Visual Picker - Changelog',
+  package: '@twilio-paste/visual-picker',
+  description: 'Visual Picker is a stylistically enhanced checkbox or radio selection element.',
+  slug: '/components/visual-picker/changelog',
+};
+
+import Changelog from '@twilio-paste/visual-picker/CHANGELOG.md';
+import packageJson from '@twilio-paste/visual-picker/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Visual Picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/visual-picker',
+        storybookUrl: '/?path=/story/components-visual-picker-checkbox--vertical-checkbox-group',
+      },
+    },
+  };
+};
+
+<Changelog />

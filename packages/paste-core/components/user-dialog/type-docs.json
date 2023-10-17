@@ -1753,6 +1753,245 @@
       "description": "Whether it's visible or not."
     }
   },
+  "UseUserDialogState": {
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`."
+    },
+    "modal": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Toggles Dialog's `modal` state.\n  - Non-modal: `preventBodyScroll` doesn't work and focus is free.\n  - Modal: `preventBodyScroll` is automatically enabled, focus is\ntrapped within the dialog and the dialog is rendered within a `Portal`\nby default."
+    },
+    "placement": {
+      "type": "Placement",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Actual `placement`."
+    },
+    "unstable_fixed": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether or not the popover should have `position` set to `fixed`."
+    },
+    "unstable_flip": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Flip the popover's placement when it starts to overlap its reference\nelement."
+    },
+    "unstable_offset": {
+      "type": "[string | number, string | number]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover: [main axis, alt axis]. Should not be combined with `gutter`."
+    },
+    "unstable_preventOverflow": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Prevents popover from being positioned outside the boundary."
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
+    }
+  },
+  "UseUserDialogStateReturn": {
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "animating": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Whether it's animating or not."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "hide": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Changes the `visible` state to `false`"
+    },
+    "modal": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Toggles Dialog's `modal` state.\n  - Non-modal: `preventBodyScroll` doesn't work and focus is free.\n  - Modal: `preventBodyScroll` is automatically enabled, focus is\ntrapped within the dialog and the dialog is rendered within a `Portal`\nby default."
+    },
+    "place": {
+      "type": "Dispatch<SetStateAction<Placement>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Change the `placement` state."
+    },
+    "placement": {
+      "type": "Placement",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Actual `placement`."
+    },
+    "setAnimated": {
+      "type": "Dispatch<SetStateAction<number | boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `animated`."
+    },
+    "setBaseId": {
+      "type": "Dispatch<SetStateAction<string>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `baseId`."
+    },
+    "setModal": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `modal`."
+    },
+    "setVisible": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `visible`."
+    },
+    "show": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Changes the `visible` state to `true`"
+    },
+    "stopAnimation": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Stops animation. It's called automatically if there's a CSS transition."
+    },
+    "toggle": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Toggles the `visible` state"
+    },
+    "unstable_arrowRef": {
+      "type": "RefObject<HTMLElement | null>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "The arrow element."
+    },
+    "unstable_arrowStyles": {
+      "type": "CSSProperties",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Arrow styles."
+    },
+    "unstable_disclosureRef": {
+      "type": "MutableRefObject<HTMLElement | null>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_idCountRef": {
+      "type": "MutableRefObject<number>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_originalPlacement": {
+      "type": "Placement",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "`placement` passed to the hook."
+    },
+    "unstable_popoverRef": {
+      "type": "RefObject<HTMLElement | null>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "The popover element."
+    },
+    "unstable_popoverStyles": {
+      "type": "CSSProperties",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Popover styles."
+    },
+    "unstable_referenceRef": {
+      "type": "RefObject<HTMLElement | null>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "The reference element."
+    },
+    "unstable_update": {
+      "type": "() => boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
+    }
+  },
   "UserDialogUserInfo": {
     "about": {
       "type": "string",
@@ -8192,6 +8431,321 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
+    }
+  },
+  "UseUserDialogListState": {
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "currentId": {
+      "type": "string",
+      "defaultValue": "undefined",
+      "required": false,
+      "externalProp": true,
+      "description": "The current focused item `id`.\n  - `undefined` will automatically focus the first enabled composite item.\n  - `null` will focus the base composite element and users will be able to\nnavigate out of it using arrow keys.\n  - If `currentId` is initially set to `null`, the base composite element\nitself will have focus and users will be able to navigate to it using\narrow keys."
+    },
+    "orientation": {
+      "type": "Orientation",
+      "defaultValue": "undefined",
+      "required": false,
+      "externalProp": true,
+      "description": "Defines the orientation of the composite widget. If the composite has a\nsingle row or column (one-dimensional), the `orientation` value determines\nwhich arrow keys can be used to move focus:\n  - `undefined`: all arrow keys work.\n  - `horizontal`: only left and right arrow keys work.\n  - `vertical`: only up and down arrow keys work.\n\nIt doesn't have any effect on two-dimensional composites."
+    },
+    "rtl": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true,
+      "description": "Determines how `next` and `previous` functions will behave. If `rtl` is\nset to `true`, they will be inverted. This only affects the composite\nwidget behavior. You still need to set `dir=\"rtl\"` on HTML/CSS."
+    },
+    "shift": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true,
+      "description": "**Has effect only on two-dimensional composites**. If enabled, moving up\nor down when there's no next item or the next item is disabled will shift\nto the item right before it."
+    },
+    "unstable_includesBaseElement": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true
+    },
+    "unstable_virtual": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true,
+      "description": "If enabled, the composite element will act as an\n[aria-activedescendant](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_focus_activedescendant)\ncontainer instead of\n[roving tabindex](https://www.w3.org/TR/wai-aria-practices/#kbd_roving_tabindex).\nDOM focus will remain on the composite while its items receive virtual focus."
+    },
+    "wrap": {
+      "type": "boolean | Orientation",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": true,
+      "description": "**Has effect only on two-dimensional composites**. If enabled, moving to\nthe next item from the last one in a row or column will focus the first\nitem in the next row or column and vice-versa.\n  - `true` wraps between rows and columns.\n  - `horizontal` wraps only between rows.\n  - `vertical` wraps only between columns.\n  - If `loop` matches the value of `wrap`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
+    }
+  },
+  "UseUserDialogListStateReturn": {
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "down": {
+      "type": "(unstable_allTheWay?: boolean | undefined) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the item below."
+    },
+    "first": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the first item."
+    },
+    "groups": {
+      "type": "Group[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Lists all the composite groups with their `id` and DOM `ref`. This state\nis automatically updated when `registerGroup` and `unregisterGroup` are\ncalled."
+    },
+    "items": {
+      "type": "Item[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Lists all the composite items with their `id`, DOM `ref`, `disabled` state\nand `groupId` if any. This state is automatically updated when\n`registerItem` and `unregisterItem` are called."
+    },
+    "last": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the last item."
+    },
+    "loop": {
+      "type": "boolean | Orientation",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "On one-dimensional composites:\n  - `true` loops from the last item to the first item and vice-versa.\n  - `horizontal` loops only if `orientation` is `horizontal` or not set.\n  - `vertical` loops only if `orientation` is `vertical` or not set.\n  - If `currentId` is initially set to `null`, the composite element will\nbe focused in between the last and first items.\n\nOn two-dimensional composites:\n  - `true` loops from the last row/column item to the first item in the\nsame row/column and vice-versa. If it's the last item in the last row, it\nmoves to the first item in the first row and vice-versa.\n  - `horizontal` loops only from the last row item to the first item in\nthe same row.\n  - `vertical` loops only from the last column item to the first item in\nthe column row.\n  - If `currentId` is initially set to `null`, vertical loop will have no\neffect as moving down from the last row or up from the first row will\nfocus the composite element.\n  - If `wrap` matches the value of `loop`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
+    },
+    "move": {
+      "type": "(id: string | null) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to a given item ID."
+    },
+    "next": {
+      "type": "(unstable_allTheWay?: boolean | undefined) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the next item."
+    },
+    "previous": {
+      "type": "(unstable_allTheWay?: boolean | undefined) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the previous item."
+    },
+    "registerGroup": {
+      "type": "(group: Group) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Registers a composite group."
+    },
+    "registerItem": {
+      "type": "(item: Item) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Registers a composite item."
+    },
+    "reset": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Resets to initial state."
+    },
+    "rtl": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "Determines how `next` and `previous` functions will behave. If `rtl` is\nset to `true`, they will be inverted. This only affects the composite\nwidget behavior. You still need to set `dir=\"rtl\"` on HTML/CSS."
+    },
+    "setBaseId": {
+      "type": "Dispatch<SetStateAction<string>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `baseId`."
+    },
+    "setCurrentId": {
+      "type": "Dispatch<SetStateAction<string | null | undefined>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `currentId`. This is different from `composite.move` as this only\nupdates the `currentId` state without moving focus. When the composite\nwidget gets focused by the user, the item referred by the `currentId`\nstate will get focus."
+    },
+    "setLoop": {
+      "type": "Dispatch<SetStateAction<boolean | Orientation>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `loop`."
+    },
+    "setOrientation": {
+      "type": "Dispatch<SetStateAction<Orientation | undefined>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `orientation`."
+    },
+    "setRTL": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `rtl`."
+    },
+    "setShift": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `shift`."
+    },
+    "setWrap": {
+      "type": "Dispatch<SetStateAction<boolean | Orientation>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `wrap`."
+    },
+    "shift": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "**Has effect only on two-dimensional composites**. If enabled, moving up\nor down when there's no next item or the next item is disabled will shift\nto the item right before it."
+    },
+    "sort": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sorts the `composite.items` based on the items position in the DOM. This\nis especially useful after modifying the composite items order in the DOM.\nMost of the time, though, you don't need to manually call this function as\nthe re-ordering happens automatically."
+    },
+    "unregisterGroup": {
+      "type": "(id: string) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Unregisters a composite group."
+    },
+    "unregisterItem": {
+      "type": "(id: string) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Unregisters a composite item."
+    },
+    "unstable_hasActiveWidget": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_idCountRef": {
+      "type": "MutableRefObject<number>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_includesBaseElement": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_moves": {
+      "type": "number",
+      "defaultValue": "0",
+      "required": true,
+      "externalProp": true,
+      "description": "Stores the number of moves that have been performed by calling `move`,\n`next`, `previous`, `up`, `down`, `first` or `last`."
+    },
+    "unstable_setHasActiveWidget": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `hasActiveWidget`."
+    },
+    "unstable_setIncludesBaseElement": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `includesBaseElement`."
+    },
+    "unstable_setVirtual": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `virtual`."
+    },
+    "unstable_virtual": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "If enabled, the composite element will act as an\n[aria-activedescendant](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_focus_activedescendant)\ncontainer instead of\n[roving tabindex](https://www.w3.org/TR/wai-aria-practices/#kbd_roving_tabindex).\nDOM focus will remain on the composite while its items receive virtual focus."
+    },
+    "up": {
+      "type": "(unstable_allTheWay?: boolean | undefined) => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Moves focus to the item above."
+    },
+    "wrap": {
+      "type": "boolean | Orientation",
+      "defaultValue": false,
+      "required": true,
+      "externalProp": true,
+      "description": "**Has effect only on two-dimensional composites**. If enabled, moving to\nthe next item from the last one in a row or column will focus the first\nitem in the next row or column and vice-versa.\n  - `true` wraps between rows and columns.\n  - `horizontal` wraps only between rows.\n  - `vertical` wraps only between columns.\n  - If `loop` matches the value of `wrap`, it'll wrap between the last\nitem in the last row or column and the first item in the first row or\ncolumn and vice-versa."
+    },
+    "currentId": {
+      "type": "string",
+      "defaultValue": "undefined",
+      "required": false,
+      "externalProp": true,
+      "description": "The current focused item `id`.\n  - `undefined` will automatically focus the first enabled composite item.\n  - `null` will focus the base composite element and users will be able to\nnavigate out of it using arrow keys.\n  - If `currentId` is initially set to `null`, the base composite element\nitself will have focus and users will be able to navigate to it using\narrow keys."
+    },
+    "orientation": {
+      "type": "Orientation",
+      "defaultValue": "undefined",
+      "required": false,
+      "externalProp": true,
+      "description": "Defines the orientation of the composite widget. If the composite has a\nsingle row or column (one-dimensional), the `orientation` value determines\nwhich arrow keys can be used to move focus:\n  - `undefined`: all arrow keys work.\n  - `horizontal`: only left and right arrow keys work.\n  - `vertical`: only up and down arrow keys work.\n\nIt doesn't have any effect on two-dimensional composites."
     }
   },
   "UserDialogListItem": {

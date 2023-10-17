@@ -21,10 +21,10 @@ import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/textarea/CHANGELOG.md';
 import packageJson from '@twilio-paste/textarea/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -36,24 +36,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/textarea',
+        storybookUrl: '/?path=/story/components-textarea--textarea',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/textarea"
-  storybookUrl="/?path=/story/components-textarea--textarea"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
@@ -402,59 +393,3 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     </Box>
   </Dont>
 </DoDont>
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/textarea - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {TextArea} from '@twilio-paste/core/textarea';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-const Component = () => (
-  <>
-    <Label htmlFor="foo" required>
-      foo
-    </Label>
-    <TextArea onChange={() => {}} aria-describedby="foo_text" id="foo" name="foo" placeholder="foo" required />
-    <HelpText id="foo_text">Enter some text.</HelpText>
-  </>
-);
-```
-
-#### TextArea props
-
-All the valid HTML attributes for `textarea` are supported including the following props:
-
-| Prop         | Type                                     | Description                                                                               | Default    |
-| ------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ---------- |
-| id?          | string                                   | Sets the id of the textarea. Should match the htmlFor of `Label`.                         | null       |
-| name?        | string                                   | Sets the name of the textarea.                                                            | null       |
-| placeholder? | string                                   | Sets the placeholder of the textarea.                                                     | null       |
-| disabled?    | boolean                                  | Disables the textarea.                                                                    | false      |
-| readOnly?    | boolean                                  | Sets the textarea to readonly.                                                            | false      |
-| required?    | boolean                                  | Sets the textarea as required.                                                            | false      |
-| resize?      | 'none', 'vertical'                       | Sets if the textarea can be resized.                                                      | 'none'     |
-| hasError?    | boolean                                  | Sets the textarea to an error state.                                                      | false      |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| onFocus?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| variant?     | 'default', 'inverse'                     |                                                                                           | 'default'  |
-| element?     | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'TEXTAREA' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

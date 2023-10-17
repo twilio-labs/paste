@@ -1,0 +1,62 @@
+export const meta = {
+  title: 'Topbar - API',
+  package: '@twilio-paste/topbar',
+  description: 'A Topbar contains application-wide controls that rest at the top of the screen.',
+  slug: '/components/topbar/api',
+};
+
+import Changelog from '@twilio-paste/topbar/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/topbar/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Topbar');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/topbar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/topbar',
+        storybookUrl: '/?path=/story/components-topbar--push-default-topbar',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/topbar - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Topbar} from '@twilio-paste/core/topbar';
+
+const Topbar = () => {
+  return (
+    <Topbar id="topbar">
+      <TopbarActions justify="start">{actions}</TopbarActions>
+      <TopbarActions justify="end">{actions}</TopbarActions>
+    </Topbar>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

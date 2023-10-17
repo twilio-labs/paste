@@ -34,10 +34,10 @@ import {
 } from '../../../component-examples/TimePickerExamples.ts';
 import {DateTimeRangePicker} from '../../../component-examples/DatePickerExamples.ts';
 import packageJson from '@twilio-paste/time-picker/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -49,24 +49,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/time-picker',
+        storybookUrl: '/?path=/story/components-time-picker--default-time-picker',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/time-picker"
-  storybookUrl="/?path=/story/components-time-picker--default-time-picker"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{TimePicker, Label, useUID}} noInline>
   {LabelOnlyPicker}
@@ -347,198 +338,3 @@ Use Help Text to help users avoid errors.
     ignored).
   </CalloutText>
 </Callout>
-
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Box shadow</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
-            <ListItem>Disabled: $shadow-border-weak</ListItem>
-            <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Background</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-background-body</ListItem>
-            <ListItem>Disabled, Readonly: $color-background</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Value text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default, Readonly: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Help text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              TimePicker:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Left padding: $space-40</ListItem>
-                <ListItem>Top, right, bottom padding: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Help text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Inline error:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Spacing between icon and text: $space-20</ListItem>
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/time-picker - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {TimePicker, formatReturnTime} from '@twilio-paste/core/time-picker';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/helptext';
-
-const TimePickerExample = () => {
-  return (
-    <>
-      <Label htmlFor="foo" required>
-        Start time
-      </Label>
-      <TimePicker
-        aria-describedby="foo_text"
-        id="foo"
-        name="foo"
-        onChange={(evt) => formatReturnTime(evt.target.value, 'hh:mm aa')}
-        required
-      />
-      <HelpText id="foo_text">Select a time.</HelpText>
-    </>
-  );
-};
-```
-
-#### TimePicker props
-
-All the valid HTML attributes for `input` (except `type`) are supported, including the following props:
-
-| Prop      | Type                                     | Description                                                                               | Default      |
-| --------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------------ |
-| id?       | string                                   | Sets the id of the time picker. Should match the htmlFor of `Label`.                      | null         |
-| name?     | string                                   | Sets the name of the time picker.                                                         | null         |
-| value?    | string                                   | Sets the value of the time picker.                                                        | null         |
-| disabled? | boolean                                  | Disables the time picker.                                                                 | false        |
-| readOnly? | boolean                                  | Sets the time picker to readonly.                                                         | false        |
-| required? | boolean                                  | Sets the time picker as required.                                                         | false        |
-| hasError? | boolean                                  | Sets the time picker to an error state.                                                   | false        |
-| min?      | string                                   | Sets the earliest valid time value.                                                       | null         |
-| max?      | string                                   | Sets the last valid time value.                                                           | null         |
-| onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
-| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
-| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
-| variant?  | 'default', 'inverse'                     |                                                                                           | 'default'    |
-| element?  | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'TIMEPICKER' |
-
-#### formatReturnTime() props
-
-| Prop       | Type   | Description                                                                                                           | Default |
-| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------- | ------- |
-| timeValue  | string | Time value to be formatted. Must be in <inlineCode>HH:mm</inlineCode> format.                                         | null    |
-| timeFormat | string | Specify the format in which to return the timeValue. Formats come from the <inlineCode>date-fns</inlineCode> library. | null    |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

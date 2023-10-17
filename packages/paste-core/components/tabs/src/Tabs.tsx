@@ -9,6 +9,8 @@ import { TabsContext } from "./TabsContext";
 import type { Variants } from "./types";
 import { getElementName } from "./utils";
 
+export type UseTabsStateProps = TabPrimitiveInitialState;
+
 export interface TabStateReturn extends TabPrimitiveStateReturn {
   [key: string]: any;
 }
