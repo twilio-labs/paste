@@ -1,3 +1,15 @@
+/**
+ * @description      :
+ * @author           :
+ * @group            :
+ * @created          : 18/10/2023 - 16:32:47
+ *
+ * MODIFICATION LOG
+ * - Version         : 1.0.0
+ * - Date            : 18/10/2023
+ * - Author          :
+ * - Modification    :
+ **/
 export const SITEMAP = [
   "/customization/",
   "/",
@@ -173,17 +185,35 @@ export const SITEMAP = [
   "/components/slider/",
   "/components/switch/",
   "/components/tabs/",
-  "/components/toast/",
-  "/components/time-picker/",
-  "/components/truncate/",
-  "/components/tooltip/",
-  "/components/topbar",
-  "/components/user-dialog/",
-  "/components/textarea/",
+  "/components/tabs/api",
+  "/components/tabs/changelog",
   "/components/table/",
   "/components/table/api",
   "/components/table/changelog",
+  "/components/textarea/",
+  "/components/textarea/api",
+  "/components/textarea/changelog",
+  "/components/toast/",
+  "/components/toast/api",
+  "/components/toast/changelog",
+  "/components/time-picker/",
+  "/components/time-picker/api",
+  "/components/time-picker/changelog",
+  "/components/truncate/",
+  "/components/truncate/api",
+  "/components/truncate/changelog",
+  "/components/tooltip/",
+  "/components/tooltip/api",
+  "/components/tooltip/changelog",
+  "/components/topbar",
+  "/components/topbar/api",
+  "/components/topbar/changelog",
+  "/components/user-dialog/",
+  "/components/user-dialog/api",
+  "/components/user-dialog/changelog",
   "/components/visual-picker/",
+  "/components/visual-picker/api",
+  "/components/visual-picker/changelog",
   "/core/",
   "/core/changelog/",
   "/core/libraries/",
