@@ -1,7 +1,7 @@
 export const meta = {
   title: 'Progress Bar',
   package: '@twilio-paste/progress-bar',
-  description: 'Progress Bar communicates the completion status of a process or task.',
+  description: 'A Progress Bar communicates the completion status of a process or task.',
   slug: '/components/progress-bar/',
 };
 
@@ -45,7 +45,7 @@ export const getStaticProps = async () => {
 <Box maxWidth="400px">
   {value >= 100 ? (
     <Box marginBottom="space90" display="flex" alignItems="center" columnGap="space30">
-      <AcceptIcon decorative size="sizeIcon70" color="colorTextSuccess" />
+      <AcceptIcon decorative size="sizeIcon30" color="colorTextSuccess" />
       Your submission has been approved!
     </Box>
   ) : (
@@ -87,10 +87,10 @@ or where the system is in a process.
 ### Progress Bar vs. Meter
 
 A Progress Bar represents only completion progress, like a file upload
-or filling out a form. If you're not displaying progress, use a Meter.
+or filling out a form. If you're not displaying progress, use a [Meter](/components/meter).
 
 One way to check if you need a Progress Bar or a Meter is to ask
-yourself: _Could you substitute your UI element for Progress Steps?
+yourself: _Could you substitute your UI element for [Progress Steps](/components/progress-steps)?
 Would it communicate roughly the same intent?_ If yes, then Progress
 Bar is probably the right element to use.
 
@@ -102,7 +102,7 @@ that don't need the extra layer of information that Progress Steps
 provides. Example: A sign-up flow that a customer can reasonably
 complete without leaving the flow.
 
-In contrast, Progress Steps are a visual representation of a complex
+In contrast, [Progress Steps](/components/progress-steps) are a visual representation of a complex
 task broken up into multiple steps. They indicate what has and what
 needs to be done to fully complete the task. Use Progress Steps when
 the task is nonlinear or can't be completed in one sitting. Example:
@@ -128,11 +128,11 @@ the full task.
 Use a Progress Bar to communicate the completion status of a process or task.
 Use the `valueLabel` prop to show a visible value.
 
-If you don't show a visible value through `valueLabel`, communicate what
-kind of process is happening through `ProgressBarLabel`. If the label
-starts with a verb, use an ellipsis at the end of the label. For example,
-the Progress Bar Label should say “Uploading filename.png…” not just
-“filename.png”.
+If you don't show a visible value, communicate what kind of process is
+happening through `ProgressBarLabel`. For example, the Progress Bar Label should say
+“Uploading filename.png…” not just “filename.png” if you don't show the completion percentage.
+If the label starts with a verb and the Progress Bar is not disabled, use an ellipsis at the
+end of the label. 
 
 
 <StoryPreview
@@ -143,7 +143,7 @@ the Progress Bar Label should say “Uploading filename.png…” not just
 <Box maxWidth="400px">
   {value >= 100 ? (
     <Box marginBottom="space90" display="flex" alignItems="center" columnGap="space30">
-      <AcceptIcon decorative size="sizeIcon70" color="colorTextSuccess" />
+      <AcceptIcon decorative size="sizeIcon30" color="colorTextSuccess" />
       Your submission has been approved!
     </Box>
   ) : (
@@ -220,12 +220,12 @@ Progress Bar Label should say “Uploading filename.png…” not just
   height="260px"
   title="Indeterminate progress state"
   storyID="components-progressbar--indeterminate"
-  code={`<ProgressBarLabel htmlFor={progressBarIdA}>Uploading sunrise_video.mov</ProgressBarLabel>
+  code={`<ProgressBarLabel htmlFor={progressBarIdA}>Uploading sunrise_video.mov...</ProgressBarLabel>
 <ProgressBar id={progressBarIdA} aria-describedby={helpTextId} isIndeterminate />
 
 <Separator orientation="horizontal" verticalSpacing="space60" />
 
-<ProgressBarLabel htmlFor={progressBarIdB}>Converting files</ProgressBarLabel>
+<ProgressBarLabel htmlFor={progressBarIdB}>Converting files...</ProgressBarLabel>
 <ProgressBar id={progressBarIdB} aria-describedby={helpTextId} isIndeterminate />
 <HelpText id={helpTextId}>
   Connection lost. Check your connection and refresh the page to get up-to-date information.

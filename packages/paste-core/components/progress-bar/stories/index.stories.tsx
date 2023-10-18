@@ -50,7 +50,7 @@ export const Default = (): React.ReactNode => {
     <Box maxWidth="400px">
       {value >= 100 ? (
         <Box marginBottom="space90" display="flex" alignItems="center" columnGap="space30">
-          <AcceptIcon decorative size="sizeIcon70" color="colorTextSuccess" />
+          <AcceptIcon decorative size="sizeIcon30" color="colorTextSuccess" />
           Your submission has been approved!
         </Box>
       ) : (
@@ -88,10 +88,10 @@ export const Indeterminate = (): React.ReactNode => {
 
   return (
     <Box maxWidth="400px">
-      <ProgressBarLabel htmlFor={progressBarIdA}>Uploading sunrise_video.mov</ProgressBarLabel>
+      <ProgressBarLabel htmlFor={progressBarIdA}>Uploading sunrise_video.mov...</ProgressBarLabel>
       <ProgressBar id={progressBarIdA} aria-describedby={helpTextId} isIndeterminate />
       <Separator orientation="horizontal" verticalSpacing="space60" />
-      <ProgressBarLabel htmlFor={progressBarIdB}>Converting files</ProgressBarLabel>
+      <ProgressBarLabel htmlFor={progressBarIdB}>Converting files...</ProgressBarLabel>
       <ProgressBar id={progressBarIdB} aria-describedby={helpTextId} isIndeterminate />
       <HelpText id={helpTextId}>
         Connection lost. Check your connection and refresh the page to get up-to-date information.
