@@ -1,15 +1,3 @@
-/**
- * @description      :
- * @author           :
- * @group            :
- * @created          : 18/10/2023 - 16:14:33
- *
- * MODIFICATION LOG
- * - Version         : 1.0.0
- * - Date            : 18/10/2023
- * - Author          :
- * - Modification    :
- **/
 import type { BoxProps } from "@twilio-paste/box";
 import type { Left } from "@twilio-paste/style-props";
 import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
