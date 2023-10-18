@@ -1,13 +1,14 @@
 import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { TabsContext } from "./TabsContext";
 import type { Variants } from "./types";
 import { getElementName } from "./utils";
 
-export interface TabListProps {
+export interface TabListProps extends HTMLPasteProps<"div"> {
   /**
    * Required label for this Tabs component. Titles the entire Tabbing context for screen readers.
    *

@@ -2,12 +2,13 @@ import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import { TabPrimitivePanel } from "@twilio-paste/tabs-primitive";
 import type { TabPrimitivePanelProps } from "@twilio-paste/tabs-primitive";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { TabsContext } from "./TabsContext";
 import { getElementName } from "./utils";
 
-export interface TabPanelProps {
+export interface TabPanelProps extends HTMLPasteProps<"div"> {
   /**
    * Same as the HTML attribute.
    *

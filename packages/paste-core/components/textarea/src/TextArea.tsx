@@ -6,7 +6,7 @@ import { css, styled } from "@twilio-paste/styling-library";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export type TextAreaVariants = "default" | "inverse";
+type TextAreaVariants = "default" | "inverse";
 
 export interface TextAreaProps extends HTMLPasteProps<"textarea"> {
   /**

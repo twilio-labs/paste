@@ -39,15 +39,37 @@ export const getStaticProps = async () => {
 ## Installation
 
 ```bash
-yarn add @twilio-paste/anchor - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/toast - or - yarn add @twilio-paste/core
 ```
 
 ## Usage
 
 ```jsx
-import {Anchor} from '@twilio-paste/core/anchor';
+import {Toast, Toaster} from '@twilio-paste/core/toast';
 
-const Component = () => <Anchor href="https://paste.twilio.design">Go to Paste</Anchor>;
+const Component = () => {
+  const toaster = useToaster();
+  return <Toaster left={['space40', 'unset', 'unset']} {...toaster} />;
+};
+```
+
+### Toaster component
+
+If you choose to handle state entirely yourself, you can use `<Toaster />` on its own, but you are fully responsible for handling state, time-outs, and the dismiss functionality.
+
+```
+<Toaster
+  left={['space40', 'unset', 'unset']}
+  toasts={[{
+    id: '',
+    message: '',
+    variant: ''
+    dismissAfter: ''
+  }]}
+  pop={(id) =>{
+    // called when a toast is dismissed
+  }}
+/>
 ```
 
 ## Props

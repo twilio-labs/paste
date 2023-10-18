@@ -2,7 +2,16 @@ import type { InputProps } from "@twilio-paste/input";
 import { Input } from "@twilio-paste/input";
 import * as React from "react";
 
-export type TimePickerProps = Omit<InputProps, "type" | "insertBefore" | "insertAfter" | "step">;
+export type TimePickerProps = Omit<InputProps, "type" | "insertBefore" | "insertAfter" | "step"> & {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "TIMEPICKER"
+   * @type {BoxProps["element"]}
+   * @memberof TimePickerProps
+   */
+  element?: InputProps["element"];
+};
 
 const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
   // @ts-expect-error because ts doesn't like destructuring the step prop after omitting it from the type

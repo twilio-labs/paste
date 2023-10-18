@@ -470,10 +470,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "TIMEPICKER",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "element identifier for customization\n\n\nOverrides the default element name to apply unique styles with the Customization Provider."
     },
     "enterKeyHint": {
       "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
