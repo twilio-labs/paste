@@ -1,15 +1,3 @@
-/**
- * @description      :
- * @author           :
- * @group            :
- * @created          : 18/10/2023 - 16:32:47
- *
- * MODIFICATION LOG
- * - Version         : 1.0.0
- * - Date            : 18/10/2023
- * - Author          :
- * - Modification    :
- **/
 export const SITEMAP = [
   "/customization/",
   "/",
