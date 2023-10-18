@@ -7,5 +7,5 @@
 
 Since the React v18 upgrade, we were only rendering the children options after the component and html select
 wrapper had mounted. The select would mount with a `defaultValue` of a child that didn't exist, then the
-children would be added, so it wouldn't know what value to select. By adding a `key` prop to the select,
-it now knows to re-render on mount with the children, and can properly lookup the correct value now.
+children would be added, so it wouldn't know what value to select. To fix the hydration and `defaultValue`
+together we now re-render the entire Select on mount.
