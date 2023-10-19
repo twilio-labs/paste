@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/user-dialog",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "category": "navigation",
   "status": "production",
   "description": "User dialog is a menu that contains user profile-related actions.",

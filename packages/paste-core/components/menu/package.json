@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/menu",
-  "version": "14.1.0",
+  "version": "14.1.1",
   "category": "interaction",
   "status": "production",
   "description": "A Menu is a button that presents a list of items that users can choose to trigger an action.",

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/tooltip",
-  "version": "11.1.0",
+  "version": "11.1.1",
   "category": "interaction",
   "status": "production",
   "description": "A Tooltip is a page overlay that displays non-interactive clarifying text related to an element that’s in a focused or hovered state.",

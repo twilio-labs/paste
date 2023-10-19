@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] updated exports for type updates
+
+### Patch Changes
+
+- [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated paste exports map
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/topbar",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "category": "layout",
   "status": "alpha",
   "description": "Topbar contains application-wide controls that rest at the top of the screen.",

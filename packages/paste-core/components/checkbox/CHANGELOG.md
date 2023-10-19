@@ -1,5 +1,11 @@
 # Change Log
 
+## 13.1.1
+
+### Patch Changes
+
+- [`3b350c741`](https://github.com/twilio-labs/paste/commit/3b350c741615094c62ba1df4d062d3e02c0ab261) [#3522](https://github.com/twilio-labs/paste/pull/3522) Thanks [@abereghici](https://github.com/abereghici)! - chore: removed unnecessary type assertions
+
 ## 13.1.0
 
 ### Minor Changes

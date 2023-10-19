@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/time-picker",
-  "version": "6.1.0",
+  "version": "6.1.1",
   "category": "user input",
   "status": "production",
   "description": "A Time Picker is a form element used to select a time.",
@@ -60,8 +60,8 @@
     "@twilio-paste/customization": "^8.1.0",
     "@twilio-paste/design-tokens": "^10.2.0",
     "@twilio-paste/icons": "^12.2.0",
-    "@twilio-paste/input": "^9.1.0",
-    "@twilio-paste/input-box": "^10.1.0",
+    "@twilio-paste/input": "^9.1.1",
+    "@twilio-paste/input-box": "^10.1.1",
     "@twilio-paste/spinner": "^14.1.0",
     "@twilio-paste/stack": "^8.1.0",
     "@twilio-paste/style-props": "^9.1.0",

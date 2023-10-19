@@ -1,5 +1,16 @@
 # Change Log
 
+## 12.1.1
+
+### Patch Changes
+
+- [`bc51057db`](https://github.com/twilio-labs/paste/commit/bc51057dbad9d941b2f0299cb372ca64637ee45d) [#3545](https://github.com/twilio-labs/paste/pull/3545) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Select] fix the hydration issue which caused the `defaultValue` prop to not be respected.
+
+  Since the React v18 upgrade, we were only rendering the children options after the component and html select
+  wrapper had mounted. The select would mount with a `defaultValue` of a child that didn't exist, then the
+  children would be added, so it wouldn't know what value to select. To fix the hydration and `defaultValue`
+  together we now re-render the entire Select on mount.
+
 ## 12.1.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/paragraph",
-  "version": "10.1.0",
+  "version": "10.1.1",
   "category": "typography",
   "status": "production",
   "description": "A Paragraph is a block of text.",
