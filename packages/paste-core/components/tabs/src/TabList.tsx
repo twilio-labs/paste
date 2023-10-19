@@ -1,18 +1,36 @@
 import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { TabsContext } from "./TabsContext";
 import type { Variants } from "./types";
 import { getElementName } from "./utils";
 
-export interface TabListProps {
+export interface TabListProps extends HTMLPasteProps<"div"> {
+  /**
+   * Required label for this Tabs component. Titles the entire Tabbing context for screen readers.
+   *
+   * @type {string}
+   * @memberof TabListProps
+   */
   "aria-label": string;
-  disabled?: boolean | undefined;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "HORIZONTAL_TAB_LIST" or "VERTICAL_TAB_LIST"
+   * @type {BoxProps["element"]}
+   * @memberof TabListProps
+   */
   element?: BoxProps["element"];
-  focusable?: boolean | undefined;
   children: React.ReactNode;
+  /**
+   * Changes each Tab to either equally fit the width of the containing element or hug the contents of its label.
+   *
+   * @type {Variants}
+   * @memberof TabListProps
+   */
   variant?: Variants;
 }
 

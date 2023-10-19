@@ -6,22 +6,116 @@ import { css, styled } from "@twilio-paste/styling-library";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export type TextAreaVariants = "default" | "inverse";
+type TextAreaVariants = "default" | "inverse";
 
-export interface TextAreaProps extends HTMLPasteProps<"textarea">, Pick<BoxProps, "element"> {
+export interface TextAreaProps extends HTMLPasteProps<"textarea"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "TEXTAREA"
+   * @type {BoxProps["element"]}
+   * @memberof TextAreaProps
+   */
+  element?: BoxProps["element"];
+  /**
+   * Disables the textarea.
+   *
+   * @type {boolean}
+   * @memberof TextAreaProps
+   */
   disabled?: boolean;
+  /**
+   * Sets the textarea to an error state.
+   *
+   * @type {boolean}
+   * @memberof TextAreaProps
+   */
   hasError?: boolean;
+  /**
+   * The height of the textarea is strictly controlled by the component
+   *
+   * @type {never}
+   * @memberof TextAreaProps
+   */
   height?: never;
+  /**
+   * Sets the id of the textarea. Should match the htmlFor of `Label`.
+   *
+   * @type {string}
+   * @memberof TextAreaProps
+   */
   id?: string;
+  /**
+   * Ability to insert icon or other element to the left of the textarea.
+   *
+   * @type {React.ReactNode}
+   * @memberof TextAreaProps
+   */
   insertAfter?: React.ReactNode;
+  /**
+   * Ability to insert icon or other element to the right of the textarea.
+   *
+   * @type {React.ReactNode}
+   * @memberof TextAreaProps
+   */
   insertBefore?: React.ReactNode;
+  /**
+   * Sets the name of the textarea.
+   *
+   * @type {string}
+   * @memberof TextAreaProps
+   */
   name?: string;
+  /**
+   * Sets the placeholder of the textarea.
+   *
+   * @type {string}
+   * @memberof TextAreaProps
+   */
   placeholder?: string;
+  /**
+   * Sets the input to readonly.
+   *
+   * @type {boolean}
+   * @memberof TextAreaProps
+   */
   readOnly?: boolean;
+  /**
+   * Sets the input as required.
+   *
+   * @type {boolean}
+   * @memberof TextAreaProps
+   */
   required?: boolean;
+  /**
+   * Sets the resize property of the textarea. We only support vertical resizing.
+   *
+   * @default "none"
+   * @type {("none" | "vertical")}
+   * @memberof TextAreaProps
+   */
   resize?: "none" | "vertical";
+  /**
+   * The size of the textarea is strictly controlled by the component
+   *
+   * @type {never}
+   * @memberof TextAreaProps
+   */
   size?: never;
+  /**
+   * Choose between default or inverse styles for the textarea.
+   *
+   * @default "default"
+   * @type {TextAreaVariants}
+   * @memberof TextAreaProps
+   */
   variant?: TextAreaVariants;
+  /**
+   * The width of the textarea is strictly controlled by the component
+   *
+   * @type {never}
+   * @memberof TextAreaProps
+   */
   width?: never;
 }
 

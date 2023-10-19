@@ -2,8 +2,25 @@ import { InlineControlGroup } from "@twilio-paste/inline-control-group";
 import * as React from "react";
 
 import { VisualPickerRadioContext } from "./VisualPickerContext";
-import { type VisualPickerRadioGroupProps } from "./types";
+import { type VisualPickerCheckboxRadioGroupProps } from "./types";
 
+export interface VisualPickerRadioGroupProps extends VisualPickerCheckboxRadioGroupProps {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "VISUAL_PICKER_RADIO_GROUP"
+   * @type {VisualPickerCheckboxRadioGroupProps["element"]}
+   */
+  element?: VisualPickerCheckboxRadioGroupProps["element"];
+  /**
+   * Set value equal to the value of the currently selected VisualPickerRadio
+   *
+   * @type {string}
+   * @memberof VisualPickerRadioGroupProps
+   */
+  value: string;
+  onChange: (value: string) => void;
+}
 export const VisualPickerRadioGroup = React.forwardRef<HTMLFieldSetElement, VisualPickerRadioGroupProps>(
   (
     {

@@ -5,9 +5,16 @@ import * as React from "react";
 
 export interface TopbarProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "TOPBAR"
+   * @type {BoxProps["element"]}
+   * @memberof TopbarProps
+   */
   element?: BoxProps["element"];
   /**
-   * Create a unique ID for the topbar and provide it to the Sidebar component for accessible skip links
+   * Create a unique ID for the Topbar and provide it to the Sidebar component for accessible skip links
    */
   id: string;
 }

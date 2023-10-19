@@ -31,7 +31,7 @@ import {VoiceCapableIcon} from '@twilio-paste/icons/esm/VoiceCapableIcon';
 import {ProductVideoIcon} from '@twilio-paste/icons/esm/ProductVideoIcon';
 import {EmailIcon} from '@twilio-paste/icons/esm/EmailIcon';
 import packageJson from '@twilio-paste/visual-picker/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {
   VisualPickerRadioVertical,
@@ -44,7 +44,7 @@ import {
   VisualPickerRadioIndividualError,
   VisualPickerCheckboxGroupError,
 } from '../../../component-examples/VisualPickerExamples.ts';
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -56,24 +56,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/visual-picker',
+        storybookUrl: '/?path=/story/components-visual-picker-checkbox--vertical-checkbox-group',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/visual-picker"
-  storybookUrl="/?path=/story/components-visual-picker-checkbox--vertical-checkbox-group"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -346,95 +337,3 @@ Refer to the [Radio](/components/radio-group#composition-notes) and [Checkbox](/
 
 Visual Picker Radios and Checkboxes are sized based on their contents. In order to control and standardize the size of all pickers within a group, pass equally sized children to each picker.
 
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/visual-picker - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {VisualPickerRadioGroup, VisualPickerRadio} from '@twilio-paste/core/visual-picker';
-
-const VisualPickerExample = () => {
-  const [value, setValue] = React.useState('1');
-  return (
-    <VisualPickerRadioGroup
-      legend="Select an option"
-      name="visual-picker"
-      value={value}
-      onChange={(newValue) => setValue(newValue)}
-    >
-      <VisualPickerRadio labelText="one" value="1">
-        Option one
-      </VisualPickerRadio>
-      <VisualPickerRadio labelText="two" value="2">
-        Option two
-      </VisualPickerRadio>
-      <VisualPickerRadio labelText="three" value="3">
-        Option three
-      </VisualPickerRadio>
-    </VisualPickerRadioGroup>
-  );
-};
-```
-
-#### VisualPickerRadioGroup props
-
-| Prop               | Type                                | Description                                                                               | Default                     |
-| ------------------ | ----------------------------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
-| children           | `React.ReactNode`                   | VisualPickerRadio                                                                         |                             |
-| orientation?       | `oneOf(['vertical', 'horizontal'])` |                                                                                           | 'vertical'                  |
-| name               | `string`                            | Provides name for the VisualPickerRadioGroup and VisualPickerRadio(s)                     |                             |
-| value              | `string`                            | Set value equal to the value of the currently selected VisualPickerRadio                  |                             |
-| onChange           | `(value: string) => void`           |                                                                                           |
-| i18nRequiredLabel? | `string`                            | Label text for the required dot in the legend                                             | '(required)'                |
-| element?           | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_RADIO_GROUP' |
-
-#### VisualPickerRadio props
-
-All the valid HTML attributes for input[type=radio] are supported including/in addition to the following props:
-
-| Prop      | Type              | Description                                                                               | Default               |
-| --------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
-| children  | `React.ReactNode` |                                                                                           |                       |
-| value     | `string`          | Pass to VisualPickerRadioGroup `value` when checked                                       |                       |
-| labelText | `string`          | Label text for the radio                                                                  |                       |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_RADIO' |
-
-#### VisualPickerCheckboxGroup props
-
-| Prop               | Type                                | Description                                                                               | Default                        |
-| ------------------ | ----------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
-| children           | `React.ReactNode`                   |                                                                                           |                                |
-| orientation?       | `oneOf(['vertical', 'horizontal'])` |                                                                                           | 'vertical'                     |
-| id?                | `string`                            |                                                                                           | 'vertical'                     |
-| name               | `string`                            | Provides name for the VisualPickerCheckboxGroup and VisualPickerCheckbox(es)              |                                |
-| i18nRequiredLabel? | `string`                            | Label text for the required dot in the legend                                             | '(required)'                   |
-| element?           | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_CHECKBOX_GROUP' |
-
-#### VisualPickerCheckbox props
-
-All the valid HTML attributes for input[type=checkbox] are supported including/in addition to the following props:
-
-| Prop      | Type              | Description                                                                               | Default               |
-| --------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------- |
-| children  | `React.ReactNode` |                                                                                           |                       |
-| checked   | `boolean`         | Determines the checked state of the checkbox                                              |                       |
-| labelText | `string`          | Label text for the checkbox                                                               |                       |
-| onChange  | `(event) => void` | Used to change the current state of the checkbox                                          |                       |
-| name?     | `string`          | Provides a name for the checkbox if not part of a VisualPickerCheckboxGroup               |                       |
-| element?  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'VISUAL_PICKER_RADIO' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

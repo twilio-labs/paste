@@ -1,28 +1,30 @@
 import { type BoxProps } from "@twilio-paste/box";
-import { type CheckboxProps } from "@twilio-paste/checkbox";
 import { type InlineControlGroupProps } from "@twilio-paste/inline-control-group";
-import { type RadioProps } from "@twilio-paste/radio-group";
 
-export interface VisualPickerCheckboxGroupProps extends InlineControlGroupProps {
+export interface VisualPickerCheckboxRadioGroupProps extends Omit<InlineControlGroupProps, "fieldStyleProps"> {
+  /**
+   * Sets the direction of the visual picker group
+   *
+   * @default "vertical"
+   * @type {("horizontal" | "vertical")}
+   * @memberof VisualPickerCheckboxRadioGroupProps
+   */
   orientation?: "horizontal" | "vertical";
   children: React.ReactNode;
   element?: BoxProps["element"];
+  /**
+   * Provides name for the VisualPicker groups and items
+   *
+   * @type {string}
+   * @memberof VisualPickerCheckboxRadioGroupProps
+   */
   name: string;
+  /**
+   * Label text for the required dot in the legend
+   *
+   * @default "(required)"
+   * @type {string}
+   * @memberof VisualPickerCheckboxRadioGroupProps
+   */
   i18nRequiredLabel?: string;
-}
-
-export interface VisualPickerRadioGroupProps extends VisualPickerCheckboxGroupProps {
-  value: string;
-  onChange: (value: string) => void;
-}
-
-export interface VisualPickerRadioProps extends Omit<RadioProps, "helpText" | "defaultChecked" | "checked"> {
-  labelText: string;
-  value: string;
-}
-
-export interface VisualPickerCheckboxProps extends Omit<CheckboxProps, "helpText" | "required" | "defaultChecked"> {
-  labelText: string;
-  checked: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }

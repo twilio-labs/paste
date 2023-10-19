@@ -1,0 +1,63 @@
+export const meta = {
+  title: 'Truncate - API',
+  package: '@twilio-paste/truncate',
+  description: 'The Truncate component can be used to shorten a string of text that overflows a defined area.',
+  slug: '/components/truncate/api',
+};
+
+import Changelog from '@twilio-paste/truncate/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/truncate/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Truncate');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/truncate');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/truncate',
+        storybookUrl: '/?path=/story/components-truncate--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/truncate - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Truncate} from '@twilio-paste/core/truncate';
+
+const Component: React.FC = () => {
+  return (
+    <Box maxWidth="size20">
+      <Text as="p">
+        <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
+      </Text>
+    </Box>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

@@ -2,8 +2,17 @@ import { InlineControlGroup } from "@twilio-paste/inline-control-group";
 import * as React from "react";
 
 import { VisualPickerCheckboxContext } from "./VisualPickerContext";
-import type { VisualPickerCheckboxGroupProps } from "./types";
+import type { VisualPickerCheckboxRadioGroupProps } from "./types";
 
+export type VisualPickerCheckboxGroupProps = VisualPickerCheckboxRadioGroupProps & {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "VISUAL_PICKER_CHECKBOX_GROUP"
+   * @type {VisualPickerCheckboxRadioGroupProps["element"]}
+   */
+  element?: VisualPickerCheckboxRadioGroupProps["element"];
+};
 export const VisualPickerCheckboxGroup = React.forwardRef<HTMLFieldSetElement, VisualPickerCheckboxGroupProps>(
   (
     {

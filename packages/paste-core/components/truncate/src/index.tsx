@@ -3,8 +3,14 @@ import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface TruncateProps extends HTMLPasteProps<"span">, Pick<BoxProps, "as"> {
+interface TruncateProps extends HTMLPasteProps<"span">, Pick<BoxProps, "as"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * An accessible label that should match the content of the truncated text. Allows users to see the truncated content.
+   *
+   * @type {string}
+   * @memberof TruncateProps
+   */
   title: string;
 }
 
@@ -29,3 +35,4 @@ const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({ children, .
 Truncate.displayName = "Truncate";
 
 export { Truncate };
+export type { TruncateProps };

@@ -1,0 +1,330 @@
+{
+  "Tooltip": {
+    "text": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "The text content of the Tooltip."
+    },
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "element": {
+      "type": "string",
+      "defaultValue": "TOOLTIP",
+      "required": false,
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`."
+    },
+    "placement": {
+      "type": "Placement",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Actual `placement`."
+    },
+    "state": {
+      "type": "TooltipStateReturn",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "The returned state from the `useTooltipState` hook."
+    },
+    "unstable_fixed": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether or not the popover should have `position` set to `fixed`."
+    },
+    "unstable_flip": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Flip the popover's placement when it starts to overlap its reference\nelement."
+    },
+    "unstable_offset": {
+      "type": "[string | number, string | number]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover: [main axis, alt axis]. Should not be combined with `gutter`."
+    },
+    "unstable_preventOverflow": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Prevents popover from being positioned outside the boundary."
+    },
+    "unstable_timeout": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
+    }
+  },
+  "UseTooltipInitialState": {
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "gutter": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`."
+    },
+    "placement": {
+      "type": "Placement",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Actual `placement`."
+    },
+    "unstable_fixed": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether or not the popover should have `position` set to `fixed`."
+    },
+    "unstable_flip": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Flip the popover's placement when it starts to overlap its reference\nelement."
+    },
+    "unstable_offset": {
+      "type": "[string | number, string | number]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Offset between the reference and the popover: [main axis, alt axis]. Should not be combined with `gutter`."
+    },
+    "unstable_preventOverflow": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Prevents popover from being positioned outside the boundary."
+    },
+    "unstable_timeout": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
+    }
+  },
+  "UseTooltipStateReturn": {
+    "animated": {
+      "type": "number | boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "If `true`, `animating` will be set to `true` when `visible` is updated.\nIt'll wait for `stopAnimation` to be called or a CSS transition ends.\nIf `animated` is set to a `number`, `stopAnimation` will be called only\nafter the same number of milliseconds have passed."
+    },
+    "animating": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Whether it's animating or not."
+    },
+    "baseId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "ID that will serve as a base for all the items IDs."
+    },
+    "hide": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Changes the `visible` state to `false`"
+    },
+    "place": {
+      "type": "Dispatch<SetStateAction<Placement>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Change the `placement` state."
+    },
+    "placement": {
+      "type": "Placement",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Actual `placement`."
+    },
+    "setAnimated": {
+      "type": "Dispatch<SetStateAction<number | boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `animated`."
+    },
+    "setBaseId": {
+      "type": "Dispatch<SetStateAction<string>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `baseId`."
+    },
+    "setVisible": {
+      "type": "Dispatch<SetStateAction<boolean>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Sets `visible`."
+    },
+    "show": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Changes the `visible` state to `true`"
+    },
+    "stopAnimation": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Stops animation. It's called automatically if there's a CSS transition."
+    },
+    "toggle": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Toggles the `visible` state"
+    },
+    "unstable_arrowRef": {
+      "type": "RefObject<HTMLElement | null>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "The arrow element."
+    },
+    "unstable_arrowStyles": {
+      "type": "CSSProperties",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Arrow styles."
+    },
+    "unstable_disclosureRef": {
+      "type": "MutableRefObject<HTMLElement | null>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_idCountRef": {
+      "type": "MutableRefObject<number>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_originalPlacement": {
+      "type": "Placement",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "`placement` passed to the hook."
+    },
+    "unstable_popoverRef": {
+      "type": "RefObject<HTMLElement | null>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "The popover element."
+    },
+    "unstable_popoverStyles": {
+      "type": "CSSProperties",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Popover styles."
+    },
+    "unstable_referenceRef": {
+      "type": "RefObject<HTMLElement | null>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "The reference element."
+    },
+    "unstable_setTimeout": {
+      "type": "Dispatch<SetStateAction<number>>",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_timeout": {
+      "type": "number",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "unstable_update": {
+      "type": "() => boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "visible": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true,
+      "description": "Whether it's visible or not."
+    }
+  }
+}

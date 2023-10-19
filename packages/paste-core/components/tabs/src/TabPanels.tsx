@@ -1,12 +1,20 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { TabsContext } from "./TabsContext";
 import { getElementName } from "./utils";
 
-export interface TabPanelsProps {
+export interface TabPanelsProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "HORIZONTAL_TAB_PANELS" or "VERTICAL_TAB_PANELS"
+   * @type {BoxProps["element"]}
+   * @memberof TabPanelsProps
+   */
   element?: BoxProps["element"];
 }
 

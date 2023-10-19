@@ -1,9 +1,14 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
 import { ListboxPrimitiveItem } from "@twilio-paste/listbox-primitive";
+import type { ListboxPrimitiveItemProps } from "@twilio-paste/listbox-primitive";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-import type { UserDialogListItemProps, UserDialogListboxItemProps } from "./types";
-
+interface UserDialogListboxItemProps extends HTMLPasteProps<"div"> {
+  element?: BoxProps["element"];
+  href?: string;
+}
 const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogListboxItemProps>(
   ({ children, href, element = "USER_DIALOG", ...props }, ref) => {
     return (
@@ -48,6 +53,23 @@ const UserDialogListboxItem = React.forwardRef<HTMLButtonElement, UserDialogList
 );
 UserDialogListboxItem.displayName = "UserDialogListboxItem";
 
+export interface UserDialogListItemProps extends ListboxPrimitiveItemProps {
+  /**
+   * Providing an href will make the list item an `<a>` tag
+   *
+   * @type {string}
+   * @memberof UserDialogListItemProps
+   */
+  href?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "USER_DIALOG_LIST_ITEM"
+   * @type {BoxProps["element"]}
+   * @memberof UserDialogListItemProps
+   */
+  element?: BoxProps["element"];
+}
 export const UserDialogListItem = React.forwardRef<HTMLButtonElement, UserDialogListItemProps>(
   ({ children, ...props }, ref) => {
     return (

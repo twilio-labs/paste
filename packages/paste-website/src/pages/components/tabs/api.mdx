@@ -1,0 +1,71 @@
+export const meta = {
+  title: 'Tabs - API',
+  package: '@twilio-paste/tabs',
+  description: 'Tabs are labeled controls that allow users to switch between multiple views within a page.',
+  slug: '/components/tabs/api',
+};
+
+import Changelog from '@twilio-paste/tabs/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/tabs/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Tabs');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/tabs');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tabs',
+        storybookUrl: '/?path=/story/components-tabs--horizontal-tabs',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/tabs - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/core/tabs';
+
+const HorizontalTabsExample: React.FC = () => {
+  const selectedId = useUID();
+  return (
+    <Tabs selectedId={selectedId} baseId="horizontal-tabs-example">
+      <TabList aria-label="My tabs">
+        <Tab>Tab 1</Tab>
+        <Tab disabled>Tab 2</Tab>
+        <Tab id={selectedId}>Tab 3</Tab>
+      </TabList>
+      <TabPanels paddingTop="space20">
+        <TabPanel>Tab 1</TabPanel>
+        <TabPanel>Tab 2</TabPanel>
+        <TabPanel>Tab 3</TabPanel>
+      </TabPanels>
+    </Tabs>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

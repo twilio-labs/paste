@@ -1,14 +1,21 @@
 import { Avatar } from "@twilio-paste/avatar";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import type { ButtonProps } from "@twilio-paste/button";
 import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
 import { NonModalDialogDisclosurePrimitive, NonModalDialogPrimitive } from "@twilio-paste/non-modal-dialog-primitive";
+import type {
+  NonModalDialogDisclosurePrimitiveProps,
+  NonModalDialogPrimitivePopoverInitialState,
+} from "@twilio-paste/non-modal-dialog-primitive";
 import { StyledBase } from "@twilio-paste/theme";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { UserDialogContext } from "./UserDialogContainer";
-import type { UserDialogButtonProps, UserDialogPopoverProps, UserDialogProps } from "./types";
 
+export type UserDialogPopoverProps = BoxProps;
 // styled popover for UserDialog Non Modal Dialog Primitive
 const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProps>(({ style, ...props }, ref) => {
   return (
@@ -32,6 +39,8 @@ const UserDialogPopover = React.forwardRef<HTMLDivElement, UserDialogPopoverProp
 });
 UserDialogPopover.displayName = "UserDialogPopover";
 
+export type UserDialogButtonProps = Omit<ButtonProps, "variant"> &
+  Omit<NonModalDialogDisclosurePrimitiveProps, "color">;
 const UserDialogButton = React.forwardRef<HTMLButtonElement, UserDialogButtonProps>(
   ({ children, element, ...props }, ref) => {
     return (
@@ -50,6 +59,24 @@ const UserDialogButton = React.forwardRef<HTMLButtonElement, UserDialogButtonPro
 );
 UserDialogButton.displayName = "UserDialogButton";
 
+export interface UserDialogProps extends HTMLPasteProps<"div">, NonModalDialogPrimitivePopoverInitialState {
+  children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "USER_DIALOG"
+   * @type {BoxProps["element"]}
+   * @memberof UserDialogProps
+   */
+  element?: BoxProps["element"];
+  /**
+   * Accessible label for the User Dialog
+   *
+   * @type {string}
+   * @memberof UserDialogProps
+   */
+  "aria-label": string;
+}
 export const UserDialog = React.forwardRef<HTMLDivElement, UserDialogProps>(
   ({ children, "aria-label": label, element = "USER_DIALOG", ...props }, ref) => {
     const { userDialogState, avatarProps } = React.useContext(UserDialogContext);

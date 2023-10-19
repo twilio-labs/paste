@@ -30,11 +30,11 @@ import {
   StateHookTabsExample,
 } from '../../../component-examples/TabsExamples';
 import packageJson from '@twilio-paste/tabs/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -46,24 +46,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tabs',
+        storybookUrl: '/?path=/story/components-tabs--horizontal-tabs',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tabs"
-  storybookUrl="/?path=/story/components-tabs--horizontal-tabs"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -250,88 +241,3 @@ Labels should be parallel parts of speech. For example, all nouns (Documents, Im
   <Dont title="Don't" body="Don’t use more than 2 words in a Tab label, unless absolutely necessary." preview={false} />
 </DoDont>
 
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/tabs - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/core/tabs';
-
-const HorizontalTabsExample: React.FC = () => {
-  const selectedId = useUID();
-  return (
-    <Tabs selectedId={selectedId} baseId="horizontal-tabs-example">
-      <TabList aria-label="My tabs">
-        <Tab>Tab 1</Tab>
-        <Tab disabled>Tab 2</Tab>
-        <Tab id={selectedId}>Tab 3</Tab>
-      </TabList>
-      <TabPanels paddingTop="space20">
-        <TabPanel>Tab 1</TabPanel>
-        <TabPanel>Tab 2</TabPanel>
-        <TabPanel>Tab 3</TabPanel>
-      </TabPanels>
-    </Tabs>
-  );
-};
-```
-
-#### Tabs props
-
-| Property     | Variants                              | Description                                                                                                                  | Default                              |
-| ------------ | ------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
-| orientation? | "horizontal", "vertical", "undefined" | Changes the Tabs' direction to either have the panels below or on the right side.                                            | "horizontal"                         |
-| variant?     | "fitted", "inverse", "inverse_fitted" | Changes each Tab to either equally fit the width of the containing element or hug the contents of its label.                 | "undefined"                          |
-| selectedId?  | `string, null`                        | Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be a little delayed. |                                      |
-| baseId?      | `string`                              | Sets the prefix for the auto-generated IDs on each Tab and TabPanel. Useful for consistent renders, like for tests.          |                                      |
-| element?     | `string`                              | Overrides the default element name to apply unique styles with the Customization Provider.                                   | "HORIZONTAL_TABS" or "VERTICAL_TABS" |
-
-#### TabList props
-
-| Property   | Variants | Description                                                                                   | Default                                      |
-| ---------- | -------- | --------------------------------------------------------------------------------------------- | -------------------------------------------- |
-| aria-label | `string` | Required label for this Tabs component. Titles the entire Tabbing context for screen readers. | `null`                                       |
-| element?   | `string` | Overrides the default element name to apply unique styles with the Customization Provider.    | "HORIZONTAL_TAB_LIST" or "VERTICAL_TAB_LIST" |
-
-#### Tab props
-
-| Property   | Variants  | Description                                                                                                                                            | Default                            |
-| ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------- |
-| id?        | `string`  | Same as the HTML attribute.                                                                                                                            |                                    |
-| focusable? | `boolean` | When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set. |                                    |
-| disabled?  | `boolean` | Same as HTML attribute.                                                                                                                                |                                    |
-| element?   | `string`  | Overrides the default element name to apply unique styles with the Customization Provider.                                                             | "HORIZONTAL_TAB" or "VERTICAL_TAB" |
-
-#### TabPanels props
-
-| Property | Variants | Description                                                                                | Default                                          |
-| -------- | -------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------ |
-| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider. | "HORIZONTAL_TAB_PANELS" or "VERTICAL_TAB_PANELS" |
-
-#### TabPanel props
-
-| Property | Variants | Description                                                                                | Default                                        |
-| -------- | -------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------- |
-| id?      | `string` | Same as the HTML attribute.                                                                |                                                |
-| tabId?   | `string` | The ID of the Tab component this Panel pairs with.                                         |                                                |
-| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider. | "HORIZONTAL_TAB_PANEL" or "VERTICAL_TAB_PANEL" |
-
-###### `paddingTop? : 'space0'`
-
-Removes the default padding from the TabPanel.
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

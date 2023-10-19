@@ -1,0 +1,65 @@
+export const meta = {
+  title: 'Textarea - API',
+  package: '@twilio-paste/textarea',
+  description: 'A textarea allows users to enter text on multiple lines.',
+  slug: '/components/textarea/api',
+};
+
+import Changelog from '@twilio-paste/textarea/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/textarea/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Textarea');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/textarea');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/textarea',
+        storybookUrl: '/?path=/story/components-textarea--textarea',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/textarea - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {TextArea} from '@twilio-paste/core/textarea';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/help-text';
+
+const Component = () => (
+  <>
+    <Label htmlFor="foo" required>
+      foo
+    </Label>
+    <TextArea onChange={() => {}} aria-describedby="foo_text" id="foo" name="foo" placeholder="foo" required />
+    <HelpText id="foo_text">Enter some text.</HelpText>
+  </>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

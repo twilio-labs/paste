@@ -1,0 +1,71 @@
+export const meta = {
+  title: 'User Dialog - API',
+  package: '@twilio-paste/user-dialog',
+  description: 'User dialog is a menu that contains user profile-related actions.',
+  slug: '/components/user-dialog/api',
+};
+
+import Changelog from '@twilio-paste/user-dialog/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/user-dialog/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('User Dialog');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/user-dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/user-dialog',
+        storybookUrl: '/?path=/story/components-user-dialog--basic-user-dialog',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/user-dialog - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {UserDialog} from '@twilio-paste/core/user-dialog';
+
+const UserDialogExample = () => {
+  const userDialogList = useUserDialogListState();
+  return (
+    <UserDialogContainer name="Nora Krantz">
+      <UserDialog aria-label="my_user_menu">
+        <UserDialogUserInfo>
+          <UserDialogUserName>Name</UserDialogUserName>
+          <UserDialogUserEmail>email@email.com</UserDialogUserEmail>
+        </UserDialogUserInfo>
+        <UserDialogList {...userDialogList} aria-label="User menu actions">
+          <UserDialogListItem {...userDialogList} onSelect={() => {}}>One</UserDialogListItem>
+          <UserDialogListItem {...userDialogList} href="www.#.com">Two</UserDialogListItem>
+        </UserDialogList>
+      </UserDialog>
+    </UserDialogContainer>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

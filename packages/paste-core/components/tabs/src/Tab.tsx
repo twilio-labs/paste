@@ -1,6 +1,7 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import { TabPrimitive } from "@twilio-paste/tabs-primitive";
+import type { TabPrimitiveProps } from "@twilio-paste/tabs-primitive";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
@@ -115,12 +116,37 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
 };
 
 export interface TabProps extends HTMLPasteProps<"div"> {
-  id?: string | undefined;
-  focusable?: boolean | undefined;
-  disabled?: boolean | undefined;
+  /**
+   * Same as the HTML attribute.
+   *
+   * @type {TabPrimitiveProps["id"]}
+   * @memberof TabProps
+   */
+  id?: TabPrimitiveProps["id"];
+  /**
+   * When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set.
+   *
+   * @type {TabPrimitiveProps["focusable"]}
+   * @memberof TabProps
+   */
+  focusable?: TabPrimitiveProps["focusable"];
+  /**
+   * Same as HTML attribute.
+   *
+   * @type {TabPrimitiveProps["disabled"]}
+   * @memberof TabProps
+   */
+  disabled?: TabPrimitiveProps["disabled"];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "HORIZONTAL_TAB" or "VERTICAL_TAB"
+   * @type {BoxProps["element"]}
+   * @memberof TabProps
+   */
   element?: BoxProps["element"];
   children: React.ReactNode;
-  "aria-disabled"?: boolean;
+  "aria-disabled"?: TabPrimitiveProps["aria-disabled"];
 }
 
 const Tab = React.forwardRef<HTMLDivElement, TabProps>(({ children, element, ...tabProps }, ref) => {

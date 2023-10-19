@@ -1,7 +1,7 @@
 export const meta = {
   title: 'Tooltip',
   package: '@twilio-paste/tooltip',
-  description: 'An accessible and styled tooltip component.',
+  description: 'A Tooltip is a page overlay that displays non-interactive clarifying text related to an element that’s in a focused or hovered state.',
   slug: '/components/tooltip/',
 };
 
@@ -12,15 +12,14 @@ import {Stack} from '@twilio-paste/stack';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Text} from '@twilio-paste/text';
-import Changelog from '@twilio-paste/tooltip/CHANGELOG.md';
 import {useTooltipState, Tooltip} from '@twilio-paste/tooltip';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {StateHookTabsExample, NonPasteChildComponentExample} from '../../../component-examples/TooltipExamples';
 import packageJson from '@twilio-paste/tooltip/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -32,24 +31,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tooltip',
+        storybookUrl: '/?path=/story/components-tooltip--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tooltip"
-  storybookUrl="/?path=/story/components-tooltip--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -239,192 +229,3 @@ Use full sentences and punctuation. Include no more than three lines of text.
   />
 
 </DoDont>
-
-## Anatomy
-
-| Property         | Default token                 | Modifiable? |
-| ---------------- | ----------------------------- | ----------- |
-| background-color | color-background-body-inverse | No          |
-| border-width     | border-width-10               | No          |
-| border-color     | color-border-strong           | No          |
-| border-radius    | border-radius-20              | No          |
-| box-shadow       | shadow                        | No          |
-| max-width        | size-30                       | No          |
-| padding          | space-30                      | No          |
-| padding-top      | space-20                      | No          |
-| padding-bottom   | space-20                      | No          |
-| z-index          | z-index-90                    | No          |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/tooltip - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Tooltip} from '@twilio-paste/core/tooltip';
-
-const PopoverExample: React.FC = () => {
-  return (
-    <Tooltip baseId="tooltip-example" text="Tooltip text...">
-      <Button variant="primary">Open Tooltip</Button>
-    </Tooltip>
-  );
-};
-```
-
-#### Props
-
-##### useTooltipState
-
-Pass these as part of an object to the useTooltipState hook.
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the tooltip on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `TooltipPrimitiveReference`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `visible?: boolean`
-
-Whether the tooltip is visible or not.
-
-##### `animated?: number | boolean`
-
-If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
-
-##### useTooltipState returned props
-
-These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the tooltip on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `TooltipPrimitiveReference`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `visible?: boolean`
-
-Whether the tooltip is visible or not.
-
-##### `animated?: number | boolean`
-
-If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
-
-##### `animating?: boolean`
-
-Whether it's animating or not.
-
-##### `stopAnimation?: () => void`
-
-Stops animation. It's called automatically if there's a CSS transition.
-
-##### `show?: () => void`
-
-Changes the `visible` state to `true`.
-
-##### `hide?: () => void`
-
-Changes the `visible` state to `false`.
-
-##### Tooltip
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `children: ReactElement`
-
-The tooltip reference, meaning the element where the tooltip originates. Must be a focusable element.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the tooltip on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of tooltip in relation to the child element. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `text: string`
-
-The text content of the Tooltip.
-
-###### `element?: string`
-
-Overrides the default element name ('TOOLTIP') to apply unique styles with the Customization Provider
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

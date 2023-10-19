@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Tabs - Changelog',
+  package: '@twilio-paste/tabs',
+  description: 'Tabs are labeled controls that allow users to switch between multiple views within a page.',
+  slug: '/components/tabs/changelog',
+};
+
+import Changelog from '@twilio-paste/tabs/CHANGELOG.md';
+import packageJson from '@twilio-paste/tabs/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Tabs');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tabs',
+        storybookUrl: '/?path=/story/components-tabs--horizontal-tabs',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -1,11 +1,24 @@
 import { Avatar } from "@twilio-paste/avatar";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
 import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
 import { Separator } from "@twilio-paste/separator";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { UserDialogContext } from "./UserDialogContainer";
-import type { UserDialogUserInfoProps } from "./types";
+
+export interface UserDialogUserInfoProps extends HTMLPasteProps<"div"> {
+  children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "USER_DIALOG_USER_INFO"
+   * @type {BoxProps["element"]}
+   * @memberof UserDialogUserInfoProps
+   */
+  element?: BoxProps["element"];
+}
 
 export const UserDialogUserInfo = React.forwardRef<HTMLDivElement, UserDialogUserInfoProps>(
   ({ children, element = "USER_DIALOG", ...props }, ref) => {
