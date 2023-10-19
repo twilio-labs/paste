@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Progress Bar - Changelog',
+  package: '@twilio-paste/progress-bar',
+  description: 'A Progress Bar communicates the completion status of a process or task.',
+  slug: '/components/progress-bar/changelog',
+};
+
+import Changelog from '@twilio-paste/progress-bar/CHANGELOG.md';
+import packageJson from '@twilio-paste/progress-bar/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Progress Bar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/progress-bar',
+        storybookUrl: '/?path=/story/components-progressbar--default',
+      },
+    },
+  };
+};
+
+
+<Changelog />
