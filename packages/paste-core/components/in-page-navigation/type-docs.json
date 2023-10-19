@@ -427,6 +427,13 @@
       "required": false,
       "externalProp": true
     },
+    "hideBottomBorder": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Use sparingly"
+    },
     "id": {
       "type": "string",
       "defaultValue": null,
@@ -1484,7 +1491,8 @@
       "type": "Orientation",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "InPageNavigation orientation"
     },
     "placeholder": {
       "type": "string",
@@ -3214,7 +3222,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": true
+      "externalProp": false,
+      "description": "Accessible title for when the InPageNavigationItem is truncated. Usage is strongly recommended on all InPageNavigationItems, but especially when the text might be truncated (in vertical InPageNavigations or horizontal ones with more than 3 items)."
     },
     "translate": {
       "type": "\"yes\" | \"no\"",

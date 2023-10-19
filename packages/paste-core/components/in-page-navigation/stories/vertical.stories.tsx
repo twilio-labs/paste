@@ -16,12 +16,25 @@ export default {
 export const Default: StoryFn = () => {
   /* using UID here to make unique labels for landmarks in Storybook for axe testing */
   return (
-    <InPageNavigation aria-label={`get started ${useUID()}`} orientation="vertical">
-      <InPageNavigationItem href="#" currentPage>
-        Super SIM
-      </InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wireless</InPageNavigationItem>
-    </InPageNavigation>
+    <Box display="flex" flexDirection="row" width="100%">
+      <InPageNavigation aria-label={`get started ${useUID()}`} orientation="vertical">
+        <InPageNavigationItem href="#" currentPage>
+          Super SIM
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#">Programmable Wireless wireless</InPageNavigationItem>
+      </InPageNavigation>
+      <Box
+        borderColor="colorBorder"
+        borderStyle="solid"
+        borderWidth="borderWidth20"
+        minWidth="size40"
+        width="100%"
+        height="size10"
+        padding="space50"
+      >
+        ...page content...
+      </Box>
+    </Box>
   );
 };
 
@@ -71,12 +84,23 @@ export const InverseFullWidth: StoryFn = () => {
 export const LinkOverflowExample: StoryFn = () => {
   /* using UID here to make unique labels for landmarks in Storybook for axe testing */
   return (
-    <InPageNavigation aria-label={`get started ${useUID()}`} orientation="vertical">
-      <InPageNavigationItem href="#" currentPage>
-        Super SIMSuper SIMSuper SIM - Telephony Overflow Please Work
-      </InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wireless Telephony Overflow Please Work</InPageNavigationItem>
-    </InPageNavigation>
+    <Box display="flex" flexDirection="row">
+      <Box maxWidth="size30">
+        <InPageNavigation aria-label={`get started ${useUID()}`} orientation="vertical">
+          <InPageNavigationItem
+            href="#"
+            currentPage
+            title="Super SIMSuper SIMSuper SIM - Telephony Overflow Please Work"
+          >
+            Super SIMSuper SIMSuper SIM - Telephony Overflow Please Work
+          </InPageNavigationItem>
+          <InPageNavigationItem href="#" title="Programmable Wireless Telephony Overflow Please Work">
+            Programmable Wireless Telephony Overflow Please Work
+          </InPageNavigationItem>
+        </InPageNavigation>
+      </Box>
+      <Box backgroundColor="colorBackgroundAvailable" minWidth="size70" width="100%" height="size10" />
+    </Box>
   );
 };
 

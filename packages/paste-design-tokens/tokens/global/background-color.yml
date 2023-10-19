@@ -27,6 +27,9 @@ props:
   color-background-inverse-stronger:
     value: "{!palette-gray-80}"
     comment: Stronger inverse background color for any container. Must be used on color-background-body-inverse.
+  color-background-inverse-strongest:
+    value: "{!palette-gray-0}"
+    comment: Strongest inverse background color used for containers.
   color-background-weak:
     value: "{!palette-gray-05}"
     comment: Weak background color used for containers.

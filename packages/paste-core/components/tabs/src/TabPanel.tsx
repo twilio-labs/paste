@@ -52,7 +52,7 @@ const TabPanel = React.forwardRef<HTMLDivElement, TabPanelProps>(
         paddingTop={paddingTop}
         borderRadius="borderRadius20"
         _focusVisible={{
-          boxShadow: "shadowFocus",
+          boxShadow: "shadowFocusInset",
           outline: "none",
         }}
         {...props}

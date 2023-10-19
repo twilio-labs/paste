@@ -84,7 +84,7 @@
       "description": "If enabled, the composite element will act as an\n[aria-activedescendant](https://www.w3.org/TR/wai-aria-practices-1.1/#kbd_focus_activedescendant)\ncontainer instead of\n[roving tabindex](https://www.w3.org/TR/wai-aria-practices/#kbd_roving_tabindex).\nDOM focus will remain on the composite while its items receive virtual focus."
     },
     "variant": {
-      "type": "\"fitted\" | \"inverse\" | \"inverse_fitted\"",
+      "type": "| \"fitted\"\n  | \"inverse\"\n  | \"inverse_fitted\"\n  | \"full_width\"\n  | \"inverse_full_width\"",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -1675,7 +1675,7 @@
       "externalProp": true
     },
     "variant": {
-      "type": "\"fitted\" | \"inverse\" | \"inverse_fitted\"",
+      "type": "| \"fitted\"\n  | \"inverse\"\n  | \"inverse_fitted\"\n  | \"full_width\"\n  | \"inverse_full_width\"",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

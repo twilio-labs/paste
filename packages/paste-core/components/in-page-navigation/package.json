@@ -3,7 +3,7 @@
   "version": "4.2.0",
   "category": "navigation",
   "status": "production",
-  "description": "An In Page Navigation is a group of styled links that lets users navigate between related pages.",
+  "description": "In Page Navigation is a set of links that lets users navigate between related pages.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

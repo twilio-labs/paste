@@ -1,15 +1,17 @@
 export const meta = {
   title: 'In Page Navigation',
   package: '@twilio-paste/in-page-navigation',
-  description: 'An In Page Navigation is a group of styled links that lets users navigate between related pages.',
+  description: 'In Page Navigation is a set of links that lets users navigate between related pages.',
   slug: '/components/in-page-navigation/',
 };
 
 import {Anchor} from '@twilio-paste/anchor';
 import Changelog from '@twilio-paste/in-page-navigation/CHANGELOG.md';
 import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/in-page-navigation';
+import {Box} from '@twilio-paste/box'
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {basicExample, fullWidthExample} from '../../../component-examples/InPageNavigationExamples';
+import {basicExample, fullWidthExample, verticalExample} from '../../../component-examples/InPageNavigationExamples';
 import packageJson from '@twilio-paste/in-page-navigation/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -51,22 +53,32 @@ export const getStaticProps = async () => {
 
 ### About In Page Navigation
 
-The In Page Navigation component allows users to navigate to different pages using a styled group of links. Each In Page Navigation Item is an anchor that links to a related page. Each page within the In Page Navigation should also have an In Page Navigation component so that users can easily navigate back and forth within a set of related pages.
+In Page Navigation allows users to navigate between related pages using a styled set of links. Each In Page Navigation Item is an anchor that links to a related page. Each of the related pages should have its own In Page Navigation component so that users can easily navigate back and forth within a set of related pages.
+
+If you need to switch between multiple views within a single page without taking users to a new URL, use [Tabs](/components/tabs).
+
+In Page Navigation contains the following elements:
+
+- `InPageNavigationItem`: Clickable element that navigates to a new URL
+- `InPageNavigation`: A collection of `InPageNavigationItem`s
 
 ### In Page Navigation vs Tabs
 
-[Tabs](/components/tabs) are used to layer related pieces of information together and display one layer at a time on the same URL. Use Tabs to alternate between views within the same context. In Page Navigation is a collection of anchors, rather than buttons. Use In Page Navigation to switch between different, related pages. Tabs replace the entire view based on the selected tab. In Page Navigation links navigate the user to a new page.
+[Tabs](/components/tabs) are used to layer related pieces of information together and display one layer at a time on the same URL. Use Tabs to alternate between views within the same context. Tabs are especially useful when each view presents similar, parallel information, like code in different languages or data visualization in different formats.
+
+In Page Navigation is a collection of anchors, rather than buttons. Use In Page Navigation to switch between different but related pages, especially when there are actions to take on each page.
 
 ### Accessibility
 
-- Each In Page Navigation must have a unique label. To add the label, add the `aria-label` prop to the `<InPageNavigation>` tag.
-  Omit the term 'navigation'- it is redundant since the role is already defined as 'navigation'.
-- To interact with In Page Navigation using the keyboard, use the tab key.
-- Each In Page Navigation must have an In Page Navigation Item which is the currently selected page. To specify which page is current, add the `currentPage` prop to the respective `<InPageNavigationItem>`. Doing so will set `aria-current="page"` on that link.
+- Each In Page Navigation must have a unique label. To add the label, add the `aria-label` prop to the `<InPageNavigation>` tag. Omit the term 'navigation'—it’s redundant since the role is already defined as 'navigation'.
+- Each In Page Navigation must specify the selected page. To specify which page is selected, set the `currentPage` prop to the respective `<InPageNavigationItem>`. Doing so will set `aria-current="page"` on that link.
+- To interact with In Page Navigation using the keyboard, use the tab key to navigate between items and the enter key to select an item.
 
 ## Examples
 
-### Default In Page Navigation
+### Horizontal In Page Navigation
+
+Use Horizontal In Page Navigation in most cases.
 
 <LivePreview
   scope={{
@@ -80,7 +92,7 @@ The In Page Navigation component allows users to navigate to different pages usi
 
 ### Full width In Page Navigation
 
-Full width In Page Navigation allows the component to expand and fit the width of a containing element.
+Use full-width In Page Navigation to fit the width of a containing element. Each item will expand equally to the same width. The full-width variant is recommended for compact spaces.
 
 <LivePreview
   scope={{
@@ -91,3 +103,38 @@ Full width In Page Navigation allows the component to expand and fit the width o
 >
   {fullWidthExample}
 </LivePreview>
+
+### Vertical In Page Navigation
+
+Use Vertical In Page Navigation when creating a second layer of hierarchy underneath a horizontal or full-width In Page Navigation.
+
+Place this vertical In Page Navigation on the left side of the page, and wrap it in a [Box](/primitives/box) with a right margin of `space-110`.
+
+<LivePreview
+  scope={{
+    InPageNavigation,
+    InPageNavigationItem,
+    Box
+  }}
+  noInline
+>
+  {verticalExample}
+</LivePreview>
+
+
+## Composition notes 
+
+Don't add interactive elements to an In Page Navigation item since it makes it difficult for users of assistive technologies to focus or click on an item.
+
+In Page Navigation labels should be short to improve readability. Users should be able to easily scan the items and know what type of content to expect. Try to keep labels to 1-2 words each.
+
+Labels should be parallel parts of speech. For example, all nouns (Documents, Images, Downloads).
+
+<DoDont>
+  <Do title="Do" body="Use In Page Navigation for navigating users to different but related pages, such as different pages of settings." center />
+  <Dont title="Don't" body="Don’t use In Page Navigation when swapping between views on the same page. Use Tabs instead." center />
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Keep In Page Navigation labels concise." center />
+  <Dont title="Don't" body="Don’t use more than 2 words in an In Page Navigation label, unless absolutely necessary." center />
+</DoDont>

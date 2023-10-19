@@ -25,6 +25,18 @@ export const Default: StoryFn = () => {
   );
 };
 
+export const NoBottomBorder: StoryFn = () => {
+  /* using UID here to make unique labels for landmarks in Storybook for axe testing */
+  return (
+    <InPageNavigation aria-label={`get started ${useUID()}`} hideBottomBorder>
+      <InPageNavigationItem href="#" currentPage>
+        Super SIM
+      </InPageNavigationItem>
+      <InPageNavigationItem href="#">Programmable Wireless</InPageNavigationItem>
+    </InPageNavigation>
+  );
+};
+
 export const FullWidth: StoryFn = () => {
   /* using UID here to make unique labels for landmarks in Storybook for axe testing */
   return (
@@ -75,13 +87,27 @@ export const LinkOverflowExample: StoryFn = () => {
       <InPageNavigationItem href="#" currentPage>
         Super SIM
       </InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wireless</InPageNavigationItem>
-      <InPageNavigationItem href="#">Super Duper SIM</InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wirefull</InPageNavigationItem>
-      <InPageNavigationItem href="#">Super SIM</InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wireless</InPageNavigationItem>
-      <InPageNavigationItem href="#">Super Duper SIM</InPageNavigationItem>
-      <InPageNavigationItem href="#">Programmable Wirefull</InPageNavigationItem>
+      <InPageNavigationItem href="#" title="Programmable Wireless">
+        Programmable Wireless
+      </InPageNavigationItem>
+      <InPageNavigationItem href="#" title="Super Duper SIM">
+        Super Duper SIM
+      </InPageNavigationItem>
+      <InPageNavigationItem href="#" title="Programmable Wirefull">
+        Programmable Wirefull
+      </InPageNavigationItem>
+      <InPageNavigationItem href="#" title="Super SIM">
+        Super SIM
+      </InPageNavigationItem>
+      <InPageNavigationItem href="#" title="Programmable Wireless">
+        Programmable Wireless
+      </InPageNavigationItem>
+      <InPageNavigationItem href="#" title="Super Duper SIM">
+        Super Duper SIM
+      </InPageNavigationItem>
+      <InPageNavigationItem href="#" title="Programmable Wirefull">
+        Programmable Wirefull
+      </InPageNavigationItem>
     </InPageNavigation>
   );
 };

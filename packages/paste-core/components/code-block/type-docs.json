@@ -6409,7 +6409,7 @@
       "externalProp": true
     },
     "variant": {
-      "type": "\"fitted\" | \"inverse\" | \"inverse_fitted\"",
+      "type": "| \"fitted\"\n  | \"inverse\"\n  | \"inverse_fitted\"\n  | \"full_width\"\n  | \"inverse_full_width\"",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

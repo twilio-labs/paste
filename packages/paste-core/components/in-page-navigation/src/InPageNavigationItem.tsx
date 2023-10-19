@@ -20,10 +20,11 @@ const BASE_STYLES: BoxStyleProps = {
   textDecoration: "none",
   _hover: {
     borderBottomColor: "colorBorderPrimaryStronger",
+    borderLeftColor: "colorBorderPrimaryStronger",
     color: "colorTextLinkStronger",
   },
   _focus: {
-    boxShadow: "shadowFocus",
+    boxShadow: "shadowFocusInset",
     outline: "none",
     borderRadius: "borderRadius20",
   },
@@ -37,14 +38,22 @@ const HORIZONTAL_BASE_STYLES: BoxStyleProps = {
   borderBottomStyle: "solid",
   borderBottomWidth: "borderWidth10",
   paddingBottom: "space40",
-  paddingLeft: "space20",
-  paddingRight: "space20",
+  paddingLeft: "space30",
+  paddingRight: "space30",
   paddingTop: "space40",
+  borderTopLeftRadius: "borderRadius30",
+  borderTopRightRadius: "borderRadius30",
+  _focus: {
+    borderTopLeftRadius: "borderRadius30",
+    borderTopRightRadius: "borderRadius30",
+    boxShadow: "shadowFocusInset",
+    outline: "none",
+  },
 };
 const VERTICAL_BASE_STYLES: BoxStyleProps = {
   ...BASE_STYLES,
   width: "auto",
-  display: "inline-block",
+  display: "block",
   borderLeftColor: "transparent",
   borderLeftStyle: "solid",
   borderLeftWidth: "borderWidth10",
@@ -52,23 +61,36 @@ const VERTICAL_BASE_STYLES: BoxStyleProps = {
   paddingTop: "space30",
   paddingLeft: "space50",
   paddingRight: "space50",
+  borderBottomRightRadius: "borderRadius30",
+  borderTopRightRadius: "borderRadius30",
+  _focus: {
+    boxShadow: "shadowFocusInset",
+    outline: "none",
+    borderTopRightRadius: "borderRadius30",
+    borderBottomRightRadius: "borderRadius30",
+  },
 };
 
 const CURRENT_PAGE_STYLES: BoxStyleProps = {
   borderBottomColor: "colorBorderPrimary",
   borderLeftColor: "colorBorderPrimary",
   color: "colorTextLink",
+  _focus: {
+    borderBottom: "none",
+    boxShadow: "shadowFocusInset",
+    outline: "none",
+  },
 };
 
 const INVERSE_STYLES: BoxStyleProps = {
   color: "colorTextInverseWeaker",
   _focus: {
-    boxShadow: "shadowFocusInverse",
+    boxShadow: "shadowFocusInverseInset",
     outline: "none",
-    borderRadius: "borderRadius20",
   },
   _hover: {
     borderBottomColor: "colorBorderInverse",
+    borderLeftColor: "colorBorderInverse",
     color: "colorTextInverseWeaker",
   },
 };
@@ -77,6 +99,11 @@ const INVERSE_CURRENT_PAGE_STYLES: BoxStyleProps = {
   borderBottomColor: "colorBorderInverseStrong",
   borderLeftColor: "colorBorderInverseStrong",
   color: "colorTextInverse",
+  _focus: {
+    borderBottom: "none",
+    boxShadow: "shadowFocusInverseInset",
+    outline: "none",
+  },
 };
 
 export interface InPageNavigationItemProps extends HTMLPasteProps<"a"> {
@@ -97,6 +124,13 @@ export interface InPageNavigationItemProps extends HTMLPasteProps<"a"> {
    */
   href: string;
   /**
+   * Accessible title for when the InPageNavigationItem is truncated. Usage is strongly recommended on all InPageNavigationItems, but especially when the text might be truncated (in vertical InPageNavigations or horizontal ones with more than 3 items).
+   *
+   * @type {string}
+   * @memberof InPageNavigationItemProps
+   */
+  title?: string;
+  /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
    * @default 'IN_PAGE_NAVIGATION_ITEM'
@@ -107,7 +141,7 @@ export interface InPageNavigationItemProps extends HTMLPasteProps<"a"> {
 }
 
 const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationItemProps>(
-  ({ element = "IN_PAGE_NAVIGATION_ITEM", currentPage = false, href, children, ...props }, ref) => {
+  ({ element = "IN_PAGE_NAVIGATION_ITEM", currentPage = false, href, children, title, ...props }, ref) => {
     const { variant, orientation } = React.useContext(InPageNavigationContext);
     const isFullWidth = variant === "fullWidth" || variant === "inverse_fullWidth";
     const isInverse = variant === "inverse" || variant === "inverse_fullWidth";
@@ -120,7 +154,7 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
 
     if (orientation === "vertical") {
       return (
-        <Box as="li" ref={ref} element={element} minWidth="size0" marginBottom="space20" display="inline-flex">
+        <Box as="li" ref={ref} element={element} minWidth="size0" marginBottom="space20">
           <Box
             {...secureExternalLink(href)}
             {...safelySpreadBoxProps(props)}
@@ -132,6 +166,9 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
             element={`${element}_ANCHOR`}
             aria-current={currentPage ? "page" : undefined}
             href={href}
+            width="100%"
+            textAlign="start"
+            title={title}
           >
             {children}
           </Box>
@@ -161,6 +198,7 @@ const InPageNavigationItem = React.forwardRef<HTMLLIElement, InPageNavigationIte
           element={`${element}_ANCHOR`}
           aria-current={currentPage ? "page" : undefined}
           href={href}
+          title={title}
         >
           {children}
         </Box>
