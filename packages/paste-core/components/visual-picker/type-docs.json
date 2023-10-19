@@ -4,7 +4,8 @@
       "type": "NonNullable<ReactNode>",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "String to render as the label text."
     },
     "name": {
       "type": "string",
@@ -457,7 +458,8 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "String to render as the error text."
     },
     "form": {
       "type": "string",
@@ -469,7 +471,8 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "String to render as the help text."
     },
     "hidden": {
       "type": "boolean",
@@ -3428,7 +3431,8 @@
       "type": "NonNullable<ReactNode>",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "String to render as the label text."
     },
     "name": {
       "type": "string",
@@ -3868,7 +3872,8 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "String to render as the error text."
     },
     "form": {
       "type": "string",
@@ -3880,7 +3885,8 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "String to render as the help text."
     },
     "hidden": {
       "type": "boolean",

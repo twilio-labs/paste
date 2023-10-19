@@ -460,7 +460,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Disables the input."
     },
     "draggable": {
       "type": "Booleanish",
@@ -473,7 +474,7 @@
       "defaultValue": "TIMEPICKER",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization\n\n\nOverrides the default element name to apply unique styles with the Customization Provider."
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
     },
     "enterKeyHint": {
       "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
@@ -521,7 +522,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input to an error state."
     },
     "height": {
       "type": "never",
@@ -539,19 +541,22 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides an accessible label for the decrement button on inputs of type \"number\" when using non-English languages."
     },
     "i18nStepUpLabel": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides an accessible label for the increment button on inputs of type \"number\" when using non-English languages."
     },
     "id": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the id of the input. Should match the `htmlFor` of Label."
     },
     "inlist": {
       "type": "any",
@@ -655,7 +660,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the name of the input."
     },
     "nonce": {
       "type": "string",
@@ -1657,7 +1663,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the placeholder of the input."
     },
     "prefix": {
       "type": "string",
@@ -1681,13 +1688,15 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input to readonly."
     },
     "required": {
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input as required."
     },
     "resource": {
       "type": "string",
@@ -1789,7 +1798,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the value of the input."
     },
     "variant": {
       "type": "InputVariants",
