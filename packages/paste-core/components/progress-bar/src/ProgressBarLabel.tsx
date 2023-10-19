@@ -7,13 +7,34 @@ import * as React from "react";
 import { LABEL_SUFFIX } from "./constants";
 
 export interface ProgressBarLabelProps extends HTMLPasteProps<"div"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'PROGRESS_BAR_LABEL'
+   * @type {BoxProps['element']}
+   * @memberof ProgressBarLabelProps
+   */
   element?: BoxProps["element"];
   children: string;
+  /**
+   * The id of the ProgressBarLabel's associated ProgressBar.
+   *
+   * @type {string}
+   * @memberof ProgressBarLabelProps
+   */
   htmlFor: string;
   /**
-   * Displays value text on the right side of the label.
+   * Custom label text for the current value of the ProgressBar.
+   *
+   * @type {string}
+   * @memberof ProgressBarLabelProps
    */
   valueLabel?: string;
+  /**
+   *
+   * @type {LabelProps["disabled"]}
+   * @memberof ProgressBarLabelProps
+   */
   disabled?: LabelProps["disabled"];
 }
 

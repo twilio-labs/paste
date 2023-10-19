@@ -1,0 +1,71 @@
+export const meta = {
+  title: 'Minimizable Dialog',
+  package: '@twilio-paste/minimizable-dialog',
+  description: 'An accessible, non-modal dialog that can be minimized to the bottom of the page.',
+  slug: '/components/minimizable-dialog/api',
+};
+
+import Changelog from '@twilio-paste/minimizable-dialog/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/minimizable-dialog/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Minimizable Dialog');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/minimizable-dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/minimizable-dialog',
+        storybookUrl: '/?path=/story/components-minimizable-dialog--default-for-vrt',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/minimizable-dialog - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  MinimizableDialog,
+  MinimizableDialogButton,
+  MinimizableDialogHeader,
+  MinimizableDialogContainer,
+  MinimizableDialogContent,
+} from '@twilio-paste/core/minimizable-dialog';
+
+const MinimizableDialogExample: React.FC = () => {
+  return (
+    <MinimizableDialogContainer>
+      <MinimizableDialogButton variant="primary">Open dialog</MinimizableDialogButton>
+      <MinimizableDialog aria-label="My Dialog">
+        <MinimizableDialogHeader>Dialog header</MinimizableDialogHeader>
+        <MinimizableDialogContent>Dialog content</MinimizableDialogContent>
+      </MinimizableDialog>
+    </MinimizableDialogContainer>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

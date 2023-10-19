@@ -12,8 +12,29 @@ import { MinimizableDialogContext } from "./MinimizableDialogContext";
 
 export interface MinimizableDialogHeaderProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
+  /**
+   * Accessible label	text for the dismiss button.
+   *
+   * @default 'dismiss'
+   * @type {string}
+   * @memberof MinimizableDialogHeaderProps
+   */
   i18nDismissLabel?: string;
+  /**
+   * Accessible label	text for the minimize button.
+   *
+   * @default 'minimize'
+   * @type {string}
+   * @memberof MinimizableDialogHeaderProps
+   */
   i18nMinimizeLabel?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'MINIMIZABLE_DIALOG_HEADER'
+   * @type {BoxProps['element']}
+   * @memberof MinimizableDialogHeaderProps
+   */
   element?: BoxProps["element"];
 }
 

@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Minimizable Dialog',
+  package: '@twilio-paste/minimizable-dialog',
+  description: 'An accessible, non-modal dialog that can be minimized to the bottom of the page.',
+  slug: '/components/minimizable-dialog/changelog',
+};
+
+import Changelog from '@twilio-paste/minimizable-dialog/CHANGELOG.md';
+import packageJson from '@twilio-paste/minimizable-dialog/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Minimizable Dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/minimizable-dialog',
+        storybookUrl: '/?path=/story/components-minimizable-dialog--default-for-vrt',
+      },
+    },
+  };
+};
+
+<Changelog />

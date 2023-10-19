@@ -267,6 +267,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
               </NavigationDisclosure>
             );
           }
+          if (name === "Multiselect Combobox") {
+            return null;
+          }
           if (name === "Status") {
             return (
               <NavigationDisclosure

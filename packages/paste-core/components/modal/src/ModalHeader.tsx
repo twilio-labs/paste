@@ -11,7 +11,21 @@ import { useModalContext } from "./ModalContext";
 
 export interface ModalHeaderProps extends HTMLPasteProps<"head"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MODAL_HEADER'
+   * @type {BoxProps['element']}
+   * @memberof ModalHeaderProps
+   */
   element?: BoxElementProps["element"];
+  /**
+   * Accesssible text for the close button.
+   *
+   * @default "Close modal"
+   * @type {string}
+   * @memberof ModalHeaderProps
+   */
   i18nDismissLabel?: string;
 }
 

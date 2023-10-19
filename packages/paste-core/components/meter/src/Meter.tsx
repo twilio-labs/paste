@@ -6,16 +6,80 @@ import * as React from "react";
 
 import { LABEL_SUFFIX } from "./constants";
 
-export interface MeterProps extends HTMLPasteProps<"meter">, Pick<BoxProps, "element"> {
+export interface MeterProps extends HTMLPasteProps<"meter"> {
+  /**
+   * Minimum value of the Meter.
+   *
+   * @default 0
+   * @type {number}
+   * @memberof MeterProps
+   */
   minValue?: number;
+  /**
+   * Maximum value of the Meter.
+   *
+   * @default 100
+   * @type {number}
+   * @memberof MeterProps
+   */
   maxValue?: number;
+  /**
+   * Label displayed for min value. Only shown when this prop is passed.
+   *
+   * @type {string}
+   * @memberof MeterProps
+   */
   minLabel?: string;
+  /**
+   * Label displayed for max value. Only shown when this prop is passed.
+   *
+   * @type {string}
+   * @memberof MeterProps
+   */
   maxLabel?: string;
+  /**
+   * The current value.
+   *
+   * @type {number}
+   * @memberof MeterProps
+   */
   value?: number;
+  /**
+   * ID to match with the label.
+   *
+   * @type {string}
+   * @memberof MeterProps
+   */
   id: string;
+  /**
+   * Label text of the Meter (if not using a regular MeterLabel with `htmlFor` or `aria-labelledby`).
+   *
+   * @type {string}
+   * @memberof MeterProps
+   */
   "aria-label"?: string;
+  /**
+   * Optional ID to pair the Meter to its help text.
+   *
+   * @type {string}
+   * @memberof MeterProps
+   */
   "aria-describedby"?: string;
+  /**
+   * Optional ID to pair the Meter to its label text (if not using a regular MeterLabel with `htmlFor`).
+   *
+   * @type {string}
+   * @memberof MeterProps
+   */
   "aria-labelledby"?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'METER'
+   * @type {BoxProps['element']}
+   * @memberof MeterProps
+   */
+  element?: BoxProps["element"];
 }
 
 const Meter = React.forwardRef<HTMLMeterElement, MeterProps>(

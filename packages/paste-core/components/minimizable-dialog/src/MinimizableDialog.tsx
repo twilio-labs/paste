@@ -33,7 +33,20 @@ StyledMinimizableDialogContainer.displayName = "StyledMinimizableDialog";
 
 export interface MinimizableDialogProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
+  /**
+   * Accessible title for the Minimalize Dialog.
+   *
+   * @type {string}
+   * @memberof MinimizableDialogProps
+   */
   "aria-label": string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MINIMIZABLE_DIALOG'
+   * @type {BoxProps['element']}
+   * @memberof MinimizableDialogProps
+   */
   element?: BoxProps["element"];
 }
 

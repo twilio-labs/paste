@@ -14,10 +14,10 @@ import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/paragraph/CHANGELOG.md';
 import packageJson from '@twilio-paste/paragraph/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -29,24 +29,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/paragraph',
+        storybookUrl: '/?path=/story/components-paragraph--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/paragraph"
-  storybookUrl="/?path=/story/components-paragraph--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Paragraph}} language="jsx">
   {`<Paragraph>
@@ -190,46 +181,3 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
     </Codeblock>
   </Dont>
 </DoDont>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/paragraph - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Paragraph} from '@twilio-paste/core/paragraph';
-
-const Component = () => (
-  <Paragraph>
-    We have inherited a fear of memories of slavery. It is as if to remember and acknowledge slavery would amount to our
-    being consumed by it. As a matter of fact, in the popular black imagination, it is easier for us to construct
-    ourselves as children of Africa, as the sons and daughters of kings and queens, and thereby ignore the Middle
-    Passage and centuries of enforced servitude in the Americas. Although some of us might indeed be the descendants of
-    African royalty, most of us are probably descendants of their subjects, the daughters and sons of African peasants
-    or workers.
-  </Paragraph>
-);
-```
-
-#### Props
-
-| Prop         | Type        | Default                                                                                                                                      |
-| ------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| marginBottom | 'space0'    | Only allows passing 'space0' to unset the bottom margin. Useful when using Paragraph as the last child of a wrapping component, like a Card. |             |
-| children?    | `ReactNode` | null                                                                                                                                         |             |
-| element?     | `string`    | Overrides the default element name to apply unique styles with the Customization Provider                                                    | 'PARAGRAPH' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -24,10 +24,10 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {defaultExample, initialFocusExample, wideExample, i18nExample} from '../../../component-examples/ModalExamples';
 import packageJson from '@twilio-paste/modal/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -39,24 +39,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/modal',
+        storybookUrl: '/?path=/story/components-modal--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/modal"
-  storybookUrl="/?path=/story/components-modal--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -341,111 +332,3 @@ Do not use modals to show error messages. Refer to the error state pattern for [
     preview={false}
   />
 </DoDont>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/modal - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {useUID} from '@twilio-paste/core/uid-library';
-import {Button} from '@twilio-paste/core/button';
-import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/core/modal';
-
-const ModalTrigger = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
-  const modalHeadingID = useUID();
-
-  return (
-    <div>
-      <Button variant="primary" onClick={handleOpen}>
-        New Project
-      </Button>
-      <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
-        <ModalHeader>
-          <ModalHeading as="h3" id={modalHeadingID}>
-            Create new project
-          </ModalHeading>
-        </ModalHeader>
-        <ModalBody></ModalBody>
-        <ModalFooter>
-          <ModalFooterActions>
-            <Button variant="secondary" onClick={handleClose}>
-              Cancel
-            </Button>
-            <Button variant="primary">Submit</Button>
-          </ModalFooterActions>
-        </ModalFooter>
-      </Modal>
-    </div>
-  );
-};
-```
-
-#### Modal Props
-
-| Prop             | Type                         | Description                                                                               | Default |
-| ---------------- | ---------------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| children         | `ReactNode`                  |                                                                                           | null    |
-| isOpen           | `boolean`                    |                                                                                           | null    |
-| onDismiss        | `Function() => void`         |                                                                                           | null    |
-| allowPinchZoom?  | `boolean`                    |                                                                                           | true    |
-| size             | `oneOf(['default', 'wide'])` |                                                                                           | null    |
-| initialFocusRef? | `RefObject`                  |                                                                                           | null    |
-| ariaLabelledby   | `string`                     |                                                                                           | null    |
-| element?         | `string`                     | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL' |
-
-#### ModalHeader Props
-
-| Prop              | Type        | Description                                                                               | Default        |
-| ----------------- | ----------- | ----------------------------------------------------------------------------------------- | -------------- |
-| children          | `ReactNode` |                                                                                           | null           |
-| i18nDismissLabel? | `string`    |                                                                                           | 'Close modal'  |
-| element?          | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_HEADER' |
-
-#### ModalHeading Props
-
-| Prop     | Type                                          | Description                                                                               | Default         |
-| -------- | --------------------------------------------- | ----------------------------------------------------------------------------------------- | --------------- |
-| children | `ReactNode`                                   |                                                                                           | null            |
-| as       | `oneOf(['h1', 'h2', 'h3', 'h4', 'h5', 'h6'])` |                                                                                           | null            |
-| element? | `string`                                      | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_HEADING' |
-
-#### ModalBody Props
-
-| Prop     | Type        | Description                                                                               | Default      |
-| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------ |
-| children | `ReactNode` |                                                                                           | null         |
-| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_BODY' |
-
-#### ModalFooter Props
-
-| Prop     | Type        | Description                                                                               | Default        |
-| -------- | ----------- | ----------------------------------------------------------------------------------------- | -------------- |
-| children | `ReactNode` |                                                                                           | null           |
-| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_FOOTER' |
-
-#### ModalFooterActions Props
-
-| Prop     | Type                      | Description                                                                               | Default                |
-| -------- | ------------------------- | ----------------------------------------------------------------------------------------- | ---------------------- |
-| children | `ReactNode`               |                                                                                           | null                   |
-| justify? | `oneOf(['start', 'end'])` |                                                                                           | null                   |
-| element? | `string`                  | Overrides the default element name to apply unique styles with the Customization Provider | 'MODAL_FOOTER_ACTIONS' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

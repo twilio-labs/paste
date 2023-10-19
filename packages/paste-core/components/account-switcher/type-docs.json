@@ -569,7 +569,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Accessible label for the button that opens the menu"
     },
     "last": {
       "type": "() => void",
@@ -4837,7 +4838,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Pass href prop to render an anchor element."
     },
     "id": {
       "type": "string",
@@ -6783,7 +6785,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Pass href prop to render an anchor element."
     },
     "id": {
       "type": "string",
@@ -8157,7 +8160,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Accessible name of the MenuGroup."
     },
     "about": {
       "type": "string",
@@ -8590,7 +8594,8 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Pass a decorative Paste icon to display with the group label."
     },
     "id": {
       "type": "string",

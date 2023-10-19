@@ -1,0 +1,68 @@
+export const meta = {
+  title: 'Meter',
+  package: '@twilio-paste/meter',
+  description: 'Meter is a visual representation of a numerical value within a known range.',
+  slug: '/components/meter/api',
+};
+
+import Changelog from '@twilio-paste/meter/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/meter/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Meter');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/meter');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/meter',
+        storybookUrl: '/?path=/story/components-meter--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/core - or - yarn add @twilio-paste/meter
+```
+
+## Usage
+
+```jsx
+import {Meter, MeterLabel} from '@twilio-paste/core/meter';
+import {HelpText} from '@twilio-paste/core/help-text'
+import {useUID} from '@twilio-paste/core/uid-library'
+
+const Component = () => {
+  const meterId = useUID();
+  const helpTextId = useUID(); // Help text is optional
+
+  return (
+    <>
+      <MeterLabel htmlFor={meterId} valueLabel="50%">Label</Label>
+      <Meter id={meterId} value={50} aria-describedby={helpTextId} />
+      <HelpText id={helpTextId}>Help text</HelpText>
+    </>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

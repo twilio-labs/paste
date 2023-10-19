@@ -4,18 +4,68 @@ import { Label } from "@twilio-paste/label";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface InlineControlGroupProps
-  extends Pick<BoxProps, "element">,
-    Omit<HTMLPasteProps<"fieldset">, "onChange"> {
+export interface InlineControlGroupProps extends Omit<HTMLPasteProps<"fieldset">, "onChange"> {
   children: React.ReactNode;
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineControlGroupProps
+   */
   disabled?: boolean;
+  /**
+   * String to render as the error text.
+   *
+   * @type {string | React.ReactNode}
+   * @memberof InlineControlGroupProps
+   */
   errorText?: string | React.ReactNode;
+  /**
+   * String to render as the help text.
+   *
+   * @type {string | React.ReactNode}
+   * @memberof InlineControlGroupProps
+   */
   helpText?: string | React.ReactNode;
+  /**
+   * String to render as the label text.
+   *
+   * @type {"vertical" | "horizontal"}
+   * @memberof InlineControlGroupProps
+   */
   legend: string | NonNullable<React.ReactNode>;
+  /**
+   *
+   * @type {"vertical" | "horizontal"}
+   * @memberof InlineControlGroupProps
+   */
   orientation?: "vertical" | "horizontal";
+  /**
+   *
+   * @type {boolean}
+   * @memberof InlineControlGroupProps
+   */
   required?: boolean;
+  /**
+   * Accessible label for the required dot on the Label.
+   *
+   * @type {string}
+   * @memberof InlineControlGroupProps
+   */
   i18nRequiredLabel?: string;
+  /**
+   *
+   * @type {BoxStyleProps}
+   * @memberof InlineControlGroupProps
+   */
   fieldStyleProps?: BoxStyleProps;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'INLINE_CONTROL_GROUP'
+   * @type {BoxProps['element']}
+   * @memberof InlineControlGroupProps
+   */
+  element?: BoxProps["element"];
 }
 
 const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGroupProps>(

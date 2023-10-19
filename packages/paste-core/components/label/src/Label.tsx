@@ -8,13 +8,50 @@ import * as React from "react";
 import { RequiredDot } from "./RequiredDot";
 
 export type LabelVariants = "default" | "inverse";
-type LabelBaseProps = Pick<BoxProps, "element"> & {
+type LabelBaseProps = {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Shows the input is disabled.
+   *
+   * @type {boolean}
+   * @memberof LabelBaseProps
+   */
   disabled?: boolean;
+  /**
+   * Optionally remove Label's bottom margin.
+   *
+   * @type {"space0"}
+   * @memberof LabelBaseProps
+   */
   marginBottom?: "space0";
+  /**
+   * Shows the input is required.
+   *
+   * @type {boolean}
+   * @memberof LabelBaseProps
+   */
   required?: boolean;
+  /**
+   *
+   * @type {LabelVariants}
+   * @memberof LabelBaseProps
+   */
   variant?: LabelVariants;
+  /**
+   * Label text for the required dot.
+   *
+   * @type {string}
+   * @memberof LabelBaseProps
+   */
   i18nRequiredLabel?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'LABEL'
+   * @type {BoxProps['element']}
+   * @memberof LabelBaseProps
+   */
+  element?: BoxProps["element"];
 };
 type LabelElementProps = HTMLPasteProps<"label"> & {
   as?: "label";

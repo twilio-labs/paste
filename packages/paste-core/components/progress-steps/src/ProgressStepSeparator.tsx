@@ -1,5 +1,6 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { ProgressStepsContext } from "./ProgressStepsContext";
@@ -20,8 +21,15 @@ const HorizontalStyles: BoxProps = {
   minWidth: "32px",
 };
 
-export interface ProgressStepSeparatorProps {
+export interface ProgressStepSeparatorProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'PROGRESS_STEP_SEPARATOR'
+   * @type {BoxProps['element']}
+   * @memberof ProgressStepSeparatorProps
+   */
   element?: BoxProps["element"];
 }
 

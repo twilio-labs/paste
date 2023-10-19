@@ -24,10 +24,10 @@ import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/label/CHANGELOG.md';
 import {RequiredDatePicker} from '../../../component-examples/DatePickerExamples.ts';
 import packageJson from '@twilio-paste/label/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -39,24 +39,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/label',
+        storybookUrl: '/?path=/story/components-label--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/label"
-  storybookUrl="/?path=/story/components-label--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -229,108 +220,3 @@ Use a Label to clearly describe the the form field.
   </Dont>
 </DoDont>
 
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/label - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-const Component = () => (
-  <>
-    <Label htmlFor="foo" required>
-      foo
-    </Label>
-    <Input aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
-    <HelpText id="foo_text">Enter some text.</HelpText>
-  </>
-);
-```
-
-#### Props
-
-All the valid HTML attributes for `label` are supported including the following props:
-
-| Prop               | Type                 | Description                                                                               | Default   |
-| ------------------ | -------------------- | ----------------------------------------------------------------------------------------- | --------- |
-| as?                | 'label', 'legend'    | Choose the semantic HTML element the label is rendered as                                 | label     |
-| children?          | `ReactNode`          |                                                                                           | null      |
-| htmlFor            | string               | Sets the for of the label. Should match the id of `Input`. Required.                      | null      |
-| disabled?          | boolean              | Shows the input is disabled.                                                              | false     |
-| required?          | boolean              | Shows the input is required.                                                              | false     |
-| marginBottom?      | 'space0', 'space10'  |                                                                                           | 'space10' |
-| variant?           | 'default', 'inverse' |                                                                                           | 'default' |
-| i18nRequiredLabel? | string               | Label text for the required dot                                                           | ''        |
-| element?           | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'LABEL'   |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

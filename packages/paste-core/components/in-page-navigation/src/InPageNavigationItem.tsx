@@ -80,9 +80,29 @@ const INVERSE_CURRENT_PAGE_STYLES: BoxStyleProps = {
 };
 
 export interface InPageNavigationItemProps extends HTMLPasteProps<"a"> {
+  /**
+   * Sets the InPageNavigationItem as the current page and adds `aria-current="page"`
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof InPageNavigationItemProps
+   */
   currentPage?: boolean;
   children: NonNullable<React.ReactNode>;
+  /**
+   * A URL to route to.
+   *
+   * @type {string}
+   * @memberof InPageNavigationItemProps
+   */
   href: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'IN_PAGE_NAVIGATION_ITEM'
+   * @type {BoxProps['element']}
+   * @memberof InPageNavigationItemProps
+   */
   element?: BoxProps["element"];
 }
 

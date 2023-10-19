@@ -1,0 +1,65 @@
+export const meta = {
+  title: 'Input - Components',
+  package: '@twilio-paste/input',
+  description: 'An input allows users to enter text on a single line.',
+  slug: '/components/input/api',
+};
+
+import Changelog from '@twilio-paste/input/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/input/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Input');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/input');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input',
+        storybookUrl: '/?path=/story/components-input--default-input',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/input - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Input} from '@twilio-paste/core/input';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/help-text';
+
+const Component = () => (
+  <>
+    <Label htmlFor="foo" required>
+      foo
+    </Label>
+    <Input aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
+    <HelpText id="foo_text">Please enter some text</HelpText>
+  </>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

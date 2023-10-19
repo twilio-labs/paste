@@ -5,6 +5,13 @@ import * as React from "react";
 
 export interface ModalFooterProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MODAL_FOOTER'
+   * @type {BoxProps['element']}
+   * @memberof ModalFooterProps
+   */
   element?: BoxElementProps["element"];
 }
 const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(

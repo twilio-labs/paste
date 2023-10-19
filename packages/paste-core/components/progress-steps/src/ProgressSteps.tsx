@@ -1,5 +1,6 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { ProgressStepsContext } from "./ProgressStepsContext";
@@ -16,9 +17,22 @@ const HorizontalStyles: BoxProps = {
   flexWrap: "nowrap",
 };
 
-export interface ProgressStepsProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+export interface ProgressStepsProps extends Omit<HTMLPasteProps<"div">, "children"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'PROGRESS_STEPS'
+   * @type {BoxProps['element']}
+   * @memberof ProgressStepsProps
+   */
   element?: BoxProps["element"];
+  /**
+   *
+   * @default 'horizontal'
+   * @type {Orientation}
+   * @memberof ProgressStepsProps
+   */
   orientation?: Orientation;
 }
 

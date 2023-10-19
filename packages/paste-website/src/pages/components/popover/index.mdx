@@ -39,11 +39,11 @@ import {
   interactiveContent,
   initialFocus,
 } from '../../../component-examples/PopoverExamples';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -55,24 +55,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/popover',
+        storybookUrl: '/?path=/story/components-popover--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/popover"
-  storybookUrl="/?path=/story/components-popover--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -415,198 +406,3 @@ Popover content should use full sentences and punctuation. Titles are optional.
     body="Don’t use a Popover to guide users through a complex workflow with a series of steps or for presenting critical information. Use a Modal for workflows, and an Alert Dialog for critical information."
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/popover - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/core/popover';
-
-const PopoverExample: React.FC = () => {
-  return (
-    <PopoverContainer baseId="popover-example">
-      <PopoverButton variant="primary">Open popover</PopoverButton>
-      <Popover aria-label="Popover">Popover content</Popover>
-    </PopoverContainer>
-  );
-};
-```
-
-#### Props
-
-#### Popover Container
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the popover on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `PopoverButton`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-#### Popover
-
-##### `aria-label: string`
-
-Required label for this Popover component. Titles the entire popover context for screen readers.
-
-##### `i18nDismissLabel: string`
-
-Label for the dismiss button in the popover. The default value is 'Close popover'.
-
-##### `intialFocusRef: React.RefObject`
-
-A ref to an interactive element that recieves focus when the Popover opens.
-
-##### `element?: string`
-
-Overrides the default element name ('POPOVER') to apply unique styles with the Customization Provider
-
-#### usePopoverState
-
-Pass these as part of an object to the usePopoverState hook.
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the popover on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `NonModalDialogDisclosurePrimitive`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `visible?: boolean`
-
-Whether the dialog is visible or not.
-
-##### `animated?: number | boolean`
-
-If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
-
-##### `modal?: boolean`
-
-Sets the modal state.
-
-- Non-modal: preventBodyScroll doesn't work and focus is free.
-- Modal: preventBodyScroll is automatically enabled, focus is trapped within the dialog and the dialog is rendered within a Portal.
-
-#### usePopoverState returned props
-
-These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the popover on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `NonModalDialogDisclosurePrimitive`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `visible?: boolean`
-
-Whether the dialog is visible or not.
-
-##### `animated?: number | boolean`
-
-If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
-
-##### `modal?: boolean`
-
-Sets the modal state.
-
-- Non-modal: preventBodyScroll doesn't work and focus is free.
-- Modal: preventBodyScroll is automatically enabled, focus is trapped within the dialog and the dialog is rendered within a Portal.
-
-##### `animating?: boolean`
-
-Whether it's animating or not.
-
-##### `stopAnimation?: () => void`
-
-Stops animation. It's called automatically if there's a CSS transition
-
-##### `show?: () => void`
-
-Changes the `visible` state to `true`.
-
-##### `hide?: () => void`
-
-Changes the `visible` state to `false`.
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

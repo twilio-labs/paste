@@ -1,15 +1,40 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { InPageNavigationContext } from "./InPageNavigationContext";
 import type { Orientation, Variants } from "./types";
 
-export interface InPageNavigationProps extends Omit<React.ComponentPropsWithRef<"div">, "children"> {
+export interface InPageNavigationProps extends Omit<HTMLPasteProps<"div">, "children"> {
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'IN_PAGE_NAVIGATION'
+   * @type {BoxProps['element']}
+   * @memberof InPageNavigationProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Allows removal of bottom margin by setting `space0`
+   *
+   * @memberof InPageNavigationProps
+   */
   marginBottom?: "space0";
+  /**
+   * Unique label for the InPageNavigation
+   *
+   * @type {string}
+   * @memberof InPageNavigationProps
+   */
   "aria-label": string;
+  /**
+   * InPageNavigation variant
+   *
+   * @type {Variants}
+   * @memberof InPageNavigationProps
+   */
   variant?: Variants;
   orientation?: Orientation;
 }

@@ -12,28 +12,134 @@ import { safelySpreadFormControlProps } from "./utils";
 
 export type InputVariants = "default" | "inverse";
 
-export interface InputProps extends HTMLPasteProps<"input">, Pick<BoxProps, "element"> {
+export interface InputProps extends HTMLPasteProps<"input"> {
+  /**
+   * Disables the input.
+   *
+   * @type {boolean}
+   * @memberof InputProps
+   */
   disabled?: boolean;
+  /**
+   * Sets the input to an error state.
+   *
+   * @type {boolean}
+   * @memberof InputProps
+   */
   hasError?: boolean;
   height?: never;
+  /**
+   * Sets the id of the input. Should match the `htmlFor` of Label.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
   id?: string;
+  /**
+   * Used to add a suffix to an input. Often used with text or an icon.
+   *
+   * @type {React.ReactNode}
+   * @memberof InputProps
+   */
   insertAfter?: React.ReactNode;
+  /**
+   * Used to add a prefix to an input. Often used with text or an icon.
+   *
+   * @type {React.ReactNode}
+   * @memberof InputProps
+   */
   insertBefore?: React.ReactNode;
+  /**
+   * Sets the name of the input.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
   name?: string;
+  /**
+   * Sets the placeholder of the input.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
   placeholder?: string;
+  /**
+   * Sets the input to readonly.
+   *
+   * @type {boolean}
+   * @memberof InputProps
+   */
   readOnly?: boolean;
+  /**
+   * Sets the input as required.
+   *
+   * @type {boolean}
+   * @memberof InputProps
+   */
   required?: boolean;
   size?: never;
   style?: never;
+  /**
+   * Sets the type of the input.
+   *
+   * @type {InputBoxTypes}
+   * @memberof InputProps
+   */
   type: InputBoxTypes;
+  /**
+   * Sets the value of the input.
+   *
+   * @type {InputVariants}
+   * @memberof InputProps
+   */
   value?: string;
+  /**
+   *
+   * @type {InputVariants}
+   * @memberof InputProps
+   */
   variant?: InputVariants;
   width?: never;
+  /**
+   *
+   * @type {"space0"}
+   * @memberof InputProps
+   */
   padding?: "space0";
+  /**
+   *
+   * @type {BoxStyleProps["paddingRight"]}
+   * @memberof InputProps
+   */
   paddingRight?: BoxStyleProps["paddingRight"];
+  /**
+   *
+   * @type {BoxStyleProps["cursor"]}
+   * @memberof InputProps
+   */
   cursor?: BoxStyleProps["cursor"];
+  /**
+   * Provides an accessible label for the increment button on inputs of type "number" when using non-English languages.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
   i18nStepUpLabel?: string;
+  /**
+   * Provides an accessible label for the decrement button on inputs of type "number" when using non-English languages.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
   i18nStepDownLabel?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'INPUT'
+   * @type {BoxProps['element']}
+   * @memberof InputProps
+   */
+  element?: BoxProps["element"];
 }
 
 interface TypeProps {

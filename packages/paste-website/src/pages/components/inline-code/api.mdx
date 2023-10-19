@@ -1,0 +1,56 @@
+export const meta = {
+  title: 'Inline Code',
+  package: '@twilio-paste/inline-code',
+  description:
+    'An Inline Code component visually distinguishes pieces of texts as fragments of code.  It is used to display important inline code snippets, such as SIDs, IDs and API keys.',
+  slug: '/components/inline-code/api',
+};
+
+import Changelog from '@twilio-paste/inline-code/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/inline-code/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Inline Code');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/inline-code');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: "https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/inline-code/",
+        storybookUrl: "/?path=/story/components-inline-code--default"
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/inline-code - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {InlineCode} from '@twilio-paste/inline-code';
+
+const ExampleInlineCode = () => <InlineCode>console.log(mySustainabilityGoals)</InlineCode>;
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

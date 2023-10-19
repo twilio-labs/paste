@@ -50,10 +50,10 @@ import {
   CheckboxMenuExample,
 } from '../../../component-examples/MenuExamples.ts';
 import packageJson from '@twilio-paste/menu/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -65,24 +65,16 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/menu',
+        storybookUrl: '/?path=/story/components-menu--default',
+      },
     },
   };
 };
 
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/menu"
-  storybookUrl="/?path=/story/components-menu--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -338,181 +330,3 @@ Use the `variant` prop in `MenuItem` to use a default or destructive item.
   {itemContentExample}
 </LivePreview>
 
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/menu - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/core/menu';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-
-const PreferencesMenu = () => {
-  const menu = useMenuState();
-  return (
-    <>
-      <MenuButton {...menu} variant="primary">
-        Preferences <ChevronDownIcon decorative />
-      </MenuButton>
-      <Menu {...menu} aria-label="Preferences">
-        <MenuItem {...menu}>Settings</MenuItem>
-        <MenuItem {...menu} disabled>
-          Extensions
-        </MenuItem>
-        <MenuSeparator {...menu} />
-        <MenuItem {...menu}>Keyboard shortcuts</MenuItem>
-      </Menu>
-    </>
-  );
-};
-```
-
-#### Props
-
-##### useMenuState
-
-Pass these as part of an object to the `useMenuState` hook.
-
-| Prop        | Type                                                                                                                                               | Description                                                                                                   | Default |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
-| baseId      | `string`                                                                                                                                           | ID that will serve as a base for all the items IDs.                                                           |         |
-| rtl         | `boolean`                                                                                                                                          |                                                                                                               |         |
-| orientation | `horizontal, vertical, undefined`                                                                                                                  |                                                                                                               |         |
-| currentId   | `string, null, undefined`                                                                                                                          | The current focused item `id`.                                                                                |         |
-| loop        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
-| wrap        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
-| visible     | `boolean`                                                                                                                                          | Whether it's visible or not.                                                                                  |         |
-| animated    | `number, boolean`                                                                                                                                  |                                                                                                               |         |
-| placement   | `auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start` |                                                                                                               |         |
-| gutter      | `number, undefined`                                                                                                                                | Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`. |         |
-
-##### useMenuState returned props
-
-These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
-
-| Prop          | Type                                                                                          | Description                                                                                                                                  | Default |
-| ------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| baseId        | `string`                                                                                      | ID that will serve as a base for all the items IDs.                                                                                          |         |
-| baseId        | string                                                                                        | ID that will serve as a base for all the items IDs.                                                                                          |         |
-| visible       | boolean                                                                                       | Whether it's visible or not.                                                                                                                 |         |
-| animated      | number &#124; boolean                                                                         |                                                                                                                                              |         |
-| modal         | boolean                                                                                       | Toggles Dialog's `modal` state.                                                                                                              |         |
-| animating     | boolean                                                                                       | Whether it's animating or not.                                                                                                               |         |
-| stopAnimation | () =&#62; void                                                                                | Stops animation. It's called automatically if there's a CSS transition.                                                                      |         |
-| hide          | () =&#62; void                                                                                | Changes the `visible` state to `false`                                                                                                       |         |
-| placement     | &#34;auto-start&#34; &#124; &#34;auto&#34; &#124; &#34;auto-end&#34; &#124; &#34;top-start... | Actual `placement`.                                                                                                                          |         |
-| orientation   | &#34;horizontal&#34; &#124; &#34;vertical&#34; &#124; undefined                               | Defines the orientation of the composite widget.                                                                                             |         |
-| currentId     | string &#124; null &#124; undefined                                                           | The current focused item `id`.                                                                                                               |         |
-| wrap          | boolean &#124; &#34;horizontal&#34; &#124; &#34;vertical&#34;                                 | If enabled, moving to the next item from the last one in a row or column will focus the first item in the next row or column and vice-versa. |         |
-| groups        | Group[]                                                                                       | Lists all the composite groups with their `id` and DOM `ref`.                                                                                |         |
-| items         | Item[]                                                                                        | Lists all the composite items with their `id`, DOM `ref`, `disabled` state and `groupId` if any.                                             |         |
-| setCurrentId  | (value: SetStateAction&#60;string &#124; null &#124; undefine...                              | Sets `currentId`.                                                                                                                            |         |
-| first         | () =&#62; void                                                                                | Moves focus to the first item.                                                                                                               |         |
-| last          | () =&#62; void                                                                                | Moves focus to the last item.                                                                                                                |         |
-| move          | (id: string &#124; null) =&#62; void                                                          | Moves focus to a given item ID.                                                                                                              |         |
-| next          | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the next item.                                                                                                                |         |
-| previous      | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the previous item.                                                                                                            |         |
-
-##### Menu
-
-| Prop               | Type                 | Description                                                                               | Default |
-| ------------------ | -------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| hideOnClickOutside | `boolean, undefined` | When enabled, user can hide the dialog by clicking outside it.                            |         |
-| disabled           | `boolean, undefined` | Same as the HTML attribute.                                                               |         |
-| element?           | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU'  |
-
-##### MenuButton
-
-| Prop                   | Type                                     | Description                                                                                                                                                                          | Default                                |
-| ---------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
-| as?                    | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                                                                                                  | 'button'                               |
-| disabled?              | `boolean`                                | Prevent actions from firing on this Button                                                                                                                                           | false                                  |
-| fullWidth              | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                                                                               | false                                  |
-| href?                  | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                                          | null                                   |
-| loading?               | `boolean`                                | Prevent actions and show a loading spinner                                                                                                                                           | false                                  |
-| size?                  | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset', 'rounded_small'                                                                                                                   | 'default'                              |
-| type?                  | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).                                                                     | 'button'                               |
-| variant?               | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset', 'primary_icon', 'secondary_icon', 'destructive_icon' | 'primary'                              |
-| i18nExternalLinkLabel? | `string`                                 | Title for `showExternal` icon                                                                                                                                                        | '(link takes you to an external page)' |
-| pressed?               | `boolean`                                | Sets the aria-pressed attribute. Must be used with 'secondary' or 'secondary_icon' variants.                                                                                         |                                        |
-| onClick?               | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseDown?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseUp?             | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseEnter?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseLeave?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onFocus?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onBlur?                | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| element?               | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider                                                                                            | 'MENU_BUTTON'                          |
-
-##### MenuBadge
-
-Same as `MenuButton` except:
-
-| Prop     | Type            | Description                                                                                                                                                       | Default      |
-| -------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
-| variant  | `BadgeVariants` | `neutral`, `success`, `warning`, `error`, `new`, `subaccount`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter` | `null`       |
-| element? | `string`        | Overrides the default element name to apply unique styles with the Customization Provider                                                                         | 'MENU_BADGE' |
-
-##### MenuGroup
-
-| Prop     | Type              | Description                                                                               | Default      |
-| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------ |
-| label    | `string`          | Names the grouping                                                                        |              |
-| icon     | `React.ReactNode` | One of our icon components. Must be decorative.                                           |              |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_GROUP' |
-
-##### MenuItem
-
-| Prop     | Type                 | Description                                                                               | Default     |
-| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
-| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
-| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
-| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
-| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
-| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
-
-##### MenuItemCheckbox
-
-| Prop     | Type                 | Description                                                                               | Default     |
-| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
-| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
-| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
-| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
-| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
-| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
-| value?   | `string`             |                                                                                           |             |
-| checked? | `boolean`            |                                                                                           |             |
-| name?    | `string`             |                                                                                           |             |
-
-##### MenuItemRadio
-
-| Prop     | Type                 | Description                                                                               | Default     |
-| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| variant  | `MenuItemVariants`   | Swaps the menu item variant. Options are `default` and `destructive`.                     | `default`   |
-| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
-| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
-| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
-| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
-| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
-| value?   | `string`             |                                                                                           |             |
-| checked? | `boolean`            |                                                                                           |             |
-| name?    | `string`             |                                                                                           |             |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

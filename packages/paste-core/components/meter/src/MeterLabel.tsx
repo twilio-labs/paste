@@ -6,10 +6,30 @@ import * as React from "react";
 
 import { LABEL_SUFFIX } from "./constants";
 
-export interface MeterLabelProps extends HTMLPasteProps<"div">, Pick<BoxProps, "element"> {
+export interface MeterLabelProps extends HTMLPasteProps<"div"> {
   children: string;
+  /**
+   * Pass the id of the associated Meter.
+   *
+   * @type {string}
+   * @memberof MeterLabelProps
+   */
   htmlFor: string;
+  /**
+   * Custom value label of the Meter.
+   *
+   * @type {string}
+   * @memberof MeterLabelProps
+   */
   valueLabel?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'METER_LABEL'
+   * @type {BoxProps['element']}
+   * @memberof MeterLabelProps
+   */
+  element?: BoxProps["element"];
 }
 
 const MeterLabel = React.forwardRef<HTMLLabelElement, MeterLabelProps>(

@@ -1,0 +1,93 @@
+export const meta = {
+  title: 'Multiselect Combobox',
+  package: '@twilio-paste/combobox',
+  description:
+    'A Multiselect Combobox is a styled dropdown form element that allows users to select multiple values from a list.',
+  slug: '/components/multiselect-combobox/api',
+};
+
+import Changelog from '@twilio-paste/combobox/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/combobox/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Multiselect Combobox');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/combobox');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+        nameOverride: 'Multiselect Combobox',
+        descriptionOverride: 'A Multiselect Combobox is a styled dropdown form element that allows users to select multiple values from a list.'
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox/src/multiselect',
+        storybookUrl: '/?path=/story/components-combobox-multiselectcombobox--multiselect-combobox-basic',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/combobox - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {MultiselectCombobox} from '@twilio-paste/core/combobox';
+
+const items = [
+  'Alert',
+  'Anchor',
+  'Button',
+  'Card',
+  'Heading',
+  'List',
+  'Modal',
+  'Paragraph',
+  'Popover',
+  'Tooltip',
+];
+
+function getFilteredItems(inputValue) {
+  const lowerCasedInputValue = inputValue.toLowerCase();
+
+  return items.filter(function filterItems(item) {
+    return item.toLowerCase().includes(lowerCasedInputValue);
+  });
+}
+
+const MyComponent = () => (
+  const [inputValue, setInputValue] = React.useState('');
+  const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
+
+  return (
+    <MultiselectCombobox
+      labelText="Choose a Paste Component"
+      selectedItemsLabelText="Selected Paste components"
+      items={filteredItems}
+      onInputValueChange={({inputValue: newInputValue = ''}) => {
+        setInputValue(newInputValue);
+      }}
+    />
+  );
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Paragraph',
+  package: '@twilio-paste/paragraph',
+  description:
+    'The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.',
+  slug: '/components/paragraph/changelog',
+};
+
+import Changelog from '@twilio-paste/paragraph/CHANGELOG.md';
+import packageJson from '@twilio-paste/paragraph/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Paragraph');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/paragraph',
+        storybookUrl: '/?path=/story/components-paragraph--default',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -33,10 +33,10 @@ import {
   hookExample,
 } from '../../../component-examples/MinimizableDialogExamples';
 import packageJson from '@twilio-paste/minimizable-dialog/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -48,25 +48,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/minimizable-dialog',
+        storybookUrl: '/?path=/story/components-minimizable-dialog--default-for-vrt',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/minimizable-dialog"
-  storybookUrl="/?path=/story/components-minimizable-dialog--default-for-vrt"
-  description={meta.description}
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -191,117 +181,3 @@ For full details on how to use the state hook, and what props to provide it, fol
 >
   {hookExample}
 </LivePreview>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/minimizable-dialog - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  MinimizableDialog,
-  MinimizableDialogButton,
-  MinimizableDialogHeader,
-  MinimizableDialogContainer,
-  MinimizableDialogContent,
-} from '@twilio-paste/core/minimizable-dialog';
-
-const MinimizableDialogExample: React.FC = () => {
-  return (
-    <MinimizableDialogContainer>
-      <MinimizableDialogButton variant="primary">Open dialog</MinimizableDialogButton>
-      <MinimizableDialog aria-label="My Dialog">
-        <MinimizableDialogHeader>Dialog header</MinimizableDialogHeader>
-        <MinimizableDialogContent>Dialog content</MinimizableDialogContent>
-      </MinimizableDialog>
-    </MinimizableDialogContainer>
-  );
-};
-```
-
-#### Props
-
-##### useMinimizableDialogState
-
-Pass these as part of an object to the useMinimizableDialogState hook.
-
-| Prop         | Type                  | Description                                                                                                                                                                                                                         | Default |
-| ------------ | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `baseId?`    | `string`              | Sets the ID that will serve as a base for all the items IDs.                                                                                                                                                                        |         |
-| `visible?`   | `boolean`             | Whether the dialog is visible or not.                                                                                                                                                                                               |         |
-| `minimized?` | `boolean`             | Whether the dialog is minimized or not.                                                                                                                                                                                             |         |
-| `animated?`  | `number   \| boolean` | If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called after that number of milliseconds. |         |
-
-##### useMinimizableDialogState returned props
-
-These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
-
-| Prop             | Type                     | Description                                                                                                                                                                                                                         | Default |
-| ---------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| `baseId?`        | `string`                 | Sets the ID that will serve as a base for all the items IDs.                                                                                                                                                                        |         |
-| `visible?`       | `boolean`                | Whether the dialog is visible or not.                                                                                                                                                                                               |         |
-| `minimized?`     | `boolean`                | Whether the dialog is minimized or not.                                                                                                                                                                                             |         |
-| `modal?`         | `boolean`                | Sets the modal state.                                                                                                                                                                                                               | `true`  |
-| `animating?`     | `boolean`                | Whether it's animating or not.                                                                                                                                                                                                      |         |
-| `stopAnimation?` | `() => void`             | Stops animation. It's called automatically if there's a CSS transition                                                                                                                                                              |         |
-| `show?`          | `() => void`             | Changes the `visible` state to `true`.                                                                                                                                                                                              |         |
-| `hide?`          | `() => void`             | Changes the `visible` state to `false`.                                                                                                                                                                                             |         |
-| `minimize?`      | `() => void`             | Changes the `minimized` state to `true`.                                                                                                                                                                                            |         |
-| `expand?`        | `() => void`             | Changes the `minimized` state to `false`.                                                                                                                                                                                           |         |
-| `animated?`      | `number      \| boolean` | If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called after that number of milliseconds. |         |
-
-##### MinimizableDialogContainer
-
-| Prop         | Type              | Description                                                    | Default |
-| ------------ | ----------------- | -------------------------------------------------------------- | ------- |
-| `baseId?`    | `string`          | Sets the ID that will serve as a base for all the items IDs.   |         |
-| `visible?`   | `boolean`         | Whether the dialog is visible or not.                          |         |
-| `minimized?` | `boolean`         | Whether the dialog is minimized or not.                        |         |
-| `children?`  | `React.ReactNode` | Child components to render into the MinimizableDialogContainer |         |
-
-##### MinimizableDialogButton
-
-The MinimizableDialogButton renders a Button component and accepts all of its props, which are listed [on the Button page](/components/button#props).
-
-| Prop       | Type     | Description                                                                               | Default                       |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
-| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'MINIMIZABLE_DIALOG_BUTTON'` |
-
-##### MinimizableDialog
-
-| Prop         | Type              | Description                                                                               | Default                |
-| ------------ | ----------------- | ----------------------------------------------------------------------------------------- | ---------------------- |
-| `aria-label` | `string`          | Title of the dialog for screen readers.                                                   |                        |
-| `element?`   | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'MINIMIZABLE_DIALOG'` |
-| `children?`  | `React.ReactNode` | Child components to render into the MinimizableDialog                                     |                        |
-
-##### MinimizableDialogHeader
-
-| Prop                 | Type              | Description                                                                               | Default                       |
-| -------------------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------------- |
-| `element?`           | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'MINIMIZABLE_DIALOG_HEADER'` |
-| `children?`          | `React.ReactNode` | Child components to render into the MinimizableDialogHeader                               |                               |
-| `i18nDismissLabel?`  | `string`          | The dismiss button text label                                                             | `'close'`                     |
-| `i18nMinimizeLabel?` | `string`          | The minimize button text label                                                            | `'minimize'`                  |
-
-##### MinimizableDialogContent
-
-| Prop        | Type              | Description                                                                               | Default                        |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'MINIMIZABLE_DIALOG_CONTENT'` |
-| `children?` | `React.ReactNode` | Child components to render into the MinimizableDialogContent                              |                                |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

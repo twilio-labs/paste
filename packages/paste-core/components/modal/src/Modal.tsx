@@ -67,12 +67,55 @@ export const ModalDialogContent = animated(
 
 export interface ModalProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MODAL'
+   * @type {BoxProps['element']}
+   * @memberof ModalProps
+   */
   element?: BoxElementProps["element"];
+  /**
+   * Determins the state of the Modal.
+   *
+   * @type {boolean}
+   * @memberof ModalProps
+   */
   isOpen: boolean;
+  /**
+   * Function to call when whenever the user hits "Escape" or clicks outside the dialog. It's important to close the Modal `onDismiss`.
+   *
+   * @memberof ModalProps
+   */
   onDismiss: VoidFunction;
+  /**
+   * Handle zoom/pinch gestures on iOS devices when scroll locking is enabled.
+   *
+   * @type {boolean}
+   * @default true
+   * @memberof ModalProps
+   */
   allowPinchZoom?: boolean;
+  /**
+   * Control whether the Modal is default width or wide.
+   *
+   * @type {Sizes}
+   * @memberof ModalProps
+   */
   size: Sizes;
+  /**
+   * By default the first focusable element will receive focus when the Modal opens but you can provide a ref to focus instead.
+   *
+   * @type {Sizes}
+   * @memberof ModalProps
+   */
   initialFocusRef?: React.RefObject<any>;
+  /**
+   * Accessible title for the Modal.
+   *
+   * @type {string}
+   * @memberof ModalProps
+   */
   ariaLabelledby: string;
 }
 

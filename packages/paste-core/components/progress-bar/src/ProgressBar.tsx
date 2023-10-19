@@ -10,27 +10,102 @@ import { LABEL_SUFFIX } from "./constants";
 const AnimatedBox = animated(Box);
 
 export interface ProgressBarProps extends HTMLPasteProps<"progress"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'PROGRESS_BAR'
+   * @type {BoxProps['element']}
+   * @memberof ProgressBarProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Id of the ProgressBar. Used for the ProgressBarLabel's `htmlFor` prop.
+   *
+   * @type {string}
+   * @memberof ProgressBarProps
+   */
   id?: string;
+  /**
+   * If not using a ProgressBarLabel, you can provide a custom `aria-label` to describe the ProgressBar.
+   *
+   * @type {string}
+   * @memberof ProgressBarProps
+   */
   "aria-label"?: string;
+  /**
+   * Id of the HelpText that describes the ProgressBar.
+   *
+   * @type {string}
+   * @memberof ProgressBarProps
+   */
   "aria-describedby"?: string;
+  /**
+   * If not using a ProgressBarLabel, you can use a custom label with `aria-labelledby` to describe the ProgressBar.
+   *
+   * @type {string}
+   * @memberof ProgressBarProps
+   */
   "aria-labelledby"?: string;
+  /**
+   * The current value of the ProgressBar.
+   *
+   * @type {number}
+   * @default 0
+   * @memberof ProgressBarProps
+   */
   value?: number;
   /**
-   * Screen reader only: used to describe the current value of the progress bar in plain text.
+   * Screen reader only: used to describe the current value of the ProgressBar in plain text.
+   *
+   * @type {string}
+   * @memberof ProgressBarProps
    */
   valueLabel?: string;
   /**
-   * Minimum value of the progress bar is always set to 0 per the spec.
+   * Minimum value of the ProgressBar.
+   *
+   * @type {number}
+   * @default 0
+   * @memberof ProgressBarProps
    */
   minValue?: never;
+  /**
+   * Maximum value of the ProgressBar.
+   *
+   * @type {number}
+   * @default 100
+   * @memberof ProgressBarProps
+   */
   maxValue?: number;
+  /**
+   * Sets the ProgressBar to an indeterminate state.
+   *
+   * @type {boolean}
+   * @default false
+   * @memberof ProgressBarProps
+   */
   isIndeterminate?: boolean;
+  /**
+   * Sets the ProgressBar to an error state.
+   *
+   * @type {boolean}
+   * @default false
+   * @memberof ProgressBarProps
+   */
   hasError?: boolean;
+  /**
+   * Sets the ProgressBar to an disabled state.
+   *
+   * @type {boolean}
+   * @default false
+   * @memberof ProgressBarProps
+   */
   disabled?: boolean;
   /**
-   * Used to adjust how the numbers are rendered and interpreted.
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat \
+   * Used to adjust how the numbers are rendered and interpreted. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
+   *
+   * @type {Intl.NumberFormatOptions}
+   * @memberof ProgressBarProps
    */
   formatOptions?: Intl.NumberFormatOptions;
 }

@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'In Page Navigation',
+  package: '@twilio-paste/in-page-navigation',
+  description: 'An In Page Navigation is a group of styled links that lets users navigate between related pages.',
+  slug: '/components/in-page-navigation/changelog',
+};
+
+
+import Changelog from '@twilio-paste/in-page-navigation/CHANGELOG.md';
+import packageJson from '@twilio-paste/in-page-navigation/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('In Page Navigation');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/in-page-navigation',
+        storybookUrl: '/?path=/story/components-in-page-navigation--default',
+      },
+    },
+  };
+};
+
+<Changelog />
