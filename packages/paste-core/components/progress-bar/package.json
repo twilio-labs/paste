@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "category": "feedback",
   "status": "alpha",
-  "description": "A Progress Bar visually displays the progression/duration of a system operation such as downloading, uploading, or processing information.",
+  "description": "A Progress Bar communicates the completion status of a process or task.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

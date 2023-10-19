@@ -1,8 +1,9 @@
 import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
-import { Form, FormControl } from "@twilio-paste/form";
 import { HelpText } from "@twilio-paste/help-text";
+import { AcceptIcon } from "@twilio-paste/icons/esm/AcceptIcon";
+import { Separator } from "@twilio-paste/separator";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
@@ -12,8 +13,6 @@ import { ProgressBar, ProgressBarLabel } from "../src";
 export default {
   title: "Components/ProgressBar",
 };
-
-const NumberFormatter = new Intl.NumberFormat("en-US");
 
 export const Default = (): React.ReactNode => {
   const progressBarId = useUID();
@@ -31,7 +30,7 @@ export const Default = (): React.ReactNode => {
             setRerun(0);
             return 100;
           }
-          const newValue = previousValue + Math.random() * 12;
+          const newValue = previousValue + Math.random() * 20;
 
           /*
            * intentionally causes another loop for UX so that the
@@ -48,11 +47,16 @@ export const Default = (): React.ReactNode => {
   }, [rerun]);
 
   return (
-    <Box maxWidth="600px">
-      <Form>
-        <FormControl>
+    <Box maxWidth="400px">
+      {value >= 100 ? (
+        <Box marginBottom="space90" display="flex" alignItems="center" columnGap="space30">
+          <AcceptIcon decorative size="sizeIcon30" color="colorTextSuccess" />
+          Your submission has been approved!
+        </Box>
+      ) : (
+        <Box marginBottom="space90">
           <ProgressBarLabel htmlFor={progressBarId} valueLabel={`${Math.round(value)}%`}>
-            Downloading more ram
+            Reviewing submission
           </ProgressBarLabel>
           <ProgressBar
             id={progressBarId}
@@ -60,38 +64,38 @@ export const Default = (): React.ReactNode => {
             value={value}
             valueLabel={`${Math.round(value)}%`}
           />
-          <HelpText id={helpTextId}>
-            Increasing your ram helps your computer run faster. {NumberFormatter.format(value)}% complete.
-          </HelpText>
-        </FormControl>
-        <Button
-          variant="primary"
-          onClick={() => {
-            setRerun(1);
-            setValue(0);
-          }}
-          disabled={rerun === 1}
-        >
-          Restart Progress
-        </Button>
-      </Form>
+          <HelpText id={helpTextId}>Automatically reviewing your submission with our AI agents.</HelpText>
+        </Box>
+      )}
+      <Button
+        variant="primary"
+        onClick={() => {
+          setRerun(1);
+          setValue(0);
+        }}
+        disabled={rerun === 1}
+      >
+        Restart Progress
+      </Button>
     </Box>
   );
 };
 
 export const Indeterminate = (): React.ReactNode => {
-  const progressBarId = useUID();
+  const progressBarIdA = useUID();
+  const progressBarIdB = useUID();
   const helpTextId = useUID();
 
   return (
-    <Box maxWidth="600px">
-      <Form>
-        <FormControl>
-          <ProgressBarLabel htmlFor={progressBarId}>Downloading more ram</ProgressBarLabel>
-          <ProgressBar id={progressBarId} aria-describedby={helpTextId} isIndeterminate />
-          <HelpText id={helpTextId}>Increasing your ram helps your computer run faster.</HelpText>
-        </FormControl>
-      </Form>
+    <Box maxWidth="400px">
+      <ProgressBarLabel htmlFor={progressBarIdA}>Uploading sunrise_video.mov...</ProgressBarLabel>
+      <ProgressBar id={progressBarIdA} aria-describedby={helpTextId} isIndeterminate />
+      <Separator orientation="horizontal" verticalSpacing="space60" />
+      <ProgressBarLabel htmlFor={progressBarIdB}>Converting files...</ProgressBarLabel>
+      <ProgressBar id={progressBarIdB} aria-describedby={helpTextId} isIndeterminate />
+      <HelpText id={helpTextId}>
+        Connection lost. Check your connection and refresh the page to get up-to-date information.
+      </HelpText>
     </Box>
   );
 };
@@ -101,18 +105,14 @@ export const ErrorStory = (): React.ReactNode => {
   const helpTextId = useUID();
 
   return (
-    <Box maxWidth="600px">
-      <Form>
-        <FormControl>
-          <ProgressBarLabel htmlFor={progressBarId} valueLabel="50%">
-            mtn_sunrise.png
-          </ProgressBarLabel>
-          <ProgressBar id={progressBarId} aria-describedby={helpTextId} value={50} valueLabel="50%" hasError />
-          <HelpText variant="error" id={helpTextId}>
-            Upload failed. <Anchor href="#">Retry upload</Anchor>
-          </HelpText>
-        </FormControl>
-      </Form>
+    <Box maxWidth="400px">
+      <ProgressBarLabel htmlFor={progressBarId} valueLabel="50%">
+        mtn_sunrise.png
+      </ProgressBarLabel>
+      <ProgressBar id={progressBarId} aria-describedby={helpTextId} value={50} valueLabel="50%" hasError />
+      <HelpText variant="error" id={helpTextId}>
+        Upload failed. <Anchor href="#">Retry upload</Anchor>
+      </HelpText>
     </Box>
   );
 };
@@ -123,18 +123,14 @@ export const DisabledStory = (): React.ReactNode => {
   const helpTextId = useUID();
 
   return (
-    <Box maxWidth="600px">
-      <Form>
-        <FormControl>
-          <ProgressBarLabel disabled htmlFor={progressBarId} valueLabel="50%">
-            Campaign registration
-          </ProgressBarLabel>
-          <ProgressBar id={progressBarId} aria-describedby={helpTextId} value={80} disabled />
-          <HelpText variant="default" id={helpTextId}>
-            Your profile is in review. You will receive an email about your application status in 3-5 business days.
-          </HelpText>
-        </FormControl>
-      </Form>
+    <Box maxWidth="400px">
+      <ProgressBarLabel disabled htmlFor={progressBarId} valueLabel="50%">
+        Campaign registration
+      </ProgressBarLabel>
+      <ProgressBar id={progressBarId} aria-describedby={helpTextId} value={80} disabled />
+      <HelpText variant="default" id={helpTextId}>
+        Your profile is in review. You will receive an email about your application status in 3-5 business days.
+      </HelpText>
     </Box>
   );
 };
@@ -144,16 +140,12 @@ export const LabelingApproaches = (): React.ReactNode => {
   const labelId = useUID();
 
   return (
-    <Box maxWidth="600px">
-      <Form>
-        <FormControl>
-          <Box id={labelId}>Using aria-labelledby</Box>
-          <ProgressBar aria-labelledby={labelId} value={30} />
+    <Box maxWidth="400px">
+      <Box id={labelId}>Using aria-labelledby</Box>
+      <ProgressBar aria-labelledby={labelId} value={30} />
 
-          <Box marginTop="space40">Using aria-label</Box>
-          <ProgressBar aria-label="Using aria-label" value={50} />
-        </FormControl>
-      </Form>
+      <Box marginTop="space40">Using aria-label</Box>
+      <ProgressBar aria-label="Using aria-label" value={50} />
     </Box>
   );
 };
@@ -162,15 +154,11 @@ export const CustomRange = (): React.ReactNode => {
   const progressBarId = useUID();
 
   return (
-    <Box maxWidth="600px">
-      <Form>
-        <FormControl>
-          <ProgressBarLabel htmlFor={progressBarId} valueLabel="21 of 30">
-            Friends coming to your birthday
-          </ProgressBarLabel>
-          <ProgressBar id={progressBarId} value={21} maxValue={30} />
-        </FormControl>
-      </Form>
+    <Box maxWidth="400px">
+      <ProgressBarLabel htmlFor={progressBarId} valueLabel="688KB of 834KB">
+        mtn_sunrise.png
+      </ProgressBarLabel>
+      <ProgressBar id={progressBarId} value={688} maxValue={834} />
     </Box>
   );
 };
@@ -179,21 +167,17 @@ export const CustomValueText = (): React.ReactNode => {
   const progressBarId = useUID();
 
   return (
-    <Box maxWidth="600px">
-      <Form>
-        <FormControl>
-          <ProgressBarLabel htmlFor={progressBarId} valueLabel="21 friends accepted">
-            Friends coming to your birthday
-          </ProgressBarLabel>
-          <ProgressBar
-            id={progressBarId}
-            value={21}
-            maxValue={30}
-            valueLabel="21 friends accepted"
-            formatOptions={{ maximumFractionDigits: 0, minimumFractionDigits: 0 }}
-          />
-        </FormControl>
-      </Form>
+    <Box maxWidth="400px">
+      <ProgressBarLabel htmlFor={progressBarId} valueLabel="21 friends accepted">
+        Friends coming to your birthday
+      </ProgressBarLabel>
+      <ProgressBar
+        id={progressBarId}
+        value={21}
+        maxValue={30}
+        valueLabel="21 friends accepted"
+        formatOptions={{ maximumFractionDigits: 0, minimumFractionDigits: 0 }}
+      />
     </Box>
   );
 };
