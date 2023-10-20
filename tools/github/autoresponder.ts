@@ -40,6 +40,12 @@ const getSimilarDiscussions = async (secret: string, question: string): Promise<
     });
     const responseJson = JSON.parse(await response.text());
 
+    const dateFormatter = new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    });
+
     return (
       // Get the top 3 results at most
       responseJson.data
@@ -49,9 +55,9 @@ const getSimilarDiscussions = async (secret: string, question: string): Promise<
         // Convert to markdown
         .map(
           (item: Discussion) =>
-            `- [${item.heading}](${item.path}) (updated: ${
-              item.meta.updatedAt
-            }, similarity score: ${item.similarity.toFixed(2)})`,
+            `- [${item.heading}](${item.path}) (updated: ${dateFormatter.format(
+              new Date(item.meta.updatedA as string),
+            )}, similarity score: ${Math.round(item.similarity * 100)}%)`,
         )
         // Convert to string
         .join("\n")
@@ -106,12 +112,8 @@ const writeAnswerToDiscussion = async (discussionId: string, body: string): Prom
   }
 };
 
-const commentHeader = `
-  **Disclaimer:** This is a very experimental bot using OpenAI's GPT-4. The answers may not be correct, a human will review the answer and update it if necessary.
-
-  ---
-
-`;
+const commentSeparator = "\n\n---\n\n";
+const commentHeader = `**Disclaimer:** This is a very experimental bot using OpenAI's GPT-4. The answers may not be correct, a human will review the answer and update it if necessary.`;
 // @ts-expect-error deno
 const similarDiscussions = await getSimilarDiscussions(API_SECRET, DISCUSSION_BODY);
 console.log("similar discussions:", similarDiscussions);
@@ -120,7 +122,22 @@ console.log("similar discussions:", similarDiscussions);
 const answerFromAi = await getAnswerFromAi(API_SECRET, DISCUSSION_BODY);
 console.log("response from AI:", answerFromAi.trim().slice(0, 300));
 
-const fullBody = `${commentHeader}${answerFromAi}\n\n---\n\nHere are some similar discussions:\n\n${similarDiscussions}`;
+const hasAnswerFromAi = answerFromAi !== "Sorry, I don't know how to help with that.";
+const hasSimilarDiscussions = similarDiscussions.length > 0 && similarDiscussions !== "No similar discussions found.";
+
+if (!hasSimilarDiscussions && !hasAnswerFromAi) {
+  // @ts-expect-error deno
+  Deno.exit(0);
+}
+
+let fullBody = `${commentHeader}`;
+
+if (hasAnswerFromAi) {
+  fullBody = `${fullBody}${commentSeparator}${answerFromAi}`;
+}
+if (hasSimilarDiscussions) {
+  fullBody = `${fullBody}${commentSeparator}Here are some similar discussions:\n${similarDiscussions}`;
+}
 
 // @ts-expect-error deno
 const commentId = await writeAnswerToDiscussion(DISCUSSION_NODE_ID, fullBody);
