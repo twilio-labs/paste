@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/breadcrumb",
-  "version": "11.1.0",
+  "version": "11.1.1",
   "category": "navigation",
   "status": "production",
   "description": "A Breadcrumb is text that shows navigation hierarchy and lets users navigate a nested path of pages.",

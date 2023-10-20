@@ -1,5 +1,11 @@
 # Change Log
 
+## 16.2.1
+
+### Patch Changes
+
+- [`c58b3bfbd`](https://github.com/twilio-labs/paste/commit/c58b3bfbd50d07221eff953feed9bbb2b9a84186) [#3540](https://github.com/twilio-labs/paste/pull/3540) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Fix `placeholder` cropping issue in MultiselectCombobox
+
 ## 16.2.0
 
 ### Minor Changes

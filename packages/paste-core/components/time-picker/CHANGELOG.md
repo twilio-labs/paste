@@ -1,5 +1,11 @@
 # @twilio-paste/time-picker
 
+## 6.1.1
+
+### Patch Changes
+
+- [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Time picker] Improve TsDoc type annotations
+
 ## 6.1.0
 
 ### Minor Changes

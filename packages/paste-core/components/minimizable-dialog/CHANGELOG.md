@@ -1,5 +1,11 @@
 # @twilio-paste/minimizable-dialog
 
+## 4.1.1
+
+### Patch Changes
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Minimizable Dialog] Improved TsDoc type annotations
+
 ## 4.1.0
 
 ### Minor Changes

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/modal",
-  "version": "16.1.0",
+  "version": "16.1.1",
   "category": "overlay",
   "status": "production",
   "description": "A Modal is a page overlay that displays information and blocks interaction with the page until an action is taken or the Modal is dismissed.",

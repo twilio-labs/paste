@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/chat-composer",
-  "version": "5.1.0",
+  "version": "5.1.1",
   "category": "user input",
   "status": "production",
   "description": "A Chat Composer is an input made for users to type rich chat messages.",

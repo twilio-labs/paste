@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/progress-bar",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "category": "feedback",
   "status": "alpha",
   "description": "A Progress Bar communicates the completion status of a process or task.",
@@ -54,7 +54,7 @@
     "@twilio-paste/customization": "^8.0.0",
     "@twilio-paste/design-tokens": "^10.0.0",
     "@twilio-paste/icons": "^12.1.0",
-    "@twilio-paste/label": "^13.0.1",
+    "@twilio-paste/label": "^13.1.1",
     "@twilio-paste/media-object": "^10.0.0",
     "@twilio-paste/react-spectrum-library": "^2.0.0",
     "@twilio-paste/screen-reader-only": "^13.0.0",

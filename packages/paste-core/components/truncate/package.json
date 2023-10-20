@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/truncate",
-  "version": "14.1.0",
+  "version": "14.1.1",
   "category": "typography",
   "status": "production",
   "description": "Truncate is a wrapper that shortens a string of text that overflows a defined area.",

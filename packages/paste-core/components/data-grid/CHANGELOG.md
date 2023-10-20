@@ -1,5 +1,17 @@
 # @twilio-paste/data-grid
 
+## 8.2.0
+
+### Minor Changes
+
+- [`3f6e05d10`](https://github.com/twilio-labs/paste/commit/3f6e05d10553b563cc81dd5c246610be330fb23a) [#3541](https://github.com/twilio-labs/paste/pull/3541) Thanks [@nkrantz](https://github.com/nkrantz)! - [Data Grid] Add ability to override default "grid" role to be "treegrid" for making custom tree grid components using Data Grid. "treegrid" is the only valid type that can be passed to role.
+
+### Patch Changes
+
+- [`bc51057db`](https://github.com/twilio-labs/paste/commit/bc51057dbad9d941b2f0299cb372ca64637ee45d) [#3545](https://github.com/twilio-labs/paste/pull/3545) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Data Grid] Fix issue where form elements in the data-grid that immediately re-render on mount cause the tabIndex management system to faulter.
+
+* [`a684a6bc7`](https://github.com/twilio-labs/paste/commit/a684a6bc79a66987659d7838945b54648faeed4f) [#3516](https://github.com/twilio-labs/paste/pull/3516) Thanks [@abereghici](https://github.com/abereghici)! - chore(data-grid): change isCell function into a type guard and remove unnecessary type assertions
+
 ## 8.1.0
 
 ### Minor Changes

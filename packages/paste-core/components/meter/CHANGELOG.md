@@ -1,5 +1,13 @@
 # @twilio-paste/meter
 
+## 1.0.3
+
+### Patch Changes
+
+- [`bc51057db`](https://github.com/twilio-labs/paste/commit/bc51057dbad9d941b2f0299cb372ca64637ee45d) [#3545](https://github.com/twilio-labs/paste/pull/3545) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Meter] Remove console.warn log spam regarding aria-label
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Meter] Improve TsDoc type annotations
+
 ## 1.0.2
 
 ### Patch Changes

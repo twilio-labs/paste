@@ -1,5 +1,11 @@
 # @twilio-paste/chat-composer
 
+## 5.1.1
+
+### Patch Changes
+
+- [`1a70ec030`](https://github.com/twilio-labs/paste/commit/1a70ec030da48161ec296034cab19d34ce24f01d) [#3543](https://github.com/twilio-labs/paste/pull/3543) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Change overflowY from "scroll" to "auto" to prevent non-scrollable scrollbar bug
+
 ## 5.1.0
 
 ### Minor Changes

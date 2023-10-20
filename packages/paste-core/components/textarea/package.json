@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/textarea",
-  "version": "10.1.0",
+  "version": "10.1.1",
   "category": "user input",
   "status": "production",
   "description": "A Textarea is a form element that allows users to enter text on multiple lines.",
@@ -48,7 +48,7 @@
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.0",
     "@twilio-paste/design-tokens": "^10.2.0",
-    "@twilio-paste/input-box": "^10.1.0",
+    "@twilio-paste/input-box": "^10.1.1",
     "@twilio-paste/react-textarea-autosize-library": "^3.0.0",
     "@twilio-paste/style-props": "^9.1.0",
     "@twilio-paste/styling-library": "^3.0.0",

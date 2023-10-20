@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/list",
-  "version": "8.1.0",
+  "version": "8.1.1",
   "category": "typography",
   "status": "production",
   "description": "A List is a set of text objects in a bulleted or numbered format.",

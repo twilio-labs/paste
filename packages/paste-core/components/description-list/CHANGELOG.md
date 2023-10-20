@@ -1,5 +1,11 @@
 # @twilio-paste/description-list
 
+## 4.2.0
+
+### Minor Changes
+
+- [`c023e7345`](https://github.com/twilio-labs/paste/commit/c023e73456e29ef13cee26850a872bc2d57037ba) [#3528](https://github.com/twilio-labs/paste/pull/3528) Thanks [@nkrantz](https://github.com/nkrantz)! - [Description List] Adjust spacing on Description List component. Description List was previously inheriting 14px of top and bottom margin from the HTML element. This change removes that spacing, so the component now has 0px of top/bottom margin. The same amount of spacing remains between DescriptionListTerms and DescriptionListDetails. In order to maintain designs with Description Lists, you may have to replace the removed spacing to your layout.
+
 ## 4.1.0
 
 ### Minor Changes

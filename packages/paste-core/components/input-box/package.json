@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/input-box",
-  "version": "10.1.0",
+  "version": "10.1.1",
   "category": "user input",
   "status": "production",
   "description": "Visual box around every Paste input type",

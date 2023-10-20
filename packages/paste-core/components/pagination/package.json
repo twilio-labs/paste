@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/pagination",
-  "version": "7.1.0",
+  "version": "7.1.1",
   "category": "navigation",
   "status": "production",
   "description": "Pagination lets users navigate through content or a dataset that’s been broken up into multiple pages.",

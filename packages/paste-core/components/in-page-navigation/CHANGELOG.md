@@ -1,5 +1,15 @@
 # @twilio-paste/in-page-navigation
 
+## 4.2.0
+
+### Minor Changes
+
+- [`92c16ec9d`](https://github.com/twilio-labs/paste/commit/92c16ec9de1ac35b5dc0a05cf8463729b01a7822) [#3537](https://github.com/twilio-labs/paste/pull/3537) Thanks [@TheSisb](https://github.com/TheSisb)! - [In Page Navigation] Add new `orientation` property with a vertical option.
+
+### Patch Changes
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [In Page Navigation] Improved TsDoc type annotations
+
 ## 4.1.0
 
 ### Minor Changes

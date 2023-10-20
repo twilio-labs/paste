@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/description-list",
-  "version": "4.1.0",
+  "version": "4.2.0",
   "category": "typography",
   "status": "production",
   "description": "A Description List is a set or sets of terms and their definitions, or details, used to display data.",
