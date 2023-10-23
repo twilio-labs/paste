@@ -122,7 +122,7 @@ console.log("similar discussions:", similarDiscussions);
 const answerFromAi = await getAnswerFromAi(API_SECRET, DISCUSSION_BODY);
 console.log("response from AI:", answerFromAi.trim().slice(0, 300));
 
-const hasAnswerFromAi = answerFromAi !== "Sorry, I don't know how to help with that.";
+const hasAnswerFromAi = answerFromAi.includes("Sorry, I don't know how to help with that.");
 const hasSimilarDiscussions = similarDiscussions.length > 0 && similarDiscussions !== "No similar discussions found.";
 
 if (!hasSimilarDiscussions && !hasAnswerFromAi) {
@@ -136,7 +136,9 @@ if (hasAnswerFromAi) {
   fullBody = `${fullBody}${commentSeparator}${answerFromAi}`;
 }
 if (hasSimilarDiscussions) {
-  fullBody = `${fullBody}${commentSeparator}Here are some similar discussions:\n${similarDiscussions}`;
+  const similarDiscussionPrefix =
+    "I did a search, and I managed to find these other Discussions that might be similar or related to your question. Be sure to check them out:\n";
+  fullBody = `${fullBody}${commentSeparator}${similarDiscussionPrefix}${similarDiscussions}`;
 }
 
 // @ts-expect-error deno
