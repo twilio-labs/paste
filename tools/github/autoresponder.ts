@@ -122,9 +122,10 @@ console.log("similar discussions:", similarDiscussions);
 const answerFromAi = await getAnswerFromAi(API_SECRET, DISCUSSION_BODY);
 console.log("response from AI:", answerFromAi.trim().slice(0, 300));
 
-const hasAnswerFromAi = answerFromAi.includes("Sorry, I don't know how to help with that.");
+const hasAnswerFromAi = !answerFromAi.includes("Sorry, I don't know how to help with that.");
 const hasSimilarDiscussions = similarDiscussions.length > 0 && similarDiscussions !== "No similar discussions found.";
 
+// if you don't have an answer from AI AND you don't have similar discussions, don't bother commenting
 if (!hasSimilarDiscussions && !hasAnswerFromAi) {
   // @ts-expect-error deno
   Deno.exit(0);
@@ -132,13 +133,20 @@ if (!hasSimilarDiscussions && !hasAnswerFromAi) {
 
 let fullBody = `${commentHeader}`;
 
-if (hasAnswerFromAi) {
-  fullBody = `${fullBody}${commentSeparator}${answerFromAi}`;
-}
-if (hasSimilarDiscussions) {
+// answer and similar discussions
+if (hasAnswerFromAi && hasSimilarDiscussions) {
   const similarDiscussionPrefix =
-    "I did a search, and I managed to find these other Discussions that might be similar or related to your question. Be sure to check them out:\n";
-  fullBody = `${fullBody}${commentSeparator}${similarDiscussionPrefix}${similarDiscussions}`;
+    "\n\nI also did a search, and I managed to find these other Discussions that might be similar or related to your question:\n\n";
+
+  fullBody = `${fullBody}${commentSeparator}${answerFromAi}${similarDiscussionPrefix}${similarDiscussions}`;
+}
+
+// No answer, but similar discussions.
+if (!hasAnswerFromAi && hasSimilarDiscussions) {
+  const similarDiscussionPrefix =
+    "\n\nI did do a search though, and I managed to find these other Discussions that might be similar or related to your question. Be sure to check them out:\n\n";
+
+  fullBody = `${fullBody}${commentSeparator}${answerFromAi}${similarDiscussionPrefix}${similarDiscussions}`;
 }
 
 // @ts-expect-error deno
