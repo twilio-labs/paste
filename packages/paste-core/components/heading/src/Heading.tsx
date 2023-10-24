@@ -24,7 +24,7 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: "space
       };
     case "heading40":
       return {
-        marginBottom: marginBottom || "space40",
+        marginBottom: marginBottom || "space30",
         fontSize: "fontSize40",
         fontWeight: "fontWeightSemibold",
         lineHeight: "lineHeight40",
@@ -53,7 +53,7 @@ function getHeadingProps(headingVariant?: HeadingVariants, marginBottom?: "space
     case "heading20":
     default:
       return {
-        marginBottom: marginBottom || "space60",
+        marginBottom: marginBottom || "space70",
         fontSize: "fontSize70",
         fontWeight: "fontWeightSemibold",
         lineHeight: "lineHeight70",
