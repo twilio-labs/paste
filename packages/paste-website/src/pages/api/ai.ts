@@ -25,6 +25,15 @@ import {
   type CreateModerationResponse,
   OpenAIApi,
 } from "openai-edge";
+import Rollbar from "rollbar";
+
+import { logger } from "../../functions-utils/logger";
+
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
 
 class ApplicationError extends Error {
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
@@ -46,7 +55,10 @@ const openai = new OpenAIApi(config);
 
 export const runtime = "edge";
 
+const LOG_PREFIX = "[/api/ai]:";
+
 export default async function handler(req: NextRequest): Promise<void | Response> {
+  logger.info(`${LOG_PREFIX} Incoming request`);
   try {
     if (!openAiKey) {
       throw new ApplicationError("Missing environment variable OPENAI_API_KEY");
@@ -64,12 +76,14 @@ export default async function handler(req: NextRequest): Promise<void | Response
     }
 
     const requestData = await req.json();
+    logger.info(`${LOG_PREFIX} Request data`, { requestData });
 
     if (!requestData) {
       throw new UserError("Missing request data");
     }
 
     const { prompt: query, secret } = requestData;
+    logger.info(`${LOG_PREFIX} User query`, { query });
 
     if (!secret || secret !== openAiSecret) {
       throw new UserError("Incorrect 'secret' in request data");
@@ -81,8 +95,12 @@ export default async function handler(req: NextRequest): Promise<void | Response
 
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Moderate the content to comply with OpenAI T&C
     const sanitizedQuery = query.trim();
+    logger.info(`${LOG_PREFIX} Sanitized query`, { sanitizedQuery });
+
+    logger.info(`${LOG_PREFIX} Moderate user prompt`);
+
+    // Moderate the content to comply with OpenAI T&C
     const moderationResponse: CreateModerationResponse = await openai
       .createModeration({ input: sanitizedQuery })
       .then((res: any) => res.json());
@@ -93,6 +111,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError("Failed to moderate content", moderationResponse.error.message);
     }
     const [results] = moderationResponse.results;
+    logger.info(`${LOG_PREFIX} Moderated prompt`, { results });
 
     if (results.flagged) {
       throw new UserError("Flagged content", {
@@ -100,6 +119,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
         categories: results.categories,
       });
     }
+
+    logger.info(`${LOG_PREFIX} Reqesting openai embedding`);
 
     // Create embedding from query
     const embeddingResponse = await openai.createEmbedding({
@@ -115,6 +136,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
       data: [{ embedding }],
     }: CreateEmbeddingResponse = await embeddingResponse.json();
 
+    logger.info(`${LOG_PREFIX} Request Page sections based on embeddings`);
+
     const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_page_sections_for_ai", {
       embedding,
       /* eslint-disable camelcase */
@@ -127,6 +150,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
     if (matchError) {
       throw new ApplicationError("Failed to match page sections", matchError);
     }
+
+    logger.info(`${LOG_PREFIX} Returned ${pageSections.length} page sections`);
 
     const tokenizer = new GPT3Tokenizer({ type: "gpt3" });
     let tokenCount = 0;
@@ -143,6 +168,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
 
       contextText += `${content.trim()}\n---\n`;
     }
+
+    logger.info(`${LOG_PREFIX} Context text: ${contextText}`);
 
     const prompt = codeBlock`
       ${oneLine`
@@ -169,6 +196,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
       content: prompt,
     };
 
+    logger.info(`${LOG_PREFIX} Request chat completion`);
+
     const response = await openai.createChatCompletion({
       model: "gpt-4",
       messages: [chatMessage],
@@ -183,6 +212,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError("Failed to generate completion", error);
     }
 
+    logger.info(`${LOG_PREFIX} Open ai Return response`, { response });
+
     // Transform the response into a readable stream
     const stream = OpenAIStream(response);
 
@@ -190,6 +221,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
     return new StreamingTextResponse(stream);
   } catch (error: unknown) {
     if (error instanceof UserError) {
+      logger.error(`${LOG_PREFIX} User error`, { error });
+      rollbar.error(error);
+
       return new Response(
         JSON.stringify({
           error: error.message,
@@ -203,11 +237,13 @@ export default async function handler(req: NextRequest): Promise<void | Response
     } else if (error instanceof ApplicationError) {
       // Print out application errors with their additional data
       // eslint-disable-next-line no-console
-      console.error(`${error.message}: ${JSON.stringify(error.data)}`);
+      logger.error(`${LOG_PREFIX} ${error.message}: ${JSON.stringify(error.data)}`);
+      rollbar.error(error);
     } else {
       // Print out unexpected errors as is to help with debugging
       // eslint-disable-next-line no-console
-      console.error(error);
+      logger.error(`${LOG_PREFIX} ${error}`);
+      rollbar.error(error as Error);
     }
 
     return new Response(

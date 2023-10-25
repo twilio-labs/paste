@@ -2,7 +2,21 @@
 import { createClient } from "@supabase/supabase-js";
 import type { NextRequest } from "next/server";
 import { Configuration, type CreateEmbeddingResponse, OpenAIApi } from "openai-edge";
+import Rollbar from "rollbar";
 
+import { logger } from "../../functions-utils/logger";
+
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
+
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
 class ApplicationError extends Error {
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
   constructor(message: string, public data: Record<string, any> = {}) {
@@ -23,7 +37,10 @@ const openai = new OpenAIApi(config);
 
 export const runtime = "edge";
 
+const LOG_PREFIX = "[/api/discussions-search]:";
+
 export default async function handler(req: NextRequest): Promise<void | Response> {
+  logger.info(`${LOG_PREFIX} Incoming request`);
   try {
     if (!openAiKey) {
       throw new ApplicationError("Missing environment variable OPENAI_API_KEY");
@@ -41,12 +58,14 @@ export default async function handler(req: NextRequest): Promise<void | Response
     }
 
     const requestData = await req.json();
+    logger.info(`${LOG_PREFIX} Request data`, { requestData });
 
     if (!requestData) {
       throw new UserError("Missing request data");
     }
 
     const { prompt: query, secret } = requestData;
+    logger.info(`${LOG_PREFIX} User query`, { query });
 
     if (!secret || secret !== openAiSecret) {
       throw new UserError("Incorrect 'secret' in request data");
@@ -59,6 +78,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
 
     const sanitizedQuery = query.trim();
+    logger.info(`${LOG_PREFIX} Sanitized query`, { sanitizedQuery });
+
+    logger.info(`${LOG_PREFIX} Reqesting openai embedding`);
 
     // Create embedding from query
     const embeddingResponse = await openai.createEmbedding({
@@ -74,7 +96,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
       data: [{ embedding }],
     }: CreateEmbeddingResponse = await embeddingResponse.json();
 
-    const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_discussions", {
+    logger.info(`${LOG_PREFIX} Request Discussion sections based on embeddings`);
+
+    const { error: matchError, data: discussionSections } = await supabaseClient.rpc("match_discussions", {
       embedding,
       /* eslint-disable camelcase */
       match_threshold: 0.78,
@@ -84,12 +108,14 @@ export default async function handler(req: NextRequest): Promise<void | Response
     });
 
     if (matchError) {
-      throw new ApplicationError("Failed to match page sections", matchError);
+      throw new ApplicationError("Failed to match discussion sections", matchError);
     }
+
+    logger.info(`${LOG_PREFIX} Returned ${discussionSections.length} discussion sections`);
 
     return new Response(
       JSON.stringify({
-        data: pageSections,
+        data: discussionSections,
       }),
       {
         headers: { "Content-Type": "application/json" },
@@ -97,6 +123,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
     );
   } catch (error: unknown) {
     if (error instanceof UserError) {
+      logger.error(`${LOG_PREFIX} User error`, { error });
+      rollbar.error(error);
       return new Response(
         JSON.stringify({
           error: error.message,
@@ -109,12 +137,12 @@ export default async function handler(req: NextRequest): Promise<void | Response
       );
     } else if (error instanceof ApplicationError) {
       // Print out application errors with their additional data
-      // eslint-disable-next-line no-console
-      console.error(`${error.message}: ${JSON.stringify(error.data)}`);
+      logger.error(`${LOG_PREFIX} ${error.message}: ${JSON.stringify(error.data)}`);
+      rollbar.error(error);
     } else {
       // Print out unexpected errors as is to help with debugging
-      // eslint-disable-next-line no-console
-      console.error(error);
+      logger.error(`${LOG_PREFIX} ${error}`);
+      rollbar.error(error as Error);
     }
 
     return new Response(
