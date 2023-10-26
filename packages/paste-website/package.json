@@ -24,8 +24,8 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@next/bundle-analyzer": "^13.1.6",
-    "@next/mdx": "^13.1.6",
+    "@next/bundle-analyzer": "^14.0.0",
+    "@next/mdx": "^14.0.0",
     "@octokit/core": "^5.0.1",
     "@octokit/plugin-paginate-graphql": "^4.0.0",
     "@sparticuz/chromium": "^110.0.0",
@@ -157,7 +157,7 @@
     "mdast-util-to-string": "^3.1.1",
     "micromark-extension-mdxjs": "^2.0.0",
     "minimist": "^1.2.8",
-    "next": "^13.1.6",
+    "next": "^14.0.0",
     "openai": "^4.10.0",
     "openai-edge": "^1.2.2",
     "pretty-format": "^28.1.0",
@@ -184,7 +184,7 @@
     "winston": "^3.11.0"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^13.1.6",
+    "@next/eslint-plugin-next": "^14.0.0",
     "@storybook/react": "7.0.6",
     "@testing-library/react": "^13.4.0",
     "tsx": "^3.12.10"
