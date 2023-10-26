@@ -136,7 +136,7 @@ let fullBody = `${commentHeader}`;
 // answer and similar discussions
 if (hasAnswerFromAi && hasSimilarDiscussions) {
   const similarDiscussionPrefix =
-    "\n\nI also did a search, and I managed to find these other Discussions that might be similar or related to your question:\n\n";
+    "\n\nI also did a search, and I managed to find these other Discussions that might be similar or related to your question. Give them a read to see if they answer your question. If they do, head back here and update this discussion and mark it as answered, pointing others to the related discussion:\n\n";
 
   fullBody = `${fullBody}${commentSeparator}${answerFromAi}${similarDiscussionPrefix}${similarDiscussions}`;
 }
@@ -144,7 +144,7 @@ if (hasAnswerFromAi && hasSimilarDiscussions) {
 // No answer, but similar discussions.
 if (!hasAnswerFromAi && hasSimilarDiscussions) {
   const similarDiscussionPrefix =
-    "\n\nI did do a search though, and I managed to find these other Discussions that might be similar or related to your question. Be sure to check them out:\n\n";
+    "\n\nI did do a search though, and I managed to find these other Discussions that might be similar or related to your question. Give them a read to see if they answer your question. If they do, head back here and update this discussion and mark it as answered, pointing others to the related discussion:\n\n";
 
   fullBody = `${fullBody}${commentSeparator}${answerFromAi}${similarDiscussionPrefix}${similarDiscussions}`;
 }
