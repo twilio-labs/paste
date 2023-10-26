@@ -6,7 +6,6 @@ export const FullSettingsExample = `
   display="flex"
   flexDirection="column"
   rowGap="space130"
-  maxWidth="size90"
 >
   <Box display="flex" flexDirection="column">
     <Box display="flex" rowGap="space30" marginBottom="space30">

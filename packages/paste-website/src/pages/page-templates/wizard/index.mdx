@@ -1,10 +1,14 @@
 export const meta = {
   title: 'Wizard',
-  description: 'A Wizard flow guides customers through complicated tasks to reach a goal.',
+  description: 'A Wizard focuses customers through a series of tasks to reach a goal.',
   slug: '/page-templates/wizard/',
 };
 
-import {InDevelopment} from '../../../components/empty-state/InDevelopment';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Anchor} from '@twilio-paste/anchor';
+
+import {DefaultWizardExample, DefaultWizardWithContentExample, DefaultWizardOrderedListExample, WizardFooterOptionsExample, WizardFullPageExample, WizardDefaultHeaderWithProgressStepsExample, WizardFullPageHeaderWithProgressStepsExample} from '../../../component-examples/page-templates/WizardExamples';
+import {WizardIngredients} from '../../../components/ingredients/WizardIngredients';
 import {SidebarCategoryRoutes} from '../../../constants';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
@@ -43,7 +47,189 @@ export const getStaticProps = async () => {
 
 <content>
 
-<InDevelopment showBreadcrumb={false} />
+<StoryPreview
+  title="Wizard page template - default"
+  storyID="website-pagetemplateexamples--default-wizard-example"
+  code={DefaultWizardExample}
+/>
+
+## About Wizard
+
+Use a Wizard when a customer’s goal is long or complex, and breaking it up into smaller page-by-page tasks allows the user to focus and not feel overwhelmed. A Wizard can be useful when the tasks to reach a goal are dependent on each other, and customers need to finish different tasks based on previous ones.
+
+Start by splitting the goal across multiple tasks with each page containing just one main task, for example:
+- One piece of information the customer needs to know
+- One decision they have to make
+- One question they have to answer
+
+A single task or page can still have multiple form fields or pieces of information if they’re related.
+
+<Callout variant='neutral' marginY="space70">
+  <CalloutHeading as="h2">Looking for guidelines on multi-step flows contained to Modals or Cards?</CalloutHeading>
+  <CalloutText>We don’t have guidelines yet for multi-step flows that aren’t the only flow on a page. If you need it for your work, please consider partnering with us to contribute it.</CalloutText>
+</Callout>
+
+## Ingredients 
+
+<WizardIngredients />
+
+## How to use this template
+
+<StoryPreview
+  title="Wizard page template - default with content"
+  storyID="website-pagetemplateexamples--default-wizard-with-content-example"
+  code={DefaultWizardWithContentExample}
+/>
+
+### Content structure
+
+Before deciding on a page layout, make a few content and experience decisions first. This includes:
+
+- **Wizard title:** Describes the overall goal the customer is trying to achieve. The title should start with a verb. Examples: “Upgrade”, “Build Track call”.
+- **Task headings:** For each page, the task heading describes the current task the customer is doing. Each heading should generally be in the format “[Verb] [object]”. Examples: “Select computed trait”, “Connect to Whatsapp”.
+- **Task content:** Decide what content and components will help a customer finish each task.
+- **Goal linearity and duration:** Decide whether a customer can achieve the entire goal in one session. Decide whether they need to leave Twilio to finish a task and whether they need to wait for Twilio to do something before finishing the flow.
+
+There are 3 standard max-widths for the content of each Wizard page. Based on the content you need for each task, start with the smallest max-width and size up as needed:
+1. `size-70` (712px). If this is too small, use:
+2. `size-100` (1024px). If this is too small, use:
+3. Full-width, with a max-width of `size-70` for the Page Header. 
+
+Use the same max-width for each page of the Wizard if possible.
+
+### Default template
+
+In most scenarios, you’ll take customers through a Wizard without having to change the Sidebar or Topbar.
+
+<StoryPreview
+  title="Wizard page template - default with content"
+  storyID="website-pagetemplateexamples--default-wizard-with-content-example"
+  code={DefaultWizardWithContentExample}
+/>
+
+#### Page header
+
+At the top of each page of the Wizard, add:
+- Wizard title as [Detail Text](/components/detail-text) (optional)
+- Task [Heading](/components/heading)
+- [Paragraph](/components/paragraph) text under the heading to explain the step (optional)
+
+#### Body
+
+Use the [Form](/components/form) component to set spacing between form elements.
+
+There may be cases where you need to show multiple tasks on the same page because customers need to reference them at the same time. If this is the case, use a stylized ordered list (coming soon!) to group tasks.
+
+<StoryPreview
+  title="Wizard page template - default ordered list"
+  storyID="website-pagetemplateexamples--default-wizard-ordered-list-example"
+  code={DefaultWizardOrderedListExample}
+/>
+
+<Callout variant='neutral' marginY="space70">
+  <CalloutHeading as="h2">Looking for guidelines on progressive disclosures?</CalloutHeading>
+  <CalloutText>We don’t have guidelines yet for this part of Wizard. If you need it for your work, please consider partnering with us to contribute it.</CalloutText>
+</Callout>
+
+#### Actions footer
+
+Use the [Form](/components/form) component to set spacing between form actions and form elements.
+
+Use these actions in the footer, starting from the right side of the page:
+- A primary, right-aligned next [Button](/components/button) to let a customer move to the next task. The Button is right-aligned to signal that the flow is moving forward. If there are more tasks, use the word “Next” followed by [ArrowForwardIcon](/components/icon). If the customer is on the last task, the Button should indicate they are finishing the goal. Don’t include the arrow icon.
+- A secondary, right-aligned Button with the word “Cancel” if customers can’t save their progress, or “Close” if they can. Follow the [confirmation pattern](/patterns/confirmation) for guidance on how to ask a customer to confirm that they want to leave a Wizard or save their progress.
+- A secondary, left-aligned back Button. If there were previous tasks, use the [ArrowBackIcon](/components/icon) followed by the word “Back”. If there are no previous tasks, don’t show the Button.
+
+If the task contents don’t fill the width of the page body, use a [Separator](/components/separator) above the actions with a gap of `space-50`. However this should be used sparingly because in most cases your content should fill the width of the page body.
+
+Don’t disable any footer Buttons unless it’s immediately obvious to customers why they’re disabled. Disabled Buttons aren’t focusable and don’t provide any information about why they’re disabled. Instead, show Buttons in their default state, then provide helpful error text after they’re pressed.
+
+<StoryPreview
+  title="Wizard page template - footer options"
+  storyID="website-pagetemplateexamples--wizard-footer-options-example"
+  code={WizardFooterOptionsExample}
+  height="350px"
+/>
+
+### Full-page template
+
+<StoryPreview
+  title="Wizard page template - full page"
+  storyID="website-pagetemplateexamples--wizard-full-page-example"
+  code={WizardFullPageExample}
+/>
+
+Use the full-page Wizard template when it’s absolutely critical that a customer remains focused to finish the task.
+
+If your app allows it, load the Wizard without a Sidebar, and replace the content in the Topbar with:
+
+- The Wizard title as a left-aligned [Heading](/components/heading)
+- A secondary, right-aligned Button with the word “Cancel” if customers can’t save their progress, or “Close” if they can. Follow the [confirmation pattern](/patterns/confirmation) for guidance on how to ask a customer to confirm that they want to leave a Wizard or save their progress.
+
+If your app doesn’t allow loading a page without the navigation frame, [collapse the Sidebar](/components/sidebar#compact-push-sidebar) and follow the [default Wizard template](#default-template).
+
+#### Page header
+
+At the top of the page, add the Task [Heading](/components/heading) and if needed, [Paragraph](/components/paragraph) text under the heading to explain the step.
+
+#### Body
+
+Follow the [default Wizard template](#default-template).
+
+#### Actions footer
+
+Follow the [default Wizard template](#default-template), but don’t include a close button in the footer.
+
+### Using Progress Steps
+
+Only use [Progress Steps](/components/progress-steps) when necessary. Some scenarios include when:
+
+- A customer needs to return to previous steps, especially across multiple sessions.
+- A goal takes a long time to finish.
+- A customer is trying a feature out or going through more of an exploratory flow. Progress Steps can help them understand if they want to complete the steps.
+
+If the customer’s journey through a Wizard is relatively linear, continuous, and short, don’t use Progress Steps.
+
+When in doubt, start by not using Progress Steps, and add it in once it’s clear the experience suffers without it.
+
+<Callout variant='neutral' marginY="space70">
+  <CalloutHeading as="h2">Research insight</CalloutHeading>
+  <CalloutText><Anchor href="https://designnotes.blog.gov.uk/2014/07/07/do-less-problems-as-shared-spaces/">Research from GOV.UK</Anchor> showed that their users were actually getting confused and intimidated when seeing their progress indicator. They found that completion rates, time-to-completion, and total amount of online applications were unaffected after removing their progress bar from their services.</CalloutText>
+</Callout>
+
+Match Progress Steps labels to task headings for each page. If you need to use Progress Steps and there’s forking logic in the flow, hide Progress Steps until there’s a single path forward, or make the step labels generic enough to cover all variants of a task.
+
+#### With the default template
+
+Place Progress Steps above the Wizard title.
+
+<StoryPreview
+  title="Wizard page template - default header with progress steps"
+  storyID="website-pagetemplateexamples--wizard-default-header-with-progress-steps-example"
+  code={WizardDefaultHeaderWithProgressStepsExample}
+  height="420px"
+/>
+
+#### With the full-page template
+
+Center Progress Steps in the Topbar.
+
+<StoryPreview
+  title="Wizard page template - full page header with progress steps"
+  storyID="website-pagetemplateexamples--wizard-full-page-header-with-progress-steps-example"
+  code={WizardFullPageHeaderWithProgressStepsExample}
+  height="150px"
+/>
+
+## Starter kits
+
+#### CodeSandbox
+
+Coming soon
+
+#### Figma
+
+Add the “[Paste Patterns & Templates](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns-%26-Templates?type=design&node-id=367-27339&mode=design&t=dC1B5k0lVIB0JIuX-0)” library to your file.
 
 </content>
 
