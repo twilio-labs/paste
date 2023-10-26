@@ -1,6 +1,6 @@
 /* eslint-disable max-classes-per-file */
 import { createClient } from "@supabase/supabase-js";
-import type { NextRequest } from "next/server";
+import type { NextApiRequest, NextApiResponse } from "next";
 import {
   Configuration,
   type CreateEmbeddingResponse,
@@ -33,11 +33,9 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
-export const runtime = "edge";
-
 const LOG_PREFIX = '[/api/docs-search]:'
 
-export default async function handler(req: NextRequest): Promise<void | Response> {
+export default async function handler(req: NextApiRequest, res:NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`)
   try {
     if (!openAiKey) {
@@ -52,7 +50,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError("Missing environment variable SUPABASE_KEY");
     }
 
-    const requestData = await req.json();
+    const requestData = await req.body;
     logger.info(`${LOG_PREFIX} Request data`, {requestData})
 
     if (!requestData) {
@@ -102,16 +100,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError("Failed to match page sections", matchError);
     }
 
-    logger.info(`${LOG_PREFIX} Returned ${pageSections.length} page sections`)
+    logger.info(`${LOG_PREFIX} Returned ${pageSections.length} page sections`);
 
-    return new Response(
-      JSON.stringify({
-        data: pageSections,
-      }),
-      {
-        headers: { "Content-Type": "application/json" },
-      },
-    );
+    res.status(200).json({data: pageSections})
 
 
   } catch (error: unknown) {
@@ -119,16 +110,10 @@ export default async function handler(req: NextRequest): Promise<void | Response
     if (error instanceof UserError) {
       logger.error(`${LOG_PREFIX} User error`, { error });
       rollbar.error(error);
-      return new Response(
-        JSON.stringify({
-          error: error.message,
-          data: error.data,
-        }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        },
-      );
+      res.status(400).json({
+        error: error.message,
+        data: error.data,
+      });
     } else if (error instanceof ApplicationError) {
       // Print out application errors with their additional data
       logger.error(`${LOG_PREFIX} ${error.message}: ${JSON.stringify(error.data)}`);
@@ -139,15 +124,10 @@ export default async function handler(req: NextRequest): Promise<void | Response
       rollbar.error(error as Error);
     }
 
-    return new Response(
-      JSON.stringify({
-        error: "There was an error processing your request",
-      }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      },
-    );
+    res.status(500).json({
+      error: "There was an error processing your request"
+    })
+
   }
 }
 /* eslint-enable max-classes-per-file */
