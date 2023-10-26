@@ -25,13 +25,6 @@ import {
   type CreateModerationResponse,
   OpenAIApi,
 } from "openai-edge";
-import Rollbar from "rollbar";
-
-const rollbar = new Rollbar({
-  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
-  captureUncaught: true,
-  captureUnhandledRejections: true,
-});
 
 class ApplicationError extends Error {
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
@@ -51,6 +44,11 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
+/**
+ * Because we're using an edge function for streaming we can't use winston for logging
+ * or rollbar for error reporting. Instead we'll use console.log and console.error and
+ * Datadog synthetics to monitor up time.
+ */
 export const runtime = "edge";
 
 const LOG_PREFIX = "[/api/ai]:";
@@ -232,7 +230,6 @@ export default async function handler(req: NextRequest): Promise<void | Response
     if (error instanceof UserError) {
       // eslint-disable-next-line no-console
       console.error(`${LOG_PREFIX} User error`, { error });
-      rollbar.error(error);
 
       return new Response(
         JSON.stringify({
@@ -248,12 +245,10 @@ export default async function handler(req: NextRequest): Promise<void | Response
       // Print out application errors with their additional data
       // eslint-disable-next-line no-console
       console.error(`${LOG_PREFIX} ${error.message}: ${JSON.stringify(error.data)}`);
-      rollbar.error(error);
     } else {
       // Print out unexpected errors as is to help with debugging
       // eslint-disable-next-line no-console
       console.error(`${LOG_PREFIX} ${error}`);
-      rollbar.error(error as Error);
     }
 
     return new Response(
