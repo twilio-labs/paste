@@ -98,6 +98,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     logger.info(`${LOG_PREFIX} Returned ${pageSections.length} page sections`);
 
+    const { data: queryTrackingData, error: queryTrackingError } = await supabaseClient
+      .from("queries")
+      // eslint-disable-next-line camelcase
+      .insert({ query_string: sanitizedQuery, type: "docs-search" });
+
+    if (queryTrackingError) {
+      throw new ApplicationError("Failed to track search query", queryTrackingError);
+    }
+
+    logger.info(`${LOG_PREFIX} Inserted query into tracking database`, { queriesData: queryTrackingData });
+
     res.status(200).json({ data: pageSections });
   } catch (error: unknown) {
     if (error instanceof UserError) {

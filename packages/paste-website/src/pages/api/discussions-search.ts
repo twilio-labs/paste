@@ -56,12 +56,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new UserError("Missing request data");
     }
 
-    const { prompt: query, secret } = requestData;
+    const { prompt: query } = requestData;
     logger.info(`${LOG_PREFIX} User query`, { query });
-
-    if (!secret || secret !== openAiSecret) {
-      throw new UserError("Incorrect 'secret' in request data");
-    }
 
     if (!query) {
       throw new UserError("Missing 'prompt' in request data");
@@ -104,6 +100,17 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
 
     logger.info(`${LOG_PREFIX} Returned ${discussionSections.length} discussion sections`);
+
+    const { data: queryTrackingData, error: queryTrackingError } = await supabaseClient
+      .from("queries")
+      // eslint-disable-next-line camelcase
+      .insert({ query_string: sanitizedQuery, type: "discussions-search" });
+
+    if (queryTrackingError) {
+      throw new ApplicationError("Failed to track search query", queryTrackingError);
+    }
+
+    logger.info(`${LOG_PREFIX} Inserted query into tracking database`, { queriesData: queryTrackingData });
 
     res.status(200).json({
       data: discussionSections,
