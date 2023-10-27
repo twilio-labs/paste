@@ -2076,10 +2076,10 @@
     },
     "justify": {
       "type": "Justify",
-      "defaultValue": null,
+      "defaultValue": "end",
       "required": false,
       "externalProp": false,
-      "description": "Used to control where the actions are aligned visually, to the start or end of the container."
+      "description": "Used to control where the actions are aligned visually, to the start or end or center of the container."
     },
     "key": {
       "type": "Key",

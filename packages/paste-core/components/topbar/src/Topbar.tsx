@@ -39,6 +39,7 @@ export const Topbar = React.forwardRef<HTMLDivElement, TopbarProps>(
         display="flex"
         justifyContent="space-between"
         alignItems="center"
+        columnGap="space70"
         zIndex="zIndex40"
       >
         {children}
