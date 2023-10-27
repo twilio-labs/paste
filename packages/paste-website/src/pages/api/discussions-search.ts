@@ -49,7 +49,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       throw new ApplicationError("Missing environment variable SUPABASE_KEY");
     }
 
-    const requestData = req.body;
+    const requestData = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
     logger.info(`${LOG_PREFIX} Request data`, { requestData });
 
     if (!requestData) {

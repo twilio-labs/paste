@@ -1,11 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import { createClient } from "@supabase/supabase-js";
 import type { NextApiRequest, NextApiResponse } from "next";
-import {
-  Configuration,
-  type CreateEmbeddingResponse,
-  OpenAIApi,
-} from "openai-edge";
+import { Configuration, type CreateEmbeddingResponse, OpenAIApi } from "openai-edge";
 import Rollbar from "rollbar";
 
 import { logger } from "../../functions-utils/logger";
@@ -33,10 +29,10 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
-const LOG_PREFIX = '[/api/docs-search]:'
+const LOG_PREFIX = "[/api/docs-search]:";
 
-export default async function handler(req: NextApiRequest, res:NextApiResponse): Promise<void | Response> {
-  logger.info(`${LOG_PREFIX} Incoming request`)
+export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
+  logger.info(`${LOG_PREFIX} Incoming request`);
   try {
     if (!openAiKey) {
       throw new ApplicationError("Missing environment variable OPENAI_API_KEY");
@@ -50,15 +46,15 @@ export default async function handler(req: NextApiRequest, res:NextApiResponse):
       throw new ApplicationError("Missing environment variable SUPABASE_KEY");
     }
 
-    const requestData = await req.body;
-    logger.info(`${LOG_PREFIX} Request data`, {requestData})
+    const requestData = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+    logger.info(`${LOG_PREFIX} Request data`, { requestData });
 
     if (!requestData) {
       throw new UserError("Missing request data");
     }
 
     const { prompt: query } = requestData;
-    logger.info(`${LOG_PREFIX} User query`, {query})
+    logger.info(`${LOG_PREFIX} User query`, { query });
 
     if (!query) {
       throw new UserError("Missing 'prompt' in request data");
@@ -67,9 +63,9 @@ export default async function handler(req: NextApiRequest, res:NextApiResponse):
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
 
     const sanitizedQuery = query.trim();
-    logger.info(`${LOG_PREFIX} Sanitized query`, {sanitizedQuery})
+    logger.info(`${LOG_PREFIX} Sanitized query`, { sanitizedQuery });
 
-    logger.info(`${LOG_PREFIX} Reqesting openai embedding`)
+    logger.info(`${LOG_PREFIX} Reqesting openai embedding`);
 
     // Create embedding from query
     const embeddingResponse = await openai.createEmbedding({
@@ -85,7 +81,7 @@ export default async function handler(req: NextApiRequest, res:NextApiResponse):
       data: [{ embedding }],
     }: CreateEmbeddingResponse = await embeddingResponse.json();
 
-    logger.info(`${LOG_PREFIX} Request page sections based on embeddings`)
+    logger.info(`${LOG_PREFIX} Request page sections based on embeddings`);
 
     const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_page_sections_v3", {
       embedding,
@@ -102,11 +98,8 @@ export default async function handler(req: NextApiRequest, res:NextApiResponse):
 
     logger.info(`${LOG_PREFIX} Returned ${pageSections.length} page sections`);
 
-    res.status(200).json({data: pageSections})
-
-
+    res.status(200).json({ data: pageSections });
   } catch (error: unknown) {
-
     if (error instanceof UserError) {
       logger.error(`${LOG_PREFIX} User error`, { error });
       rollbar.error(error);
@@ -125,9 +118,8 @@ export default async function handler(req: NextApiRequest, res:NextApiResponse):
     }
 
     res.status(500).json({
-      error: "There was an error processing your request"
-    })
-
+      error: "There was an error processing your request",
+    });
   }
 }
 /* eslint-enable max-classes-per-file */
