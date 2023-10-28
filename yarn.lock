@@ -10071,7 +10071,7 @@ __metadata:
     inquirer: "npm:7.0.0"
     is-git-clean: "npm:1.1.0"
     jscodeshift: "npm:0.11.0"
-    meow: "npm:8.0.0"
+    meow: "npm:8.1.2"
     tsx: "npm:^3.12.10"
   bin:
     codemods: ./bin/paste-codemod.js
@@ -30894,26 +30894,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"meow@npm:8.0.0":
-  version: 8.0.0
-  resolution: "meow@npm:8.0.0"
-  dependencies:
-    "@types/minimist": "npm:^1.2.0"
-    camelcase-keys: "npm:^6.2.2"
-    decamelize-keys: "npm:^1.1.0"
-    hard-rejection: "npm:^2.1.0"
-    minimist-options: "npm:4.1.0"
-    normalize-package-data: "npm:^3.0.0"
-    read-pkg-up: "npm:^7.0.1"
-    redent: "npm:^3.0.0"
-    trim-newlines: "npm:^3.0.0"
-    type-fest: "npm:^0.18.0"
-    yargs-parser: "npm:^20.2.3"
-  checksum: 94de9ae56823b426d2911b2bd9362190eb4c79207e91d2e918b36ebe7323a7aeb648debf5563bc881416f14133b652d6a80f54c77b1e5a302e12e5b2e00a20f4
-  languageName: node
-  linkType: hard
-
-"meow@npm:^6.0.0, meow@npm:^8.0.0, meow@npm:^8.1.2":
+"meow@npm:8.1.2":
   version: 8.1.2
   resolution: "meow@npm:8.1.2"
   dependencies:
@@ -33378,7 +33359,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"open@npm:^8.0.4, open@npm:~8.4.0":
+"open@npm:^8.0.4, open@npm:^8.0.9, open@npm:^8.4.0, open@npm:~8.4.0":
   version: 8.4.2
   resolution: "open@npm:8.4.2"
   dependencies:
@@ -33386,17 +33367,6 @@ __metadata:
     is-docker: "npm:^2.1.1"
     is-wsl: "npm:^2.2.0"
   checksum: acd81a1d19879c818acb3af2d2e8e9d81d17b5367561e623248133deb7dd3aefaed527531df2677d3e6aaf0199f84df57b6b2262babff8bf46ea0029aac536c9
-  languageName: node
-  linkType: hard
-
-"open@npm:^8.0.9, open@npm:^8.4.0":
-  version: 8.4.0
-  resolution: "open@npm:8.4.0"
-  dependencies:
-    define-lazy-prop: "npm:^2.0.0"
-    is-docker: "npm:^2.1.1"
-    is-wsl: "npm:^2.2.0"
-  checksum: ccb8760068b48e277868423cdf21f4f4e5682ec86dbc3a5cf1c34ef0e8b49721ad98b3f001b4eb2cbd7df7921f84551ec5b9fecace3b3eced3e46dca1c785f03
   languageName: node
   linkType: hard
 

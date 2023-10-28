@@ -222,6 +222,7 @@
   },
   "resolutions": {
     "csstype": "3.0.11",
+    "meow": "8.1.2",
     "playwright": "1.28.1",
     "tslib": "2.6.1"
   },
