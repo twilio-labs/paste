@@ -1,6 +1,6 @@
 {
   "buildCommand": "build",
-  "node": "20",
+  "node": "18",
   "packages": [
     "/packages/paste-icons",
     "/packages/paste-core/core-bundle",
