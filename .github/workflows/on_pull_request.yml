@@ -200,10 +200,10 @@ jobs:
       - name: Install React 17
         run: |
           yarn add @types/react@^17.0.0 react@^17.0.2 react-dom@^17.0.2
-          yarn set resolution react@npm:^18.0.0 ^17.0.2
-          yarn set resolution @types/react@npm:^18.0.0 ^17.0.31
-          yarn set resolution react-dom@npm:^18.0.0 ^17.0.2
-          yarn set resolution @testing-library/react@npm:^13.4.0 ^12.1.4
+          yarn set resolution react@npm:^18.2.0 ^17.0.2
+          yarn set resolution @types/react@npm:^18.2.0 ^17.0.31
+          yarn set resolution react-dom@npm:^18.2.0 ^17.0.2
+          yarn set resolution @testing-library/react@npm:13.4.0 ^12.1.4
 
       - name: Run tests
         run: yarn test
@@ -251,10 +251,10 @@ jobs:
       - name: Install React 16
         run: |
           yarn add @types/react@^16.0.0 react@^16.8.6 react-dom@^16.8.6
-          yarn set resolution react@npm:^18.0.0 ^16.8.6
-          yarn set resolution @types/react@npm:^18.0.0 ^16.0.0
-          yarn set resolution react-dom@npm:^18.0.0 ^16.8.6
-          yarn set resolution @testing-library/react@npm:^13.4.0 ^12.1.4
+          yarn set resolution react@npm:^18.2.0 ^16.8.6
+          yarn set resolution @types/react@npm:^18.2.0 ^16.0.0
+          yarn set resolution react-dom@npm:^18.2.0 ^16.8.6
+          yarn set resolution @testing-library/react@npm:13.4.0 ^12.1.4
 
       - name: Run tests
         run: yarn test
