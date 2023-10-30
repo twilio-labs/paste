@@ -25,9 +25,6 @@ const nextConfig = {
   compiler: {
     emotion: true,
   },
-  experimental: {
-    legacyBrowsers: false,
-  },
   // https://nextjs.org/docs/pages/api-reference/next-config-js/headers
   async headers() {
     return [

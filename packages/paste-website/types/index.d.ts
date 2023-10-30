@@ -18,4 +18,3 @@ declare module '*.mdx' {
     description?: string
   }
 }
-

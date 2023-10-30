@@ -44,9 +44,18 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
+/**
+ * Because we're using an edge function for streaming we can't use winston for logging
+ * or rollbar for error reporting. Instead we'll use console.log and console.error and
+ * Datadog synthetics to monitor up time.
+ */
 export const runtime = "edge";
 
+const LOG_PREFIX = "[/api/ai]:";
+
 export default async function handler(req: NextRequest): Promise<void | Response> {
+  // eslint-disable-next-line no-console
+  console.log(`${LOG_PREFIX} Incoming request`);
   try {
     if (!openAiKey) {
       throw new ApplicationError("Missing environment variable OPENAI_API_KEY");
@@ -64,12 +73,16 @@ export default async function handler(req: NextRequest): Promise<void | Response
     }
 
     const requestData = await req.json();
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Request data`, { requestData });
 
     if (!requestData) {
       throw new UserError("Missing request data");
     }
 
     const { prompt: query, secret } = requestData;
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} User query`, { query });
 
     if (!secret || secret !== openAiSecret) {
       throw new UserError("Incorrect 'secret' in request data");
@@ -81,8 +94,14 @@ export default async function handler(req: NextRequest): Promise<void | Response
 
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
 
-    // Moderate the content to comply with OpenAI T&C
     const sanitizedQuery = query.trim();
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Sanitized query`, { sanitizedQuery });
+
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Moderate user prompt`);
+
+    // Moderate the content to comply with OpenAI T&C
     const moderationResponse: CreateModerationResponse = await openai
       .createModeration({ input: sanitizedQuery })
       .then((res: any) => res.json());
@@ -93,6 +112,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError("Failed to moderate content", moderationResponse.error.message);
     }
     const [results] = moderationResponse.results;
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Moderated prompt`, { results });
 
     if (results.flagged) {
       throw new UserError("Flagged content", {
@@ -100,6 +121,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
         categories: results.categories,
       });
     }
+
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Reqesting openai embedding`);
 
     // Create embedding from query
     const embeddingResponse = await openai.createEmbedding({
@@ -115,6 +139,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
       data: [{ embedding }],
     }: CreateEmbeddingResponse = await embeddingResponse.json();
 
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Request Page sections based on embeddings`);
+
     const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_page_sections_for_ai", {
       embedding,
       /* eslint-disable camelcase */
@@ -127,6 +154,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
     if (matchError) {
       throw new ApplicationError("Failed to match page sections", matchError);
     }
+
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Returned ${pageSections.length} page sections`);
 
     const tokenizer = new GPT3Tokenizer({ type: "gpt3" });
     let tokenCount = 0;
@@ -143,6 +173,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
 
       contextText += `${content.trim()}\n---\n`;
     }
+
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Context text: ${contextText}`);
 
     const prompt = codeBlock`
       ${oneLine`
@@ -168,6 +201,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
       role: "user",
       content: prompt,
     };
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Request chat completion`);
 
     const response = await openai.createChatCompletion({
       model: "gpt-4",
@@ -183,6 +218,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError("Failed to generate completion", error);
     }
 
+    // eslint-disable-next-line no-console
+    console.log(`${LOG_PREFIX} Open ai Returned response`);
+
     // Transform the response into a readable stream
     const stream = OpenAIStream(response);
 
@@ -190,6 +228,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
     return new StreamingTextResponse(stream);
   } catch (error: unknown) {
     if (error instanceof UserError) {
+      // eslint-disable-next-line no-console
+      console.error(`${LOG_PREFIX} User error`, { error });
+
       return new Response(
         JSON.stringify({
           error: error.message,
@@ -203,11 +244,11 @@ export default async function handler(req: NextRequest): Promise<void | Response
     } else if (error instanceof ApplicationError) {
       // Print out application errors with their additional data
       // eslint-disable-next-line no-console
-      console.error(`${error.message}: ${JSON.stringify(error.data)}`);
+      console.error(`${LOG_PREFIX} ${error.message}: ${JSON.stringify(error.data)}`);
     } else {
       // Print out unexpected errors as is to help with debugging
       // eslint-disable-next-line no-console
-      console.error(error);
+      console.error(`${LOG_PREFIX} ${error}`);
     }
 
     return new Response(

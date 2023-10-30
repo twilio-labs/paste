@@ -1,11 +1,16 @@
 /* eslint-disable max-classes-per-file */
 import { createClient } from "@supabase/supabase-js";
-import type { NextRequest } from "next/server";
-import {
-  Configuration,
-  type CreateEmbeddingResponse,
-  OpenAIApi,
-} from "openai-edge";
+import type { NextApiRequest, NextApiResponse } from "next";
+import { Configuration, type CreateEmbeddingResponse, OpenAIApi } from "openai-edge";
+import Rollbar from "rollbar";
+
+import { logger } from "../../functions-utils/logger";
+
+const rollbar = new Rollbar({
+  accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
+  captureUncaught: true,
+  captureUnhandledRejections: true,
+});
 
 class ApplicationError extends Error {
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
@@ -24,9 +29,10 @@ const config = new Configuration({
 });
 const openai = new OpenAIApi(config);
 
-export const runtime = "edge";
+const LOG_PREFIX = "[/api/docs-search]:";
 
-export default async function handler(req: NextRequest): Promise<void | Response> {
+export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
+  logger.info(`${LOG_PREFIX} Incoming request`);
   try {
     if (!openAiKey) {
       throw new ApplicationError("Missing environment variable OPENAI_API_KEY");
@@ -40,13 +46,15 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError("Missing environment variable SUPABASE_KEY");
     }
 
-    const requestData = await req.json();
+    const requestData = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
+    logger.info(`${LOG_PREFIX} Request data`, { requestData });
 
     if (!requestData) {
       throw new UserError("Missing request data");
     }
 
     const { prompt: query } = requestData;
+    logger.info(`${LOG_PREFIX} User query`, { query });
 
     if (!query) {
       throw new UserError("Missing 'prompt' in request data");
@@ -55,6 +63,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
     const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
 
     const sanitizedQuery = query.trim();
+    logger.info(`${LOG_PREFIX} Sanitized query`, { sanitizedQuery });
+
+    logger.info(`${LOG_PREFIX} Reqesting openai embedding`);
 
     // Create embedding from query
     const embeddingResponse = await openai.createEmbedding({
@@ -70,6 +81,8 @@ export default async function handler(req: NextRequest): Promise<void | Response
       data: [{ embedding }],
     }: CreateEmbeddingResponse = await embeddingResponse.json();
 
+    logger.info(`${LOG_PREFIX} Request page sections based on embeddings`);
+
     const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_page_sections_v3", {
       embedding,
       /* eslint-disable camelcase */
@@ -83,47 +96,41 @@ export default async function handler(req: NextRequest): Promise<void | Response
       throw new ApplicationError("Failed to match page sections", matchError);
     }
 
-    return new Response(
-      JSON.stringify({
-        data: pageSections,
-      }),
-      {
-        headers: { "Content-Type": "application/json" },
-      },
-    );
+    logger.info(`${LOG_PREFIX} Returned ${pageSections.length} page sections`);
 
+    const { data: queryTrackingData, error: queryTrackingError } = await supabaseClient
+      .from("queries")
+      // eslint-disable-next-line camelcase
+      .insert({ query_string: sanitizedQuery, type: "docs-search" });
 
-  } catch (error: unknown) {
-    if (error instanceof UserError) {
-      return new Response(
-        JSON.stringify({
-          error: error.message,
-          data: error.data,
-        }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        },
-      );
-    } else if (error instanceof ApplicationError) {
-      // Print out application errors with their additional data
-      // eslint-disable-next-line no-console
-      console.error(`${error.message}: ${JSON.stringify(error.data)}`);
-    } else {
-      // Print out unexpected errors as is to help with debugging
-      // eslint-disable-next-line no-console
-      console.error(error);
+    if (queryTrackingError) {
+      throw new ApplicationError("Failed to track search query", queryTrackingError);
     }
 
-    return new Response(
-      JSON.stringify({
-        error: "There was an error processing your request",
-      }),
-      {
-        status: 500,
-        headers: { "Content-Type": "application/json" },
-      },
-    );
+    logger.info(`${LOG_PREFIX} Inserted query into tracking database`, { queriesData: queryTrackingData });
+
+    res.status(200).json({ data: pageSections });
+  } catch (error: unknown) {
+    if (error instanceof UserError) {
+      logger.error(`${LOG_PREFIX} User error`, { error });
+      rollbar.error(error);
+      res.status(400).json({
+        error: error.message,
+        data: error.data,
+      });
+    } else if (error instanceof ApplicationError) {
+      // Print out application errors with their additional data
+      logger.error(`${LOG_PREFIX} ${error.message}: ${JSON.stringify(error.data)}`);
+      rollbar.error(error);
+    } else {
+      // Print out unexpected errors as is to help with debugging
+      logger.error(`${LOG_PREFIX} ${error}`);
+      rollbar.error(error as Error);
+    }
+
+    res.status(500).json({
+      error: "There was an error processing your request",
+    });
   }
 }
 /* eslint-enable max-classes-per-file */

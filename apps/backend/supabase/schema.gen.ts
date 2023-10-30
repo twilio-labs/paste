@@ -114,6 +114,27 @@ export interface Database {
           }
         ]
       }
+      queries: {
+        Row: {
+          created_at: string
+          id: number
+          query_string: string | null
+          type: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          query_string?: string | null
+          type?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          query_string?: string | null
+          type?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
