@@ -89,7 +89,7 @@
     "create:package": "plop create-package",
     "token-usage": "tsx tools/build/token-usage-detector.ts",
     "nx": "nx",
-    "ci:autorespond": "deno run --allow-all ./tools/github/autoresponder.ts"
+    "ci:autorespond": "tsx ./tools/github/autoresponder.ts"
   },
   "dependencies": {
     "@babel/cli": "^7.21.0",
@@ -113,6 +113,8 @@
     "@emotion/jest": "^11.9.1",
     "@expo/spawn-async": "^1.5.0",
     "@manypkg/cli": "0.18.0",
+    "@octokit/core": "^5.0.1",
+    "@octokit/graphql-schema": "^14.39.1",
     "@percy/cli": "^1.10.1",
     "@percy/cypress": "^3.1.2",
     "@sparticuz/chromium": "^110.0.0",
