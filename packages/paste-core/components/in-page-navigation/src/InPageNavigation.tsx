@@ -36,7 +36,21 @@ export interface InPageNavigationProps extends Omit<HTMLPasteProps<"div">, "chil
    * @memberof InPageNavigationProps
    */
   variant?: Variants;
+  /**
+   * InPageNavigation orientation
+   *
+   * @type {Orientation}
+   * @memberof InPageNavigationProps
+   */
   orientation?: Orientation;
+  /**
+   * Use sparingly
+   *
+   * @type {boolean}
+   * @default false
+   * @memberof InPageNavigationProps
+   */
+  hideBottomBorder?: boolean;
 }
 
 const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>(
@@ -46,6 +60,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
       variant = "default",
       orientation = "horizontal",
       marginBottom,
+      hideBottomBorder = false,
       children,
       ...props
     },
@@ -65,8 +80,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
               flexDirection="column"
               margin="space0"
               padding="space0"
-              minWidth="size20"
-              maxWidth="size40"
+              width="100%"
               rowGap="space20"
             >
               {children}
@@ -85,10 +99,13 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             element={`${element}_ITEMS`}
             display="flex"
             justifyContent={isFullWidth ? "space-evenly" : "flex-start"}
-            columnGap={!isFullWidth ? "space80" : "space0"}
+            columnGap={!isFullWidth ? "space50" : "space0"}
             padding="space0"
             margin="space0"
             marginBottom={marginBottom || "space60"}
+            borderBottomWidth={hideBottomBorder ? "borderWidth0" : "borderWidth10"}
+            borderBottomStyle={hideBottomBorder ? "none" : "solid"}
+            borderBottomColor="colorBorderWeaker"
           >
             {children}
           </Box>

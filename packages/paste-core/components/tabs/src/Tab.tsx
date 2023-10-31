@@ -17,16 +17,17 @@ import { getElementName } from "./utils";
  * shouldn't get the fitted variant.
  */
 const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleProps => {
-  const isInverse = variant === "inverse" || variant === "inverse_fitted";
-  const isFitted = variant === "fitted" || variant === "inverse_fitted";
+  const isInverse = variant === "inverse" || variant === "inverse_fitted" || variant === "inverse_full_width";
+  const isFitted =
+    variant === "fitted" ||
+    variant === "inverse_fitted" ||
+    variant === "full_width" ||
+    variant === "inverse_full_width";
 
   switch (orientation) {
     case "vertical":
       return {
-        borderLeftColor: "transparent",
-        borderLeftStyle: "solid",
-        borderLeftWidth: "borderWidth10",
-        color: isInverse ? "colorTextInverseWeaker" : "colorTextWeak",
+        color: isInverse ? "colorTextInverseWeak" : "colorTextWeak",
         display: "block",
         marginBottom: "space40",
         paddingBottom: "space30",
@@ -37,27 +38,53 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           marginBottom: "space0",
         },
         _selected: {
-          borderLeftColor: isInverse ? "colorBorderInverseStrong" : "colorBorderPrimary",
           color: isInverse ? "colorTextInverse" : "colorTextLink",
         },
         _hover: {
-          borderLeftColor: isInverse ? "colorBorderInverse" : "colorBorderPrimaryStronger",
-          color: isInverse ? "colorTextInverseWeaker" : "colorTextLinkStronger",
+          color: isInverse ? "colorTextInverse" : "colorTextLinkStronger",
         },
         _disabled: {
           borderLeftColor: "transparent",
           color: isInverse ? "colorTextInverseWeakest" : "colorTextWeaker",
         },
         _focus: {
-          boxShadow: isInverse ? "shadowFocusInverse" : "shadowFocus",
+          boxShadow: isInverse ? "shadowFocusInverseInset" : "shadowFocusInset",
           outline: "none",
-          borderRadius: "borderRadius20",
+          borderTopLeftRadius: "borderRadius30",
+          borderBottomLeftRadius: "borderRadius30",
+        },
+        _selected_after: {
+          content: '" "',
+          position: "absolute",
+          height: "80%",
+          width: "4px",
+          backgroundColor: isInverse ? "colorBackgroundInverseStrongest" : "colorBackgroundPrimary",
+          borderTopLeftRadius: "borderRadius30",
+          borderBottomLeftRadius: "borderRadius30",
+          right: -1,
+          top: "10%",
+        },
+        _selected_hover_after: {
+          content: '" "',
+          position: "absolute",
+          height: "80%",
+          width: "4px",
+          backgroundColor: isInverse ? "colorBackgroundPrimary" : "colorBackgroundPrimaryStrongest",
+          borderTopLeftRadius: "borderRadius30",
+          borderBottomLeftRadius: "borderRadius30",
+          right: -1,
+        },
+        _focus_selected_after: {
+          display: "none",
+        },
+        _focus_selected_hover_after: {
+          display: "none",
         },
       };
     case "horizontal":
     default:
       return {
-        color: isInverse ? "colorTextInverse" : "colorTextWeak",
+        color: isInverse ? "colorTextInverseWeak" : "colorTextWeak",
         borderColor: "transparent",
         borderStyle: "solid",
         borderWidth: "borderWidth10",
@@ -77,6 +104,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
           borderColor: isInverse ? "colorBorderInverse" : "colorBorderWeak",
           borderBottomColor: isInverse ? "colorBorderInverseWeakest" : "colorBorderWeakest",
           color: isInverse ? "colorTextInverse" : "colorTextPrimary",
+          boxShadow: isInverse ? "shadowBorderTopInverseStrongest" : "shadowBorderTopPrimary",
         },
         /* Disabled state */
         _disabled: {
@@ -85,13 +113,12 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         },
         /* Hover states */
         _hover: {
-          color: isInverse ? "colorTextInverse" : "colorTextPrimary",
-          borderBottomColor: isInverse ? "colorBorderInverseStrongest" : "colorBorderPrimary",
+          color: isInverse ? "colorTextInverse" : "colorTextPrimaryStrongest",
         },
         _selected_hover: {
-          borderColor: isInverse ? "colorBorderInverseStrongest" : "colorBorderWeak",
           color: isInverse ? "colorTextInverse" : "colorTextPrimaryStronger",
           borderBottomColor: isInverse ? "colorBorderInverseWeakest" : "colorBorderWeakest",
+          boxShadow: isInverse ? "shadowBorderTopPrimary" : "shadowBorderTopPrimaryStrongest",
         },
         /* Focus states */
         _focus: {
@@ -110,6 +137,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         _disabled_focus: {
           borderColor: isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak",
           boxShadow: "none",
+          borderBottom: "none",
         },
       };
   }

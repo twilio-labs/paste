@@ -61,7 +61,15 @@ const VerticalTabList: React.FC<React.PropsWithChildren<{ element?: BoxProps["el
   children,
   element,
 }) => (
-  <Box element={element} marginRight="space110" minWidth="size20" maxWidth="size40">
+  <Box
+    element={element}
+    marginRight="space110"
+    minWidth="size20"
+    maxWidth="size40"
+    borderRightStyle="solid"
+    borderRightWidth="borderWidth10"
+    borderRightColor="colorBorderWeak"
+  >
     {children}
   </Box>
 );

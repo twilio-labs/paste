@@ -68,6 +68,8 @@ module.exports = {
           "_selected_hover",
           "_selected_focus",
           "_selected_focusVisible",
+          "_selected_after",
+          "_focus_selected_after",
           "_pressed_focus",
           "_pressed_hover",
           "_pressed_disabled",

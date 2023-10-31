@@ -53,12 +53,12 @@ render(
 )
 `.trim();
 
-export const FittedTabsExample = `
-const FittedTabsExample = () => {
+export const FullWidthTabsExample = `
+const FullWidthTabsExample = () => {
   const selectedId = useUID();
   return (
-    <Tabs selectedId={selectedId} baseId="fitted-tabs-example" variant="fitted">
-      <TabList aria-label="Fitted product tabs">
+    <Tabs selectedId={selectedId} baseId="full-width-tabs-example" variant="full_width">
+      <TabList aria-label="Full width product tabs">
         <Tab>Solutions</Tab>
         <Tab id={selectedId}>Account security</Tab>
       </TabList>
@@ -89,7 +89,7 @@ const FittedTabsExample = () => {
 };
 
 render(
-  <FittedTabsExample />
+  <FullWidthTabsExample />
 )
 `.trim();
 

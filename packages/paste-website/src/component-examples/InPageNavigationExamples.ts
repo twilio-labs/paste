@@ -34,3 +34,24 @@ render(
   <FullWidthInPageNavigation />
 )
 `.trim();
+
+export const verticalExample = `
+const VerticalInPageNavigation = () => {
+  
+  return (
+    <Box marginRight="space110">
+      <InPageNavigation aria-label="privacy" orientation="vertical">
+        <InPageNavigationItem href="#" currentPage>
+          Space name
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#">Connection policy</InPageNavigationItem>
+        <InPageNavigationItem href="#">Labels</InPageNavigationItem>
+      </InPageNavigation>
+    </Box>
+  );
+};
+
+render(
+  <VerticalInPageNavigation />
+)
+`.trim();
