@@ -1,8 +1,17 @@
 import type { StoryFn } from "@storybook/react";
 import { Button } from "@twilio-paste/button";
+import { Heading } from "@twilio-paste/heading";
 import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
 import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import { Paragraph } from "@twilio-paste/paragraph";
+import {
+  ProgressStepComplete,
+  ProgressStepCurrent,
+  ProgressStepError,
+  ProgressStepIncomplete,
+  ProgressStepSeparator,
+  ProgressSteps,
+} from "@twilio-paste/progress-steps";
 import {
   Sidebar,
   SidebarBody,
@@ -269,5 +278,50 @@ export const OverlayCompactTopbar: StoryFn = () => {
   );
 };
 OverlayCompactTopbar.parameters = {
+  padding: false,
+};
+
+export const TopbarActionsExample: StoryFn = () => {
+  return (
+    <Topbar id={useUID()}>
+      <TopbarActions justify="start">
+        <Heading as="h4" variant="heading30" marginBottom="space0">
+          Wizard title
+        </Heading>
+      </TopbarActions>
+      <TopbarActions justify="center">
+        <ProgressSteps>
+          <ProgressStepComplete as="button" onClick={() => {}}>
+            Label
+          </ProgressStepComplete>
+          <ProgressStepSeparator />
+          <ProgressStepCurrent as="button" onClick={() => {}}>
+            Label
+          </ProgressStepCurrent>
+          <ProgressStepSeparator />
+          <ProgressStepIncomplete as="button" onClick={() => {}} disabled>
+            Label
+          </ProgressStepIncomplete>
+          <ProgressStepSeparator />
+          <ProgressStepIncomplete as="button" onClick={() => {}} disabled>
+            Label
+          </ProgressStepIncomplete>
+          <ProgressStepSeparator />
+          <ProgressStepIncomplete as="button" onClick={() => {}} disabled>
+            Label
+          </ProgressStepIncomplete>
+          <ProgressStepSeparator />
+          <ProgressStepIncomplete as="button" onClick={() => {}} disabled>
+            Label
+          </ProgressStepIncomplete>
+        </ProgressSteps>
+      </TopbarActions>
+      <TopbarActions justify="end">
+        <Button variant="secondary">Cancel</Button>
+      </TopbarActions>
+    </Topbar>
+  );
+};
+TopbarActionsExample.parameters = {
   padding: false,
 };

@@ -4,7 +4,7 @@ import type { ResponsiveValue } from "@twilio-paste/styling-library";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-type Justify = "start" | "end";
+type Justify = "start" | "end" | "center";
 export interface TopbarActionsProps extends HTMLPasteProps<"div"> {
   /**
    * Recommended: Account Switcher, User Dialog, Product Switcher, Search Input, etc.
@@ -22,10 +22,11 @@ export interface TopbarActionsProps extends HTMLPasteProps<"div"> {
    */
   element?: BoxElementProps["element"];
   /**
-   * Used to control where the actions are aligned visually, to the start or end of the container.
+   * Used to control where the actions are aligned visually, to the start or end or center of the container.
    *
    * @type {Justify}
    * @memberof TopbarActionsProps
+   * @default "end"
    */
   justify?: Justify;
   /**
@@ -36,13 +37,19 @@ export interface TopbarActionsProps extends HTMLPasteProps<"div"> {
    */
   display?: ResponsiveValue<"none" | "flex">;
 }
+
 const TopbarActions = React.forwardRef<HTMLDivElement, TopbarActionsProps>(
-  ({ children, element = "TOPBAR_ACTIONS", justify, display = "flex", ...props }, ref) => {
+  ({ children, element = "TOPBAR_ACTIONS", justify = "end", display = "flex", ...props }, ref) => {
+    const justifyContentValue = {
+      start: "flex-start",
+      end: "flex-end",
+      center: "center",
+    };
     return (
       <Box
         {...safelySpreadBoxProps(props)}
         display={display}
-        justifyContent={justify === "start" ? "flex-start" : "flex-end"}
+        justifyContent={justifyContentValue[justify]}
         flexShrink={justify === "start" ? null : 0}
         flexWrap="wrap"
         flexGrow={1}
