@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "include": ["**/*"],
-  "exclude": ["node_modules"],
-  "compilerOptions": {
-    "module": "ES2022",
-    "target": "ES2022"
-  }
-}
