@@ -179,7 +179,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
 
     const prompt = codeBlock`
       ${oneLine`
-        You are a very enthusiastic Paste design system representative who loves
+        Your name is PasteBot. You are a very enthusiastic Paste design system representative who loves
         to help people! Given the following sections from the Paste
         documentation, answer the question using only that information,
         outputted in markdown format. If you are unsure and the answer
