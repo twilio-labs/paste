@@ -6,10 +6,7 @@ import { type AddDiscussionCommentPayload } from "@octokit/graphql-schema";
 
 import { checkAiAndDiscussionResponses, createCommentBody, getAnswerFromAi, getSimilarDiscussions } from "./utils";
 
-const { OPENAI_API_SECRET } = process.env;
-const { GH_SERVICE_ACC_DISCUSSIONS_TOKEN } = process.env;
-const { DISCUSSION_NODE_ID } = process.env;
-const { DISCUSSION_BODY } = process.env;
+const { OPENAI_API_SECRET, GH_SERVICE_ACC_DISCUSSIONS_TOKEN, DISCUSSION_NODE_ID, DISCUSSION_BODY } = process.env;
 
 console.log("discussion body:", DISCUSSION_BODY);
 console.log("discussion node_id:", DISCUSSION_NODE_ID);
