@@ -5,6 +5,8 @@
 import { http, HttpResponse } from "msw";
 import { setupServer } from "msw/node";
 
+// eslint-disable-next-line jest/no-mocks-import
+import { handlers } from "../__mocks__/AiHandler";
 import {
   checkAiAndDiscussionResponses,
   commentHeader,
@@ -15,7 +17,6 @@ import {
   similarDiscussionPrefix,
   similarDiscussionPrefixNoAi,
 } from "../utils";
-import { handlers } from "./mocks/AiHandler";
 
 const server = setupServer(...handlers);
 
