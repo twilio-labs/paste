@@ -5,7 +5,7 @@ import * as React from "react";
 
 import { SideModalContext } from "./SideModalContext";
 
-type SideModalButtonProps = Omit<ButtonProps, "as"> & {
+export type SideModalButtonProps = Omit<ButtonProps, "as"> & {
   id?: string;
 };
 

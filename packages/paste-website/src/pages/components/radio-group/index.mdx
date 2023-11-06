@@ -26,10 +26,10 @@ import {
   i18nExample,
 } from '../../../component-examples/RadioGroupExamples';
 import packageJson from '@twilio-paste/radio-group/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -41,24 +41,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group',
+        storybookUrl: '/?path=/story/components-radio--radio-default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group"
-  storybookUrl="/?path=/story/components-radio--radio-default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Radio, RadioGroup, useUID}} noInline>
   {uncontrolledRadioGroup}
@@ -238,70 +229,3 @@ If using [Help Text](/components/help-text) for radio options, include it for ea
 ### Validation
 
 ## Validate the group on form submission. Don't validate each item in the group, treat validation on the group as a whole.
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/radio-group - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Radio, RadioGroup} from '@twilio-paste/core/radio-group';
-
-const Component = () => (
-  <RadioGroup name="foo" value="foo" legend="foo" onChange={NOOP}>
-    <Radio id="foo" value="foo" name="foo">
-      Foo
-    </Radio>
-  </RadioGroup>
-);
-```
-
-#### Radio props
-
-All the valid HTML attributes for `input[type=radio]` are supported including the following props:
-
-| Prop      | Type                                     | Description                                                                               | Default |
-| --------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| children  | `ReactNode`                              |                                                                                           | null    |
-| id?       | `string`                                 |                                                                                           | null    |
-| value?    | `string`                                 |                                                                                           | null    |
-| hasError? | `boolean`                                |                                                                                           | false   |
-| helpText? | `string` or `ReactNode`                  |                                                                                           | null    |
-| onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null    |
-| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null    |
-| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null    |
-| element?  | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO' |
-
-#### RadioGroup props
-
-| Prop               | Type                                     | Description                                                                               | Default       |
-| ------------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| children           | `ReactNode`                              |                                                                                           | null          |
-| legend             | `string` or `ReactNode`                  |                                                                                           | null          |
-| name               | `string`                                 |                                                                                           | null          |
-| value              | `string`                                 |                                                                                           | null          |
-| orientation        | `oneOf(['vertical', 'horizontal'])`      |                                                                                           | vertical      |
-| errorText?         | `string` or `ReactNode`                  |                                                                                           | null          |
-| helpText?          | `string` or `ReactNode`                  |                                                                                           | null          |
-| disabled?          | `boolean`                                |                                                                                           | false         |
-| required?          | `boolean`                                |                                                                                           | false         |
-| onChange           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null          |
-| onFocus?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null          |
-| onBlur?            | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null          |
-| i18nRequiredLabel? | `string`                                 | Label text for the required dot in the legend                                             | '(required)'  |
-| element?           | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_GROUP' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

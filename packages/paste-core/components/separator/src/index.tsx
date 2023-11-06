@@ -6,7 +6,7 @@ import * as React from "react";
 
 type Orientation = "horizontal" | "vertical";
 
-export interface SeparatorProps extends HTMLPasteProps<"hr">, Pick<BoxProps, "element"> {
+interface SeparatorProps extends HTMLPasteProps<"hr">, Pick<BoxProps, "element"> {
   id?: never;
   orientation: Orientation;
   horizontalSpacing?: Space;
@@ -42,3 +42,4 @@ const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>(
 Separator.displayName = "Separator";
 
 export { Separator };
+export type { SeparatorProps };

@@ -49,7 +49,7 @@
       ]
     },
     "build:typedocs": {
-      "dependsOn": ["^build:typedocs", "^tsc"],
+      "dependsOn": ["^build:typedocs"],
       "outputs": ["{projectRoot}/type-docs.json"]
     },
     "tsc": {

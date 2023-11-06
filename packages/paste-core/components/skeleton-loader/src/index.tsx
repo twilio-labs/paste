@@ -27,7 +27,7 @@ const SkeletonLoaderInner = styled.div`
   animation-iteration-count: infinite;
 `;
 
-export interface SkeletonLoaderProps
+interface SkeletonLoaderProps
   extends HTMLPasteProps<"div">,
     Pick<BoxElementProps, "element">,
     Omit<LayoutProps, "verticalAlign">,
@@ -88,3 +88,4 @@ const SkeletonLoader = React.forwardRef<HTMLDivElement, SkeletonLoaderProps>(
 SkeletonLoader.displayName = "SkeletonLoader";
 
 export { SkeletonLoader };
+export type { SkeletonLoaderProps };

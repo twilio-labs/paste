@@ -15,8 +15,9 @@ import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
 import {CallIcon} from '@twilio-paste/icons/esm/CallIcon';
 import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
 import {EmailIcon} from '@twilio-paste/icons/esm/EmailIcon';
-import Changelog from '@twilio-paste/radio-button-group/CHANGELOG.md';
 import {Text} from '@twilio-paste/text';
+import packageJson from '@twilio-paste/radio-button-group/package.json';
+
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
@@ -25,11 +26,10 @@ import {
   ErrorExample,
   DisabledExample,
 } from '../../../component-examples/RadioButtonGroupExamples';
-import packageJson from '@twilio-paste/radio-button-group/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -41,25 +41,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-button-group',
+        storybookUrl: '/?path=/story/components-radiobuttongroup--attached',
+      }
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-button-group"
-  storybookUrl="/?path=/story/components-radiobuttongroup--attached"
-  data={props.data}
-  description={meta.description}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
   {TextExample}
@@ -169,69 +159,3 @@ When possible, automatically select a default option.
   />
 </DoDont>
 
-## Implementation Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/radio-button-group - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {RadioButtonGroup, RadioButton} from '@twilio-paste/core/radio-button-group';
-
-const Component = () => (
-  <RadioButtonGroup attached>
-    <RadioButton>One</RadioButton>
-    <RadioButton>Two</RadioButton>
-    <RadioButton>Three</RadioButton>
-  </RadioButtonGroup>
-);
-```
-
-#### Radio Button Group Props
-
-All the valid HTML attributes for `input[type="radio]` are supported including the following props:
-
-| Prop               | Type                                     | Description                                                                               | Default              |
-| ------------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | -------------------- |
-| children           | `React.ReactElement[]`                   | RadioButton                                                                               |                      |
-| name               | `string`                                 | Name for the Radio Button Group                                                           | null                 |
-| attached?          | `boolean`                                | If the group of buttons are visually attached                                             | `false`              |
-| legend             | `string`                                 | Label text for the Radio Button Group                                                     | null                 |
-| helpText?          | `string`                                 | Help text for the Radio Button Group                                                      | null                 |
-| id?                | `string`                                 | ID for the Radio Button Group                                                             | null                 |
-| value?             | `string`                                 | Value for the Radio Button Group                                                          | null                 |
-| disabled?          | `boolean`                                | Make the Radio Button Group disabled                                                      | false                |
-| onChange?          | `(event: React.MouseEvent<HTMLElement>)` | Pass a function for the onChange handler                                                  | null                 |
-| errorText?         | `string`                                 | Error text for the Radio Button Group                                                     | null                 |
-| element?           | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_BUTTON_GROUP' |
-| i18nRequiredLabel? | `string`                                 | Overrides the default string marking the group as required                                | '(required)'         |
-
-#### Radio Button Props
-
-All the valid HTML attributes for `div` are supported including the following props:
-
-| Prop            | Type                   | Description                                                                               | Default        |
-| --------------- | ---------------------- | ----------------------------------------------------------------------------------------- | -------------- |
-| children        | `React.ReactElement[]` | Contents of the Radio Button                                                              |                |
-| hasError?       | `boolean`              | Adds an error state to the Radio Button                                                   | false          |
-| defaultChecked? | `boolean`              | Sets the Radio Button as the default checked option                                       | false          |
-| checked?        | `boolean`              | Sets the Radio Button as checked                                                          | false          |
-| id?             | `string`               | ID for the Radio Button                                                                   | null           |
-| value?          | `string`               | Value for the Radio Button                                                                | null           |
-| disabled?       | `boolean`              | Make the Radio Button disabled                                                            | false          |
-| name            | `string`               | Name for the Radio Button Group                                                           | null           |
-| element?        | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_BUTTON' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

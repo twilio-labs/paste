@@ -7,7 +7,7 @@ export type { DataGridRowProps } from "./DataGridRow";
 export { DataGridHeader } from "./DataGridHeader";
 export type { DataGridHeaderProps } from "./DataGridHeader";
 export { DataGridHeaderSort } from "./DataGridHeaderSort";
-export type { DataGridHeaderSortProps } from "./DataGridHeaderSort";
+export type { DataGridHeaderSortProps, SortDirection } from "./DataGridHeaderSort";
 export { DataGridBody } from "./DataGridBody";
 export type { DataGridBodyProps } from "./DataGridBody";
 export { DataGridCell } from "./DataGridCell";

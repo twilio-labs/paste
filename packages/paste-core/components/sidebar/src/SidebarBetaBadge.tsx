@@ -21,7 +21,7 @@ const SidebarBetaBadgeButtonStyles: BoxProps = {
   _focus: { top: "1px", boxShadow: "shadowFocusInverse" }, // shadowFocus in Badge
 };
 
-type SidebarBetaBadgeProps = Omit<BadgeProps, "as" | "variant" | "size"> & {
+export type SidebarBetaBadgeProps = Omit<BadgeProps, "as" | "variant" | "size"> & {
   as: "span" | "button";
 };
 

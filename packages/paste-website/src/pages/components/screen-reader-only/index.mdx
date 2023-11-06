@@ -21,10 +21,10 @@ import Changelog from '@twilio-paste/screen-reader-only/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import packageJson from '@twilio-paste/screen-reader-only/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -36,24 +36,16 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/screen-reader-only',
+        storybookUrl: '/?path=/story/components-screen-reader-only--default',
+      },
     },
   };
 };
 
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/screen-reader-only"
-  storybookUrl="/?path=/story/components-screen-reader-only--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 ## Guidelines
 
@@ -166,42 +158,3 @@ Use the Screen Reader Only component when you are required to provide additional
   <Do title="Do" body="Use to provide additional text content to users of assistive technology" preview={false} />
   <Dont title="Don't" body="Don't use to hide interactive content" preview={false} />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/screen-reader-only - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {ScreenReaderOnly} from '@twilio-paste/core/screen-reader-only';
-
-const Component = () => (
-  <Button variant="secondary" size="small">
-    Buy <ScreenReaderOnly>+1 (484) 662-4088</ScreenReaderOnly>
-  </Button>
-);
-```
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-| Prop | Type                          | Description       | Default |
-| ---- | ----------------------------- | ----------------- | ------- |
-| as?  | `keyof JSX.IntrinsicElements` | A custom HTML tag | `span`  |
-| id?  | `string`                      |                   |         |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

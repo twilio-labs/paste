@@ -8,7 +8,7 @@ import * as React from "react";
 import { circleGeometry } from "./constants";
 import { AnimatedStyledCircle, StyledCircleTrack, StyledSvg } from "./styled";
 
-export interface SpinnerProps extends IconWrapperProps {
+interface SpinnerProps extends IconWrapperProps {
   title?: string;
   delay?: number;
   decorative: boolean;
@@ -58,3 +58,4 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
 Spinner.displayName = "Spinner";
 
 export { Spinner };
+export type { SpinnerProps };

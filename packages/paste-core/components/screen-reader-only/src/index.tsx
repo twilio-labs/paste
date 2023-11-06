@@ -1,8 +1,9 @@
 import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface ScreenReaderOnlyProps {
+interface ScreenReaderOnlyProps extends HTMLPasteProps<"span"> {
   children: NonNullable<React.ReactNode>;
   id?: string;
   as?: BoxProps["as"];
@@ -34,3 +35,4 @@ const ScreenReaderOnly = React.forwardRef<HTMLElement, ScreenReaderOnlyProps>(
 ScreenReaderOnly.displayName = "ScreenReaderOnly";
 
 export { ScreenReaderOnly };
+export type { ScreenReaderOnlyProps };

@@ -3,7 +3,7 @@ import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-interface SideModalBodyProps extends HTMLPasteProps<"div"> {
+export interface SideModalBodyProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
   element?: BoxProps["element"];
 }

@@ -1,0 +1,102 @@
+{
+  "Slider": {
+    "id": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false
+    },
+    "aria-describedby": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "aria-labelledby": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "disabled": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "element": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "hasError": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "hideRangeLabels": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "i18nMaxRangeLabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "i18nMinRangeLabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "maxValue": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "minValue": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "numberFormatter": {
+      "type": "NumberFormat",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Used to adjust how the numbers are rendered and interpreted.\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat \\"
+    },
+    "onChange": {
+      "type": "(value: number) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "onChangeEnd": {
+      "type": "(value: number) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false,
+      "description": "Fired when the slider stops moving, due to being let go."
+    },
+    "step": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
+    "value": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    }
+  }
+}
