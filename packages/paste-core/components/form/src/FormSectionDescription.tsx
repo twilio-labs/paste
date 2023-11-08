@@ -26,7 +26,7 @@ export const FormSectionDescription = React.forwardRef<HTMLDivElement, FormSecti
         ref={ref}
         {...safelySpreadBoxProps(props)}
         element={element}
-        color="colorTextWeak"
+        color="colorText"
         fontSize="fontSize30"
         lineHeight="lineHeight20"
         id={`${sectionId}-section-description`}
