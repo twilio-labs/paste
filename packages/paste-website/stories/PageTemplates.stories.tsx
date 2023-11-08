@@ -963,21 +963,25 @@ DefaultWizardExample.parameters = {
 
 export const DefaultWizardWithContentExample = (): JSX.Element => {
   const input1 = useUID();
-  const topbarId = useUID();
+  const sidebarId = useUID();
+  const topbarSkipLinkID = useUID();
+  const sidebarNavigationSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
   return (
     <>
       <Sidebar
         variant="compact"
         collapsed={true}
-        sidebarNavigationSkipLinkID={useUID()}
-        topbarSkipLinkID={topbarId}
-        mainContentSkipLinkID={useUID()}
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        aria-label={sidebarId}
       >
-        {" "}
+        <div id={sidebarNavigationSkipLinkID} />
       </Sidebar>
       <SidebarPushContentWrapper collapsed={true} variant="compact">
-        <Topbar id={topbarId}> </Topbar>
-        <Box display="flex" width="100%" justifyContent="center" paddingX="space50">
+        <Topbar id={topbarSkipLinkID}> </Topbar>
+        <Box display="flex" width="100%" justifyContent="center" paddingX="space50" id={mainContentSkipLinkID}>
           <Box
             paddingTop="space130"
             paddingBottom="space160"
