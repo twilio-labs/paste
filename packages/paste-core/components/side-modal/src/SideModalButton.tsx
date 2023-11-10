@@ -6,6 +6,18 @@ import * as React from "react";
 import { SideModalContext } from "./SideModalContext";
 
 export type SideModalButtonProps = Omit<ButtonProps, "as"> & {
+  /**
+   * The element the `SideModalButton` will render
+   *
+   * @default "SIDE_MODAL_BUTTON"
+   * @type {ButtonProps["element"]}
+   */
+  element?: ButtonProps["element"];
+  /**
+   * The id of the SideModal that the button controls
+   *
+   * @type {string}
+   */
   id?: string;
 };
 

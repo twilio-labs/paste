@@ -1,12 +1,13 @@
 export const meta = {
-  title: 'Stack - Layout',
-  package: '@twilio-paste/stack',
-  description: 'Stack is a horizontal and vertical flow component used to create space between components.',
-  slug: '/components/stack/changelog',
+  title: 'Status Menu - Components - Changelog',
+  package: '@twilio-paste/status',
+  description:
+    'A Status Menu communicates the status of a process or connectivity to an application or service, and provides a way to update that status type.',
+  slug: '/components/status-menu/',
 };
 
-import Changelog from '@twilio-paste/stack/CHANGELOG.md';
-import packageJson from '@twilio-paste/stack/package.json';
+import Changelog from '@twilio-paste/status/CHANGELOG.md';
+import packageJson from '@twilio-paste/status/package.json';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -16,19 +17,21 @@ export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Stack');
+  const feature = await getFeature('Status Menu');
   return {
     props: {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'Status Menu',
+        descriptionOverride: 'A Status Menu communicates the status of a process or connectivity to an application or service, and provides a way to update that status type.'
       },
       navigationData,
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/stack',
-        storybookUrl: '/?path=/story/layout-stack--default-stack',
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status',
+        storybookUrl: '/?path=/story/components-status-menustatus--process',
       },
     },
   };

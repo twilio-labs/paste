@@ -5,6 +5,13 @@ import * as React from "react";
 
 export interface SidebarBodyProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_BODY"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarBodyProps
+   */
   element?: BoxProps["element"];
 }
 

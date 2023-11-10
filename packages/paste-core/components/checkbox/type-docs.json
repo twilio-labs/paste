@@ -2232,7 +2232,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Group disabled"
     },
     "draggable": {
       "type": "Booleanish",
@@ -3342,7 +3343,8 @@
       "type": "\"horizontal\" | \"vertical\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the direction in which the group is rendered."
     },
     "placeholder": {
       "type": "string",
@@ -3372,7 +3374,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Group required"
     },
     "resource": {
       "type": "string",

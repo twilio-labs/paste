@@ -4,7 +4,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the value of the select. Expects an array when `multiple` is present. Required"
     },
     "about": {
       "type": "string",
@@ -428,9 +429,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "OPTION",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
@@ -1610,7 +1612,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the label of the option group."
     },
     "about": {
       "type": "string",
@@ -2034,9 +2037,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "OPTION_GROUP",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
@@ -3634,9 +3638,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SELECT",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "form": {
       "type": "string",
@@ -3648,7 +3653,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the input to an error state."
     },
     "hidden": {
       "type": "boolean",
@@ -3660,7 +3666,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the id of the input. Should match the htmlFor of `Label`"
     },
     "inlist": {
       "type": "any",
@@ -3679,13 +3686,15 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Add Suffix to the select input."
     },
     "insertBefore": {
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Add Prefix to the select input."
     },
     "is": {
       "type": "string",
@@ -3866,7 +3875,8 @@
       "type": "(event: ChangeEvent<HTMLSelectElement>) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Callback function called when user selects an option."
     },
     "onChangeCapture": {
       "type": "FormEventHandler<HTMLSelectElement>",
@@ -4844,13 +4854,15 @@
       "type": "string | string[]",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the value of the select. Expects an array when `multiple` is present."
     },
     "variant": {
       "type": "Variants",
-      "defaultValue": null,
+      "defaultValue": "default",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the visual style of the select."
     },
     "vocab": {
       "type": "string",

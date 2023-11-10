@@ -25,11 +25,53 @@ export type Inset = ResponsiveValue<InsetOptions>;
 
 // Styled-system grouping
 export interface PositionProps {
+  /**
+   * Responsive prop for the CSS `position` property
+   *
+   * @type {Position}
+   * @memberof PositionProps
+   */
   position?: Position;
+  /**
+   * Responsive prop for the CSS `top` property
+   *
+   * @type {Top}
+   * @memberof PositionProps
+   */
   top?: Top;
+  /**
+   * Responsive prop for the CSS `right` property
+   *
+   * @type {Right}
+   * @memberof PositionProps
+   */
   right?: Right;
+  /**
+   * Responsive prop for the CSS `bottom` property
+   *
+   * @type {Bottom}
+   * @memberof PositionProps
+   */
   bottom?: Bottom;
+  /**
+   * Responsive prop for the CSS `left` property
+   *
+   * @type {Left}
+   * @memberof PositionProps
+   */
   left?: Left;
+  /**
+   * Responsive prop of ZIndex tokens for the CSS `z-index` property
+   *
+   * @type {ZIndex}
+   * @memberof PositionProps
+   */
   zIndex?: ZIndex;
+  /**
+   * Responsive prop for the CSS `inset` property
+   *
+   * @type {Inset}
+   * @memberof PositionProps
+   */
   inset?: Inset;
 }

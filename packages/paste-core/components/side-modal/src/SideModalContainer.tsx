@@ -9,14 +9,23 @@ import { SideModalContext } from "./SideModalContext";
 
 interface SideModalContainerProps extends NonModalDialogPrimitivePopoverInitialState {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Returned state from `useSideModalState` hook
+   *
+   * @type {SideModalStateReturn}
+   * @memberof SideModalContainerProps
+   */
   state?: SideModalStateReturn;
 }
 
 const BaseSideModalContainer: React.FC<SideModalContainerProps> = ({
+  // don't let people set this
   gutter,
-  children,
+  // don't let people set this
   placement,
+  // don't let people set this
   modal,
+  children,
   state,
   ...initialState
 }) => {

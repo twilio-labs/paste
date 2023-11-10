@@ -359,7 +359,8 @@
       "type": "keyof IntrinsicElements",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Controls the HTML element that that will be rendered in the DOM."
     },
     "autoCapitalize": {
       "type": "string",

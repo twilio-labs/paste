@@ -22,6 +22,19 @@ const SidebarBetaBadgeButtonStyles: BoxProps = {
 };
 
 export type SidebarBetaBadgeProps = Omit<BadgeProps, "as" | "variant" | "size"> & {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_BETA_BADGE"
+   * @type {BadgeProps["element"]}
+   */
+  element?: BadgeProps["element"];
+  /**
+   * The HTML element ro render the Badge as.
+   *
+   * @default "span"
+   * @type {("span" | "button")}
+   */
   as: "span" | "button";
 };
 

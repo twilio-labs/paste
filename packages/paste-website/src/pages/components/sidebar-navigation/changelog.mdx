@@ -1,12 +1,13 @@
 export const meta = {
-  title: 'Stack - Layout',
-  package: '@twilio-paste/stack',
-  description: 'Stack is a horizontal and vertical flow component used to create space between components.',
-  slug: '/components/stack/changelog',
+  title: 'Sidebar Navigation - Changelog',
+  package: '@twilio-paste/sidebar',
+  description:
+    "Sidebar Navigation controls both flat and hierarchical navigation structures within an application's sidebar.",
+  slug: '/components/sidebar-navigation/changelog',
 };
 
-import Changelog from '@twilio-paste/stack/CHANGELOG.md';
-import packageJson from '@twilio-paste/stack/package.json';
+import Changelog from '@twilio-paste/sidebar/CHANGELOG.md';
+import packageJson from '@twilio-paste/sidebar/package.json';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -16,19 +17,21 @@ export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Stack');
+  const feature = await getFeature('Sidebar Navigation');
   return {
     props: {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'Sidebar Navigation',
+        descriptionOverride: "Sidebar Navigation controls both flat and hierarchical navigation structures within an application's sidebar."
       },
       navigationData,
       mdxHeadings,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/stack',
-        storybookUrl: '/?path=/story/layout-stack--default-stack',
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar',
+        storybookUrl: '/?path=/story/components-sidebar-navigation--default',
       },
     },
   };

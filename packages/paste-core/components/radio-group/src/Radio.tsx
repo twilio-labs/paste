@@ -13,15 +13,76 @@ import * as React from "react";
 import { RadioContext } from "./RadioContext";
 
 export interface RadioProps extends HTMLPasteProps<"input"> {
+  /**
+   * ID for the Radio Button
+   *
+   * @type {string}
+   * @memberof RadioButtonProps
+   */
   id?: string;
+  /**
+   * Value for the Radio Button
+   *
+   * @type {string}
+   * @memberof RadioButtonProps
+   */
   value?: string;
+  /**
+   * Name for the Radio Button Group
+   *
+   * @type {string}
+   * @memberof RadioButtonProps
+   */
   name?: string;
+  /**
+   * Sets the Radio Button as checked
+   *
+   * @type {boolean}
+   * @memberof RadioButtonProps
+   */
   checked?: boolean;
+  /**
+   * Sets the Radio Button as the default checked option
+   *
+   * @type {boolean}
+   * @memberof RadioButtonProps
+   */
   defaultChecked?: boolean;
+  /**
+   * Make the Radio Button disabled
+   *
+   * @type {boolean}
+   * @memberof RadioButtonProps
+   */
   disabled?: boolean;
+  /**
+   * Adds an error state to the Radio Button
+   *
+   * @type {boolean}
+   * @memberof RadioButtonProps
+   */
   hasError?: boolean;
+  /**
+   * Provides additional help text for the Radio Button
+   *
+   * @type {(string | React.ReactNode)}
+   * @memberof RadioProps
+   */
   helpText?: string | React.ReactNode;
+  /**
+   * Contents of the Radio Button
+   *
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof RadioButtonProps
+   */
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "RADIO"
+   * @type {BoxProps["element"]}
+   * @memberof RadioProps
+   */
   element?: BoxProps["element"];
 }
 

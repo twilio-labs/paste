@@ -4,7 +4,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not."
     },
     "about": {
       "type": "string",
@@ -12,23 +13,11 @@
       "required": false,
       "externalProp": true
     },
-    "accept": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "accessKey": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "alt": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
     },
     "aria-activedescendant": {
       "type": "string",
@@ -45,7 +34,7 @@
       "description": "Indicates whether assistive technologies will present all, or only parts of, the changed region based on the change notifications defined by the aria-relevant attribute."
     },
     "aria-autocomplete": {
-      "type": "\"list\" | \"none\" | \"inline\" | \"both\"",
+      "type": "\"inline\" | \"none\" | \"list\" | \"both\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -157,7 +146,7 @@
       "description": "Indicates an element's \"grabbed\" state in a drag-and-drop operation."
     },
     "aria-haspopup": {
-      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"true\"\n  | \"false\"\n  | \"grid\"\n  | \"listbox\"\n  | \"tree\"",
+      "type": "| boolean\n  | \"dialog\"\n  | \"menu\"\n  | \"grid\"\n  | \"true\"\n  | \"false\"\n  | \"listbox\"\n  | \"tree\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -368,9 +357,10 @@
     },
     "as": {
       "type": "keyof IntrinsicElements",
-      "defaultValue": null,
+      "defaultValue": "span",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the HTML element the IconWrapper renders as."
     },
     "autoCapitalize": {
       "type": "string",
@@ -390,20 +380,15 @@
       "required": false,
       "externalProp": true
     },
-    "className": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "color": {
-      "type": "\"inherit\" | \"colorText\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | \"colorTextDecorative40\" | ... 56 more ... | { ...; }",
-      "defaultValue": null,
+      "type": "\"colorText\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | \"colorTextDecorative40\" | ... 57 more ... | { ...; }",
+      "defaultValue": "currentColor",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the color of the icon."
     },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "\"inherit\" | Booleanish",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -426,12 +411,6 @@
       "required": false,
       "externalProp": true
     },
-    "datetime": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "defaultChecked": {
       "type": "boolean",
       "defaultValue": null,
@@ -448,7 +427,8 @@
       "type": "number",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Time delay in milliseconds of the animation."
     },
     "dir": {
       "type": "string",
@@ -456,17 +436,12 @@
       "required": false,
       "externalProp": true
     },
-    "disabled": {
-      "type": "boolean",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "display": {
       "type": "| Display\n  | (Display | null | undefined)[]\n  | { [x: string]: Display | undefined; [x: number]: Display | undefined }",
-      "defaultValue": null,
+      "defaultValue": "block",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the display of the icon."
     },
     "draggable": {
       "type": "Booleanish",
@@ -476,22 +451,16 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SPINNER",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "href": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
     },
     "id": {
       "type": "string",
@@ -549,23 +518,17 @@
       "required": false,
       "externalProp": true
     },
-    "label": {
-      "type": "string",
+    "key": {
+      "type": "Key",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": true
     },
     "lang": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "multiple": {
-      "type": "boolean",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
     },
     "nonce": {
       "type": "string",
@@ -574,973 +537,973 @@
       "externalProp": true
     },
     "onAbort": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAbortCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationEnd": {
-      "type": "AnimationEventHandler<HTMLElement>",
+      "type": "AnimationEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationEndCapture": {
-      "type": "AnimationEventHandler<HTMLElement>",
+      "type": "AnimationEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationIteration": {
-      "type": "AnimationEventHandler<HTMLElement>",
+      "type": "AnimationEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationIterationCapture": {
-      "type": "AnimationEventHandler<HTMLElement>",
+      "type": "AnimationEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationStart": {
-      "type": "AnimationEventHandler<HTMLElement>",
+      "type": "AnimationEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAnimationStartCapture": {
-      "type": "AnimationEventHandler<HTMLElement>",
+      "type": "AnimationEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAuxClick": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onAuxClickCapture": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBeforeInput": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBeforeInputCapture": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBlur": {
-      "type": "FocusEventHandler<HTMLElement>",
+      "type": "FocusEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onBlurCapture": {
-      "type": "FocusEventHandler<HTMLElement>",
+      "type": "FocusEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlay": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlayCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlayThrough": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCanPlayThroughCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onChange": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onChangeCapture": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onClick": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onClickCapture": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionEnd": {
-      "type": "CompositionEventHandler<HTMLElement>",
+      "type": "CompositionEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionEndCapture": {
-      "type": "CompositionEventHandler<HTMLElement>",
+      "type": "CompositionEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionStart": {
-      "type": "CompositionEventHandler<HTMLElement>",
+      "type": "CompositionEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionStartCapture": {
-      "type": "CompositionEventHandler<HTMLElement>",
+      "type": "CompositionEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionUpdate": {
-      "type": "CompositionEventHandler<HTMLElement>",
+      "type": "CompositionEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCompositionUpdateCapture": {
-      "type": "CompositionEventHandler<HTMLElement>",
+      "type": "CompositionEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onContextMenu": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onContextMenuCapture": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCopy": {
-      "type": "ClipboardEventHandler<HTMLElement>",
+      "type": "ClipboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCopyCapture": {
-      "type": "ClipboardEventHandler<HTMLElement>",
+      "type": "ClipboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCut": {
-      "type": "ClipboardEventHandler<HTMLElement>",
+      "type": "ClipboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onCutCapture": {
-      "type": "ClipboardEventHandler<HTMLElement>",
+      "type": "ClipboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDoubleClick": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDoubleClickCapture": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDrag": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragCapture": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEnd": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEndCapture": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEnter": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragEnterCapture": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragExit": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragExitCapture": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragLeave": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragLeaveCapture": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragOver": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragOverCapture": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragStart": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDragStartCapture": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDrop": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDropCapture": {
-      "type": "DragEventHandler<HTMLElement>",
+      "type": "DragEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDurationChange": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onDurationChangeCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEmptied": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEmptiedCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEncrypted": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEncryptedCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEnded": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onEndedCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onError": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onErrorCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onFocus": {
-      "type": "FocusEventHandler<HTMLElement>",
+      "type": "FocusEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onFocusCapture": {
-      "type": "FocusEventHandler<HTMLElement>",
+      "type": "FocusEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onGotPointerCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onGotPointerCaptureCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInput": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInputCapture": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInvalid": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onInvalidCapture": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyDown": {
-      "type": "KeyboardEventHandler<HTMLElement>",
+      "type": "KeyboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyDownCapture": {
-      "type": "KeyboardEventHandler<HTMLElement>",
+      "type": "KeyboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyPress": {
-      "type": "KeyboardEventHandler<HTMLElement>",
+      "type": "KeyboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyPressCapture": {
-      "type": "KeyboardEventHandler<HTMLElement>",
+      "type": "KeyboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyUp": {
-      "type": "KeyboardEventHandler<HTMLElement>",
+      "type": "KeyboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onKeyUpCapture": {
-      "type": "KeyboardEventHandler<HTMLElement>",
+      "type": "KeyboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoad": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedData": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedDataCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedMetadata": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadedMetadataCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadStart": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLoadStartCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLostPointerCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onLostPointerCaptureCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseDown": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseDownCapture": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseEnter": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseLeave": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseMove": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseMoveCapture": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOut": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOutCapture": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOver": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseOverCapture": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseUp": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onMouseUpCapture": {
-      "type": "MouseEventHandler<HTMLElement>",
+      "type": "MouseEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPaste": {
-      "type": "ClipboardEventHandler<HTMLElement>",
+      "type": "ClipboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPasteCapture": {
-      "type": "ClipboardEventHandler<HTMLElement>",
+      "type": "ClipboardEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPause": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPauseCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlay": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlayCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlaying": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPlayingCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerCancel": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerCancelCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerDown": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerDownCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerEnter": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerEnterCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerLeave": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerLeaveCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerMove": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerMoveCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOut": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOutCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOver": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerOverCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerUp": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onPointerUpCapture": {
-      "type": "PointerEventHandler<HTMLElement>",
+      "type": "PointerEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onProgress": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onProgressCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onRateChange": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onRateChangeCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onReset": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onResetCapture": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onResize": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onResizeCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onScroll": {
-      "type": "UIEventHandler<HTMLElement>",
+      "type": "UIEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onScrollCapture": {
-      "type": "UIEventHandler<HTMLElement>",
+      "type": "UIEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeeked": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeekedCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeeking": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSeekingCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSelect": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSelectCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onStalled": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onStalledCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSubmit": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSubmitCapture": {
-      "type": "FormEventHandler<HTMLElement>",
+      "type": "FormEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSuspend": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onSuspendCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTimeUpdate": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTimeUpdateCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchCancel": {
-      "type": "TouchEventHandler<HTMLElement>",
+      "type": "TouchEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchCancelCapture": {
-      "type": "TouchEventHandler<HTMLElement>",
+      "type": "TouchEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchEnd": {
-      "type": "TouchEventHandler<HTMLElement>",
+      "type": "TouchEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchEndCapture": {
-      "type": "TouchEventHandler<HTMLElement>",
+      "type": "TouchEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchMove": {
-      "type": "TouchEventHandler<HTMLElement>",
+      "type": "TouchEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchMoveCapture": {
-      "type": "TouchEventHandler<HTMLElement>",
+      "type": "TouchEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchStart": {
-      "type": "TouchEventHandler<HTMLElement>",
+      "type": "TouchEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTouchStartCapture": {
-      "type": "TouchEventHandler<HTMLElement>",
+      "type": "TouchEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTransitionEnd": {
-      "type": "TransitionEventHandler<HTMLElement>",
+      "type": "TransitionEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onTransitionEndCapture": {
-      "type": "TransitionEventHandler<HTMLElement>",
+      "type": "TransitionEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onVolumeChange": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onVolumeChangeCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWaiting": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWaitingCapture": {
-      "type": "ReactEventHandler<HTMLElement>",
+      "type": "ReactEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWheel": {
-      "type": "WheelEventHandler<HTMLElement>",
+      "type": "WheelEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
     "onWheelCapture": {
-      "type": "WheelEventHandler<HTMLElement>",
+      "type": "WheelEventHandler<HTMLSpanElement>",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1569,12 +1532,6 @@
       "required": false,
       "externalProp": true
     },
-    "rel": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -1601,9 +1558,10 @@
     },
     "size": {
       "type": "\"sizeIcon05\" | \"sizeIcon10\" | \"sizeIcon20\" | \"sizeIcon30\" | \"sizeIcon40\" | \"sizeIcon50\" | \"sizeIcon60\" | \"sizeIcon70\" | \"sizeIcon80\" | \"sizeIcon90\" | \"sizeIcon100\" | \"sizeIcon110\" | (\"sizeIcon05\" | ... 11 more ... | null)[] | { ...; }",
-      "defaultValue": null,
+      "defaultValue": "sizeIcon30",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the size of the icon."
     },
     "slot": {
       "type": "string",
@@ -1613,18 +1571,6 @@
     },
     "spellCheck": {
       "type": "Booleanish",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
-    "src": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
-    "style": {
-      "type": "CSSProperties",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1647,29 +1593,18 @@
       "required": false,
       "externalProp": true
     },
-    "target": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
-    },
     "title": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The accessibility text that is read when screenreaders get to this component."
     },
     "translate": {
       "type": "\"yes\" | \"no\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "type": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
     },
     "typeof": {
       "type": "string",
@@ -1682,13 +1617,6 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "variant": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "variant for variant styling"
     },
     "vocab": {
       "type": "string",

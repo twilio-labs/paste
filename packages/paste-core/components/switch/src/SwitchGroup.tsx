@@ -4,7 +4,30 @@ import * as React from "react";
 
 import { SwitchContext } from "./SwitchContext";
 
-export interface SwitchGroupProps extends InlineControlGroupProps {
+export interface SwitchGroupProps extends Omit<InlineControlGroupProps, "fieldStyleProps"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SWITCH_GROUP"
+   * @type {InlineControlGroupProps["element"]}
+   */
+  element?: InlineControlGroupProps["element"];
+  /**
+   * Sets the render direction of the switch group
+   *
+   * @default "vertical"
+   * @type {InlineControlGroupProps["orientation"]}
+   * @memberof SwitchGroupProps
+   */
+  orientation?: InlineControlGroupProps["orientation"];
+  /**
+   * Used to internatonalize the required label text
+   *
+   * @default "(required)"
+   * @type {InlineControlGroupProps["i18nRequiredLabel"]}
+   * @memberof SwitchGroupProps
+   */
+  i18nRequiredLabel?: InlineControlGroupProps["i18nRequiredLabel"];
   name: string;
   onChange?: (checked: boolean) => void;
 }

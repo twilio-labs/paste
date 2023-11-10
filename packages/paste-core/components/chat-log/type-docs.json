@@ -11485,7 +11485,8 @@
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `column-gap` property"
     },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
@@ -11533,7 +11534,8 @@
       "type": "| Display\n  | (Display | null | undefined)[]\n  | { [x: string]: Display | undefined; [x: number]: Display | undefined }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop for the CSS `display` property"
     },
     "download": {
       "type": "any",
@@ -11558,7 +11560,8 @@
       "type": "| string\n  | number\n  | (string & {})\n  | (HeightOptions | null)[]\n  | { [x: string]: HeightOptions; [x: number]: HeightOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `height` property"
     },
     "hidden": {
       "type": "boolean",
@@ -11651,55 +11654,64 @@
       "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `margin` property"
     },
     "marginBottom": {
       "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `margin-bottom` property"
     },
     "marginLeft": {
       "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `margin-left` property"
     },
     "marginRight": {
       "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `margin-right` property"
     },
     "marginTop": {
       "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `margin-top` property"
     },
     "marginX": {
       "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `margin-left` and `margin-right` properties"
     },
     "marginY": {
       "type": "\"auto\" | \"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | ... 28 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `margin-top` and `margin-bottom` properties"
     },
     "maxHeight": {
       "type": "| string\n  | number\n  | (string & {})\n  | (MaxHeightOptions | null)[]\n  | { [x: string]: MaxHeightOptions; [x: number]: MaxHeightOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `max-height` property"
     },
     "maxWidth": {
       "type": "| string\n  | number\n  | (string & {})\n  | (MaxWidthOptions | null)[]\n  | { [x: string]: MaxWidthOptions; [x: number]: MaxWidthOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `max-width` property"
     },
     "media": {
       "type": "string",
@@ -11711,13 +11723,15 @@
       "type": "| string\n  | number\n  | (string & {})\n  | (MinHeightOptions | null)[]\n  | { [x: string]: MinHeightOptions; [x: number]: MinHeightOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `min-height` property"
     },
     "minWidth": {
       "type": "| string\n  | number\n  | (string & {})\n  | (MinWidthOptions | null)[]\n  | { [x: string]: MinWidthOptions; [x: number]: MinWidthOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `min-width` property"
     },
     "nonce": {
       "type": "string",
@@ -12719,43 +12733,50 @@
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `padding` property"
     },
     "paddingBottom": {
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `padding-bottom` property"
     },
     "paddingLeft": {
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `padding-left` property"
     },
     "paddingRight": {
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `padding-right` property"
     },
     "paddingTop": {
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `padding-top` property"
     },
     "paddingX": {
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `padding-left` and `padding-right` properties"
     },
     "paddingY": {
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `padding-top` and `padding-bottom` properties"
     },
     "ping": {
       "type": "string",
@@ -12841,7 +12862,8 @@
       "type": "string | number | (string & {}) | (WidthOptions | null)[] | { [x: string]: WidthOptions; [x: number]: WidthOptions; } | (HeightOptions | null)[] | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `width` and `height` properties"
     },
     "slot": {
       "type": "string",
@@ -12922,7 +12944,8 @@
       "type": "VerticalAlign<0 | (string & {})> | (VerticalAlign<0 | (string & {})> | null | undefined)[] | { [x: string]: VerticalAlign<0 | (string & {})> | undefined; [x: number]: VerticalAlign<...> | undefined; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop for the CSS `vertical-align` property"
     },
     "vocab": {
       "type": "string",
@@ -12934,7 +12957,8 @@
       "type": "| string\n  | number\n  | (string & {})\n  | (WidthOptions | null)[]\n  | { [x: string]: WidthOptions; [x: number]: WidthOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for the CSS `width` property"
     }
   },
   "ChatAttachmentDescription": {

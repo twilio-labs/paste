@@ -4,7 +4,20 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 export interface SideModalFooterProps extends HTMLPasteProps<"div"> {
+  /**
+   * Child components to render into the SideModalFooter
+   *
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof SideModalFooterProps
+   */
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDE_MODAL_FOOTER"
+   * @type {BoxElementProps["element"]}
+   * @memberof SideModalFooterProps
+   */
   element?: BoxElementProps["element"];
 }
 const SideModalFooter = React.forwardRef<HTMLDivElement, SideModalFooterProps>(

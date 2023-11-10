@@ -3634,7 +3634,8 @@
       "type": "| Display\n  | (Display | null | undefined)[]\n  | { [x: string]: Display | undefined; [x: number]: Display | undefined }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of CSS display values"
     },
     "draggable": {
       "type": "Booleanish",

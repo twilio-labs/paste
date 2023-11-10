@@ -988,7 +988,8 @@
       "type": "| string\n  | (string & (TextColorOptions | null)[])\n  | (string & {\n      [x: string]: TextColorOptions | undefined\n      [x: number]: TextColorOptions | undefined\n    })",
       "defaultValue": null,
       "required": false,
-      "externalProp": true
+      "externalProp": true,
+      "description": "Responsive style prop of Text Color tokens for the CSS `color` property"
     },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",

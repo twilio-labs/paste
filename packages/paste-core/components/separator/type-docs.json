@@ -4,7 +4,8 @@
       "type": "Orientation",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Separator direction"
     },
     "about": {
       "type": "string",
@@ -422,10 +423,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SEPARATOR",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
@@ -437,7 +438,8 @@
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Space left and right of the separator when orientation is vertical"
     },
     "id": {
       "type": "never",
@@ -1591,7 +1593,8 @@
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Space top and bottom of the separator when orientation is horizontal"
     },
     "vocab": {
       "type": "string",

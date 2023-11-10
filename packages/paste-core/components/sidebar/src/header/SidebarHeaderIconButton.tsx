@@ -5,9 +5,34 @@ import * as React from "react";
 
 export interface SidebarHeaderIconButtonProps extends Omit<ButtonProps, "size" | "variant"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * HTML element to render the button as.
+   *
+   * @type {("a" | "button")}
+   * @memberof SidebarHeaderIconButtonProps
+   */
   as: "a" | "button";
+  /**
+   * Callback function to handle the button's click event.
+   *
+   * @type {ButtonProps["onClick"]}
+   * @memberof SidebarHeaderIconButtonProps
+   */
   onClick?: ButtonProps["onClick"];
+  /**
+   * The URL to navigate to if the button is rendered as an anchor element.
+   *
+   * @type {ButtonProps["href"]}
+   * @memberof SidebarHeaderIconButtonProps
+   */
   href?: ButtonProps["href"];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_HEADER_ICON_BUTTON"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarHeaderIconButtonProps
+   */
   element?: BoxProps["element"];
 }
 

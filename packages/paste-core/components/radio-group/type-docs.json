@@ -400,7 +400,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the Radio Button as checked"
     },
     "contentEditable": {
       "type": "Booleanish | \"inherit\"",
@@ -436,7 +437,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the Radio Button as the default checked option"
     },
     "defaultValue": {
       "type": "string | number | readonly string[]",
@@ -454,7 +456,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Radio Button disabled"
     },
     "draggable": {
       "type": "Booleanish",
@@ -464,9 +467,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "RADIO",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "enterKeyHint": {
       "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
@@ -514,7 +518,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Adds an error state to the Radio Button"
     },
     "height": {
       "type": "string | number",
@@ -526,7 +531,8 @@
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Provides additional help text for the Radio Button"
     },
     "hidden": {
       "type": "boolean",
@@ -538,7 +544,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "ID for the Radio Button"
     },
     "inlist": {
       "type": "any",
@@ -642,7 +649,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Name for the Radio Button Group"
     },
     "nonce": {
       "type": "string",
@@ -1770,7 +1778,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Value for the Radio Button"
     },
     "vocab": {
       "type": "string",
@@ -1797,7 +1806,8 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Name for the Radio Button Group"
     },
     "about": {
       "type": "string",
@@ -2211,7 +2221,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Group disabled"
     },
     "draggable": {
       "type": "Booleanish",
@@ -2221,10 +2232,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": "'INLINE_CONTROL_GROUP'",
+      "defaultValue": "RADIO_GROUP",
       "required": false,
       "externalProp": false,
-      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "errorText": {
       "type": "| string\n  | number\n  | boolean\n  | ReactElement<any, string | JSXElementConstructor<any>>\n  | ReactFragment\n  | ReactPortal",
@@ -2232,12 +2243,6 @@
       "required": false,
       "externalProp": false,
       "description": "String to render as the error text."
-    },
-    "fieldStyleProps": {
-      "type": "BoxStyleProps",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false
     },
     "form": {
       "type": "string",
@@ -2260,10 +2265,10 @@
     },
     "i18nRequiredLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "(required)",
       "required": false,
       "externalProp": false,
-      "description": "Accessible label for the required dot on the Label."
+      "description": "Label text for the required dot in the legend"
     },
     "id": {
       "type": "string",
@@ -2451,7 +2456,8 @@
       "type": "(value: string) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Pass a function for the onChange handler"
     },
     "onChangeCapture": {
       "type": "FormEventHandler<HTMLFieldSetElement>",
@@ -3315,7 +3321,8 @@
       "type": "\"horizontal\" | \"vertical\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the direction in which the group is rendered."
     },
     "placeholder": {
       "type": "string",
@@ -3345,7 +3352,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Group required"
     },
     "resource": {
       "type": "string",
@@ -3429,7 +3437,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Value for the Radio Button Group"
     },
     "vocab": {
       "type": "string",

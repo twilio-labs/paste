@@ -9,6 +9,13 @@ import { SidebarNavigationDisclosureContext } from "./SidebarNavigationDisclosur
 export interface SidebarNavigationDisclosureContentProps
   extends Omit<DisclosurePrimitiveContentProps, keyof BoxStyleProps> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarNavigationDisclosureContentProps
+   */
   element?: BoxProps["element"];
 }
 

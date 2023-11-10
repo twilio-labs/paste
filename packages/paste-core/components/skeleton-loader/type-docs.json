@@ -370,34 +370,39 @@
       "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of BorderRadius tokens for the CSS `border-bottom-left-radius` property"
     },
     "borderBottomRightRadius": {
       "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of BorderRadius tokens for the CSS `border-bottom-right-radius` property"
     },
     "borderRadius": {
       "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
-      "defaultValue": null,
+      "defaultValue": "borderRadius20",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of BorderRadius tokens for the CSS `border-radius` property"
     },
     "borderTopLeftRadius": {
       "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of BorderRadius tokens for the CSS `border-top-left-radius` property"
     },
     "borderTopRightRadius": {
       "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of BorderRadius tokens for the CSS `border-top-right-radius` property"
     },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "\"inherit\" | Booleanish",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -442,7 +447,8 @@
       "type": "| Display\n  | (Display | null | undefined)[]\n  | { [x: string]: Display | undefined; [x: number]: Display | undefined }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop for the CSS `display` property"
     },
     "draggable": {
       "type": "Booleanish",
@@ -452,16 +458,17 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SKELETON_LOADER",
       "required": false,
       "externalProp": false,
-      "description": "element identifier for customization"
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "height": {
       "type": "| string\n  | number\n  | (string & {})\n  | (HeightOptions | null)[]\n  | { [x: string]: HeightOptions; [x: number]: HeightOptions }",
-      "defaultValue": null,
+      "defaultValue": "sizeIcon20",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `height` property"
     },
     "hidden": {
       "type": "boolean",
@@ -541,25 +548,29 @@
       "type": "| string\n  | number\n  | (string & {})\n  | (MaxHeightOptions | null)[]\n  | { [x: string]: MaxHeightOptions; [x: number]: MaxHeightOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `max-height` property"
     },
     "maxWidth": {
       "type": "| string\n  | number\n  | (string & {})\n  | (MaxWidthOptions | null)[]\n  | { [x: string]: MaxWidthOptions; [x: number]: MaxWidthOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `max-width` property"
     },
     "minHeight": {
       "type": "| string\n  | number\n  | (string & {})\n  | (MinHeightOptions | null)[]\n  | { [x: string]: MinHeightOptions; [x: number]: MinHeightOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `min-height` property"
     },
     "minWidth": {
       "type": "| string\n  | number\n  | (string & {})\n  | (MinWidthOptions | null)[]\n  | { [x: string]: MinWidthOptions; [x: number]: MinWidthOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `min-width` property"
     },
     "nonce": {
       "type": "string",
@@ -1606,10 +1617,11 @@
       "externalProp": true
     },
     "size": {
-      "type": "string | number | (string & {}) | (WidthOptions | null)[] | { [x: string]: WidthOptions; [x: number]: WidthOptions; } | (HeightOptions | null)[] | { ...; }",
+      "type": "string | number | (string & {}) | (HeightOptions | null)[] | { [x: string]: HeightOptions; [x: number]: HeightOptions; } | (WidthOptions | null)[] | { ...; }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for for the CSS `width` and `height` properties"
     },
     "slot": {
       "type": "string",
@@ -1675,7 +1687,8 @@
       "type": "| string\n  | number\n  | (string & {})\n  | (WidthOptions | null)[]\n  | { [x: string]: WidthOptions; [x: number]: WidthOptions }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of Size Tokens for the CSS `width` property"
     }
   }
 }

@@ -9,7 +9,20 @@ import type { StatusBadgeVariants } from "./types";
 type StatusMenuItemChildVariant = StatusBadgeVariants;
 
 export interface StatusMenuItemChildProps extends HTMLPasteProps<"div"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "MENU_ITEM_STATUS"
+   * @type {BoxProps["element"]}
+   * @memberof StatusMenuItemChildProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Sets the display style of the Status Menu Item
+   *
+   * @type {StatusMenuItemChildVariant}
+   * @memberof StatusMenuItemChildProps
+   */
   variant: StatusMenuItemChildVariant;
 }
 

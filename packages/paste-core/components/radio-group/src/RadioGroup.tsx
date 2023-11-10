@@ -4,10 +4,42 @@ import * as React from "react";
 
 import { RadioContext } from "./RadioContext";
 
-export interface RadioGroupProps extends InlineControlGroupProps {
+export interface RadioGroupProps extends Omit<InlineControlGroupProps, "fieldStyleProps"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "RADIO_GROUP"
+   * @type {InlineControlGroupProps["element"]}
+   * @memberof RadioGroupProps
+   */
+  element?: InlineControlGroupProps["element"];
+  /**
+   * Name for the Radio Button Group
+   *
+   * @type {string}
+   * @memberof RadioGroupProps
+   */
   name: string;
+  /**
+   * Pass a function for the onChange handler
+   *
+   * @memberof RadioGroupProps
+   */
   onChange?: (value: string) => void;
+  /**
+   * Value for the Radio Button Group
+   *
+   * @type {string}
+   * @memberof RadioGroupProps
+   */
   value?: string;
+  /**
+   * Label text for the required dot in the legend
+   *
+   * @default "(required)"
+   * @type {string}
+   * @memberof RadioGroupProps
+   */
   i18nRequiredLabel?: string;
 }
 

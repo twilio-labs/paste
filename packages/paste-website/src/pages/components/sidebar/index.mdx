@@ -1,5 +1,5 @@
 export const meta = {
-  title: 'Sidebar',
+  title: 'Sidebar Container',
   package: '@twilio-paste/sidebar',
   description: 'Sidebar contains navigation controls that rest on the left side of the screen.',
   slug: '/components/sidebar/',
@@ -26,14 +26,13 @@ import {
   SidebarNavigationDisclosureHeadingWrapper,
   SidebarNavigationDisclosureContent,
 } from '@twilio-paste/sidebar';
-import Changelog from '@twilio-paste/sidebar/CHANGELOG.md';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import packageJson from '@twilio-paste/sidebar/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -45,25 +44,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar',
+        storybookUrl: '/?path=/story/components-sidebar-sidebar-push--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar"
-  storybookUrl="/?path=/story/components-sidebar-sidebar-push--default"
-  description={meta.description}
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <StoryPreview
   title="Compact push Sidebar example"
@@ -387,175 +376,3 @@ For these links to function correctly, it's vital to correctly assign unique ID 
 - `topbarSkipLinkID`: This ID should be given to the Topbar component in your application.
 
 If these unique ID references are not correctly applied to the target DOM elements and passed to the Sidebar, the Skip Links will not function as intended.
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/sidebar - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  Sidebar,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
-  SidebarCollapseButton,
-  SidebarBody,
-  SidebarFooter,
-  SidebarPushContentWrapper,
-  SidebarOverlayContentWrapper,
-} from '@twilio-paste/core/sidebar';
-
-const SideModalExample: React.FC = () => {
-  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
-  const sidebarNavigationSkipLinkID = useUID();
-  const topbarSkipLinkID = useUID();
-  const mainContentSkipLinkID = useUID();
-
-  return (
-    <Box>
-      {/* Can be placed anywhere - position fixed */}
-      <Sidebar
-        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
-        topbarSkipLinkID={topbarSkipLinkID}
-        mainContentSkipLinkID={mainContentSkipLinkID}
-        collapsed={pushSidebarCollapsed}
-        variant="default"
-      >
-        <SidebarHeader>
-          <SidebarHeaderIconButton as="a" href="/">
-            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
-          </SidebarHeaderIconButton>
-          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
-        </SidebarHeader>
-        <SidebarBody>
-          <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
-        </SidebarBody>
-        <SidebarFooter>
-          <SidebarCollapseButton
-            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
-            i18nCollapseLabel="Close sidebar"
-            i18nExpandLabel="Open sidebar"
-          />
-        </SidebarFooter>
-      </Sidebar>
-
-      {/* Must wrap content area */}
-      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
-        <main id={mainContentSkipLinkID}>
-          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
-            Toggle Push Sidebar
-          </Button>
-        </main>
-      </SidebarPushContentWrapper>
-    </Box>
-  );
-};
-```
-
-#### Props
-
-##### Sidebar
-
-| Prop                           | Type                       | Description                                                                               | Default     |
-| ------------------------------ | -------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| `element?`                     | `string`                   | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR'` |
-| `collapsed?`                   | `boolean`                  | Whether the sidebar is collapsed / closed.                                                | false       |
-| `variant?`                     | `'default'` \| `'compact'` | Whether the sidebar should hide completely or collapse into a fixed width bar.            |             |
-| `children?`                    | `React.ReactNode`          |                                                                                           |             |
-| `mainContentSkipLinkID`        | `string`                   | ID of the element that contains the main content of your application                      |             |
-| `sidebarNavigationSkipLinkID`  | `string`                   | ID given to the `SidebarNavigation` component                                             |             |
-| `topbarSkipLinkID`             | `string`                   | ID given to the `Topbar` component                                                        |             |
-| `i18nMainContentSkipLinkText?` | `string`                   | String used to change the text of the "skip to content" link                              |             |
-| `i18nNavigationSkipLinkText?`  | `string`                   | String used to change the text of the "skip to navigation" link                           |             |
-| `i18nTopbarSkipLinkText?`      | `string`                   | String used to change the text of the "skip to topbar" link                               |             |
-
-##### SidebarHeader
-
-| Prop        | Type              | Description                                                                               | Default            |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_HEADER'` |
-| `children?` | `React.ReactNode` |                                                                                           |                    |
-
-##### SidebarHeaderLabel
-
-| Prop        | Type              | Description                                                                               | Default                  |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------ |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_HEADER_LABEL'` |
-| `children?` | `React.ReactNode` |                                                                                           |                          |
-
-##### SidebarHeaderIconButton
-
-| Prop        | Type              | Description                                                                               | Default                        |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------ |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_HEADER_ICON_BUTTON'` |
-| `as`        | `a, button`       |                                                                                           |                                |
-| `href?`     | `string`          |                                                                                           |                                |
-| `onClick?`  | `() => void`      |                                                                                           |                                |
-| `children?` | `React.ReactNode` |                                                                                           |                                |
-
-##### SidebarFooter
-
-| Prop        | Type              | Description                                                                               | Default            |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_FOOTER'` |
-| `children?` | `React.ReactNode` |                                                                                           |                    |
-
-##### SidebarCollapseButton
-
-| Prop                | Type              | Description                                                                               | Default                     |
-| ------------------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
-| `element?`          | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_COLLAPSE_BUTTON'` |
-| `i18nCollapseLabel` | `string`          | A label for the collapse trigger for screenreader software.                               |                             |
-| `i18nExpandLabel`   | `string`          | A label for the expand trigger for screenreader software.                                 |                             |
-| `onClick?`          | `() => void`      |                                                                                           |                             |
-| `children?`         | `React.ReactNode` |                                                                                           |                             |
-
-##### SidebarBody
-
-| Prop        | Type              | Description                                                                               | Default          |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_BODY'` |
-| `children?` | `React.ReactNode` |                                                                                           |                  |
-
-##### SidebarBetaBadge
-
-| Prop        | Type                   | Description                                                                               | Default                |
-| ----------- | ---------------------- | ----------------------------------------------------------------------------------------- | ---------------------- |
-| `element?`  | `string`               | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_BETA_BADGE'` |
-| `as`        | `'span'` \| `'button`' | If an `onClick` is provided, you must define this to `as="button"`.                       |                        |
-| `onClick?`  | `() => void`           |                                                                                           |                        |
-| `children?` | `React.ReactNode`      |                                                                                           |                        |
-
-##### SidebarOverlayContentWrapper
-
-| Prop         | Type                       | Description                                                                               | Default                             |
-| ------------ | -------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------- |
-| `element?`   | `string`                   | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_OVERLAY_CONTENT_WRAPPER'` |
-| `collapsed?` | `boolean`                  | Whether the sidebar is collapsed / closed.                                                | false                               |
-| `variant?`   | `'default'` \| `'compact'` | Whether the sidebar should hide completely or collapse into a fixed width bar.            |                                     |
-| `children?`  | `React.ReactNode`          |                                                                                           |                                     |
-
-##### SidebarPushContentWrapper
-
-| Prop         | Type                       | Description                                                                               | Default                          |
-| ------------ | -------------------------- | ----------------------------------------------------------------------------------------- | -------------------------------- |
-| `element?`   | `string`                   | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_PUSH_CONTENT_WRAPPER'` |
-| `collapsed?` | `boolean`                  | Whether the sidebar is collapsed / closed.                                                | false                            |
-| `variant?`   | `'default'` \| `'compact'` | Whether the sidebar should hide completely or collapse into a fixed width bar.            |                                  |
-| `children?`  | `React.ReactNode`          |                                                                                           |                                  |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

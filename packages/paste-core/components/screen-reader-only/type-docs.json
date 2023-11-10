@@ -350,9 +350,10 @@
     },
     "as": {
       "type": "keyof IntrinsicElements",
-      "defaultValue": null,
+      "defaultValue": "span",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "A custom HTML tag to use instead of the default `span` tag"
     },
     "autoCapitalize": {
       "type": "string",

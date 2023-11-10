@@ -5,7 +5,7 @@
       "defaultValue": null,
       "required": true,
       "externalProp": false,
-      "description": "Defines a string value that labels the current element."
+      "description": "Title of the dialog for screen readers."
     },
     "about": {
       "type": "string",
@@ -416,9 +416,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SIDE_MODAL",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
@@ -428,9 +429,10 @@
     },
     "hideOnEsc": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": true,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Set to false to disable closing the SideModal when the \"Escape\" key is pressed."
     },
     "id": {
       "type": "string",
@@ -2026,7 +2028,7 @@
       "defaultValue": "'BUTTON'",
       "required": false,
       "externalProp": false,
-      "description": "Overrides the default element name to apply unique styles with the Customization Provider."
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider.\n\n\nThe element the `SideModalButton` will render"
     },
     "form": {
       "type": "string",
@@ -2095,7 +2097,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": true
+      "externalProp": true,
+      "description": "The id of the SideModal that the button controls"
     },
     "inlist": {
       "type": "any",
@@ -3708,9 +3711,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SIDE_MODAL_HEADER",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
@@ -3720,9 +3724,10 @@
     },
     "i18nDismissLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "close",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The dismiss button text label"
     },
     "id": {
       "type": "string",
@@ -5230,9 +5235,10 @@
     },
     "as": {
       "type": "\"h1\" | \"h2\" | \"h3\" | \"h4\" | \"h5\" | \"h6\"",
-      "defaultValue": null,
+      "defaultValue": "h2",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The element the `SideModalHeading` will render"
     },
     "autoCapitalize": {
       "type": "string",
@@ -5298,7 +5304,8 @@
       "type": "| Display\n  | (Display | null | undefined)[]\n  | { [x: string]: Display | undefined; [x: number]: Display | undefined }",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive style prop of CSS display values"
     },
     "draggable": {
       "type": "Booleanish",
@@ -5308,7 +5315,7 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SIDE_MODAL_HEADING",
       "required": false,
       "externalProp": false,
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
@@ -6515,7 +6522,8 @@
       "type": "PopoverStateReturn",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Returned state from `useSideModalState` hook"
     },
     "unstable_fixed": {
       "type": "boolean",
@@ -7137,9 +7145,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SIDE_MODAL_BODY",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
@@ -8719,9 +8728,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SIDE_MODAL_FOOTER",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
@@ -10301,9 +10311,10 @@
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SIDE_MODAL_FOOTER_ACTIONS",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hidden": {
       "type": "boolean",
@@ -10371,7 +10382,8 @@
       "type": "JustifyOptions",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Sets the `justify-content` CSS property."
     },
     "key": {
       "type": "Key",

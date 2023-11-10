@@ -158,17 +158,95 @@ export type FlexShrinkOptions = Globals | number;
 export type FlexShrink = ResponsiveValue<FlexShrinkOptions>;
 
 export interface FlexboxProps {
+  /**
+   * Responsive prop for the CSS `align-items` property
+   *
+   * @type {AlignItems}
+   * @memberof FlexboxProps
+   */
   alignItems?: AlignItems;
+  /**
+   * Responsive prop for the CSS `align-content` property
+   *
+   * @type {AlignContent}
+   * @memberof FlexboxProps
+   */
   alignContent?: AlignContent;
+  /**
+   * Responsive prop for the CSS `justify-items` property
+   *
+   * @type {JustifyItems}
+   * @memberof FlexboxProps
+   */
   justifyItems?: JustifyItems;
+  /**
+   * Responsive prop for the CSS `justify-content` property
+   *
+   * @type {JustifyContent}
+   * @memberof FlexboxProps
+   */
   justifyContent?: JustifyContent;
+  /**
+   * Responsive prop for the CSS `flex-wrap` property
+   *
+   * @type {FlexWrap}
+   * @memberof FlexboxProps
+   */
   flexWrap?: FlexWrap;
+  /**
+   * Responsive prop for the CSS `flex-direction` property
+   *
+   * @type {FlexDirection}
+   * @memberof FlexboxProps
+   */
   flexDirection?: FlexDirection;
+  /**
+   * Responsive prop for the CSS `flex` property
+   *
+   * @type {Flex}
+   * @memberof FlexboxProps
+   */
   flex?: Flex;
+  /**
+   * Responsive prop for the CSS `flex-grow` property
+   *
+   * @type {FlexGrow}
+   * @memberof FlexboxProps
+   */
   flexGrow?: FlexGrow;
+  /**
+   * Responsive prop for the CSS `flex-shrink` property
+   *
+   * @type {FlexShrink}
+   * @memberof FlexboxProps
+   */
   flexShrink?: FlexShrink;
+  /**
+   * Responsive prop for the CSS `flex-basis` property
+   *
+   * @type {FlexBasis}
+   * @memberof FlexboxProps
+   */
   flexBasis?: FlexBasis;
+  /**
+   * Responsive prop for the CSS `justify-self` property
+   *
+   * @type {JustifySelf}
+   * @memberof FlexboxProps
+   */
   justifySelf?: JustifySelf;
+  /**
+   * Responsive prop for the CSS `align-self` property
+   *
+   * @type {AlignSelf}
+   * @memberof FlexboxProps
+   */
   alignSelf?: AlignSelf;
+  /**
+   * Responsive prop for the CSS `order` property
+   *
+   * @type {Order}
+   * @memberof FlexboxProps
+   */
   order?: Order;
 }

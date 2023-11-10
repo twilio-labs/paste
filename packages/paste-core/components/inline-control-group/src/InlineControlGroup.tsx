@@ -7,6 +7,7 @@ import * as React from "react";
 export interface InlineControlGroupProps extends Omit<HTMLPasteProps<"fieldset">, "onChange"> {
   children: React.ReactNode;
   /**
+   * Make the Group disabled
    *
    * @type {boolean}
    * @memberof InlineControlGroupProps
@@ -34,12 +35,14 @@ export interface InlineControlGroupProps extends Omit<HTMLPasteProps<"fieldset">
    */
   legend: string | NonNullable<React.ReactNode>;
   /**
+   * Sets the direction in which the group is rendered.
    *
    * @type {"vertical" | "horizontal"}
    * @memberof InlineControlGroupProps
    */
   orientation?: "vertical" | "horizontal";
   /**
+   * Make the Group required
    *
    * @type {boolean}
    * @memberof InlineControlGroupProps

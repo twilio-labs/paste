@@ -5,8 +5,27 @@ import * as React from "react";
 import type { Element } from "./types";
 
 export interface OptionGroupProps extends HTMLPasteProps<"optgroup"> {
+  /**
+   * Sets the label of the option group.
+   *
+   * @type {string}
+   * @memberof OptionGroupProps
+   */
   label: string;
+  /**
+   * Must be `Option`.
+   *
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof OptionGroupProps
+   */
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "OPTION_GROUP"
+   * @type {Element}
+   * @memberof OptionGroupProps
+   */
   element?: Element;
 }
 

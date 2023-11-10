@@ -44,27 +44,142 @@ export type Visibility = ResponsiveValue<VisibilityProperty>;
 export type WillChange = ResponsiveValue<WillChangeProperty>;
 
 export type CSSProps = {
+  /**
+   * Responsive style prop for the CSS `animation` property
+   *
+   * @type {Animation}
+   */
   animation?: Animation;
+  /**
+   * Responsive style prop for the CSS `appearance` property
+   *
+   * @type {Appearance}
+   */
   appearance?: Appearance;
+  /**
+   * Responsive style prop for the CSS `box-sizing` property
+   *
+   * @type {BoxSizing}
+   */
   boxSizing?: BoxSizing;
+  /**
+   * Responsive style prop for the CSS `clip` property
+   *
+   * @type {Clip}
+   */
   clip?: Clip;
+  /**
+   * Style prop for the CSS `content` property
+   *
+   * @type {string}
+   */
   content?: string;
+  /**
+   * Responsive style prop for the CSS `cursor` property
+   *
+   * @type {Cursor}
+   */
   cursor?: Cursor;
+  /**
+   * Responsive style prop for the CSS `float` property
+   *
+   * @type {Float}
+   */
   float?: Float;
+  /**
+   * Responsive style prop for the CSS `object-fit` property
+   *
+   * @type {ObjectFit}
+   */
   objectFit?: ObjectFit;
+  /**
+   * Responsive style prop for the CSS `object-position` property
+   *
+   * @type {ObjectPosition}
+   */
   objectPosition?: ObjectPosition;
+  /**
+   * Responsive style prop for the CSS `opacity` property
+   *
+   * @type {Opacity}
+   */
   opacity?: Opacity;
+  /**
+   * Responsive style prop for the CSS `outline` property
+   *
+   * @type {Outline}
+   */
   outline?: Outline;
+  /**
+   * Responsive style prop for the CSS `pointer-events` property
+   *
+   * @type {PointerEvents}
+   */
   pointerEvents?: PointerEvents;
+  /**
+   * Responsive style prop for the CSS `resize` property
+   *
+   * @type {Resize}
+   */
   resize?: Resize;
+  /**
+   * Responsive style prop for the CSS `table-layout` property
+   *
+   * @type {TableLayout}
+   */
   tableLayout?: TableLayout;
+  /**
+   * Responsive style prop for the CSS `transform` property
+   *
+   * @type {Transform}
+   */
   transform?: Transform;
+  /**
+   * Responsive style prop for the CSS `transform-origin` property
+   *
+   * @type {TransformOrigin}
+   */
   transformOrigin?: TransformOrigin;
+  /**
+   * Responsive style prop for the CSS `transition` property
+   *
+   * @type {Transition}
+   */
   transition?: Transition;
+  /**
+   * Responsive style prop for the CSS `transition-delay` property
+   *
+   * @type {TransitionDelay}
+   */
   transitionDelay?: TransitionDelay;
+  /**
+   * Responsive style prop for the CSS `user-select` property
+   *
+   * @type {UserSelect}
+   */
   userSelect?: UserSelect;
+  /**
+   * Responsive style prop for the CSS `visibility` property
+   *
+   * @type {Visibility}
+   */
   visibility?: Visibility;
+  /**
+   * Responsive style prop for the CSS `will-change` property
+   *
+   * @type {WillChange}
+   */
   willChange?: WillChange;
+  /**
+   * Style prop for the CSS `-webkit-text-fill-color` property
+   *
+   * @type {string}
+   */
   "-webkit-text-fill-color"?: string;
+  /**
+   * Style prop for the CSS `-webkit-opacity` property
+   *
+   * @type {string}
+   */
   "-webkit-opacity"?: string;
 };

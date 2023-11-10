@@ -12,7 +12,6 @@ import {Box} from '@twilio-paste/box';
 import {Input} from '@twilio-paste/input';
 import {Text} from '@twilio-paste/text';
 import {Slider} from '@twilio-paste/slider';
-import Changelog from '@twilio-paste/slider/CHANGELOG.md';
 import packageJson from '@twilio-paste/slider/package.json';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
@@ -20,7 +19,7 @@ import {Form, FormControl} from '@twilio-paste/form';
 import {useUID} from '@twilio-paste/uid-library';
 import {Meter, MeterLabel} from '@twilio-paste/meter';
 
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
@@ -33,7 +32,7 @@ import {
   hiddenRangeLabelsSlider,
 } from '../../../component-examples/SliderExamples';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -45,24 +44,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/slider',
+        storybookUrl: '/?path=/story/components-slider--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  storybookUrl="/?path=/story/components-slider--default"
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/slider"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
   {defaultSlider}
@@ -280,69 +270,3 @@ Use a Slider with hidden range labels when the range is obvious or the labels ar
     </Box>
   </Dont>
 </DoDont>
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/core - or - yarn add @twilio-paste/slider
-```
-
-#### Usage
-
-```jsx
-import {Slider} from '@twilio-paste/core/slider';
-
-const Component = () => {
-  const [value, setValue] = React.useState(10);
-  const sliderId = useUID();
-  const helpTextId = useUID(); // optional
-
-  const numberFormatter = React.useMemo(() => {
-    return new Intl.NumberFormat('en-US', {style: 'percent'});
-  }, []);
-
-  return (
-    <Slider
-      id={sliderId}
-      aria-describedby={helpTextId}
-      value={value}
-      minValue={0}
-      maxValue={100}
-      step={1}
-      onChange={(newValue) => setValue(newValue)}
-      numberFormatter={numberFormatter}
-    />
-  );
-};
-```
-
-#### Props
-
-| Prop              | Type                                                                                                                         | Description                                                                                   | Default   |
-| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------- |
-| id                | `string`                                                                                                                     | Must provide an id to match with a label                                                      | undefined |
-| numberFormatter   | [`Intl.NumberFormatter`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | Used to format the value into i18n formats. Can return localized currencies and percentages   |           |
-| aria-describedby? | `string`                                                                                                                     | Optional id to pair the input to its help text                                                | undefined |
-| aria-labelledby?  | `string`                                                                                                                     | Optional id to pair the input to its label text (if not using a regular label with `htmlFor`) | undefined |
-| disabled?         | `boolean`                                                                                                                    | Disables the slider                                                                           | false     |
-| hasError?         | `boolean`                                                                                                                    | Shows error styling on the Slider                                                             | false     |
-| hideRangeLabels?  | `boolean`                                                                                                                    | Hides the min and max values that appear over the slider                                      | false     |
-| minValue?         | `number`                                                                                                                     | The smallest number in the slider range                                                       | 1         |
-| maxValue?         | `number`                                                                                                                     | The largest number in the slider range                                                        | 100       |
-| step?             | `number`                                                                                                                     | The incremented value as you drag along the range                                             | 1         |
-| value?            | `number`                                                                                                                     | The current selected value                                                                    | 1         |
-| onChange?         | `(value: number) => void`                                                                                                    | Fired on every change as the thumb is dragged along the track                                 |           |
-| onChangeEnd?      | `(value: number) => void`                                                                                                    | Fired at the end of the dragging event once                                                   |           |
-| element?          | `string`                                                                                                                     | Overrides the default element name to apply unique styles with the Customization Provider     | 'SLIDER'  |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

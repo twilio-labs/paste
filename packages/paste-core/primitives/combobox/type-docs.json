@@ -1,0 +1,282 @@
+{
+  "UseCombobox": {
+    "items": {
+      "type": "Item[]",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": true
+    },
+    "circularNavigation": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "defaultHighlightedIndex": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "defaultInputValue": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "defaultIsOpen": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "defaultSelectedItem": {
+      "type": "NonNullable<Item>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "environment": {
+      "type": "Environment",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "getA11ySelectionMessage": {
+      "type": "(options: A11yStatusMessageOptions<Item>) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "getA11yStatusMessage": {
+      "type": "(options: A11yStatusMessageOptions<Item>) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "getItemId": {
+      "type": "(index: number) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "highlightedIndex": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "id": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "initialHighlightedIndex": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "initialInputValue": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "initialIsOpen": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "initialSelectedItem": {
+      "type": "NonNullable<Item>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "inputId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "inputValue": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "isOpen": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "itemToString": {
+      "type": "(item: Item | null) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "labelId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "menuId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onHighlightedIndexChange": {
+      "type": "(changes: UseComboboxStateChange<Item>) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onInputValueChange": {
+      "type": "(changes: UseComboboxStateChange<Item>) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onIsOpenChange": {
+      "type": "(changes: UseComboboxStateChange<Item>) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onSelectedItemChange": {
+      "type": "(changes: UseComboboxStateChange<Item>) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onStateChange": {
+      "type": "(changes: UseComboboxStateChange<Item>) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "scrollIntoView": {
+      "type": "(node: HTMLElement, menuNode: HTMLElement) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "selectedItem": {
+      "type": "NonNullable<Item>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "stateReducer": {
+      "type": "(\n  state: UseComboboxState<Item>,\n  actionAndChanges: UseComboboxStateChangeOptions<Item>\n) => Partial<UseComboboxState<Item>>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "toggleButtonId": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    }
+  },
+  "UseMultipleSelection": {
+    "activeIndex": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "defaultActiveIndex": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "defaultSelectedItems": {
+      "type": "Item[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "environment": {
+      "type": "Environment",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "getA11yRemovalMessage": {
+      "type": "(options: A11yRemovalMessage<Item>) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "initialActiveIndex": {
+      "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "initialSelectedItems": {
+      "type": "Item[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "itemToString": {
+      "type": "(item: Item) => string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "keyNavigationNext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "keyNavigationPrevious": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onActiveIndexChange": {
+      "type": "(changes: UseMultipleSelectionStateChange<Item>) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onSelectedItemsChange": {
+      "type": "(changes: UseMultipleSelectionStateChange<Item>) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "onStateChange": {
+      "type": "(changes: UseMultipleSelectionStateChange<Item>) => void",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "selectedItems": {
+      "type": "Item[]",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "stateReducer": {
+      "type": "(state: UseMultipleSelectionState<Item>, actionAndChanges: UseMultipleSelectionStateChangeOptions<Item>) => Partial<...>",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    }
+  }
+}

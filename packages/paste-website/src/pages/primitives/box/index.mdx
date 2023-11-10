@@ -13,10 +13,10 @@ import {Callout, CalloutText} from '@twilio-paste/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -28,24 +28,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.PRIMITIVES,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/box',
+        storybookUrl: '/?path=/story/primitives-box--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/box"
-  storybookUrl="/?path=/story/primitives-box--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Box}} language="jsx">
   {`<Box
@@ -215,140 +206,4 @@ such as accessibility.
   <Dont title="Don't" body="Use HTML elements for functionality covered by the Box component." preview={false} />
 </DoDont>
 
----
 
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/box - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Box} from '@twilio-paste/core/box';
-
-const Component = () => (
-  <Box
-    as="article"
-    backgroundColor="colorBackgroundBody"
-    padding="space60"
-    _hover={{
-      backgroundColor: "colorBackgroundPrimary"
-      padding: "space70"
-    }}
-  >
-    Foo
-  </Box>
-);
-```
-
-#### Props
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-| Prop                     | Type                                                    | Default |
-| ------------------------ | ------------------------------------------------------- | ------- |
-| as?                      | string                                                  | 'div'   |
-| display?                 | `ResponsiveValue<CSS.DisplayProperty>`                  |         |
-| overflow?                | `ResponsiveValue<CSS.OverflowProperty>`                 |         |
-| backgroundColor?         | `ResponsiveValue<keyof ThemeShape['backgroundColors']>` |         |
-| width?                   | `ResponsiveValue<WidthOptions>`                         |         |
-| minWidth?                | `ResponsiveValue<MinWidthOptions>`                      |         |
-| maxWidth?                | `ResponsiveValue<MaxWidthOptions>`                      |         |
-| height?                  | `ResponsiveValue<HeightOptions>`                        |         |
-| minHeight?               | `ResponsiveValue<MinHeightOptions>`                     |         |
-| maxHeight?               | `ResponsiveValue<MaxHeightOptions>`                     |         |
-| size?                    | `ResponsiveValue<WidthOptions>`                         |         |
-| margin?                  | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| marginTop?               | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| marginRight?             | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| marginBottom?            | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| marginLeft?              | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| padding?                 | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| paddingTop?              | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| paddingRight?            | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| paddingBottom?           | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| paddingLeft?             | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| columnGap?               | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| rowGap?                  | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| borderRadius?            | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderTopLeftRadius?     | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderTopRightRadius?    | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderBottomRightRadius? | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderBottomLeftRadius?  | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderWidth?             | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderTopWidth?          | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderRightWidth?        | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderBottomWidth?       | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderLeftWidth?         | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderColor?             | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderTopColor?          | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderRightColor?        | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderBottomColor?       | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderLeftColor?         | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderStyle?             | `ResponsiveValue<CSS.BorderStyleProperty>`              |         |
-| boxshadow?               | `ResponsiveValue<keyof ThemeShape['shadows']>`          |         |
-| zIndex?                  | `ResponsiveValue<keyof ThemeShape['zIndices']>`         |         |
-| fontVariantNumeric?      | FontVariantNumeric                                      |         |
-| cursor?                  | Cursor                                                  |         |
-| content?                 | string                                                  |         |
-| appearance?              | Appearance                                              |         |
-| animation?               | Animation                                               |         |
-| transition?              | Transition                                              |         |
-| transitionDelay?         | TransitionDelay                                         |         |
-| transform?               | Transform                                               |         |
-| transformOrigin?         | TransformOrigin                                         |         |
-| opacity?                 | Opacity                                                 |         |
-| visibility?              | Visibility                                              |         |
-| whiteSpace?              | WhiteSpace                                              |         |
-| userSelect?              | UserSelect                                              |         |
-| pointerEvents?           | PointerEvents                                           |         |
-| boxSizing?               | BoxSizing                                               |         |
-| resize?                  | Resize                                                  |         |
-| transition?              | Transition                                              |         |
-| listStyleType?           | ListStyleType                                           |         |
-| listStylePosition?       | ListStylePosition                                       |         |
-| listStyleImage?          | ListStyleImage                                          |         |
-| objectFit?               | ObjectFit                                               |         |
-| objectPosition?          | ObjectPosition                                          |         |
-| backgroundAttachment?    | BackgroundAttachment                                    |         |
-| outline?                 | Outline                                                 |         |
-| float?                   | Float                                                   |         |
-| willChange?              | WillChange                                              |         |
-| \_hover?                 | BoxProps                                                |         |
-| \_active?                | BoxProps                                                |         |
-| \_focus?                 | BoxProps                                                |         |
-| \_visited?               | BoxProps                                                |         |
-| \_even?                  | BoxProps                                                |         |
-| \_odd?                   | BoxProps                                                |         |
-| \_disabled?              | BoxProps                                                |         |
-| \_checked?               | BoxProps                                                |         |
-| \_mixed?                 | BoxProps                                                |         |
-| \_selected?              | BoxProps                                                |         |
-| \_invalid?               | BoxProps                                                |         |
-| \_pressed?               | BoxProps                                                |         |
-| \_readOnly?              | BoxProps                                                |         |
-| \_first?                 | BoxProps                                                |         |
-| \_last?                  | BoxProps                                                |         |
-| \_expanded?              | BoxProps                                                |         |
-| \_grabbed?               | BoxProps                                                |         |
-| \_notFirst?              | BoxProps                                                |         |
-| \_notLast?               | BoxProps                                                |         |
-| \_groupHover?            | BoxProps                                                |         |
-| \_before?                | BoxProps                                                |         |
-| \_after?                 | BoxProps                                                |         |
-| \_focusWithin?           | BoxProps                                                |         |
-| \_placeholder?           | BoxProps                                                |         |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

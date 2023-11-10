@@ -4,99 +4,113 @@
       "type": "string",
       "defaultValue": null,
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Must provide an id to match with a label"
     },
     "aria-describedby": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Optional id to pair the input to its help text"
     },
     "aria-labelledby": {
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Optional id to pair the input to its label text (if not using a regular label with `htmlFor`)"
     },
     "disabled": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": false,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Disables the slider"
     },
     "element": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "SLIDER",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "hasError": {
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Shows error styling on the Slider"
     },
     "hideRangeLabels": {
       "type": "boolean",
-      "defaultValue": null,
+      "defaultValue": false,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Hides the min and max values that appear over the slider"
     },
     "i18nMaxRangeLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "Maximum value:",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Used to internationlize the max range label."
     },
     "i18nMinRangeLabel": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "Minimum value:",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Used to internationlize the min range label."
     },
     "maxValue": {
       "type": "number",
-      "defaultValue": null,
+      "defaultValue": "100",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The largest number in the slider range"
     },
     "minValue": {
       "type": "number",
-      "defaultValue": null,
+      "defaultValue": "1",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The smallest number in the slider range"
     },
     "numberFormatter": {
       "type": "NumberFormat",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
-      "description": "Used to adjust how the numbers are rendered and interpreted.\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat \\"
+      "description": "Used to adjust how the numbers are rendered and interpreted.\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat"
     },
     "onChange": {
       "type": "(value: number) => void",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Fired on every change as the thumb is dragged along the track."
     },
     "onChangeEnd": {
       "type": "(value: number) => void",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
-      "description": "Fired when the slider stops moving, due to being let go."
+      "description": "Fired at the end of the dragging event once."
     },
     "step": {
       "type": "number",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The incremented value as you drag along the range"
     },
     "value": {
       "type": "number",
-      "defaultValue": null,
+      "defaultValue": "1",
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The current selected value"
     }
   }
 }

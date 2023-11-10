@@ -1,12 +1,12 @@
 export const meta = {
-  title: 'Stack - Layout',
-  package: '@twilio-paste/stack',
-  description: 'Stack is a horizontal and vertical flow component used to create space between components.',
-  slug: '/components/stack/api',
+  title: 'Status Badge - Components - API',
+  package: '@twilio-paste/status',
+  description: 'A Status Badge communicates the status of a process or connectivity to an application or service.',
+  slug: '/components/status-badge/api',
 };
 
-import Changelog from '@twilio-paste/stack/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
-import packageJson from '@twilio-paste/stack/package.json';
+import Changelog from '@twilio-paste/status/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/status/package.json';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
@@ -16,21 +16,24 @@ export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Stack');
-  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/stack');
+  const feature = await getFeature('Status Badge');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/status');
   return {
     props: {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'Status Badge',
+        descriptionOverride:
+          'A Status Badge communicates the status of a process or connectivity to an application or service.',
       },
       componentApi,
       mdxHeadings: [...mdxHeadings, ...componentApiTocData],
       navigationData,
       pageHeaderData: {
         categoryRoute: SidebarCategoryRoutes.COMPONENTS,
-        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/stack',
-        storybookUrl: '/?path=/story/layout-stack--default-stack',
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status',
+        storybookUrl: '/?path=/story/components-status-statusbadge--process-success-status-badge',
       },
     },
   };
@@ -39,17 +42,15 @@ export const getStaticProps = async () => {
 ## Installation
 
 ```bash
-yarn add @twilio-paste/stack
+yarn add @twilio-paste/status - or - yarn add @twilio-paste/status
 ```
 
 ## Usage
 
 ```jsx
-import {Stack} from '@twilio-paste/core/stack';
+import {StatusBadge} from '@twilio-paste/core/status';
 
-<Stack orientation="vertical" spacing="space40">
-  Foo
-</Stack>;
+const BadgeExample = () => <StatusBadge variant="ProcessError">Process Error Badge</StatusBadge>;
 ```
 
 ## Props

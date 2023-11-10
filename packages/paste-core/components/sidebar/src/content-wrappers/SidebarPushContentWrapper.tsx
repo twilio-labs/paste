@@ -16,8 +16,29 @@ const AnimatedStyledContentWrapper = animated(StyledContentWrapper);
 
 export interface SidebarPushContentWrapperProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_PUSH_CONTENT_WRAPPER"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarPushContentWrapperProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Whether the sidebar is collapsed / closed.
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof SidebarPushContentWrapperProps
+   */
   collapsed?: boolean;
+  /**
+   * Whether the sidebar should hide completely or collapse into a fixed width bar.
+   *
+   * @default "default"
+   * @type {Variants}
+   * @memberof SidebarPushContentWrapperProps
+   */
   variant?: Variants;
 }
 

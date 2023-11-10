@@ -328,6 +328,9 @@ const SiteSidebarNavigation = (): JSX.Element => {
               </NavigationDisclosure>
             );
           }
+          if (name === "Sidebar Navigation") {
+            return null;
+          }
           return (
             <SidebarAnchor selected={selected} href={categoryRoute} key={slug}>
               {name}

@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Box - Chnagelog',
+  package: '@twilio-paste/box',
+  description:
+    'The Box component is one of the pillars of our system. It can be any HTML element and can receive many of our token values as props. We use Box to build most of our other components.',
+  slug: '/primitives/box/changelog',
+};
+
+import Changelog from '@twilio-paste/box/CHANGELOG.md';
+import packageJson from '@twilio-paste/box/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Box');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.PRIMITIVES,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/box',
+        storybookUrl: '/?path=/story/primitives-box--default',
+      },
+    },
+  };
+};
+
+<Changelog />

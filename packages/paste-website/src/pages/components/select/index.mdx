@@ -24,10 +24,10 @@ import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/select/CHANGELOG.md';
 import packageJson from '@twilio-paste/select/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -39,24 +39,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/select',
+        storybookUrl: '/?path=/story/components-select--default-select',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/select"
-  storybookUrl="/?path=/story/components-select--default-select"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{Select, Option, Label}} language="jsx">
   {`<>
@@ -628,220 +619,3 @@ Use a select when:
   </Dont>
 </DoDont>
 
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Box Shadow</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
-            <ListItem>Disabled: $shadow-border-weak</ListItem>
-            <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Background</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-background-body</ListItem>
-            <ListItem>Disabled, Readonly: $color-background</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weak</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Help text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Input:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Left padding: $space-40</ListItem>
-                <ListItem>Top, right, bottom padding: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>Prefix/suffix padding: $space-30</ListItem>
-            <ListItem>
-              Help text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Inline error:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Spacing between icon and text: $space-20</ListItem>
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Chevron</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Icon: IconChevronDown, $space-20 from left</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/select
-```
-
-#### Usage
-
-```jsx
-import {Select, Option} from '@twilio-paste/core/select';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-<Label htmlFor="foo" required>Foo</Label>
-<Select id="foo" name="foo" onChange={FOO} required>
-  <Option value="foo-bar">Foo Bar</Option>
-  <Option value="bar-foo">Bar Foo</Option>
-</Select>
-<HelpText variant="default">Select one</HelpText>
-```
-
-#### Select props
-
-All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">valid HTML attributes</Anchor> for `select` are supported including the following props:
-
-| Prop          | Type                                            | Description                                                                               | Default   |
-| ------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
-| id?           | string                                          | Sets the id of the input. Should match the htmlFor of `Label`.                            | null      |
-| name?         | string                                          | Sets the name of the select.                                                              | null      |
-| value?        | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present.                | null      |
-| children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                                              | null      |
-| disabled?     | boolean                                         | Disables the input.                                                                       | false     |
-| insertBefore? | `React.ReactNode`                               | Add Prefix to the select input.                                                           | null      |
-| insertAfter?  | `React.ReactNode`                               | Add Suffix to the select input.                                                           | null      |
-| required?     | boolean                                         | Sets the input as required.                                                               | false     |
-| hasError?     | boolean                                         | Sets the input to an error state.                                                         | false     |
-| onChange?     | `(event: React.ChangeEvent<HTMLSelectElement>)` |                                                                                           | null      |
-| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                           | null      |
-| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                           | null      |
-| variant?      | 'default', 'inverse'                            |                                                                                           | 'default' |
-| element?      | `string`                                        | Overrides the default element name to apply unique styles with the Customization Provider | 'SELECT'  |
-
-#### Option props
-
-All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option">valid HTML attributes</Anchor> for `option` are supported including the following props:
-
-| Prop      | Type             | Description                                                                               | Default  |
-| --------- | ---------------- | ----------------------------------------------------------------------------------------- | -------- |
-| id        | string           | Sets the id of the input. Should match the htmlFor of `Label`. Required.                  | null     |
-| name      | string           | Sets the name of the select. Required.                                                    | null     |
-| value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required.      | null     |
-| disabled? | boolean          | Disables the input.                                                                       | false    |
-| element?  | `string`         | Overrides the default element name to apply unique styles with the Customization Provider | 'OPTION' |
-
-#### OptionGroup props
-
-All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup">valid HTML attributes</Anchor> for `optgroup` are supported including the following props:
-
-| Prop     | Type                           | Description                                                                               | Default        |
-| -------- | ------------------------------ | ----------------------------------------------------------------------------------------- | -------------- |
-| label    | string                         | Sets the label of the optgroup. Required.                                                 | null           |
-| children | `<NonNullable>React.ReactNode` | Must be `Option`. Required.                                                               | null           |
-| element? | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'OPTION_GROUP' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>
