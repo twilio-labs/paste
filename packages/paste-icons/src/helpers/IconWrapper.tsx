@@ -4,7 +4,7 @@ import type { IconSize } from "@twilio-paste/style-props";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface IconWrapperProps extends HTMLPasteProps<'span'> {
+export interface IconWrapperProps extends HTMLPasteProps<"span"> {
   /**
    * Sets the HTML element the IconWrapper renders as.
    *

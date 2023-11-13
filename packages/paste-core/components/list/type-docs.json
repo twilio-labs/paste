@@ -2084,13 +2084,6 @@
       "required": false,
       "externalProp": true
     },
-    "listStyleType": {
-      "type": "| ListStyleType\n  | (ListStyleType | null | undefined)[]\n  | {\n      [x: string]: ListStyleType | undefined\n      [x: number]: ListStyleType | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `list-style-type` property"
-    },
     "marginBottom": {
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",
       "defaultValue": null,
@@ -3703,13 +3696,6 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "listStyleType": {
-      "type": "| ListStyleType\n  | (ListStyleType | null | undefined)[]\n  | {\n      [x: string]: ListStyleType | undefined\n      [x: number]: ListStyleType | undefined\n    }",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": false,
-      "description": "Responsive style prop for the CSS `list-style-type` property"
     },
     "marginBottom": {
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 27 more ... | { ...; }",

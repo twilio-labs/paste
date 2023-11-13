@@ -3,7 +3,8 @@ import { Button } from "@twilio-paste/button";
 import type { ButtonProps } from "@twilio-paste/button";
 import * as React from "react";
 
-export interface SidebarHeaderIconButtonProps extends Omit<ButtonProps, "size" | "variant"> {
+export interface SidebarHeaderIconButtonProps
+  extends Omit<ButtonProps, "size" | "variant" | "i18nExternalLinkLabel" | "pressed"> {
   children: NonNullable<React.ReactNode>;
   /**
    * HTML element to render the button as.

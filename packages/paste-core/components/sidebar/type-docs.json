@@ -10079,13 +10079,6 @@
       "externalProp": false,
       "description": "The URL to navigate to if the button is rendered as an anchor element."
     },
-    "i18nExternalLinkLabel": {
-      "type": "string",
-      "defaultValue": "'(link takes you to an external page)'",
-      "required": false,
-      "externalProp": false,
-      "description": "Title for showExternal icon"
-    },
     "id": {
       "type": "string",
       "defaultValue": null,
@@ -11157,13 +11150,6 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "pressed": {
-      "type": "boolean",
-      "defaultValue": false,
-      "required": false,
-      "externalProp": false,
-      "description": "Sets the aria-pressed attribute. Must be used with 'secondary' or 'secondary_icon' variants."
     },
     "property": {
       "type": "string",
