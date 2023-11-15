@@ -464,21 +464,21 @@
     },
     "i18nMainContentSkipLinkText": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "Skip to content",
       "required": false,
       "externalProp": false,
       "description": "String used to change the text of the \"skip to content\" link"
     },
     "i18nNavigationSkipLinkText": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "Skip to navigation",
       "required": false,
       "externalProp": false,
       "description": "String used to change the text of the \"skip to navigation\" link"
     },
     "i18nTopbarSkipLinkText": {
       "type": "string",
-      "defaultValue": null,
+      "defaultValue": "Skip to topbar",
       "required": false,
       "externalProp": false,
       "description": "String used to change the text of the \"skip to topbar\" link"

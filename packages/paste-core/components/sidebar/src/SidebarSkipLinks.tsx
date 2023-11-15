@@ -67,7 +67,7 @@ export type SidebarSkipLinksProps = {
   /**
    * String used to change the text of the "skip to topbar" link
    *
-   *
+   * @default "Skip to topbar"
    * @type {string}
    */
   i18nTopbarSkipLinkText?: string;
