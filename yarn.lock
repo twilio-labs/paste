@@ -14405,7 +14405,7 @@ __metadata:
     micromark-extension-mdxjs: ^2.0.0
     minimist: ^1.2.8
     next: ^14.0.0
-    openai: ^4.10.0
+    openai: ^4.18.0
     openai-edge: ^1.2.2
     pretty-format: ^28.1.0
     prism-react-renderer: ^1.3.5
@@ -34081,9 +34081,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"openai@npm:^4.10.0":
-  version: 4.10.0
-  resolution: "openai@npm:4.10.0"
+"openai@npm:^4.18.0":
+  version: 4.18.0
+  resolution: "openai@npm:4.18.0"
   dependencies:
     "@types/node": ^18.11.18
     "@types/node-fetch": ^2.6.4
@@ -34093,9 +34093,10 @@ fsevents@^1.2.7:
     form-data-encoder: 1.7.2
     formdata-node: ^4.3.2
     node-fetch: ^2.6.7
+    web-streams-polyfill: ^3.2.1
   bin:
     openai: bin/cli
-  checksum: bdbf4d39f25a83c3ab551ce16d5d12b39217af4556bbf93c1c57f3eef9324e97098144de29e5b95d0b092a5f9e03efa8b05e15d96957c8a30a3aab916000f50b
+  checksum: 485193c566dab5f98515e7c74060ed4a81246f569a9502e049015992148ecd912c99deed187f613ea7f28a551bcad2a4ab0998e0ff8a95acae8f996484f15d62
   languageName: node
   linkType: hard
 
@@ -43179,7 +43180,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"web-streams-polyfill@npm:^3.0.3":
+"web-streams-polyfill@npm:^3.0.3, web-streams-polyfill@npm:^3.2.1":
   version: 3.2.1
   resolution: "web-streams-polyfill@npm:3.2.1"
   checksum: b119c78574b6d65935e35098c2afdcd752b84268e18746606af149e3c424e15621b6f1ff0b42b2676dc012fc4f0d313f964b41a4b5031e525faa03997457da02
