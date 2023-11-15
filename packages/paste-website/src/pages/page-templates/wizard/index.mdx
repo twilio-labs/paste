@@ -133,10 +133,8 @@ There may be cases where you need to show multiple tasks on the same page becaus
 
 #### Actions footer
 
-Use the [Form](/components/form) component to set spacing between form actions and form elements.
-
 Use these actions in the footer, starting from the right side of the page:
-- A primary, right-aligned next [Button](/components/button) to let a customer move to the next task. The Button is right-aligned to signal that the flow is moving forward. If there are more tasks, use the word “Next” followed by [ArrowForwardIcon](/components/icon). If the customer is on the last task, the Button should indicate they are finishing the goal. Don’t include the arrow icon.
+- A primary, right-aligned next [Button](/components/button) to let a customer move to the next task. The Button is right-aligned to signal that the flow is moving forward. If there are more tasks, use the word “Next” followed by [ArrowForwardIcon](/components/icon). If the customer is on the last task, the Button should indicate they are finishing the goal, and not include the arrow icon.
 - A secondary, right-aligned Button with the word “Cancel” if customers can’t save their progress, or “Close” if they can. Follow the [confirmation pattern](/patterns/confirmation) for guidance on how to ask a customer to confirm that they want to leave a Wizard or save their progress.
 - A secondary, left-aligned back Button. If there were previous tasks, use the [ArrowBackIcon](/components/icon) followed by the word “Back”. If there are no previous tasks, don’t show the Button.
 
@@ -180,7 +178,7 @@ Follow the [default Wizard template](#default-template).
 
 Follow the [default Wizard template](#default-template), but don’t include a close button in the footer.
 
-### Using Progress Steps
+### When to use Progress Steps
 
 Only use [Progress Steps](/components/progress-steps) when necessary. Some scenarios include when:
 
@@ -220,16 +218,6 @@ Center Progress Steps in the Topbar.
   code={WizardFullPageHeaderWithProgressStepsExample}
   height="150px"
 />
-
-## Starter kits
-
-#### CodeSandbox
-
-Coming soon
-
-#### Figma
-
-Add the “[Paste Patterns & Templates](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns-%26-Templates?type=design&node-id=367-27339&mode=design&t=dC1B5k0lVIB0JIuX-0)” library to your file.
 
 </content>
 

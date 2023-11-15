@@ -917,7 +917,7 @@ export const DefaultWizardExample = (): JSX.Element => {
             <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
           </ProgressSteps>
           <Box marginTop="space70">
-            <DetailText>Wizard title</DetailText>
+            <DetailText marginTop="space0">Wizard title</DetailText>
             <Heading as="h4" variant="heading10">
               Verb heading
             </Heading>
@@ -947,11 +947,13 @@ export const DefaultWizardExample = (): JSX.Element => {
             </FormControl>
           </Form>
         </Box>
-        <Box display="flex" justifyContent="end" columnGap="space40">
-          <Button variant="secondary">Cancel or Close</Button>
-          <Button variant="primary">
-            Next <ArrowForwardIcon decorative />
-          </Button>
+        <Box display="flex" justifyContent="end">
+          <ButtonGroup>
+            <Button variant="secondary">Cancel or Close</Button>
+            <Button variant="primary">
+              Next <ArrowForwardIcon decorative />
+            </Button>
+          </ButtonGroup>
         </Box>
       </Box>
     </Box>
@@ -992,7 +994,7 @@ export const DefaultWizardWithContentExample = (): JSX.Element => {
             maxWidth="size80"
           >
             <Box display="flex" flexDirection="column">
-              <DetailText>Add Reverse ETL destination</DetailText>
+              <DetailText marginTop="space0">Add Reverse ETL destination</DetailText>
               <Heading as="h4" variant="heading10" marginBottom="space0">
                 Set up destination
               </Heading>
@@ -1048,18 +1050,16 @@ export const DefaultWizardOrderedListExample = (): JSX.Element => {
       >
         <Box display="flex" flexDirection="column">
           <ProgressSteps>
-            <ProgressStepCurrent as="div">Label</ProgressStepCurrent>
+            <ProgressStepComplete as="div">Select warehouse type</ProgressStepComplete>
             <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+            <ProgressStepCurrent as="div">Connect warehouse</ProgressStepCurrent>
             <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+            <ProgressStepIncomplete as="div">Set sync schedule</ProgressStepIncomplete>
             <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+            <ProgressStepIncomplete as="div">Set selective sync</ProgressStepIncomplete>
           </ProgressSteps>
           <Box marginTop="space70">
-            <DetailText>Add warehouse</DetailText>
+            <DetailText marginTop="space0">Add warehouse</DetailText>
             <Heading as="h4" variant="heading10">
               Connect Azure SQL data warehouse
             </Heading>
@@ -1068,10 +1068,10 @@ export const DefaultWizardOrderedListExample = (): JSX.Element => {
             </Paragraph>
           </Box>
         </Box>
-        <Box display="flex" flexDirection="column" rowGap="space130">
+        <Box display="flex" flexDirection="column" rowGap="space130" role="list">
           <Form>
-            <Box display="flex">
-              <Box width="size10">
+            <Box display="flex" role="listitem">
+              <Box width="size10" flexShrink={0}>
                 <Text
                   as="span"
                   color="colorTextWeak"
@@ -1093,8 +1093,8 @@ export const DefaultWizardOrderedListExample = (): JSX.Element => {
                 </FormSection>
               </Box>
             </Box>
-            <Box display="flex">
-              <Box width="size10">
+            <Box display="flex" role="listitem">
+              <Box width="size10" flexShrink={0}>
                 <Text
                   as="span"
                   color="colorTextWeak"
@@ -1121,8 +1121,8 @@ export const DefaultWizardOrderedListExample = (): JSX.Element => {
                 </FormSection>
               </Box>
             </Box>
-            <Box display="flex">
-              <Box width="size10">
+            <Box display="flex" role="listitem">
+              <Box width="size10" flexShrink={0}>
                 <Text
                   as="span"
                   color="colorTextWeak"
@@ -1156,8 +1156,8 @@ export const DefaultWizardOrderedListExample = (): JSX.Element => {
                 </FormSection>
               </Box>
             </Box>
-            <Box display="flex">
-              <Box width="size10">
+            <Box display="flex" role="listitem">
+              <Box width="size10" flexShrink={0}>
                 <Text
                   as="span"
                   color="colorTextWeak"
@@ -1170,8 +1170,10 @@ export const DefaultWizardOrderedListExample = (): JSX.Element => {
               </Box>
               <Box width="100%">
                 <FormSection>
-                  <FormSectionHeading variant="heading30">Test connection</FormSectionHeading>
-                  <Box marginTop="space70">
+                  <FormSectionHeading variant="heading30" marginBottom="space0">
+                    Test connection
+                  </FormSectionHeading>
+                  <Box>
                     <Button variant="primary">Test warehouse connection</Button>
                   </Box>
                 </FormSection>
@@ -1336,7 +1338,7 @@ export const WizardDefaultHeaderWithProgressStepsExample = (): JSX.Element => {
             <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
           </ProgressSteps>
           <Box marginTop="space70">
-            <DetailText>Wizard title</DetailText>
+            <DetailText marginTop="space0">Wizard title</DetailText>
             <Heading as="h4" variant="heading10">
               Verb heading
             </Heading>
