@@ -53,17 +53,20 @@ export type SidebarSkipLinksProps = {
   /**
    * String used to change the text of the "skip to content" link
    *
+   * @default "Skip to content"
    * @type {string}
    */
   i18nMainContentSkipLinkText?: string;
   /**
    * String used to change the text of the "skip to navigation" link
    *
+   * @default "Skip to navigation"
    * @type {string}
    */
   i18nNavigationSkipLinkText?: string;
   /**
    * String used to change the text of the "skip to topbar" link
+   *
    *
    * @type {string}
    */

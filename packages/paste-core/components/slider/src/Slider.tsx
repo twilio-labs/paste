@@ -128,7 +128,7 @@ export interface SliderProps {
   i18nMinRangeLabel?: string;
 }
 
-export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
+export const Slider = React.forwardRef<HTMLInputElement, SliderProps>((props, ref) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const trackRef = React.useRef<HTMLDivElement>(null);
   const mergedInputRef = useMergeRefs(inputRef, ref) as React.RefObject<HTMLInputElement>;

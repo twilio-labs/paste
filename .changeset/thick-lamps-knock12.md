@@ -1,5 +1,5 @@
 ---
-"@twilio-paste/style-props": patch
+"@twilio-paste/separator": patch
 "@twilio-paste/core": patch
 ---
 

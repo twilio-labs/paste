@@ -1,5 +1,5 @@
 ---
-"@twilio-paste/style-props": patch
+"@twilio-paste/slider": patch
 "@twilio-paste/core": patch
 ---
 

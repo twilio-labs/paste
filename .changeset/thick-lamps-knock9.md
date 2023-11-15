@@ -1,5 +1,5 @@
 ---
-"@twilio-paste/style-props": patch
+"@twilio-paste/skeleton-loader": patch
 "@twilio-paste/core": patch
 ---
 

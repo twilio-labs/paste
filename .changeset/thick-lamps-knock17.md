@@ -1,5 +1,5 @@
 ---
-"@twilio-paste/style-props": patch
+"@twilio-paste/inline-control-group": patch
 "@twilio-paste/core": patch
 ---
 

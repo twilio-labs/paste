@@ -1,5 +1,5 @@
 ---
-"@twilio-paste/style-props": patch
+"@twilio-paste/screen-reader-only": patch
 "@twilio-paste/core": patch
 ---
 
