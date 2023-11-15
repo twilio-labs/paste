@@ -105,13 +105,13 @@ describe("CustomizationProvider", () => {
     render(
       <CustomizationProvider
         baseTheme="default"
-        elements={{ CARD: { backgroundColor: "colorBackground", variant: { padded: { padding: "space20" } } } }}
+        elements={{ CARD: { backgroundColor: "colorBackground", variants: { padded: { padding: "space20" } } } }}
       >
         <ThemeConsumerElementsExample />
       </CustomizationProvider>,
     );
     expect(screen.getByTestId("elements-test").textContent).toEqual(
-      'Elements: {"CARD":{"backgroundColor":"colorBackground","variant":{"padded":{"padding":"space20"}}}}',
+      'Elements: {"CARD":{"backgroundColor":"colorBackground","variants":{"padded":{"padding":"space20"}}}}',
     );
   });
 });

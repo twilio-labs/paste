@@ -60,11 +60,11 @@ export const Provider: StoryFn = (_args, { parameters: { isTestEnvironment } }) 
           fonts: { fontFamilyText: "cursive" },
         }}
         elements={{
-          CARD: {
+          BUTTON: {
             backgroundColor: "colorBackground",
-            variant: {
-              primary: {
-                backgroundColor: "colorBackgroundBody",
+            variants: {
+              destructive: {
+                backgroundColor: "colorBackgroundAvailable",
               },
             },
           },
