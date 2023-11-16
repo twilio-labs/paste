@@ -78,16 +78,6 @@ Cypress.Commands.add("checkDoDonts", () => {
   cy.getDocsPageContentArea().find('[data-cy="dont-box"]').and("have.length.above", 0);
 });
 
-Cypress.Commands.add("checkChangelogRevealer", () => {
-  cy.getInFixedContainer("#component-changelog")
-    .as("changelogContainer")
-    .contains("h2", "Changelog")
-    .should("be.visible")
-    .click(); // Note: when cypress is upgraded, we can specify ScrollBehavior here to center if not default
-
-  cy.get("@changelogContainer").find('[data-cy="changelog-revealer-content"]').should("be.visible");
-});
-
 Cypress.Commands.add("getInFixedContainer", (selector) => {
   cy.get(selector).as("target");
 

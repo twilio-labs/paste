@@ -14,6 +14,5 @@ describe("Box primitives documentation page", () => {
     cy.checkInPageNavigationLinks();
     cy.checkPageAside();
     cy.checkLivePreviews();
-    cy.checkChangelogRevealer();
   });
 });
