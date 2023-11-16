@@ -1,5 +1,48 @@
 # @twilio-paste/website
 
+## 2.23.40
+
+### Patch Changes
+
+- Updated dependencies [[`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`949df9e5e`](https://github.com/twilio-labs/paste/commit/949df9e5e3e7cfd8575ed8fdd39bcbe70530b531), [`3d5d1db5e`](https://github.com/twilio-labs/paste/commit/3d5d1db5e8eea37bcc6d296e4a349d08b0f75414), [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979), [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979), [`2c5f5935e`](https://github.com/twilio-labs/paste/commit/2c5f5935e71616bc8db59b4e5d41a725ec6bce60), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979), [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979), [`26577a21e`](https://github.com/twilio-labs/paste/commit/26577a21e015ce7c4ecdfc3a4ae97e4012e9cdde)]:
+  - @twilio-paste/list@8.1.2
+  - @twilio-paste/customization@8.1.1
+  - @twilio-paste/form@11.1.1
+  - @twilio-paste/tabs@8.2.0
+  - @twilio-paste/in-page-navigation@4.3.0
+  - @twilio-paste/topbar@1.2.0
+  - @twilio-paste/combobox-primitive@2.1.1
+  - @twilio-paste/disclosure-primitive@2.1.1
+  - @twilio-paste/listbox-primitive@3.0.1
+  - @twilio-paste/menu-primitive@2.1.1
+  - @twilio-paste/modal-dialog-primitive@2.0.1
+  - @twilio-paste/non-modal-dialog-primitive@2.0.2
+  - @twilio-paste/tabs-primitive@2.0.1
+  - @twilio-paste/tooltip-primitive@2.0.1
+  - @twilio-paste/data-grid@8.2.1
+  - @twilio-paste/style-props@9.1.1
+  - @twilio-paste/icons@12.2.1
+  - @twilio-paste/sidebar@1.1.1
+  - @twilio-paste/side-modal@4.1.1
+  - @twilio-paste/separator@8.1.1
+  - @twilio-paste/select@12.1.2
+  - @twilio-paste/screen-reader-only@13.1.1
+  - @twilio-paste/radio-group@13.1.1
+  - @twilio-paste/radio-button-group@4.1.1
+  - @twilio-paste/inline-control-group@13.0.2
+  - @twilio-paste/text@10.1.1
+  - @twilio-paste/sibling-box@9.1.1
+  - @twilio-paste/box@10.2.0
+  - @twilio-paste/switch@5.1.1
+  - @twilio-paste/status@2.1.1
+  - @twilio-paste/spinner@14.1.1
+  - @twilio-paste/slider@3.0.1
+  - @twilio-paste/skeleton-loader@6.1.1
+  - @twilio-paste/design-tokens@10.3.0
+  - @twilio-paste/heading@11.1.1
+  - @twilio-paste/account-switcher@3.0.1
+  - @twilio-paste/product-switcher@3.0.2
+
 ## 2.23.39
 
 ### Patch Changes

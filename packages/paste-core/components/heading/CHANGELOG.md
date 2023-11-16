@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.1.1
+
+### Patch Changes
+
+- [`26577a21e`](https://github.com/twilio-labs/paste/commit/26577a21e015ce7c4ecdfc3a4ae97e4012e9cdde) [#3576](https://github.com/twilio-labs/paste/pull/3576) Thanks [@serifluous](https://github.com/serifluous)! - Update bottom margin on H2 and H4 by one spacing token step
+
 ## 11.1.0
 
 ### Minor Changes

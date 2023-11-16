@@ -1,5 +1,14 @@
 # @twilio-paste/slider
 
+## 3.0.1
+
+### Patch Changes
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Improved TsDoc type annotations
+
+- Updated dependencies [[`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9)]:
+  - @twilio-paste/screen-reader-only@13.1.1
+
 ## 3.0.0
 
 ### Patch Changes

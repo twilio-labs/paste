@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/disclosure-primitive",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "category": "interaction",
   "status": "production",
   "description": "An accessible disclosure primitive for controlling the visibility of a content section.",

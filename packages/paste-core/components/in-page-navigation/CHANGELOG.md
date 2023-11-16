@@ -1,5 +1,11 @@
 # @twilio-paste/in-page-navigation
 
+## 4.3.0
+
+### Minor Changes
+
+- [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979) [#3579](https://github.com/twilio-labs/paste/pull/3579) Thanks [@nkrantz](https://github.com/nkrantz)! - [In Page Navigation] Add vertical styles and update horizontal styles. Updated horizontal styles include a bottom border. Adds a new prop `hideBottomBorder` for specific cases when the bottom border shouldn't be visible.
+
 ## 4.2.0
 
 ### Minor Changes

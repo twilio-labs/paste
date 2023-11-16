@@ -1,5 +1,13 @@
 # @twilio-paste/account-switcher
 
+## 3.0.1
+
+### Patch Changes
+
+- Updated dependencies [[`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9)]:
+  - @twilio-paste/screen-reader-only@13.1.1
+  - @twilio-paste/text@10.1.1
+
 ## 3.0.0
 
 ### Minor Changes
