@@ -5,7 +5,15 @@ import * as React from "react";
 
 import { SidebarContext } from "../SidebarContext";
 
-export type SidebarNavigationSeparatorProps = HTMLPasteProps<"hr"> & Pick<BoxProps, "element">;
+export type SidebarNavigationSeparatorProps = HTMLPasteProps<"hr"> & {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_NAVIGATION_SEPARATOR"
+   * @type {BoxProps["element"]}
+   */
+  element?: BoxProps["element"];
+};
 
 const SidebarNavigationSeparator = React.forwardRef<HTMLHRElement, SidebarNavigationSeparatorProps>(
   ({ element = "SIDEBAR_NAVIGATION_SEPARATOR", ...props }, ref) => {

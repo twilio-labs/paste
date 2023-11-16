@@ -17,10 +17,35 @@ import {
 } from "./styles";
 
 export interface SidebarNavigationItemProps extends HTMLPasteProps<"a"> {
+  /**
+   * String for the url to link to.
+   *
+   * @type {ButtonProps["href"]}
+   * @memberof SidebarNavigationItemProps
+   */
   href: ButtonProps["href"];
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_NAVIGATION_ITEM"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarNavigationItemProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Set to indicate this item matches to the current page the user is on
+   *
+   * @type {boolean}
+   * @memberof SidebarNavigationItemProps
+   */
   selected?: boolean;
+  /**
+   * Any product icons can be used here
+   *
+   * @type {React.ReactNode}
+   * @memberof SidebarNavigationItemProps
+   */
   icon?: React.ReactNode;
 }
 

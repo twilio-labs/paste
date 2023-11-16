@@ -48,9 +48,34 @@ const SidebarNavigationWrapper = styled.nav(({ theme }: { theme: ThemeShape }) =
 
 export interface SidebarNavigationProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
+  /**
+   * Accessible name for the navigation element, useful for application navigation using assistive technology
+   *
+   * @type {string}
+   * @memberof SidebarNavigationProps
+   */
   "aria-label": string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_NAVIGATION"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarNavigationProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Set whether you would like the navigation item to hide when in a collapsed sidebar
+   *
+   * @type {boolean}
+   * @memberof SidebarNavigationProps
+   */
   hideItemsOnCollapse?: boolean;
+  /**
+   * Set whether you are displaying an hierarchical navigation structure.
+   *
+   * @type {boolean}
+   * @memberof SidebarNavigationProps
+   */
   hierarchical?: boolean;
 }
 

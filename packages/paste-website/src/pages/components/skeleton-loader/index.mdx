@@ -5,7 +5,6 @@ export const meta = {
   slug: '/components/skeleton-loader/',
 };
 
-import Changelog from '@twilio-paste/skeleton-loader/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
@@ -31,10 +30,10 @@ import {
   TableExample,
 } from '../../../component-examples/SkeletonLoaderExamples';
 import packageJson from '@twilio-paste/skeleton-loader/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -46,24 +45,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/skeleton-loader',
+        storybookUrl: '/?path=/story/components-skeleton-loader--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/skeleton-loader"
-  storybookUrl="/?path=/story/components-skeleton-loader--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{SkeletonLoader}}>{`<SkeletonLoader />`}</LivePreview>
 
@@ -149,65 +139,3 @@ In order to simulate a paragraph's line spacing, you can use the [Stack componen
 <LivePreview scope={{Box, Button, SkeletonLoader, Text, Table, THead, TBody, Tr, Td, Th, Stack}} noInline>
   {TableExample}
 </LivePreview>
-
-## Anatomy
-
-### General
-
-| Property        | Default token         | Modifiable? |
-| --------------- | --------------------- | ----------- |
-| backgroundColor | colorBackgroundStrong | No          |
-| borderRadius    | borderRadius20        | Yes         |
-| height          | sizeIcon20            | Yes         |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/skeleton-loader - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {SkeletonLoader} from '@twilio-paste/core/skeleton-loader';
-import {Text} from '@twilio-paste/core/text';
-
-const SkeletonLoaderExample = () => {
-  const [loaded] = React.useState(false);
-
-  return <>{loaded ? <Text as="span">Single line of text</Text> : <SkeletonLoader width="100px" />}</>;
-};
-```
-
-#### Props
-
-| Prop                     | Type                                         | Description                                                                               | Default           |
-| ------------------------ | -------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------- |
-| display?                 | `ResponsiveValue<CSS.DisplayProperty>`       |                                                                                           |                   |
-| width?                   | `ResponsiveValue<WidthOptions>`              |                                                                                           |                   |
-| minWidth?                | `ResponsiveValue<MinWidthOptions>`           |                                                                                           |                   |
-| maxWidth?                | `ResponsiveValue<MaxWidthOptions>`           |                                                                                           |                   |
-| height?                  | `ResponsiveValue<HeightOptions>`             |                                                                                           | `sizeIcon20`      |
-| minHeight?               | `ResponsiveValue<MinHeightOptions>`          |                                                                                           |                   |
-| maxHeight?               | `ResponsiveValue<MaxHeightOptions>`          |                                                                                           |                   |
-| size?                    | `ResponsiveValue<WidthOptions>`              |                                                                                           |                   |
-| borderRadius?            | `ResponsiveValue<keyof ThemeShape['radii']>` |                                                                                           | `borderRadius20 ` |
-| borderTopLeftRadius?     | `ResponsiveValue<keyof ThemeShape['radii']>` |                                                                                           |                   |
-| borderTopRightRadius?    | `ResponsiveValue<keyof ThemeShape['radii']>` |                                                                                           |                   |
-| borderBottomRightRadius? | `ResponsiveValue<keyof ThemeShape['radii']>` |                                                                                           |                   |
-| borderBottomLeftRadius?  | `ResponsiveValue<keyof ThemeShape['radii']>` |                                                                                           |                   |
-| element?                 | `string`                                     | Overrides the default element name to apply unique styles with the Customization Provider | 'SKELETON_LOADER' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

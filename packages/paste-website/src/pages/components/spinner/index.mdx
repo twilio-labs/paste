@@ -8,15 +8,14 @@ export const meta = {
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Spinner} from '@twilio-paste/spinner';
-import Changelog from '@twilio-paste/spinner/CHANGELOG.md';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SiteLink} from '../../../components/SiteLink';
 import {SidebarCategoryRoutes} from '../../../constants';
 import packageJson from '@twilio-paste/spinner/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -28,24 +27,15 @@ export const getStaticProps = async () => {
         ...feature,
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/spinner',
+        storybookUrl: '/?path=/story/components-spinner--colors',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/spinner"
-  storybookUrl="/?path=/story/components-spinner--colors"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -128,63 +118,3 @@ The Spinner, like any other icon, can be re-colored to meet your needs. Set an `
 >
   {`<Spinner color="colorTextSuccess" decorative={false} title="Loading" />`}
 </LivePreview>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/spinner - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Spinner} from '@twilio-paste/core/spinner';
-
-const Component = () => {
-  return <Spinner decorative={false} title="Loading" />;
-};
-```
-
-#### Spinner Props
-
-##### `as?: keyof JSX.IntrinsicElements`
-
-Changes the sematic element of the spinner wrapper.
-
-##### `decorative?: boolean`
-
-Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not.
-
-##### `title?: string`
-
-The accessibility text that is read when screenreaders get to this component.
-
-##### `size?: IconSize`
-
-Used to change the size of the Spinner.
-
-##### `color?: TextColor`
-
-Sets the icon color to any of our text color tokens or currentColor, which inherits text color from the parent element.
-
-##### `delay?: number`
-
-Time delay in milliseconds of the animation.
-
-###### `element?: string`
-
-Overrides the default element name ('SPINNER') to apply unique styles with the Customization Provider
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

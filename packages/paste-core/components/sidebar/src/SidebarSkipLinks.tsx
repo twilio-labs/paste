@@ -32,11 +32,44 @@ SidebarSkipLinkContainer.displayName = "SkipLinkContainer";
 
 export type SidebarSkipLinksProps = {
   element?: string;
+  /**
+   * ID of the element that contains the main content of your application
+   *
+   * @type {string}
+   */
   mainContentSkipLinkID: string;
+  /**
+   * ID given to the `SidebarNavigation` component
+   *
+   * @type {string}
+   */
   sidebarNavigationSkipLinkID: string;
+  /**
+   * ID given to the `Topbar` component
+   *
+   * @type {string}
+   */
   topbarSkipLinkID: string;
+  /**
+   * String used to change the text of the "skip to content" link
+   *
+   * @default "Skip to content"
+   * @type {string}
+   */
   i18nMainContentSkipLinkText?: string;
+  /**
+   * String used to change the text of the "skip to navigation" link
+   *
+   * @default "Skip to navigation"
+   * @type {string}
+   */
   i18nNavigationSkipLinkText?: string;
+  /**
+   * String used to change the text of the "skip to topbar" link
+   *
+   * @default "Skip to topbar"
+   * @type {string}
+   */
   i18nTopbarSkipLinkText?: string;
 };
 export const SidebarSkipLinks: React.FC<SidebarSkipLinksProps> = ({

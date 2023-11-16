@@ -40,7 +40,6 @@ describe("generatePackageExportsMap", () => {
       DisclosurePrimitive: "@twilio-paste/core/disclosure-primitive",
       DisclosurePrimitiveContent: "@twilio-paste/core/disclosure-primitive",
       Stack: "@twilio-paste/core/stack",
-      StyledBox: "@twilio-paste/core/box",
       getCustomElementStyles: "@twilio-paste/core/box",
       safelySpreadBoxProps: "@twilio-paste/core/box",
       useComboboxPrimitive: "@twilio-paste/core/combobox-primitive",

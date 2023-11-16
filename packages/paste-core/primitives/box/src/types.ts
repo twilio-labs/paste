@@ -32,25 +32,103 @@ export interface BoxStyleProps extends BoxBaseStyleProps, BoxPseudoStyleProps {}
 
 // Omits potential clashes from our style props with HTMLAttributes (i.e.: color)
 export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>, keyof BoxBaseStyleProps> {
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   accept?: string;
+  /**
+   * Controls the HTML element that that will be rendered in the DOM.
+   *
+   * @type {keyof JSX.IntrinsicElements}
+   * @memberof BoxElementProps
+   */
   as?: keyof JSX.IntrinsicElements;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   type?: string;
-  // image props
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   alt?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   src?: string;
-  // link props
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   href?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   rel?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   target?: string;
-  //  select props
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   multiple?: boolean;
-  // optgroup props
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   label?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   datetime?: string;
-  /** element identifier for customization */
+  /**
+   * Used to set a custom element name for customization.
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   element?: string;
-  /** variant for variant styling */
+  /**
+   * Used to style custom variants via customization.
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   variant?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   disabled?: boolean;
 }
 

@@ -23,9 +23,35 @@ const getAnimationStates = (): any => ({
 });
 
 export interface SideModalProps extends HTMLPasteProps<"div"> {
+  /**
+   * Child components to render into the SideModal
+   *
+   * @type {React.ReactNode}
+   * @memberof SideModalProps
+   */
   children: React.ReactNode;
+  /**
+   * Title of the dialog for screen readers.
+   *
+   * @type {string}
+   * @memberof SideModalProps
+   */
   "aria-label": string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDE_MODAL"
+   * @type {BoxProps["element"]}
+   * @memberof SideModalProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Set to false to disable closing the SideModal when the "Escape" key is pressed.
+   *
+   * @default true
+   * @type {boolean}
+   * @memberof SideModalProps
+   */
   hideOnEsc?: boolean;
 }
 

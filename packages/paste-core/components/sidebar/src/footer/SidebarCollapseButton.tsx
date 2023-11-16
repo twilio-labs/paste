@@ -9,9 +9,33 @@ import * as React from "react";
 import { SidebarContext } from "../SidebarContext";
 
 export interface SidebarCollapseButtonProps extends HTMLPasteProps<"button"> {
+  /**
+   * A label for the collapse trigger for screenreader software.
+   *
+   * @type {string}
+   * @memberof SidebarCollapseButtonProps
+   */
   i18nCollapseLabel: string;
+  /**
+   * A label for the expand trigger for screenreader software.
+   *
+   * @type {string}
+   * @memberof SidebarCollapseButtonProps
+   */
   i18nExpandLabel: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_COLLAPSE_BUTTON"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarCollapseButtonProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Callback function to handle the click event
+   *
+   * @memberof SidebarCollapseButtonProps
+   */
   onClick?: () => void;
 }
 

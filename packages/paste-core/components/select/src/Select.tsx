@@ -7,14 +7,69 @@ import * as React from "react";
 import type { Element, Variants } from "./types";
 
 export interface SelectProps extends HTMLPasteProps<"select"> {
+  /**
+   * Must be `Option` or `OptionGroup`. Required.
+   *
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof SelectProps
+   */
   children: NonNullable<React.ReactNode>;
+  /**
+   * Sets the input to an error state.
+   *
+   * @type {boolean}
+   * @memberof SelectProps
+   */
   hasError?: boolean;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SELECT"
+   * @type {Element}
+   * @memberof SelectProps
+   */
   element?: Element;
+  /**
+   * Sets the id of the input. Should match the htmlFor of `Label`
+   *
+   * @type {string}
+   * @memberof SelectProps
+   */
   id?: string;
+  /**
+   * Add Suffix to the select input.
+   *
+   * @type {React.ReactNode}
+   * @memberof SelectProps
+   */
   insertAfter?: React.ReactNode;
+  /**
+   * Add Prefix to the select input.
+   *
+   * @type {React.ReactNode}
+   * @memberof SelectProps
+   */
   insertBefore?: React.ReactNode;
+  /**
+   * Callback function called when user selects an option.
+   *
+   * @memberof SelectProps
+   */
   onChange?: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  /**
+   * Sets the value of the select. Expects an array when `multiple` is present.
+   *
+   * @type {(string | string[])}
+   * @memberof SelectProps
+   */
   value?: string | string[];
+  /**
+   * Sets the visual style of the select.
+   *
+   * @default "default"
+   * @type {Variants}
+   * @memberof SelectProps
+   */
   variant?: Variants;
 }
 

@@ -3,8 +3,21 @@ import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-interface SideModalBodyProps extends HTMLPasteProps<"div"> {
+export interface SideModalBodyProps extends HTMLPasteProps<"div"> {
+  /**
+   * Child components to render into the SideModalBody
+   *
+   * @type {React.ReactNode}
+   * @memberof SideModalBodyProps
+   */
   children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDE_MODAL_BODY"
+   * @type {BoxProps["element"]}
+   * @memberof SideModalBodyProps
+   */
   element?: BoxProps["element"];
 }
 

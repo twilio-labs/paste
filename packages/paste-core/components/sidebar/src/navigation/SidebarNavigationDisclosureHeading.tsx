@@ -3,6 +3,7 @@ import type { BoxProps } from "@twilio-paste/box";
 import { DisclosurePrimitive } from "@twilio-paste/disclosure-primitive";
 import { ChevronDisclosureIcon } from "@twilio-paste/icons/esm/ChevronDisclosureIcon";
 import { useTheme } from "@twilio-paste/theme";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { SidebarContext } from "../SidebarContext";
@@ -13,10 +14,29 @@ import {
   sidebarNavigationLabelStyles,
 } from "./styles";
 
-export interface SidebarNavigationDisclosureHeadingProps extends React.ComponentPropsWithRef<"div"> {
+export interface SidebarNavigationDisclosureHeadingProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_NAVIGATION_DISCLOSURE_HEADING"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarNavigationDisclosureHeadingProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Set to make the Heading part of the selected page hierarchy
+   *
+   * @type {boolean}
+   * @memberof SidebarNavigationDisclosureHeadingProps
+   */
   selected?: boolean;
+  /**
+   * Icon to be displayed within the Heading
+   *
+   * @type {React.ReactNode}
+   * @memberof SidebarNavigationDisclosureHeadingProps
+   */
   icon?: React.ReactNode;
 }
 

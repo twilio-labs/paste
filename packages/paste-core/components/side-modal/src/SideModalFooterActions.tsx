@@ -6,8 +6,27 @@ import * as React from "react";
 type JustifyOptions = "flex-start" | "flex-end" | "space-between";
 
 export interface SideModalFooterActionsProps extends HTMLPasteProps<"div"> {
+  /**
+   * Child components to render into the SideModalFooterActions
+   *
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof SideModalFooterActionsProps
+   */
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDE_MODAL_FOOTER_ACTIONS"
+   * @type {BoxElementProps["element"]}
+   * @memberof SideModalFooterActionsProps
+   */
   element?: BoxElementProps["element"];
+  /**
+   * Sets the `justify-content` CSS property.
+   *
+   * @type {JustifyOptions}
+   * @memberof SideModalFooterActionsProps
+   */
   justifyContent?: JustifyOptions;
 }
 

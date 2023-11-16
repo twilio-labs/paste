@@ -9,8 +9,28 @@ import * as React from "react";
 import { SideModalContext } from "./SideModalContext";
 
 export interface SideModalHeaderProps extends HTMLPasteProps<"div"> {
+  /**
+   * Child components to render into the SideModalHeader
+   *
+   * @type {React.ReactNode}
+   * @memberof SideModalHeaderProps
+   */
   children?: React.ReactNode;
+  /**
+   * The dismiss button text label
+   *
+   * @default "close"
+   * @type {string}
+   * @memberof SideModalHeaderProps
+   */
   i18nDismissLabel?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDE_MODAL_HEADER"
+   * @type {BoxProps["element"]}
+   * @memberof SideModalHeaderProps
+   */
   element?: BoxProps["element"];
 }
 

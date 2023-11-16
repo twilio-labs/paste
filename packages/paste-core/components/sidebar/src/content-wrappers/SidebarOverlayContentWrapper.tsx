@@ -6,14 +6,35 @@ import * as React from "react";
 
 import type { Variants } from "../types";
 
-export interface SidebarOverlayContentWrapper extends HTMLPasteProps<"div"> {
+export interface SidebarOverlayContentWrapperProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_OVERLAY_CONTENT_WRAPPER"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarOverlayContentWrapperProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Whether the sidebar is collapsed / closed.
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof SidebarOverlayContentWrapperProps
+   */
   collapsed?: boolean;
+  /**
+   * Whether the sidebar should hide completely or collapse into a fixed width bar.
+   *
+   * @default "default"
+   * @type {Variants}
+   * @memberof SidebarOverlayContentWrapperProps
+   */
   variant?: Variants;
 }
 
-export const SidebarOverlayContentWrapper = React.forwardRef<HTMLDivElement, SidebarOverlayContentWrapper>(
+export const SidebarOverlayContentWrapper = React.forwardRef<HTMLDivElement, SidebarOverlayContentWrapperProps>(
   ({ variant = "default", element = "SIDEBAR_OVERLAY_CONTENT_WRAPPER", children, ...props }, ref) => {
     const { breakpointIndex } = useWindowSize();
     const isMobile = breakpointIndex === 0;

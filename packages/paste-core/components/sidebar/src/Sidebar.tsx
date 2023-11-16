@@ -65,8 +65,28 @@ const getMobileSpringConfig = (collapsed: boolean): any => ({
 
 export interface SidebarProps extends HTMLPasteProps<"div">, Omit<SidebarSkipLinksProps, "element"> {
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Whether the sidebar is collapsed / closed.
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof SidebarProps
+   */
   collapsed?: boolean;
+  /**
+   * Whether the sidebar should hide completely or collapse into a fixed width bar.
+   *
+   * @type {Variants}
+   * @memberof SidebarProps
+   */
   variant: Variants;
 }
 

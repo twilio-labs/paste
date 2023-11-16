@@ -10,6 +10,18 @@ export type BoxShadow = ResponsiveValue<BoxShadowOptions>;
 
 // Styled-system grouping
 export interface ShadowProps {
+  /**
+   * Responsive prop of BoxShadow tokens for the CSS `box-shadow` property
+   *
+   * @type {BoxShadow}
+   * @memberof ShadowProps
+   */
   boxShadow?: BoxShadow;
+  /**
+   * Style prop for the CSS `text-shadow` property
+   *
+   * @type {StyleReset}
+   * @memberof ShadowProps
+   */
   textShadow?: StyleReset;
 }

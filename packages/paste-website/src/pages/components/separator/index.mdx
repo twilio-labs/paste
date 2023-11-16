@@ -10,14 +10,13 @@ import { Separator } from "@twilio-paste/separator";
 import { Text } from "@twilio-paste/text";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Box } from "@twilio-paste/box";
-import Changelog from "@twilio-paste/separator/CHANGELOG.md";
 import { DoDont, Do, Dont } from "../../../components/DoDont";
 import { SidebarCategoryRoutes } from "../../../constants";
 import packageJson from "@twilio-paste/separator/package.json";
-import DefaultLayout from "../../../layouts/DefaultLayout";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
 import { getFeature, getNavigationData } from "../../../utils/api";
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
@@ -28,25 +27,16 @@ export const getStaticProps = async () => {
         ...packageJson,
         ...feature,
       },
+      mdxHeadings,
       navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/separator',
+        storybookUrl: '/?path=/story/components-separator--horizontal',
+      }
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/separator"
-  storybookUrl="/?path=/story/components-separator--horizontal"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview scope={{ Box, Separator }} language="jsx">
   {`<Box backgroundColor="colorBackgroundBody" padding="space50">
@@ -144,42 +134,3 @@ A Separator can also be used as an element inside components. For example, it ca
     preview={false}
   />
 </DoDont>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/separator - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import { Separator } from "@twilio-paste/core/separator";
-
-const Component = () => <Separator orientation="horizontal" />;
-```
-
-#### Separator props
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-| Prop               | Type                       | Description                                                                               | Default     |
-| ------------------ | -------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| orientation?       | 'horizontal', 'vertical'   | Separator direction                                                                       |             |
-| horizontalSpacing? | `ResponsiveValue<Spacing>` | Space left and right of the separator                                                     |             |
-| verticalSpacing?   | `ResponsiveValue<Spacing>` | Space top and bottom of the separator                                                     |             |
-| element?           | `string`                   | Overrides the default element name to apply unique styles with the Customization Provider | 'SEPARATOR' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,0 +1,56 @@
+export const meta = {
+  title: "Separator - Components - API",
+  package: "@twilio-paste/separator",
+  description:
+    "The Separator component can be used to create visual and semantic separation between UI elements or sections.",
+  slug: "/components/separator/api",
+};
+
+import Changelog from '@twilio-paste/separator/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/separator/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Separator');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/separator');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/separator',
+        storybookUrl: '/?path=/story/components-separator--horizontal',
+      }
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/separator - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import { Separator } from "@twilio-paste/core/separator";
+
+const Component = () => <Separator orientation="horizontal" />;
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

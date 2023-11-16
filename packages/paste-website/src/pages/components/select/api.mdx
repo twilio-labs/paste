@@ -1,0 +1,62 @@
+export const meta = {
+  title: 'Select - Components - API',
+  package: '@twilio-paste/select',
+  description: 'A select allows users to select an option from a list in a form field.',
+  slug: '/components/select/api',
+};
+
+import Changelog from '@twilio-paste/select/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/select/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Select');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/select');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/select',
+        storybookUrl: '/?path=/story/components-select--default-select',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/select
+```
+
+## Usage
+
+```jsx
+import {Select, Option} from '@twilio-paste/core/select';
+import {Label} from '@twilio-paste/core/label';
+import {HelpText} from '@twilio-paste/core/help-text';
+
+<Label htmlFor="foo" required>Foo</Label>
+<Select id="foo" name="foo" onChange={FOO} required>
+  <Option value="foo-bar">Foo Bar</Option>
+  <Option value="bar-foo">Bar Foo</Option>
+</Select>
+<HelpText variant="default">Select one</HelpText>
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

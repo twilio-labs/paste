@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Skeleton Loader - Components - Changelog',
+  description:
+    'A component that gives users a hint of what type of information will be loaded on a page and helps reduce the perceived time a page takes to load.',
+  slug: '/components/skeleton-loader/changelog',
+};
+
+import Changelog from '@twilio-paste/skeleton-loader/CHANGELOG.md';
+import packageJson from '@twilio-paste/skeleton-loader/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Skeleton Loader');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/skeleton-loader',
+        storybookUrl: '/?path=/story/components-skeleton-loader--default',
+      },
+    },
+  };
+};
+
+<Changelog />

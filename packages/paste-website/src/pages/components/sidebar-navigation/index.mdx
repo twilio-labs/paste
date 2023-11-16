@@ -46,47 +46,36 @@ import {
   SidebarNavigationSeparator,
   useSidebarNavigationDisclosureState,
 } from '@twilio-paste/sidebar';
-import Changelog from '@twilio-paste/sidebar/CHANGELOG.md';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import packageJson from '@twilio-paste/sidebar/package.json';
-import DefaultLayout from '../../../layouts/DefaultLayout';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
 import {navigationActions, navigationStateHook} from '../../../component-examples/SidebarNavigationExamples.ts';
 
-export default DefaultLayout;
+export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Sidebar');
+  const feature = await getFeature('Sidebar Navigation');
   return {
     props: {
       data: {
         ...packageJson,
         ...feature,
+        nameOverride: 'Sidebar Navigation',
+        descriptionOverride: "Sidebar Navigation controls both flat and hierarchical navigation structures within an application's sidebar."
       },
       navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar',
+        storybookUrl: '/?path=/story/components-sidebar-navigation--default',
+      },
     },
   };
 };
-
-<NormalizedComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar"
-  storybookUrl="?path=/story/components-sidebar-navigation--default"
-  description={meta.description}
-  data={props.data}
-  name="Sidebar Navigation"
-  description="Sidebar Navigation controls both flat and hierarchical navigation structures within an application's sidebar."
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={mdxHeadings} />
-
-<content>
 
 <LivePreview
   scope={{
@@ -669,201 +658,4 @@ For more information on using the disclosure state hook, refer to the [Disclosur
   {navigationStateHook}
 </LivePreview>
 
-## Usage Guide
 
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/sidebar - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  Sidebar,
-  SidebarOverlayContentWrapper,
-  SidebarBody,
-  SidebarHeader,
-  SidebarHeaderLabel,
-  SidebarHeaderIconButton,
-  SidebarFooter,
-  SidebarCollapseButton,
-  SidebarNavigation,
-  SidebarNavigationItem,
-  SidebarNavigationDisclosure,
-  SidebarNavigationDisclosureHeading,
-  SidebarNavigationDisclosureHeadingWrapper,
-  SidebarNavigationDisclosureContent,
-} from '@twilio-paste/core/sidebar';
-
-const SideModalExample: React.FC = () => {
-  const [overlaySidebarExpanded, setOverlaySidebarExpanded] = React.useState(true);
-  return (
-    <Box>
-      <Sidebar
-        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
-        topbarSkipLinkID={topbarSkipLinkID}
-        mainContentSkipLinkID={mainContentSkipLinkID}
-        collapsed={overlaySidebarExpanded}
-        variant="compact"
-      >
-        <SidebarHeader>
-          <SidebarHeaderIconButton as="a" href="#">
-            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
-          </SidebarHeaderIconButton>
-          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
-        </SidebarHeader>
-        <SidebarBody>
-          <SidebarNavigation aria-label="Main navigation">
-            <SidebarNavigationItem
-              href="https://google.com"
-              selected
-              icon={<ProductContactCenterAdminIcon decorative={false} title="Admin" />}
-            >
-              Admin
-            </SidebarNavigationItem>
-            <SidebarNavigationItem
-              href="https://google.com"
-              icon={<ProductContactCenterTasksIcon decorative={false} title="Agent dashboard" />}
-            >
-              Agent dashboard
-            </SidebarNavigationItem>
-            <SidebarNavigationItem
-              href="https://google.com"
-              icon={<ProductContactCenterTeamsIcon decorative={false} title="Teams view" />}
-            >
-              Teams view
-            </SidebarNavigationItem>
-            <SidebarNavigationItem
-              href="https://google.com"
-              icon={<ProductContactCenterQueuesIcon decorative={false} title="Queue stats" />}
-            >
-              Queue stats
-            </SidebarNavigationItem>
-            <SidebarNavigationItem
-              href="https://google.com"
-              icon={<ProductPrivacyIcon decorative={false} title="Privacy" />}
-            >
-              Privacy
-            </SidebarNavigationItem>
-            <SidebarNavigationItem
-              href="https://google.com"
-              icon={<ProductUsageIcon decorative={false} title="Insights" />}
-            >
-              Insights
-            </SidebarNavigationItem>
-          </SidebarNavigation>
-        </SidebarBody>
-        <SidebarFooter>
-          <SidebarCollapseButton
-            onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}
-            i18nCollapseLabel="Close sidebar"
-            i18nExpandLabel="Open sidebar"
-          />
-        </SidebarFooter>
-      </Sidebar>
-
-      <SidebarOverlayContentWrapper collapsed={overlaySidebarExpanded} variant="compact">
-        <Box padding="space70" id={mainContentSkipLinkID}>
-          <Button variant="primary" onClick={() => setOverlaySidebarExpanded(!overlaySidebarExpanded)}>
-            Toggle Overlay Sidebar
-          </Button>
-        </Box>
-      </SidebarOverlayContentWrapper>
-    </Box>
-  );
-};
-```
-
-#### Props
-
-##### SidebarNavigation
-
-| Prop                   | Type              | Description                                                                                              | Default                |
-| ---------------------- | ----------------- | -------------------------------------------------------------------------------------------------------- | ---------------------- |
-| `element?`             | `string`          | Overrides the default element name to apply unique styles with the Customization Provider                | `'SIDEBAR_NAVIGATION'` |
-| `children?`            | `React.ReactNode` |                                                                                                          |                        |
-| `aria-label`           | `string`          | Accessible name for the navigation element, useful for application navigation using assistive technology |                        |
-| `hideItemsOnCollapse?` | `boolean`         | Set whether you would like the navigation item to hide when in a collapsed sidebar                       |                        |
-| `hierarchical?`        | `boolean`         | Set whether you are displaying an hierarchical navigation structure.                                     |                        |
-
-##### SidebarNavigationItem
-
-| Prop        | Type              | Description                                                                               | Default                     |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | --------------------------- |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_ITEM'` |
-| `children?` | `React.ReactNode` |                                                                                           |                             |
-| `href`      | `string`          | String for the url to link to.                                                            |                             |
-| `selected`  | `boolean`         | Set to indicate this item matches to the current page the user is on                      |                             |
-| `icon`      | `React.ReactNode` | Any product icons can be used here                                                        |                             |
-
-##### SidebarNavigationDisclosure
-
-| Prop        | Type              | Description                                                                                                             | Default                           |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider                               | `'SIDEBAR_NAVIGATION_DISCLOSURE'` |
-| `children?` | `React.ReactNode` |                                                                                                                         |                                   |
-| `baseId?`   | `string`          | Base ID string to base subsequent, dynamic IDs on                                                                       |                                   |
-| `visible?`  | `boolean`         | Set the initial visibility of the Disclosure                                                                            | `false`                           |
-| `state?`    | `object`          | Ability to control the disclosure by passing in the returned values from the `useSidebarNavigationDisclosureState` hook |                                   |
-
-##### SidebarNavigationDisclosureHeadingWrapper
-
-| Prop        | Type              | Description                                                                               | Default                                           |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------- |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING_WRAPPER'` |
-| `children?` | `React.ReactNode` |                                                                                           |                                                   |
-
-##### SidebarNavigationDisclosureHeading
-
-| Prop         | Type              | Description                                                                               | Default                                   |
-| ------------ | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------- |
-| `element?`   | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_DISCLOSURE_HEADING'` |
-| `children?`  | `React.ReactNode` |                                                                                           |                                           |
-| `disabled?`  | `boolean`         | Set to disable the ability to expand the Navigation section                               |                                           |
-| `focusable?` | `boolean`         | Set to control the focusability of the Navigation Heading                                 |                                           |
-| `selected?`  | `boolean`         | Set to make the Heading part of the selected page hierarchy                               |                                           |
-| `icon?`      | `React.ReactNode` | Icon to be displayed within the Heading                                                   |                                           |
-
-##### SidebarNavigationDisclosureContent
-
-| Prop        | Type              | Description                                                                               | Default                                   |
-| ----------- | ----------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------- |
-| `element?`  | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_DISCLOSURE_CONTENT'` |
-| `children?` | `React.ReactNode` |                                                                                           |                                           |
-
-##### SidebarNavigationSeparator
-
-| Prop       | Type     | Description                                                                               | Default                          |
-| ---------- | -------- | ----------------------------------------------------------------------------------------- | -------------------------------- |
-| `element?` | `string` | Overrides the default element name to apply unique styles with the Customization Provider | `'SIDEBAR_NAVIGATION_SEPARATOR'` |
-
-##### useSidebarNavigationDisclosureState
-
-Pass these as part of an object to the hook.
-
-| Prop       | Type      | Description                                                   | Default |
-| ---------- | --------- | ------------------------------------------------------------- | ------- |
-| `baseId?`  | `string`  | Set to create a base ID that all dynamic IDs will be based on |         |
-| `visible?` | `boolean` | Set the initial visibility of the Disclosure                  |         |
-
-##### useSidebarNavigationDisclosureState Return props
-
-These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
-
-| Prop       | Type         | Description                                         | Default |
-| ---------- | ------------ | --------------------------------------------------- | ------- |
-| `baseId?`  | `string`     | ID that will serve as a base for all the items IDs. |         |
-| `visible?` | `boolean`    | Whether it's visible or not                         |         |
-| `toggle?`  | `() => void` | Toggles the visible state                           |         |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

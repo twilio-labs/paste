@@ -1,0 +1,60 @@
+export const meta = {
+  title: 'Skeleton Loader - Components - API',
+  description:
+    'A component that gives users a hint of what type of information will be loaded on a page and helps reduce the perceived time a page takes to load.',
+  slug: '/components/skeleton-loader/api',
+};
+
+import Changelog from '@twilio-paste/skeleton-loader/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/skeleton-loader/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Skeleton Loader');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/skeleton-loader');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/skeleton-loader',
+        storybookUrl: '/?path=/story/components-skeleton-loader--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/skeleton-loader - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {SkeletonLoader} from '@twilio-paste/core/skeleton-loader';
+import {Text} from '@twilio-paste/core/text';
+
+const SkeletonLoaderExample = () => {
+  const [loaded] = React.useState(false);
+
+  return <>{loaded ? <Text as="span">Single line of text</Text> : <SkeletonLoader width="100px" />}</>;
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

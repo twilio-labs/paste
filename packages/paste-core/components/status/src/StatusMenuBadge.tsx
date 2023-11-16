@@ -6,6 +6,20 @@ import { StatusBadge } from "./StatusBadge";
 import type { StatusBadgeProps } from "./StatusBadge";
 
 export interface StatusMenuBadgeProps extends Omit<MenuBadgeProps, "variant"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "STATUS_MENU_BADGE"
+   * @type {MenuBadgeProps["element"]}
+   * @memberof StatusMenuBadgeProps
+   */
+  element?: MenuBadgeProps["element"];
+  /**
+   * Sets the display style of the Status Menu Badge
+   *
+   * @type {StatusBadgeProps["variant"]}
+   * @memberof StatusMenuBadgeProps
+   */
   variant: StatusBadgeProps["variant"];
 }
 

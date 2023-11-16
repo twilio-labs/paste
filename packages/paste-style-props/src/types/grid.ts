@@ -30,13 +30,67 @@ export type GridTemplateAreas = ResponsiveValue<GridTemplateAreasOptions>;
 export type GridArea = ResponsiveValue<GridAreaOptions>;
 
 export interface GridProps {
+  /**
+   * Responsive prop for the CSS `gridRow` property
+   *
+   * @type {GridRow}
+   * @memberof GridProps
+   */
   gridRow?: GridRow;
+  /**
+   * Responsive prop for the CSS `gridColumn` property
+   *
+   * @type {GridColumn}
+   * @memberof GridProps
+   */
   gridColumn?: GridColumn;
+  /**
+   * Responsive prop for the CSS `gridAutoFlow` property
+   *
+   * @type {GridAutoFlow}
+   * @memberof GridProps
+   */
   gridAutoFlow?: GridAutoFlow;
+  /**
+   * Responsive prop for the CSS `gridAutoColumns` property
+   *
+   * @type {GridAutoColumns}
+   * @memberof GridProps
+   */
   gridAutoColumns?: GridAutoColumns;
+  /**
+   * Responsive prop for the CSS `gridAutoRows` property
+   *
+   * @type {GridAutoRows}
+   * @memberof GridProps
+   */
   gridAutoRows?: GridAutoRows;
+  /**
+   * Responsive prop for the CSS `gridTemplateColumns` property
+   *
+   * @type {GridTemplateColumns}
+   * @memberof GridProps
+   */
   gridTemplateColumns?: GridTemplateColumns;
+  /**
+   * Responsive prop for the CSS `gridTemplateRows` property
+   *
+   * @type {GridTemplateRows}
+   * @memberof GridProps
+   */
   gridTemplateRows?: GridTemplateRows;
+  /**
+   * Responsive prop for the CSS `gridTemplateAreas` property
+   *
+   * @type {GridTemplateAreas}
+   * @memberof GridProps
+   */
   gridTemplateAreas?: GridTemplateAreas;
+  /**
+   * Responsive prop for the CSS `gridArea` property
+   *
+   * @type {GridArea}
+   * @memberof GridProps
+   */
   gridArea?: GridArea;
 }

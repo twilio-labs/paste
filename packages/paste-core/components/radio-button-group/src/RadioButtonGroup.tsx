@@ -7,11 +7,50 @@ import * as React from "react";
 import { RadioButtonContext } from "./RadioButtonContext";
 import { AttachedRadioButtonGroupWrapper, UnattachedRadioButtonGroupWrapper } from "./StyledRadioButtonGroupWrapper";
 
-export interface RadioButtonGroupProps extends InlineControlGroupProps {
+export interface RadioButtonGroupProps extends Omit<InlineControlGroupProps, "fieldStyleProps"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "RADIO_BUTTON_GROUP"
+   * @type {InlineControlGroupProps["element"]}
+   * @memberof RadioButtonGroupProps
+   */
+  element?: InlineControlGroupProps["element"];
+  /**
+   * Name for the Radio Button Group
+   *
+   * @type {string}
+   * @memberof RadioButtonGroupProps
+   */
   name: string;
+  /**
+   * Pass a function for the onChange handler
+   *
+   * @memberof RadioButtonGroupProps
+   */
   onChange?: (value: string) => void;
+  /**
+   * Value for the Radio Button Group
+   *
+   * @type {string}
+   * @memberof RadioButtonGroupProps
+   */
   value?: string;
+  /**
+   * Overrides the default string marking the group as required
+   *
+   * @default "(required)"
+   * @type {string}
+   * @memberof RadioButtonGroupProps
+   */
   i18nRequiredLabel?: string;
+  /**
+   * If the group of buttons are visually attached
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof RadioButtonGroupProps
+   */
   attached?: boolean;
 }
 

@@ -44,6 +44,6 @@ export type ListItemProps = HTMLPasteProps<"li"> & {
   element?: TextProps["element"];
 };
 
-export type OrderedListProps = Omit<BaseListProps, "as">;
+export type OrderedListProps = Omit<BaseListProps, "as" | "listStyleType">;
 
-export type UnorderedListProps = Omit<BaseListProps, "as">;
+export type UnorderedListProps = Omit<BaseListProps, "as" | "listStyleType">;

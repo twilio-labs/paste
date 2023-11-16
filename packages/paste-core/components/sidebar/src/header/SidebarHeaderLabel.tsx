@@ -7,6 +7,13 @@ import { SidebarContext } from "../SidebarContext";
 
 export interface SidebarHeaderLabelProps extends HTMLPasteProps<"div"> {
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_HEADER_LABEL"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarHeaderLabelProps
+   */
   element?: BoxProps["element"];
 }
 

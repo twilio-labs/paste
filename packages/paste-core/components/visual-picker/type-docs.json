@@ -439,7 +439,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Group disabled"
     },
     "draggable": {
       "type": "Booleanish",
@@ -1562,7 +1563,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Group required"
     },
     "resource": {
       "type": "string",
@@ -2106,7 +2108,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Radio Button disabled"
     },
     "draggable": {
       "type": "Booleanish",
@@ -2167,7 +2170,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Adds an error state to the Radio Button"
     },
     "height": {
       "type": "string | number",
@@ -2185,7 +2189,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "ID for the Radio Button"
     },
     "inlist": {
       "type": "any",
@@ -2289,7 +2294,8 @@
       "type": "string",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Name for the Radio Button Group"
     },
     "nonce": {
       "type": "string",
@@ -3853,7 +3859,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Group disabled"
     },
     "draggable": {
       "type": "Booleanish",
@@ -4976,7 +4983,8 @@
       "type": "boolean",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Make the Group required"
     },
     "resource": {
       "type": "string",

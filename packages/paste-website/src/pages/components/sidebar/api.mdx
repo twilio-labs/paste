@@ -1,0 +1,109 @@
+export const meta = {
+  title: 'Sidebar Container - API',
+  package: '@twilio-paste/sidebar',
+  description: 'Sidebar contains navigation controls that rest on the left side of the screen.',
+  slug: '/components/sidebar/api',
+};
+
+import Changelog from '@twilio-paste/sidebar/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/sidebar/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Sidebar');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/sidebar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar',
+        storybookUrl: '/?path=/story/components-sidebar-sidebar-push--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/sidebar - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  Sidebar,
+  SidebarHeader,
+  SidebarHeaderLabel,
+  SidebarHeaderIconButton,
+  SidebarCollapseButton,
+  SidebarBody,
+  SidebarFooter,
+  SidebarPushContentWrapper,
+  SidebarOverlayContentWrapper,
+} from '@twilio-paste/core/sidebar';
+
+const SideModalExample: React.FC = () => {
+  const [pushSidebarCollapsed, setPushSidebarCollapsed] = React.useState(false);
+  const sidebarNavigationSkipLinkID = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
+
+  return (
+    <Box>
+      {/* Can be placed anywhere - position fixed */}
+      <Sidebar
+        sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+        topbarSkipLinkID={topbarSkipLinkID}
+        mainContentSkipLinkID={mainContentSkipLinkID}
+        collapsed={pushSidebarCollapsed}
+        variant="default"
+      >
+        <SidebarHeader>
+          <SidebarHeaderIconButton as="a" href="/">
+            <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex product homepage" />
+          </SidebarHeaderIconButton>
+          <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+        </SidebarHeader>
+        <SidebarBody>
+          <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+        </SidebarBody>
+        <SidebarFooter>
+          <SidebarCollapseButton
+            onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+            i18nCollapseLabel="Close sidebar"
+            i18nExpandLabel="Open sidebar"
+          />
+        </SidebarFooter>
+      </Sidebar>
+
+      {/* Must wrap content area */}
+      <SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="default">
+        <main id={mainContentSkipLinkID}>
+          <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+            Toggle Push Sidebar
+          </Button>
+        </main>
+      </SidebarPushContentWrapper>
+    </Box>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

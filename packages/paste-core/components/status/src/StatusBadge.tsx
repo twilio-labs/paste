@@ -8,6 +8,18 @@ import type { StatusBadgeVariants } from "./types";
 
 export type StatusBadgeProps = Omit<BadgeBaseProps, "variant"> &
   BadgeSpanProps & {
+    /**
+     * Overrides the default element name to apply unique styles with the Customization Provider
+     *
+     * @default "STATUS_BADGE"
+     * @type {BadgeBaseProps["element"]}
+     */
+    element?: BadgeBaseProps["element"];
+    /**
+     * Sets the display style of the Status Badge
+     *
+     * @type {StatusBadgeVariants}
+     */
     variant: StatusBadgeVariants;
   };
 

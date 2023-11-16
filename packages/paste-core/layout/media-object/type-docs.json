@@ -352,7 +352,8 @@
       "type": "keyof IntrinsicElements",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Controls the HTML element that that will be rendered in the DOM."
     },
     "autoCapitalize": {
       "type": "string",
@@ -505,13 +506,15 @@
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 28 more ... | \"auto\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `margin-bottom` property"
     },
     "marginTop": {
       "type": "\"space0\" | \"space10\" | \"space20\" | \"space30\" | \"space40\" | \"space50\" | \"space60\" | \"space70\" | \"space80\" | \"space90\" | \"space100\" | \"space110\" | \"space120\" | \"space130\" | \"space140\" | ... 28 more ... | \"auto\"",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Responsive prop of Space tokens for the CSS `margin-top` property"
     },
     "nonce": {
       "type": "string",
@@ -1966,7 +1969,8 @@
       "type": "keyof IntrinsicElements",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Controls the HTML element that that will be rendered in the DOM."
     },
     "autoCapitalize": {
       "type": "string",
@@ -3562,7 +3566,8 @@
       "type": "keyof IntrinsicElements",
       "defaultValue": null,
       "required": false,
-      "externalProp": false
+      "externalProp": false,
+      "description": "Controls the HTML element that that will be rendered in the DOM."
     },
     "autoCapitalize": {
       "type": "string",

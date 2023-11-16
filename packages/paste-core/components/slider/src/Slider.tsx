@@ -10,30 +10,125 @@ import { SliderTrack } from "./SliderTrack";
 const DefaultNumberFormatter = new Intl.NumberFormat("en-US");
 
 export interface SliderProps {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SLIDER"
+   * @type {BoxProps["element"]}
+   * @memberof SliderProps
+   */
   element?: BoxProps["element"];
+  /**
+   * Must provide an id to match with a label
+   *
+   * @type {string}
+   * @memberof SliderProps
+   */
   id: string;
+  /**
+   * Optional id to pair the input to its help text
+   *
+   * @type {string}
+   * @memberof SliderProps
+   */
   "aria-describedby"?: string;
+  /**
+   * Optional id to pair the input to its label text (if not using a regular label with `htmlFor`)
+   *
+   * @type {string}
+   * @memberof SliderProps
+   */
   "aria-labelledby"?: string;
+  /**
+   * Disables the slider
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof SliderProps
+   */
   disabled?: boolean;
+  /**
+   * Shows error styling on the Slider
+   *
+   * @type {boolean}
+   * @memberof SliderProps
+   */
   hasError?: boolean;
+  /**
+   * Hides the min and max values that appear over the slider
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof SliderProps
+   */
   hideRangeLabels?: boolean;
+  /**
+   * The smallest number in the slider range
+   *
+   * @default 1
+   * @type {number}
+   * @memberof SliderProps
+   */
   minValue?: number;
+  /**
+   * The largest number in the slider range
+   *
+   * @default 100
+   * @type {number}
+   * @memberof SliderProps
+   */
   maxValue?: number;
+  /**
+   * The incremented value as you drag along the range
+   *
+   * @type {number}
+   * @memberof SliderProps
+   */
   step?: number;
   /**
    * Used to adjust how the numbers are rendered and interpreted.
-   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat \
+   * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat
    */
   numberFormatter?: Intl.NumberFormat;
+  /**
+   * The current selected value
+   *
+   * @default 1
+   * @type {number}
+   * @memberof SliderProps
+   */
   value?: number;
+  /**
+   * Fired on every change as the thumb is dragged along the track.
+   *
+   * @memberof SliderProps
+   */
   onChange?: (value: number) => void;
-  /** Fired when the slider stops moving, due to being let go. */
+  /**
+   * Fired at the end of the dragging event once.
+   *
+   * @memberof SliderProps
+   */
   onChangeEnd?: (value: number) => void;
+  /**
+   * Used to internationlize the max range label.
+   *
+   * @default "Maximum value:"
+   * @type {string}
+   * @memberof SliderProps
+   */
   i18nMaxRangeLabel?: string;
+  /**
+   * Used to internationlize the min range label.
+   *
+   * @default "Minimum value:"
+   * @type {string}
+   * @memberof SliderProps
+   */
   i18nMinRangeLabel?: string;
 }
 
-export const Slider = React.forwardRef<HTMLDivElement, SliderProps>((props, ref) => {
+export const Slider = React.forwardRef<HTMLInputElement, SliderProps>((props, ref) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
   const trackRef = React.useRef<HTMLDivElement>(null);
   const mergedInputRef = useMergeRefs(inputRef, ref) as React.RefObject<HTMLInputElement>;

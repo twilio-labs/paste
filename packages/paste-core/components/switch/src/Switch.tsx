@@ -13,12 +13,44 @@ import { SwitchContext } from "./SwitchContext";
 import { SwitchKnob } from "./SwitchKnob";
 import { SWITCH_HEIGHT, SWITCH_KNOB_SIZE, SWITCH_WIDTH } from "./constants";
 
-export interface SwitchProps extends HTMLPasteProps<"input">, Pick<BoxProps, "element"> {
+export interface SwitchProps extends HTMLPasteProps<"input"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SWITCH"
+   * @type {BoxProps["element"]}
+   * @memberof SwitchProps
+   */
+  element?: BoxProps["element"];
   children: NonNullable<React.ReactNode>;
+  /**
+   * Sets the switch into an error state
+   *
+   * @type {boolean}
+   * @memberof SwitchProps
+   */
   hasError?: boolean;
+  /**
+   * Display additional text to help guide the user
+   *
+   * @type {string}
+   * @memberof SwitchProps
+   */
   helpText?: string | React.ReactNode;
   id?: string;
+  /**
+   * Sets the checked property on the Switch
+   *
+   * @type {boolean}
+   * @memberof SwitchProps
+   */
   checked?: boolean;
+  /**
+   * Sets checked state on initial render when uncontrolled
+   *
+   * @type {boolean}
+   * @memberof SwitchProps
+   */
   defaultChecked?: boolean;
 }
 
