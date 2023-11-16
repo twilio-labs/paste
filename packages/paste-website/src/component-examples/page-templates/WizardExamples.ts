@@ -117,10 +117,10 @@ export const DefaultWizardWithContentExample = `
             <ArrowBackIcon decorative />
             Back
           </Button>
-          <Box display="flex" columnGap="space40">
+          <ButtonGroup>
             <Button variant="secondary">Cancel or Close</Button>
             <Button variant="primary">Create destination</Button>
-          </Box>
+          </ButtonGroup>
         </Box>
       </Box>
     </Box>
@@ -313,12 +313,12 @@ export const WizardFooterOptionsExample = `
         <ArrowBackIcon decorative />
         Back
       </Button>
-      <Box display="flex" columnGap="space40">
+      <ButtonGroup>
         <Button variant="secondary">Cancel or close</Button>
         <Button variant="primary">
           Next <ArrowForwardIcon decorative />
         </Button>
-      </Box>
+      </ButtonGroup>
     </Box>
   </Box>
   <Box>
@@ -369,11 +369,13 @@ export const WizardFullPageExample = `
           BigQuery
         </VisualPickerRadio>
       </VisualPickerRadioGroup>
-      <Box display="flex" flexDirection="row" justifyContent="flex-end" columnGap="space40">
-        <Button variant="secondary">Cancel or close</Button>
-        <Button variant="primary">
-          Next <ArrowForwardIcon decorative />
-        </Button>
+      <Box display="flex" justifyContent="flex-end">
+        <ButtonGroup>
+          <Button variant="secondary">Cancel or close</Button>
+          <Button variant="primary">
+            Next <ArrowForwardIcon decorative />
+          </Button>
+        </ButtonGroup>
       </Box>
     </Box>
   </Box>
