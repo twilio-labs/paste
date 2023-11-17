@@ -212,7 +212,7 @@
     "react-router-dom": "6.2.1",
     "search-in-file": "^1.2.2",
     "shelljs": "^0.8.5",
-    "start-server-and-test": "^1.15.2",
+    "start-server-and-test": "^2.0.3",
     "storybook": "7.2.0",
     "terser": "^5.14.2",
     "theo": "^8.1.5",
