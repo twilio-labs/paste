@@ -36,39 +36,59 @@ export const getStaticProps = async () => {
 
 <content>
 
-## Access to Figma
+## For Twilio customers
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h2">This section is for Twilio customers only!</CalloutHeading>
+  <CalloutText>
+    If you're a Twilio employee, check out the section below this for guidelines on how to work within Twilio's Figma organization.
+  </CalloutText>
+</Callout>
+
+Welcome to Paste! To get started using Paste's Figma library:
+1. Download and install [Twilio Sans Mono](https://github.com/twilio/twilio-sans-mono), Twilio's open-source monospace typeface.
+2. Add the [Twilio Paste Components](https://www.figma.com/community/file/1207476064127503112/twilio-paste-components) library from the Figma Community to your Figma team.
+3. Once the library is added, swap all missing fonts to the Inter typeface, which is provided by default through Figma. [Learn more about managing missing fonts.](https://help.figma.com/hc/en-us/articles/360039956994-Manage-missing-fonts)
+4. You'll most likely be using the `default` theme, which means you'll have to [open the Variables modal](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables#Create_a_mode), and right-click to delete all existing modes until only the "Default" one is left.
+5. From here, publish your library and explore [Paste's components](/components). If you run into issues, reach out to us on [Github Discussions](https://github.com/twilio-labs/paste/discussions/new/choose). We're excited to see what you build!
+
+---
+
+## For Twilions
+
+### Access to Figma
 
 As a Twilio Designer, you have access to Figma. Join the Twilio organization by requesting an
 account through [ServiceNow](https://twilio.service-now.com/sp/). When you have access to Figma, you can learn more by reviewing our [Working with Figma guide](https://www.figma.com/file/WiJFrYa9YpIcFUmT06gTn0/Working-with-Figma).
 
 ---
 
-## Using libraries
+### Using libraries
 
-### How to turn on libraries
+#### How to turn on libraries
 
 Paste libraries are turned on by default in Figma. If you want to control libraries per file, go to the “Assets” tab on a file, where you can also drag components into your file. Click the book icon in the upper corner. From the modal, you can turn libraries on and off. [Learn more about managing libraries](https://help.figma.com/hc/en-us/articles/1500008731201-Manage-libraries-in-design-files).
 
-### Main libraries
+#### Main libraries
 
 The following are the main libraries we recommend you have enabled for each Figma file. Any time a library is updated, you’ll get a notification in your project asking if you’d like to update.
 
-#### Paste libraries
+##### Paste libraries
 
-- [Paste Components](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BWIP%5D-Paste-Components?node-id=3015%3A46646&t=2Fe524au9O9rlWZU-1) includes the latest components, design tokens (color, text, shadows, spacing, and sizing) in twilio, twilio-dark, default, and evergreen themes. Also [available as a Figma Community file](https://www.figma.com/community/file/1207476064127503112/Twilio-Paste-Components).
+- [Paste Components](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BWIP%5D-Paste-Components?node-id=3015%3A46646&t=2Fe524au9O9rlWZU-1) includes the latest components, design tokens (color, text, shadows, spacing, and sizing) in twilio, twilio-dark, default, and evergreen themes.
 - [Paste Patterns & Templates](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns-%26-Templates?type=design&mode=design&t=1bbtpztf0NFxL6kb-0)
-- [Brand Illustrations](https://www.figma.com/file/XeA9WNBcoojrdJbiz5Nj5q/Brand-Illustrations) includes illustrations for empty states, marketing highlights, etc
 - [Asset Documentation](https://www.figma.com/file/GfY11A2VW638eFK48nDtdE/Asset-Documentation) includes helpful utilities for marking up designs, like sticky notes and cursors
 
-#### Twilio community libraries
+##### Twilio community libraries
 
+- [Web Spot Image Repository](https://www.figma.com/file/tr1bGht8drBOMaeX5EpJ7m/Web-Spot-Image-Repository?type=design&node-id=479%3A27278&mode=design&t=dS8B9jWHFRrIBduc-1) includes illustrations for empty states, marketing highlights, and more, managed by the Web team.
 - [Console Library](https://www.figma.com/file/vvdKgsO8OLcn7Q6FmuhWtl/Console-Library) for teams with Console projects, managed by the Console team.
 - [Segment Design Library](https://www.figma.com/file/4tOxLhDIMO2MYvF925RQKc/Segment-Design-Library?type=design&mode=design&t=UNWt1yAShGOocSFf-0) for teams with Segment projects, managed by the Segment team.
 - [File and Cover Sheet Template](https://www.figma.com/file/RfZYRjUH56rZ0qe0veqRJA/File-and-Cover-Sheet-Template)
 
 ---
 
-## Library updates
+### Library updates
 
 We release library updates continuously and use Figma’s version history to keep track.
 
@@ -81,35 +101,28 @@ We demarcate changes with hints which you can see in the description of each upd
 
 ---
 
-## Fonts
+### Fonts
 
 Fonts in Paste are preloaded into Figma so you don't need to download or install any font files.
 
 <Callout variant="warning" marginY="space70">
-  <CalloutHeading as="h2">A special note on Twilio Sans</CalloutHeading>
+  <CalloutHeading as="h2">Are you a Twilio customer?</CalloutHeading>
   <CalloutText>
-    Only Twilio applications are licensed to use Twilio Sans. If you are not building an application for Twilio, please
-    use the default and dark themes which use an open source font called <Anchor href="https://rsms.me/inter/" showExternal>Inter</Anchor>.
+    Only Twilio applications are licensed to use Twilio Sans Text and Twilio Sans Display. If you are not building an application for Twilio, use the default and dark themes which use the open-source typeface <Anchor href="https://rsms.me/inter/" showExternal>Inter</Anchor>.
   </CalloutText>
 </Callout>
 
-### Twilio Sans Text
+#### Twilio Sans Text
 
 Twilio Sans Text is used for UI text.
 
-### Twilio Sans Display
+#### Twilio Sans Display
 
 Twilio Sans Display for headlines.
 
-### Twilio Sans Mono
+#### Twilio Sans Mono
 
-[Twilio Sans Mono](https://github.com/twilio/twilio-sans-mono) is an extensive open source programming font.
-
----
-
-## Additional questions or concerns
-
-If you have any questions for us that weren’t covered by this guide, or you are running into problems using our design resources, please [reach out](/introduction/working-with-us)!
+[Twilio Sans Mono](https://github.com/twilio/twilio-sans-mono) is an extensive open-source monospace typeface for programming experiences.
 
 </content>
 
