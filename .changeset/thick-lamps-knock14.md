@@ -3,4 +3,4 @@
 "@twilio-paste/core": patch
 ---
 
-Improved TsDoc type annotations
+[Screen reader only] Improved TsDoc type annotations

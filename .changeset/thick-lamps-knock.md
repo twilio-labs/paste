@@ -3,4 +3,4 @@
 "@twilio-paste/core": patch
 ---
 
-Improved TsDoc type annotations
+[Style-props] Improved TsDoc type annotations

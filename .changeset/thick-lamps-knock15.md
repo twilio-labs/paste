@@ -3,4 +3,4 @@
 "@twilio-paste/core": patch
 ---
 
-Improved TsDoc type annotations
+[Radio group] Improved TsDoc type annotations
