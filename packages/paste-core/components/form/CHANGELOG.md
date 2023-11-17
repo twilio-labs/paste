@@ -1,5 +1,11 @@
 # @twilio-paste/form
 
+## 11.1.1
+
+### Patch Changes
+
+- [`3d5d1db5e`](https://github.com/twilio-labs/paste/commit/3d5d1db5e8eea37bcc6d296e4a349d08b0f75414) [#3601](https://github.com/twilio-labs/paste/pull/3601) Thanks [@nkrantz](https://github.com/nkrantz)! - [Form] Change color of FormSectionDescription from color-text-weak to color-text
+
 ## 11.1.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.1.1
+
+### Patch Changes
+
+- [`949df9e5e`](https://github.com/twilio-labs/paste/commit/949df9e5e3e7cfd8575ed8fdd39bcbe70530b531) [#3612](https://github.com/twilio-labs/paste/pull/3612) Thanks [@nkrantz](https://github.com/nkrantz)! - [Customization] Minor change to customization tests to reflect updated prop change from 'variant' to 'variants' on CustomizationProvider.
+
 ## 8.1.0
 
 ### Minor Changes

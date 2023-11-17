@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.2
+
+### Patch Changes
+
+- [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037) [#3618](https://github.com/twilio-labs/paste/pull/3618) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Non-modal dialog primitive] Updated dev depenedencies to include typescript and tsx for running build scripts
+
 ## 2.0.1
 
 ### Patch Changes

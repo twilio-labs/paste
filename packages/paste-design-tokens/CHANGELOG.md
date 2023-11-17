@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.3.0
+
+### Minor Changes
+
+- [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979) [#3579](https://github.com/twilio-labs/paste/pull/3579) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Add three new box shadow tokens, shadow-border-top-primary, shadow-border-top-inverse-strongest, and shadow-border-top-primary-strongest for use in the tabs package. Add new background color, color-background-inverse-strongest.
+
 ## 10.2.0
 
 ### Minor Changes
