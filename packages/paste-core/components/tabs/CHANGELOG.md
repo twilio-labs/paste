@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.2.0
+
+### Minor Changes
+
+- [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979) [#3579](https://github.com/twilio-labs/paste/pull/3579) Thanks [@nkrantz](https://github.com/nkrantz)! - [Tabs] Update styles of vertical and horizontal tabs, add new variants full_width and inverse_full_width which do the same thing as fitted tabs, but are more appropriately named.
+
 ## 8.1.1
 
 ### Patch Changes

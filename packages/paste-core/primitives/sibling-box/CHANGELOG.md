@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.1.1
+
+### Patch Changes
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sibling Box] Improved TsDoc type annotations
+
 ## 9.1.0
 
 ### Minor Changes

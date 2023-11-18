@@ -1,5 +1,11 @@
 # @twilio-paste/topbar
 
+## 1.2.0
+
+### Minor Changes
+
+- [`2c5f5935e`](https://github.com/twilio-labs/paste/commit/2c5f5935e71616bc8db59b4e5d41a725ec6bce60) [#3584](https://github.com/twilio-labs/paste/pull/3584) Thanks [@nkrantz](https://github.com/nkrantz)! - [Topbar] Add third value to `justify` prop type on TopbarActions, "center", allowing actions within the topbar to be center justified. For use with ProgressSteps in the Wizard flow.
+
 ## 1.1.1
 
 ### Patch Changes

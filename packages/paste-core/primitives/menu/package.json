@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/menu-primitive",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "category": "interaction",
   "status": "production",
   "description": "An unstyled and accessible basis upon which to build Menus.",
