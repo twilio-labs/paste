@@ -1,0 +1,14 @@
+{
+  "extends": ["config:base", "group:allNonMajor", "schedule:earlyMondays"],
+  "draftPR": true,
+  "packageRules": [
+    {
+      "matchPackagePatterns": ["*"],
+      "rangeStrategy": "update-lockfile"
+    },
+    {
+      "matchPackageNames": ["@mdx-js/mdx", "@mdx-js/react", "@types/webpack", "webpack"],
+      "enabled": false
+    }
+  ]
+}
