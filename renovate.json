@@ -1,5 +1,6 @@
 {
   "extends": ["config:base", "group:allNonMajor", "schedule:earlyMondays"],
+  "draftPR": true,
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
