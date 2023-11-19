@@ -1,1 +1,1 @@
-export * from '@twilio-paste/uid-library';
+export * from "@twilio-paste/uid-library";

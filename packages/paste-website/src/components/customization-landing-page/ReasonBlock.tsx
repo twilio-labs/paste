@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Text} from '@twilio-paste/text';
-import {Anchor} from '@twilio-paste/anchor';
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
 export type ReasonBlockProps = {
   icon: React.ReactNode;
@@ -13,7 +13,7 @@ export type ReasonBlockProps = {
   href: string;
   linkText: string;
 };
-export const ReasonBlock: React.FC<ReasonBlockProps> = ({
+export const ReasonBlock: React.FC<React.PropsWithChildren<ReasonBlockProps>> = ({
   icon,
   headingText,
   subHeadingText,
@@ -22,7 +22,7 @@ export const ReasonBlock: React.FC<ReasonBlockProps> = ({
   linkText,
 }) => {
   return (
-    <Box marginBottom={['space0', 'space160']}>
+    <Box marginBottom={["space0", "space160"]}>
       <Box marginBottom="space30">{icon}</Box>
       <Heading as="h3" marginBottom="space0" variant="heading40">
         {headingText}

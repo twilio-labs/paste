@@ -1,7 +1,5 @@
-import uniq from 'lodash/uniq';
-
-// Traditional import as the color package isn't exported and typed correctly
-const Color = require('color');
+import Color from "color";
+import uniq from "lodash/uniq";
 
 interface ColorObject {
   color: number[];
@@ -28,12 +26,12 @@ export interface ColorCombinationTypes {
 }
 
 export interface ColorCombosTypes {
+  [key: number]: ColorCombosTypes;
   color?: number[];
   combinations: ColorCombinationTypes[];
   hex: string;
   model?: string;
   valpha?: number;
-  [key: number]: ColorCombosTypes;
 }
 
 interface Options {
@@ -43,13 +41,13 @@ interface Options {
 }
 
 const ColorCombos = (
-  colors: string[] | {[name: string]: string},
-  options: Options = {}
+  colors: string[] | { [name: string]: string },
+  options: Options = {},
 ): ColorCombosTypes[] | false => {
   let arr: ColorObject[] = [];
   let results: ColorCombosTypes[] = [];
 
-  const MINIMUMS: {aa: number; aaLarge: number; aaa: number; aaaLarge: number} = {
+  const MINIMUMS: { aa: number; aaLarge: number; aaa: number; aaaLarge: number } = {
     aa: 4.5,
     aaLarge: 3,
     aaa: 7,
@@ -65,7 +63,9 @@ const ColorCombos = (
   const combinedOptions = Object.assign<Options, Options>(DEFAULT_OPTIONS, options);
 
   if (!Array.isArray(colors)) {
-    if (typeof colors === 'object') {
+    if (typeof colors === "object") {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       arr = Object.keys(colors).map((key) => {
         if (Object.prototype.hasOwnProperty.call(colors, key)) {
           return Color(colors[key]);
@@ -77,7 +77,8 @@ const ColorCombos = (
         arr = uniq(arr);
       }
     } else {
-      console.error('Must provide an array or object');
+      // eslint-disable-next-line no-console
+      console.error("Must provide an array or object");
       return false;
     }
   } else {
@@ -86,7 +87,9 @@ const ColorCombos = (
       uniqueColors = uniq(colors);
     }
 
-    if (uniqueColors != null) {
+    if (uniqueColors !== null) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       arr = uniqueColors.map((color) => Color(color));
     }
   }
@@ -94,14 +97,14 @@ const ColorCombos = (
   results = arr.map((color): ColorCombosTypes => {
     const result: ColorCombosTypes = combinedOptions.compact
       ? {
-          hex: '',
+          hex: "",
           combinations: [],
         }
       : {
           color: color.color,
           model: color.model,
           valpha: color.valpha,
-          hex: '',
+          hex: "",
           combinations: [],
         };
 
@@ -111,20 +114,20 @@ const ColorCombos = (
       .filter((bg): boolean => color !== bg)
       .filter((bg): boolean => {
         if (combinedOptions.threshold != null) {
-          return color.contrast(bg) > combinedOptions.threshold;
+          return color.contrast(bg) > combinedOptions?.threshold;
         }
         return true;
       })
       .map((bg): ColorCombinationTypes => {
         let combination: ColorCombinationTypes = combinedOptions.compact
           ? {
-              accessibility: {aa: false, aaLarge: false, aaa: false, aaaLarge: false},
-              hex: '',
+              accessibility: { aa: false, aaLarge: false, aaa: false, aaaLarge: false },
+              hex: "",
               contrast: 0,
             }
           : {
-              accessibility: {aa: false, aaLarge: false, aaa: false, aaaLarge: false},
-              hex: '',
+              accessibility: { aa: false, aaLarge: false, aaa: false, aaaLarge: false },
+              hex: "",
               contrast: 0,
               color: bg.color,
               model: bg.model,

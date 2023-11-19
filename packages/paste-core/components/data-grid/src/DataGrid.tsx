@@ -1,22 +1,38 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {useUID} from '@twilio-paste/uid-library';
-import {useCompositeState, Composite} from '@twilio-paste/reakit-library';
-import {Table} from '@twilio-paste/table';
-import type {TableProps} from '@twilio-paste/table';
-import {DataGridContext} from './DataGridContext';
+import { Composite, useCompositeState } from "@twilio-paste/reakit-library";
+import { Table } from "@twilio-paste/table";
+import type { TableProps } from "@twilio-paste/table";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { DataGridContext } from "./DataGridContext";
 import {
+  delayedSetFocusable,
   ensureFocus,
   getActiveElement,
-  getFirstFocusableIn,
   getClosestCellFrom,
   getClosestGridCellFromCurrentFocus,
+  getFirstFocusableIn,
   isCell,
-  delayedSetFocusable,
-} from './utils';
+} from "./utils";
 
 export interface DataGridProps extends TableProps {
-  'aria-label': string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID'
+   * @type {TableProps['element']}
+   * @memberof DataGridProps
+   */
+  element?: TableProps["element"];
+  "aria-label": string;
+  /**
+   * If creating a treegrid, set this to "treegrid" to override the default role of "grid"
+   *
+   * @default "grid"
+   * @type {"treegrid"}
+   * @memberof DataGridProps
+   */
+  role?: "treegrid";
 }
 
 /**
@@ -27,10 +43,10 @@ export interface DataGridProps extends TableProps {
  * @param {string} element - customization element
  */
 export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
-  ({element = 'DATA_GRID', striped = false, ...props}, ref) => {
+  ({ element = "DATA_GRID", role = "grid", striped = false, ...props }, ref) => {
     const dataGridId = `data-grid-${useUID()}`;
     const lastFocusedElement = React.useRef<Element | null>(null);
-    const compositeState = useCompositeState({unstable_virtual: false});
+    const compositeState = useCompositeState({ unstable_virtual: false });
     const [actionable, setActionable] = React.useState<boolean>(false);
 
     /**
@@ -55,7 +71,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
      * - Sets the last focused element before blurring to be the active tab stop (line 43)
      */
     const handleBlur = React.useCallback(
-      (event) => {
+      (event: any) => {
         const isDataGridBlurred = !event.currentTarget.contains(event.relatedTarget);
 
         if (isDataGridBlurred) {
@@ -64,14 +80,16 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
           if (lastFocusedElement.current != null) {
             const closestCell = getClosestCellFrom(lastFocusedElement.current, dataGridId);
             if (closestCell) {
-              // TabIndex isn't resetting to 0 on escape. This makes it reset to 0 after a delay
-              // Race condition fix vs Composite code
+              /*
+               * TabIndex isn't resetting to 0 on escape. This makes it reset to 0 after a delay
+               * Race condition fix vs Composite code
+               */
               delayedSetFocusable(closestCell);
             }
           }
         }
       },
-      [dataGridId]
+      [dataGridId],
     );
 
     /**
@@ -80,28 +98,30 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
     const handleKeypress = React.useCallback(
       (event: React.KeyboardEvent) => {
         switch (event.key) {
-          // Wrapping cases in {} to avoid ESLint error
-          // https://eslint.org/docs/rules/no-case-declarations
-          case 'Enter': {
+          /*
+           * Wrapping cases in {} to avoid ESLint error
+           * https://eslint.org/docs/rules/no-case-declarations
+           */
+          case "Enter": {
             // Set the actionable state
             setActionable(true);
 
-            const activeElement = getActiveElement() as HTMLElement;
+            const activeElement = getActiveElement();
             // Only if it's a DataGrid cell
-            if (isCell(activeElement)) {
+            if (activeElement && isCell(activeElement)) {
               // Get the first focusable child
               const firstFocusableElement = getFirstFocusableIn(activeElement);
 
               // If there is a focusable child focus it
               if (firstFocusableElement) {
-                ensureFocus(firstFocusableElement as HTMLElement);
+                ensureFocus(firstFocusableElement);
                 // First shift+tab fix upon entering actionable mode
                 activeElement.tabIndex = actionable ? 0 : -1;
               }
             }
             break;
           }
-          case 'Escape': {
+          case "Escape": {
             // Set the actionable state
             setActionable(false);
             // From the current focus target, find the closest parent cell
@@ -118,7 +138,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
             break;
         }
       },
-      [actionable, dataGridId]
+      [actionable, dataGridId],
     );
 
     const dataGridState = {
@@ -136,7 +156,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
           ref={ref}
           as={Table}
           element={element}
-          role="grid"
+          role={role}
           onKeyDown={handleKeypress}
           onMouseDown={handleMouseDown}
           onFocus={handleFocus}
@@ -146,11 +166,7 @@ export const DataGrid = React.forwardRef<HTMLTableElement, DataGridProps>(
         />
       </DataGridContext.Provider>
     );
-  }
+  },
 );
 
-DataGrid.displayName = 'DataGrid';
-DataGrid.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  element: PropTypes.string,
-};
+DataGrid.displayName = "DataGrid";

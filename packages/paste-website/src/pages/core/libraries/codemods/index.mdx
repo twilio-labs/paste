@@ -1,43 +1,42 @@
----
-title: Codemods
-description: A collection of jscodeshift codemods to help update projects built with Paste.
-slug: /core/libraries/codemods/
----
+export const meta = {
+  title: 'Codemods',
+  package: '@twilio-paste/codemods',
+  description: 'A collection of codemods for maintaining projects built with Paste.',
+  slug: '/core/libraries/codemods/',
+};
 
-import {graphql} from 'gatsby';
-import PackageJSON from '@twilio-paste/codemods/package.json';
 import {SidebarCategoryRoutes} from '../../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {getNavigationData} from '../../../../utils/api';
+import packageJson from '@twilio-paste/codemods/package.json';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/core/libraries/codemods/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<ComponentHeader
-  name="Codemods"
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      data: {
+        ...packageJson,
+      },
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader
+  name={meta.title}
   categoryRoute={SidebarCategoryRoutes.LIBRARIES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-codemods"
-  packageName={PackageJSON.name}
-  version={PackageJSON.version}
-  description={PackageJSON.description}
+  packageName={props.data.name}
+  version={props.data.version}
+  description={props.data.description}
 />
 
 ---
 
 <contentwrapper>
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 <content>
 
 ## About
@@ -73,7 +72,7 @@ This will start an interactive wizard, and then run the specified transform.
 
 Converts old-style core imports to the new unbarreled style. (i.e.: `import {Button} from '@twilio-paste/core'` becomes `import {Button} from '@twilio-paste/core/button'`)
 
-```sh
+```bash
 npx @twilio-paste/codemods barreled-to-unbarreled <path>
 ```
 
@@ -81,7 +80,7 @@ npx @twilio-paste/codemods barreled-to-unbarreled <path>
 
 To pass more options directly to jscodeshift, use `--jscodeshift="..."`. For example:
 
-```sh
+```bash
 npx @twilio-paste/codemods --jscodeshift="--run-in-band --verbose=2"
 ```
 
@@ -92,7 +91,7 @@ See [all available jscodeshift options](https://github.com/facebook/jscodeshift#
 Options to [recast](https://github.com/benjamn/recast)'s printer can be provided
 through jscodeshift's `printOptions` command line argument
 
-```sh
+```bash
 npx @twilio-paste/codemods <transform> <path> --jscodeshift="--printOptions='{\"quote\":\"double\"}'"
 ```
 

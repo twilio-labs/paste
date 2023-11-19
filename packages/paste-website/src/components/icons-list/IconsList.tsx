@@ -1,38 +1,38 @@
-import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import debounce from 'lodash/debounce';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {Composite, useCompositeState} from '@twilio-paste/reakit-library';
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Label} from '@twilio-paste/label';
-import {Input} from '@twilio-paste/input';
-import {Heading} from '@twilio-paste/heading';
-import {Card} from '@twilio-paste/card';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Anchor} from '@twilio-paste/anchor';
-import type {IconObject, IconComponent, IconsListProps, GroupedList} from './types';
-import {IconCard} from './IconCard';
-import {SiteLink} from '../SiteLink';
-import {IconListItem} from './IconListItem';
-import {STICKY_COLUMN_OFFSET} from '../../constants';
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { Column, Grid } from "@twilio-paste/grid";
+import { Heading } from "@twilio-paste/heading";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { ListItem, UnorderedList } from "@twilio-paste/list";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Composite, useCompositeState } from "@twilio-paste/reakit-library";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import debounce from "lodash/debounce";
+import * as React from "react";
 
-const iconsJson = require('@twilio-paste/icons/json/icons.json');
+import { event } from "../../lib/gtag";
+import { SiteLink } from "../SiteLink";
+import { IconCard } from "./IconCard";
+import { IconListItem } from "./IconListItem";
+import type { GroupedList, IconComponent, IconObject, IconsListProps } from "./types";
 
-const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, {name}: IconObject) => {
+const { icons: iconsJson } = require("@twilio-paste/icons/json/icons.json");
+
+const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, { name }: IconObject) => {
   return {
     ...icons,
-    // eslint-disable-next-line import/no-dynamic-require,global-require
+    // eslint-disable-next-line import/no-dynamic-require,global-require, @typescript-eslint/no-var-requires
     [`${name}`]: require(`@twilio-paste/icons/esm/${name}.js`)[name],
   };
 }, {});
 
-const getGroupedList = (icons: IconsListProps['icons']): GroupedList =>
+const getGroupedList = (icons: IconsListProps["icons"]): GroupedList =>
   icons.reduce(
     (prev: GroupedList, current): GroupedList => {
-      const Icon = {...current, Component: IconComponents[current.name]};
-      if (current.name.startsWith('Product') || current.name.startsWith('Logo')) {
+      const Icon = { ...current, Component: IconComponents[current.name] };
+      if (current.name.startsWith("Product") || current.name.startsWith("Logo")) {
         return {
           logos: [...prev.logos, Icon],
           ui: [...prev.ui],
@@ -43,7 +43,7 @@ const getGroupedList = (icons: IconsListProps['icons']): GroupedList =>
         ui: [...prev.ui, Icon],
       };
     },
-    {logos: [], ui: []}
+    { logos: [], ui: [] },
   );
 
 const getFirstIcon = (iconsList: GroupedList): IconObject | null => {
@@ -57,19 +57,19 @@ const getFirstIcon = (iconsList: GroupedList): IconObject | null => {
 };
 
 const trackIconFilterString = debounce((filter: string): void => {
-  if (filter !== '') {
-    trackCustomEvent({
-      category: 'Icons',
-      action: 'filter',
+  if (filter !== "") {
+    event({
+      category: "Icons",
+      action: "filter",
       label: filter,
     });
   }
 }, 500);
 
-const IconsList: React.FC<IconsListProps> = () => {
+const IconsList: React.FC<React.PropsWithChildren<IconsListProps>> = () => {
   const filterID = useUID();
   const iconKeySeed = useUIDSeed();
-  const [filterString, setFilterString] = React.useState('');
+  const [filterString, setFilterString] = React.useState("");
   const [iconsList, setIconsList] = React.useState(getGroupedList(iconsJson));
   const [selectedIcon, setSelectedIcon] = React.useState(getFirstIcon(iconsList));
   const uiComposite = useCompositeState();
@@ -77,7 +77,7 @@ const IconsList: React.FC<IconsListProps> = () => {
 
   const handleChange = (e: React.FormEvent<HTMLInputElement>): void => {
     const filter = e.currentTarget.value;
-    const filteredList = iconsJson.filter(({name}: IconObject) => name.toLowerCase().includes(filter.toLowerCase()));
+    const filteredList = iconsJson.filter(({ name }: IconObject) => name.toLowerCase().includes(filter.toLowerCase()));
     const filteredGroupedList = getGroupedList(filteredList);
     setIconsList(filteredGroupedList);
     setSelectedIcon(getFirstIcon(filteredGroupedList));
@@ -142,7 +142,7 @@ const IconsList: React.FC<IconsListProps> = () => {
                 Logo Icons
               </Heading>
               <Paragraph>
-                Logo icons represent various Twilio products and brands. When using the Twilio logo please follow{' '}
+                Logo icons represent various Twilio products and brands. When using the Twilio logo please follow{" "}
                 <Anchor href="https://www.twilio.com/brand/guidelines/logos">the brand guidelines</Anchor> on how to do
                 so.
               </Paragraph>
@@ -184,15 +184,15 @@ const IconsList: React.FC<IconsListProps> = () => {
                   different name in Paste.
                 </ListItem>
                 <ListItem>
-                  Follow the{' '}
-                  <SiteLink to="/icons/how-to-add-an-icon">
+                  Follow the{" "}
+                  <SiteLink href="/icons/how-to-add-an-icon">
                     guide on how to add and contribute an icon to Paste
                   </SiteLink>
                   .
                 </ListItem>
                 <ListItem>
-                  Reach out and{' '}
-                  <Anchor href="https://www.github.com/twilio-labs/paste/discussions/new">create a Discussion</Anchor>{' '}
+                  Reach out and{" "}
+                  <Anchor href="https://www.github.com/twilio-labs/paste/discussions/new">create a Discussion</Anchor>{" "}
                   on GitHub.
                 </ListItem>
               </UnorderedList>
@@ -202,8 +202,9 @@ const IconsList: React.FC<IconsListProps> = () => {
         <Box
           paddingX="space60"
           position="sticky"
-          top={STICKY_COLUMN_OFFSET}
-          width={['100%', '50%', '50%', '41.66666666666667%']}
+          top="space130"
+          height="fit-content"
+          width={["100%", "50%", "50%", "41.66666666666667%"]}
         >
           <IconCard selectedIcon={selectedIcon} />
         </Box>
@@ -212,5 +213,5 @@ const IconsList: React.FC<IconsListProps> = () => {
   );
 };
 
-IconsList.displayName = 'IconsList';
-export {IconsList};
+IconsList.displayName = "IconsList";
+export { IconsList };

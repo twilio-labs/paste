@@ -1,0 +1,106 @@
+export const meta = {
+  title: 'Code Block',
+  package: '@twilio-paste/code-block',
+  description: 'A component used to display readable blocks of code.',
+  slug: '/components/code-block/',
+};
+
+import {
+  CodeBlock,
+  CodeBlockWrapper,
+  CodeBlockHeader,
+  CodeBlockTabList,
+  CodeBlockTab,
+  CodeBlockTabPanel,
+} from '@twilio-paste/code-block';
+import Changelog from '@twilio-paste/code-block/CHANGELOG.md';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {singleLine, multiLine, tab, formattedCopyText} from '../../../component-examples/CodeBlockExamples.ts';
+import packageJson from '@twilio-paste/code-block/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Code Block');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/code-block',
+        storybookUrl: '/?path=/story/components-code-block--single-line',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{CodeBlock}} language="jsx" noInline>
+  {singleLine}
+</LivePreview>
+
+## Guidelines
+
+### About Code Block
+
+The Code Block component improves readability of embedded code samples with syntax highlighting and automatic line numbering.
+
+Multiple Code Blocks may displayed as a tabset with the CodeBlockTabList, CodeBlockTab, and CodeBlockTabPanel components. A common use case for this is providing a code sample in multiple languages.
+
+### Accessibility
+
+To ensure the Code Block is accessible:
+
+- Provide a descriptive label such as the current filename or step in a process to clarify the purpose of the Code Block.
+- Enable long line wrapping whenever possible for a better reading experience.
+- Use the correct heading level for the CodeBlockHeader
+
+## Examples
+
+### Single line
+
+Use `variant="single-line"` for one line Code Blocks. Single line Code Blocks should not have `showLineNumbers={true}`.
+
+<LivePreview scope={{CodeBlock}} language="jsx" noInline>
+  {singleLine}
+</LivePreview>
+
+### Multi line
+
+Code Blocks have `variant="multi-line"` by default. Multi line Code Blocks should have a CodeBlockHeader with a logical label for the Code Block, like the language or file name.
+
+Note for the `maxLines` property: Code Block uses [line-clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-line-clamp) to limit the number of lines visible. When using line-clamp, browsers add an ellipsis to the contents of the Code Block to indicate that there is more to scroll to. When the code is copied with the copy button, the ellipsis isn't included.
+
+<LivePreview scope={{CodeBlockWrapper, CodeBlockHeader, CodeBlock}} language="jsx" noInline>
+  {multiLine}
+</LivePreview>
+
+### Tabs
+
+Multiple Code Blocks may be displayed as a tabset with the CodeBlockTabList, CodeBlockTab, and CodeBlockTabPanel components. Provide a logical name for each CodeBlockTab, like the language or file name.
+
+The Code Block Tabs components use the Tabs Primitive. For full details on the primitive and what props to provide it, follow the [Tabs Primitive documentation](/primitives/tabs-primitive).
+
+<LivePreview
+  scope={{CodeBlock, CodeBlockHeader, CodeBlockWrapper, CodeBlockTabList, CodeBlockTab, CodeBlockTabPanel}}
+  language="jsx"
+  noInline
+>
+  {tab}
+</LivePreview>
+
+### Format the copied text
+
+To modify what text is copied when the copy button is clicked, use the `copyTextFormatter` prop.
+
+<LivePreview scope={{CodeBlock}} language="jsx" noInline>
+  {formattedCopyText}
+</LivePreview>

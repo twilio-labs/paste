@@ -1,0 +1,28 @@
+global:
+  category: font-size
+  type: font-size
+imports:
+  - ../../../global/font-size.yml
+props:
+  font-size-10:
+    value: "0.75rem" #12px
+  font-size-20:
+    value: "0.75rem" #12px
+  font-size-30:
+    value: "0.875rem" #14px
+  font-size-40:
+    value: "0.875rem" #14px
+  font-size-50:
+    value: "1rem" #16px
+  font-size-60:
+    value: "1.25rem" #20px
+  font-size-70:
+    value: "1.5rem" #24px
+  font-size-80:
+    value: "2rem" #32px
+  font-size-90:
+    value: "2rem" #32px
+  font-size-100:
+    value: "3rem" #48px
+  font-size-110:
+    value: "4rem" #64px

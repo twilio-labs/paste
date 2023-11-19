@@ -1,14 +1,14 @@
----
-title: Button vs. Anchor
-description: Guidance outlining best practices for Button and Anchor usage.
-slug: /patterns/button-vs-anchor/
----
+export const meta = {
+  title: 'Button vs. Anchor',
+  description: 'Guidance outlining best practices for Button and Anchor usage.',
+  slug: '/patterns/button-vs-anchor/',
+};
 
-import {graphql} from 'gatsby';
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -17,45 +17,32 @@ import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {ChevronRightIcon} from '@twilio-paste/icons/esm/ChevronRightIcon';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import ButtonPrimaryActionImage from '../../../assets/images/patterns/button-primary-action.png';
+import ButtonMultipleActionsImage from '../../../assets/images/patterns/button-multiple-actions.png';
+import ButtonAnchorLikeButtonsImage from '../../../assets/images/patterns/button-anchor-like-buttons.png';
+import ButtonCardExternalAnchorImage from '../../../assets/images/patterns/button-card-external-anchor.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/button-vs-anchor/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Button vs Anchor"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Button vs Anchor');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizePatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -63,7 +50,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -174,13 +161,13 @@ If you decide to place an icon in a button, all button icons should be placed to
 </Stack>`}
 </LivePreview>
 
-![table with a primary create new action button](../../../assets/images/patterns/button-primary-action.png)
+<ResponsiveImage src={ButtonPrimaryActionImage} alt="table with a primary create new action button" />
 
 ### Secondary button
 
 Most actions on a page are secondary buttons. Use them for safe and easily reversible actions.
 
-There are some cases where a secondary button may be used for an irreversible action. An example of this would be a ‘Cancel' secondary button that may cause a customer to redo a long user flow. In this case, it should trigger an "Are you sure?" dialog or something similar. Check out the [delete pattern](/patterns/delete) for more guidance. This would be best to test with your users.
+There are some cases where a secondary button may be used for an irreversible action. An example of this would be a 'Cancel' secondary button that may cause a customer to redo a long user flow. In this case, it should trigger an "Are you sure?" dialog or something similar. Check out the [delete pattern](/patterns/delete) for more guidance. This would be best to test with your users.
 
 <LivePreview scope={{Button}} language="jsx">
   {`<Button variant="secondary" onClick={() => {}}>
@@ -188,12 +175,12 @@ There are some cases where a secondary button may be used for an irreversible ac
 </Button>`}
 </LivePreview>
 
-![table with a multiple action buttons](../../../assets/images/patterns/button-multiple-actions.png)
+<ResponsiveImage src={ButtonMultipleActionsImage} alt="table with multiple action buttons" />
 
 ### Link-style button (tertiary)
 
-<Callout variant="warning">
-  <CalloutTitle as="h4">This is not a variant we recommend you use often.</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">This is not a variant we recommend you use often.</CalloutHeading>
   <CalloutText>
     When using buttons that look similar to anchors, <strong>be very strategic</strong> in their use since voice
     dictation users may encounter issues when trying to activate them by mistaking them for anchors.
@@ -219,8 +206,8 @@ When making this decision, it's **a great opportunity to test** which buttons yo
 
 ### Buttons with link functionality
 
-<Callout variant="warning">
-  <CalloutTitle as="h4">This is not a variant we recommend you use often.</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">This is not a variant we recommend you use often.</CalloutHeading>
   <CalloutText>
     When using buttons as anchors, be very strategic in their use and placement. Screen dictation software may
     experience usability issues, as it is confusing to hear a link read out when looking at a button.
@@ -247,7 +234,7 @@ To create a button-styled anchor, use the Button component and add the `as="a"` 
 </Stack>`}
 </LivePreview>
 
-![layout with anchors and anchors that look like buttons](../../../assets/images/patterns/button-anchor-like-buttons.png)
+<ResponsiveImage src={ButtonAnchorLikeButtonsImage} alt="layout with anchors and anchors that look like buttons" />
 
 ## Anchors
 
@@ -266,7 +253,7 @@ For all anchors, the only functionality it supports is navigating. For this reas
 </Stack>`}
 </LivePreview>
 
-![card layout with internal and external anchors](../../../assets/images/patterns/button-card-external-anchor.png)
+<ResponsiveImage src={ButtonCardExternalAnchorImage} alt="card layout with internal and external anchors" />
 
 ### Anchors in text
 

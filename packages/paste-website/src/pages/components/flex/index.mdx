@@ -1,77 +1,68 @@
----
-title: Flex - Layout
-description: Flex is a layout component that allows you to build flexbox based elements and layouts. These flexible elements and layouts allow your components to adapt to the available space or screen size.
-slug: /components/flex/
----
+export const meta = {
+  title: 'Flex - Layout',
+  package: '@twilio-paste/flex',
+  description:
+    'Flex is a layout component that allows you to build flexbox based elements and layouts. These flexible elements and layouts allow your components to adapt to the available space or screen size.',
+  slug: '/components/flex/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Flex} from '@twilio-paste/flex';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import Changelog from '@twilio-paste/flex/CHANGELOG.md';
+import packageJson from '@twilio-paste/flex/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteLayout(filter: {name: {eq: "@twilio-paste/flex"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/flex/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Flex"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/flex"
-  storybookUrl="/?path=/story/layout-flex--"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Flex');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/flex',
+        storybookUrl: '/?path=/story/layout-flex--flex-options',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Box, Flex}} language="jsx">
+  {`<Flex>
+    <Flex>
+      <Box
+        backgroundColor="colorBackgroundPrimaryWeak"
+        padding="space40"
+      >
+        Left area
+      </Box>
+    </Flex>
+    <Flex grow>
+      <Box
+        backgroundColor="colorBackgroundPrimaryWeaker"
+        padding="space40"
+        width="100%"
+      >
+        Right area
+      </Box>
+    </Flex>
+  </Flex>`}
+</LivePreview>
 
 ## Guidelines
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 ### About Flex
 
@@ -297,66 +288,3 @@ The Flex component should be used when a flexible layout is needed with a page l
   <Do title="Do" body="Use Flex to build responsive experiences." preview={false} />
   <Dont title="Don't" body="Use inline CSS or classNames to add styles that Flex can provide." preview={false} />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/flex - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Flex} from '@twilio-paste/core/flex';
-
-const Component = () => <Flex>Foo</Flex>;
-```
-
-#### Props
-
-| Prop           | Type                                                | Description                                 | Default |
-| -------------- | --------------------------------------------------- | ------------------------------------------- | ------- |
-| as?            | `keyof JSX.IntrinsicElements`                       | A custom HTML tag                           | `div`   |
-| display?       | `string, ResponsiveValue<'flex', 'inline-flex'>`    | Display property                            | 'flex'  |
-| basis?         | `string, number, ResponsiveValue<string, number>`   | Flex basis property                         |         |
-| grow?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex grow property                          |         |
-| shrink?        | `string, number, ResponsiveValue<string, number>`   | Flex shrink property                        |         |
-| hAlignContent? | `string, number, ResponsiveValue<string, number>`   | Horizontal alignment property               |         |
-| vAlignContent? | `string, number, ResponsiveValue<string, number>`   | Vertical alignment property                 |         |
-| vertical?      | `boolean, number, ResponsiveValue<boolean, number>` | Flex direction property                     |         |
-| wrap?          | `boolean, number, ResponsiveValue<boolean, number>` | Flex wrap property                          |         |
-| minWidth       | `ResponsiveValue<MinWidthOptions>`                  | Responsive Size Token Value or CSS property |         |
-| width          | `ResponsiveValue<WidthOptions>`                     | Responsive Size Token Value or CSS property |         |
-| maxWidth       | `ResponsiveValue<MaxWidthOptions>`                  | Responsive Size Token Value or CSS property |         |
-| height         | `ResponsiveValue<Height>`                           | Responsive Size Token Value or CSS property |         |
-| minHeight      | `ResponsiveValue<MinHeight>`                        | Responsive Size Token Value or CSS property |         |
-| maxHeight      | `ResponsiveValue<MaxHeight>`                        | Responsive Size Token Value or CSS property |         |
-| size           | `Width` `Height`                                    | Responsive Size Token Value or CSS proterty |         |
-| margin         | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| marginTop      | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| marginRight    | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| marginBottom   | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| marginLeft     | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| marginX        | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| marginY        | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| padding        | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| paddingTop     | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| paddingRight   | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| paddingBottom  | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| paddingLeft    | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| paddingX       | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-| paddingY       | `ResponsiveValue<SpaceOptions>`                     | Responsive spacing token                    |         |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

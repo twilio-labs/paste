@@ -1,26 +1,28 @@
-import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Column, Grid} from '@twilio-paste/grid';
+import { Box } from "@twilio-paste/box";
+import { DisplayHeading } from "@twilio-paste/display-heading";
+import { Column, Grid } from "@twilio-paste/grid";
+import { Heading } from "@twilio-paste/heading";
+import Image from "next/image";
 
-import {LandingPageSection, LandingPageSectionContent} from './LandingPageLayoutUtils';
-import {ReasonBlock} from './ReasonBlock';
-import {A11yIcon} from '../icons/A11yIcon';
-import {CustomizableIcon} from '../icons/CustomizableIcon';
-import {ThemableIcon} from '../icons/ThemableIcon';
-import {useSlantedSkew} from '../SlantedBackgroundGradient';
-import {DoodleLoopArrowLarge} from '../../assets/illustrations/DoodleLoopArrowLarge';
-import {useDarkModeContext} from '../../context/DarkModeContext';
+import { DoodleLoopArrowLarge } from "../../assets/illustrations/DoodleLoopArrowLarge";
+import WhyPasteMobile from "../../assets/images/customization/why-paste-mobile.png";
+import WhyPasteImg from "../../assets/images/customization/why-paste.png";
+import { useDarkModeContext } from "../../context/DarkModeContext";
+import { useSlantedSkew } from "../SlantedBackgroundGradient";
+import { A11yIcon } from "../icons/A11yIcon";
+import { CustomizableIcon } from "../icons/CustomizableIcon";
+import { ThemableIcon } from "../icons/ThemableIcon";
+import { LandingPageSection, LandingPageSectionContent } from "./LandingPageLayoutUtils";
+import { ReasonBlock } from "./ReasonBlock";
 
-const WhyPasteTopAngle: React.FC = () => {
+const WhyPasteTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
-  const {theme} = useDarkModeContext();
+  const { theme } = useDarkModeContext();
 
   return (
     <Box
       // @ts-expect-error combat semi opaque dark mode token value
-      backgroundColor={theme === 'dark' ? '#2a3342' : 'colorBackgroundPrimaryWeakest'}
+      backgroundColor={theme === "dark" ? "#2a3342" : "colorBackgroundPrimaryWeakest"}
       borderRadius="borderRadius20"
       height="95%"
       left={0}
@@ -34,14 +36,14 @@ const WhyPasteTopAngle: React.FC = () => {
   );
 };
 
-const WhyPasteBottomAngle: React.FC = () => {
+const WhyPasteBottomAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew(-0.35);
-  const {theme} = useDarkModeContext();
+  const { theme } = useDarkModeContext();
 
   return (
     <Box
       // @ts-expect-error combat semi opaque dark mode token value
-      backgroundColor={theme === 'dark' ? '#2a3342' : 'colorBackgroundPrimaryWeakest'}
+      backgroundColor={theme === "dark" ? "#2a3342" : "colorBackgroundPrimaryWeakest"}
       borderRadius="borderRadius20"
       bottom={skewOffset}
       height="100%"
@@ -55,12 +57,12 @@ const WhyPasteBottomAngle: React.FC = () => {
   );
 };
 
-export const WhyPaste: React.FC = () => {
+export const WhyPaste = (): JSX.Element => {
   return (
     <LandingPageSection
       backgroundColor="colorBackgroundPrimaryWeakest"
-      paddingTop={['space0', 'space0', 'space0']}
-      paddingBottom={['space0', 'space0', 'space0']}
+      paddingTop={["space0", "space0", "space0"]}
+      paddingBottom={["space0", "space0", "space0"]}
       maxWidth="96%"
       marginX="auto"
     >
@@ -72,11 +74,11 @@ export const WhyPaste: React.FC = () => {
             <Heading as="h2" variant="heading40">
               Why Paste
             </Heading>
-            <Heading as="h3" variant="heading10">
+            <DisplayHeading as="h3" variant="displayHeading30">
               A fully extensible and accessible customization platform
-            </Heading>
+            </DisplayHeading>
           </Box>
-          <Grid gutter={['space60', 'space120', 'space200']} vertical={[true, false, false]}>
+          <Grid gutter={["space60", "space120", "space200"]} vertical={[true, false, false]}>
             <Column span={6}>
               <ReasonBlock
                 icon={<ThemableIcon decorative />}
@@ -108,32 +110,22 @@ export const WhyPaste: React.FC = () => {
               />
             </Column>
           </Grid>
-          <Box display={['block', 'none']} width="100%" maxWidth="400px" marginX="auto" marginTop="space70">
-            <StaticImage
-              src="../../assets/images/customization/why-paste-mobile.png"
-              alt=""
-              placeholder="blurred"
-              layout="fullWidth"
-            />
+          <Box display={["block", "none"]} width="100%" maxWidth="400px" marginX="auto" marginTop="space70">
+            <Image src={WhyPasteMobile} alt="" placeholder="blur" style={{ width: "100%", height: "100%" }} />
           </Box>
-          <Box as="span" position="absolute" display={['none', 'none', 'block']} bottom={-280} left={0}>
+          <Box as="span" position="absolute" display={["none", "none", "block"]} bottom={-280} left={0}>
             <DoodleLoopArrowLarge />
           </Box>
         </LandingPageSectionContent>
         <Box
-          display={['none', 'block']}
+          display={["none", "block"]}
           position="absolute"
-          bottom={['-300px', '-300px', '-300px', '-350px']}
+          bottom={["-300px", "-300px", "-300px", "-350px"]}
           right="0"
-          width={['700px', '700px', '700px', '800px']}
+          width={["700px", "700px", "700px", "800px"]}
           maxWidth="100%"
         >
-          <StaticImage
-            src="../../assets/images/customization/why-paste.png"
-            alt=""
-            placeholder="blurred"
-            layout="fullWidth"
-          />
+          <Image src={WhyPasteImg} alt="" placeholder="blur" style={{ width: "100%", height: "100%" }} />
         </Box>
       </Box>
     </LandingPageSection>

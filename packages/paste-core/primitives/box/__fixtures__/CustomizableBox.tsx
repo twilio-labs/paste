@@ -6,12 +6,12 @@ export type CustomizableBoxExampleProps = {variant?: 'primary' | 'secondary'; el
 const styles: {[key: string]: BoxStyleProps} = {
   base: {padding: 'space40'},
   _hover: {backgroundColor: 'colorBackgroundError'},
-  primary: {backgroundColor: 'colorBackgroundAvailable'},
+  primary: {backgroundColor: 'colorBackgroundSuccessWeakest'},
   _primaryHover: {fontWeight: 'fontWeightBold'},
-  secondary: {backgroundColor: 'colorBackgroundOffline'},
+  secondary: {backgroundColor: 'colorBackground'},
   _secondaryHover: {fontStyle: 'italic'},
 };
-export const CustomizableBoxExample: React.FC<CustomizableBoxExampleProps> = ({
+export const CustomizableBoxExample: React.FC<React.PropsWithChildren<CustomizableBoxExampleProps>> = ({
   children,
   variant,
   element,

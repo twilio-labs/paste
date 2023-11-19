@@ -1,42 +1,42 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
+import type { TrProps as TableTrProps } from "@twilio-paste/table";
+import * as React from "react";
 
-export interface TrProps {
-  role: string;
-  striped: boolean;
+export interface TrProps extends TableTrProps {
+  role?: string;
+  striped?: boolean;
   selected?: boolean;
-  element?: BoxElementProps['element'];
 }
 
+const StyledTr = styled.tr<TrProps>(
+  css({
+    "&[aria-selected=true] > td": {
+      borderColor: "colorBorderPrimaryWeaker",
+    },
+    "&[aria-selected=true] > th": {
+      borderColor: "colorBorderPrimaryWeaker",
+    },
+  }),
+);
+
 export const Tr = React.forwardRef<HTMLTableRowElement, TrProps>(
-  ({element = 'DATA_GRID_TR', striped, ...props}, ref) => {
+  ({ element = "DATA_GRID_TR", striped, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
-        as="tr"
+        // @ts-expect-error: we don't have polymorphic box typings yet
+        as={StyledTr}
         aria-selected={props.selected}
-        borderStyle="solid"
-        borderColor="colorBorderWeaker"
-        borderWidth="borderWidth0"
-        borderBottomWidth="borderWidth10"
-        _even={{backgroundColor: striped ? 'colorBackgroundRowStriped' : 'transparent'}}
-        _last={{borderWidth: 'borderWidth0'}}
+        _even={{ backgroundColor: striped ? "colorBackgroundRowStriped" : "transparent" }}
         _selected={{
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderColor: 'colorBorderWeak',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
         }}
       />
     );
-  }
+  },
 );
 
-Tr.displayName = 'Tr';
-Tr.propTypes = {
-  role: PropTypes.string.isRequired,
-  selected: PropTypes.bool,
-  element: PropTypes.string,
-};
+Tr.displayName = "Tr";

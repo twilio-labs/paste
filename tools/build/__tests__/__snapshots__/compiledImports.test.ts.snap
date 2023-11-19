@@ -7,7 +7,6 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __markAsModule = (target) => __defProp(target, \\"__esModule\\", { value: true });
 var __esm = (fn, res) => function __init() {
   return fn && (res = (0, fn[__getOwnPropNames(fn)[0]])(fn = 0)), res;
 };
@@ -18,490 +17,20 @@ var __export = (target, all) => {
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
-var __reExport = (target, module, copyDefault, desc) => {
-  if (module && typeof module === \\"object\\" || typeof module === \\"function\\") {
-    for (let key of __getOwnPropNames(module))
-      if (!__hasOwnProp.call(target, key) && (copyDefault || key !== \\"default\\"))
-        __defProp(target, key, { get: () => module[key], enumerable: !(desc = __getOwnPropDesc(module, key)) || desc.enumerable });
+var __copyProps = (to, from, except, desc) => {
+  if (from && typeof from === \\"object\\" || typeof from === \\"function\\") {
+    for (let key of __getOwnPropNames(from))
+      if (!__hasOwnProp.call(to, key) && key !== except)
+        __defProp(to, key, { get: () => from[key], enumerable: !(desc = __getOwnPropDesc(from, key)) || desc.enumerable });
   }
-  return target;
+  return to;
 };
-var __toESM = (module, isNodeMode) => {
-  return __reExport(__markAsModule(__defProp(module != null ? __create(__getProtoOf(module)) : {}, \\"default\\", !isNodeMode && module && module.__esModule ? { get: () => module.default, enumerable: true } : { value: module, enumerable: true })), module);
-};
-var __toCommonJS = /* @__PURE__ */ ((cache) => {
-  return (module, temp) => {
-    return cache && cache.get(module) || (temp = __reExport(__markAsModule({}), module, 1), cache && cache.set(module, temp), temp);
-  };
-})(typeof WeakMap !== \\"undefined\\" ? /* @__PURE__ */ new WeakMap() : 0);
-
-// esm-externals:react
-var react_exports = {};
-__export(react_exports, {
-  default: () => default2
-});
-import * as default2 from \\"react\\";
-import * as react_star from \\"react\\";
-var init_react = __esm({
-  \\"esm-externals:react\\"() {
-    __reExport(react_exports, react_star);
-  }
-});
-
-// esm-externals:prop-types
-var prop_types_exports = {};
-__export(prop_types_exports, {
-  default: () => default3
-});
-import * as default3 from \\"prop-types\\";
-import * as prop_types_star from \\"prop-types\\";
-var init_prop_types = __esm({
-  \\"esm-externals:prop-types\\"() {
-    __reExport(prop_types_exports, prop_types_star);
-  }
-});
-
-// node_modules/autosize/dist/autosize.js
-var require_autosize = __commonJS({
-  \\"node_modules/autosize/dist/autosize.js\\"(exports, module) {
-    (function(global2, factory) {
-      if (typeof define === \\"function\\" && define.amd) {
-        define([\\"module\\", \\"exports\\"], factory);
-      } else if (typeof exports !== \\"undefined\\") {
-        factory(module, exports);
-      } else {
-        var mod = {
-          exports: {}
-        };
-        factory(mod, mod.exports);
-        global2.autosize = mod.exports;
-      }
-    })(exports, function(module2, exports2) {
-      \\"use strict\\";
-      var map = typeof Map === \\"function\\" ? /* @__PURE__ */ new Map() : function() {
-        var keys = [];
-        var values = [];
-        return {
-          has: function has(key) {
-            return keys.indexOf(key) > -1;
-          },
-          get: function get(key) {
-            return values[keys.indexOf(key)];
-          },
-          set: function set(key, value) {
-            if (keys.indexOf(key) === -1) {
-              keys.push(key);
-              values.push(value);
-            }
-          },
-          delete: function _delete(key) {
-            var index = keys.indexOf(key);
-            if (index > -1) {
-              keys.splice(index, 1);
-              values.splice(index, 1);
-            }
-          }
-        };
-      }();
-      var createEvent = function createEvent2(name) {
-        return new Event(name, { bubbles: true });
-      };
-      try {
-        new Event(\\"test\\");
-      } catch (e) {
-        createEvent = function createEvent2(name) {
-          var evt = document.createEvent(\\"Event\\");
-          evt.initEvent(name, true, false);
-          return evt;
-        };
-      }
-      function assign(ta) {
-        if (!ta || !ta.nodeName || ta.nodeName !== \\"TEXTAREA\\" || map.has(ta))
-          return;
-        var heightOffset = null;
-        var clientWidth = null;
-        var cachedHeight = null;
-        function init() {
-          var style = window.getComputedStyle(ta, null);
-          if (style.resize === \\"vertical\\") {
-            ta.style.resize = \\"none\\";
-          } else if (style.resize === \\"both\\") {
-            ta.style.resize = \\"horizontal\\";
-          }
-          if (style.boxSizing === \\"content-box\\") {
-            heightOffset = -(parseFloat(style.paddingTop) + parseFloat(style.paddingBottom));
-          } else {
-            heightOffset = parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
-          }
-          if (isNaN(heightOffset)) {
-            heightOffset = 0;
-          }
-          update2();
-        }
-        function changeOverflow(value) {
-          {
-            var width = ta.style.width;
-            ta.style.width = \\"0px\\";
-            ta.offsetWidth;
-            ta.style.width = width;
-          }
-          ta.style.overflowY = value;
-        }
-        function getParentOverflows(el) {
-          var arr = [];
-          while (el && el.parentNode && el.parentNode instanceof Element) {
-            if (el.parentNode.scrollTop) {
-              arr.push({
-                node: el.parentNode,
-                scrollTop: el.parentNode.scrollTop
-              });
-            }
-            el = el.parentNode;
-          }
-          return arr;
-        }
-        function resize() {
-          if (ta.scrollHeight === 0) {
-            return;
-          }
-          var overflows = getParentOverflows(ta);
-          var docTop = document.documentElement && document.documentElement.scrollTop;
-          ta.style.height = \\"\\";
-          ta.style.height = ta.scrollHeight + heightOffset + \\"px\\";
-          clientWidth = ta.clientWidth;
-          overflows.forEach(function(el) {
-            el.node.scrollTop = el.scrollTop;
-          });
-          if (docTop) {
-            document.documentElement.scrollTop = docTop;
-          }
-        }
-        function update2() {
-          resize();
-          var styleHeight = Math.round(parseFloat(ta.style.height));
-          var computed = window.getComputedStyle(ta, null);
-          var actualHeight = computed.boxSizing === \\"content-box\\" ? Math.round(parseFloat(computed.height)) : ta.offsetHeight;
-          if (actualHeight < styleHeight) {
-            if (computed.overflowY === \\"hidden\\") {
-              changeOverflow(\\"scroll\\");
-              resize();
-              actualHeight = computed.boxSizing === \\"content-box\\" ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
-            }
-          } else {
-            if (computed.overflowY !== \\"hidden\\") {
-              changeOverflow(\\"hidden\\");
-              resize();
-              actualHeight = computed.boxSizing === \\"content-box\\" ? Math.round(parseFloat(window.getComputedStyle(ta, null).height)) : ta.offsetHeight;
-            }
-          }
-          if (cachedHeight !== actualHeight) {
-            cachedHeight = actualHeight;
-            var evt = createEvent(\\"autosize:resized\\");
-            try {
-              ta.dispatchEvent(evt);
-            } catch (err) {
-            }
-          }
-        }
-        var pageResize = function pageResize2() {
-          if (ta.clientWidth !== clientWidth) {
-            update2();
-          }
-        };
-        var destroy2 = function(style) {
-          window.removeEventListener(\\"resize\\", pageResize, false);
-          ta.removeEventListener(\\"input\\", update2, false);
-          ta.removeEventListener(\\"keyup\\", update2, false);
-          ta.removeEventListener(\\"autosize:destroy\\", destroy2, false);
-          ta.removeEventListener(\\"autosize:update\\", update2, false);
-          Object.keys(style).forEach(function(key) {
-            ta.style[key] = style[key];
-          });
-          map.delete(ta);
-        }.bind(ta, {
-          height: ta.style.height,
-          resize: ta.style.resize,
-          overflowY: ta.style.overflowY,
-          overflowX: ta.style.overflowX,
-          wordWrap: ta.style.wordWrap
-        });
-        ta.addEventListener(\\"autosize:destroy\\", destroy2, false);
-        if (\\"onpropertychange\\" in ta && \\"oninput\\" in ta) {
-          ta.addEventListener(\\"keyup\\", update2, false);
-        }
-        window.addEventListener(\\"resize\\", pageResize, false);
-        ta.addEventListener(\\"input\\", update2, false);
-        ta.addEventListener(\\"autosize:update\\", update2, false);
-        ta.style.overflowX = \\"hidden\\";
-        ta.style.wordWrap = \\"break-word\\";
-        map.set(ta, {
-          destroy: destroy2,
-          update: update2
-        });
-        init();
-      }
-      function destroy(ta) {
-        var methods = map.get(ta);
-        if (methods) {
-          methods.destroy();
-        }
-      }
-      function update(ta) {
-        var methods = map.get(ta);
-        if (methods) {
-          methods.update();
-        }
-      }
-      var autosize = null;
-      if (typeof window === \\"undefined\\" || typeof window.getComputedStyle !== \\"function\\") {
-        autosize = function autosize2(el) {
-          return el;
-        };
-        autosize.destroy = function(el) {
-          return el;
-        };
-        autosize.update = function(el) {
-          return el;
-        };
-      } else {
-        autosize = function autosize2(el, options) {
-          if (el) {
-            Array.prototype.forEach.call(el.length ? el : [el], function(x) {
-              return assign(x, options);
-            });
-          }
-          return el;
-        };
-        autosize.destroy = function(el) {
-          if (el) {
-            Array.prototype.forEach.call(el.length ? el : [el], destroy);
-          }
-          return el;
-        };
-        autosize.update = function(el) {
-          if (el) {
-            Array.prototype.forEach.call(el.length ? el : [el], update);
-          }
-          return el;
-        };
-      }
-      exports2.default = autosize;
-      module2.exports = exports2[\\"default\\"];
-    });
-  }
-});
-
-// node_modules/computed-style/dist/computedStyle.commonjs.js
-var require_computedStyle_commonjs = __commonJS({
-  \\"node_modules/computed-style/dist/computedStyle.commonjs.js\\"(exports, module) {
-    var computedStyle = function(el, prop, getComputedStyle) {
-      getComputedStyle = window.getComputedStyle;
-      return (getComputedStyle ? getComputedStyle(el) : el.currentStyle)[prop.replace(/-(\\\\w)/gi, function(word, letter) {
-        return letter.toUpperCase();
-      })];
-    };
-    module.exports = computedStyle;
-  }
-});
-
-// node_modules/line-height/lib/line-height.js
-var require_line_height = __commonJS({
-  \\"node_modules/line-height/lib/line-height.js\\"(exports, module) {
-    var computedStyle = require_computedStyle_commonjs();
-    function lineHeight(node) {
-      var lnHeightStr = computedStyle(node, \\"line-height\\");
-      var lnHeight = parseFloat(lnHeightStr, 10);
-      if (lnHeightStr === lnHeight + \\"\\") {
-        var _lnHeightStyle = node.style.lineHeight;
-        node.style.lineHeight = lnHeightStr + \\"em\\";
-        lnHeightStr = computedStyle(node, \\"line-height\\");
-        lnHeight = parseFloat(lnHeightStr, 10);
-        if (_lnHeightStyle) {
-          node.style.lineHeight = _lnHeightStyle;
-        } else {
-          delete node.style.lineHeight;
-        }
-      }
-      if (lnHeightStr.indexOf(\\"pt\\") !== -1) {
-        lnHeight *= 4;
-        lnHeight /= 3;
-      } else if (lnHeightStr.indexOf(\\"mm\\") !== -1) {
-        lnHeight *= 96;
-        lnHeight /= 25.4;
-      } else if (lnHeightStr.indexOf(\\"cm\\") !== -1) {
-        lnHeight *= 96;
-        lnHeight /= 2.54;
-      } else if (lnHeightStr.indexOf(\\"in\\") !== -1) {
-        lnHeight *= 96;
-      } else if (lnHeightStr.indexOf(\\"pc\\") !== -1) {
-        lnHeight *= 16;
-      }
-      lnHeight = Math.round(lnHeight);
-      if (lnHeightStr === \\"normal\\") {
-        var nodeName = node.nodeName;
-        var _node = document.createElement(nodeName);
-        _node.innerHTML = \\"&nbsp;\\";
-        if (nodeName.toUpperCase() === \\"TEXTAREA\\") {
-          _node.setAttribute(\\"rows\\", \\"1\\");
-        }
-        var fontSizeStr = computedStyle(node, \\"font-size\\");
-        _node.style.fontSize = fontSizeStr;
-        _node.style.padding = \\"0px\\";
-        _node.style.border = \\"0px\\";
-        var body = document.body;
-        body.appendChild(_node);
-        var height = _node.offsetHeight;
-        lnHeight = height;
-        body.removeChild(_node);
-      }
-      return lnHeight;
-    }
-    module.exports = lineHeight;
-  }
-});
-
-// node_modules/react-autosize-textarea/lib/TextareaAutosize.js
-var require_TextareaAutosize = __commonJS({
-  \\"node_modules/react-autosize-textarea/lib/TextareaAutosize.js\\"(exports) {
-    \\"use strict\\";
-    var __extends = exports && exports.__extends || function() {
-      var extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d, b) {
-        d.__proto__ = b;
-      } || function(d, b) {
-        for (var p in b)
-          if (b.hasOwnProperty(p))
-            d[p] = b[p];
-      };
-      return function(d, b) {
-        extendStatics(d, b);
-        function __() {
-          this.constructor = d;
-        }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-      };
-    }();
-    var __assign = exports && exports.__assign || Object.assign || function(t) {
-      for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s)
-          if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-      }
-      return t;
-    };
-    var __rest = exports && exports.__rest || function(s, e) {
-      var t = {};
-      for (var p in s)
-        if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-          t[p] = s[p];
-      if (s != null && typeof Object.getOwnPropertySymbols === \\"function\\") {
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++)
-          if (e.indexOf(p[i]) < 0)
-            t[p[i]] = s[p[i]];
-      }
-      return t;
-    };
-    exports.__esModule = true;
-    var React2 = (init_react(), __toCommonJS(react_exports));
-    var PropTypes = (init_prop_types(), __toCommonJS(prop_types_exports));
-    var autosize = require_autosize();
-    var _getLineHeight = require_line_height();
-    var getLineHeight = _getLineHeight;
-    var RESIZED = \\"autosize:resized\\";
-    var TextareaAutosizeClass = function(_super) {
-      __extends(TextareaAutosizeClass2, _super);
-      function TextareaAutosizeClass2() {
-        var _this = _super !== null && _super.apply(this, arguments) || this;
-        _this.state = {
-          lineHeight: null
-        };
-        _this.textarea = null;
-        _this.onResize = function(e) {
-          if (_this.props.onResize) {
-            _this.props.onResize(e);
-          }
-        };
-        _this.updateLineHeight = function() {
-          if (_this.textarea) {
-            _this.setState({
-              lineHeight: getLineHeight(_this.textarea)
-            });
-          }
-        };
-        _this.onChange = function(e) {
-          var onChange = _this.props.onChange;
-          _this.currentValue = e.currentTarget.value;
-          onChange && onChange(e);
-        };
-        return _this;
-      }
-      TextareaAutosizeClass2.prototype.componentDidMount = function() {
-        var _this = this;
-        var _a = this.props, maxRows = _a.maxRows, async = _a.async;
-        if (typeof maxRows === \\"number\\") {
-          this.updateLineHeight();
-        }
-        if (typeof maxRows === \\"number\\" || async) {
-          setTimeout(function() {
-            return _this.textarea && autosize(_this.textarea);
-          });
-        } else {
-          this.textarea && autosize(this.textarea);
-        }
-        if (this.textarea) {
-          this.textarea.addEventListener(RESIZED, this.onResize);
-        }
-      };
-      TextareaAutosizeClass2.prototype.componentWillUnmount = function() {
-        if (this.textarea) {
-          this.textarea.removeEventListener(RESIZED, this.onResize);
-          autosize.destroy(this.textarea);
-        }
-      };
-      TextareaAutosizeClass2.prototype.render = function() {
-        var _this = this;
-        var _a = this, _b = _a.props, onResize = _b.onResize, maxRows = _b.maxRows, onChange = _b.onChange, style = _b.style, innerRef = _b.innerRef, children = _b.children, props = __rest(_b, [\\"onResize\\", \\"maxRows\\", \\"onChange\\", \\"style\\", \\"innerRef\\", \\"children\\"]), lineHeight = _a.state.lineHeight;
-        var maxHeight = maxRows && lineHeight ? lineHeight * maxRows : null;
-        return React2.createElement(\\"textarea\\", __assign({}, props, { onChange: this.onChange, style: maxHeight ? __assign({}, style, { maxHeight }) : style, ref: function(element) {
-          _this.textarea = element;
-          if (typeof _this.props.innerRef === \\"function\\") {
-            _this.props.innerRef(element);
-          } else if (_this.props.innerRef) {
-            _this.props.innerRef.current = element;
-          }
-        } }), children);
-      };
-      TextareaAutosizeClass2.prototype.componentDidUpdate = function() {
-        this.textarea && autosize.update(this.textarea);
-      };
-      TextareaAutosizeClass2.defaultProps = {
-        rows: 1,
-        async: false
-      };
-      TextareaAutosizeClass2.propTypes = {
-        rows: PropTypes.number,
-        maxRows: PropTypes.number,
-        onResize: PropTypes.func,
-        innerRef: PropTypes.any,
-        async: PropTypes.bool
-      };
-      return TextareaAutosizeClass2;
-    }(React2.Component);
-    exports.TextareaAutosize = React2.forwardRef(function(props, ref) {
-      return React2.createElement(TextareaAutosizeClass, __assign({}, props, { innerRef: ref }));
-    });
-  }
-});
-
-// node_modules/react-autosize-textarea/lib/index.js
-var require_lib = __commonJS({
-  \\"node_modules/react-autosize-textarea/lib/index.js\\"(exports) {
-    \\"use strict\\";
-    exports.__esModule = true;
-    var TextareaAutosize_1 = require_TextareaAutosize();
-    exports[\\"default\\"] = TextareaAutosize_1.TextareaAutosize;
-  }
-});
+var __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, \\"default\\"), secondTarget && __copyProps(secondTarget, mod, \\"default\\"));
+var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
+  isNodeMode || !mod || !mod.__esModule ? __defProp(target, \\"default\\", { value: mod, enumerable: true }) : target,
+  mod
+));
+var __toCommonJS = (mod) => __copyProps(__defProp({}, \\"__esModule\\", { value: true }), mod);
 
 // node_modules/clipboard-copy/index.js
 var require_clipboard_copy = __commonJS({
@@ -532,6 +61,19 @@ var require_clipboard_copy = __commonJS({
       window.document.body.removeChild(span);
       return success ? Promise.resolve() : Promise.reject(new DOMException(\\"The request is not allowed\\", \\"NotAllowedError\\"));
     }
+  }
+});
+
+// esm-externals:react
+var react_exports = {};
+__export(react_exports, {
+  default: () => default2
+});
+import * as default2 from \\"react\\";
+import * as react_star from \\"react\\";
+var init_react = __esm({
+  \\"esm-externals:react\\"() {
+    __reExport(react_exports, react_star);
   }
 });
 
@@ -654,8 +196,8 @@ var require_root = __commonJS({
 var require_Symbol = __commonJS({
   \\"node_modules/lodash/_Symbol.js\\"(exports, module) {
     var root = require_root();
-    var Symbol = root.Symbol;
-    module.exports = Symbol;
+    var Symbol2 = root.Symbol;
+    module.exports = Symbol2;
   }
 });
 
@@ -684,11 +226,11 @@ var require_isArray = __commonJS({
 // node_modules/lodash/_getRawTag.js
 var require_getRawTag = __commonJS({
   \\"node_modules/lodash/_getRawTag.js\\"(exports, module) {
-    var Symbol = require_Symbol();
+    var Symbol2 = require_Symbol();
     var objectProto = Object.prototype;
     var hasOwnProperty = objectProto.hasOwnProperty;
     var nativeObjectToString = objectProto.toString;
-    var symToStringTag = Symbol ? Symbol.toStringTag : void 0;
+    var symToStringTag = Symbol2 ? Symbol2.toStringTag : void 0;
     function getRawTag(value) {
       var isOwn = hasOwnProperty.call(value, symToStringTag), tag = value[symToStringTag];
       try {
@@ -725,12 +267,12 @@ var require_objectToString = __commonJS({
 // node_modules/lodash/_baseGetTag.js
 var require_baseGetTag = __commonJS({
   \\"node_modules/lodash/_baseGetTag.js\\"(exports, module) {
-    var Symbol = require_Symbol();
+    var Symbol2 = require_Symbol();
     var getRawTag = require_getRawTag();
     var objectToString = require_objectToString();
     var nullTag = \\"[object Null]\\";
     var undefinedTag = \\"[object Undefined]\\";
-    var symToStringTag = Symbol ? Symbol.toStringTag : void 0;
+    var symToStringTag = Symbol2 ? Symbol2.toStringTag : void 0;
     function baseGetTag(value) {
       if (value == null) {
         return value === void 0 ? undefinedTag : nullTag;
@@ -767,12 +309,12 @@ var require_isSymbol = __commonJS({
 // node_modules/lodash/_baseToString.js
 var require_baseToString = __commonJS({
   \\"node_modules/lodash/_baseToString.js\\"(exports, module) {
-    var Symbol = require_Symbol();
+    var Symbol2 = require_Symbol();
     var arrayMap = require_arrayMap();
     var isArray = require_isArray();
     var isSymbol = require_isSymbol();
     var INFINITY = 1 / 0;
-    var symbolProto = Symbol ? Symbol.prototype : void 0;
+    var symbolProto = Symbol2 ? Symbol2.prototype : void 0;
     var symbolToString = symbolProto ? symbolProto.toString : void 0;
     function baseToString(value) {
       if (typeof value == \\"string\\") {
@@ -1332,10 +874,1486 @@ var require_camelCase = __commonJS({
 });
 
 // tools/build/__fixtures__/random_package/src/index.tsx
-var import_react_autosize_textarea = __toESM(require_lib());
+import * as React from \\"react\\";
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/_rollupPluginBabelHelpers-1f0bf8c2.js
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+function ownKeys(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly)
+      symbols = symbols.filter(function(sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+function _objectSpread2(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    if (i % 2) {
+      ownKeys(Object(source), true).forEach(function(key) {
+        _defineProperty(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys(Object(source)).forEach(function(key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+  return target;
+}
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null)
+    return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0)
+      continue;
+    target[key] = source[key];
+  }
+  return target;
+}
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o)
+    return;
+  if (typeof o === \\"string\\")
+    return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === \\"Object\\" && o.constructor)
+    n = o.constructor.name;
+  if (n === \\"Map\\" || n === \\"Set\\")
+    return Array.from(o);
+  if (n === \\"Arguments\\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+    return _arrayLikeToArray(o, minLen);
+}
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length)
+    len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _createForOfIteratorHelperLoose(o, allowArrayLike) {
+  var it;
+  if (typeof Symbol === \\"undefined\\" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === \\"number\\") {
+      if (it)
+        o = it;
+      var i = 0;
+      return function() {
+        if (i >= o.length)
+          return {
+            done: true
+          };
+        return {
+          done: false,
+          value: o[i++]
+        };
+      };
+    }
+    throw new TypeError(\\"Invalid attempt to iterate non-iterable instance.\\\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\\");
+  }
+  it = o[Symbol.iterator]();
+  return it.next.bind(it);
+}
+
+// node_modules/reakit-system/es/createComponent.js
+import { forwardRef as forwardRef$1, memo as memo$1 } from \\"react\\";
+
+// node_modules/reakit-system/es/SystemContext.js
+import { createContext } from \\"react\\";
+var SystemContext = /* @__PURE__ */ createContext({});
+
+// node_modules/reakit-system/es/_rollupPluginBabelHelpers-0c84a174.js
+function _defineProperty2(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+function ownKeys2(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly)
+      symbols = symbols.filter(function(sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+function _objectSpread22(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    if (i % 2) {
+      ownKeys2(Object(source), true).forEach(function(key) {
+        _defineProperty2(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys2(Object(source)).forEach(function(key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+  return target;
+}
+function _objectWithoutPropertiesLoose2(source, excluded) {
+  if (source == null)
+    return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0)
+      continue;
+    target[key] = source[key];
+  }
+  return target;
+}
+function _unsupportedIterableToArray2(o, minLen) {
+  if (!o)
+    return;
+  if (typeof o === \\"string\\")
+    return _arrayLikeToArray2(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === \\"Object\\" && o.constructor)
+    n = o.constructor.name;
+  if (n === \\"Map\\" || n === \\"Set\\")
+    return Array.from(o);
+  if (n === \\"Arguments\\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+    return _arrayLikeToArray2(o, minLen);
+}
+function _arrayLikeToArray2(arr, len) {
+  if (len == null || len > arr.length)
+    len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _createForOfIteratorHelperLoose2(o, allowArrayLike) {
+  var it;
+  if (typeof Symbol === \\"undefined\\" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray2(o)) || allowArrayLike && o && typeof o.length === \\"number\\") {
+      if (it)
+        o = it;
+      var i = 0;
+      return function() {
+        if (i >= o.length)
+          return {
+            done: true
+          };
+        return {
+          done: false,
+          value: o[i++]
+        };
+      };
+    }
+    throw new TypeError(\\"Invalid attempt to iterate non-iterable instance.\\\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\\");
+  }
+  it = o[Symbol.iterator]();
+  return it.next.bind(it);
+}
+
+// node_modules/reakit-system/es/useCreateElement.js
+import { useContext, createElement } from \\"react\\";
+function isRenderProp(children) {
+  return typeof children === \\"function\\";
+}
+var useCreateElement = function useCreateElement2(type, props, children) {
+  if (children === void 0) {
+    children = props.children;
+  }
+  var context = useContext(SystemContext);
+  if (context.useCreateElement) {
+    return context.useCreateElement(type, props, children);
+  }
+  if (typeof type === \\"string\\" && isRenderProp(children)) {
+    var _ = props.children, rest = _objectWithoutPropertiesLoose2(props, [\\"children\\"]);
+    return children(rest);
+  }
+  return /* @__PURE__ */ createElement(type, props, children);
+};
+
+// node_modules/reakit-utils/es/_rollupPluginBabelHelpers-1f0bf8c2.js
+function _defineProperty3(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+function ownKeys3(object, enumerableOnly) {
+  var keys = Object.keys(object);
+  if (Object.getOwnPropertySymbols) {
+    var symbols = Object.getOwnPropertySymbols(object);
+    if (enumerableOnly)
+      symbols = symbols.filter(function(sym) {
+        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
+      });
+    keys.push.apply(keys, symbols);
+  }
+  return keys;
+}
+function _objectSpread23(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    if (i % 2) {
+      ownKeys3(Object(source), true).forEach(function(key) {
+        _defineProperty3(target, key, source[key]);
+      });
+    } else if (Object.getOwnPropertyDescriptors) {
+      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
+    } else {
+      ownKeys3(Object(source)).forEach(function(key) {
+        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
+      });
+    }
+  }
+  return target;
+}
+function _objectWithoutPropertiesLoose3(source, excluded) {
+  if (source == null)
+    return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0)
+      continue;
+    target[key] = source[key];
+  }
+  return target;
+}
+function _unsupportedIterableToArray3(o, minLen) {
+  if (!o)
+    return;
+  if (typeof o === \\"string\\")
+    return _arrayLikeToArray3(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === \\"Object\\" && o.constructor)
+    n = o.constructor.name;
+  if (n === \\"Map\\" || n === \\"Set\\")
+    return Array.from(o);
+  if (n === \\"Arguments\\" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n))
+    return _arrayLikeToArray3(o, minLen);
+}
+function _arrayLikeToArray3(arr, len) {
+  if (len == null || len > arr.length)
+    len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++)
+    arr2[i] = arr[i];
+  return arr2;
+}
+function _createForOfIteratorHelperLoose3(o, allowArrayLike) {
+  var it;
+  if (typeof Symbol === \\"undefined\\" || o[Symbol.iterator] == null) {
+    if (Array.isArray(o) || (it = _unsupportedIterableToArray3(o)) || allowArrayLike && o && typeof o.length === \\"number\\") {
+      if (it)
+        o = it;
+      var i = 0;
+      return function() {
+        if (i >= o.length)
+          return {
+            done: true
+          };
+        return {
+          done: false,
+          value: o[i++]
+        };
+      };
+    }
+    throw new TypeError(\\"Invalid attempt to iterate non-iterable instance.\\\\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.\\");
+  }
+  it = o[Symbol.iterator]();
+  return it.next.bind(it);
+}
+
+// node_modules/reakit-utils/es/isObject.js
+function isObject(arg) {
+  return typeof arg === \\"object\\" && arg != null;
+}
+
+// node_modules/reakit-utils/es/isPlainObject.js
+function isPlainObject(arg) {
+  var _proto$constructor;
+  if (!isObject(arg))
+    return false;
+  var proto = Object.getPrototypeOf(arg);
+  if (proto == null)
+    return true;
+  return ((_proto$constructor = proto.constructor) === null || _proto$constructor === void 0 ? void 0 : _proto$constructor.toString()) === Object.toString();
+}
+
+// node_modules/reakit-utils/es/splitProps.js
+function __deprecatedSplitProps(props, keys) {
+  var propsKeys = Object.keys(props);
+  var picked = {};
+  var omitted = {};
+  for (var _i = 0, _propsKeys = propsKeys; _i < _propsKeys.length; _i++) {
+    var key = _propsKeys[_i];
+    if (keys.indexOf(key) >= 0) {
+      picked[key] = props[key];
+    } else {
+      omitted[key] = props[key];
+    }
+  }
+  return [picked, omitted];
+}
+function splitProps(props, keys) {
+  if (keys === void 0) {
+    keys = [];
+  }
+  if (!isPlainObject(props.state)) {
+    return __deprecatedSplitProps(props, keys);
+  }
+  var _deprecatedSplitProp = __deprecatedSplitProps(props, [].concat(keys, [\\"state\\"])), picked = _deprecatedSplitProp[0], omitted = _deprecatedSplitProp[1];
+  var state = picked.state, restPicked = _objectWithoutPropertiesLoose3(picked, [\\"state\\"]);
+  return [_objectSpread23(_objectSpread23({}, state), restPicked), omitted];
+}
+
+// node_modules/reakit-utils/es/shallowEqual.js
+function shallowEqual(objA, objB) {
+  if (objA === objB)
+    return true;
+  if (!objA)
+    return false;
+  if (!objB)
+    return false;
+  if (typeof objA !== \\"object\\")
+    return false;
+  if (typeof objB !== \\"object\\")
+    return false;
+  var aKeys = Object.keys(objA);
+  var bKeys = Object.keys(objB);
+  var length = aKeys.length;
+  if (bKeys.length !== length)
+    return false;
+  for (var _i = 0, _aKeys = aKeys; _i < _aKeys.length; _i++) {
+    var key = _aKeys[_i];
+    if (objA[key] !== objB[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// node_modules/reakit-utils/es/normalizePropsAreEqual.js
+function normalizePropsAreEqual(propsAreEqual3) {
+  if (propsAreEqual3.name === \\"normalizePropsAreEqualInner\\") {
+    return propsAreEqual3;
+  }
+  return function normalizePropsAreEqualInner(prev, next) {
+    if (!isPlainObject(prev.state) || !isPlainObject(next.state)) {
+      return propsAreEqual3(prev, next);
+    }
+    return propsAreEqual3(_objectSpread23(_objectSpread23({}, prev.state), prev), _objectSpread23(_objectSpread23({}, next.state), next));
+  };
+}
+
+// node_modules/reakit-system/es/createComponent.js
+function forwardRef(component) {
+  return /* @__PURE__ */ forwardRef$1(component);
+}
+function memo(component, propsAreEqual3) {
+  return /* @__PURE__ */ memo$1(component, propsAreEqual3);
+}
+function createComponent(_ref) {
+  var type = _ref.as, useHook = _ref.useHook, shouldMemo = _ref.memo, _ref$propsAreEqual = _ref.propsAreEqual, propsAreEqual3 = _ref$propsAreEqual === void 0 ? useHook === null || useHook === void 0 ? void 0 : useHook.unstable_propsAreEqual : _ref$propsAreEqual, _ref$keys = _ref.keys, keys = _ref$keys === void 0 ? (useHook === null || useHook === void 0 ? void 0 : useHook.__keys) || [] : _ref$keys, _ref$useCreateElement = _ref.useCreateElement, useCreateElement$1 = _ref$useCreateElement === void 0 ? useCreateElement : _ref$useCreateElement;
+  var Comp = function Comp2(_ref2, ref) {
+    var _ref2$as = _ref2.as, as = _ref2$as === void 0 ? type : _ref2$as, props = _objectWithoutPropertiesLoose2(_ref2, [\\"as\\"]);
+    if (useHook) {
+      var _as$render;
+      var _splitProps = splitProps(props, keys), _options = _splitProps[0], htmlProps = _splitProps[1];
+      var _useHook = useHook(_options, _objectSpread22({
+        ref
+      }, htmlProps)), wrapElement = _useHook.wrapElement, elementProps = _objectWithoutPropertiesLoose2(_useHook, [\\"wrapElement\\"]);
+      var asKeys = ((_as$render = as.render) === null || _as$render === void 0 ? void 0 : _as$render.__keys) || as.__keys;
+      var asOptions = asKeys && splitProps(props, asKeys)[0];
+      var allProps = asOptions ? _objectSpread22(_objectSpread22({}, elementProps), asOptions) : elementProps;
+      var _element = useCreateElement$1(as, allProps);
+      if (wrapElement) {
+        return wrapElement(_element);
+      }
+      return _element;
+    }
+    return useCreateElement$1(as, _objectSpread22({
+      ref
+    }, props));
+  };
+  if (useHook) {
+    Comp.displayName = useHook.name.replace(/^(unstable_)?use/, \\"\\");
+  }
+  Comp = forwardRef(Comp);
+  if (shouldMemo) {
+    Comp = memo(Comp, propsAreEqual3 && normalizePropsAreEqual(propsAreEqual3));
+  }
+  Comp.__keys = keys;
+  Comp.unstable_propsAreEqual = normalizePropsAreEqual(propsAreEqual3 || shallowEqual);
+  return Comp;
+}
+
+// node_modules/reakit-system/es/createHook.js
+import \\"react\\";
+
+// node_modules/reakit-system/es/useToken.js
+import { useDebugValue, useContext as useContext2 } from \\"react\\";
+function useToken(token, defaultValue) {
+  useDebugValue(token);
+  var context = useContext2(SystemContext);
+  return context[token] != null ? context[token] : defaultValue;
+}
+
+// node_modules/reakit-system/es/useProps.js
+import { useDebugValue as useDebugValue2 } from \\"react\\";
+function useProps(name, options, htmlProps) {
+  if (options === void 0) {
+    options = {};
+  }
+  if (htmlProps === void 0) {
+    htmlProps = {};
+  }
+  var hookName = \\"use\\" + name + \\"Props\\";
+  useDebugValue2(hookName);
+  var useHook = useToken(hookName);
+  if (useHook) {
+    return useHook(options, htmlProps);
+  }
+  return htmlProps;
+}
+
+// node_modules/reakit-system/es/useOptions.js
+import { useDebugValue as useDebugValue3 } from \\"react\\";
+function useOptions(name, options, htmlProps) {
+  if (options === void 0) {
+    options = {};
+  }
+  if (htmlProps === void 0) {
+    htmlProps = {};
+  }
+  var hookName = \\"use\\" + name + \\"Options\\";
+  useDebugValue3(hookName);
+  var useHook = useToken(hookName);
+  if (useHook) {
+    return _objectSpread22(_objectSpread22({}, options), useHook(options, htmlProps));
+  }
+  return options;
+}
+
+// node_modules/reakit-utils/es/toArray.js
+function toArray(arg) {
+  if (Array.isArray(arg)) {
+    return arg;
+  }
+  return typeof arg !== \\"undefined\\" ? [arg] : [];
+}
+
+// node_modules/reakit-system/es/createHook.js
+function createHook(options) {
+  var _options$useState, _composedHooks$;
+  var composedHooks = toArray(options.compose);
+  var __useOptions = function __useOptions2(hookOptions, htmlProps) {
+    if (options.useOptions) {
+      hookOptions = options.useOptions(hookOptions, htmlProps);
+    }
+    if (options.name) {
+      hookOptions = useOptions(options.name, hookOptions, htmlProps);
+    }
+    if (options.compose) {
+      for (var _iterator = _createForOfIteratorHelperLoose2(composedHooks), _step; !(_step = _iterator()).done; ) {
+        var hook = _step.value;
+        hookOptions = hook.__useOptions(hookOptions, htmlProps);
+      }
+    }
+    return hookOptions;
+  };
+  var useHook = function useHook2(hookOptions, htmlProps, unstable_ignoreUseOptions) {
+    if (hookOptions === void 0) {
+      hookOptions = {};
+    }
+    if (htmlProps === void 0) {
+      htmlProps = {};
+    }
+    if (unstable_ignoreUseOptions === void 0) {
+      unstable_ignoreUseOptions = false;
+    }
+    if (!unstable_ignoreUseOptions) {
+      hookOptions = __useOptions(hookOptions, htmlProps);
+    }
+    if (options.useProps) {
+      htmlProps = options.useProps(hookOptions, htmlProps);
+    }
+    if (options.name) {
+      htmlProps = useProps(options.name, hookOptions, htmlProps);
+    }
+    if (options.compose) {
+      if (options.useComposeOptions) {
+        hookOptions = options.useComposeOptions(hookOptions, htmlProps);
+      }
+      if (options.useComposeProps) {
+        htmlProps = options.useComposeProps(hookOptions, htmlProps);
+      } else {
+        for (var _iterator2 = _createForOfIteratorHelperLoose2(composedHooks), _step2; !(_step2 = _iterator2()).done; ) {
+          var hook = _step2.value;
+          htmlProps = hook(hookOptions, htmlProps, true);
+        }
+      }
+    }
+    var finalHTMLProps = {};
+    var definedHTMLProps = htmlProps || {};
+    for (var prop in definedHTMLProps) {
+      if (definedHTMLProps[prop] !== void 0) {
+        finalHTMLProps[prop] = definedHTMLProps[prop];
+      }
+    }
+    return finalHTMLProps;
+  };
+  useHook.__useOptions = __useOptions;
+  var composedKeys = composedHooks.reduce(function(keys, hook) {
+    keys.push.apply(keys, hook.__keys || []);
+    return keys;
+  }, []);
+  useHook.__keys = [].concat(composedKeys, ((_options$useState = options.useState) === null || _options$useState === void 0 ? void 0 : _options$useState.__keys) || [], options.keys || []);
+  useHook.unstable_propsAreEqual = options.propsAreEqual || ((_composedHooks$ = composedHooks[0]) === null || _composedHooks$ === void 0 ? void 0 : _composedHooks$.unstable_propsAreEqual) || shallowEqual;
+  if (options.name) {
+    Object.defineProperty(useHook, \\"name\\", {
+      value: \\"use\\" + options.name
+    });
+  }
+  return useHook;
+}
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/index.js
+import \\"react\\";
+
+// node_modules/reakit-utils/es/useForkRef.js
+import { useMemo } from \\"react\\";
+function setRef(ref, value) {
+  if (value === void 0) {
+    value = null;
+  }
+  if (!ref)
+    return;
+  if (typeof ref === \\"function\\") {
+    ref(value);
+  } else {
+    ref.current = value;
+  }
+}
+function useForkRef(refA, refB) {
+  return useMemo(function() {
+    if (refA == null && refB == null) {
+      return null;
+    }
+    return function(value) {
+      setRef(refA, value);
+      setRef(refB, value);
+    };
+  }, [refA, refB]);
+}
+
+// node_modules/reakit-utils/es/isButton.js
+var buttonInputTypes = [\\"button\\", \\"color\\", \\"file\\", \\"image\\", \\"reset\\", \\"submit\\"];
+function isButton(element) {
+  if (element.tagName === \\"BUTTON\\")
+    return true;
+  if (element.tagName === \\"INPUT\\") {
+    var input = element;
+    return buttonInputTypes.indexOf(input.type) !== -1;
+  }
+  return false;
+}
+
+// node_modules/reakit-utils/es/flatten.js
+function flatten(array) {
+  var flat = [];
+  for (var _iterator = _createForOfIteratorHelperLoose3(array), _step; !(_step = _iterator()).done; ) {
+    var maybeArray = _step.value;
+    if (Array.isArray(maybeArray)) {
+      flat.push.apply(flat, flatten(maybeArray));
+    } else {
+      flat.push(maybeArray);
+    }
+  }
+  return flat;
+}
+
+// node_modules/reakit-warning/es/warning.js
+function warning(condition) {
+  if (true) {
+    var _console;
+    if (!condition)
+      return;
+    for (var _len = arguments.length, messages = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      messages[_key - 1] = arguments[_key];
+    }
+    var warns = flatten(messages.map(function(message) {
+      return [message, \\"\\\\n\\"];
+    }));
+    (_console = console).warn.apply(_console, warns.slice(0, -1));
+    try {
+      throw Error(warns.join(\\"\\"));
+    } catch (x) {
+    }
+  }
+}
+
+// node_modules/reakit-warning/es/index.js
+import \\"react\\";
+
+// node_modules/reakit-warning/es/useWarning.js
+import { useEffect } from \\"react\\";
+
+// node_modules/reakit-utils/es/useLiveRef.js
+import { useRef } from \\"react\\";
+
+// node_modules/reakit-utils/es/getDocument.js
+function getDocument(element) {
+  return element ? element.ownerDocument || element : document;
+}
+
+// node_modules/reakit-utils/es/getWindow.js
+var _window;
+try {
+  _window = window;
+} catch (e) {
+}
+function getWindow(element) {
+  if (!element) {
+    return _window;
+  }
+  return getDocument(element).defaultView || _window;
+}
+
+// node_modules/reakit-utils/es/canUseDOM.js
+function checkIsBrowser() {
+  var _window2 = getWindow();
+  return Boolean(typeof _window2 !== \\"undefined\\" && _window2.document && _window2.document.createElement);
+}
+var canUseDOM = checkIsBrowser();
+
+// node_modules/reakit-utils/es/useIsomorphicEffect.js
+import { useEffect as useEffect2, useLayoutEffect } from \\"react\\";
+var useIsomorphicEffect = !canUseDOM ? useEffect2 : useLayoutEffect;
+
+// node_modules/reakit-utils/es/useLiveRef.js
+function useLiveRef(value) {
+  var ref = useRef(value);
+  useIsomorphicEffect(function() {
+    ref.current = value;
+  });
+  return ref;
+}
+
+// node_modules/reakit-utils/es/isSelfTarget.js
+function isSelfTarget(event) {
+  return event.target === event.currentTarget;
+}
+
+// node_modules/reakit-utils/es/getActiveElement.js
+function getActiveElement(element) {
+  var _getDocument = getDocument(element), activeElement = _getDocument.activeElement;
+  if (!(activeElement !== null && activeElement !== void 0 && activeElement.nodeName)) {
+    return null;
+  }
+  return activeElement;
+}
+
+// node_modules/reakit-utils/es/contains.js
+function contains(parent, child) {
+  return parent === child || parent.contains(child);
+}
+
+// node_modules/reakit-utils/es/hasFocusWithin.js
+function hasFocusWithin(element) {
+  var activeElement = getActiveElement(element);
+  if (!activeElement)
+    return false;
+  if (contains(element, activeElement))
+    return true;
+  var activeDescendant = activeElement.getAttribute(\\"aria-activedescendant\\");
+  if (!activeDescendant)
+    return false;
+  if (activeDescendant === element.id)
+    return true;
+  return !!element.querySelector(\\"#\\" + activeDescendant);
+}
+
+// node_modules/reakit-utils/es/isPortalEvent.js
+function isPortalEvent(event) {
+  return !contains(event.currentTarget, event.target);
+}
+
+// node_modules/reakit-utils/es/dom.js
+function isUA(string) {
+  if (!canUseDOM)
+    return false;
+  return window.navigator.userAgent.indexOf(string) !== -1;
+}
+
+// node_modules/reakit-utils/es/matches.js
+function matches(element, selectors) {
+  if (\\"matches\\" in element) {
+    return element.matches(selectors);
+  }
+  if (\\"msMatchesSelector\\" in element) {
+    return element.msMatchesSelector(selectors);
+  }
+  return element.webkitMatchesSelector(selectors);
+}
+
+// node_modules/reakit-utils/es/tabbable.js
+var selector = \\"input:not([type='hidden']):not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href], button:not([disabled]), [tabindex], iframe, object, embed, area[href], audio[controls], video[controls], [contenteditable]:not([contenteditable='false'])\\";
+function isVisible(element) {
+  var htmlElement = element;
+  return htmlElement.offsetWidth > 0 || htmlElement.offsetHeight > 0 || element.getClientRects().length > 0;
+}
+function isFocusable(element) {
+  return matches(element, selector) && isVisible(element);
+}
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/Role/Role.js
+var ROLE_KEYS = [\\"unstable_system\\"];
+var useRole = createHook({
+  name: \\"Role\\",
+  keys: ROLE_KEYS,
+  propsAreEqual: function propsAreEqual(prev, next) {
+    var prevSystem = prev.unstable_system, prevProps = _objectWithoutPropertiesLoose(prev, [\\"unstable_system\\"]);
+    var nextSystem = next.unstable_system, nextProps = _objectWithoutPropertiesLoose(next, [\\"unstable_system\\"]);
+    if (prevSystem !== nextSystem && !shallowEqual(prevSystem, nextSystem)) {
+      return false;
+    }
+    return shallowEqual(prevProps, nextProps);
+  }
+});
+var Role = createComponent({
+  as: \\"div\\",
+  useHook: useRole
+});
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/Tabbable/Tabbable.js
+import { useRef as useRef2, useState, useCallback } from \\"react\\";
+var TABBABLE_KEYS = [\\"disabled\\", \\"focusable\\"];
+var isSafariOrFirefoxOnMac = isUA(\\"Mac\\") && !isUA(\\"Chrome\\") && (isUA(\\"Safari\\") || isUA(\\"Firefox\\"));
+function focusIfNeeded(element) {
+  if (!hasFocusWithin(element) && isFocusable(element)) {
+    element.focus();
+  }
+}
+function isNativeTabbable(element) {
+  return [\\"BUTTON\\", \\"INPUT\\", \\"SELECT\\", \\"TEXTAREA\\", \\"A\\"].includes(element.tagName);
+}
+function supportsDisabledAttribute(element) {
+  return [\\"BUTTON\\", \\"INPUT\\", \\"SELECT\\", \\"TEXTAREA\\"].includes(element.tagName);
+}
+function getTabIndex(trulyDisabled, nativeTabbable, supportsDisabled, htmlTabIndex) {
+  if (trulyDisabled) {
+    if (nativeTabbable && !supportsDisabled) {
+      return -1;
+    }
+    return void 0;
+  }
+  if (nativeTabbable) {
+    return htmlTabIndex;
+  }
+  return htmlTabIndex || 0;
+}
+function useDisableEvent(htmlEventRef, disabled) {
+  return useCallback(function(event) {
+    var _htmlEventRef$current;
+    (_htmlEventRef$current = htmlEventRef.current) === null || _htmlEventRef$current === void 0 ? void 0 : _htmlEventRef$current.call(htmlEventRef, event);
+    if (event.defaultPrevented)
+      return;
+    if (disabled) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
+  }, [htmlEventRef, disabled]);
+}
+var useTabbable = createHook({
+  name: \\"Tabbable\\",
+  compose: useRole,
+  keys: TABBABLE_KEYS,
+  useOptions: function useOptions2(options, _ref) {
+    var disabled = _ref.disabled;
+    return _objectSpread2({
+      disabled
+    }, options);
+  },
+  useProps: function useProps2(options, _ref2) {
+    var htmlRef = _ref2.ref, htmlTabIndex = _ref2.tabIndex, htmlOnClickCapture = _ref2.onClickCapture, htmlOnMouseDownCapture = _ref2.onMouseDownCapture, htmlOnMouseDown = _ref2.onMouseDown, htmlOnKeyPressCapture = _ref2.onKeyPressCapture, htmlStyle = _ref2.style, htmlProps = _objectWithoutPropertiesLoose(_ref2, [\\"ref\\", \\"tabIndex\\", \\"onClickCapture\\", \\"onMouseDownCapture\\", \\"onMouseDown\\", \\"onKeyPressCapture\\", \\"style\\"]);
+    var ref = useRef2(null);
+    var onClickCaptureRef = useLiveRef(htmlOnClickCapture);
+    var onMouseDownCaptureRef = useLiveRef(htmlOnMouseDownCapture);
+    var onMouseDownRef = useLiveRef(htmlOnMouseDown);
+    var onKeyPressCaptureRef = useLiveRef(htmlOnKeyPressCapture);
+    var trulyDisabled = !!options.disabled && !options.focusable;
+    var _React$useState = useState(true), nativeTabbable = _React$useState[0], setNativeTabbable = _React$useState[1];
+    var _React$useState2 = useState(true), supportsDisabled = _React$useState2[0], setSupportsDisabled = _React$useState2[1];
+    var style = options.disabled ? _objectSpread2({
+      pointerEvents: \\"none\\"
+    }, htmlStyle) : htmlStyle;
+    useIsomorphicEffect(function() {
+      var tabbable = ref.current;
+      if (!tabbable) {
+        true ? warning(true, \\"Can't determine if the element is a native tabbable element because \`ref\` wasn't passed to the component.\\", \\"See https://reakit.io/docs/tabbable\\") : void 0;
+        return;
+      }
+      if (!isNativeTabbable(tabbable)) {
+        setNativeTabbable(false);
+      }
+      if (!supportsDisabledAttribute(tabbable)) {
+        setSupportsDisabled(false);
+      }
+    }, []);
+    var onClickCapture = useDisableEvent(onClickCaptureRef, options.disabled);
+    var onMouseDownCapture = useDisableEvent(onMouseDownCaptureRef, options.disabled);
+    var onKeyPressCapture = useDisableEvent(onKeyPressCaptureRef, options.disabled);
+    var onMouseDown = useCallback(function(event) {
+      var _onMouseDownRef$curre;
+      (_onMouseDownRef$curre = onMouseDownRef.current) === null || _onMouseDownRef$curre === void 0 ? void 0 : _onMouseDownRef$curre.call(onMouseDownRef, event);
+      var element = event.currentTarget;
+      if (event.defaultPrevented)
+        return;
+      if (!isSafariOrFirefoxOnMac)
+        return;
+      if (isPortalEvent(event))
+        return;
+      if (!isButton(element))
+        return;
+      var raf = requestAnimationFrame(function() {
+        element.removeEventListener(\\"mouseup\\", focusImmediately, true);
+        focusIfNeeded(element);
+      });
+      var focusImmediately = function focusImmediately2() {
+        cancelAnimationFrame(raf);
+        focusIfNeeded(element);
+      };
+      element.addEventListener(\\"mouseup\\", focusImmediately, {
+        once: true,
+        capture: true
+      });
+    }, []);
+    return _objectSpread2({
+      ref: useForkRef(ref, htmlRef),
+      style,
+      tabIndex: getTabIndex(trulyDisabled, nativeTabbable, supportsDisabled, htmlTabIndex),
+      disabled: trulyDisabled && supportsDisabled ? true : void 0,
+      \\"aria-disabled\\": options.disabled ? true : void 0,
+      onClickCapture,
+      onMouseDownCapture,
+      onMouseDown,
+      onKeyPressCapture
+    }, htmlProps);
+  }
+});
+var Tabbable = createComponent({
+  as: \\"div\\",
+  useHook: useTabbable
+});
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/Clickable/Clickable.js
+import { useState as useState2, useCallback as useCallback2 } from \\"react\\";
+var CLICKABLE_KEYS = [\\"unstable_clickOnEnter\\", \\"unstable_clickOnSpace\\"];
+function isNativeClick(event) {
+  var element = event.currentTarget;
+  if (!event.isTrusted)
+    return false;
+  return isButton(element) || element.tagName === \\"INPUT\\" || element.tagName === \\"TEXTAREA\\" || element.tagName === \\"A\\" || element.tagName === \\"SELECT\\";
+}
+var useClickable = createHook({
+  name: \\"Clickable\\",
+  compose: useTabbable,
+  keys: CLICKABLE_KEYS,
+  useOptions: function useOptions3(_ref) {
+    var _ref$unstable_clickOn = _ref.unstable_clickOnEnter, unstable_clickOnEnter = _ref$unstable_clickOn === void 0 ? true : _ref$unstable_clickOn, _ref$unstable_clickOn2 = _ref.unstable_clickOnSpace, unstable_clickOnSpace = _ref$unstable_clickOn2 === void 0 ? true : _ref$unstable_clickOn2, options = _objectWithoutPropertiesLoose(_ref, [\\"unstable_clickOnEnter\\", \\"unstable_clickOnSpace\\"]);
+    return _objectSpread2({
+      unstable_clickOnEnter,
+      unstable_clickOnSpace
+    }, options);
+  },
+  useProps: function useProps3(options, _ref2) {
+    var htmlOnKeyDown = _ref2.onKeyDown, htmlOnKeyUp = _ref2.onKeyUp, htmlProps = _objectWithoutPropertiesLoose(_ref2, [\\"onKeyDown\\", \\"onKeyUp\\"]);
+    var _React$useState = useState2(false), active = _React$useState[0], setActive = _React$useState[1];
+    var onKeyDownRef = useLiveRef(htmlOnKeyDown);
+    var onKeyUpRef = useLiveRef(htmlOnKeyUp);
+    var onKeyDown = useCallback2(function(event) {
+      var _onKeyDownRef$current;
+      (_onKeyDownRef$current = onKeyDownRef.current) === null || _onKeyDownRef$current === void 0 ? void 0 : _onKeyDownRef$current.call(onKeyDownRef, event);
+      if (event.defaultPrevented)
+        return;
+      if (options.disabled)
+        return;
+      if (event.metaKey)
+        return;
+      if (!isSelfTarget(event))
+        return;
+      var isEnter = options.unstable_clickOnEnter && event.key === \\"Enter\\";
+      var isSpace = options.unstable_clickOnSpace && event.key === \\" \\";
+      if (isEnter || isSpace) {
+        if (isNativeClick(event))
+          return;
+        event.preventDefault();
+        if (isEnter) {
+          event.currentTarget.click();
+        } else if (isSpace) {
+          setActive(true);
+        }
+      }
+    }, [options.disabled, options.unstable_clickOnEnter, options.unstable_clickOnSpace]);
+    var onKeyUp = useCallback2(function(event) {
+      var _onKeyUpRef$current;
+      (_onKeyUpRef$current = onKeyUpRef.current) === null || _onKeyUpRef$current === void 0 ? void 0 : _onKeyUpRef$current.call(onKeyUpRef, event);
+      if (event.defaultPrevented)
+        return;
+      if (options.disabled)
+        return;
+      if (event.metaKey)
+        return;
+      var isSpace = options.unstable_clickOnSpace && event.key === \\" \\";
+      if (active && isSpace) {
+        setActive(false);
+        event.currentTarget.click();
+      }
+    }, [options.disabled, options.unstable_clickOnSpace, active]);
+    return _objectSpread2({
+      \\"data-active\\": active || void 0,
+      onKeyDown,
+      onKeyUp
+    }, htmlProps);
+  }
+});
+var Clickable = createComponent({
+  as: \\"button\\",
+  memo: true,
+  useHook: useClickable
+});
+
+// node_modules/reakit-utils/es/createEvent.js
+function createEvent(element, type, eventInit) {
+  if (typeof Event === \\"function\\") {
+    return new Event(type, eventInit);
+  }
+  var event = getDocument(element).createEvent(\\"Event\\");
+  event.initEvent(type, eventInit === null || eventInit === void 0 ? void 0 : eventInit.bubbles, eventInit === null || eventInit === void 0 ? void 0 : eventInit.cancelable);
+  return event;
+}
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/getCurrentId-5aa9849e.js
+function findFirstEnabledItem(items, excludeId) {
+  if (excludeId) {
+    return items.find(function(item) {
+      return !item.disabled && item.id !== excludeId;
+    });
+  }
+  return items.find(function(item) {
+    return !item.disabled;
+  });
+}
+function getCurrentId(options, passedId) {
+  var _findFirstEnabledItem;
+  if (passedId || passedId === null) {
+    return passedId;
+  }
+  if (options.currentId || options.currentId === null) {
+    return options.currentId;
+  }
+  return (_findFirstEnabledItem = findFirstEnabledItem(options.items || [])) === null || _findFirstEnabledItem === void 0 ? void 0 : _findFirstEnabledItem.id;
+}
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/__keys-6742f591.js
+var COMPOSITE_STATE_KEYS = [\\"baseId\\", \\"unstable_idCountRef\\", \\"setBaseId\\", \\"unstable_virtual\\", \\"rtl\\", \\"orientation\\", \\"items\\", \\"groups\\", \\"currentId\\", \\"loop\\", \\"wrap\\", \\"shift\\", \\"unstable_moves\\", \\"unstable_hasActiveWidget\\", \\"unstable_includesBaseElement\\", \\"registerItem\\", \\"unregisterItem\\", \\"registerGroup\\", \\"unregisterGroup\\", \\"move\\", \\"next\\", \\"previous\\", \\"up\\", \\"down\\", \\"first\\", \\"last\\", \\"sort\\", \\"unstable_setVirtual\\", \\"setRTL\\", \\"setOrientation\\", \\"setCurrentId\\", \\"setLoop\\", \\"setWrap\\", \\"setShift\\", \\"reset\\", \\"unstable_setIncludesBaseElement\\", \\"unstable_setHasActiveWidget\\"];
+var COMPOSITE_KEYS = COMPOSITE_STATE_KEYS;
+var COMPOSITE_GROUP_KEYS = COMPOSITE_KEYS;
+var COMPOSITE_ITEM_KEYS = COMPOSITE_GROUP_KEYS;
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/userFocus-e16425e3.js
+function userFocus(element) {
+  element.userFocus = true;
+  element.focus();
+  element.userFocus = false;
+}
+function hasUserFocus(element) {
+  return !!element.userFocus;
+}
+function setUserFocus(element, value) {
+  element.userFocus = value;
+}
+
+// node_modules/reakit-utils/es/isTextField.js
+function isTextField(element) {
+  try {
+    var isTextInput = element instanceof HTMLInputElement && element.selectionStart !== null;
+    var isTextArea = element.tagName === \\"TEXTAREA\\";
+    var isContentEditable = element.contentEditable === \\"true\\";
+    return isTextInput || isTextArea || isContentEditable || false;
+  } catch (error) {
+    return false;
+  }
+}
+
+// node_modules/reakit-utils/es/hasFocus.js
+function hasFocus(element) {
+  var activeElement = getActiveElement(element);
+  if (!activeElement)
+    return false;
+  if (activeElement === element)
+    return true;
+  var activeDescendant = activeElement.getAttribute(\\"aria-activedescendant\\");
+  if (!activeDescendant)
+    return false;
+  return activeDescendant === element.id;
+}
+
+// node_modules/reakit-utils/es/ensureFocus.js
+function ensureFocus(element, _temp) {
+  var _ref = _temp === void 0 ? {} : _temp, preventScroll = _ref.preventScroll, _ref$isActive = _ref.isActive, isActive = _ref$isActive === void 0 ? hasFocus : _ref$isActive;
+  if (isActive(element))
+    return -1;
+  element.focus({
+    preventScroll
+  });
+  if (isActive(element))
+    return -1;
+  return requestAnimationFrame(function() {
+    element.focus({
+      preventScroll
+    });
+  });
+}
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/Id/IdProvider.js
+import { createContext as createContext2, useRef as useRef3, useCallback as useCallback3, createElement as createElement2 } from \\"react\\";
+var defaultPrefix = \\"id\\";
+function generateRandomString(prefix) {
+  if (prefix === void 0) {
+    prefix = defaultPrefix;
+  }
+  return (prefix ? prefix + \\"-\\" : \\"\\") + Math.random().toString(32).substr(2, 6);
+}
+var unstable_IdContext = /* @__PURE__ */ createContext2(generateRandomString);
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/Id/Id.js
+import { useContext as useContext3, useState as useState3, useMemo as useMemo2 } from \\"react\\";
+var ID_STATE_KEYS = [\\"baseId\\", \\"unstable_idCountRef\\", \\"setBaseId\\"];
+var ID_KEYS = [].concat(ID_STATE_KEYS, [\\"id\\"]);
+var unstable_useId = createHook({
+  keys: ID_KEYS,
+  useOptions: function useOptions4(options, htmlProps) {
+    var generateId = useContext3(unstable_IdContext);
+    var _React$useState = useState3(function() {
+      if (options.unstable_idCountRef) {
+        options.unstable_idCountRef.current += 1;
+        return \\"-\\" + options.unstable_idCountRef.current;
+      }
+      if (options.baseId) {
+        return \\"-\\" + generateId(\\"\\");
+      }
+      return \\"\\";
+    }), suffix = _React$useState[0];
+    var baseId = useMemo2(function() {
+      return options.baseId || generateId();
+    }, [options.baseId, generateId]);
+    var id = htmlProps.id || options.id || \\"\\" + baseId + suffix;
+    return _objectSpread2(_objectSpread2({}, options), {}, {
+      id
+    });
+  },
+  useProps: function useProps4(options, htmlProps) {
+    return _objectSpread2({
+      id: options.id
+    }, htmlProps);
+  }
+});
+var unstable_Id = createComponent({
+  as: \\"div\\",
+  useHook: unstable_useId
+});
+
+// node_modules/reakit-utils/es/fireEvent.js
+function fireEvent(element, type, eventInit) {
+  return element.dispatchEvent(createEvent(element, type, eventInit));
+}
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/setTextFieldValue-0a221f4e.js
+function setTextFieldValue(element, value) {
+  if (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) {
+    var _Object$getOwnPropert;
+    var proto = Object.getPrototypeOf(element);
+    var setValue = (_Object$getOwnPropert = Object.getOwnPropertyDescriptor(proto, \\"value\\")) === null || _Object$getOwnPropert === void 0 ? void 0 : _Object$getOwnPropert.set;
+    if (setValue) {
+      setValue.call(element, value);
+      fireEvent(element, \\"input\\", {
+        bubbles: true
+      });
+    }
+  }
+}
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/Composite/CompositeItem.js
+import { useRef as useRef4, useMemo as useMemo3, useEffect as useEffect3, useCallback as useCallback4 } from \\"react\\";
+function getWidget(itemElement) {
+  return itemElement.querySelector(\\"[data-composite-item-widget]\\");
+}
+function useItem(options) {
+  return useMemo3(function() {
+    var _options$items;
+    return (_options$items = options.items) === null || _options$items === void 0 ? void 0 : _options$items.find(function(item) {
+      return options.id && item.id === options.id;
+    });
+  }, [options.items, options.id]);
+}
+function targetIsAnotherItem(event, items) {
+  if (isSelfTarget(event))
+    return false;
+  for (var _iterator = _createForOfIteratorHelperLoose(items), _step; !(_step = _iterator()).done; ) {
+    var item = _step.value;
+    if (item.ref.current === event.target) {
+      return true;
+    }
+  }
+  return false;
+}
+var useCompositeItem = createHook({
+  name: \\"CompositeItem\\",
+  compose: [useClickable, unstable_useId],
+  keys: COMPOSITE_ITEM_KEYS,
+  propsAreEqual: function propsAreEqual2(prev, next) {
+    if (!next.id || prev.id !== next.id) {
+      return useClickable.unstable_propsAreEqual(prev, next);
+    }
+    var prevCurrentId = prev.currentId, prevMoves = prev.unstable_moves, prevProps = _objectWithoutPropertiesLoose(prev, [\\"currentId\\", \\"unstable_moves\\"]);
+    var nextCurrentId = next.currentId, nextMoves = next.unstable_moves, nextProps = _objectWithoutPropertiesLoose(next, [\\"currentId\\", \\"unstable_moves\\"]);
+    if (nextCurrentId !== prevCurrentId) {
+      if (next.id === nextCurrentId || next.id === prevCurrentId) {
+        return false;
+      }
+    } else if (prevMoves !== nextMoves) {
+      return false;
+    }
+    return useClickable.unstable_propsAreEqual(prevProps, nextProps);
+  },
+  useOptions: function useOptions5(options) {
+    return _objectSpread2(_objectSpread2({}, options), {}, {
+      id: options.id,
+      currentId: getCurrentId(options),
+      unstable_clickOnSpace: options.unstable_hasActiveWidget ? false : options.unstable_clickOnSpace
+    });
+  },
+  useProps: function useProps5(options, _ref) {
+    var _options$items2;
+    var htmlRef = _ref.ref, _ref$tabIndex = _ref.tabIndex, htmlTabIndex = _ref$tabIndex === void 0 ? 0 : _ref$tabIndex, htmlOnMouseDown = _ref.onMouseDown, htmlOnFocus = _ref.onFocus, htmlOnBlurCapture = _ref.onBlurCapture, htmlOnKeyDown = _ref.onKeyDown, htmlOnClick = _ref.onClick, htmlProps = _objectWithoutPropertiesLoose(_ref, [\\"ref\\", \\"tabIndex\\", \\"onMouseDown\\", \\"onFocus\\", \\"onBlurCapture\\", \\"onKeyDown\\", \\"onClick\\"]);
+    var ref = useRef4(null);
+    var id = options.id;
+    var trulyDisabled = options.disabled && !options.focusable;
+    var isCurrentItem = options.currentId === id;
+    var isCurrentItemRef = useLiveRef(isCurrentItem);
+    var hasFocusedComposite = useRef4(false);
+    var item = useItem(options);
+    var onMouseDownRef = useLiveRef(htmlOnMouseDown);
+    var onFocusRef = useLiveRef(htmlOnFocus);
+    var onBlurCaptureRef = useLiveRef(htmlOnBlurCapture);
+    var onKeyDownRef = useLiveRef(htmlOnKeyDown);
+    var onClickRef = useLiveRef(htmlOnClick);
+    var shouldTabIndex = !options.unstable_virtual && !options.unstable_hasActiveWidget && isCurrentItem || !((_options$items2 = options.items) !== null && _options$items2 !== void 0 && _options$items2.length);
+    useEffect3(function() {
+      var _options$registerItem;
+      if (!id)
+        return void 0;
+      (_options$registerItem = options.registerItem) === null || _options$registerItem === void 0 ? void 0 : _options$registerItem.call(options, {
+        id,
+        ref,
+        disabled: !!trulyDisabled
+      });
+      return function() {
+        var _options$unregisterIt;
+        (_options$unregisterIt = options.unregisterItem) === null || _options$unregisterIt === void 0 ? void 0 : _options$unregisterIt.call(options, id);
+      };
+    }, [id, trulyDisabled, options.registerItem, options.unregisterItem]);
+    useEffect3(function() {
+      var element = ref.current;
+      if (!element) {
+        true ? warning(true, \\"Can't focus composite item component because \`ref\` wasn't passed to component.\\", \\"See https://reakit.io/docs/composite\\") : void 0;
+        return;
+      }
+      if (options.unstable_moves && isCurrentItemRef.current) {
+        userFocus(element);
+      }
+    }, [options.unstable_moves]);
+    var onMouseDown = useCallback4(function(event) {
+      var _onMouseDownRef$curre;
+      (_onMouseDownRef$curre = onMouseDownRef.current) === null || _onMouseDownRef$curre === void 0 ? void 0 : _onMouseDownRef$curre.call(onMouseDownRef, event);
+      setUserFocus(event.currentTarget, true);
+    }, []);
+    var onFocus = useCallback4(function(event) {
+      var _onFocusRef$current, _options$setCurrentId;
+      var shouldFocusComposite = hasUserFocus(event.currentTarget);
+      setUserFocus(event.currentTarget, false);
+      (_onFocusRef$current = onFocusRef.current) === null || _onFocusRef$current === void 0 ? void 0 : _onFocusRef$current.call(onFocusRef, event);
+      if (event.defaultPrevented)
+        return;
+      if (isPortalEvent(event))
+        return;
+      if (!id)
+        return;
+      if (targetIsAnotherItem(event, options.items))
+        return;
+      (_options$setCurrentId = options.setCurrentId) === null || _options$setCurrentId === void 0 ? void 0 : _options$setCurrentId.call(options, id);
+      if (shouldFocusComposite && options.unstable_virtual && options.baseId && isSelfTarget(event)) {
+        var target = event.target;
+        var composite = getDocument(target).getElementById(options.baseId);
+        if (composite) {
+          hasFocusedComposite.current = true;
+          ensureFocus(composite);
+        }
+      }
+    }, [id, options.items, options.setCurrentId, options.unstable_virtual, options.baseId]);
+    var onBlurCapture = useCallback4(function(event) {
+      var _onBlurCaptureRef$cur;
+      (_onBlurCaptureRef$cur = onBlurCaptureRef.current) === null || _onBlurCaptureRef$cur === void 0 ? void 0 : _onBlurCaptureRef$cur.call(onBlurCaptureRef, event);
+      if (event.defaultPrevented)
+        return;
+      if (options.unstable_virtual && hasFocusedComposite.current) {
+        hasFocusedComposite.current = false;
+        event.preventDefault();
+        event.stopPropagation();
+      }
+    }, [options.unstable_virtual]);
+    var onKeyDown = useCallback4(function(event) {
+      var _onKeyDownRef$current;
+      if (!isSelfTarget(event))
+        return;
+      var isVertical = options.orientation !== \\"horizontal\\";
+      var isHorizontal = options.orientation !== \\"vertical\\";
+      var isGrid = !!(item !== null && item !== void 0 && item.groupId);
+      var keyMap = {
+        ArrowUp: (isGrid || isVertical) && options.up,
+        ArrowRight: (isGrid || isHorizontal) && options.next,
+        ArrowDown: (isGrid || isVertical) && options.down,
+        ArrowLeft: (isGrid || isHorizontal) && options.previous,
+        Home: function Home() {
+          if (!isGrid || event.ctrlKey) {
+            var _options$first;
+            (_options$first = options.first) === null || _options$first === void 0 ? void 0 : _options$first.call(options);
+          } else {
+            var _options$previous;
+            (_options$previous = options.previous) === null || _options$previous === void 0 ? void 0 : _options$previous.call(options, true);
+          }
+        },
+        End: function End() {
+          if (!isGrid || event.ctrlKey) {
+            var _options$last;
+            (_options$last = options.last) === null || _options$last === void 0 ? void 0 : _options$last.call(options);
+          } else {
+            var _options$next;
+            (_options$next = options.next) === null || _options$next === void 0 ? void 0 : _options$next.call(options, true);
+          }
+        },
+        PageUp: function PageUp() {
+          if (isGrid) {
+            var _options$up;
+            (_options$up = options.up) === null || _options$up === void 0 ? void 0 : _options$up.call(options, true);
+          } else {
+            var _options$first2;
+            (_options$first2 = options.first) === null || _options$first2 === void 0 ? void 0 : _options$first2.call(options);
+          }
+        },
+        PageDown: function PageDown() {
+          if (isGrid) {
+            var _options$down;
+            (_options$down = options.down) === null || _options$down === void 0 ? void 0 : _options$down.call(options, true);
+          } else {
+            var _options$last2;
+            (_options$last2 = options.last) === null || _options$last2 === void 0 ? void 0 : _options$last2.call(options);
+          }
+        }
+      };
+      var action = keyMap[event.key];
+      if (action) {
+        event.preventDefault();
+        action();
+        return;
+      }
+      (_onKeyDownRef$current = onKeyDownRef.current) === null || _onKeyDownRef$current === void 0 ? void 0 : _onKeyDownRef$current.call(onKeyDownRef, event);
+      if (event.defaultPrevented)
+        return;
+      if (event.key.length === 1 && event.key !== \\" \\") {
+        var widget = getWidget(event.currentTarget);
+        if (widget && isTextField(widget)) {
+          widget.focus();
+          setTextFieldValue(widget, \\"\\");
+        }
+      } else if (event.key === \\"Delete\\" || event.key === \\"Backspace\\") {
+        var _widget = getWidget(event.currentTarget);
+        if (_widget && isTextField(_widget)) {
+          event.preventDefault();
+          setTextFieldValue(_widget, \\"\\");
+        }
+      }
+    }, [options.orientation, item, options.up, options.next, options.down, options.previous, options.first, options.last]);
+    var onClick = useCallback4(function(event) {
+      var _onClickRef$current;
+      (_onClickRef$current = onClickRef.current) === null || _onClickRef$current === void 0 ? void 0 : _onClickRef$current.call(onClickRef, event);
+      if (event.defaultPrevented)
+        return;
+      var element = event.currentTarget;
+      var widget = getWidget(element);
+      if (widget && !hasFocusWithin(widget)) {
+        widget.focus();
+      }
+    }, []);
+    return _objectSpread2({
+      ref: useForkRef(ref, htmlRef),
+      id,
+      tabIndex: shouldTabIndex ? htmlTabIndex : -1,
+      \\"aria-selected\\": options.unstable_virtual && isCurrentItem ? true : void 0,
+      onMouseDown,
+      onFocus,
+      onBlurCapture,
+      onKeyDown,
+      onClick
+    }, htmlProps);
+  }
+});
+var CompositeItem = createComponent({
+  as: \\"button\\",
+  memo: true,
+  useHook: useCompositeItem
+});
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/index.js
+import \\"react-dom\\";
+
+// node_modules/body-scroll-lock/lib/bodyScrollLock.esm.js
+var hasPassiveEvents = false;
+if (typeof window !== \\"undefined\\") {
+  passiveTestOptions = {
+    get passive() {
+      hasPassiveEvents = true;
+      return void 0;
+    }
+  };
+  window.addEventListener(\\"testPassive\\", null, passiveTestOptions);
+  window.removeEventListener(\\"testPassive\\", null, passiveTestOptions);
+}
+var passiveTestOptions;
+var isIosDevice = typeof window !== \\"undefined\\" && window.navigator && window.navigator.platform && (/iP(ad|hone|od)/.test(window.navigator.platform) || window.navigator.platform === \\"MacIntel\\" && window.navigator.maxTouchPoints > 1);
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/__keys-3c0b2243.js
+var TAB_STATE_KEYS = [\\"baseId\\", \\"unstable_idCountRef\\", \\"unstable_virtual\\", \\"rtl\\", \\"orientation\\", \\"items\\", \\"groups\\", \\"currentId\\", \\"loop\\", \\"wrap\\", \\"shift\\", \\"unstable_moves\\", \\"unstable_hasActiveWidget\\", \\"unstable_includesBaseElement\\", \\"selectedId\\", \\"panels\\", \\"manual\\", \\"setBaseId\\", \\"registerItem\\", \\"unregisterItem\\", \\"registerGroup\\", \\"unregisterGroup\\", \\"move\\", \\"next\\", \\"previous\\", \\"up\\", \\"down\\", \\"first\\", \\"last\\", \\"sort\\", \\"unstable_setVirtual\\", \\"setRTL\\", \\"setOrientation\\", \\"setCurrentId\\", \\"setLoop\\", \\"setWrap\\", \\"setShift\\", \\"reset\\", \\"unstable_setIncludesBaseElement\\", \\"unstable_setHasActiveWidget\\", \\"select\\", \\"setSelectedId\\", \\"registerPanel\\", \\"unregisterPanel\\"];
+var TAB_KEYS = TAB_STATE_KEYS;
+var TAB_LIST_KEYS = TAB_KEYS;
+var TAB_PANEL_KEYS = [].concat(TAB_LIST_KEYS, [\\"tabId\\"]);
+
+// node_modules/@twilio-paste/paste-reakit-fork/es/Tab/Tab.js
+import { useMemo as useMemo4, useCallback as useCallback5 } from \\"react\\";
+function useTabPanelId(options) {
+  return useMemo4(function() {
+    var _options$panels, _options$panels$find;
+    return ((_options$panels = options.panels) === null || _options$panels === void 0 ? void 0 : (_options$panels$find = _options$panels.find(function(panel) {
+      return panel.groupId === options.id;
+    })) === null || _options$panels$find === void 0 ? void 0 : _options$panels$find.id) || void 0;
+  }, [options.panels, options.id]);
+}
+var useTab = createHook({
+  name: \\"Tab\\",
+  compose: useCompositeItem,
+  keys: TAB_KEYS,
+  useOptions: function useOptions6(_ref) {
+    var _ref$focusable = _ref.focusable, focusable = _ref$focusable === void 0 ? true : _ref$focusable, options = _objectWithoutPropertiesLoose(_ref, [\\"focusable\\"]);
+    return _objectSpread2({
+      focusable
+    }, options);
+  },
+  useProps: function useProps6(options, _ref2) {
+    var htmlOnClick = _ref2.onClick, htmlOnFocus = _ref2.onFocus, htmlProps = _objectWithoutPropertiesLoose(_ref2, [\\"onClick\\", \\"onFocus\\"]);
+    var selected = options.selectedId === options.id;
+    var tabPanelId = useTabPanelId(options);
+    var onClickRef = useLiveRef(htmlOnClick);
+    var onFocusRef = useLiveRef(htmlOnFocus);
+    var onClick = useCallback5(function(event) {
+      var _onClickRef$current, _options$select;
+      (_onClickRef$current = onClickRef.current) === null || _onClickRef$current === void 0 ? void 0 : _onClickRef$current.call(onClickRef, event);
+      if (event.defaultPrevented)
+        return;
+      if (options.disabled)
+        return;
+      if (!options.id)
+        return;
+      if (selected)
+        return;
+      (_options$select = options.select) === null || _options$select === void 0 ? void 0 : _options$select.call(options, options.id);
+    }, [options.disabled, selected, options.select, options.id]);
+    var onFocus = useCallback5(function(event) {
+      var _onFocusRef$current, _options$select2;
+      (_onFocusRef$current = onFocusRef.current) === null || _onFocusRef$current === void 0 ? void 0 : _onFocusRef$current.call(onFocusRef, event);
+      if (event.defaultPrevented)
+        return;
+      if (options.disabled)
+        return;
+      if (options.manual)
+        return;
+      if (!options.id)
+        return;
+      if (selected)
+        return;
+      (_options$select2 = options.select) === null || _options$select2 === void 0 ? void 0 : _options$select2.call(options, options.id);
+    }, [options.id, options.disabled, options.manual, selected, options.select]);
+    return _objectSpread2({
+      role: \\"tab\\",
+      \\"aria-selected\\": selected,
+      \\"aria-controls\\": tabPanelId,
+      onClick,
+      onFocus
+    }, htmlProps);
+  }
+});
+var Tab = createComponent({
+  as: \\"button\\",
+  memo: true,
+  useHook: useTab
+});
+
+// tools/build/__fixtures__/random_package/src/index.tsx
 var import_use_clipboard_copy = __toESM(require_dist());
 var import_camelCase = __toESM(require_camelCase());
-import * as React from \\"react\\";
 import DefaultRawTokenJSON from \\"@twilio-paste/design-tokens/dist/tokens.raw.json\\";
 var DEPRECATE_TOKENS = Object.values(DefaultRawTokenJSON.props).filter((token) => token.deprecated).map((deprecatedToken) => (0, import_camelCase.default)(deprecatedToken.name));
 var convertRawTokenJSONToArray = (rawTokens) => {
@@ -1344,13 +2362,15 @@ var convertRawTokenJSONToArray = (rawTokens) => {
     return [rawTokens[token], ...tokens];
   }, []);
 };
-var getTokensWithTextContrastRequirements = (rawTokens) => convertRawTokenJSONToArray(rawTokens).filter((token) => token.type === \\"color\\" && token.text_contrast_pairing != null);
+var getTokensWithTextContrastRequirements = (rawTokens) => convertRawTokenJSONToArray(rawTokens).filter(
+  (token) => token.type === \\"color\\" && token.text_contrast_pairing != null
+);
 var getContrastRatingsOfTokensWithTextContrastRequirements = () => {
   const defaultThemeRawJSON = DefaultRawTokenJSON.props;
   const tokenWithTextContrastRequirements = getTokensWithTextContrastRequirements(defaultThemeRawJSON);
 };
 var RandomComponent = () => {
-  return /* @__PURE__ */ React.createElement(import_react_autosize_textarea.default, null);
+  return /* @__PURE__ */ React.createElement(Tab, null);
 };
 var export_useClipboard = import_use_clipboard_copy.useClipboard;
 export {
@@ -1361,10 +2381,5 @@ export {
   getTokensWithTextContrastRequirements,
   export_useClipboard as useClipboard
 };
-/*!
-	autosize 4.0.4
-	license: MIT
-	http://www.jacklmoore.com/autosize
-*/
 "
 `;

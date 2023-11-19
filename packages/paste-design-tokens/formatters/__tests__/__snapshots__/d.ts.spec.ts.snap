@@ -122,7 +122,6 @@ export declare const colors: {
   colorBrandHighlightDark: \\"rgb(235, 15, 41)\\";
   colorBrandPrimary: \\"rgb(13, 18, 43)\\";
   colorGray1: \\"rgb(255, 255, 255)\\";
-  colorGray10: \\"rgb(34, 34, 34)\\";
   colorGray2: \\"rgb(246, 246, 246)\\";
   colorGray3: \\"rgb(235, 235, 235)\\";
   colorGray4: \\"rgb(230, 230, 230)\\";
@@ -131,6 +130,7 @@ export declare const colors: {
   colorGray7: \\"rgb(153, 153, 153)\\";
   colorGray8: \\"rgb(102, 102, 102)\\";
   colorGray9: \\"rgb(68, 68, 68)\\";
+  colorGray10: \\"rgb(34, 34, 34)\\";
 };
 export declare const fontSizes: {
   fontSize0: \\"0.6875rem\\";
@@ -147,12 +147,6 @@ export declare const fontSizes: {
 export declare const spacings: {
   space0: \\"0.25rem\\";
   space1: \\"0.5rem\\";
-  space10: \\"2.75rem\\";
-  space11: \\"3rem\\";
-  space12: \\"3.25rem\\";
-  space13: \\"3.5rem\\";
-  space14: \\"3.75rem\\";
-  space15: \\"4rem\\";
   space2: \\"0.75rem\\";
   space3: \\"1rem\\";
   space4: \\"1.25rem\\";
@@ -161,6 +155,12 @@ export declare const spacings: {
   space7: \\"2rem\\";
   space8: \\"2.25rem\\";
   space9: \\"2.5rem\\";
+  space10: \\"2.75rem\\";
+  space11: \\"3rem\\";
+  space12: \\"3.25rem\\";
+  space13: \\"3.5rem\\";
+  space14: \\"3.75rem\\";
+  space15: \\"4rem\\";
 };
 export declare const textColors: {
   colorTextBrandHighlight: \\"rgb(242, 47, 70)\\";

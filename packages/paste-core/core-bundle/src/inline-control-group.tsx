@@ -1,1 +1,1 @@
-export * from '@twilio-paste/inline-control-group';
+export * from "@twilio-paste/inline-control-group";

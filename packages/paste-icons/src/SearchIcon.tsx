@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface SearchIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface SearchIconProps extends IconWrapperProps {
 }
 
 const SearchIcon = React.forwardRef<HTMLElement, SearchIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `SearchIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[SearchIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[SearchIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -24,6 +25,7 @@ const SearchIcon = React.forwardRef<HTMLElement, SearchIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
           viewBox="0 0 20 20"
@@ -38,8 +40,8 @@ const SearchIcon = React.forwardRef<HTMLElement, SearchIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-SearchIcon.displayName = 'SearchIcon';
-export {SearchIcon};
+SearchIcon.displayName = "SearchIcon";
+export { SearchIcon };

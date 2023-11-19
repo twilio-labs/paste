@@ -1,96 +1,71 @@
----
-title: Heading
-package: '@twilio-paste/heading'
-description: Headings are words or phrases that are intended to introduce sections of content. Headings are often used for page headings, as well as content subsections within the page.
-slug: /components/heading/
----
+export const meta = {
+  title: 'Heading',
+  package: '@twilio-paste/heading',
+  description:
+    'Headings are words or phrases that are intended to introduce sections of content. Headings are often used for page headings, as well as content subsections within the page.',
+  slug: '/components/heading/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/heading/CHANGELOG.md';
+import packageJson from '@twilio-paste/heading/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/heading"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/heading/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Heading"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/heading"
-  storybookUrl="/?path=/story/components-heading--"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Heading');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/heading',
+        storybookUrl: '/?path=/story/components-heading--heading-10',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Heading}} language="jsx">
+  {`<Heading as="h1" variant="heading10" marginBottom="space0">
+  Black lives matter
+</Heading>`}
+</LivePreview>
 
 ## Guidelines
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 ### About Heading
 
 Headings should allow users to easily distinguish content sections on the page.
 
-- Headings can have multiple levels of depth to help organize content
-- Heading types provide specific styles to the font-size, font-weight, and line-height of the text to create hierarchy that allow users to easily scan pages and content
-- Headings should be used with intention that maintains a coherent document outline
-- Don’t use heading tags to resize text. Instead use the `<Text>` primitive
-- Don’t skip headline levels. Always start with `<h1>`, `<h2>`, and so on
-- There can only be one `<h1>` tag per page
-- Always use sentence case when writing headings, for more information read the [product style guide](/foundations/content/product-style-guide/#sentence-case)
+- Headings can have multiple levels of depth to help organize content.
+- Heading types provide specific styles to the font-size, font-weight, and line-height of the text to create hierarchy that allow users to easily scan pages and content.
+- Headings should be used with intention that maintains a coherent document outline.
+- Don’t use heading tags to resize text. Instead use the `<Text>` primitive.
+- Don’t skip headline levels. Always start with `<h1>`, `<h2>`, and so on. In other words, don't use an `<h3>` unless preceded by an `<h2>`.
+- There can **only be one `<h1>` tag** per page.
+- Always use sentence case when writing headings, for more information read the [product style guide](/foundations/content/product-style-guide/#sentence-case).
 
 #### Accessibility
 
 It is important to not skip one or more heading levels as it is common for screen readers to build an outline of the page and assist users as they navigate a page. Skipping a heading level could cause confusion as the user navigating the page may not know why a heading is missing.
 
-- Heading text should meet AA requirements (4.5:1) for color contrast from itself and the background color
-- Headings should be used thoughtfully, with clear hierarchies for content and subsections
+- Heading text should meet AA requirements (4.5:1) for color contrast from itself and the background color.
+- Headings should have clear hierarchies of content and subsections.
 
 ## Examples
 
@@ -180,9 +155,46 @@ It is important to not skip one or more heading levels as it is common for scree
 </Card>`}
 </LivePreview>
 
-## Composition Notes
+## Composition notes
 
-### When to use Heading
+Headings should capture the most important information contained in the content beneath it. A user should be able to scan just the headers and understand the flow of information on the page.
+
+Keep headings concise. You can omit articles ("a", "the") depending on the context. If the user would be prioritizing efficiency, leave out articles. If the content is more casual, include articles.
+
+Use sentence case.
+
+### Difference between the as and variant props
+
+Visual hierarchy doesn't always follow <em>document hierarchy</em>. For
+this reason, we've decoupled the visual appearance (the `variant` prop)
+from the semantic hierarchy (the `as` prop) of the element.
+
+For accessibility reasons we want to create a nice clean document hierarchy where:
+
+- We only have one h1
+- We don't skip levels as we travel the DOM:
+
+```
+h1
+  h2
+    h3
+    h3
+  h2
+  h2
+    h3
+      h4
+    h3
+      h4
+```
+
+Sometimes, the appropriate document level doesn't match the visual design,
+because, for example, the third section of content is less important than
+the previous two, but at the same logical level of document hierarchy.
+
+By decoupling visual appearance from hierarchy, we enable designers
+and engineers to create visual and semantic hierarchy correctly for all users.
+
+## Do and don't
 
 Headings should be used for page headings or content subsections. Headings are broken into six levels, where h1 is the highest level and h6 is the lowest. Avoid skipping heading levels. Use the next lowest heading level to maintain a coherent document outline.
 
@@ -200,54 +212,11 @@ Headings should be used for page headings or content subsections. Headings are b
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use headings for page headings to specific sections of content." />
+  <Do title="Do" body="Use headings for page headings and to organize content on the page." />
   <Dont title="Don't" body="Don’t use headings for pure stylistic purposes." />
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use headings in order, so your content reads like an outline." />
-  <Dont title="Don't" body="Don’t use headings out of order." />
+  <Do title="Do" body="Use headings in order." />
+  <Dont title="Don't" body="Don’t skip levels or put smaller headings before larger headings." />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/heading - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Heading} from '@twilio-paste/core/heading';
-
-const Component = () => (
-  <Heading as="h2" variant="heading20">
-    Heading Two
-  </Heading>
-);
-```
-
-#### Props
-
-| Prop          | Type                           | Description                                                                               | Default   |
-| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------- | --------- |
-| as            | `asTags`                       | 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'div', 'label', 'span'                                | null      |
-| id?           | `string`                       |                                                                                           | null      |
-| marginBottom? | `oneOf(['space0'])`            | Currently we only allow `space0` to remove bottom margin                                  | null      |
-| variant       | `headingVariants`              | 'heading10', 'heading20', 'heading30', 'heading40', 'heading50', 'heading60'              | null      |
-| display?      | `CSS display property options` | 'block', 'inline', 'inline-block', 'flex', 'inline-flex', 'grid', 'inline-grid', and more | "block"   |
-| element?      | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'HEADING' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

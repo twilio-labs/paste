@@ -1,19 +1,19 @@
-import * as fs from 'fs';
-import {
-  getChangesetsFromFiles,
-  getPublicPackageFilesFromFiles,
-  getPackagePaths,
-  getPublicPackages,
-  getUnpublishedPackageNames,
-} from './utils';
-import type {PackageShape} from '../tools/utils/getRepoPackages';
+import * as fs from "fs";
 // you kind of have to treat Danger plugins as global?
 // https://danger.systems/js/usage/extending-danger.html#writing-your-plugin
-import {DangerDSLType} from 'danger/distribution/dsl/DangerDSL';
+import { DangerDSLType } from "danger/distribution/dsl/DangerDSL";
+import type { PackageShape } from "../tools/utils/getRepoPackages";
+import {
+  getChangesetsFromFiles,
+  getPackagePaths,
+  getPublicPackageFilesFromFiles,
+  getPublicPackages,
+  getUnpublishedPackageNames,
+} from "./utils";
 declare const danger: DangerDSLType;
 export declare function fail(message: string): void;
 
-const difference = require('lodash/difference');
+const difference = require("lodash/difference");
 
 /**
  * Utility to return the difference between the packages we know were changed in the PR based on files, and the packages
@@ -51,7 +51,7 @@ export default (packageList: PackageShape[]) => {
   /** List of public packages that have changes in src files, that will need to be published */
   const publicPackagesWithUnpublishedSourceChanges = getUnpublishedPackageNames(
     modifiedPublicPackageFiles,
-    publicPackages
+    publicPackages,
   );
 
   /** Modified Changeset files */
@@ -63,9 +63,9 @@ export default (packageList: PackageShape[]) => {
   if (modifiedPublicPackageFiles.length > 0) {
     const missingPackages = getMissingPackagesFromChangesets(
       modifiedChangeSetFiles,
-      publicPackagesWithUnpublishedSourceChanges
+      publicPackagesWithUnpublishedSourceChanges,
     );
-    const idea = 'edit an existing changeset or run `yarn changeset` to create one';
+    const idea = "edit an existing changeset or run `yarn changeset` to create one";
     if (missingPackages.length > 0) {
       missingPackages.forEach((packageName: string) => {
         fail(`Looks like ${packageName} was not included in a changeset - *${idea}*`);

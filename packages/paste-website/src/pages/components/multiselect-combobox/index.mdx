@@ -1,0 +1,323 @@
+export const meta = {
+  title: 'Multiselect Combobox',
+  package: '@twilio-paste/combobox',
+  description:
+    'A Multiselect Combobox is a styled dropdown form element that allows users to select multiple values from a list.',
+  slug: '/components/multiselect-combobox/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {MultiselectCombobox, useMultiselectCombobox} from '@twilio-paste/combobox';
+import {Button} from '@twilio-paste/button';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
+import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
+import {ProductStudioIcon} from '@twilio-paste/icons/esm/ProductStudioIcon';
+import {ProductAutopilotIcon} from '@twilio-paste/icons/esm/ProductAutopilotIcon';
+import {ProductInsightsIcon} from '@twilio-paste/icons/esm/ProductInsightsIcon';
+import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
+import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
+import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import filter from 'lodash/filter';
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/combobox/CHANGELOG.md';
+import {
+  basicExample,
+  insertBeforeAfterExample,
+  optionGroupExample,
+  optionGroupLabelTemplateExample,
+  optionTemplateExample,
+  disabledExample,
+  disabledOptionsExample,
+  errorExample,
+  emptyStateExample,
+  maxHeightExample,
+  stateHookExample,
+} from '../../../component-examples/MultiselectComboboxExamples';
+import packageJson from '@twilio-paste/combobox/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Multiselect Combobox');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+        nameOverride: 'Multiselect Combobox',
+        descriptionOverride: 'A Multiselect Combobox is a styled dropdown form element that allows users to select multiple values from a list.'
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox/src/multiselect',
+        storybookUrl: '/?path=/story/components-combobox-multiselectcombobox--multiselect-combobox-basic',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{MultiselectCombobox, Box, Text}} noInline language="jsx" showOverflow>
+  {basicExample}
+</LivePreview>
+
+## Guidelines
+
+### About Multiselect Combobox
+
+A Multiselect Combobox allows a user to either type or select multiple values from a styled listbox of
+options. Each option can consist of more than just text, e.g. text paired with an icon.
+
+### What’s the difference between Select and Comboboxes?
+
+At its most basic, a Select has an options list that’s styled according to the browser default.
+A Combobox has a Twilio-styled options list and can allow for additional functionality like
+autocomplete and multiselect.
+
+Use a [Select](/components/select) when:
+
+- You need a native picker experience, especially on mobile devices.
+- Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (e.g., alphabetical list of states or countries).
+- You need the component to work out-of-the-box across all operating systems and browsers.
+
+Use a Multiselect Combobox when:
+
+- You need a Twilio-styled options list.
+- You need to show more than text in an option (e.g., text paired with an icon).
+- You need to group options under labels.
+- You need to disable options in the list.
+- Users would benefit from autocomplete functionality (e.g., autocomplete, search). For example, autocomplete may be useful when users need to select from a list of more than 10 options.
+- You need to lazy load a much longer list of options to improve page load performance.
+
+### Accessibility
+
+Multiselect Combobox is built with consideration for the [ARIA combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/).
+
+When a user is focused on a Combobox, the listbox opens. When a user makes a selection, the listbox closes so the selected option can be registered to screen readers.
+
+#### Keyboard interaction
+
+When the user is focused on a Combobox, the following keyboard interactions apply:
+
+- Up and down arrows move the user between the options
+- Enter selects the currently active option
+
+When the user is focused within the Form Pill Group, they can use these keyboard interactions:
+
+- Left and right arrow keys move focus within the group.
+- If a pill is selectable, spacebar and enter will toggle pill selection.
+- If a pill is dismissible, the pill can be removed by pressing the delete or backspace key.
+
+## Examples
+
+### Basic Multiselect Combobox
+
+Use a basic Multiselect Combobox to allow users to select multiple values from a list of
+predefined options.
+
+The height of the Combobox field will increase to fit the selection of [Form Pills](/components/form-pill-group).
+Optionally, you may set a max height using the `maxHeight` prop and if there are more
+pills than viewable at max height, users can vertically scroll to view all the selected options.
+
+<LivePreview scope={{MultiselectCombobox, Box, Text}} noInline language="jsx" showOverflow>
+  {basicExample}
+</LivePreview>
+
+### Multiselect Combobox with add-ons (prefix/suffix text or icons)
+
+Use add-ons to provide users with guidance on formatting their
+input and to offer more context about the value a user is entering.
+
+- **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
+- **Prefix/suffix icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (e.g., clearing a field) or in rare cases, provide further context to what value should be entered to make a field's purpose more immediately visible (e.g., a search icon).
+
+<LivePreview scope={{MultiselectCombobox, Anchor, Text, InformationIcon}} noInline language="jsx" showOverflow>
+  {insertBeforeAfterExample}
+</LivePreview>
+
+### Multiselect Combobox with option groups
+
+Use option groups to create labeled sections of options.
+
+Structure your data into an array of objects and use a key on each object as the grouping identifier.
+Then, tell the Combobox what you would like to group the items by, by setting `groupItemsBy` to match
+the intended group identifier.
+
+In the example below, we have a list of components and we are grouping them based on their type.
+
+<LivePreview scope={{MultiselectCombobox, filter}} noInline language="jsx" showOverflow>
+  {optionGroupExample}
+</LivePreview>
+
+### Multiselect Combobox with a custom group label
+
+Expanding on the previous example, it's also possible to customize the group label.
+
+The `groupLabelTemplate` prop accepts a method with a `groupName` argument. This method should return
+valid JSX, which it will render in place of a group label string.
+
+In the example below, we are checking the `groupName` and rendering an icon next to
+it based on the name.
+
+<LivePreview
+  scope={{MultiselectCombobox, MediaObject, MediaFigure, MediaBody, AttachIcon, filter}}
+  noInline
+  language="jsx"
+  showOverflow
+>
+  {optionGroupLabelTemplateExample}
+</LivePreview>
+
+### Multiselect Combobox with option template
+
+Use the option template to display more complex options in a listbox.
+
+The `optionTemplate` prop allows you to pass `jsx` to customize the options. Note that we use native HTML input elements
+to build Combobox and these HTML elements don't allow for images, icons, or svgs to be added even with the option template.
+
+<LivePreview scope={{MultiselectCombobox, Box}} noInline language="jsx" showOverflow>
+  {optionTemplateExample}
+</LivePreview>
+
+### Multiselect Combobox with max height
+
+By default the Multiselect Combobox will grow to fit the content inside it. If you want to limit how much
+it resizes vertically, you can provide a `maxHeight` prop.
+
+<LivePreview scope={{MultiselectCombobox, Box, Text}} noInline language="jsx" showOverflow>
+  {maxHeightExample}
+</LivePreview>
+
+### useMultiselectCombobox state hook
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h5">Power user move!</CalloutHeading>
+  <CalloutText>
+    Only use this property if you are a power user. It's very easy to break your implementation and unfortunately the
+    Paste team will not be able to debug this for you. Proceed with extreme caution.
+  </CalloutText>
+</Callout>
+
+In addition to being a controlled component, the Multiselect Combobox comes with the option
+of "hooking" into the internal state by using the state hook originally provided by
+[Downshift](https://github.com/downshift-js/downshift/tree/master/src/hooks/useMultipleSelection).
+
+Rather than the state be internal to the component, you can use the `useMultiselectCombobox`
+hook and pass the returned state to `MultiselectCombobox` as the `state` prop.
+
+This allows you to destructure certain returned props from the state hook,
+including action methods like `reset`.
+
+An example use case of this might be programmatically providing the user a way to
+clear or reset the Multiselect Combobox of its previous selections.
+
+It should be noted that when doing so, the `state` prop takes precident over the
+[other properties](#state-props) that affect the state or initial state of the
+`MultiselectCombobox`. They will be ignored in favour of them being provided as
+arguments to the `useMultiselectCombobox` hook.
+
+For full details on how to use the state hook, and what props to provide it,
+follow the [Combobox Primitive documentation](/primitives/combobox-primitive#usemultiselectprimitive-control-props).
+It's the same hook, just renamed.
+
+<LivePreview
+  scope={{
+    Button,
+    useMultiselectCombobox,
+    MultiselectCombobox,
+    MediaObject,
+    MediaFigure,
+    MediaBody,
+    AttachIcon,
+    Box,
+    filter,
+  }}
+  noInline
+  language="jsx"
+  showOverflow
+>
+  {stateHookExample}
+</LivePreview>
+
+## States
+
+### Disabled Multiselect Combobox
+
+<LivePreview scope={{MultiselectCombobox}} noInline language="jsx" showOverflow>
+  {disabledExample}
+</LivePreview>
+
+### Multiselect Combobox with disabled options
+
+<LivePreview scope={{MultiselectCombobox}} noInline language="jsx" showOverflow>
+  {disabledOptionsExample}
+</LivePreview>
+
+### Multiselect Combobox with error
+
+<LivePreview scope={{MultiselectCombobox}} noInline language="jsx" showOverflow>
+  {errorExample}
+</LivePreview>
+
+### Multiselect Combobox with an empty state
+
+Use an empty state to indicate to a user that their input does not match any value in the list of options.
+
+<LivePreview scope={{MultiselectCombobox, Box, Text}} noInline language="jsx" showOverflow>
+  {emptyStateExample}
+</LivePreview>
+
+## Composition Notes
+
+A Multiselect Combobox is comprised of a label, an input and a listbox.
+
+### Positioning form fields
+
+Stack form fields vertically with `$space-80` spacing between each field. Avoid placing multiple form fields on the
+same horizontal row to help make it easier to scan a page vertically.
+
+### Options in a Combobox
+
+Keep option text concise and simple. Option text will truncate when it’s longer than the width of the container.
+Use a safe and reversible option as the default selected value.
+
+Use at least 7 options in a Combobox. If there are less than 7 options or if choosing options requires
+more explanation, consider using a Checkbox instead and add Help Text for each option, or give more
+explanation through help text. Sort options logically (e.g., alphabetically, by value) or in an order
+that’s intuitive to your user.
+
+### Errors
+
+Use help text to provide information to help users avoid errors.
+
+Use Help Text to show an inline error text beneath the combobox to explain how to fix an error. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+## When to use Multiselect Combobox
+
+<DoDont>
+  <Do title="Do" body="Use a Multiselect Combobox when there are multiple options for a user to type or select." />
+  <Dont
+    title="Don't"
+    body="Don’t use a Multiselect Combobox when a user should only select a single option. Use a Singleselect Combobox instead."
+  />
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a Multiselect Combobox when there are at least 7 options for a user to type or select from."
+  />
+  <Dont
+    title="Don't"
+    body="Don’t use a Multiselect Combobox if there are less than 7 options in a list for users to select multiple values from. Use a Checkbox Group instead."
+  />
+</DoDont>

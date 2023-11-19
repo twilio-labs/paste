@@ -1,4 +1,5 @@
-import * as React from 'react';
-import {TableContextProps} from './types';
+import * as React from "react";
 
-export const TableContext = React.createContext<TableContextProps>({} as any);
+import type { TableContextProps } from "./types";
+
+export const TableContext = React.createContext<TableContextProps>({ striped: false });

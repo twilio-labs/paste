@@ -1,0 +1,461 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - September 2022 Edition',
+  slug: '/blog/2022-09-23-paste-newsletter/',
+  date: '2022-09-23',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  author_link: null,
+  status: 'published',
+  external_link: null,
+  excerpt:
+    "What's new in Paste in September 2022? NEW components, NEW icons, insights into our customer experience, and more!",
+};
+
+import Image from 'next/image';
+import {Anchor} from '@twilio-paste/anchor';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import {Blockquote} from '../../components/Blockquote';
+import SwitchExample from '../../assets/images/articles/2022-09-23-paste-newsletter/switch-example.gif';
+import InlineCodeExample from '../../assets/images/articles/2022-09-23-paste-newsletter/inline-code-example.png';
+import CodeBlockExample from '../../assets/images/articles/2022-09-23-paste-newsletter/code-block-example.gif';
+import CalloutExample from '../../assets/images/articles/2022-09-23-paste-newsletter/callout-example.png';
+import MinimizableDialog from '../../assets/images/articles/2022-09-23-paste-newsletter/minimizable-dialog-example.gif';
+import NewIcons from '../../assets/images/articles/2022-09-23-paste-newsletter/new-icons-example.png';
+import UiKit from '../../assets/images/articles/2022-09-23-paste-newsletter/ui-kit-example.png';
+import ToggleButton from '../../assets/images/articles/2022-09-23-paste-newsletter/toggle-button-example.gif';
+import StickyHeaders from '../../assets/images/articles/2022-09-23-paste-newsletter/sticky-headers-example.gif';
+import Ramona from '../../assets/images/articles/2022-09-23-paste-newsletter/ramona-pastemate.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What's new in Paste
+
+### ALL the new components!
+
+#### Switch
+
+<Paragraph>
+  <Image src={SwitchExample} />
+</Paragraph>
+
+The Switch component makes interacting with binary states a breeze.
+Our Switch incorporates animation and icons to make its pressed/unpressed state visually clear, while its built-in
+accessibility features communicate the state clearly to users. Take it for a spin!
+
+<Paragraph>
+  <Anchor href="/components/switch">Check out the Switch docs</Anchor>
+</Paragraph>
+
+#### Inline Code
+
+<ResponsiveImage src={InlineCodeExample} />
+
+If your snippet of code is small and inline with the rest of your text,
+Inline Code is the way to go. Its contents stand out with a subtle background and monospace font.
+Use it for code, ID&apos;s, and keys.
+
+<Paragraph>
+  <Anchor href="/components/inline-code">Check out the Inline Code docs</Anchor>
+</Paragraph>
+
+#### Code Block
+
+<Paragraph>
+  <Image src={CodeBlockExample} />
+</Paragraph>
+
+Presenting Code Block! This component allows you to display code with syntax highlighting for 13 programming languages.
+It features tabs to show different blocks of code in the same area, a copy code button, and an optional external link button leading to the source code.
+
+<Paragraph>
+  <Anchor href="/components/code-block">Check out the Code Block docs</Anchor>
+</Paragraph>
+
+#### Callout
+
+<ResponsiveImage src={CalloutExample} />
+
+With five different variants to choose from, all your imperative, static information will be
+hard to miss inside of the Callout component! Don&apos;t forget to set its heading level according
+to the outline of your page for the best user experience.
+
+<Paragraph>
+  <Anchor href="/components/callout">Check out the Callout docs</Anchor>
+</Paragraph>
+
+#### Minimizable Dialog
+
+<Paragraph>
+  <Image src={MinimizableDialog} />
+</Paragraph>
+
+As part of our Conversations UI kit, we&apos;ve added the Minimizable Dialog component.
+Its power lies in its flexibility; use it with a static button, a floating button, or use its included state hook
+for full control of its internal state. Making a chat log has never been easier with Paste.
+
+<Paragraph>
+  <Anchor href="/components/minimizable-dialog">Check out the Minimizable Dialog docs</Anchor>
+</Paragraph>
+
+#### 42 new icons, including a full suite of contact center icons!
+
+<ResponsiveImage src={NewIcons} />
+
+We&apos;ve got new icons! A full suite of contact center icons and more are now available.
+Thanks to <strong>Fazle Jahangir, Isabela Razetti,</strong> and <strong>Porlin Chin</strong> for their close collaboration on these icons.
+
+[View the full list of new icons](#continued-from-42-new-icons) and [search through our full icons list](/components/icon)
+
+#### Conversations UI Kit added to Figma
+
+<ResponsiveImage src={UiKit} />
+
+Our Conversations UI Kit, which includes all of Paste&apos;s chat components and the new minimizable dialog,
+is now available in Figma. The components in this kit work together seamlessly for designing conversational UI,
+no matter the complexity.
+
+<Paragraph>
+  <Anchor href="https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=15140%3A99225">
+    Start designing with the Conversations UI Kit
+  </Anchor>
+</Paragraph>
+
+### Updated Components
+
+#### Button variant: toggle!
+
+<Paragraph>
+  <Image src={ToggleButton} />
+</Paragraph>
+
+Let&apos;s toggle! To make a button a toggle simply add the `pressed` prop to a secondary button or secondary icon button.
+
+<Paragraph>
+  <Anchor href="/components/button#toggle-button">Check out the Button toggle docs</Anchor>
+</Paragraph>
+
+#### Sticky headers in Table and Data Grid &#40;contribution&#41;
+
+<Paragraph>
+  <Image src={StickyHeaders} />
+</Paragraph>
+
+Contributed by Mark Yang from the Billing Platform team, sticky headers for our
+Table and Data Grid components are now available! Use this functionality to make perusing data easier,
+especially on mobile viewports. Thanks Mark! 🎉
+
+<Paragraph>
+  <Anchor href="/components/table#table-with-sticky-header">Check out sticky headers in the docs</Anchor>
+</Paragraph>
+
+### Additional updates
+
+#### New
+
+- [Syntax Highlighter Library](https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/syntax-highlighter)
+
+#### Improvements
+
+- [Help text variants: warning and success](/components/help-text#warning-help-text)
+- [Menu: destructive variant for menu item](/components/menu#composing-menu-items)
+- [Refreshed styling for Combobox and Select chevron](/components/select)
+
+## 📈 Paste by numbers!
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Components we support</Th>
+      <Th>Repositories using Paste</Th>
+      <Th>Component instances in production</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>48</strong>
+      </Td>
+      <Td>
+        <strong>148</strong>
+      </Td>
+      <Td>
+        <strong>55,394</strong>
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+## 💬 Customer insights
+
+The Design Systems team keeps a pulse on Paste users with our [annual CSAT survey](https://airtable.com/appiDf1K8tPC1fPoJ/pagAqvPc6EWGFAzYO).
+Thank you to each of the <strong>68 Twilions</strong> who provided feedback on their Paste experience!
+Our survey used a scale of 1-5 (1 being strongly disagree, 5 being strongly agree).
+We are excited to the share the following insights:
+
+<Paragraph>
+  When asked how strongly they agreed to{' '}
+  <strong>Paste being easy to use to design and build customer interfaces</strong>, our participants averaged{' '}
+  <strong>4.00/5</strong>.
+</Paragraph>
+<Paragraph>
+  When asked how strongly they agreed to <strong>being proud of the behavior of their products when using Paste</strong>
+  , our participants averaged <strong>4.18/5</strong>.
+</Paragraph>
+
+In addition, some participants specified:
+
+<Blockquote>
+  It&apos;s great to have a standardized component library that lines up with Twilio standards. It allows me to focus on
+  my business logic.
+</Blockquote>
+
+<Blockquote>I really appreciate how approachable Paste is - it&apos;s really easy to get up and running.</Blockquote>
+
+These results are music to our ears 🎶
+
+## ✨ Pastemates™ spotlight
+
+<em>
+  Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption
+  within their products and channeling important feedback and contributions back into the system.
+</em>
+
+<ResponsiveImage src={Ramona} />
+
+Since our last update, Ramona Thompson joined the [One Twilio BPM](https://docs.google.com/document/d/1mH5ImzP5Kzb_nVKOHoTksr5jOY0aG6cbqtcEKbFlLYU/edit#bookmark=kix.xj165t52alhv) crew to partner with us in our
+user research efforts. Ramona collaborated with us to help us dig into what customers consider friendly,
+clean, and more importantly what feels like Twilio. She led research to measure how a new visual
+design direction performed against existing customer ratings of live Twilio products, as well as how
+different brand expressions &#40;think typography, color, and illustration&#41; impact our customers'
+perception and preferences. Ramona was a 🌟superstar🌟 in our research phase and we are grateful for her efforts.
+
+## 🚦 BPM update
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>BPM</Th>
+      <Th>Status</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Establish Paste as a leading Next-Gen Monorepo through tooling and infrastructure improvements</strong>
+      </Td>
+      <Td>
+        🟢 Green: Migrated our Visual Regression Testing suite from Applitools to Percy, improving test times by over
+        20% while additionally testing in each browser.
+        <br />
+        <br />
+        Expanded on our DangerJS PR checks to verify dependencies are pinned to prevent inconsistencies in builds.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Evolve the Twilio design language to support the vision of “One Twilio”</strong>
+      </Td>
+      <Td>
+        🟢 Green: After syncing with stakeholders and brand, along with reviewing the research findings, we narrowed
+        down our visual design concepts to a single direction and have been eagerly working on creating revamped
+        components in the new design language.
+        <br />
+        <br />
+        Next, we&apos;ll be using these revamped components to do some product stress testing that will help us
+        <ul>
+          <li>refine the language and correct inconsistencies</li>
+          <li>identify and document edge cases</li>
+          <li>cultivate an expert understanding of how the new design language should be used and implemented</li>
+        </ul>
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Lay the groundwork for our new program management, content, and visual design disciplines</strong>
+      </Td>
+      <Td>De-scoped due to changing priorities.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Build a UI kit for the Twilio Conversations API</strong>
+      </Td>
+      <Td>
+        🟢 Green: The Conversations UI Kit components are now included in the Paste Components library in Figma! We have
+        also released circular button sizes and the minimizable dialog component in code.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Paste goes international</strong>
+      </Td>
+      <Td>
+        ✅ Done: Paste now fully supports Twilio’s internationalization efforts for Q1. Paste components are capable of
+        supporting translated content and do not rely on any hard-coded strings.
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+For more information, check out [our full BPM document](https://docs.google.com/document/d/1ok5cPj0JyysD5ukBXMbsyIVIdipw1tARzFiGTwGL-W4/edit?usp=sharing).
+
+## 👀 What's next
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Feature</Th>
+      <Th>Description</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Multi-select Combobox and Combobox refined</strong>
+      </Td>
+      <Td>
+        Improvements to the existing <Anchor href="/components/combobox">combobox</Anchor> component, with a design
+        refresh and added functionality to select multiple items.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Avatar component, entity variant</strong>
+      </Td>
+      <Td>A new variant for the Avatar Component that makes it a square shape representing an entity.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Button Group component</strong>
+      </Td>
+      <Td>A group of related Buttons, ex: buttons in a toolbar.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Conversations API UI Kit</strong>
+      </Td>
+      <Td>
+        All Conversations UI Kit components will be ready to use, along with a landing page s on the Paste website
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Radio Button Group</strong>
+      </Td>
+      <Td>A Radio Group that looks like a Button Group</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>File Picker component</strong>
+      </Td>
+      <Td>Input component used to upload or attach files</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Side Modal component</strong>
+      </Td>
+      <Td>Dialog that covers one side of the screen</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Finalize One Twilio design direction for implementation</strong>
+      </Td>
+      <Td>
+        The One Twilio design direction includes product prototypes in the new design language and
+        component-by-component comparisons of upcoming changes. This iteration of the design direction gets it ready for
+        implementation in Figma and code &#40;scheduled for a 2023 Q1 release&#41;. Further stress testing and workshops
+        with product teams will happen in parallel with implementation in 2022 Q4.
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+See you next time! 👋
+
+— The Design Systems Team
+
+#### Continued from 42 new icons
+
+- AcceptIcon
+- BusinessIcon
+- CallActiveIcon
+- CallAddIcon
+- CallFailedIcon
+- CallHoldIcon
+- CallIcon
+- CallIncomingIcon
+- CallOutgoingIcon
+- CallTransferIcon
+- ChatIcon
+- ClearIcon
+- DialpadIcon
+- DirectoryIcon
+- DocumentationIcon
+- DoNotIcon
+- DragHorizontalIcon
+- DragIcon
+- DragVerticalIcon
+- EmailIcon
+- EmojiIcon
+- FileAudioIcon
+- FileImageIcon
+- FileVideoIcon
+- FileZipIcon
+- FlagIcon
+- LogOutIcon
+- MenuIcon
+- NotificationIcon
+- ProductContactCenterAdminIcon
+- ProductContactCenterAssessmentsIcon
+- ProductContactCenterQueuesIcon
+- ProductContactCenterTasksIcon
+- ProductContactCenterTeamsIcon
+- ProductPayConnectorIcon
+- ShareIcon
+- SMSIcon
+- StarIcon
+- SystemStatusIcon
+- TranslationIcon
+- UploadIcon
+- VoicemailIcon
+
+</ArticleContent>
+
+</contentwrapper>

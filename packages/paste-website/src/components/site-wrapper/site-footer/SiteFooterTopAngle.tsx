@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {useSlantedSkew} from '../../SlantedBackgroundGradient';
+import { Box } from "@twilio-paste/box";
 
-const SiteFooterTopAngle: React.FC = () => {
+import { useSlantedSkew } from "../../SlantedBackgroundGradient";
+
+const SiteFooterTopAngle = (): JSX.Element => {
   const [skewOffset] = useSlantedSkew();
 
   return (
@@ -21,4 +21,4 @@ const SiteFooterTopAngle: React.FC = () => {
   );
 };
 
-export {SiteFooterTopAngle};
+export { SiteFooterTopAngle };

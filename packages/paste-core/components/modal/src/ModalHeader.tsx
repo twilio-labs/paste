@@ -1,24 +1,39 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Flex} from '@twilio-paste/flex';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {useModalContext} from './ModalContext';
-import {modalHeaderStyles} from './styles';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Flex } from "@twilio-paste/flex";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface ModalHeaderProps extends React.HTMLAttributes<HTMLHeadElement> {
+import { useModalContext } from "./ModalContext";
+
+export interface ModalHeaderProps extends HTMLPasteProps<"head"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MODAL_HEADER'
+   * @type {BoxProps['element']}
+   * @memberof ModalHeaderProps
+   */
+  element?: BoxElementProps["element"];
+  /**
+   * Accesssible text for the close button.
+   *
+   * @default "Close modal"
+   * @type {string}
+   * @memberof ModalHeaderProps
+   */
   i18nDismissLabel?: string;
 }
+
 const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(
-  ({children, element = 'MODAL_HEADER', i18nDismissLabel = 'Close modal', ...props}, ref) => {
-    const {onDismiss} = useModalContext();
+  ({ children, element = "MODAL_HEADER", i18nDismissLabel = "Close modal", ...props }, ref) => {
+    const { onDismiss } = useModalContext();
     return (
-      <Box {...safelySpreadBoxProps(props)} as="header" {...modalHeaderStyles} element={element} ref={ref}>
+      <Box {...safelySpreadBoxProps(props)} as="div" element={element} ref={ref} padding="space90" flexShrink={0}>
         <Flex hAlignContent="between">
           <Flex vAlignContent="center" grow={1} marginRight="space70">
             {children}
@@ -30,13 +45,8 @@ const ModalHeader = React.forwardRef<HTMLHeadElement, ModalHeaderProps>(
         </Flex>
       </Box>
     );
-  }
+  },
 );
-ModalHeader.displayName = 'ModalHeader';
+ModalHeader.displayName = "ModalHeader";
 
-ModalHeader.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
-
-export {ModalHeader};
+export { ModalHeader };

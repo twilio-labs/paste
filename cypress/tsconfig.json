@@ -1,11 +1,13 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "target": "es5",
     "lib": ["es2017", "DOM"],
-    "types": ["cypress", "@applitools/eyes-cypress"],
+    "types": ["cypress", "@percy/cypress"],
     "baseUrl": ".",
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "isolatedModules": false
   },
   "include": ["./**/*.ts"],
   "exclude": ["node_modules/**/*"]

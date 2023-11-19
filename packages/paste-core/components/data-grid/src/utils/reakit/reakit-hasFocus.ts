@@ -1,4 +1,4 @@
-import {getActiveElement} from './reakit-getActiveElement-modded';
+import { getActiveElement } from "./reakit-getActiveElement-modded";
 
 /**
  * Checks if `element` has focus. Elements that are referenced by
@@ -13,7 +13,7 @@ export function hasFocus(element: Element): boolean {
   const activeElement = getActiveElement(element);
   if (!activeElement) return false;
   if (activeElement === element) return true;
-  const activeDescendant = activeElement.getAttribute('aria-activedescendant');
+  const activeDescendant = activeElement.getAttribute("aria-activedescendant");
   if (!activeDescendant) return false;
   return activeDescendant === element.id;
 }

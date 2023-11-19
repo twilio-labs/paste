@@ -1,26 +1,47 @@
+import type { Properties } from "csstype";
+
+import type { Themes } from "../../types";
+
 export interface Token {
-  name: string;
-  value: string;
-  comment: string;
-  category: string;
   type: string;
-  deprecated: boolean;
+  category: string;
+  comment?: string;
+  name: string;
+  value: number | string;
+  altValue: string | null;
+  text_contrast_pairing?: string[];
+  uicontrol_contrast_pairing?: string[];
+  data_visualization_contrast_pairing?: string[];
 }
 
-export interface TokenCategory {
-  categoryName: string;
-  info?: React.ReactNode;
-  tokens: Token[];
+export interface Tokens {
+  [key: string]: Token[];
 }
-
 export interface TokensShape {
-  node: {
-    tokens: TokenCategory[];
-  };
+  tokens: Tokens;
 }
 
-export interface TokensListProps {
-  children?: React.ReactElement;
-  defaultTokens: TokensShape[];
-  darkTokens: TokensShape[];
+export interface TokenExampleColors {
+  backgroundColor?: Properties["backgroundColor"];
+  backgroundColorInverse?: Properties["backgroundColor"];
+  borderColor?: Properties["borderColor"];
+  highlightColor?: Properties["backgroundColor"];
+  textColor?: Properties["color"];
+  textColorInverse?: Properties["color"];
+}
+
+export interface TokenExampleProps extends TokenExampleColors {
+  category: Token["category"];
+  name: Token["name"];
+  value: Token["value"];
+  text_contrast_pairing?: Token["text_contrast_pairing"];
+}
+
+export interface TokenCardProps extends TokenExampleProps {
+  altValue: Token["altValue"];
+  comment?: Token["comment"];
+  useCamelCase?: boolean;
+  isCopied?: boolean;
+  onCopyText?: (tokenName: string) => void;
+  selectedTheme: Themes;
 }

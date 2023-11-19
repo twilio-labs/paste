@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ArrowForwardIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface ArrowForwardIconProps extends IconWrapperProps {
 }
 
 const ArrowForwardIcon = React.forwardRef<HTMLElement, ArrowForwardIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ArrowForwardIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ArrowForwardIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ArrowForwardIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -24,6 +25,7 @@ const ArrowForwardIcon = React.forwardRef<HTMLElement, ArrowForwardIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
           viewBox="0 0 20 20"
@@ -38,8 +40,8 @@ const ArrowForwardIcon = React.forwardRef<HTMLElement, ArrowForwardIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ArrowForwardIcon.displayName = 'ArrowForwardIcon';
-export {ArrowForwardIcon};
+ArrowForwardIcon.displayName = "ArrowForwardIcon";
+export { ArrowForwardIcon };

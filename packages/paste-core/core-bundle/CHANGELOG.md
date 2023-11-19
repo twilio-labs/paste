@@ -1,5 +1,2349 @@
 # Change Log
 
+## 20.6.0
+
+### Minor Changes
+
+- [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979) [#3579](https://github.com/twilio-labs/paste/pull/3579) Thanks [@nkrantz](https://github.com/nkrantz)! - [Tabs] Update styles of vertical and horizontal tabs, add new variants full_width and inverse_full_width which do the same thing as fitted tabs, but are more appropriately named.
+
+* [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979) [#3579](https://github.com/twilio-labs/paste/pull/3579) Thanks [@nkrantz](https://github.com/nkrantz)! - [In Page Navigation] Add vertical styles and update horizontal styles. Updated horizontal styles include a bottom border. Adds a new prop `hideBottomBorder` for specific cases when the bottom border shouldn't be visible.
+
+- [`2c5f5935e`](https://github.com/twilio-labs/paste/commit/2c5f5935e71616bc8db59b4e5d41a725ec6bce60) [#3584](https://github.com/twilio-labs/paste/pull/3584) Thanks [@nkrantz](https://github.com/nkrantz)! - [Topbar] Add third value to `justify` prop type on TopbarActions, "center", allowing actions within the topbar to be center justified. For use with ProgressSteps in the Wizard flow.
+
+* [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979) [#3579](https://github.com/twilio-labs/paste/pull/3579) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Add three new box shadow tokens, shadow-border-top-primary, shadow-border-top-inverse-strongest, and shadow-border-top-primary-strongest for use in the tabs package. Add new background color, color-background-inverse-strongest.
+
+- [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979) [#3579](https://github.com/twilio-labs/paste/pull/3579) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] Add four new pseudo prop style selectors for use in the tabs package: `_selected_after`, `_focus_selected_after`, `_selected_hover_after`, `_focus_selected_hover_after`.
+
+### Patch Changes
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [List] remove `listStyleType` from Ordered and Unordered List type signature as it is not passed to the underlying component
+
+* [`949df9e5e`](https://github.com/twilio-labs/paste/commit/949df9e5e3e7cfd8575ed8fdd39bcbe70530b531) [#3612](https://github.com/twilio-labs/paste/pull/3612) Thanks [@nkrantz](https://github.com/nkrantz)! - [Customization] Minor change to customization tests to reflect updated prop change from 'variant' to 'variants' on CustomizationProvider.
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [codemods]: Updated exports map
+
+* [`3d5d1db5e`](https://github.com/twilio-labs/paste/commit/3d5d1db5e8eea37bcc6d296e4a349d08b0f75414) [#3601](https://github.com/twilio-labs/paste/pull/3601) Thanks [@nkrantz](https://github.com/nkrantz)! - [Form] Change color of FormSectionDescription from color-text-weak to color-text
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tabs primitive] Updated dev depenedencies to include typescript and tsx for running build scripts
+
+* [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037) [#3618](https://github.com/twilio-labs/paste/pull/3618) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Modal Dialog Primitive] Updated dev depenedencies to include typescript and tsx for running build scripts
+
+- [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037) [#3618](https://github.com/twilio-labs/paste/pull/3618) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Non-modal dialog primitive] Updated dev depenedencies to include typescript and tsx for running build scripts
+
+* [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037) [#3618](https://github.com/twilio-labs/paste/pull/3618) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu primitve] Updated dev depenedencies to include typescript and tsx for running build scripts
+
+- [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037) [#3618](https://github.com/twilio-labs/paste/pull/3618) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Listbox primitive] Updated dev depenedencies to include typescript and tsx for running build scripts
+
+* [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037) [#3618](https://github.com/twilio-labs/paste/pull/3618) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Disclosure primitive] Updated dev depenedencies to include typescript and tsx for running build scripts
+
+- [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037) [#3618](https://github.com/twilio-labs/paste/pull/3618) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox primitive] Updated dev depenedencies to include typescript and tsx for running build scripts
+
+* [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037) [#3618](https://github.com/twilio-labs/paste/pull/3618) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tooltip primitive] Updated dev depenedencies to include typescript and tsx for running build scripts
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Data Grid]: Re-add SortDirection type export
+
+* [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Style-props] Improved TsDoc type annotations
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Icons] Improved TsDoc type annotations
+
+* [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] Improved TsDoc type annotations
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Side Modal] Improved TsDoc type annotations
+
+* [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Separator] Improved TsDoc type annotations
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Select] Improved TsDoc type annotations
+
+* [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Screen reader only] Improved TsDoc type annotations
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Radio group] Improved TsDoc type annotations
+
+* [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Radio button group] Improved TsDoc type annotations
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Inline control group] Improved TsDoc type annotations
+
+* [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Improved TsDoc type annotations
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sibling Box] Improved TsDoc type annotations
+
+* [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] Improved TsDoc type annotations
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Switch] Improved TsDoc type annotations
+
+* [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Status] Improved TsDoc type annotations
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Spinner] Improved TsDoc type annotations
+
+* [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Slider] Improved TsDoc type annotations
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Skeleton loader] Improved TsDoc type annotations
+
+* [`26577a21e`](https://github.com/twilio-labs/paste/commit/26577a21e015ce7c4ecdfc3a4ae97e4012e9cdde) [#3576](https://github.com/twilio-labs/paste/pull/3576) Thanks [@serifluous](https://github.com/serifluous)! - [Heading] Update bottom margin on H2 and H4 by one spacing token step
+
+* Updated dependencies [[`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`949df9e5e`](https://github.com/twilio-labs/paste/commit/949df9e5e3e7cfd8575ed8fdd39bcbe70530b531), [`3d5d1db5e`](https://github.com/twilio-labs/paste/commit/3d5d1db5e8eea37bcc6d296e4a349d08b0f75414), [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979), [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979), [`2c5f5935e`](https://github.com/twilio-labs/paste/commit/2c5f5935e71616bc8db59b4e5d41a725ec6bce60), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037), [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037), [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037), [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037), [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037), [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037), [`e238ce11a`](https://github.com/twilio-labs/paste/commit/e238ce11a6610fb793cefb977c024086865e2037), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9), [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979), [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979), [`26577a21e`](https://github.com/twilio-labs/paste/commit/26577a21e015ce7c4ecdfc3a4ae97e4012e9cdde)]:
+  - @twilio-paste/list@8.1.2
+  - @twilio-paste/customization@8.1.1
+  - @twilio-paste/form@11.1.1
+  - @twilio-paste/tabs@8.2.0
+  - @twilio-paste/in-page-navigation@4.3.0
+  - @twilio-paste/topbar@1.2.0
+  - @twilio-paste/tabs-primitive@2.0.1
+  - @twilio-paste/modal-dialog-primitive@2.0.1
+  - @twilio-paste/non-modal-dialog-primitive@2.0.2
+  - @twilio-paste/menu-primitive@2.1.1
+  - @twilio-paste/listbox-primitive@3.0.1
+  - @twilio-paste/disclosure-primitive@2.1.1
+  - @twilio-paste/combobox-primitive@2.1.1
+  - @twilio-paste/tooltip-primitive@2.0.1
+  - @twilio-paste/data-grid@8.2.1
+  - @twilio-paste/style-props@9.1.1
+  - @twilio-paste/sidebar@1.1.1
+  - @twilio-paste/side-modal@4.1.1
+  - @twilio-paste/separator@8.1.1
+  - @twilio-paste/select@12.1.2
+  - @twilio-paste/screen-reader-only@13.1.1
+  - @twilio-paste/radio-group@13.1.1
+  - @twilio-paste/radio-button-group@4.1.1
+  - @twilio-paste/inline-control-group@13.0.2
+  - @twilio-paste/text@10.1.1
+  - @twilio-paste/sibling-box@9.1.1
+  - @twilio-paste/box@10.2.0
+  - @twilio-paste/switch@5.1.1
+  - @twilio-paste/status@2.1.1
+  - @twilio-paste/spinner@14.1.1
+  - @twilio-paste/slider@3.0.1
+  - @twilio-paste/skeleton-loader@6.1.1
+  - @twilio-paste/design-tokens@10.3.0
+  - @twilio-paste/heading@11.1.1
+  - @twilio-paste/account-switcher@3.0.1
+  - @twilio-paste/product-switcher@3.0.2
+
+## 20.5.0
+
+### Minor Changes
+
+- [`3f6e05d10`](https://github.com/twilio-labs/paste/commit/3f6e05d10553b563cc81dd5c246610be330fb23a) [#3541](https://github.com/twilio-labs/paste/pull/3541) Thanks [@nkrantz](https://github.com/nkrantz)! - [Data Grid] Add ability to override default "grid" role to be "treegrid" for making custom tree grid components using Data Grid. "treegrid" is the only valid type that can be passed to role.
+
+* [`72ec59143`](https://github.com/twilio-labs/paste/commit/72ec5914375231ac37c4c2989633615b914fbad1) [#3549](https://github.com/twilio-labs/paste/pull/3549) Thanks [@TheSisb](https://github.com/TheSisb)! - [ProgressBar] Added new features and updated the design.
+
+  The ProgressBarLabel component has the following new props:
+
+  - `valueLabel` which displays a plain text value on the right side of the label.
+  - `disabled` which applies disabled styling on the label.
+
+  The ProgressBar component has updated styling and the following new props:
+
+  - `hasError` which displays error styling.
+  - `disabled` which displays disabled styling.
+
+- [`92c16ec9d`](https://github.com/twilio-labs/paste/commit/92c16ec9de1ac35b5dc0a05cf8463729b01a7822) [#3537](https://github.com/twilio-labs/paste/pull/3537) Thanks [@TheSisb](https://github.com/TheSisb)! - [In Page Navigation] Add new `orientation` property with a vertical option.
+
+* [`c023e7345`](https://github.com/twilio-labs/paste/commit/c023e73456e29ef13cee26850a872bc2d57037ba) [#3528](https://github.com/twilio-labs/paste/pull/3528) Thanks [@nkrantz](https://github.com/nkrantz)! - [Description List] Adjust spacing on Description List component. Description List was previously inheriting 14px of top and bottom margin from the HTML element. This change removes that spacing, so the component now has 0px of top/bottom margin. The same amount of spacing remains between DescriptionListTerms and DescriptionListDetails. In order to maintain designs with Description Lists, you may have to replace the removed spacing to your layout.
+
+### Patch Changes
+
+- [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Textarea] Improve TsDoc type annotations
+
+* [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Time picker] Improve TsDoc type annotations
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Modal] Improve TsDoc type annotations
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [In Page Navigation] Improved TsDoc type annotations
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Product Switcher] Improve TsDoc type annotations.
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Pagination] Improved TsDoc type annotations. Fix isHovered and isFocused props usage on PaginationArrow so the passed value is actually used.
+
+- [`bc51057db`](https://github.com/twilio-labs/paste/commit/bc51057dbad9d941b2f0299cb372ca64637ee45d) [#3545](https://github.com/twilio-labs/paste/pull/3545) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Meter] Remove console.warn log spam regarding aria-label
+
+* [`3b350c741`](https://github.com/twilio-labs/paste/commit/3b350c741615094c62ba1df4d062d3e02c0ab261) [#3522](https://github.com/twilio-labs/paste/pull/3522) Thanks [@abereghici](https://github.com/abereghici)! - chore: removed unnecessary type assertions
+
+- [`1a70ec030`](https://github.com/twilio-labs/paste/commit/1a70ec030da48161ec296034cab19d34ce24f01d) [#3543](https://github.com/twilio-labs/paste/pull/3543) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Change overflowY from "scroll" to "auto" to prevent non-scrollable scrollbar bug
+
+* [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] Improve TsDoc type annotations
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Inline Code] Improved TsDoc type annotations
+
+* [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [User dialog] Improve TsDoc type annotations
+
+- [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tabs] Improve TsDoc type annotations
+
+* [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tooltip] Improve TsDoc type annotations
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Input] Improve TsDoc type annotations
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Inline Control Group] Improve TsDoc type annotations
+
+- [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated paste exports map
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Paragraph] Improve TsDoc type annotations
+
+- [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Truncate] Improve TsDoc type annotations
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Progress Steps] Improve TsDoc type annotations
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Label] Improve TsDoc type annotations
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Popover] Improve TsDoc type annotations
+
+- [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Toast] Improve TsDoc type annotations
+
+* [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Visual Picker] Improve TsDoc type annotations
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Minimizable Dialog] Improved TsDoc type annotations
+
+* [`bc51057db`](https://github.com/twilio-labs/paste/commit/bc51057dbad9d941b2f0299cb372ca64637ee45d) [#3545](https://github.com/twilio-labs/paste/pull/3545) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Data Grid] Fix issue where form elements in the data-grid that immediately re-render on mount cause the tabIndex management system to faulter.
+
+- [`a684a6bc7`](https://github.com/twilio-labs/paste/commit/a684a6bc79a66987659d7838945b54648faeed4f) [#3516](https://github.com/twilio-labs/paste/pull/3516) Thanks [@abereghici](https://github.com/abereghici)! - chore(data-grid): change isCell function into a type guard and remove unnecessary type assertions
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Meter] Improve TsDoc type annotations
+
+- [`c58b3bfbd`](https://github.com/twilio-labs/paste/commit/c58b3bfbd50d07221eff953feed9bbb2b9a84186) [#3540](https://github.com/twilio-labs/paste/pull/3540) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Fix `placeholder` cropping issue in MultiselectCombobox
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [List] Improve TsDoc type annotations
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Progress Bar] Improve TsDoc type annotations
+
+* [`bc51057db`](https://github.com/twilio-labs/paste/commit/bc51057dbad9d941b2f0299cb372ca64637ee45d) [#3545](https://github.com/twilio-labs/paste/pull/3545) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Select] fix the hydration issue which caused the `defaultValue` prop to not be respected.
+
+  Since the React v18 upgrade, we were only rendering the children options after the component and html select
+  wrapper had mounted. The select would mount with a `defaultValue` of a child that didn't exist, then the
+  children would be added, so it wouldn't know what value to select. To fix the hydration and `defaultValue`
+  together we now re-render the entire Select on mount.
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Input Box] Improve TsDoc type annotations
+
+* [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Menu] Improve TsDoc type annotations
+
+* Updated dependencies [[`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77), [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`bc51057db`](https://github.com/twilio-labs/paste/commit/bc51057dbad9d941b2f0299cb372ca64637ee45d), [`3f6e05d10`](https://github.com/twilio-labs/paste/commit/3f6e05d10553b563cc81dd5c246610be330fb23a), [`72ec59143`](https://github.com/twilio-labs/paste/commit/72ec5914375231ac37c4c2989633615b914fbad1), [`3b350c741`](https://github.com/twilio-labs/paste/commit/3b350c741615094c62ba1df4d062d3e02c0ab261), [`1a70ec030`](https://github.com/twilio-labs/paste/commit/1a70ec030da48161ec296034cab19d34ce24f01d), [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77), [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77), [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77), [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`bc51057db`](https://github.com/twilio-labs/paste/commit/bc51057dbad9d941b2f0299cb372ca64637ee45d), [`a684a6bc7`](https://github.com/twilio-labs/paste/commit/a684a6bc79a66987659d7838945b54648faeed4f), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`92c16ec9d`](https://github.com/twilio-labs/paste/commit/92c16ec9de1ac35b5dc0a05cf8463729b01a7822), [`c58b3bfbd`](https://github.com/twilio-labs/paste/commit/c58b3bfbd50d07221eff953feed9bbb2b9a84186), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`c023e7345`](https://github.com/twilio-labs/paste/commit/c023e73456e29ef13cee26850a872bc2d57037ba), [`bc51057db`](https://github.com/twilio-labs/paste/commit/bc51057dbad9d941b2f0299cb372ca64637ee45d), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8), [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8)]:
+  - @twilio-paste/textarea@10.1.1
+  - @twilio-paste/time-picker@6.1.1
+  - @twilio-paste/modal@16.1.1
+  - @twilio-paste/in-page-navigation@4.2.0
+  - @twilio-paste/product-switcher@3.0.1
+  - @twilio-paste/pagination@7.1.1
+  - @twilio-paste/meter@1.0.3
+  - @twilio-paste/data-grid@8.2.0
+  - @twilio-paste/progress-bar@1.1.0
+  - @twilio-paste/breadcrumb@11.1.1
+  - @twilio-paste/checkbox@13.1.1
+  - @twilio-paste/menu@14.1.1
+  - @twilio-paste/grid@8.1.1
+  - @twilio-paste/chat-composer@5.1.1
+  - @twilio-paste/topbar@1.1.1
+  - @twilio-paste/inline-code@4.1.1
+  - @twilio-paste/user-dialog@2.1.1
+  - @twilio-paste/tabs@8.1.1
+  - @twilio-paste/tooltip@11.1.1
+  - @twilio-paste/input@9.1.1
+  - @twilio-paste/inline-control-group@13.0.1
+  - @twilio-paste/paragraph@10.1.1
+  - @twilio-paste/truncate@14.1.1
+  - @twilio-paste/progress-steps@2.1.1
+  - @twilio-paste/label@13.1.1
+  - @twilio-paste/popover@13.2.0
+  - @twilio-paste/toast@12.1.1
+  - @twilio-paste/visual-picker@2.0.2
+  - @twilio-paste/minimizable-dialog@4.1.1
+  - @twilio-paste/combobox@16.2.1
+  - @twilio-paste/list@8.1.1
+  - @twilio-paste/description-list@4.2.0
+  - @twilio-paste/select@12.1.1
+  - @twilio-paste/input-box@10.1.1
+
+## 20.4.0
+
+### Minor Changes
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Reakit library] export menu state return and menu initial state
+
+* [`6bc4a8ade`](https://github.com/twilio-labs/paste/commit/6bc4a8ade1b3b9f76bfeee8a954fe3b3969c36d2) [#3501](https://github.com/twilio-labs/paste/pull/3501) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] New exports from icons package
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Menu Primitive] new exports for use in the Account Switcher package: MenuPrimitiveInitialState and MenuPrimitiveStateReturn
+
+* [`6bc4a8ade`](https://github.com/twilio-labs/paste/commit/6bc4a8ade1b3b9f76bfeee8a954fe3b3969c36d2) [#3501](https://github.com/twilio-labs/paste/pull/3501) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add new icons: ProductCommsIcon and TaskIcon
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Menu] Add all inherited props from "div" element to MenuGroupProps, add new exports: MenuInitialState and MenuStateReturn
+
+### Patch Changes
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert Dialog] Improved TsDoc annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Breadcrumb] Improved TsDoc type annotations
+
+- [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848) [#3488](https://github.com/twilio-labs/paste/pull/3488) Thanks [@nkrantz](https://github.com/nkrantz)! - [Slider] Add spacing between min and max range labels, wrap overflow content onto second line, and right-align max range label.
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Media Object]: Improved type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Heading]: Improved TsDoc type annotations
+
+* [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848) [#3488](https://github.com/twilio-labs/paste/pull/3488) Thanks [@nkrantz](https://github.com/nkrantz)! - [Meter] Add spacing between the min and max labels for readability, right-align the max label, and make overflow min/max labels wrap to second line.
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Data Grid]: Improved TsDoc type annotation
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Card] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Composer] Improved TsDoc type annotations
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Editable Code Block]: Improved TsDoc type annotations
+
+- [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Flex]: Improved TsDoc annotations
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Aspect Ratio]: improved TsDoc annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Form]: Improved TsDoc type annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Combobox] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Base-radio-checkbox] Specify exports for clarity in index.js file
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Display Heading]: Improved TsDoc type annotations
+
+- [`f1121febc`](https://github.com/twilio-labs/paste/commit/f1121febcc818f964ef74e2a36aeb667d7f74ab7) [#3514](https://github.com/twilio-labs/paste/pull/3514) Thanks [@TheSisb](https://github.com/TheSisb)! - [Non-modal Dialog Primitive] Fix to always use a portal when rendering, even when using the state hook.
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Display Pill Group]: Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert] Improved TsDoc annotations
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Grid]: Improved TsDoc annotations
+
+- [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [User Dialog]: small improvement to the `UserDiaglogButton` types to omit the color prop type from Global HTML attributes, to prevent a type clash
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated exports map
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Description List] Improved TsDoc type annotations
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Stack]: Improved TsDoc annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Date Picker]: Improved TsDoc type annotation
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated pacakge exports
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Healp Text]: Improved TsDoc type annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Checkbox] Improved TsDoc type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [File Picker]: Improved TsDoc type annotations
+
+* [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Table] Added TsDoc type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Form Pill Group]: Improved TsDoc type annotations
+
+* [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] Added TsDoc type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Disclosure]: Improved TsDoc type annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Combobox] Improved TsDoc type annotations
+
+- [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Anchor] Add TsDoc type annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat Log] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Callout] Improved TsDoc type annotations
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Table] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Improved TsDoc annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button Group] Improved TsDoc type annotations
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Account Switcher] Improved TsDoc annotations
+
+* [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] Improved TsDoc type annotations
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [File Uploader]: Improved TsDoc type annotations
+
+* [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Detail Text]: Improved TsDoc type annotations
+
+* Updated dependencies [[`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`7d155c53b`](https://github.com/twilio-labs/paste/commit/7d155c53b63e0ad6a9914aed6309f3703d371848), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`f1121febc`](https://github.com/twilio-labs/paste/commit/f1121febcc818f964ef74e2a36aeb667d7f74ab7), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5), [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5)]:
+  - @twilio-paste/alert-dialog@9.2.0
+  - @twilio-paste/breadcrumb@11.1.0
+  - @twilio-paste/slider@3.0.0
+  - @twilio-paste/media-object@10.1.0
+  - @twilio-paste/heading@11.1.0
+  - @twilio-paste/meter@1.0.2
+  - @twilio-paste/data-grid@8.1.0
+  - @twilio-paste/card@9.1.0
+  - @twilio-paste/chat-composer@5.1.0
+  - @twilio-paste/editable-code-block@2.1.0
+  - @twilio-paste/flex@8.1.0
+  - @twilio-paste/aspect-ratio@10.1.0
+  - @twilio-paste/form@11.1.0
+  - @twilio-paste/combobox@16.2.0
+  - @twilio-paste/base-radio-checkbox@13.1.0
+  - @twilio-paste/reakit-library@2.1.0
+  - @twilio-paste/display-heading@4.1.0
+  - @twilio-paste/non-modal-dialog-primitive@2.0.1
+  - @twilio-paste/display-pill-group@8.0.1
+  - @twilio-paste/alert@14.1.0
+  - @twilio-paste/menu-primitive@2.1.0
+  - @twilio-paste/grid@8.1.0
+  - @twilio-paste/user-dialog@2.1.0
+  - @twilio-paste/description-list@4.1.0
+  - @twilio-paste/stack@8.1.0
+  - @twilio-paste/date-picker@6.1.0
+  - @twilio-paste/help-text@13.1.0
+  - @twilio-paste/checkbox@13.1.0
+  - @twilio-paste/file-picker@4.1.0
+  - @twilio-paste/table@8.1.0
+  - @twilio-paste/form-pill-group@8.0.1
+  - @twilio-paste/button@14.1.0
+  - @twilio-paste/disclosure@12.1.0
+  - @twilio-paste/account-switcher@3.0.0
+  - @twilio-paste/anchor@12.1.0
+  - @twilio-paste/avatar@9.1.0
+  - @twilio-paste/badge@8.1.0
+  - @twilio-paste/button-group@4.1.0
+  - @twilio-paste/callout@4.1.0
+  - @twilio-paste/chat-log@5.2.0
+  - @twilio-paste/code-block@4.1.0
+  - @twilio-paste/detail-text@3.1.0
+  - @twilio-paste/file-uploader@4.1.0
+  - @twilio-paste/in-page-navigation@4.1.0
+  - @twilio-paste/inline-code@4.1.0
+  - @twilio-paste/input@9.1.0
+  - @twilio-paste/input-box@10.1.0
+  - @twilio-paste/label@13.1.0
+  - @twilio-paste/list@8.1.0
+  - @twilio-paste/menu@14.1.0
+  - @twilio-paste/minimizable-dialog@4.1.0
+  - @twilio-paste/modal@16.1.0
+  - @twilio-paste/pagination@7.1.0
+  - @twilio-paste/paragraph@10.1.0
+  - @twilio-paste/popover@13.1.0
+  - @twilio-paste/product-switcher@3.0.0
+  - @twilio-paste/progress-steps@2.1.0
+  - @twilio-paste/radio-button-group@4.1.0
+  - @twilio-paste/radio-group@13.1.0
+  - @twilio-paste/screen-reader-only@13.1.0
+  - @twilio-paste/select@12.1.0
+  - @twilio-paste/separator@8.1.0
+  - @twilio-paste/side-modal@4.1.0
+  - @twilio-paste/sidebar@1.1.0
+  - @twilio-paste/skeleton-loader@6.1.0
+  - @twilio-paste/spinner@14.1.0
+  - @twilio-paste/status@2.1.0
+  - @twilio-paste/switch@5.1.0
+  - @twilio-paste/tabs@8.1.0
+  - @twilio-paste/textarea@10.1.0
+  - @twilio-paste/time-picker@6.1.0
+  - @twilio-paste/toast@12.1.0
+  - @twilio-paste/tooltip@11.1.0
+  - @twilio-paste/topbar@1.1.0
+  - @twilio-paste/truncate@14.1.0
+  - @twilio-paste/box@10.1.0
+  - @twilio-paste/combobox-primitive@2.1.0
+  - @twilio-paste/disclosure-primitive@2.1.0
+  - @twilio-paste/sibling-box@9.1.0
+  - @twilio-paste/text@10.1.0
+  - @twilio-paste/customization@8.1.0
+  - @twilio-paste/design-tokens@10.2.0
+  - @twilio-paste/lexical-library@4.1.0
+  - @twilio-paste/react-spectrum-library@2.2.0
+  - @twilio-paste/style-props@9.1.0
+
+## 20.3.0
+
+### Minor Changes
+
+- [`4d5dc6842`](https://github.com/twilio-labs/paste/commit/4d5dc684258f3f5766b402f988191572aaf42848) [#3470](https://github.com/twilio-labs/paste/pull/3470) Thanks [@TheSisb](https://github.com/TheSisb)! - [MultiSelect Combobox] allow inversion of control with the internal state so that consumers can manage the selectedItems array themselves. This enables functionality like clearing the selectedItems through an external Button.
+
+### Patch Changes
+
+- [`554c23006`](https://github.com/twilio-labs/paste/commit/554c2300695839c29fd17717ecddb3732e32e111) [#3463](https://github.com/twilio-labs/paste/pull/3463) Thanks [@nkrantz](https://github.com/nkrantz)! - [Meter] Finalize designs of Meter component, bump to Production status, and add documentation.
+
+* [`f6320be83`](https://github.com/twilio-labs/paste/commit/f6320be83fd744aee1c677da1dbaed1e1c89b5ce) [#3462](https://github.com/twilio-labs/paste/pull/3462) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [combobox]: improve the way combobox handles hidden labels and conditional help text related aria attributes for improved accessibility
+
+- [`80decbe21`](https://github.com/twilio-labs/paste/commit/80decbe21966080f987f4567b459b0eb5b36e150) [#3478](https://github.com/twilio-labs/paste/pull/3478) Thanks [@nkrantz](https://github.com/nkrantz)! - [Slider] Update designs to reflect generic Paste value bar design with min and max value labels below the visual bar.
+
+* [`455172f9e`](https://github.com/twilio-labs/paste/commit/455172f9edc0837dc778b6b7203151fb169a5766) [#3461](https://github.com/twilio-labs/paste/pull/3461) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] Include new mappings:
+
+  - `ProgressBar`
+  - `useMultiselectCombobox`
+  - `useMultiSelectPrimitive`
+
+- [`0b5f37e96`](https://github.com/twilio-labs/paste/commit/0b5f37e960683ed832c467a9d21d7f11e763a77b) [#3472](https://github.com/twilio-labs/paste/pull/3472) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [account-switcher, product-switcher, progress-steps, visual-picker] Corrected the React and React-dom peer dependency versions to include React 16 and 17
+
+- Updated dependencies [[`554c23006`](https://github.com/twilio-labs/paste/commit/554c2300695839c29fd17717ecddb3732e32e111), [`f6320be83`](https://github.com/twilio-labs/paste/commit/f6320be83fd744aee1c677da1dbaed1e1c89b5ce), [`80decbe21`](https://github.com/twilio-labs/paste/commit/80decbe21966080f987f4567b459b0eb5b36e150), [`4d5dc6842`](https://github.com/twilio-labs/paste/commit/4d5dc684258f3f5766b402f988191572aaf42848), [`0b5f37e96`](https://github.com/twilio-labs/paste/commit/0b5f37e960683ed832c467a9d21d7f11e763a77b)]:
+  - @twilio-paste/meter@1.0.1
+  - @twilio-paste/combobox@16.1.0
+  - @twilio-paste/slider@2.0.2
+  - @twilio-paste/account-switcher@2.0.1
+  - @twilio-paste/product-switcher@2.0.1
+  - @twilio-paste/progress-steps@2.0.1
+  - @twilio-paste/visual-picker@2.0.1
+
+## 20.2.0
+
+### Minor Changes
+
+- [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2) [#3430](https://github.com/twilio-labs/paste/pull/3430) Thanks [@nkrantz](https://github.com/nkrantz)! - [Meter] Create Meter package. Meter is a visual representation of a numerical value within a known range.
+
+### Patch Changes
+
+- [`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608) [#3435](https://github.com/twilio-labs/paste/pull/3435) Thanks [@TheSisb](https://github.com/TheSisb)! - [Progress Bar] add new Progress Bar package. A Progress Bar visually displays the progression/duration of a system operation such as downloading, uploading, or processing information.
+
+* [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068) [#3454](https://github.com/twilio-labs/paste/pull/3454) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Input] increment and decrement button types corrected for tabIndex
+
+- [`611a2daaf`](https://github.com/twilio-labs/paste/commit/611a2daafbdd142da60afa6cc280824e4ab54ce6) [#3456](https://github.com/twilio-labs/paste/pull/3456) Thanks [@nkrantz](https://github.com/nkrantz)! - [Theme] Change the type of sizeIcon tokens in the GenericThemeShape to be `any`. Previously they were incorrectly typed as the value of the token in the Twilio theme, which was preventing consumers from passing custom icon sizes using the Customization Provider.
+
+* [`e6ebb11f7`](https://github.com/twilio-labs/paste/commit/e6ebb11f71ee930a0cc5fb7256f750ff5caa8498) [#3450](https://github.com/twilio-labs/paste/pull/3450) Thanks [@TheSisb](https://github.com/TheSisb)! - [MultiselectCombobox] fix bug where passing `required` would block form submit events. `required` now only blocks the submit event if no items are selected rather than when the input box is blank.
+
+- [`29b6b7b65`](https://github.com/twilio-labs/paste/commit/29b6b7b65ced04ee9f7ac3361fdd5c60025f21bf) [#3459](https://github.com/twilio-labs/paste/pull/3459) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Now opens the dropdown menu upwards when positioned towards the bottom of the viewport.
+
+* [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068) [#3454](https://github.com/twilio-labs/paste/pull/3454) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] improved reset variant typing to allow style props enabling the creation of custom buttons
+
+- [`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608) [#3435](https://github.com/twilio-labs/paste/pull/3435) Thanks [@TheSisb](https://github.com/TheSisb)! - [Slider] corrected a typo on the `aria-labelledby` prop
+
+* [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2) [#3430](https://github.com/twilio-labs/paste/pull/3430) Thanks [@nkrantz](https://github.com/nkrantz)! - Slightly improved Label component types
+
+* Updated dependencies [[`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608), [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068), [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2), [`611a2daaf`](https://github.com/twilio-labs/paste/commit/611a2daafbdd142da60afa6cc280824e4ab54ce6), [`e6ebb11f7`](https://github.com/twilio-labs/paste/commit/e6ebb11f71ee930a0cc5fb7256f750ff5caa8498), [`29b6b7b65`](https://github.com/twilio-labs/paste/commit/29b6b7b65ced04ee9f7ac3361fdd5c60025f21bf), [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068), [`424fa78d5`](https://github.com/twilio-labs/paste/commit/424fa78d559b8820b6bd8f221652ce24540a3608), [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2)]:
+  - @twilio-paste/progress-bar@1.0.0
+  - @twilio-paste/input@9.0.2
+  - @twilio-paste/meter@1.0.0
+  - @twilio-paste/theme@11.0.1
+  - @twilio-paste/combobox@16.0.1
+  - @twilio-paste/button@14.0.2
+  - @twilio-paste/slider@2.0.1
+  - @twilio-paste/base-radio-checkbox@13.0.1
+  - @twilio-paste/file-uploader@4.0.1
+  - @twilio-paste/label@13.0.1
+
+## 20.1.0
+
+### Minor Changes
+
+- [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90) [#3426](https://github.com/twilio-labs/paste/pull/3426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat Log] Better handling of user generated text with line breaks and forward Refs to the ChatLogger component for better control over displaying chat messages
+
+* [`feeaa90fa`](https://github.com/twilio-labs/paste/commit/feeaa90fa4fff395ffc8a817f4ca358713d5d9be) [#3421](https://github.com/twilio-labs/paste/pull/3421) Thanks [@TheSisb](https://github.com/TheSisb)! - [React Spectrum Library] export the `useProgressBar` hook and the `useMeter` hook
+
+- [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90) [#3426](https://github.com/twilio-labs/paste/pull/3426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Lexical Library] Update lexical to version v0.12.0 This includes some breaking changes as listed in their [Changelog](https://github.com/facebook/lexical/releases)
+
+* [`48c8d8271`](https://github.com/twilio-labs/paste/commit/48c8d82714f1e54d072644348c68f0a74fa790f9) [#3402](https://github.com/twilio-labs/paste/pull/3402) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert Dialog] Add prop `onConfirmDisabled` to allow for the confirm button on destructive Alert Dialogs to be conditionally disabled. This interaction is primarily for use in the High Severity Delete Pattern.
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - - [design-tokens] Add colorTextDestructive tokens
+
+* [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90) [#3426](https://github.com/twilio-labs/paste/pull/3426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat-Composer] updates to accomodate the new version of Lexical
+
+### Patch Changes
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - [Menu] Update destructive Menu items to use the new `colorTextDestructive` token
+
+* [`2a1f8b954`](https://github.com/twilio-labs/paste/commit/2a1f8b954cdfc12cf40b7f5cd633d0b9ea9e882d) [#3425](https://github.com/twilio-labs/paste/pull/3425) Thanks [@TheSisb](https://github.com/TheSisb)! - [Input, Input Box] allow passing `type="url"` to the Input component for convenient browser validation.
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - [Button] Update `variant="destructive"` Buttons to use the new `colorTextDestructive` token
+
+- Updated dependencies [[`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90), [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8), [`feeaa90fa`](https://github.com/twilio-labs/paste/commit/feeaa90fa4fff395ffc8a817f4ca358713d5d9be), [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90), [`2a1f8b954`](https://github.com/twilio-labs/paste/commit/2a1f8b954cdfc12cf40b7f5cd633d0b9ea9e882d), [`48c8d8271`](https://github.com/twilio-labs/paste/commit/48c8d82714f1e54d072644348c68f0a74fa790f9), [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8), [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8), [`c72b4b538`](https://github.com/twilio-labs/paste/commit/c72b4b538f6903b5b8766e14dc09edb689522d90)]:
+  - @twilio-paste/chat-log@5.1.0
+  - @twilio-paste/menu@14.0.1
+  - @twilio-paste/react-spectrum-library@2.1.0
+  - @twilio-paste/lexical-library@4.0.0
+  - @twilio-paste/input@9.0.1
+  - @twilio-paste/input-box@10.0.1
+  - @twilio-paste/alert-dialog@9.1.0
+  - @twilio-paste/design-tokens@10.1.0
+  - @twilio-paste/button@14.0.1
+  - @twilio-paste/chat-composer@5.0.0
+
+## 20.0.1
+
+### Patch Changes
+
+- [`81b4c3f18`](https://github.com/twilio-labs/paste/commit/81b4c3f18e581ae93ee18a55a755de6529333c53) [#3404](https://github.com/twilio-labs/paste/pull/3404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [User Dialog] Fix the positioning of the user dialog by adding back the passing down of calculted styles to Box
+
+- Updated dependencies [[`81b4c3f18`](https://github.com/twilio-labs/paste/commit/81b4c3f18e581ae93ee18a55a755de6529333c53)]:
+  - @twilio-paste/user-dialog@2.0.1
+
+## 20.0.0
+
+### Major Changes
+
+- [`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603) [#3395](https://github.com/twilio-labs/paste/pull/3395) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Modified the compile target of our JavaScript bundles from `node` to `browser` to minimize the risk of clashing with RequireJS. This is marked as a major out of an abundance of caution. You shouldn't need to do anything but we wanted you to be aware of the change on the off chance it has unintended consequences
+
+### Patch Changes
+
+- Updated dependencies [[`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603)]:
+  - @twilio-paste/uid-library@2.0.0
+  - @twilio-paste/color-contrast-utils@5.0.0
+  - @twilio-paste/account-switcher@2.0.0
+  - @twilio-paste/alert@14.0.0
+  - @twilio-paste/alert-dialog@9.0.0
+  - @twilio-paste/anchor@12.0.0
+  - @twilio-paste/avatar@9.0.0
+  - @twilio-paste/badge@8.0.0
+  - @twilio-paste/base-radio-checkbox@13.0.0
+  - @twilio-paste/breadcrumb@11.0.0
+  - @twilio-paste/button@14.0.0
+  - @twilio-paste/button-group@4.0.0
+  - @twilio-paste/callout@4.0.0
+  - @twilio-paste/card@9.0.0
+  - @twilio-paste/chat-composer@4.0.0
+  - @twilio-paste/chat-log@5.0.0
+  - @twilio-paste/checkbox@13.0.0
+  - @twilio-paste/code-block@4.0.0
+  - @twilio-paste/combobox@16.0.0
+  - @twilio-paste/data-grid@8.0.0
+  - @twilio-paste/date-picker@6.0.0
+  - @twilio-paste/description-list@4.0.0
+  - @twilio-paste/detail-text@3.0.0
+  - @twilio-paste/disclosure@12.0.0
+  - @twilio-paste/display-heading@4.0.0
+  - @twilio-paste/display-pill-group@8.0.0
+  - @twilio-paste/editable-code-block@2.0.0
+  - @twilio-paste/file-picker@4.0.0
+  - @twilio-paste/file-uploader@4.0.0
+  - @twilio-paste/form@11.0.0
+  - @twilio-paste/form-pill-group@8.0.0
+  - @twilio-paste/heading@11.0.0
+  - @twilio-paste/help-text@13.0.0
+  - @twilio-paste/in-page-navigation@4.0.0
+  - @twilio-paste/inline-code@4.0.0
+  - @twilio-paste/inline-control-group@13.0.0
+  - @twilio-paste/input@9.0.0
+  - @twilio-paste/input-box@10.0.0
+  - @twilio-paste/label@13.0.0
+  - @twilio-paste/list@8.0.0
+  - @twilio-paste/menu@14.0.0
+  - @twilio-paste/minimizable-dialog@4.0.0
+  - @twilio-paste/modal@16.0.0
+  - @twilio-paste/pagination@7.0.0
+  - @twilio-paste/paragraph@10.0.0
+  - @twilio-paste/popover@13.0.0
+  - @twilio-paste/product-switcher@2.0.0
+  - @twilio-paste/progress-steps@2.0.0
+  - @twilio-paste/radio-button-group@4.0.0
+  - @twilio-paste/radio-group@13.0.0
+  - @twilio-paste/screen-reader-only@13.0.0
+  - @twilio-paste/select@12.0.0
+  - @twilio-paste/separator@8.0.0
+  - @twilio-paste/side-modal@4.0.0
+  - @twilio-paste/sidebar@1.0.0
+  - @twilio-paste/skeleton-loader@6.0.0
+  - @twilio-paste/slider@2.0.0
+  - @twilio-paste/spinner@14.0.0
+  - @twilio-paste/status@2.0.0
+  - @twilio-paste/switch@5.0.0
+  - @twilio-paste/table@8.0.0
+  - @twilio-paste/tabs@8.0.0
+  - @twilio-paste/textarea@10.0.0
+  - @twilio-paste/time-picker@6.0.0
+  - @twilio-paste/toast@12.0.0
+  - @twilio-paste/tooltip@11.0.0
+  - @twilio-paste/topbar@1.0.0
+  - @twilio-paste/truncate@14.0.0
+  - @twilio-paste/user-dialog@2.0.0
+  - @twilio-paste/visual-picker@2.0.0
+  - @twilio-paste/aspect-ratio@10.0.0
+  - @twilio-paste/flex@8.0.0
+  - @twilio-paste/grid@8.0.0
+  - @twilio-paste/media-object@10.0.0
+  - @twilio-paste/stack@8.0.0
+  - @twilio-paste/box@10.0.0
+  - @twilio-paste/combobox-primitive@2.0.0
+  - @twilio-paste/disclosure-primitive@2.0.0
+  - @twilio-paste/listbox-primitive@3.0.0
+  - @twilio-paste/menu-primitive@2.0.0
+  - @twilio-paste/modal-dialog-primitive@2.0.0
+  - @twilio-paste/non-modal-dialog-primitive@2.0.0
+  - @twilio-paste/sibling-box@9.0.0
+  - @twilio-paste/tabs-primitive@2.0.0
+  - @twilio-paste/text@10.0.0
+  - @twilio-paste/tooltip-primitive@2.0.0
+  - @twilio-paste/customization@8.0.0
+  - @twilio-paste/design-tokens@10.0.0
+  - @twilio-paste/icons@12.0.0
+  - @twilio-paste/animation-library@2.0.0
+  - @twilio-paste/clipboard-copy-library@3.0.0
+  - @twilio-paste/code-editor-library@2.0.0
+  - @twilio-paste/data-visualization-library@5.0.0
+  - @twilio-paste/dropdown-library@3.0.0
+  - @twilio-paste/lexical-library@3.0.0
+  - @twilio-paste/react-spectrum-library@2.0.0
+  - @twilio-paste/react-textarea-autosize-library@3.0.0
+  - @twilio-paste/reakit-library@2.0.0
+  - @twilio-paste/styling-library@3.0.0
+  - @twilio-paste/syntax-highlighter-library@3.0.0
+  - @twilio-paste/style-props@9.0.0
+  - @twilio-paste/theme@11.0.0
+  - @twilio-paste/types@6.0.0
+  - @twilio-paste/utils@5.0.0
+
+## 19.7.0
+
+### Minor Changes
+
+- [`bb49609a7`](https://github.com/twilio-labs/paste/commit/bb49609a7a8f5dd3b18f240bd66a6a98ab2d6805) [#3332](https://github.com/twilio-labs/paste/pull/3332) Thanks [@TheSisb](https://github.com/TheSisb)! - [Editable CodeBlock] Refined the API and added a wrapper and header component.
+
+* [`54afe1ce8`](https://github.com/twilio-labs/paste/commit/54afe1ce83d5bf27a83c3db802953f4fe53f0cd6) [#3378](https://github.com/twilio-labs/paste/pull/3378) Thanks [@TheSisb](https://github.com/TheSisb)! - [Slider] add new Slider package. A Slider is a draggable input that allows a user to select an imprecise numerical value within a range.
+
+- [`c4a70d95b`](https://github.com/twilio-labs/paste/commit/c4a70d95bf8d61649e5fb3cb9b67148438d27662) [#3371](https://github.com/twilio-labs/paste/pull/3371) Thanks [@TheSisb](https://github.com/TheSisb)! - [React-Spectrum-Library] Add wrapper around react-spectrum which exposes the `useSlider`, `useSliderThumb`, and `useSliderState` hooks.
+
+* [`6b42044d7`](https://github.com/twilio-labs/paste/commit/6b42044d7d4208df6af4c21ef325489fa9112121) [#3384](https://github.com/twilio-labs/paste/pull/3384) Thanks [@TheSisb](https://github.com/TheSisb)! - [Slider] allow passing `aria-labeledby` prop
+
+- [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c) [#3350](https://github.com/twilio-labs/paste/pull/3350) Thanks [@nkrantz](https://github.com/nkrantz)! - [Visual Picker] Create new Visual Picker package for stylized radio and checkbox groups
+
+* [`176b7a5b6`](https://github.com/twilio-labs/paste/commit/176b7a5b6d0c2bbcdb5323d9afda12c57aa78bc2) [#3342](https://github.com/twilio-labs/paste/pull/3342) Thanks [@serifluous](https://github.com/serifluous)! - Add new brand colors as aliases, sun and accents
+
+### Patch Changes
+
+- [`3c8e02a3d`](https://github.com/twilio-labs/paste/commit/3c8e02a3dc7c27c1fa337df4618b4236d5b6f305) [#3346](https://github.com/twilio-labs/paste/pull/3346) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] fixed an issue with overlay sidebars where the topbar would be over the sidebar when sidebar is expanded
+
+* [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c) [#3350](https://github.com/twilio-labs/paste/pull/3350) Thanks [@nkrantz](https://github.com/nkrantz)! - [Checkbox, Radio Group] export HiddenRadio, HiddenRadioState, HiddenCheckbox, and CheckboxIcon from package for use in Visual Picker package
+
+- [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c) [#3350](https://github.com/twilio-labs/paste/pull/3350) Thanks [@nkrantz](https://github.com/nkrantz)! - [Inline control group] add new `fieldStyleProps` property to enable overriding styles for visual picker
+
+* [`3c8e02a3d`](https://github.com/twilio-labs/paste/commit/3c8e02a3dc7c27c1fa337df4618b4236d5b6f305) [#3346](https://github.com/twilio-labs/paste/pull/3346) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [In-page Navigation] allow in page navigation to remove bottom margin
+
+- [`4d1f7c65e`](https://github.com/twilio-labs/paste/commit/4d1f7c65e77e5e0bbf6c7422b46a477bdb932ee6) [#3360](https://github.com/twilio-labs/paste/pull/3360) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Improved types where Paste extends the base HTML element that a component is based on, so that the existing blocked styling properties are not exposed as valid properties for the component via Typescript. This leads to less confusion around what is supported by a Paste component.
+
+  Existing blocked component properties include:
+
+  - `className`
+  - `style`
+  - `color`
+
+* [`1fe9f3286`](https://github.com/twilio-labs/paste/commit/1fe9f328696cbfdc9fa6e6b004bc19b90e59aeda) [#3370](https://github.com/twilio-labs/paste/pull/3370) Thanks [@nkrantz](https://github.com/nkrantz)! - [Visual Picker] Adjust spacing to make pickers equal width and height
+
+- [`abf6c1912`](https://github.com/twilio-labs/paste/commit/abf6c19126a1e4fef5898c10354efe2141f27464) [#3347](https://github.com/twilio-labs/paste/pull/3347) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox] small fix for multiselect combobox listbox positioning now that it uses a portal
+
+* [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c) [#3350](https://github.com/twilio-labs/paste/pull/3350) Thanks [@nkrantz](https://github.com/nkrantz)! - [Base Radio Checkbox] add new prop `applyHoverStyles` for extended styling abilities
+
+- [`bb49609a7`](https://github.com/twilio-labs/paste/commit/bb49609a7a8f5dd3b18f240bd66a6a98ab2d6805) [#3332](https://github.com/twilio-labs/paste/pull/3332) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] `SidebarNavigationItem` now opens external links with the correct default `rel` and `target` attributes.
+
+* [`1fe9f3286`](https://github.com/twilio-labs/paste/commit/1fe9f328696cbfdc9fa6e6b004bc19b90e59aeda) [#3370](https://github.com/twilio-labs/paste/pull/3370) Thanks [@nkrantz](https://github.com/nkrantz)! - [Inline control group] Adjust spacing for Visual Picker
+
+- [`93851962d`](https://github.com/twilio-labs/paste/commit/93851962dfe583724496603681a11bb9d452c34b) [#3349](https://github.com/twilio-labs/paste/pull/3349) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Avatar]: set transparent background color for image based avatars so that transparent images are displayed as such. Also fix setting the size of icon and image avatars when placed in a group
+
+* [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c) [#3350](https://github.com/twilio-labs/paste/pull/3350) Thanks [@nkrantz](https://github.com/nkrantz)! - [Callout] Remove CalloutHeading propTypes
+
+* Updated dependencies [[`bb49609a7`](https://github.com/twilio-labs/paste/commit/bb49609a7a8f5dd3b18f240bd66a6a98ab2d6805), [`3c8e02a3d`](https://github.com/twilio-labs/paste/commit/3c8e02a3dc7c27c1fa337df4618b4236d5b6f305), [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c), [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c), [`3c8e02a3d`](https://github.com/twilio-labs/paste/commit/3c8e02a3dc7c27c1fa337df4618b4236d5b6f305), [`54afe1ce8`](https://github.com/twilio-labs/paste/commit/54afe1ce83d5bf27a83c3db802953f4fe53f0cd6), [`4d1f7c65e`](https://github.com/twilio-labs/paste/commit/4d1f7c65e77e5e0bbf6c7422b46a477bdb932ee6), [`1fe9f3286`](https://github.com/twilio-labs/paste/commit/1fe9f328696cbfdc9fa6e6b004bc19b90e59aeda), [`abf6c1912`](https://github.com/twilio-labs/paste/commit/abf6c19126a1e4fef5898c10354efe2141f27464), [`c4a70d95b`](https://github.com/twilio-labs/paste/commit/c4a70d95bf8d61649e5fb3cb9b67148438d27662), [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c), [`6b42044d7`](https://github.com/twilio-labs/paste/commit/6b42044d7d4208df6af4c21ef325489fa9112121), [`bb49609a7`](https://github.com/twilio-labs/paste/commit/bb49609a7a8f5dd3b18f240bd66a6a98ab2d6805), [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c), [`176b7a5b6`](https://github.com/twilio-labs/paste/commit/176b7a5b6d0c2bbcdb5323d9afda12c57aa78bc2), [`1fe9f3286`](https://github.com/twilio-labs/paste/commit/1fe9f328696cbfdc9fa6e6b004bc19b90e59aeda), [`93851962d`](https://github.com/twilio-labs/paste/commit/93851962dfe583724496603681a11bb9d452c34b), [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c)]:
+  - @twilio-paste/editable-code-block@1.1.0
+  - @twilio-paste/sidebar@0.5.1
+  - @twilio-paste/checkbox@12.0.1
+  - @twilio-paste/radio-group@12.0.1
+  - @twilio-paste/inline-control-group@12.0.1
+  - @twilio-paste/in-page-navigation@3.0.2
+  - @twilio-paste/slider@1.0.0
+  - @twilio-paste/alert@13.0.1
+  - @twilio-paste/alert-dialog@8.0.1
+  - @twilio-paste/anchor@11.0.1
+  - @twilio-paste/avatar@8.1.1
+  - @twilio-paste/badge@7.1.1
+  - @twilio-paste/breadcrumb@10.0.1
+  - @twilio-paste/button@13.0.4
+  - @twilio-paste/card@8.0.1
+  - @twilio-paste/display-heading@3.0.1
+  - @twilio-paste/display-pill-group@7.0.1
+  - @twilio-paste/file-picker@3.0.2
+  - @twilio-paste/heading@10.0.1
+  - @twilio-paste/help-text@12.0.2
+  - @twilio-paste/input@8.1.1
+  - @twilio-paste/label@12.0.3
+  - @twilio-paste/list@7.0.1
+  - @twilio-paste/minimizable-dialog@3.0.1
+  - @twilio-paste/modal@15.0.1
+  - @twilio-paste/pagination@6.0.2
+  - @twilio-paste/paragraph@9.0.1
+  - @twilio-paste/progress-steps@1.0.1
+  - @twilio-paste/radio-button-group@3.0.1
+  - @twilio-paste/select@11.0.3
+  - @twilio-paste/separator@7.0.1
+  - @twilio-paste/side-modal@3.1.1
+  - @twilio-paste/skeleton-loader@5.0.1
+  - @twilio-paste/status@1.0.3
+  - @twilio-paste/switch@4.0.1
+  - @twilio-paste/table@7.0.2
+  - @twilio-paste/tabs@7.0.3
+  - @twilio-paste/textarea@9.0.2
+  - @twilio-paste/toast@11.0.1
+  - @twilio-paste/topbar@0.3.1
+  - @twilio-paste/truncate@13.0.1
+  - @twilio-paste/user-dialog@1.0.3
+  - @twilio-paste/grid@7.0.1
+  - @twilio-paste/media-object@9.0.1
+  - @twilio-paste/types@5.0.1
+  - @twilio-paste/visual-picker@1.0.0
+  - @twilio-paste/combobox@15.0.4
+  - @twilio-paste/react-spectrum-library@1.0.0
+  - @twilio-paste/base-radio-checkbox@12.0.1
+  - @twilio-paste/design-tokens@9.3.0
+  - @twilio-paste/callout@3.0.1
+
+## 19.6.0
+
+### Minor Changes
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] Included skip link functionality, allowing consumers an easy way to create application navigation skip links. Added three new required props `mainContentSkipLinkID`, `sidebarNavigationSkipLinkID` and `topbarSkipLinkID`. Plus three optional internationalization props to translate the skip link text
+
+* [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Utils] Add useMergeRefs util (previously removed because it was unused) for use in the input package.
+
+- [`61ba09fa3`](https://github.com/twilio-labs/paste/commit/61ba09fa3a66252180e9f9bdac5f81ef671db7e4) [#3309](https://github.com/twilio-labs/paste/pull/3309) Thanks [@TheSisb](https://github.com/TheSisb)! - [Code Editor Library] Add new Code Editor library package which wraps the excellent Monaco editor. Enables building full featured code editors in the browser, like Visual Studio code.
+
+* [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] Add PseudoPropStyles **webkit_inner_spin_button and **webkit_outer_spin_button and CustomStyleProp -moz-appearance to Box Primitive Style Props for use in the Input package for hiding native components from all browsers.
+
+- [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Input] Adjust type="number" Input to use native HTML element, add custom styling and functionality.
+
+* [`61ba09fa3`](https://github.com/twilio-labs/paste/commit/61ba09fa3a66252180e9f9bdac5f81ef671db7e4) [#3309](https://github.com/twilio-labs/paste/pull/3309) Thanks [@TheSisb](https://github.com/TheSisb)! - [Editable Code Block] Add the new EditableCodeBlock component. Enables building code editors in the browser, styled with Paste default styles.
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] Enable application navigation by providing an ID to the topbar for users to jump to via skiplink navigation.
+
+### Patch Changes
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] include new skiplinks export from Sidebar
+
+* [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fixed incorrect prop types for menu based components
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] improved alignment with the sidebar header
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Style-props] Create types for responsive versions of basic CSS properties to be use in Box and Text style primitives. Previously they were just static single css property values
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] Allow responsive display properties on Topbar Actions to enable building responsive and adaptive topbars
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Add transistionDelay CSS property to accompany transistion style prop
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] corrected the SideBarNavigationItem children proptype validation rule
+
+* [`8f96d66a9`](https://github.com/twilio-labs/paste/commit/8f96d66a952e67617578fc7da11f4be225a2da8f) [#3327](https://github.com/twilio-labs/paste/pull/3327) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Update Inter font version from 3.15 to 3.19, which fixes a Chrome issue with number emojis
+
+- [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Date Picker, Time Picker] add missing dependencies to package.json
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] match z-index level to that of the sidebar so they share the same plane within an application
+
+- [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] Allow responsive values for the CSS properties Box supports as style props.
+
+* [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df) [#3328](https://github.com/twilio-labs/paste/pull/3328) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] improved SSR handling of the push content wrapper for small screen responsive layouts
+
+* Updated dependencies [[`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`8f96d66a9`](https://github.com/twilio-labs/paste/commit/8f96d66a952e67617578fc7da11f4be225a2da8f), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`61ba09fa3`](https://github.com/twilio-labs/paste/commit/61ba09fa3a66252180e9f9bdac5f81ef671db7e4), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48), [`b9d9e7123`](https://github.com/twilio-labs/paste/commit/b9d9e712374a3e0aef44bd7609bc1036b10802df), [`61ba09fa3`](https://github.com/twilio-labs/paste/commit/61ba09fa3a66252180e9f9bdac5f81ef671db7e4), [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61)]:
+  - @twilio-paste/account-switcher@1.0.2
+  - @twilio-paste/menu@13.1.1
+  - @twilio-paste/product-switcher@1.0.3
+  - @twilio-paste/topbar@0.3.0
+  - @twilio-paste/style-props@8.0.1
+  - @twilio-paste/text@9.0.3
+  - @twilio-paste/sidebar@0.5.0
+  - @twilio-paste/utils@4.1.0
+  - @twilio-paste/theme@10.0.3
+  - @twilio-paste/date-picker@5.0.1
+  - @twilio-paste/time-picker@5.0.1
+  - @twilio-paste/code-editor-library@1.0.0
+  - @twilio-paste/box@9.2.0
+  - @twilio-paste/input@8.1.0
+  - @twilio-paste/editable-code-block@1.0.0
+
+## 19.5.0
+
+### Minor Changes
+
+- [`83307d2e2`](https://github.com/twilio-labs/paste/commit/83307d2e2ef6204b9e30d812257e19c7e3e09639) [#3306](https://github.com/twilio-labs/paste/pull/3306) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sidebar] Improved ability to place children, like badges, inside a navigation item and have it positioned nicely by default
+
+### Patch Changes
+
+- [`c05f8686a`](https://github.com/twilio-labs/paste/commit/c05f8686af26f473a97895c6055bdbca2a2e5421) [#3319](https://github.com/twilio-labs/paste/pull/3319) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] exposing missing typography style properties that are allowed via typescript, but aren't actually implemented on the component. These include list-style-type, textOverflow and overflowWrap
+
+* [`e2f12ff7a`](https://github.com/twilio-labs/paste/commit/e2f12ff7a6a415cae2432da31b51ce58df738cae) [#3299](https://github.com/twilio-labs/paste/pull/3299) Thanks [@nkrantz](https://github.com/nkrantz)! - [User Dialog] adjust padding of list items to more clearly define item groups
+
+- [`950568e63`](https://github.com/twilio-labs/paste/commit/950568e6335261c279f1e093b0058b600c444ae1) [#3304](https://github.com/twilio-labs/paste/pull/3304) Thanks [@serifluous](https://github.com/serifluous)! - Updates navigation component descriptions
+
+* [`fc88a1f5c`](https://github.com/twilio-labs/paste/commit/fc88a1f5c3a73fdfb691ac2493e009bbb7e4ed73) [#3301](https://github.com/twilio-labs/paste/pull/3301) Thanks [@nkrantz](https://github.com/nkrantz)! - [Topbar] style adjustment to the column-gap in TopbarActions
+
+- [`6d384057e`](https://github.com/twilio-labs/paste/commit/6d384057ea74c790e8c91b5d4582a6386d1ffd3d) [#3303](https://github.com/twilio-labs/paste/pull/3303) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] fix flicker in animation when expanding/collapsing the sidebar in compact mode. Reduce width of custom scrollbar and add margin-top.
+
+- Updated dependencies [[`c05f8686a`](https://github.com/twilio-labs/paste/commit/c05f8686af26f473a97895c6055bdbca2a2e5421), [`e2f12ff7a`](https://github.com/twilio-labs/paste/commit/e2f12ff7a6a415cae2432da31b51ce58df738cae), [`83307d2e2`](https://github.com/twilio-labs/paste/commit/83307d2e2ef6204b9e30d812257e19c7e3e09639), [`950568e63`](https://github.com/twilio-labs/paste/commit/950568e6335261c279f1e093b0058b600c444ae1), [`fc88a1f5c`](https://github.com/twilio-labs/paste/commit/fc88a1f5c3a73fdfb691ac2493e009bbb7e4ed73), [`6d384057e`](https://github.com/twilio-labs/paste/commit/6d384057ea74c790e8c91b5d4582a6386d1ffd3d)]:
+  - @twilio-paste/text@9.0.2
+  - @twilio-paste/user-dialog@1.0.2
+  - @twilio-paste/sidebar@0.4.0
+  - @twilio-paste/account-switcher@1.0.1
+  - @twilio-paste/product-switcher@1.0.2
+  - @twilio-paste/status@1.0.2
+  - @twilio-paste/topbar@0.2.2
+
+## 19.4.0
+
+### Minor Changes
+
+- [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237) [#3296](https://github.com/twilio-labs/paste/pull/3296) Thanks [@TheSisb](https://github.com/TheSisb)! - [SideModal] Add new prop `hideOnEsc` which enables closing the SideModal when the "Escape" keyboard key is pressed
+
+### Patch Changes
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Product Switcher] minor change to the size of the trigger button
+
+* [`cc840e4aa`](https://github.com/twilio-labs/paste/commit/cc840e4aa0f83922d80ace5acfa6fe409c98216a) [#3298](https://github.com/twilio-labs/paste/pull/3298) Thanks [@nkrantz](https://github.com/nkrantz)! - [User dialog] add zindex so menu overlays the page its on
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] `SidebarBetaBadge` no longer passes `onClick` when `as="span"`. Other miscellaneous typescript fixes.
+
+* [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [User Dialog] ensure the user dialog list is correctly labelled for accessibility reasons
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] Style updates to the Sidebar navigation components
+
+* [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Topbar] Update to the size of the User Dialog trigger for better alignment with other topbar related components
+
+- [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237) [#3296](https://github.com/twilio-labs/paste/pull/3296) Thanks [@TheSisb](https://github.com/TheSisb)! - [SideModal] Fix to correctly focus the close button when the SideModal first opens
+
+* [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox]: ability to have a truly visually hidden label for search comboboxes
+
+* Updated dependencies [[`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237), [`cc840e4aa`](https://github.com/twilio-labs/paste/commit/cc840e4aa0f83922d80ace5acfa6fe409c98216a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a), [`771da3b74`](https://github.com/twilio-labs/paste/commit/771da3b74936774b7620a19ab735a3a6baff3237), [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a)]:
+  - @twilio-paste/product-switcher@1.0.1
+  - @twilio-paste/side-modal@3.1.0
+  - @twilio-paste/user-dialog@1.0.1
+  - @twilio-paste/sidebar@0.3.1
+  - @twilio-paste/topbar@0.2.1
+  - @twilio-paste/combobox@15.0.3
+
+## 19.3.0
+
+### Minor Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] add SidebarNavigation and all relevant sub-components
+
+* [`66127dd15`](https://github.com/twilio-labs/paste/commit/66127dd15e5e2738e711bd9533e24deaf7d13986) [#3254](https://github.com/twilio-labs/paste/pull/3254) Thanks [@nkrantz](https://github.com/nkrantz)! - [User Dialog] create package
+
+- [`a2c1c910a`](https://github.com/twilio-labs/paste/commit/a2c1c910addc4efc2a5db87b11eac2289489de38) [#3272](https://github.com/twilio-labs/paste/pull/3272) Thanks [@TheSisb](https://github.com/TheSisb)! - [ProgressSteps] Add new ProgressSteps package. Progress steps show a user a clear path to complete a complex multi step task.
+
+* [`be917a43f`](https://github.com/twilio-labs/paste/commit/be917a43f5024be62c7e7ba91e2d5d1ea9ff8f8b) [#3271](https://github.com/twilio-labs/paste/pull/3271) Thanks [@TheSisb](https://github.com/TheSisb)! - [Chat Log] `useChatLogger` now exposes a `clear` function to clear all chats at once. Also, the animations have been slightly adjusted.
+
+- [`66127dd15`](https://github.com/twilio-labs/paste/commit/66127dd15e5e2738e711bd9533e24deaf7d13986) [#3254](https://github.com/twilio-labs/paste/pull/3254) Thanks [@nkrantz](https://github.com/nkrantz)! - [Topbar] Separate user dialog into its own package
+
+### Patch Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Button] allow passing all style props to Button with variant="reset", effectively making it a Button primitive.
+
+* [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92) [#3242](https://github.com/twilio-labs/paste/pull/3242) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codeblock] Update styles
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] update the `shadowFocusInverseInset` token in the `twilio` and `twilio-dark` themes
+
+* [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553) [#3260](https://github.com/twilio-labs/paste/pull/3260) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] prevent selection of disabled items when using keyboard navigation and the enter key
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codemods] add SidebarNavigation components
+
+* [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92) [#3242](https://github.com/twilio-labs/paste/pull/3242) Thanks [@nkrantz](https://github.com/nkrantz)! - [Topbar] Update styles
+
+- [`dd884662b`](https://github.com/twilio-labs/paste/commit/dd884662b06eea1adc694ff35a9a9e99d62ad4ba) [#3279](https://github.com/twilio-labs/paste/pull/3279) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Make focus shadows in evergreen theme consistent by matching them to twilio theme
+
+* [`8fc130d03`](https://github.com/twilio-labs/paste/commit/8fc130d03556970df344a3db6d851f09c3c1a1bf) [#3261](https://github.com/twilio-labs/paste/pull/3261) Thanks [@TheSisb](https://github.com/TheSisb)! - [Table, DataGrid] Typescript type improvements for Tr, Th, and Td elements
+
+- [`76b28cb9d`](https://github.com/twilio-labs/paste/commit/76b28cb9dd428bc5ef1b41ed73fd79778053dc27) [#3255](https://github.com/twilio-labs/paste/pull/3255) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Status] paired iconography should be decorative and paired with visible, descriptive text
+
+* [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92) [#3242](https://github.com/twilio-labs/paste/pull/3242) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Update styles
+
+- [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553) [#3260](https://github.com/twilio-labs/paste/pull/3260) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox Primitive] export new type `UseComboboxPrimitiveStateChangeOptions` to help type stateReducers
+
+- Updated dependencies [[`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981), [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92), [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981), [`66127dd15`](https://github.com/twilio-labs/paste/commit/66127dd15e5e2738e711bd9533e24deaf7d13986), [`a2c1c910a`](https://github.com/twilio-labs/paste/commit/a2c1c910addc4efc2a5db87b11eac2289489de38), [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981), [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553), [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92), [`be917a43f`](https://github.com/twilio-labs/paste/commit/be917a43f5024be62c7e7ba91e2d5d1ea9ff8f8b), [`66127dd15`](https://github.com/twilio-labs/paste/commit/66127dd15e5e2738e711bd9533e24deaf7d13986), [`dd884662b`](https://github.com/twilio-labs/paste/commit/dd884662b06eea1adc694ff35a9a9e99d62ad4ba), [`8fc130d03`](https://github.com/twilio-labs/paste/commit/8fc130d03556970df344a3db6d851f09c3c1a1bf), [`76b28cb9d`](https://github.com/twilio-labs/paste/commit/76b28cb9dd428bc5ef1b41ed73fd79778053dc27), [`53e20c6de`](https://github.com/twilio-labs/paste/commit/53e20c6de2941bb14f1ea456ad3ed6467bd77e92), [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553)]:
+  - @twilio-paste/button@13.0.3
+  - @twilio-paste/code-block@3.1.1
+  - @twilio-paste/sidebar@0.3.0
+  - @twilio-paste/user-dialog@1.0.0
+  - @twilio-paste/progress-steps@1.0.0
+  - @twilio-paste/design-tokens@9.2.1
+  - @twilio-paste/combobox@15.0.2
+  - @twilio-paste/topbar@0.2.0
+  - @twilio-paste/chat-log@4.1.0
+  - @twilio-paste/data-grid@7.0.1
+  - @twilio-paste/table@7.0.1
+  - @twilio-paste/status@1.0.1
+  - @twilio-paste/combobox-primitive@1.0.1
+
+## 19.2.0
+
+### Minor Changes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] Add Menu Badge, and Checkbox and Radio group Menu Items added. Enables the ability to create menus from badges. Enables single and multiselect menu items.
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Add Avatar Group component
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Status] Introduces a new Status badge for communicating the status of processes and connections. Provides compositions of the Status Pattern for ease of use.
+
+* [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93) [#3208](https://github.com/twilio-labs/paste/pull/3208) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] add `size` prop ("default" and "small") and add new variant ("subaccount"), export styles for Sidebar Beta Badge
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Topbar] Add User Dialog component
+
+* [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93) [#3208](https://github.com/twilio-labs/paste/pull/3208) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Add Sidebar Beta Badge
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Topbar] add package with stories and tests
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Created the Account Switcher and Product Switcher pacakges for use in Topbar and navigation UI kit
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Avatar] Export types for use in the Topbar package
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Badge] Update to default badge styles. Makes Badge styles more sharable with other packages.
+
+- [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93) [#3208](https://github.com/twilio-labs/paste/pull/3208) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new box shadow tokens (shadow-border-subaccount, shadow-border-bottom-subaccount, shadow-border-inverse-new, shadow-border-bottom-inverse-new) and text tokens (color-text-subaccount, color-text-inverse-new) and update existing background color token (color-background-subaccount) for use in the subaccount badge and the sidebar beta badge
+
+* [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8) [#3225](https://github.com/twilio-labs/paste/pull/3225) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Add shadow-focus-inverse-inset token, adjust inverse text tokens for navigation ui kit
+
+### Patch Changes
+
+- [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8) [#3225](https://github.com/twilio-labs/paste/pull/3225) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button, Help Text, In Page Navigation, Input, Input Box, Label, Select, Tab, Text Area] Update color text tokens for inverse styles
+
+* [`0d57f59af`](https://github.com/twilio-labs/paste/commit/0d57f59af2d8fc53afc9976fe81708965c8f589c) [#3171](https://github.com/twilio-labs/paste/pull/3171) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Inline Code] Design upate to the default inline code to match the minimal styles with a view to deprecating "blue" inline code styles
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] add and export proptypes for various menu related components.
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemod]: updated exports
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] set width to 100% for `SidebarOverlayContentWrapper`
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] update to Menu Group text color to Color Text Weak
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] fix SidebarOverlayContentWrapper left margin when `compact=true`
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] adjust avatar border tokens for default and dark themes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods]: Updated package exports for new components
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu]: Improved handling of styling checked menu items and reserving space for the checkmark to prevent resizing on selection
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Badge] Update to default badge color to Color Text
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] update `shadow-border-user` token to fix grouped avatars bug in default theme
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] add `size-topbar` token
+
+* [`ed2ae23e2`](https://github.com/twilio-labs/paste/commit/ed2ae23e2aadb8a80cda313672c052a0c3225c82) [#3212](https://github.com/twilio-labs/paste/pull/3212) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] split up SidebarHeader so it now is composable with the new SidebarHeaderLabel and SidebarHeaderIconButton components
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] Export sharable Button PropTypes
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu Primitive]: Corrected the name of previously undocumented exports for Radio and Checkbox Menu Items
+
+* Updated dependencies [[`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8), [`0d57f59af`](https://github.com/twilio-labs/paste/commit/0d57f59af2d8fc53afc9976fe81708965c8f589c), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93), [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93), [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84), [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`ed2ae23e2`](https://github.com/twilio-labs/paste/commit/ed2ae23e2aadb8a80cda313672c052a0c3225c82), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c), [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93), [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8)]:
+  - @twilio-paste/menu@13.1.0
+  - @twilio-paste/avatar@8.1.0
+  - @twilio-paste/status@1.0.0
+  - @twilio-paste/button@13.0.2
+  - @twilio-paste/help-text@12.0.1
+  - @twilio-paste/in-page-navigation@3.0.1
+  - @twilio-paste/input@8.0.1
+  - @twilio-paste/input-box@9.0.1
+  - @twilio-paste/label@12.0.2
+  - @twilio-paste/select@11.0.2
+  - @twilio-paste/tabs@7.0.2
+  - @twilio-paste/textarea@9.0.1
+  - @twilio-paste/inline-code@3.0.1
+  - @twilio-paste/badge@7.1.0
+  - @twilio-paste/sidebar@0.2.0
+  - @twilio-paste/topbar@0.1.0
+  - @twilio-paste/design-tokens@9.2.0
+  - @twilio-paste/product-switcher@1.0.0
+  - @twilio-paste/account-switcher@1.0.0
+  - @twilio-paste/menu-primitive@1.0.1
+
+## 19.1.0
+
+### Minor Changes
+
+- [`d1d3088ca`](https://github.com/twilio-labs/paste/commit/d1d3088ca0c300740f640f80ebfc532168b35263) [#3160](https://github.com/twilio-labs/paste/pull/3160) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sidebar] Add `SidebarCollapseButton` and `SidebarFooter` components. Renamed ContentWrappers
+
+* [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5) [#3192](https://github.com/twilio-labs/paste/pull/3192) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Code Block] Switch the Code block tabs to use the inverse variant of the Tabs component
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] add `_disabled_focus` pseudoprop style
+
+* [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] add new Sidebar component with several variant styles
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design-tokens] add the `color-border-weakest` token
+
+* [`6d845fd69`](https://github.com/twilio-labs/paste/commit/6d845fd69e62d900e74eac9b29833c0375294098) [#3178](https://github.com/twilio-labs/paste/pull/3178) Thanks [@TheSisb](https://github.com/TheSisb)! - [Sidebar] add `SidebarHeader` component
+
+- [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] add `size-sidebar-compact` token
+
+### Patch Changes
+
+- [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904) [#3148](https://github.com/twilio-labs/paste/pull/3148) Thanks [@nkrantz](https://github.com/nkrantz)! - [Pagination] specify label line height to fix alignment issue
+
+* [`80c9f85f7`](https://github.com/twilio-labs/paste/commit/80c9f85f7a46856f01ee262418f7d0e394999e69) [#3172](https://github.com/twilio-labs/paste/pull/3172) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] babel dependency update
+
+- [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904) [#3148](https://github.com/twilio-labs/paste/pull/3148) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Fix secondary destructive toggle button hover styles
+
+* [`1a09aa61d`](https://github.com/twilio-labs/paste/commit/1a09aa61d57d4bd6339c65a0869befed9659870f) [#3146](https://github.com/twilio-labs/paste/pull/3146) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Fixed visual bugs in Evergreen theme tokens: $color-text-icon-brand-highlight, $color-background-overlay, $color-background-primary-strongest, $color-text-user
+
+- [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904) [#3148](https://github.com/twilio-labs/paste/pull/3148) Thanks [@nkrantz](https://github.com/nkrantz)! - [File picker] set width to 100% to match other input components
+
+* [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codeblock] small adjustment to the backgroundColor on `CodeBlockHeader`
+
+- [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] theme breakpoint values are now represented as `px` values instead of `rem` values. MediaQueries are more easily grokked as `px` values, and it simplifies development by eliminating variability in widths. In rare cases, some tests - like snapshot tests - may need to be updated.
+
+* [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens] adjusting inverse colors for the `Twilio` and `Twilio-Dark` themes
+
+  - `color-background-body-inverse` from `gray-110` to `gray-100`
+  - `shadow-border-inverse-weakest` from `gray-90` to `gray-100`
+  - `color-border-inverse-weakest` from `gray-90` to `gray-100`
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tabs] update horizontal tabs style. They are now visually distinct from the InPageNavigation component.
+
+* [`b27913706`](https://github.com/twilio-labs/paste/commit/b2791370651de378a819f77e8980a97ebad8b3ba) [#3200](https://github.com/twilio-labs/paste/pull/3200) Thanks [@TheSisb](https://github.com/TheSisb)! - [Styling-library] expand the types allowed for emotion's CacheProvider. This change allows passing `container` which helps with setting styles on specific elements and shadow dom.
+
+- [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5) [#3192](https://github.com/twilio-labs/paste/pull/3192) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tabs] allow removing the top padding in the tab panel for greater control over the tab content alignment. Improved prop types to include inverse variants as being valid values to the variant prop.
+
+* [`e801b776b`](https://github.com/twilio-labs/paste/commit/e801b776bc7dc454428a2dd71ac0e5ed21854619) [#3173](https://github.com/twilio-labs/paste/pull/3173) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box, Text]: inject the Paste Core version into the DOM for better debugging in consumer applications and remote inspection
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tooltip] improve border color of the Tooltip
+
+- Updated dependencies [[`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904), [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904), [`d1d3088ca`](https://github.com/twilio-labs/paste/commit/d1d3088ca0c300740f640f80ebfc532168b35263), [`1a09aa61d`](https://github.com/twilio-labs/paste/commit/1a09aa61d57d4bd6339c65a0869befed9659870f), [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`b27913706`](https://github.com/twilio-labs/paste/commit/b2791370651de378a819f77e8980a97ebad8b3ba), [`6d845fd69`](https://github.com/twilio-labs/paste/commit/6d845fd69e62d900e74eac9b29833c0375294098), [`dd43b8676`](https://github.com/twilio-labs/paste/commit/dd43b86765e790eac5ddc846256d300df28fd0d5), [`e801b776b`](https://github.com/twilio-labs/paste/commit/e801b776bc7dc454428a2dd71ac0e5ed21854619), [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e), [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d)]:
+  - @twilio-paste/pagination@6.0.1
+  - @twilio-paste/button@13.0.1
+  - @twilio-paste/sidebar@0.1.0
+  - @twilio-paste/design-tokens@9.1.0
+  - @twilio-paste/code-block@3.1.0
+  - @twilio-paste/box@9.1.0
+  - @twilio-paste/file-picker@3.0.1
+  - @twilio-paste/theme@10.0.2
+  - @twilio-paste/tabs@7.0.1
+  - @twilio-paste/styling-library@2.0.2
+  - @twilio-paste/text@9.0.1
+  - @twilio-paste/tooltip@10.0.1
+
+## 19.0.1
+
+### Patch Changes
+
+- [`819c87512`](https://github.com/twilio-labs/paste/commit/819c875123f8c7f1795224ea3f6f32e2c56be47f) [#3059](https://github.com/twilio-labs/paste/pull/3059) Thanks [@TheSisb](https://github.com/TheSisb)! - [Side modal] Add an opening animation
+
+* [`215a44717`](https://github.com/twilio-labs/paste/commit/215a44717bc11c87479e9b5c367749d87db31ffb) [#3142](https://github.com/twilio-labs/paste/pull/3142) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Fix incorrect dropdown menu position when Combobox is opened on a scrolled page.
+
+- [`845eb62ba`](https://github.com/twilio-labs/paste/commit/845eb62ba326291bf2f5b05fa65e3f38573f5beb) [#3119](https://github.com/twilio-labs/paste/pull/3119) Thanks [@nkrantz](https://github.com/nkrantz)! - [Label] Add "required" title to required dot
+
+* [`c882c0884`](https://github.com/twilio-labs/paste/commit/c882c088430d5ce655befb5d01de2a445203220b) [#3140](https://github.com/twilio-labs/paste/pull/3140) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Multiselect Combobox now correctly clears the input value when selecting an item in the dropdown.
+
+- [`ac5a84407`](https://github.com/twilio-labs/paste/commit/ac5a84407c1305ebb60fa317dd98fb8c99332d81) [#3110](https://github.com/twilio-labs/paste/pull/3110) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Select] Fixed a bug in dark mode on Windows where the options list was still white and the options were unreadable
+
+* [`c42ad640b`](https://github.com/twilio-labs/paste/commit/c42ad640b6e4af057a7f0ff982b6f7533d028493) [#3130](https://github.com/twilio-labs/paste/pull/3130) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Enable the ability to theme the [color-scheme css property](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme) which can be used to control native HTML elements and the way they render in light or dark mode
+
+* Updated dependencies [[`819c87512`](https://github.com/twilio-labs/paste/commit/819c875123f8c7f1795224ea3f6f32e2c56be47f), [`215a44717`](https://github.com/twilio-labs/paste/commit/215a44717bc11c87479e9b5c367749d87db31ffb), [`845eb62ba`](https://github.com/twilio-labs/paste/commit/845eb62ba326291bf2f5b05fa65e3f38573f5beb), [`c882c0884`](https://github.com/twilio-labs/paste/commit/c882c088430d5ce655befb5d01de2a445203220b), [`ac5a84407`](https://github.com/twilio-labs/paste/commit/ac5a84407c1305ebb60fa317dd98fb8c99332d81), [`c42ad640b`](https://github.com/twilio-labs/paste/commit/c42ad640b6e4af057a7f0ff982b6f7533d028493)]:
+  - @twilio-paste/side-modal@3.0.1
+  - @twilio-paste/combobox@15.0.1
+  - @twilio-paste/label@12.0.1
+  - @twilio-paste/select@11.0.1
+  - @twilio-paste/design-tokens@9.0.3
+  - @twilio-paste/styling-library@2.0.1
+  - @twilio-paste/theme@10.0.1
+
+## 19.0.0
+
+### Major Changes
+
+- [`e45d34c14`](https://github.com/twilio-labs/paste/commit/e45d34c143a4b2cd5c9905506eea1f5365417133) [#3081](https://github.com/twilio-labs/paste/pull/3081) Thanks [@nkrantz](https://github.com/nkrantz)! - [Toast]
+
+  - Remove `__console_patch` prop from the Toast package. This was a temporary z-index fix for console that is no longer necessary.
+  - Add `left` prop to the Toast package so that consumers can place their Toasts according to their app's breakpoints. This feature enables mobile responsiveness for Toast.
+
+* [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - ### Breaking change
+
+  We have moved `@types/react` and `@types/react-dom` to peer dependencies of the library. This should allow for greater control and backwards compatibility with older versions of React as Paste is no longer bundling the type libraries.
+
+  Your application likely has both of these as dependencies anyway, but it is now up to you to manage that version number.
+
+  **Action needed**
+
+  Ensure `@types/react` and `@types/react-dom` are installed as dependencies of your application.
+
+### Minor Changes
+
+- [`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08) [#3112](https://github.com/twilio-labs/paste/pull/3112) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Add toggle button styles to `destructive_secondary` variant.
+
+### Patch Changes
+
+- [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d) [#3083](https://github.com/twilio-labs/paste/pull/3083) Thanks [@nkrantz](https://github.com/nkrantz)! - [Pagination] Update styles to align with new Paste Twilio theme.
+
+* [`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08) [#3112](https://github.com/twilio-labs/paste/pull/3112) Thanks [@nkrantz](https://github.com/nkrantz)! - [Radio button group] Update styles to align with new Paste Twilio theme. Fix vertical spacing and border zIndex bugs.
+
+- [`1e100909f`](https://github.com/twilio-labs/paste/commit/1e100909f279ddb0b52287a1ad45de97fb3b4981) [#3105](https://github.com/twilio-labs/paste/pull/3105) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox, Form Pill Group] Updated Combobox styles as part of the One Twilio design update.
+
+  Fixed height and alignment issues with Multi select Combobox and form pills
+
+* [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Anchor] Improved backwards compat with React 17 types
+
+- [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d) [#3083](https://github.com/twilio-labs/paste/pull/3083) Thanks [@nkrantz](https://github.com/nkrantz)! - [File uploader] Update styles to align with new Paste Twilio theme.
+
+* [`bce889344`](https://github.com/twilio-labs/paste/commit/bce889344773d840d7dc75902e1be64f1a010da3) [#3090](https://github.com/twilio-labs/paste/pull/3090) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens, Theme] add ability to override the base font size that Paste uses from the HTML element tag via the new token `$font-size-base`. Also removes setting font size from the body element for when Paste is embedded into another application with its own styles
+
+- [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d) [#3083](https://github.com/twilio-labs/paste/pull/3083) Thanks [@nkrantz](https://github.com/nkrantz)! - [File picker] Update styles to align with new Paste Twilio theme.
+
+* [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box, Sibling-Box, Text] improved backwards compat with React 17 types
+
+- [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat log] Improved typing on the forwarded element from ChatAttachmentLink
+
+* [`b47e13173`](https://github.com/twilio-labs/paste/commit/b47e13173161cad7ffc78b94ff4b1c776260c7db) [#3107](https://github.com/twilio-labs/paste/pull/3107) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] fix focus styles on menu items since design updates
+
+- [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Grid] improved backwards compat with React 17 types
+
+* [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] Improved backwards compat with React 17 types
+
+- [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Toast] improved backwards compat with React 17 types
+
+* [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Switch] improved backwards compat with React 17 types
+
+- [`bba742ebd`](https://github.com/twilio-labs/paste/commit/bba742ebd404274cbe78bf1726d2a83c7070bc02) [#3089](https://github.com/twilio-labs/paste/pull/3089) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [data-grid] Update styles to align with new Paste Twilio theme.
+
+* [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Checkbox, Radio Group, Radio Button Group] improved backwards compat with React 17 types
+
+- [`dc07ca41b`](https://github.com/twilio-labs/paste/commit/dc07ca41b7ae9a3045c44210d2d25cdc9b84f0dd) [#3106](https://github.com/twilio-labs/paste/pull/3106) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Side Modal] set screen position to fixed to ensure the dialog is always full height in long scrolling screens'
+
+* [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d) [#3083](https://github.com/twilio-labs/paste/pull/3083) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side modal] Increase width to size-80 (816px)
+
+- [`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08) [#3112](https://github.com/twilio-labs/paste/pull/3112) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button group] fix zIndex border bug
+
+* [`fb0005bb2`](https://github.com/twilio-labs/paste/commit/fb0005bb2bbf06b6598dec5eee56680cac990e41) [#3078](https://github.com/twilio-labs/paste/pull/3078) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Badge, Popover] Improved typings for restricted Badge prop combinations when create button or linked badges
+
+* Updated dependencies [[`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08), [`1d75f223e`](https://github.com/twilio-labs/paste/commit/1d75f223e0e2011a7a969e7ef1980fa9366cfbca), [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d), [`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08), [`1e100909f`](https://github.com/twilio-labs/paste/commit/1e100909f279ddb0b52287a1ad45de97fb3b4981), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d), [`50cde4668`](https://github.com/twilio-labs/paste/commit/50cde4668b003c410713d4a51eed16a394471ed0), [`bce889344`](https://github.com/twilio-labs/paste/commit/bce889344773d840d7dc75902e1be64f1a010da3), [`e45d34c14`](https://github.com/twilio-labs/paste/commit/e45d34c143a4b2cd5c9905506eea1f5365417133), [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`b47e13173`](https://github.com/twilio-labs/paste/commit/b47e13173161cad7ffc78b94ff4b1c776260c7db), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`bba742ebd`](https://github.com/twilio-labs/paste/commit/bba742ebd404274cbe78bf1726d2a83c7070bc02), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`dc07ca41b`](https://github.com/twilio-labs/paste/commit/dc07ca41b7ae9a3045c44210d2d25cdc9b84f0dd), [`05b0c3dda`](https://github.com/twilio-labs/paste/commit/05b0c3dda0df1564a60ce13f83586bd6fed1922d), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08), [`fb0005bb2`](https://github.com/twilio-labs/paste/commit/fb0005bb2bbf06b6598dec5eee56680cac990e41)]:
+  - @twilio-paste/button@13.0.0
+  - @twilio-paste/icons@11.0.0
+  - @twilio-paste/pagination@6.0.0
+  - @twilio-paste/radio-button-group@3.0.0
+  - @twilio-paste/combobox@15.0.0
+  - @twilio-paste/form-pill-group@7.0.0
+  - @twilio-paste/anchor@11.0.0
+  - @twilio-paste/file-uploader@3.0.0
+  - @twilio-paste/design-tokens@9.0.2
+  - @twilio-paste/theme@10.0.0
+  - @twilio-paste/toast@11.0.0
+  - @twilio-paste/file-picker@3.0.0
+  - @twilio-paste/box@9.0.0
+  - @twilio-paste/sibling-box@8.0.0
+  - @twilio-paste/text@9.0.0
+  - @twilio-paste/chat-log@4.0.0
+  - @twilio-paste/menu@13.0.0
+  - @twilio-paste/grid@7.0.0
+  - @twilio-paste/switch@4.0.0
+  - @twilio-paste/data-grid@7.0.0
+  - @twilio-paste/checkbox@12.0.0
+  - @twilio-paste/inline-control-group@12.0.0
+  - @twilio-paste/radio-group@12.0.0
+  - @twilio-paste/side-modal@3.0.0
+  - @twilio-paste/alert@13.0.0
+  - @twilio-paste/alert-dialog@8.0.0
+  - @twilio-paste/avatar@8.0.0
+  - @twilio-paste/badge@7.0.0
+  - @twilio-paste/base-radio-checkbox@12.0.0
+  - @twilio-paste/breadcrumb@10.0.0
+  - @twilio-paste/button-group@3.0.0
+  - @twilio-paste/callout@3.0.0
+  - @twilio-paste/card@8.0.0
+  - @twilio-paste/chat-composer@3.0.0
+  - @twilio-paste/code-block@3.0.0
+  - @twilio-paste/date-picker@5.0.0
+  - @twilio-paste/description-list@3.0.0
+  - @twilio-paste/detail-text@2.0.0
+  - @twilio-paste/disclosure@11.0.0
+  - @twilio-paste/display-heading@3.0.0
+  - @twilio-paste/display-pill-group@7.0.0
+  - @twilio-paste/form@10.0.0
+  - @twilio-paste/heading@10.0.0
+  - @twilio-paste/help-text@12.0.0
+  - @twilio-paste/in-page-navigation@3.0.0
+  - @twilio-paste/inline-code@3.0.0
+  - @twilio-paste/input@8.0.0
+  - @twilio-paste/input-box@9.0.0
+  - @twilio-paste/label@12.0.0
+  - @twilio-paste/list@7.0.0
+  - @twilio-paste/minimizable-dialog@3.0.0
+  - @twilio-paste/modal@15.0.0
+  - @twilio-paste/paragraph@9.0.0
+  - @twilio-paste/popover@12.0.0
+  - @twilio-paste/screen-reader-only@12.0.0
+  - @twilio-paste/select@11.0.0
+  - @twilio-paste/separator@7.0.0
+  - @twilio-paste/skeleton-loader@5.0.0
+  - @twilio-paste/spinner@13.0.0
+  - @twilio-paste/table@7.0.0
+  - @twilio-paste/tabs@7.0.0
+  - @twilio-paste/textarea@9.0.0
+  - @twilio-paste/time-picker@5.0.0
+  - @twilio-paste/tooltip@10.0.0
+  - @twilio-paste/truncate@13.0.0
+  - @twilio-paste/aspect-ratio@9.0.0
+  - @twilio-paste/flex@7.0.0
+  - @twilio-paste/media-object@9.0.0
+  - @twilio-paste/stack@7.0.0
+  - @twilio-paste/customization@7.0.0
+  - @twilio-paste/data-visualization-library@4.0.0
+  - @twilio-paste/style-props@8.0.0
+  - @twilio-paste/types@5.0.0
+  - @twilio-paste/utils@4.0.0
+
+## 18.1.0
+
+### Minor Changes
+
+- [`d4122a492`](https://github.com/twilio-labs/paste/commit/d4122a49268621780c58c9da78964283d2764c90) [#3067](https://github.com/twilio-labs/paste/pull/3067) Thanks [@shleewhite](https://github.com/shleewhite)! - [Tabs] Add inverse and inverse_fitted variants. Update styles to align with new Paste Twilio theme
+
+* [`45cdceb92`](https://github.com/twilio-labs/paste/commit/45cdceb9241e75abac2b73363c77fa43d541f64a) [#3063](https://github.com/twilio-labs/paste/pull/3063) Thanks [@shleewhite](https://github.com/shleewhite)! - [Menu] Add destructive_group_item variant to MenuItem. Update styles to align with new Paste Twilio theme.
+
+- [`b87a7c720`](https://github.com/twilio-labs/paste/commit/b87a7c720d45b5839969e51d30d3a420ee951677) [#3053](https://github.com/twilio-labs/paste/pull/3053) Thanks [@shleewhite](https://github.com/shleewhite)! - [Minimizable Dialog] Add toggleMinimized function to the object useMinimizableDialogState returns. Update styles to align with new Paste Twilio theme.
+
+* [`d4122a492`](https://github.com/twilio-labs/paste/commit/d4122a49268621780c58c9da78964283d2764c90) [#3067](https://github.com/twilio-labs/paste/pull/3067) Thanks [@shleewhite](https://github.com/shleewhite)! - [In Page Navigation] Add inverse and inverse_fullWidth variants. Update styles to align with new Paste Twilio theme.
+
+- [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab) [#3033](https://github.com/twilio-labs/paste/pull/3033) Thanks [@gloriliale](https://github.com/gloriliale)! - [Box] Add `_pressed_disabled` and `_pressed_active` pseudo styles.
+
+* [`b27a244dd`](https://github.com/twilio-labs/paste/commit/b27a244dd162a0cf7ffd41e8b792f22abc2848af) [#3043](https://github.com/twilio-labs/paste/pull/3043) Thanks [@shleewhite](https://github.com/shleewhite)! - [Inline Code] Add variant prop, with "default" and "minimal" styles. Update styles to align with new Paste Twilio theme.
+
+### Patch Changes
+
+- [`e7f4fcdaf`](https://github.com/twilio-labs/paste/commit/e7f4fcdaf4111511b7a5b400b1f4ad1523d0e142) [#3062](https://github.com/twilio-labs/paste/pull/3062) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert] Update styles to align with new Paste Twilio theme.
+
+  In order to see all of the new style updates, you may have to remove any `<Text>` component children from your Alerts, passing in the string as a direct child of Alert.
+
+* [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2) [#3069](https://github.com/twilio-labs/paste/pull/3069) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] update default theme token to fix Avatar styles, no changes to new Twilio theme
+
+- [`b942178ad`](https://github.com/twilio-labs/paste/commit/b942178adbcf9c0cb5359936169b8a7268d2b689) [#3052](https://github.com/twilio-labs/paste/pull/3052) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Add theme override via url by using `#paste-theme-override=[newtheme]`.
+
+* [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab) [#3033](https://github.com/twilio-labs/paste/pull/3033) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button] Update the design for the new Twilio theme
+
+- [`ee0abba79`](https://github.com/twilio-labs/paste/commit/ee0abba79bbffaf845e4643d4e9cb7c4115b5e2d) [#3075](https://github.com/twilio-labs/paste/pull/3075) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button group] Fix disabled hover state styles
+
+* [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2) [#3069](https://github.com/twilio-labs/paste/pull/3069) Thanks [@nkrantz](https://github.com/nkrantz)! - [Minimizable dialog] Update styles to align with new Paste Twilio theme.
+
+- [`71ce96cdc`](https://github.com/twilio-labs/paste/commit/71ce96cdc3db0c43d705c6b10c370d8dd5648319) [#3060](https://github.com/twilio-labs/paste/pull/3060) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Display and Form pill group] Update styles for new design language
+
+* [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2) [#3069](https://github.com/twilio-labs/paste/pull/3069) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat log] Update styles to align with new Paste Twilio theme.
+
+- [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab) [#3033](https://github.com/twilio-labs/paste/pull/3033) Thanks [@gloriliale](https://github.com/gloriliale)! - [design tokens] update shadow focuc shadow border design tokens for the twilio themes
+
+* [`71ce96cdc`](https://github.com/twilio-labs/paste/commit/71ce96cdc3db0c43d705c6b10c370d8dd5648319) [#3060](https://github.com/twilio-labs/paste/pull/3060) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Checkbox, Radio group] Update to styles for the One Twilio Design Language refresh
+
+- [`d4122a492`](https://github.com/twilio-labs/paste/commit/d4122a49268621780c58c9da78964283d2764c90) [#3067](https://github.com/twilio-labs/paste/pull/3067) Thanks [@shleewhite](https://github.com/shleewhite)! - [Code Block] Update styles to align with new Paste Twilio theme
+
+* [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab) [#3033](https://github.com/twilio-labs/paste/pull/3033) Thanks [@gloriliale](https://github.com/gloriliale)! - [input box]: ensure inputs use the correct focus shadow for new design language'
+
+- [`71ce96cdc`](https://github.com/twilio-labs/paste/commit/71ce96cdc3db0c43d705c6b10c370d8dd5648319) [#3060](https://github.com/twilio-labs/paste/pull/3060) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Radio group] Improved checked state tracking for uncontrolled radios to help with styling
+
+* [`45cdceb92`](https://github.com/twilio-labs/paste/commit/45cdceb9241e75abac2b73363c77fa43d541f64a) [#3063](https://github.com/twilio-labs/paste/pull/3063) Thanks [@shleewhite](https://github.com/shleewhite)! - [Tooltip] Update styles to align with new Paste Twilio theme
+
+- [`a081285f2`](https://github.com/twilio-labs/paste/commit/a081285f29cca470ff09a9faa2b4aac4bed7b0a5) [#3034](https://github.com/twilio-labs/paste/pull/3034) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens]: correct color contrast token pair naming for decorative background 10
+
+* [`e7f4fcdaf`](https://github.com/twilio-labs/paste/commit/e7f4fcdaf4111511b7a5b400b1f4ad1523d0e142) [#3062](https://github.com/twilio-labs/paste/pull/3062) Thanks [@nkrantz](https://github.com/nkrantz)! - [Switch] Update styles to align with new Paste Twilio theme
+
+- [`fa0596ead`](https://github.com/twilio-labs/paste/commit/fa0596ead628d49adb8ff766ad865e18b08e0996) [#3055](https://github.com/twilio-labs/paste/pull/3055) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens] Fix modal background overlay color for evergreen theme
+
+* [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2) [#3069](https://github.com/twilio-labs/paste/pull/3069) Thanks [@nkrantz](https://github.com/nkrantz)! - [Chat composer] Update Update styles to align with new Paste Twilio theme.
+
+- [`e7f4fcdaf`](https://github.com/twilio-labs/paste/commit/e7f4fcdaf4111511b7a5b400b1f4ad1523d0e142) [#3062](https://github.com/twilio-labs/paste/pull/3062) Thanks [@nkrantz](https://github.com/nkrantz)! - [Toast] Update styles to align with new Paste Twilio theme.
+
+  In order to see all of the new style updates, you may have to remove any `<Text>` component children from your Toasts, passing in the string as a direct child of Toast.
+
+* [`b27a244dd`](https://github.com/twilio-labs/paste/commit/b27a244dd162a0cf7ffd41e8b792f22abc2848af) [#3043](https://github.com/twilio-labs/paste/pull/3043) Thanks [@shleewhite](https://github.com/shleewhite)! - [Display Heading] Update styles to align with new Paste Twilio theme
+
+* Updated dependencies [[`d4122a492`](https://github.com/twilio-labs/paste/commit/d4122a49268621780c58c9da78964283d2764c90), [`45cdceb92`](https://github.com/twilio-labs/paste/commit/45cdceb9241e75abac2b73363c77fa43d541f64a), [`e7f4fcdaf`](https://github.com/twilio-labs/paste/commit/e7f4fcdaf4111511b7a5b400b1f4ad1523d0e142), [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2), [`b942178ad`](https://github.com/twilio-labs/paste/commit/b942178adbcf9c0cb5359936169b8a7268d2b689), [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab), [`ee0abba79`](https://github.com/twilio-labs/paste/commit/ee0abba79bbffaf845e4643d4e9cb7c4115b5e2d), [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2), [`71ce96cdc`](https://github.com/twilio-labs/paste/commit/71ce96cdc3db0c43d705c6b10c370d8dd5648319), [`b87a7c720`](https://github.com/twilio-labs/paste/commit/b87a7c720d45b5839969e51d30d3a420ee951677), [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2), [`d4122a492`](https://github.com/twilio-labs/paste/commit/d4122a49268621780c58c9da78964283d2764c90), [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab), [`71ce96cdc`](https://github.com/twilio-labs/paste/commit/71ce96cdc3db0c43d705c6b10c370d8dd5648319), [`d4122a492`](https://github.com/twilio-labs/paste/commit/d4122a49268621780c58c9da78964283d2764c90), [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab), [`71ce96cdc`](https://github.com/twilio-labs/paste/commit/71ce96cdc3db0c43d705c6b10c370d8dd5648319), [`45cdceb92`](https://github.com/twilio-labs/paste/commit/45cdceb9241e75abac2b73363c77fa43d541f64a), [`a081285f2`](https://github.com/twilio-labs/paste/commit/a081285f29cca470ff09a9faa2b4aac4bed7b0a5), [`e7f4fcdaf`](https://github.com/twilio-labs/paste/commit/e7f4fcdaf4111511b7a5b400b1f4ad1523d0e142), [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab), [`fa0596ead`](https://github.com/twilio-labs/paste/commit/fa0596ead628d49adb8ff766ad865e18b08e0996), [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2), [`b27a244dd`](https://github.com/twilio-labs/paste/commit/b27a244dd162a0cf7ffd41e8b792f22abc2848af), [`e7f4fcdaf`](https://github.com/twilio-labs/paste/commit/e7f4fcdaf4111511b7a5b400b1f4ad1523d0e142), [`b27a244dd`](https://github.com/twilio-labs/paste/commit/b27a244dd162a0cf7ffd41e8b792f22abc2848af)]:
+  - @twilio-paste/tabs@6.1.0
+  - @twilio-paste/menu@12.1.0
+  - @twilio-paste/alert@12.0.1
+  - @twilio-paste/design-tokens@9.0.1
+  - @twilio-paste/theme@9.0.1
+  - @twilio-paste/button@12.0.1
+  - @twilio-paste/button-group@2.0.1
+  - @twilio-paste/minimizable-dialog@2.1.0
+  - @twilio-paste/display-pill-group@6.0.1
+  - @twilio-paste/form-pill-group@6.0.1
+  - @twilio-paste/chat-log@3.0.1
+  - @twilio-paste/in-page-navigation@2.1.0
+  - @twilio-paste/base-radio-checkbox@11.0.1
+  - @twilio-paste/checkbox@11.0.1
+  - @twilio-paste/inline-control-group@11.0.1
+  - @twilio-paste/radio-group@11.0.1
+  - @twilio-paste/code-block@2.0.1
+  - @twilio-paste/input-box@8.0.1
+  - @twilio-paste/tooltip@9.0.1
+  - @twilio-paste/switch@3.0.1
+  - @twilio-paste/box@8.1.0
+  - @twilio-paste/chat-composer@2.0.1
+  - @twilio-paste/inline-code@2.1.0
+  - @twilio-paste/toast@10.0.1
+  - @twilio-paste/display-heading@2.0.1
+
+## 18.0.0
+
+### Major Changes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - Add support for React 18
+
+* [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee) [#3049](https://github.com/twilio-labs/paste/pull/3049) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens] remove deprecated light/dark color tokens from the system
+
+### Minor Changes
+
+- [`b1ae14e22`](https://github.com/twilio-labs/paste/commit/b1ae14e2223bd5f094b76c10cfedc3ff0b0a4103) [#3000](https://github.com/twilio-labs/paste/pull/3000) Thanks [@shleewhite](https://github.com/shleewhite)! - [Detail Text] create the new DetailText component, meant to be used for short pieces of secondary text content.
+
+* [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea) [#3020](https://github.com/twilio-labs/paste/pull/3020) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Version bump of internal pacakges
+
+- [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee) [#3049](https://github.com/twilio-labs/paste/pull/3049) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box, Text, Style Props, Theme]: remove checking and warning for deprecated design tokens and themes that have been removed from the system
+
+* [`5f5790d1c`](https://github.com/twilio-labs/paste/commit/5f5790d1cad547537843b9ebc60916647939fd1e) [#3032](https://github.com/twilio-labs/paste/pull/3032) Thanks [@shleewhite](https://github.com/shleewhite)! - [Popover] Add new props:
+
+  - initialFocusRef: focuses a ref when the Popover opens
+  - width: sets the width of the Popover, up to size50.
+
+  Update styles to align with new Paste Twilio theme
+
+### Patch Changes
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Breadcrumb] Update styles to align with new Paste Twilio theme
+
+* [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Anchor] Update styles to align with new Paste Twilio theme
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Separator] Update styles to align with new Paste Twilio theme
+
+* [`05075e4c7`](https://github.com/twilio-labs/paste/commit/05075e4c76495fbc9dda3a0ad0311b61032639a5) [#3042](https://github.com/twilio-labs/paste/pull/3042) Thanks [@shleewhite](https://github.com/shleewhite)! - [Modal] Update styles to align with new Paste Twilio theme
+
+- [`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c) [#3028](https://github.com/twilio-labs/paste/pull/3028) Thanks [@gloriliale](https://github.com/gloriliale)! - [design tokens] update evergreen theme font-sizes
+
+* [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - [Select] Render options after mounted
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Callout] Update styles to align with new Paste Twilio theme
+
+* [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Label] Update styles to align with new Paste Twilio theme
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Table] Update styles to align with new Paste Twilio theme
+
+* [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df) [#3021](https://github.com/twilio-labs/paste/pull/3021) Thanks [@shleewhite](https://github.com/shleewhite)! - [Design Tokens] update the value of colorTextUser for default and dark themes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - [CodeBlock] Fix concurrent render of copy button tooltip
+
+* [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df) [#3021](https://github.com/twilio-labs/paste/pull/3021) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] Update styles to align with new Paste Twilio theme
+
+- [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Input Box] Update styles to align with new Paste Twilio theme
+
+* [`05075e4c7`](https://github.com/twilio-labs/paste/commit/05075e4c76495fbc9dda3a0ad0311b61032639a5) [#3042](https://github.com/twilio-labs/paste/pull/3042) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert Dialog] Update styles to align with new Paste Twilio theme
+
+- [`62983adb8`](https://github.com/twilio-labs/paste/commit/62983adb8acf447a644b6eaa933628cb3d4c6742) [#3029](https://github.com/twilio-labs/paste/pull/3029) Thanks [@gloriliale](https://github.com/gloriliale)! - [Badge] Update styles to align with new Paste Twilio theme
+
+* [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39) [#3010](https://github.com/twilio-labs/paste/pull/3010) Thanks [@shleewhite](https://github.com/shleewhite)! - [Heading] Update styles to align with new Paste Twilio theme
+
+* Updated dependencies [[`b1ae14e22`](https://github.com/twilio-labs/paste/commit/b1ae14e2223bd5f094b76c10cfedc3ff0b0a4103), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`05075e4c7`](https://github.com/twilio-labs/paste/commit/05075e4c76495fbc9dda3a0ad0311b61032639a5), [`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`05075e4c7`](https://github.com/twilio-labs/paste/commit/05075e4c76495fbc9dda3a0ad0311b61032639a5), [`62983adb8`](https://github.com/twilio-labs/paste/commit/62983adb8acf447a644b6eaa933628cb3d4c6742), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`5f5790d1c`](https://github.com/twilio-labs/paste/commit/5f5790d1cad547537843b9ebc60916647939fd1e)]:
+  - @twilio-paste/detail-text@1.0.0
+  - @twilio-paste/breadcrumb@9.0.0
+  - @twilio-paste/anchor@10.0.0
+  - @twilio-paste/separator@6.0.0
+  - @twilio-paste/modal@14.0.0
+  - @twilio-paste/design-tokens@9.0.0
+  - @twilio-paste/alert@12.0.0
+  - @twilio-paste/alert-dialog@7.0.0
+  - @twilio-paste/avatar@7.0.0
+  - @twilio-paste/badge@6.0.0
+  - @twilio-paste/base-radio-checkbox@11.0.0
+  - @twilio-paste/button@12.0.0
+  - @twilio-paste/button-group@2.0.0
+  - @twilio-paste/callout@2.0.0
+  - @twilio-paste/card@7.0.0
+  - @twilio-paste/chat-composer@2.0.0
+  - @twilio-paste/chat-log@3.0.0
+  - @twilio-paste/checkbox@11.0.0
+  - @twilio-paste/code-block@2.0.0
+  - @twilio-paste/combobox@14.0.0
+  - @twilio-paste/data-grid@6.0.0
+  - @twilio-paste/date-picker@4.0.0
+  - @twilio-paste/description-list@2.0.0
+  - @twilio-paste/disclosure@10.0.0
+  - @twilio-paste/display-heading@2.0.0
+  - @twilio-paste/display-pill-group@6.0.0
+  - @twilio-paste/file-picker@2.0.0
+  - @twilio-paste/file-uploader@2.0.0
+  - @twilio-paste/form@9.0.0
+  - @twilio-paste/form-pill-group@6.0.0
+  - @twilio-paste/heading@9.0.0
+  - @twilio-paste/help-text@11.0.0
+  - @twilio-paste/in-page-navigation@2.0.0
+  - @twilio-paste/inline-code@2.0.0
+  - @twilio-paste/inline-control-group@11.0.0
+  - @twilio-paste/input@7.0.0
+  - @twilio-paste/input-box@8.0.0
+  - @twilio-paste/label@11.0.0
+  - @twilio-paste/list@6.0.0
+  - @twilio-paste/menu@12.0.0
+  - @twilio-paste/minimizable-dialog@2.0.0
+  - @twilio-paste/pagination@5.0.0
+  - @twilio-paste/paragraph@8.0.0
+  - @twilio-paste/popover@11.0.0
+  - @twilio-paste/radio-button-group@2.0.0
+  - @twilio-paste/radio-group@11.0.0
+  - @twilio-paste/screen-reader-only@11.0.0
+  - @twilio-paste/select@10.0.0
+  - @twilio-paste/side-modal@2.0.0
+  - @twilio-paste/skeleton-loader@4.0.0
+  - @twilio-paste/spinner@12.0.0
+  - @twilio-paste/switch@3.0.0
+  - @twilio-paste/table@6.0.0
+  - @twilio-paste/tabs@6.0.0
+  - @twilio-paste/textarea@8.0.0
+  - @twilio-paste/time-picker@4.0.0
+  - @twilio-paste/toast@10.0.0
+  - @twilio-paste/tooltip@9.0.0
+  - @twilio-paste/truncate@12.0.0
+  - @twilio-paste/aspect-ratio@8.0.0
+  - @twilio-paste/flex@6.0.0
+  - @twilio-paste/grid@6.0.0
+  - @twilio-paste/media-object@8.0.0
+  - @twilio-paste/stack@6.0.0
+  - @twilio-paste/box@8.0.0
+  - @twilio-paste/combobox-primitive@1.0.0
+  - @twilio-paste/disclosure-primitive@1.0.0
+  - @twilio-paste/listbox-primitive@2.0.0
+  - @twilio-paste/menu-primitive@1.0.0
+  - @twilio-paste/modal-dialog-primitive@1.0.0
+  - @twilio-paste/non-modal-dialog-primitive@1.0.0
+  - @twilio-paste/sibling-box@7.0.0
+  - @twilio-paste/tabs-primitive@1.0.0
+  - @twilio-paste/text@8.0.0
+  - @twilio-paste/tooltip-primitive@1.0.0
+  - @twilio-paste/customization@6.0.0
+  - @twilio-paste/icons@10.0.0
+  - @twilio-paste/animation-library@1.0.0
+  - @twilio-paste/clipboard-copy-library@2.0.0
+  - @twilio-paste/data-visualization-library@3.0.0
+  - @twilio-paste/dropdown-library@2.0.0
+  - @twilio-paste/lexical-library@2.0.0
+  - @twilio-paste/react-textarea-autosize-library@2.0.0
+  - @twilio-paste/reakit-library@1.0.0
+  - @twilio-paste/styling-library@2.0.0
+  - @twilio-paste/syntax-highlighter-library@2.0.0
+  - @twilio-paste/uid-library@1.0.0
+  - @twilio-paste/style-props@7.0.0
+  - @twilio-paste/theme@9.0.0
+  - @twilio-paste/types@4.0.0
+  - @twilio-paste/utils@3.0.0
+  - @twilio-paste/color-contrast-utils@4.0.0
+
+## 17.7.0
+
+### Minor Changes
+
+- [`2bde84f96`](https://github.com/twilio-labs/paste/commit/2bde84f9686a421f3bfb7b488c6d0afeb6aab86c) [#3006](https://github.com/twilio-labs/paste/pull/3006) Thanks [@brandongregoryscott](https://github.com/brandongregoryscott)! - [Theme] Export EvergreenTheme, TwilioTheme and TwilioDarkTheme objects and types
+
+### Patch Changes
+
+- Updated dependencies [[`2bde84f96`](https://github.com/twilio-labs/paste/commit/2bde84f9686a421f3bfb7b488c6d0afeb6aab86c)]:
+  - @twilio-paste/theme@8.4.0
+
+## 17.6.0
+
+### Minor Changes
+
+- [`c056da73e`](https://github.com/twilio-labs/paste/commit/c056da73e1d6379dfc74d49201c4129902791c17) [#2927](https://github.com/twilio-labs/paste/pull/2927) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Theme, Design Tokens] Add evergreen design tokens and theme
+
+### Patch Changes
+
+- [`0b497ed21`](https://github.com/twilio-labs/paste/commit/0b497ed21b409a00b5b262f6cf106ad763b08449) [#2961](https://github.com/twilio-labs/paste/pull/2961) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icons] update the ChevronDisclosureIcon, deprecate ChevronDisclosureExpandedIcon and ChevronDisclosureCollapsedIcon
+
+* [`0b497ed21`](https://github.com/twilio-labs/paste/commit/0b497ed21b409a00b5b262f6cf106ad763b08449) [#2961](https://github.com/twilio-labs/paste/pull/2961) Thanks [@shleewhite](https://github.com/shleewhite)! - [Disclosure] Update styles to align with new Paste Twilio theme
+
+* Updated dependencies [[`c056da73e`](https://github.com/twilio-labs/paste/commit/c056da73e1d6379dfc74d49201c4129902791c17), [`0b497ed21`](https://github.com/twilio-labs/paste/commit/0b497ed21b409a00b5b262f6cf106ad763b08449)]:
+  - @twilio-paste/design-tokens@8.5.0
+  - @twilio-paste/theme@8.3.0
+  - @twilio-paste/disclosure@9.0.3
+
+## 17.5.0
+
+### Minor Changes
+
+- [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2) [#2948](https://github.com/twilio-labs/paste/pull/2948) Thanks [@Niznikr](https://github.com/Niznikr)! - [Theme] Add new themes `twilio` and `twilio-dark` as part of our new unified design language to be used for Twilio products. Add Twilio Sans Text and Twilio Sans Display fonts used in the themes.
+
+* [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5) [#2971](https://github.com/twilio-labs/paste/pull/2971) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Add `cacheProviderProps` to the ThemeProvider which allows passing a custom `key` and `nonce` into Emotion's CacheProvider to get around CSP limitations.
+
+- [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2) [#2948](https://github.com/twilio-labs/paste/pull/2948) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Add tokens for new themes `twilio` and `twilio-dark`:
+
+  - Aliases: color-palette
+    - Add `palette-red-65`
+    - Add `palette-red-05`
+    - Add `palette-orange-05`
+    - Add `palette-yellow-05`
+    - Add `palette-green-05`
+    - Add `palette-blue-05`
+    - Add `palette-blue-55`
+    - Add `palette-purple-05`
+
+* [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5) [#2971](https://github.com/twilio-labs/paste/pull/2971) Thanks [@TheSisb](https://github.com/TheSisb)! - [Styling-library] Expose EmotionCacheProvider to pass in a key or nonce to help with Emotion + CSP
+
+### Patch Changes
+
+- [`2fe476a71`](https://github.com/twilio-labs/paste/commit/2fe476a71f73f96e69d2a2b6b451e98b0799d9a1) [#2949](https://github.com/twilio-labs/paste/pull/2949) Thanks [@shleewhite](https://github.com/shleewhite)! - [Combobox] Render the listbox in a portal to fix a bug where the contents of the listbox are cut off when it placed inside a scrolling container. Adds a new dependency on @radix-ui/react-use-rect.
+
+* [`353b8323a`](https://github.com/twilio-labs/paste/commit/353b8323a1a1ab293d35d3bcabf3ed3793bbe1b2) [#2938](https://github.com/twilio-labs/paste/pull/2938) Thanks [@nkrantz](https://github.com/nkrantz)! - [Card] Update styles to align with new Paste Twilio theme
+
+- [`353b8323a`](https://github.com/twilio-labs/paste/commit/353b8323a1a1ab293d35d3bcabf3ed3793bbe1b2) [#2938](https://github.com/twilio-labs/paste/pull/2938) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Modal] Update styles to align with new Paste Twilio theme
+
+* [`d35903dc2`](https://github.com/twilio-labs/paste/commit/d35903dc24adf334021a7609fb919efee7e23f87) [#2966](https://github.com/twilio-labs/paste/pull/2966) Thanks [@shleewhite](https://github.com/shleewhite)! - [List] explicitly set the list style type on UnorderedList and OrderedList components.
+
+* Updated dependencies [[`2fe476a71`](https://github.com/twilio-labs/paste/commit/2fe476a71f73f96e69d2a2b6b451e98b0799d9a1), [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2), [`353b8323a`](https://github.com/twilio-labs/paste/commit/353b8323a1a1ab293d35d3bcabf3ed3793bbe1b2), [`353b8323a`](https://github.com/twilio-labs/paste/commit/353b8323a1a1ab293d35d3bcabf3ed3793bbe1b2), [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5), [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2), [`d35903dc2`](https://github.com/twilio-labs/paste/commit/d35903dc24adf334021a7609fb919efee7e23f87), [`4ae8972b4`](https://github.com/twilio-labs/paste/commit/4ae8972b47334173123c720d2354d0d8573257a5)]:
+  - @twilio-paste/combobox@13.0.3
+  - @twilio-paste/theme@8.2.0
+  - @twilio-paste/card@6.0.3
+  - @twilio-paste/side-modal@1.0.4
+  - @twilio-paste/design-tokens@8.4.0
+  - @twilio-paste/list@5.0.3
+  - @twilio-paste/styling-library@1.1.0
+
+## 17.4.0
+
+### Minor Changes
+
+- [`338b836c8`](https://github.com/twilio-labs/paste/commit/338b836c8d705ca4aaf96516eb0ea330f7048d31) [#2956](https://github.com/twilio-labs/paste/pull/2956) Thanks [@shleewhite](https://github.com/shleewhite)! - [Form] Fix the version released, use ^8.0.0 or higher.
+
+### Patch Changes
+
+- Updated dependencies [[`338b836c8`](https://github.com/twilio-labs/paste/commit/338b836c8d705ca4aaf96516eb0ea330f7048d31)]:
+  - @twilio-paste/form@8.0.0
+
+## 17.3.0
+
+### Minor Changes
+
+- [`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb) [#2908](https://github.com/twilio-labs/paste/pull/2908) Thanks [@shleewhite](https://github.com/shleewhite)! - [Design Tokens] add a new colorBackgroundWeak token
+
+* [`a4b9a58ad`](https://github.com/twilio-labs/paste/commit/a4b9a58ad97b745cf55274ae8cb8b99aadc7af78) [#2925](https://github.com/twilio-labs/paste/pull/2925) Thanks [@shleewhite](https://github.com/shleewhite)! - [Form] Create a set of components to handle form layouts.
+
+- [`45f503712`](https://github.com/twilio-labs/paste/commit/45f5037122c4fd54e343e7643798fa497e6bc232) [#2928](https://github.com/twilio-labs/paste/pull/2928) Thanks [@Niznikr](https://github.com/Niznikr)! - [Listbox Primitive] create a new Listbox Primitive component used to build accessible listboxes
+
+* [`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb) [#2908](https://github.com/twilio-labs/paste/pull/2908) Thanks [@shleewhite](https://github.com/shleewhite)! - [File Uploader] create a new File Uploader component meant to be used in situations where the user needs to upload multiple files.
+
+- [`6e8b78f57`](https://github.com/twilio-labs/paste/commit/6e8b78f57127bb72e7dc8b2c23fefab2480c7616) [#2923](https://github.com/twilio-labs/paste/pull/2923) Thanks [@nkrantz](https://github.com/nkrantz)! - [Description list] create a new Description List package for displaying small static bits of data
+
+### Patch Changes
+
+- [`fb79204d9`](https://github.com/twilio-labs/paste/commit/fb79204d9b35262a0ee7be62f0bc9dd4494ef19c) [#2901](https://github.com/twilio-labs/paste/pull/2901) Thanks [@jb-twilio](https://github.com/jb-twilio)! - Add eslint escape for type level import using src in path
+
+* [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Update `tokens.generic.js` export from commonjs to ESM
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - Update packages to be ESM-compatible
+
+- Updated dependencies [[`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb), [`fb79204d9`](https://github.com/twilio-labs/paste/commit/fb79204d9b35262a0ee7be62f0bc9dd4494ef19c), [`a4b9a58ad`](https://github.com/twilio-labs/paste/commit/a4b9a58ad97b745cf55274ae8cb8b99aadc7af78), [`45f503712`](https://github.com/twilio-labs/paste/commit/45f5037122c4fd54e343e7643798fa497e6bc232), [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b), [`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb), [`6e8b78f57`](https://github.com/twilio-labs/paste/commit/6e8b78f57127bb72e7dc8b2c23fefab2480c7616), [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b)]:
+  - @twilio-paste/design-tokens@8.3.0
+  - @twilio-paste/callout@1.0.2
+  - @twilio-paste/menu@11.1.3
+  - @twilio-paste/form@1.0.0
+  - @twilio-paste/listbox-primitive@1.0.0
+  - @twilio-paste/file-uploader@1.0.0
+  - @twilio-paste/description-list@1.0.0
+  - @twilio-paste/alert@11.0.3
+  - @twilio-paste/alert-dialog@6.0.2
+  - @twilio-paste/anchor@9.0.2
+  - @twilio-paste/avatar@6.1.3
+  - @twilio-paste/badge@5.0.2
+  - @twilio-paste/base-radio-checkbox@10.0.2
+  - @twilio-paste/breadcrumb@8.0.2
+  - @twilio-paste/button@11.1.6
+  - @twilio-paste/button-group@1.0.2
+  - @twilio-paste/card@6.0.2
+  - @twilio-paste/chat-composer@1.0.2
+  - @twilio-paste/chat-log@2.1.2
+  - @twilio-paste/checkbox@10.0.4
+  - @twilio-paste/code-block@1.1.2
+  - @twilio-paste/combobox@13.0.2
+  - @twilio-paste/data-grid@5.0.2
+  - @twilio-paste/date-picker@3.0.2
+  - @twilio-paste/disclosure@9.0.2
+  - @twilio-paste/display-heading@1.0.1
+  - @twilio-paste/file-picker@1.1.2
+  - @twilio-paste/form-pill-group@5.1.2
+  - @twilio-paste/heading@8.0.2
+  - @twilio-paste/help-text@10.1.2
+  - @twilio-paste/in-page-navigation@1.0.1
+  - @twilio-paste/inline-code@1.0.2
+  - @twilio-paste/inline-control-group@10.0.2
+  - @twilio-paste/input@6.1.2
+  - @twilio-paste/input-box@7.1.3
+  - @twilio-paste/label@10.1.2
+  - @twilio-paste/list@5.0.2
+  - @twilio-paste/minimizable-dialog@1.0.4
+  - @twilio-paste/modal@13.0.2
+  - @twilio-paste/pagination@4.0.2
+  - @twilio-paste/paragraph@7.0.2
+  - @twilio-paste/popover@10.0.2
+  - @twilio-paste/radio-button-group@1.0.3
+  - @twilio-paste/radio-group@10.0.3
+  - @twilio-paste/screen-reader-only@10.0.3
+  - @twilio-paste/select@9.1.2
+  - @twilio-paste/separator@5.0.2
+  - @twilio-paste/side-modal@1.0.3
+  - @twilio-paste/skeleton-loader@3.0.2
+  - @twilio-paste/spinner@11.0.2
+  - @twilio-paste/switch@2.0.1
+  - @twilio-paste/table@5.1.2
+  - @twilio-paste/tabs@5.0.2
+  - @twilio-paste/textarea@7.0.2
+  - @twilio-paste/time-picker@3.0.2
+  - @twilio-paste/toast@9.0.2
+  - @twilio-paste/tooltip@8.0.2
+  - @twilio-paste/truncate@11.0.2
+  - @twilio-paste/aspect-ratio@7.0.2
+  - @twilio-paste/flex@5.0.2
+  - @twilio-paste/grid@5.0.3
+  - @twilio-paste/media-object@7.0.2
+  - @twilio-paste/stack@5.0.2
+  - @twilio-paste/box@7.1.2
+  - @twilio-paste/sibling-box@6.0.3
+  - @twilio-paste/text@7.0.2
+  - @twilio-paste/customization@5.0.2
+  - @twilio-paste/data-visualization-library@2.0.2
+  - @twilio-paste/style-props@6.1.2
+
+## 17.2.0
+
+### Minor Changes
+
+- [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8) [#2859](https://github.com/twilio-labs/paste/pull/2859) Thanks [@shleewhite](https://github.com/shleewhite)! - [Lexical Library] add export for: CLEAR_EDITOR_COMMAND, CLEAR_EDITOR_COMMAND, KEY_ENTER_COMMAND, COMMAND_PRIORITY_CRITICAL, COMMAND_PRIORITY_HIGH, COMMAND_PRIORITY_NORMAL, COMMAND_PRIORITY_LOW, and COMMAND_PRIORITY_EDITOR
+
+### Patch Changes
+
+- [`c39613422`](https://github.com/twilio-labs/paste/commit/c39613422428ba7765bcd6e03817111c2f1910bb) [#2878](https://github.com/twilio-labs/paste/pull/2878) Thanks [@Niznikr](https://github.com/Niznikr)! - Update to TypeScript v4.9
+
+* [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8) [#2859](https://github.com/twilio-labs/paste/pull/2859) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Composer] refactor stories, create a new one called Conversations UI Kit Example.
+
+- [`468b1b6d0`](https://github.com/twilio-labs/paste/commit/468b1b6d0bd8746a0c46d9ca298294120534e8c4) [#2894](https://github.com/twilio-labs/paste/pull/2894) Thanks [@gloriliale](https://github.com/gloriliale)! - [Icons] Modify ProductSegmentIcon, add new product icons:
+
+  - ProductAudiencesIcon
+  - ProductConnectionsIcon
+  - ProductEngageIcon
+  - ProductPersonasIcon
+  - ProductPrivacyIcon
+  - ProductProtocolsIcon
+  - ProductReverseETLIcon
+  - ProductTraitsIcon
+  - ProductUSSDIcon
+
+* [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8) [#2859](https://github.com/twilio-labs/paste/pull/2859) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] refactor styles to use row gap instead of margin bottom
+
+* Updated dependencies [[`c39613422`](https://github.com/twilio-labs/paste/commit/c39613422428ba7765bcd6e03817111c2f1910bb), [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8), [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8), [`b742fa207`](https://github.com/twilio-labs/paste/commit/b742fa207b6a6c249eae225d2af08296134da6e8)]:
+  - @twilio-paste/checkbox@10.0.3
+  - @twilio-paste/menu@11.1.2
+  - @twilio-paste/grid@5.0.2
+  - @twilio-paste/theme@8.1.1
+  - @twilio-paste/chat-composer@1.0.1
+  - @twilio-paste/lexical-library@1.1.0
+  - @twilio-paste/chat-log@2.1.1
+
+## 17.1.0
+
+### Minor Changes
+
+- [`026bf7f52`](https://github.com/twilio-labs/paste/commit/026bf7f52f6273f8294c313796ba97971e4bc679) [#2799](https://github.com/twilio-labs/paste/pull/2799) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens, theme] updated mono spaced font in default and dark themes to use the new Twilio Sans Mono font
+
+* [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554) [#2806](https://github.com/twilio-labs/paste/pull/2806) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens]: add 7 new tokens for the Display Heading package: fontSizeDisplay10, fontSizeDisplay20, fontSizeDisplay30, fontWeightExtrabold, lineHeightDisplay10, lineHeightDisplay20, and lineHeightDisplay30.
+
+- [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Composer] Creates a new ChatComposer component
+
+* [`80cb7ceb8`](https://github.com/twilio-labs/paste/commit/80cb7ceb889854d65ba5467f8060cfaa8a992c0c) [#2793](https://github.com/twilio-labs/paste/pull/2793) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [ChatLog]: add useChatLogger hook
+
+- [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Lexical Library] Creates a new library that re-exports lexical.
+
+* [`8290a1e1f`](https://github.com/twilio-labs/paste/commit/8290a1e1fc219b079b2fec0c5ec3a2faad1a61cd) [#2827](https://github.com/twilio-labs/paste/pull/2827) Thanks [@gloriliale](https://github.com/gloriliale)! - [In Page Navigation] add a package for the navigation component In Page Navigation
+
+- [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554) [#2806](https://github.com/twilio-labs/paste/pull/2806) Thanks [@nkrantz](https://github.com/nkrantz)! - [Display Heading]: add component package to Paste
+
+### Patch Changes
+
+- [`4ebab8bc3`](https://github.com/twilio-labs/paste/commit/4ebab8bc3149f7872aa257d0f0918db3785ec9d7) [#2854](https://github.com/twilio-labs/paste/pull/2854) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [ChatComposer]: fix Lexical global styles
+
+* [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add circle and circle_small sizes to the Button PropTypes
+
+- [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] refactored a ChatAttachment story
+
+* [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Minimizable Dialog] removes the padding from the MinimizableDialogContents component. To add the padding back, use a Box with padding='space70' inside the MinimizableDialogContents.
+
+* Updated dependencies [[`026bf7f52`](https://github.com/twilio-labs/paste/commit/026bf7f52f6273f8294c313796ba97971e4bc679), [`4ebab8bc3`](https://github.com/twilio-labs/paste/commit/4ebab8bc3149f7872aa257d0f0918db3785ec9d7), [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`80cb7ceb8`](https://github.com/twilio-labs/paste/commit/80cb7ceb889854d65ba5467f8060cfaa8a992c0c), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`8290a1e1f`](https://github.com/twilio-labs/paste/commit/8290a1e1fc219b079b2fec0c5ec3a2faad1a61cd), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63), [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554)]:
+  - @twilio-paste/design-tokens@8.2.0
+  - @twilio-paste/theme@8.1.0
+  - @twilio-paste/chat-composer@1.0.0
+  - @twilio-paste/chat-log@2.1.0
+  - @twilio-paste/lexical-library@1.0.0
+  - @twilio-paste/button@11.1.5
+  - @twilio-paste/in-page-navigation@1.0.0
+  - @twilio-paste/minimizable-dialog@1.0.3
+  - @twilio-paste/display-heading@1.0.0
+
+## 17.0.1
+
+### Patch Changes
+
+- [`0865d51a7`](https://github.com/twilio-labs/paste/commit/0865d51a770aa2e0ac054f83d26a7808d9f55054) [#2807](https://github.com/twilio-labs/paste/pull/2807) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [side-modal] set an element name on the root dialog node, to allow full control of custom styling including widths
+
+- Updated dependencies [[`0865d51a7`](https://github.com/twilio-labs/paste/commit/0865d51a770aa2e0ac054f83d26a7808d9f55054)]:
+  - @twilio-paste/side-modal@1.0.2
+
+## 17.0.0
+
+### Major Changes
+
+- [`38a72ad0c`](https://github.com/twilio-labs/paste/commit/38a72ad0c64ad0e11316cf410505dcec640d0c16) [#2753](https://github.com/twilio-labs/paste/pull/2753) Thanks [@TheSisb](https://github.com/TheSisb)! - [Switch] Updated Switch component API to match other form components in Paste.
+
+  - `SwitchContainer` has been replaced with `SwitchGroup`
+  - `SwitchGroup` props changes:
+    - removes `id?: string`
+    - removes `label: ReactNode` - use the new `legend` prop instead.
+    - adds `legend: string | NonNullable<React.ReactNode>` to replace the old `label` prop.
+    - adds `errorText?: string | React.ReactNode` to handle error states.
+    - adds `orientation?: 'vertical' | 'horizontal;` to set children orientation.
+    - adds `i18nRequiredLabel?: string` to change the required label for internationalization.
+    - adds `name: string` to label the switch group for forms.
+    - adds `onChange?: (checked: boolean) => void` to handle changes to any child Switch's checked state in a single function.
+    - `helpText` prop now accepts a string.
+    - `required` prop is now optional.
+    - `element` prop default value changed to `SWITCH_GROUP` from `SWITCH_CONTAINER`
+  - `Switch` props changes:
+    - `children` prop type changed to `NonNullable<React.ReactNode>`
+    - adds `hasError?: boolean` to handle error states.
+    - adds `helpText?: string | React.React.Node` to add additional context to a switch.
+    - adds `checked?: boolean` to use the Switch in a controlled manner.
+    - adds `defaultChecked?: boolean` to set the default checked value in an uncontrolled manner.
+
+### Patch Changes
+
+- [`448c9fec8`](https://github.com/twilio-labs/paste/commit/448c9fec8b5bf14481940e7226fa1d2456290e83) [#2737](https://github.com/twilio-labs/paste/pull/2737) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button Group] update internal variable name
+
+* [`efffcde51`](https://github.com/twilio-labs/paste/commit/efffcde5161524fb00d09942fca0471315b2fbe5) [#2782](https://github.com/twilio-labs/paste/pull/2782) Thanks [@shleewhite](https://github.com/shleewhite)! - [Combobox] remove inherited HTML `autoComplete` prop because it conflicts with the autocomplete prop and remove state prop from Multiselect Combobox because we don't support using it with the useComboboxState hook.
+
+- [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
+- Updated dependencies [[`448c9fec8`](https://github.com/twilio-labs/paste/commit/448c9fec8b5bf14481940e7226fa1d2456290e83), [`38a72ad0c`](https://github.com/twilio-labs/paste/commit/38a72ad0c64ad0e11316cf410505dcec640d0c16), [`efffcde51`](https://github.com/twilio-labs/paste/commit/efffcde5161524fb00d09942fca0471315b2fbe5), [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b)]:
+  - @twilio-paste/button-group@1.0.1
+  - @twilio-paste/switch@2.0.0
+  - @twilio-paste/combobox@13.0.1
+  - @twilio-paste/color-contrast-utils@3.0.1
+  - @twilio-paste/alert@11.0.2
+  - @twilio-paste/alert-dialog@6.0.1
+  - @twilio-paste/anchor@9.0.1
+  - @twilio-paste/avatar@6.1.2
+  - @twilio-paste/badge@5.0.1
+  - @twilio-paste/base-radio-checkbox@10.0.1
+  - @twilio-paste/breadcrumb@8.0.1
+  - @twilio-paste/button@11.1.4
+  - @twilio-paste/callout@1.0.1
+  - @twilio-paste/card@6.0.1
+  - @twilio-paste/chat-log@2.0.3
+  - @twilio-paste/checkbox@10.0.2
+  - @twilio-paste/code-block@1.1.1
+  - @twilio-paste/data-grid@5.0.1
+  - @twilio-paste/date-picker@3.0.1
+  - @twilio-paste/disclosure@9.0.1
+  - @twilio-paste/display-pill-group@5.0.1
+  - @twilio-paste/file-picker@1.1.1
+  - @twilio-paste/form-pill-group@5.1.1
+  - @twilio-paste/heading@8.0.1
+  - @twilio-paste/help-text@10.1.1
+  - @twilio-paste/inline-code@1.0.1
+  - @twilio-paste/inline-control-group@10.0.1
+  - @twilio-paste/input@6.1.1
+  - @twilio-paste/input-box@7.1.2
+  - @twilio-paste/label@10.1.1
+  - @twilio-paste/list@5.0.1
+  - @twilio-paste/menu@11.1.1
+  - @twilio-paste/minimizable-dialog@1.0.2
+  - @twilio-paste/modal@13.0.1
+  - @twilio-paste/pagination@4.0.1
+  - @twilio-paste/paragraph@7.0.1
+  - @twilio-paste/popover@10.0.1
+  - @twilio-paste/radio-button-group@1.0.2
+  - @twilio-paste/radio-group@10.0.2
+  - @twilio-paste/screen-reader-only@10.0.2
+  - @twilio-paste/select@9.1.1
+  - @twilio-paste/separator@5.0.1
+  - @twilio-paste/side-modal@1.0.1
+  - @twilio-paste/skeleton-loader@3.0.1
+  - @twilio-paste/spinner@11.0.1
+  - @twilio-paste/table@5.1.1
+  - @twilio-paste/tabs@5.0.1
+  - @twilio-paste/textarea@7.0.1
+  - @twilio-paste/time-picker@3.0.1
+  - @twilio-paste/toast@9.0.1
+  - @twilio-paste/tooltip@8.0.1
+  - @twilio-paste/truncate@11.0.1
+  - @twilio-paste/aspect-ratio@7.0.1
+  - @twilio-paste/flex@5.0.1
+  - @twilio-paste/grid@5.0.1
+  - @twilio-paste/media-object@7.0.1
+  - @twilio-paste/stack@5.0.1
+  - @twilio-paste/box@7.1.1
+  - @twilio-paste/combobox-primitive@0.3.6
+  - @twilio-paste/disclosure-primitive@0.3.10
+  - @twilio-paste/menu-primitive@0.2.11
+  - @twilio-paste/modal-dialog-primitive@0.3.3
+  - @twilio-paste/non-modal-dialog-primitive@0.3.11
+  - @twilio-paste/sibling-box@6.0.2
+  - @twilio-paste/tabs-primitive@0.2.9
+  - @twilio-paste/text@7.0.1
+  - @twilio-paste/tooltip-primitive@0.2.10
+  - @twilio-paste/customization@5.0.1
+  - @twilio-paste/design-tokens@8.1.2
+  - @twilio-paste/animation-library@0.3.9
+  - @twilio-paste/data-visualization-library@2.0.1
+  - @twilio-paste/dropdown-library@1.1.7
+  - @twilio-paste/react-textarea-autosize-library@1.0.1
+  - @twilio-paste/reakit-library@0.8.7
+  - @twilio-paste/styling-library@1.0.3
+  - @twilio-paste/syntax-highlighter-library@1.0.1
+  - @twilio-paste/uid-library@0.2.6
+  - @twilio-paste/style-props@6.1.1
+  - @twilio-paste/theme@8.0.3
+  - @twilio-paste/types@3.1.9
+  - @twilio-paste/utils@2.0.1
+
+## 16.0.1
+
+### Patch Changes
+
+- [`edca0f7c8`](https://github.com/twilio-labs/paste/commit/edca0f7c8dcf612c6edf0dd98eb7dffe28c3fce9) [#2757](https://github.com/twilio-labs/paste/pull/2757) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button, radio-button-group, codemods] Correct the ToggleButtonStyles export for use in Radio Button Group
+
+- Updated dependencies [[`edca0f7c8`](https://github.com/twilio-labs/paste/commit/edca0f7c8dcf612c6edf0dd98eb7dffe28c3fce9)]:
+  - @twilio-paste/button@11.1.3
+  - @twilio-paste/radio-button-group@1.0.1
+
+## 16.0.0
+
+### Major Changes
+
+- [`56186cb51`](https://github.com/twilio-labs/paste/commit/56186cb511555bc20f5fe57439e207b33a3f7653) [#2697](https://github.com/twilio-labs/paste/pull/2697) Thanks [@nkrantz](https://github.com/nkrantz)! - [Modal] remove `__console_patch` prop because it is no longer necessary
+
+### Minor Changes
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [RadioButtonGroup]: add new package
+
+* [`bb46d95db`](https://github.com/twilio-labs/paste/commit/bb46d95dbddb754abb11042d5f03b77539353c42) [#2743](https://github.com/twilio-labs/paste/pull/2743) Thanks [@nkrantz](https://github.com/nkrantz)! - [File picker] add `onChange` and `name` props
+
+- [`38a210f9f`](https://github.com/twilio-labs/paste/commit/38a210f9f7c229a46ab9850f528eb60204dd1273) [#2719](https://github.com/twilio-labs/paste/pull/2719) Thanks [@nkrantz](https://github.com/nkrantz)! - [Utils] Remove useMergeRef() hook
+
+* [`8ce66e675`](https://github.com/twilio-labs/paste/commit/8ce66e675e6f621a46e35da8029d5a0e95ff5478) [#2703](https://github.com/twilio-labs/paste/pull/2703) Thanks [@shleewhite](https://github.com/shleewhite)! - [Code Block] add copyTextFormatter prop
+
+- [`b7b927ac2`](https://github.com/twilio-labs/paste/commit/b7b927ac2cfc7d039f48c00a672926a65e82e9fe) [#2712](https://github.com/twilio-labs/paste/pull/2712) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [ButtonGroup] add ButtonGroup package
+
+### Patch Changes
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Design Tokens] Add token for box-shadow that includes focus and regular border
+
+* [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd) [#2693](https://github.com/twilio-labs/paste/pull/2693) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] add flexShrink 0 so it stays the correct size in a flex layout
+
+- [`4a3974fce`](https://github.com/twilio-labs/paste/commit/4a3974fce6d8d099e0e00b8ab12ae0cb921c719a) [#2745](https://github.com/twilio-labs/paste/pull/2745) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme] Fix type for the `iconSizes` token bucket under the theme object
+
+* [`d068c208a`](https://github.com/twilio-labs/paste/commit/d068c208aa2657a48656acc47381ee9a8920d555) [#2711](https://github.com/twilio-labs/paste/pull/2711) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Refine typings and styling for group options for Multiselect Combobox.
+
+- [`7599162bc`](https://github.com/twilio-labs/paste/commit/7599162bcdfcd0c997c688ab49ede59b5f627c0f) [#2710](https://github.com/twilio-labs/paste/pull/2710) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button] add box shadow to toggle button's pressed states to match regular button height
+
+* [`b5c19e60e`](https://github.com/twilio-labs/paste/commit/b5c19e60e5d1c59b47c3455b3adf0d779ecf65e5) [#2685](https://github.com/twilio-labs/paste/pull/2685) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Prevent underlines from being added to Avatar initials inside of anchors or display pills
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Button]: refine styling for focus state
+
+* [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd) [#2693](https://github.com/twilio-labs/paste/pull/2693) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Message] hug the width of the ChatBubble to the width of the message
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [ButtonGroup]: touch up attached styles
+
+- Updated dependencies [[`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c), [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd), [`4a3974fce`](https://github.com/twilio-labs/paste/commit/4a3974fce6d8d099e0e00b8ab12ae0cb921c719a), [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c), [`56186cb51`](https://github.com/twilio-labs/paste/commit/56186cb511555bc20f5fe57439e207b33a3f7653), [`bb46d95db`](https://github.com/twilio-labs/paste/commit/bb46d95dbddb754abb11042d5f03b77539353c42), [`38a210f9f`](https://github.com/twilio-labs/paste/commit/38a210f9f7c229a46ab9850f528eb60204dd1273), [`d068c208a`](https://github.com/twilio-labs/paste/commit/d068c208aa2657a48656acc47381ee9a8920d555), [`8ce66e675`](https://github.com/twilio-labs/paste/commit/8ce66e675e6f621a46e35da8029d5a0e95ff5478), [`7599162bc`](https://github.com/twilio-labs/paste/commit/7599162bcdfcd0c997c688ab49ede59b5f627c0f), [`b7b927ac2`](https://github.com/twilio-labs/paste/commit/b7b927ac2cfc7d039f48c00a672926a65e82e9fe), [`b5c19e60e`](https://github.com/twilio-labs/paste/commit/b5c19e60e5d1c59b47c3455b3adf0d779ecf65e5), [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c), [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd), [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c)]:
+  - @twilio-paste/design-tokens@8.1.1
+  - @twilio-paste/avatar@6.1.1
+  - @twilio-paste/theme@8.0.2
+  - @twilio-paste/radio-button-group@1.0.0
+  - @twilio-paste/modal@13.0.0
+  - @twilio-paste/file-picker@1.1.0
+  - @twilio-paste/utils@2.0.0
+  - @twilio-paste/combobox@13.0.0
+  - @twilio-paste/code-block@1.1.0
+  - @twilio-paste/button@11.1.2
+  - @twilio-paste/button-group@1.0.0
+  - @twilio-paste/chat-log@2.0.2
+  - @twilio-paste/alert-dialog@6.0.0
+  - @twilio-paste/data-grid@5.0.0
+
+## 15.3.0
+
+### Minor Changes
+
+- [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0) [#2674](https://github.com/twilio-labs/paste/pull/2674) Thanks [@nkrantz](https://github.com/nkrantz)! - [File Picker]: creates the File Picker package and adds it to the system
+
+* [`0ead4dfa0`](https://github.com/twilio-labs/paste/commit/0ead4dfa0492a8caa50b147a81583ea8e306a665) [#2681](https://github.com/twilio-labs/paste/pull/2681) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] add new variant and color props
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Input] Add ability to unset padding with `padding="space0"`
+
+* [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Utils] Add a `useWindowSize` hook which can be used to react to window resize events. This hook also returns the current responsive breakpoint index used by the design system.
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Several improvements, including the addition of the much awaited `MultiselectCombobox` component!
+
+  - Improve styling of Combobox menu items
+  - Performance improvements around virtualized list items
+  - Add a new `emptyState` prop that is rendered when there are no items in the list.
+  - Accessibility improvements.
+
+* [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16) [#2676](https://github.com/twilio-labs/paste/pull/2676) Thanks [@shleewhite](https://github.com/shleewhite)! - [Box, Style Props] add support for inset CSS property
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] Allow passing a `display` prop as either `inline-flex` or `flex` (default) to the `FormPillGroup` container.
+
+* [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16) [#2676](https://github.com/twilio-labs/paste/pull/2676) Thanks [@shleewhite](https://github.com/shleewhite)! - [Side Modal] create a new Side Modal component! This modal sits on top of the page on the right side. It should be used when you want a full height modal where you can interact with the rest of the page while it is open.
+
+### Patch Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] Allow overriding the `aria-describedby` attribute.
+
+* [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0) [#2674](https://github.com/twilio-labs/paste/pull/2674) Thanks [@nkrantz](https://github.com/nkrantz)! - [Sibling Box] adds type 'file' for use in the File Picker package
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Input Box] Remove focus boxShadow when disabled
+
+* [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox Primtiive] Export additional Typescript types for the MultiSelect hook
+
+- [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16) [#2676](https://github.com/twilio-labs/paste/pull/2676) Thanks [@shleewhite](https://github.com/shleewhite)! - [Modal] spread props onto ModalFooterActions component
+
+* [`99bb7a146`](https://github.com/twilio-labs/paste/commit/99bb7a146bdd75c1b90f90769e74f162128b698e) [#2664](https://github.com/twilio-labs/paste/pull/2664) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Animation Library]: remove unecessary check for VRT tool we no longer use
+
+- [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16) [#2676](https://github.com/twilio-labs/paste/pull/2676) Thanks [@shleewhite](https://github.com/shleewhite)! - [Minimizable Dialog] fix generic HTMLDiv prop extension, add missing propTypes, export all component interfaces, and add missing peer/dev dependencies.
+
+* [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Screen Reader Only] Minor typescript fix for 'as' prop.
+
+- [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16) [#2676](https://github.com/twilio-labs/paste/pull/2676) Thanks [@shleewhite](https://github.com/shleewhite)! - [Code Block] add missing peer/dev dependencies
+
+* [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0) [#2674](https://github.com/twilio-labs/paste/pull/2674) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] adds `accept` prop for use in the File Picker package
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Dropdown Library] Upgrade downshiftjs from version 6.0.6 to 6.1.7
+
+* [`02725a235`](https://github.com/twilio-labs/paste/commit/02725a235378cd9bb3eaa6513731d98877cc5b35) [#2667](https://github.com/twilio-labs/paste/pull/2667) Thanks [@shleewhite](https://github.com/shleewhite)! - [Checkbox, RadioGroup] When no id is passed, use a unique id. This fixes an issue where id is not marked as a required prop, but the control won't work unless it is passed.
+
+* Updated dependencies [[`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16), [`99bb7a146`](https://github.com/twilio-labs/paste/commit/99bb7a146bdd75c1b90f90769e74f162128b698e), [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16), [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0), [`0ead4dfa0`](https://github.com/twilio-labs/paste/commit/0ead4dfa0492a8caa50b147a81583ea8e306a665), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16), [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16), [`982557683`](https://github.com/twilio-labs/paste/commit/982557683314e31fdf60ed286ffac083e9cb21a0), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d), [`fcd2de38a`](https://github.com/twilio-labs/paste/commit/fcd2de38aba559e7bb9b1d150417a94a30beff16), [`02725a235`](https://github.com/twilio-labs/paste/commit/02725a235378cd9bb3eaa6513731d98877cc5b35)]:
+  - @twilio-paste/form-pill-group@5.1.0
+  - @twilio-paste/sibling-box@6.0.1
+  - @twilio-paste/input-box@7.1.1
+  - @twilio-paste/combobox-primitive@0.3.5
+  - @twilio-paste/modal@12.0.1
+  - @twilio-paste/animation-library@0.3.8
+  - @twilio-paste/minimizable-dialog@1.0.1
+  - @twilio-paste/file-picker@1.0.0
+  - @twilio-paste/avatar@6.1.0
+  - @twilio-paste/input@6.1.0
+  - @twilio-paste/utils@1.2.0
+  - @twilio-paste/screen-reader-only@10.0.1
+  - @twilio-paste/combobox@12.2.0
+  - @twilio-paste/box@7.1.0
+  - @twilio-paste/style-props@6.1.0
+  - @twilio-paste/code-block@1.0.1
+  - @twilio-paste/dropdown-library@1.1.6
+  - @twilio-paste/side-modal@1.0.0
+  - @twilio-paste/checkbox@10.0.1
+  - @twilio-paste/radio-group@10.0.1
+
+## 15.2.0
+
+### Minor Changes
+
+- [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd) [#2641](https://github.com/twilio-labs/paste/pull/2641) Thanks [@shleewhite](https://github.com/shleewhite)! - [Code Block] create a new CodeBlock component, which allows you to display readable blocks of code 🎉
+
+* [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd) [#2641](https://github.com/twilio-labs/paste/pull/2641) Thanks [@shleewhite](https://github.com/shleewhite)! - [Syntax Highlighter] Create a new library, @twilio-paste/syntax-highlighter-library. Supports: javascript, jsx, csharp, php, ruby, python, java, json, c, bash, shell, go, and groovy.
+
+- [`c65d69840`](https://github.com/twilio-labs/paste/commit/c65d6984039112b877f30ce30a69bc882e5652f5) [#2654](https://github.com/twilio-labs/paste/pull/2654) Thanks [@nkrantz](https://github.com/nkrantz)! - [Help text] add success and warning variants
+
+* [`257051d67`](https://github.com/twilio-labs/paste/commit/257051d67988132c8d96b04940d35c401b622aa5) [#2642](https://github.com/twilio-labs/paste/pull/2642) Thanks [@gloriliale](https://github.com/gloriliale)! - [Inline Code] Introducing the Inline Code component! Helpful for all those moments when a piece of text is actually representing code.
+
+### Patch Changes
+
+- [`87146566c`](https://github.com/twilio-labs/paste/commit/87146566c4188d986da7cd4fcb84d54edc84dcf2) [#2647](https://github.com/twilio-labs/paste/pull/2647) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox] Minor fix to controlled Comboboxes, where the input cursor would always jump to the end of the input string in autocomplete examples, even when you want to amend the beginning or middle. Cursor position should now remain in place as you type or modify the input value.
+
+* [`a890926a6`](https://github.com/twilio-labs/paste/commit/a890926a6509ab0b0f86bc8d5ee876c3340b8015) [#2651](https://github.com/twilio-labs/paste/pull/2651) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Chat Log]: replaces the deprecated CloseCircleIcon with ClearIcon in the ComposerAttachment component
+
+- [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd) [#2641](https://github.com/twilio-labs/paste/pull/2641) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] support `<Button as='a' variant='inverse'>` and add the `target` prop
+
+- Updated dependencies [[`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd), [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd), [`87146566c`](https://github.com/twilio-labs/paste/commit/87146566c4188d986da7cd4fcb84d54edc84dcf2), [`c65d69840`](https://github.com/twilio-labs/paste/commit/c65d6984039112b877f30ce30a69bc882e5652f5), [`257051d67`](https://github.com/twilio-labs/paste/commit/257051d67988132c8d96b04940d35c401b622aa5), [`a890926a6`](https://github.com/twilio-labs/paste/commit/a890926a6509ab0b0f86bc8d5ee876c3340b8015), [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd)]:
+  - @twilio-paste/code-block@1.0.0
+  - @twilio-paste/syntax-highlighter-library@1.0.0
+  - @twilio-paste/combobox@12.1.1
+  - @twilio-paste/help-text@10.1.0
+  - @twilio-paste/inline-code@1.0.0
+  - @twilio-paste/chat-log@2.0.1
+  - @twilio-paste/button@11.1.1
+
+## 15.1.0
+
+### Minor Changes
+
+- [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Label] add the ability to use the label as a div HTML element
+
+* [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Switch] add Switch package
+
+- [`b79d20d2a`](https://github.com/twilio-labs/paste/commit/b79d20d2a4cdaaa85ffec09d280f7315f2556f76) [#2595](https://github.com/twilio-labs/paste/pull/2595) Thanks [@TheSisb](https://github.com/TheSisb)! - [InputBox, Combobox, Select] InputBox's `InputChevronWrapper` has refreshed styling which will appear in Select and Combobox. InputBox now exports a `getInputChevronIconColor()` function which returns a textColor to use for styling the icon child to the `InputChevronWrapper`.
+
+* [`7e75f8119`](https://github.com/twilio-labs/paste/commit/7e75f8119067c8aad70f14b70324ca93d8d07917) [#2574](https://github.com/twilio-labs/paste/pull/2574) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [table, data-grid] adding sticky header functionality to both the Table and Data Grid components
+
+- [`b8c3d33c9`](https://github.com/twilio-labs/paste/commit/b8c3d33c9b55b6967b075159f8fe490f7cba2d38) [#2623](https://github.com/twilio-labs/paste/pull/2623) Thanks [@shleewhite](https://github.com/shleewhite)! - [Minimizable Dialog] Introducing the all-new Minimizable Dialog component! This component can be used for a chat widget so that users can keep the chat open while they interact with the rest of the page. 🎉
+
+* [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new icon size and line height tokens (05), adust dark theme background tokens
+
+- [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be) [#2582](https://github.com/twilio-labs/paste/pull/2582) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add toggle button for secondary and secondary_icon variants
+
+* [`563dff9a8`](https://github.com/twilio-labs/paste/commit/563dff9a889e9b880e86568add91cfe5b686f7bd) [#2604](https://github.com/twilio-labs/paste/pull/2604) Thanks [@loreina](https://github.com/loreina)! - - [menu] add menu item destructive variant
+
+- [`68d851d7a`](https://github.com/twilio-labs/paste/commit/68d851d7a888152cd957808b1f902de310f5b01c) [#2620](https://github.com/twilio-labs/paste/pull/2620) Thanks [@shleewhite](https://github.com/shleewhite)! - [Callout] Introducing the all-new Callout component! This component is useful in those moments when you want to highlight important, static information in a page of text. 🎉
+
+### Patch Changes
+
+- [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Theme] add new icon size (05) to theme shape
+
+* [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be) [#2582](https://github.com/twilio-labs/paste/pull/2582) Thanks [@shleewhite](https://github.com/shleewhite)! - [Box] add pressed_focus and pressed_hover pseudoselectors
+
+- [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] add a `_checked_hover` pseudo selector style prop for use in switch package
+
+* [`68d851d7a`](https://github.com/twilio-labs/paste/commit/68d851d7a888152cd957808b1f902de310f5b01c) [#2620](https://github.com/twilio-labs/paste/pull/2620) Thanks [@shleewhite](https://github.com/shleewhite)! - [Alert] add screen-reader-only as peerDependency
+
+- [`ceb26bb91`](https://github.com/twilio-labs/paste/commit/ceb26bb91348c4ace5a81522f7da3c3595c77de1) [#2634](https://github.com/twilio-labs/paste/pull/2634) Thanks [@shleewhite](https://github.com/shleewhite)! - [Menu] fix href not getting passed to MenuItem
+
+- Updated dependencies [[`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be), [`b79d20d2a`](https://github.com/twilio-labs/paste/commit/b79d20d2a4cdaaa85ffec09d280f7315f2556f76), [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`7e75f8119`](https://github.com/twilio-labs/paste/commit/7e75f8119067c8aad70f14b70324ca93d8d07917), [`b8c3d33c9`](https://github.com/twilio-labs/paste/commit/b8c3d33c9b55b6967b075159f8fe490f7cba2d38), [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184), [`68d851d7a`](https://github.com/twilio-labs/paste/commit/68d851d7a888152cd957808b1f902de310f5b01c), [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be), [`563dff9a8`](https://github.com/twilio-labs/paste/commit/563dff9a889e9b880e86568add91cfe5b686f7bd), [`ceb26bb91`](https://github.com/twilio-labs/paste/commit/ceb26bb91348c4ace5a81522f7da3c3595c77de1), [`68d851d7a`](https://github.com/twilio-labs/paste/commit/68d851d7a888152cd957808b1f902de310f5b01c)]:
+  - @twilio-paste/label@10.1.0
+  - @twilio-paste/switch@1.0.0
+  - @twilio-paste/theme@8.0.1
+  - @twilio-paste/box@7.0.1
+  - @twilio-paste/combobox@12.1.0
+  - @twilio-paste/input-box@7.1.0
+  - @twilio-paste/select@9.1.0
+  - @twilio-paste/data-grid@4.1.0
+  - @twilio-paste/table@5.1.0
+  - @twilio-paste/minimizable-dialog@1.0.0
+  - @twilio-paste/design-tokens@8.1.0
+  - @twilio-paste/alert@11.0.1
+  - @twilio-paste/button@11.1.0
+  - @twilio-paste/menu@11.1.0
+  - @twilio-paste/callout@1.0.0
+
+## 15.0.0
+
+### Major Changes
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Created a new category of design token, Data Visualization, and subsequently relocated all of the Data Visualization tokens from the generic Color category. If you are using categorized Data Visualization design tokens, you will need to update their reference.
+
+### Minor Changes
+
+- [`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c) [#2578](https://github.com/twilio-labs/paste/pull/2578) Thanks [@TheSisb](https://github.com/TheSisb)! - [box, style-props] Enable CSS Grid on Box by adding all the requisite style props to the Box component.
+
+* [`ee2e535e9`](https://github.com/twilio-labs/paste/commit/ee2e535e906397caacaf1f5137acac34d4034213) [#2573](https://github.com/twilio-labs/paste/pull/2573) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add "circle" and "circle_small" sizes
+
+### Patch Changes
+
+- [`e21a9ff58`](https://github.com/twilio-labs/paste/commit/e21a9ff580b1a0f8595752b2eeac858abf7f085f) [#2597](https://github.com/twilio-labs/paste/pull/2597) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Data Grid] include supporting types and documentation for existing colSpan prop
+
+* [`fdfb6d759`](https://github.com/twilio-labs/paste/commit/fdfb6d759aa4d4da704aa50a15fc927d0fd6a7d9) [#2589](https://github.com/twilio-labs/paste/pull/2589) Thanks [@shleewhite](https://github.com/shleewhite)! - [Form Pill Group] fix small style issues
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Theme] Updated Data Visualization colors to use the new Data Visualization category from the Design Tokens package.
+
+* [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Updates ordering on design tokens to be alphanumeric.
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Update the generic export to exclude deprecated tokens, provide pre-computed alt values, and to omit the originalValue key.
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`e21a9ff58`](https://github.com/twilio-labs/paste/commit/e21a9ff580b1a0f8595752b2eeac858abf7f085f), [`fdfb6d759`](https://github.com/twilio-labs/paste/commit/fdfb6d759aa4d4da704aa50a15fc927d0fd6a7d9), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`ee2e535e9`](https://github.com/twilio-labs/paste/commit/ee2e535e906397caacaf1f5137acac34d4034213), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/data-grid@4.0.0
+  - @twilio-paste/form-pill-group@5.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/button@11.0.0
+  - @twilio-paste/color-contrast-utils@3.0.0
+  - @twilio-paste/alert@11.0.0
+  - @twilio-paste/anchor@9.0.0
+  - @twilio-paste/avatar@6.0.0
+  - @twilio-paste/badge@5.0.0
+  - @twilio-paste/base-radio-checkbox@10.0.0
+  - @twilio-paste/breadcrumb@8.0.0
+  - @twilio-paste/card@6.0.0
+  - @twilio-paste/chat-log@2.0.0
+  - @twilio-paste/checkbox@10.0.0
+  - @twilio-paste/combobox@12.0.0
+  - @twilio-paste/date-picker@3.0.0
+  - @twilio-paste/disclosure@9.0.0
+  - @twilio-paste/display-pill-group@5.0.0
+  - @twilio-paste/heading@8.0.0
+  - @twilio-paste/help-text@10.0.0
+  - @twilio-paste/inline-control-group@10.0.0
+  - @twilio-paste/input@6.0.0
+  - @twilio-paste/input-box@7.0.0
+  - @twilio-paste/label@10.0.0
+  - @twilio-paste/list@5.0.0
+  - @twilio-paste/menu@11.0.0
+  - @twilio-paste/modal@12.0.0
+  - @twilio-paste/pagination@4.0.0
+  - @twilio-paste/paragraph@7.0.0
+  - @twilio-paste/popover@10.0.0
+  - @twilio-paste/radio-group@10.0.0
+  - @twilio-paste/screen-reader-only@10.0.0
+  - @twilio-paste/select@9.0.0
+  - @twilio-paste/separator@5.0.0
+  - @twilio-paste/skeleton-loader@3.0.0
+  - @twilio-paste/spinner@11.0.0
+  - @twilio-paste/table@5.0.0
+  - @twilio-paste/tabs@5.0.0
+  - @twilio-paste/textarea@7.0.0
+  - @twilio-paste/time-picker@3.0.0
+  - @twilio-paste/toast@9.0.0
+  - @twilio-paste/tooltip@8.0.0
+  - @twilio-paste/truncate@11.0.0
+  - @twilio-paste/aspect-ratio@7.0.0
+  - @twilio-paste/flex@5.0.0
+  - @twilio-paste/grid@5.0.0
+  - @twilio-paste/media-object@7.0.0
+  - @twilio-paste/stack@5.0.0
+  - @twilio-paste/sibling-box@6.0.0
+  - @twilio-paste/text@7.0.0
+  - @twilio-paste/customization@5.0.0
+  - @twilio-paste/icons@9.0.0
+  - @twilio-paste/data-visualization-library@2.0.0
+  - @twilio-paste/alert-dialog@5.0.0
+
+## 14.2.0
+
+### Minor Changes
+
+- [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57) [#2506](https://github.com/twilio-labs/paste/pull/2506) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Alert Dialog, Modal]: changing header and footer elements to be more generic HTML elements to prevent global banner and contentinfo landmarks being placed in the DOM when using just a Dialog
+
+* [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf) [#2526](https://github.com/twilio-labs/paste/pull/2526) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design Tokens] add color-background-error-strongest and color-text-error-stronger tokens
+
+- [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf) [#2526](https://github.com/twilio-labs/paste/pull/2526) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] add error variant, update styles, and support disabled pills
+
+* [`f9796f1ce`](https://github.com/twilio-labs/paste/commit/f9796f1ced5a89138d789ef8f95bbf15be531d92) [#2520](https://github.com/twilio-labs/paste/pull/2520) Thanks [@gloriliale](https://github.com/gloriliale)! - [Chat Log] Add new components for related to events and bookends:
+
+  - ChatBookend
+  - ChatBookendItem
+  - ChatEvent
+
+### Patch Changes
+
+- [`7ded6de0`](https://github.com/twilio-labs/paste/commit/7ded6de0550bb4bc2251b6a7d91707e8b17af7d0) [#2554](https://github.com/twilio-labs/paste/pull/2554) Thanks [@shleewhite](https://github.com/shleewhite)! - [Badge] fix colGap between Badge contents
+
+* [`d9c3b850`](https://github.com/twilio-labs/paste/commit/d9c3b850577be0e34487b7475d49568053f18fe5) [#2569](https://github.com/twilio-labs/paste/pull/2569) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Select] fixed the disabled select background color
+
+- [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf) [#2526](https://github.com/twilio-labs/paste/pull/2526) Thanks [@TheSisb](https://github.com/TheSisb)! - [Box] add missing disabled prop and \_focus_hover pseudoSelector prop
+
+* [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57) [#2506](https://github.com/twilio-labs/paste/pull/2506) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Breadcrumb] allow aria-label to be overwritten on the breadcrumb navigation element. This is useful to remove duplicate labels and for internationalization
+
+* Updated dependencies [[`7ded6de0`](https://github.com/twilio-labs/paste/commit/7ded6de0550bb4bc2251b6a7d91707e8b17af7d0), [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57), [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf), [`d9c3b850`](https://github.com/twilio-labs/paste/commit/d9c3b850577be0e34487b7475d49568053f18fe5), [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf), [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf), [`f510fea8`](https://github.com/twilio-labs/paste/commit/f510fea82f732da0f7e52497285292ad9c47ae57), [`f9796f1ce`](https://github.com/twilio-labs/paste/commit/f9796f1ced5a89138d789ef8f95bbf15be531d92)]:
+  - @twilio-paste/badge@4.0.2
+  - @twilio-paste/alert-dialog@4.1.0
+  - @twilio-paste/modal@11.1.0
+  - @twilio-paste/design-tokens@7.4.0
+  - @twilio-paste/select@8.0.2
+  - @twilio-paste/box@6.0.2
+  - @twilio-paste/form-pill-group@4.1.0
+  - @twilio-paste/breadcrumb@7.0.2
+  - @twilio-paste/chat-log@1.2.0
+
+## 14.1.0
+
+### Minor Changes
+
+- [`24cf22318`](https://github.com/twilio-labs/paste/commit/24cf22318149087ef0d1b67d3fe7bbc11c8883ad) [#2493](https://github.com/twilio-labs/paste/pull/2493) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Adds a new size, 'rounded_small', for the Conversations UI Kit
+
+* [`39cfc65ea`](https://github.com/twilio-labs/paste/commit/39cfc65ea1f44e024732390527fc139a86138a72) [#2489](https://github.com/twilio-labs/paste/pull/2489) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] add a ChatLog component
+
+- [`0aa52162`](https://github.com/twilio-labs/paste/commit/0aa5216294bb195873e46b7fe83ce71250b7c38b) [#2501](https://github.com/twilio-labs/paste/pull/2501) Thanks [@gloriliale](https://github.com/gloriliale)! - [Chat log] Add several new components related to displaying attachments:
+
+  - ComposerAttachmentCard
+  - ChatAttachment
+  - ChatAttachmentLink
+  - ChatAttachmentDescription
+
+### Patch Changes
+
+- [`ce87a07d`](https://github.com/twilio-labs/paste/commit/ce87a07de10936cce9f3d0414bae5910e3ddbc9f) [#2476](https://github.com/twilio-labs/paste/pull/2476) Thanks [@shleewhite](https://github.com/shleewhite)! - [Truncate] fix alignment when truncate is within another component
+
+* [`a8ad034fe`](https://github.com/twilio-labs/paste/commit/a8ad034fe0868e725d50dfe02266ea3855119bdb) [#2509](https://github.com/twilio-labs/paste/pull/2509) Thanks [@shleewhite](https://github.com/shleewhite)! - [Chat Log] Move types and styles to the component files
+
+- [`90b019171`](https://github.com/twilio-labs/paste/commit/90b019171c520a92671d2514d48a332791f80e55) [#2515](https://github.com/twilio-labs/paste/pull/2515) Thanks [@TheSisb](https://github.com/TheSisb)! - [Display Pill Group] minor updates to the design.
+
+* [`eb490746c`](https://github.com/twilio-labs/paste/commit/eb490746cb957a349fb217c13b886db4a7277342) [#2480](https://github.com/twilio-labs/paste/pull/2480) Thanks [@shleewhite](https://github.com/shleewhite)! - [Theme] fix isDeprecatedTheme to only throw a console error if a theme is deprecated.
+
+* Updated dependencies [[`24cf22318`](https://github.com/twilio-labs/paste/commit/24cf22318149087ef0d1b67d3fe7bbc11c8883ad), [`ce87a07d`](https://github.com/twilio-labs/paste/commit/ce87a07de10936cce9f3d0414bae5910e3ddbc9f), [`a8ad034fe`](https://github.com/twilio-labs/paste/commit/a8ad034fe0868e725d50dfe02266ea3855119bdb), [`90b019171`](https://github.com/twilio-labs/paste/commit/90b019171c520a92671d2514d48a332791f80e55), [`39cfc65ea`](https://github.com/twilio-labs/paste/commit/39cfc65ea1f44e024732390527fc139a86138a72), [`eb490746c`](https://github.com/twilio-labs/paste/commit/eb490746cb957a349fb217c13b886db4a7277342), [`0aa52162`](https://github.com/twilio-labs/paste/commit/0aa5216294bb195873e46b7fe83ce71250b7c38b)]:
+  - @twilio-paste/button@10.1.0
+  - @twilio-paste/truncate@10.0.2
+  - @twilio-paste/chat-log@1.1.0
+  - @twilio-paste/display-pill-group@4.0.2
+  - @twilio-paste/theme@7.0.2
+
+## 14.0.0
+
+### Major Changes
+
+- [`70fb21269`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002) [#2454](https://github.com/twilio-labs/paste/pull/2454) Thanks [@shleewhite](https://github.com/shleewhite)! - [Textarea] Update textarea to use @twilio-paste/react-autosize-textarea library and add the resize prop which allows users to resize the textarea height.
+
+* [`70fb2126`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002) [#2454](https://github.com/twilio-labs/paste/pull/2454) Thanks [@shleewhite](https://github.com/shleewhite)! - [react-textarea-autosize-library] add react-textarea-autosize library
+
+### Minor Changes
+
+- [`1c7765ac0`](https://github.com/twilio-labs/paste/commit/1c7765ac091bb50157257665337216af7aeb845d) [#2467](https://github.com/twilio-labs/paste/pull/2467) Thanks [@andipants12](https://github.com/andipants12)! - [Design tokens] Add a new generic export featuring additional metadata. This can be used in documentation or software tooling.
+
+  - CommonJS export `tokens.gatsby.js`
+  - complimentary declaration file included `tokens.gatsby.d.ts`
+  - Maps token buckets/categories (e.g. "background-colors") to a list of token objects.
+
+### Patch Changes
+
+- [`8263d8a3`](https://github.com/twilio-labs/paste/commit/8263d8a3618685582cd282aae9877a00a92c320c) [#2452](https://github.com/twilio-labs/paste/pull/2452) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] allow both src and icon props at the same
+
+* [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [Table] removed uneccessarily spread prop on Tr component and set an initial value correctly for the context provider
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
+* [`3bfd6394`](https://github.com/twilio-labs/paste/commit/3bfd639407f60386fdd92b76d66e5e506979c282) [#2456](https://github.com/twilio-labs/paste/pull/2456) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] simplify logic for when to show image or icon
+
+* Updated dependencies [[`8263d8a3`](https://github.com/twilio-labs/paste/commit/8263d8a3618685582cd282aae9877a00a92c320c), [`70fb21269`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002), [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866), [`70fb2126`](https://github.com/twilio-labs/paste/commit/70fb21269a49f35387b2c521aac2512727aec002), [`1c7765ac0`](https://github.com/twilio-labs/paste/commit/1c7765ac091bb50157257665337216af7aeb845d), [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866), [`3bfd6394`](https://github.com/twilio-labs/paste/commit/3bfd639407f60386fdd92b76d66e5e506979c282)]:
+  - @twilio-paste/avatar@5.0.1
+  - @twilio-paste/textarea@6.0.0
+  - @twilio-paste/table@4.0.1
+  - @twilio-paste/react-textarea-autosize-library@1.0.0
+  - @twilio-paste/design-tokens@7.3.0
+  - @twilio-paste/color-contrast-utils@2.0.5
+  - @twilio-paste/alert@10.0.1
+  - @twilio-paste/alert-dialog@4.0.1
+  - @twilio-paste/anchor@8.0.1
+  - @twilio-paste/badge@4.0.1
+  - @twilio-paste/base-radio-checkbox@9.0.1
+  - @twilio-paste/breadcrumb@7.0.1
+  - @twilio-paste/button@10.0.1
+  - @twilio-paste/card@5.0.1
+  - @twilio-paste/chat-log@1.0.1
+  - @twilio-paste/checkbox@9.0.1
+  - @twilio-paste/combobox@11.0.2
+  - @twilio-paste/data-grid@3.0.2
+  - @twilio-paste/date-picker@2.0.1
+  - @twilio-paste/disclosure@8.0.2
+  - @twilio-paste/display-pill-group@4.0.1
+  - @twilio-paste/form-pill-group@4.0.2
+  - @twilio-paste/heading@7.0.1
+  - @twilio-paste/help-text@9.0.1
+  - @twilio-paste/inline-control-group@9.0.1
+  - @twilio-paste/input@5.0.1
+  - @twilio-paste/input-box@6.0.1
+  - @twilio-paste/label@9.0.1
+  - @twilio-paste/list@4.0.1
+  - @twilio-paste/menu@10.0.2
+  - @twilio-paste/modal@11.0.2
+  - @twilio-paste/pagination@3.0.1
+  - @twilio-paste/paragraph@6.0.1
+  - @twilio-paste/popover@9.0.2
+  - @twilio-paste/radio-group@9.0.1
+  - @twilio-paste/screen-reader-only@9.0.1
+  - @twilio-paste/select@8.0.1
+  - @twilio-paste/separator@4.0.1
+  - @twilio-paste/skeleton-loader@2.0.1
+  - @twilio-paste/spinner@10.0.1
+  - @twilio-paste/tabs@4.0.2
+  - @twilio-paste/time-picker@2.0.1
+  - @twilio-paste/toast@8.0.1
+  - @twilio-paste/tooltip@7.0.2
+  - @twilio-paste/truncate@10.0.1
+  - @twilio-paste/aspect-ratio@6.0.1
+  - @twilio-paste/flex@4.0.1
+  - @twilio-paste/grid@4.0.1
+  - @twilio-paste/media-object@6.0.1
+  - @twilio-paste/stack@4.0.1
+  - @twilio-paste/box@6.0.1
+  - @twilio-paste/combobox-primitive@0.3.4
+  - @twilio-paste/disclosure-primitive@0.3.9
+  - @twilio-paste/menu-primitive@0.2.10
+  - @twilio-paste/modal-dialog-primitive@0.3.2
+  - @twilio-paste/non-modal-dialog-primitive@0.3.10
+  - @twilio-paste/sibling-box@5.0.1
+  - @twilio-paste/tabs-primitive@0.2.8
+  - @twilio-paste/text@6.0.1
+  - @twilio-paste/tooltip-primitive@0.2.9
+  - @twilio-paste/customization@4.0.2
+  - @twilio-paste/animation-library@0.3.7
+  - @twilio-paste/clipboard-copy-library@1.0.4
+  - @twilio-paste/data-visualization-library@1.0.1
+  - @twilio-paste/dropdown-library@1.1.5
+  - @twilio-paste/reakit-library@0.8.6
+  - @twilio-paste/styling-library@1.0.2
+  - @twilio-paste/uid-library@0.2.5
+  - @twilio-paste/style-props@5.0.2
+  - @twilio-paste/theme@7.0.1
+  - @twilio-paste/types@3.1.8
+  - @twilio-paste/utils@1.1.5
+
 ## 13.0.1
 
 ### Patch Changes
@@ -852,1213 +3196,3 @@
 - Updated dependencies [[`9132d0cb`](https://github.com/twilio-labs/paste/commit/9132d0cb3ed82bf4a1956484b93783605e2aea1d), [`ab0b98bc`](https://github.com/twilio-labs/paste/commit/ab0b98bc78e81731a443234a4f8e32d4f4f6b0a6)]:
   - @twilio-paste/style-props@3.2.0
   - @twilio-paste/heading@5.2.0
-
-## 10.19.0
-
-### Minor Changes
-
-- [`1031500c`](https://github.com/twilio-labs/paste/commit/1031500ce6e66acd0d10886386221ea863d0e784) [#2107](https://github.com/twilio-labs/paste/pull/2107) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fix default imports for JSON to play nice with webpack 5
-
-* [`f8bdf2e0`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c) [#2089](https://github.com/twilio-labs/paste/pull/2089) Thanks [@shleewhite](https://github.com/shleewhite)! - [Popover] Add PopoverBadgeButton component
-
-### Patch Changes
-
-- [`5d4515ea`](https://github.com/twilio-labs/paste/commit/5d4515ea31e06fa3e1478d5e42971a7973de9d51) [#2083](https://github.com/twilio-labs/paste/pull/2083) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert, Modal, Popover, Toast] Update close button to use `secondary_icon` button variant
-
-* [`f8bdf2e03`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c) [#2089](https://github.com/twilio-labs/paste/pull/2089) Thanks [@shleewhite](https://github.com/shleewhite)! - [Badge] Update the maxWidth
-
-- [`eb7fce36`](https://github.com/twilio-labs/paste/commit/eb7fce3697fcb3e4530ec384d91bbdec6cc23df5) [#2087](https://github.com/twilio-labs/paste/pull/2087) Thanks [@shleewhite](https://github.com/shleewhite)! - [Label] Update the cursor
-
-- Updated dependencies [[`5d4515ea`](https://github.com/twilio-labs/paste/commit/5d4515ea31e06fa3e1478d5e42971a7973de9d51), [`1031500c`](https://github.com/twilio-labs/paste/commit/1031500ce6e66acd0d10886386221ea863d0e784), [`f8bdf2e0`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c), [`f8bdf2e03`](https://github.com/twilio-labs/paste/commit/f8bdf2e03608ac027eac81dd6789774ed2344a2c), [`eb7fce36`](https://github.com/twilio-labs/paste/commit/eb7fce3697fcb3e4530ec384d91bbdec6cc23df5)]:
-  - @twilio-paste/alert@7.1.2
-  - @twilio-paste/modal@7.1.5
-  - @twilio-paste/popover@6.3.0
-  - @twilio-paste/toast@5.2.2
-  - @twilio-paste/color-contrast-utils@1.2.0
-  - @twilio-paste/badge@1.1.3
-  - @twilio-paste/label@6.0.7
-
-## 10.18.0
-
-### Minor Changes
-
-- [`1b6b78fa`](https://github.com/twilio-labs/paste/commit/1b6b78fa416bf15903493cc570275d94e08a8636) [#2013](https://github.com/twilio-labs/paste/pull/2013) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button] Add variants to be used specifically with icons.
-
-### Patch Changes
-
-- [`be59394d2`](https://github.com/twilio-labs/paste/commit/be59394d282ed46dfe7c41ef2dc16372d1da3947) [#2057](https://github.com/twilio-labs/paste/pull/2057) Thanks [@zahnster](https://github.com/zahnster)! - [Checkbox] Declare relative position on checkbox to fix focus position bug
-
-* [`0f0a9bdd1`](https://github.com/twilio-labs/paste/commit/0f0a9bdd1392db27377c3c1e2f9881ac5afc85b8) [#2075](https://github.com/twilio-labs/paste/pull/2075) Thanks [@TheSisb](https://github.com/TheSisb)! - [Data-grid] Fixes issue where inner links would at times not be clickable.
-
-- [`97da2b6b7`](https://github.com/twilio-labs/paste/commit/97da2b6b79eb7b5667f39aac483f83474ba6189e) [#2028](https://github.com/twilio-labs/paste/pull/2028) Thanks [@gloriliale](https://github.com/gloriliale)! - [design-tokens] Changed the alias that Dark mode's color-text-icon points to from gray-10 to gray-60
-
-* [`1b77d45b`](https://github.com/twilio-labs/paste/commit/1b77d45b598b5924893e26a770798a1e1df73f2e) [#2029](https://github.com/twilio-labs/paste/pull/2029) Thanks [@shleewhite](https://github.com/shleewhite)! - Export the BadgeProps type and correctly pass the ref to the wrapper element when the Badge is focusable.
-
-* Updated dependencies [[`be59394d2`](https://github.com/twilio-labs/paste/commit/be59394d282ed46dfe7c41ef2dc16372d1da3947), [`1b6b78fa`](https://github.com/twilio-labs/paste/commit/1b6b78fa416bf15903493cc570275d94e08a8636), [`0f0a9bdd1`](https://github.com/twilio-labs/paste/commit/0f0a9bdd1392db27377c3c1e2f9881ac5afc85b8), [`97da2b6b7`](https://github.com/twilio-labs/paste/commit/97da2b6b79eb7b5667f39aac483f83474ba6189e), [`1b77d45b`](https://github.com/twilio-labs/paste/commit/1b77d45b598b5924893e26a770798a1e1df73f2e)]:
-  - @twilio-paste/checkbox@6.1.3
-  - @twilio-paste/button@7.1.0
-  - @twilio-paste/data-grid@0.2.1
-  - @twilio-paste/design-tokens@6.14.2
-  - @twilio-paste/badge@1.1.2
-
-## 10.17.0
-
-### Minor Changes
-
-- [`ad741d15a`](https://github.com/twilio-labs/paste/commit/ad741d15a313c59ed8922d7515ecb1109b07e60a) [#2025](https://github.com/twilio-labs/paste/pull/2025) Thanks [@nkrantz](https://github.com/nkrantz)! - [Data-Grid] Add `textAlign` prop to `DataGridCell` for aligning cells and columns to the right.
-
-### Patch Changes
-
-- [`bcac9a339`](https://github.com/twilio-labs/paste/commit/bcac9a339ec8c99e15c7dac1446e315b58449fbf) [#2020](https://github.com/twilio-labs/paste/pull/2020) Thanks [@TheSisb](https://github.com/TheSisb)! - [DisplayPillGroup and FormPillGroup] Improved the group container elements so that they wrap correctly when having an overflow of pill children elements. (Thanks @rpresb)
-
-* [`8bedb9fd`](https://github.com/twilio-labs/paste/commit/8bedb9fdc1996b0cabfef90d70b341dd1e384fe1) [#2021](https://github.com/twilio-labs/paste/pull/2021) Thanks [@TheSisb](https://github.com/TheSisb)! - [Theme and Customization] Slight tweak to prevent animations from running once on app load when they should be disabled from the beginning.
-
-* Updated dependencies [[`ad741d15a`](https://github.com/twilio-labs/paste/commit/ad741d15a313c59ed8922d7515ecb1109b07e60a), [`bcac9a339`](https://github.com/twilio-labs/paste/commit/bcac9a339ec8c99e15c7dac1446e315b58449fbf), [`8bedb9fd`](https://github.com/twilio-labs/paste/commit/8bedb9fdc1996b0cabfef90d70b341dd1e384fe1)]:
-  - @twilio-paste/data-grid@0.2.0
-  - @twilio-paste/display-pill-group@1.1.3
-  - @twilio-paste/form-pill-group@1.1.3
-  - @twilio-paste/customization@2.1.3
-  - @twilio-paste/theme@5.3.3
-
-## 10.16.0
-
-### Minor Changes
-
-- [`847504d03`](https://github.com/twilio-labs/paste/commit/847504d0393706806c683a4ffb537796fccc5888) [#2011](https://github.com/twilio-labs/paste/pull/2011) Thanks [@TheSisb](https://github.com/TheSisb)! - [Popover] Removes the wrapping `<Box>` present in `PopoverContainer`, along with the ref passing. PopoverContainer is strictly a context provider now. This fixes issues around vertical alignment and inlining PopoverButtons.
-
-### Patch Changes
-
-- [`f381d8e7`](https://github.com/twilio-labs/paste/commit/f381d8e748ff45557bc166cbe024abdd6002d20e) [#2000](https://github.com/twilio-labs/paste/pull/2000) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Center-align button contents for vertical alignment
-
-* [`8f83a25d`](https://github.com/twilio-labs/paste/commit/8f83a25dec843518721597721606e80e37dbde97) [#1990](https://github.com/twilio-labs/paste/pull/1990) Thanks [@TheSisb](https://github.com/TheSisb)! - [Data Grid] Fixed broken 'striped' prop so it correctly toggles zebra striping on rows.
-
-- [`b7675915`](https://github.com/twilio-labs/paste/commit/b76759157a8c554863b6e37ddb6ea081c1c53258) [#1985](https://github.com/twilio-labs/paste/pull/1985) Thanks [@TheSisb](https://github.com/TheSisb)! - For debugging purposes we now ship a `filename.debug.js` unminified version of each component or library in Paste.
-
-* [`ed5c0a49c`](https://github.com/twilio-labs/paste/commit/ed5c0a49ced5c524607cac7166d3aa4c389f2e7f) [#1965](https://github.com/twilio-labs/paste/pull/1965) Thanks [@shleewhite](https://github.com/shleewhite)! - Upgrade Paste to use React 17 by default, but maintain React 16 support for consumers.
-
-- [`5c99798b`](https://github.com/twilio-labs/paste/commit/5c99798b551553c47c8ff2bbbb5661d430abdb21) [#1996](https://github.com/twilio-labs/paste/pull/1996) Thanks [@gloriliale](https://github.com/gloriliale)! - Updated and added link colors to the default theme and dark theme.
-
-- Updated dependencies [[`f381d8e7`](https://github.com/twilio-labs/paste/commit/f381d8e748ff45557bc166cbe024abdd6002d20e), [`8f83a25d`](https://github.com/twilio-labs/paste/commit/8f83a25dec843518721597721606e80e37dbde97), [`b7675915`](https://github.com/twilio-labs/paste/commit/b76759157a8c554863b6e37ddb6ea081c1c53258), [`ed5c0a49c`](https://github.com/twilio-labs/paste/commit/ed5c0a49ced5c524607cac7166d3aa4c389f2e7f), [`5c99798b`](https://github.com/twilio-labs/paste/commit/5c99798b551553c47c8ff2bbbb5661d430abdb21), [`847504d03`](https://github.com/twilio-labs/paste/commit/847504d0393706806c683a4ffb537796fccc5888)]:
-  - @twilio-paste/button@7.0.11
-  - @twilio-paste/data-grid@0.1.1
-  - @twilio-paste/alert@7.1.1
-  - @twilio-paste/alert-dialog@0.2.1
-  - @twilio-paste/anchor@5.1.2
-  - @twilio-paste/avatar@2.2.1
-  - @twilio-paste/badge@1.1.1
-  - @twilio-paste/base-radio-checkbox@6.0.5
-  - @twilio-paste/breadcrumb@4.1.1
-  - @twilio-paste/card@3.1.2
-  - @twilio-paste/checkbox@6.1.2
-  - @twilio-paste/combobox@8.1.1
-  - @twilio-paste/date-picker@0.2.1
-  - @twilio-paste/disclosure@5.1.2
-  - @twilio-paste/display-pill-group@1.1.2
-  - @twilio-paste/form-pill-group@1.1.2
-  - @twilio-paste/heading@5.1.1
-  - @twilio-paste/help-text@6.1.1
-  - @twilio-paste/inline-control-group@6.1.1
-  - @twilio-paste/input@3.1.2
-  - @twilio-paste/input-box@4.1.2
-  - @twilio-paste/label@6.0.6
-  - @twilio-paste/list@2.1.1
-  - @twilio-paste/menu@7.0.5
-  - @twilio-paste/modal@7.1.4
-  - @twilio-paste/pagination@0.2.1
-  - @twilio-paste/paragraph@4.1.1
-  - @twilio-paste/popover@6.2.0
-  - @twilio-paste/radio-group@6.1.1
-  - @twilio-paste/screen-reader-only@6.0.3
-  - @twilio-paste/select@5.1.2
-  - @twilio-paste/separator@2.1.1
-  - @twilio-paste/skeleton-loader@0.1.3
-  - @twilio-paste/spinner@7.2.2
-  - @twilio-paste/table@2.1.2
-  - @twilio-paste/tabs@2.1.1
-  - @twilio-paste/textarea@3.1.1
-  - @twilio-paste/time-picker@0.2.1
-  - @twilio-paste/toast@5.2.1
-  - @twilio-paste/tooltip@4.1.2
-  - @twilio-paste/truncate@7.0.1
-  - @twilio-paste/aspect-ratio@4.0.5
-  - @twilio-paste/flex@2.1.1
-  - @twilio-paste/grid@2.1.1
-  - @twilio-paste/media-object@4.1.1
-  - @twilio-paste/stack@2.1.1
-  - @twilio-paste/box@4.2.5
-  - @twilio-paste/combobox-primitive@0.3.1
-  - @twilio-paste/disclosure-primitive@0.3.5
-  - @twilio-paste/menu-primitive@0.2.6
-  - @twilio-paste/modal-dialog-primitive@0.2.4
-  - @twilio-paste/non-modal-dialog-primitive@0.3.6
-  - @twilio-paste/sibling-box@3.0.5
-  - @twilio-paste/tabs-primitive@0.2.4
-  - @twilio-paste/text@4.1.5
-  - @twilio-paste/tooltip-primitive@0.2.5
-  - @twilio-paste/customization@2.1.2
-  - @twilio-paste/animation-library@0.3.3
-  - @twilio-paste/clipboard-copy-library@1.0.1
-  - @twilio-paste/dropdown-library@1.1.2
-  - @twilio-paste/reakit-library@0.8.2
-  - @twilio-paste/styling-library@0.3.5
-  - @twilio-paste/uid-library@0.2.2
-  - @twilio-paste/style-props@3.1.1
-  - @twilio-paste/theme@5.3.2
-  - @twilio-paste/types@3.1.3
-  - @twilio-paste/utils@1.1.1
-  - @twilio-paste/design-tokens@6.14.1
-
-## 10.15.0
-
-### Minor Changes
-
-- [`bdff8b23`](https://github.com/twilio-labs/paste/commit/bdff8b23c308c0882a340b74ce0b2ebadd20b85f) [#1928](https://github.com/twilio-labs/paste/pull/1928) Thanks [@loreina](https://github.com/loreina)! - [Tokens] Added shadow-focus-inset token to dark theme, and adjusted shadow-focus-inset token value for default theme.
-
-* [`4d87a7c9`](https://github.com/twilio-labs/paste/commit/4d87a7c9a9a1349db51824fb0a827ec5eaa2cf18) [#1919](https://github.com/twilio-labs/paste/pull/1919) Thanks [@nkrantz](https://github.com/nkrantz)! - [AlertDialog] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`d4eaf8b1`](https://github.com/twilio-labs/paste/commit/d4eaf8b1802780842daeeaed43ba1cc5062d2a9e) [#1919](https://github.com/twilio-labs/paste/pull/1919) Thanks [@nkrantz](https://github.com/nkrantz)! - [Toast] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`b17344da`](https://github.com/twilio-labs/paste/commit/b17344dad70812566afa5206786968e59f50efb2) [#1922](https://github.com/twilio-labs/paste/pull/1922) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox] Fix virtualization bug and add virtualization to combobox when an option template is used. The virtualization library we use, react-virtual, provides a ref that is required for correct sizing of virtualized items. The ref from this library's hook was being overridden by another, thus, the virtualized options were not resizing correctly. This behavior was observed in comboboxes that were not using option templates, and had sufficiently long option text.
-
-- [`51723bcc`](https://github.com/twilio-labs/paste/commit/51723bccee321cc7dab4922d90c76d2b912c9f68) [#1950](https://github.com/twilio-labs/paste/pull/1950) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`10d5989a`](https://github.com/twilio-labs/paste/commit/10d5989a8da2dca37d168fdfaaa04231ba2bcfa6) [#1936](https://github.com/twilio-labs/paste/pull/1936) Thanks [@gloriliale](https://github.com/gloriliale)! - [Radio-Group] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-### Patch Changes
-
-- [`e1fc74a5`](https://github.com/twilio-labs/paste/commit/e1fc74a56ca06511d1182ad72a0605e10905b909) [#1977](https://github.com/twilio-labs/paste/pull/1977) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button]: Fix bug that was adding extra padding when Screen Reader Only was passed as a child.
-
-* [`193f0d12`](https://github.com/twilio-labs/paste/commit/193f0d122893a6d165b93d2ca561621c58f9e39d) [#1969](https://github.com/twilio-labs/paste/pull/1969) Thanks [@TheSisb](https://github.com/TheSisb)! - [Anchor] Fixed the missing underline in Firefox. Also improved how external anchors wrap with their icons.
-
-- [`01baddcd`](https://github.com/twilio-labs/paste/commit/01baddcd62c9367c7d6d12bb853a25d4849132f6) [#1925](https://github.com/twilio-labs/paste/pull/1925) Thanks [@shleewhite](https://github.com/shleewhite)! - Add displayNames to all components
-
-* [`3f80fef3`](https://github.com/twilio-labs/paste/commit/3f80fef3173ddaf084f26a371040fc6b4eaa585a) [#1936](https://github.com/twilio-labs/paste/pull/1936) Thanks [@gloriliale](https://github.com/gloriliale)! - [Checkbox] Ensured PropTypes aligned with customization needs by adding element prop.
-
-- [`130d817b`](https://github.com/twilio-labs/paste/commit/130d817b6072b1a7948ee664a1e716714a2a6442) [#1975](https://github.com/twilio-labs/paste/pull/1975) Thanks [@TheSisb](https://github.com/TheSisb)! - [Text] Add missing style props "whiteSpace" and "fontVariantNumeric"
-
-- Updated dependencies [[`bdff8b23`](https://github.com/twilio-labs/paste/commit/bdff8b23c308c0882a340b74ce0b2ebadd20b85f), [`4d87a7c9`](https://github.com/twilio-labs/paste/commit/4d87a7c9a9a1349db51824fb0a827ec5eaa2cf18), [`e1fc74a5`](https://github.com/twilio-labs/paste/commit/e1fc74a56ca06511d1182ad72a0605e10905b909), [`d4eaf8b1`](https://github.com/twilio-labs/paste/commit/d4eaf8b1802780842daeeaed43ba1cc5062d2a9e), [`193f0d12`](https://github.com/twilio-labs/paste/commit/193f0d122893a6d165b93d2ca561621c58f9e39d), [`b17344da`](https://github.com/twilio-labs/paste/commit/b17344dad70812566afa5206786968e59f50efb2), [`01baddcd`](https://github.com/twilio-labs/paste/commit/01baddcd62c9367c7d6d12bb853a25d4849132f6), [`3f80fef3`](https://github.com/twilio-labs/paste/commit/3f80fef3173ddaf084f26a371040fc6b4eaa585a), [`51723bcc`](https://github.com/twilio-labs/paste/commit/51723bccee321cc7dab4922d90c76d2b912c9f68), [`130d817b`](https://github.com/twilio-labs/paste/commit/130d817b6072b1a7948ee664a1e716714a2a6442), [`10d5989a`](https://github.com/twilio-labs/paste/commit/10d5989a8da2dca37d168fdfaaa04231ba2bcfa6)]:
-  - @twilio-paste/design-tokens@6.14.0
-  - @twilio-paste/alert-dialog@0.2.0
-  - @twilio-paste/button@7.0.10
-  - @twilio-paste/toast@5.2.0
-  - @twilio-paste/anchor@5.1.1
-  - @twilio-paste/combobox@8.1.0
-  - @twilio-paste/badge@1.1.0
-  - @twilio-paste/checkbox@6.1.1
-  - @twilio-paste/disclosure@5.1.1
-  - @twilio-paste/display-pill-group@1.1.1
-  - @twilio-paste/form-pill-group@1.1.1
-  - @twilio-paste/input@3.1.1
-  - @twilio-paste/menu@7.0.4
-  - @twilio-paste/modal@7.1.3
-  - @twilio-paste/popover@6.1.1
-  - @twilio-paste/radio-group@6.1.0
-  - @twilio-paste/select@5.1.1
-  - @twilio-paste/spinner@7.2.1
-  - @twilio-paste/tooltip@4.1.1
-  - @twilio-paste/menu-primitive@0.2.5
-  - @twilio-paste/theme@5.3.1
-  - @twilio-paste/text@4.1.4
-
-## 10.14.0
-
-### Minor Changes
-
-- [`dd964dc7`](https://github.com/twilio-labs/paste/commit/dd964dc7d589313237f5a4926800646953d2e9fa) [#1899](https://github.com/twilio-labs/paste/pull/1899) Thanks [@gloriliale](https://github.com/gloriliale)! - [Inline-Control-Group] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`7f8afb28`](https://github.com/twilio-labs/paste/commit/7f8afb28f6f63f4d98d668c1ad8be0411411c1ba) [#1907](https://github.com/twilio-labs/paste/pull/1907) Thanks [@zahnster](https://github.com/zahnster)! - [Alert] Enable component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author."
-
-- [`d13c1095`](https://github.com/twilio-labs/paste/commit/d13c10956420897e8215630bc713c1105dfdfe21) [#1911](https://github.com/twilio-labs/paste/pull/1911) Thanks [@andipants12](https://github.com/andipants12)! - [paste-design-tokens] Added the following tokens for usage with the Connectivity variant and status pattern:
-
-  - color-text-icon-available:
-  - color-text-icon-busy
-  - color-text-icon-unavailable
-  - color-text-icon-offline
-
-* [`db9f9665`](https://github.com/twilio-labs/paste/commit/db9f96657c8e3d9230ef17e1a0ab4658b6016dca) [#1915](https://github.com/twilio-labs/paste/pull/1915) Thanks [@zahnster](https://github.com/zahnster)! - [Popover] Enable component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`b9658287`](https://github.com/twilio-labs/paste/commit/b96582875b124d953164b0c98cafa079b53e7d70) [#1899](https://github.com/twilio-labs/paste/pull/1899) Thanks [@gloriliale](https://github.com/gloriliale)! - [Checkbox] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-### Patch Changes
-
-- Updated dependencies [[`dd964dc7`](https://github.com/twilio-labs/paste/commit/dd964dc7d589313237f5a4926800646953d2e9fa), [`7f8afb28`](https://github.com/twilio-labs/paste/commit/7f8afb28f6f63f4d98d668c1ad8be0411411c1ba), [`d13c1095`](https://github.com/twilio-labs/paste/commit/d13c10956420897e8215630bc713c1105dfdfe21), [`db9f9665`](https://github.com/twilio-labs/paste/commit/db9f96657c8e3d9230ef17e1a0ab4658b6016dca), [`b9658287`](https://github.com/twilio-labs/paste/commit/b96582875b124d953164b0c98cafa079b53e7d70)]:
-  - @twilio-paste/inline-control-group@6.1.0
-  - @twilio-paste/alert@7.1.0
-  - @twilio-paste/design-tokens@6.13.0
-  - @twilio-paste/popover@6.1.0
-  - @twilio-paste/checkbox@6.1.0
-
-## 10.13.0
-
-### Minor Changes
-
-- [`420c78fc`](https://github.com/twilio-labs/paste/commit/420c78fc0f37a2a9189bbb97d77d80f6a58515cd) [#1889](https://github.com/twilio-labs/paste/pull/1889) Thanks [@gloriliale](https://github.com/gloriliale)! - [Tooltip] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`bec21fa0`](https://github.com/twilio-labs/paste/commit/bec21fa0e7d247202994d962d504ef1bb32f22e4) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Added 'shadow-focus-inset', a box-shadow token representing an inset focus outline.
-
-- [`8e0037ab`](https://github.com/twilio-labs/paste/commit/8e0037ab6c83e5b552758444fc9a5338437aeb00) [#1879](https://github.com/twilio-labs/paste/pull/1879) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Display Pill Group] Updated design for display and form pills, improving interactive states such as focus, hover and selected
-
-* [`d7003b63`](https://github.com/twilio-labs/paste/commit/d7003b633068654591b68748ece3d0ac8a80c402) [#1880](https://github.com/twilio-labs/paste/pull/1880) Thanks [@TheSisb](https://github.com/TheSisb)! - [Pagination] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`1e9a9583`](https://github.com/twilio-labs/paste/commit/1e9a9583c4957a401b9a808565395269d711e336) [#1879](https://github.com/twilio-labs/paste/pull/1879) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Form Pill Group] Updated design for display and form pills, improving interactive states such as focus, hover and selected
-
-* [`49a0db69`](https://github.com/twilio-labs/paste/commit/49a0db696408a9fa05d7c02c29cf70bd7defc294) [#1894](https://github.com/twilio-labs/paste/pull/1894) Thanks [@andipants12](https://github.com/andipants12)! - [Spinner]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`9adf3edd`](https://github.com/twilio-labs/paste/commit/9adf3edd88598aa3e8de3f6dd027371a2e54d368) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Adding "@twilio-paste/data-grid", an accessible and responsive data grid component to Paste.
-
-* [`36cc8dce`](https://github.com/twilio-labs/paste/commit/36cc8dce42f4abe357779c6fb80af6c2cd6abd52) [#1895](https://github.com/twilio-labs/paste/pull/1895) Thanks [@andipants12](https://github.com/andipants12)! - [Breadcrumb] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`52779450`](https://github.com/twilio-labs/paste/commit/52779450c531d21d1da2413c37c0374580d5a062) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Added a new Paste package: @twilio-paste/utils. This package contains utilities such as React hooks that are used within or alongside Paste components.
-
-* [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd) [#1886](https://github.com/twilio-labs/paste/pull/1886) Thanks [@andipants12](https://github.com/andipants12)! - [Select]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-### Patch Changes
-
-- [`3a5a90b7`](https://github.com/twilio-labs/paste/commit/3a5a90b74201fece264c2a07344810d52c7b3bc4) [#1897](https://github.com/twilio-labs/paste/pull/1897) Thanks [@nkrantz](https://github.com/nkrantz)! - [Combobox] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`a8ba78e4`](https://github.com/twilio-labs/paste/commit/a8ba78e469b839fe4e920bb75f6909ae005b16cd) [#1903](https://github.com/twilio-labs/paste/pull/1903) Thanks [@andipants12](https://github.com/andipants12)! - [Modal] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd) [#1886](https://github.com/twilio-labs/paste/pull/1886) Thanks [@andipants12](https://github.com/andipants12)! - [InputBox] Remove duplicative prefix in chevron icon wrapper element name, and update name too better reflect the component's purpose.
-
-* [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd) [#1886](https://github.com/twilio-labs/paste/pull/1886) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox]: Update customization tests and stories to use more explicit a more explicit element name for the chevron wrapper. No consumer change required.
-
-- [`7edfbcfb`](https://github.com/twilio-labs/paste/commit/7edfbcfb54ff9bedcaa1a3439461dd1a96665e07) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Minor performance improvement to the animation code.
-
-* [`ca2a8669`](https://github.com/twilio-labs/paste/commit/ca2a8669b9d9ea57ccc5c39e234e13a9dc59ab5b) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Replaced deprecated 'HTMLTableHeaderCellElement' typing for 'HTMLTableCellElement' in Th component.
-
-- [`ba307e2f`](https://github.com/twilio-labs/paste/commit/ba307e2f3b4f4f3dc932fe0f71a1b680fc06b521) [#1887](https://github.com/twilio-labs/paste/pull/1887) Thanks [@nkrantz](https://github.com/nkrantz)! - [BaseRadioCheckbox] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`b2b0f792`](https://github.com/twilio-labs/paste/commit/b2b0f79272b5a7f2159218bc7f519b01a445ca7e) [#1887](https://github.com/twilio-labs/paste/pull/1887) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`d1126c27`](https://github.com/twilio-labs/paste/commit/d1126c278bb14788208b998257a29806edf40ca8) [#1900](https://github.com/twilio-labs/paste/pull/1900) Thanks [@andipants12](https://github.com/andipants12)! - [Menu]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`da38673e`](https://github.com/twilio-labs/paste/commit/da38673e0726010eecaafc4762e927180ab3e120) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Adding lodash.debounce and lodash.iselement typings to @twilio-paste/types
-
-- [`28f12236`](https://github.com/twilio-labs/paste/commit/28f122360e1e474b60b44837fe427d0f05f55c88) [#1893](https://github.com/twilio-labs/paste/pull/1893) Thanks [@TheSisb](https://github.com/TheSisb)! - Fixes a browser quirk around responsive 'fieldset' HTML elements.
-
-* [`9d32315e`](https://github.com/twilio-labs/paste/commit/9d32315e2aee4176fb4b27aac6a131582a0e0bb9) [#1879](https://github.com/twilio-labs/paste/pull/1879) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Added three new pseudo selectors to be used on Box and Text. You can now style selected and hover, selected and focus
-  and selected and focus-visible
-* Updated dependencies [[`3a5a90b7`](https://github.com/twilio-labs/paste/commit/3a5a90b74201fece264c2a07344810d52c7b3bc4), [`420c78fc`](https://github.com/twilio-labs/paste/commit/420c78fc0f37a2a9189bbb97d77d80f6a58515cd), [`a8ba78e4`](https://github.com/twilio-labs/paste/commit/a8ba78e469b839fe4e920bb75f6909ae005b16cd), [`bec21fa0`](https://github.com/twilio-labs/paste/commit/bec21fa0e7d247202994d962d504ef1bb32f22e4), [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd), [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd), [`7edfbcfb`](https://github.com/twilio-labs/paste/commit/7edfbcfb54ff9bedcaa1a3439461dd1a96665e07), [`8e0037ab`](https://github.com/twilio-labs/paste/commit/8e0037ab6c83e5b552758444fc9a5338437aeb00), [`d7003b63`](https://github.com/twilio-labs/paste/commit/d7003b633068654591b68748ece3d0ac8a80c402), [`1e9a9583`](https://github.com/twilio-labs/paste/commit/1e9a9583c4957a401b9a808565395269d711e336), [`ca2a8669`](https://github.com/twilio-labs/paste/commit/ca2a8669b9d9ea57ccc5c39e234e13a9dc59ab5b), [`49a0db69`](https://github.com/twilio-labs/paste/commit/49a0db696408a9fa05d7c02c29cf70bd7defc294), [`ba307e2f`](https://github.com/twilio-labs/paste/commit/ba307e2f3b4f4f3dc932fe0f71a1b680fc06b521), [`9adf3edd`](https://github.com/twilio-labs/paste/commit/9adf3edd88598aa3e8de3f6dd027371a2e54d368), [`b2b0f792`](https://github.com/twilio-labs/paste/commit/b2b0f79272b5a7f2159218bc7f519b01a445ca7e), [`36cc8dce`](https://github.com/twilio-labs/paste/commit/36cc8dce42f4abe357779c6fb80af6c2cd6abd52), [`d1126c27`](https://github.com/twilio-labs/paste/commit/d1126c278bb14788208b998257a29806edf40ca8), [`da38673e`](https://github.com/twilio-labs/paste/commit/da38673e0726010eecaafc4762e927180ab3e120), [`28f12236`](https://github.com/twilio-labs/paste/commit/28f122360e1e474b60b44837fe427d0f05f55c88), [`9d32315e`](https://github.com/twilio-labs/paste/commit/9d32315e2aee4176fb4b27aac6a131582a0e0bb9), [`52779450`](https://github.com/twilio-labs/paste/commit/52779450c531d21d1da2413c37c0374580d5a062), [`7d231ec0`](https://github.com/twilio-labs/paste/commit/7d231ec02993bb1e34c02b6dc1adf04e0fbba4fd)]:
-  - @twilio-paste/combobox@8.0.2
-  - @twilio-paste/tooltip@4.1.0
-  - @twilio-paste/modal@7.1.2
-  - @twilio-paste/design-tokens@6.12.0
-  - @twilio-paste/input-box@4.1.1
-  - @twilio-paste/skeleton-loader@0.1.2
-  - @twilio-paste/display-pill-group@1.1.0
-  - @twilio-paste/pagination@0.2.0
-  - @twilio-paste/form-pill-group@1.1.0
-  - @twilio-paste/table@2.1.1
-  - @twilio-paste/spinner@7.2.0
-  - @twilio-paste/base-radio-checkbox@6.0.4
-  - @twilio-paste/data-grid@0.1.0
-  - @twilio-paste/button@7.0.9
-  - @twilio-paste/breadcrumb@4.1.0
-  - @twilio-paste/menu@7.0.3
-  - @twilio-paste/types@3.1.2
-  - @twilio-paste/inline-control-group@6.0.4
-  - @twilio-paste/box@4.2.4
-  - @twilio-paste/text@4.1.3
-  - @twilio-paste/utils@1.1.0
-  - @twilio-paste/select@5.1.0
-
-## 10.12.0
-
-### Minor Changes
-
-- [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508) [#1816](https://github.com/twilio-labs/paste/pull/1816) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Date picker] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`01233345`](https://github.com/twilio-labs/paste/commit/012333451cc36383cd4dc6f79fb1e678da676d66) [#1840](https://github.com/twilio-labs/paste/pull/1840) Thanks [@andipants12](https://github.com/andipants12)! - [Tabs]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`08859377`](https://github.com/twilio-labs/paste/commit/0885937786a51d7ec93624780f6c6c6ffc7f489b) [#1858](https://github.com/twilio-labs/paste/pull/1858) Thanks [@andipants12](https://github.com/andipants12)! - [Spinner]: Our existing Spinner is looking quite dated, so this PR refreshes the appearance of it. There are no breaking changes, so Paste consumers will be happy to see a refreshed Spinner in their apps without any effort.
-
-* [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508) [#1816](https://github.com/twilio-labs/paste/pull/1816) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Time-picker] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508) [#1816](https://github.com/twilio-labs/paste/pull/1816) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Textarea] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`cba9f8fe`](https://github.com/twilio-labs/paste/commit/cba9f8fe8380f24b6f849eefc3c734fbdb8fd555) [#1852](https://github.com/twilio-labs/paste/pull/1852) Thanks [@nkrantz](https://github.com/nkrantz)! - [Help-Text] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`d387eda8`](https://github.com/twilio-labs/paste/commit/d387eda82cf3d77dbcd5df60cad2a6f5bb0e5e9e) [#1860](https://github.com/twilio-labs/paste/pull/1860) Thanks [@gloriliale](https://github.com/gloriliale)! - [Disclosure] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-### Patch Changes
-
-- [`8006c59b`](https://github.com/twilio-labs/paste/commit/8006c59b6e56633405c0835707da6704169b26e9) [#1835](https://github.com/twilio-labs/paste/pull/1835) Thanks [@nkrantz](https://github.com/nkrantz)! - [Toast] Icons in Toast now use text icon color tokens.
-
-* [`1ce8e1d3`](https://github.com/twilio-labs/paste/commit/1ce8e1d3768cede4d1e780d80b04a29477dd87d0) [#1835](https://github.com/twilio-labs/paste/pull/1835) Thanks [@nkrantz](https://github.com/nkrantz)! - [Alert] Icons in Alert now use text icon color tokens
-
-- [`866cf8f1`](https://github.com/twilio-labs/paste/commit/866cf8f1dd7f2dffa53dfb4ab94b4f06b659e6db) [#1835](https://github.com/twilio-labs/paste/pull/1835) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Text, background, and icon color tokens are updated to meet accessibility guidelines.
-
-* [`d387eda8`](https://github.com/twilio-labs/paste/commit/d387eda82cf3d77dbcd5df60cad2a6f5bb0e5e9e) [#1860](https://github.com/twilio-labs/paste/pull/1860) Thanks [@gloriliale](https://github.com/gloriliale)! - [Card]: updated the props to include variant to help with customizing dependent components.
-
-- [`16b53ea1`](https://github.com/twilio-labs/paste/commit/16b53ea1a6d4530a60ef1db6d715b6bb9de29f3b) [#1878](https://github.com/twilio-labs/paste/pull/1878) Thanks [@nkrantz](https://github.com/nkrantz)! - [Label] Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508) [#1816](https://github.com/twilio-labs/paste/pull/1816) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] exports the getCustomElementStyles utility function
-
-* Updated dependencies [[`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508), [`01233345`](https://github.com/twilio-labs/paste/commit/012333451cc36383cd4dc6f79fb1e678da676d66), [`8006c59b`](https://github.com/twilio-labs/paste/commit/8006c59b6e56633405c0835707da6704169b26e9), [`1ce8e1d3`](https://github.com/twilio-labs/paste/commit/1ce8e1d3768cede4d1e780d80b04a29477dd87d0), [`08859377`](https://github.com/twilio-labs/paste/commit/0885937786a51d7ec93624780f6c6c6ffc7f489b), [`866cf8f1`](https://github.com/twilio-labs/paste/commit/866cf8f1dd7f2dffa53dfb4ab94b4f06b659e6db), [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508), [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508), [`cba9f8fe`](https://github.com/twilio-labs/paste/commit/cba9f8fe8380f24b6f849eefc3c734fbdb8fd555), [`d387eda8`](https://github.com/twilio-labs/paste/commit/d387eda82cf3d77dbcd5df60cad2a6f5bb0e5e9e), [`16b53ea1`](https://github.com/twilio-labs/paste/commit/16b53ea1a6d4530a60ef1db6d715b6bb9de29f3b), [`d387eda8`](https://github.com/twilio-labs/paste/commit/d387eda82cf3d77dbcd5df60cad2a6f5bb0e5e9e), [`26b25e18`](https://github.com/twilio-labs/paste/commit/26b25e18b561b35991016e23851f3b586b2b8508)]:
-  - @twilio-paste/date-picker@0.2.0
-  - @twilio-paste/tabs@2.1.0
-  - @twilio-paste/toast@5.1.1
-  - @twilio-paste/alert@7.0.2
-  - @twilio-paste/spinner@7.1.0
-  - @twilio-paste/design-tokens@6.11.2
-  - @twilio-paste/time-picker@0.2.0
-  - @twilio-paste/textarea@3.1.0
-  - @twilio-paste/help-text@6.1.0
-  - @twilio-paste/card@3.1.1
-  - @twilio-paste/label@6.0.5
-  - @twilio-paste/disclosure@5.1.0
-  - @twilio-paste/box@4.2.3
-
-## 10.11.0
-
-### Minor Changes
-
-- [`63a39e0c`](https://github.com/twilio-labs/paste/commit/63a39e0c86d5c7683420f373eb3ed71e02e621aa) [#1818](https://github.com/twilio-labs/paste/pull/1818) Thanks [@TheSisb](https://github.com/TheSisb)! - [Toast] The `useToaster` push method now allows passing in an `onDismiss` callback function.
-
-* [`f0737a27`](https://github.com/twilio-labs/paste/commit/f0737a279663a774e4d0a4beaa70ee6c11a55da7) [#1817](https://github.com/twilio-labs/paste/pull/1817) Thanks [@andipants12](https://github.com/andipants12)! - [Table]: Enable Component to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-### Patch Changes
-
-- [`1cf0ee5f`](https://github.com/twilio-labs/paste/commit/1cf0ee5fb4d969474de7a3c299706d1fbdcf0482) [#1810](https://github.com/twilio-labs/paste/pull/1810) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Sibling Box] Enable SiblingBox to respect element customizations set on the customization provider. SiblingBox now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`9ed68c88`](https://github.com/twilio-labs/paste/commit/9ed68c886cd0992ff32b5aceff59c1f62a661e69) [#1826](https://github.com/twilio-labs/paste/pull/1826) Thanks [@andipants12](https://github.com/andipants12)! - [Button]: Link, Destructive link, and inverse destructive link button variants should have left aligned text.
-
-- [`30160725`](https://github.com/twilio-labs/paste/commit/30160725ecdb5a028f15a162c7a6806b7bc7b178) [#1774](https://github.com/twilio-labs/paste/pull/1774) Thanks [@nkrantz](https://github.com/nkrantz)! - Added an alias for orange-65 and added the following text color tokens for icons:
-
-  - color-text-icon-error -> red-60 (default) / red-40 (dark)
-  - color-text-icon-success -> green-70 (default) / green-50 (dark)
-  - color-text-icon-warning -> orange-65 (default) / orange-40 (dark)
-  - color-text-icon-neutral -> blue-80 (default) / blue-40 (dark)
-  - color-text-icon-brand-highlight -> amaranth
-  - color-text-icon-brand-inverse -> gray-0
-
-* [`ef450904`](https://github.com/twilio-labs/paste/commit/ef450904d727da5d1ddffc770a16a25c4a947247) [#1831](https://github.com/twilio-labs/paste/pull/1831) Thanks [@andipants12](https://github.com/andipants12)! - [Disclosure] Add z-index to Disclosure Heading to fix flash that occurs when disclosure content renders and the z-indeces are recalculated.
-
-- [`ab55fa27`](https://github.com/twilio-labs/paste/commit/ab55fa270f982ad867a5933dcea8ee240e780fed) [#1814](https://github.com/twilio-labs/paste/pull/1814) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Skeleton-loader] Enable Compoonent to respect element customizations set on the customization provider. Component now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- Updated dependencies [[`1cf0ee5f`](https://github.com/twilio-labs/paste/commit/1cf0ee5fb4d969474de7a3c299706d1fbdcf0482), [`9ed68c88`](https://github.com/twilio-labs/paste/commit/9ed68c886cd0992ff32b5aceff59c1f62a661e69), [`30160725`](https://github.com/twilio-labs/paste/commit/30160725ecdb5a028f15a162c7a6806b7bc7b178), [`ef450904`](https://github.com/twilio-labs/paste/commit/ef450904d727da5d1ddffc770a16a25c4a947247), [`63a39e0c`](https://github.com/twilio-labs/paste/commit/63a39e0c86d5c7683420f373eb3ed71e02e621aa), [`ab55fa27`](https://github.com/twilio-labs/paste/commit/ab55fa270f982ad867a5933dcea8ee240e780fed), [`f0737a27`](https://github.com/twilio-labs/paste/commit/f0737a279663a774e4d0a4beaa70ee6c11a55da7)]:
-  - @twilio-paste/sibling-box@3.0.4
-  - @twilio-paste/button@7.0.8
-  - @twilio-paste/design-tokens@6.11.1
-  - @twilio-paste/disclosure@5.0.7
-  - @twilio-paste/toast@5.1.0
-  - @twilio-paste/skeleton-loader@0.1.1
-  - @twilio-paste/table@2.1.0
-
-## 10.10.1
-
-### Patch Changes
-
-- [`fe4a2383`](https://github.com/twilio-labs/paste/commit/fe4a23834e9aecf2ab249651e8713ae5d37e8d3d) [#1824](https://github.com/twilio-labs/paste/pull/1824) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox], [Select] and [Textarea] all given a default element name to meet their PropTypes validation.
-
-- Updated dependencies [[`fe4a2383`](https://github.com/twilio-labs/paste/commit/fe4a23834e9aecf2ab249651e8713ae5d37e8d3d)]:
-  - @twilio-paste/combobox@8.0.1
-  - @twilio-paste/select@5.0.6
-  - @twilio-paste/textarea@3.0.7
-
-## 10.10.0
-
-### Minor Changes
-
-- [`ca0bf618`](https://github.com/twilio-labs/paste/commit/ca0bf6188ad7ac3375bec75d6461924b13edb391) [#1800](https://github.com/twilio-labs/paste/pull/1800) Thanks [@TheSisb](https://github.com/TheSisb)! - [DisplayPillGroup]: Adding this new Paste component package for Display Pill Group.
-
-* [`a0cf511c`](https://github.com/twilio-labs/paste/commit/a0cf511c0078df0441d859939e9002a5e0b3431d) [#1799](https://github.com/twilio-labs/paste/pull/1799) Thanks [@vnguyen94](https://github.com/vnguyen94)! - adds the clipboard-copy library; this will provide baseline functionality for developers to intuitively interact with the Clipboard API.
-
-- [`c9cc610b`](https://github.com/twilio-labs/paste/commit/c9cc610b6834fd9be22488e8e727ee65b1114aa0) [#1790](https://github.com/twilio-labs/paste/pull/1790) Thanks [@andipants12](https://github.com/andipants12)! - [Combobox Primitive] expose useMultiSelectPrimitive
-
-* [`06bae4e2`](https://github.com/twilio-labs/paste/commit/06bae4e21077a32a6eeb059941f8717c76d76ce0) [#1803](https://github.com/twilio-labs/paste/pull/1803) Thanks [@TheSisb](https://github.com/TheSisb)! - [Form Pill Group] Adding the FormPillGroup component package. This component renders is a collection of Pills that can be selected or removed from within a data entry form.
-
-- [`9ceb48bd`](https://github.com/twilio-labs/paste/commit/9ceb48bd5d7c7d1f60bb3371085651c220e20f35) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Input] Enable Input to respect element customizations set on the customization provider. Input now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`18c1f595`](https://github.com/twilio-labs/paste/commit/18c1f595e03d6152789342d1fc05942201cec5d3) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Input-box] Enable InputBox, Prefix and Suffix to respect element customizations set on the customization provider. InputBox, Prefix and Suffix now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-### Patch Changes
-
-- [`af3b1e55`](https://github.com/twilio-labs/paste/commit/af3b1e558fc438352b47098d7d085d7eeffbfa51) [#1801](https://github.com/twilio-labs/paste/pull/1801) Thanks [@andipants12](https://github.com/andipants12)! - [Button] All link variants should have left aligned text.
-
-* [`e3398bd5`](https://github.com/twilio-labs/paste/commit/e3398bd5aaa84aaabe934bcad061cda705cdbe0a) [#1783](https://github.com/twilio-labs/paste/pull/1783) Thanks [@andipants12](https://github.com/andipants12)! - [Badge]: Update badge container div max width value to be "fit-content"
-
-- [`2eb6dd74`](https://github.com/twilio-labs/paste/commit/2eb6dd74eb1cdc06079e64a711e71b93d4f9c823) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Combobox] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
-
-* [`0347aef6`](https://github.com/twilio-labs/paste/commit/0347aef6e8100f9dbc2bcd8830dd5c81b4de5a03) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [TextArea] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
-
-- [`4964821b`](https://github.com/twilio-labs/paste/commit/4964821bd7a2d0fc267b4daf2eef5f1810d8f534) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Box] Added the following style props to support input:
-
-  - PsuedoProps:
-
-    - \_\_webkit_datetime_edit
-    - \_\_webkit_calendar_picker_indicator_hover
-
-  - StyleProps:
-    - -webkit-text-fill-color
-    - -webkit-opacity
-
-* [`a5c17a31`](https://github.com/twilio-labs/paste/commit/a5c17a313ba1cca7f0d48a3b3ae64d8ceddae53f) [#1771](https://github.com/twilio-labs/paste/pull/1771) Thanks [@richbachman](https://github.com/richbachman)! - [Select] Added the `element` prop for customization in order to fix a Typescript error after the `element` prop was added as a required prop for `InputBox` and `InputChevronWrapper`. This does not include any default naming, tests, or stories. It only fixes the Typescript error.
-
-* Updated dependencies [[`ca0bf618`](https://github.com/twilio-labs/paste/commit/ca0bf6188ad7ac3375bec75d6461924b13edb391), [`af3b1e55`](https://github.com/twilio-labs/paste/commit/af3b1e558fc438352b47098d7d085d7eeffbfa51), [`e3398bd5`](https://github.com/twilio-labs/paste/commit/e3398bd5aaa84aaabe934bcad061cda705cdbe0a), [`a0cf511c`](https://github.com/twilio-labs/paste/commit/a0cf511c0078df0441d859939e9002a5e0b3431d), [`2eb6dd74`](https://github.com/twilio-labs/paste/commit/2eb6dd74eb1cdc06079e64a711e71b93d4f9c823), [`c9cc610b`](https://github.com/twilio-labs/paste/commit/c9cc610b6834fd9be22488e8e727ee65b1114aa0), [`0347aef6`](https://github.com/twilio-labs/paste/commit/0347aef6e8100f9dbc2bcd8830dd5c81b4de5a03), [`06bae4e2`](https://github.com/twilio-labs/paste/commit/06bae4e21077a32a6eeb059941f8717c76d76ce0), [`4964821b`](https://github.com/twilio-labs/paste/commit/4964821bd7a2d0fc267b4daf2eef5f1810d8f534), [`a5c17a31`](https://github.com/twilio-labs/paste/commit/a5c17a313ba1cca7f0d48a3b3ae64d8ceddae53f), [`9ceb48bd`](https://github.com/twilio-labs/paste/commit/9ceb48bd5d7c7d1f60bb3371085651c220e20f35), [`18c1f595`](https://github.com/twilio-labs/paste/commit/18c1f595e03d6152789342d1fc05942201cec5d3)]:
-  - @twilio-paste/display-pill-group@1.0.0
-  - @twilio-paste/button@7.0.7
-  - @twilio-paste/badge@1.0.1
-  - @twilio-paste/clipboard-copy-library@1.0.0
-  - @twilio-paste/combobox@8.0.0
-  - @twilio-paste/combobox-primitive@0.3.0
-  - @twilio-paste/textarea@3.0.6
-  - @twilio-paste/form-pill-group@1.0.0
-  - @twilio-paste/box@4.2.2
-  - @twilio-paste/select@5.0.5
-  - @twilio-paste/input@3.1.0
-  - @twilio-paste/input-box@4.1.0
-
-## 10.9.0
-
-### Minor Changes
-
-- [`72c5ce66`](https://github.com/twilio-labs/paste/commit/72c5ce66c1098311d7d9e4a0d6ea2bd62eda9632) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [Paragraph] Enable Paragraph to respect element customizations set on the customization provider. Paragraph now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`2d61c95d`](https://github.com/twilio-labs/paste/commit/2d61c95d09473298e76909b1d20bc705a4e48744) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [Heading] Enable Heading to respect element customizations set on the customization provider. Heading now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`cb3d14ce`](https://github.com/twilio-labs/paste/commit/cb3d14ce95f8fbdfcf86f9ba7a85b3a2f4856e95) [#1766](https://github.com/twilio-labs/paste/pull/1766) Thanks [@richbachman](https://github.com/richbachman)! - [List] Enable UnorderedList, OrderedList and ListItem to respect element customizations set on the customization provider. UnorderedList, OrderedList and ListItem now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`7350eed5`](https://github.com/twilio-labs/paste/commit/7350eed570e8ee36bcd330397df600cbfbdade4a) [#1781](https://github.com/twilio-labs/paste/pull/1781) Thanks [@richbachman](https://github.com/richbachman)! - [Separator] Enable Separator to respect element customizations set on the customization provider. Separator now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-### Patch Changes
-
-- [`8654c408`](https://github.com/twilio-labs/paste/commit/8654c408faec07eed80b49536c95a214e6606400) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box]: Box now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
-
-* [`7a1ed203`](https://github.com/twilio-labs/paste/commit/7a1ed20300159fa095c197cef4dcd28c92369814) [#1785](https://github.com/twilio-labs/paste/pull/1785) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Text now handles the case where a variant being set on the component, does not appear in the elements object set on the Customization Provider
-
-* Updated dependencies [[`72c5ce66`](https://github.com/twilio-labs/paste/commit/72c5ce66c1098311d7d9e4a0d6ea2bd62eda9632), [`8654c408`](https://github.com/twilio-labs/paste/commit/8654c408faec07eed80b49536c95a214e6606400), [`7a1ed203`](https://github.com/twilio-labs/paste/commit/7a1ed20300159fa095c197cef4dcd28c92369814), [`2d61c95d`](https://github.com/twilio-labs/paste/commit/2d61c95d09473298e76909b1d20bc705a4e48744), [`cb3d14ce`](https://github.com/twilio-labs/paste/commit/cb3d14ce95f8fbdfcf86f9ba7a85b3a2f4856e95), [`7350eed5`](https://github.com/twilio-labs/paste/commit/7350eed570e8ee36bcd330397df600cbfbdade4a)]:
-  - @twilio-paste/paragraph@4.1.0
-  - @twilio-paste/box@4.2.1
-  - @twilio-paste/text@4.1.2
-  - @twilio-paste/heading@5.1.0
-  - @twilio-paste/list@2.1.0
-  - @twilio-paste/separator@2.1.0
-
-## 10.8.0
-
-### Minor Changes
-
-- [`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89) [#1743](https://github.com/twilio-labs/paste/pull/1743) Thanks [@andipants12](https://github.com/andipants12)! - [Box] Add column-gap and row-gap (CSS grid, flex box) to Box API.
-
-* [`a6df510d`](https://github.com/twilio-labs/paste/commit/a6df510dffb3706e5132ea04d8f875f313798ee0) [#1743](https://github.com/twilio-labs/paste/pull/1743) Thanks [@andipants12](https://github.com/andipants12)! - [Style Props] add types for column gap and row gap
-
-- [`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89) [#1743](https://github.com/twilio-labs/paste/pull/1743) Thanks [@andipants12](https://github.com/andipants12)! - [Badge] Release Stage 1 of Badge component. A badge is a small chunk of information that describes an object in a visually highlighted way.
-
-### Patch Changes
-
-- Updated dependencies [[`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89), [`a6df510d`](https://github.com/twilio-labs/paste/commit/a6df510dffb3706e5132ea04d8f875f313798ee0), [`14c6fd2e`](https://github.com/twilio-labs/paste/commit/14c6fd2e73e33b86fc49b4e6979afa007833ff89)]:
-  - @twilio-paste/box@4.2.0
-  - @twilio-paste/style-props@3.1.0
-  - @twilio-paste/badge@1.0.0
-
-## 10.7.0
-
-### Minor Changes
-
-- [`d14381b9`](https://github.com/twilio-labs/paste/commit/d14381b96ab3e83d4987b91db755ed27d315b3c6) [#1742](https://github.com/twilio-labs/paste/pull/1742) Thanks [@gloriliale](https://github.com/gloriliale)! - [Avatar] Enable Avatar to respect customizations set on the customization provider. Avatar now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`5374cd7b`](https://github.com/twilio-labs/paste/commit/5374cd7b261431b337a53ce26850fda242812e19) [#1733](https://github.com/twilio-labs/paste/pull/1733) Thanks [@TheSisb](https://github.com/TheSisb)! - [Anchor] Enable Anchor to respect element customizations set on the customization provider. Anchor now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`86c567bc`](https://github.com/twilio-labs/paste/commit/86c567bc8af556e7aa085789968b7823c0c01869) [#1734](https://github.com/twilio-labs/paste/pull/1734) Thanks [@richbachman](https://github.com/richbachman)! - [Grid] Enable Grid and Column to respect element customizations set on the customization provider. Grid, and Column now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-  `Column` has been refactored to use `Box` instead of being a styled div.
-
-* [`5e46a5eb`](https://github.com/twilio-labs/paste/commit/5e46a5eb8c8af94bf7362156dd29016a3281672a) [#1722](https://github.com/twilio-labs/paste/pull/1722) Thanks [@zahnster](https://github.com/zahnster)! - [Stack] Enable stack and stack children to respect element customizations set on the customization provider. Stack and stack children now enable setting an element name on the underlying HTML element, and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-- [`53e9583f`](https://github.com/twilio-labs/paste/commit/53e9583f3330c201db56f0ffd1bdcd736a7044da) [#1726](https://github.com/twilio-labs/paste/pull/1726) Thanks [@richbachman](https://github.com/richbachman)! - [Card] Enable Card to respect element customizations set on the customization provider. Card now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`9f1f99ca`](https://github.com/twilio-labs/paste/commit/9f1f99cae442bc9fd1c658cc85ad64695d61870a) [#1723](https://github.com/twilio-labs/paste/pull/1723) Thanks [@nkrantz](https://github.com/nkrantz)! - [Flex] Enable Flex to respect element customizations set on the customization provider. Flex now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-### Patch Changes
-
-- [`b02b0d60`](https://github.com/twilio-labs/paste/commit/b02b0d606ce308a15e933fe433b6b655e45348e1) [#1685](https://github.com/twilio-labs/paste/pull/1685) Thanks [@andipants12](https://github.com/andipants12)! - [Grid] Fix to apply gutter value to top/bottom padding for vertical grid.
-
-* [`b0e8ab80`](https://github.com/twilio-labs/paste/commit/b0e8ab80d557f102ed5bed3a693d0e53eb99a7c3) [#1725](https://github.com/twilio-labs/paste/pull/1725) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Allow Downshift to handle input events past by the component consumer. This allows for event data and internal state of the combobox to stay in sync correctly
-
-- [`0bfba62d`](https://github.com/twilio-labs/paste/commit/0bfba62d66efe74fc410216f62e67fdd5ab11bea) [#1720](https://github.com/twilio-labs/paste/pull/1720) Thanks [@TheSisb](https://github.com/TheSisb)! - The Popover's close button will now always be the first focus upon opening.
-
-- Updated dependencies [[`d14381b9`](https://github.com/twilio-labs/paste/commit/d14381b96ab3e83d4987b91db755ed27d315b3c6), [`5374cd7b`](https://github.com/twilio-labs/paste/commit/5374cd7b261431b337a53ce26850fda242812e19), [`86c567bc`](https://github.com/twilio-labs/paste/commit/86c567bc8af556e7aa085789968b7823c0c01869), [`5e46a5eb`](https://github.com/twilio-labs/paste/commit/5e46a5eb8c8af94bf7362156dd29016a3281672a), [`53e9583f`](https://github.com/twilio-labs/paste/commit/53e9583f3330c201db56f0ffd1bdcd736a7044da), [`b02b0d60`](https://github.com/twilio-labs/paste/commit/b02b0d606ce308a15e933fe433b6b655e45348e1), [`9f1f99ca`](https://github.com/twilio-labs/paste/commit/9f1f99cae442bc9fd1c658cc85ad64695d61870a), [`b0e8ab80`](https://github.com/twilio-labs/paste/commit/b0e8ab80d557f102ed5bed3a693d0e53eb99a7c3), [`0bfba62d`](https://github.com/twilio-labs/paste/commit/0bfba62d66efe74fc410216f62e67fdd5ab11bea)]:
-  - @twilio-paste/avatar@2.2.0
-  - @twilio-paste/anchor@5.1.0
-  - @twilio-paste/grid@2.1.0
-  - @twilio-paste/stack@2.1.0
-  - @twilio-paste/card@3.1.0
-  - @twilio-paste/flex@2.1.0
-  - @twilio-paste/combobox@7.0.4
-  - @twilio-paste/popover@6.0.4
-
-## 10.6.0
-
-### Minor Changes
-
-- [`a2860c3b`](https://github.com/twilio-labs/paste/commit/a2860c3bf7dba4cf26d94b8bd5b82fa627a2f4ac) [#1708](https://github.com/twilio-labs/paste/pull/1708) Thanks [@nkrantz](https://github.com/nkrantz)! - Add `color-border-inverse-strong` and `shadow-border-inverse-stronger`, adjust `shadow-border-inverse-strong` to align color-border tokens and shadow-border tokens.
-
-### Patch Changes
-
-- [`1a7fcfbc`](https://github.com/twilio-labs/paste/commit/1a7fcfbc60601b277f1fec435f43c9f53e05025a) [#1708](https://github.com/twilio-labs/paste/pull/1708) Thanks [@nkrantz](https://github.com/nkrantz)! - Update inverse button to use `shadow-border-inverse-strongest` on hover
-
-- Updated dependencies [[`1a7fcfbc`](https://github.com/twilio-labs/paste/commit/1a7fcfbc60601b277f1fec435f43c9f53e05025a), [`a2860c3b`](https://github.com/twilio-labs/paste/commit/a2860c3bf7dba4cf26d94b8bd5b82fa627a2f4ac)]:
-  - @twilio-paste/button@7.0.6
-  - @twilio-paste/design-tokens@6.11.0
-
-## 10.5.1
-
-### Patch Changes
-
-- [`b04e98b1`](https://github.com/twilio-labs/paste/commit/b04e98b17f4e35016956280e1762267f82ad6c51) [#1693](https://github.com/twilio-labs/paste/pull/1693) Thanks [@nkrantz](https://github.com/nkrantz)! - Increase padding on popover content and decrease size of close icon
-
-- Updated dependencies [[`b04e98b1`](https://github.com/twilio-labs/paste/commit/b04e98b17f4e35016956280e1762267f82ad6c51)]:
-  - @twilio-paste/popover@6.0.3
-
-## 10.5.0
-
-### Minor Changes
-
-- [`72f18ba1`](https://github.com/twilio-labs/paste/commit/72f18ba18e97a33ec8cf76f37cbf6092bbdb6fee) [#1676](https://github.com/twilio-labs/paste/pull/1676) Thanks [@richbachman](https://github.com/richbachman)! - [MediaObject] Enable media-object, media-figure, and media-body to respect element customizations set on the customization provider. Media-object, media-figure, and media-body now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`21c935aa`](https://github.com/twilio-labs/paste/commit/21c935aa83df06b43a65cfcb3ff7e53615946180) [#1681](https://github.com/twilio-labs/paste/pull/1681) Thanks [@gloriliale](https://github.com/gloriliale)! - Removed the deprecated Typography component package
-
-### Patch Changes
-
-- [`b6c1d692`](https://github.com/twilio-labs/paste/commit/b6c1d69277fecc660ce3281d82d37472a9015bff) [#1684](https://github.com/twilio-labs/paste/pull/1684) Thanks [@richbachman](https://github.com/richbachman)! - [AlertDialog]: added missing `@twilio-paste/uid-library` dependency.
-
-* [`a6518f96`](https://github.com/twilio-labs/paste/commit/a6518f966747aa5bfa3a708ee894a9f4aef361a1) [#1684](https://github.com/twilio-labs/paste/pull/1684) Thanks [@richbachman](https://github.com/richbachman)! - [TimePicker]: added missing `date-fns` dependency.
-
-* Updated dependencies [[`72f18ba1`](https://github.com/twilio-labs/paste/commit/72f18ba18e97a33ec8cf76f37cbf6092bbdb6fee), [`b6c1d692`](https://github.com/twilio-labs/paste/commit/b6c1d69277fecc660ce3281d82d37472a9015bff), [`a6518f96`](https://github.com/twilio-labs/paste/commit/a6518f966747aa5bfa3a708ee894a9f4aef361a1)]:
-  - @twilio-paste/media-object@4.1.0
-  - @twilio-paste/alert-dialog@0.1.2
-  - @twilio-paste/time-picker@0.1.1
-
-## 10.4.0
-
-### Minor Changes
-
-- [`c7d6fa75`](https://github.com/twilio-labs/paste/commit/c7d6fa7526ac10f98dbf406800513fd7af6c371d) [#1641](https://github.com/twilio-labs/paste/pull/1641) Thanks [@richbachman](https://github.com/richbachman)! - [skeleton-loader] Created skeleton loader component package.
-
-### Patch Changes
-
-- [`e4a8aef5`](https://github.com/twilio-labs/paste/commit/e4a8aef5253ee5df290cf106612a58bce7572ef3) [#1663](https://github.com/twilio-labs/paste/pull/1663) Thanks [@richbachman](https://github.com/richbachman)! - [Label] Updated package.json description.
-
-* [`bf5ad8d6`](https://github.com/twilio-labs/paste/commit/bf5ad8d6ede2ba911a1aa45e39341c9137cb692c) [#1656](https://github.com/twilio-labs/paste/pull/1656) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Allow datetime html attribute to be a valid prop
-
-- [`750a38e0`](https://github.com/twilio-labs/paste/commit/750a38e05b9d91f82b14f49a160112f013629468) [#1655](https://github.com/twilio-labs/paste/pull/1655) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tooltip] Fix a bug where the Tooltip component was swallowing the event handlers of the child component it was wrapping
-
-* [`e7cc5ca0`](https://github.com/twilio-labs/paste/commit/e7cc5ca09e8ec1cf913ae88e08c6ee4b616a056a) [#1675](https://github.com/twilio-labs/paste/pull/1675) Thanks [@richbachman](https://github.com/richbachman)! - [Pagination] Update styles for better dark theme accessibility
-
-  `PaginationArrow` hover and focus:
-
-  - border-color: colorBorderPrimary changed to colorBorderPrimaryStronger
-  - color: colorTextLink changed to colorTextLinkStronger
-
-  `PaginationNumber`:
-
-  - border-color: added colorBorderPrimaryStronger border on hover and focus
-  - color: colorTextLink changed to colorTextLinkStronger on hover and focus
-  - isCurrent:
-    - background-color: colorBackgroundPrimaryWeakest changed to colorBackgroundPrimary Stronger
-    - color: colorTextLink changed to colorTextWeakest
-    - isCurrent hover and focus uses same background-colors and colors
-
-* Updated dependencies [[`e4a8aef5`](https://github.com/twilio-labs/paste/commit/e4a8aef5253ee5df290cf106612a58bce7572ef3), [`bf5ad8d6`](https://github.com/twilio-labs/paste/commit/bf5ad8d6ede2ba911a1aa45e39341c9137cb692c), [`750a38e0`](https://github.com/twilio-labs/paste/commit/750a38e05b9d91f82b14f49a160112f013629468), [`e7cc5ca0`](https://github.com/twilio-labs/paste/commit/e7cc5ca09e8ec1cf913ae88e08c6ee4b616a056a), [`c7d6fa75`](https://github.com/twilio-labs/paste/commit/c7d6fa7526ac10f98dbf406800513fd7af6c371d)]:
-  - @twilio-paste/label@6.0.4
-  - @twilio-paste/text@4.1.1
-  - @twilio-paste/tooltip@4.0.4
-  - @twilio-paste/pagination@0.1.3
-  - @twilio-paste/skeleton-loader@0.1.0
-
-## 10.3.0
-
-### Minor Changes
-
-- [`10f4a285`](https://github.com/twilio-labs/paste/commit/10f4a285df84e757d0574f4024770b5eddad17ea) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design tokens] export design token types from the design-tokens page
-  [theme] `GenericTokenShape` is now called `GenericTokensShape` and exported from `@twilio-paste/design-tokens`
-
-* [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [theme] `generateThemeFromTokens` and `generateTokensFromTheme` now take objects as arguments
-
-- [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [theme] provide a hook that will calculate the color contrast rating of the current Paste theme `useThemeContrastCheck`
-
-* [`7a78987a`](https://github.com/twilio-labs/paste/commit/7a78987ac3c3fe9bc00f5f944733b04af2b192d2) [#1310](https://github.com/twilio-labs/paste/pull/1310) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [color-contrast-utils] Provides utilities that can be used to detect the color contrast rating of a given theme of design tokens. The package now export four methods; `getContrastRatingsOfTokensWithTextContrastRequirements`, `getContrastRatingsOfTokensWithUIControlContrastRequirements`, `getNumberOfTextFailures` and `getNumberOfUIControlFailures`
-
-### Patch Changes
-
-- [`b10ac908`](https://github.com/twilio-labs/paste/commit/b10ac908d2728185a66f334506a29cb054df6778) [#1654](https://github.com/twilio-labs/paste/pull/1654) Thanks [@richbachman](https://github.com/richbachman)! - [Tabs]
-
-  - Added `:focus-visible` styles to TabPanel in order to override the default browser style.
-  - Added a `borderRadius20` border-radius to TabPanel to make the focus not so harsh.
-
-* [`6730c0a6`](https://github.com/twilio-labs/paste/commit/6730c0a643cf52fb9008ec3bf707759bd1333b68) [#1606](https://github.com/twilio-labs/paste/pull/1606) Thanks [@richbachman](https://github.com/richbachman)! - [Popover] added the `state` prop that allows hooking into the state of the component using `usePopoverState`. Package is also now exporting `usePopoverState`.
-
-- [`24bdd104`](https://github.com/twilio-labs/paste/commit/24bdd10427d3da5873cf7a21b6341342ccf0ea0a) [#1654](https://github.com/twilio-labs/paste/pull/1654) Thanks [@richbachman](https://github.com/richbachman)! - [Box] Added `focusVisble` to `PseudoPropStyles`.
-
-* [`355a5509`](https://github.com/twilio-labs/paste/commit/355a550910830912bda407906db19339a5054512) [#1606](https://github.com/twilio-labs/paste/pull/1606) Thanks [@richbachman](https://github.com/richbachman)! - [NonModalDialogPrimitive] exported `PopoverStateReturn` as `NonModalDialogPrimitiveStateReturn`.
-
-* Updated dependencies [[`b10ac908`](https://github.com/twilio-labs/paste/commit/b10ac908d2728185a66f334506a29cb054df6778), [`6730c0a6`](https://github.com/twilio-labs/paste/commit/6730c0a643cf52fb9008ec3bf707759bd1333b68), [`10f4a285`](https://github.com/twilio-labs/paste/commit/10f4a285df84e757d0574f4024770b5eddad17ea), [`24bdd104`](https://github.com/twilio-labs/paste/commit/24bdd10427d3da5873cf7a21b6341342ccf0ea0a), [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a), [`e268bfd1`](https://github.com/twilio-labs/paste/commit/e268bfd13f9d2bbeb1a17f2a7ff0bcdc6796c10a), [`7a78987a`](https://github.com/twilio-labs/paste/commit/7a78987ac3c3fe9bc00f5f944733b04af2b192d2), [`355a5509`](https://github.com/twilio-labs/paste/commit/355a550910830912bda407906db19339a5054512)]:
-  - @twilio-paste/tabs@2.0.6
-  - @twilio-paste/popover@6.0.2
-  - @twilio-paste/design-tokens@6.10.0
-  - @twilio-paste/theme@5.3.0
-  - @twilio-paste/box@4.1.1
-  - @twilio-paste/color-contrast-utils@1.1.0
-  - @twilio-paste/non-modal-dialog-primitive@0.3.5
-
-## 10.2.0
-
-### Minor Changes
-
-- [`2b7567b7`](https://github.com/twilio-labs/paste/commit/2b7567b72026e6393517b846c7bb867c3929dea1) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Created a time picker component package.
-
-### Patch Changes
-
-- [`a7fcccd5`](https://github.com/twilio-labs/paste/commit/a7fcccd55fc145b6a711530b030280c24e0e3aa2) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Added type 'time' to Input types for time picker component.
-
-* [`81ef55dc`](https://github.com/twilio-labs/paste/commit/81ef55dc5ce8ec8b6c1a1a28545fd1cd1628a60c) [#1607](https://github.com/twilio-labs/paste/pull/1607) Thanks [@gloriliale](https://github.com/gloriliale)! - Added type 'time' to Input-Box types for time picker component, changed InputTypes to name InputBoxTypes.
-
-* Updated dependencies [[`2b7567b7`](https://github.com/twilio-labs/paste/commit/2b7567b72026e6393517b846c7bb867c3929dea1), [`a7fcccd5`](https://github.com/twilio-labs/paste/commit/a7fcccd55fc145b6a711530b030280c24e0e3aa2), [`81ef55dc`](https://github.com/twilio-labs/paste/commit/81ef55dc5ce8ec8b6c1a1a28545fd1cd1628a60c)]:
-  - @twilio-paste/time-picker@0.1.0
-  - @twilio-paste/input@3.0.8
-  - @twilio-paste/input-box@4.0.7
-
-## 10.1.0
-
-### Minor Changes
-
-- [`035bb7d8`](https://github.com/twilio-labs/paste/commit/035bb7d812dbf84604c3c95adb53c67d18601a60) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Text] Enable Text to respect element customizations set on the customization provider. Text now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-* [`7d703959`](https://github.com/twilio-labs/paste/commit/7d703959e6d989c1257942355115b17d3615bc7f) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Box] Enable Box to respect element customizations set on the customization provider. Box now enables setting an element name on the underlying HTML element and checks the emotion theme object to determine whether it should merge in custom styles to the ones set by the component author.
-
-### Patch Changes
-
-- [`66285238`](https://github.com/twilio-labs/paste/commit/66285238c23b1ac756a6bf30af0ece5a45a0ddc7) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Switch lodash.merge with deepmerge for significant bundle size savings
-
-* [`f2594fca`](https://github.com/twilio-labs/paste/commit/f2594fca7955014922f83d1d4c28df385ee519a5) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Customization] minor change to the elements prop type to change the `variant` to the `variants` key to more closely match styled system. Also correct the elements type to use a string key for the element names
-
-- [`4dcc7b31`](https://github.com/twilio-labs/paste/commit/4dcc7b310830dd77481d7b4546aa5618b0de4f11) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Styling-library] Export StyledComponent and CSSObject types from emotion and styled system respectively
-
-* [`72cdd336`](https://github.com/twilio-labs/paste/commit/72cdd336bcbf9e00befbc2e8e39c7acfa1fed190) [#1599](https://github.com/twilio-labs/paste/pull/1599) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Ensure that the elements object cannot have duplicate element names, even across different casings of the names
-
-* Updated dependencies [[`66285238`](https://github.com/twilio-labs/paste/commit/66285238c23b1ac756a6bf30af0ece5a45a0ddc7), [`f2594fca`](https://github.com/twilio-labs/paste/commit/f2594fca7955014922f83d1d4c28df385ee519a5), [`4dcc7b31`](https://github.com/twilio-labs/paste/commit/4dcc7b310830dd77481d7b4546aa5618b0de4f11), [`035bb7d8`](https://github.com/twilio-labs/paste/commit/035bb7d812dbf84604c3c95adb53c67d18601a60), [`72cdd336`](https://github.com/twilio-labs/paste/commit/72cdd336bcbf9e00befbc2e8e39c7acfa1fed190), [`7d703959`](https://github.com/twilio-labs/paste/commit/7d703959e6d989c1257942355115b17d3615bc7f)]:
-  - @twilio-paste/button@7.0.5
-  - @twilio-paste/customization@2.1.1
-  - @twilio-paste/styling-library@0.3.4
-  - @twilio-paste/text@4.1.0
-  - @twilio-paste/box@4.1.0
-
-## 10.0.0
-
-### Major Changes
-
-- [`fa2ffc5c`](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4) [#1603](https://github.com/twilio-labs/paste/pull/1603) Thanks [@andipants12](https://github.com/andipants12)! - [Truncate] Added the title prop to show full non-truncated text
-  BREAKING CHANGE: `title` prop is now required for the Truncate component.
-
-### Patch Changes
-
-- Updated dependencies [[`fa2ffc5c`](https://github.com/twilio-labs/paste/commit/fa2ffc5cf4da037dcfa0894d033665720cc70ab4)]:
-  - @twilio-paste/truncate@7.0.0
-
-## 9.6.3
-
-### Patch Changes
-
-- [`e43dec0e`](https://github.com/twilio-labs/paste/commit/e43dec0e611defd3ab3e89614b4d57bb33cf481d) [#1594](https://github.com/twilio-labs/paste/pull/1594) Thanks [@TheSisb](https://github.com/TheSisb)! - Minifies output to commonJS and ES6 token files
-
-- Updated dependencies [[`e43dec0e`](https://github.com/twilio-labs/paste/commit/e43dec0e611defd3ab3e89614b4d57bb33cf481d)]:
-  - @twilio-paste/design-tokens@6.9.1
-
-## 9.6.2
-
-### Patch Changes
-
-- [`a7954e29`](https://github.com/twilio-labs/paste/commit/a7954e290af91fa7deba991e554c3ecb838612da) [#1567](https://github.com/twilio-labs/paste/pull/1567) Thanks [@TheSisb](https://github.com/TheSisb)! - **Tabs**: Horizontal tabs now have center-aligned inner text.
-
-- Updated dependencies [[`a7954e29`](https://github.com/twilio-labs/paste/commit/a7954e290af91fa7deba991e554c3ecb838612da)]:
-  - @twilio-paste/tabs@2.0.5
-
-## 9.6.1
-
-### Patch Changes
-
-- [`5e770d20`](https://github.com/twilio-labs/paste/commit/5e770d200ebef1f18b67e6861407e8c092503c57) [#1558](https://github.com/twilio-labs/paste/pull/1558) Thanks [@TheSisb](https://github.com/TheSisb)! - Fixes a bug where Toasts may not display using the provided Toaster for users with the system flag "prefers-reduced-motion"
-
-- Updated dependencies [[`5e770d20`](https://github.com/twilio-labs/paste/commit/5e770d200ebef1f18b67e6861407e8c092503c57)]:
-  - @twilio-paste/toast@5.0.2
-
-## 9.6.0
-
-### Minor Changes
-
-- [`ed8e7ccf`](https://github.com/twilio-labs/paste/commit/ed8e7ccfc8a0d4a6aa18e8741796496690459b5d) [#1499](https://github.com/twilio-labs/paste/pull/1499) Thanks [@nkrantz](https://github.com/nkrantz)! - Created the Date Picker component
-
-### Patch Changes
-
-- [`ed8e7ccf`](https://github.com/twilio-labs/paste/commit/ed8e7ccfc8a0d4a6aa18e8741796496690459b5d) [#1499](https://github.com/twilio-labs/paste/pull/1499) Thanks [@nkrantz](https://github.com/nkrantz)! - Added type 'date' to Input types for date picker component
-
-* [`ed8e7ccf`](https://github.com/twilio-labs/paste/commit/ed8e7ccfc8a0d4a6aa18e8741796496690459b5d) [#1499](https://github.com/twilio-labs/paste/pull/1499) Thanks [@nkrantz](https://github.com/nkrantz)! - Added type 'date' to Input-Box types for date picker component
-
-* Updated dependencies [[`ed8e7ccf`](https://github.com/twilio-labs/paste/commit/ed8e7ccfc8a0d4a6aa18e8741796496690459b5d), [`ed8e7ccf`](https://github.com/twilio-labs/paste/commit/ed8e7ccfc8a0d4a6aa18e8741796496690459b5d), [`ed8e7ccf`](https://github.com/twilio-labs/paste/commit/ed8e7ccfc8a0d4a6aa18e8741796496690459b5d)]:
-  - @twilio-paste/input@3.0.7
-  - @twilio-paste/input-box@4.0.6
-  - @twilio-paste/date-picker@0.1.0
-
-## 9.5.0
-
-### Minor Changes
-
-- [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04) [#1434](https://github.com/twilio-labs/paste/pull/1434) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Added two new icons for light and dark mode
-
-* [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04) [#1434](https://github.com/twilio-labs/paste/pull/1434) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Adding a body background color for purposes of applying the color background body design token so that you can see the affect it has when theming the website
-
-- [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04) [#1434](https://github.com/twilio-labs/paste/pull/1434) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens]: Added two extra brand based background tokens. Update the new design tokens for better dark mode contrast.
-
-  Renamed black aliases in the dark theme as they are not palette colors.
-
-  Updated meta data for weak and strong design tokens to reflect their new naming convention
-
-### Patch Changes
-
-- [`2db8bf96`](https://github.com/twilio-labs/paste/commit/2db8bf963c2fc34e191aa3bfec5c0a0e95e7c72f) [#1505](https://github.com/twilio-labs/paste/pull/1505) Thanks [@richbachman](https://github.com/richbachman)! - Changed disabled box shadows to use correct shadow-border-weak token.
-
-* [`fa48e8dd`](https://github.com/twilio-labs/paste/commit/fa48e8ddf03325d0effb4b1a0201dbf5fd207e71) [#1489](https://github.com/twilio-labs/paste/pull/1489) Thanks [@richbachman](https://github.com/richbachman)! - Added missing dependencies.
-
-- [`f551079a`](https://github.com/twilio-labs/paste/commit/f551079ad141a06532e4d1bcd1c0d4ef7f6f226d) [#1505](https://github.com/twilio-labs/paste/pull/1505) Thanks [@richbachman](https://github.com/richbachman)! - Fixed shadow-border, shadow-border-weak, shadow-border-weaker, shadow-border-strong values to match respective color-border-\* values in all themes.
-
-  Shadow-border-stronger token has been removed in all themes.
-
-  **Default theme**
-
-  | Token                | Original color value | New color value |
-  | -------------------- | -------------------- | --------------- |
-  | shadow-border-weak   | NA                   | palette-gray-30 |
-  | shadow-border-weaker | NA                   | palette-gray-20 |
-  | shadow-border-strong | palette-gray-30      | palette-gray-60 |
-
-  **Console theme**
-
-  | Token                | Original color value | New color value |
-  | -------------------- | -------------------- | --------------- |
-  | shadow-border-weak   | NA                   | palette-gray-50 |
-  | shadow-border-weaker | NA                   | palette-gray-40 |
-  | shadow-border-strong | palette-gray-40      | palette-gray-60 |
-
-  **Dark theme**
-
-  | Token                | Original color value | New color value |
-  | -------------------- | -------------------- | --------------- |
-  | shadow-border        | palette-gray-50      | palette-gray-60 |
-  | shadow-border-weak   | NA                   | palette-gray-70 |
-  | shadow-border-weaker | NA                   | palette-gray-80 |
-  | shadow-border-strong | palette-gray-90      | palette-gray-50 |
-
-* [`f640550a`](https://github.com/twilio-labs/paste/commit/f640550a7306806feaedfd7c3184cad4327cc8a8) [#1489](https://github.com/twilio-labs/paste/pull/1489) Thanks [@richbachman](https://github.com/richbachman)! - Changed box-shadow for ModalDialogContent to use shadow token instead of shadow-card.
-
-- [`104628b3`](https://github.com/twilio-labs/paste/commit/104628b358b773df6f5afc885252eaa64f311c97) [#1505](https://github.com/twilio-labs/paste/pull/1505) Thanks [@richbachman](https://github.com/richbachman)! - Changed default and disabled secondary button box shadow and text color styles to match Figma design files.
-
-- Updated dependencies [[`2db8bf96`](https://github.com/twilio-labs/paste/commit/2db8bf963c2fc34e191aa3bfec5c0a0e95e7c72f), [`fa48e8dd`](https://github.com/twilio-labs/paste/commit/fa48e8ddf03325d0effb4b1a0201dbf5fd207e71), [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04), [`c42f86ca`](https://github.com/twilio-labs/paste/commit/c42f86ca2b652e7876188e94a8acab63d486ab04), [`f551079a`](https://github.com/twilio-labs/paste/commit/f551079ad141a06532e4d1bcd1c0d4ef7f6f226d), [`f640550a`](https://github.com/twilio-labs/paste/commit/f640550a7306806feaedfd7c3184cad4327cc8a8), [`104628b3`](https://github.com/twilio-labs/paste/commit/104628b358b773df6f5afc885252eaa64f311c97)]:
-  - @twilio-paste/input-box@4.0.5
-  - @twilio-paste/alert-dialog@0.1.1
-  - @twilio-paste/theme@5.2.0
-  - @twilio-paste/design-tokens@6.9.0
-  - @twilio-paste/modal@7.1.1
-  - @twilio-paste/button@7.0.4
-
-## 9.4.0
-
-### Minor Changes
-
-- [`d27dc745`](https://github.com/twilio-labs/paste/commit/d27dc7455c221daefb8ee8cf9b209ebb16833e4e) [#1484](https://github.com/twilio-labs/paste/pull/1484) Thanks [@gloriliale](https://github.com/gloriliale)! - Created an alert dialog component
-
-* [`5b26f9bf`](https://github.com/twilio-labs/paste/commit/5b26f9bf2c7000b0fdf655a3ab79482c210b94c3) [#1509](https://github.com/twilio-labs/paste/pull/1509) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [customization]: add ability for customization provider to accept an elements prop which it then merges into the styled theme context.
-
-  Also add the ability to choose which base theme is used when customizing a theme, for use in programmable apps. You can choose from Default or Dark theme as your starting point.
-
-- [`f6f26815`](https://github.com/twilio-labs/paste/commit/f6f26815528b073237b7fd591064abee29f48427) [#1484](https://github.com/twilio-labs/paste/pull/1484) Thanks [@gloriliale](https://github.com/gloriliale)! - Created style file for stylings of the Modal so they can be used in other components, like Alert Dialog.
-
-### Patch Changes
-
-- [`5b26f9bf`](https://github.com/twilio-labs/paste/commit/5b26f9bf2c7000b0fdf655a3ab79482c210b94c3) [#1509](https://github.com/twilio-labs/paste/pull/1509) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [styling-library]: export some types from styled-system to help with custom styling tasks
-
-- Updated dependencies [[`d27dc745`](https://github.com/twilio-labs/paste/commit/d27dc7455c221daefb8ee8cf9b209ebb16833e4e), [`5b26f9bf`](https://github.com/twilio-labs/paste/commit/5b26f9bf2c7000b0fdf655a3ab79482c210b94c3), [`5b26f9bf`](https://github.com/twilio-labs/paste/commit/5b26f9bf2c7000b0fdf655a3ab79482c210b94c3), [`f6f26815`](https://github.com/twilio-labs/paste/commit/f6f26815528b073237b7fd591064abee29f48427)]:
-  - @twilio-paste/alert-dialog@0.1.0
-  - @twilio-paste/customization@2.1.0
-  - @twilio-paste/styling-library@0.3.3
-  - @twilio-paste/modal@7.1.0
-
-## 9.3.5
-
-### Patch Changes
-
-- [`79a9dfba`](https://github.com/twilio-labs/paste/commit/79a9dfbaf60c13bd4985c7d30017d9db5b8c7c76) [#1487](https://github.com/twilio-labs/paste/pull/1487) Thanks [@TheSisb](https://github.com/TheSisb)! - DisclosureHeading now gracefully handles children and doesn't impose flex behavior. This makes it easier to pass MediaObjects and Truncate as children.
-
-* [`eab3fd93`](https://github.com/twilio-labs/paste/commit/eab3fd9384510a7aa35c6f5244e8d0431144197b) [#1501](https://github.com/twilio-labs/paste/pull/1501) Thanks [@richbachman](https://github.com/richbachman)! - MenuItem now renders as a `button` by default. In order to render it as an `a`, and `href` needs to be passed.
-
-* Updated dependencies [[`79a9dfba`](https://github.com/twilio-labs/paste/commit/79a9dfbaf60c13bd4985c7d30017d9db5b8c7c76), [`eab3fd93`](https://github.com/twilio-labs/paste/commit/eab3fd9384510a7aa35c6f5244e8d0431144197b)]:
-  - @twilio-paste/disclosure@5.0.6
-  - @twilio-paste/menu@7.0.2
-
-## 9.3.4
-
-### Patch Changes
-
-- [`b1dd8b0c`](https://github.com/twilio-labs/paste/commit/b1dd8b0c385e59c35c4655479d862864db4d8e7b) [#1478](https://github.com/twilio-labs/paste/pull/1478) Thanks [@richbachman](https://github.com/richbachman)! - Fixed the `required` prop not being passed to the `textbox` inside Combobox.
-
-* [`45c24b01`](https://github.com/twilio-labs/paste/commit/45c24b01aeabf3db34868c4f0ae91b49a0493169) [#1479](https://github.com/twilio-labs/paste/pull/1479) Thanks [@TheSisb](https://github.com/TheSisb)! - Fix a bug where `null` children to a Stack causes extra margin to be appended at the end.
-
-* Updated dependencies [[`b1dd8b0c`](https://github.com/twilio-labs/paste/commit/b1dd8b0c385e59c35c4655479d862864db4d8e7b), [`45c24b01`](https://github.com/twilio-labs/paste/commit/45c24b01aeabf3db34868c4f0ae91b49a0493169)]:
-  - @twilio-paste/combobox@7.0.3
-  - @twilio-paste/stack@2.0.4
-
-## 9.3.3
-
-### Patch Changes
-
-- [`b9e74f3a`](https://github.com/twilio-labs/paste/commit/b9e74f3ab15066381f2c99db5d49cc9adb960572) [#1466](https://github.com/twilio-labs/paste/pull/1466) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Flex]: correctly allow layout style props to be applied to the Flex component including width and height
-
-- Updated dependencies [[`b9e74f3a`](https://github.com/twilio-labs/paste/commit/b9e74f3ab15066381f2c99db5d49cc9adb960572)]:
-  - @twilio-paste/flex@2.0.4
-
-## 9.3.2
-
-### Patch Changes
-
-- [`456e7210`](https://github.com/twilio-labs/paste/commit/456e72109c31677adad53383084cd052f22b1e52) [#1464](https://github.com/twilio-labs/paste/pull/1464) Thanks [@richbachman](https://github.com/richbachman)! - Bumped the version of React-Spring to 9.1.2 in order to fix a TS issue.
-
-* [`dd759feb`](https://github.com/twilio-labs/paste/commit/dd759febfa25e5d6823f280a1896635be2ba6376) [#1464](https://github.com/twilio-labs/paste/pull/1464) Thanks [@richbachman](https://github.com/richbachman)! - Bumped the version of Reach/Dialog to 0.15.0
-
-* Updated dependencies [[`456e7210`](https://github.com/twilio-labs/paste/commit/456e72109c31677adad53383084cd052f22b1e52), [`dd759feb`](https://github.com/twilio-labs/paste/commit/dd759febfa25e5d6823f280a1896635be2ba6376)]:
-  - @twilio-paste/animation-library@0.3.2
-  - @twilio-paste/modal-dialog-primitive@0.2.3
-
-## 9.3.1
-
-### Patch Changes
-
-- [`46495f48`](https://github.com/twilio-labs/paste/commit/46495f48ec005ff0971fb41e5fa76df53503aa84) [#1454](https://github.com/twilio-labs/paste/pull/1454) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Add a background color to disclosure content for when it is placed on top of a background color that is not the body color
-
-- Updated dependencies [[`46495f48`](https://github.com/twilio-labs/paste/commit/46495f48ec005ff0971fb41e5fa76df53503aa84)]:
-  - @twilio-paste/disclosure@5.0.5
-
-## 9.3.0
-
-### Minor Changes
-
-- [`62f7fd3e`](https://github.com/twilio-labs/paste/commit/62f7fd3e3da78bca128aa2287c61d19248a2025d) [#1451](https://github.com/twilio-labs/paste/pull/1451) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens] Adding for availability tokens to display entity status such as available, offline and busy
-
-### Patch Changes
-
-- Updated dependencies [[`62f7fd3e`](https://github.com/twilio-labs/paste/commit/62f7fd3e3da78bca128aa2287c61d19248a2025d)]:
-  - @twilio-paste/design-tokens@6.8.0
-
-## 9.2.4
-
-### Patch Changes
-
-- [`2086d9a2`](https://github.com/twilio-labs/paste/commit/2086d9a2cc592a4c9ac7ce07ab00a8592bcdba6a) [#1448](https://github.com/twilio-labs/paste/pull/1448) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Fix coloring the checkmark of a checkbox when interacting with it
-
-* [`80529764`](https://github.com/twilio-labs/paste/commit/8052976482f1a7ad412e68959e5bf7e186a5c318) [#1431](https://github.com/twilio-labs/paste/pull/1431) Thanks [@richbachman](https://github.com/richbachman)! - Added a margin reset (`margin: space0`) to fix a bug in Safari where a 2px margin is added by the browser.
-
-* Updated dependencies [[`2086d9a2`](https://github.com/twilio-labs/paste/commit/2086d9a2cc592a4c9ac7ce07ab00a8592bcdba6a), [`80529764`](https://github.com/twilio-labs/paste/commit/8052976482f1a7ad412e68959e5bf7e186a5c318)]:
-  - @twilio-paste/checkbox@6.0.5
-  - @twilio-paste/button@7.0.3
-  - @twilio-paste/input@3.0.6
-  - @twilio-paste/select@5.0.4
-
-## 9.2.3
-
-### Patch Changes
-
-- [`b98b3713`](https://github.com/twilio-labs/paste/commit/b98b371315b09a5697be6f56611e428d0e6e377f) [#1426](https://github.com/twilio-labs/paste/pull/1426) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Add the ability to warn consumers that they are using a deprecated Design Token using prop type validation on the Box and Text component
-
-- Updated dependencies [[`b98b3713`](https://github.com/twilio-labs/paste/commit/b98b371315b09a5697be6f56611e428d0e6e377f)]:
-  - @twilio-paste/box@4.0.7
-  - @twilio-paste/text@4.0.4
-  - @twilio-paste/style-props@3.0.6
-
-## 9.2.2
-
-### Patch Changes
-
-- [`37f82857`](https://github.com/twilio-labs/paste/commit/37f82857ef5046156931a22e2431aed49629ff63) [#1424](https://github.com/twilio-labs/paste/pull/1424) Thanks [@TheSisb](https://github.com/TheSisb)! - Added the "overflowWrap" prop to Box
-
-* [`3668591b`](https://github.com/twilio-labs/paste/commit/3668591bf9898b7770adb1f33c809c12798eb6e7) [#1424](https://github.com/twilio-labs/paste/pull/1424) Thanks [@TheSisb](https://github.com/TheSisb)! - Added overflowWrap to the Typography styled prop bucket
-
-* Updated dependencies [[`37f82857`](https://github.com/twilio-labs/paste/commit/37f82857ef5046156931a22e2431aed49629ff63), [`3668591b`](https://github.com/twilio-labs/paste/commit/3668591bf9898b7770adb1f33c809c12798eb6e7)]:
-  - @twilio-paste/box@4.0.6
-  - @twilio-paste/style-props@3.0.5
-
-## 9.2.1
-
-### Patch Changes
-
-- [`41a3da0e`](https://github.com/twilio-labs/paste/commit/41a3da0e00bc8bea9927ef38f59e84b606239320) [#1407](https://github.com/twilio-labs/paste/pull/1407) Thanks [@richbachman](https://github.com/richbachman)! - - Added background color to `PaginationArrow` on hover.
-  - Added disabled prop to `PaginationArrow` which sets `aria-hidden` to true and `visibility: none`.
-  - Added left and right padding to `PaginationNumbers` to help center with longer page labels.
-- Updated dependencies [[`41a3da0e`](https://github.com/twilio-labs/paste/commit/41a3da0e00bc8bea9927ef38f59e84b606239320)]:
-  - @twilio-paste/pagination@0.1.2
-
-## 9.2.0
-
-### Minor Changes
-
-- [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca) [#1404](https://github.com/twilio-labs/paste/pull/1404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Add a dark theme to Paste
-
-* [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca) [#1404](https://github.com/twilio-labs/paste/pull/1404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Design tokens that are named using the light / dark nomenclature are being deprecated in favour of a new set of tokens based on a weak / strong nomenclature to accommodate light and dark modes.
-
-  If you are using these tokens with our `Box` or `Text` component, these will still work for now but we will be removing them in the 2021.11.16 release of Paste. In most cases replacing `dark` for `strong` and `light` for `weak` is all that is required to transition.
-
-  Design tokens that are being deprecated include:
-
-  | old                                   | new                                    |
-  | ------------------------------------- | -------------------------------------- |
-  | color-background-dark                 | color-background-strong                |
-  | color-background-darker               | color-background-stronger              |
-  | color-background-darkest              | color-background-strongest             |
-  | color-background-inverse-light        | color-background-inverse-weak          |
-  | color-background-neutral-lightest     | color-background-neutral-weakest       |
-  | color-background-success-lightest     | color-background-success-weakest       |
-  | color-background-warning-lightest     | color-background-warning-weakest       |
-  | color-background-error-dark           | color-background-error-strong          |
-  | color-background-error-lightest       | color-background-error-weakest         |
-  | color-background-primary-darkest      | color-background-primary-strongest     |
-  | color-background-primary-darker       | color-background-primary-stronger      |
-  | color-background-primary-dark         | color-background-primary-strong        |
-  | color-background-primary-light        | color-background-primary-weak          |
-  | color-background-primary-lighter      | color-background-primary-weaker        |
-  | color-background-primary-lightest     | color-background-primary-weakest       |
-  | color-background-destructive-darkest  | color-background-destructive-strongest |
-  | color-background-destructive-darker   | color-background-destructive-stronger  |
-  | color-background-destructive-dark     | color-background-destructive-strong    |
-  | color-background-destructive-light    | color-background-destructive-weak      |
-  | color-background-destructive-lighter  | color-background-destructive-weaker    |
-  | color-background-destructive-lightest | color-background-destructive-weakest   |
-
-  | old                              | new                                |
-  | -------------------------------- | ---------------------------------- |
-  | color-border-dark                | color-border-strong                |
-  | color-border-light               | color-border-weak                  |
-  | color-border-lighter             | color-border-weaker                |
-  | color-border-inverse-darker      | color-border-inverse-weaker        |
-  | color-border-inverse-lighter     | color-border-inverse-stronger      |
-  | color-border-inverse-lightest    | color-border-inverse-strongest     |
-  | color-border-primary-darkest     | color-border-primary-strongest     |
-  | color-border-primary-darker      | color-border-primary-stronger      |
-  | color-border-primary-dark        | color-border-primary-strong        |
-  | color-border-primary-light       | color-border-primary-weak          |
-  | color-border-primary-lighter     | color-border-primary-weaker        |
-  | color-border-neutral-light       | color-border-neutral-weak          |
-  | color-border-success-light       | color-border-success-weak          |
-  | color-border-success-lightest    | color-border-success-weakest       |
-  | color-border-warning-light       | color-border-warning-weak          |
-  | color-border-warning-lightest    | color-border-warning-weakest       |
-  | color-border-error-dark          | color-border-error-strong          |
-  | color-border-error-light         | color-border-error-weak            |
-  | color-border-error-lightest      | color-border-error-weakest         |
-  | color-border-destructive-darkest | color-border-destructive-strongest |
-  | color-border-destructive-darker  | color-border-destructive-stronger  |
-  | color-border-destructive-dark    | color-border-destructive-strong    |
-  | color-border-destructive-light   | color-border-destructive-weak      |
-  | color-border-destructive-lighter | color-border-destructive-weaker    |
-
-  | old                               | new                                |
-  | --------------------------------- | ---------------------------------- |
-  | shadow-border-lighter             | shadow-border-weaker               |
-  | shadow-border-light               | shadow-border-weak                 |
-  | shadow-border-primary-lighter     | shadow-border-primary-weaker       |
-  | shadow-border-primary-light       | shadow-border-primary-weak         |
-  | shadow-border-primary-dark        | shadow-border-primary-strong       |
-  | shadow-border-primary-darker      | shadow-border-primary-stronger     |
-  | shadow-border-destructive-lighter | shadow-border-destructive-weaker   |
-  | shadow-border-destructive-light   | shadow-border-destructive-weak     |
-  | shadow-border-destructive-darker  | shadow-border-destructive-stronger |
-  | shadow-border-error-light         | shadow-border-error-weak           |
-  | shadow-border-error-dark          | shadow-border-error-strong         |
-  | shadow-border-inverse-darker      | shadow-border-inverse-weaker       |
-  | shadow-border-inverse-light       | shadow-border-inverse-strong       |
-  | shadow-border-inverse-lightest    | shadow-border-inverse-strongest    |
-
-  | old                                | new                                  |
-  | ---------------------------------- | ------------------------------------ |
-  | color-text-link-light              | color-text-link-weak                 |
-  | color-text-link-dark               | color-text-link-strong               |
-  | color-text-link-darker             | color-text-link-stronger             |
-  | color-text-link-destructive-light  | color-text-link-destructive-weak     |
-  | color-text-link-destructive-dark   | color-text-link-destructive-strong   |
-  | color-text-link-destructive-darker | color-text-link-destructive-stronger |
-  | color-text-error-light             | color-text-error-weak                |
-  | color-text-error-dark              | color-text-error-strong              |
-  | color-text-warning-dark            | color-text-warning-strong            |
-
-### Patch Changes
-
-- [`87fc9178`](https://github.com/twilio-labs/paste/commit/87fc91784c86d25f619aa49a9f0586d9e3be97d0) [#1408](https://github.com/twilio-labs/paste/pull/1408) Thanks [@richbachman](https://github.com/richbachman)! - Fix disabled value color in Safari.
-
-* [`4d3fd7df`](https://github.com/twilio-labs/paste/commit/4d3fd7dfbdd410bee1e91805382280cd879f141a) [#1398](https://github.com/twilio-labs/paste/pull/1398) Thanks [@zahnster](https://github.com/zahnster)! - Updated font weights for all form components to make them bolder
-
-- [`df6d8f1d`](https://github.com/twilio-labs/paste/commit/df6d8f1dcff6a17c96976b7b54a5702ec3d09f76) [#1408](https://github.com/twilio-labs/paste/pull/1408) Thanks [@richbachman](https://github.com/richbachman)! - Added `-webkit-text-fill-color` and enable it to use Paste textColor token values.
-
-* [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca) [#1404](https://github.com/twilio-labs/paste/pull/1404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - update internal usage of design tokens to reflect new strong / weak nomenclature
-
-- [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca) [#1404](https://github.com/twilio-labs/paste/pull/1404) Thanks [@SiTaggart](https://github.com/SiTaggart)! - add ability to set transparent to color style prop
-
-- Updated dependencies [[`87fc9178`](https://github.com/twilio-labs/paste/commit/87fc91784c86d25f619aa49a9f0586d9e3be97d0), [`4d3fd7df`](https://github.com/twilio-labs/paste/commit/4d3fd7dfbdd410bee1e91805382280cd879f141a), [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca), [`df6d8f1d`](https://github.com/twilio-labs/paste/commit/df6d8f1dcff6a17c96976b7b54a5702ec3d09f76), [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca), [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca), [`25a1f632`](https://github.com/twilio-labs/paste/commit/25a1f632b6d92271967470f8c65a2dbc6babbaca)]:
-  - @twilio-paste/input@3.0.5
-  - @twilio-paste/textarea@3.0.5
-  - @twilio-paste/base-radio-checkbox@6.0.3
-  - @twilio-paste/checkbox@6.0.4
-  - @twilio-paste/label@6.0.3
-  - @twilio-paste/select@5.0.3
-  - @twilio-paste/design-tokens@6.7.0
-  - @twilio-paste/theme@5.1.0
-  - @twilio-paste/styling-library@0.3.2
-  - @twilio-paste/alert@7.0.1
-  - @twilio-paste/anchor@5.0.3
-  - @twilio-paste/button@7.0.2
-  - @twilio-paste/card@3.0.4
-  - @twilio-paste/combobox@7.0.2
-  - @twilio-paste/disclosure@5.0.4
-  - @twilio-paste/help-text@6.0.3
-  - @twilio-paste/input-box@4.0.4
-  - @twilio-paste/menu@7.0.1
-  - @twilio-paste/modal@7.0.1
-  - @twilio-paste/popover@6.0.1
-  - @twilio-paste/pagination@0.1.1
-  - @twilio-paste/radio-group@6.0.4
-  - @twilio-paste/separator@2.0.4
-  - @twilio-paste/table@2.0.4
-  - @twilio-paste/tabs@2.0.4
-  - @twilio-paste/toast@5.0.1
-  - @twilio-paste/tooltip@4.0.3
-  - @twilio-paste/aspect-ratio@4.0.4
-  - @twilio-paste/grid@2.0.4
-  - @twilio-paste/box@4.0.5
-  - @twilio-paste/text@4.0.3
-  - @twilio-paste/style-props@3.0.4
-
-## 9.1.0
-
-### Minor Changes
-
-- [`ed40d4de`](https://github.com/twilio-labs/paste/commit/ed40d4decd4c04a1f0e77a1f9d8f0237a3a26610) [#1368](https://github.com/twilio-labs/paste/pull/1368) Thanks [@richbachman](https://github.com/richbachman)! - Pagination: added the pagination componenents, stories, and tests.
-
-### Patch Changes
-
-- [`0f6b4728`](https://github.com/twilio-labs/paste/commit/0f6b4728abb2de315d03c0c009c1872b7cece045) [#1368](https://github.com/twilio-labs/paste/pull/1368) Thanks [@richbachman](https://github.com/richbachman)! - Style-props: added `inherit` to the typed `border-color` options.
-
-* [`8fe6a2f4`](https://github.com/twilio-labs/paste/commit/8fe6a2f45cb3b03643da70ad1b4c8dd1eda426d8) [#1368](https://github.com/twilio-labs/paste/pull/1368) Thanks [@richbachman](https://github.com/richbachman)! - Box: added `font-variant-numeric` prop so we can control the usage of alternate glyphs for numbers, fractions, and ordinal markers.
-
-* Updated dependencies [[`0f6b4728`](https://github.com/twilio-labs/paste/commit/0f6b4728abb2de315d03c0c009c1872b7cece045), [`ed40d4de`](https://github.com/twilio-labs/paste/commit/ed40d4decd4c04a1f0e77a1f9d8f0237a3a26610), [`8fe6a2f4`](https://github.com/twilio-labs/paste/commit/8fe6a2f45cb3b03643da70ad1b4c8dd1eda426d8)]:
-  - @twilio-paste/style-props@3.0.3
-  - @twilio-paste/pagination@0.1.0
-  - @twilio-paste/box@4.0.4
-
-## 9.0.3
-
-### Patch Changes
-
-- [`7bfaff38`](https://github.com/twilio-labs/paste/commit/7bfaff381bc03a404aa0340cd487fba12527ad56) [#1390](https://github.com/twilio-labs/paste/pull/1390) Thanks [@TheSisb](https://github.com/TheSisb)! - Combobox: improve accessibility of hovered combobox option by keeping it the same color.
-
-- Updated dependencies [[`7bfaff38`](https://github.com/twilio-labs/paste/commit/7bfaff381bc03a404aa0340cd487fba12527ad56)]:
-  - @twilio-paste/combobox@7.0.1
-
-## 9.0.2
-
-### Patch Changes
-
-- [`64edb7fc`](https://github.com/twilio-labs/paste/commit/64edb7fc6d1305c9fdf37b86933484732fab3ff7) [#1367](https://github.com/twilio-labs/paste/pull/1367) Thanks [@nkrantz](https://github.com/nkrantz)! - Restricted Avatar propTypes so that users cannot add both `src` and `icon` props to Avatar, only one or the other.
-
-* [`174be6d9`](https://github.com/twilio-labs/paste/commit/174be6d968c5b4e4c8973a88e0491f45496b15d9) [#1363](https://github.com/twilio-labs/paste/pull/1363) Thanks [@TheSisb](https://github.com/TheSisb)! - Buttons that behave as links (`<Button as="a" href="">`) now correctly use the external link icon for external links.
-
-- [`35d9dfda`](https://github.com/twilio-labs/paste/commit/35d9dfdafff3e5e7b05fa46d600d2d3f0851a6b1) [#1332](https://github.com/twilio-labs/paste/pull/1332) Thanks [@TheSisb](https://github.com/TheSisb)! - Fixed truncation on Disclosure headings when using Truncate component
-
-* [`fd8cbb89`](https://github.com/twilio-labs/paste/commit/fd8cbb89a9459fd5e012cba8f45060ad2e384e24) [#1345](https://github.com/twilio-labs/paste/pull/1345) Thanks [@gloriliale](https://github.com/gloriliale)! - Avatar: fixed size prop to make it optional and have a default of icon-size-70.
-
-* Updated dependencies [[`64edb7fc`](https://github.com/twilio-labs/paste/commit/64edb7fc6d1305c9fdf37b86933484732fab3ff7), [`174be6d9`](https://github.com/twilio-labs/paste/commit/174be6d968c5b4e4c8973a88e0491f45496b15d9), [`35d9dfda`](https://github.com/twilio-labs/paste/commit/35d9dfdafff3e5e7b05fa46d600d2d3f0851a6b1), [`fd8cbb89`](https://github.com/twilio-labs/paste/commit/fd8cbb89a9459fd5e012cba8f45060ad2e384e24)]:
-  - @twilio-paste/avatar@2.1.1
-  - @twilio-paste/button@7.0.1
-  - @twilio-paste/disclosure@5.0.3
-
-## 9.0.1
-
-### Patch Changes
-
-- [`1a7bb349`](https://github.com/twilio-labs/paste/commit/1a7bb349186cdd2d131d44f0a22996a7df61e8c3) [#974](https://github.com/twilio-labs/paste/pull/974) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [RadioGroup] Added optional `value` string prop which this component needs and is no longer on the extended `InlineControlGroup` interface.
-
-* [`5e08f10d`](https://github.com/twilio-labs/paste/commit/5e08f10da50f13c057bb20a7208fcfb7ff08d6ad) [#974](https://github.com/twilio-labs/paste/pull/974) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Checkbox] Remove unused `value` prop.
-
-- [`9df657df`](https://github.com/twilio-labs/paste/commit/9df657df7e4994dee1b0dfa9071f8f50041adb0c) [#974](https://github.com/twilio-labs/paste/pull/974) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [InlineControlGroup] Adjusted the vertical spacing of `children`. This change improve the handling of RadioGroup and CheckboxGroup children.
-
-* [`d000a4e4`](https://github.com/twilio-labs/paste/commit/d000a4e4c88bc0d3dd67532df937b805191fe4c0) [#1333](https://github.com/twilio-labs/paste/pull/1333) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Paragraph] allow for global HTML attriutes to be passed to the paragraph element
-
-* Updated dependencies [[`1a7bb349`](https://github.com/twilio-labs/paste/commit/1a7bb349186cdd2d131d44f0a22996a7df61e8c3), [`5e08f10d`](https://github.com/twilio-labs/paste/commit/5e08f10da50f13c057bb20a7208fcfb7ff08d6ad), [`9df657df`](https://github.com/twilio-labs/paste/commit/9df657df7e4994dee1b0dfa9071f8f50041adb0c), [`d000a4e4`](https://github.com/twilio-labs/paste/commit/d000a4e4c88bc0d3dd67532df937b805191fe4c0)]:
-  - @twilio-paste/radio-group@6.0.3
-  - @twilio-paste/checkbox@6.0.3
-  - @twilio-paste/inline-control-group@6.0.3
-  - @twilio-paste/paragraph@4.0.3
-
-## 9.0.0
-
-### Major Changes
-
-- [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200) [#1307](https://github.com/twilio-labs/paste/pull/1307) Thanks [@TheSisb](https://github.com/TheSisb)! - BREAKING CHANGES:
-
-  Button components used as links (as="a" and href="") now automatically add an arrow icon if children is a string. This is a design breaking change that you should be aware of when upgrading.
-
-  Button also adds additional validation to throw an error if the `disabled` or `loading` props are set to `true` for a Button as link. This is a functionality breaking change to existing disabled link buttons.
-
-### Minor Changes
-
-- [`3419ff64`](https://github.com/twilio-labs/paste/commit/3419ff64a07056ae365956d03ec62f1e5e619f29) [#1281](https://github.com/twilio-labs/paste/pull/1281) Thanks [@nkrantz](https://github.com/nkrantz)! - Created an 'icon' prop on Avatar so that users can display Paste icons inside of Avatar components.
-
-### Patch Changes
-
-- [`0eded1fd`](https://github.com/twilio-labs/paste/commit/0eded1fd63f081ba9aeab5b5946218e1c5b9b316) [#1319](https://github.com/twilio-labs/paste/pull/1319) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Change internal dependencies to have minor range matching on version numbers
-
-- Updated dependencies [[`0eded1fd`](https://github.com/twilio-labs/paste/commit/0eded1fd63f081ba9aeab5b5946218e1c5b9b316), [`1bcb8b30`](https://github.com/twilio-labs/paste/commit/1bcb8b3093920fdd871f8a13b498a8eb99201200), [`3419ff64`](https://github.com/twilio-labs/paste/commit/3419ff64a07056ae365956d03ec62f1e5e619f29)]:
-  - @twilio-paste/alert@7.0.0
-  - @twilio-paste/anchor@5.0.2
-  - @twilio-paste/avatar@2.1.0
-  - @twilio-paste/base-radio-checkbox@6.0.2
-  - @twilio-paste/breadcrumb@4.0.2
-  - @twilio-paste/button@7.0.0
-  - @twilio-paste/card@3.0.3
-  - @twilio-paste/checkbox@6.0.2
-  - @twilio-paste/combobox@7.0.0
-  - @twilio-paste/disclosure@5.0.2
-  - @twilio-paste/heading@5.0.2
-  - @twilio-paste/help-text@6.0.2
-  - @twilio-paste/inline-control-group@6.0.2
-  - @twilio-paste/input@3.0.4
-  - @twilio-paste/input-box@4.0.3
-  - @twilio-paste/label@6.0.2
-  - @twilio-paste/list@2.0.2
-  - @twilio-paste/menu@7.0.0
-  - @twilio-paste/modal@7.0.0
-  - @twilio-paste/paragraph@4.0.2
-  - @twilio-paste/popover@6.0.0
-  - @twilio-paste/radio-group@6.0.2
-  - @twilio-paste/screen-reader-only@6.0.2
-  - @twilio-paste/select@5.0.2
-  - @twilio-paste/separator@2.0.3
-  - @twilio-paste/spinner@7.0.2
-  - @twilio-paste/table@2.0.3
-  - @twilio-paste/tabs@2.0.3
-  - @twilio-paste/textarea@3.0.4
-  - @twilio-paste/toast@5.0.0
-  - @twilio-paste/tooltip@4.0.2
-  - @twilio-paste/truncate@6.0.2
-  - @twilio-paste/aspect-ratio@4.0.3
-  - @twilio-paste/flex@2.0.3
-  - @twilio-paste/grid@2.0.3
-  - @twilio-paste/media-object@4.0.3
-  - @twilio-paste/stack@2.0.3
-  - @twilio-paste/box@4.0.3
-  - @twilio-paste/combobox-primitive@0.2.4
-  - @twilio-paste/disclosure-primitive@0.3.4
-  - @twilio-paste/menu-primitive@0.2.4
-  - @twilio-paste/non-modal-dialog-primitive@0.3.4
-  - @twilio-paste/sibling-box@3.0.3
-  - @twilio-paste/tabs-primitive@0.2.3
-  - @twilio-paste/text@4.0.2
-  - @twilio-paste/tooltip-primitive@0.2.4
-  - @twilio-paste/customization@2.0.2
-  - @twilio-paste/style-props@3.0.2
-  - @twilio-paste/theme@5.0.2

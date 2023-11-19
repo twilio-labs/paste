@@ -1,18 +1,19 @@
-import * as React from 'react';
-import {Link} from 'gatsby';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {styled, themeGet} from '@twilio-paste/styling-library';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {useTheme} from '@twilio-paste/theme';
-import {PasteIcon} from '../../icons/PasteIcon';
-import {PasteIconPride} from '../../icons/PasteIconPride';
+import { Box } from "@twilio-paste/box";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { styled, themeGet } from "@twilio-paste/styling-library";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import Link from "next/link";
+import * as React from "react";
+
+import { event } from "../../../lib/gtag";
+import { PasteIcon } from "../../icons/PasteIcon";
+import { PasteIconPride } from "../../icons/PasteIconPride";
 
 const LogoLink = styled(Link)`
   position: relative;
   text-decoration: none;
-  color: ${themeGet('textColors.colorTextInverse')};
+  color: ${themeGet("textColors.colorTextInverse")};
 
   &:hover {
     text-decoration: underline;
@@ -20,8 +21,8 @@ const LogoLink = styled(Link)`
 
   &:focus {
     outline: none;
-    box-shadow: ${themeGet('shadows.shadowFocus')};
-    border-radius: ${themeGet('radii.borderRadius10')};
+    box-shadow: ${themeGet("shadows.shadowFocus")};
+    border-radius: ${themeGet("radii.borderRadius10")};
   }
 `;
 
@@ -30,32 +31,25 @@ interface SiteHeaderLogoProps {
   subtitle?: string;
 }
 
-// Note: 'subtitle' isn't passed for the mobile view, so we use that fact
-// to render different sizes and spacing in mobile
-const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
+/*
+ * Note: 'subtitle' isn't passed for the mobile view, so we use that fact
+ * to render different sizes and spacing in mobile
+ */
+const SiteHeaderLogo: React.FC<React.PropsWithChildren<SiteHeaderLogoProps>> = ({ title, subtitle }) => {
   const theme = useTheme();
   const [logoOpacity, setLogoOpacity] = React.useState(1);
   const [hoverOpacity, setHoverOpacity] = React.useState(0);
-  const logoTransition = 'ease-out 350ms';
+  const logoTransition = "ease-out 350ms";
 
   return (
-    <Box
-      display="flex"
-      alignItems="center"
-      paddingRight="space70"
-      paddingLeft="space70"
-      borderRightColor="colorBorderInverseWeaker"
-      borderRightStyle="solid"
-      borderRightWidth={['borderWidth0', 'borderWidth0', 'borderWidth10']}
-      minWidth={subtitle ? 'sizeSidebar' : 'size0'}
-    >
+    <Box display="flex" alignItems="center" minWidth={subtitle ? "sizeSidebar" : "size0"}>
       <LogoLink
-        to="/"
+        href="/"
         onClick={() =>
-          trackCustomEvent({
-            category: 'Top Navigation',
-            action: 'click-paste-logo',
-            label: 'Paste logo',
+          event({
+            category: "Top Navigation",
+            action: "click-paste-logo",
+            label: "Paste logo",
           })
         }
         onMouseEnter={() => {
@@ -82,7 +76,7 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
             />
           </MediaFigure>
           <MediaBody>
-            <Text as="div" fontSize="fontSize40" lineHeight="lineHeight30" color="colorTextInverse">
+            <Text as="div" fontSize="fontSize40" lineHeight="lineHeight30" color="colorText">
               {title}
             </Text>
             {subtitle ? (
@@ -91,7 +85,7 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
                 fontSize="fontSize20"
                 fontWeight="fontWeightNormal"
                 lineHeight="lineHeight20"
-                color="colorTextInverse"
+                color="colorText"
               >
                 {subtitle}
               </Text>
@@ -103,4 +97,4 @@ const SiteHeaderLogo: React.FC<SiteHeaderLogoProps> = ({title, subtitle}) => {
   );
 };
 
-export {SiteHeaderLogo};
+export { SiteHeaderLogo };

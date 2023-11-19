@@ -52,6 +52,9 @@ props:
   color-border-weaker:
     value: "{!palette-gray-20}"
     comment: Weaker border color
+  color-border-weakest:
+    value: "{!palette-gray-0}"
+    comment: Weakest border color
   color-border-inverse-weakest:
     value: "{!palette-gray-90}"
     comment: Weakest border on inverse backgrounds. Must be used on color-background-body-inverse.
@@ -179,6 +182,9 @@ props:
   color-border-warning-weakest:
     value: "{!palette-orange-10}"
     comment: Weakest warning border color
+  color-border-error-strongest:
+    value: "{!palette-red-100}"
+    comment: Strongest error border color
   color-border-error-stronger:
     value: "{!palette-red-90}"
     comment: Stronger error border color
@@ -292,3 +298,8 @@ props:
   color-border-decorative-40-weaker:
     value: "{!palette-purple-20}"
     comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+
+  # user borders
+  color-border-user:
+    value: "{!palette-purple-20}"
+    comment: User avatar border color.

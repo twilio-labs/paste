@@ -1,18 +1,27 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, BoxProps} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface TruncateProps extends Omit<React.HtmlHTMLAttributes<HTMLSpanElement>, 'color'>, Pick<BoxProps, 'as'> {
+interface TruncateProps extends HTMLPasteProps<"span">, Pick<BoxProps, "as"> {
   children: NonNullable<React.ReactNode>;
+  /**
+   * An accessible label that should match the content of the truncated text. Allows users to see the truncated content.
+   *
+   * @type {string}
+   * @memberof TruncateProps
+   */
   title: string;
 }
 
-const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({children, ...props}, ref) => {
+const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({ children, ...props }, ref) => {
   return (
     <Box
       {...props}
       as="span"
       display="inline-block"
+      verticalAlign="bottom"
+      textDecoration="inherit"
       maxWidth="100%"
       overflow="hidden"
       ref={ref}
@@ -23,13 +32,7 @@ const Truncate = React.forwardRef<HTMLSpanElement, TruncateProps>(({children, ..
     </Box>
   );
 });
-Truncate.displayName = 'Truncate';
+Truncate.displayName = "Truncate";
 
-if (process.env.NODE_ENV === 'development') {
-  Truncate.propTypes = {
-    children: PropTypes.node.isRequired,
-    title: PropTypes.string.isRequired,
-  };
-}
-
-export {Truncate};
+export { Truncate };
+export type { TruncateProps };

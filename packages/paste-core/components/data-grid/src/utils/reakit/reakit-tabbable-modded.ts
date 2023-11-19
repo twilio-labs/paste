@@ -1,19 +1,21 @@
-import {matches} from './reakit-matches';
+import { matches } from "./reakit-matches";
 
 const selector =
   "input:not([type='hidden']):not([disabled]), select:not([disabled]), " +
-  'textarea:not([disabled]), a[href], button:not([disabled]), [tabindex], ' +
-  'iframe, object, embed, area[href], audio[controls], video[controls], ' +
+  "textarea:not([disabled]), a[href], button:not([disabled]), [tabindex], " +
+  "iframe, object, embed, area[href], audio[controls], video[controls], " +
   "[contenteditable]:not([contenteditable='false'])";
 
-// CHANGED: This function doesn't work in our environment, disabling it for now.
-// If we need it, it will be easy to add.
 /*
-function isVisible(element: Element): boolean {
-  const htmlElement = element as HTMLElement;
-  return htmlElement.offsetWidth > 0 || htmlElement.offsetHeight > 0 || element.getClientRects().length > 0;
-}
-*/
+ * CHANGED: This function doesn't work in our environment, disabling it for now.
+ * If we need it, it will be easy to add.
+ */
+/*
+ *function isVisible(element: Element): boolean {
+ *  const htmlElement = element as HTMLElement;
+ *  return htmlElement.offsetWidth > 0 || htmlElement.offsetHeight > 0 || element.getClientRects().length > 0;
+ *}
+ */
 
 /**
  * Checks whether `element` is focusable or not.
@@ -45,8 +47,10 @@ export function isFocusable(element: Element): boolean {
 export function getAllFocusableIn<T extends Element>(container: T): T[] {
   // eslint-disable-next-line unicorn/prefer-spread
   const allFocusable = Array.from(container.querySelectorAll<T>(selector));
-  // CHANGED: we don't want the container in the result list
-  // allFocusable.unshift(container);
+  /*
+   * CHANGED: we don't want the container in the result list
+   * allFocusable.unshift(container);
+   */
   return allFocusable.filter(isFocusable);
 }
 

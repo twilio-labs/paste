@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {Avatar} from '@twilio-paste/core/avatar';
-import {Stack} from '@twilio-paste/core/stack';
+import { Avatar } from "@twilio-paste/core/avatar";
+import { Stack } from "@twilio-paste/core/stack";
+import * as React from "react";
 
-const AvatarPreview: React.FC = () => {
+const AvatarPreview = (): JSX.Element => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       <Avatar size="sizeIcon30" name="Trayvon Martin" />
@@ -18,4 +18,4 @@ const AvatarPreview: React.FC = () => {
   );
 };
 
-export {AvatarPreview};
+export { AvatarPreview };

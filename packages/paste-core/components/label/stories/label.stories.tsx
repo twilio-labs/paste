@@ -1,14 +1,17 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {Card} from '@twilio-paste/card';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Label, RequiredDot} from '../src';
+import type { Story } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
+import { Label, RequiredDot } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Label',
+  title: "Components/Label",
   component: Label,
 };
 
@@ -59,9 +62,10 @@ export const I18n = (): React.ReactNode => {
   );
 };
 
-I18n.storyName = 'i18n label';
+I18n.storyName = "i18n label";
 
-export const Customized: React.FC = () => {
+export const Customized: Story = () => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space20">
       <Box marginBottom="space70">
@@ -80,12 +84,13 @@ export const Customized: React.FC = () => {
         <Paragraph>Customized:</Paragraph>
         <Card>
           <CustomizationProvider
-            baseTheme="default"
+            disableAnimations={true}
+            theme={currentTheme}
             elements={{
-              LABEL: {color: 'colorTextWarningDark', fontWeight: 'fontWeightLight'},
-              LABEL_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
-              REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
-              REQUIRED_DOT_WRAPPER: {cursor: 'help'},
+              LABEL: { color: "colorTextWarningStrong", fontWeight: "fontWeightLight" },
+              LABEL_REQUIRED_DOT: { backgroundColor: "colorBackgroundDestructiveStrong" },
+              REQUIRED_DOT: { backgroundColor: "colorBackgroundDestructiveStrong" },
+              REQUIRED_DOT_WRAPPER: { cursor: "help" },
             }}
           >
             <Label htmlFor="label">Label</Label>
@@ -102,25 +107,33 @@ export const Customized: React.FC = () => {
         <Paragraph>Customized with custom element attribute:</Paragraph>
         <Card>
           <CustomizationProvider
+            disableAnimations={true}
+            theme={currentTheme}
             elements={{
-              foo: {color: 'colorTextWarningDark', fontWeight: 'fontWeightLight'},
-              foo_REQUIRED_DOT: {backgroundColor: 'colorBackgroundDestructiveDark'},
-              bar: {backgroundColor: 'colorBackgroundDestructiveDark'},
-              bar_WRAPPER: {cursor: 'help'},
+              FOO: { color: "colorTextWarningStrong", fontWeight: "fontWeightLight" },
+              FOO_REQUIRED_DOT: { backgroundColor: "colorBackgroundDestructiveStrong" },
+              BAR: { backgroundColor: "colorBackgroundDestructiveStrong" },
+              BAR_WRAPPER: { cursor: "help" },
             }}
           >
-            <Label htmlFor="label" element="foo">
+            <Label htmlFor="label" element="FOO">
               Label
             </Label>
-            <Label required htmlFor="required_label" element="foo" data-testid="custom_label_test">
+            <Label required htmlFor="required_label" element="FOO" data-testid="custom_label_test">
               Required label
             </Label>
             <Box display="flex" alignContent="start">
-              <RequiredDot data-testid="custom_required_dot" element="bar" />
+              <RequiredDot data-testid="custom_required_dot" element="BAR" />
             </Box>
           </CustomizationProvider>
         </Card>
       </Box>
     </Stack>
   );
+};
+Customized.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

@@ -1,0 +1,188 @@
+export const meta = {
+  title: 'Button Group',
+  package: '@twilio-paste/button-group',
+  description: 'A Button Group displays a set of related actions.',
+  slug: '/components/button-group/',
+};
+
+import {Button} from '@twilio-paste/button';
+import {ButtonGroup} from '@twilio-paste/button-group';
+import {Tooltip} from '@twilio-paste/tooltip';
+import {Menu, useMenuState, MenuButton, MenuItem} from '@twilio-paste/menu';
+import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
+import {EditIcon} from '@twilio-paste/icons/esm/EditIcon';
+import {ExportIcon} from '@twilio-paste/icons/esm/ExportIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import {ItalicIcon} from '@twilio-paste/icons/esm/ItalicIcon';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {UnderlineIcon} from '@twilio-paste/icons/esm/UnderlineIcon';
+import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  BasicExample,
+  UnattachedExample,
+  DisabledExample,
+  IconExample,
+  MenuExample,
+} from '../../../component-examples/ButtonGroupExamples';
+import packageJson from '@twilio-paste/button-group/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Button Group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button-group',
+        storybookUrl: '/?path=/story/components-button-group--attached',
+      },
+    },
+  };
+};
+
+<LivePreview
+  noInline
+  scope={{
+    ButtonGroup,
+    Button,
+    PlusIcon,
+    ExportIcon,
+    DeleteIcon,
+    EditIcon,
+  }}
+  language="jsx"
+>
+  {BasicExample}
+</LivePreview>
+
+## Guidelines
+
+A Button Group is a way to bring a set of 2-6 buttons together, often visually, that have related actions. The buttons should be independent from each other, i.e. clicking one button does not change the state of another button.
+
+Any Paste components that use [Button](/components/button), including [Popover](/components/popover), [Modal](/components/modal), and [Minimizable Dialog](/components/minimizable-dialog) can be put into a ButtonGroup.
+
+### Button Group vs Radio Button Group
+
+Button groups should be used to help bring together a group of related actions, rather than selecting from a set of options. Use a Radio Button Group to allow the user to select a single option from a group of mutually exclusive choices. Radio Buttons cannot be used within a Button Group.
+
+## Examples
+
+### Default
+
+By default, the Buttons in a Button Group are displayed horizontally with a margin between them.
+
+<LivePreview
+  noInline
+  scope={{
+    ButtonGroup,
+    Button,
+    PlusIcon,
+    ExportIcon,
+    DeleteIcon,
+    EditIcon,
+  }}
+  language="jsx"
+>
+  {UnattachedExample}
+</LivePreview>
+
+### Attached
+
+Use the `attached` prop to make the buttons visually connected.
+
+<LivePreview
+  noInline
+  scope={{
+    ButtonGroup,
+    Button,
+    PlusIcon,
+    ExportIcon,
+    DeleteIcon,
+    EditIcon,
+  }}
+  language="jsx"
+>
+  {BasicExample}
+</LivePreview>
+
+### Icon
+
+Use the icon variant when space is limited and the icons being used are easily recognizable (e.g., icons representing graph types). It is highly recommended to pair this variant with the [Tooltip](/components/tooltip) component to help ensure understandability.
+
+<LivePreview
+  noInline
+  scope={{
+    ButtonGroup,
+    Button,
+    UnderlineIcon,
+    BoldIcon,
+    ItalicIcon,
+    Tooltip,
+  }}
+  language="jsx"
+>
+  {IconExample}
+</LivePreview>
+
+### With Menu
+
+Use a [Menu](/components/menu) to include more actions in the ButtonGroup, such as when there is limited space or there are more than 6 actions.
+
+<LivePreview
+  noInline
+  scope={{
+    ButtonGroup,
+    Button,
+    PlusIcon,
+    DeleteIcon,
+    EditIcon,
+    Menu,
+    useMenuState,
+    MenuButton,
+    ChevronDownIcon,
+    MenuItem,
+  }}
+  language="jsx"
+>
+  {MenuExample}
+</LivePreview>
+
+## States
+
+### Disabled
+
+<LivePreview
+  noInline
+  scope={{
+    ButtonGroup,
+    Button,
+    PlusIcon,
+    ExportIcon,
+    DeleteIcon,
+    EditIcon,
+  }}
+  language="jsx"
+>
+  {DisabledExample}
+</LivePreview>
+
+## Composition notes
+
+Button Groups:
+
+- Should have between 2–6 options
+- Are comprised of independent buttons
+- Labels should use sentence case

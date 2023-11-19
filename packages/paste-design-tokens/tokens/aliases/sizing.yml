@@ -36,4 +36,6 @@ aliases:
   size-110: "70.5rem" #1128px
   size-120: "77rem" #1264px
 
-  size-sidebar: "13.75rem" #220px
+  size-sidebar-compact: "4.75rem" #76px
+  size-sidebar: "15rem" #240px
+  size-topbar: "4.75rem" #76px

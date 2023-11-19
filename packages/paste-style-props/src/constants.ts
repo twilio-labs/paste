@@ -1,8 +1,8 @@
-import RawJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
-
-const camelCase = require('lodash/camelCase');
+import RawJSON from "@twilio-paste/design-tokens/dist/tokens.raw.json";
+import camelCase from "lodash/camelCase";
 
 export const DEPRECATE_TOKENS = Object.values(RawJSON.props)
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore deprecated most definitely exists
   .filter((token) => token.deprecated)
   .map((deprecatedToken) => camelCase(deprecatedToken.name));

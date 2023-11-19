@@ -1,24 +1,24 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {Option, Select} from '@twilio-paste/select';
-import {Stack} from '@twilio-paste/stack';
-import {Separator} from '@twilio-paste/separator';
+import { Box } from "@twilio-paste/box";
+import { Label } from "@twilio-paste/label";
+import { Option, Select } from "@twilio-paste/select";
+import { Separator } from "@twilio-paste/separator";
+import { Stack } from "@twilio-paste/stack";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-import {ColorTokenInput} from './ColorTokenInput';
-import {UnitTokenInput} from './UnitTokenInput';
-import {DesignerContext} from './DesignerContext';
-import {TextTokenInput} from './TextToken';
+import { ColorTokenInput } from "./ColorTokenInput";
+import { DesignerContext } from "./DesignerContext";
+import { TextTokenInput } from "./TextToken";
+import { UnitTokenInput } from "./UnitTokenInput";
 
-export const DesignerControls: React.FC = () => {
-  const {tokens, updateToken} = React.useContext(DesignerContext);
+export const DesignerControls = (): JSX.Element => {
+  const { tokens, updateToken } = React.useContext(DesignerContext);
 
-  const [fontFamily, setFontFamily] = React.useState('Inter var experimental');
+  const [fontFamily, setFontFamily] = React.useState("Inter var experimental");
 
   React.useEffect(() => {
     if (tokens.fonts?.fontFamilyText !== fontFamily) {
-      setFontFamily('Inter var experimental');
+      setFontFamily("Inter var experimental");
     }
   }, [tokens]);
 
@@ -35,7 +35,7 @@ export const DesignerControls: React.FC = () => {
     >
       <Box as="fieldset" border="none" padding="space0" margin="space0">
         <Stack orientation="vertical" spacing="space40">
-          <Label htmlFor="" as="legend" marginBottom="space0">
+          <Label as="legend" marginBottom="space0">
             Text styles
           </Label>
           <div>
@@ -44,7 +44,7 @@ export const DesignerControls: React.FC = () => {
               id={fontFamilyId}
               onChange={(e) => {
                 if (updateToken != null) {
-                  updateToken('fonts', 'fontFamilyText', e.currentTarget.value);
+                  updateToken("fonts", "fontFamilyText", e.currentTarget.value);
                 }
                 setFontFamily(e.currentTarget.value);
               }}
@@ -90,7 +90,7 @@ export const DesignerControls: React.FC = () => {
       <Separator orientation="horizontal" verticalSpacing="space80" />
       <Box as="fieldset" border="none" padding="space0" margin="space0">
         <Stack orientation="vertical" spacing="space40">
-          <Label htmlFor="" as="legend" marginBottom="space0">
+          <Label as="legend" marginBottom="space0">
             Background styles
           </Label>
           <ColorTokenInput
@@ -119,7 +119,7 @@ export const DesignerControls: React.FC = () => {
       <Separator orientation="horizontal" verticalSpacing="space80" />
       <Box as="fieldset" border="none" padding="space0" margin="space0">
         <Stack orientation="vertical" spacing="space40">
-          <Label htmlFor="" as="legend" marginBottom="space0">
+          <Label as="legend" marginBottom="space0">
             Border styles
           </Label>
           <UnitTokenInput

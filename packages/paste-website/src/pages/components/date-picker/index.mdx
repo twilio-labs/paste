@@ -1,11 +1,10 @@
----
-title: Date Picker - Components
-description: A form component used to select a date.
-slug: /components/date-picker/
----
+export const meta = {
+  title: 'Date Picker - Components',
+  package: '@twilio-paste/date-picker',
+  description: 'A form component used to select a date.',
+  slug: '/components/date-picker/',
+};
 
-import {graphql} from 'gatsby';
-import Changelog from '@twilio-paste/date-picker/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Label} from '@twilio-paste/label';
@@ -19,8 +18,8 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {useUID} from '@twilio-paste/uid-library';
 import {Combobox} from '@twilio-paste/combobox';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {ChromeImage, FirefoxImage, SafariImage} from '../../../components/images/DatePickerImages';
 import {
   RequiredDatePicker,
@@ -34,61 +33,35 @@ import {
   StackOfPickers,
   MinAndMaxPicker,
 } from '../../../component-examples/DatePickerExamples.ts';
+import packageJson from '@twilio-paste/date-picker/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/date-picker"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/date-picker/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Date Picker"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/date-picker"
-  storybookUrl="/?path=/story/components-date-picker--default-date-picker"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Date Picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/date-picker',
+        storybookUrl: '/?path=/story/components-date-picker--default-date-picker',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{DatePicker, Label, useUID}} noInline>
+  {LabelOnlyPicker}
+</LivePreview>
 
 ## Guidelines
 
@@ -215,7 +188,7 @@ The Date Picker component should include the base DatePicker, along with support
 - **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
 - **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the Date Picker input successful.
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>DatePicker</inlineCode>. This is done
     with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the Date
@@ -253,13 +226,8 @@ Paste pickers don't currently support date time range selections in a single com
 In addition to the Date Picker, this package exports a <inlineCode>formatReturnDate()</inlineCode> function that can be used to format the date value that's being <em>returned</em> from the Date Picker.
 
 <strong>Note:</strong> the format of the date being displayed by the Date Picker <em>cannot</em> be changed. The display
-value is formatted according to the <Anchor
-  href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#value"
-  showExternal
->
-  locale of the user's browser
-</Anchor>
-. The parsed <inlineCode>value</inlineCode>, however, is always returned in <inlineCode>yyyy-mm-dd</inlineCode> format.
+value is formatted according to the <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#value" showExternal>locale of the user's browser</Anchor>.
+The parsed <inlineCode>value</inlineCode>, however, is always returned in <inlineCode>yyyy-mm-dd</inlineCode> format.
 
 To change the format of the return date value, we recommend using the <inlineCode>formatReturnDate()</inlineCode> function on the Date Picker's <inlineCode>onChange()</inlineCode> or <inlineCode>onBlur()</inlineCode> handler.
 
@@ -273,9 +241,9 @@ The function accepts two parameters: (1) the date value that should be formatted
 
 ### DatePicker with inline error
 
-Change a Date Picker to its error state and add an inline error if the value entered doesn't pass validation requirements.
+Change a Date Picker to its error state and use [Help Text](/components/help-text) to add an inline error if the value entered doesn't pass validation requirements.
 
-An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+Use [Help Text](/components/help-text) to place an inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
 
 <LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor}} noInline>
   {HasErrorPicker}
@@ -307,8 +275,8 @@ A Date Picker must have at least a label and an input.
   {LabelOnlyPicker}
 </LivePreview>
 
-<Callout>
-  <CalloutTitle as="h4">Quick note about Date Picker DOM methods</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Quick note about Date Picker DOM methods</CalloutHeading>
   <CalloutText>
     There are three methods that come with the HTML picker: <inlineCode>stepUp()</inlineCode>,{' '}
     <inlineCode>stepDown()</inlineCode> and <inlineCode>select()</inlineCode>. Usage of these methods is possible, but
@@ -350,9 +318,9 @@ Validate Date Picker fields on form submission.
 
 Validating a field input when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
-Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+Don't prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use error messages to explain what information is missing or incorrect.
 
-Usage of the <inlineCode>min</inlineCode> and <inlineCode>max</inlineCode> props on Date Picker is encouraged if certain dates are invalid.
+Usage of the <inlineCode>min</inlineCode> and <inlineCode>max</inlineCode> properties on Date Picker is encouraged if certain dates are invalid.
 
 <LivePreview scope={{DatePicker, Label, HelpText, useUID, Anchor}} noInline>
   {MinAndMaxPicker}
@@ -360,219 +328,19 @@ Usage of the <inlineCode>min</inlineCode> and <inlineCode>max</inlineCode> props
 
 ### Errors
 
-Use inline error text to explain how to fix an error.
+Use [Help Text](/components/help-text) to show inline error text that explains how to fix an error.
 
-Ideally, help text should have enough information to help users prevent errors. If help text exists and you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
+Help text should have enough information to help users prevent errors. If help text exists and you need to show an error, the error text should replace and repeat the help text until the error has been resolved.
 
-Error text should:
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
-- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
-- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
-- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
-
-<Callout>
-  <CalloutTitle as="h4">
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">
     Date Picker and <inlineCode>placeHolder</inlineCode>
-  </CalloutTitle>
+  </CalloutHeading>
   <CalloutText>
     Because Date Picker has a default display value of <inlineCode>mm/dd/yyyy</inlineCode> (and defaults to the current
     date on Safari), any value that gets passed into <inlineCode>placeholder</inlineCode> will be overwritten (and
     effectively ignored).
   </CalloutText>
 </Callout>
-
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Box Shadow</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
-            <ListItem>Disabled: $shadow-border-weak</ListItem>
-            <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Background</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-background-body</ListItem>
-            <ListItem>Disabled, Readonly: $color-background</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Value text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default, Readonly: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Help text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              DatePicker:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Left padding: $space-40</ListItem>
-                <ListItem>Top, right, bottom padding: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Help text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Inline error:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Spacing between icon and text: $space-20</ListItem>
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/date-picker - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {DatePicker, formatReturnDate} from '@twilio-paste/core/date-picker';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/helptext';
-
-const DatePickerExample = () => {
-  return (
-    <>
-      <Label htmlFor="foo" required>
-        Start date
-      </Label>
-      <DatePicker
-        aria-describedby="foo_text"
-        id="foo"
-        name="foo"
-        onChange={(evt) => formatReturnDate(evt.target.value, 'MM/dd/yyyy')}
-        required
-      />
-      <HelpText id="foo_text">Select a date.</HelpText>
-    </>
-  );
-};
-```
-
-#### DatePicker props
-
-All the valid HTML attributes for `input` (except `type`) are supported, including the following props:
-
-| Prop      | Type                                     | Description                                                                               | Default      |
-| --------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------------ |
-| id?       | string                                   | Sets the id of the date picker. Should match the htmlFor of `Label`.                      | null         |
-| name?     | string                                   | Sets the name of the date picker.                                                         | null         |
-| value?    | string                                   | Sets the value of the date picker.                                                        | null         |
-| disabled? | boolean                                  | Disables the date picker.                                                                 | false        |
-| readOnly? | boolean                                  | Sets the date picker to readonly.                                                         | false        |
-| required? | boolean                                  | Sets the date picker as required.                                                         | false        |
-| hasError? | boolean                                  | Sets the date picker to an error state.                                                   | false        |
-| min?      | string                                   | Sets the earliest valid date value.                                                       | null         |
-| max?      | string                                   | Sets the last valid date value.                                                           | null         |
-| onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
-| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
-| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null         |
-| variant?  | 'default', 'inverse'                     |                                                                                           | 'default'    |
-| element?  | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'DATEPICKER' |
-
-#### formatReturnDate() props
-
-| Prop       | Type   | Description                                                                                                           | Default |
-| ---------- | ------ | --------------------------------------------------------------------------------------------------------------------- | ------- |
-| dateValue  | string | Date value to be formatted. Must be in <inlineCode>yyyy-mm-dd</inlineCode> format.                                    | null    |
-| dateFormat | string | Specify the format in which to return the dateValue. Formats come from the <inlineCode>date-fns</inlineCode> library. | null    |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

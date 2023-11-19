@@ -1,0 +1,30 @@
+body:
+  - type: textarea
+    id: "description"
+    attributes:
+      label: Description
+      description: |
+        A brief explanation or mockup of what you'll need it for.
+    validations:
+      required: true
+  - type: input
+    id: "link"
+    attributes:
+      label: Link to icon
+      description: |
+        A link or screenshot of the icon in [Streamline](https://app.streamlineicons.com/streamline-regular).
+      placeholder: |
+        https://app.streamlineicons.com/streamline-regular
+    validations:
+      required: true
+  - type: checkboxes
+    id: "icon-type"
+    attributes:
+      label: Icon type
+      description: |
+        Whether this icon is a UI or product logo icon.
+      options:
+        - label: UI icon
+        - label: Product icon
+    validations:
+      required: true

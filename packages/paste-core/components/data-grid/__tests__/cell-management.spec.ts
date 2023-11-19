@@ -1,15 +1,15 @@
 import {
-  isCell,
-  getClosestCellFrom,
-  updateTabIndexForActionable,
   delayedSetFocusable,
-} from '../src/utils/cell-management';
+  getClosestCellFrom,
+  isCell,
+  updateTabIndexForActionable,
+} from "../src/utils/cell-management";
 
-describe('cell-management utils', () => {
-  it('update tabIndex for actionable correctly', () => {
-    const td = document.createElement('td');
-    const input = document.createElement('input');
-    const select = document.createElement('select');
+describe("cell-management utils", () => {
+  it("update tabIndex for actionable correctly", () => {
+    const td = document.createElement("td");
+    const input = document.createElement("input");
+    const select = document.createElement("select");
     td.append(input);
     td.append(select);
 
@@ -29,8 +29,8 @@ describe('cell-management utils', () => {
     expect(select.tabIndex).toBe(-1);
   });
 
-  it('delayedSetFocus fires after a delay', () => {
-    const input = document.createElement('input');
+  it("delayedSetFocus fires after a delay", () => {
+    const input = document.createElement("input");
     input.tabIndex = -1;
     expect(input.tabIndex).toBe(-1);
 
@@ -44,11 +44,11 @@ describe('cell-management utils', () => {
     expect(input.tabIndex).toBe(0);
   });
 
-  it('isCell correctly detects DataGrid cells', () => {
-    const td = document.createElement('td');
-    const th = document.createElement('th');
-    const div = document.createElement('div');
-    const input = document.createElement('input');
+  it("isCell correctly detects DataGrid cells", () => {
+    const td = document.createElement("td");
+    const th = document.createElement("th");
+    const div = document.createElement("div");
+    const input = document.createElement("input");
 
     expect(isCell(td)).toBe(true);
     expect(isCell(th)).toBe(true);
@@ -56,14 +56,14 @@ describe('cell-management utils', () => {
     expect(isCell(input)).toBe(false);
   });
 
-  it('getClosestCellFrom fetches the closest parent DataGrid cell from an element correctly', () => {
-    const gridId = 'data-grid';
-    const grid = document.createElement('div');
+  it("getClosestCellFrom fetches the closest parent DataGrid cell from an element correctly", () => {
+    const gridId = "data-grid";
+    const grid = document.createElement("div");
     grid.id = gridId;
-    const td = document.createElement('td');
-    const input = document.createElement('input');
-    const select = document.createElement('select');
-    const randomInput = document.createElement('input');
+    const td = document.createElement("td");
+    const input = document.createElement("input");
+    const select = document.createElement("select");
+    const randomInput = document.createElement("input");
 
     td.append(input);
     td.append(select);

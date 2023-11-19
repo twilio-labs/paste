@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductLiveIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface ProductLiveIconProps extends IconWrapperProps {
 }
 
 const ProductLiveIcon = React.forwardRef<HTMLElement, ProductLiveIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductLiveIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductLiveIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductLiveIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -24,6 +25,7 @@ const ProductLiveIcon = React.forwardRef<HTMLElement, ProductLiveIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
           fill="none"
@@ -40,8 +42,8 @@ const ProductLiveIcon = React.forwardRef<HTMLElement, ProductLiveIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ProductLiveIcon.displayName = 'ProductLiveIcon';
-export {ProductLiveIcon};
+ProductLiveIcon.displayName = "ProductLiveIcon";
+export { ProductLiveIcon };

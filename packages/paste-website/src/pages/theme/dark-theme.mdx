@@ -1,0 +1,117 @@
+export const meta = {
+  title: 'Dark Theme',
+  description: 'Dark theme is a base theme for dark mode in any UI fully using Paste.',
+  slug: '/theme/dark-theme',
+};
+
+import {Box} from '@twilio-paste/box';
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {SidebarCategoryRoutes} from '../../constants';
+import {DoDont, Do, Dont} from '../../components/DoDont';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.THEME} />
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Guidelines
+
+### About Dark theme
+
+Dark theme is a base theme in Paste built in partnership with [Flex](https://www.twilio.com/flex). Dark theme unlocks dark mode for our UIs, and dark mode is cool! Additionally, dark mode reduces eye strain and improves readability for many people. Giving our users the ability to use Twilio products in dark mode is key to building lovable products that support each of our users.
+
+Paste uses a [Theme object](/theme) to create and change themes. With Dark theme, it’s simple to enable dark mode in your products if your UIs are built completely with Paste.
+
+### Dark theme vs. dark mode
+
+Light/dark mode is a user preference that can be set at the operating system, browser, or application level, and which we can honor in our UIs. In both light and dark mode, you get to choose what Paste theme is used for the UI. Paste’s Dark theme allows you, our consumers, to enable light/dark mode in your products with ease.
+
+### Accessibility
+
+Dark theme lives up to our inclusive design benchmarks and is fully accessible, meeting the [Web Content Accessibility Guidelines 2.1](https://www.w3.org/TR/WCAG21/) (WCAG) AA standard contrast ratios of conformance. You can learn more about the accessibility of our color palette in [Color Foundations](/foundations/colors/#accessibility).
+
+## When to use Dark theme
+
+<DoDont>
+  <Do title="Do" body="Use Dark theme if your UI is built fully with Paste." />
+  <Dont
+    title="Don't"
+    body="Don’t use Dark theme if there are any surface areas within your product that aren’t using Paste."
+  />
+</DoDont>
+
+## Usage Guide
+
+### Theme Provider
+
+If you’re building a Twilio product, using Dark theme should be a [one-line update to the Theme Provider](/theme/changing-theme). Simply change it from `default` to `dark`.
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/theme - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {Theme} from '@twilio-paste/core/theme';
+
+const ThemedApp = () => (
+  <Theme.Provider theme="dark">
+    <App />
+  </Theme.Provider>
+);
+```
+
+### Customization Provider
+
+If you’re customizing Paste for a product outside of Twilio or for a Twilio programmable app, use the [Customization Provider](/customization/customization-provider) to select Dark theme as the base theme.
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/customization - or - yarn add @twilio-paste/core
+```
+
+#### Usage
+
+```jsx
+import {CustomizationProvider} from '@twilio-paste/core/customization';
+
+const ThemedApp = () => (
+  <CustomizationProvider baseTheme="dark">
+    <App />
+  </CustomizationProvider>
+);
+```
+
+### Figma
+
+Check out the [theme-swapping FAQs](/theme/changing-theme#how-do-i-change-themes-in-figma) on how to use dark theme in Figma.
+
+## Feedback
+
+Dark theme is still new and while we still have some work to do to see this widely across Twilio, we thought you might have some questions. You can leave thoughts, questions, and feedback in our [GitHub discussion](https://github.com/twilio-labs/paste/discussions/1527).
+
+</content>
+</contentwrapper>

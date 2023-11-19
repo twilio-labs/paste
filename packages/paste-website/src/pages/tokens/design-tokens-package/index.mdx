@@ -1,43 +1,32 @@
----
-title: Design Tokens Package
-package: '@twilio-paste/design-tokens'
-description: The Paste Design Tokens package allows you to install design tokens in a variety of different formats (Web, Mobile, etc.)
-slug: /tokens/design-tokens-package/
----
+export const meta = {
+  title: 'Design Tokens Package',
+  package: '@twilio-paste/design-tokens',
+  description:
+    'The Paste Design Tokens package allows you to install design tokens in a variety of different formats (Web, Mobile, etc.)',
+  slug: '/tokens/design-tokens-package/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/design-tokens/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {Link} from 'gatsby';
+import Link from 'next/link';
+import packageJson from '@twilio-paste/design-tokens/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteDesignTokensPackage(filter: {name: {eq: "@twilio-paste/design-tokens"}}) {
-      edges {
-        node {
-          name
-          description
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/tokens/design-tokens-package/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<NormalizeComponentHeader
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      data: packageJson,
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.TOKENS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-design-tokens"
   data={props.data}
@@ -47,7 +36,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -77,11 +66,15 @@ Paste Design Tokens are supported in the following formats within this package:
 
 Paste supports multiple themes. This is done by exporting the same token formats for each theme. Each file in the root of the design tokens package is exported for each theme with the corresponding values updated for each token. This allows different parts of Twilio to have their own visual styles whilst still maintaining a consistent Twilio feel, coherent component behavior, and preventing Design System bloat.
 
-See our list of Tokens and their corresponding values in the <Link to="/tokens/">Token List</Link> page.
+See our list of Tokens and their corresponding values in the [Token List](/tokens/) page.
 
 Within themes, we presently have support for:
 
+- [Twilio](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/twilio/)
+- [Twilio Dark](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/twilio-dark/)
 - [Paste (Default)](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/)
+- [Dark](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/dark/)
+- [Evergreen](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/evergreen/)
 - [SendGrid](https://unpkg.com/browse/@twilio-paste/design-tokens/dist/themes/sendgrid/)
 
 ## Give us Feedback on this Page

@@ -1,44 +1,30 @@
----
-title: Design Guidelines for Paste
-description: Get started with Paste design tools to create your own Twilio customer experiences and prototypes.
-slug: /introduction/for-designers/design-guidelines/
----
+export const meta = {
+  title: 'Design Guidelines for Paste',
+  description: 'Get started with Paste design tools to create your own Twilio customer experiences and prototypes.',
+  slug: '/introduction/for-designers/design-guidelines/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
-import {Tooltip} from '@twilio-paste/tooltip';
-import {Stack} from '@twilio-paste/stack';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
+export default DefaultLayout;
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/introduction/for-designers/design-guidelines/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<p>{meta.description}</p>
 
 </content>
 
@@ -46,85 +32,63 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
-## Access to Figma
+## For Twilio customers
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h2">This section is for Twilio customers only!</CalloutHeading>
+  <CalloutText>
+    If you're a Twilio employee, check out the section below this for guidelines on how to work within Twilio's Figma organization.
+  </CalloutText>
+</Callout>
+
+Welcome to Paste! To get started using Paste's Figma library:
+1. Download and install [Twilio Sans Mono](https://github.com/twilio/twilio-sans-mono), Twilio's open-source monospace typeface.
+2. Add the [Twilio Paste Components](https://www.figma.com/community/file/1207476064127503112/twilio-paste-components) library from the Figma Community to your Figma team.
+3. Once the library is added, swap all missing fonts to the Inter typeface, which is provided by default through Figma. [Learn more about managing missing fonts.](https://help.figma.com/hc/en-us/articles/360039956994-Manage-missing-fonts)
+4. You'll most likely be using the `default` theme, which means you'll have to [open the Variables modal](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables#Create_a_mode), and right-click to delete all existing modes until only the "Default" one is left.
+5. From here, publish your library and explore [Paste's components](/components). If you run into issues, reach out to us on [Github Discussions](https://github.com/twilio-labs/paste/discussions/new/choose). We're excited to see what you build!
+
+---
+
+## For Twilions
+
+### Access to Figma
 
 As a Twilio Designer, you have access to Figma. Join the Twilio organization by requesting an
 account through [ServiceNow](https://twilio.service-now.com/sp/). When you have access to Figma, you can learn more by reviewing our [Working with Figma guide](https://www.figma.com/file/WiJFrYa9YpIcFUmT06gTn0/Working-with-Figma).
 
 ---
 
-## Using libraries
+### Using libraries
 
-### How to turn on libraries
+#### How to turn on libraries
 
-👉&nbsp;&nbsp;Ideally, you won’t have to worry too much about turning libraries on if you’re
-joining an existing team. A "Team Owner" (or "Admin") should have already gone through
-the steps of turning on default libraries (like the Paste and Console Navigation
-libraries) with these steps: [setting up a Figma team](https://docs.google.com/document/d/1IOBY2kxdHB6b8nlSWIFOLK7TKTV-Xxv7czzCZIVTAxg/edit#heading=h.f209dtpr7col).
+Paste libraries are turned on by default in Figma. If you want to control libraries per file, go to the “Assets” tab on a file, where you can also drag components into your file. Click the book icon in the upper corner. From the modal, you can turn libraries on and off. [Learn more about managing libraries](https://help.figma.com/hc/en-us/articles/1500008731201-Manage-libraries-in-design-files).
 
-If you want to control libraries per file, go to the “Assets” tab on a file. This is
-also where you can drag in components to your file. Click the book icon in the upper
-corner. From the modal, you can turn libraries on and off.
+#### Main libraries
 
-![Buttons to click in Figma to open the library selector](../../../../assets/images/design-guidelines/figma-open-library-modal.png)
+The following are the main libraries we recommend you have enabled for each Figma file. Any time a library is updated, you’ll get a notification in your project asking if you’d like to update.
 
-![Modal in Figma where you can select the Paste components library to link to your project](../../../../assets/images/design-guidelines/figma-link-paste-libraries.png)
+##### Paste libraries
 
-### Main libraries
-
-The main libraries we recommend you have enabled for each file are:
-
-- [Paste Components](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components)
-- [Paste Default Theme](https://www.figma.com/file/OZKRQFOkOAl413m5JVIYE6/Paste-Default-Theme) includes tokens (color, text, and shadow styles), needed for the Paste components library
-- [Paste Patterns](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns)
-- [Brand Illustrations](https://www.figma.com/file/XeA9WNBcoojrdJbiz5Nj5q/Brand-Illustrations) includes illustrations for empty states, sections, etc
+- [Paste Components](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BWIP%5D-Paste-Components?node-id=3015%3A46646&t=2Fe524au9O9rlWZU-1) includes the latest components, design tokens (color, text, shadows, spacing, and sizing) in twilio, twilio-dark, default, and evergreen themes.
+- [Paste Patterns & Templates](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns-%26-Templates?type=design&mode=design&t=1bbtpztf0NFxL6kb-0)
 - [Asset Documentation](https://www.figma.com/file/GfY11A2VW638eFK48nDtdE/Asset-Documentation) includes helpful utilities for marking up designs, like sticky notes and cursors
+
+##### Twilio community libraries
+
+- [Web Spot Image Repository](https://www.figma.com/file/tr1bGht8drBOMaeX5EpJ7m/Web-Spot-Image-Repository?type=design&node-id=479%3A27278&mode=design&t=dS8B9jWHFRrIBduc-1) includes illustrations for empty states, marketing highlights, and more, managed by the Web team.
+- [Console Library](https://www.figma.com/file/vvdKgsO8OLcn7Q6FmuhWtl/Console-Library) for teams with Console projects, managed by the Console team.
+- [Segment Design Library](https://www.figma.com/file/4tOxLhDIMO2MYvF925RQKc/Segment-Design-Library?type=design&mode=design&t=UNWt1yAShGOocSFf-0) for teams with Segment projects, managed by the Segment team.
 - [File and Cover Sheet Template](https://www.figma.com/file/RfZYRjUH56rZ0qe0veqRJA/File-and-Cover-Sheet-Template)
-- [Console Library](https://www.figma.com/file/vvdKgsO8OLcn7Q6FmuhWtl/Console-Library) for teams with Console projects **(managed by the Console team)**
-- [SendGrid's legacy SG-DS](https://www.figma.com/file/YgSlHVVKgdCY2BzdTbHsPf/SG-DS) for teams with legacy SendGrid projects **(managed by the SendGrid team)**
-
-Any time a library is updated, you’ll get a notification in your project asking if you’d like to update.
 
 ---
 
-## Using themes
-
-Paste currently has [Default Theme](https://www.figma.com/file/OZKRQFOkOAl413m5JVIYE6/Paste-Default-Theme) and
-[Dark Theme](https://www.figma.com/file/TZMBaCxXkX8u5aVRVYboid/Paste-Dark-Theme?node-id=0%3A1) libraries.
-
-When you have a theme library linked, you'll have access to:
-
-- Text styles (font families, font weights, and font sizes)
-- Colour styles (fill and stroke for background, border, and text colors)
-- Effect styles (shadows, etc.)
-
-![Menu in Figma when you can navigate through tokens for the Default theme](../../../../assets/images/design-guidelines/token-styles.png)
-
-You should be using components from Paste to compose your UIs whenever possible, but the text and layer styles will be helpful when you need to compose something more custom.
-
-This can be anything from setting a piece of text next to an icon to creating a custom stepper component.
-
----
-
-## Using components
-
-Components are UI elements that can be reused across your designs. They help you create and manage consistent designs across projects.
-
-You can drag and drop components into your project via the Assets panel on the left, and swap to different variants for a given component via the Design panel on the right.
-
-Any layer with a ⚙️ emoji indicates that there are nested variants available.
-
-Any layer with a ✏️ emoji indicates an editable layer.
-
-Check out our [tips and tricks](https://www.figma.com/file/WiJFrYa9YpIcFUmT06gTn0/Working-with-Figma?node-id=155%3A126) for more helpful hints about using the Paste Components library.
-
----
-
-## Library updates
+### Library updates
 
 We release library updates continuously and use Figma’s version history to keep track.
 
@@ -137,31 +101,28 @@ We demarcate changes with hints which you can see in the description of each upd
 
 ---
 
-## Fonts
+### Fonts
 
 Fonts in Paste are preloaded into Figma so you don't need to download or install any font files.
 
-### Inter
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h2">Are you a Twilio customer?</CalloutHeading>
+  <CalloutText>
+    Only Twilio applications are licensed to use Twilio Sans Text and Twilio Sans Display. If you are not building an application for Twilio, use the default and dark themes which use the open-source typeface <Anchor href="https://rsms.me/inter/" showExternal>Inter</Anchor>.
+  </CalloutText>
+</Callout>
 
-[Inter](https://fonts.google.com/specimen/Inter) is a free Google font and our typeface for UI text.
+#### Twilio Sans Text
 
-### Fira Mono
+Twilio Sans Text is used for UI text.
 
-[Fira Mono](https://fonts.google.com/specimen/Fira+Mono?query=fira+mono) is a free Google font and our monospace typeface for code.
+#### Twilio Sans Display
 
-### SF Pro Text
+Twilio Sans Display for headlines.
 
-[SF Pro Text](https://developer.apple.com/fonts/) is the system font for Apple platforms. We represent native web element styles (like option lists in [Select](/components/select/)) in our design assets in macOS styles.
+#### Twilio Sans Mono
 
-### Whitney
-
-[Whitney](https://www.twilio.com/brand/elements/typography) is the Twilio brand typeface. Reach out to us in `#help-design-system` if you need access to the Whitney font files for work outside of Figma.
-
----
-
-## Additional questions or concerns
-
-If you have any questions for us that weren’t covered by this guide, or you are running into problems using our design resources, please [reach out](/introduction/working-with-us)!
+[Twilio Sans Mono](https://github.com/twilio/twilio-sans-mono) is an extensive open-source monospace typeface for programming experiences.
 
 </content>
 

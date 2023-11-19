@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {AnchorPropTypes} from './proptypes';
-import type {AnchorProps} from './types';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
+
+import type { AnchorProps } from "./types";
 
 const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, ref) => (
   <Box
@@ -15,27 +15,23 @@ const DefaultAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
     ref={ref}
     textDecoration="underline"
     _active={{
-      color: 'colorTextLinkStronger',
-      textDecoration: 'none',
+      color: "colorTextLinkStrongest",
+      textDecoration: "none",
     }}
     _focus={{
-      boxShadow: 'shadowFocus',
-      color: 'colorTextLinkStronger',
-      textDecoration: 'none',
+      boxShadow: "shadowFocus",
+      color: "colorTextLink",
+      textDecoration: "underline",
     }}
     _hover={{
-      color: 'colorTextLinkStronger',
-      textDecoration: 'none',
+      color: "colorTextLinkStronger",
+      textDecoration: "none",
     }}
   >
     {props.children}
   </Box>
 ));
 
-DefaultAnchor.displayName = 'DefaultAnchor';
+DefaultAnchor.displayName = "DefaultAnchor";
 
-if (process.env.NODE_ENV === 'development') {
-  DefaultAnchor.propTypes = AnchorPropTypes;
-}
-
-export {DefaultAnchor};
+export { DefaultAnchor };

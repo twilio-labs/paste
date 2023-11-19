@@ -1,0 +1,58 @@
+export const meta = {
+  title: 'Status Badge - Components - API',
+  package: '@twilio-paste/status',
+  description: 'A Status Badge communicates the status of a process or connectivity to an application or service.',
+  slug: '/components/status-badge/api',
+};
+
+import Changelog from '@twilio-paste/status/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/status/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Status Badge');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/status');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+        nameOverride: 'Status Badge',
+        descriptionOverride:
+          'A Status Badge communicates the status of a process or connectivity to an application or service.',
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status',
+        storybookUrl: '/?path=/story/components-status-statusbadge--process-success-status-badge',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/status - or - yarn add @twilio-paste/status
+```
+
+## Usage
+
+```jsx
+import {StatusBadge} from '@twilio-paste/core/status';
+
+const BadgeExample = () => <StatusBadge variant="ProcessError">Process Error Badge</StatusBadge>;
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

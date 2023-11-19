@@ -1,0 +1,63 @@
+global:
+  type: color
+  category: border-color
+imports:
+  - ../../dark/global/border-color.yml
+props:
+  # primary action borders
+  color-border-primary:
+    value: "{!palette-blue-55}"
+    comment: Primary border color.
+  color-border-primary-weak:
+    value: "{!palette-blue-70}"
+    comment: Weak primary border color
+  color-border-primary-weaker:
+    value: "{!palette-blue-70}"
+    comment: Weaker primary border color
+  color-border-primary-weakest:
+    value: "{!palette-blue-90}"
+    comment: Weakest primary border color
+
+  # inverse borders
+  color-border-inverse-weakest:
+    value: "{!palette-gray-100}"
+    comment: Weakest border on inverse backgrounds. Must be used on color-background-body-inverse.
+
+  # status borders
+  color-border-success-weaker:
+    value: "{!palette-green-70}"
+    comment: Weaker success border color.
+  color-border-warning-weaker:
+    value: "{!palette-orange-70}"
+    comment: Weaker warning border color.
+  color-border-error-weaker:
+    value: "{!palette-red-70}"
+    comment: Weaker error border color.
+  color-border-error-strong:
+    value: "{!palette-red-40}"
+    comment: Strong error border color.
+  color-border-neutral:
+    value: "{!palette-blue-55}"
+    comment: Neutral border color
+  color-border-neutral-weaker:
+    value: "{!palette-blue-70}"
+    comment: Weaker neutral border color
+
+  # destructive borders
+  color-border-destructive-weak:
+    value: "{!palette-red-80}"
+    comment: Destructive focus border color
+  color-border-destructive-weaker:
+    value: "{!palette-red-90}"
+    comment: Destructive focus border color
+  color-border-destructive-weakest:
+    value: "{!palette-red-100}"
+    comment: Destructive focus border color
+
+  # decorative
+  color-border-decorative-20-weaker:
+    value: "{!palette-blue-70}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-30-weaker:
+    value: "{!palette-green-70}"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.

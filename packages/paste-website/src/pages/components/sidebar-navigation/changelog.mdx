@@ -1,0 +1,40 @@
+export const meta = {
+  title: 'Sidebar Navigation - Changelog',
+  package: '@twilio-paste/sidebar',
+  description:
+    "Sidebar Navigation controls both flat and hierarchical navigation structures within an application's sidebar.",
+  slug: '/components/sidebar-navigation/changelog',
+};
+
+import Changelog from '@twilio-paste/sidebar/CHANGELOG.md';
+import packageJson from '@twilio-paste/sidebar/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Sidebar Navigation');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+        nameOverride: 'Sidebar Navigation',
+        descriptionOverride: "Sidebar Navigation controls both flat and hierarchical navigation structures within an application's sidebar."
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar',
+        storybookUrl: '/?path=/story/components-sidebar-navigation--default',
+      },
+    },
+  };
+};
+
+<Changelog />

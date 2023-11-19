@@ -1,10 +1,11 @@
----
-title: Empty state
-description: The Empty State pattern provides the user with guidance on what steps to take if content is either unavailable or cannot be displayed.
-slug: /patterns/empty-state/
----
+export const meta = {
+  title: 'Empty state',
+  description:
+    'The Empty State pattern provides the user with guidance on what steps to take if content is either unavailable or cannot be displayed.',
+  slug: '/patterns/empty-state/',
+};
 
-import {graphql} from 'gatsby';
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -14,55 +15,38 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {
-  AwaitingDataImage,
-  ChangeRegionImage,
-  CreateObjectImage,
-  GenericDependencyImage,
-  NoPermissionsImage,
-  NoResultImage,
-} from '../../../components/images/EmptyStateImages';
+import {Callout, CalloutText} from '@twilio-paste/callout';
+import EmptyCreateSomething from '../../../assets/images/patterns/empty-create-something.png';
+import EmptyApproval from '../../../assets/illustrations/empty-approval.svg';
+import EmptyCleared from '../../../assets/illustrations/empty-cleared.svg';
+import EmptyDenied from '../../../assets/illustrations/empty-denied.svg';
+import EmptyDoSomething from '../../../assets/illustrations/empty-do-something.svg';
+import EmptyLost from '../../../assets/illustrations/empty-lost.svg';
+import EmptySearch from '../../../assets/illustrations/empty-search.svg';
+import EmptyWaiting from '../../../assets/illustrations/empty-waiting.svg';
+import EmptyWarning from '../../../assets/illustrations/empty-warning.svg';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/empty-state/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Empty state"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Empty state');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizePatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -70,7 +54,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -125,7 +109,7 @@ export const pageQuery = graphql`
 
 For Card sizing, go to the [Sizing & responsiveness section](/patterns/empty-state#sizing-and-responsiveness) for more details.
 
-For illustrations, we recommend using a fixed width of `$size-20`. The illustration must be directly related to the message you’re communicating. Read more about [which illustrations to use for each use case](/patterns/empty-state#content-examples-by-use-case).
+For illustrations, we recommend using a fixed width of `$size-20`. The illustration must be directly related to the message you’re communicating. Read more about [which illustrations to use for each use case](/patterns/empty-state#variations).
 
 ```jsx
 // import all ingredients for the empty state patterns
@@ -140,7 +124,7 @@ import {​Anchor} from "@twilio-paste/core/anchor";
 
 ### General
 
-This pattern is used to explain to a customer what they should do next if content is either unavailable or can't be displayed.
+Use an empty state to explain to a customer why content is unavailable or can't be displayed. Empty states can appear anywhere you display content, and are a good opportunity to improve customer comprehension.
 
 An empty state should:
 
@@ -148,14 +132,62 @@ An empty state should:
 - **Give direction and educate the customer:** Let customers know what steps they can take to move forward. Guiding them to "Create an alpha sender" is more helpful than saying "No alpha senders".
 - **Be encouraging and inspire confidence:** Use a [friendly and approachable tone](/foundations/content/voice-and-tone#encouraging) to ensure a positive experience. Never make customers feel unsuccessful or guilty because they're seeing an empty state. Even when they arrive at a page "in error" (for example, on a page they don't have permissions to), encouraging messaging and an explanation of possible solutions can give customers confidence that they're heading in the right direction.
 
-In most cases, treat an empty state as an informational state of the entire page, and not a state that simply replaces a part of the page that should otherwise be populated. When you have text explaining what a page is for, try working it into the empty state card.
-
-When a page is in an empty state, its call-to-action (CTA) should appear in the empty state card, not near the page heading like in the [Create pattern](/patterns/create/). Exceptions can be made in cases like some "No results found" scenarios, when a CTA is already on the page on load. The visual focus of hiding the CTA that's outside of the card could draw too much of the customer's attention away from their primary goal.
-
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/empty-state-with-immediate-next-step-bmxe1?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
+    style={{width: '100%', height: '350px', border: '0', borderRadius: '4px', overflow: 'hidden'}}
+    title="Empty state requiring a customer to wait"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+### Composition notes
+
+In most cases, an empty state has a [Heading](/components/heading), a [Paragraph](/components/paragraph), and a call to action. Sometimes, an empty state has an illustration.
+
+#### Heading
+
+The [Heading](/components/heading) should be concise and convey the main takeaway. Use only a heading if there is no additional context to provide.
+
+#### Paragraph
+
+The [Paragraph](/components/paragraph) should provide additional context or information. Describe what the user can do next and the benefit to the user. If there is no more information to convey, omit this component.
+
+#### Call to action (CTA)
+
+The CTA should appear within the empty state, unless the CTA is already on the page when it loads. A CTA separate from the rest of the empty state could draw the user’s attention away from their primary goal.
+
+When there’s no immediate action to be taken, consider making the CTA a way to get back to a previous screen or start a related workflow. This approach is useful when the user is waiting for data to process or for an approval.
+
+Occasionally, CTAs aren’t necessary. For example, if the empty state is a preview pane and is dependent on the user taking action elsewhere on the page.
+
+#### Illustrations
+
+Use an illustration only if it’s directly related to the message you’re communicating. Overusing illustrations can minimize their emotional and visual impact. [Learn more about requesting a new illustration](/foundations/illustrations#request-new-illustrations).
+
+### Sizing & Responsiveness
+
+When an empty state card is wider than 540px (recommended), use `padding="space150"`, and align illustrations horizontally with the text content.
+
+In smaller spaces, use `padding="space100"` and stack the illustration in the card above the text content.
+
+If your empty state composition needs to accommodate different screen sizes, you can also wrap it in the Stack or Grid component.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    If you'd like to contribute guidelines for the empty state pattern in even more compact situations, like a
+    navigation panel or components like <Anchor href="/components/combobox">Combobox</Anchor>, please reach out in a{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor>!
+  </CalloutText>
+</Callout>
+
+Open the sandbox in a new tab and resize the browser for an example of responsive sizing.
+
+<Box marginBottom="space70">
+  <iframe
+    src="https://codesandbox.io/embed/empty-state-sizing-responsiveness-euj5p?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+    style={{width: '100%', height: '500px', border: '0', borderRadius: '4px', overflow: 'hidden'}}
     title="Empty state requiring a customer to wait"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -170,169 +202,222 @@ check out the [Button vs. Anchor pattern](/patterns/button-vs-anchor).
 
 ## Variations
 
-### Empty state with an immediate next step
+### First use
 
-In most cases, an empty state has a [Heading](/components/heading) to summarize what's happening, a [Paragraph](/components/paragraph) that gives more detail to help a customer decide what to do next, and 1–2 calls-to-action.
+These empty states occur during the user’s first interaction with a feature and are an opportunity to educate the user. The content should indicate what the user can expect to see once the area is populated, address the benefit or motivation for taking action, and guide the user to get started. When appropriate, consider opportunities for launching an onboarding flow, in-depth education detail to drive engagement, or starter content like templates.
 
-<Box marginBottom="space70">
-  <iframe
-    src="https://codesandbox.io/embed/empty-states-with-immediate-next-steps-7tbp3?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
-    title="Empty state with an immediate next step"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  ></iframe>
-</Box>
-
-### Empty state requiring a customer to wait
-
-A customer's next step might not always require an immediate call-to-action. Instead, the best path forward for them might be to wait for another process to complete and come back later. This happens most often when a customer is awaiting data through event logs, or when another person or non-Twilio service needs to approve a customer's request.
-
-If the customer might need to start another workflow, consider giving them a way back to a dashboard or the start of another flow.
-
-<Box marginBottom="space70">
-  <iframe
-    src="https://codesandbox.io/embed/empty-state-requiring-a-customer-to-wait-uyxu3?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:350px; border:0; border-radius: 4px; overflow:hidden;"
-    title="Empty state requiring a customer to wait"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  ></iframe>
-</Box>
-
-### Sizing & Responsiveness
-
-When an empty state card is wider than 540px (recommended), use `padding="space150"`, and align illustrations horizontally with the text content.
-
-In smaller spaces, use `padding="space100"` and stack the illustration in the card above the text content.
-
-If your empty state composition needs to accommodate different screen sizes, you can also wrap it in the Stack or Grid component.
-
-<Callout>
-  <CalloutText>
-    If you'd like to contribute guidelines for the empty state pattern in even more compact situations, like a
-    navigation panel or components like <Anchor href="/components/combobox">Combobox</Anchor>, please reach out in a{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions">GitHub Discussion</Anchor>!
-  </CalloutText>
-</Callout>
-
-Open the sandbox in a new tab and resize the browser for an example of responsive sizing.
-
-<Box marginBottom="space70">
-  <iframe
-    src="https://codesandbox.io/embed/empty-state-sizing-responsiveness-euj5p?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
-    title="Empty state requiring a customer to wait"
-    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
-    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
-  ></iframe>
-</Box>
-
-## Examples of Empty State use cases
-
-For all use cases:
-
-- Use a heading that succinctly summarizes the situation. We recommended a maximum of 7 words.
-- Use an illustration only if it’s directly related to the message you’re communicating. Don’t use a random illustration to “fill in the blank.” The more that illustrations are used throughout our products, the more they lose their emotional and visual impact when it really matters. [Learn more about requesting a new illustration](/foundations/illustrations#request-new-illustrations).
+#### Examples
 
 <Box marginBottom="space70">
   <Table scrollHorizontally>
     <THead>
       <Tr>
         <Th width="200px">Use case</Th>
-        <Th>Customer scenario</Th>
-        <Th width="200px">Example heading</Th>
-        <Th width="200px">Illustration</Th>
+        <Th>Sample content format</Th>
+        <Th>CTA</Th>
+        <Th>Illustration</Th>
       </Tr>
     </THead>
     <TBody>
       <Tr verticalAlign="top">
-        <Th scope="row">Create an object</Th>
+        <Td scope="row">A user needs to create something to populate the empty state</Td>
         <Td>
-          The customer needs to create something new to populate the page or learn more about why/how to create it.
+          <b>No [items] yet</b> <br /> To get started [doing task], create [item].
         </Td>
-        <Td>"Create an alpha sender"</Td>
+        <Td>Create [item]</Td>
         <Td>
-          <CreateObjectImage />
-          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=76338C93-160D-49BE-ABF66BA274D512FE">
-            Download from the Brand library
-          </Anchor>
+          <Image src={EmptyCreateSomething} width={150} aria-hidden="true" alt="" />
         </Td>
       </Tr>
       <Tr verticalAlign="top">
-        <Th scope="row">No results found</Th>
-        <Td>Based on a customer's search or filter criteria, we're unable to give them any results.</Td>
-        <Td>"No phone numbers found"</Td>
+        <Td scope="row">The system populates the empty state once the user does something</Td>
         <Td>
-          <NoResultImage />
-          <Anchor href="https://library.twilio.com/share/0B06AF02-1A85-41D6-8C712765E741B791/?mediaId=394526A8-0A5D-4C18-9A11AEBCED9ECAEE">
-            Download from the Brand library
-          </Anchor>
+          <b>No [thing] yet</b> <br /> You haven't [taken an action]. [Take an action], then track [things] here.
         </Td>
-      </Tr>
-      <Tr verticalAlign="top">
-        <Th scope="row">Awaiting data</Th>
+        <Td> [Take an action] (optional)</Td>
         <Td>
-          The customer has done everything they need to do. Now they're waiting on a response or for data to come in.
-        </Td>
-        <Td />
-        <Td>
-          <AwaitingDataImage />
-          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=CCE495BC-0D72-4F3D-A7E4958ECA83A41B">
-            Download from the Brand library
-          </Anchor>
-        </Td>
-      </Tr>
-      <Tr verticalAlign="top">
-        <Th scope="row">Generic dependency state</Th>
-        <Td>The customer needs to do something or go somewhere else to continue their workflow.</Td>
-        <Td />
-        <Td>
-          <GenericDependencyImage />
-          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=BCB4A8CB-6717-4041-B8F05F726C7AD6CA">
-            Download from the Brand library
-          </Anchor>
-        </Td>
-      </Tr>
-      <Tr verticalAlign="top">
-        <Th scope="row">No permissions to view</Th>
-        <Td>The customer doesn't have permissions to view the page.</Td>
-        <Td>"Request access to WhatsApp"</Td>
-        <Td>
-          <NoPermissionsImage />
-          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=8C1B7853-CB10-4C2E-89BF03871593BDC3">
-            Download from the Brand library
-          </Anchor>
-        </Td>
-      </Tr>
-      <Tr verticalAlign="top">
-        <Th scope="row">Change regional data location</Th>
-        <Td>The customer needs to swap regions to access the data.</Td>
-        <Td>"View event logs in the United States region"</Td>
-        <Td>
-          <ChangeRegionImage />
-          <Anchor href="https://library.twilio.com/collections/view/963D9AB3-47A0-4C13-978BC97108C1EBCC/?mediaId=F44538E4-FD2E-45B2-806402557124153C">
-            Download from the Brand library
-          </Anchor>
+          <Image src={EmptyDoSomething} width={150} aria-hidden="true" alt="" />
         </Td>
       </Tr>
     </TBody>
   </Table>
 </Box>
 
+### No data
+
+A no data empty state can occur when:
+
+- A search or filter yields no results.
+- A user has cleared the data.
+- A user must wait for data to populate.
+- A user is waiting for permission/access.
+
+When data is absent due to search parameters, the content should communicate why there is no data and explain what the user could change to populate results.
+
+When data is absent due to a user waiting for data to populate, consider a CTA leading them back to a previous screen or suggesting a related task.
+
+#### Examples
+
+<Box marginBottom="space70">
+  <Table scrollHorizontally>
+    <THead>
+      <Tr>
+        <Th width="200px">Use case</Th>
+        <Th>Sample content format</Th>
+        <Th>CTA</Th>
+        <Th>Illustration</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr verticalAlign="top">
+        <Td scope="row">A user ran a search/filter and no results matched the criteria</Td>
+        <Td>
+          <b>No [thing] matched your search</b> <br /> Try [action].
+        </Td>
+        <Td></Td>
+        <Td>
+          <Image src={EmptySearch} width={150} aria-hidden="true" alt="" />
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Td scope="row">A user is waiting on the system to populate something</Td>
+        <Td>
+          <b>No [thing] yet</b> <br /> You'll see [thing] here when [something happens].
+        </Td>
+        <Td></Td>
+        <Td>
+          <Image src={EmptyWaiting} width={150} aria-hidden="true" alt="" />
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Td scope="row">A user is waiting for access/permissions</Td>
+        <Td>
+          <b>Your request was submitted</b> <br /> You'll see [thing] here when your request is approved.
+        </Td>
+        <Td>Go back to [page] (optional)</Td>
+        <Td>
+          <Image src={EmptyApproval} width={150} aria-hidden="true" alt="" />
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Td scope="row">A user cleared all the data (like alerts or notifications)</Td>
+        <Td>
+          <b>No new [things]</b> <br /> To review previous [things], go to [page].
+        </Td>
+        <Td>Go to [page] (optional)</Td>
+        <Td>
+          <Image src={EmptyCleared} width={150} aria-hidden="true" alt="" />
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Td scope="row">A preview is populated after the user inputs info elsewhere on the page</Td>
+        <Td>
+          <b>No preview yet</b> <br /> To see what your [thing] will look like, [do a task].
+        </Td>
+        <Td>Do task (optional)</Td>
+        <Td>(optional)</Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+<Box marginBottom="space70">
+  <iframe
+    src="https://codesandbox.io/embed/empty-state-requiring-a-customer-to-wait-uyxu3?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+    style={{width: '100%', height: '350px', border: '0', borderRadius: '4px', overflow: 'hidden'}}
+    title="Empty state requiring a customer to wait"
+    allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+    sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+  ></iframe>
+</Box>
+
+### Error states
+
+Error empty states can result from problems like a system issue or access issue. The content should explain what went wrong and tell the user how to fix the issue. Consider including an error icon to complement the content. If the error empty state occurs in a small component (a card, for example), prioritize communicating how to fix the problem. For error message guidance, review the [error state pattern](patterns/error-state).
+
+#### Examples
+
+<Box marginBottom="space70">
+  <Table scrollHorizontally>
+    <THead>
+      <Tr>
+        <Th width="200px">Use case</Th>
+        <Th>Sample content format</Th>
+        <Th>CTA</Th>
+        <Th>Illustration</Th>
+      </Tr>
+    </THead>
+    <TBody>
+      <Tr verticalAlign="top">
+        <Td scope="row">Something went wrong with the system</Td>
+        <Td>
+          <b>We could not load [thing]</b> <br /> Try reloading the page.
+        </Td>
+        <Td>Reload page (optional)</Td>
+        <Td>
+          <Image src={EmptyWarning} width={150} aria-hidden="true" alt="" />
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Td scope="row">User doesn’t have access or permissions</Td>
+        <Td>
+          <b>No [thing] yet</b> <br /> You'll see [thing] here when [something happens].
+        </Td>
+        <Td></Td>
+        <Td>
+          <Image src={EmptyDenied} width={150} aria-hidden="true" alt="" />
+        </Td>
+      </Tr>
+      <Tr verticalAlign="top">
+        <Td scope="row">404 page</Td>
+        <Td>
+          <b>Page not found</b> <br /> The page you're looking for either doesn't exist or was moved.
+        </Td>
+        <Td>Go back</Td>
+        <Td>
+          <Image src={EmptyLost} width={150} aria-hidden="true" alt="" />
+        </Td>
+      </Tr>
+    </TBody>
+  </Table>
+</Box>
+
+### Cross-sell and upsell
+
+Use a cross-sell or upsell empty state on pages that give access to parts of a product that need to be purchased by the customer.
+
+Focus the headline on the overall user benefit, with supplemental text providing additional content on the ‘how’.
+
+Cross-sell and upsell empty states almost always include a CTA to contact Sales and an illustration.
+
+### Compact space
+
+When an empty state appears in a situation with limited space, like a [Combobox](/components/combobox), confine the empty state to a single sentence using the [Paragraph](/components/paragraph) component.
+
+### Charts and graphs
+
+For empty states that are eventually replaced by visual components like a chart or graph, consider including information that shows users what the eventual chart or graph would look like. For example, you could include the labels for the x- and y-axes or a muted graphic that shows the type of chart.
+
+### Multiple empty states on a page
+
+When a page has multiple pieces populated by different data sources, it’s possible to have several empty states at once. Generally, each piece should have its own empty state since they show different types of data and may require unique CTAs.
+
+A possible exception to this is the case where all pieces of the page are simultaneously in an error state. If possible, it is less distracting and distressing to show a single error state for the page than an error state for each piece of the page.
+
 ## Dos and Don'ts
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Include a heading that summarizes the situation. We recommend a maximum of 7 words."
-    preview={false}
-  />
+  <Do title="Do" body="Include a heading that summarizes the situation." preview={false} />
   <Dont
     title="Don't"
-    body="Don't include a long heading providing too many details. If the heading wraps to 2 or more lines, that may be a sign to be more concise. Don't use a period at the end of a heading."
+    body="Don't include too many details in a heading. A heading shouldn't be more than 2 lines."
     preview={false}
   />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Do use a period in supplemental text." preview={false} />
+  <Dont title="Don't" body="Don't use a period at the end of a heading." preview={false} />
 </DoDont>
 
 <DoDont>
@@ -341,42 +426,26 @@ For all use cases:
     body="Include a more detailed explanation of the situation and next steps, when applicable."
     preview={false}
   />
-  <Dont
-    title="Don't"
-    body="Don't repeat the heading copy in paragraph text if it doesn't add additional clarity."
-    preview={false}
-  />
+  <Dont title="Don't" body="Don't repeat the heading copy in supplemental text." preview={false} />
 </DoDont>
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Show a call-to-action in the empty state card only, unless the movement from hiding a CTA outside of the card draws too much of the customer's attention away from their primary goal."
-    preview={false}
-  />
+  <Do title="Do" body="Show a CTA within the empty state." preview={false} />
   <Dont title="Don't" body="Avoid showing the same CTA twice on a page." preview={false} />
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="If the empty state requires CTAs, try to include no more than 2." preview={false} />
+  <Do title="Do" body="Limit CTAs to 1 or 2." preview={false} />
   <Dont
     title="Don't"
-    body="Avoid giving the user more than 3 calls-to-action on the same empty state, so they're not overwhelmed with choice. If more than 3 are needed, consider grouping them under different headings or other content sections."
+    body="If 3 or more CTAs are needed, consider grouping them under different headings or other content sections."
     preview={false}
   />
 </DoDont>
 
 <DoDont>
-  <Do
-    title="Do"
-    body="Use an illustration that's directly related to the message you are sending. Check the list of illustrations to use based on use case."
-    preview={false}
-  />
-  <Dont
-    title="Don't"
-    body='Don&apos;t use a random illustration to "fill in the blank." The more that illustrations are used throughout our products, the more they lose their emotional and visual impact when it really matters.'
-    preview={false}
-  />
+  <Do title="Do" body="Use an illustration that's directly related to the message you are sending." preview={false} />
+  <Dont title="Don't" body="Don't use a random illustration." preview={false} />
 </DoDont>
 
 ## Starter kits
@@ -386,13 +455,6 @@ For all use cases:
 ## What's missing?
 
 If you're interested in contributing more guidelines, please reach out in a [GitHub Discussion](https://github.com/twilio-labs/paste/discussions).
-
-Here are use cases we're know we're missing guidelines on:
-
-- Empty state in compact situations, like a navigation panel or components like [Combobox](/components/combobox).
-- Empty state for charts and graphs.
-- Error states and when to use an error state vs. empty state.
-- Notice anything else? [Let us know](https://github.com/twilio-labs/paste/discussions)!
 
 </content>
 

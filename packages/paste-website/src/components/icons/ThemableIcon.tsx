@@ -1,21 +1,29 @@
+import { IconWrapper } from "@twilio-paste/icons/esm/helpers/IconWrapper";
+import type { IconWrapperProps } from "@twilio-paste/icons/esm/helpers/IconWrapper";
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from '@twilio-paste/icons/esm/helpers/IconWrapper';
-import type {IconWrapperProps} from '@twilio-paste/icons/esm/helpers/IconWrapper';
+import * as React from "react";
 
 export interface ThemableIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const ThemableIcon: React.FC<ThemableIconProps> = ({as, display, element = 'ICON', size, color, title, decorative}) => {
+const ThemableIcon: React.FC<React.PropsWithChildren<ThemableIconProps>> = ({
+  as,
+  display,
+  element = "ICON",
+  size,
+  color,
+  title,
+  decorative,
+}) => {
   const titleId = `ThemableIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[ThemableIcon]: Missing a title for non-decorative icon.');
+    throw new Error("[ThemableIcon]: Missing a title for non-decorative icon.");
   }
 
   return (
@@ -33,5 +41,5 @@ const ThemableIcon: React.FC<ThemableIconProps> = ({as, display, element = 'ICON
   );
 };
 
-ThemableIcon.displayName = 'ThemableIcon';
-export {ThemableIcon};
+ThemableIcon.displayName = "ThemableIcon";
+export { ThemableIcon };

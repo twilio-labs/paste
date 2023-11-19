@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Inline Code',
+  package: '@twilio-paste/inline-code',
+  description:
+    'An Inline Code component visually distinguishes pieces of texts as fragments of code.  It is used to display important inline code snippets, such as SIDs, IDs and API keys.',
+  slug: '/components/inline-code/changelog',
+};
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/inline-code/CHANGELOG.md';
+import packageJson from '@twilio-paste/inline-code/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Inline Code');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: "https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/inline-code/",
+        storybookUrl: "/?path=/story/components-inline-code--default"
+      },
+    },
+  };
+};
+
+<Changelog />

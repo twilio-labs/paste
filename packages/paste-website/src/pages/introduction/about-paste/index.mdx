@@ -1,38 +1,37 @@
----
-title: About Paste
-description: An overview of what Paste is, is not, and how to use the platform.
-slug: /introduction/about-paste
----
+export const meta = {
+  title: 'About Paste',
+  description: 'An overview of what Paste is, is not, and how to use the platform.',
+  slug: '/introduction/about-paste',
+};
 
-import {graphql} from 'gatsby';
 import {Stack} from '@twilio-paste/stack';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Anchor} from '@twilio-paste/anchor';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
-import {InlineCode} from '../../../components/Typography';
+import {InlineCode} from '@twilio-paste/inline-code';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/introduction/about-paste"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import System from '../../../assets/images/system.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 </content>
 
@@ -40,11 +39,19 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
 Paste is a design system used to build accessible, cohesive, and high-quality customer experiences at Twilio. Paste supports Product Designers and Engineers with tooling and assets that help them build customer UIs in Figma and React.
+
+## What's a design system?
+
+Design systems are much more than just component libraries. Paste combines Twilio’s design language, via our foundations on typography, color, layout, and spacing, with content design guidelines, accessible functional primitives, themes, and interactive UI components—everything you need to create high quality, accessible software applications. It ensures each product resonates with our customers, and presents Twilio in a consistent and cohesive way, that is backed by customer research.
+
+<ResponsiveImage src={System} alt="System hierarchy chart" />
+
+[Themes](/theme) in Paste are built on top of [design tokens](/tokens) and define what style each token represents in that theme. When a theme is paired with functional [primitives](/primitives) like Box and Text, they create themed Paste [components](/components) like Heading, Card, and Button. [Patterns](/patterns), like empty state, are composed using a group of components. Multiple patterns are then used to compose full [page templates](/page-templates) like an objects list.
 
 ## Paste is...
 
@@ -54,7 +61,7 @@ Paste is a design system used to build accessible, cohesive, and high-quality cu
 ## Paste is not...
 
 - **Concerned with application logic.** All Paste components are presentational, and have no opinions on the way data is passed to them.
-- **Stateful.** While components have encapsulated internal state when necessary (e.g.UI behavior or keyboard interaction), the components themselves are not concerned with application state.
+- **Stateful.** While components have encapsulated internal state when necessary (e.g., UI behavior or keyboard interaction), the components themselves are not concerned with application state.
 - **Product or domain specific.** Paste components aim to serve all UI needs semantically, and Paste compositions aim to serve Twilio pattern needs at the most generic level. We believe that a good design system raises the floor of great customer experience, and are excited to see thoughtful, well-researched ejections from the system that raise the ceiling.
 
 ## Why are we building Paste?
@@ -149,15 +156,15 @@ Systems should never have single points of failure. Good documentation, reliable
 
 ### Glossary of terms
 
-| Term                          | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
-| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Paste                         | This design system                                                                                                                                                                                                                                                                                                                                                                                                         |
-| DSYS                          | The team that makes this design system                                                                                                                                                                                                                                                                                                                                                                                     |
-| [Tokens](/tokens)             | Named entities that store visual design attributes                                                                                                                                                                                                                                                                                                                                                                         |
-| [Primitives](/primitives)     | Unstyled, accessible UI interaction or behavior that can be used as a starting point for specific UI needs                                                                                                                                                                                                                                                                                                                 |
-| [Components](/components)     | A suite of common UI components (in Figma and React) that can be composed into any web based user experience. They follow the WCAG 2.1 AA standard and the W3C ARIA authoring practices to ensure the best accessibility practices are baked into them. They are available to be installed via NPM or Figma for anyone to use.                                                                                             |
-| [Themes](/core/theme-package) | Globally scoped variations of the design language used by Tokens (and subsequently by Components and Compositions). We use Themes to provide a transitional tool for products to switch their UI from older languages to Paste. In the future, themes may also be used to provide light and dark modes for UIs, or for Twilio customers to match their brand personality while still retaining Paste interaction patterns. |
-| [Patterns](/patterns)         | Common, repeatable, and extensible Twilio UX compositions that you can use to solve product and UI problems.                                                                                                                                                                                                                                                                                                               |
+| Term                      | Description                                                                                                                                                                                                                                                                                                                                                                                                                |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Paste                     | This design system                                                                                                                                                                                                                                                                                                                                                                                                         |
+| DSYS                      | The team that makes this design system                                                                                                                                                                                                                                                                                                                                                                                     |
+| [Tokens](/tokens)         | Named entities that store visual design attributes                                                                                                                                                                                                                                                                                                                                                                         |
+| [Primitives](/primitives) | Unstyled, accessible UI interaction or behavior that can be used as a starting point for specific UI needs                                                                                                                                                                                                                                                                                                                 |
+| [Components](/components) | A suite of common UI components (in Figma and React) that can be composed into any web based user experience. They follow the WCAG 2.1 AA standard and the W3C ARIA authoring practices to ensure the best accessibility practices are baked into them. They are available to be installed via NPM or Figma for anyone to use.                                                                                             |
+| [Themes](/theme)          | Globally scoped variations of the design language used by Tokens (and subsequently by Components and Compositions). We use Themes to provide a transitional tool for products to switch their UI from older languages to Paste. In the future, themes may also be used to provide light and dark modes for UIs, or for Twilio customers to match their brand personality while still retaining Paste interaction patterns. |
+| [Patterns](/patterns)     | Common, repeatable, and extensible Twilio UX compositions that you can use to solve product and UI problems.                                                                                                                                                                                                                                                                                                               |
 
 ## FAQs
 
@@ -275,13 +282,9 @@ Systems should never have single points of failure. Good documentation, reliable
         restrictions a product might have.
       </Paragraph>
       <Paragraph>
-        For the default theme Paste uses Inter. This is available as a{' '}
-        <Anchor href="https://fonts.google.com/specimen/Inter">Google web font</Anchor> can be loaded in a number of
+        For the default theme Paste uses Inter. This is available as a <Anchor href="https://fonts.google.com/specimen/Inter">Google web font</Anchor> can be loaded in a number of
         ways into your application. Please choose the one that best suits your preferred choice of asset delivery, or
-        follow{' '}
-        <Anchor href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/assets/css/fonts.css#L105">
-          how we load the font
-        </Anchor>{' '}
+        follow <Anchor href="https://github.com/twilio-labs/paste/blob/main/packages/paste-website/src/assets/css/fonts.css#L105">how we load the font</Anchor>
         on this website.
       </Paragraph>
     </DisclosureContent>

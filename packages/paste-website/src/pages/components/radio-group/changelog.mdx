@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Radio Group - Components - Changelog',
+  package: '@twilio-paste/radio-group',
+  description:
+    'A radio group is used for selecting a single choice from a list of at least two options. The user can only select one radio option at a time.',
+  slug: '/components/radio-group/changelog',
+};
+
+import Changelog from '@twilio-paste/radio-group/CHANGELOG.md';
+import packageJson from '@twilio-paste/radio-group/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Radio Group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group',
+        storybookUrl: '/?path=/story/components-radio--radio-default',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -1,1 +1,1 @@
-export * from '@twilio-paste/clipboard-copy-library';
+export * from "@twilio-paste/clipboard-copy-library";

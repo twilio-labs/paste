@@ -1,11 +1,10 @@
----
-title: Label - Components
-package: '@twilio-paste/label'
-description: The Label component is used to provide a visible, accessible name to any form element.
-slug: /components/label/
----
+export const meta = {
+  title: 'Label - Components',
+  package: '@twilio-paste/label',
+  description: 'The Label component is used to provide a visible, accessible name to any form element.',
+  slug: '/components/label/',
+};
 
-import {graphql} from 'gatsby';
 import {useUID} from '@twilio-paste/uid-library';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
@@ -19,66 +18,36 @@ import {DatePicker} from '@twilio-paste/date-picker';
 import {TimePicker} from '@twilio-paste/time-picker';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutText} from '../../../components/callout';
+import {Callout, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/label/CHANGELOG.md';
 import {RequiredDatePicker} from '../../../component-examples/DatePickerExamples.ts';
+import packageJson from '@twilio-paste/label/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/label"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/label/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Label"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/label"
-  storybookUrl="/?path=/story/components-label--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Label');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/label',
+        storybookUrl: '/?path=/story/components-label--default',
+      },
+    },
+  };
+};
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -109,12 +78,10 @@ To support internationalization, avoid starting a sentence with the label and us
     Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
     associated input.
   </ListItem>
-  <ListItem>
-    The text of the label needs to remain same. It should not change based on the state of the input.
-  </ListItem>
+  <ListItem>The text of the label needs to remain same. It should not change based on the state of the input.</ListItem>
 </UnorderedList>
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Input</inlineCode>. This is done with the{' '}
     <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the form field.
@@ -244,7 +211,7 @@ Use a Label to clearly describe the the form field.
         type="text"
         onChange={() => {}}
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             Name
           </Text>
         }
@@ -253,108 +220,3 @@ Use a Label to clearly describe the the form field.
   </Dont>
 </DoDont>
 
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/label - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-const Component = () => (
-  <>
-    <Label htmlFor="foo" required>
-      foo
-    </Label>
-    <Input aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
-    <HelpText id="foo_text">Enter some text.</HelpText>
-  </>
-);
-```
-
-#### Props
-
-All the valid HTML attributes for `label` are supported including the following props:
-
-| Prop               | Type                 | Description                                                                               | Default   |
-| ------------------ | -------------------- | ----------------------------------------------------------------------------------------- | --------- |
-| as?                | 'label', 'legend'    | Choose the semantic HTML element the label is rendered as                                 | label     |
-| children?          | `ReactNode`          |                                                                                           | null      |
-| htmlFor            | string               | Sets the for of the label. Should match the id of `Input`. Required.                      | null      |
-| disabled?          | boolean              | Shows the input is disabled.                                                              | false     |
-| required?          | boolean              | Shows the input is required.                                                              | false     |
-| marginBottom?      | 'space0', 'space10'  |                                                                                           | 'space10' |
-| variant?           | 'default', 'inverse' |                                                                                           | 'default' |
-| i18nRequiredLabel? | string               | Label text for the required dot                                                           | ''        |
-| element?           | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'LABEL'   |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

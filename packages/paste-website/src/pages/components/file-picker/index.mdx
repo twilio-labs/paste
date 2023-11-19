@@ -1,0 +1,193 @@
+export const meta = {
+  title: 'File Picker',
+  package: '@twilio-paste/file-picker',
+  description: 'A File Picker is a form element used to upload files.',
+  slug: '/components/file-picker/',
+};
+
+import {Label} from '@twilio-paste/label';
+import {FilePicker, FilePickerButton} from '@twilio-paste/file-picker';
+import {Anchor} from '@twilio-paste/anchor';
+import {HelpText} from '@twilio-paste/help-text';
+import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {useUID} from '@twilio-paste/uid-library';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultFilePicker,
+  disabledFilePicker,
+  requiredFilePicker,
+  i18nFilePicker,
+} from '../../../component-examples/FilePickerExamples.ts';
+import packageJson from '@twilio-paste/file-picker/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('File Picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-picker',
+        storybookUrl: '/?path=/story/components-file-picker--default',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {defaultFilePicker}
+</LivePreview>
+
+## Guidelines
+
+### About File Picker
+
+Use a File Picker when users need to upload a document in a form flow. The File Picker allows any type of file by default, but the desired file type can be specified using the <inlineCode>accept</inlineCode> prop. This is a native HTML file picker, `<input type="file" />`, so there's currently no drag-and-drop or multiple attachments functionality. <Anchor href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file" showExternal>Read more about the native file picker on MDN.</Anchor> The input is hidden visually, but still appears in the DOM, so that we're able to apply custom styles in an accessible way.
+
+### Accessibility
+
+<UnorderedList>
+  <ListItem>
+    Include a visible <Anchor href="/components/label">Label</Anchor> on <strong>all</strong> form fields.
+  </ListItem>
+  <ListItem>
+    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
+    associated input.
+  </ListItem>
+  <ListItem>
+    Provide clear identification of required fields in the label or at the start of a form. If you use the required
+    field indicator, include the form key at the start of the form.
+    <UnorderedList marginBottom="space0">
+      <ListItem>
+        Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.
+      </ListItem>
+    </UnorderedList>
+  </ListItem>
+  <ListItem>
+    Include inline error text with the error icon on any field that errors to make it visually clear that the field
+    changed. You can also use{' '}
+    <Anchor href="/components/help-text#error-help-text">the "error" variant of Help Text</Anchor>.
+  </ListItem>
+  <ListItem>
+    If the File Picker has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode>{' '}
+    prop on the File Picker. This should match the <inlineCode>id</inlineCode> of the help or error text.
+  </ListItem>
+</UnorderedList>
+
+### File Uploader vs. File Picker
+
+[File Uploader](/components/file-uploader) is another form component that, like File Picker, allows the user to upload an attachment. There are a few key differences between the two components. File Uploader is more dynamic than File Picker – it allows multiple attachments and all of them are removable by the user. File Picker allows the user to upload only one file at a time with no way to clear the selection if a file has already been uploaded (besides selecting a new file). Because File Uploader has the ability to display loading and real-time error states, it’s a safer bet than File Picker for complex or potentially risky user flows.
+
+Visually, File Picker is much more compact than the File Uploader, so it will fit snugly into your form UI, and won’t stand out as much as File Uploader, which takes up more vertical and horizontal space.
+
+## Examples
+
+The File Picker component should include the base File Picker, along with supporting elements to compose an input field that gives users the context they need to successfully complete it.
+
+- **Label** — A label should be included for every form field and provide a short title for its associated input.
+- **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
+- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful. If you're using the <inlineCode>accept</inlineCode> prop, specify the file type using <Anchor href="/components/help-text">Help Text</Anchor>.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
+  <CalloutText>
+    Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>File Picker</inlineCode>. This is done
+    with the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the File
+    Picker. Those two need to match.
+  </CalloutText>
+  <CalloutText>
+    If the File Picker has any associated help text, it should also use the <inlineCode>aria-describedby</inlineCode>{' '}
+    prop that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text
+    ties directly to the File Picker.
+  </CalloutText>
+</Callout>
+
+### Default File Picker
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {defaultFilePicker}
+</LivePreview>
+
+### Disabled File Picker
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {disabledFilePicker}
+</LivePreview>
+
+### Required File Picker
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx" noInline>
+  {requiredFilePicker}
+</LivePreview>
+
+### Internationalization
+
+To internationalize a File Picker, simply pass the `i18nNoSelectionText` prop with the translated string. Because the <inlineCode>FilePickerButton</inlineCode> is compositional, you already pass the button text as children.
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, useUID}} language="jsx" noInline>
+  {i18nFilePicker}
+</LivePreview>
+
+## Composition notes
+
+### Labels and help text
+
+Labels should clearly describe the object being requested. They should be concise and descriptive, not instructional. To do this:
+
+- Use help text to provide instruction if needed. For example, don't use "Upload an image in the form of a jpeg or png" as label text. Instead, use "Profile photo" as a label and "Upload an image file" as help text.
+- Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
+
+File limitations should be communicated to the user up front to help avoid errors, like uploading an incompatible file type or one that’s too large.
+
+Make each limitation its own sentence. Use positive framing to clearly communicate limitations to the user:
+
+| Requirements | Recommended phrasing                          |
+| ------------ | --------------------------------------------- |
+| File type    | You can upload [x], [x] and [x] file formats. |
+| File size    | Files can be up to [file limit].              |
+
+### Validation
+
+Validate form fields on form submission.
+
+Validating a form field when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
+
+Don't prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use error messages to explain what information is missing or incorrect.
+
+### Errors
+
+Use [Help Text](/components/help-text) to show inline error text that explains how to fix an error.
+
+Help text should have enough information to help users prevent errors. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
+
+Recommended phrasing for File Picker error copy:
+
+| Status                                                                                         | Recommended phrasing                                                                              |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Invalid file type                                                                              | This file is not an accepted format. You can upload [x], [x] and [x] file formats.                |
+| Exceeds file size limit                                                                        | This file size is too big. You can upload files up to [file limit].                               |
+| Network errors (internet connection dropped while uploading, request timeout, service is down) | Something went wrong with the network. Check your internet connection, then try again.            |
+| Too many uploads in a certain amount of time                                                   | We couldn’t upload so many files so quickly. Try uploading files more slowly, or try again later. |
+| Generic (encountered an internal error)                                                        | Something went wrong. Try uploading your files again.                                             |
+
+<LivePreview scope={{FilePicker, FilePickerButton, Label, HelpText, useUID}} language="jsx">
+  {`<>
+    <Label htmlFor='error'>Profile picture</Label>
+    <FilePicker id='error' accept="image/*" aria-describedby='error-ht'>
+      <FilePickerButton variant="secondary">Upload a file</FilePickerButton>
+    </FilePicker>
+    <HelpText variant="error" id='error-ht'>This file is not an accepted format. You can upload .png and .jpeg file formats.</HelpText>
+  </>`}
+</LivePreview>

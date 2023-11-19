@@ -1,13 +1,13 @@
----
-title: Create
-description: The Create pattern allows the user to create a new instance of something, such as a service or a contact list.
-slug: /patterns/create/
----
+export const meta = {
+  title: 'Create',
+  description:
+    'The Create pattern allows the user to create a new instance of something, such as a service or a contact list.',
+  slug: '/patterns/create/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Grid, Column} from '@twilio-paste/grid';
@@ -15,45 +15,34 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import CreateStandardImage from '../../../assets/images/patterns/create-standard.png';
+import CreateMultiOptionImage from '../../../assets/images/patterns/create-multi-option.png';
+import CreateAnchorImage from '../../../assets/images/patterns/create-anchor.png';
+import CreateAnchorAsButtonImage from '../../../assets/images/patterns/create-anchor-as-button.png';
+import CreateSubSectionImage from '../../../assets/images/patterns/create-sub-section.png';
+import CreateCardImage from '../../../assets/images/patterns/create-card.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/create/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Create"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Create');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizePatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -61,7 +50,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -133,7 +122,7 @@ This is a standard create pattern. The create action is the primary action on th
 
 The create action is placed at the top right of the area where the object will appear once it has been created. In this example, the entire page is dedicated to displaying the user’s services, so the “create new service” action is placed at the top of the page next to the page header.
 
-![table with a primary action button placed at the top right](../../../assets/images/patterns/create-standard.png)
+<ResponsiveImage src={CreateStandardImage} alt="table with a primary action button placed at the top right" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -150,7 +139,7 @@ In some cases, there will be multiple types of an object the user can create. In
 
 In the case where the user can either create a new object or add an existing object from the same trigger, the trigger for the action should start with "add" rather than "create". For example, when the trigger allows the user to either add an existing phone number or buy a new phone number, the action text should be "add phone number".
 
-![table with a primary action button that opened a menu](../../../assets/images/patterns/create-multi-option.png)
+<ResponsiveImage src={CreateMultiOptionImage} alt="table with a primary action button that opened a menu" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -165,7 +154,7 @@ In the case where the user can either create a new object or add an existing obj
 
 If clicking the create action will take the user to a new page, use an anchor, but maintain the same placement on the page so that the user can find the action easily. An “add” icon should be used with the anchor to draw the eye and add further clarity.
 
-![table with a primary action link](../../../assets/images/patterns/create-anchor.png)
+<ResponsiveImage src={CreateAnchorImage} alt="table with a primary action link" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -182,7 +171,7 @@ When using an anchor styled as a button, consider adding an arrow icon to offer 
 
 For more information about using buttons and anchors, read the [best practices for button and anchor usage guide](/patterns/button-vs-anchor).
 
-![table with primary action link styled as a button](../../../assets/images/patterns/create-anchor-as-button.png)
+<ResponsiveImage src={CreateAnchorAsButtonImage} alt="table with primary action link styled as a button" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -197,7 +186,7 @@ For more information about using buttons and anchors, read the [best practices f
 
 When a single page includes multiple, separate create actions that are separated by something like tabs, the create action must be placed in the correct hierarchy. Instead of placing the action in the page header, the create action should be placed within the sub-section, such as at the top right of a table within a tab.
 
-![table inside of a tab with a primary action button](../../../assets/images/patterns/create-sub-section.png)
+<ResponsiveImage src={CreateSubSectionImage} alt="table inside of a tab with a primary action button" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -212,7 +201,10 @@ When a single page includes multiple, separate create actions that are separated
 
 When the data being displayed is more suited to a card layout rather than a table layout, the create action will live inside of an empty card at the start of the list of objects.
 
-![list of three cards, the first of which is an empty card with a primary action button](../../../assets/images/patterns/create-card.png)
+<ResponsiveImage
+  src={CreateCardImage}
+  alt="list of three cards, the first of which is an empty card with a primary action button"
+/>
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -231,8 +223,8 @@ If the user has not yet created any instances of this object, they should see an
 
 Bringing consistency to what happens after the user triggers the Create action is also a critical part of this pattern.
 
-<Callout>
-  <CalloutTitle>This pattern is coming soon!</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">This pattern is coming soon!</CalloutHeading>
   <CalloutText>
     We've not yet patternized this part of Create. If you need this for your current or upcoming work, please consider
     partnering with us to <Anchor href="/introduction/contributing/patterns">contribute it</Anchor>.

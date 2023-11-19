@@ -1,12 +1,11 @@
-import React from 'react';
-import {Box} from '@twilio-paste/box';
-import {ProcessDisabledIcon} from '@twilio-paste/icons/esm/ProcessDisabledIcon';
-import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
-import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
-import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
-import {ProcessNeutralIcon} from '@twilio-paste/icons/esm/ProcessNeutralIcon';
-import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
-import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
+import { Box } from "@twilio-paste/box";
+import { ProcessDisabledIcon } from "@twilio-paste/icons/esm/ProcessDisabledIcon";
+import { ProcessDraftIcon } from "@twilio-paste/icons/esm/ProcessDraftIcon";
+import { ProcessErrorIcon } from "@twilio-paste/icons/esm/ProcessErrorIcon";
+import { ProcessInProgressIcon } from "@twilio-paste/icons/esm/ProcessInProgressIcon";
+import { ProcessNeutralIcon } from "@twilio-paste/icons/esm/ProcessNeutralIcon";
+import { ProcessSuccessIcon } from "@twilio-paste/icons/esm/ProcessSuccessIcon";
+import { ProcessWarningIcon } from "@twilio-paste/icons/esm/ProcessWarningIcon";
 
 export const BannerExample = `
 <Box display="flex">
@@ -18,47 +17,47 @@ export const BannerExample = `
 </Box>
 `.trim();
 
-export const ProcessError: React.FC = () => {
+export const ProcessError = (): JSX.Element => {
   return <ProcessErrorIcon color="colorTextIconError" decorative={false} title="Error" />;
 };
 
-export const ProcessWarning: React.FC = () => {
+export const ProcessWarning = (): JSX.Element => {
   return <ProcessWarningIcon color="colorTextIconWarning" decorative={false} title="Warning" />;
 };
 
-export const ProcessSuccess: React.FC = () => {
+export const ProcessSuccess = (): JSX.Element => {
   return <ProcessSuccessIcon color="colorTextIconSuccess" decorative={false} title="Success" />;
 };
 
-export const ProcessNeutral: React.FC = () => {
+export const ProcessNeutral = (): JSX.Element => {
   return <ProcessNeutralIcon color="colorTextIconNeutral" decorative={false} title="Neutral" />;
 };
 
-export const ProcessInProgress: React.FC = () => {
-  return <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="In Progress" />;
+export const ProcessInProgress = (): JSX.Element => {
+  return <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="In-progress" />;
 };
 
-export const ProcessDisabled: React.FC = () => {
+export const ProcessDisabled = (): JSX.Element => {
   return <ProcessDisabledIcon color="colorTextIcon" decorative={false} title="Disabled" />;
 };
 
-export const ProcessDraft: React.FC = () => {
+export const ProcessDraft = (): JSX.Element => {
   return <ProcessDraftIcon color="colorTextIcon" decorative={false} title="Draft" />;
 };
 
-export const ConnectivityAvailable: React.FC = () => {
+export const ConnectivityAvailable = (): JSX.Element => {
   return <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundAvailable" />;
 };
 
-export const ConnectivityBusy: React.FC = () => {
+export const ConnectivityBusy = (): JSX.Element => {
   return <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundBusy" />;
 };
 
-export const ConnectivityUnavailable: React.FC = () => {
+export const ConnectivityUnavailable = (): JSX.Element => {
   return <Box borderRadius="borderRadiusCircle" size="sizeSquare30" backgroundColor="colorBackgroundUnavailable" />;
 };
 
-export const ConnectivityOffline: React.FC = () => {
+export const ConnectivityOffline = (): JSX.Element => {
   return (
     <Box
       borderRadius="borderRadiusCircle"
@@ -104,8 +103,8 @@ export const processStatusExamples = `
     <ProcessInProgressIcon
       color="colorTextIconNeutral"
       decorative={false}
-      title="in progress" />
-    <Text marginLeft="space20">In Progress</Text>
+      title="In-progress" />
+    <Text marginLeft="space20">In-progress</Text>
   </Box>
   <Box display="flex">
     <ProcessDisabledIcon
@@ -224,14 +223,7 @@ export const tableExample = `
         <Td>WE902990c21gjioGasd</Td>
         <Td>North America</Td>
         <Td>
-          <Box display="inline-flex" columnGap="space20">
-            <ProcessSuccessIcon
-              color="colorTextIconSuccess"
-              decorative={false}
-              title="active"
-            />
-            <Text as="div">Active</Text>
-          </Box>
+          <StatusBadge variant="ProcessSuccess">Active</StatusBadge>
         </Td>
         <Td>2020-10-15</Td>
       </Tr>
@@ -240,14 +232,7 @@ export const tableExample = `
         <Td>WE928471c21gjioGasd</Td>
         <Td>North America</Td>
         <Td>
-          <Box display="inline-flex" columnGap="space20">
-            <ProcessNeutralIcon
-              color="colorTextIconNeutral"
-              decorative={false}
-              title="active"
-            />
-            <Text as="div">Ready</Text>
-          </Box>
+          <StatusBadge variant="ProcessNeutral">Ready</StatusBadge>
         </Td>
         <Td>2020-10-15</Td>
       </Tr>
@@ -275,10 +260,7 @@ export const tableWithPlainTextExample = `
         <Td>Bewitched</Td>
         <Td>Series</Td>
         <Td>
-          <Box display="flex">
-            <ProcessWarningIcon color="colorTextIconWarning" decorative={false} title="progress halted" />
-            <Text marginLeft="space20">Progress halted</Text>
-          </Box>
+          <StatusBadge variant="ProcessWarning">Progress halted</StatusBadge>
         </Td>
       </Tr>
       <Tr>
@@ -367,21 +349,9 @@ export const otherCommonPlacements = `
         <Heading as="h3" variant="heading40" marginBottom="space0">
           Business Profile
         </Heading>
-        <Box
-          as="span"
-          display="flex"
-          alignItems="center"
-          fontSize="fontSize20"
-        >
-          <Text marginRight="space20">
-            Approved
-          </Text>
-          <ProcessSuccessIcon
-            color="colorTextIconSuccess"
-            decorative={false}
-            title="success"
-          />
-        </Box>
+        <StatusBadge variant="ProcessSuccess">
+          Approved
+        </StatusBadge>
       </Box>
       <Paragraph marginBottom="space0">Information about your business</Paragraph>
     </Card>
@@ -396,19 +366,9 @@ export const otherCommonPlacements = `
       marginBottom="space30"
     >
       <Text fontWeight="fontWeightSemibold">Account Security</Text>
-      <Box
-        as="span"
-        display="flex"
-        alignItems="center"
-        fontSize="fontSize20"
-      >
-        <Text marginRight="space20">Connected</Text>
-        <ProcessSuccessIcon
-          color="colorTextIconSuccess"
-          decorative={false}
-          title="connected"
-        />
-      </Box>
+      <StatusBadge variant="ProcessSuccess">
+        Connected
+      </StatusBadge>
     </Box>
     <Box
       as="span"
@@ -419,19 +379,9 @@ export const otherCommonPlacements = `
       marginBottom="space30"
     >
       <Text fontWeight="fontWeightSemibold">Autopilot</Text>
-      <Box
-        as="span"
-        display="flex"
-        alignItems="center"
-        fontSize="fontSize20"
-      >
-        <Text marginRight="space20">Connected</Text>
-        <ProcessSuccessIcon
-          color="colorTextIconSuccess"
-          decorative={false}
-          title="connected"
-        />
-      </Box>
+      <StatusBadge variant="ProcessSuccess">
+        Connected
+      </StatusBadge>
     </Box>
     <Box
       as="span"
@@ -441,19 +391,9 @@ export const otherCommonPlacements = `
       justifyContent="space-between"
     >
       <Text fontWeight="fontWeightSemibold">Carrier Network</Text>
-      <Box
-        as="span"
-        display="flex"
-        alignItems="center"
-        fontSize="fontSize20"
-      >
-        <Text marginRight="space20">Intermittent</Text>
-        <ProcessWarningIcon
-          color="colorTextIconWarning"
-          decorative={false}
-          title="warning"
-        />
-      </Box>
+      <StatusBadge variant="ProcessWarning">
+        Intermittent
+      </StatusBadge>
     </Box>
   </Box>
 </Stack>

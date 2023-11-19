@@ -1,27 +1,37 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {modalFooterStyles} from './styles';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface ModalFooterProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalFooterProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MODAL_FOOTER'
+   * @type {BoxProps['element']}
+   * @memberof ModalFooterProps
+   */
+  element?: BoxElementProps["element"];
 }
 const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
-  ({children, element = 'MODAL_FOOTER', ...props}, ref) => {
+  ({ children, element = "MODAL_FOOTER", ...props }, ref) => {
     return (
-      <Box {...safelySpreadBoxProps(props)} {...modalFooterStyles} as="footer" element={element} ref={ref}>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        flexShrink={0}
+        display="flex"
+        padding="space90"
+        paddingTop="space0"
+        as="div"
+        element={element}
+        ref={ref}
+      >
         {children}
       </Box>
     );
-  }
+  },
 );
-ModalFooter.displayName = 'ModalFooter';
+ModalFooter.displayName = "ModalFooter";
 
-ModalFooter.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
-
-export {ModalFooter};
+export { ModalFooter };

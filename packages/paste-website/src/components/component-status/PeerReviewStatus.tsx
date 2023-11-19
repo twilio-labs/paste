@@ -1,19 +1,24 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import { Box } from "@twilio-paste/box";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
 interface PeerReviewStatusProps {
-  designStatus: string;
-  engineerStatus: string;
+  designStatus?: string;
+  engineerStatus?: string;
 }
 
-const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engineerStatus}) => {
-  // Counts as successfully reviewed if
-  // neither is null and they aren't both 'not applicable'
+const PeerReviewStatus: React.FC<React.PropsWithChildren<PeerReviewStatusProps>> = ({
+  designStatus,
+  engineerStatus,
+}) => {
+  /*
+   * Counts as successfully reviewed if
+   * neither is null and they aren't both 'not applicable'
+   */
 
   // One is null, so overall the review is pending
-  if (designStatus === null || engineerStatus === null) {
+  if (!designStatus || !engineerStatus) {
     return (
       <Text as="span" color="colorTextWeak">
         Pending
@@ -21,7 +26,7 @@ const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engine
     );
   }
   // Neither is null, both are 'not applicable', so it's n/a
-  if (designStatus === 'not applicable' && engineerStatus === 'not applicable') {
+  if (designStatus === "not applicable" && engineerStatus === "not applicable") {
     return (
       <Text as="span" color="colorTextWeak">
         (n/a)
@@ -42,4 +47,4 @@ const PeerReviewStatus: React.FC<PeerReviewStatusProps> = ({designStatus, engine
   );
 };
 
-export {PeerReviewStatus};
+export { PeerReviewStatus };

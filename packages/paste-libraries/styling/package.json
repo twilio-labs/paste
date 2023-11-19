@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/styling-library",
-  "version": "1.0.1",
+  "version": "3.0.0",
   "category": "library",
   "status": "production",
   "description": "Custom CSS-in-JS wrapper library for use in Paste.",
@@ -20,28 +20,28 @@
   "scripts": {
     "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
-    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
   "dependencies": {
-    "@emotion/react": "11.7.1",
-    "@emotion/styled": "11.6.0",
+    "@emotion/cache": "11.10.5",
+    "@emotion/react": "11.10.5",
+    "@emotion/styled": "11.10.5",
     "@styled-system/css": "5.1.5",
     "@styled-system/should-forward-prop": "5.1.5",
     "@styled-system/theme-get": "5.1.2",
-    "@types/styled-system": "^5.1.9",
-    "@types/styled-system__css": "^5.0.5",
-    "@types/styled-system__should-forward-prop": "^5.1.2",
-    "@types/styled-system__theme-get": "^5.0.2",
+    "@types/styled-system": "5.1.9",
+    "@types/styled-system__css": "5.0.17",
+    "@types/styled-system__should-forward-prop": "5.1.2",
+    "@types/styled-system__theme-get": "5.0.2",
     "styled-system": "5.1.5"
   },
   "peerDependencies": {
-    "react": "^16.8.6 || ^17.0.2",
-    "react-dom": "^16.8.6 || ^17.0.2"
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

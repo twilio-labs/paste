@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductAutopilotIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface ProductAutopilotIconProps extends IconWrapperProps {
 }
 
 const ProductAutopilotIcon = React.forwardRef<HTMLElement, ProductAutopilotIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductAutopilotIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductAutopilotIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductAutopilotIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -24,6 +25,7 @@ const ProductAutopilotIcon = React.forwardRef<HTMLElement, ProductAutopilotIconP
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
           viewBox="0 0 20 20"
@@ -38,8 +40,8 @@ const ProductAutopilotIcon = React.forwardRef<HTMLElement, ProductAutopilotIconP
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ProductAutopilotIcon.displayName = 'ProductAutopilotIcon';
-export {ProductAutopilotIcon};
+ProductAutopilotIcon.displayName = "ProductAutopilotIcon";
+export { ProductAutopilotIcon };

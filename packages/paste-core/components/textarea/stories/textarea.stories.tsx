@@ -1,38 +1,93 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {action} from '@storybook/addon-actions';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Stack} from '@twilio-paste/stack';
-import {TextArea} from '../src';
+import { action } from "@storybook/addon-actions";
+import type { Story } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { HelpText } from "@twilio-paste/help-text";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { Label } from "@twilio-paste/label";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { TextArea } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Textarea',
+  title: "Components/Textarea",
   component: TextArea,
 };
 
-export const Textarea = (): React.ReactNode => {
+export const Textarea = (): React.ReactElement => {
   const uid = useUID();
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <TextArea
         id={uid}
+        aria-describedby={`help-text-${uid}`}
         placeholder="Placeholder"
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
+};
+
+export const MultipleTextareas = (): React.ReactElement => {
+  const [shouldDisplayTextareas, setShouldDisplayTextareas] = React.useState(true);
+  const [textareas, setTextareas] = React.useState<React.ReactNode[]>([]);
+
+  const push = (): void => {
+    setTextareas([...textareas, <Textarea key={textareas.length + 1} />]);
+  };
+
+  const pop = (): void => {
+    const updated = [...textareas];
+    updated.shift();
+    setTextareas(updated);
+  };
+
+  React.useEffect(() => {
+    push();
+  }, []);
+
+  return (
+    <>
+      {shouldDisplayTextareas && (
+        <Box display="flex" flexDirection="column" rowGap="space50" paddingBottom="space100">
+          {textareas.map((textarea, i) => (
+            <Box key={i}>{textarea}</Box>
+          ))}
+        </Box>
+      )}
+      <Box display="flex" columnGap="space100" flexDirection="row">
+        <Button
+          variant="secondary"
+          onClick={() => {
+            setShouldDisplayTextareas(!shouldDisplayTextareas);
+          }}
+        >
+          Toggle textarea visibility
+        </Button>
+        <Button variant="secondary" onClick={push}>
+          Push textarea
+        </Button>
+        <Button variant="secondary" onClick={pop}>
+          Pop textarea
+        </Button>
+      </Box>
+    </>
+  );
+};
+
+MultipleTextareas.parameters = {
+  chromatic: { disableSnapshot: true },
 };
 
 export const TextareaInverse = (): React.ReactNode => {
@@ -45,19 +100,43 @@ export const TextareaInverse = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-TextareaInverse.story = {
-  name: 'Textarea - inverse',
+TextareaInverse.storyName = "Textarea - inverse";
+
+export const TextareaResizeVertical = (): React.ReactNode => {
+  const uid = useUID();
+  return (
+    <>
+      <Label htmlFor={uid} required>
+        Label
+      </Label>
+      <TextArea
+        id={uid}
+        placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
+        resize="vertical"
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
+      />
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
+    </>
+  );
 };
+
+TextareaResizeVertical.storyName = "Textarea - Resize Vertical";
 
 export const TextareaRequired = (): React.ReactNode => {
   const uid = useUID();
@@ -70,18 +149,17 @@ export const TextareaRequired = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         required
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-TextareaRequired.story = {
-  name: 'Textarea - Required',
-};
+TextareaRequired.storyName = "Textarea - Required";
 
 export const TextareaRequiredInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -94,19 +172,20 @@ export const TextareaRequiredInverse = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         required
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-TextareaRequiredInverse.story = {
-  name: 'Textarea - Required inverse',
-};
+TextareaRequiredInverse.storyName = "Textarea - Required inverse";
 
 export const TextareaError = (): React.ReactNode => {
   const uid = useUID();
@@ -117,18 +196,19 @@ export const TextareaError = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         hasError
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText variant="error">Error info. Explains why the input has an error.</HelpText>
+      <HelpText variant="error" id={`help-text-${uid}`}>
+        Error info. Explains why the input has an error.
+      </HelpText>
     </>
   );
 };
 
-TextareaError.story = {
-  name: 'Textarea - Error',
-};
+TextareaError.storyName = "Textarea - Error";
 
 export const TextareaErrorInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -141,19 +221,20 @@ export const TextareaErrorInverse = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         hasError
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="error_inverse">Error info. Explains why the input has an error.</HelpText>
+      <HelpText variant="error_inverse" id={`help-text-${uid}`}>
+        Error info. Explains why the input has an error.
+      </HelpText>
     </Box>
   );
 };
 
-TextareaErrorInverse.story = {
-  name: 'Textarea - Error inverse',
-};
+TextareaErrorInverse.storyName = "Textarea - Error inverse";
 
 export const TextareaDisabled = (): React.ReactNode => {
   const uid = useUID();
@@ -165,20 +246,19 @@ export const TextareaDisabled = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
         value="Disabled text content..."
         disabled
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-TextareaDisabled.story = {
-  name: 'Textarea - Disabled',
-};
+TextareaDisabled.storyName = "Textarea - Disabled";
 
 export const TextareaDisabledInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -190,21 +270,22 @@ export const TextareaDisabledInverse = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
+        aria-describedby={`help-text-${uid}`}
         value="Disabled text content..."
         disabled
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-TextareaDisabledInverse.story = {
-  name: 'Textarea - Disabled inverse',
-};
+TextareaDisabledInverse.storyName = "Textarea - Disabled inverse";
 
 export const TextareaReadOnly = (): React.ReactNode => {
   const uid = useUID();
@@ -215,18 +296,17 @@ export const TextareaReadOnly = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         readOnly
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-TextareaReadOnly.story = {
-  name: 'Textarea - ReadOnly',
-};
+TextareaReadOnly.storyName = "Textarea - ReadOnly";
 
 export const TextareaReadOnlyInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -239,19 +319,20 @@ export const TextareaReadOnlyInverse = (): React.ReactNode => {
         id={uid}
         placeholder="Placeholder"
         readOnly
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-TextareaReadOnlyInverse.story = {
-  name: 'Textarea - ReadOnly inverse',
-};
+TextareaReadOnlyInverse.storyName = "Textarea - ReadOnly inverse";
 
 export const TextareaInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
@@ -261,11 +342,12 @@ export const TextareaInsertBeforeAndAfter = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -275,14 +357,12 @@ export const TextareaInsertBeforeAndAfter = (): React.ReactNode => {
           </Anchor>
         }
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-TextareaInsertBeforeAndAfter.story = {
-  name: 'Textarea - insert before and after',
-};
+TextareaInsertBeforeAndAfter.storyName = "Textarea - insert before and after";
 
 export const TextareaDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
@@ -294,11 +374,12 @@ export const TextareaDisabledInsertBeforeAndAfter = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -309,14 +390,12 @@ export const TextareaDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         }
         disabled
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-TextareaDisabledInsertBeforeAndAfter.story = {
-  name: 'Textarea - Disabled insert before and after',
-};
+TextareaDisabledInsertBeforeAndAfter.storyName = "Textarea - Disabled insert before and after";
 
 export const TextareaInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -328,11 +407,12 @@ export const TextareaInsertBeforeAndAfterInverse = (): React.ReactNode => {
       <TextArea
         id={uid}
         placeholder="Placeholder"
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
+          <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -343,14 +423,14 @@ export const TextareaInsertBeforeAndAfterInverse = (): React.ReactNode => {
         }
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-TextareaInsertBeforeAndAfterInverse.story = {
-  name: 'Textarea - insert before and after inverse',
-};
+TextareaInsertBeforeAndAfterInverse.storyName = "Textarea - insert before and after inverse";
 
 export const TextareaDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
@@ -362,11 +442,12 @@ export const TextareaDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
       <TextArea
         id={uid}
         placeholder="Placeholder"
-        onChange={action('handleFocus')}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        aria-describedby={`help-text-${uid}`}
+        onChange={action("handleFocus")}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
+          <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -378,16 +459,16 @@ export const TextareaDisabledInsertBeforeAndAfterInverse = (): React.ReactNode =
         variant="inverse"
         disabled
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText variant="inverse" id={`help-text-${uid}`}>
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-TextareaDisabledInsertBeforeAndAfterInverse.story = {
-  name: 'Textarea - Disabled insert before and after inverse',
-};
+TextareaDisabledInsertBeforeAndAfterInverse.storyName = "Textarea - Disabled insert before and after inverse";
 
-export const CustomizedTextarea: React.FC = () => {
+export const CustomizedTextarea: Story = () => {
   const activeTheme = useTheme();
   const uidTwo = useUID();
   const uidTwoVariant = useUID();
@@ -395,201 +476,201 @@ export const CustomizedTextarea: React.FC = () => {
   const uidThreeVariant = useUID();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={true}
       theme={activeTheme}
       elements={{
         TEXTAREA: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderPrimary',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth10",
+          borderColor: "colorBorderPrimary",
         },
         TEXTAREA_ELEMENT: {
-          color: 'colorTextLinkStronger',
-          padding: 'space50',
-          '::placeholder': {
-            color: 'colorTextLink',
+          color: "colorTextLinkStronger",
+          padding: "space50",
+          "::placeholder": {
+            color: "colorTextLink",
           },
         },
         TEXTAREA_PREFIX: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderTopLeftRadius: 'borderRadius30',
-          borderBottomLeftRadius: 'borderRadius30',
-          borderRightColor: 'colorBorderPrimary',
-          padding: 'space50',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderTopLeftRadius: "borderRadius30",
+          borderBottomLeftRadius: "borderRadius30",
+          borderRightColor: "colorBorderPrimary",
+          padding: "space50",
         },
         TEXTAREA_SUFFIX: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderTopRightRadius: 'borderRadius30',
-          borderBottomRightRadius: 'borderRadius30',
-          borderLeftColor: 'colorBorderPrimary',
-          padding: 'space50',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderTopRightRadius: "borderRadius30",
+          borderBottomRightRadius: "borderRadius30",
+          borderLeftColor: "colorBorderPrimary",
+          padding: "space50",
         },
         TEXTAREA_VARIANT: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderPrimary',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth10",
+          borderColor: "colorBorderPrimary",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
-              borderColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
+              borderColor: "colorBorderDestructive",
             },
           },
         },
         TEXTAREA_VARIANT_ELEMENT: {
-          color: 'colorTextLinkStronger',
-          padding: 'space50',
-          '::placeholder': {
-            color: 'colorTextLink',
+          color: "colorTextLinkStronger",
+          padding: "space50",
+          "::placeholder": {
+            color: "colorTextLink",
           },
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
           },
         },
         TEXTAREA_VARIANT_PREFIX: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderTopLeftRadius: 'borderRadius30',
-          borderBottomLeftRadius: 'borderRadius30',
-          borderRightColor: 'colorBorderPrimary',
-          padding: 'space50',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderTopLeftRadius: "borderRadius30",
+          borderBottomLeftRadius: "borderRadius30",
+          borderRightColor: "colorBorderPrimary",
+          padding: "space50",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderRightColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderRightColor: "colorBorderDestructive",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
-              borderRightColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
+              borderRightColor: "colorBorderDestructive",
             },
           },
         },
         TEXTAREA_VARIANT_SUFFIX: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderTopRightRadius: 'borderRadius30',
-          borderBottomRightRadius: 'borderRadius30',
-          borderLeftColor: 'colorBorderPrimary',
-          padding: 'space50',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderTopRightRadius: "borderRadius30",
+          borderBottomRightRadius: "borderRadius30",
+          borderLeftColor: "colorBorderPrimary",
+          padding: "space50",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderLeftColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderLeftColor: "colorBorderDestructive",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
-              borderLeftColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
+              borderLeftColor: "colorBorderDestructive",
             },
           },
         },
         NEW_TEXTAREA: {
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth20',
-          borderColor: 'colorBorderDestructive',
+          backgroundColor: "colorBackgroundDestructiveWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth20",
+          borderColor: "colorBorderDestructive",
         },
         NEW_TEXTAREA_ELEMENT: {
-          color: 'colorTextLinkDestructive',
-          padding: 'space70',
-          '::placeholder': {
-            color: 'colorTextLinkDestructive',
+          color: "colorTextLinkDestructive",
+          padding: "space70",
+          "::placeholder": {
+            color: "colorTextLinkDestructive",
           },
         },
         NEW_TEXTAREA_PREFIX: {
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          borderTopLeftRadius: 'borderRadius30',
-          borderBottomLeftRadius: 'borderRadius30',
-          borderRightColor: 'colorBorderDestructive',
-          borderWidth: 'borderWidth20',
-          padding: 'space70',
+          backgroundColor: "colorBackgroundDestructiveWeakest",
+          borderTopLeftRadius: "borderRadius30",
+          borderBottomLeftRadius: "borderRadius30",
+          borderRightColor: "colorBorderDestructive",
+          borderWidth: "borderWidth20",
+          padding: "space70",
         },
         NEW_TEXTAREA_SUFFIX: {
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          borderTopRightRadius: 'borderRadius30',
-          borderBottomRightRadius: 'borderRadius30',
-          borderLeftColor: 'colorBorderDestructive',
-          borderWidth: 'borderWidth20',
-          padding: 'space70',
+          backgroundColor: "colorBackgroundDestructiveWeakest",
+          borderTopRightRadius: "borderRadius30",
+          borderBottomRightRadius: "borderRadius30",
+          borderLeftColor: "colorBorderDestructive",
+          borderWidth: "borderWidth20",
+          padding: "space70",
         },
         NEW_TEXTAREA_VARIANT: {
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth20',
-          borderColor: 'colorBorderDestructive',
+          backgroundColor: "colorBackgroundDestructiveWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth20",
+          borderColor: "colorBorderDestructive",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderColor: 'colorBorderPrimary',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderColor: "colorBorderPrimary",
             },
           },
         },
         NEW_TEXTAREA_VARIANT_ELEMENT: {
-          color: 'colorTextLinkDestructive',
-          padding: 'space70',
-          '::placeholder': {
-            color: 'colorTextLinkDestructive',
+          color: "colorTextLinkDestructive",
+          padding: "space70",
+          "::placeholder": {
+            color: "colorTextLinkDestructive",
           },
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderRadius: 'borderRadius30',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderRadius: "borderRadius30",
             },
           },
         },
         NEW_TEXTAREA_VARIANT_PREFIX: {
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          borderTopLeftRadius: 'borderRadius30',
-          borderBottomLeftRadius: 'borderRadius30',
-          borderRightColor: 'colorBorderDestructive',
-          borderWidth: 'borderWidth20',
-          padding: 'space70',
+          backgroundColor: "colorBackgroundDestructiveWeakest",
+          borderTopLeftRadius: "borderRadius30",
+          borderBottomLeftRadius: "borderRadius30",
+          borderRightColor: "colorBorderDestructive",
+          borderWidth: "borderWidth20",
+          padding: "space70",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
-              borderRightColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
+              borderRightColor: "colorBorderDestructive",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderRightColor: 'colorBorderPrimary',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderRightColor: "colorBorderPrimary",
             },
           },
         },
         NEW_TEXTAREA_VARIANT_SUFFIX: {
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          borderTopRightRadius: 'borderRadius30',
-          borderBottomRightRadius: 'borderRadius30',
-          borderLeftColor: 'colorBorderDestructive',
-          borderWidth: 'borderWidth20',
-          padding: 'space70',
+          backgroundColor: "colorBackgroundDestructiveWeakest",
+          borderTopRightRadius: "borderRadius30",
+          borderBottomRightRadius: "borderRadius30",
+          borderLeftColor: "colorBorderDestructive",
+          borderWidth: "borderWidth20",
+          padding: "space70",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
-              borderLeftColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
+              borderLeftColor: "colorBorderDestructive",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderLeftColor: 'colorBorderPrimary',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderLeftColor: "colorBorderPrimary",
             },
           },
         },
@@ -680,4 +761,10 @@ export const CustomizedTextarea: React.FC = () => {
       </Stack>
     </CustomizationProvider>
   );
+};
+CustomizedTextarea.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

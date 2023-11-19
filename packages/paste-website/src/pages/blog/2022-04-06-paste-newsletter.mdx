@@ -1,60 +1,58 @@
----
-title: Paste Design System Newsletter - April 2022 Edition
-slug: /blog/2022-04-06-paste-newsletter/
-date: 2022-04-06
-author: Paste
-avatar:
-author_link:
-status: published
-external_link:
-excerpt: What's new in Paste in April 2022? i18n, dark theme, badge component updates, data visualization, and more!
----
+export const meta = {
+  title: 'Paste Design System Newsletter - April 2022 Edition',
+  slug: '/blog/2022-04-06-paste-newsletter/',
+  date: '2022-04-06',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  author_link: null,
+  status: 'published',
+  external_link: null,
+  excerpt:
+    "What's new in Paste in April 2022? i18n, dark theme, badge component updates, data visualization, and more!",
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
-import {UnorderedList, ListItem} from '@twilio-paste/core/list';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import PillGroup from '../../assets/images/articles/2022-04-06-paste-newsletter/i18n-pill-group.png';
+import DarkSwitcher from '../../assets/images/articles/2022-04-06-paste-newsletter/dark-theme-switcher.png';
+import Badge2 from '../../assets/images/articles/2022-04-06-paste-newsletter/badge-2.png';
+import FilterGroup from '../../assets/images/articles/2022-04-06-paste-newsletter/filter-group-pattern-demo.png';
+import DataViz from '../../assets/images/articles/2022-04-06-paste-newsletter/data-visualization-demo.png';
+import PasteMates from '../../assets/images/articles/2022-04-06-paste-newsletter/pastemates.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/blog/2022-04-06-paste-newsletter/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-        description
-        date(formatString: "MMMM D, YYYY")
-        machineDate: date
-        author
-        avatar
-        author_link
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <ArticleHeader
-  title={props.data.mdx.frontmatter.title}
-  description={props.data.mdx.frontmatter.description}
-  date={props.data.mdx.frontmatter.date}
-  machineDate={props.data.mdx.frontmatter.machineDate}
-  author={props.data.mdx.frontmatter.author}
-  avatar={props.data.mdx.frontmatter.avatar}
-  authorLink={props.data.mdx.frontmatter.author_link}
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
 />
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} hideFeedback />
+<PageAside data={mdxHeadings} hideFeedback />
 
 <ArticleContent>
 
@@ -62,7 +60,7 @@ export const pageQuery = graphql`
 
 ### Paste goes international!
 
-![An example of Paste's form-pill-group component in French](../../assets/images/articles/2022-04-06-paste-newsletter/i18n-pill-group.png)
+<ResponsiveImage src={PillGroup} alt="An example of Paste's form-pill-group component in French" />
 
 To better support Twilio’s global efforts, Paste now supports all P1 languages. This includes a mechanism to swap the font for non-latin character sets, such as Japanese, to get a really crisp UI.
 
@@ -72,7 +70,10 @@ Look for [an "internationalization" example](/components/button/#internationaliz
 
 ### Paste Dark theme is ready for you!
 
-![An screenshot of the dark theme toggle on the Paste website, with dark theme selected](../../assets/images/articles/2022-04-06-paste-newsletter/dark-theme-switcher.png)
+<ResponsiveImage
+  src={DarkSwitcher}
+  alt="An screenshot of the dark theme toggle on the Paste website, with dark theme selected"
+/>
 
 We are excited to share that the Dark theme is coming out of early preview and is ready for general availability! We incorporated your feedback (buttons are fixed, y’all!), and we brought the Dark theme up to our accessibility and inclusive design standards. The Dark theme improvements are now live on the Paste site, so head on over and switch the toggle in the topmast to “Dark” to check it out.
 
@@ -82,7 +83,7 @@ We are excited to share that the Dark theme is coming out of early preview and i
 
 ### The Badge component enters Stage 2
 
-![The new and improved Badge component in Paste](../../assets/images/articles/2022-04-06-paste-newsletter/badge-2.png)
+<ResponsiveImage src={Badge2} alt="The new and improved Badge component in Paste" />
 
 A big [Badge component](/components/badge/) update improves the look in both the default and dark themes, as well as improving the interactivity for clickable Badges. We’ve also introduced “decorative” variants that can be used for attributes that don’t have a semantic meaning but would still benefit from the visual hierarchy of a Badge.
 
@@ -92,7 +93,7 @@ A big [Badge component](/components/badge/) update improves the look in both the
 
 ### Introducing the Filter Group pattern
 
-![Screenshot of a Filter Group pattern example](../../assets/images/articles/2022-04-06-paste-newsletter/filter-group-pattern-demo.png)
+<ResponsiveImage src={FilterGroup} alt="Screenshot of a Filter Group pattern example" />
 
 Many of Twilio’s interfaces involve displaying data in tables.
 Some tables are so complex that our users need an easy way to navigate
@@ -105,7 +106,7 @@ hope to better serve the customer by improving consistency in filtering througho
 
 ### New Data Visualization foundations
 
-![Screenshot of a line chart using Paste data visualization tokens](../../assets/images/articles/2022-04-06-paste-newsletter/data-visualization-demo.png)
+<ResponsiveImage src={DataViz} alt="Screenshot of a line chart using Paste data visualization tokens" />
 
 Representing data with visualizations is a tremendous UX
 improvement when used appropriately, however it’s a challenge
@@ -124,7 +125,10 @@ less difficult. Thank you to the Voice & Video team and our committee members fo
   within their products and channeling important feedback and contributions back into the system.
 </em>
 
-![Photo of this month's Pastemates. Left: Kate Hsiao. Center: Tess Hannel. Right: Zach Kuzmic.](../../assets/images/articles/2022-04-06-paste-newsletter/pastemates.png)
+<ResponsiveImage
+  src={PasteMates}
+  alt="Photo of this month's Pastemates. Left: Kate Hsiao. Center: Tess Hannel. Right: Zach Kuzmic."
+/>
 
 We couldn’t keep it to just one Pastemate this time around; our Pastemates this release are Kate Hsiao, Tess Hannel,
 and Zach Kuzmic! This Twilio Segment dream team is leading [UX Infrastructure’s “One Twilio” priority](https://docs.google.com/document/d/1mH5ImzP5Kzb_nVKOHoTksr5jOY0aG6cbqtcEKbFlLYU/edit#bookmark=id.w002x1xn40l) this year, and
@@ -221,8 +225,8 @@ They’ve performed audits and gap analyses, written software design docs, and i
 
 ## 👀 What's next
 
-<Callout>
-  <CalloutTitle>Roadmap delays inbound</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Roadmap delays inbound</CalloutHeading>
   <CalloutText>
     We are observing a Heightened Awareness Period (HAP). As such, the following items may not be released according to
     our initial roadmap projections.

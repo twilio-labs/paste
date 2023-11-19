@@ -114,6 +114,9 @@ props:
     comment: Generic square sizing token scale for UI components.
 
   # icons
+  size-icon-05:
+    value: "{!line-height-05}"
+    comment: "Maps to line-height tokens 1:1"
   size-icon-10:
     value: "{!line-height-10}"
     comment: "Maps to line-height tokens 1:1"
@@ -152,3 +155,9 @@ props:
   size-sidebar:
     value: "{!size-sidebar}"
     comment: "Sizing token for sidebar width."
+  size-sidebar-compact:
+    value: "{!size-sidebar-compact}"
+    comment: "Sizing token for the compact sidebar width."
+  size-topbar:
+    value: "{!size-topbar}"
+    comment: "Sizing token for the minimum topbar height."

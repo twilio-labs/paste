@@ -1,7 +1,9 @@
 {
-  "extends": "../../.eslintrc.js",
+  "extends": ["../../.eslintrc.js", "plugin:@next/next/recommended", "plugin:@next/next/core-web-vitals"],
+  "root": true,
   "rules": {
     "import/no-default-export": "off",
-    "react/display-name": "off"
+    "react/display-name": "off",
+    "react/react-in-jsx-scope": "off"
   }
 }

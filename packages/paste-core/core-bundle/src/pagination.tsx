@@ -1,1 +1,1 @@
-export * from '@twilio-paste/pagination';
+export * from "@twilio-paste/pagination";

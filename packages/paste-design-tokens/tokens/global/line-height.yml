@@ -7,6 +7,9 @@ props:
   line-height-0:
     value: "{!line-height-0}"
     comment: "Constant line-height token for line-height 0"
+  line-height-05:
+    value: "{!line-height-05}"
+    comment: "Constant line-height token for line-height 05"
   line-height-10:
     value: "{!line-height-10}"
     comment: "Constant line-height token for line-height 10"
@@ -40,3 +43,12 @@ props:
   line-height-110:
     value: "{!line-height-110}"
     comment: "Constant line-height token for line-height 110"
+  line-height-display-10:
+    value: "{!line-height-display-10}"
+    comment: "Constant line-height token for line-height-display 10"
+  line-height-display-20:
+    value: "{!line-height-display-20}"
+    comment: "Constant line-height token for line-height-display 20"
+  line-height-display-30:
+    value: "{!line-height-display-30}"
+    comment: "Constant line-height token for line-height-display 30"

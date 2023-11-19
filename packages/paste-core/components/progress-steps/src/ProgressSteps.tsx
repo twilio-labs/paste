@@ -1,0 +1,57 @@
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
+
+import { ProgressStepsContext } from "./ProgressStepsContext";
+import type { Orientation } from "./types";
+
+const VerticalStyles: BoxProps = {
+  flexDirection: "column",
+  rowGap: "space30",
+  alignItems: "flex-start", // to prevent children from stretching full width
+};
+const HorizontalStyles: BoxProps = {
+  alignItems: "center",
+  columnGap: "space30",
+  flexWrap: "nowrap",
+};
+
+export interface ProgressStepsProps extends Omit<HTMLPasteProps<"div">, "children"> {
+  children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'PROGRESS_STEPS'
+   * @type {BoxProps['element']}
+   * @memberof ProgressStepsProps
+   */
+  element?: BoxProps["element"];
+  /**
+   *
+   * @default 'horizontal'
+   * @type {Orientation}
+   * @memberof ProgressStepsProps
+   */
+  orientation?: Orientation;
+}
+
+export const ProgressSteps = React.forwardRef<HTMLDivElement, ProgressStepsProps>(
+  ({ element = "PROGRESS_STEPS", orientation = "horizontal", ...props }, ref) => {
+    return (
+      <ProgressStepsContext.Provider value={{ orientation }}>
+        <Box
+          {...safelySpreadBoxProps(props)}
+          ref={ref}
+          element={element}
+          display="flex"
+          role="list"
+          {...(orientation === "horizontal" ? HorizontalStyles : VerticalStyles)}
+        >
+          {props.children}
+        </Box>
+      </ProgressStepsContext.Provider>
+    );
+  },
+);
+ProgressSteps.displayName = "ProgressSteps";

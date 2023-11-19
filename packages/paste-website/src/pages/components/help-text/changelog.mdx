@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Help Text - Changelog',
+  package: '@twilio-paste/help-text',
+  description: 'Help Text that can be paired with a Paste form component.',
+  slug: '/components/help-text/changelog',
+};
+
+import Changelog from '@twilio-paste/help-text/CHANGELOG.md';
+import packageJson from '@twilio-paste/help-text/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Help Text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/help-text',
+        storybookUrl: '/?path=/story/components-help-text--default',
+      },
+    },
+  };
+};
+
+<Changelog />

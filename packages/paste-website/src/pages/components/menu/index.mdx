@@ -1,11 +1,22 @@
----
-title: Menu - Components
-description: A menu presents a list of menu items that a user can choose to perform an action with.
-slug: /components/menu/
----
+export const meta = {
+  title: 'Menu - Components',
+  package: '@twilio-paste/menu',
+  description: 'A menu presents a list of menu items that a user can choose to perform an action with.',
+  slug: '/components/menu/',
+};
 
-import {graphql} from 'gatsby';
-import {Menu, MenuButton, SubMenuButton, MenuItem, MenuGroup, MenuSeparator, useMenuState} from '@twilio-paste/menu';
+import {
+  Menu,
+  MenuButton,
+  MenuBadge,
+  SubMenuButton,
+  MenuItem,
+  MenuGroup,
+  MenuSeparator,
+  useMenuState,
+  MenuItemRadio,
+  MenuItemCheckbox,
+} from '@twilio-paste/menu';
 import Changelog from '@twilio-paste/menu/CHANGELOG.md';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -13,11 +24,20 @@ import {Paragraph} from '@twilio-paste/paragraph';
 import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
 import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
 import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {UnorderedListIcon} from '@twilio-paste/icons/esm/UnorderedListIcon';
+import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
+import {DataLineChartIcon} from '@twilio-paste/icons/esm/DataLineChartIcon';
+import {DataPieChartIcon} from '@twilio-paste/icons/esm/DataPieChartIcon';
+import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {UnderlineIcon} from '@twilio-paste/icons/esm/UnderlineIcon';
+import {ItalicIcon} from '@twilio-paste/icons/esm/ItalicIcon';
+import {StrikethroughIcon} from '@twilio-paste/icons/esm/StrikethroughIcon';
 import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {InlineCode} from '@twilio-paste/inline-code';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {InlineCode} from '../../../components/Typography';
 import {
   defaultExample,
   groupingExample,
@@ -25,77 +45,66 @@ import {
   iconButtonExample,
   actionsExample,
   itemContentExample,
+  menuBadgeExample,
+  RadioMenuExample,
+  CheckboxMenuExample,
 } from '../../../component-examples/MenuExamples.ts';
+import packageJson from '@twilio-paste/menu/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/menu"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/menu/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Menu"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/menu"
-  storybookUrl="/?path=/story/components-menu--default"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Menu');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/menu',
+        storybookUrl: '/?path=/story/components-menu--default',
+      },
+    },
+  };
+};
 
----
 
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview
+  scope={{
+    useMenuState,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuSeparator,
+    ChevronDownIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {defaultExample}
+</LivePreview>
 
 ## Guidelines
 
 ### About Menu
 
 <Paragraph>
-  {props.pageContext.frontmatter.description} This component includes a menu trigger (a button in our case) and a menu
-  comprising of menu items that are shown upon actioning the trigger. A menu item can be used to perform an action, a
-  page navigation or show a sub menu.
+  {meta.description} This component includes a menu trigger (a button in our case) and a menu comprising of menu items
+  that are shown upon actioning the trigger. A menu item can be used to perform an action, a page navigation or show a
+  sub menu.
 </Paragraph>
 
 Each menu item can only perform a single action.
 
-<Callout variant="warning">
-  <CalloutTitle>Do not nest multiple actions within a menu item</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Do not nest multiple actions within a menu item</CalloutHeading>
   <CalloutText>
     Please do not add additional actionable elements inside a menu item. They will not be keyboard accessible.
   </CalloutText>
@@ -132,7 +141,7 @@ When the user is focused on a menu trigger, the following keyboard interactions 
 
 Use MenuGroups to create hierarchy or logical groupings within longer menus.
 MenuGroups have a visible group label that should describe the grouping clearly.
-They can be given a prefix icon; please only use icons in a [decorative manner](/components/icons/usage-guidelines#specify-if-an-icon-is-decorative)
+They can be given a prefix icon; please only use icons in a [decorative manner](/components/icon/usage-guidelines#specify-if-an-icon-is-decorative)
 and make the label descriptive standalone.
 
 Add separators between MenuGroups and other menu items.
@@ -193,6 +202,78 @@ For example, you can create an icon button menu trigger like so:
   {iconButtonExample}
 </LivePreview>
 
+### Selectable menu items
+
+Menu items come with the ability to be selected, in the same way as a checkbox or radio button. This is useful when a user is asked to perform a persistent action, where the selection should be preserved for future reference. Selections can either be single, or multiple, just like radio and checkboxes.
+
+#### Single select menu items
+
+<LivePreview
+  scope={{
+    Box,
+    useMenuState,
+    Menu,
+    MenuButton,
+    MenuItemRadio,
+    MenuSeparator,
+    ChevronDownIcon,
+    UnorderedListIcon,
+    DataBarChartIcon,
+    DataLineChartIcon,
+    DataPieChartIcon,
+    DataTableIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {RadioMenuExample}
+</LivePreview>
+
+#### Multi select menu items
+
+<LivePreview
+  scope={{
+    Box,
+    useMenuState,
+    Menu,
+    MenuButton,
+    MenuItemCheckbox,
+    MenuSeparator,
+    ChevronDownIcon,
+    BoldIcon,
+    UnderlineIcon,
+    ItalicIcon,
+    StrikethroughIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {CheckboxMenuExample}
+</LivePreview>
+
+## Composed variants
+
+Paste provides a few composed variants of the Menu component. These compositions are designed to help you build menus for common scenarios and use cases.
+
+### Menu Badge
+
+Using a Badge to contain a menu trigger can be useful when you want display a dynamic identifier. A example use case might be an account, or availability of an agent.
+
+The `<MenuBadge />` accepts all the variants that a badge does: `neutral`, `success`, `warning`, `error`, `new`, `subaccount`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter`
+
+<LivePreview
+  scope={{
+    useMenuState,
+    Menu,
+    MenuBadge,
+    MenuItem,
+  }}
+  noInline
+  showOverflow
+>
+  {menuBadgeExample}
+</LivePreview>
+
 ## Composition notes
 
 ### Performing actions
@@ -221,13 +302,13 @@ To do so, either set `href` with a valid url to go to a new page, or set the `on
 
 ### Composing menu items
 
-<Callout>
-  <CalloutTitle>Note</CalloutTitle>
-  <CalloutText>
-    Menu item content is composible however you want. We'll have more complete best practice guidelines soon, but in the
-    meantime here are some example compositions using Paste components.
-  </CalloutText>
-</Callout>
+Menu item labels should be concise, usually fewer than 20 characters.
+
+Use words that are familiar to users so it's immediately clear what the menu item does.
+
+Each menu item should be constructed similarly so they are "parallel." For example, the menu items "Edit" and "Copy" are parallel.
+
+Use the `variant` prop in `MenuItem` to use a default or destructive item.
 
 <LivePreview
   scope={{
@@ -249,186 +330,3 @@ To do so, either set `href` with a valid url to go to a new page, or set the `on
   {itemContentExample}
 </LivePreview>
 
-## Anatomy
-
-### MenuButton
-
-See the [button](/components/button) component.
-
-### Menu
-
-| Property         | Default token         | Modifiable? |
-| ---------------- | --------------------- | ----------- |
-| background-color | color-background-body | No          |
-| border-width     | border-width-10       | No          |
-| border-color     | color-border-weak     | No          |
-| border-radius    | border-radius-20      | No          |
-| box-shadow       | shadow                | No          |
-| max-width        | size-30               | No          |
-| min-width        | size-20               | No          |
-| padding-top      | space-30              | No          |
-| padding-bottom   | space-30              | No          |
-| z-index          | z-index-20            | No          |
-
-### SubMenuButton and MenuItem
-
-#### Default
-
-| Property       | Default token                                     | Modifiable? |
-| -------------- | ------------------------------------------------- | ----------- |
-| color          | color-text (default) color-text-weaker (disabled) | No          |
-| padding-top    | space-30                                          | No          |
-| padding-bottom | space-30                                          | No          |
-| padding-left   | space-90 (in-group) or space-70 (regular)         | No          |
-| padding-right  | space-90 (in-group) or space-70 (regular)         | No          |
-
-#### Hover & focused
-
-| Property | Default token   | Modifiable? |
-| -------- | --------------- | ----------- |
-| color    | color-text-link | No          |
-
-### MenuGroup
-
-| Property       | Default token    | Modifiable? |
-| -------------- | ---------------- | ----------- |
-| padding-top    | space-30         | No          |
-| padding-bottom | space-30         | No          |
-| padding-left   | space-70         | No          |
-| padding-right  | space-70         | No          |
-| color          | color-text       | No          |
-| font-weight    | font-weight-bold | No          |
-
-### MenuSeparator
-
-See the [separator](/components/separator) component.
-
-| Property       | Default token | Modifiable? |
-| -------------- | ------------- | ----------- |
-| padding-top    | space-40      | No          |
-| padding-bottom | space-40      | No          |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/menu - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/core/menu';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-
-const PreferencesMenu = () => {
-  const menu = useMenuState();
-  return (
-    <>
-      <MenuButton {...menu} variant="primary">
-        Preferences <ChevronDownIcon decorative />
-      </MenuButton>
-      <Menu {...menu} aria-label="Preferences">
-        <MenuItem {...menu}>Settings</MenuItem>
-        <MenuItem {...menu} disabled>
-          Extensions
-        </MenuItem>
-        <MenuSeparator {...menu} />
-        <MenuItem {...menu}>Keyboard shortcuts</MenuItem>
-      </Menu>
-    </>
-  );
-};
-```
-
-#### Props
-
-##### useMenuState
-
-Pass these as part of an object to the `useMenuState` hook.
-
-| Prop        | Type                                                                                                                                               | Description                                                                                                   | Default |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------- |
-| baseId      | `string`                                                                                                                                           | ID that will serve as a base for all the items IDs.                                                           |         |
-| rtl         | `boolean`                                                                                                                                          |                                                                                                               |         |
-| orientation | `horizontal, vertical, undefined`                                                                                                                  |                                                                                                               |         |
-| currentId   | `string, null, undefined`                                                                                                                          | The current focused item `id`.                                                                                |         |
-| loop        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
-| wrap        | `boolean, horizontal, vertical`                                                                                                                    |                                                                                                               |         |
-| visible     | `boolean`                                                                                                                                          | Whether it's visible or not.                                                                                  |         |
-| animated    | `number, boolean`                                                                                                                                  |                                                                                                               |         |
-| placement   | `auto-start, auto, auto-end, top-start, top, top-end, right-start, right, right-end, bottom-end, bottom, bottom-start, left-end, left, left-start` |                                                                                                               |         |
-| gutter      | `number, undefined`                                                                                                                                | Offset between the reference and the popover on the main axis. Should not be combined with `unstable_offset`. |         |
-
-##### useMenuState returned props
-
-These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
-
-| Prop          | Type                                                                                          | Description                                                                                                                                  | Default |
-| ------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| baseId        | `string`                                                                                      | ID that will serve as a base for all the items IDs.                                                                                          |         |
-| baseId        | string                                                                                        | ID that will serve as a base for all the items IDs.                                                                                          |         |
-| visible       | boolean                                                                                       | Whether it's visible or not.                                                                                                                 |         |
-| animated      | number &#124; boolean                                                                         |                                                                                                                                              |         |
-| modal         | boolean                                                                                       | Toggles Dialog's `modal` state.                                                                                                              |         |
-| animating     | boolean                                                                                       | Whether it's animating or not.                                                                                                               |         |
-| stopAnimation | () =&#62; void                                                                                | Stops animation. It's called automatically if there's a CSS transition.                                                                      |         |
-| hide          | () =&#62; void                                                                                | Changes the `visible` state to `false`                                                                                                       |         |
-| placement     | &#34;auto-start&#34; &#124; &#34;auto&#34; &#124; &#34;auto-end&#34; &#124; &#34;top-start... | Actual `placement`.                                                                                                                          |         |
-| orientation   | &#34;horizontal&#34; &#124; &#34;vertical&#34; &#124; undefined                               | Defines the orientation of the composite widget.                                                                                             |         |
-| currentId     | string &#124; null &#124; undefined                                                           | The current focused item `id`.                                                                                                               |         |
-| wrap          | boolean &#124; &#34;horizontal&#34; &#124; &#34;vertical&#34;                                 | If enabled, moving to the next item from the last one in a row or column will focus the first item in the next row or column and vice-versa. |         |
-| groups        | Group[]                                                                                       | Lists all the composite groups with their `id` and DOM `ref`.                                                                                |         |
-| items         | Item[]                                                                                        | Lists all the composite items with their `id`, DOM `ref`, `disabled` state and `groupId` if any.                                             |         |
-| setCurrentId  | (value: SetStateAction&#60;string &#124; null &#124; undefine...                              | Sets `currentId`.                                                                                                                            |         |
-| first         | () =&#62; void                                                                                | Moves focus to the first item.                                                                                                               |         |
-| last          | () =&#62; void                                                                                | Moves focus to the last item.                                                                                                                |         |
-| move          | (id: string &#124; null) =&#62; void                                                          | Moves focus to a given item ID.                                                                                                              |         |
-| next          | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the next item.                                                                                                                |         |
-| previous      | (unstable_allTheWay?: boolean &#124; undefined) =&#62; void                                   | Moves focus to the previous item.                                                                                                            |         |
-
-##### Menu
-
-| Prop               | Type                 | Description                                                                               | Default |
-| ------------------ | -------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| hideOnClickOutside | `boolean, undefined` | When enabled, user can hide the dialog by clicking outside it.                            |         |
-| disabled           | `boolean, undefined` | Same as the HTML attribute.                                                               |         |
-| element?           | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU'  |
-
-##### MenuButton
-
-| Prop     | Type                 | Description                                                                               | Default       |
-| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |               |
-| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_BUTTON' |
-
-##### MenuGroup
-
-| Prop     | Type              | Description                                                                               | Default      |
-| -------- | ----------------- | ----------------------------------------------------------------------------------------- | ------------ |
-| label    | `string`          | Names the grouping                                                                        |              |
-| icon     | `React.ReactNode` | One of our icon components. Must be decorative.                                           |              |
-| element? | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_GROUP' |
-
-##### MenuItem
-
-| Prop     | Type                 | Description                                                                               | Default     |
-| -------- | -------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| disabled | `boolean, undefined` | Same as the HTML attribute.                                                               |             |
-| id       | `string, undefined`  | Same as the HTML attribute.                                                               |             |
-| onClick  | `() => void`         | Same as the HTML attribute.                                                               |             |
-| href     | `string, undefined`  | Same as the HTML attribute.                                                               |             |
-| element? | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'MENU_ITEM' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

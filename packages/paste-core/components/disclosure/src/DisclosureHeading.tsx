@@ -1,30 +1,101 @@
-import * as React from 'react';
-import {useTheme} from '@twilio-paste/theme';
-import type {BorderRadius} from '@twilio-paste/style-props';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Heading, HeadingPropTypes} from '@twilio-paste/heading';
-import {ChevronDisclosureExpandedIcon} from '@twilio-paste/icons/esm/ChevronDisclosureExpandedIcon';
-import {DisclosurePrimitive} from '@twilio-paste/disclosure-primitive';
-import {DisclosureContext} from './DisclosureContext';
-import type {DisclosureHeadingProps, StyledDisclosureHeadingProps} from './types';
-import {useHover, getIconHoverStyles} from './utils';
-import {IconSizeFromHeading} from './constants';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { DisclosurePrimitive } from "@twilio-paste/disclosure-primitive";
+import type { DisclosurePrimitiveProps } from "@twilio-paste/disclosure-primitive";
+import { Heading } from "@twilio-paste/heading";
+import type { HeadingProps } from "@twilio-paste/heading";
+import { ChevronDisclosureIcon } from "@twilio-paste/icons/esm/ChevronDisclosureIcon";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
+import { DisclosureContext } from "./DisclosureContext";
+import { IconSizeFromHeading } from "./constants";
+import type { DisclosureVariants } from "./types";
+
+const baseContainedStyles: BoxStyleProps = {
+  borderWidth: "borderWidth10",
+  borderStyle: "solid",
+  borderRadius: "borderRadius20",
+};
+
+const containedStyles: BoxStyleProps = {
+  ...baseContainedStyles,
+  borderColor: "colorBorderWeaker",
+};
+
+const containedHoverStyles: BoxStyleProps = {
+  ...baseContainedStyles,
+  borderColor: "colorBorderWeak",
+};
+
+export interface StyledDisclosureHeadingProps extends Omit<DisclosureHeadingProps, "as"> {
+  renderAs: HeadingProps["as"];
+  disclosureVariant: DisclosureVariants;
+  element: BoxProps["element"];
+  isHovered: boolean;
+  isDisabled: boolean;
+  setIsHovered: (value: boolean) => void;
+  setIsDisabled: (value: boolean) => void;
+}
 
 const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosureHeadingProps>(
   (
-    {children, element, marginBottom, renderAs, disclosureVariant, customDisabled, customFocusable, variant, ...props},
-    ref
+    {
+      children,
+      element,
+      renderAs,
+      disclosureVariant,
+      variant,
+      isHovered,
+      isDisabled,
+      setIsDisabled,
+      setIsHovered,
+      ...props
+    },
+    ref,
   ) => {
     const theme = useTheme();
-    const hoverRef = React.useRef(null);
-    const isHovered = useHover(hoverRef);
+    const disabledProp = props["aria-disabled"];
+    const isExpanded = props["aria-expanded"];
+    const iconSize = IconSizeFromHeading[variant] || "sizeIcon20";
+    const shouldIconMove = isHovered && !isDisabled;
+    const buttonRef = React.useRef<HTMLDivElement>(null);
 
-    let bottomBorderRadius = 'borderRadius20' as BorderRadius;
-    if (disclosureVariant === 'contained') {
-      bottomBorderRadius = 'borderRadius10';
-    }
-    if (disclosureVariant === 'contained' && props['aria-expanded']) {
-      bottomBorderRadius = 'borderRadius0';
+    React.useEffect(() => {
+      setIsDisabled(disabledProp ? true : false);
+    }, [disabledProp, setIsDisabled]);
+
+    // eslint-disable-next-line consistent-return
+    React.useEffect(() => {
+      const handleMouseOver = (): void => setIsHovered(true);
+      const handleMouseOut = (): void => setIsHovered(false);
+
+      const node = buttonRef.current;
+      if (node) {
+        node.addEventListener("mouseover", handleMouseOver);
+        node.addEventListener("mouseout", handleMouseOut);
+        return () => {
+          node.removeEventListener("mouseover", handleMouseOver);
+          node.removeEventListener("mouseout", handleMouseOut);
+        };
+      }
+    }, [buttonRef, setIsHovered]);
+
+    let variantStyles: BoxStyleProps = {};
+    if (disclosureVariant === "contained") {
+      variantStyles = containedStyles;
+      if (isHovered && !isDisabled) {
+        variantStyles = containedHoverStyles;
+      }
+
+      if (isExpanded) {
+        variantStyles = {
+          ...variantStyles,
+          borderBottomLeftRadius: "borderRadius0",
+          borderBottomRightRadius: "borderRadius0",
+          borderBottom: "none",
+        };
+      }
     }
 
     return (
@@ -32,86 +103,100 @@ const StyledDisclosureHeading = React.forwardRef<HTMLDivElement, StyledDisclosur
         <Box
           {...safelySpreadBoxProps(props)}
           as="div"
-          backgroundColor={props['aria-expanded'] ? 'colorBackground' : 'colorBackgroundBody'}
-          borderRadius={disclosureVariant === 'contained' ? 'borderRadius10' : 'borderRadius20'}
-          borderBottomLeftRadius={bottomBorderRadius}
-          borderBottomRightRadius={bottomBorderRadius}
+          backgroundColor={isExpanded ? "colorBackgroundWeak" : "colorBackgroundBody"}
+          borderRadius="borderRadius20"
           cursor="pointer"
           display="flex"
           element={element}
           outline="none"
           padding="space30"
           position="relative"
-          ref={hoverRef}
+          ref={buttonRef}
           role="button"
           zIndex="zIndex10"
-          transition="background-color 100ms ease-out"
+          transition="background-color, border-color, border-radius 100ms ease"
           _hover={{
-            backgroundColor: 'colorBackgroundStrong',
+            backgroundColor: "colorBackground",
           }}
           _focus={{
-            boxShadow: 'shadowFocus',
+            boxShadow: "shadowFocus",
           }}
           _disabled={{
-            backgroundColor: props['aria-expanded'] ? 'colorBackground' : 'colorBackgroundBody',
-            color: 'colorTextWeak',
-            cursor: 'not-allowed',
+            backgroundColor: "colorBackgroundStrong",
+            color: "colorTextWeaker",
+            cursor: "not-allowed",
           }}
+          {...variantStyles}
         >
           <Box
             as="span"
             element={`${element}_ICON`}
             display="flex"
-            height={IconSizeFromHeading[variant] || 'sizeIcon20'}
-            width={IconSizeFromHeading[variant] || 'sizeIcon20'}
-            {...getIconHoverStyles(isHovered, variant, props[`aria-expanded`], props[`aria-disabled`], theme.space)}
+            color={isDisabled ? "colorTextWeaker" : "colorTextIcon"}
+            transition="transform 170ms ease"
+            height={iconSize}
+            width={iconSize}
+            transform={`
+             ${shouldIconMove ? `translateX(${theme.space.space10})` : "translateX(0)"}
+             ${isExpanded ? `rotate(90deg)` : "rotate(0deg)"}`}
           >
-            <ChevronDisclosureExpandedIcon
-              color="inherit"
-              decorative
-              size={IconSizeFromHeading[variant] || 'sizeIcon20'}
-            />
+            <ChevronDisclosureIcon color="inherit" decorative size={iconSize} />
           </Box>
           {children}
         </Box>
       </Heading>
     );
-  }
+  },
 );
 
-StyledDisclosureHeading.displayName = 'StyledDisclosureHeading';
+StyledDisclosureHeading.displayName = "StyledDisclosureHeading";
 
-const DisclosureHeading: React.FC<DisclosureHeadingProps> = ({
+export interface DisclosureHeadingProps
+  extends Omit<DisclosurePrimitiveProps, "baseId" | "toggle" | keyof BoxStyleProps> {
+  children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DISCLOSURE_HEADING'
+   * @type {BoxProps['element']}
+   * @memberof DisclosureHeadingProps
+   */
+  element?: BoxProps["element"];
+  as: HeadingProps["as"];
+  marginBottom?: HeadingProps["marginBottom"];
+  variant: HeadingProps["variant"];
+}
+
+const DisclosureHeading: React.FC<React.PropsWithChildren<DisclosureHeadingProps>> = ({
   children,
   as,
-  element = 'DISCLOSURE_HEADING',
+  element = "DISCLOSURE_HEADING",
   disabled,
   focusable,
   ...props
 }) => {
-  const {disclosure, variant} = React.useContext(DisclosureContext);
+  const { disclosure, variant, setIsDisabled, setIsHeadingHovered, isHeadingHovered, isDisabled } =
+    React.useContext(DisclosureContext);
   return (
     <DisclosurePrimitive
       {...disclosure}
       {...props}
       as={StyledDisclosureHeading}
-      customDisabled={disabled}
-      customFocusable={focusable}
       disabled={disabled}
       disclosureVariant={variant}
       element={element}
       focusable={focusable}
       renderAs={as}
+      isHovered={isHeadingHovered}
+      setIsDisabled={setIsDisabled}
+      setIsHovered={setIsHeadingHovered}
+      isDisabled={isDisabled}
     >
       {children}
     </DisclosurePrimitive>
   );
 };
 
-DisclosureHeading.displayName = 'DisclosureHeading';
+DisclosureHeading.displayName = "DisclosureHeading";
 
-if (process.env.NODE_ENV === 'development') {
-  DisclosureHeading.propTypes = HeadingPropTypes;
-}
-
-export {DisclosureHeading};
+export { DisclosureHeading };

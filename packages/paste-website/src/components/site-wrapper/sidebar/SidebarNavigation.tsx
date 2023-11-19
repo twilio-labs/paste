@@ -1,430 +1,482 @@
-import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {StaticImage} from 'gatsby-plugin-image';
-import kebabCase from 'lodash/kebabCase';
+import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
+import {
+  SidebarNavigation,
+  SidebarNavigationDisclosure,
+  SidebarNavigationDisclosureContent,
+  type SidebarNavigationDisclosureContentProps,
+  SidebarNavigationDisclosureHeading,
+  type SidebarNavigationDisclosureHeadingProps,
+  SidebarNavigationDisclosureHeadingWrapper,
+  SidebarNavigationSeparator,
+  useSidebarNavigationDisclosureState,
+} from "@twilio-paste/sidebar";
+import kebabCase from "lodash/kebabCase";
+import * as React from "react";
 
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
+import { SidebarCategoryRoutes } from "../../../constants";
+import { useNavigationContext } from "../../../context/NavigationContext";
+import { event } from "../../../lib/gtag";
+import { getNormalizedNavigationData } from "../../../utils/DataUtils";
+import { useLocationPathname } from "../../../utils/RouteUtils";
+import { alphabetizeComponents } from "../../../utils/componentFilters";
+import { SidebarAnchor } from "./SidebarAnchor";
 
-import {SidebarCategoryRoutes} from '../../../constants';
-import {filteredComponents, alphabetizeComponents} from '../../../utils/componentFilters';
-import {getNormalizedNavigationData} from '../../../utils/GraphqlUtils';
-import {useNavigationContext} from '../../../context/NavigationContext';
+const CY_BASE = "sidebar-disclosure";
 
-import {SidebarAnchor} from './SidebarAnchor';
-import {SidebarSeparator} from './SidebarSeparator';
-import {SidebarDisclosure} from './sidebar-disclosure/SidebarDisclosure';
-import {SidebarDisclosureButton} from './sidebar-disclosure/SidebarDisclosureButton';
-import {SidebarDisclosureContent} from './sidebar-disclosure/SidebarDisclosureContent';
-
-import type {SidebarDisclosureProps} from './sidebar-disclosure/SidebarDisclosure';
-import type {SidebarDisclosureButtonProps} from './sidebar-disclosure/SidebarDisclosureButton';
-import type {SidebarDisclosureContentProps} from './sidebar-disclosure/SidebarDisclosureContent';
-
-const CY_BASE = 'sidebar-disclosure';
-const NavigationDisclosure: React.FC<{
-  children: SidebarDisclosureContentProps['children'];
-  categoryRoute: SidebarDisclosureProps['categoryRoute'];
-  level: SidebarDisclosureButtonProps['level'];
-  buttonText: string;
-  onClick?: SidebarDisclosureButtonProps['onClick'];
-}> = ({children, categoryRoute, level, buttonText, onClick}) => {
+const NavigationDisclosure: React.FC<
+  React.PropsWithChildren<{
+    children: SidebarNavigationDisclosureContentProps["children"];
+    categoryRoute: typeof SidebarCategoryRoutes[keyof typeof SidebarCategoryRoutes];
+    buttonText: string;
+    onClick?: SidebarNavigationDisclosureHeadingProps["onClick"];
+  }>
+> = ({ children, categoryRoute, buttonText, onClick }) => {
+  const pathname = useLocationPathname();
+  const disclosure = useSidebarNavigationDisclosureState({
+    visible: pathname.startsWith(categoryRoute),
+  });
   const buttonAttribute = `${CY_BASE}-button-${kebabCase(buttonText)}`;
   const contentAttribute = `${CY_BASE}-content-${kebabCase(buttonText)}`;
 
   return (
-    <SidebarDisclosure categoryRoute={categoryRoute}>
-      <SidebarDisclosureButton level={level} onClick={onClick} data-level={level} data-cy={buttonAttribute}>
-        {buttonText}
-      </SidebarDisclosureButton>
-      <SidebarDisclosureContent data-level={level} data-cy={contentAttribute}>
-        {children}
-      </SidebarDisclosureContent>
-    </SidebarDisclosure>
+    <SidebarNavigationDisclosure state={disclosure}>
+      <SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureHeading
+          selected={pathname.startsWith(categoryRoute)}
+          onClick={onClick}
+          data-cy={buttonAttribute}
+        >
+          {buttonText}
+        </SidebarNavigationDisclosureHeading>
+      </SidebarNavigationDisclosureHeadingWrapper>
+      <SidebarNavigationDisclosureContent data-cy={contentAttribute}>{children}</SidebarNavigationDisclosureContent>
+    </SidebarNavigationDisclosure>
   );
 };
 
-const SidebarNavigation: React.FC = () => {
-  const data = useNavigationContext();
+const SiteSidebarNavigation = (): JSX.Element => {
+  // TODO: move to a server component in the App directory
+  const navigationData = useNavigationContext();
+  const pathname = useLocationPathname();
 
-  const {allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern} = getNormalizedNavigationData(data);
+  // take airtable feature data and mutate it into navigation data
+  const { allPasteComponent, allPasteLayout, allPastePrimitive, allPastePattern, allPastePageTemplate } =
+    getNormalizedNavigationData(navigationData);
 
-  const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout, {name: 'Icon', slug: 'icons'}];
-  const filteredComponentSidebarItems = allComponentSidebarItems.filter(filteredComponents).sort(alphabetizeComponents);
+  const allComponentSidebarItems = [...allPasteComponent, ...allPasteLayout];
+  const filteredComponentSidebarItems = allComponentSidebarItems.sort(alphabetizeComponents);
 
-  const filteredPrimitives = allPastePrimitive.filter(filteredComponents);
+  const filteredPrimitives = allPastePrimitive?.sort(alphabetizeComponents);
 
   return (
-    <Box
-      as="nav"
-      paddingTop={['space50', 'space50', 'space70']}
-      paddingX="space20"
-      paddingBottom={['space70', 'space70', 'space0']}
-      height="100%"
-      overflow="auto"
-      role="navigation"
-      aria-label="Main"
-    >
-      <Box display={['block', 'block', 'none']}>
-        <Box
-          as="a"
-          href="/"
-          display={['flex', 'flex', 'none']}
-          alignItems="center"
-          lineHeight="lineHeight20"
-          width="100%"
-          textDecoration="none"
-          borderRadius="borderRadius10"
-          padding="space40"
-          outline="none"
-          columnGap="space30"
-          _focus={{
-            boxShadow: 'shadowFocus',
-            textDecoration: 'underline',
-          }}
-        >
-          <Box as="span">
-            <StaticImage
-              src="../../../assets/logo.svg"
-              alt=""
-              placeholder="blurred"
-              layout="fixed"
-              width={28}
-              height={28}
-            />
-          </Box>
-          <Text as="span" fontSize={['fontSize50', 'fontSize50', 'fontSize30']}>
-            Paste Home
-          </Text>
-        </Box>
-      </Box>
-      <Box as="ul" padding="space0" margin="space0" listStyleType="none">
+    <SidebarNavigation aria-label="main" hierarchical>
+      <NavigationDisclosure
+        buttonText="Introduction"
+        categoryRoute={SidebarCategoryRoutes.INTRODUCTION}
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-introduction",
+            label: "Introduction",
+          })
+        }
+      >
+        <SidebarAnchor href="/introduction/about-paste">About Paste</SidebarAnchor>
+        <NavigationDisclosure buttonText="For designers" categoryRoute={SidebarCategoryRoutes.FOR_DESIGNERS}>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.FOR_DESIGNERS}/design-guidelines`}>
+            Design guidelines
+          </SidebarAnchor>
+        </NavigationDisclosure>
+        <NavigationDisclosure buttonText="For engineers" categoryRoute={SidebarCategoryRoutes.FOR_ENGINEERS}>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.FOR_ENGINEERS}/quickstart`}>Quick start</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.FOR_ENGINEERS}/manual-installation`}>
+            Manual installation
+          </SidebarAnchor>
+        </NavigationDisclosure>
+        <NavigationDisclosure buttonText="Contributing" categoryRoute={SidebarCategoryRoutes.CONTRIBUTING}>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.CONTRIBUTING}/components`}>Components</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.CONTRIBUTING}/icons`}>Icons</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.CONTRIBUTING}/patterns`}>Patterns</SidebarAnchor>
+        </NavigationDisclosure>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.INTRODUCTION}/working-with-us`}>Working with us</SidebarAnchor>
+      </NavigationDisclosure>
+      <SidebarAnchor href="/inclusive-design">Accessibility</SidebarAnchor>
+      <SidebarNavigationSeparator />
+      <NavigationDisclosure buttonText="Foundations" categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.FOUNDATIONS}/colors`}>Colors</SidebarAnchor>
         <NavigationDisclosure
-          buttonText="Introduction"
-          categoryRoute={SidebarCategoryRoutes.INTRODUCTION}
-          level={0}
+          buttonText="Content"
+          categoryRoute={SidebarCategoryRoutes.CONTENT}
           onClick={() =>
-            trackCustomEvent({
-              category: 'Left Navigation',
-              action: 'click-introduction',
-              label: 'Introduction',
+            event({
+              category: "Left Navigation",
+              action: "click-content",
+              label: "Content",
             })
           }
         >
-          <SidebarAnchor level={1} to="/introduction/about-paste">
-            About Paste
+          <SidebarAnchor href={`${SidebarCategoryRoutes.CONTENT}`}>Overview</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.CONTENT}/content-checklist`}>Content checklist</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.CONTENT}/voice-and-tone`}>Voice and tone</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.CONTENT}/product-style-guide`}>
+            Product style guide
           </SidebarAnchor>
-          <NavigationDisclosure
-            buttonText="For designers"
-            categoryRoute={SidebarCategoryRoutes.FOR_DESIGNERS}
-            level={1}
-          >
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.FOR_DESIGNERS}/design-guidelines`}>
-              Design guidelines
-            </SidebarAnchor>
-          </NavigationDisclosure>
-          <NavigationDisclosure
-            buttonText="For engineers"
-            categoryRoute={SidebarCategoryRoutes.FOR_ENGINEERS}
-            level={1}
-          >
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/quickstart`}>
-              Quick start
-            </SidebarAnchor>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.FOR_ENGINEERS}/manual-installation`}>
-              Manual installation
-            </SidebarAnchor>
-          </NavigationDisclosure>
-          <NavigationDisclosure buttonText="Contributing" categoryRoute={SidebarCategoryRoutes.CONTRIBUTING} level={1}>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTRIBUTING}/components`}>
-              Components
-            </SidebarAnchor>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTRIBUTING}/icons`}>
-              Icons
-            </SidebarAnchor>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTRIBUTING}/patterns`}>
-              Patterns
-            </SidebarAnchor>
-          </NavigationDisclosure>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.INTRODUCTION}/working-with-us`}>
-            Working with us
-          </SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.CONTENT}/word-list`}>Word list</SidebarAnchor>
         </NavigationDisclosure>
-        <SidebarAnchor level={0} to="/inclusive-design">
-          Accessibility
+        <SidebarAnchor href={`${SidebarCategoryRoutes.FOUNDATIONS}/data-visualization`}>
+          Data visualization
         </SidebarAnchor>
-        <SidebarSeparator />
-        <NavigationDisclosure buttonText="Foundations" categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} level={0}>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.FOUNDATIONS}/colors`}>
-            Colors
+        <SidebarAnchor
+          href={`${SidebarCategoryRoutes.FOUNDATIONS}/illustrations`}
+          onClick={() =>
+            event({
+              category: "Left Navigation",
+              action: "click-illustrations",
+              label: "Illustrations",
+            })
+          }
+        >
+          Illustrations
+        </SidebarAnchor>
+        <SidebarAnchor
+          href={`${SidebarCategoryRoutes.FOUNDATIONS}/localization`}
+          onClick={() =>
+            event({
+              category: "Left Navigation",
+              action: "click-localization",
+              label: "Localization",
+            })
+          }
+        >
+          Localization
+        </SidebarAnchor>
+        <SidebarAnchor
+          href={`${SidebarCategoryRoutes.FOUNDATIONS}/spacing-and-layout`}
+          onClick={() =>
+            event({
+              category: "Left Navigation",
+              action: "click-spacing-and-layout",
+              label: "Spacing and layout",
+            })
+          }
+        >
+          Spacing and layout
+        </SidebarAnchor>
+        <SidebarAnchor
+          href={`${SidebarCategoryRoutes.FOUNDATIONS}/typography`}
+          onClick={() =>
+            event({
+              category: "Left Navigation",
+              action: "click-typography",
+              label: "Typography",
+            })
+          }
+        >
+          Typography
+        </SidebarAnchor>
+      </NavigationDisclosure>
+      <NavigationDisclosure
+        buttonText="Patterns"
+        categoryRoute={SidebarCategoryRoutes.PATTERNS}
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-patterns",
+            label: "Patterns",
+          })
+        }
+      >
+        <SidebarAnchor href={SidebarCategoryRoutes.PATTERNS}>Overview</SidebarAnchor>
+        {allPastePattern.map(({ name, slug }: { [key: string]: string }) => (
+          <SidebarAnchor href={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
+            {name}
           </SidebarAnchor>
-          <NavigationDisclosure
-            buttonText="Content"
-            categoryRoute={SidebarCategoryRoutes.CONTENT}
-            level={1}
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-content',
-                label: 'Content',
-              })
-            }
-          >
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTENT}/content-checklist`}>
-              Content checklist
+        ))}
+      </NavigationDisclosure>
+      <NavigationDisclosure buttonText="Page templates" categoryRoute={SidebarCategoryRoutes.PAGE_TEMPLATES}>
+        <SidebarAnchor href={SidebarCategoryRoutes.PAGE_TEMPLATES}>Overview</SidebarAnchor>
+        {allPastePageTemplate.map(({ name, slug }: { [key: string]: string }) => (
+          <SidebarAnchor href={`${SidebarCategoryRoutes.PAGE_TEMPLATES}/${slug}`} key={slug}>
+            {name}
+          </SidebarAnchor>
+        ))}
+      </NavigationDisclosure>
+      <SidebarNavigationSeparator />
+      <NavigationDisclosure
+        buttonText="Components"
+        categoryRoute={SidebarCategoryRoutes.COMPONENTS}
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-components",
+            label: "Components",
+          })
+        }
+      >
+        <SidebarAnchor href={SidebarCategoryRoutes.COMPONENTS}>Overview</SidebarAnchor>
+        {filteredComponentSidebarItems.map(({ name, slug }: { [key: string]: string }) => {
+          const categoryRoute = `${SidebarCategoryRoutes.COMPONENTS}/${slug}`;
+          const selected = pathname.endsWith(categoryRoute) || pathname.includes(`${categoryRoute}/`);
+          if (name === "Icon") {
+            return (
+              <NavigationDisclosure
+                buttonText={name}
+                categoryRoute={categoryRoute}
+                key={slug}
+                onClick={() =>
+                  event({
+                    category: "Left Navigation",
+                    action: `click-${name}`,
+                    label: name,
+                  })
+                }
+              >
+                <SidebarAnchor href={categoryRoute}>{name} list</SidebarAnchor>
+                <SidebarAnchor href={`${SidebarCategoryRoutes.COMPONENTS}/${slug}/usage-guidelines`}>
+                  Usage
+                </SidebarAnchor>
+              </NavigationDisclosure>
+            );
+          }
+          if (name === "Combobox") {
+            return (
+              <NavigationDisclosure
+                buttonText={name}
+                categoryRoute={categoryRoute}
+                key={slug}
+                onClick={() =>
+                  event({
+                    category: "Left Navigation",
+                    action: `click-${name}`,
+                    label: name,
+                  })
+                }
+              >
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/combobox`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/combobox`)}
+                >
+                  Singleselect
+                </SidebarAnchor>
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/multiselect-combobox`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/multiselect-combobox`)}
+                >
+                  Multiselect
+                </SidebarAnchor>
+              </NavigationDisclosure>
+            );
+          }
+          if (name === "Multiselect Combobox") {
+            return null;
+          }
+          if (name === "Status") {
+            return (
+              <NavigationDisclosure
+                buttonText={name}
+                categoryRoute={categoryRoute}
+                key={slug}
+                onClick={() =>
+                  event({
+                    category: "Left Navigation",
+                    action: `click-${name}`,
+                    label: name,
+                  })
+                }
+              >
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/status-badge`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/status-badge`)}
+                >
+                  Status Badge
+                </SidebarAnchor>
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/status-menu`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/status-menu`)}
+                >
+                  Status Menu
+                </SidebarAnchor>
+              </NavigationDisclosure>
+            );
+          }
+          if (name === "Sidebar") {
+            return (
+              <NavigationDisclosure
+                buttonText={name}
+                categoryRoute={categoryRoute}
+                key={slug}
+                onClick={() =>
+                  event({
+                    category: "Left Navigation",
+                    action: `click-${name}`,
+                    label: name,
+                  })
+                }
+              >
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/sidebar`)}
+                >
+                  Sidebar Container
+                </SidebarAnchor>
+                <SidebarAnchor
+                  href={`${SidebarCategoryRoutes.COMPONENTS}/sidebar-navigation`}
+                  selected={pathname.includes(`${SidebarCategoryRoutes.COMPONENTS}/sidebar-navigation`)}
+                >
+                  Sidebar Navigation
+                </SidebarAnchor>
+              </NavigationDisclosure>
+            );
+          }
+          if (name === "Sidebar Navigation") {
+            return null;
+          }
+          return (
+            <SidebarAnchor selected={selected} href={categoryRoute} key={slug}>
+              {name}
             </SidebarAnchor>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTENT}/voice-and-tone`}>
-              Voice and tone
+          );
+        })}
+      </NavigationDisclosure>
+      <NavigationDisclosure
+        buttonText="Primitives"
+        categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-primitives",
+            label: "Primitives",
+          })
+        }
+      >
+        <SidebarAnchor href={SidebarCategoryRoutes.PRIMITIVES}>Overview</SidebarAnchor>
+        {filteredPrimitives.map(({ name, slug }: { [key: string]: string }) => {
+          const selected = pathname.includes(`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`);
+          return (
+            <SidebarAnchor selected={selected} href={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
+              {name}
             </SidebarAnchor>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.CONTENT}/product-style-guide`}>
-              Product style guide
-            </SidebarAnchor>
-          </NavigationDisclosure>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.FOUNDATIONS}/data-visualization`}>
+          );
+        })}
+      </NavigationDisclosure>
+      <NavigationDisclosure
+        buttonText="Tokens"
+        categoryRoute={SidebarCategoryRoutes.TOKENS}
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-design-tokens",
+            label: "Design Tokens",
+          })
+        }
+      >
+        <SidebarAnchor href={`${SidebarCategoryRoutes.TOKENS}`}>Overview</SidebarAnchor>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.TOKENS}/list`}>Token list</SidebarAnchor>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
+          Design tokens package
+        </SidebarAnchor>
+      </NavigationDisclosure>
+      <NavigationDisclosure
+        buttonText="Core"
+        categoryRoute={SidebarCategoryRoutes.CORE}
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-core",
+            label: "Core",
+          })
+        }
+      >
+        <SidebarAnchor href={SidebarCategoryRoutes.CORE}>Paste core</SidebarAnchor>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.CORE}/changelog`}>Core changelog</SidebarAnchor>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>Upgrade guide</SidebarAnchor>
+        <NavigationDisclosure buttonText="Libraries" categoryRoute={SidebarCategoryRoutes.LIBRARIES}>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}`}>Overview</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/code-editor`}>Code Editor</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>Codemods</SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/data-visualization`}>
             Data visualization
           </SidebarAnchor>
-          <SidebarAnchor
-            level={1}
-            to={`${SidebarCategoryRoutes.FOUNDATIONS}/illustrations`}
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-illustrations',
-                label: 'Illustrations',
-              })
-            }
-          >
-            Illustrations
+          <SidebarAnchor href="https://main--5e53448165911c0022e68c74.chromatic.com/?path=/story/libraries-clipboard-copy--default">
+            <span>Clipboard Copy</span>
+            <LinkExternalIcon decorative />
           </SidebarAnchor>
-          <SidebarAnchor
-            level={1}
-            to={`${SidebarCategoryRoutes.FOUNDATIONS}/localization`}
-            onClick={() =>
-              trackCustomEvent({
-                category: 'Left Navigation',
-                action: 'click-localization',
-                label: 'Localization',
-              })
-            }
-          >
-            Localization
+          <SidebarAnchor href="https://github.com/twilio-labs/svg-to-react/blob/master/README.md">
+            <span>SVG-to-React</span>
+            <LinkExternalIcon decorative />
           </SidebarAnchor>
+          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>UID library</SidebarAnchor>
+
+          <SidebarAnchor href={`${SidebarCategoryRoutes.LIBRARIES}/vs-code-plugin`}>VS Code Plugin</SidebarAnchor>
         </NavigationDisclosure>
-        <NavigationDisclosure
-          buttonText="Patterns"
-          categoryRoute={SidebarCategoryRoutes.PATTERNS}
-          level={0}
-          onClick={() =>
-            trackCustomEvent({
-              category: 'Left Navigation',
-              action: 'click-patterns',
-              label: 'Patterns',
-            })
-          }
-        >
-          <SidebarAnchor level={1} to={SidebarCategoryRoutes.PATTERNS}>
-            Overview
-          </SidebarAnchor>
-          {allPastePattern.map(({name, slug}: {[key: string]: string}) => (
-            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.PATTERNS}/${slug}`} key={slug}>
-              {name}
-            </SidebarAnchor>
-          ))}
-        </NavigationDisclosure>
-        <SidebarSeparator />
-        <NavigationDisclosure
-          buttonText="Components"
-          categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-          level={0}
-          onClick={() =>
-            trackCustomEvent({
-              category: 'Left Navigation',
-              action: 'click-components',
-              label: 'Components',
-            })
-          }
-        >
-          <SidebarAnchor level={1} to={SidebarCategoryRoutes.COMPONENTS}>
-            Overview
-          </SidebarAnchor>
-          {filteredComponentSidebarItems.map(({name, slug}: {[key: string]: string}) => {
-            if (name === 'Icon') {
-              return (
-                <NavigationDisclosure
-                  buttonText={name}
-                  categoryRoute={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}
-                  key={slug}
-                  level={1}
-                  onClick={() =>
-                    trackCustomEvent({
-                      category: 'Left Navigation',
-                      action: `click-${name}`,
-                      label: name,
-                    })
-                  }
-                >
-                  <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`}>
-                    {name} list
-                  </SidebarAnchor>
-                  <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}/usage-guidelines`}>
-                    Usage
-                  </SidebarAnchor>
-                </NavigationDisclosure>
-              );
-            }
-            return (
-              <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.COMPONENTS}/${slug}`} key={slug}>
-                {name}
-              </SidebarAnchor>
-            );
-          })}
-        </NavigationDisclosure>
-        <NavigationDisclosure
-          buttonText="Primitives"
-          categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
-          level={0}
-          onClick={() =>
-            trackCustomEvent({
-              category: 'Left Navigation',
-              action: 'click-primitives',
-              label: 'Primitives',
-            })
-          }
-        >
-          <SidebarAnchor level={1} to={SidebarCategoryRoutes.PRIMITIVES}>
-            Overview
-          </SidebarAnchor>
-          {filteredPrimitives.map(({name, slug}: {[key: string]: string}) => (
-            <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.PRIMITIVES}/${slug}`} key={slug}>
-              {name}
-            </SidebarAnchor>
-          ))}
-        </NavigationDisclosure>
-        <NavigationDisclosure
-          buttonText="Tokens"
-          categoryRoute={SidebarCategoryRoutes.TOKENS}
-          level={0}
-          onClick={() =>
-            trackCustomEvent({
-              category: 'Left Navigation',
-              action: 'click-design-tokens',
-              label: 'Design Tokens',
-            })
-          }
-        >
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.TOKENS}`}>
-            Overview
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.TOKENS}/list`}>
-            Token list
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.TOKENS}/design-tokens-package`}>
-            Design tokens package
-          </SidebarAnchor>
-        </NavigationDisclosure>
-        <NavigationDisclosure
-          buttonText="Core"
-          categoryRoute={SidebarCategoryRoutes.CORE}
-          level={0}
-          onClick={() =>
-            trackCustomEvent({
-              category: 'Left Navigation',
-              action: 'click-core',
-              label: 'Core',
-            })
-          }
-        >
-          <SidebarAnchor level={1} to={SidebarCategoryRoutes.CORE}>
-            Paste core
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/theme-package`}>
-            Theme package
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/changing-theme`}>
-            Changing theme
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/changelog`}>
-            Core changelog
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CORE}/upgrade-guide`}>
-            Upgrade guide
-          </SidebarAnchor>
-          <NavigationDisclosure buttonText="Libraries" categoryRoute={SidebarCategoryRoutes.LIBRARIES} level={1}>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.LIBRARIES}`}>
-              Overview
-            </SidebarAnchor>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.LIBRARIES}/uid-library`}>
-              UID library
-            </SidebarAnchor>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.LIBRARIES}/codemods`}>
-              Codemods
-            </SidebarAnchor>
-            <SidebarAnchor level={2} to={`${SidebarCategoryRoutes.LIBRARIES}/data-visualization`}>
-              Data visualization
-            </SidebarAnchor>
-          </NavigationDisclosure>
-        </NavigationDisclosure>
-        <NavigationDisclosure
-          buttonText="Customization"
-          categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}
-          level={0}
-          onClick={() =>
-            trackCustomEvent({
-              category: 'Left Navigation',
-              action: 'click-customization',
-              label: 'Customization',
-            })
-          }
-        >
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CUSTOMIZATION}/`}>
-            Overview
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customization-provider`}>
-            Customization Provider
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CUSTOMIZATION}/creating-a-custom-theme`}>
-            Customizing themes
-          </SidebarAnchor>
-          <SidebarAnchor level={1} to={`${SidebarCategoryRoutes.CUSTOMIZATION}/customizing-component-elements`}>
-            Customizing components
-          </SidebarAnchor>
-          <SidebarAnchor
-            level={1}
-            to={`${SidebarCategoryRoutes.CUSTOMIZATION}/composing-custom-components-with-design-tokens`}
-          >
-            Composing custom UI with tokens
-          </SidebarAnchor>
-        </NavigationDisclosure>
-        <SidebarSeparator />
-        <SidebarAnchor
-          level={0}
-          to="/blog"
-          onClick={() =>
-            trackCustomEvent({
-              category: 'Left Navigation',
-              action: 'click-blog',
-              label: 'Blog',
-            })
-          }
-        >
-          Blog
+      </NavigationDisclosure>
+      <NavigationDisclosure
+        buttonText="Theme"
+        categoryRoute={SidebarCategoryRoutes.THEME}
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-theme",
+            label: "Theme",
+          })
+        }
+      >
+        <SidebarAnchor href={`${SidebarCategoryRoutes.THEME}`}>Overview</SidebarAnchor>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.THEME}/dark-theme`}>Dark theme</SidebarAnchor>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.THEME}/changing-theme`}>Changing the theme</SidebarAnchor>
+      </NavigationDisclosure>
+      <NavigationDisclosure
+        buttonText="Customization"
+        categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-customization",
+            label: "Customization",
+          })
+        }
+      >
+        <SidebarAnchor href={`${SidebarCategoryRoutes.CUSTOMIZATION}/`}>Overview</SidebarAnchor>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.CUSTOMIZATION}/customization-provider`}>
+          Customization Provider
         </SidebarAnchor>
-        <SidebarAnchor
-          level={0}
-          to="/roadmap"
-          onClick={() =>
-            trackCustomEvent({
-              category: 'Left Navigation',
-              action: 'click-roadmap',
-              label: 'Roadmap',
-            })
-          }
-        >
-          Roadmap
+        <SidebarAnchor href={`${SidebarCategoryRoutes.CUSTOMIZATION}/creating-a-custom-theme`}>
+          Customizing themes
         </SidebarAnchor>
-      </Box>
-    </Box>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.CUSTOMIZATION}/customizing-component-elements`}>
+          Customizing components
+        </SidebarAnchor>
+        <SidebarAnchor href={`${SidebarCategoryRoutes.CUSTOMIZATION}/composing-custom-components-with-design-tokens`}>
+          Composing custom UI with tokens
+        </SidebarAnchor>
+      </NavigationDisclosure>
+      <SidebarNavigationSeparator />
+      <SidebarAnchor
+        href="/blog"
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-blog",
+            label: "Blog",
+          })
+        }
+      >
+        Blog
+      </SidebarAnchor>
+      <SidebarAnchor
+        href="/roadmap"
+        onClick={() =>
+          event({
+            category: "Left Navigation",
+            action: "click-roadmap",
+            label: "Roadmap",
+          })
+        }
+      >
+        Roadmap
+      </SidebarAnchor>
+    </SidebarNavigation>
   );
 };
 
-export {SidebarNavigation};
+export { SiteSidebarNavigation as SidebarNavigation };

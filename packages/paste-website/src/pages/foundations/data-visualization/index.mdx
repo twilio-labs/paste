@@ -1,12 +1,10 @@
----
-title: Data Visualization
-description: Data visualizations help communicate patterns and relationships in a data set.
-slug: /foundations/data-visualization/
----
+export const meta = {
+  title: 'Data Visualization',
+  description: 'Data visualizations help communicate patterns and relationships in a data set.',
+  slug: '/foundations/data-visualization/',
+};
 
-import {graphql} from 'gatsby';
-import {GatsbyImage} from 'gatsby-plugin-image';
-
+import Image from 'next/image';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import {usePasteHighchartsTheme} from '@twilio-paste/data-visualization-library';
@@ -14,8 +12,9 @@ import {usePasteHighchartsTheme} from '@twilio-paste/data-visualization-library'
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
   LineChartExample,
@@ -24,38 +23,26 @@ import {
   PieChartCaption,
   LineChartCaption,
 } from '../../../component-examples/DataVisualizationExamples';
+import FigmaColors from '../../../assets/images/foundations/data-visualization/figma-colors.png';
+import PieChart from '../../../assets/images/foundations/data-visualization/pie-chart.png';
+import LineChart from '../../../assets/images/foundations/data-visualization/line-chart.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    figmaColors: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/foundations/data-visualization/figma-colors.png"}
-    ) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/foundations/data-visualization/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<ComponentHeader
-  name={props.pageContext.frontmatter.title}
-  description={props.pageContext.frontmatter.description}
-  categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}
-/>
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
 
 </content>
 
@@ -63,7 +50,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -88,7 +75,7 @@ To get started incorporating our data visualization design tools into your own T
 The [color palette](#color-palettes) used for data visualizations are available as color styles in both the [Default Theme](https://www.figma.com/file/OZKRQFOkOAl413m5JVIYE6/Paste-Default-Theme) and [Dark Theme](https://www.figma.com/file/TZMBaCxXkX8u5aVRVYboid/Paste-Dark-Theme?node-id=0%3A1) libraries.
 
 <Box maxWidth="size30" paddingBottom="space110" marginX="auto">
-  <GatsbyImage image={props.data.figmaColors.childImageSharp.gatsbyImageData} />
+  <Image src={FigmaColors} placeholder="blur" style={{width: '100%', height: '100%'}} />
 </Box>
 
 ## Color palettes
@@ -105,8 +92,8 @@ An example of a non-categorical palette would be a sequential color palette (alt
 
 The categorical palette is fully 3:1 contrast-accessible against our `$color-background-body` token and has >2:1 contrast between neighboring colors. Since the contrast between neighboring colors falls short of the [WCAG 2.1 AA requirement for non-text](https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html) contrast, we will also include color-agnostic accessibility recommendations to assist with data read, which will be detailed in [additional accessibility for charts](#additional-accessibility-for-charts) section.
 
-<Callout>
-  <CalloutTitle as="h3">Be mindful about how you apply this palette.</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Be mindful about how you apply this palette.</CalloutHeading>
   <CalloutText>
     The colors of this palette should be applied in sequence strictly as described. The sequence is carefully curated to
     maximize contrast between neighboring colors to help with visual differentiation. You can start anywhere in the
@@ -133,7 +120,7 @@ Although we’ve ensured that the recommended [data visualization colors](#color
 
 An example showing the use of divider lines is [this pie chart categorizing the race diversity index in the U.S. from the 2010 census data](https://www.census.gov/content/dam/Census/newsroom/blogs/2021/rsblog-meauring-race-ethnic-diversity-2020-census/rsblog-measuring-race-ethnic-diversity-2020-census-figure4.jpg). A white divider line is used to create contrast and help distinguish the difference between the categories.
 
-![](../../../assets/images/foundations/data-visualization/pie-chart.png)
+<ResponsiveImage src={PieChart} />
 
 <PieChartCaption />
 
@@ -141,7 +128,7 @@ An example showing the use of divider lines is [this pie chart categorizing the 
 
 Shapes can also be used in combination with color-coded data points. Using shapes in addition to color adds another layer of differentiation so that charts are not relying solely on color to communicate meaning.
 
-![](../../../assets/images/foundations/data-visualization/line-chart.png)
+<ResponsiveImage src={LineChart} />
 
 <LineChartCaption />
 

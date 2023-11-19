@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/customization",
-  "version": "4.0.1",
+  "version": "8.1.1",
   "description": "The Customization Provider provides functionality to change token values and the style of Paste components.",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -18,7 +18,6 @@
   "scripts": {
     "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
-    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
@@ -26,23 +25,30 @@
     "deepmerge": "4.2.2"
   },
   "peerDependencies": {
-    "@twilio-paste/animation-library": "^0.3.1",
-    "@twilio-paste/design-tokens": "^7.0.0",
-    "@twilio-paste/style-props": "^5.0.0",
-    "@twilio-paste/styling-library": "^1.0.0",
-    "@twilio-paste/theme": "^7.0.0",
-    "@twilio-paste/types": "^3.1.1",
-    "react": "^16.8.6 || ^17.0.2",
-    "react-dom": "^16.8.6 || ^17.0.2"
+    "@twilio-paste/animation-library": "^2.0.0",
+    "@twilio-paste/color-contrast-utils": "^5.0.0",
+    "@twilio-paste/design-tokens": "^10.0.0",
+    "@twilio-paste/style-props": "^9.0.0",
+    "@twilio-paste/styling-library": "^3.0.0",
+    "@twilio-paste/theme": "^11.0.0",
+    "@twilio-paste/types": "^6.0.0",
+    "@types/react": "^16.8.6 || ^17.0.2 || ^18.0.27",
+    "@types/react-dom": "^16.8.6 || ^17.0.2 || ^18.0.10",
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/animation-library": "^0.3.5",
-    "@twilio-paste/design-tokens": "^7.2.2",
-    "@twilio-paste/style-props": "^5.0.1",
-    "@twilio-paste/styling-library": "^1.0.1",
-    "@twilio-paste/theme": "^7.0.0",
-    "@twilio-paste/types": "^3.1.7",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@twilio-paste/animation-library": "^2.0.0",
+    "@twilio-paste/color-contrast-utils": "^5.0.0",
+    "@twilio-paste/design-tokens": "^10.3.0",
+    "@twilio-paste/style-props": "^9.1.1",
+    "@twilio-paste/styling-library": "^3.0.0",
+    "@twilio-paste/theme": "^11.0.0",
+    "@twilio-paste/types": "^6.0.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "^4.9.4"
   }
 }

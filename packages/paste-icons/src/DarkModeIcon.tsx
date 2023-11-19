@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface DarkModeIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface DarkModeIconProps extends IconWrapperProps {
 }
 
 const DarkModeIcon = React.forwardRef<HTMLElement, DarkModeIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `DarkModeIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[DarkModeIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[DarkModeIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -24,6 +25,7 @@ const DarkModeIcon = React.forwardRef<HTMLElement, DarkModeIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
           fill="none"
@@ -40,8 +42,8 @@ const DarkModeIcon = React.forwardRef<HTMLElement, DarkModeIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-DarkModeIcon.displayName = 'DarkModeIcon';
-export {DarkModeIcon};
+DarkModeIcon.displayName = "DarkModeIcon";
+export { DarkModeIcon };

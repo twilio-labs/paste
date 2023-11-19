@@ -1,42 +1,38 @@
-import * as React from 'react';
-import type {BoxStyleProps} from '@twilio-paste/box';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {SizeStyles, BaseStyles} from './styles';
-import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import merge from "deepmerge";
+import * as React from "react";
 
-// This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const merge = require('deepmerge');
+import { BaseStyles, SizeStyles, ToggleStyles } from "./styles";
+import type { DirectButtonProps } from "./types";
 
 /*
  * defensively resetting interaction color from over zealous legacy
  * global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorText',
-  backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorder',
+  color: "colorText",
+  backgroundColor: "colorBackgroundBody",
+  boxShadow: "shadowBorderWeak",
   _hover: {
-    color: 'colorTextLinkStronger',
-    backgroundColor: 'colorBackgroundPrimaryWeakest',
-    boxShadow: 'shadowBorderPrimaryStronger',
+    color: "colorTextPrimary",
+    backgroundColor: "colorBackgroundBody",
+    boxShadow: "shadowBorderPrimary",
   },
   _focus: {
-    color: 'colorTextLinkStronger',
-    backgroundColor: 'colorBackgroundPrimaryWeakest',
-    boxShadow: 'shadowFocus',
+    boxShadow: "shadowFocusShadowBorder",
   },
   _active: {
-    color: 'colorTextLinkStronger',
-    backgroundColor: 'colorBackgroundPrimaryWeaker',
-    boxShadow: 'shadowBorderPrimaryStronger',
+    color: "colorTextPrimaryStrong",
+    backgroundColor: "colorBackgroundPrimaryWeakest",
+    boxShadow: "shadowBorderPrimaryStrong",
   },
 });
 
 const baseLoadingStyles: BoxStyleProps = {
-  color: 'colorTextLinkStronger',
-  backgroundColor: 'colorBackgroundPrimaryWeaker',
-  boxShadow: 'shadowBorderPrimaryWeaker',
+  color: "colorTextPrimary",
+  backgroundColor: "colorBackgroundBody",
+  boxShadow: "shadowBorderWeak",
 };
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
@@ -47,9 +43,9 @@ const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
 });
 
 const baseDisabledStyles: BoxStyleProps = {
-  color: 'colorTextWeaker',
-  backgroundColor: 'colorBackgroundBody',
-  boxShadow: 'shadowBorderWeak',
+  color: "colorTextWeaker",
+  backgroundColor: "colorBackgroundBody",
+  boxShadow: "shadowBorderWeaker",
 };
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
@@ -57,6 +53,16 @@ const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
   _hover: baseDisabledStyles,
   _active: baseDisabledStyles,
   _focus: baseDisabledStyles,
+  _pressed: {
+    backgroundColor: "colorBackgroundStrong",
+    color: "colorTextWeak",
+    boxShadow: "none",
+  },
+  _pressed_hover: {
+    backgroundColor: "colorBackgroundStrong",
+    color: "colorTextWeak",
+    boxShadow: "none",
+  },
 });
 
 const ButtonStyleMapping = {
@@ -66,25 +72,27 @@ const ButtonStyleMapping = {
 };
 
 const SecondaryButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, pressed, ...props }, ref) => {
+    const toggleStyles = pressed === undefined ? {} : ToggleStyles;
+
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
-        width={fullWidth ? '100%' : 'auto'}
+        width={fullWidth ? "100%" : "auto"}
+        aria-pressed={pressed}
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
+        {...toggleStyles}
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 SecondaryButton.defaultProps = {
-  as: 'button',
+  as: "button",
 };
-if (process.env.NODE_ENV === 'development') {
-  SecondaryButton.propTypes = DirectButtonPropTypes;
-}
-SecondaryButton.displayName = 'SecondaryButton';
 
-export {SecondaryButton};
+SecondaryButton.displayName = "SecondaryButton";
+
+export { SecondaryButton };

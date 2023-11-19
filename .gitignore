@@ -58,10 +58,6 @@ typings/
 .env
 .env.local
 
-# gatsby files
-packages/paste-website/.cache/
-packages/paste-website/public
-
 # next.js build output
 .next
 out/
@@ -71,8 +67,6 @@ out/
 
 .jest-coverage
 .jest-cache
-.jest-cache-react-16
-**/lib/*
 **/dist/*
 packages/**/docs
 **/paste-icons/cjs/*
@@ -95,6 +89,7 @@ cypress/downloads
 # Yarn Folders
 .pnp.*
 .yarn/*
+**/.yarn/*
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
@@ -102,5 +97,7 @@ cypress/downloads
 !.yarn/versions
 
 
-# turborepo
-.turbo
+# apps
+# vs-code-intellisense
+out
+.vscode-test

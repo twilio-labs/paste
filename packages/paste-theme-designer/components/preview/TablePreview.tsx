@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {Table, THead, TBody, Td, Tr, Th} from '@twilio-paste/core/table';
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/core/table";
+import * as React from "react";
 
-const TablePreview: React.FC = () => {
+const TablePreview = (): JSX.Element => {
   return (
     <Table>
       <THead>
@@ -44,4 +44,4 @@ const TablePreview: React.FC = () => {
   );
 };
 
-export {TablePreview};
+export { TablePreview };

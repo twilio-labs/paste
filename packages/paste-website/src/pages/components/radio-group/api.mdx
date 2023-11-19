@@ -1,0 +1,62 @@
+export const meta = {
+  title: 'Radio Group - Components - API',
+  package: '@twilio-paste/radio-group',
+  description:
+    'A radio group is used for selecting a single choice from a list of at least two options. The user can only select one radio option at a time.',
+  slug: '/components/radio-group/api',
+};
+
+import Changelog from '@twilio-paste/radio-group/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/radio-group/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Radio Group');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/radio-group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group',
+        storybookUrl: '/?path=/story/components-radio--radio-default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/radio-group - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Radio, RadioGroup} from '@twilio-paste/core/radio-group';
+
+const Component = () => (
+  <RadioGroup name="foo" value="foo" legend="foo" onChange={NOOP}>
+    <Radio id="foo" value="foo" name="foo">
+      Foo
+    </Radio>
+  </RadioGroup>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

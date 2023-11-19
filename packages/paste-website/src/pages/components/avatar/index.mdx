@@ -1,96 +1,119 @@
----
-title: Avatar
-package: '@twilio-paste/avatar'
-description: The Avatar is a pictorial representation of a user or object 👩‍🎤. It can display the initials of that entity, an image or a Paste Icon.
-slug: /components/avatar/
----
+export const meta = {
+  title: 'Avatar',
+  package: '@twilio-paste/avatar',
+  description:
+    'An Avatar is a graphical representation of a user or entity and an Avatar Group is a collection of Avatars.',
+  slug: '/components/avatar/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Stack} from '@twilio-paste/stack';
-import {Avatar} from '@twilio-paste/avatar';
+import {PopoverButton, PopoverContainer, Popover} from '@twilio-paste/popover';
+import {Avatar, AvatarGroup} from '@twilio-paste/avatar';
 import Changelog from '@twilio-paste/avatar/CHANGELOG.md';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {ProductEngageIcon} from '@twilio-paste/icons/esm/ProductEngageIcon';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
+import {ProductStudioIcon} from '@twilio-paste/icons/esm/ProductStudioIcon';
+import {ProductInterconnectIcon} from '@twilio-paste/icons/esm/ProductInterconnectIcon';
+import {BusinessIcon} from '@twilio-paste/icons/esm/BusinessIcon';
+import packageJson from '@twilio-paste/avatar/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/avatar"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/avatar/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Avatar"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/avatar"
-  storybookUrl="/?path=/story/components-avatar--initials"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Avatar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/avatar',
+        storybookUrl: '/?path=/story/components-avatar--initials',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview
+  scope={{
+    Avatar,
+    Stack,
+    UserIcon,
+    ProductEngageIcon,
+  }}
+>
+  {`<Stack orientation="horizontal" spacing="space40">
+  <Avatar size="sizeIcon30" name="Trayvon Martin" />
+  <Avatar size="sizeIcon40" name="Breonna Taylor" />
+  <Avatar size="sizeIcon50" name="Shantel Davis" />
+  <Avatar size="sizeIcon60" name="Walter Scott" />
+  <Avatar size="sizeIcon70" name="Maria Ardovini" src="/images/avatars/avatar4.png" />
+  <Avatar size="sizeIcon80" name="Merlyn Lund" src="/images/avatars/avatar1.png" />
+  <Avatar size="sizeIcon90" name="Twilio Paste" variant="entity" src="/images/avatars/avatar8.png" />
+  <Avatar size="sizeIcon100" name="Twilio Engage" variant="entity"  icon={ProductEngageIcon} />
+  <Avatar size="sizeIcon110" name="Imani Nakai" icon={UserIcon} />
+</Stack>`}
+</LivePreview>
 
 ## Guidelines
 
 ### About Avatar
 
-<p>
-  {props.pageContext.frontmatter.description} The Avatar can be sized in the same way as the{' '}
-  <a href="/components/icons/usage-guidelines/#resizing-icons">Paste Icon</a>.
-</p>
+An Avatar is a graphical representation of a user or entity and an Avatar Group is a collection of Avatars. Use the `user` variant to represent people and use the `entity` variant to represent non-user objects, such as businesses.
 
-## Examples
+Avatar can display initials, an image, or an icon. If both an image and an icon are passed to Avatar, the image will be displayed. Initials will be displayed if no image and no icon are provided. The initials displayed are derived from the string passed to the `name` prop.
 
-### Representing an entity via their initials
+Avatar sizing works similarly to [Paste Icon](/components/icon/usage-guidelines#resizing-icons) sizing. Pass any of the icon size tokens (`sizeIcon10`, `sizeIcon20`, `sizeIcon30`, etc.) to Avatar’s `size` prop.
 
-Provide the Avatar with a `name` and the component will render the initials as their visual representation. The option is particularly useful if there is no supplied image.
+**Note:** using sizes 10 and 20 isn’t recommended for displaying initials within an Avatar, as these small sizes may cut off certain wide characters, such as “W”.
 
-<Callout>
-  <CalloutTitle>A note about size 10 and 20</CalloutTitle>
+### Accessibility
+
+The `name` prop is required on all instances of the Avatar component. This ensures that whether your Avatar is displaying initials, an image, or an icon, the user will be able to access information about what object is being represented by the Avatar. The full string passed to `name` appears as a title upon hovering the Avatar, and is useful to assistive technology users.
+
+## Avatar examples
+
+### Avatar variants
+
+Avatar has two variants, one for users and one for entities such as a business. The default value for `variant` is "user".
+
+<LivePreview
+  scope={{
+    Avatar,
+    Stack,
+    UserIcon,
+    BusinessIcon,
+  }}
+>
+  {`<Stack orientation="horizontal" spacing="space40">
+  <Avatar variant="user" name="user example" icon={UserIcon} />
+  <Avatar variant="entity" name="entity example" icon={BusinessIcon} />
+</Stack>`}
+</LivePreview>
+
+### Avatar with initials
+
+If the Avatar is passed a `name` prop but no `src` or `icon` props, it will render initials as the visual representation of the user or entity. This option is particularly useful if there is no image to use.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">A note about size 10 and 20</CalloutHeading>
   <CalloutText>
     On the 2 smallest sizes some initials will get cut off if the characters are particularly wide, such as W. Although
-    we do support them due to maintaining size parity with Icons, we do not recommend using these 2 sizes.
+    we support them due to maintaining size parity with Icons, we do not recommend using these 2 sizes with initials.
   </CalloutText>
 </Callout>
 
@@ -113,14 +136,9 @@ Provide the Avatar with a `name` and the component will render the initials as t
 </Stack>`}
 </LivePreview>
 
-### Representing an entity via an image
+### Avatar with an image
 
 Provide the Avatar with a source path via the `src` prop to render the Avatar as an image. The `src` prop acts just like an `img` tag. You **must** still provide a `name` prop.
-
-<Callout>
-  <CalloutTitle>A note about Avatar contents</CalloutTitle>
-  <CalloutText>The Avatar component can either display an image or an icon, but not both.</CalloutText>
-</Callout>
 
 <LivePreview
   scope={{
@@ -129,26 +147,50 @@ Provide the Avatar with a source path via the `src` prop to render the Avatar as
   }}
 >
   {`<Stack orientation="horizontal" spacing="space40">
-  <Avatar size="sizeIcon30" name="avatar example" src="/images/avatars/avatar4.png" />
-  <Avatar size="sizeIcon40" name="avatar example" src="/images/avatars/avatar1.png" />
-  <Avatar size="sizeIcon50" name="avatar example" src="/images/avatars/avatar2.png" />
-  <Avatar size="sizeIcon60" name="avatar example" src="/images/avatars/avatar3.png" />
-  <Avatar size="sizeIcon70" name="avatar example" src="/images/avatars/avatar4.png" />
-  <Avatar size="sizeIcon80" name="avatar example" src="/images/avatars/avatar1.png" />
-  <Avatar size="sizeIcon90" name="avatar example" src="/images/avatars/avatar2.png" />
-  <Avatar size="sizeIcon100" name="avatar example" src="/images/avatars/avatar3.png" />
-  <Avatar size="sizeIcon110" name="avatar example" src="/images/avatars/avatar4.png" />
+  <Avatar size="sizeIcon30" name="Maria Ardovini" src="/images/avatars/avatar4.png" />
+  <Avatar size="sizeIcon40" name="Tri O'Hara" src="/images/avatars/avatar1.png" />
+  <Avatar size="sizeIcon50" name="Imani Nakai" src="/images/avatars/avatar2.png" />
+  <Avatar size="sizeIcon60" name="Merlyn Lund" src="/images/avatars/avatar3.png" />
+  <Avatar size="sizeIcon70" name="Dakota Powers" src="/images/avatars/avatar4.png" />
+  <Avatar size="sizeIcon80" name="Twilio" variant="entity" src="/images/avatars/avatar5.png" />
+  <Avatar size="sizeIcon90" name="Twilio Segment" variant="entity" src="/images/avatars/avatar6.png" />
+  <Avatar size="sizeIcon100" name="Twilio Sendgrid" variant="entity" src="/images/avatars/avatar7.png" />
+  <Avatar size="sizeIcon110" name="Twilio Paste" variant="entity" src="/images/avatars/avatar8.png" />
 </Stack>`}
 </LivePreview>
 
-### Representing an entity via an icon
+### Avatar with an icon
 
-Provide the Avatar with an `icon` prop to display an icon. You must import the icon before passing it to the `icon` prop. You **must** still provide a `name` prop. The icon must be a <a href="/components/icons/">Paste Icon</a>.
+Provide the Avatar with an `icon` prop to display an icon. You must import the icon before passing it to the `icon` prop. You **must** still provide a `name` prop. The icon must be a <a href="/components/icon/">Paste Icon</a>.
 
-<Callout>
-  <CalloutTitle>A note about Avatar contents</CalloutTitle>
-  <CalloutText>The Avatar component can either display an image or an icon, but not both.</CalloutText>
-</Callout>
+<LivePreview
+  scope={{
+    Avatar,
+    Stack,
+    UserIcon,
+    ProductEngageIcon,
+    ProductFlexIcon,
+    ProductVoiceIcon,
+    ProductStudioIcon,
+    ProductInterconnectIcon,
+  }}
+>
+  {`<Stack orientation="horizontal" spacing="space40">
+  <Avatar size="sizeIcon30" name="Dakota Powers" icon={UserIcon} />
+  <Avatar size="sizeIcon40" name="Maria Ardovini" icon={UserIcon} />
+  <Avatar size="sizeIcon50" name="Imani Nakai" icon={UserIcon} />
+  <Avatar size="sizeIcon60" name="Merlyn Lund" icon={UserIcon} />
+  <Avatar size="sizeIcon70" name="Twilio Engage" variant="entity" icon={ProductEngageIcon} />
+  <Avatar size="sizeIcon80" name="Twilio Flex" variant="entity" icon={ProductFlexIcon} />
+  <Avatar size="sizeIcon90" name="Twilio Voice" variant="entity" icon={ProductVoiceIcon} />
+  <Avatar size="sizeIcon100" name="Twilio Studio" variant="entity" icon={ProductStudioIcon} />
+  <Avatar size="sizeIcon110" name="Twilio Interconnect" variant="entity" icon={ProductInterconnectIcon} />
+</Stack>`}
+</LivePreview>
+
+### Changing the color of an Avatar
+
+The Avatar `color` prop can be used to change the color. These colors are meant to differentiate between multiple Avatars in close proximity to each other. Do not use these colors to convey meaning, like warning, error, or success. Pass any of the following values as Avatar colors.
 
 <LivePreview
   scope={{
@@ -158,15 +200,11 @@ Provide the Avatar with an `icon` prop to display an icon. You must import the i
   }}
 >
   {`<Stack orientation="horizontal" spacing="space40">
-  <Avatar size="sizeIcon30" name="avatar example" icon={UserIcon} />
-  <Avatar size="sizeIcon40" name="avatar example" icon={UserIcon} />
-  <Avatar size="sizeIcon50" name="avatar example" icon={UserIcon} />
-  <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
-  <Avatar size="sizeIcon70" name="avatar example" icon={UserIcon} />
-  <Avatar size="sizeIcon80" name="avatar example" icon={UserIcon} />
-  <Avatar size="sizeIcon90" name="avatar example" icon={UserIcon} />
-  <Avatar size="sizeIcon100" name="avatar example" icon={UserIcon} />
-  <Avatar size="sizeIcon110" name="avatar example" icon={UserIcon} />
+  <Avatar color="default" name="Merlyn Lund" icon={UserIcon} />
+  <Avatar color="decorative10" name="Maria Ardovini" icon={UserIcon} />
+  <Avatar color="decorative20" name="Imani Nakai" icon={UserIcon} />
+  <Avatar color="decorative30" name="Dakota Powers" icon={UserIcon} />
+  <Avatar color="decorative40" name="Tri O'Hara" icon={UserIcon} />
 </Stack>`}
 </LivePreview>
 
@@ -188,26 +226,77 @@ The Avatar `size` can be set as a responsive array of sizes.
   />
   <Avatar
     size={["sizeIcon20", "sizeIcon70", "sizeIcon110"]}
-    name="avatar example"
+    name="Tri O'Hara"
     src="/images/avatars/avatar4.png"
   />
   <Avatar
     size={["sizeIcon20", "sizeIcon70", "sizeIcon110"]}
-    name="avatar example"
+    name="Imani Nakai"
     icon={UserIcon}
   />
 </Stack>`}
 </LivePreview>
 
-## Anatomy
+## Avatar Group examples
 
-| Property         | Default token         | Modifiable? |
-| ---------------- | --------------------- | ----------- |
-| border-radius    | border-radius-circle  | No          |
-| background-color | color-background-user | No          |
-| font-weight      | font-weight-bold      | No          |
+### Default Avatar Group
 
-#### Size Token Mapping
+Use Avatar Group to display multiple Avatars stacked together. Pass the `size` prop to control the sizes and spacing of the Avatars within the group. Pass the `variant` prop to determine whether the Avatars within the group are “user” or “entity” variants, as the two variants have different spacing.
+
+<LivePreview
+  scope={{
+    Avatar,
+    AvatarGroup,
+  }}
+>
+  {`<AvatarGroup size="sizeIcon70" variant="user">
+  <Avatar name="Maria Ardovini" src="/images/avatars/avatar4.png" />
+  <Avatar name="Tri O'Hara" src="/images/avatars/avatar1.png" />
+  <Avatar name="Imani Nakai" src="/images/avatars/avatar2.png" />
+</AvatarGroup>`}
+</LivePreview>
+
+### Avatar Group with overflow
+
+Avatar Group doesn’t have an overflow state built into the API. If your group contains more than 3 Avatars, using the following pattern is recommended. Use either a [Link-style Button](/components/button#link-style-button) or bolded text to display the overflow number.
+
+<LivePreview
+  scope={{
+    Avatar,
+    AvatarGroup,
+    Popover,
+    PopoverButton,
+    PopoverContainer,
+    Text,
+    Stack,
+  }}
+>
+  {`<Stack orientation="vertical" spacing="space40">
+  <Stack orientation="horizontal" spacing="space30">
+    <AvatarGroup size="sizeIcon70" variant="user">
+      <Avatar name="Maria Ardovini" src="/images/avatars/avatar4.png" />
+      <Avatar name="Tri O'Hara" src="/images/avatars/avatar1.png" />
+      <Avatar name="Imani Nakai" src="/images/avatars/avatar2.png" />
+    </AvatarGroup>
+    <PopoverContainer placement="right">
+      <PopoverButton variant="link">+5</PopoverButton>
+      <Popover>Place information about overflow Avatars here</Popover>
+    </PopoverContainer>
+  </Stack>
+  <Stack orientation="horizontal" spacing="space30">
+    <AvatarGroup size="sizeIcon70" variant="entity">
+      <Avatar name="Twilio" src="/images/avatars/avatar5.png" />
+      <Avatar name="Twilio Segment" src="/images/avatars/avatar6.png" />
+      <Avatar name="Twilio Sendgrid" src="/images/avatars/avatar7.png" />
+    </AvatarGroup>
+    <Text fontWeight="fontWeightBold">+5</Text>
+  </Stack>
+</Stack>`}
+</LivePreview>
+
+### Avatar Size Token Map
+
+The following tokens are used with each size of Avatar.
 
 | Size          | Font Size    | Line Height     | Icon Size    |
 | ------------- | ------------ | --------------- | ------------ |
@@ -222,55 +311,3 @@ The Avatar `size` can be set as a responsive array of sizes.
 | size-icon-90  | font-size-40 | line-height-90  | size-icon-50 |
 | size-icon-100 | font-size-60 | line-height-100 | size-icon-70 |
 | size-icon-110 | font-size-70 | line-height-110 | size-icon-80 |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/avatar - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Avatar} from '@twilio-paste/core/avatar';
-
-const AvatarExample = () => {
-  return <Avatar size="sizeIcon10" name="Aayush Iyer" />;
-};
-```
-
-#### Props
-
-##### `name` string
-
-Provide the name of the user or object.
-
-##### `size` IconSize[]
-
-Responsive size property that takes IconSize token names.
-
-##### `src` string
-
-Used to set the image `src` attribute when setting an image as the Avatar.
-
-##### `icon` Paste Icon
-
-Specify a Paste Icon to be displayed in the Avatar.
-
-##### `element` string
-
-Overrides the default element name ('AVATAR') to apply unique styles with the Customization Provider.
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

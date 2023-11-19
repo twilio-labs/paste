@@ -8,7 +8,7 @@ props:
   # base background
   color-background:
     value: "{!palette-gray-10}"
-    comment: Background color used for containers.
+    comment: Default background color for any container.
   color-background-strong:
     value: "{!palette-gray-20}"
     comment: Strong background color used for containers.
@@ -24,20 +24,29 @@ props:
   color-background-inverse-strong:
     value: "{!palette-gray-80}"
     comment: Strong inverse background color used for containers.
+  color-background-inverse-stronger:
+    value: "{!palette-gray-80}"
+    comment: Stronger inverse background color for any container. Must be used on color-background-body-inverse.
+  color-background-inverse-strongest:
+    value: "{!palette-gray-0}"
+    comment: Strongest inverse background color used for containers.
+  color-background-weak:
+    value: "{!palette-gray-05}"
+    comment: Weak background color used for containers.
 
   # brand backgrounds
   color-background-brand:
     value: "{!palette-blue-80}"
-    comment: Background color used for brand.
+    comment: Primary brand background, accessible with inverse text.
   color-background-brand-strong:
     value: "{!palette-blue-90}"
-    comment: Strong background color used for brand.
+    comment: Strong primary brand background, accessible with inverse text.
   color-background-brand-stronger:
     value: "{!palette-blue-100}"
-    comment: Stronger background color used for brand.
+    comment: Stronger primary brand background, accessible with inverse text.
   color-background-brand-highlight:
     value: "{!amaranth}"
-    comment: Background color used for brand highlights.
+    comment: Highlight brand background, accessible with black text.
   color-background-brand-highlight-weakest:
     value: "{!amaranth-transparent-10}"
     comment: Weakest background color used for brand highlights.
@@ -49,7 +58,7 @@ props:
 
   # account backgrounds
   color-background-subaccount:
-    value: "{!palette-yellow-20}"
+    value: "{!palette-yellow-10}"
     comment: Background color used for subaccounts.
   color-background-trial:
     value: "{!palette-green-20}"
@@ -79,6 +88,9 @@ props:
   color-background-warning-weakest:
     value: "{!palette-orange-10}"
     comment: Weakest background color used for warning alerts and toasts.
+  color-background-error-strongest:
+    value: "{!palette-red-100}"
+    comment: Strongest error background color
   color-background-error-stronger:
     value: "{!palette-red-90}"
     comment: Stronger error background color
@@ -97,6 +109,9 @@ props:
   color-background-new:
     value: "{!palette-purple-10}"
     comment: Background color used to represent a new status.
+  color-background-new-weakest:
+    value: "{!palette-purple-05}"
+    comment: Weakest background color for indicating a new status.
 
   # row backgrounds
   color-background-row-striped:

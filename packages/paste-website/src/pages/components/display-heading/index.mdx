@@ -1,0 +1,154 @@
+export const meta = {
+  title: 'Display Heading',
+  package: '@twilio-paste/display-heading',
+  description:
+    'Display heading is large, expressive text that stands out from traditional headings and is used for marketing and attention grabbing purposes.',
+  slug: '/components/display-heading/',
+};
+
+import {Card} from '@twilio-paste/card';
+import {DisplayHeading} from '@twilio-paste/display-heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/display-heading/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Display Heading');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/display-heading',
+        storybookUrl: '/?path=/story/components-display-heading--all-variants',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{DisplayHeading}} language="jsx">
+  {`<DisplayHeading as="div" variant="displayHeading10" marginBottom="space0">
+  Twilio magic
+</DisplayHeading>`}
+</LivePreview>
+
+## Guidelines
+
+<Paragraph>{meta.description}</Paragraph>
+
+### About Display Heading
+
+Display Heading should **not** be used interchangeably with [the Heading component](/components/heading). While Heading is for adding multiple levels of hierarchy and structuring the content of any page, Display Heading should only be used in very specific contexts.
+
+Use Display Heading for marketing, branding, or editorial purposes to highlight a small amount of text. Don't use Display Heading to outline sections of a page or form.
+
+Follow these guidelines for appropriate Display Heading usage:
+
+- Don’t use Display Heading to resize text. Instead use the [Text primitive](/primitives/text).
+- Use the appropriate tag for the Display Heading. If using an `<h1>` tag, don't use more than one per page.
+- Always use sentence case, unless you're writing a product name. For more information read the [product style guide](/foundations/content/product-style-guide/#sentence-case)
+
+Here are some examples of when you might want to use a Display Heading:
+
+- Grabbing your user's attention on a home or onboarding page
+- Marketing purposes or when you need to connect with the Twilio branding
+- Displaying numbers on a dashboard layout to make them stand out
+
+If you have concerns about whether you're using a Display Heading appropriately, feel free to [start a new Github Discussion](https://github.com/twilio-labs/paste/discussions/new) to ask.
+
+#### Accessibility
+
+It is important to not skip one or more heading levels as it is common for screen readers to build an outline of the page and assist users as they navigate a page. Skipping a heading level could cause confusion as the user navigating the page may not know why a heading is missing.
+
+- Display Heading text should meet AA requirements (4.5:1) for color contrast from itself and the background color
+- Display Headings should be used thoughtfully and intentionally, including the value passed to the `as` prop.
+
+## Examples
+
+<LivePreview scope={{DisplayHeading}} language="jsx">
+  {`<>
+<DisplayHeading as="div" variant="displayHeading10">
+  Twilio magic
+</DisplayHeading>
+
+<DisplayHeading as="div" variant="displayHeading20">
+  Twilio magic
+</DisplayHeading>
+
+<DisplayHeading as="div" variant="displayHeading30">
+  Twilio magic
+</DisplayHeading>
+</>`}
+</LivePreview>
+
+### Display Heading as h1 with displayHeading10 variant
+
+<LivePreview scope={{DisplayHeading}} language="jsx">
+  {`<DisplayHeading as="h1" variant="displayHeading10">
+  Display Heading one
+</DisplayHeading>`}
+</LivePreview>
+
+### Display Heading as h2 with heading20 variant
+
+<LivePreview scope={{DisplayHeading}} language="jsx">
+  {`<DisplayHeading as="h2" variant="displayHeading20">
+  Display Heading two
+</DisplayHeading>`}
+</LivePreview>
+
+### Heading as h3 with displayHeading30 variant
+
+<LivePreview scope={{DisplayHeading}} language="jsx">
+  {`<DisplayHeading as="h2" variant="displayHeading30">
+  Display Heading three
+</DisplayHeading>`}
+</LivePreview>
+
+### Display Heading with no bottom margin
+
+<LivePreview scope={{DisplayHeading, Card}} language="jsx">
+  {`<Card>
+  <DisplayHeading as="h2" marginBottom="space0" variant="displayHeading10">
+    Display Heading with no margin
+  </DisplayHeading>
+</Card>`}
+</LivePreview>
+
+## Composition Notes
+
+### When to use Display Heading
+
+<DoDont>
+  <Do title="Do" body="Use sentence case in Display Headings (except for a product name)." center>
+    <DisplayHeading as="h2" variant="heading10">
+      This is sentence case
+    </DisplayHeading>
+  </Do>
+  <Dont title="Don't" body="Don’t use title case." center>
+    <DisplayHeading as="h2" variant="heading10">
+      This Is Title Case
+    </DisplayHeading>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Display Headings to connect with the brand or grab users' attention." />
+  <Dont title="Don't" body="Don’t use Display Headings in place of the regular Heading component." />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Be intentional about the value you pass to the `as` prop." />
+  <Dont title="Don't" body="Don’t use multiple h1 tags on a page." />
+</DoDont>

@@ -1,36 +1,33 @@
----
-title: Customization Provider
-description: The Customization Provider allows a consumer to customize the style of Paste components.
-slug: /customization/customization-provider/
----
+export const meta = {
+  title: 'Customization Provider',
+  package: '@twilio-paste/customization',
+  description: 'The Customization Provider allows a consumer to customize the style of Paste components.',
+  slug: '/customization/customization-provider/',
+};
 
-import {graphql} from 'gatsby';
 import PackageJSON from '@twilio-paste/customization/package.json';
 import Changelog from '@twilio-paste/customization/CHANGELOG.md';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
 import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/customization/customization-provider/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<ComponentHeader
-  name={props.pageContext.frontmatter.title}
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader
+  name={meta.title}
   categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-customization"
-  storybookUrl="?path=/story/theme-customization--provider"
+  storybookUrl="?path=/story/theme-customization--"
   packageName={PackageJSON.name}
   version={PackageJSON.version}
   description={PackageJSON.description}
@@ -40,7 +37,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -52,22 +49,22 @@ If you&rsquo;re a Flex customer, and want to build a Flex plugin that follows yo
 
 ## About the Customization Provider
 
-Similar to the Paste [ThemeProvider](/core/theme-package), the `CustomizationProvider` uses [React Context](https://reactjs.org/docs/context.html) to provide a [theme object](/core/theme-package/#theme) to any descendant components in the tree.
+Similar to the Paste [ThemeProvider](/theme), the `CustomizationProvider` uses [React Context](https://reactjs.org/docs/context.html) to provide a [theme object](/theme/#theme) to any descendant components in the tree.
 
 The `CustomizationProvider` currently differs in two ways:
 
-1. Firstly, you set a `baseTheme`. The base theme tells the provider which Paste theme you would like to base your custom theme on. You can choose from the 'Default' or 'Dark' Theme.
+1. Firstly, you set a `baseTheme`. The base theme tells the provider which Paste theme you would like to base your custom theme on. You can choose from the 'default' or 'dark' Theme.
 2. Secondly, you set a `theme`, but unlike with the `<Theme.Provider />` you pass it an object.
 
 ## Selecting a Base Theme
 
-Selecting a base theme allows you to choose which Paste theme you would like to build on top of. By default we select the Default theme for you, but if you would like to create a custom application using a dark theme, you can choose the Dark Base Theme as your starting point.
+Selecting a base theme allows you to choose which Paste theme you would like to build on top of. By default we select the default theme for you, but if you would like to create a custom application using a dark theme, you can choose the dark baseTheme as your starting point.
 
 ```
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark">
+  <CustomizationProvider baseTheme="dark">
     rest of app
   </CustomizationProvider>
 )
@@ -75,18 +72,18 @@ const MyApp = () => (
 
 ## Providing a Theme Object
 
-For the `theme` prop you can pass a complete [theme object](/core/theme-package#theme) or a partial theme object for smaller customizations. If a partial theme object is passed, the `CustomizationProvider` merges the custom theme object with the base Paste theme you chose. For example, if you want to customize certain background color tokens of the Dark theme you would only need to pass the following:
+For the `theme` prop you can pass a complete [theme object](/theme/#theme) or a partial theme object for smaller customizations. If a partial theme object is passed, the `CustomizationProvider` merges the custom theme object with the base Paste theme you chose. For example, if you want to customize certain background color tokens of the Dark theme you would only need to pass the following:
 
 ```
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark" theme={{
+  <CustomizationProvider baseTheme="dark" theme={{
     "backgroundColors": {
       "colorBackgroundPrimary": "rgb(80, 123, 30)",
-      "colorBackgroundPrimaryDarker": "rgb(56, 86, 21)",
-      "colorBackgroundPrimaryLighter": "rgb(154,199,232)",
-      "colorBackgroundPrimaryLightest": "rgb(197, 223, 242)",
+      "colorBackgroundPrimaryStronger": "rgb(56, 86, 21)",
+      "colorBackgroundPrimaryWeaker": "rgb(154,199,232)",
+      "colorBackgroundPrimaryWeakest": "rgb(197, 223, 242)",
     }
   }}>
     rest of app
@@ -94,7 +91,7 @@ const MyApp = () => (
 )
 ```
 
-This will output the Paste theme of your choice with the custom background color tokens above. So any component using `colorBackgroundPrimary`, `colorBackgroundPrimaryDarker`, etc will use the custom background color token values instead of the background color token values provided by the base theme.
+This will output the Paste theme of your choice with the custom background color tokens above. So any component using `colorBackgroundPrimary`, `colorBackgroundPrimaryStronger`, etc will use the custom background color token values instead of the background color token values provided by the base theme.
 
 The theme object should follow the following format, where each theme key can take any valid [design token](/tokens) for that grouping:
 
@@ -109,7 +106,7 @@ import {CustomizationProvider} from '@twilio-paste/core/customization';
 import CustomTheme from './themes/theme.json';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Default" theme={CustomTheme}>
+  <CustomizationProvider baseTheme="default" theme={CustomTheme}>
     rest of app
   </CustomizationProvider>
 );
@@ -117,15 +114,15 @@ const MyApp = () => (
 
 ## Providing Component Elements
 
-You'll soon be able to set a collection of Component Elements that you want to customize. A Component Element is a DOM node within a component that you can target by name and provide custom CSS for. There maybe one or more exposed Component Elements for any given component within Paste. Component Elements can also be created for your own custom components for your customers to customize.
+You can set a collection of Component Elements that you want to customize at the Customization Provider level. A Component Element is a DOM node within a component that you can target by name and provide custom CSS for. There maybe one or more exposed Component Elements for any given component within Paste. Component Elements can also be created for your own custom components for your customers to customize.
 
-Coming soon.
+To read about how to customize components, head to the [Customizating Components](/customization/customizing-component-elements) page.
 
 ```
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark" elements={{
+  <CustomizationProvider baseTheme="dark" elements={{
     CARD: {
       backgroundColor: 'colorBackground',
       borderRadius: 'borderRadius30',
@@ -156,7 +153,7 @@ import {CustomizationProvider} from '@twilio-paste/core/customization';
 import CustomTheme from ''./themes/theme.json';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Default" theme={CustomTheme}>
+  <CustomizationProvider baseTheme="default" theme={CustomTheme}>
     rest of app
   </CustomizationProvider>
 )

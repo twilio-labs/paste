@@ -1,1 +1,1 @@
-export * from '@twilio-paste/aspect-ratio';
+export * from "@twilio-paste/aspect-ratio";

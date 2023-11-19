@@ -1,59 +1,55 @@
-import * as React from 'react';
-import type {IconSizeOptions, TextColorOptions} from '@twilio-paste/style-props';
-import {DefaultTheme, useTheme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {Flex} from '@twilio-paste/flex';
-import {CopyIcon} from '../src/CopyIcon';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Flex } from "@twilio-paste/flex";
+import { Stack } from "@twilio-paste/stack";
+import type { IconSizeOptions, TextColorOptions } from "@twilio-paste/style-props";
+import { Text } from "@twilio-paste/text";
+import { DefaultTheme, useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
+import { CopyIcon } from "../src/CopyIcon";
 
 const SizeOptions = Object.keys(DefaultTheme.iconSizes) as IconSizeOptions[];
 const ColorOptions = Object.keys(DefaultTheme.textColors) as TextColorOptions[];
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Icon',
+  title: "Components/Icon",
   component: CopyIcon,
 };
 
 export const Default = (): React.ReactNode => {
-  const sizeValue = 'sizeIcon30';
-  const colorValue = 'currentColor';
+  const sizeValue = "sizeIcon30";
+  const colorValue = "currentColor";
 
   return <CopyIcon size={sizeValue} color={colorValue} title="Icon text" decorative />;
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = "default";
 
 export const Colors = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       {ColorOptions.map((color: TextColorOptions) => (
-        <CopyIcon color={color} decorative />
+        <CopyIcon color={color} decorative key={color} />
       ))}
     </Stack>
   );
 };
 
-Colors.story = {
-  name: 'colors',
-};
+Colors.storyName = "colors";
 
 export const Sizes = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       {SizeOptions.map((size: IconSizeOptions) => (
-        <CopyIcon size={size} decorative />
+        <CopyIcon size={size} decorative key={size} />
       ))}
     </Stack>
   );
 };
 
-Sizes.story = {
-  name: 'sizes',
-};
+Sizes.storyName = "sizes";
 
 export const Alignment = (): React.ReactNode => {
   return (
@@ -77,19 +73,17 @@ export const Alignment = (): React.ReactNode => {
   );
 };
 
-Alignment.story = {
-  name: 'alignment',
-};
+Alignment.storyName = "alignment";
 
-export const CustomizedIcon: React.FC = () => {
+export const CustomizedIcon: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundSuccess'},
-        CUSTOM_ICON: {borderRadius: 'borderRadius20', backgroundColor: 'colorBackgroundDestructive'},
+        ICON: { borderRadius: "borderRadius20", backgroundColor: "colorBackgroundSuccess" },
+        CUSTOM_ICON: { borderRadius: "borderRadius20", backgroundColor: "colorBackgroundDestructive" },
       }}
     >
       <Stack orientation="vertical" spacing="space40">
@@ -98,4 +92,10 @@ export const CustomizedIcon: React.FC = () => {
       </Stack>
     </CustomizationProvider>
   );
+};
+CustomizedIcon.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

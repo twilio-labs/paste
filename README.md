@@ -17,7 +17,6 @@ For usage guidelines, please see our [documentation website](https://paste.twili
 Clone the repo then run the following commands from within the repo's folder:
 
 ```
-yarn # bootstraps the repo and downloads packages
 yarn build # builds all of Paste
 ```
 
@@ -103,6 +102,22 @@ When a package has a peer dependency on another internal package in the mono rep
     "@twilio-paste/style-props": "^0.0.1"
   }
 }
+```
+
+### Checking and fixing peer deps
+
+To ensure peer dependencies are listed correctly, a check is run on the monorepo on every build.
+
+```bash
+yarn packages:check
+```
+
+If missing deps are detected you will be informed of which packages are missing what deps.
+
+To fix missing peer deps, run the fix command.
+
+```bash
+yarn packages:fix
 ```
 
 ## Releasing

@@ -1,38 +1,33 @@
----
-title: Localization
-description: Localization refers to adapting a product, service or content to fit a specific market or country.
-slug: /foundations/localization/
----
+export const meta = {
+  title: 'Localization',
+  description: 'Localization refers to adapting a product, service or content to fit a specific market or country.',
+  slug: '/foundations/localization/',
+};
 
-import {graphql} from 'gatsby';
+import {Anchor} from '@twilio-paste/anchor';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import {SidebarCategoryRoutes} from '../../../constants';
+import DenseLayout from '../../../assets/images/foundations/localization/dense-layout.png';
+import TextInImage from '../../../assets/images/foundations/localization/text-in-image.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/localization/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<ComponentHeader
-  name={props.pageContext.frontmatter.title}
-  description={props.pageContext.frontmatter.description}
-  categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}
-/>
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
 
 </content>
 
@@ -40,14 +35,18 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
-<Callout>
-  <CalloutTitle>Have more questions?</CalloutTitle>
+<Callout variant='neutral' marginY='space70'>
+  <CalloutHeading as='h2'>Have more questions?</CalloutHeading>
   <CalloutText>
-    This page contains general guidance around best practices for localization. If you have any questions, please
-    contact the Localization team on Slack at #help-localization.
+    This page contains general guidance around best practices for localization. If you are a Twilion and have any questions, please
+    visit the{' '}
+    <Anchor href="https://internal-product-docs.twilio.com/docs/internationalization/" showExternal>
+       Global team's product docs
+    </Anchor>
+    , or contact them on Slack at #help-localization.
   </CalloutText>
 </Callout>
 
@@ -95,12 +94,12 @@ Continue reading to learn how to build experiences in a way that's appropriate a
 - Make all UI components expandable (auto-layout).
 - Don't assign fixed-width or height to UI components, unless there's a compelling reason.
 
-![](../../../assets/images/foundations/localization/dense-layout.png)
+<ResponsiveImage src={DenseLayout} />
 
 ### Order in components matter
 
 Avoid creating UI sentences. If the layout and functionality of your interface is dependent on a certain word order, it's likely to break when localized.
-[Learn more here](https://paste.twilio.design/components/label/#about-label 'Learn more about how how to design layout and functionality that is resilient when localized.').
+[Learn more here](/components/label/#about-label 'Learn more about how how to design layout and functionality that is resilient when localized.').
 
 ### Avoid forced capitalization
 
@@ -118,7 +117,26 @@ Avoid creating UI sentences. If the layout and functionality of your interface i
 
 - If text over images is needed, overlay it by code, using HTML and CSS.
 
-![](../../../assets/images/foundations/localization/text-in-image.png)
+<ResponsiveImage src={TextInImage} />
+
+## Usage guide
+
+Paste works with any internationalization library. Our components occasionally contain English text, but all instances
+are overridable with props. They are easily identifiable as they include `i18n` in their names.
+
+For more information, look into the "Internationalization" section for each component page. Some examples: [Checkbox](/components/checkbox/#internationalization), [Popover](/components/checkbox/#internationalization), and [Data Grid](/components/checkbox/#internationalization).
+
+### Paste + i18next
+
+Here's an example showing three languages in Paste using [i18next](https://www.i18next.com/).
+
+<iframe
+  src="https://codesandbox.io/embed/i18next-paste-example-5v6ekx?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: '100%', height: '500px', border: '0', borderRadius: '4px', overflow: 'hidden'}}
+  title="i18next + Paste example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 </content>
 

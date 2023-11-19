@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 interface CheckboxContextValue {
   disabled: boolean;
@@ -11,7 +11,8 @@ const CheckboxContext = React.createContext<CheckboxContextValue>({
   disabled: false,
   name: undefined,
   hasError: undefined,
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: () => {},
 });
 
-export {CheckboxContext};
+export { CheckboxContext };

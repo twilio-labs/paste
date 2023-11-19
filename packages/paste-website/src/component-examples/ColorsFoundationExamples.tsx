@@ -1,43 +1,43 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {TextColorOptions, BackgroundColorOptions, BorderColorOptions} from '@twilio-paste/style-props';
-import {styled, themeGet} from '@twilio-paste/styling-library';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {useUID} from '@twilio-paste/uid-library';
-import {ColorSwatch, ColorSwatchText} from '../components/color-swatch/ColorSwatch';
-import {ImageCaption} from '../components/ImageCaption';
+import { Box } from "@twilio-paste/box";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import type { BackgroundColorOptions, BorderColorOptions, TextColorOptions } from "@twilio-paste/style-props";
+import { styled, themeGet } from "@twilio-paste/styling-library";
+import { useUID } from "@twilio-paste/uid-library";
+
+import { ImageCaption } from "../components/ImageCaption";
+import { ColorSwatch, ColorSwatchText } from "../components/color-swatch/ColorSwatch";
 
 const backgroundTokens: BackgroundColorOptions[] = [
-  'colorBackgroundBody',
-  'colorBackground',
-  'colorBackgroundStrong',
-  'colorBackgroundPrimary',
-  'colorBackgroundSuccess',
-  'colorBackgroundWarning',
-  'colorBackgroundError',
-  'colorBackgroundNew',
+  "colorBackgroundBody",
+  "colorBackground",
+  "colorBackgroundStrong",
+  "colorBackgroundPrimary",
+  "colorBackgroundSuccess",
+  "colorBackgroundWarning",
+  "colorBackgroundError",
+  "colorBackgroundNew",
 ];
 
 const textTokens: TextColorOptions[] = [
-  'colorText',
-  'colorTextWeak',
-  'colorTextWeaker',
-  'colorTextWeakest',
-  'colorTextLink',
-  'colorTextLinkDestructive',
-  'colorTextInverse',
-  'colorTextIcon',
+  "colorText",
+  "colorTextWeak",
+  "colorTextWeaker",
+  "colorTextWeakest",
+  "colorTextLink",
+  "colorTextLinkDestructive",
+  "colorTextInverse",
+  "colorTextIcon",
 ];
 
 const borderTokens: BorderColorOptions[] = [
-  'colorBorder',
-  'colorBorderWeak',
-  'colorBorderWeaker',
-  'colorBorderPrimary',
-  'colorBorderDestructive',
-  'colorBorderWarning',
-  'colorBorderSuccess',
-  'colorBorderInverse',
+  "colorBorder",
+  "colorBorderWeak",
+  "colorBorderWeaker",
+  "colorBorderPrimary",
+  "colorBorderDestructive",
+  "colorBorderWarning",
+  "colorBorderSuccess",
+  "colorBorderInverse",
 ];
 
 interface TokenPair {
@@ -46,44 +46,44 @@ interface TokenPair {
 }
 
 const standardPairingTokens: TokenPair[] = [
-  {textToken: 'colorText', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextWeak', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextIcon', backgroundToken: 'colorBackground'},
-  {textToken: 'colorText', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextWeak', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextIcon', backgroundToken: 'colorBackgroundBody'},
+  { textToken: "colorText", backgroundToken: "colorBackground" },
+  { textToken: "colorTextWeak", backgroundToken: "colorBackground" },
+  { textToken: "colorTextIcon", backgroundToken: "colorBackground" },
+  { textToken: "colorText", backgroundToken: "colorBackgroundBody" },
+  { textToken: "colorTextWeak", backgroundToken: "colorBackgroundBody" },
+  { textToken: "colorTextIcon", backgroundToken: "colorBackgroundBody" },
 ];
 
 const statusPairingTokens: TokenPair[] = [
-  {textToken: 'colorTextSuccess', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextWarning', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextError', backgroundToken: 'colorBackground'},
-  {textToken: 'colorTextSuccess', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextWarning', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextError', backgroundToken: 'colorBackgroundBody'},
-  {textToken: 'colorTextSuccess', backgroundToken: 'colorBackgroundSuccessWeakest'},
-  {textToken: 'colorTextWarning', backgroundToken: 'colorBackgroundWarningWeakest'},
-  {textToken: 'colorTextError', backgroundToken: 'colorBackgroundErrorWeakest'},
+  { textToken: "colorTextSuccess", backgroundToken: "colorBackground" },
+  { textToken: "colorTextWarning", backgroundToken: "colorBackground" },
+  { textToken: "colorTextError", backgroundToken: "colorBackground" },
+  { textToken: "colorTextSuccess", backgroundToken: "colorBackgroundBody" },
+  { textToken: "colorTextWarning", backgroundToken: "colorBackgroundBody" },
+  { textToken: "colorTextError", backgroundToken: "colorBackgroundBody" },
+  { textToken: "colorTextSuccess", backgroundToken: "colorBackgroundSuccessWeakest" },
+  { textToken: "colorTextWarning", backgroundToken: "colorBackgroundWarningWeakest" },
+  { textToken: "colorTextError", backgroundToken: "colorBackgroundErrorWeakest" },
 ];
 
 const inversePairingTokens: TokenPair[] = [
-  {textToken: 'colorTextInverse', backgroundToken: 'colorBackgroundInverse'},
-  {textToken: 'colorTextInverseWeak', backgroundToken: 'colorBackgroundInverse'},
-  {textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundInverse'},
-  {textToken: 'colorTextInverse', backgroundToken: 'colorBackgroundBodyInverse'},
-  {textToken: 'colorTextInverseWeak', backgroundToken: 'colorBackgroundBodyInverse'},
-  {textToken: 'colorTextIconInverse', backgroundToken: 'colorBackgroundBodyInverse'},
+  { textToken: "colorTextInverse", backgroundToken: "colorBackgroundInverse" },
+  { textToken: "colorTextInverseWeak", backgroundToken: "colorBackgroundInverse" },
+  { textToken: "colorTextIconInverse", backgroundToken: "colorBackgroundInverse" },
+  { textToken: "colorTextInverse", backgroundToken: "colorBackgroundBodyInverse" },
+  { textToken: "colorTextInverseWeak", backgroundToken: "colorBackgroundBodyInverse" },
+  { textToken: "colorTextIconInverse", backgroundToken: "colorBackgroundBodyInverse" },
 ];
 
-export const StyledSwatchGrid = styled.div<{numberColumns: number}>`
+export const StyledSwatchGrid = styled.div<{ numberColumns: number }>`
   display: grid;
-  column-gap: ${themeGet('space.space70')};
-  row-gap: ${themeGet('space.space100')};
+  column-gap: ${themeGet("space.space70")};
+  row-gap: ${themeGet("space.space100")};
   grid-template-columns: ${(props) => `repeat(${props.numberColumns}, 1fr)`};
   grid-template-rows: repeat(2, auto);
 `;
 
-export const BackgroundColorSwatches: React.FC = () => {
+export const BackgroundColorSwatches = (): JSX.Element => {
   return (
     <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
       <StyledSwatchGrid numberColumns={4}>
@@ -91,7 +91,7 @@ export const BackgroundColorSwatches: React.FC = () => {
           <Box as="li" listStyleType="none" key={useUID()}>
             <ColorSwatch
               backgroundColor={token}
-              borderColor={token === 'colorBackgroundBody' ? 'colorBorderWeaker' : undefined}
+              borderColor={token === "colorBackgroundBody" ? "colorBorderWeaker" : undefined}
             />
             <ColorSwatchText>{token}</ColorSwatchText>
           </Box>
@@ -103,10 +103,10 @@ export const BackgroundColorSwatches: React.FC = () => {
 
 type BackgroundColorMap = Partial<Record<TextColorOptions, BackgroundColorOptions>>;
 
-export const TextColorSwatches: React.FC = () => {
+export const TextColorSwatches = (): JSX.Element => {
   const backgroundColorMap: BackgroundColorMap = {
-    colorTextWeakest: 'colorBackgroundStrongest',
-    colorTextInverse: 'colorBackgroundBodyInverse',
+    colorTextWeakest: "colorBackgroundStrongest",
+    colorTextInverse: "colorBackgroundBodyInverse",
   };
 
   return (
@@ -116,7 +116,7 @@ export const TextColorSwatches: React.FC = () => {
           return (
             <Box as="li" listStyleType="none" key={useUID()}>
               <ColorSwatch color={token} backgroundColor={backgroundColorMap[token]}>
-                {token === 'colorTextIcon' && <InformationIcon decorative size="sizeIcon40" color="colorTextIcon" />}
+                {token === "colorTextIcon" && <InformationIcon decorative size="sizeIcon40" color="colorTextIcon" />}
               </ColorSwatch>
               <ColorSwatchText>{token}</ColorSwatchText>
             </Box>
@@ -127,18 +127,18 @@ export const TextColorSwatches: React.FC = () => {
   );
 };
 
-export const BorderColorSwatches: React.FC = () => {
+export const BorderColorSwatches = (): JSX.Element => {
   return (
     <Box as="ul" margin="space0" padding="space0" marginBottom="space70">
       <StyledSwatchGrid numberColumns={4}>
         {borderTokens.map((token) => {
-          const isInverseBorder = token === 'colorBorderInverse';
+          const isInverseBorder = token === "colorBorderInverse";
 
           return (
             <Box as="li" listStyleType="none" key={useUID()}>
               <ColorSwatch
                 borderColor={!isInverseBorder ? token : undefined}
-                backgroundColor={isInverseBorder ? 'colorBackgroundStrongest' : 'colorBackgroundBody'}
+                backgroundColor={isInverseBorder ? "colorBackgroundStrongest" : "colorBackgroundBody"}
               >
                 {isInverseBorder ? (
                   <Box
@@ -163,15 +163,15 @@ export const BorderColorSwatches: React.FC = () => {
   );
 };
 
-export const StandardPairingSwatches: React.FC = () => {
+export const StandardPairingSwatches = (): JSX.Element => {
   return (
     <Box marginBottom="space130">
       <StyledSwatchGrid numberColumns={3}>
-        {standardPairingTokens.map(({textToken, backgroundToken}) => {
-          const hasBorder = backgroundToken === 'colorBackgroundBody';
+        {standardPairingTokens.map(({ textToken, backgroundToken }) => {
+          const hasBorder = backgroundToken === "colorBackgroundBody";
           return (
             <Box aria-hidden="true" key={useUID()}>
-              <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
+              <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? "colorBorderWeaker" : undefined}>
                 <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
               </ColorSwatch>
               <ColorSwatchText>{backgroundToken}</ColorSwatchText>
@@ -183,15 +183,15 @@ export const StandardPairingSwatches: React.FC = () => {
   );
 };
 
-export const StatusPairingSwatches: React.FC = () => {
+export const StatusPairingSwatches = (): JSX.Element => {
   return (
     <Box marginBottom="space130">
       <StyledSwatchGrid numberColumns={3}>
-        {statusPairingTokens.map(({textToken, backgroundToken}) => {
-          const hasBorder = backgroundToken === 'colorBackgroundBody';
+        {statusPairingTokens.map(({ textToken, backgroundToken }) => {
+          const hasBorder = backgroundToken === "colorBackgroundBody";
           return (
             <Box aria-hidden="true" key={useUID()}>
-              <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? 'colorBorderWeaker' : undefined}>
+              <ColorSwatch backgroundColor={backgroundToken} borderColor={hasBorder ? "colorBorderWeaker" : undefined}>
                 <ColorSwatchText color={textToken}>{textToken}</ColorSwatchText>
               </ColorSwatch>
               <ColorSwatchText>{backgroundToken}</ColorSwatchText>
@@ -203,11 +203,11 @@ export const StatusPairingSwatches: React.FC = () => {
   );
 };
 
-export const InversePairingSwatches: React.FC = () => {
+export const InversePairingSwatches = (): JSX.Element => {
   return (
     <Box marginBottom="space130">
       <StyledSwatchGrid numberColumns={3}>
-        {inversePairingTokens.map(({textToken, backgroundToken}) => {
+        {inversePairingTokens.map(({ textToken, backgroundToken }) => {
           return (
             <Box aria-hidden="true" key={useUID()}>
               <ColorSwatch backgroundColor={backgroundToken}>
@@ -222,7 +222,7 @@ export const InversePairingSwatches: React.FC = () => {
   );
 };
 
-export const TokensDiagramImgCaption: React.FC = () => (
+export const TokensDiagramImgCaption = (): JSX.Element => (
   <ImageCaption>
     Aliases in Paste contain the hard-coded values that are the primitive form of the colors in our palette. All design
     tokens reference an alias. In this example, the $color-background-primary and $color-text-link tokens reference the
@@ -231,14 +231,14 @@ export const TokensDiagramImgCaption: React.FC = () => (
   </ImageCaption>
 );
 
-export const InteractingStatesImgCaption: React.FC = () => (
+export const InteractingStatesImgCaption = (): JSX.Element => (
   <ImageCaption>
     In this example, we are using a combination of color and shadow to help users identify the primary button while in
     its different states.
   </ImageCaption>
 );
 
-export const UseOfColorImgCaption: React.FC = () => (
+export const UseOfColorImgCaption = (): JSX.Element => (
   <ImageCaption>
     In this example, a success toast uses multiple distinguishing visual elements—the thick left border and the
     icon—along with green colors to further convey to a user that an action they just took was successful.

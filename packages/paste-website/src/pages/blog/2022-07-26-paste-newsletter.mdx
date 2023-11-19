@@ -1,0 +1,293 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - July 2022 Edition',
+  slug: '/blog/2022-07-26-paste-newsletter/',
+  date: '2022-07-26',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  author_link: null,
+  status: 'published',
+  external_link: null,
+  excerpt:
+    "What's new in Paste in July 2022? New tokens list page, Figma Slot components, Chat Log documentation, and more!",
+};
+
+import Image from 'next/image';
+import {Anchor} from '@twilio-paste/anchor';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import TokensPage from '../../assets/images/articles/2022-07-26-paste-newsletter/tokens-page.gif';
+import FigmaSlots from '../../assets/images/articles/2022-07-26-paste-newsletter/figma-slots.png';
+import ChatLog from '../../assets/images/articles/2022-07-26-paste-newsletter/chat-log-example.png';
+import FormPill from '../../assets/images/articles/2022-07-26-paste-newsletter/form-pill-example.png';
+import Nick from '../../assets/images/articles/2022-07-26-paste-newsletter/nick-sands.png';
+import Andy from '../../assets/images/articles/2022-07-26-paste-newsletter/andy-doyle.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What's new in Paste
+
+### The new tokens page is live!
+
+<Paragraph>
+  <Image src={TokensPage} />
+</Paragraph>
+
+We are extremely excited to announce that we have released a new version of the tokens list page! It has a streamlined and improved design with the ability to search through token names and values, quick copy buttons for each token, and switch between JavaScript and CSS formats. You can also watch our [walkthrough of the new features](https://www.loom.com/share/6ac6db3e5120442293c7d151d454f272).
+
+We hope that you find the new tokens page easier to use. Please [send us any feedback and suggestions](https://github.com/twilio-labs/paste/discussions) about how we can continue making our site work better for you.
+
+<Paragraph>
+  <Anchor href="/tokens/list">Check out the new tokens page</Anchor>
+</Paragraph>
+
+### Figma Slot components
+
+<ResponsiveImage src={FigmaSlots} />
+
+On July 28th, there was a big Figma release that introduced the concept of Slots. Slots are placeholder components that can be nested inside container components. They’re intentionally empty so that you can swap them out for your own custom content. It’s now easier for you to place custom content inside of existing Paste container components (e.g. Card, Modal, Disclosure, etc.) without having to detach them! It’s as easy as swapping out variants.
+
+<Paragraph>
+  <Anchor href="https://www.loom.com/share/611790ab893a4a23b81a43a90697b8f1" showExternal>
+    Watch the Slot components demo
+  </Anchor>
+</Paragraph>
+
+### New Chat Log documentation
+
+<ResponsiveImage src={ChatLog} />
+
+We’ve been quietly releasing components in the Chat Log package for the Conversations UI Kit and they’re finally ready for the big time! More components and documentation are coming next release, so watch this space!
+
+<Paragraph>
+  <Anchor href="/components/chat-log">Read more about the Chat Log components</Anchor>
+</Paragraph>
+
+### The Form Pill Group gets a design update
+
+<ResponsiveImage src={FormPill} />
+
+Form Pill Group has new and improved styles for each state. We’ve introduced a new error variant, added support for disabled Form Pills, and updated the documentation page to share how to use them in Figma along with more examples of the states.
+
+<Paragraph>
+  <Anchor href="/components/form-pill-group">Check out Form Pill Group</Anchor>
+</Paragraph>
+
+### Additional updates
+
+#### New
+
+- [Dark theme documentation](/theme/dark-theme)
+- [Published the Multiselect combobox in Figma](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=13068%3A71532)
+
+#### Improvements
+
+- [Updated Display Pill Group styles and documentation](/components/display-pill-group)
+- [Add rounded small Button variant](/components/button#rounded-small-button)
+- [Fix the gap between items in Badge](https://github.com/twilio-labs/paste/discussions/2553) (thanks Rosemary Luo for finding this!)
+
+## 👋 New Paste team members!
+
+### Nick Sands
+
+<ResponsiveImage src={Nick} />
+
+Nick Sands (he/him/his) has joined the UX Infrastructure team as a Staff Product Designer!
+
+Nick started his career as an elementary school teacher. His passion for helping people, solving hard problems, and building led him to a career in UX. He previously worked as a product designer building research and teaching tools for ITHAKA and a design prototyper at Delta Dental of California. He loves to work at the intersection of design and engineering, believing we can deliver the best user experience when they are tightly aligned.
+
+Nick enjoys 3D printing, hockey, cats, and smoothies. He is a collector of hobbies. Nick and his wife Angela are expecting their first child (a boy!) in October.
+
+## ✨ Pastemates™ spotlight
+
+<em>
+  Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption
+  within their products and channeling important feedback and contributions back into the system.
+</em>
+
+<ResponsiveImage src={Andy} />
+
+Our August Pastemate is none other than the original Paste prototyping pioneer, Andy Doyle. Andy is a Product Designer on the Billing team, based in Ireland. Upon joining Twilio, Andy jumped right into the Paste world and asked how he might go about [Designing in the Browser](https://csswizardry.com/2010/10/designing-in-the-browser-leads-to-better-quality-builds/). Andy’s comfort and experience with web-based technologies has led him to participate in the research and testing of [the Paste Prototyping Kit](https://github.com/twilio-labs/paste-prototype-kit) and is still one of the most active users. When asked about why he loves prototyping his design ideas he said:
+
+<Box marginBottom="space70" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextWeak">
+  <em>
+    I love building prototypes that are as close to the real thing so I can see how my designs adapt at different screen
+    sizes and how our customers interact with something that feels real. It’s never been easier to create web based
+    prototypes with CSS Grid and Flexbox (and Paste{' '}
+  </em>
+  😉<em>)!</em>
+</Box>
+
+Andy has also been heavily involved in helping the UX Infrastructure team develop and conduct a [“Prototyping with Codesandbox”](https://www.figma.com/proto/zelCFduQmmQnoSavV6FtCc/Prototyping-with-CodeSandbox---UX-Showcase?node-id=2%3A6&scaling=scale-down&page-id=0%3A1) workshop series, aimed at teaching folks how to use Paste to prototype and validate product ideas with customers quickly, with realistic interactive prototypes. Better yet, the code is directly transferable to production environments, empowering our team of builders to get their ideas to market quickly.
+
+Andy’s contributions have not only influenced greater (and easier) prototyping, but have also demonstrated how to establish stronger partnerships between engineers and product designers. Which in turn, have helped facilitate better hand-offs and product development discussions.
+
+## 🔬 Paste by numbers
+
+Did you know that we have data on Paste usage? We track:
+
+- \# of repositories that import Paste packages
+- Which components are used in code
+- What props people use on each component
+
+Since January 1, 2022, of the repositories using 300 or more components:
+
+- **Console** has gone from using **18,378** components to **30,778**! This is a **67% increase** in total usage.
+- **SendGrid** has gone from using **1,847** components to **5,090**! This is a **175% increase** in total usage.
+
+## 🚦 BPM update
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>BPM</Th>
+      <Th>Status</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Establish Paste as a leading Next-Gen Monorepo through tooling and infrastructure improvements</strong>
+      </Td>
+      <Td>
+        🟢 Green: Completed an initiative to run accessibility testing through Storybook for better coverage. Also
+        continuing to identify and close gaps in testing coverage.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Evolve the Twilio design language to support the vision of “One Twilio”</strong>
+      </Td>
+      <Td>
+        🟢 Green: After developing four design directions based on design concept workshops, One Twilio project
+        principles, and Think Week explorations, the One Twilio team has implemented feedback and narrowed their focus
+        on two final design directions which are going into user testing in August.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Lay the groundwork for our new program management, content, and visual design disciplines</strong>
+      </Td>
+      <Td>Work on this priority will start later this year. Stay tuned!</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Build a UI kit for the Twilio Conversations API</strong>
+      </Td>
+      <Td>
+        🟢 Green: The ChatLog and its related components are all completed and the documentation page is now live!
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Paste goes international</strong>
+      </Td>
+      <Td>
+        🟢 Green: Paste has met Twilio’s 2022 internationalization goals by supporting all Priority 1 languages. Paste
+        components are capable of supporting translated content and do not rely on any hard-coded strings.
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+For more information, check out [our full BPM document](https://docs.google.com/document/d/1ok5cPj0JyysD5ukBXMbsyIVIdipw1tARzFiGTwGL-W4/edit?usp=sharing).
+
+## 👀 What's next
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Feature</Th>
+      <Th>Description</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Multi-select Combobox</strong>
+      </Td>
+      <Td>
+        Improvements to the existing <Anchor href="/components/combobox">Combobox</Anchor> component, with a design
+        refresh and added functionality to select multiple items.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Code Block</strong>
+      </Td>
+      <Td>A non-editable block of text, formatted in the code text style with syntax highlighting.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>One Twilio Concept Research</strong>
+      </Td>
+      <Td>
+        We’ll be conducting user research to gain an understanding of our customers’ impressions of visual design
+        quality, cohesiveness, and brand alignment of the proposed design language directions. This research will be
+        used as an input for creating a final design direction.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Toggle Switch</strong>
+      </Td>
+      <Td>A component meant for users to toggle a feature on or off.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Toggle Button</strong>
+      </Td>
+      <Td>
+        A <Anchor href="/components/button">Button</Anchor> variant that supports two states, pressed and unpressed.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Non-Modal Dialog</strong>
+      </Td>
+      <Td>A dialog that can be opened, closed, or minimized.</Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+See you next time! 👋
+
+— The Design Systems Team
+
+</ArticleContent>
+
+</contentwrapper>

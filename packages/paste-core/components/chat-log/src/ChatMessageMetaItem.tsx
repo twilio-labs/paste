@@ -1,33 +1,36 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import type {ChatMessageMetaItemProps} from './types';
+export interface ChatMessageMetaItemProps extends HTMLPasteProps<"div"> {
+  children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_MESSAGE_META_ITEM"
+   * @type {BoxProps["element"]}
+   * @memberof ChatMessageMetaItemProps
+   */
+  element?: BoxElementProps["element"];
+}
 
-const ChatMessageMetaItem = React.forwardRef<HTMLDivElement, ChatMessageMetaItemProps>(
-  ({children, element = 'CHAT_MESSAGE_META_ITEM', ...props}, ref) => (
+export const ChatMessageMetaItem = React.forwardRef<HTMLDivElement, ChatMessageMetaItemProps>(
+  ({ children, element = "CHAT_MESSAGE_META_ITEM", ...props }, ref) => (
     <Box
       ref={ref}
       element={element}
       display="flex"
-      alignItems="center"
+      alignItems="flex-start"
       columnGap="space30"
       color="colorTextWeak"
       lineHeight="lineHeight20"
       fontSize="fontSize20"
-      _last={{textAlign: 'right'}}
       {...safelySpreadBoxProps(props)}
     >
       {children}
     </Box>
-  )
+  ),
 );
 
-ChatMessageMetaItem.displayName = 'ChatMessageMetaItem';
-
-ChatMessageMetaItem.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
-
-export {ChatMessageMetaItem};
+ChatMessageMetaItem.displayName = "ChatMessageMetaItem";

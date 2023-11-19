@@ -1,17 +1,31 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import type {Element} from './types';
+import type { Element } from "./types";
 
-export interface OptionProps extends React.OptionHTMLAttributes<HTMLOptionElement> {
+export interface OptionProps extends HTMLPasteProps<"option"> {
+  /**
+   * Sets the value of the select. Expects an array when `multiple` is present. Required
+   *
+   * @type {string}
+   * @memberof OptionProps
+   */
   value: string;
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "OPTION"
+   * @type {Element}
+   * @memberof OptionProps
+   */
   element?: Element;
 }
 
-const Option = React.forwardRef<HTMLOptionElement, OptionProps>(({children, element = 'OPTION', ...props}, ref) => {
+const Option = React.forwardRef<HTMLOptionElement, OptionProps>(({ children, element = "OPTION", ...props }, ref) => {
   if (props.selected) {
+    // eslint-disable-next-line no-console
     console.warn('"selected" is a blocked prop on this component, please use "value" on the select element.');
   }
   return (
@@ -36,14 +50,6 @@ const Option = React.forwardRef<HTMLOptionElement, OptionProps>(({children, elem
   );
 });
 
-Option.displayName = 'Option';
+Option.displayName = "Option";
 
-if (process.env.NODE_ENV === 'development') {
-  Option.propTypes = {
-    value: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-    element: PropTypes.string,
-  };
-}
-
-export {Option};
+export { Option };

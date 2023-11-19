@@ -1,0 +1,271 @@
+export const meta = {
+  title: 'Editable CodeBlock',
+  package: '@twilio-paste/editable-code-block',
+  description: 'An Editable Code Block is a text field that allows users to enter formatted code.',
+  slug: '/components/editable-code-block/',
+};
+
+import Changelog from '@twilio-paste/editable-code-block/CHANGELOG.md';
+import packageJson from '@twilio-paste/editable-code-block/package.json';
+
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Blockquote} from '../../../components/Blockquote';
+import {Codeblock} from '../../../components/codeblock';
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Editable Code Block');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/editable-code-block',
+        storybookUrl: '/?path=/story/components-editable-code-block--default',
+      },
+    },
+  };
+};
+
+<StoryPreview
+  title="Default Editable Code Block"
+  storyID="components-editable-code-block--default"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Typescript Example</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    defaultLanguage="typescript"
+    defaultValue={TypeScriptExample}
+  />
+</EditableCodeBlockWrapper>`}
+/>
+
+## Guidelines
+
+### About Editable Code Block
+
+Editable Code Block allows basic text input features for code-editing experiences on the
+web. To help users differentiate this from a static [Code Block](/components/code-block),
+Editable Code Block enables line numbers, code folding, and indentation guides by default.
+
+This component is built on top of the Paste [Code Editor library](/core/libraries/code-editor),
+which wraps the [Monaco Editor](https://microsoft.github.io/monaco-editor/) used by Visual
+Studio Code. If you’re looking for more functionality than what’s provided through Editable
+Code Block, use the Code Editor library instead.
+
+This component uses the [Night Owl theme](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl),
+an accessible theme by Sarah Drasner for people with colorblindness and low vision situations.
+
+### Accessibility
+
+Because Editable Code Block takes text input, it follows similar labeling accessibility
+guidelines as other form elements:
+
+- Include a label on _all_ Editable Code Blocks. Use one of these ways to label an Editable Code Block:
+  - [Editable Code Block Header](#editablecodeblockheader-props) (preferred). Use the correct heading level in Editable Code Block Header.
+  - Visible label (for example, a page heading) that's associated to the input with `aria-labelledby`
+  - Visible label with [Label](/components/label)
+  - Label directly using `aria-label`
+- Each label must use the `htmlFor` prop that equals the `id` of the associated Input.
+
+Since Editable Code Block takes up more vertical space than typical form elements,
+any help or error content should appear before the component by using an
+introductory [Paragraph](/components/paragraph) or [Error Callout](#generic-errors).
+
+#### Keyboard interaction
+
+Excerpts from the [Monaco accessibility guide](https://github.com/Microsoft/monaco-editor/wiki/Monaco-Editor-Accessibility-Guide):
+
+| Action                          | Keyboard shortcut             | Description                                                                                                                                                                                                   |
+| ------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Open the Command Palette        | F1 or Alt+F1                  | Provides “an exhaustive list of commands in the Command Palette…, so you can use the editor without using the mouse.”                                                                                         |
+| Insert Tab character            | Tab                           | “Inserts the Tab character (or spaces depending on the indentation setting) and does not navigate to the next focusable element on the page.”                                                                 |
+| Toggle tab trapping             | Ctrl+Shift+M or Ctrl+M        | “Subsequent Tab keys will move focus out of the editor.”                                                                                                                                                      |
+| Go to Next Error or Warning     | F8                            |                                                                                                                                                                                                               |
+| Go to Previous Error or Warning | Shift+F8                      |                                                                                                                                                                                                               |
+| Show accessibility help         | Option+F1, Alt+F1, or Ctrl+F1 | Shows a “dialog…to find out the current position in the editor and to check the state of various accessibility options. The editor can be dynamically optimized for screen reader software from this dialog.” |
+
+## Examples
+
+### Default
+
+The default Editable Code Block includes:
+
+- An Editable Code Block Header: Contains a logical label at the correct heading level
+  that describes what users need to put in the code block and/or the language used.
+- Line numbers: Helps users identify errors and cross-reference with existing code.
+  Use line numbers when the expected input is longer than 5 lines.
+- Indentation guides and code folding: Helps users read long blocks of code and
+  troubleshoot errors.
+
+<StoryPreview
+  title="Default Editable Code Block"
+  storyID="components-editable-code-block--default"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Typescript Example</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    defaultLanguage="typescript"
+    defaultValue={TypeScriptExample}
+  />
+</EditableCodeBlockWrapper>`}
+/>
+
+### Simple Editable Code Block
+
+Remove line numbers, indentation guides, and code folding from Editable Code Block only when:
+
+- Your page layout makes it visually clear to the user that the code block is editable, _and_
+- The expected code input is simple, like a short snippet of JSON.
+
+<StoryPreview
+  title="Simple Editable Code Block"
+  storyID="components-editable-code-block--no-special-features"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Simple Editable Code Block</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    defaultLanguage="typescript"
+    lineNumbers="off"
+    folding={false}
+    indentationGuide={false}
+    defaultValue={TypeScriptExample}
+  />
+</EditableCodeBlockWrapper>`}
+/>
+
+### Editable Code Block with minimap
+
+For large files, use a minimap to help users navigate the code block.
+
+<StoryPreview
+  title="Editable Code Block with minimap"
+  storyID="components-editable-code-block--minimap"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Minimap example</EditableCodeBlockHeader>
+  <EditableCodeBlock height="45vh" defaultLanguage="typescript" showMinimap defaultValue={TypeScriptExample} />
+</EditableCodeBlockWrapper>`}
+/>
+
+## States
+
+### Syntax errors
+
+Monaco Editor will detect and show syntax errors out of the box.
+
+<StoryPreview
+  title="Syntax error example in Editable Code Block"
+  storyID="components-editable-code-block--syntax-error"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Syntax error example</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    defaultLanguage="typescript"
+    defaultValue={CodeStringWithSyntaxError}
+  />
+</EditableCodeBlockWrapper>`}
+/>
+
+### Custom line-specific errors
+
+Show line-specific errors to help users pinpoint what line of code they need to fix.
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+<StoryPreview
+  title="Custom line-specific errors in Editable Code Block"
+  storyID="components-editable-code-block--custom-inline-error"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>Custom inline error example (try hovering it)</EditableCodeBlockHeader>
+  <EditableCodeBlock
+    height="45vh"
+    onChange={(value) => console.log(value)}
+    inlineErrorRange={{
+      startLineNumber: 3,
+      endLineNumber: 3,
+      startColumn: 7,
+      endColumn: 13,
+    }}
+    inlineErrorIsWholeLine={false}
+    inlineErrorHoverMessage={{value: '"id" can only be a string type.'}}
+    defaultLanguage="typescript"
+    defaultValue={TypeScriptExample}
+  />
+</EditableCodeBlockWrapper>`}
+/>
+
+### Generic errors
+
+If there’s an error that can’t be traced to specific line numbers, use a [Callout](/components/callout).
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+<StoryPreview
+  title="Generic errors in Editable Code Block"
+  storyID="components-editable-code-block--generic-error"
+  code={`<Stack orientation="vertical" spacing="space40">
+  <Callout variant="error">
+    <CalloutHeading as="h3">401 Unauthorized Request</CalloutHeading>
+    <CalloutText>Please provide a valid API key.</CalloutText>
+  </Callout>
+  <EditableCodeBlockWrapper>
+    <EditableCodeBlockHeader>Generic error example</EditableCodeBlockHeader>
+    <EditableCodeBlock height="45vh" defaultLanguage="typescript" defaultValue="const API_KEY = null;" />
+  </EditableCodeBlockWrapper>
+</Stack>`}
+/>
+
+### Read only
+
+Only if the user doesn't have permission to edit the code, use the `readOnly` prop to
+make the Editable Code Block read-only. In most cases, use the
+[Code Block](/components/code-block) component instead to show static code.
+
+<StoryPreview
+  title="Read-Only Editable Code Block"
+  storyID="components-editable-code-block--read-only"
+  code={`<EditableCodeBlockWrapper>
+  <EditableCodeBlockHeader>ReadOnly Example</EditableCodeBlockHeader>
+  <EditableCodeBlock height="45vh" readOnly defaultLanguage="typescript" defaultValue={TypeScriptExample} />
+</EditableCodeBlockWrapper>`}
+/>
+
+## Composition notes
+
+Ensure the surrounding page contains any information required to successfully use
+the editor. For example, include the expected language or any input constraints.
+
+Supporting content can be placed before or next to an Editable Code Block by using
+an introductory [Paragraph](/components/paragraph), [Callout](/components/callout),
+or [Card](/components/card).
+
+## When to use Editable Code Block
+
+<DoDont>
+  <Do title="Do" body="Use Editable Code Block for a multi-line code input." />
+  <Dont
+    title="Don't"
+    body="Don’t use Textarea for a multi-line code input. The monospace formatting and line numbers of Editable Code Block can help a user check that their code is entered correctly."
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Pair Editable Code Block with a visible label. This can be the Editable Code Block Header, an associated page Heading, or Label."
+  />
+  <Dont
+    title="Don't"
+    body="Don’t use an Editable Code Block without clear, contextual guidance or links to documentation. Provide immediate feedback or code previews when possible."
+  />
+</DoDont>

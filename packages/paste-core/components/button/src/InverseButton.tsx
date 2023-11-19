@@ -1,53 +1,44 @@
-import * as React from 'react';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
-import {SizeStyles, BaseStyles} from './styles';
-import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import merge from "deepmerge";
+import * as React from "react";
 
-// This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const merge = require('deepmerge');
+import { BaseStyles, SizeStyles } from "./styles";
+import type { DirectButtonProps } from "./types";
 
 /*
  * defensively resetting 'color' on pseudostyles from over zealous
  * legacy global styles "a {...}" when button is set as an anchor
  */
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextInverse',
-  fontWeight: 'fontWeightSemibold',
-  backgroundColor: 'colorBackgroundInverse',
-  boxShadow: 'shadowBorderInverse',
+  color: "colorTextInverse",
+  backgroundColor: "colorBackgroundInverse",
+  boxShadow: "shadowBorderInverseWeaker",
   _hover: {
-    color: 'colorTextInverse',
-    fontWeight: 'fontWeightSemibold',
-    backgroundColor: 'colorBackgroundInverseStrong',
-    boxShadow: 'shadowBorderInverseStrongest',
+    color: "colorTextInverse",
+    backgroundColor: "colorBackgroundInverseStrong",
+    boxShadow: "shadowBorderInverseStronger",
   },
   _focus: {
-    color: 'colorTextInverse',
-    fontWeight: 'fontWeightSemibold',
-    backgroundColor: 'colorBackgroundInverseStrong',
-    boxShadow: 'shadowFocusInverse',
+    boxShadow: "shadowFocusInverse",
   },
   _active: {
-    color: 'colorTextInverse',
-    fontWeight: 'fontWeightSemibold',
-    backgroundColor: 'colorBackgroundInverseStrong',
-    boxShadow: 'shadowBorderInverseStrongest',
+    color: "colorTextInverse",
+    backgroundColor: "colorBackgroundInverseStrong",
+    boxShadow: "shadowBorderInverseStrongest",
   },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextInverse',
-  fontWeight: 'fontWeightSemibold',
-  backgroundColor: 'colorBackgroundInverseStrong',
-  boxShadow: 'shadowBorderInverseWeaker',
+  color: "colorTextInverse",
+  backgroundColor: "colorBackgroundInverseStrong",
+  boxShadow: "shadowBorderInverseWeaker",
 });
 
 const disabledStyles = merge(BaseStyles.disabled, {
-  color: 'colorTextInverseWeaker',
-  fontWeight: 'fontWeightSemibold',
-  backgroundColor: 'colorBackgroundInverse',
-  boxShadow: 'shadowBorderInverseWeakest',
+  color: "colorTextInverseWeakest",
+  backgroundColor: "colorBackgroundInverseStrong",
+  boxShadow: "shadowBorderInverseWeakest",
 });
 
 const ButtonStyleMapping = {
@@ -57,25 +48,23 @@ const ButtonStyleMapping = {
 };
 
 const InverseButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
-        width={fullWidth ? '100%' : 'auto'}
+        width={fullWidth ? "100%" : "auto"}
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 InverseButton.defaultProps = {
-  as: 'button',
+  as: "button",
 };
-if (process.env.NODE_ENV === 'development') {
-  InverseButton.propTypes = DirectButtonPropTypes;
-}
-InverseButton.displayName = 'InverseButton';
 
-export {InverseButton};
+InverseButton.displayName = "InverseButton";
+
+export { InverseButton };

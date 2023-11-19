@@ -1,5 +1,5 @@
 import * as React from 'react';
-import TextareaAutosize from 'react-autosize-textarea';
+import {Tab} from '@twilio-paste/paste-reakit-fork';
 import type {DesignToken, DesignTokensJSON} from '@twilio-paste/design-tokens/types';
 import DefaultRawTokenJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
 
@@ -32,5 +32,5 @@ export const getContrastRatingsOfTokensWithTextContrastRequirements = (): void =
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 export const RandomComponent = () => {
-  return <TextareaAutosize />;
+  return <Tab />;
 };

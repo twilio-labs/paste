@@ -1,54 +1,59 @@
-import * as React from 'react';
-import {Heading} from '@twilio-paste/heading';
-import {Stack} from '@twilio-paste/stack';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {PlainDataGrid} from './PlainDataGrid';
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-export const customElementStyles = (prefix = 'DATA_GRID'): {[key: string]: any} => ({
+import { PlainDataGrid } from "./PlainDataGrid";
+
+export const customElementStyles = (prefix = "DATA_GRID"): { [key: string]: any } => ({
   [prefix]: {
-    fontSize: 'fontSize20',
-    borderColor: 'colorBorderDark',
+    fontSize: "fontSize20",
+    borderColor: "colorBorderStrong",
   },
   [`${prefix}_HEAD`]: {
-    backgroundColor: 'colorBackgroundDark',
-    fontWeight: 'fontWeightSemibold',
-    borderColor: 'colorBorderDark',
+    backgroundColor: "colorBackgroundStrong",
+    fontWeight: "fontWeightSemibold",
+    borderColor: "colorBorderStrong",
+    color: "colorText",
   },
   [`${prefix}_FOOT`]: {
-    backgroundColor: 'colorBackgroundDark',
-    fontWeight: 'fontWeightSemibold',
-    borderColor: 'colorBorderDark',
+    backgroundColor: "colorBackgroundStrong",
+    fontWeight: "fontWeightSemibold",
+    borderColor: "colorBorderStrong",
+    color: "colorText",
   },
   [`${prefix}_HEADER`]: {
-    padding: 'space10',
+    padding: "space10",
   },
   [`${prefix}_ROW`]: {
-    borderColor: 'colorBorderDark',
+    borderColor: "colorBorderStrong",
     // _even
-    '&:nth-of-type(2n)': {
-      backgroundColor: 'colorBackgroundBody',
+    "&:nth-of-type(2n)": {
+      backgroundColor: "colorBackgroundBody",
     },
   },
   [`${prefix}_CELL`]: {
-    padding: 'space10',
+    padding: "space10",
   },
 });
 
-export const CustomizableDataGrid: React.FC = () => {
+export const CustomizableDataGrid = (): JSX.Element => {
+  const currentTheme = useTheme();
   /* eslint-disable react/no-array-index-key */
   return (
     <Stack orientation="vertical" spacing="space120">
       <Heading as="h2" variant="heading20">
         Default element
       </Heading>
-      <CustomizationProvider baseTheme="default" elements={customElementStyles()}>
+      <CustomizationProvider theme={currentTheme} elements={customElementStyles()}>
         <PlainDataGrid />
       </CustomizationProvider>
 
       <Heading as="h2" variant="heading20">
         Custom element
       </Heading>
-      <CustomizationProvider baseTheme="default" elements={customElementStyles('FOO')}>
+      <CustomizationProvider theme={currentTheme} elements={customElementStyles("FOO")}>
         <PlainDataGrid element="FOO" />
       </CustomizationProvider>
     </Stack>

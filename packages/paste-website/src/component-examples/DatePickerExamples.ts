@@ -255,7 +255,7 @@ const DateTimeRangePicker = (props) => {
     ) : (
       <Box margin="space60">
         <Combobox
-          insertAfter={<CalendarIcon decorative />}
+          insertAfter={<CalendarIcon color="colorTextIcon" decorative />}
           items={["Last 7 days", "Last 30 days", "Last 6 months", "Custom"]}
           labelText="Date range"
           onSelectedItemChange={(changes) => {

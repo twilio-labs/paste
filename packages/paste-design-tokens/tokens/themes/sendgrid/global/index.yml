@@ -4,6 +4,7 @@ imports:
   - ./border-radius.yml
   - ./border-width.yml
   - ./box-shadow.yml
+  - ./data-visualization.yml
   - ./font-family.yml
   - ./font-size.yml
   - ./font-weight.yml
@@ -13,3 +14,4 @@ imports:
   - ./spacing.yml
   - ./text-color.yml
   - ./z-index.yml
+  - ./color-scheme.yml

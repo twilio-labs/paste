@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Text Primitive - Changelog',
+  package: '@twilio-paste/text',
+  description:
+    'The Text component is a primitive of the system and can output any supported text style provided by our design tokens. Coupled with Box, it underpins most of our components.',
+  slug: '/primitives/text/changelog',
+};
+
+import Changelog from '@twilio-paste/text/CHANGELOG.md';
+import packageJson from '@twilio-paste/text/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.PRIMITIVES,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/text',
+        storybookUrl: '/?path=/story/primitives-text--default',
+      },
+    },
+  };
+};
+
+<Changelog />

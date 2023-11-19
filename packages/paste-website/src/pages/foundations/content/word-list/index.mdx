@@ -1,0 +1,35 @@
+export const meta = {
+  title: 'Word List',
+  description:
+    'This word list provides guidance on how, when, and whether to use specific words, as well as guidance on capitalization for product-specific terms.',
+  slug: '/foundations/content/word-list/',
+};
+
+import {Box} from '@twilio-paste/box';
+
+import {SidebarCategoryRoutes} from '../../../../constants';
+import {WordsList} from '../../../../components/word-list';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader
+  name={meta.title}
+  categoryRoute={SidebarCategoryRoutes.CONTENT}
+  shouldShowBreadcrumbs={false}
+  description={meta.description}
+/>
+
+---
+
+<WordsList />

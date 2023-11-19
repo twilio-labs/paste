@@ -1,32 +1,92 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
 import {
   BaseRadioCheckboxControl,
+  BaseRadioCheckboxHelpText,
   BaseRadioCheckboxLabel,
   BaseRadioCheckboxLabelText,
-  BaseRadioCheckboxHelpText,
-} from '@twilio-paste/base-radio-checkbox';
-import {RadioContext} from './RadioContext';
+} from "@twilio-paste/base-radio-checkbox";
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-export interface RadioProps extends React.InputHTMLAttributes<HTMLInputElement> {
+import { RadioContext } from "./RadioContext";
+
+export interface RadioProps extends HTMLPasteProps<"input"> {
+  /**
+   * ID for the Radio Button
+   *
+   * @type {string}
+   * @memberof RadioButtonProps
+   */
   id?: string;
+  /**
+   * Value for the Radio Button
+   *
+   * @type {string}
+   * @memberof RadioButtonProps
+   */
   value?: string;
+  /**
+   * Name for the Radio Button Group
+   *
+   * @type {string}
+   * @memberof RadioButtonProps
+   */
   name?: string;
+  /**
+   * Sets the Radio Button as checked
+   *
+   * @type {boolean}
+   * @memberof RadioButtonProps
+   */
   checked?: boolean;
+  /**
+   * Sets the Radio Button as the default checked option
+   *
+   * @type {boolean}
+   * @memberof RadioButtonProps
+   */
   defaultChecked?: boolean;
+  /**
+   * Make the Radio Button disabled
+   *
+   * @type {boolean}
+   * @memberof RadioButtonProps
+   */
   disabled?: boolean;
+  /**
+   * Adds an error state to the Radio Button
+   *
+   * @type {boolean}
+   * @memberof RadioButtonProps
+   */
   hasError?: boolean;
+  /**
+   * Provides additional help text for the Radio Button
+   *
+   * @type {(string | React.ReactNode)}
+   * @memberof RadioProps
+   */
   helpText?: string | React.ReactNode;
+  /**
+   * Contents of the Radio Button
+   *
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof RadioButtonProps
+   */
   children: NonNullable<React.ReactNode>;
-  element?: BoxProps['element'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "RADIO"
+   * @type {BoxProps["element"]}
+   * @memberof RadioProps
+   */
+  element?: BoxProps["element"];
 }
 
-type HiddenRadioProps = Pick<RadioProps, 'checked' | 'value' | 'id' | 'disabled' | 'name' | 'onChange'> & {
-  ref?: any | undefined;
-};
+type HiddenRadioProps = Pick<RadioProps, "checked" | "value" | "id" | "disabled" | "name" | "onChange">;
 const HiddenRadio = React.forwardRef<HTMLInputElement, HiddenRadioProps>((props, ref) => (
   <Box
     as="input"
@@ -45,7 +105,7 @@ const HiddenRadio = React.forwardRef<HTMLInputElement, HiddenRadioProps>((props,
   />
 ));
 
-HiddenRadio.displayName = 'HiddenRadio';
+HiddenRadio.displayName = "HiddenRadio";
 
 type HiddenRadioState = {
   name: string;
@@ -71,7 +131,7 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
     {
       id,
       name,
-      element = 'RADIO',
+      element = "RADIO",
       value,
       checked,
       defaultChecked,
@@ -82,18 +142,25 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       helpText,
       ...props
     },
-    ref
+    ref,
   ) => {
     if (checked != null && defaultChecked != null) {
       throw new Error(
-        `[Paste Radio] Do not provide both 'defaultChecked' and 'checked' to Radio at the same time. Please consider if you want this component to be controlled or uncontrolled.`
+        `[Paste Radio] Do not provide both 'defaultChecked' and 'checked' to Radio at the same time. Please consider if you want this component to be controlled or uncontrolled.`,
       );
     }
 
+    /*
+     * Keeps track of the `checked` state on uncontrolled Radios
+     * in order to properly render the Radio dot icon svg.
+     */
+    const [checkedState, setCheckedState] = React.useState(defaultChecked);
+
     const radioGroupContext = React.useContext(RadioContext);
     const helpTextId = useUID();
+    const radioId = id ? id : useUID();
     // We shouldn't change between controlled and uncontrolled after mount, so we memo this for safety
-    const isControlled = React.useMemo(() => checked !== undefined || radioGroupContext.value !== '', []);
+    const isControlled = React.useMemo(() => checked !== undefined || radioGroupContext.value !== "", []);
 
     const handleChange = React.useCallback(
       (event: React.ChangeEvent<HTMLInputElement>): void => {
@@ -102,8 +169,12 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
         } else {
           radioGroupContext.onChange(event);
         }
+        if (!isControlled) {
+          // we need to keep track of checked state when uncontrolled to render the svg correctly
+          setCheckedState(event.target.checked);
+        }
       },
-      [onChange, radioGroupContext.onChange]
+      [onChange, radioGroupContext, isControlled],
     );
 
     const state: HiddenRadioState = {
@@ -112,12 +183,13 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       hasError: hasError != null ? hasError : radioGroupContext.hasError,
     };
 
-    /* We can only provide `<input type="radio">` with either 'checked' or 'defaultChecked', not both.
+    /*
+     * We can only provide `<input type="radio">` with either 'checked' or 'defaultChecked', not both.
      * So we conditionally provide the correct prop here.
      */
     if (isControlled) {
       // Use context's value first
-      if (radioGroupContext.value !== '') {
+      if (radioGroupContext.value !== "") {
         state.checked = radioGroupContext.value === value;
       } else {
         // Then checked prop on this radio
@@ -127,6 +199,8 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
       // Lastly fall back to default checked if state isn't controlled
       state.defaultChecked = defaultChecked;
     }
+    // Determines if the checkbox is checked in either controlled or uncontrolled environments specifically for the svg
+    const mergedChecked = isControlled ? state.checked || state.defaultChecked : checkedState;
 
     return (
       <Box
@@ -144,21 +218,24 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
           aria-describedby={helpTextId}
           aria-invalid={state.hasError}
           onChange={handleChange}
-          id={id}
+          id={radioId}
           ref={ref}
         />
-        <BaseRadioCheckboxLabel disabled={state.disabled} htmlFor={id}>
+        <BaseRadioCheckboxLabel disabled={state.disabled} htmlFor={radioId}>
           <BaseRadioCheckboxControl
             element={`${element}_CONTROL`}
             borderRadius="borderRadiusCircle"
             disabled={state.disabled}
             type="radio"
+            _checkedAndDisabledSibling={{
+              color: "colorTextWeaker",
+            }}
           >
             <Box
               as="span"
               element={`${element}_CONTROL_CIRCLE`}
               lineHeight="lineHeight0"
-              display="block"
+              display={mergedChecked ? "block" : "none"}
               color="inherit"
               size="sizeIcon10"
             >
@@ -167,7 +244,9 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
               </svg>
             </Box>
           </BaseRadioCheckboxControl>
-          <BaseRadioCheckboxLabelText element={`${element}_LABEL_TEXT`}>{children}</BaseRadioCheckboxLabelText>
+          <BaseRadioCheckboxLabelText element={`${element}_LABEL_TEXT`} fontWeight="fontWeightMedium">
+            {children}
+          </BaseRadioCheckboxLabelText>
         </BaseRadioCheckboxLabel>
         {helpText && (
           <BaseRadioCheckboxHelpText element={`${element}_HELP_TEXT_WRAPPER`} helpTextId={helpTextId}>
@@ -176,24 +255,9 @@ const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
         )}
       </Box>
     );
-  }
+  },
 );
 
-Radio.displayName = 'Radio';
+Radio.displayName = "Radio";
 
-if (process.env.NODE_ENV === 'development') {
-  Radio.propTypes = {
-    id: PropTypes.string,
-    value: PropTypes.string,
-    name: PropTypes.string,
-    checked: PropTypes.bool,
-    disabled: PropTypes.bool,
-    hasError: PropTypes.bool,
-    helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    onChange: PropTypes.func,
-    children: PropTypes.node.isRequired,
-    element: PropTypes.string,
-  };
-}
-
-export {Radio};
+export { Radio, HiddenRadio, type HiddenRadioState };

@@ -1,84 +1,54 @@
----
-title: Anchor
-package: '@twilio-paste/anchor'
-description: The anchor can be used to hyperlink to another URL. It accepts both internal and external URLs.
-slug: /components/anchor/
----
+export const meta = {
+  title: 'Anchor',
+  package: '@twilio-paste/anchor',
+  description: 'An Anchor is text that navigates the user from one webpage to another.',
+  slug: '/components/anchor/',
+};
 
-import {graphql} from 'gatsby';
-import {GatsbyImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/anchor/CHANGELOG.md';
+import AnchorDont from '../../../assets/images/anchor-dont-1@4x.png';
+import packageJson from '@twilio-paste/anchor/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/anchor"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/anchor-dont-1@4x.png"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/anchor/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Anchor"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/anchor"
-  storybookUrl="/?path=/story/components-anchor--default"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Anchor');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/anchor',
+        storybookUrl: '/?path=/story/components-anchor--default',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Anchor}} language="jsx">
+  {`<Anchor href="/components">
+  Go to Paste components
+</Anchor>`}
+</LivePreview>
 
 ## Guidelines
 
 ### About anchors
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 Example use cases may include:
 
@@ -93,7 +63,7 @@ If you need a click handler, you can use our [Button component](/components/butt
 
 #### Accessibility
 
-The anchor is built with standard accessible practices in mind. Those include an href attribute, link context, and opening and closing tags.
+The Anchor is built with standard accessible practices in mind. Those include an `href` attribute, link context, and opening and closing tags.
 
 The title attribute was not included because it’s not exposed to all browsers in an accessible way, meaning most screen readers and touch-only devices will likely never see that information.
 
@@ -138,16 +108,22 @@ Soy enlace externo
 </Anchor>`}
 </LivePreview>
 
-## When to Use an Anchor
+## Composition notes
 
-You can use an anchor to navigate the user to another webpage.
+Anchor text should indicate what kind of information the user can expect to find when they click the link. Avoid "Learn more" or "Click here," since they don't offer any indication of where the link will take the user.
+
+When placing an Anchor within a sentence, don't link the whole sentence. Instead, only link the text that describes where the user will go when they follow the link.
+
+When the link is at the end of a paragraph or block of text, avoid punctuation except for a question mark.
+
+## Dos and don'ts
 
 <DoDont>
   <Do title="Do" body="Anchors should only be used to link to another page, app, or another website." center>
     <Anchor href="https://paste.twilio.design">Go to API documentation</Anchor>
   </Do>
   <Dont title="Don't" body="Don’t use an anchor where a button makes more sense, i.e., closing a modal.">
-    <GatsbyImage image={props.data.file.childImageSharp.gatsbyImageData} />
+    <Image src={AnchorDont} fill />
   </Dont>
 </DoDont>
 
@@ -155,7 +131,7 @@ You can use an anchor to navigate the user to another webpage.
 
 There are many different React based routers. For example there is:
 
-- [React Router](https://reactrouter.com/web/guides/quick-start)
+- [React Router](https://reactrouter.com/en/main/start/tutorial)
 - [Reach Router](https://reach.tech/router/)
 - [NextJs Link](https://nextjs.org/docs/api-reference/next/link)
 - [Gatsby Link](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-link/).
@@ -164,56 +140,12 @@ They unfortunately all work slightly differently, have different APIs, and many 
 
 Anchor is just a styled HTML anchor element. You should be able to use it with any React based router. It just means that you need to do a little work to wire it up inside your application.
 
-There are many different ways you can achieve this based on the router you are using, but as an example we include a Codesandbox below using [React Router](https://reactrouter.com/web/guides/quick-start), to give you a rough guide on how you might approach it.
+There are many different ways you can achieve this based on the router you are using, but as an example we include a Codesandbox below using [React Router](https://reactrouter.com/en/main/start/tutorial), to give you a rough guide on how you might approach it.
 
 <iframe
   src="https://codesandbox.io/embed/using-anchor-with-react-router-butmi?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="Using Anchor with React Router"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/anchor - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```js
-import {Anchor} from '@twilio-paste/core/anchor';
-
-const Component = () => <Anchor href="https://paste.twilio.design">Go to Paste</Anchor>;
-```
-
-#### Props
-
-| Prop                  | Type                                     | Description                                                                                             | Default                                |
-| --------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------- |
-| href?                 | string                                   | A URL to route to. Required.                                                                            | null                                   |
-| rel?                  | string                                   | Sets the anchor rel attribute. If external href, defaults to 'noreferrer noopener'. Can be overwritten. | false                                  |
-| showExternal?         | boolean                                  | Shows the link external icon.                                                                           | false                                  |
-| tabindex?             | AnchorTabIndexes                         | '0', '-1'                                                                                               | null                                   |
-| target?               | AnchorTargets                            | '\_self', '\_blank', '\_parent', '\_top'. If external href, defaults to '\_blank'. Can be overwritten.  | null                                   |
-| variant?              | AnchorVariants                           | 'default', 'inverse'                                                                                    | 'default'                              |
-| onClick?              | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                         | null                                   |
-| onFocus?              | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null                                   |
-| onBlur?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                         | null                                   |
-| i18nExternalLinkLabel | string                                   | Title for `showExternal` icon                                                                           | '(link takes you to an external page)' |
-| element?              | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider               | 'ANCHOR'                               |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

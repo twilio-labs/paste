@@ -1,11 +1,11 @@
----
-title: Data Grid
-package: '@twilio-paste/data-grid'
-description: A data grid is an interactive table used for working with a large collection of data in a scannable way.
-slug: /components/data-grid/
----
+export const meta = {
+  title: 'Data Grid',
+  package: '@twilio-paste/data-grid',
+  description:
+    'A data grid is an interactive table used for working with a large collection of data in a scannable way.',
+  slug: '/components/data-grid/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 
 import {
@@ -19,66 +19,35 @@ import {
 } from '@twilio-paste/data-grid';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {standardDataGrid, TableHeaderData, TableBodyData} from '../../../component-examples/DataGridExamples';
-import Changelog from '@twilio-paste/data-grid/CHANGELOG.md';
+import packageJson from '@twilio-paste/data-grid/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/data-grid"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/data-grid/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Data Grid"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/data-grid"
-  storybookUrl="/?path=/story/components-data-grid--plain-data-grid"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Data Grid');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/data-grid',
+        storybookUrl: '/?path=/story/components-data-grid--plain-data-grid',
+      },
+    },
+  };
+};
 
 <LivePreview
   scope={{
@@ -156,7 +125,7 @@ Notice how the `tabIndex` is [correctly managed](#keyboard-navigation) without a
 
 <iframe
   src="https://codesandbox.io/embed/composable-cells-datagrid-7dfxh?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
   title="Composable Cells data grid"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -168,7 +137,7 @@ Row selection is achieved with the [CheckboxGroup and Checkbox components](/comp
 
 <iframe
   src="https://codesandbox.io/embed/selectable-rows-datagrid-5vtlt?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
   title="Selectable Rows data grid"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -180,7 +149,7 @@ This package exports a `DataGridHeaderSort` component which render the UI for a 
 
 <iframe
   src="https://codesandbox.io/embed/sortable-columns-datagrid-yj9kl?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
   title="Sortable Columns data grid"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -192,7 +161,7 @@ It is not ideal to display more than a few rows at a time (consider 10 as a defa
 
 <iframe
   src="https://codesandbox.io/embed/paginated-datagrid-pvfs9?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
   title="Paginated data grid"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -205,7 +174,7 @@ in the cells to create a more pleasant loading experience.
 
 <iframe
   src="https://codesandbox.io/embed/loading-datagrid-z7j2k?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
   title="Loading data grid"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -215,13 +184,13 @@ in the cells to create a more pleasant loading experience.
 
 The Data Grid inherits from the [Table component](/components/table/), so you can take advantage of all the same layout techniques found in the [Table examples](/components/table#layouts) to control how your Data Grids render on the page.
 
-### Kitchen sink
+### Combined features
 
 This example combines all the separate features displayed previously into one example. It shows how all the features work together harmoniously through composition.
 
 <iframe
   src="https://codesandbox.io/embed/kitchen-sink-datagrid-7w6pj?fontsize=14&hidenavigation=1&module=%2Fsrc%2FApp.tsx&theme=dark&view=preview"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden; margin-bottom:40px;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden', marginBottom: '40px'}}
   title="Kitchen Sink data grid"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -236,7 +205,7 @@ For an `ascending` variant, for example, set the `i18nAscendingLabel` prop.
 
 <iframe
   src="https://codesandbox.io/embed/internationalization-data-grid-s3uuul?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="Internationalization Data Grid"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -262,10 +231,28 @@ This package provides the following component exports, which correspond closely 
 You are free to put any Paste component in the Data Grid cells and it should just work.
 Keep in mind that anything that dynamically updates an element's `tabIndex` value may fail to work correctly.
 
+### Displaying missing data
+
+If the Data Grid can’t show data yet (for example, it’s in a draft state), leave cells blank.
+
+If the data underlying the Data Grid is active but the value for the cell is zero, show 0 in the cell.
+
+If a piece of data is missing because the metric in a certain column does not apply to a given row, show “N/A” and use the HTML abbreviation element to communicate the full meaning of the abbreviation (“Not applicable”). This ensures any customers using assistive technologies will understand the cell entry.
+
+### Errors
+
+Avoid documenting an entire error message within a row. Use an indicator, like an icon or an icon with a short message. The short message can be displayed in a [Popover](/components/popover) on the icon, or in a cell. Then use other methods, like a [Popover](/components/popover), [Side Modal](/components/side-modal), or full page to communicate complete error and resolution information.
+
+**When multiple errors affect a single row,** indicate the number of errors and provide specific error and resolution information within a [Popover](/components/popover), [Side Modal](/components/side-modal), or full page.
+
+**When an error(s) affects an entire column,** consider an indicator near the column header with additional information available in a popover or other component.
+
+**When all data in a Data Grid does not load,** show an [error empty state](/patterns/empty-state).
+
 ### When to use a Data Grid
 
-<Callout>
-  <CalloutTitle as="h4">Don't forget about the Table component</CalloutTitle>
+<Callout variant="neutral">
+  <CalloutHeading as="h4">Don't forget about the Table component</CalloutHeading>
   <CalloutText>
     If the data is static and doesn't need sorting, prefer to use a <Anchor href="/components/table">Table</Anchor>{' '}
     component which is more lightweight.
@@ -276,154 +263,3 @@ Keep in mind that anything that dynamically updates an element's `tabIndex` valu
   <Do title="Do" body="Use data grid for interactive, tabular data" />
   <Dont title="Don't" body="Don't use data grid for static data" />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
-  DataGridBody,
-  DataGridCell,
-  DataGridFoot,
-} from '@twilio-paste/core/data-grid';
-
-const Component = () => (
-  <DataGrid aria-label="User information table" striped>
-    <DataGridHead>
-      <DataGridRow>
-        <DataGridHeader>First Name</DataGridHeader>
-        <DataGridHeader>Last Name</DataGridHeader>
-        <DataGridHeader>Country</DataGridHeader>
-        <DataGridHeader>Email</DataGridHeader>
-        <DataGridHeader>Phone</DataGridHeader>
-      </DataGridRow>
-    </DataGridHead>
-    <DataGridBody>
-      <DataGridRow>
-        <DataGridCell>Devyn</DataGridCell>
-        <DataGridCell>Weimann</DataGridCell>
-        <DataGridCell>Congo</DataGridCell>
-        <DataGridCell>Matilde86@gmail.com</DataGridCell>
-        <DataGridCell>652-441-1766 x377</DataGridCell>
-      </DataGridRow>
-      <DataGridRow>
-        <DataGridCell>Fritz</DataGridCell>
-        <DataGridCell>Bashirian</DataGridCell>
-        <DataGridCell>France</DataGridCell>
-        <DataGridCell>Magali.Harber@hotmail.com</DataGridCell>
-        <DataGridCell>1-229-278-7567</DataGridCell>
-      </DataGridRow>
-      <DataGridRow>
-        <DataGridCell>Jovanny</DataGridCell>
-        <DataGridCell>Mante</DataGridCell>
-        <DataGridCell>Pitcairn Islands</DataGridCell>
-        <DataGridCell>Fausto_Vandervort15@gmail.com</DataGridCell>
-        <DataGridCell>(629) 375-5743 x726</DataGridCell>
-      </DataGridRow>
-    </DataGridBody>
-    <DataGridFoot>
-      <DataGridRow>
-        <DataGridCell>Devyn</DataGridCell>
-        <DataGridCell>Weimann</DataGridCell>
-        <DataGridCell>Congo</DataGridCell>
-        <DataGridCell>Matilde86@gmail.com</DataGridCell>
-        <DataGridCell>652-441-1766 x377</DataGridCell>
-      </DataGridRow>
-    </DataGridFoot>
-  </DataGrid>
-);
-```
-
-#### DataGrid Props
-
-| Prop                | Type                    | Description                                                                               | Default     |
-| ------------------- | ----------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| aria-label          | `string`                | Defines a string value that labels the current element.                                   | null        |
-| striped?            | `boolean`               | Toggles row zebra striping                                                                | false       |
-| scrollHorizontally? | `boolean`               | Sets the table to scroll horizontally on small screens.                                   | false       |
-| noWrap?             | `boolean`               | Sets the table cells to not line wrap.                                                    | false       |
-| tableLayout?        | "auto", "fixed"         | Sets the `table-layout` style of the Table. Defaults to `auto`.                           | false       |
-| variant?            | "default", "borderless" | Sets the `border` style of the Table. Defaults to `default`.                              | false       |
-| element?            | `string`                | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID` |
-| children?           | `ReactNode`             |                                                                                           | null        |
-
-#### DataGridHead Props
-
-| Prop      | Type        | Description                                                                               | Default          |
-| --------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEAD` |
-| children? | `ReactNode` |                                                                                           | null             |
-
-#### DataGridBody Props
-
-| Prop      | Type        | Description                                                                               | Default          |
-| --------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_BODY` |
-| children? | `ReactNode` |                                                                                           | null             |
-
-#### DataGridFoot Props
-
-| Prop      | Type        | Description                                                                               | Default          |
-| --------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_FOOT` |
-| children? | `ReactNode` |                                                                                           | null             |
-
-#### DataGridHeader Props
-
-| Prop       | Type        | Description                                                                               | Default            |
-| ---------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| textAlign? | `string`    | CSS text align for this cell                                                              | `left`             |
-| width?     | `string`    | Allows setting column width programmatically                                              | null               |
-| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEADER` |
-| children?  | `ReactNode` |                                                                                           | null               |
-
-#### DataGridHeaderSort Props
-
-| Prop                 | Type                              | Description                                                                               | Default                 |
-| -------------------- | --------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------- |
-| direction            | "ascending", "descending", "none" | Sort direction matching aria spec                                                         | null                    |
-| onClick?             | `() => {}`                        | Callback when the sort button is pressed. Used to handle sorting.                         | null                    |
-| element?             | `string`                          | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_HEADER_SORT` |
-| i18nAscendingLabel?  | `string`                          | Sort button label text when `direction` is "ascending"                                    | `'Sort ascending'`      |
-| i18nDescendingLabel? | `string`                          | Sort button label text when `direction` is "descending"                                   | `'Sort descending'`     |
-| i18nUnsortedLabel?   | `string`                          | Sort button label text when `direction` is "none"                                         | `'Unsorted'`            |
-
-#### DataGridRow Props
-
-| Prop      | Type        | Description                                                                               | Default         |
-| --------- | ----------- | ----------------------------------------------------------------------------------------- | --------------- |
-| selected? | `boolean`   | Visally displays a row highlight indicating selection and sets `aria-selected`            | false           |
-| element?  | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_ROW` |
-| children? | `ReactNode` |                                                                                           | null            |
-
-#### DataGridCell Props
-
-| Prop       | Type        | Description                                                                               | Default          |
-| ---------- | ----------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| as?        | "th", "td"  | Cells can either be th or td, so rows can have headers.                                   | `td`             |
-| textAlign? | `string`    | CSS text align for this cell                                                              | `left`           |
-| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | `DATA_GRID_CELL` |
-| children?  | `ReactNode` |                                                                                           | null             |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

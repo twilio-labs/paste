@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductHomeIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface ProductHomeIconProps extends IconWrapperProps {
 }
 
 const ProductHomeIcon = React.forwardRef<HTMLElement, ProductHomeIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ProductHomeIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ProductHomeIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ProductHomeIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -24,6 +25,7 @@ const ProductHomeIcon = React.forwardRef<HTMLElement, ProductHomeIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
           fill="none"
@@ -52,8 +54,8 @@ const ProductHomeIcon = React.forwardRef<HTMLElement, ProductHomeIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ProductHomeIcon.displayName = 'ProductHomeIcon';
-export {ProductHomeIcon};
+ProductHomeIcon.displayName = "ProductHomeIcon";
+export { ProductHomeIcon };

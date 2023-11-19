@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {Alert} from '@twilio-paste/core/alert';
-import {Stack} from '@twilio-paste/core/stack';
-import {Text} from '@twilio-paste/core/text';
+import { Alert } from "@twilio-paste/core/alert";
+import { Stack } from "@twilio-paste/core/stack";
+import { Text } from "@twilio-paste/core/text";
+import * as React from "react";
 
-const AlertPreview: React.FC = () => {
+const AlertPreview = (): JSX.Element => {
   return (
     <Stack orientation="vertical" spacing="space90">
       <Alert variant="neutral">
@@ -27,4 +27,4 @@ const AlertPreview: React.FC = () => {
   );
 };
 
-export {AlertPreview};
+export { AlertPreview };

@@ -1,18 +1,19 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import { Box } from "@twilio-paste/box";
+import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
 import {
   Pagination,
-  PaginationItems,
   PaginationArrow,
-  PaginationNumbers,
-  PaginationNumber,
   PaginationEllipsis,
-} from '@twilio-paste/pagination';
-import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
-import {TableHeaderData, PaginatedTableBodyData} from './constants';
+  PaginationItems,
+  PaginationNumber,
+  PaginationNumbers,
+} from "@twilio-paste/pagination";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from "../../src";
+import { PaginatedTableBodyData, TableHeaderData } from "./constants";
 
 const getRange = (start: number, end: number): number[] => {
   return [...new Array(end - start + 1)].map((_, index) => index + start);
@@ -26,8 +27,10 @@ const calculatePaginationState = (currentPage: number, pageCount: number): numbe
     // delta === 7: [1 2 3 4 5 6 7]
     delta = 7;
   } else {
-    // delta === 2: [1 ... 4 5 6 ... 10]
-    // delta === 4: [1 2 3 4 5 ... 10]
+    /*
+     * delta === 2: [1 ... 4 5 6 ... 10]
+     * delta === 4: [1 2 3 4 5 ... 10]
+     */
     delta = currentPage > 4 && currentPage < pageCount - 3 ? 2 : 4;
   }
 
@@ -63,24 +66,33 @@ interface DataGridPaginationProps {
   onPageChange: (newPageNumber: number) => void;
 }
 
-const DataGridPagination: React.FC<DataGridPaginationProps> = ({currentPage = 1, pageCount, onPageChange}) => {
+const DataGridPagination: React.FC<React.PropsWithChildren<DataGridPaginationProps>> = ({
+  currentPage = 1,
+  pageCount,
+  onPageChange,
+}) => {
+  // purely to create unique landmark names when used in stack or side-by-side stories
+  const uniqueLandmarkIdentifier = useUID();
   const goToNextPage = React.useCallback(() => {
     onPageChange(Math.min(currentPage + 1, pageCount));
-  }, [currentPage, pageCount]);
+  }, [currentPage, pageCount, onPageChange]);
 
   const goToPreviousPage = React.useCallback(() => {
     onPageChange(Math.max(currentPage - 1, 1));
-  }, [currentPage]);
+  }, [currentPage, onPageChange]);
 
-  const goToPage = React.useCallback((pageNumber: number) => {
-    onPageChange(pageNumber);
-  }, []);
+  const goToPage = React.useCallback(
+    (pageNumber: number) => {
+      onPageChange(pageNumber);
+    },
+    [onPageChange],
+  );
 
   const paginationState = calculatePaginationState(currentPage, pageCount);
 
   /* eslint-disable react/no-array-index-key */
   return (
-    <Pagination label="paged pagination navigation">
+    <Pagination label={`paged pagination navigation ${uniqueLandmarkIdentifier}`}>
       <PaginationItems>
         <PaginationArrow
           label="Go to previous page"
@@ -131,25 +143,33 @@ interface CheckboxCellProps {
   label: string;
   indeterminate?: boolean;
 }
-const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, checked, label}) => {
+const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
+  onClick,
+  id,
+  indeterminate,
+  checked,
+  label,
+}) => {
   const checkboxRef = React.createRef<HTMLInputElement>();
 
   const handleClick = React.useCallback(() => {
     if (checkboxRef.current == null) {
-      return;
+      return undefined;
     }
     return onClick(!checkboxRef.current.checked);
   }, [onClick, checkboxRef]);
   const handleKeyDown = React.useCallback(
-    (event) => {
+    (event: any) => {
       if (checkboxRef.current == null) {
-        return;
+        return undefined;
       }
       if (event.keyCode === 32 || event.keyCode === 13) {
         return onClick(!checkboxRef.current.checked);
       }
+
+      return undefined;
     },
-    [onClick, checkboxRef]
+    [onClick, checkboxRef],
   );
 
   return (
@@ -174,7 +194,7 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
   );
 };
 
-export const PaginatedDataGrid: React.FC = () => {
+export const PaginatedDataGrid = (): JSX.Element => {
   const seed = useUIDSeed();
   // Array of length 10 rows, all unchecked
   const [checkedItems, setCheckedItems] = React.useState(PaginatedTableBodyData.map(() => false));
@@ -186,7 +206,7 @@ export const PaginatedDataGrid: React.FC = () => {
   const rowIndexStart = (currentPage - 1) * PAGE_SIZE;
   const rowIndexEnd = Math.min(rowIndexStart + PAGE_SIZE - 1, TOTAL_ROWS);
 
-  const handlePagination = React.useCallback((newPage) => {
+  const handlePagination = React.useCallback((newPage: any) => {
     setCurrentPage(newPage);
   }, []);
 
@@ -203,7 +223,7 @@ export const PaginatedDataGrid: React.FC = () => {
                     const newCheckedItems = checkedItems.map(() => checked);
                     setCheckedItems(newCheckedItems);
                   }}
-                  id={seed('select-all')}
+                  id={seed("select-all")}
                   checked={allChecked}
                   indeterminate={indeterminate}
                   label="Select all"

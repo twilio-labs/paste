@@ -1,71 +1,51 @@
----
-title: Disclosure Primitive
-description: An accessible disclosure primitive for controlling the visibility of a content section.
-slug: /primitives/disclosure-primitive/
----
+export const meta = {
+  title: 'Disclosure Primitive',
+  package: '@twilio-paste/disclosure-primitive',
+  description: 'An accessible disclosure primitive for controlling the visibility of a content section.',
+  slug: '/primitives/disclosure-primitive/',
+};
 
-import {graphql} from 'gatsby';
 import {
   useDisclosurePrimitiveState,
   DisclosurePrimitive,
   DisclosurePrimitiveContent,
 } from '@twilio-paste/disclosure-primitive';
 import Changelog from '@twilio-paste/disclosure-primitive/CHANGELOG.md';
+import packageJson from '@twilio-paste/disclosure-primitive/package.json';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {
   BasicExample,
   ConditionallyRenderingExample,
   MultipleExample,
 } from '../../../component-examples/DisclosurePrimitiveExamples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPastePrimitive(filter: {name: {eq: "@twilio-paste/disclosure-primitive"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/primitives/disclosure-primitive/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Disclosure Primitive"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<NormalizeComponentHeader
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Disclosure Primitive');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/disclosure"
-  storybookUrl="/?path=/story/primitives-disclosure"
+  storybookUrl="/?path=/story/primitives-disclosure--basic-example"
   data={props.data}
 />
 
@@ -73,9 +53,13 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
+
+<LivePreview scope={{useDisclosurePrimitiveState, DisclosurePrimitive, DisclosurePrimitiveContent}} language="jsx">
+  {BasicExample}
+</LivePreview>
 
 ## Guidelines
 
@@ -94,8 +78,8 @@ your customers.
 This primitive should be used to compose all custom Disclosures to ensure
 accessibility and upgrade paths.
 
-<Callout variant="warning">
-  <CalloutTitle>Warning</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Warning</CalloutHeading>
   <CalloutText>
     We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
     goes through the UX Review process to ensure an excellent experience for our customers.
@@ -159,7 +143,7 @@ Disclosures that will result in a single element.
 
 ### API
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Much of the following is copied directly from{' '}
     <Anchor href="https://reakit.io/docs/disclosure/#props">Reakit's docs</Anchor>. Because we may update at a different
@@ -211,8 +195,8 @@ When an element is `disabled`, it may still be `focusable`. It works
 similarly to `readOnly` on form elements. In this case, only
 `aria-disabled` will be set.
 
-<Callout>
-  <CalloutTitle>State props</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">State props</CalloutHeading>
   <CalloutText>
     These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
     separately. You can also provide these props from your own state logic.
@@ -239,8 +223,8 @@ Toggles the visible state
 
 #### DisclosurePrimitiveContent Props
 
-<Callout>
-  <CalloutTitle>State props</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">State props</CalloutHeading>
   <CalloutText>
     These props are returned by the state hook. You can spread them into this component ({`...state`}) or pass them
     separately. You can also provide these props from your own state logic.

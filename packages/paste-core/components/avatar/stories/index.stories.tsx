@@ -1,16 +1,20 @@
-import * as React from 'react';
-import {Stack} from '@twilio-paste/stack';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
-import {Avatar} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { BusinessIcon } from "@twilio-paste/icons/esm/BusinessIcon";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
+import { Avatar, AvatarGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Avatar',
+  title: "Components/Avatar",
   component: Avatar,
   // Sets the diffThreshold for all stories
-  chromatic: {diffThreshold: 0.3},
+  chromatic: { diffThreshold: 0.3 },
 };
 
 export const Initials = (): React.ReactNode => {
@@ -48,20 +52,39 @@ export const Initials = (): React.ReactNode => {
 
 export const Image = (): React.ReactNode => {
   return (
-    <Stack orientation="horizontal" spacing="space40">
-      <Avatar size="sizeIcon10" name="avatar example" src="./avatars/avatar-sizeIcon10.png" />
-      <Avatar size="sizeIcon20" name="avatar example" src="./avatars/avatar-sizeIcon20.png" />
-      <Avatar size="sizeIcon30" name="avatar example" src="./avatars/avatar-sizeIcon30.png" />
-      <Avatar size="sizeIcon40" name="avatar example" src="./avatars/avatar-sizeIcon40.png" />
-      <Avatar size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
-      <Avatar size="sizeIcon60" name="avatar example" src="./avatars/avatar-sizeIcon60.png" />
-      <Avatar size="sizeIcon70" name="avatar example" src="./avatars/avatar-sizeIcon70.png" />
-      <Avatar size="sizeIcon80" name="avatar example" src="./avatars/avatar-sizeIcon80.png" />
-      <Avatar size="sizeIcon90" name="avatar example" src="./avatars/avatar-sizeIcon90.png" />
-      <Avatar size="sizeIcon100" name="avatar example" src="./avatars/avatar-sizeIcon100.png" />
-      <Avatar size="sizeIcon110" name="avatar example" src="./avatars/avatar-sizeIcon110.png" />
+    <Stack orientation="vertical" spacing="space20">
+      <Stack orientation="horizontal" spacing="space40">
+        <Avatar size="sizeIcon10" name="avatar example" src="./avatars/avatar-sizeIcon10.png" />
+        <Avatar size="sizeIcon20" name="avatar example" src="./avatars/avatar-sizeIcon20.png" />
+        <Avatar size="sizeIcon30" name="avatar example" src="./avatars/avatar-sizeIcon30.png" />
+        <Avatar size="sizeIcon40" name="avatar example" src="./avatars/avatar-sizeIcon40.png" />
+        <Avatar size="sizeIcon50" name="avatar example" src="./avatars/avatar-sizeIcon50.png" />
+        <Avatar size="sizeIcon60" name="avatar example" src="./avatars/avatar-sizeIcon60.png" />
+        <Avatar size="sizeIcon70" name="avatar example" src="./avatars/avatar-sizeIcon70.png" />
+        <Avatar size="sizeIcon80" name="avatar example" src="./avatars/avatar-sizeIcon80.png" />
+        <Avatar size="sizeIcon90" name="avatar example" src="./avatars/avatar-sizeIcon90.png" />
+        <Avatar size="sizeIcon100" name="avatar example" src="./avatars/avatar-sizeIcon100.png" />
+        <Avatar size="sizeIcon110" name="avatar example" src="./avatars/avatar-sizeIcon110.png" />
+      </Stack>
+      <Stack orientation="horizontal" spacing="space40">
+        <Avatar variant="entity" size="sizeIcon10" name="avatar example" src="./avatars/avatar5.png" />
+        <Avatar variant="entity" size="sizeIcon20" name="avatar example" src="./avatars/avatar6.png" />
+        <Avatar variant="entity" size="sizeIcon30" name="avatar example" src="./avatars/avatar7.png" />
+        <Avatar variant="entity" size="sizeIcon40" name="avatar example" src="./avatars/avatar8.png" />
+        <Avatar variant="entity" size="sizeIcon50" name="avatar example" src="./avatars/avatar5.png" />
+        <Avatar variant="entity" size="sizeIcon60" name="avatar example" src="./avatars/avatar6.png" />
+        <Avatar variant="entity" size="sizeIcon70" name="avatar example" src="./avatars/avatar7.png" />
+        <Avatar variant="entity" size="sizeIcon80" name="avatar example" src="./avatars/avatar8.png" />
+        <Avatar variant="entity" size="sizeIcon90" name="avatar example" src="./avatars/avatar5.png" />
+        <Avatar variant="entity" size="sizeIcon100" name="avatar example" src="./avatars/avatar6.png" />
+        <Avatar variant="entity" size="sizeIcon110" name="avatar example" src="./avatars/avatar7.png" />
+      </Stack>
     </Stack>
   );
+};
+
+Image.parameters = {
+  chromatic: { delay: 3000 },
 };
 
 export const Icon = (): React.ReactNode => {
@@ -82,14 +105,274 @@ export const Icon = (): React.ReactNode => {
   );
 };
 
-Image.story = {
-  parameters: {chromatic: {delay: 3000}},
+export const ColorVariants = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar color="default" name="avatar example" icon={UserIcon} />
+      <Avatar color="decorative10" name="avatar example" icon={UserIcon} />
+      <Avatar color="decorative20" name="avatar example" icon={UserIcon} />
+      <Avatar color="decorative30" name="avatar example" icon={UserIcon} />
+      <Avatar color="decorative40" name="avatar example" icon={UserIcon} />
+    </Stack>
+  );
+};
+
+export const Variants = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar variant="user" name="avatar example" />
+      <Avatar variant="user" name="avatar example" icon={UserIcon} />
+      <Avatar variant="user" name="avatar example" src="./avatars/avatar-sizeIcon70.png" />
+      <Avatar variant="entity" name="entity example" />
+      <Avatar variant="entity" name="entity example" icon={BusinessIcon} />
+      <Avatar variant="entity" name="entity example" src="./avatars/avatar-sizeIcon70.png" />
+    </Stack>
+  );
+};
+
+export const UserSizes = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar size="sizeIcon10" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon20" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon30" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon40" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon50" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon60" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon70" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon80" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon90" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon100" variant="user" name="Avatar Example" />
+      <Avatar size="sizeIcon110" variant="user" name="Avatar Example" />
+    </Stack>
+  );
+};
+
+export const EntitySizes = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space40">
+      <Avatar size="sizeIcon10" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon20" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon30" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon40" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon50" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon60" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon70" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon80" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon90" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon100" variant="entity" name="Avatar Example" />
+      <Avatar size="sizeIcon110" variant="entity" name="Avatar Example" />
+    </Stack>
+  );
+};
+
+export const Grouped = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space50">
+      <Stack orientation="vertical" spacing="space30">
+        <AvatarGroup size="sizeIcon30" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon70" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon90" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon100" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon110" variant="user">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+      </Stack>
+      <Stack orientation="vertical" spacing="space30">
+        <AvatarGroup size="sizeIcon30" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon70" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon90" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon100" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon110" variant="entity">
+          <Avatar name="First Avatar" />
+          <Avatar name="Second Avatar" />
+          <Avatar name="Third Avatar" />
+        </AvatarGroup>
+      </Stack>
+    </Stack>
+  );
+};
+
+export const GroupedImage = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space50">
+      <Stack orientation="vertical" spacing="space30">
+        <AvatarGroup size="sizeIcon30" variant="user">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon70" variant="user">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon90" variant="user">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon100" variant="user">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon110" variant="user">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+      </Stack>
+      <Stack orientation="vertical" spacing="space30">
+        <AvatarGroup size="sizeIcon30" variant="entity">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon70" variant="entity">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon90" variant="entity">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon100" variant="entity">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon110" variant="entity">
+          <Avatar name="avatar example" src="./avatars/avatar5.png" />
+          <Avatar name="avatar example" src="./avatars/avatar6.png" />
+          <Avatar name="avatar example" src="./avatars/avatar7.png" />
+          <Avatar name="avatar example" src="./avatars/avatar8.png" />
+        </AvatarGroup>
+      </Stack>
+    </Stack>
+  );
+};
+
+export const GroupedIcon = (): React.ReactNode => {
+  return (
+    <Stack orientation="horizontal" spacing="space50">
+      <Stack orientation="vertical" spacing="space30">
+        <AvatarGroup size="sizeIcon30" variant="user">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon70" variant="user">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon90" variant="user">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon100" variant="user">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon110" variant="user">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+      </Stack>
+      <Stack orientation="vertical" spacing="space30">
+        <AvatarGroup size="sizeIcon30" variant="entity">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon70" variant="entity">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon90" variant="entity">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon100" variant="entity">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+        <AvatarGroup size="sizeIcon110" variant="entity">
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+          <Avatar name="avatar example" icon={UserIcon} />
+        </AvatarGroup>
+      </Stack>
+    </Stack>
+  );
+};
+
+export const GroupedUsingContext = (): React.ReactNode => {
+  return (
+    <AvatarGroup size="sizeIcon70" variant="entity">
+      <Avatar size="sizeIcon10" variant="entity" name="First Avatar" />
+      <Avatar size="sizeIcon110" name="Second Avatar" />
+      <Avatar variant="user" name="Third Avatar" />
+    </AvatarGroup>
+  );
 };
 
 export const ResponsiveInitials = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
-      <Avatar size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']} name="Simon Taggart" />
+      <Avatar size={["sizeIcon10", "sizeIcon50", "sizeIcon110"]} name="Simon Taggart" />
     </Stack>
   );
 };
@@ -98,7 +381,7 @@ export const ResponsiveImage = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
       <Avatar
-        size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']}
+        size={["sizeIcon10", "sizeIcon50", "sizeIcon110"]}
         name="avatar example"
         src="./avatars/avatar-sizeIcon50.png"
       />
@@ -109,16 +392,17 @@ export const ResponsiveImage = (): React.ReactNode => {
 export const ResponsiveIcon = (): React.ReactNode => {
   return (
     <Stack orientation="horizontal" spacing="space40">
-      <Avatar size={['sizeIcon10', 'sizeIcon50', 'sizeIcon110']} name="avatar example" icon={UserIcon} />
+      <Avatar size={["sizeIcon10", "sizeIcon50", "sizeIcon110"]} name="avatar example" icon={UserIcon} />
     </Stack>
   );
 };
 
-ResponsiveImage.story = {
-  parameters: {chromatic: {delay: 3000}},
+ResponsiveImage.parameters = {
+  chromatic: { delay: 3000 },
 };
 
-export const CustomAvatar = (): React.ReactNode => {
+export const CustomAvatar: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
   return (
     <>
       <Stack orientation="horizontal" spacing="space40">
@@ -127,14 +411,15 @@ export const CustomAvatar = (): React.ReactNode => {
         <Avatar size="sizeIcon60" name="avatar example" icon={UserIcon} />
       </Stack>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           AVATAR: {
-            backgroundColor: 'colorBackgroundTrial',
+            backgroundColor: "colorBackgroundTrial",
           },
           AANG: {
-            color: 'colorTextWeakest',
-            backgroundColor: 'colorBackgroundPrimary',
+            color: "colorTextWeakest",
+            backgroundColor: "colorBackgroundPrimaryStrong",
           },
         }}
       >
@@ -153,4 +438,10 @@ export const CustomAvatar = (): React.ReactNode => {
       </CustomizationProvider>
     </>
   );
+};
+CustomAvatar.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

@@ -1,15 +1,17 @@
----
-title: Tooltip - Primitives
-description: An unstyled and accessible base upon which to build a tooltip.
-slug: /primitives/tooltip-primitive/
----
+export const meta = {
+  title: 'Tooltip Primitive',
+  package: '@twilio-paste/tooltip-primitive',
+  description: 'An unstyled and accessible base upon which to build a tooltip.',
+  slug: '/primitives/tooltip-primitive/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {StyledBase} from '@twilio-paste/theme';
 import {Text} from '@twilio-paste/text';
 import Changelog from '@twilio-paste/tooltip-primitive/CHANGELOG.md';
+import packageJson from '@twilio-paste/tooltip-primitive/package.json';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {
   useTooltipPrimitiveState,
   TooltipPrimitive,
@@ -17,50 +19,27 @@ import {
   TooltipPrimitiveArrow,
 } from '@twilio-paste/tooltip-primitive';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {defaultExample, rightExample, styledExample} from '../../../component-examples/TooltipPrimitiveExamples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPastePrimitive(filter: {name: {eq: "@twilio-paste/tooltip-primitive"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/primitives/tooltip-primitive/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Tooltip Primitive"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<NormalizeComponentHeader
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Tooltip Primitive');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/tooltip"
   storybookUrl="/?path=/story/primitives-tooltip--simple-tooltip"
@@ -71,9 +50,21 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
+
+<LivePreview
+  scope={{
+    useTooltipPrimitiveState,
+    TooltipPrimitive,
+    TooltipPrimitiveReference,
+    Button,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
 
 ## Guidelines
 
@@ -88,8 +79,8 @@ However, we strongly recommend reviewing your design proposal with the Design Sy
 
 This primitive should be used to compose all custom tooltips to ensure accessibility and upgrade paths.
 
-<Callout variant="warning">
-  <CalloutTitle as="h3">Before you roll your own tooltip...</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h3">Before you roll your own tooltip...</CalloutHeading>
   <CalloutText>
     We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
     go through the UX Review process to ensure an excellent experience for our customers.

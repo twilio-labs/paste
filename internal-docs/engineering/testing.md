@@ -9,7 +9,7 @@
   - [End-to-end testing](#end-to-end-testing)
   - [Visual Regression Testing (VRT)](#visual-regression-testing-vrt)
   - [Linting](#linting)
-    - [PrettierJS](#prettierjs)
+    - [BiomeJS and PrettierJS](#biomejs-and-prettierjs)
     - [Commit lint](#commit-lint)
   - [Running tests/checks](#running-testschecks)
     - [Locally](#locally)
@@ -53,9 +53,11 @@ For component packages, because the source files are limited and confined to a `
 
 ## Accessibility testing
 
-To help us ensure the basics are covered with regards to accessibility we run each component through an accessibility checker called [axe-core](https://github.com/dequelabs/axe-core) via a jest plugin called [jest-axe](https://github.com/nickcolley/jest-axe). We write at least one accessibility assertion per component.
+To help us ensure the basics are covered with regards to accessibility we run each component through an accessibility checker called [axe-core](https://github.com/dequelabs/axe-core) via a playwright plugin called [playwright-axe](https://www.npmjs.com/package/axe-playwright). Playwright Axe is automatically run against each story we write in Storybook, via [Storybook Test Runner](https://storybook.js.org/addons/@storybook/test-runner).
 
-This does not guarantee accessibility of our components. This merely ensures we cover the basics.
+If this test fails on CI, you can debug the issues by checking the output of the Accessibility Addon (Keyboard shortcut D) after running `yarn start:storybook`. Alternatively, you can use `yarn start:test:storybook` to run the exact step CI runs.
+
+Note: This does not guarantee accessibility of our components. This merely ensures we cover the basics.
 
 **There is no substitute for manual testing with regards to accessibility.**
 
@@ -82,7 +84,7 @@ VRT is run on every commit, across the entire system so we never miss a visual c
 
 We use [Chromatic](https://www.chromatic.com/) to run our VRT, which uses [our storybook stories](https://twilio-labs.github.io/paste/?path=/story/components-alert--all-variant) to create the snapshots of each component. We try to have a story for each component, in every variant and every state, to ensure we capture every possible change.
 
-We use [Applitools](https://applitools.com/) to run VRT on the docs site, which is powered by Cypress tests. Tests are split across multiple test suites so that they can run in parallel.
+We use [Percy](https://percy.io/) to run VRT on the docs site, which is powered by Cypress tests. Tests are split across multiple test suites so that they can run in parallel.
 
 ## Linting
 
@@ -96,11 +98,11 @@ Linting should be performed:
 
 If your code fails to meet the ESLint rules, you will “break the build”. This will prevent you from merging a PR or publishing new packages on `main`.
 
-### PrettierJS
+### BiomeJS and PrettierJS
 
-Manually formatting code can be tiresome so we use [PrettierJS](https://prettier.io/) (Prettier) to do the leg work for you. Prettier is an opinionated code formatter which is configured to respect our ESLint rules.
+Manually formatting code can be tiresome so we use [BiomeJS](https://biomejs.dev/) and [PrettierJS](https://prettier.io/) (Prettier) to do the leg work for you. They are both an opinionated code formatter which is configured to respect our ESLint rules.
 
-It is configured to format your code when you commit it to git automatically. If using an IDE or Code Editor it is also recommended, if your IDE or editor supports it, to set it to “format on save”. The setting is often found in the user settings of your editor, and may require a Prettier plugin or extension.
+It is configured to format your code when you commit it to git automatically. If using an IDE or Code Editor it is also recommended, if your IDE or editor supports it, to set it to “format on save”. The setting is often found in the user settings of your editor, and may require a plugin or extension.
 
 ### Commit lint
 
@@ -135,7 +137,7 @@ yarn prettier
 To use Prettier to fix your code you can run:
 
 ```bash
-yarn prettier:fix
+yarn prettier-clean
 ```
 
 To run our end-to-end tests you must first make sure you have built the website and run:

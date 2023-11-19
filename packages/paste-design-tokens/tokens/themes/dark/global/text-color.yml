@@ -19,15 +19,6 @@ props:
   color-text-weakest:
     value: "{!palette-gray-110}"
     comment: Weakest body text for visual hierarchy. Inaccessible unless used on disabled controls.
-  color-text-inverse:
-    value: "{!palette-gray-0}"
-    comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
-  color-text-inverse-weak:
-    value: "{!palette-gray-40}"
-    comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
-  color-text-inverse-weaker:
-    value: "{!palette-gray-70}"
-    comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
   color-text-brand-inverse:
     value: "{!palette-gray-0}"
     comment: Text color used on any brand color
@@ -46,7 +37,7 @@ props:
     value: "{!palette-blue-30}"
     comment: Strong shade of link text to be used in interactions
   color-text-link-stronger:
-    value: "{!palette-gray-0}"
+    value: "{!palette-blue-10}"
     comment: Stronger shade of link text to be used in interactions
   color-text-link-strongest:
     value: "{!palette-gray-0}"
@@ -61,11 +52,89 @@ props:
     value: "{!palette-red-30}"
     comment: Strong shade of destructive link text to be used in interactions
   color-text-link-destructive-stronger:
-    value: "{!palette-gray-0}"
+    value: "{!palette-red-10}"
     comment: Stronger shade of destructive link text to be used in interactions
   color-text-link-destructive-strongest:
     value: "{!palette-gray-0}"
     comment: Strongest shade of destructive link text to be used in interactions
+
+  # primary
+  color-text-primary:
+    value: "{!palette-blue-50}"
+    comment: Primary text.
+  color-text-primary-weak:
+    value: "{!palette-gray-80}"
+    comment: Weak primary text.
+  color-text-primary-strong:
+    value: "{!palette-blue-30}"
+    comment: Strong primary text.
+  color-text-primary-stronger:
+    value: "{!palette-blue-30}"
+    comment: Stronger primary text.
+  color-text-primary-strongest:
+    value: "{!palette-gray-0}"
+    comment: Strongest primary text.
+
+  # destructive
+  color-text-destructive:
+    value: "{!palette-red-50}"
+    comment: Destructive text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-neutral-weakest
+      - color-background-warning-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+  color-text-destructive-weak:
+    value: "{!palette-gray-80}"
+    comment: Weak shade of destructive text.
+  color-text-destructive-strong:
+    value: "{!palette-red-30}"
+    comment: Strong shade of destructive text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+  color-text-destructive-stronger:
+    value: "{!palette-red-10}"
+    comment: Stronger shade of destructive text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
+  color-text-destructive-strongest:
+    value: "{!palette-gray-0}"
+    comment: Strongest shade of destructive text.
+    text_contrast_pairing:
+      - color-background
+      - color-background-body
+      - color-background-subaccount
+      - color-background-trial
+      - color-background-neutral-weakest
+      - color-background-success-weakest
+      - color-background-warning-weakest
+      - color-background-error-weakest
+      - color-background-row-striped
+      - color-background-primary-weakest
+      - color-background-destructive-weakest
 
   # status
   color-text-error-weak:
@@ -77,6 +146,12 @@ props:
   color-text-error-strong:
     value: "{!palette-red-30}"
     comment: Strong error text for inputs and error misc
+  color-text-error-stronger:
+    value: "{!palette-red-10}"
+    comment: Stronger error text for inputs and error misc
+  color-text-error-strongest:
+    value: "{!palette-red-10}"
+    comment: Strongest error text for inputs and error misc.
   color-text-success:
     value: "{!palette-green-30}"
     comment: Text color for success text.
@@ -92,6 +167,9 @@ props:
   color-text-neutral:
     value: "{!palette-blue-20}"
     comment: Color for text indicating a neutral status.
+  color-text-inverse-new:
+    value: "{!palette-purple-30}"
+    comment: Inverse color for indicating a new status.
 
   # icon
   color-text-icon:
@@ -124,33 +202,30 @@ props:
   color-text-icon-neutral:
     value: "{!palette-blue-40}"
     comment: Icon color for being neutral.
+  color-text-icon-new:
+    value: "{!palette-purple-30}"
+    comment: Icon color for indicating a new status.
 
   # decorative
   color-text-decorative-10:
     value: "{!palette-gray-20}"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-10
   color-text-decorative-20:
     value: "{!palette-blue-20}"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-20
   color-text-decorative-30:
     value: "{!palette-green-30}"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-30
   color-text-decorative-40:
     value: "{!palette-purple-20}"
     comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
-    text_contrast_pairing:
-      - color-background
-      - color-background-body
-      - color-background-decorative-40
+
+  # user
+  color-text-user:
+    value: "{!palette-gray-0}"
+    comment: Text color for user avatar.
+
+  # product
+  color-text-subaccount:
+    value: "{!palette-yellow-30}"
+    comment: Text color for the subaccount badge

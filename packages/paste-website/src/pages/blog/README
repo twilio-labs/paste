@@ -9,15 +9,15 @@ Articles come in two forms:
 
 ## Creating an article file
 
-All articles are MDX pages. Like all gatsby pages, the url is reflective of the file name.
+All articles are MDX pages. Like all Next pages, the url is reflective of the file name.
 
 File names are in the format `YYYY-MM-DD-title-of-post.mdx`
 
 Create a new file in the `/articles` directory and copy/paste an existing article's file contents.
 
-Each file must start with a Frontmatter section that controls the meta data of that page.
+Each file must start with a metadata section that controls the meta data of that page.
 
-## Frontmatter
+## Metadata
 
 ### Article data
 
@@ -39,38 +39,38 @@ Each file must start with a Frontmatter section that controls the meta data of t
 
 Treated exactly like any other MDX page. It can include react components and markdown.
 
-### Frontmatter
+### Metadata
 
-Suggested Frontmatter options for a full article
+Suggested metadata for a full article
 
 ```
----
-title:
-description:
-slug:
-date:
-author:
-avatar:
-author_link:
-status:
----
+export const meta = {
+  title: '',
+  description: '',
+  slug: '',
+  date: '',
+  author: '',
+  avatar: '',
+  author_link: '',
+  status: ''
+}
 ```
 
 ### Shortcodes
 
 #### ArticleHeader
 
-Controls showing the article header with author, avatar and date. Takes Article data from frontmatter and graphql as props.
+Controls showing the article header with author, avatar and date. Takes Article metadata as props.
 
 ```
 <ArticleHeader
-  title={props.data.mdx.frontmatter.title}
-  description={props.data.mdx.frontmatter.description}
-  date={props.data.mdx.frontmatter.date}
-  machineDate={props.data.mdx.frontmatter.machineDate}
-  author={props.data.mdx.frontmatter.author}
-  avatar={props.data.mdx.frontmatter.avatar}
-  authorLink={props.data.mdx.frontmatter.author_link}
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
 />
 ```
 
@@ -116,22 +116,22 @@ Simple layout component for the article aside, right hand small column.
 
 ## Creating a linked article
 
-Similar to a normal MDX page, but we only use the frontmatter it provides to display the linted article in the Article list. We do not need to write any content.
+Similar to a normal MDX page, but we only use the metadata it provides to display the linted article in the Article list. We do not need to write any content.
 
-### Frontmatter
+### Metadata
 
-Suggested Frontmatter options for a linked article
+Suggested metadata for a linked article
 
 ```
----
-title:
-slug:
-date:
-author:
-avatar:
-author_link:
-status:
-external_link:
-excerpt:
----
+export const meta = {
+  title: '',
+  slug: '',
+  date: '',
+  author: '',
+  avatar: '',
+  author_link: '',
+  status: '',
+  external_link: '',
+  excerpt: ''
+}
 ```

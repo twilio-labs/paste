@@ -1,12 +1,14 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Radio, RadioGroup} from '../src';
+import { Anchor } from "@twilio-paste/anchor";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { Radio, RadioGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Radio/Radio (Uncontrolled)',
+  title: "Components/Radio/Radio (Uncontrolled)",
   component: Radio,
-  subcomponents: {RadioGroup},
+  subcomponents: { RadioGroup },
 };
 
 /**
@@ -28,11 +30,33 @@ export const RadioBasic = (): React.ReactNode => {
   );
 };
 
-RadioBasic.story = {
-  name: 'Radio - no initial defaultChecked',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+RadioBasic.storyName = "Radio - no initial defaultChecked";
+RadioBasic.parameters = {
+  chromatic: { disableSnapshot: true },
+};
+
+/**
+ * No id passed to Radio
+ */
+export const RadioWithNoID = (): React.ReactNode => {
+  return (
+    <>
+      <Radio value="1" name="foo" helpText="This is some help text.">
+        First option
+      </Radio>
+      <Radio value="2" name="foo" helpText="This is some help text.">
+        Second option
+      </Radio>
+      <Radio value="2" name="foo" helpText="This is some help text." disabled>
+        Disabled option
+      </Radio>
+    </>
+  );
+};
+
+RadioWithNoID.storyName = "Radio - with no ID";
+RadioWithNoID.parameters = {
+  chromatic: { disableSnapshot: true },
 };
 
 /**
@@ -51,7 +75,7 @@ export const RadioDefaultChecked = (): React.ReactNode => {
         defaultChecked
         helpText={
           <>
-            Some interesting help text with a <a href="http://www.google.com">link</a>
+            Some interesting help text with a <Anchor href="http://www.google.com">link</Anchor>
           </>
         }
       >
@@ -64,9 +88,7 @@ export const RadioDefaultChecked = (): React.ReactNode => {
   );
 };
 
-RadioDefaultChecked.story = {
-  name: 'Radio - initial defaultChecked',
-  parameters: {
-    chromatic: {disableSnapshot: true},
-  },
+RadioDefaultChecked.storyName = "Radio - initial defaultChecked";
+RadioDefaultChecked.parameters = {
+  chromatic: { disableSnapshot: true },
 };

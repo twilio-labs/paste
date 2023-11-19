@@ -1,10 +1,9 @@
----
-title: Core
-description: The Core package includes all components and libraries in Paste.
-slug: /core/
----
+export const meta = {
+  title: 'Core',
+  description: 'The Core package includes all components and libraries in Paste.',
+  slug: '/core/',
+};
 
-import {graphql} from 'gatsby';
 import {Separator} from '@twilio-paste/separator';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -16,25 +15,22 @@ import CorePkgJson from '@twilio-paste/core/package.json';
 import Changelog from '@twilio-paste/core/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/core/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<ComponentHeader
-  name={props.pageContext.frontmatter.title}
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader
+  name={meta.title}
   categoryRoute={SidebarCategoryRoutes.CORE}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core"
   storybookUrl="?path=/story/"
@@ -45,9 +41,9 @@ export const pageQuery = graphql`
 
 ---
 
- <contentwrapper>
+<contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -55,7 +51,7 @@ export const pageQuery = graphql`
 
 ### About Core
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 <Box marginBottom="space100">
   <Disclosure>
     <DisclosureHeading as="h4" variant="heading50">

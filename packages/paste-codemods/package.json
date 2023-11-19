@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/codemods",
-  "version": "0.2.8",
+  "version": "0.6.1",
   "status": "production",
   "description": "A collection of codemods for maintaining projects built with Paste.",
   "author": "Twilio Inc.",
@@ -10,21 +10,22 @@
   },
   "bin": "./bin/paste-codemod.js",
   "scripts": {
-    "build": "ts-node ./tools/create-package-mappings.ts"
+    "build": "tsx ./tools/create-package-mappings.ts"
   },
   "dependencies": {
-    "chalk": "^2.4.2",
-    "execa": "^3.2.0",
-    "globby": "^10.0.1",
-    "inquirer": "^7.0.0",
-    "is-git-clean": "^1.1.0",
-    "jscodeshift": "^0.11.0",
-    "meow": "^8.0.0"
+    "chalk": "4.1.2",
+    "execa": "3.2.0",
+    "globby": "npm:globby@10.0.1",
+    "inquirer": "7.0.0",
+    "is-git-clean": "1.1.0",
+    "jscodeshift": "0.11.0",
+    "meow": "8.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@babel/plugin-proposal-object-rest-spread": "^7.17.3",
-    "@babel/preset-env": "^7.16.11",
-    "@twilio-paste/core": "^13.0.0"
+    "@babel/core": "^7.21.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
+    "@babel/preset-env": "^7.21.4",
+    "@twilio-paste/core": "^20.6.0",
+    "tsx": "^3.12.10"
   }
 }

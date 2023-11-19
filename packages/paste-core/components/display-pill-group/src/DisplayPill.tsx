@@ -1,9 +1,18 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {secureExternalLink} from '@twilio-paste/anchor';
+import { secureExternalLink } from "@twilio-paste/anchor";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-type DisplayPillProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & Pick<BoxElementProps, 'element'>;
+export type DisplayPillProps = HTMLPasteProps<"a"> & {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DISPLAY_PILL'
+   * @type {BoxElementProps['element']}
+   */
+  element?: BoxElementProps["element"];
+};
 
 /**
  * Display represents a saved entity as part of a collection, usually as a result of multi selection.
@@ -23,7 +32,7 @@ type DisplayPillProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & Pick<Box
  * @see https://paste.twilio.design/components/display-pill-group
  */
 export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>(
-  ({element = 'DISPLAY_PILL', ...props}, ref) => {
+  ({ element = "DISPLAY_PILL", ...props }, ref) => {
     return (
       <Box as="li" listStyleType="none">
         <Box
@@ -31,34 +40,40 @@ export const DisplayPill = React.forwardRef<HTMLAnchorElement, DisplayPillProps>
           {...(props.href ? secureExternalLink(props.href) : {})}
           ref={ref}
           element={element}
-          as={props.href ? 'a' : 'div'}
+          as={props.href ? "a" : "div"}
           alignItems="center"
-          backgroundColor="colorBackgroundStrong"
-          borderRadius="borderRadius10"
-          color="colorText"
+          backgroundColor="colorBackgroundWeak"
+          borderRadius="borderRadiusPill"
+          boxShadow="shadowBorderWeaker"
+          color="colorTextWeak"
           columnGap="space20"
-          cursor={props.href ? 'pointer' : 'default'}
+          cursor={props.href ? "pointer" : "default"}
           display="flex"
           fontSize="fontSize20"
-          fontWeight="fontWeightSemibold"
+          fontWeight="fontWeightMedium"
           lineHeight="lineHeight10"
           paddingX="space30"
           paddingY="space20"
           outline="none"
-          _hover={{
-            textDecoration: 'none',
-          }}
-          _focusVisible={{
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
-            boxShadow: 'shadowFocus',
-            color: 'colorTextLinkStronger',
+          _hover={
+            props.href
+              ? {
+                  backgroundColor: "colorBackground",
+                  boxShadow: "shadowBorder",
+                  textDecoration: "none",
+                }
+              : undefined
+          }
+          _focus={{
+            boxShadow: "shadowFocus",
+            textDecoration: "none",
           }}
         >
           {props.children}
         </Box>
       </Box>
     );
-  }
+  },
 );
 
-DisplayPill.displayName = 'DisplayPill';
+DisplayPill.displayName = "DisplayPill";

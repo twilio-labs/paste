@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Toast - Changelog',
+  package: '@twilio-paste/toast',
+  description: 'A toast communicates an immediate and direct response to a user action.',
+  slug: '/components/toast/changelog',
+};
+
+import Changelog from '@twilio-paste/toast/CHANGELOG.md';
+import packageJson from '@twilio-paste/toast/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Toast');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/toast',
+        storybookUrl: '/?path=/story/components-toast--neutral',
+      },
+    },
+  };
+};
+
+<Changelog />

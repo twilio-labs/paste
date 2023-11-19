@@ -22,14 +22,7 @@
   },
   "Paste React component with props file outline": {
     "prefix": "prindexp",
-    "body": [
-      "import * as React from 'react';",
-      "import * as PropTypes from 'prop-types';",
-      "import {Box} from '@twilio-paste/box';",
-      "",
-      "${1:prfcp}",
-      ""
-    ],
+    "body": ["import * as React from 'react';", "import {Box} from '@twilio-paste/box';", "", "${1:prfcp}", ""],
     "description": "Create an component with props file starter"
   },
   "Paste React Function Component With Props": {
@@ -39,17 +32,13 @@
       "  children: NonNullable<React.ReactNode>;",
       "}",
       "",
-      "const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({children}) => {",
+      "const ${1:ComponentName}: React.FC<React.PropsWithChildren<${1:ComponentName}Props>> = ({children}) => {",
       "  return (",
       "    ${2:<Box>{children\\}</Box>}",
       "  );",
       "}",
       "",
       "${1:ComponentName}.displayName = '${1:ComponentName}';",
-      "",
-      "${1:ComponentName}.propTypes = {",
-      "  children: PropTypes.node.isRequired,",
-      "};",
       "",
       "export {${1:ComponentName}};"
     ],
@@ -70,10 +59,6 @@
       "",
       "${1:ComponentName}.displayName = '${1:ComponentName}';",
       "",
-      "${1:ComponentName}.propTypes = {",
-      "  children: PropTypes.node.isRequired,",
-      "};",
-      "",
       "export {${1:ComponentName}};"
     ],
     "description": "Create a React component"
@@ -81,7 +66,7 @@
   "Paste React Function Component": {
     "prefix": "prfc",
     "body": [
-      "export const ${1:ComponentName}: React.FC = ({children}) => {",
+      "export const ${1:ComponentName}: React.FC<React.PropsWithChildren> = ({children}) => {",
       "  return (",
       "    ${2:<Box>{children\\}</Box>}",
       "  );",
@@ -112,10 +97,6 @@
       "`",
       "",
       "Styled${1:ComponentName}.displayName = 'Styled${1:ComponentName}';",
-      "",
-      "Styled${1:ComponentName}.propTypes = {",
-      "  children: PropTypes.node.isRequired,",
-      "};",
       "",
       "export {Styled${1:ComponentName}};"
     ],

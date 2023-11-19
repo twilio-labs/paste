@@ -1,27 +1,29 @@
-import * as React from 'react';
-import {Button} from '@twilio-paste/core/button';
-import {Paragraph} from '@twilio-paste/core/paragraph';
-import {useUID} from '@twilio-paste/uid-library';
-import {TextArea} from '@twilio-paste/core/textarea';
-import {generateThemeFromTokens} from '@twilio-paste/core/theme';
-import {Modal, ModalHeading, ModalHeader, ModalBody, ModalFooter, ModalFooterActions} from '@twilio-paste/core/modal';
-import type {ModalProps} from '@twilio-paste/core/modal';
-import {TokenContext} from '../../../context/TokenContext';
+import { Button } from "@twilio-paste/core/button";
+import { Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading } from "@twilio-paste/core/modal";
+import type { ModalProps } from "@twilio-paste/core/modal";
+import { Paragraph } from "@twilio-paste/core/paragraph";
+import { TextArea } from "@twilio-paste/core/textarea";
+import { generateThemeFromTokens } from "@twilio-paste/core/theme";
+import { useUID } from "@twilio-paste/core/uid-library";
+import * as React from "react";
+
+import { TokenContext } from "../../../context/TokenContext";
 
 type ExportModalProps = {
-  isOpen: ModalProps['isOpen'];
-  onDismiss: ModalProps['onDismiss'];
+  isOpen: ModalProps["isOpen"];
+  onDismiss: ModalProps["onDismiss"];
 };
-const ExportModal: React.FC<ExportModalProps> = ({isOpen, onDismiss}) => {
-  const {tokens} = React.useContext(TokenContext);
+const ExportModal: React.FC<React.PropsWithChildren<ExportModalProps>> = ({ isOpen, onDismiss }) => {
+  const { tokens } = React.useContext(TokenContext);
   const modalHeadingID = useUID();
   const modalTextareaID = useUID();
 
   // Builds the new tokens JSON from the custom theme build from various inputs
+
   // @ts-expect-error tokens from context are based on GenericTokenShape which states that sizing keys are as optional as the rest, but generateThemeFromTokens expects sizing keys to be required
   const customTheme = generateThemeFromTokens(tokens);
 
-  const themeJson = JSON.stringify(customTheme, null, '  ');
+  const themeJson = JSON.stringify(customTheme, null, "  ");
   const themeDownload = `data:application/json;charset=utf-8, ${encodeURIComponent(themeJson)}`;
 
   return (
@@ -35,7 +37,13 @@ const ExportModal: React.FC<ExportModalProps> = ({isOpen, onDismiss}) => {
         <Paragraph>
           Download this JSON to use in your app, or deploy with one click for your favorite application.
         </Paragraph>
-        <TextArea id={modalTextareaID} onChange={() => {}} readOnly>
+        <TextArea
+          id={modalTextareaID}
+          onChange={() => {
+            return false;
+          }}
+          readOnly
+        >
           {themeJson}
         </TextArea>
       </ModalBody>
@@ -54,4 +62,4 @@ const ExportModal: React.FC<ExportModalProps> = ({isOpen, onDismiss}) => {
   );
 };
 
-export {ExportModal};
+export { ExportModal };

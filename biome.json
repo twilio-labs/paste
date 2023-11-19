@@ -1,0 +1,74 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.2.2/schema.json",
+  "files": {
+    "maxSize": 5242880,
+    "ignore": [
+      "node_modules/",
+      "bower_components/",
+      "dist/",
+      "bin/",
+      "docs/",
+      ".temp/",
+      "__testfixtures__/",
+      "__fixtures__/",
+      "packages/paste-icons/cjs",
+      "packages/paste-icons/esm",
+      "packages/paste-icons/json",
+      "packages/paste-theme-designer/public",
+      "packages/paste-theme-designer/out",
+      "packages/paste-token-contrast-checker/public",
+      "packages/paste-website/data",
+      ".cache/",
+      ".next/",
+      ".netlify/",
+      ".yarn/",
+      "packages/**/dist/*",
+      "tsconfig.build.tsbuildinfo",
+      "**/*.d.ts",
+      "**/package.json",
+      ".codesandbox/ci.json",
+      "build.icon-list.js",
+      "**/*.hbs",
+      "apps/backend/supabase/schema.gen.ts"
+    ]
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "a11y": {
+        "noSvgWithoutTitle": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
+      },
+      "complexity": {
+        "noUselessSwitchCase": "off",
+        "noMultipleSpacesInRegularExpressionLiterals": "off"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentSize": 2,
+    "lineWidth": 120
+  },
+  "javascript": {
+    "formatter": {
+      "indentStyle": "space",
+      "indentSize": 2,
+      "lineWidth": 120
+    }
+  },
+  "json": {
+    "formatter": {
+      "indentStyle": "space",
+      "indentSize": 2,
+      "lineWidth": 120
+    }
+  }
+}

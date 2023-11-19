@@ -1,5 +1,163 @@
 # Change Log
 
+## 9.1.0
+
+### Minor Changes
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+### Patch Changes
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Improved TsDoc annotations
+
+## 9.0.0
+
+### Major Changes
+
+- [`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603) [#3395](https://github.com/twilio-labs/paste/pull/3395) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Modified the compile target of our JavaScript bundles from `node` to `browser` to minimize the risk of clashing with RequireJS. This is marked as a major out of an abundance of caution. You shouldn't need to do anything but we wanted you to be aware of the change on the off chance it has unintended consequences
+
+### Patch Changes
+
+- Updated dependencies [[`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603)]:
+  - @twilio-paste/uid-library@2.0.0
+  - @twilio-paste/color-contrast-utils@5.0.0
+  - @twilio-paste/stack@8.0.0
+  - @twilio-paste/box@10.0.0
+  - @twilio-paste/text@10.0.0
+  - @twilio-paste/customization@8.0.0
+  - @twilio-paste/design-tokens@10.0.0
+  - @twilio-paste/icons@12.0.0
+  - @twilio-paste/animation-library@2.0.0
+  - @twilio-paste/styling-library@3.0.0
+  - @twilio-paste/style-props@9.0.0
+  - @twilio-paste/theme@11.0.0
+  - @twilio-paste/types@6.0.0
+
+## 8.1.1
+
+### Patch Changes
+
+- [`4d1f7c65e`](https://github.com/twilio-labs/paste/commit/4d1f7c65e77e5e0bbf6c7422b46a477bdb932ee6) [#3360](https://github.com/twilio-labs/paste/pull/3360) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Improved types where Paste extends the base HTML element that a component is based on, so that the existing blocked styling properties are not exposed as valid properties for the component via Typescript. This leads to less confusion around what is supported by a Paste component.
+
+  Existing blocked component properties include:
+
+  - `className`
+  - `style`
+  - `color`
+
+* [`93851962d`](https://github.com/twilio-labs/paste/commit/93851962dfe583724496603681a11bb9d452c34b) [#3349](https://github.com/twilio-labs/paste/pull/3349) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Avatar]: set transparent background color for image based avatars so that transparent images are displayed as such. Also fix setting the size of icon and image avatars when placed in a group
+
+## 8.1.0
+
+### Minor Changes
+
+- [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Add Avatar Group component
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Avatar] Export types for use in the Topbar package
+
+## 8.0.0
+
+### Major Changes
+
+- [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - ### Breaking change
+
+  We have moved `@types/react` and `@types/react-dom` to peer dependencies of the library. This should allow for greater control and backwards compatibility with older versions of React as Paste is no longer bundling the type libraries.
+
+  Your application likely has both of these as dependencies anyway, but it is now up to you to manage that version number.
+
+  **Action needed**
+
+  Ensure `@types/react` and `@types/react-dom` are installed as dependencies of your application.
+
+### Patch Changes
+
+- Updated dependencies [[`1d75f223e`](https://github.com/twilio-labs/paste/commit/1d75f223e0e2011a7a969e7ef1980fa9366cfbca), [`50cde4668`](https://github.com/twilio-labs/paste/commit/50cde4668b003c410713d4a51eed16a394471ed0), [`bce889344`](https://github.com/twilio-labs/paste/commit/bce889344773d840d7dc75902e1be64f1a010da3), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c)]:
+  - @twilio-paste/icons@11.0.0
+  - @twilio-paste/theme@10.0.0
+  - @twilio-paste/box@9.0.0
+  - @twilio-paste/text@9.0.0
+  - @twilio-paste/customization@7.0.0
+  - @twilio-paste/style-props@8.0.0
+  - @twilio-paste/types@5.0.0
+
+## 7.0.0
+
+### Major Changes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - Add support for React 18
+
+* [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea) [#3020](https://github.com/twilio-labs/paste/pull/3020) Thanks [@SiTaggart](https://github.com/SiTaggart)! - This major version included listing all the missing peer dependencies for each Paste package.
+
+  If you are using a package from Paste in isolation from Core, when upgrading to this latest version, be sure to correctly install all the missing peer dependencies.
+
+### Patch Changes
+
+- [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df) [#3021](https://github.com/twilio-labs/paste/pull/3021) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] Update styles to align with new Paste Twilio theme
+
+- Updated dependencies [[`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee)]:
+  - @twilio-paste/design-tokens@9.0.0
+  - @twilio-paste/box@8.0.0
+  - @twilio-paste/text@8.0.0
+  - @twilio-paste/customization@6.0.0
+  - @twilio-paste/icons@10.0.0
+  - @twilio-paste/animation-library@1.0.0
+  - @twilio-paste/styling-library@2.0.0
+  - @twilio-paste/uid-library@1.0.0
+  - @twilio-paste/style-props@7.0.0
+  - @twilio-paste/theme@9.0.0
+  - @twilio-paste/types@4.0.0
+  - @twilio-paste/color-contrast-utils@4.0.0
+
+## 6.1.3
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - Update packages to be ESM-compatible
+
+## 6.1.2
+
+### Patch Changes
+
+- [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
+## 6.1.1
+
+### Patch Changes
+
+- [`114e80db7`](https://github.com/twilio-labs/paste/commit/114e80db74253a2bf902edfb853a940d6b6310dd) [#2693](https://github.com/twilio-labs/paste/pull/2693) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] add flexShrink 0 so it stays the correct size in a flex layout
+
+* [`b5c19e60e`](https://github.com/twilio-labs/paste/commit/b5c19e60e5d1c59b47c3455b3adf0d779ecf65e5) [#2685](https://github.com/twilio-labs/paste/pull/2685) Thanks [@nkrantz](https://github.com/nkrantz)! - [Avatar] Prevent underlines from being added to Avatar initials inside of anchors or display pills
+
+## 6.1.0
+
+### Minor Changes
+
+- [`0ead4dfa0`](https://github.com/twilio-labs/paste/commit/0ead4dfa0492a8caa50b147a81583ea8e306a665) [#2681](https://github.com/twilio-labs/paste/pull/2681) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] add new variant and color props
+
+## 6.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/text@7.0.0
+  - @twilio-paste/icons@9.0.0
+
+## 5.0.1
+
+### Patch Changes
+
+- [`8263d8a3`](https://github.com/twilio-labs/paste/commit/8263d8a3618685582cd282aae9877a00a92c320c) [#2452](https://github.com/twilio-labs/paste/pull/2452) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] allow both src and icon props at the same
+
+* [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
+- [`3bfd6394`](https://github.com/twilio-labs/paste/commit/3bfd639407f60386fdd92b76d66e5e506979c282) [#2456](https://github.com/twilio-labs/paste/pull/2456) Thanks [@shleewhite](https://github.com/shleewhite)! - [Avatar] simplify logic for when to show image or icon
+
 ## 5.0.0
 
 ### Patch Changes

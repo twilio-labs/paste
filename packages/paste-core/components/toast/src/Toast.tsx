@@ -1,19 +1,19 @@
-import * as React from 'react';
-import {Button} from '@twilio-paste/button';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {NeutralIcon} from '@twilio-paste/icons/esm/NeutralIcon';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
-import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {ErrorToast} from './ErrorToast';
-import {NeutralToast} from './NeutralToast';
-import {SuccessToast} from './SuccessToast';
-import {WarningToast} from './WarningToast';
-import {ToastPropTypes} from './propTypes';
-import type {ToastProps, ToastVariants} from './types';
-import {ToastVariantObject} from './constants';
+import { Button } from "@twilio-paste/button";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { NeutralIcon } from "@twilio-paste/icons/esm/NeutralIcon";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import * as React from "react";
+
+import { ErrorToast } from "./ErrorToast";
+import { NeutralToast } from "./NeutralToast";
+import { SuccessToast } from "./SuccessToast";
+import { WarningToast } from "./WarningToast";
+import { ToastVariantObject } from "./constants";
+import type { ToastProps, ToastVariants } from "./types";
 
 const ToastComponentVariants = {
   error: ErrorToast,
@@ -73,24 +73,24 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
     {
       children,
       onDismiss,
-      variant = 'neutral',
-      element = 'TOAST',
+      variant = "neutral",
+      element = "TOAST",
       setFocus,
-      i18nDismissLabel = 'Dismiss toast',
-      i18nErrorLabel = '(error)',
-      i18nNeutralLabel = '(information)',
-      i18nSuccessLabel = '(success)',
-      i18nWarningLabel = '(warning)',
+      i18nDismissLabel = "Dismiss toast",
+      i18nErrorLabel = "(error)",
+      i18nNeutralLabel = "(information)",
+      i18nSuccessLabel = "(success)",
+      i18nWarningLabel = "(warning)",
       ...props
     },
-    ref
+    ref,
   ) => {
     const ToastComponent = ToastComponentVariants[variant];
     const buttonRef: React.RefObject<HTMLButtonElement> = React.useRef(null);
 
     React.useEffect(() => {
       if (setFocus && buttonRef.current) {
-        buttonRef.current.focus({preventScroll: true});
+        buttonRef.current.focus({ preventScroll: true });
       }
     }, [setFocus]);
 
@@ -109,7 +109,7 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
             {renderToastIcon(variant, i18nVariants[variant], element)}
           </MediaFigure>
           <MediaBody as="div">{children}</MediaBody>
-          {onDismiss && typeof onDismiss === 'function' && (
+          {onDismiss && typeof onDismiss === "function" && (
             <MediaFigure align="end" spacing="space40">
               <Button
                 onClick={onDismiss}
@@ -126,11 +126,9 @@ const Toast = React.forwardRef<HTMLDivElement, ToastProps>(
         </MediaObject>
       </ToastComponent>
     );
-  }
+  },
 );
 
-Toast.displayName = 'Toast';
+Toast.displayName = "Toast";
 
-Toast.propTypes = ToastPropTypes;
-
-export {Toast};
+export { Toast };

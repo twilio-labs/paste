@@ -1,73 +1,45 @@
----
-title: Text - Primitives
-description: The Text component is a primitive of the system and can output any supported text style provided by our design tokens. Coupled with Box, it underpins most of our components.
-slug: /primitives/text/
----
+export const meta = {
+  title: 'Text Primitive',
+  package: '@twilio-paste/text',
+  description:
+    'The Text component is a primitive of the system and can output any supported text style provided by our design tokens. Coupled with Box, it underpins most of our components.',
+  slug: '/primitives/text/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
+import packageJson from '@twilio-paste/text/package.json';
 import {Paragraph} from '@twilio-paste/paragraph';
 import Changelog from '@twilio-paste/text/CHANGELOG.md';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {InlineCode} from '@twilio-paste/inline-code';
+
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {InlineCode} from '../../../components/Typography';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPastePrimitive(filter: {name: {eq: "@twilio-paste/text"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/primitives/text/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Text"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/text"
-  storybookUrl="/?path=/story/primitives-text--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.PRIMITIVES,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/text',
+        storybookUrl: '/?path=/story/primitives-text--default',
+      },
+    },
+  };
+};
 
 <LivePreview scope={{Text}} language="jsx">
   {`<Text as="p">Hello</Text>`}
@@ -75,15 +47,13 @@ export const pageQuery = graphql`
 
 ## Guidelines
 
-<Callout>
-  <CalloutTitle as="h3">Please note</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Please note</CalloutHeading>
   <CalloutText>
     Only use this component if all other Paste typographic components don’t meet your use case. If you find yourself
     here, come to the Design System Office Hours.
   </CalloutText>
 </Callout>
-
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
 
 ### About Text
 
@@ -97,7 +67,7 @@ the different properties, though.
 
 Style properties on the Text component can be set with a single value or a responsive value. By setting a responsive
 value, you can control how your text will appear at each breakpoint the
-[theme](https://paste.twilio.design/core/theme-package/) supports. This can be useful in supporting responsive designs
+[theme](/theme) supports. This can be useful in supporting responsive designs
 for different screen sizes.
 
 Via the `as` property, you can also set the Text component to render as any HTML element.
@@ -108,7 +78,7 @@ The Text component can be used in any situation. As always, when working with HT
 to select an appropriate semantic for your text. That semantic communicates the intended meaning of that text to
 assistive technology.
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Be sure to use the <strong>"as"</strong> prop to select semantically meaningful HTML elements. The{' '}
     <strong>"as"</strong> property is required. As a fallback, the Text component will render as a{' '}
@@ -215,90 +185,4 @@ using the Twilio design language.
   <Dont title="Don't" body="Don’t use the Text component without setting the “as” property" preview={false} />
 </DoDont>
 
----
 
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/text - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Text} from '@twilio-paste/text';
-
-const Component = () => (
-  <Text as="p" fontSize="fontSize70" fontWeight="fontWeightMedium">
-    Foo
-  </Text>
-);
-```
-
-#### Props
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-| Prop                | Type                                                                          | Description               | Default |
-| ------------------- | ----------------------------------------------------------------------------- | ------------------------- | ------- |
-| as?                 | `keyof JSX.IntrinsicElements`                                                 | A custom HTML tag         | `div`   |
-| display?            | `ResponsiveValue<CSS.DisplayProperty>`                                        |                           |         |
-| fontFamily?         | `ResponsiveValue<keyof ThemeShape[fonts]>`                                    |                           |         |
-| fontSize?           | `ResponsiveValue<keyof ThemeShape[fontSizes]>`                                |                           |         |
-| fontStyle?          | `ResponsiveValue<CSS.FontStyleProperty>`                                      |                           |         |
-| fontWeight?         | `ResponsiveValue<keyof ThemeShape[fontWeights]>`                              |                           |         |
-| letterSpacing?      | `ResponsiveValue<CSS.LetterSpacingProperty<TLengthStyledSystem>>`             |                           |         |
-| lineHeight?         | `ResponsiveValue<keyof ThemeShape[lineHeights]>`                              |                           |         |
-| margin?             | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| marginTop?          | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| marginRight?        | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| marginBottom?       | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| marginLeft?         | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| overflow            | `ResponsiveValue<CSS.OverflowProperty>;`                                      |                           |         |
-| overflowX           | `ResponsiveValue<CSS.OverflowXProperty>;`                                     |                           |         |
-| overflowY           | `ResponsiveValue<CSS.OverflowYProperty>;`                                     |                           |         |
-| padding?            | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| paddingBottom?      | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| paddingLeft?        | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| paddingRight?       | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| paddingTop?         | `ResponsiveValue<keyof ThemeShape['space']>`                                  | One of our spacing tokens |         |
-| textAlign?          | `ResponsiveValue<CSS.textAlignProperty>`                                      |                           |         |
-| color?              | `ResponsiveValue<keyof ThemeShape['textColors']>`                             |                           |         |
-| textDecoration?     | `ResponsiveValue<CSS.TextDecorationProperty<CSS.TextDecorationLineProperty>>` |                           |         |
-| textOverflow?       | `ResponsiveValue<CSS.TextOverflowProperty>`                                   |                           |         |
-| whiteSpace?         | `ResponsiveValue<CSS.WhiteSpaceProperty>`                                     |                           |         |
-| fontVariantNumeric? | FontVariantNumericProperty                                                    |                           |         |
-| \_after?            | TextProps                                                                     |                           |         |
-| \_before?           | TextProps                                                                     |                           |         |
-| \_focus?            | TextProps                                                                     |                           |         |
-| \_hover?            | TextProps                                                                     |                           |         |
-| \_active?           | TextProps                                                                     |                           |         |
-| \_pressed?          | TextProps                                                                     |                           |         |
-| \_selected?         | TextProps                                                                     |                           |         |
-| \_focusWithin?      | TextProps                                                                     |                           |         |
-| \_invalid?          | TextProps                                                                     |                           |         |
-| \_disabled?         | TextProps                                                                     |                           |         |
-| \_grabbed?          | TextProps                                                                     |                           |         |
-| \_expanded?         | TextProps                                                                     |                           |         |
-| \_checked?          | TextProps                                                                     |                           |         |
-| \_mixed?            | TextProps                                                                     |                           |         |
-| \_odd?              | TextProps                                                                     |                           |         |
-| \_even?             | TextProps                                                                     |                           |         |
-| \_visited?          | TextProps                                                                     |                           |         |
-| \_readOnly?         | TextProps                                                                     |                           |         |
-| \_first?            | TextProps                                                                     |                           |         |
-| \_last?             | TextProps                                                                     |                           |         |
-| \_notFirst?         | TextProps                                                                     |                           |         |
-| \_notLast?          | TextProps                                                                     |                           |         |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

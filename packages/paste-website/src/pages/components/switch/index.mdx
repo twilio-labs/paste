@@ -1,0 +1,186 @@
+export const meta = {
+  title: 'Switch',
+  package: '@twilio-paste/switch',
+  description: 'A Switch is an interactive binary control.',
+  slug: '/components/switch/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Avatar} from '@twilio-paste/avatar';
+import {Text} from '@twilio-paste/text';
+import {Box} from '@twilio-paste/box';
+import {Switch, SwitchGroup} from '@twilio-paste/switch';
+import {HelpText} from '@twilio-paste/help-text';
+import {useUID} from '@twilio-paste/uid-library';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Blockquote} from '../../../components/Blockquote';
+import {
+  basicSwitch,
+  helpTextSwitch,
+  requiredSwitch,
+  onSwitch,
+  disabledSwitch,
+  disabledOnSwitch,
+  uncontrolledSwitch,
+  controlledSwitch,
+  switchGroup,
+  switchGroupInternationalized,
+} from '../../../component-examples/SwitchExamples.ts';
+import packageJson from '@twilio-paste/switch/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Switch');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/switch',
+        storybookUrl: '/?path=/story/components-switch--default-switch',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{Switch, SwitchGroup, useUID}} noInline>
+  {basicSwitch}
+</LivePreview>
+
+## Guidelines
+
+### About Switch
+
+A Switch is an interactive binary control. It should be used in forms when an "on/off" or "yes/no" input is needed.
+
+Use Switch when the interaction result is **immediate**. Users shouldn't need to perform an additional action (like use a "Save" or "Submit" button) to confirm Switch input. For example, when a user turns on a "Receive notifications" Switch, they should start receiving notifications immediately upon performing the action.
+
+Use a [Checkbox](/components/checkbox) to present a user with a single binary choice that is part of a form or otherwise requires a user to take an additional action to confirm input.
+
+<Blockquote
+  name="Nielsen Norman Group"
+  source="Toggle-Switch Guidelines"
+  sourceUrl="https://www.nngroup.com/articles/toggle-switch-guidelines/"
+>
+  [U]sers expect the same immediate results from a digital toggle as they do from their real-world counterparts (e.g.,
+  light switches). Immediate results are a facet of toggle switches that grants users the freedom and control to update
+  their preferences as needed.
+</Blockquote>
+
+### Accessibility
+
+- SwitchGroup **must** have a `legend` that describes the collection.
+- Switch always has the `role="switch"` attribute.
+- Switch must have a visible label that is in close proximity to the control.
+- If you want to mark a Switch as required, use the `required` prop.
+  - Only use the `required` prop on the SwitchGroup if you want to mark the entire group as required.
+  - If you want to mark a single Switch as required, use the `required` prop on it directly.
+  - Ensure the label text includes wording that successfully describes the requirement to the user that they should toggle the Switch on
+- When in an error state display an inline error message below the offending Switch that clearly describes the error.
+- When displaying additional content based on toggling a Switch, be sure that the new content appears after the Switch in question so that it is naturally discoverable by assistive technology users.
+
+## Controlled vs. uncontrolled Switch
+
+The Switch can either be controlled, meaning there is an external state that determines if the Switch is on or not, or uncontrolled, meaning the Switch manages its own state.
+
+To make an uncontrolled Switch, you do not pass the `checked` or `onChange` prop.
+
+<LivePreview scope={{Switch}} noInline>
+  {uncontrolledSwitch}
+</LivePreview>
+
+To make a controlled Switch, you must pass the `checked` and `onChange` prop.
+
+<LivePreview scope={{Switch}} noInline>
+  {controlledSwitch}
+</LivePreview>
+
+## Examples
+
+### Default
+
+A Switch is always displayed with a visible label. The _label text should never change_ based on the state of the Switch.
+
+<LivePreview scope={{Switch}} noInline>
+  {basicSwitch}
+</LivePreview>
+
+### With Help Text
+
+In cases where the Switch requires additional context, you can display this information as help text below the Switch and label. This can help keep Switch labels concise. In order to maintain styling consistency, be sure to use the `helpText` prop here instead of using the Help Text component.
+
+<LivePreview scope={{Switch, Anchor}} noInline>
+  {helpTextSwitch}
+</LivePreview>
+
+### Required
+
+When a Switch is required to be 'on', a required indicator should be displayed alongside the label.
+The label text should also be written in such a way that this requirement is clear to the user.
+
+<LivePreview scope={{Switch}} noInline>
+  {requiredSwitch}
+</LivePreview>
+
+### Disabled
+
+Use a disabled Switch to indicate to users that it is not interactive. If interactivity
+is dependent on another action, make that clear using help text.
+
+<LivePreview scope={{Switch}} noInline>
+  {disabledSwitch}
+</LivePreview>
+
+### Switch group
+
+Multiple Switches and their labels are grouped together with a common group component.
+The group legend must be the first element inside the group. It must appear before any Switch or other content.
+
+<LivePreview scope={{Switch, SwitchGroup, Text, Anchor}} noInline>
+  {switchGroup}
+</LivePreview>
+
+### Internationalization
+
+To internationalize a Switch, simply pass different text to the Switch and SwitchGroup. The only exception to this is
+the required dot in the legend of a required SwitchGroup. To change the required dot's text, use the `i18nRequiredLabel` prop.
+
+<LivePreview scope={{Switch, SwitchGroup}} noInline>
+  {switchGroupInternationalized}
+</LivePreview>
+
+## States
+
+### On
+
+The default Switch state is off.
+
+<LivePreview scope={{Switch}} noInline>
+  {onSwitch}
+</LivePreview>
+
+### Disabled on
+
+Use the disabled on Switch to indicate to users that it is not interactive and cannot be turned off.
+If interactivity is dependent on another action, make that clear using help text.
+
+<LivePreview scope={{Switch}} noInline>
+  {disabledOnSwitch}
+</LivePreview>
+
+## Composition notes
+
+Switch label text should indicate what the Switch does when it is **on**, but should not describe the state itself ("enabled", "disabled"). Label text shouldn't change when the state of the Switch changes.
+
+Switch labels should be concise and put the most important information in the first few words. Avoid making the label a question.
+
+Use [Help Text](/components/help-text) for additional information, like any notable implications of turning on the Switch.

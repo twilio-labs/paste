@@ -1,6 +1,6 @@
+import type { ResponsiveValue } from "@twilio-paste/styling-library";
 // https://styled-system.com/api/#flexbox
-import type {Properties, Globals} from 'csstype';
-import type {ResponsiveValue} from '@twilio-paste/styling-library';
+import type { Globals, Properties } from "csstype";
 
 /**
  * The CSS align-items property sets the align-self value on all direct children as a group. The align-self
@@ -13,11 +13,11 @@ import type {ResponsiveValue} from '@twilio-paste/styling-library';
  */
 export type AlignItemsOptions =
   | Globals
-  | Properties['alignSelf']
-  | Properties['position']
-  | 'baseline'
-  | 'normal'
-  | 'stretch';
+  | Properties["alignSelf"]
+  | Properties["position"]
+  | "baseline"
+  | "normal"
+  | "stretch";
 export type AlignItems = ResponsiveValue<AlignItemsOptions>;
 
 /**
@@ -26,7 +26,7 @@ export type AlignItems = ResponsiveValue<AlignItemsOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
  */
-export type AlignContentOptions = Globals | Properties['alignSelf'] | Properties['position'] | 'baseline' | 'normal';
+export type AlignContentOptions = Globals | Properties["alignSelf"] | Properties["position"] | "baseline" | "normal";
 export type AlignContent = ResponsiveValue<AlignContentOptions>;
 
 /**
@@ -37,13 +37,13 @@ export type AlignContent = ResponsiveValue<AlignContentOptions>;
  */
 export type JustifyItemsOptions =
   | Globals
-  | Properties['justifySelf']
-  | 'baseline'
-  | 'left'
-  | 'legacy'
-  | 'normal'
-  | 'right'
-  | 'stretch';
+  | Properties["justifySelf"]
+  | "baseline"
+  | "left"
+  | "legacy"
+  | "normal"
+  | "right"
+  | "stretch";
 export type JustifyItems = ResponsiveValue<JustifyItemsOptions>;
 
 /**
@@ -54,11 +54,11 @@ export type JustifyItems = ResponsiveValue<JustifyItemsOptions>;
  */
 export type JustifyContentOptions =
   | Globals
-  | Properties['justifyContent']
-  | Properties['position']
-  | 'left'
-  | 'normal'
-  | 'right';
+  | Properties["justifyContent"]
+  | Properties["position"]
+  | "left"
+  | "normal"
+  | "right";
 export type JustifyContent = ResponsiveValue<JustifyContentOptions>;
 
 /**
@@ -67,14 +67,16 @@ export type JustifyContent = ResponsiveValue<JustifyContentOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
  */
-export type FlexWrapOptions = Properties['flexWrap'];
+export type FlexWrapOptions = Properties["flexWrap"];
 export type FlexWrap = ResponsiveValue<FlexWrapOptions>;
 
-// TODO: The FlexBasisValue currently really only exists for documentation
-//       purposes, because flex-basis also accepts `Nem` and `Npx` strings.
-//       Not sure there’s a way to still have the union values show up as
-//       auto-completion results.
-export type FlexBasisOptions = Properties['flexBasis'];
+/*
+ * TODO: The FlexBasisValue currently really only exists for documentation
+ *       purposes, because flex-basis also accepts `Nem` and `Npx` strings.
+ *       Not sure there’s a way to still have the union values show up as
+ *       auto-completion results.
+ */
+export type FlexBasisOptions = Properties["flexBasis"];
 export type FlexBasis = ResponsiveValue<FlexBasisOptions>;
 
 /**
@@ -83,7 +85,7 @@ export type FlexBasis = ResponsiveValue<FlexBasisOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
  */
-export type FlexDirectionOptions = Properties['flexDirection'];
+export type FlexDirectionOptions = Properties["flexDirection"];
 export type FlexDirection = ResponsiveValue<FlexDirectionOptions>;
 
 /**
@@ -92,7 +94,7 @@ export type FlexDirection = ResponsiveValue<FlexDirectionOptions>;
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
  */
-export type FlexOptions = Properties['flex'];
+export type FlexOptions = Properties["flex"];
 export type Flex = ResponsiveValue<FlexOptions>;
 
 /**
@@ -103,16 +105,16 @@ export type Flex = ResponsiveValue<FlexOptions>;
  */
 export type JustifySelfOptions =
   | Globals
-  | Properties['position']
-  | 'auto'
-  | 'baseline'
-  | 'left'
-  | 'normal'
-  | 'right'
-  | 'stretch'
+  | Properties["position"]
+  | "auto"
+  | "baseline"
+  | "left"
+  | "normal"
+  | "right"
+  | "stretch"
   | string;
 export type JustifySelf =
-  | ResponsiveValue<Globals | Properties['position'] | 'auto' | 'baseline' | 'left' | 'normal' | 'right' | 'stretch'>
+  | ResponsiveValue<Globals | Properties["position"] | "auto" | "baseline" | "left" | "normal" | "right" | "stretch">
   | ResponsiveValue<string>;
 
 /**
@@ -123,9 +125,9 @@ export type JustifySelf =
  *
  * [MDN reference](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
  */
-export type AlignSelfOptions = Globals | Properties['position'] | 'auto' | 'baseline' | 'normal' | 'stretch' | string;
+export type AlignSelfOptions = Globals | Properties["position"] | "auto" | "baseline" | "normal" | "stretch" | string;
 export type AlignSelf =
-  | ResponsiveValue<Globals | Properties['position'] | 'auto' | 'baseline' | 'normal' | 'stretch'>
+  | ResponsiveValue<Globals | Properties["position"] | "auto" | "baseline" | "normal" | "stretch">
   | ResponsiveValue<string>;
 
 /**
@@ -156,17 +158,95 @@ export type FlexShrinkOptions = Globals | number;
 export type FlexShrink = ResponsiveValue<FlexShrinkOptions>;
 
 export interface FlexboxProps {
+  /**
+   * Responsive prop for the CSS `align-items` property
+   *
+   * @type {AlignItems}
+   * @memberof FlexboxProps
+   */
   alignItems?: AlignItems;
+  /**
+   * Responsive prop for the CSS `align-content` property
+   *
+   * @type {AlignContent}
+   * @memberof FlexboxProps
+   */
   alignContent?: AlignContent;
+  /**
+   * Responsive prop for the CSS `justify-items` property
+   *
+   * @type {JustifyItems}
+   * @memberof FlexboxProps
+   */
   justifyItems?: JustifyItems;
+  /**
+   * Responsive prop for the CSS `justify-content` property
+   *
+   * @type {JustifyContent}
+   * @memberof FlexboxProps
+   */
   justifyContent?: JustifyContent;
+  /**
+   * Responsive prop for the CSS `flex-wrap` property
+   *
+   * @type {FlexWrap}
+   * @memberof FlexboxProps
+   */
   flexWrap?: FlexWrap;
+  /**
+   * Responsive prop for the CSS `flex-direction` property
+   *
+   * @type {FlexDirection}
+   * @memberof FlexboxProps
+   */
   flexDirection?: FlexDirection;
+  /**
+   * Responsive prop for the CSS `flex` property
+   *
+   * @type {Flex}
+   * @memberof FlexboxProps
+   */
   flex?: Flex;
+  /**
+   * Responsive prop for the CSS `flex-grow` property
+   *
+   * @type {FlexGrow}
+   * @memberof FlexboxProps
+   */
   flexGrow?: FlexGrow;
+  /**
+   * Responsive prop for the CSS `flex-shrink` property
+   *
+   * @type {FlexShrink}
+   * @memberof FlexboxProps
+   */
   flexShrink?: FlexShrink;
+  /**
+   * Responsive prop for the CSS `flex-basis` property
+   *
+   * @type {FlexBasis}
+   * @memberof FlexboxProps
+   */
   flexBasis?: FlexBasis;
+  /**
+   * Responsive prop for the CSS `justify-self` property
+   *
+   * @type {JustifySelf}
+   * @memberof FlexboxProps
+   */
   justifySelf?: JustifySelf;
+  /**
+   * Responsive prop for the CSS `align-self` property
+   *
+   * @type {AlignSelf}
+   * @memberof FlexboxProps
+   */
   alignSelf?: AlignSelf;
+  /**
+   * Responsive prop for the CSS `order` property
+   *
+   * @type {Order}
+   * @memberof FlexboxProps
+   */
   order?: Order;
 }

@@ -1,18 +1,16 @@
----
-title: Filter group
-description: The filter group pattern allows the user to filter lists, tables, and any other collection of data.
-slug: /patterns/filter-group/
----
-
-import {graphql} from 'gatsby';
+export const meta = {
+  title: 'Filter group',
+  description: 'The filter group pattern allows the user to filter lists, tables, and any other collection of data.',
+  slug: '/patterns/filter-group/',
+};
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 
 import {
@@ -20,45 +18,27 @@ import {
   EmptyStateFilterGroupExample,
   CustomDateFilterGroupExample,
 } from '../../../component-examples/filter-group/Examples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/filter-group/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Filter group"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Filter group');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizePatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -66,7 +46,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -209,8 +189,8 @@ When the Custom option is selected, the Popover containing the Date Inputs and T
 **Complex table filtering** is for users who are adding more than 5 filter parameters, multi-select filter criteria,
 selecting custom query rules, and/or creating complex if/else logic without code to filter down a large data table.
 
-<Callout>
-  <CalloutTitle>This pattern is coming soon!</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">This pattern is coming soon!</CalloutHeading>
   <CalloutText>
     We've not created this variant of filter group pattern. If you need this for your current or upcoming work, please
     consider partnering with us to <Anchor href="/introduction/contributing/patterns/">contribute it</Anchor>.
@@ -221,8 +201,8 @@ selecting custom query rules, and/or creating complex if/else logic without code
 
 **Insights filtering** is for users who are adding deeper query logic for their Insights products.
 
-<Callout>
-  <CalloutTitle>This pattern is coming soon!</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">This pattern is coming soon!</CalloutHeading>
   <CalloutText>
     We've not created this variant of filter group pattern. If you need this for your current or upcoming work, please
     consider partnering with us to <Anchor href="/introduction/contributing/patterns/">contribute it</Anchor>.

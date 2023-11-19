@@ -1,11 +1,10 @@
----
-title: Select - Components
-package: '@twilio-paste/select'
-description: A select allows users to select an option from a list in a form field.
-slug: /components/select/
----
+export const meta = {
+  title: 'Select - Components',
+  package: '@twilio-paste/select',
+  description: 'A select allows users to select an option from a list in a form field.',
+  slug: '/components/select/',
+};
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {HelpText} from '@twilio-paste/help-text';
 import {Input} from '@twilio-paste/input';
@@ -19,66 +18,50 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/select/CHANGELOG.md';
+import packageJson from '@twilio-paste/select/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/select"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/select/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Select"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/select"
-  storybookUrl="/?path=/story/components-select--select"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Select');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/select',
+        storybookUrl: '/?path=/story/components-select--default-select',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Select, Option, Label}} language="jsx">
+  {`<>
+  <Label htmlFor="author">Select an author</Label>
+  <Select id="author">
+    <Option value="baldwin">James Baldwin</Option>
+    <Option value="brown">adrienne maree brown</Option>
+    <Option value="butler">Octavia Butler</Option>
+    <Option value="coates">Ta-Nehisi Coates</Option>
+    <Option value="lorde">Audre Lorde</Option>
+    <Option value="nnedi">Nnedi Okorafor</Option>
+  </Select>
+</>`}
+</LivePreview>
 
 ## Guidelines
 
@@ -94,74 +77,29 @@ At its most basic, a Select has an options list that’s styled according to the
 
 Use a Select when:
 
-<UnorderedList>
-  <ListItem>You need a native picker experience, especially on mobile devices.</ListItem>
-  <ListItem>
-    Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (<em>e.g.</em>,
-    alphabetical list of states or countries).
-  </ListItem>
-  <ListItem>You need the component to work out-of-the-box across all operating systems and browsers.</ListItem>
-</UnorderedList>
+- You need a native picker experience, especially on mobile devices.
+- Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options, like an alphabetical list of states or countries.
+- You need the component to work out-of-the-box across all operating systems and browsers.
 
 Use a [Combobox](/components/combobox) when:
 
-<UnorderedList>
-  <ListItem>You need a Twilio-styled options list.</ListItem>
-  <ListItem>
-    You need to show more than text in an option (<em>e.g.</em>, text paired with an icon).
-  </ListItem>
-  <ListItem>
-    You need placeholder text in the field to show an example option, rather than a pre-selected option.
-  </ListItem>
-  <ListItem>
-    Users would benefit from typeahead functionality (<em>e.g.</em>, autocomplete, search). For example, typeahead may
-    be useful when users need to select from a list of more than 10 options.
-  </ListItem>
-  <ListItem>You need to lazy load a much longer list of options to improve page load performance.</ListItem>
-</UnorderedList>
+- You need a Twilio-styled options list.
+- You need to show more than text in an option, like text paired with an icon.
+- Users would benefit from typeahead functionality. For example, typeahead may be useful when users need to select from a list of more than 10 options.
+- You need to lazy load a much longer list of options to improve page load performance.
 
 ### Accessibility
 
-<UnorderedList>
-  <ListItem>
-    Include a visible label on <strong>all</strong> form fields.
-  </ListItem>
-  <ListItem>
-    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
-    associated input.
-  </ListItem>
-  <ListItem>
-    Use one of 3 ways to label a form field:
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Visible label with <Anchor href="#formlabel-props">Label</Anchor> (preferred)
-      </ListItem>
-      <ListItem>
-        Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode>
-      </ListItem>
-      <ListItem>
-        Label directly using <inlineCode>aria-label</inlineCode>
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Provide clear identification of required fields in the label or at the start of a form. If you use the required
-    field indicator, include the form key at the start of the form.
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Include inline error text with the error icon on any field that errors to make it visually clear that the field
-    changed.
-  </ListItem>
-  <ListItem>
-    If the input has assicated help text or error text, include the <inlineCode>aria-describedby</inlineCode> prop on
-    the input. This should match the <inlineCode>id</inlineCode> of the help or error text.
-  </ListItem>
-</UnorderedList>
+- Include a visible label on **all** form fields.
+- Each label must use the `htmlFor` prop that equals the `id` of the associated input.
+- Label a form field using one of these methods:
+  - Visible label with [Label](/components/label) (preferred)
+  - Visible label that's associated to the input with `aria-labelledby`
+  - Label directly using `aria-label`
+- Provide clear identification of required fields in the label or at the start of a form. If you use the required field indicator, include the form key at the start of the form.
+  - Use the `required` prop to programatically indicate they are required to browsers.
+- Include inline error text with the error icon on any field that errors to make it visually clear that the field changed.
+- If the input has assicated help text or error text, include the `aria-describedby` prop on the input. This should match the `id` of the help or error text.
 
 ## Examples
 
@@ -197,8 +135,8 @@ The Select component should include the base Select, along with supporting eleme
 - **Optional field indicator** — In a form where there are more required fields than optional fields, use an optional indicator to show users which fields they don’t have to fill out. In general, ask for information only when needed. Consider removing the optional fields.
 - **Help text** — Text that’s placed below the field to help users prevent an error and describe what makes the form field successful.
 
-<Callout>
-  <CalloutTitle as="h4">Accessibility insight</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Select</inlineCode>. This is done with
     the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the select.
@@ -229,7 +167,7 @@ The Select component should include the base Select, along with supporting eleme
   <Select
     id="select_add_ons_prefix_demo"
     htmlFor="select_add_ons_prefix_demo"
-    insertBefore={<Text as="span" fontWeight="fontWeightSemibold">+1</Text>}
+    insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">+1</Text>}
   >
     <Option value="cats">(415) 555-CATS</Option>
     <Option value="dogs">(415) 555-DOGS</Option>
@@ -318,7 +256,7 @@ Use an `OptionGroup` to create groupings of options within the select element.
 
 Avoid errors on selects by removing or disabling invalid options from the list of options.
 
-If a user is able to choose an invalid option, change a select to its error state and add an inline error. An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+If a user is able to choose an invalid option, change a Select to its error state and use [Help Text](/components/help-text) to add an inline error. The Help Text inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
 
 <LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
@@ -434,7 +372,7 @@ To support internationalization, avoid starting a sentence with the label and us
 
 Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
-If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead.
+If you need to use more than two sentences to explain a field, link out to supporting docs or trigger a popover instead.
 
 ### Required or optional field identifier
 
@@ -448,31 +386,13 @@ If a field is required and there’s no safe default selected value, default to 
 
 Disable or remove any options in a select that would result in an error if possible. Validate form fields on form submission.
 
-Don’t prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+Don’t prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use An error messages to explain what information is missing or incorrect.
 
 ### Errors
 
-Disable or remove any options in a select that would result in an error if possible. If an error occurs, use inline error text to explain how to fix an error.
+Disable or remove any options in a select that would result in an error if possible. If an error occurs, use Help Text to show an inline error that explains how to fix the error.
 
-Ideally, help text should have enough information to help users prevent errors. If you need to show an error and `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
-
-Error text should:
-
-<UnorderedList>
-  <ListItem>
-    Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in
-    the future.
-  </ListItem>
-  <ListItem>Be concise and simple. Avoid jargon. Try to keep error text to 2 sentences or fewer.</ListItem>
-  <ListItem>
-    Use the passive voice for input errors to avoid placing blame on the user. For example, “A friendly name is
-    required.”
-  </ListItem>
-  <ListItem>
-    Use the active voice for system errors. For example, “Our systems are currently down. Please contact our support
-    team.”
-  </ListItem>
-</UnorderedList>
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 ### Optional compositional elements
 
@@ -699,220 +619,3 @@ Use a select when:
   </Dont>
 </DoDont>
 
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Box Shadow</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
-            <ListItem>Disabled: $shadow-border-weak</ListItem>
-            <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Background</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-background-body</ListItem>
-            <ListItem>Disabled, Readonly: $color-background</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weak</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Help text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Input:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Left padding: $space-40</ListItem>
-                <ListItem>Top, right, bottom padding: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>Prefix/suffix padding: $space-30</ListItem>
-            <ListItem>
-              Help text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Inline error:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Spacing between icon and text: $space-20</ListItem>
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Chevron</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Icon: IconChevronDown, $space-20 from left</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/select
-```
-
-#### Usage
-
-```jsx
-import {Select, Option} from '@twilio-paste/core/select';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-<Label htmlFor="foo" required>Foo</Label>
-<Select id="foo" name="foo" onChange={FOO} required>
-  <Option value="foo-bar">Foo Bar</Option>
-  <Option value="bar-foo">Bar Foo</Option>
-</Select>
-<HelpText variant="default">Select one</HelpText>
-```
-
-#### Select props
-
-All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select">valid HTML attributes</Anchor> for `select` are supported including the following props:
-
-| Prop          | Type                                            | Description                                                                               | Default   |
-| ------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
-| id?           | string                                          | Sets the id of the input. Should match the htmlFor of `Label`.                            | null      |
-| name?         | string                                          | Sets the name of the select.                                                              | null      |
-| value?        | string, string[]                                | Sets the value of the select. Expects an array when `multiple` is present.                | null      |
-| children      | `NonNullable>React.ReactNode>`                  | Must be `Option` or `OptionGroup`. Required.                                              | null      |
-| disabled?     | boolean                                         | Disables the input.                                                                       | false     |
-| insertBefore? | `React.ReactNode`                               | Add Prefix to the select input.                                                           | null      |
-| insertAfter?  | `React.ReactNode`                               | Add Suffix to the select input.                                                           | null      |
-| required?     | boolean                                         | Sets the input as required.                                                               | false     |
-| hasError?     | boolean                                         | Sets the input to an error state.                                                         | false     |
-| onChange?     | `(event: React.ChangeEvent<HTMLSelectElement>)` |                                                                                           | null      |
-| onFocus?      | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                           | null      |
-| onBlur?       | `(event: React.MouseEvent<HTMLElement>)`        |                                                                                           | null      |
-| variant?      | 'default', 'inverse'                            |                                                                                           | 'default' |
-| element?      | `string`                                        | Overrides the default element name to apply unique styles with the Customization Provider | 'SELECT'  |
-
-#### Option props
-
-All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option">valid HTML attributes</Anchor> for `option` are supported including the following props:
-
-| Prop      | Type             | Description                                                                               | Default  |
-| --------- | ---------------- | ----------------------------------------------------------------------------------------- | -------- |
-| id        | string           | Sets the id of the input. Should match the htmlFor of `Label`. Required.                  | null     |
-| name      | string           | Sets the name of the select. Required.                                                    | null     |
-| value     | string, string[] | Sets the value of the select. Expects an array when `multiple` is present. Required.      | null     |
-| disabled? | boolean          | Disables the input.                                                                       | false    |
-| element?  | `string`         | Overrides the default element name to apply unique styles with the Customization Provider | 'OPTION' |
-
-#### OptionGroup props
-
-All the <Anchor target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup">valid HTML attributes</Anchor> for `optgroup` are supported including the following props:
-
-| Prop     | Type                           | Description                                                                               | Default        |
-| -------- | ------------------------------ | ----------------------------------------------------------------------------------------- | -------------- |
-| label    | string                         | Sets the label of the optgroup. Required.                                                 | null           |
-| children | `<NonNullable>React.ReactNode` | Must be `Option`. Required.                                                               | null           |
-| element? | `string`                       | Overrides the default element name to apply unique styles with the Customization Provider | 'OPTION_GROUP' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

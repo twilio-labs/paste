@@ -1,4 +1,4 @@
-import * as React from 'react';
-import type {MessageVariants} from './types';
+import * as React from "react";
 
-export const MessageVariantContext = React.createContext<MessageVariants>('inbound');
+export type MessageVariants = "inbound" | "outbound";
+export const MessageVariantContext = React.createContext<MessageVariants>("inbound");

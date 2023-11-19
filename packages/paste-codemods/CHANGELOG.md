@@ -1,5 +1,131 @@
 # Change Log
 
+## 0.6.1
+
+### Patch Changes
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [codemods]: Updated exports map
+
+## 0.6.0
+
+### Minor Changes
+
+- [`3f33da826`](https://github.com/twilio-labs/paste/commit/3f33da826be1f339dc960bd91ae07b6186c87bb8) [#3557](https://github.com/twilio-labs/paste/pull/3557) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] updated exports for type updates
+
+### Patch Changes
+
+- [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated paste exports map
+
+## 0.5.0
+
+### Minor Changes
+
+- [`6bc4a8ade`](https://github.com/twilio-labs/paste/commit/6bc4a8ade1b3b9f76bfeee8a954fe3b3969c36d2) [#3501](https://github.com/twilio-labs/paste/pull/3501) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] New exports from icons package
+
+### Patch Changes
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - Updated exports for tsdoc additions
+
+* [`dfff35e1e`](https://github.com/twilio-labs/paste/commit/dfff35e1e6241596ad93ac1056e072e1a8f57dc9) [#3493](https://github.com/twilio-labs/paste/pull/3493) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated exports map
+
+- [`b48a0f4ea`](https://github.com/twilio-labs/paste/commit/b48a0f4ea67060070c9fbddc3fde505427b83eb5) [#3502](https://github.com/twilio-labs/paste/pull/3502) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] updated pacakge exports
+
+* [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+## 0.4.1
+
+### Patch Changes
+
+- [`455172f9e`](https://github.com/twilio-labs/paste/commit/455172f9edc0837dc778b6b7203151fb169a5766) [#3461](https://github.com/twilio-labs/paste/pull/3461) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] Include new mappings:
+
+  - `ProgressBar`
+  - `useMultiselectCombobox`
+  - `useMultiSelectPrimitive`
+
+* [`554c23006`](https://github.com/twilio-labs/paste/commit/554c2300695839c29fd17717ecddb3732e32e111) [#3463](https://github.com/twilio-labs/paste/pull/3463) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] New export from Meter package: MeterLabel
+
+## 0.4.0
+
+### Minor Changes
+
+- [`7bdac721b`](https://github.com/twilio-labs/paste/commit/7bdac721b968a73180e3a74fbcd1bfecb0b53ef2) [#3430](https://github.com/twilio-labs/paste/pull/3430) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] New addition of Meter package.
+
+## 0.3.8
+
+### Patch Changes
+
+- [`360d79922`](https://github.com/twilio-labs/paste/commit/360d7992263fb162c74c8e7db20a97d0f170151c) [#3350](https://github.com/twilio-labs/paste/pull/3350) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] new Visual Picker exports
+
+## 0.3.7
+
+### Patch Changes
+
+- [`61c310e78`](https://github.com/twilio-labs/paste/commit/61c310e78636b3951b1d6825dbf8ee41782bad61) [#3317](https://github.com/twilio-labs/paste/pull/3317) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] include new skiplinks export from Sidebar
+
+* [`5b0d3f360`](https://github.com/twilio-labs/paste/commit/5b0d3f360f90d97f5e487a863230716c3696ab48) [#3312](https://github.com/twilio-labs/paste/pull/3312) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] add new export to utils package
+
+## 0.3.6
+
+### Patch Changes
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - Updating core exports list
+
+## 0.3.5
+
+### Patch Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codemods] add SidebarNavigation components
+
+* [`a2c1c910a`](https://github.com/twilio-labs/paste/commit/a2c1c910addc4efc2a5db87b11eac2289489de38) [#3272](https://github.com/twilio-labs/paste/pull/3272) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codemods] add new ProgressSteps package
+
+- [`66127dd15`](https://github.com/twilio-labs/paste/commit/66127dd15e5e2738e711bd9533e24deaf7d13986) [#3254](https://github.com/twilio-labs/paste/pull/3254) Thanks [@nkrantz](https://github.com/nkrantz)! - Add to user dialog package
+
+## 0.3.4
+
+### Patch Changes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemod]: updated exports
+
+* [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codemods] Add `@twilio-paste/topbar` package
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods]: Updated package exports for new components
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] add AvatarGroup to `@twilio-paste/avatar` package
+
+## 0.3.3
+
+### Patch Changes
+
+- [`80c9f85f7`](https://github.com/twilio-labs/paste/commit/80c9f85f7a46856f01ee262418f7d0e394999e69) [#3172](https://github.com/twilio-labs/paste/pull/3172) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Codemods] babel dependency update
+
+* [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codemods] add Sidebar package to package mappings
+
+## 0.3.2
+
+### Patch Changes
+
+- [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
+## 0.3.1
+
+### Patch Changes
+
+- [`edca0f7c8`](https://github.com/twilio-labs/paste/commit/edca0f7c8dcf612c6edf0dd98eb7dffe28c3fce9) [#2757](https://github.com/twilio-labs/paste/pull/2757) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button, radio-button-group, codemods] Correct the ToggleButtonStyles export for use in Radio Button Group
+
+## 0.3.0
+
+### Minor Changes
+
+- [`b79d20d2a`](https://github.com/twilio-labs/paste/commit/b79d20d2a4cdaaa85ffec09d280f7315f2556f76) [#2595](https://github.com/twilio-labs/paste/pull/2595) Thanks [@TheSisb](https://github.com/TheSisb)! - [InputBox, Combobox, Select] InputBox's `InputChevronWrapper` has refreshed styling which will appear in Select and Combobox. InputBox now exports a `getInputChevronIconColor()` function which returns a textColor to use for styling the icon child to the `InputChevronWrapper`.
+
+## 0.2.9
+
+### Patch Changes
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
 ## 0.2.8
 
 ### Patch Changes

@@ -1,0 +1,212 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - November 2023 Edition',
+  slug: '/blog/2023-11-08-paste-newsletter/',
+  date: '2023-11-08',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  status: 'published',
+  excerpt: "What's new in Paste in November 2023? AI is here!",
+};
+
+import Image from 'next/image';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import {Blockquote} from '../../components/Blockquote';
+
+import Pastebot from '../../assets/images/articles/2023-11-08-paste-newsletter/Pastebot.png';
+import DocsSearch from '../../assets/images/articles/2023-11-08-paste-newsletter/DocsSearch.png';
+import Figma1 from '../../assets/images/articles/2023-11-08-paste-newsletter/Figma1.gif';
+import Figma2 from '../../assets/images/articles/2023-11-08-paste-newsletter/Figma2.png';
+import Figma3 from '../../assets/images/articles/2023-11-08-paste-newsletter/Figma3.png';
+import DocsImprovements from '../../assets/images/articles/2023-11-08-paste-newsletter/DocsImprovements.png';
+import PageTemplates from '../../assets/images/articles/2023-11-08-paste-newsletter/PageTemplates.png';
+import NumberComponents from '../../assets/images/articles/2023-11-08-paste-newsletter/NumberComponents.png';
+import EditableCodeBlock from '../../assets/images/articles/2023-11-08-paste-newsletter/EditableCodeBlock.png';
+import ErrorPattern from '../../assets/images/articles/2023-11-08-paste-newsletter/ErrorPattern.png';
+import Pastemate1 from '../../assets/images/articles/2023-11-08-paste-newsletter/Pastemate1.png';
+import Pastemate2 from '../../assets/images/articles/2023-11-08-paste-newsletter/Pastemate2.png';
+
+
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What's new in Paste
+
+### Please welcome our newest team member, PasteBot!
+
+<Box width="100%" display="flex" justifyContent="center">
+  <Box maxWidth="500px">
+    <ResponsiveImage src={Pastebot} alt="Screenshot of a Github Discussion answered by Pastebot" />
+  </Box>
+</Box>
+
+Have you met PasteBot yet? It’s our new [Discussions](https://github.com/twilio-labs/paste/discussions) bot powered by OpenAI's GPT-4. Next time you post a Discussion on Github, you’ll get a speedy response from PasteBot. We’ve been impressed by its ability to successfully answer your questions with code examples, links to Paste docs, and even relevant answered Discussions. Be sure to wait for one of the Design Systems team members to review PasteBot’s answer, but so far, it’s doing great!
+
+### AI-powered docs search
+
+<ResponsiveImage src={DocsSearch} alt="Screenshot of the new search feature on the Paste docs site" />
+
+We’ve updated the [Paste docs site](https://paste.twilio.design/) search feature to now cross-reference the documentation that we write with past Github Discussions to increase the chance of you finding what you need. We have a lot of information covering most of the questions you will probably have already available, but it can be daunting and hard to find because there is so much. The updated search aims to give better, more relevant search results, and resurface some of the excellent resources that appear in Github Discussions from previously answered questions.
+
+### New Figma features for better design and engineering collaboration
+
+
+<Box
+  borderColor="colorBorderWeaker"
+  borderStyle="solid"
+  borderWidth="borderWidth10"
+  borderRadius="borderRadius20"
+  marginBottom="space60"
+>
+  <Box as={Image} maxWidth="100%" src={Figma1} alt="Gif of Figma variables feature" style={{objectFit: 'contain'}} />
+</Box>
+
+We added variables and modes to the [Paste Components & Themes](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/Paste-Components-%26-Themes?type=design&node-id=3015-46646&mode=design&t=LavBWI8WtuCpWbz0-0) (newly renamed — thanks, **Chof**!) Figma library to allow easier swapping between Twilio, Twilio Dark, Evergreen, and Default themes. This update combines styles from 4 of our theme libraries and our component library into one single easy-to-import file.
+
+[Learn more about how to swap modes.](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables#h_01H3ADKDF7JBTRV1Z5P1X1DZVE)
+
+<ResponsiveImage src={Figma2} alt="Screenshot of spacing tokens being used in Figma" />
+
+The addition of spacing variables also means you can now use our spacing tokens with autolayout. For engineers, this means you can get spacing tokens directly from inspecting screens in Figma’s Dev Mode without having to make the pixel-to-token conversion yourself.
+
+[Learn more about Dev Mode.](https://help.figma.com/hc/en-us/articles/15023124644247-Guide-to-Dev-Mode)
+
+<ResponsiveImage src={Figma3} alt="Screenshot of dev mode in Figma" />
+
+We’ve also released a Dev Mode plugin which opens the Paste docs page for a component directly in Figma. All you have to do is:
+
+1. Select a component in a Figma file.
+2. Turn on Dev Mode with the toggle switch in the upper right, and go to Dev Mode plugins.
+3. Run the “Paste Documentation Viewer” plugin (you might have to search for it first).
+4. 🚀
+
+We’d love to hear about your experience using all these new features!
+
+### Documentation improvements
+
+<Box width="100%" display="flex" justifyContent="center">
+  <Box maxWidth="400px">
+    <ResponsiveImage src={DocsImprovements} alt="Screenshot of updated Paste documentation format" />
+  </Box>
+</Box>
+
+In an effort to make our documentation more readable and accessible so that you can get right to the information you need, we’ve done a major sweep to our component docs. Now, instead of everything being on the same page, each component has 3 pages: Guidelines, API, and Changelog. All the same useful guidance and examples exist, but now you can jump straight to the component’s properties with a helpful table of contents for each part of the component’s props. Rather than maintaining a manual props table, we’ve added TsDoc comments to each component package so that you always have the most up to date information about available props.
+
+### Page templates
+
+<Box width="100%" display="flex" justifyContent="center">
+  <Box maxWidth="600px">
+    <ResponsiveImage src={PageTemplates} alt="Preview of the object details page template" />
+  </Box>
+</Box>
+
+Introducing [page templates](/page-templates)! Brand new to Paste, page templates bring a collection of components and patterns together into recommended full-page layouts to drive further cohesion across our platforms. Product- and platform-agnostic, templates ready for use today in both Figma and code include object details, objects list, settings, and wizard pages.
+
+### Slider, Number Input, Progress Bar and Meter
+
+<Box width="100%" display="flex" justifyContent="center">
+  <Box maxWidth="500px">
+    <ResponsiveImage src={NumberComponents} alt="Preview of the Slider, Number Input, Progress Bar, and Meter components in Figma" />
+  </Box>
+</Box>
+
+Finding the most accurate and user-friendly way to represent numerical values is no small feat. We’ve introduced 4 new components, along with plenty of guidance, to help you select the best option when it comes to numerical representation. See [Slider](/components/slider), [Number Input](/components/input#input-with-number-functionality), [Progress Bar](/components/progress-bar), and [Meter](/components/meter) docs for more information.
+
+### Editable Code Block
+
+<ResponsiveImage src={EditableCodeBlock} alt="Paste Editable Code Block component example" />
+
+We’ve built an [Editable Code Block](/components/editable-code-block) that allows basic text input features for code-editing experiences on the web. It’s built on top of the Paste [Code Editor library](/core/libraries/code-editor), which wraps the Monaco Editor used by Visual Studio Code.
+
+### Error pattern
+
+<Box width="100%" display="flex" justifyContent="center">
+  <Box maxWidth="600px">
+    <ResponsiveImage src={ErrorPattern} alt="Do/Dont example from the error state pattern documentation" />
+  </Box>
+</Box>
+
+**Megan Allison** contributed yet another pattern: the [error state pattern](/patterns/error-state)! It includes extensive guidelines for notifying a user that something went wrong. Read the error pattern documentation for guidance on how to compose the message itself, which components to use for each specific error case, a comprehensive list of recommended phrasings, and accessibility guidance.
+
+### Additional updates
+
+We’ve just completed our annual round of roadmap reviews with product teams to help shape the future of our roadmap. Thanks to the Segment, Flex, Messaging, Voice, Web Platform, Commerce, Onboarding, Phone Numbers, and Brand teams for sharing your upcoming initiatives!
+
+#### New
+
+- Added a set of delivery status [icons](/components/icon).
+- Added the [confirmation pattern](/patterns/confirmation) (also contributed by Megan Allison). A confirmation ensures a user understands what will happen if they take an action that’s destructive, complex, or has an unexpected result.
+
+#### Improvements
+
+- Improved the [In Page Navigation](/components/in-page-navigation) component with design updates and additional documentation.
+
+## ✨ Pastemates™ spotlight
+*Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption within their products and channeling important feedback and contributions back into the system.*
+
+<Box width="100%" display="flex" justifyContent="center">
+  <Box maxWidth="600px">
+    <ResponsiveImage src={Pastemate1} alt="Pablo Deeleman" />
+  </Box>
+</Box>
+
+In this edition of Pastemates, we're spotlighting a mate from the Web Platform team, Pablo Deeleman! Pablo lives the Twilio Builder spirit, building complex prototypes with just out-of-the-box Paste components. During his time on the Event Streams team, he pushed the boundaries of what could be built with Paste "as is":
+
+<Blockquote>The whole node connectors UI, including the animations, is done with plain vanilla Paste components and primitives with no further tampering. No custom React/UI…was necessary to deliver this experience, and although it might seem quite a complex development, the whole UI was built in a couple of hours.</Blockquote>
+
+<Box width="100%" display="flex" justifyContent="center">
+  <Box maxWidth="600px">
+    <ResponsiveImage src={Pastemate2} alt="Event streams demo screenshot" />
+  </Box>
+</Box>
+
+We love Pablo’s demonstration of what can be achieved with Just Plain Paste™ and were delighted to learn that he even uses Paste as resource material for a design systems course he teaches at Harbour.Space University! Thanks for sharing all you’ve done with Paste, Pablo, and we truly can’t wait to see what you build next!
+
+<Box marginBottom="space120" />
+
+## 👀 What we're working on next
+
+| Feature                                 | Description                                                                                                                                                                                    |
+| --------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Page Header component**               | A standardized but flexible compositional component used at the top of a variety of pages.                                                                                                     |
+| **Design components for AI UI kit**     | Design for components that enable new AI experiences at Twilio, mainly focused around generative AI and chat.                                                                                  |
+| **Paste Copilot**                       | A Chat GPT powered support chat experience to help answer your Paste building and designing questions.                                                                                         |
+
+<Box marginBottom="space120" />
+
+As always, we're better together.
+
+<em>— The UX Infrastructure Team</em>
+
+</ArticleContent>
+
+</contentwrapper>

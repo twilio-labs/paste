@@ -1,12 +1,11 @@
----
-title: Card
-package: '@twilio-paste/card'
-description: The Twilio Paste Card
-slug: /components/card/
----
+export const meta = {
+  title: 'Card',
+  package: '@twilio-paste/card',
+  description: 'The Twilio Paste Card',
+  slug: '/components/card/',
+};
 
-import {graphql} from 'gatsby';
-import {GatsbyImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -16,102 +15,62 @@ import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/card/CHANGELOG.md';
+
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import PrimaryDo from '../../../assets/images/do1-primary-button.png';
+import PrimaryDont from '../../../assets/images/dont1-primary-button.png';
+import HeadingDo from '../../../assets/images/do2-heading-in-card.png';
+import MultipleDont from '../../../assets/images/dont2-multiple-primary.png';
+import packageJson from '@twilio-paste/card/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/card"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    primaryButtonDo: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/do1-primary-button.png"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    primaryButtonDont: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/dont1-primary-button.png"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    headingInCardDo: file(sourceInstanceName: {eq: "assets"}, relativePath: {eq: "images/do2-heading-in-card.png"}) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    multiplePrimaryDont: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/dont2-multiple-primary.png"}
-    ) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/card/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Card"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/card/"
-  storybookUrl="/?path=/story/components-card--default"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Card');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/card/',
+        storybookUrl: '/?path=/story/components-card--default',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Card, Paragraph, Heading, Anchor}} language="jsx">
+  {`<Card>
+  <Heading as="h2" variant="heading20">Parable of the Talents</Heading>
+  <Paragraph>
+    Choose your leaders with wisdom and forethought. To be led by a coward is to be controlled by all that the coward fears. To be led by a fool is to be led
+    by the opportunists who control the fool. To be led by a thief is to offer up your most precious treasures to be stolen. To be led by a liar is to ask to be
+    lied to. To be led by a tyrant is to sell yourself and those you love into slavery.
+  </Paragraph>
+  <Paragraph marginBottom="space0">— <Anchor href="https://www.goodreads.com/book/show/60932.Parable_of_the_Talents">Octavia Butler</Anchor></Paragraph>
+</Card>`}
+</LivePreview>
 
 ## Guidelines
 
 ### About Cards
 
-Cards are specifically-styled containers that group relatable content and actions. Card is an extremely
-flexible container that does not require specific components inside of it. You can compose a Card to support your use case,
-but elements such as [Heading](/components/heading), [Paragraph](/components/paragraph), and [Button](/components/button) or [Anchor](/components/anchor) are commonly used.
-See [When to use a Card](#when-to-use-a-card) and [Examples](#examples) for common Card patterns and dos/donts.
+Cards are specifically-styled containers that group related content and actions. Cards are a great tool for placing a concise amount of related information together in one object, much like a business card or baseball card in real life.
 
-A Card does not handle any interactive events such as hover, click, or focus, though children
-composed inside of it may commonly have event handlers.
+Card is an extremely flexible container that does not require specific components inside of it. You can compose a Card to support your use case, but elements such as [Heading](/components/heading), [Paragraph](/components/paragraph), and [Button](/components/button) or [Anchor](/components/anchor) are commonly used.
 
-Acknowledging the flexibility of Card component, there are several [non-negotiable properties](#anatomy)
-of a Card that differentiate it from a more basic page-layout element, such as [Box](/primitives/box) including background color, border width, border radius, and border color.
+A Card does not handle any interactive events such as hover, click, or focus, though children composed inside of it may commonly have event handlers.
+
+Acknowledging the flexibility of Card component, there are several [non-negotiable properties](#anatomy) of a Card that differentiate it from a more basic page-layout element, such as [Box](/primitives/box) including background color, border width, border radius, and border color.
 
 ### Card vs. Box
 
@@ -196,15 +155,15 @@ Card using Box or Flex.
 </Card>;`}
 </LivePreview>
 
-## Composing a Card
+## Composition notes
 
-### When to use a Card
+When a Card contains text content, use the following guidelines:
 
-Cards are a great tool for relating a concise amount of related information together in one object, much like a business card or baseball card in real life.
+- Use a [Heading](/components/heading) to highlight the most important information.
+- Use a [Paragraph](/components/paragraph) to add additional context. Do not repeat the information in the header. Front-load the most critical information.
+- When presenting multiple Cards of equal weight on a single page, structure each Card's content similarly.
 
-For example, you might use a single Card as a summary for a feature whose call to action encourages a user to dive deeper. Alternatively, multiple Cards on a single page with hierarchy of equal weights could be used to highlight multiple choices or paths a user can take.
-
-Ultimately, Card is a very flexible component that can fit a variety of needs. If you feel that you have a unique use case or are limited by the Card implementation, please visit Design System Office Hours to see how we can help address your needs.
+## Do and don't
 
 <DoDont>
   <Do
@@ -212,10 +171,10 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
     body="Have a clear call to action when including Buttons. Avoid including more than one primary and one secondary button."
     preview={false}
   >
-    <GatsbyImage image={props.data.primaryButtonDo.childImageSharp.gatsbyImageData} />
+    <Image src={PrimaryDo} alt="" fill />
   </Do>
   <Dont title="Don't" body="Don’t put multiple primary actions in a Card" preview={false}>
-    <GatsbyImage image={props.data.primaryButtonDont.childImageSharp.gatsbyImageData} />
+    <Image src={PrimaryDont} alt="" fill />
   </Dont>
 </DoDont>
 
@@ -225,10 +184,10 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
     body="Use a Heading in your Card that appropriately reflects the information architecture of the page."
     preview={false}
   >
-    <GatsbyImage image={props.data.headingInCardDo.childImageSharp.gatsbyImageData} />
+    <Image src={HeadingDo} alt="" fill />
   </Do>
   <Dont title="Don't" body="Don’t use Cards to highlight multiple primary actions on a single page." preview={false}>
-    <GatsbyImage image={props.data.multiplePrimaryDont.childImageSharp.gatsbyImageData} />
+    <Image src={MultipleDont} alt="" fill />
   </Dont>
 </DoDont>
 
@@ -245,50 +204,3 @@ Ultimately, Card is a very flexible component that can fit a variety of needs. I
   />
 
 </DoDont>
-
-## Anatomy
-
-| Property         | Default token         | Modifiable? |
-| ---------------- | --------------------- | ----------- |
-| background-color | color-background-body | No          |
-| border-width     | border-width-20       | No          |
-| border-radius    | border-radius-20      | No          |
-| border-color     | color-border-weaker   | No          |
-| padding          | space-60              | Yes         |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/card - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Card} from '@twilio-paste/core/card';
-
-const Card = () => <Card>Hello world</Card>;
-```
-
-#### Props
-
-| Prop            | Type              | Description                                                                               | Default   |
-| --------------- | ----------------- | ----------------------------------------------------------------------------------------- | --------- |
-| children?       | `React.ReactNode` | Child components to render into the card                                                  | undefined |
-| padding         | `Spacing`         | Internal spacing of the card                                                              | space60   |
-| globalHtmlAttrs | `string`          | Any html attrs like aria, data etc.                                                       | undefined |
-| element?        | `string`          | Overrides the default element name to apply unique styles with the Customization Provider | 'CARD'    |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

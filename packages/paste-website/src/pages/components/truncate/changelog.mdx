@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Truncate - Changelog',
+  package: '@twilio-paste/truncate',
+  description: 'The Truncate component can be used to shorten a string of text that overflows a defined area.',
+  slug: '/components/truncate/changelog',
+};
+
+import Changelog from '@twilio-paste/truncate/CHANGELOG.md';
+import packageJson from '@twilio-paste/truncate/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Truncate');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/truncate',
+        storybookUrl: '/?path=/story/components-truncate--default',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -1,0 +1,290 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - June 2022 Edition',
+  slug: '/blog/2022-06-28-paste-newsletter/',
+  date: '2022-06-28',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  author_link: null,
+  status: 'published',
+  external_link: null,
+  excerpt: "What's new in Paste in June 2022? Paste Intellisense, resizeable Textarea, important upgrades, and more!",
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import PasteIntellisense from '../../assets/images/articles/2022-06-28-paste-newsletter/paste-intellisense.png';
+import TextArea from '../../assets/images/articles/2022-06-28-paste-newsletter/textarea.png';
+import OneTwilio from '../../assets/images/articles/2022-06-28-paste-newsletter/one-twilio.png';
+import Emotion from '../../assets/images/articles/2022-06-28-paste-newsletter/emotion.png';
+import Nextjs from '../../assets/images/articles/2022-06-28-paste-newsletter/nextjs.png';
+import Gapur from '../../assets/images/articles/2022-06-28-paste-newsletter/gapur.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 🙌 Thank you to our H1 2022 Committee!
+
+The Design Systems Committee is made up of designers and engineers from
+a wide variety of teams who regularly use Paste and provide insight and
+feedback on the system. Over the past six months, Committee members have
+reviewed Badge, Multi-select Combobox, the Data Visualization library,
+and much more. Their input has been invaluable in the progression of
+Twilio’s Design System, and we on the UX Infrastructure team are
+incredibly grateful for their participation!
+
+If you’re interested in becoming a part of the Design Systems Committee
+for the next half of the year, please reach out to [Loreina Chew](mailto:lchew@twilio.com).
+
+## 🚀 What's new
+
+### Paste Intellisense
+
+<ResponsiveImage src={PasteIntellisense} alt="Screenshot of the Paste Intellisense plugin being used in VS Code" />
+
+Engineers, get ready for your lives to become a whole lot easier! <b>Gapur Kassym</b> from the Frontline team recently developed and contributed an exciting new tool: a VS Code extension
+that allows the user to easily view the pixel or rem value of a design token.
+[Paste Intellisense](https://marketplace.visualstudio.com/items?itemName=Gapur.twilio-paste-intellisense) populates a list of suggestions in a drop-down menu for autocompleting tokens, and it also shows the actual value
+of a token on hover. We’re thrilled to see this design tooling contribution come to life as we incorporate it into the Paste
+monorepo!
+
+<Paragraph>
+  <Anchor href="https://marketplace.visualstudio.com/items?itemName=Gapur.twilio-paste-intellisense">
+    Give Paste Intellisense a try
+  </Anchor>
+</Paragraph>
+
+### Textarea component can now be resized!
+
+<ResponsiveImage src={TextArea} alt="Paste textarea component with label and help text showing the resize option" />
+
+We recently released a major update to Paste (v14.0.0) to upgrade our Textarea component. It no longer has a dependency on `react-autosize-textarea` and instead has a peerDependency on `@twilio-paste/react-textarea-autosize-library` (which is bundled in `@twilio-paste/core`). The reason we changed this is to add a new resize prop, which defaults to ‘none’ and allows vertical. This prop allows users to resize the Textarea to whatever height they want.
+
+<Paragraph>
+  <Anchor href="/components/textarea/#resizable-textarea">Check out the resizable Textarea example</Anchor>
+</Paragraph>
+
+### One Twilio blog post
+
+<ResponsiveImage
+  src={OneTwilio}
+  alt="Text on a blue background reading 'Bringing Cohesion to the Twilio Product Suite; Part I"
+/>
+
+The One Twilio team wrote a blog post about the research phase of their initiative to bring cohesion to Twilio’s full product suite. The post was published on [Twilio’s blog](https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-i) and was featured in [Issue 133 of Design Systems News](https://news.design.systems/issues/133).
+
+Give it a read if you’d like to learn more about the customer research, market analysis, and ecosystem audits that the team tackled to set a strong foundation for the design work to come.
+
+<Paragraph>
+  <Anchor href="https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-i">
+    Read the blog post
+  </Anchor>
+</Paragraph>
+
+### Emotion updated to version 11
+
+<ResponsiveImage src={Emotion} alt="Screenshot of the emotion 11 upgrade PR in github" />
+
+We recently released a major update to Paste in order to upgrade [Emotion](https://emotion.sh/docs/introduction), the style library on which Paste is built. Make sure to upgrade the version of `@twilio-paste/core` you’re using when convenient, and [keep an eye on the changelog](/core/changelog/) to make sure you don’t miss any future releases. If you’re curious about the changes that came along with version 11 of Emotion, [read about them on the Emotion docs](https://emotion.sh/docs/emotion-11).
+
+<Paragraph>
+  <Anchor href="https://www.npmjs.com/package/@twilio-paste/core">Update Paste</Anchor>
+</Paragraph>
+
+### We updated our NextJS starter template
+
+<ResponsiveImage src={Nextjs} alt="NextJS logo" />
+
+Starting a brand new project with Paste and NextJS? [Our starter template](/introduction/for-engineers/quickstart/#using-create-next-app) can get you up and running in no time! We’ve recently updated the template to use the latest version of NextJS so you can spin-up a project on the cutting edge. This version drops support for Node v12, so make sure you’re up to date in your Node versions. As always, if you encounter any issues, [reach out to let us know](https://github.com/twilio-labs/paste/discussions).
+
+<Paragraph>
+  <Anchor href="/introduction/for-engineers/quickstart/#using-create-next-app">
+    Make your own Paste app using NextJS
+  </Anchor>
+</Paragraph>
+
+## ⚡ Pastemates™
+
+<em>
+  Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption
+  within their products and channeling important feedback and contributions back into the system.
+</em>
+
+<ResponsiveImage src={Gapur} alt="This month's Pastemate, Gapur Kassym" />
+
+We’re excited and inspired by this Pastemate’s contribution. Gapur Kassym from the Frontline team created a VS Code extension that blew us all away! [Visual Studio Code](https://code.visualstudio.com/) (aka VS Code) is a dev environment that allows for customization through extensions, and Gapur’s [Paste Intellisense extension](https://marketplace.visualstudio.com/items?itemName=Gapur.twilio-paste-intellisense) allows developers to more easily use Paste in their projects. Gapur’s work uses autocomplete and hover features to show the name and value of Paste’s design tokens as they’re used in the code. By integrating this knowledge into the development space, Gapur has made a tool with the potential to simplify and empower all builders who use Paste! He recently demoed the extension for us and told us about his ideas for future features, so stay tuned! He lived all four values of the [Twilio Magic 2.0](https://switchboard.twilio.com/sites/all-about-us/SitePageModern/13749/twilio-magic-2-0), and we can’t wait to add his contribution to our system soon. Thank you, Gapur!
+
+## 🚦 BPM update
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>BPM</Th>
+      <Th>Status</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Paste goes international</strong>
+      </Td>
+      <Td>
+        🟢 Paste now fully supports Twilio’s internationalization efforts for Q1. Paste components are capable of
+        supporting translated content and do not rely on any hard-coded strings.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Evolve the Twilio design language to support the vision of “One Twilio”</strong>
+      </Td>
+      <Td>
+        🟢 We’ve been in visual concept land! During ThinkWeek, we diverged to come up with visual directions for an
+        evolved design language for Twilio. Post ThinkWeek, we converged on a few directions that we’ll be getting
+        feedback on from our RAPID. From there, we’ll refine the directions and pursue user testing to help us move
+        towards one visual direction.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Establish Paste as a leading Next-Gen Monorepo through tooling and infrastructure improvements</strong>
+      </Td>
+      <Td>
+        🟢 We’ve identified gaps in Paste’s testing coverage and have created tickets to close these gaps. We’ve also
+        converted all applicable code from JavaScript to Typescript, to have better code resiliency.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Lay the groundwork for our new program management, content, and visual design disciplines</strong>
+      </Td>
+      <Td>Work on this priority will start later this year. Stay tuned!</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Scale Design System onboarding and support for both internal consumers and external customers</strong>
+      </Td>
+      <Td>
+        Because of the company’s recent initiatives to focus on resiliency work, we’ve decided to pause this BPM. This
+        means that we’ll be able to devote more energy towards the priorities that provide direct customer value and
+        align more closely with the company’s current focus.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Build a UI kit for the Twilio Conversations API</strong>
+      </Td>
+      <Td>
+        🟢 Design explorations and a couple of the Chat components have been completed. We are currently building more
+        of the version 1 components.
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+## 👀 What's next
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Feature</Th>
+      <Th>Description</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Resiliency work</strong>
+      </Td>
+      <Td>Increase code resiliency by closing identified gaps in our code’s testing coverage</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Conversations UI Kit Components</strong>
+      </Td>
+      <Td>Build the components that will make up the Conversations UI Kit</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Dark theme spec</strong>
+      </Td>
+      <Td>Publish guidelines on the Paste Dark Theme to the docs site</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>One Twilio design concepts</strong>
+      </Td>
+      <Td>Refining our visual directions and drafting user testing strategy</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Stage 2 release of Form Pill and Display Pill</strong>
+      </Td>
+      <Td>
+        Refining the design and API for the existing{' '}
+        <Anchor href="/components/display-pill-group/">Display Pill Group</Anchor> and{' '}
+        <Anchor href="/components/form-pill-group/">Form Pill Group</Anchor> components
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Multi-select Combobox</strong>
+      </Td>
+      <Td>
+        Improvements to the existing <Anchor href="/components/combobox/">Combobox component</Anchor>, with a design
+        refresh and added functionality to select multiple items
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Tokens page redesign</strong>
+      </Td>
+      <Td>
+        Build and publish the redesign of the Design Tokens page (<Anchor href="/tokens/">Tokens Overview page</Anchor>{' '}
+        is already live!)
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+See you next time! 👋
+
+— The Design Systems Team
+
+</ArticleContent>
+
+</contentwrapper>

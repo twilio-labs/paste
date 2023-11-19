@@ -1,0 +1,139 @@
+global:
+  type: color
+  category: border-color
+imports:
+  - ../../../global/border-color.yml
+  - ../aliases/color.yml
+  - ../aliases/color-palette.yml
+props:
+  color-border-strong:
+    value: "#8F95B2"
+    comment: Strong border color
+  color-border:
+    value: "#D8DAE5"
+    comment: Default border color
+  color-border-weak:
+    value: "#E6E8F0"
+    comment: Weak border color
+  color-border-weaker:
+    value: "#EDEFF5"
+    comment: Weaker border color
+  color-border-weakest:
+    value: "#FFFFFF"
+    comment: Weakest border color
+
+  # primary action borders
+  color-border-primary-strongest:
+    value: "#0C1E56"
+    comment: Strongest primary border color
+  color-border-primary-stronger:
+    value: "#1F3D99"
+    comment: Stronger primary border color
+  color-border-primary-strong:
+    value: "#2952CC"
+    comment: Strong primary border color
+  color-border-primary:
+    value: "#3366FF"
+    comment: Primary border color
+  color-border-primary-weak:
+    value: "#9DB5FF"
+    comment: Weak primary border color
+  color-border-primary-weaker:
+    value: "#D6E0FF"
+    comment: Weaker primary border color
+  color-border-primary-weakest:
+    value: "#EBF0FF"
+    comment: Weakest primary border color
+
+  # status borders
+  color-border-neutral:
+    value: "#3366FF"
+    comment: Neutral border color
+  color-border-neutral-weak:
+    value: "#9DB5FF"
+    comment: Weak neutral border color
+  color-border-neutral-weaker:
+    value: "#D6E0FF"
+    comment: Weaker neutral border color
+  color-border-success:
+    value: "#52BD94"
+    comment: Success border color
+  color-border-success-weak:
+    value: "#A3E6CD"
+    comment: Weak success border color
+  color-border-success-weaker:
+    value: "#DCF2EA"
+    comment: Weaker success border color
+  color-border-success-weakest:
+    value: "#EEF8F4"
+    comment: Weakest success border color
+  color-border-warning:
+    value: "#DE7548"
+    comment: Warning border color
+  color-border-warning-weak:
+    value: "#EBAC91"
+    comment: Weak warning border color
+  color-border-warning-weaker:
+    value: "#F2C8B6"
+    comment: Weaker warning border color
+  color-border-warning-weakest:
+    value: "#F8E3DA"
+    comment: Weakest warning border color
+  color-border-error-stronger:
+    value: "#7D2828"
+    comment: Stronger error border color
+  color-border-error-strong:
+    value: "#A73636"
+    comment: Strong error border color
+  color-border-error:
+    value: "#D14343"
+    comment: Error border color
+  color-border-error-weak:
+    value: "#EE9191"
+    comment: Weak error border color
+  color-border-error-weaker:
+    value: "#F4B6B6"
+    comment: Weaker error border color
+  color-border-error-weakest:
+    value: "#F9DADA"
+    comment: Weakest error border color
+  color-border-new-weaker:
+    value: "#E7E4F9"
+    comment: Weaker border color for something designated as new
+
+  # destructive borders
+  color-border-destructive-strongest:
+    value: "#310C0C"
+    comment: Strongest destructive hover border color
+  color-border-destructive-stronger:
+    value: "#7D2828"
+    comment: Stronger destructive hover border color
+  color-border-destructive-strong:
+    value: "#A73636"
+    comment: Destructive focus border color
+  color-border-destructive:
+    value: "#D14343"
+    comment: Destructive border color
+  color-border-destructive-weak:
+    value: "#F4B6B6"
+    comment: Destructive focus border color
+  color-border-destructive-weaker:
+    value: "#F9DADA"
+    comment: Destructive focus border color
+  color-border-destructive-weakest:
+    value: "#FDF4F4"
+    comment: Destructive focus border color
+
+  # decorative
+  color-border-decorative-10-weaker:
+    value: "#D8DAE5"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-20-weaker:
+    value: "#D6E0FF"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-30-weaker:
+    value: "#EEF8F4"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.
+  color-border-decorative-40-weaker:
+    value: "#E7E4F9"
+    comment: Weaker border color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or text tokens.

@@ -1,0 +1,77 @@
+export const meta = {
+  title: 'Slider - API',
+  package: '@twilio-paste/slider',
+  description:
+    'A Slider is a draggable input that allows a user to select an imprecise numerical value within a range.',
+  slug: '/components/slider/api',
+};
+
+import Changelog from '@twilio-paste/slider/CHANGELOG.md';
+import packageJson from '@twilio-paste/slider/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Slider');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/slider');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/stack',
+        storybookUrl: '/?path=/story/layout-stack--default-stack',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/core - or - yarn add @twilio-paste/slider
+```
+
+## Usage
+
+```jsx
+import {Slider} from '@twilio-paste/core/slider';
+
+const Component = () => {
+  const [value, setValue] = React.useState(10);
+  const sliderId = useUID();
+  const helpTextId = useUID(); // optional
+
+  const numberFormatter = React.useMemo(() => {
+    return new Intl.NumberFormat('en-US', {style: 'percent'});
+  }, []);
+
+  return (
+    <Slider
+      id={sliderId}
+      aria-describedby={helpTextId}
+      value={value}
+      minValue={0}
+      maxValue={100}
+      step={1}
+      onChange={(newValue) => setValue(newValue)}
+      numberFormatter={numberFormatter}
+    />
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

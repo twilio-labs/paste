@@ -1,5 +1,142 @@
 # Change Log
 
+## 11.1.1
+
+### Patch Changes
+
+- [`7d193d6bd`](https://github.com/twilio-labs/paste/commit/7d193d6bda1535f1a9347798c8ab96733bb8af77) [#3558](https://github.com/twilio-labs/paste/pull/3558) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tooltip] Improve TsDoc type annotations
+
+## 11.1.0
+
+### Minor Changes
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+## 11.0.0
+
+### Major Changes
+
+- [`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603) [#3395](https://github.com/twilio-labs/paste/pull/3395) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Modified the compile target of our JavaScript bundles from `node` to `browser` to minimize the risk of clashing with RequireJS. This is marked as a major out of an abundance of caution. You shouldn't need to do anything but we wanted you to be aware of the change on the off chance it has unintended consequences
+
+### Patch Changes
+
+- Updated dependencies [[`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603)]:
+  - @twilio-paste/uid-library@2.0.0
+  - @twilio-paste/color-contrast-utils@5.0.0
+  - @twilio-paste/spinner@14.0.0
+  - @twilio-paste/box@10.0.0
+  - @twilio-paste/text@10.0.0
+  - @twilio-paste/tooltip-primitive@2.0.0
+  - @twilio-paste/customization@8.0.0
+  - @twilio-paste/design-tokens@10.0.0
+  - @twilio-paste/icons@12.0.0
+  - @twilio-paste/animation-library@2.0.0
+  - @twilio-paste/reakit-library@2.0.0
+  - @twilio-paste/styling-library@3.0.0
+  - @twilio-paste/style-props@9.0.0
+  - @twilio-paste/theme@11.0.0
+  - @twilio-paste/types@6.0.0
+
+## 10.0.1
+
+### Patch Changes
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Tooltip] improve border color of the Tooltip
+
+## 10.0.0
+
+### Major Changes
+
+- [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - ### Breaking change
+
+  We have moved `@types/react` and `@types/react-dom` to peer dependencies of the library. This should allow for greater control and backwards compatibility with older versions of React as Paste is no longer bundling the type libraries.
+
+  Your application likely has both of these as dependencies anyway, but it is now up to you to manage that version number.
+
+  **Action needed**
+
+  Ensure `@types/react` and `@types/react-dom` are installed as dependencies of your application.
+
+### Patch Changes
+
+- Updated dependencies [[`1d75f223e`](https://github.com/twilio-labs/paste/commit/1d75f223e0e2011a7a969e7ef1980fa9366cfbca), [`50cde4668`](https://github.com/twilio-labs/paste/commit/50cde4668b003c410713d4a51eed16a394471ed0), [`bce889344`](https://github.com/twilio-labs/paste/commit/bce889344773d840d7dc75902e1be64f1a010da3), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c)]:
+  - @twilio-paste/icons@11.0.0
+  - @twilio-paste/theme@10.0.0
+  - @twilio-paste/box@9.0.0
+  - @twilio-paste/text@9.0.0
+  - @twilio-paste/spinner@13.0.0
+  - @twilio-paste/customization@7.0.0
+  - @twilio-paste/style-props@8.0.0
+  - @twilio-paste/types@5.0.0
+
+## 9.0.1
+
+### Patch Changes
+
+- [`45cdceb92`](https://github.com/twilio-labs/paste/commit/45cdceb9241e75abac2b73363c77fa43d541f64a) [#3063](https://github.com/twilio-labs/paste/pull/3063) Thanks [@shleewhite](https://github.com/shleewhite)! - [Tooltip] Update styles to align with new Paste Twilio theme
+
+## 9.0.0
+
+### Major Changes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - Add support for React 18
+
+* [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea) [#3020](https://github.com/twilio-labs/paste/pull/3020) Thanks [@SiTaggart](https://github.com/SiTaggart)! - This major version included listing all the missing peer dependencies for each Paste package.
+
+  If you are using a package from Paste in isolation from Core, when upgrading to this latest version, be sure to correctly install all the missing peer dependencies.
+
+### Patch Changes
+
+- Updated dependencies [[`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee)]:
+  - @twilio-paste/design-tokens@9.0.0
+  - @twilio-paste/spinner@12.0.0
+  - @twilio-paste/box@8.0.0
+  - @twilio-paste/text@8.0.0
+  - @twilio-paste/tooltip-primitive@1.0.0
+  - @twilio-paste/customization@6.0.0
+  - @twilio-paste/icons@10.0.0
+  - @twilio-paste/animation-library@1.0.0
+  - @twilio-paste/reakit-library@1.0.0
+  - @twilio-paste/styling-library@2.0.0
+  - @twilio-paste/uid-library@1.0.0
+  - @twilio-paste/style-props@7.0.0
+  - @twilio-paste/theme@9.0.0
+  - @twilio-paste/types@4.0.0
+  - @twilio-paste/color-contrast-utils@4.0.0
+
+## 8.0.2
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - Update packages to be ESM-compatible
+
+## 8.0.1
+
+### Patch Changes
+
+- [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
+## 8.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/spinner@11.0.0
+  - @twilio-paste/text@7.0.0
+  - @twilio-paste/icons@9.0.0
+
+## 7.0.2
+
+### Patch Changes
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
 ## 7.0.1
 
 ### Patch Changes

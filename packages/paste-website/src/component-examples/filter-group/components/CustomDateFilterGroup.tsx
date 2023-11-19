@@ -1,37 +1,38 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import * as React from 'react';
-import {useForm, useFormState} from 'react-hook-form';
-import isEqual from 'lodash/isEqual';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {Select, Option} from '@twilio-paste/select';
-import {Separator} from '@twilio-paste/separator';
-import {FilterIcon} from '@twilio-paste/icons/esm/FilterIcon';
-import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
-import {ExportIcon} from '@twilio-paste/icons/esm/ExportIcon';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { ExportIcon } from "@twilio-paste/icons/esm/ExportIcon";
+import { FilterIcon } from "@twilio-paste/icons/esm/FilterIcon";
+import { SearchIcon } from "@twilio-paste/icons/esm/SearchIcon";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Option, Select } from "@twilio-paste/select";
+import { Separator } from "@twilio-paste/separator";
+import { useUID } from "@twilio-paste/uid-library";
+import isEqual from "lodash/isEqual";
+import * as React from "react";
+import { useForm, useFormState } from "react-hook-form";
 
-import {DATE_TIME_RANGES, ROOM_TYPES, FORM_DEFAULT_VALUES} from '../constants';
-import type {FilterGroupDateTimeProps, DateTimeFormValues} from '../types';
-import {filterByDateTimeRange, filterByRoomType, filterBySearchString, isEndDateBeforeStartDate} from '../helpers';
-
-import {SampleDataGrid} from './SampleDataGrid';
-import {EmptyState} from './EmptyState';
-import {DateTimePopover} from './DateTimePopover';
+import { DATE_TIME_RANGES, FORM_DEFAULT_VALUES, ROOM_TYPES } from "../constants";
+import { filterByDateTimeRange, filterByRoomType, filterBySearchString, isEndDateBeforeStartDate } from "../helpers";
+import type { DateTimeFormValues, FilterGroupDateTimeProps } from "../types";
+import { DateTimePopover } from "./DateTimePopover";
+import { EmptyState } from "./EmptyState";
+import { SampleDataGrid } from "./SampleDataGrid";
 
 // Note: update the codesandboxes if update this
-export const CustomDateFilterGroup: React.FC<FilterGroupDateTimeProps> = ({data}) => {
+export const CustomDateFilterGroup: React.FC<React.PropsWithChildren<FilterGroupDateTimeProps>> = ({ data }) => {
   const dateRangesId = `quality-${useUID()}`;
   const roomTypesId = `type-${useUID()}`;
 
-  const {control, handleSubmit, register, reset, resetField, setError, setValue, watch} = useForm<DateTimeFormValues>({
-    defaultValues: FORM_DEFAULT_VALUES,
-    criteriaMode: 'all',
-  });
-  const {errors} = useFormState({
+  const { control, handleSubmit, register, reset, resetField, setError, setValue, watch } = useForm<DateTimeFormValues>(
+    {
+      defaultValues: FORM_DEFAULT_VALUES,
+      criteriaMode: "all",
+    },
+  );
+  const { errors } = useFormState({
     control,
   });
 
@@ -39,36 +40,36 @@ export const CustomDateFilterGroup: React.FC<FilterGroupDateTimeProps> = ({data}
   const [filteredTableData, setFilteredTableData] = React.useState(data);
 
   React.useEffect(() => {
-    const subscription = watch((value, {name, type}) => {
-      const {range, customDate} = value;
+    const subscription = watch((value, { name, type }) => {
+      const { range, customDate } = value;
 
-      if (type === 'change') {
+      if (type === "change") {
         setAreButtonsDisabled(false);
 
-        if (name?.includes('customDate') && range !== 'custom') {
-          setValue('range', 'custom');
+        if (name?.includes("customDate") && range !== "custom") {
+          setValue("range", "custom");
         }
 
-        if (name === 'customDate.endDate') {
+        if (name === "customDate.endDate") {
           if (customDate?.startDate && customDate?.startTime && customDate?.endDate && customDate?.endTime) {
             const isEndDateInvalid = isEndDateBeforeStartDate(
               customDate.startDate,
               customDate.startTime,
               customDate.endDate,
-              customDate.endTime
+              customDate.endTime,
             );
 
             if (isEndDateInvalid) {
-              setError('customDate.endDate', {
-                type: 'custom',
-                message: 'End date has to be after the start date.',
+              setError("customDate.endDate", {
+                type: "custom",
+                message: "End date has to be after the start date.",
               });
             } else return;
           } else return;
         }
 
-        if (name === 'range' && !isEqual(customDate, FORM_DEFAULT_VALUES.customDate)) {
-          resetField('customDate');
+        if (name === "range" && !isEqual(customDate, FORM_DEFAULT_VALUES.customDate)) {
+          resetField("customDate");
         }
       }
     });
@@ -76,10 +77,10 @@ export const CustomDateFilterGroup: React.FC<FilterGroupDateTimeProps> = ({data}
   }, [watch, setValue, resetField, setError]);
 
   const handleApplyFilters = (callback?: VoidFunction) => (formData: DateTimeFormValues) => {
-    const {search, type, range, customDate} = formData;
-    const {startDate, startTime, endDate, endTime} = customDate;
+    const { search, type, range, customDate } = formData;
+    const { startDate, startTime, endDate, endTime } = customDate;
 
-    const filtered = data.filter(({uniqueName, sid, roomType, dateCompleted}) => {
+    const filtered = data.filter(({ uniqueName, sid, roomType, dateCompleted }) => {
       return (
         filterBySearchString(uniqueName, sid, search) &&
         filterByRoomType(roomType, type) &&
@@ -110,7 +111,7 @@ export const CustomDateFilterGroup: React.FC<FilterGroupDateTimeProps> = ({data}
       <Box display="flex" alignItems="flex-end" columnGap="space50">
         <Box>
           <Label htmlFor={roomTypesId}>Room type</Label>
-          <Select id={roomTypesId} {...register('type')}>
+          <Select id={roomTypesId} {...register("type")}>
             {ROOM_TYPES.map((type) => (
               <Option value={type} key={type}>
                 {type}
@@ -122,7 +123,7 @@ export const CustomDateFilterGroup: React.FC<FilterGroupDateTimeProps> = ({data}
           <Label htmlFor={dateRangesId}>Date/time range</Label>
           <Select
             id={dateRangesId}
-            {...register('range')}
+            {...register("range")}
             insertAfter={
               <DateTimePopover
                 onApply={(cb) => handleSubmit(handleApplyFilters(cb))}
@@ -168,7 +169,7 @@ export const CustomDateFilterGroup: React.FC<FilterGroupDateTimeProps> = ({data}
             aria-label="Search"
             type="text"
             placeholder="Search by SID or unique name"
-            {...register('search')}
+            {...register("search")}
             insertAfter={
               <Button
                 variant="link"

@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/data-visualization-library",
-  "version": "1.0.0",
+  "version": "5.0.0",
   "category": "library",
   "status": "production",
   "description": "A library that helps theme data visualizations with Paste tokens.",
@@ -20,7 +20,6 @@
   "scripts": {
     "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
-    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
@@ -28,26 +27,30 @@
     "deepmerge": "4.2.2"
   },
   "peerDependencies": {
-    "@twilio-paste/animation-library": "^0.3.1",
-    "@twilio-paste/color-contrast-utils": "^2.0.0",
-    "@twilio-paste/design-tokens": "^7.0.0",
-    "@twilio-paste/styling-library": "^1.0.0",
-    "@twilio-paste/theme": "^7.0.0",
-    "@twilio-paste/types": "^3.1.1",
+    "@twilio-paste/animation-library": "^2.0.0",
+    "@twilio-paste/color-contrast-utils": "^5.0.0",
+    "@twilio-paste/design-tokens": "^10.0.0",
+    "@twilio-paste/styling-library": "^3.0.0",
+    "@twilio-paste/theme": "^11.0.0",
+    "@twilio-paste/types": "^6.0.0",
+    "@types/react": "^16.8.6 || ^17.0.2 || ^18.0.27",
+    "@types/react-dom": "^16.8.6 || ^17.0.2 || ^18.0.10",
     "highcharts": "^9.3.3",
-    "react": "^16.8.6 || ^17.0.2",
-    "react-dom": "^16.8.6 || ^17.0.2"
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/animation-library": "^0.3.5",
-    "@twilio-paste/color-contrast-utils": "^2.0.2",
-    "@twilio-paste/design-tokens": "^7.1.1",
-    "@twilio-paste/styling-library": "^1.0.0",
-    "@twilio-paste/theme": "^7.0.0",
-    "@twilio-paste/types": "^3.1.5",
+    "@twilio-paste/animation-library": "^2.0.0",
+    "@twilio-paste/color-contrast-utils": "^5.0.0",
+    "@twilio-paste/design-tokens": "^10.0.0",
+    "@twilio-paste/styling-library": "^3.0.0",
+    "@twilio-paste/theme": "^11.0.0",
+    "@twilio-paste/types": "^6.0.0",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
     "highcharts": "^9.3.3",
     "highcharts-react-official": "^3.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

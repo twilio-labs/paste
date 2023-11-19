@@ -30,14 +30,14 @@ const MenuGroupExample = () => {
       </MenuButton>
       <Menu {...menu} aria-label="Actions">
         <MenuGroup label="Social media" icon={<AttachIcon decorative />}>
-          <MenuItem {...menu}>Twitter</MenuItem>  
-          <MenuItem {...menu}>Myspace</MenuItem>  
-          <MenuItem {...menu}>Dribbble</MenuItem>  
+          <MenuItem {...menu}>Twitter</MenuItem>
+          <MenuItem {...menu}>Myspace</MenuItem>
+          <MenuItem {...menu}>Dribbble</MenuItem>
         </MenuGroup>
         <MenuSeparator />
         <MenuGroup label="Search engines">
-          <MenuItem {...menu}>Ecosia</MenuItem>  
-          <MenuItem {...menu}>DuckDuckGo</MenuItem>  
+          <MenuItem {...menu}>Ecosia</MenuItem>
+          <MenuItem {...menu}>DuckDuckGo</MenuItem>
         </MenuGroup>
       </Menu>
     </>
@@ -154,6 +154,12 @@ const ItemsExample = () => {
         Menu item content <ChevronDownIcon decorative />
       </MenuButton>
       <Menu {...menu} aria-label="Preferences">
+      <MenuItem  {...menu}>
+        Default item
+      </MenuItem>
+      <MenuItem  variant="destructive" {...menu}>
+        Destructive item
+      </MenuItem>
         <MenuItem  {...menu}>
         <MediaObject verticalAlign="center">
           <MediaFigure spacing="space20">
@@ -201,5 +207,123 @@ const ItemsExample = () => {
 
 render(
   <ItemsExample />
+)
+`.trim();
+
+export const menuBadgeExample = `
+const MenuBadgeExample = () => {
+  const [account, setAccount] = React.useState('Account name');
+  const menu = useMenuState();
+  const onClick = (newAccount) => {
+    menu.hide();
+    setAccount(newAccount);
+  };
+  return (
+    <>
+      <MenuBadge {...menu} i18nButtonLabel="Change account" variant="decorative10">
+        {account}
+      </MenuBadge>
+      <Menu {...menu} aria-label="Accounts">
+        <MenuItem {...menu} onClick={()=>onClick('Account one')}>
+          Account one
+        </MenuItem>
+        <MenuItem {...menu} onClick={()=>onClick('Account two')}>
+          Account two
+        </MenuItem>
+        <MenuItem {...menu} onClick={()=>onClick('Account three')}>
+          Account three
+        </MenuItem>
+      </Menu>
+    </>
+  );
+};
+
+render(
+  <MenuBadgeExample />
+)
+`.trim();
+
+export const CheckboxMenuExample = `
+const CheckboxMenu = () => {
+  const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="secondary">
+        Text formatting <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Display view">
+        <MenuItemCheckbox {...menu} name="display-view" value="bold">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <BoldIcon decorative={true} /> Bold
+          </Box>
+        </MenuItemCheckbox>
+        <MenuItemCheckbox {...menu} name="display-view" value="underlined">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <UnderlineIcon decorative={true} /> Underlined
+          </Box>
+        </MenuItemCheckbox>
+        <MenuItemCheckbox {...menu} name="display-view" value="italic">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <ItalicIcon decorative={true} /> Italic
+          </Box>
+        </MenuItemCheckbox>
+        <MenuSeparator {...menu} />
+        <MenuItemCheckbox {...menu} name="display-view" value="strike">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <StrikethroughIcon decorative={true} /> Strike
+          </Box>
+        </MenuItemCheckbox>
+      </Menu>
+    </>
+  );
+};
+
+render(
+  <CheckboxMenu />
+)
+`.trim();
+
+export const RadioMenuExample = `
+const RadioMenu = () => {
+  const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="secondary">
+        Display view <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Display view">
+        <MenuItemRadio {...menu} name="display-view" value="grid">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataTableIcon decorative={true} /> Data grid
+          </Box>
+        </MenuItemRadio>
+        <MenuItemRadio {...menu} name="display-view" value="bar">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataBarChartIcon decorative={true} /> Bar chart
+          </Box>
+        </MenuItemRadio>
+        <MenuItemRadio {...menu} name="display-view" value="line">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataLineChartIcon decorative={true} /> Line chart
+          </Box>
+        </MenuItemRadio>
+        <MenuItemRadio {...menu} name="display-view" disabled value="pie">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <DataPieChartIcon decorative={true} /> Pie chart
+          </Box>
+        </MenuItemRadio>
+        <MenuSeparator {...menu} />
+        <MenuItemRadio {...menu} name="display-view" value="list">
+          <Box as="span" display="flex" columnGap="space30" alignItems="center">
+            <UnorderedListIcon decorative={true} /> List
+          </Box>
+        </MenuItemRadio>
+      </Menu>
+    </>
+  );
+};
+
+render(
+  <RadioMenu />
 )
 `.trim();

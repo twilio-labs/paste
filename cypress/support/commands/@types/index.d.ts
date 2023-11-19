@@ -31,7 +31,7 @@ declare namespace Cypress {
      * @alias `contains`
      * @alias `should`
      */
-    pageHeaderShouldBeVisible(headerText: string): void;
+    pageHeaderShouldBeVisible(props: {headerText: string; shouldHaveGithubLink?: boolean; shouldHaveStorybook?: boolean; shouldHaveOpenGraph?: boolean}): void;
 
     /**
      * Asserts the overview table component renders correctly.
@@ -73,7 +73,7 @@ declare namespace Cypress {
     checkChangelogRevealer(): void;
 
     /**
-     * Navigates to a URL and takes a snapshot with Applitools.
+     * Navigates to a URL and takes a snapshot with for VRT.
      */
     visualRegressionTestUrl({url, testName}: {url: string, testName: string}): void;
   }

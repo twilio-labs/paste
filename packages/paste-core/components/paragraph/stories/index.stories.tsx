@@ -1,11 +1,14 @@
-import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Stack} from '@twilio-paste/stack';
-import {Paragraph} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
+import { Paragraph } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Paragraph',
+  title: "Components/Paragraph",
   component: Paragraph,
 };
 
@@ -28,7 +31,8 @@ export const Default = (): React.ReactNode => {
   );
 };
 
-export const CustomParagraph: React.FC = () => {
+export const CustomParagraph: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <Paragraph>
@@ -36,12 +40,13 @@ export const CustomParagraph: React.FC = () => {
         with the Programmable Messaging API.
       </Paragraph>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           PARAGRAPH: {
-            backgroundColor: 'colorBackgroundPrimaryWeaker',
-            color: 'colorTextError',
-            padding: 'space40',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            color: "colorTextError",
+            padding: "space40",
           },
         }}
       >
@@ -51,12 +56,13 @@ export const CustomParagraph: React.FC = () => {
         </Paragraph>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_PARAGRAPH: {
-            backgroundColor: 'colorBackgroundTrial',
-            color: 'colorTextLink',
-            padding: 'space60',
+            backgroundColor: "colorBackgroundTrial",
+            color: "colorTextLink",
+            padding: "space60",
           },
         }}
       >
@@ -67,4 +73,10 @@ export const CustomParagraph: React.FC = () => {
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomParagraph.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

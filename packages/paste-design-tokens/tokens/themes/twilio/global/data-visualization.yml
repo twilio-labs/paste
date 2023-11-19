@@ -1,0 +1,5 @@
+global:
+  type: color
+  category: data-visualization
+imports:
+  - ../../../global/data-visualization.yml

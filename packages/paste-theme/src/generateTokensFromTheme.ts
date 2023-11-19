@@ -1,28 +1,31 @@
-import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
-import type {GenericThemeShape} from './types/GenericThemeShape';
+import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
+
+import type { GenericThemeShape } from "./types/GenericThemeShape";
 
 interface GenerateTokensFromTheme {
-  backgroundColors: GenericThemeShape['backgroundColors'];
-  borderColors: GenericThemeShape['borderColors'];
-  borderWidths: GenericThemeShape['borderWidths'];
-  radii: GenericThemeShape['radii'];
-  fonts: GenericThemeShape['fonts'];
-  fontSizes: GenericThemeShape['fontSizes'];
-  fontWeights: GenericThemeShape['fontWeights'];
-  lineHeights: GenericThemeShape['lineHeights'];
-  shadows: GenericThemeShape['shadows'];
+  backgroundColors: GenericThemeShape["backgroundColors"];
+  borderColors: GenericThemeShape["borderColors"];
+  borderWidths: GenericThemeShape["borderWidths"];
+  colorSchemes: GenericThemeShape["colorSchemes"];
+  radii: GenericThemeShape["radii"];
+  fonts: GenericThemeShape["fonts"];
+  fontSizes: GenericThemeShape["fontSizes"];
+  fontWeights: GenericThemeShape["fontWeights"];
+  lineHeights: GenericThemeShape["lineHeights"];
+  shadows: GenericThemeShape["shadows"];
   // there are some sizes we expect must appear to generate breakpoints and icons sizes
-  sizes: GenericThemeShape['sizes'];
-  space: GenericThemeShape['space'];
-  textColors: GenericThemeShape['textColors'];
-  zIndices: GenericThemeShape['zIndices'];
-  dataVisualization: GenericThemeShape['dataVisualization'];
+  sizes: GenericThemeShape["sizes"];
+  space: GenericThemeShape["space"];
+  textColors: GenericThemeShape["textColors"];
+  zIndices: GenericThemeShape["zIndices"];
+  dataVisualization: GenericThemeShape["dataVisualization"];
 }
 
 export const generateTokensFromTheme = ({
   backgroundColors,
   borderColors,
   borderWidths,
+  colorSchemes,
   radii,
   fonts,
   fontSizes,
@@ -49,9 +52,9 @@ export const generateTokensFromTheme = ({
     sizings: sizes,
     spacings: space,
     zIndices,
-    // The `colors` bucket holds more tokens than these in the `design-tokens` package,
-    // but they aren't exposed on theme. Therefore this is all we need/can do to convert
-    // theme to tokens at this time.
-    colors: dataVisualization,
+    colorSchemes,
+    // The `colors` bucket currently holds tokens, but we do not expose them
+    colors: {},
+    dataVisualization,
   };
 };

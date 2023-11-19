@@ -1,20 +1,22 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/menu';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Text} from '@twilio-paste/text';
-import {Heading} from '@twilio-paste/heading';
-import {Anchor} from '@twilio-paste/anchor';
-import {Button} from '@twilio-paste/button';
-import {Truncate} from '@twilio-paste/truncate';
-import {Table, THead, TBody, TFoot, Tr, Td, Th} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { Truncate } from "@twilio-paste/truncate";
+import * as React from "react";
 
-const MoreMenu: React.FC = () => {
+import { TBody, TFoot, THead, Table, Td, Th, Tr } from "../src";
+
+const MoreMenu = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <Box display="flex" justifyContent="flex-end">
@@ -42,9 +44,9 @@ const MoreMenu: React.FC = () => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Table',
+  title: "Components/Table",
   component: Table,
-  subcomponents: {THead, TBody, TFoot, Tr, Td, Th},
+  subcomponents: { THead, TBody, TFoot, Tr, Td, Th },
 };
 
 export const DefaultTable = (): React.ReactNode => {
@@ -60,10 +62,7 @@ export const DefaultTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -73,10 +72,7 @@ export const DefaultTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -86,10 +82,7 @@ export const DefaultTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -99,10 +92,7 @@ export const DefaultTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -116,9 +106,7 @@ export const DefaultTable = (): React.ReactNode => {
   );
 };
 
-DefaultTable.story = {
-  name: 'Default table',
-};
+DefaultTable.storyName = "Default table";
 
 export const DefaultFooterTable = (): React.ReactNode => {
   return (
@@ -134,10 +122,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -152,10 +137,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -170,10 +152,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -188,10 +167,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -208,13 +184,9 @@ export const DefaultFooterTable = (): React.ReactNode => {
       </TBody>
       <TFoot>
         <Tr>
-          <Td colSpan={3}>
-            <Text as="p" fontWeight="fontWeightSemibold">
-              Index Total
-            </Text>
-          </Td>
+          <Td colSpan={3}>Index Total</Td>
           <Td colSpan={2} textAlign="right">
-            <Text as="p" fontFamily="fontFamilyCode" fontWeight="fontWeightSemibold">
+            <Text as="span" color="inherit" fontFamily="fontFamilyCode">
               4
             </Text>
           </Td>
@@ -224,9 +196,7 @@ export const DefaultFooterTable = (): React.ReactNode => {
   );
 };
 
-DefaultFooterTable.story = {
-  name: 'Default table with footer',
-};
+DefaultFooterTable.storyName = "Default table with footer";
 
 export const BorderlessTable = (): React.ReactNode => {
   return (
@@ -241,10 +211,7 @@ export const BorderlessTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -254,10 +221,7 @@ export const BorderlessTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -267,10 +231,7 @@ export const BorderlessTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -280,10 +241,7 @@ export const BorderlessTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -297,13 +255,11 @@ export const BorderlessTable = (): React.ReactNode => {
   );
 };
 
-BorderlessTable.story = {
-  name: 'Borderless table',
-};
+BorderlessTable.storyName = "Borderless table";
 
 export const BorderlessFooterTable = (): React.ReactNode => {
   return (
-    <Table variant="borderless" striped>
+    <Table variant="borderless">
       <THead>
         <Tr>
           <Th>Date</Th>
@@ -315,10 +271,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -333,10 +286,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -351,10 +301,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -369,10 +316,7 @@ export const BorderlessFooterTable = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -389,13 +333,9 @@ export const BorderlessFooterTable = (): React.ReactNode => {
       </TBody>
       <TFoot>
         <Tr>
-          <Td colSpan={3}>
-            <Text as="p" fontWeight="fontWeightSemibold">
-              Index Total
-            </Text>
-          </Td>
+          <Td colSpan={3}>Index Total</Td>
           <Td colSpan={2} textAlign="right">
-            <Text as="p" fontFamily="fontFamilyCode" fontWeight="fontWeightSemibold">
+            <Text as="span" fontFamily="fontFamilyCode" color="inherit">
               4
             </Text>
           </Td>
@@ -405,9 +345,97 @@ export const BorderlessFooterTable = (): React.ReactNode => {
   );
 };
 
-BorderlessFooterTable.story = {
-  name: 'Borderless striped table with footer',
+BorderlessFooterTable.storyName = "Borderless table with footer";
+
+export const BorderlessStripedFooterTable = (): React.ReactNode => {
+  return (
+    <Table variant="borderless" striped>
+      <THead>
+        <Tr>
+          <Th>Date</Th>
+          <Th>SID</Th>
+          <Th>Direction</Th>
+          <Th>From</Th>
+          <Th textAlign="right">Index</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        <Tr>
+          <Td>16:24:28 PDT 2020-09-17</Td>
+          <Td>
+            <Text as="span" fontFamily="fontFamilyCode">
+              SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
+            </Text>
+          </Td>
+          <Td>Incoming</Td>
+          <Td>(602) 609-6747</Td>
+          <Td textAlign="right">
+            <Text as="span" fontFamily="fontFamilyCode">
+              1
+            </Text>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>16:24:28 PDT 2020-09-17</Td>
+          <Td>
+            <Text as="span" fontFamily="fontFamilyCode">
+              SMl29llgoihx286uhxfb0yc5n0sg391x5n
+            </Text>
+          </Td>
+          <Td>Incoming</Td>
+          <Td>(602) 609-6747</Td>
+          <Td textAlign="right">
+            <Text as="span" fontFamily="fontFamilyCode">
+              2
+            </Text>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>16:24:28 PDT 2020-09-17</Td>
+          <Td>
+            <Text as="span" fontFamily="fontFamilyCode">
+              SMxarke3v30fv17hauqn86a7nhgm3b5d87
+            </Text>
+          </Td>
+          <Td>Incoming</Td>
+          <Td>(602) 609-6747</Td>
+          <Td textAlign="right">
+            <Text as="span" fontFamily="fontFamilyCode">
+              3
+            </Text>
+          </Td>
+        </Tr>
+        <Tr>
+          <Td>16:24:28 PDT 2020-09-17</Td>
+          <Td>
+            <Text as="span" fontFamily="fontFamilyCode">
+              SMxarke3v30fv17hauqn86a7nhgm3b5d87
+            </Text>
+          </Td>
+          <Td>Incoming</Td>
+          <Td>(602) 609-6747</Td>
+          <Td textAlign="right">
+            <Text as="span" fontFamily="fontFamilyCode">
+              4
+            </Text>
+          </Td>
+        </Tr>
+      </TBody>
+      <TFoot>
+        <Tr>
+          <Td colSpan={3}>Index Total</Td>
+          <Td colSpan={2} textAlign="right">
+            <Text as="span" fontFamily="fontFamilyCode" color="inherit">
+              4
+            </Text>
+          </Td>
+        </Tr>
+      </TFoot>
+    </Table>
+  );
 };
+
+BorderlessStripedFooterTable.storyName = "Borderless striped table with footer";
 
 export const StripedTable = (): React.ReactNode => {
   return (
@@ -422,10 +450,7 @@ export const StripedTable = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -435,10 +460,7 @@ export const StripedTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -448,10 +470,7 @@ export const StripedTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -461,10 +480,7 @@ export const StripedTable = (): React.ReactNode => {
           <Td>(602) 609-6747</Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -478,9 +494,7 @@ export const StripedTable = (): React.ReactNode => {
   );
 };
 
-StripedTable.story = {
-  name: 'Striped table',
-};
+StripedTable.storyName = "Striped table";
 
 export const StripedTableFooter = (): React.ReactNode => {
   return (
@@ -496,10 +510,7 @@ export const StripedTableFooter = (): React.ReactNode => {
       </THead>
       <TBody>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SM0yc4mxi6cn4z13bte7qmflc2drc85mlp
@@ -514,10 +525,7 @@ export const StripedTableFooter = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMl29llgoihx286uhxfb0yc5n0sg391x5n
@@ -532,10 +540,7 @@ export const StripedTableFooter = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -550,10 +555,7 @@ export const StripedTableFooter = (): React.ReactNode => {
           </Td>
         </Tr>
         <Tr>
-          <Td>
-            <Text as="p">16:24:28 PDT</Text>
-            <Text as="p">2020-09-17</Text>
-          </Td>
+          <Td>16:24:28 PDT 2020-09-17</Td>
           <Td>
             <Text as="span" fontFamily="fontFamilyCode">
               SMxarke3v30fv17hauqn86a7nhgm3b5d87
@@ -570,13 +572,9 @@ export const StripedTableFooter = (): React.ReactNode => {
       </TBody>
       <TFoot>
         <Tr>
-          <Td colSpan={3}>
-            <Text as="p" fontWeight="fontWeightSemibold">
-              Index Total
-            </Text>
-          </Td>
+          <Td colSpan={3}>Index Total</Td>
           <Td colSpan={2} textAlign="right">
-            <Text as="p" fontFamily="fontFamilyCode" fontWeight="fontWeightSemibold">
+            <Text as="span" fontFamily="fontFamilyCode" color="inherit">
               4
             </Text>
           </Td>
@@ -586,9 +584,7 @@ export const StripedTableFooter = (): React.ReactNode => {
   );
 };
 
-StripedTableFooter.story = {
-  name: 'Striped table with footer',
-};
+StripedTableFooter.storyName = "Striped table with footer";
 
 export const TableLayoutFixedTable = (): React.ReactNode => {
   return (
@@ -660,9 +656,7 @@ export const TableLayoutFixedTable = (): React.ReactNode => {
   );
 };
 
-TableLayoutFixedTable.story = {
-  name: 'TableLayout: Fixed table',
-};
+TableLayoutFixedTable.storyName = "TableLayout: Fixed table";
 
 export const ColumnWidth = (): React.ReactNode => {
   return (
@@ -744,9 +738,7 @@ export const ColumnWidth = (): React.ReactNode => {
   );
 };
 
-ColumnWidth.story = {
-  name: 'Column width',
-};
+ColumnWidth.storyName = "Column width";
 
 export const ColumnTextAlign = (): React.ReactNode => {
   return (
@@ -765,7 +757,7 @@ export const ColumnTextAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               First line of text
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td textAlign="center">Content</Td>
@@ -780,7 +772,7 @@ export const ColumnTextAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               First line of text
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td textAlign="center">Content</Td>
@@ -795,7 +787,7 @@ export const ColumnTextAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               First line of text
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td textAlign="center">Content</Td>
@@ -822,9 +814,7 @@ export const ColumnTextAlign = (): React.ReactNode => {
   );
 };
 
-ColumnTextAlign.story = {
-  name: 'Column textAlign',
-};
+ColumnTextAlign.storyName = "Column textAlign";
 
 export const RowVerticalAlign = (): React.ReactNode => {
   return (
@@ -843,7 +833,7 @@ export const RowVerticalAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               Top aligned row
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td>Content</Td>
@@ -858,7 +848,7 @@ export const RowVerticalAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               Middle aligned row
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td>Content</Td>
@@ -873,7 +863,7 @@ export const RowVerticalAlign = (): React.ReactNode => {
             <Text as="p" fontWeight="fontWeightBold">
               Bottom aligned row
             </Text>
-            <Text as="p">Second line of longer text text</Text>
+            Second line of longer text text
           </Td>
           <Td>Cell</Td>
           <Td>Content</Td>
@@ -900,9 +890,7 @@ export const RowVerticalAlign = (): React.ReactNode => {
   );
 };
 
-RowVerticalAlign.story = {
-  name: 'Row verticalAlign',
-};
+RowVerticalAlign.storyName = "Row verticalAlign";
 
 export const RowHeaders = (): React.ReactNode => {
   return (
@@ -939,9 +927,74 @@ export const RowHeaders = (): React.ReactNode => {
   );
 };
 
-RowHeaders.story = {
-  name: 'Row headers',
+RowHeaders.storyName = "Row headers";
+
+export const StickyHeaders = (): React.ReactNode => {
+  return (
+    <Table>
+      <THead stickyHeader={true}>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        {[...new Array(40).keys()].map((index) => (
+          <Tr key={index}>
+            <Td>Content</Td>
+            <Td>Content</Td>
+            <Td>Content</Td>
+          </Tr>
+        ))}
+      </TBody>
+      <TFoot>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </TFoot>
+    </Table>
+  );
 };
+
+StickyHeaders.storyName = "Sticky headers";
+
+export const BorderlessStickyHeaders = (): React.ReactNode => {
+  return (
+    <Table variant="borderless">
+      <THead stickyHeader={true}>
+        <Tr>
+          <Th>Column 1</Th>
+          <Th>Column 2</Th>
+          <Th>Column 3</Th>
+        </Tr>
+      </THead>
+      <TBody>
+        {[...new Array(40).keys()].map((index) => (
+          <Tr key={index}>
+            <Td>Content</Td>
+            <Td>Content</Td>
+            <Td>Content</Td>
+          </Tr>
+        ))}
+      </TBody>
+    </Table>
+  );
+};
+
+BorderlessStickyHeaders.storyName = "Borderless Sticky headers";
 
 export const Truncation = (): React.ReactNode => {
   return (
@@ -1382,25 +1435,26 @@ export const Layouts = (): React.ReactNode => {
   );
 };
 
-export const CustomTable = (): React.ReactNode => {
+export const CustomTable: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
 
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        TABLE: {fontFamily: 'fontFamilyCode'},
-        TH_HEAD_LARGE: {fontSize: 'fontSize50'},
-        TH: {fontWeight: 'fontWeightBold'},
-        TH_BODY: {fontWeight: 'fontWeightMedium'},
-        TH_FOOTER: {textDecoration: 'underline'},
-        TR_DESTRUCTIVE: {color: 'colorTextLinkDestructive', fontWeight: 'fontWeightBold'},
-        TR_NEUTRAL: {color: 'colorTextNeutral', fontFamily: 'fontFamilyText'},
-        TR: {color: 'colorTextWeak'},
+        TABLE: { fontFamily: "fontFamilyCode" },
+        TH_HEAD_LARGE: { fontSize: "fontSize50" },
+        TH: { fontWeight: "fontWeightBold" },
+        TH_BODY: { fontWeight: "fontWeightMedium" },
+        TH_FOOTER: { textDecoration: "underline" },
+        TR_DESTRUCTIVE: { color: "colorTextLinkDestructive", fontWeight: "fontWeightBold" },
+        TR_NEUTRAL: { color: "colorTextNeutral", fontFamily: "fontFamilyText" },
+        TR: { color: "colorTextWeak" },
         TD_FOOT_HIGHLIGHT: {
-          backgroundColor: 'colorBackgroundAvailable',
-          fontWeight: 'fontWeightSemibold',
-          color: 'colorTextInverse',
+          backgroundColor: "colorBackgroundSuccessWeakest",
+          fontWeight: "fontWeightSemibold",
+          color: "colorTextWeak",
         },
       }}
     >
@@ -1453,6 +1507,10 @@ export const CustomTable = (): React.ReactNode => {
   );
 };
 
-CustomTable.story = {
-  name: 'Custom table',
+CustomTable.storyName = "Custom table";
+CustomTable.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

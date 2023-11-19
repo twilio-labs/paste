@@ -1,0 +1,62 @@
+export const meta = {
+  title: 'Radio Button Group - API',
+  package: '@twilio-paste/radio-button-group',
+  description:
+    'Radio Button Group is a set of related, mutually exclusive options where only one can be selected at a time.',
+  slug: '/components/radio-button-group/api',
+};
+
+import Changelog from '@twilio-paste/radio-button-group/CHANGELOG.md';
+import packageJson from '@twilio-paste/radio-button-group/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Radio Button Group');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/radio-button-group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-button-group',
+        storybookUrl: '/?path=/story/components-radiobuttongroup--attached',
+      }
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/radio-button-group - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {RadioButtonGroup, RadioButton} from '@twilio-paste/core/radio-button-group';
+
+const Component = () => (
+  <RadioButtonGroup attached>
+    <RadioButton>One</RadioButton>
+    <RadioButton>Two</RadioButton>
+    <RadioButton>Three</RadioButton>
+  </RadioButtonGroup>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

@@ -1,15 +1,16 @@
-import * as React from 'react';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {Text} from '@twilio-paste/text';
-import {Logo} from '../../assets/Logo';
-import type {PackageData} from './types';
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
+
+import { Logo } from "../../assets/Logo";
+import type { PackageData } from "./types";
 
 export interface GraphImageHeroProps {
-  feature: PackageData['Feature'];
-  description: PackageData['description'];
+  feature: PackageData["Feature"];
+  description: PackageData["description"];
 }
 
-const GraphImageHero: React.FC<GraphImageHeroProps> = ({feature, description}) => {
+const GraphImageHero: React.FC<React.PropsWithChildren<GraphImageHeroProps>> = ({ feature, description }) => {
   return (
     <MediaObject as="div" verticalAlign="center">
       <MediaBody as="div">
@@ -27,4 +28,4 @@ const GraphImageHero: React.FC<GraphImageHeroProps> = ({feature, description}) =
   );
 };
 
-export {GraphImageHero};
+export { GraphImageHero };

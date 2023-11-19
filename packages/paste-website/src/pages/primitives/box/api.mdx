@@ -1,0 +1,68 @@
+export const meta = {
+  title: 'Box - API',
+  package: '@twilio-paste/box',
+  description:
+    'The Box component is one of the pillars of our system. It can be any HTML element and can receive many of our token values as props. We use Box to build most of our other components.',
+  slug: '/primitives/box/api',
+};
+
+import Changelog from '@twilio-paste/box/CHANGELOG.md';
+import packageJson from '@twilio-paste/box/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Box');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/box');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.PRIMITIVES,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/box',
+        storybookUrl: '/?path=/story/primitives-box--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/box - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Box} from '@twilio-paste/core/box';
+
+const Component = () => (
+  <Box
+    as="article"
+    backgroundColor="colorBackgroundBody"
+    padding="space60"
+    _hover={{
+      backgroundColor: "colorBackgroundPrimary"
+      padding: "space70"
+    }}
+  >
+    Foo
+  </Box>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

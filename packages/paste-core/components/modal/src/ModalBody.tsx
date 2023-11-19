@@ -1,27 +1,37 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {modalBodyStyles} from './styles';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface ModalBodyProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ModalBodyProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  element?: BoxElementProps['element'];
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'MODAL_BODY'
+   * @type {BoxProps['element']}
+   * @memberof ModalBodyProps
+   */
+  element?: BoxElementProps["element"];
 }
+
 const ModalBody = React.forwardRef<HTMLDivElement, ModalBodyProps>(
-  ({children, element = 'MODAL_BODY', ...props}, ref) => {
+  ({ children, element = "MODAL_BODY", ...props }, ref) => {
     return (
-      <Box {...safelySpreadBoxProps(props)} {...modalBodyStyles} as="div" element={element} ref={ref}>
+      <Box
+        {...safelySpreadBoxProps(props)}
+        overflowY="auto"
+        padding="space90"
+        paddingTop="space0"
+        as="div"
+        element={element}
+        ref={ref}
+      >
         {children}
       </Box>
     );
-  }
+  },
 );
-ModalBody.displayName = 'ModalBody';
+ModalBody.displayName = "ModalBody";
 
-ModalBody.propTypes = {
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
-
-export {ModalBody};
+export { ModalBody };

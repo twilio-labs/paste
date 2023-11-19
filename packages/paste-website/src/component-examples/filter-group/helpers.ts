@@ -1,10 +1,11 @@
 /* DISCLAIMER: this is an example, not meant to be used in production */
 
-import {format, isBefore, isAfter, add} from 'date-fns';
-import type {Duration} from 'date-fns';
-import type {RoomTypes, DateRanges, DateTimeRanges} from './types';
+import { add, format, isAfter, isBefore } from "date-fns";
+import type { Duration } from "date-fns";
 
-export const formatDate = (date: Date): string => format(date, 'yyyy-MM-dd');
+import type { DateRanges, DateTimeRanges, RoomTypes } from "./types";
+
+export const formatDate = (date: Date): string => format(date, "yyyy-MM-dd");
 export const formatDateTime = (date: Date): string => format(date, "HH:mm:ss 'UTC' yyyy-MM-dd");
 
 export const filterBySearchString = (uniqueName: string, sid: string, searchValue: string): boolean => {
@@ -15,7 +16,7 @@ export const filterBySearchString = (uniqueName: string, sid: string, searchValu
 };
 
 export const filterByRoomType = (roomType: RoomTypes, filterValue: RoomTypes): boolean => {
-  if (filterValue === 'All') return true;
+  if (filterValue === "All") return true;
   return roomType === filterValue;
 };
 
@@ -40,14 +41,14 @@ export const filterByDateTimeRange = (
   startDate: string,
   startTime: string,
   endDate: string,
-  endTime: string
+  endTime: string,
 ): boolean => {
-  if (filterValue === 'all') return true;
-  if (filterValue !== 'custom') {
-    const rangeMap: Record<'12hours' | 'day' | 'threeDays', Duration> = {
-      '12hours': {hours: -12},
-      day: {days: -1},
-      threeDays: {days: -3},
+  if (filterValue === "all") return true;
+  if (filterValue !== "custom") {
+    const rangeMap: Record<"12hours" | "day" | "threeDays", Duration> = {
+      "12hours": { hours: -12 },
+      day: { days: -1 },
+      threeDays: { days: -3 },
     };
     const computedStart = add(new Date(), rangeMap[filterValue]);
 
@@ -64,7 +65,7 @@ export const isEndDateBeforeStartDate = (
   startDate: string,
   startTime: string,
   endDate: string,
-  endTime: string
+  endTime: string,
 ): boolean => {
   const computedStart = new Date(`${startDate}T${startTime}`);
   const computedEnd = new Date(`${endDate}T${endTime}`);

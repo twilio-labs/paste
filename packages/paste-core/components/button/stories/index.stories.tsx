@@ -1,43 +1,69 @@
-import * as React from 'react';
-import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Stack} from '@twilio-paste/stack';
-import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {isRenderingOnServer} from '@twilio-paste/animation-library';
-import {Button} from '../src';
-import type {ButtonVariants, ButtonSizes} from '../src/types';
+import { isRenderingOnServer } from "@twilio-paste/animation-library";
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { BoldIcon } from "@twilio-paste/icons/esm/BoldIcon";
+import { CheckboxCheckIcon } from "@twilio-paste/icons/esm/CheckboxCheckIcon";
+import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { PauseIcon } from "@twilio-paste/icons/esm/PauseIcon";
+import { PlayIcon } from "@twilio-paste/icons/esm/PlayIcon";
+import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Stack } from "@twilio-paste/stack";
+import * as React from "react";
 
-const ButtonSizeOptions = ['default', 'small', 'icon', 'icon_small', 'reset'];
+import { Button } from "../src";
+import type { ButtonSizes, ButtonVariants } from "../src/types";
 
-const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
+const ButtonSizeOptions = [
+  "default",
+  "small",
+  "icon",
+  "icon_small",
+  "reset",
+  "rounded_small",
+  "circle",
+  "circle_small",
+];
+
+const AllSizeOptions: React.FC<React.PropsWithChildren<{ variant: ButtonVariants }>> = ({ variant }) => {
   const allButtons: React.ReactNode[] = [];
 
-  ButtonSizeOptions.forEach((size) => {
-    if (variant === 'reset' && size !== 'reset') return;
+  ButtonSizeOptions.forEach((size, index) => {
+    if (variant === "reset" && size !== "reset") return;
     const children =
-      size === 'icon' || size === 'icon_small' ? <PlusIcon title="Add item to cart" decorative={false} /> : variant;
+      size === "icon" || size === "icon_small" || size === "circle" || size === "circle_small" ? (
+        <PlusIcon title="Add item to cart" decorative={false} />
+      ) : (
+        variant
+      );
 
     allButtons.push(
       <>
-        <Box key={`variant-${variant}-${size}`} padding="space30">
+        <Box key={`variant-${variant}-${size}-horizontal`} padding="space30">
           <Stack orientation="horizontal" spacing="space40">
             <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
               {children}
             </Button>
-            {size !== 'icon' && size !== 'icon_small' && size !== 'reset' && (
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
-                <PlusIcon title="Add item to cart" decorative={false} />
-                {children}
-              </Button>
-            )}
-            {size !== 'icon' && size !== 'icon_small' && size !== 'reset' && (
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
-                {children}
-                <PlusIcon title="Add item to cart" decorative={false} />
-              </Button>
-            )}
+            {size !== "icon" &&
+              size !== "icon_small" &&
+              size !== "reset" &&
+              size !== "circle" &&
+              size !== "circle_small" && (
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
+                  <PlusIcon title="Add item to cart" decorative={false} />
+                  {children}
+                </Button>
+              )}
+            {size !== "icon" &&
+              size !== "icon_small" &&
+              size !== "reset" &&
+              size !== "circle" &&
+              size !== "circle_small" && (
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes}>
+                  {children}
+                  <PlusIcon title="Add item to cart" decorative={false} />
+                </Button>
+              )}
 
             <Button variant={variant as ButtonVariants} size={size as ButtonSizes} loading={!isRenderingOnServer}>
               {children}
@@ -47,42 +73,46 @@ const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
             </Button>
           </Stack>
         </Box>
-        {size !== 'icon' && size !== 'icon_small' && size !== 'reset' && (
-          <Box key={`variant-${variant}-${size}`} marginBottom="space40" padding="space30">
-            <Stack orientation="vertical" spacing="space40">
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
-                {children}
-              </Button>
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
-                <PlusIcon title="Add item to cart" decorative={false} />
-                {children}
-              </Button>
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
-                {children}
-                <PlusIcon title="Add item to cart" decorative={false} />
-              </Button>
-              <Button
-                variant={variant as ButtonVariants}
-                size={size as ButtonSizes}
-                fullWidth
-                loading={!isRenderingOnServer}
-              >
-                {children}
-              </Button>
-              <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth disabled>
-                {children}
-              </Button>
-            </Stack>
-          </Box>
-        )}
-      </>
+        {size !== "icon" &&
+          size !== "icon_small" &&
+          size !== "reset" &&
+          size !== "circle" &&
+          size !== "circle_small" && (
+            <Box key={`variant-${variant}-${size}-vert-${index}`} marginBottom="space40" padding="space30">
+              <Stack orientation="vertical" spacing="space40">
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
+                  {children}
+                </Button>
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
+                  <PlusIcon title="Add item to cart" decorative={false} />
+                  {children}
+                </Button>
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth>
+                  {children}
+                  <PlusIcon title="Add item to cart" decorative={false} />
+                </Button>
+                <Button
+                  variant={variant as ButtonVariants}
+                  size={size as ButtonSizes}
+                  fullWidth
+                  loading={!isRenderingOnServer}
+                >
+                  {children}
+                </Button>
+                <Button variant={variant as ButtonVariants} size={size as ButtonSizes} fullWidth disabled>
+                  {children}
+                </Button>
+              </Stack>
+            </Box>
+          )}
+      </>,
     );
   });
 
   return (
     <Box
       backgroundColor={
-        variant === 'inverse' || variant === 'inverse_link' ? 'colorBackgroundBodyInverse' : 'colorBackgroundBody'
+        variant === "inverse" || variant === "inverse_link" ? "colorBackgroundBodyInverse" : "colorBackgroundBody"
       }
     >
       {allButtons}
@@ -92,7 +122,7 @@ const AllSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Button',
+  title: "Components/Button",
   component: Button,
 };
 
@@ -134,7 +164,7 @@ export const Reset = (): React.ReactNode => (
       </Button>
     </Heading>
     <Heading variant="heading20" as="h1">
-      <Button variant="reset" size="reset" disabled>
+      <Button variant="reset" size="reset" backgroundColor="colorBackground">
         Example using reset button in composition
       </Button>
     </Heading>
@@ -161,7 +191,7 @@ export const ButtonAsAnchor = (): React.ReactNode => {
 
       <Box padding="space30">
         <Button as="a" href="https://twilio.com" variant="primary">
-          Not added when children{' '}
+          Not added when children{" "}
           <em>
             <u>is not string type</u>
           </em>
@@ -171,7 +201,7 @@ export const ButtonAsAnchor = (): React.ReactNode => {
   );
 };
 
-const IconSizeOptions: React.FC<{variant: ButtonVariants}> = ({variant}) => {
+const IconSizeOptions: React.FC<React.PropsWithChildren<{ variant: ButtonVariants }>> = ({ variant }) => {
   return (
     <Stack orientation="vertical" spacing="space60">
       <Box>
@@ -230,6 +260,101 @@ export const PrimaryIconButton = (): React.ReactNode => <IconSizeOptions variant
 export const SecondaryIconButton = (): React.ReactNode => <IconSizeOptions variant="secondary_icon" />;
 export const DestructiveIconButton = (): React.ReactNode => <IconSizeOptions variant="destructive_icon" />;
 
+interface ToggleButtonProps {
+  defaultPressed?: boolean;
+  variant?: "secondary" | "secondary_icon" | "destructive_secondary";
+  size?: "icon" | "circle";
+  disabled?: boolean;
+  icons: {
+    default: React.ReactNode;
+    pressed?: React.ReactNode;
+  };
+}
+
+const ToggleButton: React.FC<React.PropsWithChildren<ToggleButtonProps>> = ({
+  defaultPressed = false,
+  variant = "secondary",
+  children,
+  size,
+  icons,
+  disabled,
+}) => {
+  const [pressed, setPressed] = React.useState<boolean>(defaultPressed);
+
+  let computedIcon = icons.default;
+  if (pressed && icons.pressed) computedIcon = icons.pressed;
+
+  return (
+    <Button variant={variant} size={size} pressed={pressed} onClick={() => setPressed(!pressed)} disabled={disabled}>
+      {computedIcon}
+      {children}
+    </Button>
+  );
+};
+
+export const ToggleButtons = (): React.ReactNode => {
+  const followIcons = {
+    default: <PlusIcon decorative />,
+    pressed: <CheckboxCheckIcon decorative />,
+  };
+
+  const boldIcons = {
+    default: <BoldIcon decorative={false} title="Bold" />,
+  };
+
+  const pauseIcons = {
+    default: <PauseIcon decorative />,
+    pressed: <PlayIcon decorative />,
+  };
+
+  return (
+    <Box display="flex" flexDirection="column" rowGap="space50">
+      <Box display="flex" flexDirection="row" columnGap="space50">
+        <ToggleButton icons={followIcons}>Follow</ToggleButton>
+        <ToggleButton variant="secondary_icon" size="icon" icons={boldIcons} />
+        <ToggleButton size="circle" icons={pauseIcons}>
+          <ScreenReaderOnly>Pause</ScreenReaderOnly>
+        </ToggleButton>
+        <ToggleButton variant="secondary" size="icon" icons={boldIcons} />
+        <ToggleButton variant="destructive_secondary" size="icon" icons={boldIcons} />
+      </Box>
+      <Box display="flex" flexDirection="row" columnGap="space50">
+        <ToggleButton defaultPressed={true} icons={followIcons}>
+          Follow
+        </ToggleButton>
+        <ToggleButton defaultPressed={true} variant="secondary_icon" size="icon" icons={boldIcons} />
+        <ToggleButton defaultPressed={true} size="circle" icons={pauseIcons}>
+          <ScreenReaderOnly>Pause</ScreenReaderOnly>
+        </ToggleButton>
+        <ToggleButton defaultPressed={true} variant="secondary" size="icon" icons={boldIcons} />
+        <ToggleButton defaultPressed={true} variant="destructive_secondary" size="icon" icons={boldIcons} />
+      </Box>
+      <Box display="flex" flexDirection="row" columnGap="space50">
+        <ToggleButton icons={followIcons} disabled>
+          Follow
+        </ToggleButton>
+        <ToggleButton variant="secondary_icon" size="icon" icons={boldIcons} disabled />
+        <ToggleButton size="circle" icons={pauseIcons} disabled>
+          <ScreenReaderOnly>Pause</ScreenReaderOnly>
+        </ToggleButton>
+        <ToggleButton variant="secondary" size="icon" icons={boldIcons} disabled />
+        <ToggleButton variant="destructive_secondary" size="icon" icons={boldIcons} disabled />
+      </Box>
+      <Box display="flex" flexDirection="row" columnGap="space50">
+        <ToggleButton defaultPressed={true} icons={followIcons} disabled>
+          Follow
+        </ToggleButton>
+        <ToggleButton defaultPressed={true} variant="secondary_icon" size="icon" icons={boldIcons} disabled />
+        <ToggleButton defaultPressed={true} size="circle" icons={pauseIcons} disabled>
+          <ScreenReaderOnly>Pause</ScreenReaderOnly>
+        </ToggleButton>
+        <ToggleButton defaultPressed={true} variant="secondary" size="icon" icons={boldIcons} disabled />
+        <ToggleButton defaultPressed={true} variant="destructive_secondary" size="icon" icons={boldIcons} disabled />
+      </Box>
+    </Box>
+  );
+};
+
 export const I18nButtons = (): React.ReactNode => {
   return (
     <>
@@ -242,4 +367,4 @@ export const I18nButtons = (): React.ReactNode => {
   );
 };
 
-I18nButtons.storyName = 'i18n Button';
+I18nButtons.storyName = "i18n Button";

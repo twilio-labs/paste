@@ -1,11 +1,10 @@
----
-title: List
-package: '@twilio-paste/list'
-description: The list component is used to render text as a list of items.
-slug: /components/list/
----
+export const meta = {
+  title: 'List',
+  package: '@twilio-paste/list',
+  description: 'The list component is used to render text as a list of items.',
+  slug: '/components/list/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
@@ -14,61 +13,32 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/list/CHANGELOG.md';
+import packageJson from '@twilio-paste/list/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/list"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/list/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "List"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/list"
-  storybookUrl="/?path=/story/components-list--default-ordered-list"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('List');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/list',
+        storybookUrl: '/?path=/story/components-list--unordered-list',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
 
 <LivePreview scope={{UnorderedList, ListItem}} language="jsx">
   {`<UnorderedList>
@@ -102,17 +72,16 @@ Lists can be ordered or unordered. If the order of the list items matters for co
 
 Lists are a number of connected list items that are printed consecutively, typically one after the other. Lists can be ordered, using numbers as an indicator to the reader, or unordered with bullet points.
 
-- Ordered lists are displayed with a preceding number
-- Unordered lists are displayed with a preceding bullet point
-- Lists can be nested as deeply as needed, and they may alternate between ordered and unordered
-- Lists should align with the font-size, font-weight, and line-height of paragraphs, but are styled with bullets or numbers
-- Lists can have similar children elements as paragraphs to provide emphasis on a certain word or phrase
+- Ordered lists are displayed with a preceding number.
+- Unordered lists are displayed with a preceding bullet point.
+- Lists can be nested as deeply as needed, and they may alternate between ordered and unordered.
+- Lists should align with the font-size, font-weight, and line-height of paragraphs, but are styled with bullets or numbers.
+- Lists can have similar children elements as paragraphs to provide emphasis on a certain word or phrase.
 
 ### Accessibility
 
-- List text should meet AA requirements (4.5:1) for color contrast from itself and the background color
-- `ListItem`s should always have an `OrderedList` or `UnorderedList` parent component
-- Nested `ListItem`s should be wrapped in their own, new `OrderedList` or `UnorderedList` parent component, e.g.
+- `ListItem`s should always have an `OrderedList` or `UnorderedList` parent component.
+- Nested `ListItem`s should be wrapped in their own, new `OrderedList` or `UnorderedList` parent component. For example:
 
 ```jsx
 <OrderedList>
@@ -129,7 +98,9 @@ Lists are a number of connected list items that are printed consecutively, typic
 
 ### Unordered List
 
-Use unordered list to display a basic list of items. This is the default variant for List.
+An unordered list is the default variant for List.
+
+Use unordered lists to display a basic list of items related to a particular topic. Use Heading and/or body text preceding the list to introduce the linked topic.
 
 <LivePreview scope={{UnorderedList, ListItem}} language="jsx">
   {`<UnorderedList>
@@ -228,9 +199,15 @@ List items can be nested within other list items. To do so create a new list as 
 </div>`}
 </LivePreview>
 
-## Composition Notes
+## Composition notes
 
-### When to Use a OrderedList and UnorderedList
+Start each list item with the same part of speech, usually a noun or verb. This makes the list "parallel."
+
+Do not use a period at the end of list items unless they are complete sentences. Do not use commas or ellipses at the end of list items.
+
+Avoid listing very long lists. Where possible, make a big list into smaller ones with explanatory [Headings](/components/heading).
+
+## Dos and don'ts
 
 <DoDont>
   <Do title="Do" body="Use a list when you have more than one item or point." center>
@@ -298,65 +275,3 @@ List items can be nested within other list items. To do so create a new list as 
     </Box>
   </Dont>
 </DoDont>
-
-## Anatomy
-
-| Property      | Default token      | Modifiable? |
-| ------------- | ------------------ | ----------- |
-| font-size     | font-size-30       | No          |
-| line-height   | line-height-30     | No          |
-| font-weight   | font-weight-normal | No          |
-| margin-top    | null               | Yes         |
-| margin-bottom | space-70           | Yes         |
-| color         | color-text         | No          |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/list - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {OrderedList, UnorderedList, ListItem} from '@twilio-paste/core/list';
-
-const Component = () => (
-  <UnorderedList>
-    <ListItem>Point one</ListItem>
-    <ListItem>Point two</ListItem>
-    <ListItem>Point three</ListItem>
-  </UnorderedList>
-);
-
-const Component = () => (
-  <OrderedList>
-    <ListItem>Point one</ListItem>
-    <ListItem>Point two</ListItem>
-    <ListItem>Point three</ListItem>
-  </OrderedList>
-);
-```
-
-#### Props
-
-| Prop          | Type                                         | Description                                                                               | Default   |
-| ------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
-| children?     | `ReactNode`                                  |                                                                                           | null      |
-| marginTop?    | `ResponsiveValue<keyof ThemeShape['space']>` |                                                                                           | null      |
-| marginBottom? | `ResponsiveValue<keyof ThemeShape['space']>` |                                                                                           | 'space70' |
-| element?      | `string`                                     | Overrides the default element name to apply unique styles with the Customization Provider | 'LIST'    |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

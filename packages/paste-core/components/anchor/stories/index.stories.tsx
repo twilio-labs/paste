@@ -1,27 +1,30 @@
-import * as React from 'react';
-import {action} from '@storybook/addon-actions';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Heading} from '@twilio-paste/heading';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Anchor} from '../src';
-import type {AnchorTargets, AnchorTabIndexes} from '../src/types';
+import { action } from "@storybook/addon-actions";
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
+import { Anchor } from "../src";
+import type { AnchorTabIndexes, AnchorTargets } from "../src/types";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Anchor',
+  title: "Components/Anchor",
   component: Anchor,
 };
 
 export const Default = (): React.ReactNode => {
   const tabIndexOptions = 0 as AnchorTabIndexes;
-  const targetOptions = '_self' as AnchorTargets;
+  const targetOptions = "_self" as AnchorTargets;
   return (
     <Anchor
       href="/app"
-      onBlur={action('handleBlur')}
-      onClick={action('handleClick')}
-      onFocus={action('handleFocus')}
+      onBlur={action("handleBlur")}
+      onClick={action("handleClick")}
+      onFocus={action("handleFocus")}
       rel=""
       tabIndex={tabIndexOptions}
       target={targetOptions}
@@ -33,14 +36,14 @@ export const Default = (): React.ReactNode => {
 
 export const Inverse = (): React.ReactNode => {
   const tabIndexOptions = 0 as AnchorTabIndexes;
-  const targetOptions = '_self' as AnchorTargets;
+  const targetOptions = "_self" as AnchorTargets;
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Anchor
         href="/app"
-        onBlur={action('handleBlur')}
-        onClick={action('handleClick')}
-        onFocus={action('handleFocus')}
+        onBlur={action("handleBlur")}
+        onClick={action("handleClick")}
+        onFocus={action("handleFocus")}
         rel=""
         tabIndex={tabIndexOptions}
         target={targetOptions}
@@ -67,31 +70,27 @@ export const ShowExternalProp = (): React.ReactNode => {
   );
 };
 
-ShowExternalProp.story = {
-  name: 'showExternal prop',
-};
+ShowExternalProp.storyName = "showExternal prop";
 
-export const CustomAnchor = (): React.ReactNode => {
+export const CustomAnchor: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
-      theme={{
-        textColors: {colorTextLink: 'red'},
-        fonts: {fontFamilyText: 'cursive'},
-      }}
+      disableAnimations={isTestEnvironment}
+      theme={currentTheme}
       elements={{
         ANCHOR: {
-          color: 'colorTextLink',
-          padding: 'space40',
-          ':hover': {
-            color: 'colorTextLink',
+          color: "colorTextError",
+          padding: "space40",
+          ":hover": {
+            color: "colorTextLink",
           },
         },
         CUSTOM_ANCHOR: {
-          backgroundColor: 'colorBackgroundPrimary',
-          color: 'colorTextInverse',
-          ':hover': {
-            color: 'colorTextInverse',
+          backgroundColor: "colorBackgroundPrimary",
+          color: "colorTextInverse",
+          ":hover": {
+            color: "colorTextInverse",
           },
         },
       }}
@@ -104,6 +103,12 @@ export const CustomAnchor = (): React.ReactNode => {
       </Stack>
     </CustomizationProvider>
   );
+};
+CustomAnchor.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
 export const i18nAnchor = (): React.ReactNode => {
@@ -129,6 +134,4 @@ export const i18nAnchor = (): React.ReactNode => {
   );
 };
 
-i18nAnchor.story = {
-  name: 'i18n Anchor',
-};
+i18nAnchor.storyName = "i18n Anchor";

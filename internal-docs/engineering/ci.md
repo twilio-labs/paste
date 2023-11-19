@@ -7,13 +7,13 @@
     - [Lint](#lint)
     - [Test React 17](#test-react-17)
     - [Test React 16](#test-react-16)
-    - [Prettier checks](#prettier-checks)
+    - [Code formatting checks](#code-formatting-checks)
     - [Categorize the PR using labels](#categorize-the-pr-using-labels)
     - [Danger checks](#danger-checks)
     - [Check package sizes](#check-package-sizes)
     - [CodeSandbox](#codesandbox)
     - [Website test(1/2/3)](#website-test123)
-    - [Applitools](#applitools)
+    - [Percy](#percy)
     - [Component Visual regression tests](#component-visual-regression-tests)
     - [Netlify](#netlify)
     - [Kodiak hq](#kodiak-hq)
@@ -21,7 +21,7 @@
   - [Github Actions (main branch)](#github-actions-main-branch)
     - [Version or Publish](#version-or-publish)
 
-CI/CD are automated tools that we use to deploy Paste packages. We deploy all Paste packages, the documentation site, the theme designer, NextJS template, and our Create React App template in this manner.
+CI/CD are automated tools that we use to deploy Paste packages. We deploy all Paste packages, the documentation site, the theme designer, and NextJS template in this manner.
 
 **Continuous Integration (CI)** processes run our builds and tests on all pull requests.
 
@@ -55,9 +55,12 @@ This job downloads the build cache of the monorepo, and then runs our Jest test 
 
 This job downloads the build cache of the monorepo, and then runs our Jest test suite using React 16.
 
-### Prettier checks
+### Code formatting checks
 
-This job downloads the build cache of the monorepo, and then runs Prettier.
+This job downloads the build cache of the monorepo, and then runs [BiomeJS](https://biomejs.dev/) and [Prettier](https://prettier.io/). BiomeJS runs on all TS(X) / JS(X) / JSON(C) / CSS files. Prettier runs on everything else, such as HTML, MDX, etc...
+
+Biome was selected due to its tremendous performance improvements over prettier to run on our main codebase. It lacks complete support for all file extensions, so prettier is still used where needed on unsupported file types.
+
 
 ### Categorize the PR using labels
 
@@ -66,6 +69,14 @@ Based on the files changed, [using this configuration](https://github.com/twilio
 ### Danger checks
 
 [DangerJS](https://danger.systems/js/) allows use to run a number of checks on our codebase, based on the contents of a PR change list. The checks can be [found here](https://github.com/twilio-labs/paste/tree/main/.danger)
+
+You can run Danger checks from a PR locally with the following command, replacing `<PR NUMBER>`:
+
+```sh
+yarn danger pr https://github.com/twilio-labs/paste/pull/<PR NUMBER>
+```
+
+Note: This command is heavily rate limited, so you may only get 6 attempts every few minutes.
 
 ### Check package sizes
 
@@ -77,19 +88,19 @@ Each pull request gets its own CodeSandbox environment through the CodeSandbox G
 
 ### Website test(1/2/3)
 
-Website tests is a test runner for Cypress and Applitools, using the [Cypress Github Integration](https://docs.cypress.io/guides/dashboard/github-integration.html#Install-the-Cypress-GitHub-app). It will first wait for Netlify to finish deploying the preview of the website, and then run cypress against that url.
+Website tests is a test runner for Cypress and Percy, using the [Cypress Github Integration](https://docs.cypress.io/guides/dashboard/github-integration.html#Install-the-Cypress-GitHub-app). It will first wait for Netlify to finish deploying the preview of the website, and then run cypress against that url.
 
 It will parallelize Cypress test suites across 3 boxes.
 
 After the tests have run, the Cypress integration reports back the results as a comment on the pull request and as a required check.
 
-### Applitools
+### Percy
 
-Applitools is used for visual regression of the docs website. We use Cypress as a means to fire Applitools snapshots for comparison.
+Percy is used for visual regression of the docs website. We use Cypress as a means to fire Percy snapshots for comparison.
 
 This does not run by default.
 
-To enable a website visual regression test on your PR, add the `🕵🏻‍♀️ Run website visual regression` label. This will run the Cypress tests with an environment variable set that instructs cypress to enable applitools.
+To enable a website visual regression test on your PR, add the `🕵🏻‍♀️ Run website visual regression` label. This will run the Cypress tests with an environment variable set that instructs cypress to enable Percy.
 
 ### Component Visual regression tests
 

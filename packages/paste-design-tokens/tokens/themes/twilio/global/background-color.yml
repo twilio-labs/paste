@@ -1,0 +1,77 @@
+global:
+  type: color
+  category: background-color
+imports:
+  - ../../../global/background-color.yml
+  - ../aliases/color-palette.yml
+props:
+  # base background
+  color-background-inverse:
+    value: "{!palette-gray-100}"
+    comment: Inverse background color for any container. Must be used on color-background-body-inverse.
+  color-background-inverse-strong:
+    value: "{!palette-gray-90}"
+    comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
+
+  # user background
+  color-background-user:
+    value: "{!palette-purple-05}"
+    comment: User avatar background color.
+
+  # account backgrounds
+  color-background-subaccount:
+    value: "{!palette-yellow-10}"
+    comment: Background color used for subaccounts.
+
+  # page body
+  color-background-body-inverse:
+    value: "{!palette-gray-100}"
+    comment: Inverse background color used for the main page body.
+
+  # status
+  color-background-neutral-weakest:
+    value: "{!palette-blue-05}"
+    comment: Weakest neutral background color.
+  color-background-warning-weakest:
+    value: "{!palette-orange-05}"
+    comment: Weakest warning background color.
+  color-background-error:
+    value: "{!palette-red-65}"
+    comment: Error background color.
+  color-background-error-weakest:
+    value: "{!palette-red-05}"
+    comment: Weakest error background color.
+
+  # row backgrounds
+  color-background-row-striped:
+    value: "{!palette-gray-05}"
+    comment: Background color for alternative striped rows.
+
+  # primary background
+  color-background-primary:
+    value: "{!palette-blue-55}"
+    comment: Background for primary actions or highlights.
+  color-background-primary-weakest:
+    value: "{!palette-blue-05}"
+    comment: Weakest background for primary actions or highlights.
+
+  # destructive backgrounds
+  color-background-destructive:
+    value: "{!palette-red-65}"
+    comment: Background color used for destructive actions or highlights.
+  color-background-destructive-weakest:
+    value: "{!palette-red-05}"
+    comment: Weakest background color used for destructive actions or highlights.
+
+  # overlay backgrounds
+  color-background-overlay:
+    value: "{!palette-gray-60-transparent-50}"
+    comment: Default background for overlays.
+
+  #decorative
+  color-background-decorative-20-weakest:
+    value: "{!palette-blue-05}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."
+  color-background-decorative-40-weakest:
+    value: "{!palette-purple-05}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."

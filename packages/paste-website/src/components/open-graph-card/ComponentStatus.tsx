@@ -1,20 +1,19 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {AssetStatus} from './AssetStatus';
-import {PeerReviewStatus} from './PeerReviewStatus';
-import type {PackageData} from './types';
+import { Box } from "@twilio-paste/box";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-export const ComponentStatus: React.FC<PackageData> = ({
+import { AssetStatus } from "./AssetStatus";
+import { PeerReviewStatus } from "./PeerReviewStatus";
+import type { PackageData } from "./types";
+
+export const ComponentStatus: React.FC<React.PropsWithChildren<PackageData>> = ({
   Figma,
   Documentation,
   Code,
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  Design_committee_review,
-  // eslint-disable-next-line @typescript-eslint/naming-convention
-  Engineer_committee_review,
+  "Design committee review": Design_committee_review,
+  "Engineer committee review": Engineer_committee_review,
 }) => {
   return (
     <Stack orientation="vertical" spacing="space20">

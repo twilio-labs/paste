@@ -1,0 +1,52 @@
+global:
+  type: color
+  category: background-color
+imports:
+  - ../../dark/global/background-color.yml
+props:
+  # base background
+  color-background-inverse:
+    value: "{!palette-gray-100}"
+    comment: Inverse background color for any container. Must be used on color-background-body-inverse.
+  color-background-inverse-strong:
+    value: "{!palette-gray-90}"
+    comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
+
+  # account backgrounds
+  color-background-subaccount:
+    value: "{!palette-gray-100}"
+    comment: Background color used for subaccounts.
+
+  # user background
+  color-background-user:
+    value: "{!palette-purple-90}"
+    comment: User avatar background color.
+
+  # page body
+  color-background-body-inverse:
+    value: "{!palette-gray-100}"
+    comment: Inverse background color used for the main page body.
+
+  # status
+  color-background-neutral-weakest:
+    value: "{!palette-gray-100}"
+    comment: Weakest neutral background color.
+  color-background-success-weakest:
+    value: "{!palette-gray-100}"
+    comment: Weakest success background color.
+  color-background-warning-weakest:
+    value: "{!palette-gray-100}"
+    comment: Weakest warning background color.
+  color-background-error-weakest:
+    value: "{!palette-gray-100}"
+    comment: Weakest error background color.
+
+  # primary background
+  color-background-primary:
+    value: "{!palette-blue-55}"
+    comment: Background for primary actions or highlights.
+
+  #decorative
+  color-background-decorative-40-weakest:
+    value: "{!palette-purple-90}"
+    comment: "Weakest background color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative border and/or text tokens."

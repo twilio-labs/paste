@@ -1,17 +1,19 @@
-import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {useUID} from '@twilio-paste/uid-library';
-import {Combobox} from '@twilio-paste/combobox';
-import {Stack} from '@twilio-paste/stack';
-import {DatePicker, formatReturnDate} from '../src';
-import type {DatePickerProps} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Combobox } from "@twilio-paste/combobox";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { HelpText } from "@twilio-paste/help-text";
+import { Label } from "@twilio-paste/label";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-export const DefaultDatePicker: React.FC<DatePickerProps> = (props) => {
+import { DatePicker, formatReturnDate } from "../src";
+import type { DatePickerProps } from "../src";
+
+export const DefaultDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -31,7 +33,7 @@ export const DefaultDatePicker: React.FC<DatePickerProps> = (props) => {
   );
 };
 
-export const InverseDatePicker: React.FC = (props) => {
+export const InverseDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -42,18 +44,12 @@ export const InverseDatePicker: React.FC = (props) => {
       <DatePicker variant="inverse" aria-describedby={uidHT} id={uidDP} {...props} />
       <HelpText variant="inverse" id={uidHT}>
         Enter a date above.&nbsp;
-        <Anchor
-          href="https://civilrights.org/2009/06/22/stonewall-riots-the-beginning-of-the-lgbt-movement/"
-          showExternal
-        >
-          Read more about Stonewall
-        </Anchor>
       </HelpText>
     </Box>
   );
 };
 
-export const RequiredDatePicker: React.FC = (props) => {
+export const RequiredDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -72,7 +68,7 @@ export const RequiredDatePicker: React.FC = (props) => {
   );
 };
 
-export const InverseRequiredDatePicker: React.FC = (props) => {
+export const InverseRequiredDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -83,15 +79,12 @@ export const InverseRequiredDatePicker: React.FC = (props) => {
       <DatePicker variant="inverse" aria-describedby={uidHT} id={uidDP} required {...props} />
       <HelpText variant="inverse" id={uidHT}>
         Enter a date above.&nbsp;
-        <Anchor href="https://nmaahc.si.edu/blog-post/historical-legacy-juneteenth" showExternal>
-          Read more about Juneteenth
-        </Anchor>
       </HelpText>
     </Box>
   );
 };
 
-export const ErrorDatePicker: React.FC = (props) => {
+export const ErrorDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -111,7 +104,7 @@ export const ErrorDatePicker: React.FC = (props) => {
   );
 };
 
-export const InverseErrorDatePicker: React.FC = (props) => {
+export const InverseErrorDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -122,18 +115,12 @@ export const InverseErrorDatePicker: React.FC = (props) => {
       <DatePicker variant="inverse" aria-describedby={uidHT} hasError id={uidDP} {...props} />
       <HelpText variant="error_inverse" id={uidHT}>
         Enter a date above.&nbsp;
-        <Anchor
-          href="https://www.hindustantimes.com/india-news/jallianwala-bagh-massacre-here-is-how-the-deadly-incident-transpired-102-years-ago-101618276752335.html"
-          showExternal
-        >
-          Read more about the Jallianwala Bagh massacre
-        </Anchor>
       </HelpText>
     </Box>
   );
 };
 
-export const DisabledDatePicker: React.FC = (props) => {
+export const DisabledDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -151,7 +138,7 @@ export const DisabledDatePicker: React.FC = (props) => {
   );
 };
 
-export const InverseDisabledDatePicker: React.FC = (props) => {
+export const InverseDisabledDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -160,16 +147,12 @@ export const InverseDisabledDatePicker: React.FC = (props) => {
         When did the Supreme Court ban anti-miscegenation laws (in Loving v. Virginia)?
       </Label>
       <DatePicker variant="inverse" aria-describedby={uidHT} disabled id={uidDP} defaultValue="1967-06-12" {...props} />
-      <HelpText variant="inverse" id={uidHT}>
-        <Anchor href="https://www.oyez.org/cases/1966/395" showExternal>
-          Read more about Loving Day
-        </Anchor>
-      </HelpText>
+      <HelpText variant="inverse" id={uidHT} />
     </Box>
   );
 };
 
-export const ReadonlyDatePicker: React.FC = (props) => {
+export const ReadonlyDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -185,7 +168,7 @@ export const ReadonlyDatePicker: React.FC = (props) => {
   );
 };
 
-export const InverseReadonlyDatePicker: React.FC = (props) => {
+export const InverseReadonlyDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -194,16 +177,11 @@ export const InverseReadonlyDatePicker: React.FC = (props) => {
         In what month was the Combahee River Collective Statement published?
       </Label>
       <DatePicker variant="inverse" aria-describedby={uidHT} readOnly id={uidDP} defaultValue="1977-04-01" {...props} />
-      <HelpText variant="inverse" id={uidHT}>
-        <Anchor href="https://combaheerivercollective.weebly.com/" showExternal>
-          Read more about the CRC
-        </Anchor>
-      </HelpText>
     </Box>
   );
 };
 
-export const DefaultValueDatePicker: React.FC = (props) => {
+export const DefaultValueDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -221,12 +199,12 @@ export const DefaultValueDatePicker: React.FC = (props) => {
   );
 };
 
-export const OnChangeDatePicker: React.FC = (props) => {
-  const [value, setValue] = React.useState('');
-  const [dateFormat, setDateFormat] = React.useState('MM dd yy');
+export const OnChangeDatePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
+  const [value, setValue] = React.useState("");
+  const [dateFormat, setDateFormat] = React.useState("MM dd yy");
   const uidDP = useUID();
   const uidHT = useUID();
-  const dateFormatOptions = ['MM dd yyyy', 'MMMM do yyyy', 'EEEEEE MMM do yy', 'MM/dd/yyyy'];
+  const dateFormatOptions = ["MM dd yyyy", "MMMM do yyyy", "EEEEEE MMM do yy", "MM/dd/yyyy"];
   const handleChange = (val: string, format: string): string => {
     setValue(formatReturnDate(val, format));
     return value;
@@ -237,7 +215,7 @@ export const OnChangeDatePicker: React.FC = (props) => {
         <Combobox
           items={dateFormatOptions}
           labelText="Return date format:"
-          onInputValueChange={({inputValue}) => {
+          onInputValueChange={({ inputValue }) => {
             if (inputValue !== undefined) setDateFormat(inputValue);
           }}
         />
@@ -262,7 +240,7 @@ export const OnChangeDatePicker: React.FC = (props) => {
   );
 };
 
-export const LabelOnlyPicker: React.FC = (props) => {
+export const LabelOnlyPicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   return (
     <>
@@ -272,8 +250,8 @@ export const LabelOnlyPicker: React.FC = (props) => {
   );
 };
 
-export const DateRangePicker: React.FC = (props) => {
-  const [startDate, setStartDate] = React.useState('');
+export const DateRangePicker: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
+  const [startDate, setStartDate] = React.useState("");
   const startUidDP = useUID();
   const endUidDP = useUID();
   return (
@@ -290,7 +268,7 @@ export const DateRangePicker: React.FC = (props) => {
   );
 };
 
-export const StackOfPickers: React.FC = (props) => {
+export const StackOfPickers: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDPOne = useUID();
   const uidHTOne = useUID();
   const uidDPTwo = useUID();
@@ -326,7 +304,7 @@ export const StackOfPickers: React.FC = (props) => {
   );
 };
 
-export const DatePickerWithMinAndMax: React.FC = (props) => {
+export const DatePickerWithMinAndMax: React.FC<React.PropsWithChildren<DatePickerProps>> = (props) => {
   const uidDP = useUID();
   const uidHT = useUID();
   return (
@@ -346,76 +324,76 @@ export const DatePickerWithMinAndMax: React.FC = (props) => {
   );
 };
 
-export const CustomizedDatePicker: React.FC = (props) => {
+export const CustomizedDatePicker: StoryFn = (_args, { parameters: { isTestEnvironment }, props }) => {
   const activeTheme = useTheme();
-  const uidDP = useUID();
+  const uidSeed = useUIDSeed();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
       theme={activeTheme}
       elements={{
         DATEPICKER: {
-          backgroundColor: 'colorBackgroundPrimaryWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth10',
-          borderColor: 'colorBorderPrimary',
+          backgroundColor: "colorBackgroundPrimaryWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth10",
+          borderColor: "colorBorderPrimary",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
-              borderColor: 'colorBorderDestructive',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
+              borderColor: "colorBorderDestructive",
             },
           },
         },
         DATEPICKER_ELEMENT: {
-          color: 'colorTextLinkStronger',
-          padding: 'space50',
-          '::placeholder': {
-            color: 'colorTextLink',
+          color: "colorTextLinkStronger",
+          padding: "space50",
+          "::placeholder": {
+            color: "colorTextLink",
           },
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
           },
         },
         CUSTOM_DATE: {
-          backgroundColor: 'colorBackgroundDestructiveWeakest',
-          borderRadius: 'borderRadius30',
-          boxShadow: 'none',
-          borderStyle: 'solid',
-          borderWidth: 'borderWidth20',
-          borderColor: 'colorBorderDestructive',
+          backgroundColor: "colorBackgroundDestructiveWeakest",
+          borderRadius: "borderRadius30",
+          boxShadow: "none",
+          borderStyle: "solid",
+          borderWidth: "borderWidth20",
+          borderColor: "colorBorderDestructive",
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderColor: 'colorBorderPrimary',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderColor: "colorBorderPrimary",
             },
           },
         },
         CUSTOM_DATE_ELEMENT: {
-          color: 'colorTextLinkDestructive',
-          padding: 'space70',
-          '::placeholder': {
-            color: 'colorTextLinkDestructive',
+          color: "colorTextLinkDestructive",
+          padding: "space70",
+          "::placeholder": {
+            color: "colorTextLinkDestructive",
           },
           variants: {
             default: {
-              backgroundColor: 'colorBackgroundDestructiveWeakest',
+              backgroundColor: "colorBackgroundDestructiveWeakest",
             },
             inverse: {
-              backgroundColor: 'colorBackgroundPrimaryWeakest',
-              borderRadius: 'borderRadius30',
+              backgroundColor: "colorBackgroundPrimaryWeakest",
+              borderRadius: "borderRadius30",
             },
           },
         },
@@ -423,32 +401,38 @@ export const CustomizedDatePicker: React.FC = (props) => {
     >
       <Stack orientation="vertical" spacing="space40">
         <div>
-          <Label htmlFor={uidDP}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
-          <DatePicker id={uidDP} {...props} />
+          <Label htmlFor={uidSeed("pride")}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
+          <DatePicker id={uidSeed("pride")} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidDP}>
+          <Label variant="inverse" htmlFor={uidSeed("pride2")}>
             When does this year&apos;s LGBTQ+ Pride month begin in the US?
           </Label>
-          <DatePicker variant="inverse" id={uidDP} {...props} />
+          <DatePicker variant="inverse" id={uidSeed("pride2")} {...props} />
         </Box>
         <div>
-          <Label htmlFor={uidDP}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
-          <DatePicker element="CUSTOM_DATE" id={uidDP} {...props} />
+          <Label htmlFor={uidSeed("pride3")}>When does this year&apos;s LGBTQ+ Pride month begin in the US?</Label>
+          <DatePicker element="CUSTOM_DATE" id={uidSeed("pride3")} {...props} />
         </div>
         <Box backgroundColor="colorBackgroundBodyInverse" padding="space80">
-          <Label variant="inverse" htmlFor={uidDP}>
+          <Label variant="inverse" htmlFor={uidSeed("pride4")}>
             When does this year&apos;s LGBTQ+ Pride month begin in the US?
           </Label>
-          <DatePicker variant="inverse" element="CUSTOM_DATE" id={uidDP} {...props} />
+          <DatePicker variant="inverse" element="CUSTOM_DATE" id={uidSeed("pride4")} {...props} />
         </Box>
       </Stack>
     </CustomizationProvider>
   );
 };
+CustomizedDatePicker.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Date Picker',
+  title: "Components/Date Picker",
   component: DatePicker,
 };

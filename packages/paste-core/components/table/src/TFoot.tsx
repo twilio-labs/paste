@@ -1,27 +1,39 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {TFootProps} from './types';
-import {TFootPropTypes} from './proptypes';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
+import * as React from "react";
 
-const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({element = 'TFOOT', ...props}, ref) => {
+import type { TFootProps } from "./types";
+
+const footerCellStyles: BoxStyleProps = {
+  borderBottomWidth: "borderWidth0",
+  borderTopWidth: "borderWidth10",
+  fontWeight: "fontWeightSemibold",
+  paddingY: "space40",
+};
+
+const StyledTFoot = styled.tfoot<TFootProps>(
+  css({
+    "& > tr > td": footerCellStyles,
+    "& > tr > th": footerCellStyles,
+  }),
+);
+
+const TFoot = React.forwardRef<HTMLTableSectionElement, TFootProps>(({ element = "TFOOT", ...props }, ref) => {
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   return (
     <Box
       {...safelySpreadBoxProps(props)}
       ref={ref}
-      as="tfoot"
-      backgroundColor="colorBackground"
-      borderTopStyle="solid"
-      borderTopWidth="borderWidth20"
-      borderTopColor="colorBorderWeaker"
+      as={StyledTFoot as any}
+      backgroundColor="colorBackgroundWeak"
+      color="colorTextWeak"
       element={element}
     />
   );
+  /* eslint-enable @typescript-eslint/no-explicit-any */
 });
 
-TFoot.displayName = 'TFoot';
+TFoot.displayName = "TFoot";
 
-if (process.env.NODE_ENV === 'development') {
-  TFoot.propTypes = TFootPropTypes;
-}
-
-export {TFoot};
+export { TFoot };

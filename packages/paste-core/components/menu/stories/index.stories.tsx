@@ -1,15 +1,27 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {MediaObject, MediaBody, MediaFigure} from '@twilio-paste/media-object';
-import {AttachIcon} from '@twilio-paste/icons/esm/AttachIcon';
-import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
-import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Menu, MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator, useMenuState} from '../src';
+import { Box } from "@twilio-paste/box";
+import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { ProductVoiceIcon } from "@twilio-paste/icons/esm/ProductVoiceIcon";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-const PlainMenu: React.FC = () => {
+import {
+  Menu,
+  MenuButton,
+  MenuGroup,
+  MenuItem,
+  MenuItemCheckbox,
+  MenuItemRadio,
+  MenuSeparator,
+  SubMenuButton,
+  useMenuState,
+} from "../src";
+
+const PlainMenu: React.FC<React.PropsWithChildren<unknown>> = () => {
   const menu = useMenuState();
   const onClick = (): void => {
     menu.hide();
@@ -26,6 +38,9 @@ const PlainMenu: React.FC = () => {
         <MenuItem {...menu} href="http://www.google.com" onClick={onClick}>
           Has a link
         </MenuItem>
+        <MenuItem {...menu} variant="destructive" href="http://www.google.com" onClick={onClick}>
+          Destructive link
+        </MenuItem>
         <MenuItem {...menu} disabled>
           Extensions
         </MenuItem>
@@ -38,8 +53,8 @@ const PlainMenu: React.FC = () => {
   );
 };
 
-const AutoplacedMenu: React.FC = () => {
-  const menu = useMenuState({visible: true});
+const AutoplacedMenu = (): JSX.Element => {
+  const menu = useMenuState({ visible: true });
   return (
     <>
       <MenuButton {...menu} variant="primary">
@@ -76,9 +91,9 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement>((props, ref) => {
   );
 });
 
-PreferencesMenu.displayName = 'PreferencesMenu';
+PreferencesMenu.displayName = "PreferencesMenu";
 
-const SubMenu: React.FC = () => {
+const SubMenu = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>
@@ -95,7 +110,7 @@ const SubMenu: React.FC = () => {
   );
 };
 
-const Example3: React.FC = () => {
+const Example3 = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>
@@ -121,7 +136,7 @@ const Example3: React.FC = () => {
   );
 };
 
-const Example4: React.FC = () => {
+const Example4 = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>
@@ -147,7 +162,7 @@ const Example4: React.FC = () => {
   );
 };
 
-const WithActionsMenu: React.FC = () => {
+const WithActionsMenu = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>
@@ -164,7 +179,8 @@ const WithActionsMenu: React.FC = () => {
         <MenuItem
           {...menu}
           onClick={() => {
-            alert('you clicked me');
+            // eslint-disable-next-line no-alert
+            alert("you clicked me");
             menu.hide();
           }}
         >
@@ -175,7 +191,7 @@ const WithActionsMenu: React.FC = () => {
   );
 };
 
-const MenuGroups: React.FC = () => {
+const MenuGroups = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <>
@@ -189,7 +205,9 @@ const MenuGroups: React.FC = () => {
         </MenuGroup>
         <MenuSeparator {...menu} />
         <MenuGroup icon={<AttachIcon decorative />} label="Search Options">
-          <MenuItem {...menu}>Search with Google</MenuItem>
+          <MenuItem {...menu} variant="destructive">
+            Search with Google
+          </MenuItem>
           <MenuItem {...menu} disabled>
             Search with Bing
           </MenuItem>
@@ -203,12 +221,12 @@ const MenuGroups: React.FC = () => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Menu',
+  title: "Components/Menu",
   component: Menu,
-  subcomponents: {MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator},
+  subcomponents: { MenuButton, SubMenuButton, MenuGroup, MenuItem, MenuSeparator },
   parameters: {
     // Sets a delay for the component's stories
-    chromatic: {delay: 3000},
+    chromatic: { delay: 3000 },
   },
 };
 
@@ -216,38 +234,31 @@ export const Default = (): React.ReactNode => {
   return <PlainMenu />;
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = "default";
 
 export const SubMenuStory = (): React.ReactNode => {
   return <SubMenu />;
 };
 
-SubMenuStory.story = {
-  name: 'sub menu',
-};
+SubMenuStory.storyName = "sub menu";
 
 export const ActionsDemoMenu = (): React.ReactNode => {
   return <WithActionsMenu />;
 };
 
-ActionsDemoMenu.story = {
-  name: 'actions demo menu',
-};
+ActionsDemoMenu.storyName = "actions demo menu";
 
 export const MenuGroupsStory = (): React.ReactNode => {
   return <MenuGroups />;
 };
 
-MenuGroupsStory.story = {
-  name: 'menu groups',
-};
+MenuGroupsStory.storyName = "menu groups";
 
 export const MenuDropdown = (): React.ReactNode => {
+  const uniqueMenuLabelID = useUID();
   const menuMockProps = {
     visible: true,
-    baseId: 'test',
+    baseId: uniqueMenuLabelID,
     first: () => {},
     last: () => {},
     items: [],
@@ -270,10 +281,15 @@ export const MenuDropdown = (): React.ReactNode => {
     registerItem: () => {},
     unregisterItem: () => {},
     tabIndex: -1,
+    unstable_values: {},
+    unstable_setValue: () => {},
   };
   return (
-    <Menu {...menuMockProps} aria-label="Code" placement="auto">
+    <Menu {...menuMockProps} aria-label={`Code ${uniqueMenuLabelID}`} placement="auto">
       <MenuItem {...menuItemMockProps}>Default</MenuItem>
+      <MenuItem {...menuItemMockProps} variant="destructive">
+        Destructive
+      </MenuItem>
       <MenuItem {...menuItemMockProps} disabled>
         Disabled
       </MenuItem>
@@ -306,10 +322,43 @@ export const MenuDropdown = (): React.ReactNode => {
           </MediaFigure>
         </MediaObject>
       </MenuItem>
+      <MenuItem variant="destructive" {...menuItemMockProps}>
+        Suuuuuuuuuuuuuuuuuuuuuuper long menu item
+      </MenuItem>
+      <MenuItem variant="destructive" {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space20">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+          <MediaBody>Got an icon</MediaBody>
+        </MediaObject>
+      </MenuItem>
+      <MenuItem variant="destructive" {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaBody>Got a right icon</MediaBody>
+          <MediaFigure spacing="space20" align="end">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+        </MediaObject>
+      </MenuItem>
+      <MenuItem variant="destructive" {...menuItemMockProps}>
+        <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space20">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+          <MediaBody>Got two icons</MediaBody>
+          <MediaFigure spacing="space20" align="end">
+            <AttachIcon decorative={false} title="information" />
+          </MediaFigure>
+        </MediaObject>
+      </MenuItem>
       <MenuSeparator />
       <MenuGroup icon={<ProductVoiceIcon decorative />} label="Search Options">
         <MenuItem {...menuItemMockProps} href="https://google.com">
           Search with Google
+        </MenuItem>
+        <MenuItem variant="destructive" {...menuItemMockProps} href="https://google.com">
+          Search with Yahoo
         </MenuItem>
         <MenuItem {...menuItemMockProps} disabled>
           Search with Bing
@@ -340,13 +389,49 @@ export const MenuDropdown = (): React.ReactNode => {
       <SubMenuButton {...menuItemMockProps} toggle={() => {}} placement="auto" baseId="test" show={() => {}}>
         Sub menu button
       </SubMenuButton>
+      <MenuSeparator />
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox">
+        Checkbox Item
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" variant="destructive">
+        Checkbox Item Destructive
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" disabled>
+        Checkbox Item Disabled
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" checked>
+        Checkbox Item Checked
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" variant="destructive" checked>
+        Checkbox Item Destructive Checked
+      </MenuItemCheckbox>
+      <MenuItemCheckbox {...menuItemMockProps} name="checkbox" checked disabled>
+        Checkbox Item Checked Disabled
+      </MenuItemCheckbox>
+      <MenuSeparator />
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="">
+        Radio Item
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" variant="destructive">
+        Radio Item Destructive
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" disabled>
+        Radio Item Disabled
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" checked>
+        Radio Item Checked
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" variant="destructive" checked>
+        Radio Item Destructive Checked
+      </MenuItemRadio>
+      <MenuItemRadio {...menuItemMockProps} name="radio" value="" checked disabled>
+        Radio Item Checked Disabled
+      </MenuItemRadio>
     </Menu>
   );
 };
 
-MenuDropdown.story = {
-  name: 'menu dropdown',
-};
+MenuDropdown.storyName = "menu dropdown";
 
 export const DifferentButtonTriggers = (): React.ReactNode => {
   return (
@@ -361,9 +446,7 @@ export const DifferentButtonTriggers = (): React.ReactNode => {
   );
 };
 
-DifferentButtonTriggers.story = {
-  name: 'different button triggers',
-};
+DifferentButtonTriggers.storyName = "different button triggers";
 
 export const AutoPlacementMenuStory = (): React.ReactNode => {
   return (
@@ -373,6 +456,4 @@ export const AutoPlacementMenuStory = (): React.ReactNode => {
   );
 };
 
-AutoPlacementMenuStory.story = {
-  name: 'auto placed menu',
-};
+AutoPlacementMenuStory.storyName = "auto placed menu";

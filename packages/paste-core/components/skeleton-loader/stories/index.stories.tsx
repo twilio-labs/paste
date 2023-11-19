@@ -1,30 +1,32 @@
-import * as React from 'react';
-import {Avatar} from '@twilio-paste/avatar';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {Text} from '@twilio-paste/text';
-import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
-import type {SkeletonLoaderProps} from '../src';
-import {SkeletonLoader} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { CalendarIcon } from "@twilio-paste/icons/esm/CalendarIcon";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
+import type { SkeletonLoaderProps } from "../src";
+import { SkeletonLoader } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Skeleton Loader',
+  title: "Components/Skeleton Loader",
   component: SkeletonLoader,
 };
 
-export const Default: React.FC<SkeletonLoaderProps> = (props) => {
+export const Default: React.FC<React.PropsWithChildren<SkeletonLoaderProps>> = (props) => {
   return <SkeletonLoader data-testid="default-skeleton" {...props} />;
 };
 
-export const TextLoading: React.FC = () => {
+export const TextLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -43,7 +45,7 @@ export const TextLoading: React.FC = () => {
   );
 };
 
-export const ParagraphLoading: React.FC = () => {
+export const ParagraphLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -81,7 +83,7 @@ export const ParagraphLoading: React.FC = () => {
   );
 };
 
-export const HeadingLoading: React.FC = () => {
+export const HeadingLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -130,7 +132,7 @@ export const HeadingLoading: React.FC = () => {
   );
 };
 
-export const ButtonsLoading: React.FC = () => {
+export const ButtonsLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -161,7 +163,7 @@ export const ButtonsLoading: React.FC = () => {
   );
 };
 
-export const AvatarLoading: React.FC = () => {
+export const AvatarLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -184,7 +186,7 @@ export const AvatarLoading: React.FC = () => {
   );
 };
 
-export const IconLoading: React.FC = () => {
+export const IconLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -203,7 +205,7 @@ export const IconLoading: React.FC = () => {
   );
 };
 
-export const ThumbnailLoading: React.FC = () => {
+export const ThumbnailLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -226,7 +228,7 @@ export const ThumbnailLoading: React.FC = () => {
   );
 };
 
-export const CardLoading: React.FC = () => {
+export const CardLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -276,7 +278,7 @@ export const CardLoading: React.FC = () => {
   );
 };
 
-export const TableLoading: React.FC = () => {
+export const TableLoading = (): JSX.Element => {
   const [loaded, setLoaded] = React.useState(false);
   return (
     <>
@@ -325,15 +327,15 @@ export const TableLoading: React.FC = () => {
   );
 };
 
-export const CustomizedSkeletonLoader = (): React.ReactNode => {
+export const CustomizedSkeletonLoader: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const activeTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
       theme={activeTheme}
       elements={{
-        SKELETON_LOADER: {backgroundColor: 'colorBackgroundBrandHighlight', margin: 'space100'},
-        CUSTOM_SKELETON: {backgroundColor: 'colorBackgroundBrand', padding: 'space80'},
+        SKELETON_LOADER: { backgroundColor: "colorBackgroundBrandHighlight", margin: "space100" },
+        CUSTOM_SKELETON: { backgroundColor: "colorBackgroundBrand", padding: "space80" },
       }}
     >
       <Stack orientation="vertical" spacing="space50">
@@ -348,4 +350,10 @@ export const CustomizedSkeletonLoader = (): React.ReactNode => {
       </Stack>
     </CustomizationProvider>
   );
+};
+CustomizedSkeletonLoader.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

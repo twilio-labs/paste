@@ -1,33 +1,30 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ToastPropTypes} from './propTypes';
-import type {ToastProps} from './types';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-const NeutralToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'TOAST', variant, ...props}, ref) => {
+import type { ToastProps } from "./types";
+
+const NeutralToast = React.forwardRef<HTMLDivElement, ToastProps>(({ element = "TOAST", variant, ...props }, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
       ref={ref}
-      backgroundColor="colorBackgroundBody"
-      borderColor="colorBorderWeaker"
-      borderRadius="borderRadius20"
+      color="colorTextNeutral"
+      width={["100%", "size40", "size40"]}
+      backgroundColor="colorBackgroundNeutralWeakest"
+      borderColor="colorBorderNeutralWeak"
+      borderRadius="borderRadius30"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      borderLeftWidth="borderWidth30"
-      borderLeftColor="colorBorderNeutralWeak"
       boxShadow="shadowHigh"
       element={element}
       padding="space60"
       variant={variant}
-      width="size40"
     >
       {props.children}
     </Box>
   );
 });
 
-NeutralToast.displayName = 'NeutralToast';
+NeutralToast.displayName = "NeutralToast";
 
-NeutralToast.propTypes = ToastPropTypes;
-
-export {NeutralToast};
+export { NeutralToast };

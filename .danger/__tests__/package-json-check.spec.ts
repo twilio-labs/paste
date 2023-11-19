@@ -1,8 +1,8 @@
-import packageJsonCheck from '../package-json-check';
+import packageJsonCheck from "../package-json-check";
 
 declare const global: any;
 
-describe('packageJsonCheck()', () => {
+describe("packageJsonCheck()", () => {
   beforeEach(() => {
     global.warn = jest.fn();
     global.message = jest.fn();
@@ -17,20 +17,20 @@ describe('packageJsonCheck()', () => {
     global.markdown = undefined;
   });
 
-  describe('checking for missing lockfile updates', () => {
+  describe("checking for missing lockfile updates", () => {
     afterEach(() => {
       global.danger = undefined;
     });
 
-    it('should not warn when the lockfile is modified', () => {
+    it("should not warn when the lockfile is modified", () => {
       global.danger = {
         git: {
           modified_files: [
-            'package.json',
-            'packages/paste-codemods/package.json',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
-            'yarn.lock',
-            '.changeset/pretty-cameras-burn.md',
+            "package.json",
+            "packages/paste-codemods/package.json",
+            "packages/paste-core/components/alert-dialog/stories/index.stories.tsx",
+            "yarn.lock",
+            ".changeset/pretty-cameras-burn.md",
           ],
           created_files: [],
         },
@@ -38,13 +38,27 @@ describe('packageJsonCheck()', () => {
       packageJsonCheck();
       expect(global.warn).not.toHaveBeenCalled();
     });
-    it('should warn when the root package.json is modified', () => {
+    it("should not warn when the root package.json is modified", () => {
       global.danger = {
         git: {
           modified_files: [
-            'package.json',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
-            '.changeset/pretty-cameras-burn.md',
+            "package.json",
+            "packages/paste-core/components/alert-dialog/stories/index.stories.tsx",
+            ".changeset/pretty-cameras-burn.md",
+          ],
+          created_files: [],
+        },
+      };
+      packageJsonCheck();
+      expect(global.warn).not.toHaveBeenCalled();
+    });
+    it("should warn when a package package.json is modified", () => {
+      global.danger = {
+        git: {
+          modified_files: [
+            "packages/paste-codemods/package.json",
+            "packages/paste-core/components/alert-dialog/stories/index.stories.tsx",
+            ".changeset/pretty-cameras-burn.md",
           ],
           created_files: [],
         },
@@ -52,42 +66,28 @@ describe('packageJsonCheck()', () => {
       packageJsonCheck();
       expect(global.warn).toHaveBeenCalled();
     });
-    it('should warn when a package package.json is modified', () => {
+    it("should warn when a new package package.json is created", () => {
       global.danger = {
         git: {
           modified_files: [
-            'packages/paste-codemods/package.json',
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
-            '.changeset/pretty-cameras-burn.md',
+            "packages/paste-core/components/alert-dialog/stories/index.stories.tsx",
+            ".changeset/pretty-cameras-burn.md",
           ],
-          created_files: [],
+          created_files: ["packages/paste-codemods/package.json"],
         },
       };
       packageJsonCheck();
       expect(global.warn).toHaveBeenCalled();
     });
-    it('should warn when a new package package.json is created', () => {
+    it("should not warn when a new package package.json is created but lockfile is updated", () => {
       global.danger = {
         git: {
           modified_files: [
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
-            '.changeset/pretty-cameras-burn.md',
+            "packages/paste-core/components/alert-dialog/stories/index.stories.tsx",
+            ".changeset/pretty-cameras-burn.md",
+            "yarn.lock",
           ],
-          created_files: ['packages/paste-codemods/package.json'],
-        },
-      };
-      packageJsonCheck();
-      expect(global.warn).toHaveBeenCalled();
-    });
-    it('should not warn when a new package package.json is created but lockfile is updated', () => {
-      global.danger = {
-        git: {
-          modified_files: [
-            'packages/paste-core/components/alert-dialog/stories/index.stories.tsx',
-            '.changeset/pretty-cameras-burn.md',
-            'yarn.lock',
-          ],
-          created_files: ['packages/paste-codemods/package.json'],
+          created_files: ["packages/paste-codemods/package.json"],
         },
       };
       packageJsonCheck();

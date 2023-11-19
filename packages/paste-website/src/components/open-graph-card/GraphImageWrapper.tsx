@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
 export interface GraphImageWrapperProps {
   children: NonNullable<React.ReactNode>;
 }
 
-const GraphImageWrapper: React.FC<GraphImageWrapperProps> = ({children}) => {
+const GraphImageWrapper: React.FC<React.PropsWithChildren<GraphImageWrapperProps>> = ({ children }) => {
   return (
     <Box
       padding="space140"
@@ -23,4 +23,4 @@ const GraphImageWrapper: React.FC<GraphImageWrapperProps> = ({children}) => {
   );
 };
 
-export {GraphImageWrapper};
+export { GraphImageWrapper };

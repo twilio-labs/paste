@@ -1,125 +1,69 @@
----
-title: Popover
-package: '@twilio-paste/popover'
-description: An accessible and styled popover component.
-slug: /components/popover/
----
+export const meta = {
+  title: 'Popover',
+  package: '@twilio-paste/popover',
+  description: 'An accessible and styled popover component.',
+  slug: '/components/popover/',
+};
 
-import {graphql} from 'gatsby';
-import {Anchor} from '@twilio-paste/anchor';
-import {Heading} from '@twilio-paste/heading';
-import {Button} from '@twilio-paste/button';
-import {Separator} from '@twilio-paste/separator';
-import {Stack} from '@twilio-paste/stack';
-import {AspectRatio} from '@twilio-paste/aspect-ratio';
-import {Box} from '@twilio-paste/box';
 import {usePopoverState, Popover, PopoverContainer, PopoverButton, PopoverBadgeButton} from '@twilio-paste/popover';
 import Changelog from '@twilio-paste/popover/CHANGELOG.md';
+import packageJson from '@twilio-paste/popover/package.json';
+import {AspectRatio} from '@twilio-paste/aspect-ratio';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {ButtonGroup} from '@twilio-paste/button-group';
+import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
+import {Form, FormActions, FormControl} from '@twilio-paste/form';
+import {Heading} from '@twilio-paste/heading';
+import {Input} from '@twilio-paste/input';
+import {Label} from '@twilio-paste/label';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Select, Option} from '@twilio-paste/select';
+import {Separator} from '@twilio-paste/separator';
 import {Text} from '@twilio-paste/text';
+import {useUIDSeed} from '@twilio-paste/uid-library';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
 import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
   defaultExample,
-  rightExample,
+  postionExample,
   StateHookPopoverExample,
   badgeExample,
   buttonVariantsExample,
   setWidthExample,
   i18nExample,
+  interactiveContent,
+  initialFocus,
 } from '../../../component-examples/PopoverExamples';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/popover"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/popover/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Popover"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/popover"
-  storybookUrl="/?path=/story/components-popover--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
-
-## Guidelines
-
-### About Popover
-
-The Popover component is a non-modal dialog that is commonly used for displaying additional rich content
-above your UI.
-
-### Popover compared to Tooltip
-
-<Box marginBottom="space70">
-  <AspectRatio ratio="16:9">
-    <iframe
-      src="https://www.loom.com/embed/f70204bd8a4f4f21a5b1ded17f4559d1"
-      frameborder="0"
-      webkitallowfullscreen="true"
-      mozallowfullscreen="true"
-      allowfullscreen={true}
-    ></iframe>
-  </AspectRatio>
-</Box>
-
-### Accessibility
-
-Popovers and non-modal dialogs follow these accessibility guidelines:
-
-- There must be a focusable element inside the popover.
-- There should be a close button so screen readers have a specific close action to target.
-- A Popover is a focus trap, and focus is placed inside it when it's shown.
-- A Popover must be triggered by an explicit user action, e.g. clicking a button.
-
-## Examples
-
-### Basic Popover
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Popover');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/popover',
+        storybookUrl: '/?path=/story/components-popover--default',
+      },
+    },
+  };
+};
 
 <LivePreview
   scope={{
@@ -136,32 +80,76 @@ Popovers and non-modal dialogs follow these accessibility guidelines:
   {defaultExample}
 </LivePreview>
 
-### Controlling placement
+## Guidelines
 
-The placement of the popover is configurable via the `placement` prop. The available placement options are
-available in the [props description here](#popover-container).
+### About Popover
+
+The Popover component can be used for displaying supplemental or contextual interactive content over your UI. It is built on top of our [Non-modal Dialog primitive](/primitives/non-modal-dialog-primitive/#about-non-modal-dialog-primitive). A Popover can contain a wide variety of information and interactive content and does not block the user from interacting with the rest of the page.
+
+Popovers remain actively open until a user dismisses it in one of the following ways:
+
+- Presses the Esc key
+- Presses the close "x" button in the Popover
+- Presses a "Cancel" button in in the Popover
+- Clicks outside of the Popover
+- Performs another action that closes the Popover
+
+### Accessibility
+
+Popovers and non-modal dialogs follow these accessibility guidelines:
+
+- A Popover must be triggered by an explicit user action, e.g., clicking a button.
+- It must contain at least one focusable element, usually the close button.
+- There should be a close button so screen readers have a specific close action to target.
+- When a Popover is shown, focus is placed inside it, as it is a focus trap. A user cannot tab outside of the Popover until it is closed. After the Popover is closed, focus is placed back on the element that triggered it. Focus doesn’t return to the page until the user closes the Popover.
+- The Popover should be labeled:
+  - Setting a value for the aria-labelledby property that refers to a visible Heading within the Popover .
+  - Providing a label directly specifying by aria-label attribute on the Popover.
+
+### Popover vs. Tooltip
+
+#### Differences
+
+1. Popovers allow for much more dynamic content than Tooltips. They can display additional content that can contain interactive elements, like Buttons or Anchors. It is not possible to add interactivity inside a Tooltip. This is because a user cannot focus within a Tooltip; the content of the Tooltip is only visible when the trigger is hovered or focused.
+2. A Popover is opened on Click or Enter. A Tooltip is opened on Hover or Focus.
+
+#### Usage
+
+- If you want to provide a concise description of how or what an interactive element in your UI does, use a Tooltip.
+- For displaying rich content or interactive elements, such as headings, anchors, or buttons, use a Popover.
+
+For additional information on Tooltips, [check out Heydon Pickering’s Inclusive Components guidance](https://inclusive-components.design/tooltips-toggletips/).
+
+<Box marginBottom="space70">
+  <AspectRatio ratio="16:9">
+    <iframe
+      src="https://www.loom.com/embed/f70204bd8a4f4f21a5b1ded17f4559d1"
+      frameBorder="0"
+      webkitallowfullscreen="true"
+      mozallowfullscreen="true"
+      allowfullscreen={true}
+    ></iframe>
+  </AspectRatio>
+</Box>
+
+### Popover vs. Modal
+
+A Modal is a dialog that overlays the entire page. They can display interactive content, and place the users into a “mode” for inputting or reviewing information. It temporarily changes the user’s context for a more focused experience. We recommend using Modals to present critical information or request required input needed to complete a workflow instead of a Popover.
+
+- For displaying contextual content, use a Popover. Popover content should be contextual to the page and be optional or supplementary. It should also be concise. For longer pieces of content, consider using a Modal instead.
+- For a temporary change of context, use a Modal. Modals serve to place users into a “mode” or focused state for more complex interactions, inputting information, or displaying critical information.
+- For displaying a series of steps that ask for user input or forms, use a modal over a Popover.
+
+---
+
+## Examples
+
+### Basic Popover
+
+Use a Popover to display supplemental information and interactive controls.
 
 <LivePreview
   scope={{
-    Popover,
-    PopoverContainer,
-    PopoverButton,
-    Text,
-  }}
-  noInline
->
-  {rightExample}
-</LivePreview>
-
-### Adjusting size
-
-The Popover's width will grow to fit its content up to a maximum width of our `size50` token.
-Content width can be adjusted, up to the Popover's max width, by wrapping it in a `Box`
-component with a declared width.
-
-<LivePreview
-  scope={{
-    Box,
     Popover,
     PopoverContainer,
     PopoverButton,
@@ -169,6 +157,103 @@ component with a declared width.
     Heading,
     Separator,
     Button,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
+### Popover with interactive content
+
+The benefit of using a Popover is its ability to display interactive content to help provide additional information or functionality to your UI. It can essentially contain anything, like links, buttons, images, or headings.
+
+<LivePreview
+  scope={{
+    Popover,
+    PopoverContainer,
+    PopoverButton,
+    Heading,
+    Button,
+    ButtonGroup,
+    Paragraph,
+    CheckboxGroup,
+    Checkbox,
+    Box,
+  }}
+  noInline
+>
+  {interactiveContent}
+</LivePreview>
+
+### Setting initial focus
+
+When a user opens a Popover, the focus is set inside the Popover. By default, user focus is set on the first focusable element, which is the close button. You can choose to explicitly set focus to any focusable UI control inside the Popover.
+
+We recommend the following when adjusting the focus:
+
+- We caution against setting the focus on an element that does a non-reversible action, in case a user accidentally selects it. (e.g. an “Agree” button that a user hits by mistake, thinking they were exiting the Popover.)
+- Changing the focus placement away from the close button could aid in more efficient in-context editing (e.g. the first text input).
+
+To set a different initial focus target, set the `initialFocusRef` prop on the Popover component to a ref of a focusable element inside the Popover.
+
+<LivePreview
+  scope={{
+    Popover,
+    PopoverContainer,
+    PopoverButton,
+    Heading,
+    Button,
+    Input,
+    Select,
+    Option,
+    Label,
+    Form,
+    FormActions,
+    FormControl,
+    useUIDSeed,
+  }}
+  noInline
+>
+  {initialFocus}
+</LivePreview>
+
+### Controlling placement
+
+Use the placement prop to configure where to position the Popover in relation to its trigger. The available placement options are available in the [props description here](#popover-container).
+
+<LivePreview
+  scope={{
+    Popover,
+    PopoverContainer,
+    PopoverButton,
+    Text,
+    Box,
+  }}
+  noInline
+>
+  {postionExample}
+</LivePreview>
+
+### Adjusting size
+
+The Popover's width will grow to fit its content up to a maximum width of our size50 token. To set the size of the Popover, set a `width` prop. It will accept any valid size token up to size50.
+
+<LivePreview
+  scope={{
+    Popover,
+    PopoverContainer,
+    PopoverButton,
+    Heading,
+    Button,
+    Input,
+    Select,
+    Option,
+    Label,
+    Form,
+    FormActions,
+    FormControl,
+    useUIDSeed,
+    Box,
   }}
   noInline
 >
@@ -242,7 +327,7 @@ For full details on how to use the state hook, and what props to provide it, fol
     PopoverContainer,
     PopoverButton,
     Text,
-    Stack,
+    Box,
     Button,
   }}
   noInline
@@ -253,7 +338,7 @@ For full details on how to use the state hook, and what props to provide it, fol
 
 ### Internationalization
 
-To internationalize the popover, simply pass different text as children to the popover's contents and the `aria-label` prop. The only exception is the dismiss button–to change the dismiss button’s text, use the `i18nDismissLabel` prop.
+To internationalize the Popover, pass different text as children to the Popover's contents and the `aria-label` prop. The only exception is the dismiss button. To change the dismiss button’s text, use the `i18nDismissLabel` prop.
 
 <LivePreview
   scope={{
@@ -267,218 +352,57 @@ To internationalize the popover, simply pass different text as children to the p
   {i18nExample}
 </LivePreview>
 
-## Anatomy
-
-### PopoverButton
-
-See the [button](/components/button) component.
-
-### PopoverBadgeButton
-
-See the [badge](/components/badge) component.
-
-### Popover
-
-| Property         | Default token         | Modifiable? |
-| ---------------- | --------------------- | ----------- |
-| background-color | color-background-body | No          |
-| border-width     | border-width-10       | No          |
-| border-color     | color-border-weaker   | No          |
-| border-radius    | border-radius-20      | No          |
-| box-shadow       | shadow-card           | No          |
-| max-width        | size-50               | No          |
-| padding          | space-50              | No          |
-| padding-left     | space-70              | No          |
-| padding-right    | space-70              | No          |
-| z-index          | z-index-80            | No          |
-
 ---
 
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/popover - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/core/popover';
-
-const PopoverExample: React.FC = () => {
-  return (
-    <PopoverContainer baseId="popover-example">
-      <PopoverButton variant="primary">Open popover</PopoverButton>
-      <Popover aria-label="Popover">Popover content</Popover>
-    </PopoverContainer>
-  );
-};
-```
-
-#### Props
-
-#### usePopoverState
-
-Pass these as part of an object to the usePopoverState hook.
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the popover on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `NonModalDialogDisclosurePrimitive`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `visible?: boolean`
-
-Whether the dialog is visible or not.
-
-##### `animated?: number | boolean`
-
-If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
-
-##### `modal?: boolean`
-
-Sets the modal state.
-
-- Non-modal: preventBodyScroll doesn't work and focus is free.
-- Modal: preventBodyScroll is automatically enabled, focus is trapped within the dialog and the dialog is rendered within a Portal.
-
-#### usePopoverState returned props
-
-These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the popover on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `NonModalDialogDisclosurePrimitive`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `visible?: boolean`
-
-Whether the dialog is visible or not.
-
-##### `animated?: number | boolean`
-
-If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
-
-##### `modal?: boolean`
-
-Sets the modal state.
-
-- Non-modal: preventBodyScroll doesn't work and focus is free.
-- Modal: preventBodyScroll is automatically enabled, focus is trapped within the dialog and the dialog is rendered within a Portal.
-
-##### `animating?: boolean`
-
-Whether it's animating or not.
-
-##### `stopAnimation?: () => void`
-
-Stops animation. It's called automatically if there's a CSS transition
-
-##### `show?: () => void`
-
-Changes the `visible` state to `true`.
-
-##### `hide?: () => void`
-
-Changes the `visible` state to `false`.
-
-#### Popover Container
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the popover on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `PopoverButton`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-#### Popover
-
-##### `aria-label: string`
-
-Required label for this Popover component. Titles the entire popover context for screen readers.
-
-##### `i18nDismissLabel: string`
-
-Label for the dismiss button in the popover. The default value is 'Close popover'.
-
-###### `element?: string`
-
-Overrides the default element name ('POPOVER') to apply unique styles with the Customization Provider
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>
+## Composition notes
+
+Use a Popover to present supplemental information with interactive elements, like an [Anchor](/components/anchor). Information in a Popover should never be essential to task completion.
+
+Popover content should use full sentences and punctuation. Titles are optional.
+
+## Do and don't
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Popover when you need to display supplemental interactive content over the top of your UI. It should have at least one focusable element."
+  />
+  <Dont
+    title="Don't"
+    body="Don’t present critical information or required inputs in Popovers, use the Modal instead."
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Popover to present additional contextual information that is not essential to completing a task."
+  />
+  <Dont
+    title="Don't"
+    body="After the Popover closes, don’t change the focus placement from the trigger. If focus is moved from the original trigger, it can cause confusion and frustration for where a keyboard user’s location is on the page."
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="When the Popover is triggered, the focus should be placed on the first focusable element, which is usually the close button."
+  />
+  <Dont
+    title="Don't"
+    body="Don’t place Popovers on non-focusable elements, like an icon. Wrap them in a focusable element and place the Popover on that."
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Popovers should be triggered by a button." />
+  <Dont title="Don't" body="Don’t place more than one primary action in a Popover." />
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Consider the best size (up to size50) for the Popover container, based on its content. " />
+  <Dont
+    title="Don't"
+    body="Don’t use a Popover to guide users through a complex workflow with a series of steps or for presenting critical information. Use a Modal for workflows, and an Alert Dialog for critical information."
+  />
+</DoDont>

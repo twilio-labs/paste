@@ -1,0 +1,197 @@
+export const meta = {
+  title: 'Spacing and Layout',
+  description:
+    'Spacing is the negative area between elements and components. Layouts use spacing to establish harmony, balance, and hierarchy.',
+  slug: '/foundations/spacing-and-layout/',
+};
+
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Anchor} from '@twilio-paste/anchor';
+import {UnorderedList, ListItem} from '@twilio-paste/list';
+
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import {SidebarCategoryRoutes} from '../../../constants';
+import SpacingBlocks from '../../../assets/images/foundations/spacing-and-layout/1-spacing-blocks.png';
+import BestFriends from '../../../assets/images/foundations/spacing-and-layout/2-best-friends.png';
+import EqualSpacing from '../../../assets/images/foundations/spacing-and-layout/3-equal-spacing.png';
+import FriendshipSpacing from '../../../assets/images/foundations/spacing-and-layout/4-friendship-spacing.png';
+import EmphasizeHierarchy from '../../../assets/images/foundations/spacing-and-layout/5-emphasizing-hierarchy.png';
+import FullPage from '../../../assets/images/foundations/spacing-and-layout/6-full-page.png';
+import SnappingMargins from '../../../assets/images/foundations/spacing-and-layout/7-snapping-to-margins.png';
+import HorizontalSpacing from '../../../assets/images/foundations/spacing-and-layout/8-horizontal-spacing.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Introduction
+
+Spacing is the negative area between elements and components. Layouts use spacing to establish harmony, balance, and hierarchy. This hierarchy makes content digestible by guiding users through important information and actions.
+
+We also express our product traits of _clean, professional, and neighborly_ through our spacing and layout choices.
+
+#### Spacing is important because it...
+
+- **Helps make content easier for users to consume** and visually signals that this is going to be an easy experience
+- **Establishes a hierarchy** of information that relays important actions and information to the user
+- **Creates consistency** throughout Twilio product suite
+
+## Making connections with your grid
+
+<ResponsiveImage src={SpacingBlocks} alt="Visual representation of the 4-pixel and 8-pixel spacing grids" />
+
+To create a stronger design point of view, and make consistency with spacing easier, we've opted to use an **8-pixel UI grid**, paired with a 4-pixel baseline grid. The spacing options between elements should be multiples of 8 (8, 16, 24, 32, 40, 48, 64, 80, 96, 112, 128, 160). However, multiples of 4 are available if you require more flexibility and granularity in your designs.
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Callout: UI grid vs. Grid component</CalloutHeading>
+  <CalloutText>
+    When we refer to a grid in these guidelines, we aren't referring to our Grid component. These spacing foundations
+    aren't yet baked into our more generic <Anchor href="/components/grid">Grid component</Anchor>.
+  </CalloutText>
+</Callout>
+
+### Why using the 8-pixel grid matters
+
+#### Fewer—but better—decisions
+
+The advantage of working in an 8-pixel grid is there are fewer numbers to work with than a 4-pixel grid, making it easier to be consistent. By focusing on fewer, but more purposeful, spacing options, it makes it faster for us to get to better decisions.
+
+#### Reducing cognitive load
+
+Giving more spacing between elements can help reduce cognitive load for customers. By providing more breathing room for the content, it allows them to understand the most important actions and information that are required of them, and digest the information being presented. It also provides our users with visual cues that say, “Hey, we’re here to guide on what you can do next.”
+
+## Let's build visual relationships
+
+Space can also be used to build visual relationships between the elements of your designs. Use negative space to create meaning by giving purposeful distances between groups of content.
+
+A spacing system draws on a “friendship” analogy. Some elements of a design should be in a closer relationship than others. The more familiar the two elements are, the closer they are to each other visually, and vice versa.
+
+Now, let’s look at a visual demonstrating explaining spacing relationships:
+
+<ResponsiveImage
+  src={BestFriends}
+  alt="Visual representation of the 8-pixel spacing grid with their respective relationship analogies (120px: Who are you?; 80px: Distant Acquaintances; 64px: Acquaintances; 32px: We're Close Friends; 16px: Best Friends; 8px: Best Friends Forever)"
+/>
+
+## Spacing in action
+
+### Exercise 1: When spacing isn't purposeful
+
+In this visual, you see the same spacing of 32 pixels between the heading, subheading, paragraph, and primary action.
+
+When there is equal spacing all-around, it’s unclear what purpose the subheading (“Authentication tokens”) serves, potentially making it look like it made its way into the layout by mistake.
+
+<ResponsiveImage
+  src={EqualSpacing}
+  alt="Mock of a card with Heading, Paragraph text, and a Button with 32px spacing everywhere"
+/>
+
+### Exercise 2: Using friendship spacing
+
+Now imagine if we were to implement friendship spacing to this same example:
+
+<ResponsiveImage
+  src={FriendshipSpacing}
+  alt="Same mock as the above image, this time using friendship spacing guidelines"
+/>
+
+In the above example, we are creating a closer friendship between the subheading and paragraph. The heading and call-to-action are able to have breathing room, helping them stand out, so it's clear to the user what content they can expect in this section and what action they need to take.
+
+### Exercise 3: Emphasizing through style
+
+Now let's take a look at if we were to use the same above example but put a sprinkle of styling to add hierarchy:
+
+As you can see in the previous example, using friendship spacing can make it easier to stylize and create emphasis on important elements in your design once the spacing is established. 😋
+
+<ResponsiveImage
+  src={EmphasizeHierarchy}
+  alt="Identical side-by-side mocks (same as above), but the one on the right has just a few subtle changes: the subtitle text is 2px smaller and went from bold to semibold"
+/>
+
+## Friendship spacing in full page Layouts
+
+Now that we established tighter containers with the friendship spacing, you can imagine laying out a page would be a lot easier.
+
+Here is an example of friendship spacing applied within groups of content vertically:
+
+<ResponsiveImage src={FullPage} />
+
+Once you have vertical friendship spacing applied, you can continue that logic for the rest of the page.
+
+### Horizontal spacing
+
+#### Snapping to margins
+
+When it comes to vertical spacing, we want to make sure our elements are snapping to our margins. In this example, our top margin is 64 pixels and the left and right margins are 96 pixels. Ultimately, use margins that are multiples of 8.
+
+<ResponsiveImage src={SnappingMargins} />
+
+#### Horizontal friendship spacing
+
+Horizontal spacing is very similar to vertical space, using 8-pixel multiples. Related objects or content should use the friendship method. However, horizontal spacing generally uses more spacing than vertical to visually break up section types. If using consistent horizontal spacing for sections correctly, your design becomes balanced and users don’t have to sift through lengthy content.
+
+<ResponsiveImage src={HorizontalSpacing} />
+
+## Max widths
+
+We suggest a max width of 1440px for the content area (not including margins).
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">What responsive breakpoints do I use for my feature?</CalloutHeading>
+  <CalloutText>
+    While this is heavily dependent on the Twilio product where your feature is built and whether its navigation frame
+    supports responsive views, Paste currently has built-in breakpoints of 25rem (400px), 64rem (1024px), and 77rem
+    (1232px).
+  </CalloutText>
+</Callout>
+
+#### Text widths
+
+Your text width should not be as long as your max width (1140px). In fact, a good rule of thumb for your text widths is no more than 65 characters per line. For Twilio default body text, we aim for about 712 pixels (`size-70`) for text width.
+
+It's sometimes helpful to also break up content by pairing it with a hero image. By doing this, you're visually signaling that this is an effortless conversation.
+
+## When in doubt, do the 3-minute UI zhush
+
+By simply improving the spacing in your design, you will create a far more organized, clean, and cohesive layout.
+
+1. **What information is related?** Use 4 to 16 px spacing for related content.
+2. **What critical actions does the user need to take?** Use 16 to 32 px spacing between the actions and their related content.
+3. **Are most of my horizontal margins and paddings in increments of 8?**
+4. The final question you can ask yourself: **Are these elements friends?!**
+
+## Related components
+
+- [Grid Guidelines](/components/grid)
+- [Media Object Guidelines](/components/media-object)
+- [Stack Guidelines](/components/stack)
+- [Aspect Ratio Guidelines](/components/aspect-ratio)
+
+Reference: _[UI cheat sheet: Spacing friendships](https://uxdesign.cc/ui-cheat-sheet-spacing-friendships-e37a6fccc407)_
+
+</content>
+
+</contentwrapper>

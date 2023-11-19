@@ -1,27 +1,28 @@
-import * as React from 'react';
-import type {GenericTokensShape} from '@twilio-paste/design-tokens/types/GenericTokensShape';
-import type {TokenContextProps} from '../../context/TokenContext';
-import {ColorTokenInput} from './ColorTokenInput';
-import {UnitTokenInput} from './UnitTokenInput';
-import {FontTokenInput} from './FontTokenInput';
-import {TextTokenInput} from './TextTokenInput';
+import type { GenericTokensShape } from "@twilio-paste/design-tokens/types/GenericTokensShape";
+import * as React from "react";
+
+import type { TokenContextProps } from "../../context/TokenContext";
+import { ColorTokenInput } from "./ColorTokenInput";
+import { FontTokenInput } from "./FontTokenInput";
+import { TextTokenInput } from "./TextTokenInput";
+import { UnitTokenInput } from "./UnitTokenInput";
 
 type OptionsListProps = {
   bucket: keyof GenericTokensShape;
   // TODO: generic type to lookup options from Token keys
   options: Record<string, string>;
-  handleChange: TokenContextProps['updateToken'];
+  handleChange: TokenContextProps["updateToken"];
 };
 
-const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
 
-export const OptionsList: React.FC<OptionsListProps> = ({bucket, options, handleChange}) => {
+export const OptionsList: React.FC<React.PropsWithChildren<OptionsListProps>> = ({ bucket, options, handleChange }) => {
   const sortedNames = React.useMemo(() => Object.keys(options).sort(collator.compare), [options]);
 
   switch (bucket) {
-    case 'backgroundColors':
-    case 'textColors':
-    case 'borderColors':
+    case "backgroundColors":
+    case "textColors":
+    case "borderColors":
       return (
         <>
           {sortedNames.map((tokenName) => (
@@ -35,7 +36,7 @@ export const OptionsList: React.FC<OptionsListProps> = ({bucket, options, handle
           ))}
         </>
       );
-    case 'fonts':
+    case "fonts":
       return (
         <>
           {sortedNames.map((tokenName) => (
@@ -49,7 +50,7 @@ export const OptionsList: React.FC<OptionsListProps> = ({bucket, options, handle
           ))}
         </>
       );
-    case 'boxShadows':
+    case "boxShadows":
       return (
         <>
           {sortedNames.map((tokenName) => (
@@ -63,11 +64,11 @@ export const OptionsList: React.FC<OptionsListProps> = ({bucket, options, handle
           ))}
         </>
       );
-    case 'radii':
+    case "radii":
       return (
         <>
           {sortedNames.map((tokenName) => {
-            if (tokenName === 'borderRadiusCircle') {
+            if (tokenName === "borderRadiusCircle") {
               return (
                 <UnitTokenInput
                   unit="%"
@@ -92,7 +93,7 @@ export const OptionsList: React.FC<OptionsListProps> = ({bucket, options, handle
           })}
         </>
       );
-    case 'borderWidths':
+    case "borderWidths":
       return (
         <>
           {sortedNames.map((tokenName) => (
@@ -107,10 +108,10 @@ export const OptionsList: React.FC<OptionsListProps> = ({bucket, options, handle
           ))}
         </>
       );
-    case 'fontSizes':
-    case 'lineHeights':
-    case 'spacings':
-    case 'sizings':
+    case "fontSizes":
+    case "lineHeights":
+    case "spacings":
+    case "sizings":
       return (
         <>
           {sortedNames.map((tokenName) => (
@@ -125,7 +126,7 @@ export const OptionsList: React.FC<OptionsListProps> = ({bucket, options, handle
           ))}
         </>
       );
-    case 'zIndices':
+    case "zIndices":
       return (
         <>
           {sortedNames.map((tokenName) => (
@@ -140,7 +141,7 @@ export const OptionsList: React.FC<OptionsListProps> = ({bucket, options, handle
           ))}
         </>
       );
-    case 'fontWeights':
+    case "fontWeights":
       return (
         <>
           <UnitTokenInput

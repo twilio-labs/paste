@@ -1,22 +1,35 @@
----
-title: Primitives overview
-description: Our primitives are rad
-slug: /primitives/
----
+export const meta = {
+  title: 'Primitives overview',
+  slug: '/primitives/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
+import {Callout, CalloutHeading, CalloutList, CalloutListItem} from '@twilio-paste/callout';
 import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
 import {SidebarCategoryRoutes} from '../../constants';
-import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '../../components/callout';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getAllComponents, getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const components = await getAllComponents(['primitive']);
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      componentList: components,
+      navigationData,
+    },
+  };
+};
 
 <Breadcrumb>
-  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+  <BreadcrumbItem href="/">Home</BreadcrumbItem>
 </Breadcrumb>
 <Heading as="h1" variant="heading10">
   Primitives
@@ -24,64 +37,23 @@ import {Callout, CalloutTitle, CalloutText, CalloutList, CalloutListItem} from '
 
 ---
 
-<ComponentOverviewTable
-  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
-  componentsList={props.data.allAirtable.edges}
-/>
+For more information about how Paste is built and where primitives fit into that hierarchy, read [About Paste](/introduction/about-paste#whats-a-design-system).
 
-<Callout>
-  <CalloutTitle as="h2">Don't see a primitive, layout, or component you need listed here?</CalloutTitle>
-  <CalloutList>
+<ComponentOverviewTable categoryRoute={SidebarCategoryRoutes.PRIMITIVES} componentsList={props.componentList} />
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h2">Don't see a primitive, layout, or component you need listed here?</CalloutHeading>
+  <CalloutList as="ul">
     <CalloutListItem>
-      First off, we recommend <SiteLink to="/roadmap">checking our roadmap</SiteLink>.
+      First off, we recommend <SiteLink href="/roadmap">checking our roadmap</SiteLink>.
     </CalloutListItem>
     <CalloutListItem>
-      Secondly, we recommend{' '}
-      <Anchor href="https://github.com/twilio-labs/paste/issues">creating an issue on GitHub</Anchor> with your
-      component, primitive, or proposal.
+      Secondly, we recommend <Anchor href="https://github.com/twilio-labs/paste/discussions">creating an discussion on GitHub</Anchor> with
+      your component, primitive, or proposal.
     </CalloutListItem>
     <CalloutListItem>
-      While not all requests are accepted for the design system, we may be able to suggest suitable alternatives - for
-      this, drop us a note on #help-design-system or join our Weekly Office hours.
-    </CalloutListItem>
-    <CalloutListItem>
-      We've also written a guide for{' '}
-      <Anchor href="/customization/composing-custom-components-with-design-tokens">
-        how you can build custom components with Tokens
-      </Anchor>{' '}
+      We've also written a guide for <Anchor href="/customization/composing-custom-components-with-design-tokens">how you can build custom components with Tokens</Anchor>
       and still benefit from Paste design updates
     </CalloutListItem>
   </CalloutList>
 </Callout>
-
-export const pageQuery = graphql`
-  {
-    allPastePrimitive {
-      edges {
-        node {
-          version
-          name
-          status
-        }
-      }
-    }
-    allAirtable(
-      sort: {fields: [data___Feature]}
-      filter: {data: {status: {ne: null}, Component_Category: {eq: "primitive"}}}
-    ) {
-      edges {
-        node {
-          data {
-            Feature
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;

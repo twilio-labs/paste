@@ -1,16 +1,15 @@
----
-title: Radio Group - Components
-package: '@twilio-paste/radio-group'
-description: A radio group is used for selecting a single choice from a list of at least two options. The user can only select one radio option at a time.
-slug: /components/radio-group/
----
+export const meta = {
+  title: 'Radio Group - Components',
+  package: '@twilio-paste/radio-group',
+  description:
+    'A radio group is used for selecting a single choice from a list of at least two options. The user can only select one radio option at a time.',
+  slug: '/components/radio-group/',
+};
 
-import {graphql} from 'gatsby';
 import {Radio, RadioGroup} from '@twilio-paste/radio-group';
 import {Box} from '@twilio-paste/box';
 import {useUID} from '@twilio-paste/uid-library';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SiteLink} from '../../../components/SiteLink';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/radio-group/CHANGELOG.md';
@@ -26,76 +25,50 @@ import {
   controlledRadioGroup,
   i18nExample,
 } from '../../../component-examples/RadioGroupExamples';
+import packageJson from '@twilio-paste/radio-group/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/radio-group"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/radio-group/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Radio Group"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group"
-  storybookUrl="/?path=/story/components-radio--radio"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Radio Group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-group',
+        storybookUrl: '/?path=/story/components-radio--radio-default',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Radio, RadioGroup, useUID}} noInline>
+  {uncontrolledRadioGroup}
+</LivePreview>
 
 ## Guidelines
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 ### About Radio Group
 
-Radio groups are used when a user has a single choice to make from two or more options. The user can only choose one radio selection at a time.
+Radio groups are used when a user must make a single choice from two or more options. The user can only choose one radio selection at a time.
 
 Radio groups should:
 
 - Include at least two or more options.
 - Allow users to select only one option.
-- Include at most 6 options. If there's a chance the Radio might later expand to include more than 6 options, use a [Select](https://paste.twilio.design/components/select) instead.
-- List options in a rational order that makes logical sense.
+- Include at most 6 options. If there's a chance the Radio might later expand to include more than 6 options, use a [Select](/components/select) instead.
+- List options in an order that is contextual.
 
 #### Best practices
 
@@ -104,26 +77,24 @@ Radio groups should:
 - Use the same name attribute on all radio buttons in the group. This ensures that if there is more than one group in the form, each one stays associated with its own group
 - If a radio group is “Optional”, users won't be able to unselect a selected radio. If you need to give users a way to unselect, consider adding a clear button or using another type of form field.
 
-### Accessibility information
+### Accessibility
 
-- A radio group must have a visible label that is in close proximity to the control
-- HTML radio groups don't natively support the `required` attribute. In cases where a radio is required to be checked:
-  - Display a required indicator
-  - Ensure the radio label text includes wording that successfully describes the requirement to the user that they should select the radio
-- When in an error state, display an inline error message below the offending radio group that clearly describes the error.
+- A radio group must have a visible label that is in close proximity to the control.
+- HTML radio groups don't natively support the `required` attribute. If a radio must be checked, display a required indicator.
+- Display error messages in an inline error below the radio group that clearly describes the error.
 - Radio groups act as a single tab stop. When focused on a radio, use the arrow keys to navigate to the other radios.
 
 ## Controlled vs. uncontrolled RadioGroup
 
 The radio and radio group components can either be controlled, meaning there is an external state that determines if it is checked, or uncontrolled, meaning the component manages its own state.
 
-To make an uncontrolled radio group, you do not pass the `value` or `onChange` props. If you need a radio to be checked by default, use the `defaultChecked` prop.
+To make an uncontrolled radio group, do not pass the `value` or `onChange` props. To check the radio by default, use the `defaultChecked` prop.
 
 <LivePreview scope={{Radio, RadioGroup, useUID}} noInline>
   {uncontrolledRadioGroup}
 </LivePreview>
 
-To make a controlled radio group, you must pass the `value` and `onChange` props.
+To make a controlled radio group, pass the `value` and `onChange` props.
 
 <LivePreview scope={{Radio, RadioGroup, useUID}} noInline>
   {controlledRadioGroup}
@@ -133,7 +104,7 @@ To make a controlled radio group, you must pass the `value` and `onChange` props
 
 ### Vertically-stacked Radio Group
 
-Use this option if labels are too long (see [horizontal alignment](#horizontal-alignment) for limits) or the list needs to wrap to two lines.
+The vertically-stacked Radio Group is the easiest for users to scan, in particular if labels are more than 3 words. Use the vertical stack if the list wraps to two lines.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {verticalExample}
@@ -143,12 +114,14 @@ Use this option if labels are too long (see [horizontal alignment](#horizontal-a
 
 By default, the Radio Group component doesn't apply a pre-selected value.
 
-Apply a pre-selected value to make it clear the user must select an option only if:
+Apply a pre-selected value only if:
 
-- Your default value is a safe, secure, and reversible option, and you're willing to collect biased data. Defaulting to a value biases or alters the experience so that your data may be skewed.
+- The default value is a safe, secure, and reversible option, and you're willing to collect biased data. Defaulting to a value biases or alters the experience so that your data may be skewed.
 - The user doesn't need to make an explicit choice for safety, security, or legal reasons.
 
-If you do apply a pre-selected value, make the first option the default option. This article can help you further determine if you should default a selection: [Radio Buttons: Select One by Default or Leave All Unselected?, Nielsen Norman](https://www.nngroup.com/articles/radio-buttons-default-selection/).
+For additional guidance on whether to use a default selection, check out [this article from the Nielsen Norman Group](https://www.nngroup.com/articles/radio-buttons-default-selection/).
+
+If you do apply a pre-selected value, make the first option the default option.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {disabledPreSelectedExample}
@@ -156,7 +129,9 @@ If you do apply a pre-selected value, make the first option the default option. 
 
 ### With Help Text
 
-You can provide additional information about the group with the use of help text. Help text can appear after the group label but before the first option. Use the group label to explain the purpose of the group, not how to make the selection. For example, don't say "Select one of the following choices".
+Use the `helpText` prop, rather than the [Help Text](/components/help-text) component, to provide information that helps users understand the radio options. Avoid using help text to tell users how to use the component (for example, "Select an option.").
+
+Help text appears after the group label but before the first radio option.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {defaultExample}
@@ -164,7 +139,7 @@ You can provide additional information about the group with the use of help text
 
 ### Required usage
 
-Use the required dot only when necessary to denote it is required. This goes before the fieldset legend.
+Use the required dot to denote a required field. The required dot appears before the fieldset legend.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {requiredExample}
@@ -172,9 +147,9 @@ Use the required dot only when necessary to denote it is required. This goes bef
 
 ### Horizontal alignment
 
-- Options are placed next to each other, in logical order, with appropriate spacing. If people can easily compare shorter options from left to right, use this alignment
-- Do not run onto two lines
-- If the label is longer than 3 words/20 characters, consider using a vertically stacked version. If the content is too long, please use vertical stacking.
+Use horizontal alignment sparingly, as the options are harder to scan. Use labels that are 3 words or less, or less than 20 characters.
+
+Place options next to each other with appropriate spacing. Avoid letting options run onto two lines.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {horizontalExample}
@@ -182,7 +157,7 @@ Use the required dot only when necessary to denote it is required. This goes bef
 
 ### Internationalization
 
-To internationalize a radio group, simply pass different text as children to the radios. The only exception to this is the required dot in the legend of a required radio group. To change the required dot's text, use the `i18nRequiredLabel` prop.
+To internationalize a radio group, pass different text as children to the radios. The only exception to this is the required dot in the legend of a required radio group. To change the required dot's text, use the `i18nRequiredLabel` prop.
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {i18nExample}
@@ -218,9 +193,16 @@ To internationalize a radio group, simply pass different text as children to the
 
 ### Group error
 
-If the selected items don't pass the group validation requirements an inline error message should be displayed.
+If the selected items don't pass the group validation requirements, use [Help Text](/components/help-text) to show an inline error message below the group.
 
-An inline error is placed at the bottom of the group to inform a user of any errors in their choices.
+For required field errors, consider the following formats depending on the use case:
+
+| Situation                                    | Recommended phrasing            |
+| -------------------------------------------- | ------------------------------- |
+| When the option being selected is not a noun | Select an option.               |
+| When the option to be selected is a noun     | Select a [noun in group label]. |
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 <LivePreview scope={{Radio, RadioGroup}} noInline>
   {errorExample}
@@ -238,84 +220,12 @@ An inline error is placed at the bottom of the group to inform a user of any err
 
 ## Composition notes
 
-### When to use a Radio Group
+Start all options with a capital letter.
 
-Use a Radio Group to select a single option from a list of 2, but no more than 6 options.
+Avoid using periods with radio option text, even if it's a sentence.
+
+If using [Help Text](/components/help-text) for radio options, include it for each option.
 
 ### Validation
 
 Validate the group on form submission. Don't validate each item in the group, treat validation on the group as a whole.
-
-### Content guidelines
-
-- Radio text should not end in punctuation even if it's a sentence.
-- All labels begin with a capital letter.
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/radio-group - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Radio, RadioGroup} from '@twilio-paste/core/radio-group';
-
-const Component = () => (
-  <RadioGroup name="foo" value="foo" legend="foo" onChange={NOOP}>
-    <Radio id="foo" value="foo" name="foo">
-      Foo
-    </Radio>
-  </RadioGroup>
-);
-```
-
-#### Radio props
-
-All the valid HTML attributes for `input[type=radio]` are supported including the following props:
-
-| Prop      | Type                                     | Description                                                                               | Default |
-| --------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| children  | `ReactNode`                              |                                                                                           | null    |
-| id?       | `string`                                 |                                                                                           | null    |
-| value?    | `string`                                 |                                                                                           | null    |
-| hasError? | `boolean`                                |                                                                                           | false   |
-| helpText? | `string` or `ReactNode`                  |                                                                                           | null    |
-| onChange? | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null    |
-| onFocus?  | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null    |
-| onBlur?   | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null    |
-| element?  | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO' |
-
-#### RadioGroup props
-
-| Prop               | Type                                     | Description                                                                               | Default       |
-| ------------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ------------- |
-| children           | `ReactNode`                              |                                                                                           | null          |
-| legend             | `string` or `ReactNode`                  |                                                                                           | null          |
-| name               | `string`                                 |                                                                                           | null          |
-| value              | `string`                                 |                                                                                           | null          |
-| orientation        | `oneOf(['vertical', 'horizontal'])`      |                                                                                           | vertical      |
-| errorText?         | `string` or `ReactNode`                  |                                                                                           | null          |
-| helpText?          | `string` or `ReactNode`                  |                                                                                           | null          |
-| disabled?          | `boolean`                                |                                                                                           | false         |
-| required?          | `boolean`                                |                                                                                           | false         |
-| onChange           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null          |
-| onFocus?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null          |
-| onBlur?            | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null          |
-| i18nRequiredLabel? | `string`                                 | Label text for the required dot in the legend                                             | '(required)'  |
-| element?           | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'RADIO_GROUP' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

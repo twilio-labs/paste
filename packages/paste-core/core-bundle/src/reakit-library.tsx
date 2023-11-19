@@ -1,1 +1,1 @@
-export * from '@twilio-paste/reakit-library';
+export * from "@twilio-paste/reakit-library";

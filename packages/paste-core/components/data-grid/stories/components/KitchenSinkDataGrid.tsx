@@ -1,28 +1,29 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Input} from '@twilio-paste/input';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import { Box } from "@twilio-paste/box";
+import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
+import { Input } from "@twilio-paste/input";
 import {
   Pagination,
-  PaginationItems,
   PaginationArrow,
-  PaginationNumbers,
-  PaginationNumber,
   PaginationEllipsis,
-} from '@twilio-paste/pagination';
-import type {SortDirection} from '../../src';
+  PaginationItems,
+  PaginationNumber,
+  PaginationNumbers,
+} from "@twilio-paste/pagination";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import type { SortDirection } from "../../src";
 import {
   DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
-  DataGridHeaderSort,
   DataGridBody,
   DataGridCell,
-} from '../../src';
-import {TableHeaderData, PaginatedTableBodyData} from './constants';
+  DataGridHead,
+  DataGridHeader,
+  DataGridHeaderSort,
+  DataGridRow,
+} from "../../src";
+import { PaginatedTableBodyData, TableHeaderData } from "./constants";
 
 // Sorting function
 const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId: number): number => {
@@ -38,14 +39,14 @@ const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId
 const numColumns = TableHeaderData.length + 1; // +1 for checkbox;
 const initialHeaderData = [...new Array(numColumns)].map((_, index) => {
   if (index === 0) return null;
-  if (index === 1) return 'ascending';
-  return 'none';
+  if (index === 1) return "ascending";
+  return "none";
 });
 // Add the first column for checkbox state
 const initialBodyData = PaginatedTableBodyData.map((row) => [false, ...row]).sort(
   (a, b) =>
     // @ts-expect-error won't be boolean
-    simpleComparator(a, b, true, 1) // passing 1 instead of 0 to skip checkbox column
+    simpleComparator(a, b, true, 1), // passing 1 instead of 0 to skip checkbox column
 );
 
 const getRange = (start: number, end: number): number[] => {
@@ -60,8 +61,10 @@ const calculatePaginationState = (currentPage: number, pageCount: number): numbe
     // delta === 7: [1 2 3 4 5 6 7]
     delta = 7;
   } else {
-    // delta === 2: [1 ... 4 5 6 ... 10]
-    // delta === 4: [1 2 3 4 5 ... 10]
+    /*
+     * delta === 2: [1 ... 4 5 6 ... 10]
+     * delta === 4: [1 2 3 4 5 ... 10]
+     */
     delta = currentPage > 4 && currentPage < pageCount - 3 ? 2 : 4;
   }
 
@@ -97,7 +100,11 @@ interface DataGridPaginationProps {
   onPageChange: (newPageNumber: number) => void;
 }
 
-const DataGridPagination: React.FC<DataGridPaginationProps> = ({currentPage = 1, pageCount, onPageChange}) => {
+const DataGridPagination: React.FC<React.PropsWithChildren<DataGridPaginationProps>> = ({
+  currentPage = 1,
+  pageCount,
+  onPageChange,
+}) => {
   const goToNextPage = React.useCallback(() => {
     onPageChange(Math.min(currentPage + 1, pageCount));
   }, [currentPage, pageCount]);
@@ -110,11 +117,14 @@ const DataGridPagination: React.FC<DataGridPaginationProps> = ({currentPage = 1,
     onPageChange(pageNumber);
   }, []);
 
+  // used to create unique labels for nav elements in side by side stories
+  const uniquePaginationID = useUID();
+
   const paginationState = calculatePaginationState(currentPage, pageCount);
 
   /* eslint-disable react/no-array-index-key */
   return (
-    <Pagination label="paged pagination navigation">
+    <Pagination label={`paged pagination navigation ${uniquePaginationID}`}>
       <PaginationItems>
         <PaginationArrow
           label="Go to previous page"
@@ -165,25 +175,32 @@ interface CheckboxCellProps {
   label: string;
   indeterminate?: boolean;
 }
-const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, checked, label}) => {
+const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
+  onClick,
+  id,
+  indeterminate,
+  checked,
+  label,
+}) => {
   const checkboxRef = React.createRef<HTMLInputElement>();
 
   const handleClick = React.useCallback(() => {
     if (checkboxRef.current == null) {
-      return;
+      return undefined;
     }
     return onClick(!checkboxRef.current.checked);
   }, [onClick, checkboxRef]);
   const handleKeyDown = React.useCallback(
-    (event) => {
+    (event: any) => {
       if (checkboxRef.current == null) {
-        return;
+        return undefined;
       }
       if (event.keyCode === 32 || event.keyCode === 13) {
         return onClick(!checkboxRef.current.checked);
       }
+      return undefined;
     },
-    [onClick, checkboxRef]
+    [onClick, checkboxRef],
   );
 
   return (
@@ -208,7 +225,7 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
   );
 };
 
-export const KitchenSinkDataGrid: React.FC = () => {
+export const KitchenSinkDataGrid = (): JSX.Element => {
   const seed = useUIDSeed();
   const [currentPage, setCurrentPage] = React.useState(1);
   const [sortedColumns, setSortedColumns] = React.useState<Array<SortDirection | null>>(initialHeaderData);
@@ -221,18 +238,18 @@ export const KitchenSinkDataGrid: React.FC = () => {
   const rowIndexStart = (currentPage - 1) * PAGE_SIZE;
   const rowIndexEnd = Math.min(rowIndexStart + PAGE_SIZE - 1, TOTAL_ROWS);
 
-  const handlePagination = React.useCallback((newPage) => {
+  const handlePagination = React.useCallback((newPage: any) => {
     setCurrentPage(newPage);
   }, []);
 
   // Handle sorting behavior
   const handleSortingColumn = (columnId: number): void => {
     // Update the state of the sort direction in column headers
-    const newSortedColumns: Array<SortDirection> = sortedColumns.map(() => 'none');
-    if (sortedColumns[columnId] === 'ascending') {
-      newSortedColumns[columnId] = 'descending';
+    const newSortedColumns: Array<SortDirection> = sortedColumns.map(() => "none");
+    if (sortedColumns[columnId] === "ascending") {
+      newSortedColumns[columnId] = "descending";
     } else {
-      newSortedColumns[columnId] = 'ascending';
+      newSortedColumns[columnId] = "ascending";
     }
     setSortedColumns(newSortedColumns);
 
@@ -240,8 +257,8 @@ export const KitchenSinkDataGrid: React.FC = () => {
     setSortedData(
       initialBodyData.sort((a, b) =>
         // @ts-expect-error won't be boolean
-        simpleComparator(a, b, newSortedColumns[columnId] === 'ascending', columnId)
-      )
+        simpleComparator(a, b, newSortedColumns[columnId] === "ascending", columnId),
+      ),
     );
   };
 
@@ -258,7 +275,7 @@ export const KitchenSinkDataGrid: React.FC = () => {
                     const newSortedData = sortedData.map(([_, ...row]) => [checked, ...row]);
                     setSortedData(newSortedData);
                   }}
-                  id={seed('select-all')}
+                  id={seed("select-all")}
                   checked={allChecked}
                   indeterminate={indeterminate}
                   label="Select all"
@@ -335,7 +352,7 @@ export const KitchenSinkDataGrid: React.FC = () => {
                       if (colIndex === 5) {
                         return (
                           <DataGridCell key={`col-${colIndex}`}>
-                            <Input value={col as string} type="text" onChange={() => {}} />
+                            <Input aria-label="Phone number" value={col as string} type="text" onChange={() => {}} />
                           </DataGridCell>
                         );
                       }

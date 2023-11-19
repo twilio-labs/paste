@@ -1,10 +1,20 @@
-import type {BoxProps} from '@twilio-paste/box';
-import type {ValueOf} from '@twilio-paste/types';
-import type {ToastVariantObject} from './constants';
+import type { BoxProps } from "@twilio-paste/box";
+import type { Left } from "@twilio-paste/style-props";
+import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
+
+import type { ToastVariantObject } from "./constants";
 
 export type ToastVariants = ValueOf<typeof ToastVariantObject>;
 
-export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<BoxProps, 'element'> {
+export interface ToastProps extends HTMLPasteProps<"div"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default "TOAST"
+   * @type {BoxProps["element"]}
+   * @memberof ToastProps
+   */
+  element?: BoxProps["element"];
   children: NonNullable<React.ReactNode>;
   /**
    * callback when user clicks the dismiss button
@@ -16,45 +26,54 @@ export interface ToastProps extends React.HTMLAttributes<HTMLDivElement>, Pick<B
   variant: ToastVariants;
   /**
    * Use this to set focus within the toast when it is rendered
+   *
+   * @default 'true'
    */
   setFocus?: boolean;
   /**
    * Label for the dismiss button in a dismissable toast
+   * @default "Dismiss toast"
    */
   i18nDismissLabel?: string;
   /**
    * Icon label text for the error variant
+   * @default "(error)"
    */
   i18nErrorLabel?: string;
   /**
    * Icon label text for the neutral variant
+   * @default "(information)"
    */
   i18nNeutralLabel?: string;
   /**
    * Icon label text for the success variant
+   * @default "(success)"
    */
   i18nSuccessLabel?: string;
   /**
    * Icon label text for the warning variant
+   * @default "(warning)"
    */
   i18nWarningLabel?: string;
 }
 
-export interface ToastPortalProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ToastPortalProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  ref?: any;
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch?: boolean;
+  left?: Left;
 }
 
-export interface ToastContainerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ToastContainerProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  ref?: any;
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch?: boolean;
+  /**
+   * Sets the left value of the ToastContainer to add breakpoints for small screens
+   *
+   * @type {Left}
+   * @memberof ToastContainerProps
+   */
+  left?: Left;
 }
 
-export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus' | 'onDismiss'> {
+export interface ToasterToast extends Pick<ToastProps, "variant" | "setFocus" | "onDismiss"> {
   id: string;
   message: React.ReactElement | string;
   /**
@@ -64,7 +83,7 @@ export interface ToasterToast extends Pick<ToastProps, 'variant' | 'setFocus' | 
   timeOutId?: number;
 }
 
-export interface ToasterPush extends Omit<ToasterToast, 'id'>, Pick<ToastProps, 'onDismiss'> {
+export interface ToasterPush extends Omit<ToasterToast, "id">, Pick<ToastProps, "onDismiss"> {
   id?: string;
 }
 
@@ -74,16 +93,21 @@ export interface UseToasterReturnedProps {
    */
   toasts: ToasterToast[];
   /**
-   * method used to push a toast to the toast stack
+   * Method used to push a toast to the toast stack
    */
   push: (toast: ToasterPush) => void;
   /**
-   * method used to pop a toast from the toast stack based on it's id
+   * Method used to pop a toast from the toast stack based on it's id
    */
-  pop: (id: ToasterToast['id']) => void;
+  pop: (id: ToasterToast["id"]) => void;
 }
 
-export interface ToasterProps extends Pick<UseToasterReturnedProps, 'toasts' | 'pop'> {
-  // FIXME: Overrides token zIndex to fix bug with Console product.
-  __console_patch?: boolean;
+export interface ToasterProps extends Pick<UseToasterReturnedProps, "toasts" | "pop"> {
+  /**
+   * Sets the left value of the ToastContainer to add breakpoints for small screens
+   *
+   * @type {Left}
+   * @memberof ToasterProps
+   */
+  left?: Left;
 }

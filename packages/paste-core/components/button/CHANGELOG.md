@@ -1,5 +1,226 @@
 # Change Log
 
+## 14.1.0
+
+### Minor Changes
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+### Patch Changes
+
+- [`e2d2d5c91`](https://github.com/twilio-labs/paste/commit/e2d2d5c91c306de6629bb3932d1b8c63a6b08722) [#3474](https://github.com/twilio-labs/paste/pull/3474) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] Added TsDoc type annotations
+
+## 14.0.2
+
+### Patch Changes
+
+- [`10da7d27a`](https://github.com/twilio-labs/paste/commit/10da7d27ab4bddd9830e97485e5f888a818da068) [#3454](https://github.com/twilio-labs/paste/pull/3454) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] improved reset variant typing to allow style props enabling the creation of custom buttons
+
+## 14.0.1
+
+### Patch Changes
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - [Button] Update `variant="destructive"` Buttons to use the new `colorTextDestructive` token
+
+## 14.0.0
+
+### Major Changes
+
+- [`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603) [#3395](https://github.com/twilio-labs/paste/pull/3395) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Modified the compile target of our JavaScript bundles from `node` to `browser` to minimize the risk of clashing with RequireJS. This is marked as a major out of an abundance of caution. You shouldn't need to do anything but we wanted you to be aware of the change on the off chance it has unintended consequences
+
+### Patch Changes
+
+- Updated dependencies [[`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603)]:
+  - @twilio-paste/uid-library@2.0.0
+  - @twilio-paste/color-contrast-utils@5.0.0
+  - @twilio-paste/anchor@12.0.0
+  - @twilio-paste/spinner@14.0.0
+  - @twilio-paste/stack@8.0.0
+  - @twilio-paste/box@10.0.0
+  - @twilio-paste/customization@8.0.0
+  - @twilio-paste/design-tokens@10.0.0
+  - @twilio-paste/icons@12.0.0
+  - @twilio-paste/animation-library@2.0.0
+  - @twilio-paste/styling-library@3.0.0
+  - @twilio-paste/style-props@9.0.0
+  - @twilio-paste/theme@11.0.0
+  - @twilio-paste/types@6.0.0
+
+## 13.0.4
+
+### Patch Changes
+
+- [`4d1f7c65e`](https://github.com/twilio-labs/paste/commit/4d1f7c65e77e5e0bbf6c7422b46a477bdb932ee6) [#3360](https://github.com/twilio-labs/paste/pull/3360) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Improved types where Paste extends the base HTML element that a component is based on, so that the existing blocked styling properties are not exposed as valid properties for the component via Typescript. This leads to less confusion around what is supported by a Paste component.
+
+  Existing blocked component properties include:
+
+  - `className`
+  - `style`
+  - `color`
+
+## 13.0.3
+
+### Patch Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Button] allow passing all style props to Button with variant="reset", effectively making it a Button primitive.
+
+## 13.0.2
+
+### Patch Changes
+
+- [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8) [#3225](https://github.com/twilio-labs/paste/pull/3225) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button, Help Text, In Page Navigation, Input, Input Box, Label, Select, Tab, Text Area] Update color text tokens for inverse styles
+
+* [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] Export sharable Button PropTypes
+
+## 13.0.1
+
+### Patch Changes
+
+- [`f267a9f75`](https://github.com/twilio-labs/paste/commit/f267a9f7534d8a32641d395fdf5c68f7c7a98904) [#3148](https://github.com/twilio-labs/paste/pull/3148) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Fix secondary destructive toggle button hover styles
+
+## 13.0.0
+
+### Major Changes
+
+- [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - ### Breaking change
+
+  We have moved `@types/react` and `@types/react-dom` to peer dependencies of the library. This should allow for greater control and backwards compatibility with older versions of React as Paste is no longer bundling the type libraries.
+
+  Your application likely has both of these as dependencies anyway, but it is now up to you to manage that version number.
+
+  **Action needed**
+
+  Ensure `@types/react` and `@types/react-dom` are installed as dependencies of your application.
+
+### Minor Changes
+
+- [`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08) [#3112](https://github.com/twilio-labs/paste/pull/3112) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Add toggle button styles to `destructive_secondary` variant.
+
+### Patch Changes
+
+- [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button] Improved backwards compat with React 17 types
+
+- Updated dependencies [[`1d75f223e`](https://github.com/twilio-labs/paste/commit/1d75f223e0e2011a7a969e7ef1980fa9366cfbca), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`50cde4668`](https://github.com/twilio-labs/paste/commit/50cde4668b003c410713d4a51eed16a394471ed0), [`bce889344`](https://github.com/twilio-labs/paste/commit/bce889344773d840d7dc75902e1be64f1a010da3), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c)]:
+  - @twilio-paste/icons@11.0.0
+  - @twilio-paste/anchor@11.0.0
+  - @twilio-paste/theme@10.0.0
+  - @twilio-paste/box@9.0.0
+  - @twilio-paste/spinner@13.0.0
+  - @twilio-paste/stack@7.0.0
+  - @twilio-paste/customization@7.0.0
+  - @twilio-paste/style-props@8.0.0
+  - @twilio-paste/types@5.0.0
+
+## 12.0.1
+
+### Patch Changes
+
+- [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab) [#3033](https://github.com/twilio-labs/paste/pull/3033) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button] Update the design for the new Twilio theme
+
+## 12.0.0
+
+### Major Changes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - Add support for React 18
+
+* [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea) [#3020](https://github.com/twilio-labs/paste/pull/3020) Thanks [@SiTaggart](https://github.com/SiTaggart)! - This major version included listing all the missing peer dependencies for each Paste package.
+
+  If you are using a package from Paste in isolation from Core, when upgrading to this latest version, be sure to correctly install all the missing peer dependencies.
+
+### Patch Changes
+
+- Updated dependencies [[`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee)]:
+  - @twilio-paste/anchor@10.0.0
+  - @twilio-paste/design-tokens@9.0.0
+  - @twilio-paste/spinner@12.0.0
+  - @twilio-paste/stack@6.0.0
+  - @twilio-paste/box@8.0.0
+  - @twilio-paste/customization@6.0.0
+  - @twilio-paste/icons@10.0.0
+  - @twilio-paste/animation-library@1.0.0
+  - @twilio-paste/styling-library@2.0.0
+  - @twilio-paste/uid-library@1.0.0
+  - @twilio-paste/style-props@7.0.0
+  - @twilio-paste/theme@9.0.0
+  - @twilio-paste/types@4.0.0
+  - @twilio-paste/color-contrast-utils@4.0.0
+
+## 11.1.6
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - Update packages to be ESM-compatible
+
+## 11.1.5
+
+### Patch Changes
+
+- [`9c85685cb`](https://github.com/twilio-labs/paste/commit/9c85685cbb3675b9cc5a06776f08acbb70e2de63) [#2825](https://github.com/twilio-labs/paste/pull/2825) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add circle and circle_small sizes to the Button PropTypes
+
+## 11.1.4
+
+### Patch Changes
+
+- [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
+## 11.1.3
+
+### Patch Changes
+
+- [`edca0f7c8`](https://github.com/twilio-labs/paste/commit/edca0f7c8dcf612c6edf0dd98eb7dffe28c3fce9) [#2757](https://github.com/twilio-labs/paste/pull/2757) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Button, radio-button-group, codemods] Correct the ToggleButtonStyles export for use in Radio Button Group
+
+## 11.1.2
+
+### Patch Changes
+
+- [`7599162bc`](https://github.com/twilio-labs/paste/commit/7599162bcdfcd0c997c688ab49ede59b5f627c0f) [#2710](https://github.com/twilio-labs/paste/pull/2710) Thanks [@gloriliale](https://github.com/gloriliale)! - [Button] add box shadow to toggle button's pressed states to match regular button height
+
+* [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Button]: refine styling for focus state
+
+## 11.1.1
+
+### Patch Changes
+
+- [`280c8725d`](https://github.com/twilio-labs/paste/commit/280c8725d3e0c689fbaf5569fc1a83bf0e4dc5bd) [#2641](https://github.com/twilio-labs/paste/pull/2641) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] support `<Button as="a" variant="inverse" />` and add the `target` prop
+
+## 11.1.0
+
+### Minor Changes
+
+- [`6555c7bf5`](https://github.com/twilio-labs/paste/commit/6555c7bf52e5f05dbe64d282663663fa491dd6be) [#2582](https://github.com/twilio-labs/paste/pull/2582) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add toggle button for secondary and secondary_icon variants
+
+## 11.0.0
+
+### Minor Changes
+
+- [`ee2e535e9`](https://github.com/twilio-labs/paste/commit/ee2e535e906397caacaf1f5137acac34d4034213) [#2573](https://github.com/twilio-labs/paste/pull/2573) Thanks [@shleewhite](https://github.com/shleewhite)! - [Button] add "circle" and "circle_small" sizes
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/anchor@9.0.0
+  - @twilio-paste/spinner@11.0.0
+  - @twilio-paste/stack@5.0.0
+  - @twilio-paste/icons@9.0.0
+
+## 10.1.0
+
+### Minor Changes
+
+- [`24cf22318`](https://github.com/twilio-labs/paste/commit/24cf22318149087ef0d1b67d3fe7bbc11c8883ad) [#2493](https://github.com/twilio-labs/paste/pull/2493) Thanks [@nkrantz](https://github.com/nkrantz)! - [Button] Adds a new size, 'rounded_small', for the Conversations UI Kit
+
+## 10.0.1
+
+### Patch Changes
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
 ## 10.0.0
 
 ### Patch Changes

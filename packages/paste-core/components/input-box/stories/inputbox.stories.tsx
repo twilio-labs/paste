@@ -1,18 +1,20 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import type {InputBoxProps} from '../src';
-import {InputBox} from '../src';
+import { Box } from "@twilio-paste/box";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import { Stack } from "@twilio-paste/stack";
+import * as React from "react";
 
-const Insert: React.FC = () => {
+import type { InputBoxProps } from "../src";
+import { InputBox, InputChevronWrapper, getInputChevronIconColor } from "../src";
+
+const Insert = (): JSX.Element => {
   return <Box padding="space20" />;
 };
 
-const Input: React.FC = () => {
+const Input = (): JSX.Element => {
   return <Box padding="space60" width="100%" />;
 };
 
-const CommonStories: React.FC<Omit<InputBoxProps, 'children'>> = ({variant, ...props}) => {
+const CommonStories: React.FC<React.PropsWithChildren<Omit<InputBoxProps, "children">>> = ({ variant, ...props }) => {
   return (
     <Stack orientation="vertical" spacing="space70">
       <InputBox variant={variant} {...props}>
@@ -30,13 +32,21 @@ const CommonStories: React.FC<Omit<InputBoxProps, 'children'>> = ({variant, ...p
       <InputBox variant={variant} insertAfter={<Insert />} insertBefore={<Insert />} {...props}>
         <Input />
       </InputBox>
+      <InputBox variant={variant} insertAfter={<Insert />} insertBefore={<Insert />} {...props}>
+        <Box display="flex" width="100%" position="relative">
+          <Input />
+          <InputChevronWrapper element="test">
+            <ChevronDownIcon decorative color={getInputChevronIconColor(variant, props.disabled, props.readOnly)} />
+          </InputChevronWrapper>
+        </Box>
+      </InputBox>
     </Stack>
   );
 };
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Input box',
+  title: "Components/Input box",
   component: InputBox,
 };
 
@@ -44,33 +54,25 @@ export const Default = (): React.ReactNode => {
   return <CommonStories variant="default" element="INPUT_BOX" />;
 };
 
-Default.story = {
-  name: 'default',
-};
+Default.storyName = "default";
 
 export const Readonly = (): React.ReactNode => {
   return <CommonStories readOnly variant="default" element="INPUT_BOX" />;
 };
 
-Readonly.story = {
-  name: 'readonly',
-};
+Readonly.storyName = "readonly";
 
 export const Disabled = (): React.ReactNode => {
   return <CommonStories disabled variant="default" element="INPUT_BOX" />;
 };
 
-Disabled.story = {
-  name: 'disabled',
-};
+Disabled.storyName = "disabled";
 
 export const Error = (): React.ReactNode => {
   return <CommonStories hasError variant="default" element="INPUT_BOX" />;
 };
 
-Error.story = {
-  name: 'error',
-};
+Error.storyName = "error";
 
 export const Inverse = (): React.ReactNode => {
   return (
@@ -80,9 +82,7 @@ export const Inverse = (): React.ReactNode => {
   );
 };
 
-Inverse.story = {
-  name: 'inverse',
-};
+Inverse.storyName = "inverse";
 
 export const InverseReadonly = (): React.ReactNode => {
   return (
@@ -92,9 +92,7 @@ export const InverseReadonly = (): React.ReactNode => {
   );
 };
 
-InverseReadonly.story = {
-  name: 'inverse readonly',
-};
+InverseReadonly.storyName = "inverse readonly";
 
 export const InverseDisabled = (): React.ReactNode => {
   return (
@@ -104,9 +102,7 @@ export const InverseDisabled = (): React.ReactNode => {
   );
 };
 
-InverseDisabled.story = {
-  name: 'inverse disabled',
-};
+InverseDisabled.storyName = "inverse disabled";
 
 export const InverseError = (): React.ReactNode => {
   return (
@@ -116,6 +112,4 @@ export const InverseError = (): React.ReactNode => {
   );
 };
 
-InverseError.story = {
-  name: 'inverse error',
-};
+InverseError.storyName = "inverse error";

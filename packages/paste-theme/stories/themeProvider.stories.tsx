@@ -1,18 +1,18 @@
-import * as React from 'react';
-import {Helmet} from 'react-helmet';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {Input} from '@twilio-paste/input';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Select, Option} from '@twilio-paste/select';
-import {Stack} from '@twilio-paste/stack';
-import {TextArea} from '@twilio-paste/textarea';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Input } from "@twilio-paste/input";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Option, Select } from "@twilio-paste/select";
+import { Stack } from "@twilio-paste/stack";
+import { TextArea } from "@twilio-paste/textarea";
+import * as React from "react";
+import { Helmet } from "react-helmet";
 
-import {ThemeProvider} from '../src/themeProvider';
+import { ThemeProvider } from "../src/themeProvider";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Theme/ThemeProvider',
+  title: "Theme/ThemeProvider",
   component: ThemeProvider,
 };
 
@@ -39,7 +39,7 @@ export const EnglishFontFamily = (): React.ReactNode => (
   </Box>
 );
 
-export const JapaneseFontFamily = (): React.ReactNode => (
+export const JapaneseFontFamily = (): JSX.Element => (
   <>
     <Helmet>
       <html lang="ja" />

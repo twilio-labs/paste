@@ -1,0 +1,64 @@
+export const meta = {
+  title: 'Disclosure - API',
+  package: '@twilio-paste/disclosure',
+  description: 'The Disclosure is used to create accessible, hierarchical, and collapsible structure to your pages.',
+  slug: '/components/disclosure/api',
+};
+
+import Changelog from '@twilio-paste/disclosure/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/disclosure/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Disclosure');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/disclosure');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/disclosure',
+        storybookUrl: '/?path=/story/components-disclosure--heading-variant-10',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/disclosure - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/core/disclosure';
+
+const PopoverExample: React.FC = () => {
+  return (
+    <Disclosure>
+      <DisclosureHeading as="h2" variant="heading20">
+        Disclosure Heading
+      </DisclosureHeading>
+      <DisclosureContent>Disclosure content</DisclosureContent>
+    </Disclosure>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

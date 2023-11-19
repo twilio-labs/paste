@@ -1,23 +1,24 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/core/uid-library';
-import {Box} from '@twilio-paste/core/box';
-import {Heading} from '@twilio-paste/core/heading';
-import {Separator} from '@twilio-paste/core/separator';
-import {Stack} from '@twilio-paste/core/stack';
-import {Tabs, Tab, TabList, TabPanel, TabPanels} from '@twilio-paste/core/tabs';
-import {AlertPreview} from './AlertPreview';
-import {AnchorPreview} from './AnchorPreview';
-import {AvatarPreview} from './AvatarPreview';
-import {BreadcrumbPreview} from './BreadcrumbPreview';
-import {ButtonPreview} from './ButtonPreview';
-import {CardPreview} from './CardPreview';
-import {PopoverPreview} from './PopoverPreview';
-import {TablePreview} from './TablePreview';
-import {ToastPreview} from './ToastPreview';
-import {TooltipPreview} from './TooltipPreview';
-import {TypographyPreview} from './TypographyPreview';
+import { Box } from "@twilio-paste/core/box";
+import { Heading } from "@twilio-paste/core/heading";
+import { Separator } from "@twilio-paste/core/separator";
+import { Stack } from "@twilio-paste/core/stack";
+import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/core/tabs";
+import { useUID } from "@twilio-paste/core/uid-library";
+import * as React from "react";
 
-const TabbedContent: React.FC = () => {
+import { AlertPreview } from "./AlertPreview";
+import { AnchorPreview } from "./AnchorPreview";
+import { AvatarPreview } from "./AvatarPreview";
+import { BreadcrumbPreview } from "./BreadcrumbPreview";
+import { ButtonPreview } from "./ButtonPreview";
+import { CardPreview } from "./CardPreview";
+import { PopoverPreview } from "./PopoverPreview";
+import { TablePreview } from "./TablePreview";
+import { ToastPreview } from "./ToastPreview";
+import { TooltipPreview } from "./TooltipPreview";
+import { TypographyPreview } from "./TypographyPreview";
+
+const TabbedContent = (): JSX.Element => {
   const selectedId = useUID();
 
   return (
@@ -59,4 +60,4 @@ const TabbedContent: React.FC = () => {
   );
 };
 
-export {TabbedContent};
+export { TabbedContent };

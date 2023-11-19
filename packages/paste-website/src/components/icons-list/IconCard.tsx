@@ -1,13 +1,14 @@
-import * as React from 'react';
-import {Card} from '@twilio-paste/card';
-import {Heading} from '@twilio-paste/heading';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Codeblock} from '../codeblock';
-import {CopyButton} from '../CopyButton';
-import {SiteLink} from '../SiteLink';
-import type {IconObject} from './types';
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CodeBlock } from "@twilio-paste/code-block";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
+
+import { CopyButton } from "../CopyButton";
+import { SiteLink } from "../SiteLink";
+import type { IconObject } from "./types";
 
 const iconSnippet = (name: string): string => `import { ${name} } from "@twilio-paste/icons/esm/${name}";
 
@@ -19,7 +20,7 @@ export interface IconCardProps {
   selectedIcon: IconObject | null;
 }
 
-const IconCard: React.FC<IconCardProps> = ({selectedIcon}) => {
+const IconCard: React.FC<React.PropsWithChildren<IconCardProps>> = ({ selectedIcon }) => {
   if (selectedIcon === null) return null;
   const Icon = selectedIcon.Component;
 
@@ -27,7 +28,7 @@ const IconCard: React.FC<IconCardProps> = ({selectedIcon}) => {
     <>
       <Heading as="h2" variant="heading20">
         <Text as="span" fontSize="inherit" wordBreak="break-all">
-          {selectedIcon.name.replace('Icon', '')}
+          {selectedIcon.name.replace("Icon", "")}
         </Text>
       </Heading>
       <Card>
@@ -38,18 +39,18 @@ const IconCard: React.FC<IconCardProps> = ({selectedIcon}) => {
           Install using React
         </Heading>
         <Box marginBottom="space70" position="relative">
-          <Codeblock>{iconSnippet(selectedIcon.name)}</Codeblock>
+          <CodeBlock language="jsx" code={iconSnippet(selectedIcon.name)} />
           <Box bottom="10px" position="absolute" right="10px">
             <CopyButton text={iconSnippet(selectedIcon.name)} />
           </Box>
         </Box>
         <Paragraph marginBottom="space0">
-          Be sure to read the <SiteLink to="/introduction/for-engineers/quickstart">quick start guide</SiteLink> page to
-          ensure you have the correct dependencies.
+          Be sure to read the <SiteLink href="/introduction/for-engineers/quickstart">quick start guide</SiteLink> page
+          to ensure you have the correct dependencies.
         </Paragraph>
       </Card>
     </>
   );
 };
 
-export {IconCard};
+export { IconCard };

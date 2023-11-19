@@ -1,15 +1,23 @@
-import * as React from 'react';
-import {Text} from '@twilio-paste/text';
-import {SiteLink, SiteLinkProps} from '../SiteLink';
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
+
+import type { SiteLinkProps } from "../SiteLink";
+import { SiteLink } from "../SiteLink";
 
 interface GetStartedCardLinkProps {
-  to: SiteLinkProps['to'];
+  href: SiteLinkProps["href"];
   onClick?: () => void;
 }
-export const GetStartedCardLink: React.FC<GetStartedCardLinkProps> = ({children, to}) => {
+export const GetStartedCardLink: React.FC<React.PropsWithChildren<GetStartedCardLinkProps>> = ({
+  children,
+  onClick,
+  href,
+}) => {
   return (
     <Text as="p" fontWeight="fontWeightSemibold">
-      <SiteLink to={to}>{children}</SiteLink>
+      <SiteLink href={href} onClick={onClick}>
+        {children}
+      </SiteLink>
     </Text>
   );
 };

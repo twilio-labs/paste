@@ -1,9 +1,9 @@
 {
   "name": "@twilio-paste/disclosure-primitive",
-  "version": "0.3.8",
+  "version": "2.1.1",
   "category": "interaction",
   "status": "production",
-  "description": "An unstyled and accessible basis upon which to build a disclosure.",
+  "description": "An accessible disclosure primitive for controlling the visibility of a content section.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
@@ -20,20 +20,20 @@
   "scripts": {
     "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
-    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
+    "build:typedocs": "tsx ../../../../tools/build/generate-type-docs",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
   "peerDependencies": {
-    "@twilio-paste/reakit-library": "^0.8.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.8.6 || ^17.0.2",
-    "react-dom": "^16.8.6 || ^17.0.2"
+    "@twilio-paste/reakit-library": "^2.0.0",
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "@twilio-paste/reakit-library": "^0.8.4",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "@twilio-paste/reakit-library": "^2.1.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "tsx": "^3.12.10",
+    "typescript": "^4.9.4"
   }
 }

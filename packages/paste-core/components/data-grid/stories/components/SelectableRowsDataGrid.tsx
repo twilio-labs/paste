@@ -1,10 +1,11 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {CheckboxGroup, Checkbox} from '@twilio-paste/checkbox';
-import {useUIDSeed} from '@twilio-paste/uid-library';
-import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
-import {TableHeaderData, TableBodyData} from './constants';
+import { Box } from "@twilio-paste/box";
+import { Checkbox, CheckboxGroup } from "@twilio-paste/checkbox";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from "../../src";
+import { TableBodyData, TableHeaderData } from "./constants";
 
 interface CheckboxCellProps {
   onClick: (checked: boolean) => void;
@@ -13,25 +14,33 @@ interface CheckboxCellProps {
   label: string;
   indeterminate?: boolean;
 }
-const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, checked, label}) => {
+const CheckboxCell: React.FC<React.PropsWithChildren<CheckboxCellProps>> = ({
+  onClick,
+  id,
+  indeterminate,
+  checked,
+  label,
+}) => {
   const checkboxRef = React.createRef<HTMLInputElement>();
 
   const handleClick = React.useCallback(() => {
     if (checkboxRef.current == null) {
-      return;
+      return undefined;
     }
     return onClick(!checkboxRef.current.checked);
   }, [onClick, checkboxRef]);
   const handleKeyDown = React.useCallback(
-    (event) => {
+    (event: any) => {
       if (checkboxRef.current == null) {
-        return;
+        return undefined;
       }
       if (event.keyCode === 32 || event.keyCode === 13) {
         return onClick(!checkboxRef.current.checked);
       }
+
+      return undefined;
     },
-    [onClick, checkboxRef]
+    [onClick, checkboxRef],
   );
 
   return (
@@ -56,10 +65,21 @@ const CheckboxCell: React.FC<CheckboxCellProps> = ({onClick, id, indeterminate, 
   );
 };
 
-export const SelectableRowsDataGrid: React.FC = () => {
+export const SelectableRowsDataGrid = (): JSX.Element => {
   const seed = useUIDSeed();
   // Array of length 10 rows, all unchecked
-  const [checkedItems, setCheckedItems] = React.useState([...new Array(10)].map(() => false));
+  const [checkedItems, setCheckedItems] = React.useState([
+    false,
+    true,
+    false,
+    false,
+    true,
+    true,
+    false,
+    false,
+    false,
+    false,
+  ]);
 
   const allChecked = checkedItems.every(Boolean);
   const indeterminate = checkedItems.some(Boolean) && !allChecked;
@@ -76,7 +96,7 @@ export const SelectableRowsDataGrid: React.FC = () => {
                   const newCheckedItems = checkedItems.map(() => checked);
                   setCheckedItems(newCheckedItems);
                 }}
-                id={seed('select-all')}
+                id={seed("select-all")}
                 checked={allChecked}
                 indeterminate={indeterminate}
                 label="Select all"

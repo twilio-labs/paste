@@ -8,25 +8,29 @@ on:
       - main
 
 jobs:
-  prerelease:
-    name: Prerelease test and build
+  version_or_publish:
+    name: Lint, test, build and publish or release
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
         with:
-          node-version: 16.13.x
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -35,7 +39,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -49,63 +53,8 @@ jobs:
 
       - name: Run prerelease
         run: yarn prerelease
-
-      - name: Store build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: |
-            packages/**/dist/**/*
-            packages/paste-core/core-bundle/**/*
-            packages/paste-icons/cjs/**/*
-            packages/paste-icons/esm/**/*
-            packages/paste-design-tokens/types/**/*
-            packages/paste-codemods/tools/.cache/mappings.json
-
-  version_or_publish:
-    name: Version or publish the packages
-    needs: prerelease
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.13.x
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
-
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Setup CI Git User
         run: |
@@ -126,27 +75,27 @@ jobs:
 
   chromatic:
     name: Chromatic baseline update
-    needs: prerelease
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'chore(release): version packages')"
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          # Chromatic needs the full git history to work
           fetch-depth: 0
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.13.x
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -155,7 +104,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -167,11 +116,10 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+      - name: Build packages
+        run: yarn build
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Run Chromatic
         uses: chromaui/action@v1
@@ -181,5 +129,105 @@ jobs:
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: true
+          onlyChanged: true
+          externals: |
+            - 'packages/paste-design-tokens/tokens/**'
+            - 'packages/paste-icons/src/**'
+            - '.storybook/static/**'
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.sha }}
+          # https://github.com/storybookjs/builder-vite/issues/409#issuecomment-1199236279
+          NODE_OPTIONS: --max-old-space-size=6144
+
+  # run this job first to create a single timestamped id for all percy batches on parallel machines
+  percy-batch-id:
+    runs-on: ubuntu-latest
+    # persist job results to other jobs in the workflow
+    outputs:
+      result: ${{ steps.percy-batch-id.outputs.result }}
+    steps:
+      # persist step results to other steps in the job
+      - name: Create Percy Batch ID
+        id: percy-batch-id
+        # adding a timestamp makes the batch id more unique for re-runs
+        run: echo "result=${{ github.run_id }}-$(date +%s)" >> $GITHUB_OUTPUT
+
+  # run cypress against main so we can create Percy baselines with the latest code
+  cypress:
+    name: Website tests
+    runs-on: ubuntu-latest
+    needs: percy-batch-id
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
+    env:
+      CYPRESS_CACHE_FOLDER: ./node_modules/cypress
+      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      USE_CYPRESS_VRT: true
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Percy Batch ID
+        run: echo "${{ needs.percy-batch-id.outputs.result }}"
+
+      - name: Load Yarn cache
+        uses: actions/cache@v3
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      - name: Node modules cache
+        uses: actions/cache@v3
+        id: node_modules_cache_id
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Wait for Netlify
+        uses: hharnisc/wait-for-netlify-action@3.2.0
+        id: waitForDeployment
+        with:
+          site_id: ${{ secrets.NETLIFY_SITE_ID }}
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+
+      - name: Cypress run with site VRT
+        uses: cypress-io/github-action@v4
+        with:
+          record: true
+          parallel: true
+          group: "Paste Actions with VRT Parallel"
+          config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
+          # enabled percy to run cypress for VRT
+          command-prefix: "percy exec --parallel -- npx"
+        env:
+          PERCY_PARALLEL_NONCE: ${{ needs.percy-batch-id.outputs.result }}
+          PERCY_PARALLEL_TOTAL: 3
+          CYPRESS_BASE_URL: ${{ steps.waitForDeployment.outputs.url }}

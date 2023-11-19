@@ -1,1 +1,1 @@
-export * from '@twilio-paste/style-props';
+export * from "@twilio-paste/style-props";

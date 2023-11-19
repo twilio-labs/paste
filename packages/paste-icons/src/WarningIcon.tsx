@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface WarningIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface WarningIconProps extends IconWrapperProps {
 }
 
 const WarningIcon = React.forwardRef<HTMLElement, WarningIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `WarningIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[WarningIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[WarningIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -28,6 +29,7 @@ const WarningIcon = React.forwardRef<HTMLElement, WarningIconProps>(
           height="100%"
           viewBox="0 0 20 20"
           fill="none"
+          xmlns="http://www.w3.org/2000/svg"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
@@ -40,8 +42,8 @@ const WarningIcon = React.forwardRef<HTMLElement, WarningIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-WarningIcon.displayName = 'WarningIcon';
-export {WarningIcon};
+WarningIcon.displayName = "WarningIcon";
+export { WarningIcon };

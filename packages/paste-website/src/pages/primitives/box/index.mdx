@@ -1,70 +1,59 @@
----
-title: Box - Primitives
-description: The Box component is one of the pillars of our system. It can be any HTML element and can receive many of our token values as props. We use Box to build most of our other components.
-slug: /primitives/box/
----
+export const meta = {
+  title: 'Box',
+  package: '@twilio-paste/box',
+  description:
+    'The Box component is one of the pillars of our system. It can be any HTML element and can receive many of our token values as props. We use Box to build most of our other components.',
+  slug: '/primitives/box/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import Changelog from '@twilio-paste/box/CHANGELOG.md';
+import packageJson from '@twilio-paste/box/package.json';
+import {Callout, CalloutText} from '@twilio-paste/callout';
+
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPastePrimitive(filter: {name: {eq: "@twilio-paste/box"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/primitives/box/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Box"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/box"
-  storybookUrl="/?path=/story/primitives-box--default"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Box');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.PRIMITIVES,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/box',
+        storybookUrl: '/?path=/story/primitives-box--default',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Box}} language="jsx">
+  {`<Box
+  as="article"
+  backgroundColor="colorBackgroundBody"
+  padding="space60"
+>
+Parent box on the hill side
+  <Box
+    backgroundColor="colorBackgroundSuccessWeakest"
+    display="inline-block"
+    padding="space40"
+  >
+    nested box 1 made out of ticky tacky
+  </Box>
+</Box>`}
+</LivePreview>
 
 ## Guidelines
 
@@ -95,7 +84,7 @@ The Box component is an all purpose component. By default, it has no accessibili
 concerns. If you use the Box as a custom element, it is up to you to manage the
 resulting accessibility implications.
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Be sure to use the <strong>as</strong> prop to select semantically meaningful HTML elements. By default the Box
     component renders as a <strong>div</strong> which doesn’t provide much meaning to the user.
@@ -217,137 +206,4 @@ such as accessibility.
   <Dont title="Don't" body="Use HTML elements for functionality covered by the Box component." preview={false} />
 </DoDont>
 
----
 
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/box - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Box} from '@twilio-paste/core/box';
-
-const Component = () => (
-  <Box
-    as="article"
-    backgroundColor="colorBackgroundBody"
-    padding="space60"
-    _hover={{
-      backgroundColor: "colorBackgroundPrimary"
-      padding: "space70"
-    }}
-  >
-    Foo
-  </Box>
-);
-```
-
-#### Props
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-| Prop                     | Type                                                    | Default |
-| ------------------------ | ------------------------------------------------------- | ------- |
-| as?                      | string                                                  | 'div'   |
-| display?                 | `ResponsiveValue<CSS.DisplayProperty>`                  |         |
-| overflow?                | `ResponsiveValue<CSS.OverflowProperty>`                 |         |
-| backgroundColor?         | `ResponsiveValue<keyof ThemeShape['backgroundColors']>` |         |
-| width?                   | `ResponsiveValue<WidthOptions>`                         |         |
-| minWidth?                | `ResponsiveValue<MinWidthOptions>`                      |         |
-| maxWidth?                | `ResponsiveValue<MaxWidthOptions>`                      |         |
-| height?                  | `ResponsiveValue<HeightOptions>`                        |         |
-| minHeight?               | `ResponsiveValue<MinHeightOptions>`                     |         |
-| maxHeight?               | `ResponsiveValue<MaxHeightOptions>`                     |         |
-| size?                    | `ResponsiveValue<WidthOptions>`                         |         |
-| margin?                  | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| marginTop?               | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| marginRight?             | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| marginBottom?            | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| marginLeft?              | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| padding?                 | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| paddingTop?              | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| paddingRight?            | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| paddingBottom?           | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| paddingLeft?             | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| columnGap?               | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| rowGap?                  | `ResponsiveValue<keyof ThemeShape['space']>`            |         |
-| borderRadius?            | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderTopLeftRadius?     | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderTopRightRadius?    | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderBottomRightRadius? | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderBottomLeftRadius?  | `ResponsiveValue<keyof ThemeShape['radii']>`            |         |
-| borderWidth?             | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderTopWidth?          | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderRightWidth?        | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderBottomWidth?       | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderLeftWidth?         | `ResponsiveValue<keyof ThemeShape['borderWidths']>`     |         |
-| borderColor?             | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderTopColor?          | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderRightColor?        | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderBottomColor?       | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderLeftColor?         | `ResponsiveValue<keyof ThemeShape['borderColors']>`     |         |
-| borderStyle?             | `ResponsiveValue<CSS.BorderStyleProperty>`              |         |
-| boxshadow?               | `ResponsiveValue<keyof ThemeShape['shadows']>`          |         |
-| zIndex?                  | `ResponsiveValue<keyof ThemeShape['zIndices']>`         |         |
-| fontVariantNumeric?      | FontVariantNumericProperty                              |         |
-| cursor?                  | CursorProperty                                          |         |
-| content?                 | string                                                  |         |
-| appearance?              | AppearanceProperty                                      |         |
-| animation?               | AnimationProperty                                       |         |
-| transform?               | TransformProperty                                       |         |
-| transformOrigin?         | TransformOriginProperty                                 |         |
-| visibility?              | VisibilityProperty                                      |         |
-| whiteSpace?              | WhiteSpaceProperty                                      |         |
-| userSelect?              | UserSelectProperty                                      |         |
-| pointerEvents?           | PointerEventsProperty                                   |         |
-| boxSizing?               | BoxSizingProperty                                       |         |
-| resize?                  | ResizeProperty                                          |         |
-| transition?              | TransitionProperty                                      |         |
-| listStyleType?           | ListStyleTypeProperty                                   |         |
-| listStylePosition?       | ListStylePositionProperty                               |         |
-| listStyleImage?          | ListStyleImageProperty                                  |         |
-| objectFit?               | ObjectFitProperty                                       |         |
-| objectPosition?          | ObjectPositionProperty                                  |         |
-| backgroundAttachment?    | BackgroundAttachmentProperty                            |         |
-| outline?                 | OutlineProperty                                         |         |
-| float?                   | FloatProperty                                           |         |
-| willChange?              | WillChangeProperty                                      |         |
-| \_hover?                 | BoxProps                                                |         |
-| \_active?                | BoxProps                                                |         |
-| \_focus?                 | BoxProps                                                |         |
-| \_visited?               | BoxProps                                                |         |
-| \_even?                  | BoxProps                                                |         |
-| \_odd?                   | BoxProps                                                |         |
-| \_disabled?              | BoxProps                                                |         |
-| \_checked?               | BoxProps                                                |         |
-| \_mixed?                 | BoxProps                                                |         |
-| \_selected?              | BoxProps                                                |         |
-| \_invalid?               | BoxProps                                                |         |
-| \_pressed?               | BoxProps                                                |         |
-| \_readOnly?              | BoxProps                                                |         |
-| \_first?                 | BoxProps                                                |         |
-| \_last?                  | BoxProps                                                |         |
-| \_expanded?              | BoxProps                                                |         |
-| \_grabbed?               | BoxProps                                                |         |
-| \_notFirst?              | BoxProps                                                |         |
-| \_notLast?               | BoxProps                                                |         |
-| \_groupHover?            | BoxProps                                                |         |
-| \_before?                | BoxProps                                                |         |
-| \_after?                 | BoxProps                                                |         |
-| \_focusWithin?           | BoxProps                                                |         |
-| \_placeholder?           | BoxProps                                                |         |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

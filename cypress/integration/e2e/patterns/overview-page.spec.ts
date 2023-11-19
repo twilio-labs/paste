@@ -1,10 +1,12 @@
-describe('Overview page', () => {
+describe("Overview page", () => {
   beforeEach(() => {
-    cy.visit('/patterns');
+    cy.visit("/patterns");
   });
 
-  it('should render the patterns overview page correctly', () => {
-    cy.pageHeaderShouldBeVisible('Patterns');
+  it("should render the patterns overview page correctly", () => {
+    cy.pageHeaderShouldBeVisible({
+      headerText: "Patterns",
+    });
 
     cy.overviewTableRendersCorrectly();
   });

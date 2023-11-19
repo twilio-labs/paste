@@ -1,1 +1,1 @@
-export * from '@twilio-paste/anchor';
+export * from "@twilio-paste/anchor";

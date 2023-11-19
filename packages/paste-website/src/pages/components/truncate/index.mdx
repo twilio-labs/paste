@@ -1,76 +1,57 @@
----
-title: Truncate
-package: '@twilio-paste/truncate'
-description: The Truncate component can be used to shorten a string of text that overflows a defined area.
-slug: /components/truncate/
----
+export const meta = {
+  title: 'Truncate',
+  package: '@twilio-paste/truncate',
+  description: 'The Truncate component can be used to shorten a string of text that overflows a defined area.',
+  slug: '/components/truncate/',
+};
 
-import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {Truncate} from '@twilio-paste/truncate';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import Changelog from '@twilio-paste/truncate/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/truncate/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/truncate"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/truncate/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Truncate"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/truncate"
-  storybookUrl="/?path=/story/components-truncate--default"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Truncate');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/truncate',
+        storybookUrl: '/?path=/story/components-truncate--default',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview
+  scope={{
+    Truncate,
+    Box,
+    Text,
+  }}
+>
+  {`<Box maxWidth="size30">
+  <Text as="p">
+    <Truncate title="Black Lives Matter. We stand with the Black community.">Black Lives Matter. We stand with the Black community.</Truncate>
+  </Text>
+</Box>`}
+</LivePreview>
 
 ## Guidelines
 
@@ -161,45 +142,3 @@ spans the full width of a container.
   </Dont>
 </DoDont>
 
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/truncate - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Truncate} from '@twilio-paste/core/truncate';
-
-const Component: React.FC = () => {
-  return (
-    <Box maxWidth="size20">
-      <Text as="p">
-        <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
-      </Text>
-    </Box>
-  );
-};
-```
-
-#### Props
-
-| Prop     | Type        | Description                                                                                                         | Default |
-| -------- | ----------- | ------------------------------------------------------------------------------------------------------------------- | ------- |
-| title    | `string`    | An accessible label that should match the content of the truncated text. Allows users to see the truncated content. | null    |
-| children | `ReactNode` |                                                                                                                     | null    |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

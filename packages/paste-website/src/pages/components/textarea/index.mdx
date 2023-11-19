@@ -1,11 +1,10 @@
----
-title: Textarea - Components
-package: '@twilio-paste/textarea'
-description: A textarea allows users to enter text on multiple lines.
-slug: /components/textarea/
----
+export const meta = {
+  title: 'Textarea - Components',
+  package: '@twilio-paste/textarea',
+  description: 'A textarea allows users to enter text on multiple lines.',
+  slug: '/components/textarea/',
+};
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {TextArea} from '@twilio-paste/textarea';
 import {HelpText} from '@twilio-paste/help-text';
@@ -16,135 +15,77 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/textarea/CHANGELOG.md';
+import packageJson from '@twilio-paste/textarea/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/textarea"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/textarea/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Textarea"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/textarea"
-  storybookUrl="/?path=/story/components-textarea--"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Textarea');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/textarea',
+        storybookUrl: '/?path=/story/components-textarea--textarea',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
+  {`<>
+  <Label htmlFor="message" required>Message (at least 120 characters)</Label>
+  <TextArea onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" required />
+  <HelpText id="message_help_text">Enter at least 120 characters</HelpText>
+</>`}
+</LivePreview>
 
 ## Guidelines
 
-A textarea allows users to enter text on multiple lines. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.
+A Textarea allows users to enter text on multiple lines. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.
 
-### About Textarea
-
-Use a textarea when you want to allow a user to enter text on multiple lines. A textarea allows for any text to be entered and can't be restricted as other [inputs](/components/input/) can.
+A Textarea allows for any text to be entered and can't be restricted as other [inputs](/components/input/) can.
 
 ### Accessibility
 
-<UnorderedList>
-  <ListItem>
-    Include a visible label on <strong>all</strong> form fields.
-  </ListItem>
-  <ListItem>
-    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
-    associated textarea.
-  </ListItem>
-  <ListItem>
-    Don't use placeholder text as a replacement for labels. It can be used to provide an example to users, but will
-    disappear from the field when a user enters text. It's also not broadly supported by assistive technologies and
-    won't display in older browsers.
-  </ListItem>
-  <ListItem>
-    Use one of 3 ways to label a form field:
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Visible label with <Anchor href="#formlabel-props">Label</Anchor> (preferred)
-      </ListItem>
-      <ListItem>
-        Visible label that's associated to the textarea with <inlineCode>aria-labelledby</inlineCode>
-      </ListItem>
-      <ListItem>
-        Label directly using <inlineCode>aria-label</inlineCode>
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Provide clear identification of required fields in the label or at the start of a form. If you use the required
-    field indicator, include the form key at the start of the form.
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Include inline error text with the error icon on any field that errors to make it visually clear that the field
-    changed.
-  </ListItem>
-  <ListItem>
-    If the textarea has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode> prop
-    on the textarea. This should match the <inlineCode>id</inlineCode> of the help or error text.
-  </ListItem>
-</UnorderedList>
+- Include a visible label on **all** form fields.
+- Each label must use the `htmlFor` prop that equals the `id` of the associated textarea.
+- Avoid placeholder text. It's not broadly supported by assistive technologies, doesn't display in older browsers, and dissapears from the field when a user enters text.
+- Use 1 of 3 ways to label a form field:
+  - Visible label with [Label](/components/label) (preferred)
+  - Visible label that's associated to the textarea with `aria-labelledby`
+  - Label directly using `aria-label`
+- Provide clear identification of required fields in the label or at the start of a form. If you use the required field indicator, include the form key at the start of the form.
+  - Use the `required` prop to programatically indicate they are required to browsers.
+- Use [Help Text](/components/help-text) and an error icon to show [inline error text](/patterns/error-state) on any field that errors to make it visually clear that the field changed.
+- If the textarea has associated help text or error text, include the `aria-describedby` prop on the textarea. This should match the `id` of the help or error text.
 
 ## Examples
 
 ### Textarea
 
-The textarea should include the base textarea, along with supporting elements to compose a textarea field that gives the user the context they need to successfully fill it out:
+The Textarea should include the base `Textarea`, along with supporting elements to compose a textarea field that gives the user the context they need to successfully fill it out:
 
-- **Label** — A label should be included for every form field and provide a short title for its associated textarea.
-- **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
-- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful
+- [**Label**](/components/label) — Every form field should have a label. The label should indicate what should be entered into field.
+- **Required field indicator** — If most of the fields on a form are optional, indicate the few that are required with text or a required indicator.
+- [**Help Text**](/components/help-text) — Text that's placed below the field to help users prevent an error and describe what makes the form field successful
 
-<Callout>
-  <CalloutTitle as="h4">Accessibility insight</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>TextArea</inlineCode>. This is done with
     the <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the textarea.
@@ -173,7 +114,7 @@ The textarea should include the base textarea, along with supporting elements to
 <LivePreview scope={{Label, HelpText, TextArea, Text}} language="jsx">
   {`<>
   <Label htmlFor="short_bio" required>Short biography</Label>
-  <TextArea onChange={()=>{}} id="short_bio" name="short_bio" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">Bio</Text>} required />
+  <TextArea onChange={()=>{}} id="short_bio" name="short_bio" insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">Bio</Text>} required />
 </>`}
 </LivePreview>
 
@@ -196,19 +137,31 @@ The textarea should include the base textarea, along with supporting elements to
 </>`}
 </LivePreview>
 
+### Resizable Textarea
+
+By default, the textarea is not resizable. To change this, add the prop `resize='vertical'`.
+
+<LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
+  {`<>
+  <Label htmlFor="message" required>Message (at least 120 characters)</Label>
+  <TextArea onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" resize="vertical" required />
+  <HelpText id="message_help_text">Enter at least 120 characters</HelpText>
+</>`}
+</LivePreview>
+
 ## States
 
 ### Textarea with inline error
 
-Change a form field to its error state and add an inline error if the value entered doesn't pass validation requirements.
+Change a form field to its error state and use [Help Text](/components/help-text) to add an inline error if the value entered doesn't pass validation requirements.
 
-An inline error is placed below the field to inform a user of any errors in their value. If help text exists, the error text should replace and repeat the help text.
+The error Help Text is placed below the field to inform a user of any errors in their value. The error text should replace and repeat the help text. Review the [error state pattern](/patterns/error-state) for guidance on writing error messages.
 
 <LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
   <Label htmlFor="text_error">Description</Label>
   <TextArea onChange={()=>{}} aria-describedby="text_error_help_text" id="text_error" name="text_error" hasError />
-  <HelpText id="text_error_help_text" variant="error">Enter a description</HelpText>
+  <HelpText id="text_error_help_text" variant="error">Enter a description.</HelpText>
 </>`}
 </LivePreview>
 
@@ -268,8 +221,8 @@ Avoid placing multiple form fields on the same horizontal row to help make it ea
 
 Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
 
-- Use help text to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
-- Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
+- Use [Help Text](/components/help-text) to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
+- Avoid articles (like "a" and "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
 
 To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
 
@@ -279,7 +232,7 @@ Give users enough information in help text to prevent textarea and formatting er
 
 Ask for information only when needed. Consider removing the field otherwise.
 
-Use required indicators to show users which fields they must fill out.
+Use text or required indicators to show users which fields they must fill out.
 
 ### Validation
 
@@ -287,26 +240,16 @@ Validate form fields on form submission.
 
 Validating a form field when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
-Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+Don't prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use error messages to explain what information is missing or incorrect.
 
 ### Errors
 
-Use inline error text to explain how to fix an error.
-
-Ideally, help text should have enough information to help users prevent errors. If you need to show an error and`HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
-
-Error text should:
-
-- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
-- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for textarea errors to avoid placing blame on the user. For example, "A friendly name is required."
-- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
+Use Help Text to show an inline error that to explains how to fix the error. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 ### Optional compositional elements
 
 - **Prefix/suffix** — Use a prefix or suffix to help users format their textarea and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
 - **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
-- **Placeholder** — Use a placeholder when you want to give an example of the type of data a user should enter, mainly to help with recall. For example, when asking for links to social media profiles, you could give examples of a few social media sites. Placeholders should be used in addition to the label and not as a replacement since they'll disappear when a user begins entering their own value. If you need to show supporting instructions, use help text instead.
 
 ## When to use a Textarea
 
@@ -450,207 +393,3 @@ Use a textarea when users are expected to enter text that exceeds a single line,
     </Box>
   </Dont>
 </DoDont>
-
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Box Shadow</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
-            <ListItem>Disabled: $shadow-border-weak</ListItem>
-            <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Background</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-background-body</ListItem>
-            <ListItem>Disabled, Readonly: $color-background</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weak</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Value text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default, Readonly: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No, but it can take any children</Td>
-      </Tr>
-      <Tr>
-        <Td>Placeholder text</Td>
-        <Td>$color-text-weak, italic</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Help text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Textarea:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Left padding: $space-40</ListItem>
-                <ListItem>Top, right, bottom padding: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>Prefix/suffix padding: $space-30</ListItem>
-            <ListItem>
-              Help text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Inline error:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Spacing between icon and text: $space-20</ListItem>
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/textarea - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {TextArea} from '@twilio-paste/core/textarea';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-const Component = () => (
-  <>
-    <Label htmlFor="foo" required>
-      foo
-    </Label>
-    <TextArea onChange={() => {}} aria-describedby="foo_text" id="foo" name="foo" placeholder="foo" required />
-    <HelpText id="foo_text">Enter some text.</HelpText>
-  </>
-);
-```
-
-#### TextArea props
-
-All the valid HTML attributes for `textarea` are supported including the following props:
-
-| Prop         | Type                                     | Description                                                                               | Default    |
-| ------------ | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ---------- |
-| id?          | string                                   | Sets the id of the textarea. Should match the htmlFor of `Label`.                         | null       |
-| name?        | string                                   | Sets the name of the textarea.                                                            | null       |
-| placeholder? | string                                   | Sets the placeholder of the textarea.                                                     | null       |
-| disabled?    | boolean                                  | Disables the textarea.                                                                    | false      |
-| readOnly?    | boolean                                  | Sets the textarea to readonly.                                                            | false      |
-| required?    | boolean                                  | Sets the textarea as required.                                                            | false      |
-| hasError?    | boolean                                  | Sets the textarea to an error state.                                                      | false      |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| onFocus?     | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| variant?     | 'default', 'inverse'                     |                                                                                           | 'default'  |
-| element?     | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'TEXTAREA' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,132 +1,173 @@
-import type {BoxStyleProps} from '@twilio-paste/box';
-import type {BadgeVariants} from './types';
+import type { BoxStyleProps } from "@twilio-paste/box";
+
+import type { BadgeVariants } from "./constants";
+
+export const badgeBaseStyles: BoxStyleProps = {
+  alignItems: "center",
+  border: "unset",
+  borderRadius: "borderRadius20",
+  columnGap: "space20",
+  display: "flex",
+  fontSize: "fontSize20",
+  fontWeight: "fontWeightSemibold",
+  lineHeight: "lineHeight10",
+  maxWidth: "max-content",
+  // these next props are from button-reset styles
+  appearance: "none",
+  background: "none",
+  outline: "none",
+  fontFamily: "inherit",
+  position: "relative",
+};
 
 export const badgeVariantStyles: {
-  [key in BadgeVariants]: {
-    backgroundColor: BoxStyleProps['backgroundColor'];
-    color: BoxStyleProps['color'];
-    borderRadius?: BoxStyleProps['borderRadius'];
+  [key in typeof BadgeVariants[number]]: {
+    backgroundColor: BoxStyleProps["backgroundColor"];
+    color: BoxStyleProps["color"];
+    borderRadius?: BoxStyleProps["borderRadius"];
+    boxShadow: BoxStyleProps["boxShadow"];
   };
 } = {
   success: {
-    backgroundColor: 'colorBackgroundSuccessWeakest',
-    color: 'colorTextSuccess',
+    backgroundColor: "colorBackgroundSuccessWeakest",
+    color: "colorTextSuccess",
+    boxShadow: "shadowBorderSuccessWeaker",
   },
   error: {
-    backgroundColor: 'colorBackgroundErrorWeakest',
-    color: 'colorTextErrorStrong',
+    backgroundColor: "colorBackgroundErrorWeakest",
+    color: "colorTextError",
+    boxShadow: "shadowBorderErrorWeaker",
   },
   warning: {
-    backgroundColor: 'colorBackgroundWarningWeakest',
-    color: 'colorTextWarningStrong',
+    backgroundColor: "colorBackgroundWarningWeakest",
+    color: "colorTextWarning",
+    boxShadow: "shadowBorderWarningWeaker",
   },
   new: {
-    backgroundColor: 'colorBackgroundNew',
-    color: 'colorTextNew',
+    backgroundColor: "colorBackgroundNewWeakest",
+    color: "colorTextNew",
+    boxShadow: "shadowBorderNewWeaker",
   },
   neutral: {
-    backgroundColor: 'colorBackgroundNeutralWeakest',
-    color: 'colorTextNeutral',
+    backgroundColor: "colorBackgroundNeutralWeakest",
+    color: "colorTextNeutral",
+    boxShadow: "shadowBorderNeutralWeaker",
+  },
+  subaccount: {
+    backgroundColor: "colorBackgroundSubaccount",
+    color: "colorTextSubaccount",
+    boxShadow: "shadowBorderSubaccount",
   },
   decorative10: {
-    backgroundColor: 'colorBackgroundDecorative10Weakest',
-    color: 'colorTextDecorative10',
+    backgroundColor: "colorBackgroundDecorative10Weakest",
+    color: "colorTextDecorative10",
+    boxShadow: "shadowBorderDecorative10Weaker",
   },
   decorative20: {
-    backgroundColor: 'colorBackgroundDecorative20Weakest',
-    color: 'colorTextDecorative20',
+    backgroundColor: "colorBackgroundDecorative20Weakest",
+    color: "colorTextDecorative20",
+    boxShadow: "shadowBorderDecorative20Weaker",
   },
   decorative30: {
-    backgroundColor: 'colorBackgroundDecorative30Weakest',
-    color: 'colorTextDecorative30',
+    backgroundColor: "colorBackgroundDecorative30Weakest",
+    color: "colorTextDecorative30",
+    boxShadow: "shadowBorderDecorative30Weaker",
   },
   decorative40: {
-    backgroundColor: 'colorBackgroundDecorative40Weakest',
-    color: 'colorTextDecorative40',
+    backgroundColor: "colorBackgroundDecorative40Weakest",
+    color: "colorTextDecorative40",
+    boxShadow: "shadowBorderDecorative40Weaker",
   },
   neutral_counter: {
-    backgroundColor: 'colorBackgroundNeutralWeakest',
-    color: 'colorTextNeutral',
-    borderRadius: 'borderRadiusPill',
+    backgroundColor: "colorBackgroundNeutralWeakest",
+    color: "colorTextNeutral",
+    borderRadius: "borderRadiusPill",
+    boxShadow: "shadowBorderNeutralWeaker",
   },
   error_counter: {
-    backgroundColor: 'colorBackgroundErrorWeakest',
-    color: 'colorTextErrorStrong',
-    borderRadius: 'borderRadiusPill',
+    backgroundColor: "colorBackgroundErrorWeakest",
+    color: "colorTextError",
+    borderRadius: "borderRadiusPill",
+    boxShadow: "shadowBorderErrorWeaker",
   },
-  // the following variants are outdated but still supported to prevent breaking changes
   default: {
-    backgroundColor: 'colorBackground',
-    color: 'colorTextWeak',
+    backgroundColor: "colorBackgroundBody",
+    color: "colorText",
+    boxShadow: "shadowBorderWeaker",
   },
+  /*
+   * the following variants are outdated but still supported to prevent breaking changes
+   */
   info: {
-    backgroundColor: 'colorBackgroundNeutralWeakest',
-    color: 'colorTextNeutral',
+    backgroundColor: "colorBackgroundNeutralWeakest",
+    color: "colorTextNeutral",
+    boxShadow: "shadowBorderNeutralWeaker",
   },
 };
 
 export const badgeButtonStyles: {
-  [key in BadgeVariants]: {
-    boxShadow: BoxStyleProps['boxShadow'];
+  [key in typeof BadgeVariants[number]]: {
+    boxShadow: BoxStyleProps["boxShadow"];
   };
 } = {
   success: {
-    boxShadow: 'shadowBorderBottomSuccessWeaker',
+    boxShadow: "shadowBorderBottomSuccessWeaker",
   },
   error: {
-    boxShadow: 'shadowBorderBottomErrorWeaker',
+    boxShadow: "shadowBorderBottomErrorWeaker",
   },
   warning: {
-    boxShadow: 'shadowBorderBottomWarningWeaker',
+    boxShadow: "shadowBorderBottomWarningWeaker",
   },
   new: {
-    boxShadow: 'shadowBorderBottomNewWeaker',
+    boxShadow: "shadowBorderBottomNewWeaker",
   },
   neutral: {
-    boxShadow: 'shadowBorderBottomNeutralWeaker',
+    boxShadow: "shadowBorderBottomNeutralWeaker",
+  },
+  subaccount: {
+    boxShadow: "shadowBorderBottomSubaccount",
   },
   decorative10: {
-    boxShadow: 'shadowBorderBottomDecorative10Weaker',
+    boxShadow: "shadowBorderBottomDecorative10Weaker",
   },
   decorative20: {
-    boxShadow: 'shadowBorderBottomDecorative20Weaker',
+    boxShadow: "shadowBorderBottomDecorative20Weaker",
   },
   decorative30: {
-    boxShadow: 'shadowBorderBottomDecorative30Weaker',
+    boxShadow: "shadowBorderBottomDecorative30Weaker",
   },
   decorative40: {
-    boxShadow: 'shadowBorderBottomDecorative40Weaker',
+    boxShadow: "shadowBorderBottomDecorative40Weaker",
   },
   neutral_counter: {
-    boxShadow: 'shadowBorderBottomNeutralWeaker',
+    boxShadow: "shadowBorderBottomNeutralWeaker",
   },
   error_counter: {
-    boxShadow: 'shadowBorderBottomErrorWeaker',
+    boxShadow: "shadowBorderBottomErrorWeaker",
   },
   // the following variants are outdated but still supported to prevent breaking changes
   default: {
-    boxShadow: 'shadowBorderBottomDecorative10Weaker',
+    boxShadow: "shadowBorderBottomDecorative10Weaker",
   },
   info: {
-    boxShadow: 'shadowBorderBottomNeutralWeaker',
+    boxShadow: "shadowBorderBottomNeutralWeaker",
   },
 };
 
-export const getBadgeAnchorStyles = (): BoxStyleProps => {
-  return {
-    textDecoration: 'underline',
-    cursor: 'pointer',
-    _hover: {textDecoration: 'none'},
-    _focus: {textDecoration: 'none', boxShadow: 'shadowFocus'},
-  };
+export const badgeAnchorStyles: BoxStyleProps = {
+  textDecoration: "underline",
+  cursor: "pointer",
+  _hover: { textDecoration: "none" },
+  _focus: { textDecoration: "none", boxShadow: "shadowFocus" },
 };
 
-export const getBadgeButtonStyles = (variant: BadgeVariants): BoxStyleProps => {
+export const getBadgeButtonStyles = (variant: typeof BadgeVariants[number]): BoxStyleProps => {
   const variantButtonStyle = badgeButtonStyles[variant];
   return {
     ...variantButtonStyle,
-    cursor: 'pointer',
-    _hover: {top: '1px', boxShadow: 'none'},
-    _focus: {top: '1px', boxShadow: 'shadowFocus'},
+    cursor: "pointer",
+    _hover: { top: "1px", boxShadow: "none" },
+    _focus: { top: "1px", boxShadow: "shadowFocus" },
   };
 };

@@ -1,19 +1,13 @@
-* @twilio-labs/design-system-eng
-
-# Paste core - round robin someone from leads for review
-/packages/paste-core @twilio-labs/design-system-eng-leads
-
-# Paste customization - round robin someone from leads for review
-/packages/paste-customization @twilio-labs/design-system-eng-leads
-
-# Paste style props - round robin someone from leads for review
-/packages/paste-style-props @twilio-labs/design-system-eng-leads
-
-# Paste theme - round robin someone from leads for review
-/packages/paste-theme @twilio-labs/design-system-eng-leads
+- @twilio-labs/design-systems-eng
 
 # Design tokens - ensure someone from design reviews to keep in sync with Figma
-/packages/paste-design-tokens @twilio-labs/design-systems-pd @twilio-labs/design-system-eng-leads
+
+/packages/paste-design-tokens/tokens @twilio-labs/design-systems-pd
 
 # Icons - ensure changes to icons are reviewed by a designer
+
 /packages/paste-icons/svg @twilio-labs/design-systems-pd
+
+# Website - ensure changes to website page copy is reviewed by a designer
+
+/packages/paste-website/src/pages @twilio-labs/design-systems-pd

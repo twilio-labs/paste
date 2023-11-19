@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/design-tokens",
-  "version": "7.2.2",
+  "version": "10.3.0",
   "description": "Paste Design System Tokens package with a number of different formats for Web, Mobile, and Sketch.",
   "main": "dist/tokens.common.js",
   "module": "dist/tokens.es6.js",
@@ -18,9 +18,18 @@
     "build:watch": "gulp dev",
     "clean": "rm -rf ./dist",
     "tokens": "gulp default",
-    "test": "jest"
+    "test": "jest",
+    "tsc": "yarn build"
   },
   "devDependencies": {
-    "lodash": "^4.17.21"
+    "@types/gulp": "^4.0.6",
+    "@types/gulp-if": "^0.0.33",
+    "@types/gulp-terser": "^1.2.1",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.2.0",
+    "gulp-if": "^3.0.0",
+    "gulp-terser": "^2.0.1",
+    "gulp-theo": "2.0.1",
+    "lodash": "4.17.21"
   }
 }

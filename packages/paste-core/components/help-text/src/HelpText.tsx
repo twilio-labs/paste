@@ -1,23 +1,48 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import type {ValueOf} from '@twilio-paste/types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import type {TextColor} from '@twilio-paste/style-props';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import type { TextColor } from "@twilio-paste/style-props";
+import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
+import * as React from "react";
 
 export const HelpTextVariants = {
-  DEFAULT: 'default',
-  ERROR: 'error',
-  ERROR_INVERSE: 'error_inverse',
-  INVERSE: 'inverse',
+  DEFAULT: "default",
+  ERROR: "error",
+  ERROR_INVERSE: "error_inverse",
+  INVERSE: "inverse",
+  SUCCESS: "success",
+  WARNING: "warning",
 } as const;
 
 // eslint-disable-next-line @typescript-eslint/no-redeclare
 export type HelpTextVariants = ValueOf<typeof HelpTextVariants>;
 
-export interface HelpTextProps extends React.HTMLAttributes<HTMLDivElement>, Pick<BoxProps, 'element'> {
-  marginTop?: 'space0';
+export interface HelpTextProps extends HTMLPasteProps<"div"> {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'HELP_TEXT'
+   * @type {BoxProps['element']}
+   * @memberof HelpTextProps
+   */
+  element?: BoxProps["element"];
+  /**
+   * Sets the top margin on the div element.
+   *
+   * @default 'space30'
+   * @type {'space0'}
+   * @memberof HelpTextProps
+   */
+  marginTop?: "space0";
+  /**
+   * The style variant of the help text.
+   *
+   * @default 'default'
+   * @type {HelpTextVariants}
+   * @memberof HelpTextProps
+   */
   variant?: HelpTextVariants;
 }
 
@@ -29,15 +54,15 @@ type VariantOptionsProps = {
 };
 const VariantOptions: VariantOptionsProps = {
   [HelpTextVariants.DEFAULT]: {
-    textColor: 'colorTextWeak',
+    textColor: "colorTextWeak",
     icon: null,
   },
   [HelpTextVariants.INVERSE]: {
-    textColor: 'colorTextInverseWeak',
+    textColor: "colorTextInverseWeaker",
     icon: null,
   },
   [HelpTextVariants.ERROR]: {
-    textColor: 'colorTextError',
+    textColor: "colorTextError",
     icon: (
       <Box flexShrink={0}>
         <ErrorIcon color="colorTextError" decorative size="sizeIcon20" />
@@ -45,25 +70,41 @@ const VariantOptions: VariantOptionsProps = {
     ),
   },
   [HelpTextVariants.ERROR_INVERSE]: {
-    textColor: 'colorTextErrorWeak',
+    textColor: "colorTextErrorWeak",
     icon: (
       <Box flexShrink={0}>
         <ErrorIcon color="colorTextErrorWeak" decorative size="sizeIcon20" />
       </Box>
     ),
   },
+  [HelpTextVariants.SUCCESS]: {
+    textColor: "colorTextSuccess",
+    icon: (
+      <Box flexShrink={0}>
+        <SuccessIcon color="colorTextIconSuccess" decorative size="sizeIcon20" />
+      </Box>
+    ),
+  },
+  [HelpTextVariants.WARNING]: {
+    textColor: "colorTextWarning",
+    icon: (
+      <Box flexShrink={0}>
+        <WarningIcon color="colorTextWarning" decorative size="sizeIcon20" />
+      </Box>
+    ),
+  },
 };
 
 const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(
-  ({marginTop, children, variant = 'default', element = 'HELP_TEXT', ...props}, ref) => {
-    const {textColor, icon} = VariantOptions[variant];
+  ({ marginTop, children, variant = "default", element = "HELP_TEXT", ...props }, ref) => {
+    const { textColor, icon } = VariantOptions[variant];
 
     return (
       <Box
         {...safelySpreadBoxProps(props)}
         display="flex"
         columnGap="space20"
-        marginTop={marginTop || 'space30'}
+        marginTop={marginTop || "space30"}
         ref={ref}
         element={element}
         variant={variant}
@@ -76,16 +117,9 @@ const HelpText = React.forwardRef<HTMLDivElement, HelpTextProps>(
         <span>{children}</span>
       </Box>
     );
-  }
+  },
 );
 
-HelpText.displayName = 'HelpText';
+HelpText.displayName = "HelpText";
 
-if (process.env.NODE_ENV === 'development') {
-  HelpText.propTypes = {
-    marginTop: PropTypes.oneOf(['space0']),
-    element: PropTypes.string,
-  };
-}
-
-export {HelpText};
+export { HelpText };

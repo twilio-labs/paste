@@ -1,0 +1,103 @@
+export const meta = {
+  title: 'Status Menu - Components - API',
+  package: '@twilio-paste/status',
+  description:
+    'A Status Menu communicates the status of a process or connectivity to an application or service, and provides a way to update that status type.',
+  slug: '/components/status-menu/',
+};
+
+import Changelog from '@twilio-paste/status/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/status/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Status Menu');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/status');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+        nameOverride: 'Status Menu',
+        descriptionOverride: 'A Status Menu communicates the status of a process or connectivity to an application or service, and provides a way to update that status type.'
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/status',
+        storybookUrl: '/?path=/story/components-status-menustatus--process',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/Status - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  StatusMenu,
+  StatusMenuBadge,
+  StatusMenuItem,
+  StatusMenuItemChild,
+  useStatusMenuState,
+  StatusMenuItemRadio,
+  StatusMenuItemCheckbox,
+} from '@twilio-paste/core/status';
+
+const ProcessStatusMenu = () => {
+  const [process, setProcess] = React.useState(ProcessObject.Success);
+  const menu = useStatusMenuState();
+  const onClick = (status) => {
+    setProcess(ProcessObject[status]);
+    menu.hide();
+  };
+  return (
+    <>
+      <StatusMenuBadge {...menu} i18nButtonLabel="Change account" variant={process.variant}>
+        {process.children}
+      </StatusMenuBadge>
+      <StatusMenu {...menu} aria-label="Preferences">
+        <StatusMenuItem {...menu} onClick={() => onClick('Success')} variant="default">
+          <StatusMenuItemChild variant="ProcessSuccess">Complete</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('Neutral')} variant="default">
+          <StatusMenuItemChild variant="ProcessNeutral">In review</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('Warning')} variant="default">
+          <StatusMenuItemChild variant="ProcessWarning">Needs attention</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('Error')} variant="default">
+          <StatusMenuItemChild variant="ProcessError">Rejected</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('InProgress')} variant="default">
+          <StatusMenuItemChild variant="ProcessInProgress">In-progress</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('Disabled')} variant="default">
+          <StatusMenuItemChild variant="ProcessDisabled">Paused</StatusMenuItemChild>
+        </StatusMenuItem>
+        <StatusMenuItem {...menu} onClick={() => onClick('Draft')} variant="default">
+          <StatusMenuItemChild variant="ProcessDraft">Draft</StatusMenuItemChild>
+        </StatusMenuItem>
+      </Menu>
+    </>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

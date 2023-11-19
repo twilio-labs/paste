@@ -1,19 +1,21 @@
-import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Text} from '@twilio-paste/text';
-import {Badge} from '@twilio-paste/badge';
-import {ArrowForwardIcon} from '@twilio-paste/icons/esm/ArrowForwardIcon';
-import {NewComponentBanner} from './NewComponentBanner';
-import {NewComponentBannerLink} from './NewComponentBannerLink';
-import {NewComponentBannerText} from './NewComponentBannerText';
-import {HomeHeroIllustration} from './HomeHeroIllustration';
-import {SlantedBackgroundGradient} from '../SlantedBackgroundGradient';
-import {SITE_CONTENT_MAX_WIDTH} from '../../constants';
+import { Anchor } from "@twilio-paste/anchor";
+import { Badge } from "@twilio-paste/badge";
+import { Box } from "@twilio-paste/box";
+import { Column, Grid } from "@twilio-paste/grid";
+import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-const SeeRoadmapAnchor: React.FC = () => {
+import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { event } from "../../lib/gtag";
+import { SlantedBackgroundGradient } from "../SlantedBackgroundGradient";
+import { HomeHeroIllustration } from "./HomeHeroIllustration";
+import { NewComponentBanner } from "./NewComponentBanner";
+import { NewComponentBannerLink } from "./NewComponentBannerLink";
+import { NewComponentBannerText } from "./NewComponentBannerText";
+
+const SeeRoadmapAnchor = (): JSX.Element => {
   const [hovered, setHovered] = React.useState(false);
 
   const handleMouseEnter = (): void => {
@@ -31,10 +33,10 @@ const SeeRoadmapAnchor: React.FC = () => {
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
         onClick={() =>
-          trackCustomEvent({
-            category: 'Hero',
-            action: 'click-see-roadmap',
-            label: 'See our roadmap',
+          event({
+            category: "Hero",
+            action: "click-see-roadmap",
+            label: "See our roadmap",
           })
         }
       >
@@ -43,7 +45,7 @@ const SeeRoadmapAnchor: React.FC = () => {
       <Box
         as="span"
         display="flex"
-        transform={hovered ? 'translateY(1px) translateX(4px)' : 'translateY(1px) translateX(0)'}
+        transform={hovered ? "translateY(1px) translateX(4px)" : "translateY(1px) translateX(0)"}
         transition="all 100ms ease"
       >
         <ArrowForwardIcon decorative display="inline-block" size="sizeIcon40" />
@@ -52,12 +54,12 @@ const SeeRoadmapAnchor: React.FC = () => {
   );
 };
 
-const HomeHero: React.FC = () => {
+const HomeHero = (): JSX.Element => {
   return (
     <Box
-      paddingX={['space90', 'space180']}
-      paddingTop={['space90', 'space200']}
-      paddingBottom={['space90', 'space160', 'space160']}
+      paddingX={["space90", "space180"]}
+      paddingTop={["space90", "space200"]}
+      paddingBottom={["space90", "space160", "space160"]}
       position="relative"
     >
       <SlantedBackgroundGradient skewAngle={0} startColor="colorBackgroundBrandStrong" endColor="colorBackgroundBrand">
@@ -69,32 +71,39 @@ const HomeHero: React.FC = () => {
           zIndex="zIndex10"
         >
           <Grid vertical={[true, false, false]}>
-            <Column span={5}>
+            <Column span={6}>
               <NewComponentBanner>
                 <Badge as="span" variant="new">
-                  New!
+                  <NewIcon decorative />
+                  New
                 </Badge>
-                <NewComponentBannerText>We&apos;re hiring a Staff Product Designer!</NewComponentBannerText>
+                <NewComponentBannerText>Introducing page templates!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  showExternal
-                  to="https://boards.greenhouse.io/twilio/jobs/4249538"
+                  href="/page-templates"
                   onClick={() =>
-                    trackCustomEvent({
-                      category: 'Hero',
-                      action: 'click-new-component-banner',
-                      label: 'Go to Staff Designer Position',
+                    event({
+                      category: "Hero",
+                      action: "click-new-banner",
+                      label: "Page templates announcement",
                     })
                   }
                 >
-                  Apply here
+                  See more
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text
                 as="h1"
                 color="colorTextInverse"
-                fontSize={['fontSize90', 'fontSize110']}
-                lineHeight={['lineHeight90', 'lineHeight110']}
-                marginTop={['space80', 'space120']}
+                fontFamily="fontFamilyDisplay"
+                fontSize={["fontSizeDisplay10", "fontSizeDisplay20", "fontSizeDisplay20", "fontSizeDisplay30"]}
+                fontWeight="fontWeightExtrabold"
+                lineHeight={[
+                  "lineHeightDisplay10",
+                  "lineHeightDisplay20",
+                  "lineHeightDisplay20",
+                  "lineHeightDisplay30",
+                ]}
+                marginTop={["space80", "space120"]}
               >
                 Build inclusive, delightful Twilio customer experiences with Paste.
               </Text>
@@ -109,7 +118,7 @@ const HomeHero: React.FC = () => {
                 <SeeRoadmapAnchor />
               </Text>
             </Column>
-            <Column span={7} height="100%">
+            <Column span={6} height="100%">
               <HomeHeroIllustration />
             </Column>
           </Grid>
@@ -119,4 +128,4 @@ const HomeHero: React.FC = () => {
   );
 };
 
-export {HomeHero};
+export { HomeHero };

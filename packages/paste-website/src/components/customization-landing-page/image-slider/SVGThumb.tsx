@@ -1,8 +1,8 @@
-import * as React from 'react';
-import type {LegacyRef} from 'react';
-import {Box} from '@twilio-paste/box';
-import {useTheme} from '@twilio-paste/theme';
-import {useUIDSeed} from '@twilio-paste/uid-library';
+import { Box } from "@twilio-paste/box";
+import { useTheme } from "@twilio-paste/theme";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
+import type { LegacyRef } from "react";
 
 interface SVGThumbProps {
   left: number;
@@ -13,17 +13,26 @@ interface SVGThumbProps {
   width: number | undefined;
 }
 
-const FILTER_1 = 'filter-1';
-const FILTER_2 = 'filter-2';
+const FILTER_1 = "filter-1";
+const FILTER_2 = "filter-2";
 
-export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs, height, width, top}) => {
+export const SVGThumb: React.FC<React.PropsWithChildren<SVGThumbProps>> = ({
+  left,
+  svgCircleRef,
+  initRefs,
+  height,
+  width,
+  top,
+}) => {
   const seed = useUIDSeed();
   const {
-    backgroundColors: {colorBackground},
+    backgroundColors: { colorBackground },
   } = useTheme();
 
-  // "Force" update of this child component to ensure that the refs are correctly set on the initial render.
-  // Required to measure the actual rendered dimensions and resize accordingly.
+  /*
+   * "Force" update of this child component to ensure that the refs are correctly set on the initial render.
+   * Required to measure the actual rendered dimensions and resize accordingly.
+   */
   React.useEffect(() => {
     initRefs(true);
   }, []);
@@ -65,7 +74,7 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs,
           cy="289"
           r="15.5"
           fill={colorBackground}
-          style={{transition: 'stroke-width 0.2s ease'}}
+          style={{ transition: "stroke-width 0.2s ease" }}
         />
         <circle cx="17.5" cy="289" r="8" fill="currentColor" />
 
@@ -102,4 +111,4 @@ export const SVGThumb: React.FC<SVGThumbProps> = ({left, svgCircleRef, initRefs,
   );
 };
 
-SVGThumb.displayName = 'SVGThumb';
+SVGThumb.displayName = "SVGThumb";

@@ -1,0 +1,61 @@
+global:
+  type: color
+  category: text-color
+imports:
+  - ../../../global/text-color.yml
+props:
+  # links
+  color-text-link-destructive:
+    value: "{!palette-red-65}"
+    comment: Destructive link text.
+
+  # destructive
+  color-text-destructive:
+    value: "{!palette-red-65}"
+    comment: Destructive text.
+
+  # status
+  color-text-error:
+    value: "{!palette-red-65}"
+    comment: Error text for inputs and error misc.
+  color-text-error-strong:
+    value: "{!palette-red-80}"
+    comment: Strong error text for inputs and error misc.
+  color-text-success:
+    value: "{!palette-green-80}"
+    comment: Text color for success text.
+  color-text-neutral:
+    value: "{!palette-blue-90}"
+    comment: Color for text indicating a neutral status.
+  color-text-inverse-new:
+    value: "{!palette-purple-30}"
+    comment: Inverse color for indicating a new status.
+
+  # icon
+  color-text-icon-error:
+    value: "{!palette-red-65}"
+    comment: Icon color for indicating an error.
+  color-text-icon-success:
+    value: "{!palette-green-80}"
+    comment: Icon color for indicating success.
+  color-text-icon-warning:
+    value: "{!palette-orange-80}"
+    comment: Icon color for indicating a warning.
+  color-text-icon-neutral:
+    value: "{!palette-blue-90}"
+    comment: Icon color for being neutral.
+
+  # decorative
+  color-text-decorative-30:
+    value: "{!palette-green-80}"
+    comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
+
+  # user
+  color-text-user:
+    value: "{!palette-purple-60}"
+    comment: Text color for user avatar.
+
+  # product
+  color-text-subaccount:
+    value: "{!palette-yellow-90}"
+    comment: Text color for the subaccount badge

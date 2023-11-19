@@ -1,26 +1,27 @@
-import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {Box} from '@twilio-paste/box';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import HomeGetStartedIllo2 from '../../assets/illustrations/home_getstarted_2.svg';
-import HomeGetStartedIllo2Dark from '../../assets/illustrations/home_getstarted_2_dark.svg';
-import {GetStartedCard} from './GetStartedCard';
-import {GetStartedCardIllustration} from './GetStartedCardIllustration';
-import {GetStartedCardLink} from './GetStartedCardLink';
-import {useDarkModeContext} from '../../context/DarkModeContext';
+import { Box } from "@twilio-paste/box";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import Image from "next/image";
 
-export const GetStarterWhy: React.FC = () => {
-  const {theme} = useDarkModeContext();
+import HomeGetStartedIllo2 from "../../assets/illustrations/home_getstarted_2.svg";
+import HomeGetStartedIllo2Dark from "../../assets/illustrations/home_getstarted_2_dark.svg";
+import { useDarkModeContext } from "../../context/DarkModeContext";
+import { event } from "../../lib/gtag";
+import { GetStartedCard } from "./GetStartedCard";
+import { GetStartedCardIllustration } from "./GetStartedCardIllustration";
+import { GetStartedCardLink } from "./GetStartedCardLink";
+
+export const GetStarterWhy = (): JSX.Element => {
+  const { theme } = useDarkModeContext();
   return (
     <GetStartedCard>
       <Box display="flex" height="100%" flexDirection="column" justifyContent="space-between">
         <div>
           <GetStartedCardIllustration>
-            {theme === 'default' ? (
-              <HomeGetStartedIllo2 aria-hidden="true" />
+            {theme === "twilio" ? (
+              <Image src={HomeGetStartedIllo2} aria-hidden="true" alt="" />
             ) : (
-              <HomeGetStartedIllo2Dark aria-hidden="true" />
+              <Image src={HomeGetStartedIllo2Dark} aria-hidden="true" alt="" />
             )}
           </GetStartedCardIllustration>
           <Heading as="h2" variant="heading30">
@@ -32,12 +33,12 @@ export const GetStarterWhy: React.FC = () => {
           </Paragraph>
         </div>
         <GetStartedCardLink
-          to="/introduction/about-paste"
+          href="/introduction/about-paste"
           onClick={() =>
-            trackCustomEvent({
-              category: 'Get started',
-              action: 'click-learn-about-paste',
-              label: 'Learn about Paste',
+            event({
+              category: "Get started",
+              action: "click-learn-about-paste",
+              label: "Learn about Paste",
             })
           }
         >

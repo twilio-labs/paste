@@ -1,0 +1,60 @@
+export const meta = {
+  title: 'Heading - API',
+  package: '@twilio-paste/heading',
+  description:
+    'Headings are words or phrases that are intended to introduce sections of content. Headings are often used for page headings, as well as content subsections within the page.',
+  slug: '/components/heading/api',
+};
+
+import Changelog from '@twilio-paste/heading/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/heading/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Heading');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/heading');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/heading',
+        storybookUrl: '/?path=/story/components-heading--heading-10',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/heading - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Heading} from '@twilio-paste/core/heading';
+
+const Component = () => (
+  <Heading as="h2" variant="heading20">
+    Heading Two
+  </Heading>
+);
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

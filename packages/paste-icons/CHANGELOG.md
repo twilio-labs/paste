@@ -1,5 +1,204 @@
 # Change Log
 
+## 12.2.1
+
+### Patch Changes
+
+- [`b97c0525b`](https://github.com/twilio-labs/paste/commit/b97c0525b7c3211cdb02808f07d45cb7106438f9) [#3607](https://github.com/twilio-labs/paste/pull/3607) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Icons] Improved TsDoc type annotations
+
+## 12.2.0
+
+### Minor Changes
+
+- [`6bc4a8ade`](https://github.com/twilio-labs/paste/commit/6bc4a8ade1b3b9f76bfeee8a954fe3b3969c36d2) [#3501](https://github.com/twilio-labs/paste/pull/3501) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add new icons: ProductCommsIcon and TaskIcon
+
+## 12.1.0
+
+### Minor Changes
+
+- [`91f78b19e`](https://github.com/twilio-labs/paste/commit/91f78b19eb91d8a2410070ef99d946670d9df3b5) [#3451](https://github.com/twilio-labs/paste/pull/3451) Thanks [@TheSisb](https://github.com/TheSisb)! - [Icons] add `DeliveredIcon` and `SentIcon`
+
+## 12.0.0
+
+### Major Changes
+
+- [`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603) [#3395](https://github.com/twilio-labs/paste/pull/3395) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Modified the compile target of our JavaScript bundles from `node` to `browser` to minimize the risk of clashing with RequireJS. This is marked as a major out of an abundance of caution. You shouldn't need to do anything but we wanted you to be aware of the change on the off chance it has unintended consequences
+
+### Patch Changes
+
+- Updated dependencies [[`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603)]:
+  - @twilio-paste/uid-library@2.0.0
+  - @twilio-paste/color-contrast-utils@5.0.0
+  - @twilio-paste/box@10.0.0
+  - @twilio-paste/customization@8.0.0
+  - @twilio-paste/design-tokens@10.0.0
+  - @twilio-paste/animation-library@2.0.0
+  - @twilio-paste/styling-library@3.0.0
+  - @twilio-paste/style-props@9.0.0
+  - @twilio-paste/theme@11.0.0
+  - @twilio-paste/types@6.0.0
+
+## 11.2.2
+
+### Patch Changes
+
+- [`fc88a1f5c`](https://github.com/twilio-labs/paste/commit/fc88a1f5c3a73fdfb691ac2493e009bbb7e4ed73) [#3301](https://github.com/twilio-labs/paste/pull/3301) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] update ProductSupport and Support icons
+
+## 11.2.1
+
+### Patch Changes
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - Update the notification, Debugger and Alarms icons
+
+## 11.2.0
+
+### Minor Changes
+
+- [`93ba0eb8b`](https://github.com/twilio-labs/paste/commit/93ba0eb8be08538e817cb756e2dd5f6a1880a079) [#3289](https://github.com/twilio-labs/paste/pull/3289) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] add rich text editor icons and product unify icon
+
+### Patch Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Icons] apply `flex-shrink: 0` to IconWrapper by default, as we never want icons to be compressed unexpectedly
+
+## 11.1.0
+
+### Minor Changes
+
+- [`5958ffb5b`](https://github.com/twilio-labs/paste/commit/5958ffb5b46574886d4695d4a81a3bcb9a02256c) [#3230](https://github.com/twilio-labs/paste/pull/3230) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Added the ProductSwitcher icon
+
+## 11.0.0
+
+### Major Changes
+
+- [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - ### Breaking change
+
+  We have moved `@types/react` and `@types/react-dom` to peer dependencies of the library. This should allow for greater control and backwards compatibility with older versions of React as Paste is no longer bundling the type libraries.
+
+  Your application likely has both of these as dependencies anyway, but it is now up to you to manage that version number.
+
+  **Action needed**
+
+  Ensure `@types/react` and `@types/react-dom` are installed as dependencies of your application.
+
+### Minor Changes
+
+- [`1d75f223e`](https://github.com/twilio-labs/paste/commit/1d75f223e0e2011a7a969e7ef1980fa9366cfbca) [#3082](https://github.com/twilio-labs/paste/pull/3082) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] add new icons for Segment, Content Editor, Aion, Messaging
+
+### Patch Changes
+
+- [`50cde4668`](https://github.com/twilio-labs/paste/commit/50cde4668b003c410713d4a51eed16a394471ed0) [#3117](https://github.com/twilio-labs/paste/pull/3117) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Deprecate ProductEngagementIntelligencePlatformIcon. The icon will still be available for use for now, but it will no longer appear on the docs site. It was replaced with ProductVoiceIntelligenceIcon.
+
+- Updated dependencies [[`bce889344`](https://github.com/twilio-labs/paste/commit/bce889344773d840d7dc75902e1be64f1a010da3), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c)]:
+  - @twilio-paste/theme@10.0.0
+  - @twilio-paste/box@9.0.0
+  - @twilio-paste/customization@7.0.0
+  - @twilio-paste/style-props@8.0.0
+  - @twilio-paste/types@5.0.0
+
+## 10.0.0
+
+### Major Changes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - Add support for React 18
+
+* [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea) [#3020](https://github.com/twilio-labs/paste/pull/3020) Thanks [@SiTaggart](https://github.com/SiTaggart)! - This major version included listing all the missing peer dependencies for each Paste package.
+
+  If you are using a package from Paste in isolation from Core, when upgrading to this latest version, be sure to correctly install all the missing peer dependencies.
+
+### Patch Changes
+
+- Updated dependencies [[`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee)]:
+  - @twilio-paste/design-tokens@9.0.0
+  - @twilio-paste/box@8.0.0
+  - @twilio-paste/customization@6.0.0
+  - @twilio-paste/animation-library@1.0.0
+  - @twilio-paste/styling-library@2.0.0
+  - @twilio-paste/uid-library@1.0.0
+  - @twilio-paste/style-props@7.0.0
+  - @twilio-paste/theme@9.0.0
+  - @twilio-paste/types@4.0.0
+  - @twilio-paste/color-contrast-utils@4.0.0
+
+## 9.4.3
+
+### Patch Changes
+
+- [`0b497ed21`](https://github.com/twilio-labs/paste/commit/0b497ed21b409a00b5b262f6cf106ad763b08449) [#2961](https://github.com/twilio-labs/paste/pull/2961) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icons] update the ChevronDisclosureIcon, deprecate ChevronDisclosureExpandedIcon and ChevronDisclosureCollapsedIcon
+
+## 9.4.2
+
+### Patch Changes
+
+- [`2719716a4`](https://github.com/twilio-labs/paste/commit/2719716a450e2c434c3453eac947e5c26c0254b7) [#2906](https://github.com/twilio-labs/paste/pull/2906) Thanks [@jb-twilio](https://github.com/jb-twilio)! - Remove logical assignment support
+
+## 9.4.1
+
+### Patch Changes
+
+- [`468b1b6d0`](https://github.com/twilio-labs/paste/commit/468b1b6d0bd8746a0c46d9ca298294120534e8c4) [#2894](https://github.com/twilio-labs/paste/pull/2894) Thanks [@gloriliale](https://github.com/gloriliale)! - [Icons] Modify ProductSegmentIcon, add new product icons:
+
+  - ProductAudiencesIcon
+  - ProductConnectionsIcon
+  - ProductEngageIcon
+  - ProductPersonasIcon
+  - ProductPrivacyIcon
+  - ProductProtocolsIcon
+  - ProductReverseETLIcon
+  - ProductTraitsIcon
+  - ProductUSSDIcon
+
+## 9.4.0
+
+### Minor Changes
+
+- [`6c632c7f7`](https://github.com/twilio-labs/paste/commit/6c632c7f71d3c89a28e161bec194ee23e726759e) [#2814](https://github.com/twilio-labs/paste/pull/2814) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Add Notes icon
+
+## 9.3.1
+
+### Patch Changes
+
+- [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
+## 9.3.0
+
+### Minor Changes
+
+- [`0585beee9`](https://github.com/twilio-labs/paste/commit/0585beee93f997dadabc1bcb3f44347d6f4ca48e) [#2690](https://github.com/twilio-labs/paste/pull/2690) Thanks [@shleewhite](https://github.com/shleewhite)! - [Icons] add ProductInternetOfThingsProgrammableAssetTracker icon
+
+## 9.2.0
+
+### Minor Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Icons] Add `SelectedIcon`. This is used in MultiselectCombobox to represent selected items.
+
+## 9.1.0
+
+### Minor Changes
+
+- [`a890926a6`](https://github.com/twilio-labs/paste/commit/a890926a6509ab0b0f86bc8d5ee876c3340b8015) [#2651](https://github.com/twilio-labs/paste/pull/2651) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Icons] Releasing the Contact Centre icon set, introducing 42 new icons into Paste
+
+## 9.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+
+## 8.1.0
+
+### Minor Changes
+
+- [`26e0d23fe`](https://github.com/twilio-labs/paste/commit/26e0d23fe7a2f41739ed53c6c76e2badb6bb2d4b) [#2501](https://github.com/twilio-labs/paste/pull/2501) Thanks [@gloriliale](https://github.com/gloriliale)! - [Icons] Add the new icon "CloseCircleIcon"
+
+## 8.0.2
+
+### Patch Changes
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
 ## 8.0.1
 
 ### Patch Changes

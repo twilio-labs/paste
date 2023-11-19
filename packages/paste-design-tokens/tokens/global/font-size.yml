@@ -4,6 +4,9 @@ global:
 imports:
   - ../aliases/font-size.yml
 props:
+  font-size-base:
+    value: "100%"
+    comment: "Base font size applied to the html element, used for rem calculations"
   font-size-10:
     value: "{!font-size-10}"
     comment: "Constant typography token for font size 10"
@@ -37,3 +40,12 @@ props:
   font-size-110:
     value: "{!font-size-110}"
     comment: "Constant typography token for font size 110"
+  font-size-display-10:
+    value: "{!font-size-display-10}"
+    comment: "Constant typography token for font size display 10"
+  font-size-display-20:
+    value: "{!font-size-display-20}"
+    comment: "Constant typography token for font size display 20"
+  font-size-display-30:
+    value: "{!font-size-display-30}"
+    comment: "Constant typography token for font size display 30"

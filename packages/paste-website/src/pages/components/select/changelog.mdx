@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Select - Components - Changelog',
+  package: '@twilio-paste/select',
+  description: 'A select allows users to select an option from a list in a form field.',
+  slug: '/components/select/changelog',
+};
+
+import Changelog from '@twilio-paste/select/CHANGELOG.md';
+import packageJson from '@twilio-paste/select/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Select');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/select',
+        storybookUrl: '/?path=/story/components-select--default-select',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -1,58 +1,38 @@
----
-title: Roadmap
-description: Here's a glimpse of what is coming up in future releases of Paste. Unless explicitly mentioned, all release candidates are tentative and subject to change.
-slug: /roadmap/
----
+export const meta = {
+  title: 'Roadmap',
+  description:
+    "Here's a glimpse of what is coming up in future releases of Paste. Unless explicitly mentioned, all release candidates are tentative and subject to change.",
+  slug: '/roadmap/',
+};
 
-import {graphql} from 'gatsby';
 import {Roadmap, RoadmapAside} from '../../components/Roadmap';
-export const pageQuery = graphql`
-  {
-    Roadmap: allAirtable(
-      sort: {fields: [data___Release_, data___Status, data___Release_feature_name]}
-      filter: {table: {eq: "Roadmap"}, isFuture: {eq: true}}
-    ) {
-      group(field: data___Release) {
-        release: fieldValue
-        edges {
-          node {
-            data {
-              Release_feature_name
-              Release
-              Release_Description
-              Public_Description__from_System_
-              Status
-            }
-          }
-        }
-      }
-    }
-    BPM: allAirtable(sort: {fields: [data___Name]}, filter: {table: {eq: "BPM"}}) {
-      edges {
-        node {
-          data {
-            Name
-            Full_name
-            Status
-            Status_description
-          }
-        }
-      }
-    }
-  }
-`;
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getRoadmap, getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const roadmap = await getRoadmap();
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      roadmap: roadmap,
+      navigationData,
+    },
+  };
+};
 
 <contentwrapper>
 
-<RoadmapAside data={props.data.Roadmap.group} />
+<RoadmapAside data={props.roadmap} />
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
-<Roadmap data={props.data.Roadmap.group} />
+<Roadmap data={props.roadmap} />
 
 </content>
 

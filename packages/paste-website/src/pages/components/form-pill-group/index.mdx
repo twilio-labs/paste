@@ -1,115 +1,106 @@
----
-title: Form Pill Group
-package: '@twilio-paste/form-pill-group'
-description: A Form Pill Group is an editable set of Pills used to visually represent a collection of entities inside a form field.
-slug: /components/form-pill-group/
----
+export const meta = {
+  title: 'Form Pill Group',
+  package: '@twilio-paste/form-pill-group',
+  description:
+    'A Form Pill Group is an editable set of Pills that represent a collection of selectable or removable objects.',
+  slug: '/components/form-pill-group/',
+};
 
-import {graphql} from 'gatsby';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
-import {Paragraph} from '@twilio-paste/paragraph';
+import {Avatar} from '@twilio-paste/avatar';
+import {Box} from '@twilio-paste/box';
 import {FormPill, FormPillGroup, useFormPillState} from '@twilio-paste/form-pill-group';
-import Changelog from '@twilio-paste/form-pill-group/CHANGELOG.md';
-import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
-import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {ComboboxListbox, ComboboxListboxGroup, ComboboxListboxOption} from '@twilio-paste/combobox';
-import {useComboboxPrimitive, useMultiSelectPrimitive} from '@twilio-paste/combobox-primitive';
-import {Label} from '@twilio-paste/label';
-import {Input} from '@twilio-paste/input';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Text} from '@twilio-paste/text';
+import {Truncate} from '@twilio-paste/truncate';
+
+import {AgentIcon} from '@twilio-paste/icons/esm/AgentIcon';
+import {FaxCapableIcon} from '@twilio-paste/icons/esm/FaxCapableIcon';
+import {ProductBillingIcon} from '@twilio-paste/icons/esm/ProductBillingIcon';
+import {ProductChatIcon} from '@twilio-paste/icons/esm/ProductChatIcon';
+import {ProductCodeExchangePartnerIcon} from '@twilio-paste/icons/esm/ProductCodeExchangePartnerIcon';
+import {ProductConversationsIcon} from '@twilio-paste/icons/esm/ProductConversationsIcon';
+import {ProductEngagementIntelligencePlatformIcon} from '@twilio-paste/icons/esm/ProductEngagementIntelligencePlatformIcon';
+import {ProductInterconnectIcon} from '@twilio-paste/icons/esm/ProductInterconnectIcon';
+import {ProductInternetOfThingsIcon} from '@twilio-paste/icons/esm/ProductInternetOfThingsIcon';
+import {ProductLookupIcon} from '@twilio-paste/icons/esm/ProductLookupIcon';
+import {ProductMarketingCampaignsIcon} from '@twilio-paste/icons/esm/ProductMarketingCampaignsIcon';
+import {ProductMessagingIcon} from '@twilio-paste/icons/esm/ProductMessagingIcon';
+import {ProductPhoneNumbersIcon} from '@twilio-paste/icons/esm/ProductPhoneNumbersIcon';
+import {ProductVerifyIcon} from '@twilio-paste/icons/esm/ProductVerifyIcon';
+import {ProductVideoIcon} from '@twilio-paste/icons/esm/ProductVideoIcon';
+import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
+
 import {FormPillVsDisplayPillTable} from '../../../components/FormPillVsDisplayPillTable';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
-  defaultExample,
+  basicExample,
   selectableExample,
-  removableExample,
+  dismissableExample,
+  selectableAndDismissableExample,
   i18nExample,
+  selectedStateExample,
+  errorStateExample,
+  disabledStateExample,
+  truncateExample,
+  avatarExample,
+  iconExample,
 } from '../../../component-examples/FormPillGroup';
-import {multiSelectExample} from '../../../component-examples/ComboboxPrimitiveExamples';
+import packageJson from '@twilio-paste/form-pill-group/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/form-pill-group"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/form-pill-group/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Form Pill Group"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form-pill-group"
-  storybookUrl="/?path=/story/components-form-pill-group--basic"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Form Pill Group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form-pill-group',
+        storybookUrl: '/?path=/story/components-form-pill-group--basic',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
-
-<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, CalendarIcon}} noInline>
-  {defaultExample}
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
+  {basicExample}
 </LivePreview>
 
 ## Guidelines
 
 ### About Form Pill Group
 
-<Paragraph>
-  {props.pageContext.frontmatter.description} They are used almost exclusively in multi-select editing situations.
-</Paragraph>
+A Form Pill Group is an editable set of Pills that represents a collection of selectable and/or removable objects. They are used almost exclusively in multi-select editing situations.
 
-A Form Pill Group can be used on its own to represent selection across a number of fields, such as displaying currently applied filters when filtering data across a number of different fields. Alternatively, a Form Pill Group can be paired directly to a single input field, such as a Combobox, to represent multiple selection.
+A Form Pill Group can be used on its own to represent selection across a number of fields, such as showing currently applied filters. It can also be paired directly with an input field, such as a [Combobox](/components/combobox), to represent multiple selections.
 
 #### Accessibility
 
-The Form Pill Group provides a number of accessibility features. The only requirement is providing the Pill Group a descriptive label via the `aria-label` React prop.
+The only accessibility requirement is providing the Pill Group a descriptive label via the `aria-label` React prop.
 
 ##### Keyboard navigation
 
-The Form Pill Group is focusable, but only one pill is focusable at a time. This means the Pill Group is a single tab stop to a keyboard user. Once a user is focused within the Pill Group, the following keyboard interactions apply:
+The Form Pill Group is focusable, but only one pill is focusable at a time. This means the Pill Group is a single tab stop to a keyboard user. The dismiss button in a Form Pill is not a focusable element, but can be clickable.
 
-- Left and right arrow keys move focus within the group
-- If a pill is selectable, spacebar and enter will toggle pill selection
-- If a pill has a supplied action via `onClick`, enter key will trigger that action
-- If a pill is dismissible, the pill can be removed by pressing the delete or backspace key
+Once a user focuses within the Form Pill Group, they can use these keyboard interactions:
+
+| Keyboard interaction      | Action                                   |
+| ------------------------- | ---------------------------------------- |
+| Left and right arrow keys | Moving focus within the group            |
+| Enter key                 | Triggers the supplied action via onClick |
+| Spacebar or enter keys    | Selects a pill                           |
+| Delete or backspace keys  | Dismisses a pill                         |
 
 <Box marginBottom="space70">
   <AspectRatio ratio="16:9">
@@ -124,88 +115,185 @@ The Form Pill Group is focusable, but only one pill is focusable at a time. This
   </AspectRatio>
 </Box>
 
-#### Display Pill vs. Form Pill
+#### Form Pill vs. Display Pill
 
-There are some very important semantic differences between a Display Pill and Form Pill Group. Below is a table explaining the main differences to get a better understanding of when to use each type of pill.
+Form Pill Group creates a list from which a user may select items, whereas a Display Pill Group creates a list of static items.
+
+Use the table below to get a better understanding of when to use Form Pill or Display Pill.
 
 <FormPillVsDisplayPillTable />
 
 ## Examples
 
-### Basic Form Pill Group
+### Basic
 
-The basic Form Pill Group can be composed by adding `FormPill` components as children of `FormPillGroup`. These must be used with the `useFormPillState` hook, and the returned state should be spread onto each component.
+This Form Pill example shows the basic static component that's exported by Paste. A Form Pill can have an optional Avatar or Icon placed before the text.
 
-This will provide you with some internal state management and keyboard navigation.
+Interaction states on Form Pills need to be managed separately as shown in the examples after this one by using the `useFormPillState` hook. The returned state should be spread onto each component. This will provide you with some internal state management and keyboard navigation.
 
-<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, CalendarIcon}} noInline>
-  {defaultExample}
+A Form Pill can have an optional [Avatar](/components/avatar) or [Icon](/components/icon) placed before the text.
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
+  {basicExample}
 </LivePreview>
 
-### Selectable Form Pill Group
+### Selectable
 
-To make pills inside the Pill Group selectable, manage the selection state yourself and combine it with the state returned from the `useFormPillState` hook.
+Use a Selectable Form Pill to show an option that a user can select or deselect.
 
-To do so, track which pill is selected in a separate store of state. When rendering the Pill Group, cross reference the rendered pills with the selection state, and conditoinally set `selected` on each `FormPill` that requires it.
+To make pills inside the Pill Group selectable, you can manage the selection state yourself and combine it with the state returned from the `useFormPillState` hook. To do so, track which pill is selected in a separate store of state. When rendering the Form Pill Group, cross reference the rendered pills with the selection state, and conditionally set `selected` on each `FormPill` that requires it.
 
-The `onSelect` event handler will fire when ever the pill is clicked, or the spacebar or enter key is pressed. Use this to respond to your users' selection interactions.
-
-<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, CalendarIcon}} noInline>
-  {selectableExample}
-</LivePreview>
-
-### Removable Form Pill Group
-
-Form Pills are given a closing "x" button when provided an `onDismiss` event handler. Because the Form Pill Group is largely presentational, you can provide "removable" functionality by managing the state of the rendered pills. By responding to user interactions and hooking into the `onDismiss` event handler, the rendered state of the Form Pill Group can be updated and pills can be selectively removed from the collection.
-
-The `onDismiss` event handler will fire when a user clicks on the close x, or presses their backspace or delete key when foused on a pill.
-
-<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, CalendarIcon, Text}} noInline>
-  {removableExample}
-</LivePreview>
-
-### Simple Multiselect Combobox Example
-
-Using Form Pill Group, along with the [Combobox Primitive](/primitives/combobox-primitive#multiselect-combobox-example) you can easily compose an interactive multiple select form field.
+The `onSelect` event handler will fire whenever the pill is clicked, or the spacebar or enter key is pressed. Use this to respond to your users' selection interactions.
 
 <LivePreview
   scope={{
-    Box,
-    Label,
-    Input,
-    ComboboxListbox,
-    ComboboxListboxGroup,
-    FormPillGroup,
-    ComboboxListboxOption,
     FormPill,
-    useMultiSelectPrimitive,
-    useComboboxPrimitive,
-    useUIDSeed,
+    FormPillGroup,
     useFormPillState,
+    FaxCapableIcon,
+    ProductVoiceIcon,
+    ProductMessagingIcon,
+    ProductChatIcon,
   }}
   noInline
-  language="jsx"
 >
-  {multiSelectExample}
+  {selectableExample}
+</LivePreview>
+
+### Dismissible
+
+Use a Dismissible Form Pill to show an option that a user can remove from the group. Once the pill is dismissed, it can’t be rerendered.
+
+Form Pills are given a close button when provided an `onDismiss` event handler. Because the Form Pill Group is largely presentational, provide dismissible functionality by managing the state of the rendered pills. By responding to user interactions and hooking into the `onDismiss` event handler, the rendered state of the Form Pill Group can be updated and pills can be selectively removed from the collection.
+
+The `onDismiss` event handler will fire when a user clicks on the close button, or presses their backspace or delete key when focused on a pill.
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductPhoneNumbersIcon}} noInline>
+  {dismissableExample}
+</LivePreview>
+
+### Selectable and dismissible
+
+Use a Selectable and Dismissible Form Pill to show an option that a user can select, deselect, or dismiss. Once the pill is dismissed, it can’t be re-rendered.
+
+#### Mouse navigation
+
+The `onSelect` event handler will fire when a user clicks on the pill. The `onDismiss` event handler will fire when a user clicks on the close button.
+
+#### Keyboard navigation
+
+The `onSelect` event handler will fire when a user presses the spacebar or enter keys. The `onDismiss` event handler will fire when a user presses the delete or backspace keys.
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductInterconnectIcon}} noInline>
+  {selectableAndDismissableExample}
 </LivePreview>
 
 ### Internationalization
 
-To internationalize the form pill group, simply pass different text as children to the pills. The only exception is the visually hidden text that explains how to remove and select pills with a keyboard–to change this, use the `i18nKeyboardControls` prop.
+To internationalize the form pill group, simply pass different text as children to the pills. The only exceptions to this are the visually hidden text that explains how to dismiss and select pills and the error label for the error variant. To change these, pass the `i18nKeyboardControls` and `i18nErrorLabel` props.
 
-<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, CalendarIcon}} noInline>
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState}} noInline>
   {i18nExample}
 </LivePreview>
 
-## Composition Notes
+## States
+
+### Default or unselected
+
+The default state of a Form Pill indicates that the control is static or not selected.
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
+  {basicExample}
+</LivePreview>
+
+### Selected
+
+A Form Pill can be placed into a selected state by setting the `selected` property.
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
+  {selectedStateExample}
+</LivePreview>
+
+### Error
+
+Use an Error Form Pill to highlight an object that the user must be made aware of because it’s considered to be in a bad or broken state and should be addressed. An error icon will display as a prefix to the rest of the children in the pill.
+
+When used in a form field, display an error message below the form field to provide guidance on how to fix the error. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
+  {errorStateExample}
+</LivePreview>
+
+### Disabled
+
+Use a disabled Form Pill to indicate that a particular option cannot be interacted with or can be safely ignored.
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, ProductVideoIcon, ProductVerifyIcon}} noInline>
+  {disabledStateExample}
+</LivePreview>
+
+## Composition notes
+
+### Truncating text
+
+Pill text should never wrap to the next line. If the text length is longer than the max width of the pill group’s container, consider moving the Pill to a new row or use [Truncate](/components/truncate) to truncate the Form Pill text.
+
+<LivePreview
+  scope={{
+    FormPill,
+    FormPillGroup,
+    useFormPillState,
+    Truncate,
+    Box,
+    ProductMarketingCampaignsIcon,
+    ProductInternetOfThingsIcon,
+    ProductEngagementIntelligencePlatformIcon,
+    ProductCodeExchangePartnerIcon,
+  }}
+  noInline
+>
+  {truncateExample}
+</LivePreview>
+
+### Adding an avatar
+
+A Form Pill can have an optional [Avatar](/components/avatar). Considering the size of a Form Pill, it is recommended to use either an image or icon within an Avatar, and to avoid using initials as some initials may get cut off if the characters are particularly wide.
+
+We recommend placing the Avatar ahead of the pill text. Use no more than one before or after the text.
+
+<LivePreview scope={{FormPill, FormPillGroup, useFormPillState, Avatar, AgentIcon}} noInline>
+  {avatarExample}
+</LivePreview>
+
+### Adding an icon
+
+A Form Pill can have an optional [Icon](/components/icon). We recommend placing the Icon ahead of the pill text. Use no more than one before or after the text.
+
+<LivePreview
+  scope={{
+    FormPill,
+    FormPillGroup,
+    useFormPillState,
+    ProductMessagingIcon,
+    ProductBillingIcon,
+    ProductLookupIcon,
+    ProductConversationsIcon,
+  }}
+  noInline
+>
+  {iconExample}
+</LivePreview>
 
 ### When to use a Form Pill Group
 
-Use Form Pill Groups when you are editing a collection of data within a form. It can be used to represent selection across multiple fields such as filtering, or from a single field like a combobox.
+Use a Form Pill Group when you’re editing a collection of data within a form. It can be used to represent selection across multiple fields such as filtering, or from a single field like a [Combobox](/components/combobox).
 
 <DoDont>
-  <Do title="Do" body="Use Form Pills in editable forms to represent a collection of similar entities." />
-  <Dont title="Don't" body="Don't use Form Pills outside of a form or editing scenarios." />
+  <Do title="Do" body="Use Form Pills inside of a form or when editing a collection of data." />
+  <Dont
+    title="Don't"
+    body="Don’t use Form Pills in non-editable pages to represent a collection of similar objects, outside of a form, or outside of editing scenarios. Use a Display Pill Group instead."
+  />
 </DoDont>
 
 <DoDont>
@@ -215,310 +303,3 @@ Use Form Pill Groups when you are editing a collection of data within a form. It
     body="Don't pass FormPillGroup any other component type, and do not wrap FormPill in any other component of DOM element."
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/form-pill-group - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {useFormPillState, FormPillGroup, FormPill} from '@twilio-paste/core/form-pill-group';
-
-export const Basic = () => {
-  const pillState = useFormPillState();
-
-  return (
-    <form>
-      <FormPillGroup {...pillState} data-testid="form-pill-group" aria-label="Your favorite sports:">
-        <FormPill data-testid="form-pill" {...pillState}>
-          <CalendarIcon decorative size="sizeIcon10" />
-          Tennis
-        </FormPill>
-        <FormPill {...pillState} selected data-testid="form-pill-selected">
-          Baseball
-        </FormPill>
-        <FormPill {...pillState}>Football</FormPill>
-        <FormPill {...pillState} selected>
-          Soccer
-        </FormPill>
-      </FormPillGroup>
-    </form>
-  );
-};
-```
-
-#### Props
-
-##### FormPillGroup
-
-**Note:** Most required props are provided by spreading the returned state from `useFormPillState`.
-
-###### `aria-label: string`
-
-Defines a string value that labels the current element.
-
-###### `move: (id: string | null) => void`
-
-Moves focus to a given item ID.
-
-###### `first: () => void`
-
-Moves focus to the first item.
-
-###### `last: () => void`
-
-Moves focus to the first item.
-
-###### `items: Item[]`
-
-Lists all the pill items with their id, DOM ref, disabled state and groupId if any. This state is automatically updated when registerItem and unregisterItem are called.
-
-###### `setCurrentId: Dispatch<SetStateAction<string | null | undefined>>`
-
-Lists all the pill items with their id, DOM ref, disabled state and groupId if any. This state is automatically updated when registerItem and unregisterItem are called.
-
-###### `element?: string`
-
-Overrides the default element name ('FORM_PILL_GROUP') to apply unique styles with the Customization Provider
-
-###### `focusable?: boolean`
-
-When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set.
-
-###### `disabled?: boolean`
-
-Same as the HTML attribute.
-
-###### `baseId?: string`
-
-ID that will serve as a base for all the items IDs.
-
-###### `currentId?: string`
-
-The current focused item id.
-
-- undefined will automatically focus the first enabled composite item.
-- null will focus the base composite element and users will be able to navigate out of it using arrow keys.
-- If currentId is initially set to null, the base composite element itself will have focus and users will be able to navigate to it using arrow keys.
-
-###### `groups?: Group[]`
-
-Lists all the composite groups with their id and DOM ref. This state is automatically updated when registerGroup and unregisterGroup are called.
-
-###### `i18nKeyboardControls?: string`
-
-Visually hidden string that has instructions for how to remove and select pills with a keyboard. Default value is "Press Delete or Backspace to remove. Press Enter to toggle selection."
-
----
-
-##### FormPill
-
-**Note:** Most required props are provided by spreading the returned state from `useFormPillState`.
-
-###### `baseId: string`
-
-ID that will serve as a base for all the items IDs.
-
-###### `setBaseId: string`
-
-Sets baseId
-
-###### `rtl: boolean`
-
-Determines how next and previous functions will behave. If rtl is set to true, they will be inverted. This only affects the composite widget behavior. You still need to set dir="rtl" on HTML/CSS.
-
-###### `items: Item[]`
-
-Lists all the composite items with their id, DOM ref, disabled state and groupId if any. This state is automatically updated when registerItem and unregisterItem are called.
-
-###### `groups: Group[]`
-
-Lists all the composite groups with their id and DOM ref. This state is automatically updated when registerGroup and unregisterGroup are called.
-
-###### `loop: boolean`
-
-On one-dimensional composites:
-
-- true loops from the last item to the first item and vice-versa.
-- horizontal loops only if orientation is horizontal or not set.
-- vertical loops only if orientation is vertical or not set.
-- If currentId is initially set to null, the composite element will be focused in between the last and first items.
-
-###### `wrap: boolean`
-
-Has effect only on two-dimensional composites. If enabled, moving to the next item from the last one in a row or column will focus the first item in the next row or column and vice-versa.
-
-- true wraps between rows and columns.
-- horizontal wraps only between rows.
-- vertical wraps only between columns.
-- If loop matches the value of wrap, it'll wrap between the last item in the last row or column and the first item in the first row or column and vice-versa.
-
-###### `shift: boolean`
-
-Has effect only on two-dimensional composites. If enabled, moving up or down when there's no next item or the next item is disabled will shift to the item right before it.
-
-###### `registerItem: (item: Item) => void`
-
-Registers a composite item.
-
-###### `unregisterItem: (item: Item) => void`
-
-Unregisters a composite item.
-
-###### `registerGroup: (group: Group) => void`
-
-Registers a composite group.
-
-###### `unregisterGroup: (group: Group) => void`
-
-Unregisters a composite group.
-
-###### `move: (id: string | null) => void`
-
-Moves focus to a given item ID.
-
-###### `next: () => void`
-
-Moves focus to the next item.
-
-###### `previous: () => void`
-
-Moves focus to the previous item.
-
-###### `up: () => void`
-
-Moves focus to the item above.
-
-###### `down: () => void`
-
-Moves focus to the item below.
-
-###### `first: () => void`
-
-Moves focus to the first item.
-
-###### `last: () => void`
-
-Moves focus to the last item.
-
-###### `sort: () => void`
-
-Sorts the composite.items based on the items position in the DOM. This is especially useful after modifying the composite items order in the DOM. Most of the time, though, you don't need to manually call this function as the re-ordering happens automatically.
-
-###### `setRTL: boolean>`
-
-Sets rtl.
-
-###### `setOrientation: "horizontal" | "vertical" | undefined`
-
-Sets orientation.
-
-###### `setCurrentId: string | null | undefined`
-
-Sets currentId. This is different from composite.move as this only updates the currentId state without moving focus. When the composite widget gets focused by the user, the item referred by the currentId state will get focus.
-
-###### `setLoop: boolean | "horizontal" | "vertical"`
-
-Sets loop.
-
-###### `setWrap: boolean | "horizontal" | "vertical"`
-
-Sets wrap.
-
-###### `seShift: boolean>`
-
-Sets shift.
-
-###### `reset: () => void`
-
-Resets to initial state.
-
-###### `selected?: boolean`
-
-Set if a pill is in a selected state.
-
-###### `element?: string`
-
-Overrides the default element name ('FORM_PILL') to apply unique styles with the Customization Provider
-
-###### `onSelect?: () => void`
-
-Event handler called when a pill is selected.
-
-###### `onDismiss?: () => void`
-
-Event handler called when a pill is dismised.
-
-###### `onFocus?: () => void`
-
-Event handler called when a pill is focused.
-
-###### `onBlur?: () => void`
-
-Event handler called when a pill is blurred.
-
-###### `currentId?: string`
-
-The current focused item id.
-
-- undefined will automatically focus the first enabled composite item.
-- null will focus the base composite element and users will be able to navigate out of it using arrow keys.
-- If currentId is initially set to null, the base composite element itself will have focus and users will be able to navigate to it using arrow keys.
-
-###### `orientation?: horizontal | vertical`
-
-Defines the orientation of the composite widget. If the composite has a single row or column (one-dimensional), the orientation value determines which arrow keys can be used to move focus:
-
-- undefined: all arrow keys work.
-- horizontal: only left and right arrow keys work.
-- vertical: only up and down arrow keys work.
-
----
-
-##### useFormPillState
-
-###### `baseId?: string`
-
-ID that will serve as a base for all the items IDs.
-
-###### `rtl?: boolean`
-
-Determines how next and previous functions will behave. If rtl is set to true, they will be inverted. This only affects the composite widget behavior. You still need to set dir="rtl" on HTML/CSS.
-
-###### `wrap?: boolean`
-
-Has effect only on two-dimensional composites. If enabled, moving to the next item from the last one in a row or column will focus the first item in the next row or column and vice-versa.
-
-- true wraps between rows and columns.
-- horizontal wraps only between rows.
-- vertical wraps only between columns.
-- If loop matches the value of wrap, it'll wrap between the last item in the last row or column and the first item in the first row or column and vice-versa.
-
-###### `shift?: boolean`
-
-Has effect only on two-dimensional composites. If enabled, moving up or down when there's no next item or the next item is disabled will shift to the item right before it.
-
-###### `currentId?: string`
-
-The current focused item id.
-
-- undefined will automatically focus the first enabled composite item.
-- null will focus the base composite element and users will be able to navigate out of it using arrow keys.
-- If currentId is initially set to null, the base composite element itself will have focus and users will be able to navigate to it using arrow keys.
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

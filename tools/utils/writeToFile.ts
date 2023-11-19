@@ -1,5 +1,6 @@
-import chalk from 'chalk';
-import {writeFile} from 'fs';
+import { writeFile } from "fs";
+
+import chalk from "chalk";
 
 export function writeToFile(
   filePath: string,
@@ -8,13 +9,13 @@ export function writeToFile(
     successMessage,
     errorMessage,
     formatJson = false,
-  }: {successMessage?: string; errorMessage?: string; formatJson?: boolean}
+  }: { successMessage?: string; errorMessage?: string; formatJson?: boolean },
 ): void {
   const output: string | NodeJS.ArrayBufferView = formatJson
     ? JSON.stringify(content, null, 2)
     : (content as NodeJS.ArrayBufferView);
 
-  writeFile(filePath, output, 'utf8', (error) => {
+  writeFile(filePath, output, "utf8", (error) => {
     if (error) {
       if (errorMessage != null) {
         // eslint-disable-next-line no-console
@@ -22,7 +23,6 @@ export function writeToFile(
       }
       // eslint-disable-next-line no-console
       console.log(error);
-      return false;
     }
     if (successMessage != null) {
       // eslint-disable-next-line no-console

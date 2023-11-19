@@ -1,28 +1,70 @@
-import type {BoxProps} from '@twilio-paste/box';
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 
-export type BadgeVariants =
-  | 'neutral'
-  | 'warning'
-  | 'error'
-  | 'success'
-  | 'new'
-  | 'decorative10'
-  | 'decorative20'
-  | 'decorative30'
-  | 'decorative40'
-  | 'neutral_counter'
-  | 'error_counter'
-  // the following variants are outdated but still supported to prevent breaking changes
-  | 'default'
-  | 'info';
+import type { BadgeVariants } from "./constants";
 
-type BadgeBaseProps = Pick<BoxProps, 'element'> &
-  React.HTMLAttributes<HTMLSpanElement> &
-  React.HTMLAttributes<HTMLButtonElement> &
-  React.HTMLAttributes<HTMLAnchorElement> & {
-    children: NonNullable<React.ReactNode>;
-    variant: BadgeVariants;
-    as: 'span' | 'button' | 'a';
-    href?: string;
-  };
-export type BadgeProps = BadgeBaseProps;
+export type BadgeSizes = "default" | "small";
+
+export type BadgeBaseProps = {
+  children: NonNullable<React.ReactNode>;
+  /**
+   *
+   * @default null
+   * @type {BadgeVariants}
+   * @memberof BadgeBaseProps
+   */
+  variant: typeof BadgeVariants[number];
+  /**
+   *
+   * @default "default"
+   * @type {BadgeSizes}
+   * @memberof BadgeBaseProps
+   */
+  size?: BadgeSizes;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "BADGE"
+   * @type {BoxProps["element"]}
+   * @memberof BadgeBaseProps
+   */
+  element?: BoxProps["element"];
+};
+export type BadgeSpanProps = HTMLPasteProps<"span"> & {
+  /**
+   * Underlying HTML element to render. Can be "span", "button", or "a".
+   *
+   * @default null
+   * @type {"span"}
+   * @memberof BadgeSpanProps
+   */
+  as: "span";
+  href?: never;
+  onClick?: never;
+};
+export type BadgeButtonProps = HTMLPasteProps<"button"> & {
+  /**
+   * Underlying HTML element to render. Can be "span", "button", or "a".
+   *
+   * @default null
+   * @type {"button"}
+   * @memberof BadgeButtonProps
+   */
+  as: "button";
+  onClick: HTMLPasteProps<"button">["onClick"];
+  href?: never;
+};
+export type BadgeAnchorProps = HTMLPasteProps<"a"> & {
+  /**
+   * Underlying HTML element to render. Can be "span", "button", or "a".
+   *
+   * @default null
+   * @type {"a"}
+   * @memberof BadgeAnchorProps
+   */
+  as: "a";
+  href: string;
+  onClick?: never;
+};
+
+export type BadgeProps = BadgeBaseProps & (BadgeSpanProps | BadgeButtonProps | BadgeAnchorProps);

@@ -1,0 +1,299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`commonJSFormatter should return common.js formatted tokens 1`] = `
+"const colorBackgroundBody = \\"rgb(255, 255, 255)\\";
+const colorBackgroundBrandHighlight = \\"rgb(242, 47, 70)\\";
+const colorBackgroundBrandHighlightDark = \\"rgb(235, 15, 41)\\";
+const colorBackgroundBrandHighlightDarker = \\"rgb(194, 37, 55)\\";
+const colorBackgroundBrandPrimary = \\"rgb(13, 18, 43)\\";
+const colorBackgroundDefault = \\"rgb(246, 246, 246)\\";
+const colorBackgroundElementSelection = \\"rgb(236, 187, 193)\\";
+const colorBackgroundError = \\"rgb(206, 80, 95)\\";
+const colorBackgroundErrorDark = \\"rgb(174, 33, 49)\\";
+const colorBackgroundErrorLight = \\"rgb(194, 37, 55)\\";
+const colorBackgroundRowActive = \\"rgb(230, 230, 230)\\";
+const colorBackgroundRowFocus = \\"rgb(214, 214, 214)\\";
+const colorBackgroundRowHover = \\"rgb(214, 214, 214)\\";
+const colorBackgroundRowSelected = \\"rgb(230, 230, 230)\\";
+const colorBackgroundRowStriped = \\"rgb(235, 235, 235)\\";
+const colorBackgroundSuccess = \\"rgb(100, 209, 138)\\";
+const colorBackgroundSuccessDark = \\"rgb(80, 167, 110)\\";
+const colorBackgroundSuccessLight = \\"rgb(162, 227, 184)\\";
+const colorBackgroundWarning = \\"rgb(251, 208, 144)\\";
+const colorBackgroundWarningDark = \\"rgb(199, 141, 56)\\";
+const colorBackgroundWarningLight = \\"rgb(249, 177, 71)\\";
+const colorBrandHighlight = \\"rgb(242, 47, 70)\\";
+const colorBrandHighlightDark = \\"rgb(235, 15, 41)\\";
+const colorBrandPrimary = \\"rgb(13, 18, 43)\\";
+const colorGray1 = \\"rgb(255, 255, 255)\\";
+const colorGray10 = \\"rgb(34, 34, 34)\\";
+const colorGray2 = \\"rgb(246, 246, 246)\\";
+const colorGray3 = \\"rgb(235, 235, 235)\\";
+const colorGray4 = \\"rgb(230, 230, 230)\\";
+const colorGray5 = \\"rgb(214, 214, 214)\\";
+const colorGray6 = \\"rgb(204, 204, 204)\\";
+const colorGray7 = \\"rgb(153, 153, 153)\\";
+const colorGray8 = \\"rgb(102, 102, 102)\\";
+const colorGray9 = \\"rgb(68, 68, 68)\\";
+const colorTextBrandHighlight = \\"rgb(242, 47, 70)\\";
+const colorTextBrandHighlightDark = \\"rgb(235, 15, 41)\\";
+const colorTextBrandPrimary = \\"rgb(255, 255, 255)\\";
+const colorTextDefault = \\"rgb(68, 68, 68)\\";
+const colorTextError = \\"rgb(194, 37, 55)\\";
+const colorTextIconDefault = \\"rgb(68, 68, 68)\\";
+const colorTextInverse = \\"rgb(255, 255, 255)\\";
+const colorTextInverseWeak = \\"rgb(235, 235, 235)\\";
+const colorTextLabel = \\"rgb(68, 68, 68)\\";
+const colorTextLink = \\"rgb(0, 112, 204)\\";
+const colorTextLinkActive = \\"rgb(0, 89, 163)\\";
+const colorTextLinkDestructive = \\"rgb(194, 37, 55)\\";
+const colorTextLinkDestructiveActive = \\"rgb(155, 29, 44)\\";
+const colorTextLinkDestructiveDisabled = \\"rgb(236, 187, 193)\\";
+const colorTextLinkDestructiveFocus = \\"rgb(174, 33, 49)\\";
+const colorTextLinkDestructiveHover = \\"rgb(174, 33, 49)\\";
+const colorTextLinkDisabled = \\"rgb(102, 169, 224)\\";
+const colorTextLinkFocus = \\"rgb(0, 97, 192)\\";
+const colorTextLinkHover = \\"rgb(0, 97, 192)\\";
+const colorTextPlaceholder = \\"rgb(102, 102, 102)\\";
+const colorTextSuccess = \\"rgb(100, 209, 138)\\";
+const colorTextWarning = \\"rgb(249, 177, 71)\\";
+const colorTextWeak = \\"rgb(230, 230, 230)\\";
+const fontSize0 = \\"0.6875rem\\";
+const fontSize1 = \\"0.75rem\\";
+const fontSize2 = \\"0.8125rem\\";
+const fontSize3 = \\"0.875rem\\";
+const fontSize4 = \\"0.9375rem\\";
+const fontSize5 = \\"1rem\\";
+const fontSize6 = \\"1.125rem\\";
+const fontSize7 = \\"1.25rem\\";
+const fontSize8 = \\"1.875rem\\";
+const fontSize9 = \\"2.25rem\\";
+const space0 = \\"0.25rem\\";
+const space1 = \\"0.5rem\\";
+const space10 = \\"2.75rem\\";
+const space11 = \\"3rem\\";
+const space12 = \\"3.25rem\\";
+const space13 = \\"3.5rem\\";
+const space14 = \\"3.75rem\\";
+const space15 = \\"4rem\\";
+const space2 = \\"0.75rem\\";
+const space3 = \\"1rem\\";
+const space4 = \\"1.25rem\\";
+const space5 = \\"1.5rem\\";
+const space6 = \\"1.75rem\\";
+const space7 = \\"2rem\\";
+const space8 = \\"2.25rem\\";
+const space9 = \\"2.5rem\\";
+const zIndex0 = \\"0\\";
+const zIndex10 = \\"10\\";
+const zIndex20 = \\"20\\";
+const zIndex30 = \\"30\\";
+const zIndex40 = \\"40\\";
+const zIndex50 = \\"50\\";
+const zIndex60 = \\"60\\";
+const zIndex70 = \\"70\\";
+const zIndex80 = \\"80\\";
+const zIndex90 = \\"90\\";
+
+  module.exports = {
+    colorBackgroundBody,
+colorBackgroundBrandHighlight,
+colorBackgroundBrandHighlightDark,
+colorBackgroundBrandHighlightDarker,
+colorBackgroundBrandPrimary,
+colorBackgroundDefault,
+colorBackgroundElementSelection,
+colorBackgroundError,
+colorBackgroundErrorDark,
+colorBackgroundErrorLight,
+colorBackgroundRowActive,
+colorBackgroundRowFocus,
+colorBackgroundRowHover,
+colorBackgroundRowSelected,
+colorBackgroundRowStriped,
+colorBackgroundSuccess,
+colorBackgroundSuccessDark,
+colorBackgroundSuccessLight,
+colorBackgroundWarning,
+colorBackgroundWarningDark,
+colorBackgroundWarningLight,
+colorBrandHighlight,
+colorBrandHighlightDark,
+colorBrandPrimary,
+colorGray1,
+colorGray10,
+colorGray2,
+colorGray3,
+colorGray4,
+colorGray5,
+colorGray6,
+colorGray7,
+colorGray8,
+colorGray9,
+colorTextBrandHighlight,
+colorTextBrandHighlightDark,
+colorTextBrandPrimary,
+colorTextDefault,
+colorTextError,
+colorTextIconDefault,
+colorTextInverse,
+colorTextInverseWeak,
+colorTextLabel,
+colorTextLink,
+colorTextLinkActive,
+colorTextLinkDestructive,
+colorTextLinkDestructiveActive,
+colorTextLinkDestructiveDisabled,
+colorTextLinkDestructiveFocus,
+colorTextLinkDestructiveHover,
+colorTextLinkDisabled,
+colorTextLinkFocus,
+colorTextLinkHover,
+colorTextPlaceholder,
+colorTextSuccess,
+colorTextWarning,
+colorTextWeak,
+fontSize0,
+fontSize1,
+fontSize2,
+fontSize3,
+fontSize4,
+fontSize5,
+fontSize6,
+fontSize7,
+fontSize8,
+fontSize9,
+space0,
+space1,
+space10,
+space11,
+space12,
+space13,
+space14,
+space15,
+space2,
+space3,
+space4,
+space5,
+space6,
+space7,
+space8,
+space9,
+zIndex0,
+zIndex10,
+zIndex20,
+zIndex30,
+zIndex40,
+zIndex50,
+zIndex60,
+zIndex70,
+zIndex80,
+zIndex90,
+    backgroundColors: {
+colorBackgroundBody,
+colorBackgroundBrandHighlight,
+colorBackgroundBrandHighlightDark,
+colorBackgroundBrandHighlightDarker,
+colorBackgroundBrandPrimary,
+colorBackgroundDefault,
+colorBackgroundElementSelection,
+colorBackgroundError,
+colorBackgroundErrorDark,
+colorBackgroundErrorLight,
+colorBackgroundRowActive,
+colorBackgroundRowFocus,
+colorBackgroundRowHover,
+colorBackgroundRowSelected,
+colorBackgroundRowStriped,
+colorBackgroundSuccess,
+colorBackgroundSuccessDark,
+colorBackgroundSuccessLight,
+colorBackgroundWarning,
+colorBackgroundWarningDark,
+colorBackgroundWarningLight,
+},
+colors: {
+colorBrandHighlight,
+colorBrandHighlightDark,
+colorBrandPrimary,
+colorGray1,
+colorGray2,
+colorGray3,
+colorGray4,
+colorGray5,
+colorGray6,
+colorGray7,
+colorGray8,
+colorGray9,
+colorGray10,
+},
+fontSizes: {
+fontSize0,
+fontSize1,
+fontSize2,
+fontSize3,
+fontSize4,
+fontSize5,
+fontSize6,
+fontSize7,
+fontSize8,
+fontSize9,
+},
+spacings: {
+space0,
+space1,
+space2,
+space3,
+space4,
+space5,
+space6,
+space7,
+space8,
+space9,
+space10,
+space11,
+space12,
+space13,
+space14,
+space15,
+},
+textColors: {
+colorTextBrandHighlight,
+colorTextBrandHighlightDark,
+colorTextBrandPrimary,
+colorTextDefault,
+colorTextError,
+colorTextIconDefault,
+colorTextInverse,
+colorTextInverseWeak,
+colorTextLabel,
+colorTextLink,
+colorTextLinkActive,
+colorTextLinkDestructive,
+colorTextLinkDestructiveActive,
+colorTextLinkDestructiveDisabled,
+colorTextLinkDestructiveFocus,
+colorTextLinkDestructiveHover,
+colorTextLinkDisabled,
+colorTextLinkFocus,
+colorTextLinkHover,
+colorTextPlaceholder,
+colorTextSuccess,
+colorTextWarning,
+colorTextWeak,
+},
+zIndices: {
+zIndex0,
+zIndex10,
+zIndex20,
+zIndex30,
+zIndex40,
+zIndex50,
+zIndex60,
+zIndex70,
+zIndex80,
+zIndex90,
+},
+  }
+"
+`;

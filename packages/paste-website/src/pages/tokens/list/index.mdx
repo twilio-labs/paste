@@ -1,77 +1,39 @@
----
-title: Design tokens
-description: List of visual attributes (background colors, spacing, etc.) that our design language is based on.
-slug: /tokens/list
----
+export const meta = {
+  title: 'Design tokens',
+  description: 'List of visual attributes (background colors, spacing, etc.) that our design language is based on.',
+  slug: '/tokens/list',
+};
 
-import {graphql} from 'gatsby';
-import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Blockquote} from '../../../components/Blockquote';
 import {TokensList} from '../../../components/tokens-list';
 import {SidebarCategoryRoutes} from '../../../constants';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-<ComponentHeader name="Design Tokens" categoryRoute={SidebarCategoryRoutes.TOKENS} />
+export default DefaultLayout;
 
-<Blockquote
-  name="Salesforce UX"
-  source="Lightning Design System"
-  sourceUrl="https://www.lightningdesignsystem.com/design-tokens/"
->
-  Design tokens are the visual design atoms of the design system — specifically, they are named entities that store
-  visual design attributes.
-</Blockquote>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
-Tokens are named for their use case, rather than their value. For example
-`$color-background-error` is named to indicate the appropriate background
-color for an error, as opposed to `$color-background-red` which is less
-specific and could be used in a number of ways depending on cultural context
-and design language. This makes their intended use clear and intentional,
-and allows us to develop a scalable and consistent visual language.
+<GenericHeader
+  name="Token List"
+  categoryRoute={SidebarCategoryRoutes.TOKENS}
+  description="All tokens that are available in the Paste token system."
+/>
 
-In Paste, **1 rem unit = 16 pixels**.
+<Box
+  as="hr"
+  borderWidth="borderWidth0"
+  borderColor="colorBorderWeak"
+  borderStyle="solid"
+  borderBottomWidth="borderWidth10"
+  marginTop="space100"
+/>
 
-<TokensList defaultTokens={props.data.allPasteTokenDefault.edges} darkTokens={props.data.allPasteTokenDark.edges} />
-
-export const pageQuery = graphql`
-  {
-    allPasteTokenDefault {
-      edges {
-        node {
-          id
-          tokens {
-            categoryName
-            tokens {
-              category
-              comment
-              name
-              originalValue
-              type
-              value
-              deprecated
-            }
-          }
-        }
-      }
-    }
-    allPasteTokenDark {
-      edges {
-        node {
-          id
-          tokens {
-            categoryName
-            tokens {
-              category
-              comment
-              name
-              originalValue
-              type
-              value
-            }
-          }
-        }
-      }
-    }
-  }
-`;
+<TokensList />

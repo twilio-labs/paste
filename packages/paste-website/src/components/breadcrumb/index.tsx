@@ -1,10 +1,11 @@
-import * as React from 'react';
-import {styled, css} from '@twilio-paste/styling-library';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {SiteLink} from '../SiteLink';
+import { Box } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
-const CrumbSlash: React.FC = () => (
+import { SiteLink } from "../SiteLink";
+
+const CrumbSlash = (): JSX.Element => (
   <Box display="inline" paddingLeft="space20" paddingRight="space20">
     <Text as="span" color="colorTextWeak">
       /
@@ -12,7 +13,7 @@ const CrumbSlash: React.FC = () => (
   </Box>
 );
 
-const Breadcrumb: React.FC = ({children}) => {
+const Breadcrumb: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <nav aria-label="breadcrumb">
       <Box
@@ -21,7 +22,7 @@ const Breadcrumb: React.FC = ({children}) => {
         margin="space0"
         padding="space0"
         css={{
-          listStyle: 'none',
+          listStyle: "none",
         }}
       >
         {React.Children.map(children, (child) => (
@@ -37,10 +38,10 @@ const Breadcrumb: React.FC = ({children}) => {
 
 const BreadcrumbItem = styled(SiteLink)(
   css({
-    fontSize: 'fontSize30',
-    lineHeight: 'lineHeight30',
-    letterSpacing: 'normal',
-  })
+    fontSize: "fontSize30",
+    lineHeight: "lineHeight30",
+    letterSpacing: "normal",
+  }),
 );
 
-export {Breadcrumb, BreadcrumbItem};
+export { Breadcrumb, BreadcrumbItem };

@@ -1,1 +1,2 @@
-export * from './HelpText';
+export { HelpText } from "./HelpText";
+export type { HelpTextProps, HelpTextVariants } from "./HelpText";

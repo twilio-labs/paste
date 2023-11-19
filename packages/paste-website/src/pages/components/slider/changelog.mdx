@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Slider - Changelog',
+  package: '@twilio-paste/slider',
+  description:
+    'A Slider is a draggable input that allows a user to select an imprecise numerical value within a range.',
+  slug: '/components/slider/changelog',
+};
+
+import Changelog from '@twilio-paste/slider/CHANGELOG.md';
+import packageJson from '@twilio-paste/slider/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Slider');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/slider',
+        storybookUrl: '/?path=/story/components-slider--default',
+      },
+    },
+  };
+};
+
+<Changelog />

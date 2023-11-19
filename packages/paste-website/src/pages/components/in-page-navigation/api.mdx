@@ -1,0 +1,63 @@
+export const meta = {
+  title: 'In Page Navigation',
+  package: '@twilio-paste/in-page-navigation',
+  description: 'In Page Navigation is a set of links that lets users navigate between related pages.',
+  slug: '/components/in-page-navigation/api',
+};
+
+import Changelog from '@twilio-paste/in-page-navigation/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/in-page-navigation/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('In Page Navigation');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/in-page-navigation');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/in-page-navigation',
+        storybookUrl: '/?path=/story/components-in-page-navigation--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/in-page-navigation - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {InPageNavigation, InPageNavigationItem} from '@twilio-paste/core/in-page-navigation';
+
+const InPageNavigationExample: React.FC = () => {
+  return (
+    <InPageNavigation aria-label="my-nav">
+      <InPageNavigationItem href="#">Home</InPageNavigationItem>
+      <InPageNavigationItem href="#" currentPage>
+        About
+      </InPageNavigationItem>
+    </InPageNavigation>
+  );
+};
+```
+
+## Props
+<PropsTable componentApi={props.componentApi} />

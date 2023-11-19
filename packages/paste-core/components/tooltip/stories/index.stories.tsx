@@ -1,15 +1,17 @@
-import * as React from 'react';
-import {Anchor} from '@twilio-paste/anchor';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {Theme} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTooltipState, Tooltip} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { Theme, useTheme } from "@twilio-paste/theme";
+import * as React from "react";
 
-export const StateHookExample: React.FC = () => {
+import { Tooltip, useTooltipState } from "../src";
+
+export const StateHookExample = (): JSX.Element => {
   const tooltip = useTooltipState();
   return (
     <Theme.Provider theme="default">
@@ -34,12 +36,11 @@ export const StateHookExample: React.FC = () => {
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Tooltip',
-  excludeStories: ['StateHookExample'],
+  title: "Components/Tooltip",
+  excludeStories: ["StateHookExample"],
   component: Tooltip,
   parameters: {
-    // Sets a delay for the component's stories
-    chromatic: {delay: 3000, diffThreshold: 0.3},
+    chromatic: { delay: 3000, diffThreshold: 0.2 },
   },
 };
 
@@ -101,9 +102,7 @@ export const AutomaticEdgePlacement = (): React.ReactNode => {
   );
 };
 
-AutomaticEdgePlacement.story = {
-  name: 'Automatic edge placement',
-};
+AutomaticEdgePlacement.storyName = "Automatic edge placement";
 
 export const AutomaticAdjustedPlacement = (): React.ReactNode => {
   return (
@@ -117,9 +116,7 @@ export const AutomaticAdjustedPlacement = (): React.ReactNode => {
   );
 };
 
-AutomaticAdjustedPlacement.story = {
-  name: 'Automatic adjusted placement',
-};
+AutomaticAdjustedPlacement.storyName = "Automatic adjusted placement";
 
 export const IconButtonTooltip = (): React.ReactNode => {
   return (
@@ -166,31 +163,31 @@ export const StateHookTooltip = (): React.ReactNode => {
   return <StateHookExample />;
 };
 
-StateHookTooltip.story = {
-  name: 'State hook Tooltip',
-};
+StateHookTooltip.storyName = "State hook Tooltip";
 
-export const CustomizedTooltip = (): React.ReactNode => {
+export const CustomizedTooltip: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
   return (
     <CustomizationProvider
-      baseTheme="default"
+      disableAnimations={isTestEnvironment}
+      theme={currentTheme}
       elements={{
         TOOLTIP: {
-          backgroundColor: 'colorBackgroundErrorWeakest',
-          borderColor: 'colorBorderDestructive',
-          maxWidth: 'size10',
-          textAlign: 'center',
+          backgroundColor: "colorBackgroundErrorWeakest",
+          borderColor: "colorBorderDestructive",
+          maxWidth: "size10",
+          textAlign: "center",
         },
         TOOLTIP_TEXT: {
-          color: 'colorTextErrorStrong',
+          color: "colorTextErrorStrong",
         },
         CUSTOM_TOOLTIP: {
-          backgroundColor: 'colorBackgroundSuccessWeakest',
-          borderColor: 'colorBorderSuccess',
-          textAlign: 'left',
+          backgroundColor: "colorBackgroundSuccessWeakest",
+          borderColor: "colorBorderSuccess",
+          textAlign: "left",
         },
         CUSTOM_TOOLTIP_TEXT: {
-          color: 'colorTextSuccess',
+          color: "colorTextSuccess",
         },
       }}
     >
@@ -206,6 +203,13 @@ export const CustomizedTooltip = (): React.ReactNode => {
   );
 };
 
-CustomizedTooltip.story = {
-  name: 'Customized Tooltip',
+CustomizedTooltip.storyName = "Customized Tooltip";
+CustomizedTooltip.parameters = {
+  parameters: {
+    chromatic: { disableSnapshot: true },
+  },
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

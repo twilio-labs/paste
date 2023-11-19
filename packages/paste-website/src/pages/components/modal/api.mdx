@@ -1,0 +1,86 @@
+export const meta = {
+  title: 'Modal',
+  package: '@twilio-paste/modal',
+  description: 'A modal displays content over the main page and blocks any interaction with the page.',
+  slug: '/components/modal/api',
+};
+
+import Changelog from '@twilio-paste/modal/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/modal/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Modal');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/modal');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: '/?path=/story/components-alert--neutral',
+        storybookUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/modal - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {useUID} from '@twilio-paste/core/uid-library';
+import {Button} from '@twilio-paste/core/button';
+import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/core/modal';
+
+const ModalTrigger = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+  const handleOpen = () => setIsOpen(true);
+  const handleClose = () => setIsOpen(false);
+  const modalHeadingID = useUID();
+
+  return (
+    <div>
+      <Button variant="primary" onClick={handleOpen}>
+        New Project
+      </Button>
+      <Modal ariaLabelledby={modalHeadingID} isOpen={isOpen} onDismiss={handleClose} size="default">
+        <ModalHeader>
+          <ModalHeading as="h3" id={modalHeadingID}>
+            Create new project
+          </ModalHeading>
+        </ModalHeader>
+        <ModalBody></ModalBody>
+        <ModalFooter>
+          <ModalFooterActions>
+            <Button variant="secondary" onClick={handleClose}>
+              Cancel
+            </Button>
+            <Button variant="primary">Submit</Button>
+          </ModalFooterActions>
+        </ModalFooter>
+      </Modal>
+    </div>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

@@ -1,0 +1,303 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - October 2022 Edition',
+  slug: '/blog/2022-10-31-paste-newsletter/',
+  date: '2022-10-31',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  author_link: null,
+  status: 'published',
+  external_link: null,
+  excerpt: "What's new in Paste in October 2022? New components, new variants, and more!",
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import {Blockquote} from '../../components/Blockquote';
+import RadioButtonGroup from '../../assets/images/articles/2022-10-31-paste-newsletter/radio-button-group.png';
+import ButtonGroup from '../../assets/images/articles/2022-10-31-paste-newsletter/button-group.png';
+import SideModal from '../../assets/images/articles/2022-10-31-paste-newsletter/side-modal.png';
+import FilePicker from '../../assets/images/articles/2022-10-31-paste-newsletter/file-picker.png';
+import Brandon from '../../assets/images/articles/2022-10-31-paste-newsletter/brandon.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+  authorLink={meta.author_link}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What's new in Paste
+
+### Radio Button Group
+
+<ResponsiveImage src={RadioButtonGroup} />
+
+Radio Buttons are here! This component is functionally similar to the Radio Group, but renders the controls visually as buttons instead of radios. They can be used either attached, like in the above screenshot, or unattached, for two stylistic varieties.
+
+<Paragraph>
+  <Anchor href="#/components/radio-button-group">Check out the Radio Button Group docs</Anchor>
+</Paragraph>
+
+### Button Group
+
+<ResponsiveImage src={ButtonGroup} />
+
+The Button Group component is stylistically similar to the Radio Button Group, but doesn’t operate as a Radio Group. The Button Group is used for sets of related actions, rather than mutually exclusive options, that would otherwise be separate buttons.
+
+<Paragraph>
+  <Anchor href="/components/button-group">Check out the Button Group docs</Anchor>
+</Paragraph>
+
+### Side Modal
+
+<ResponsiveImage src={SideModal} />
+
+Presenting Code Block! This component allows you to display code with syntax highlighting for 13 programming languages.
+It features tabs to show different blocks of code in the same area, a copy code button, and an optional external link button leading to the source code.
+
+<Paragraph>
+  <Anchor href="/components/code-block">Check out the Code Block docs</Anchor>
+</Paragraph>
+
+### File Picker
+
+<ResponsiveImage src={FilePicker} />
+
+Say goodbye to those boring, native `input type=”file”`s, and say hello to our styled File Picker! This component is actually the native HTML element under the hood, so you get all the same functionality, but we Pastified it so that it fits seamlessly into your form layouts.
+
+<Paragraph>
+  <Anchor href="/components/file-picker">Check out the File Picker docs</Anchor>
+</Paragraph>
+
+### Additional updates
+
+#### New
+
+- Inverse components in Figma (Anchor, Button, Combobox, Help Text, Input, and Select)!
+
+#### Improvements
+
+- [Avatar component - new "Entity" variant for non-person representations](/components/avatar/#avatar-variants)
+
+## 📈 Paste by numbers!
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Components we support</Th>
+      <Th>Repositories using Paste</Th>
+      <Th>Component instances in production</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>68</strong>
+      </Td>
+      <Td>
+        <strong>150</strong>
+      </Td>
+      <Td>
+        <strong>63,424</strong>
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+## ✨ Pastemates™ spotlight
+
+<em>
+  Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption
+  within their products and channeling important feedback and contributions back into the system.
+</em>
+
+<ResponsiveImage src={Brandon} />
+
+Brandon Templar just recently joined Twilio, but has already hit the ground running. He’s partnering with Segment and the UX Infrastructure team to lead the Evergreen-UI to Paste migration efforts. Brandon has demonstrated excellent collaboration, empathy, and a structured way of thinking to help dig into the specifics around migrating between two large design systems. He rallied many teams in creative ways to collect feedback and is the only designer outside of our team to ever leverage our reporting infrastructure to get quantitative data in his research. We have enjoyed our partnership with Brandon and are grateful for his efforts.
+
+## 🚦 BPM update
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>BPM</Th>
+      <Th>Status</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Establish Paste as a leading Next-Gen Monorepo through tooling and infrastructure improvements</strong>
+      </Td>
+      <Td>
+        🟢 Green
+        <br />
+        <br />
+        Continued efforts to improve resiliency underway as part of the SRF.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Evolve the Twilio design language to support the vision of “One Twilio”</strong>
+      </Td>
+      <Td>
+        🟢 Green
+        <br />
+        <br />
+        Stress testing has been such a great way for all of us to come together and test out the updated Twilio design language.
+        Once stress testing wraps up next week, the One Twilio crew will synthesize feedback into actionable Jira tickets
+        to make small changes/tweaks to the design language. Keep an eye out on your calendars for product specific share
+        outs!
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Build a UI kit for the Twilio Conversations API</strong>
+      </Td>
+      <Td>
+        🟢 Green
+        <br />
+        <br />
+        More Conversations UI Kit work is coming in the next release: a useChatLog hook that animates messages into the Chat
+        Log and the much requested ChatComposer component!
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Paste goes international</strong>
+      </Td>
+      <Td>
+        ✅ Done
+        <br />
+        <br />
+        Paste now fully supports Twilio’s internationalization efforts for Q1. Paste components are capable of supporting
+        translated content and do not rely on any hard-coded strings.
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+For more information, check out [our full BPM document](https://docs.google.com/document/d/1mH5ImzP5Kzb_nVKOHoTksr5jOY0aG6cbqtcEKbFlLYU/edit#heading=h.sa1nb3t9on2x).
+
+## 👀 What's next
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Feature</Th>
+      <Th>Description</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Chat Composer component</strong>
+      </Td>
+      <Td>Component that can be used to build conversational UIs on top of the Twilio Conversations API.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>File Uploader component</strong>
+      </Td>
+      <Td>The visual target for drag-and-drop interactions.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Design Form Page templates</strong>
+      </Td>
+      <Td>A group of components with sensible defaults used to quickly layout forms in a consistent manner.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Display Heading component</strong>
+      </Td>
+      <Td>
+        Typographic guidelines for large text meant to be used for marketing, storytelling, or attention-grabbing
+        contexts.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>In-page Nav component</strong>
+      </Td>
+      <Td>Allows users to navigate to a new URL within the same page.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Conversations API UI Kit</strong>
+      </Td>
+      <Td>All Conversations UI Kit components will be ready to use, along with a landing page on the Paste website.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Stress-testing One Twilio updates</strong>
+      </Td>
+      <Td>Identify areas of refinement for One Twilio and plan out changes for future releases.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Create Evergreen theme and alias libraries in Figma</strong>
+      </Td>
+      <Td>
+        In partnership with designers on the Data & Growth team. These libraries will include only layer styles in
+        Figma.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Create the new Twilio default and dark theme libraries in Figma</strong>
+      </Td>
+      <Td>As part of the new One Twilio design language.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Publish Internationalization with Paste guidelines</strong>
+      </Td>
+      <Td>
+        As Twilio scales and the need for localized products grows, these guidelines will assist teams in building for
+        different regions.
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+See you next time! 👋
+
+— The Design Systems Team
+
+</ArticleContent>
+
+</contentwrapper>

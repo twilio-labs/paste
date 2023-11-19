@@ -10,3 +10,7 @@ aliases:
   font-size-90: "2rem" #32px
   font-size-100: "2.5rem" #40px
   font-size-110: "3rem" #48px
+
+  font-size-display-10: "2rem" #32px
+  font-size-display-20: "3rem" #48px
+  font-size-display-30: "4rem" #64px

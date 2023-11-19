@@ -1,0 +1,43 @@
+global:
+  type: color
+  category: text-color
+imports:
+  - ../../dark/global/text-color.yml
+props:
+  # links
+  color-text-link-destructive-stronger:
+    value: "{!palette-red-30}"
+    comment: Stronger shade of destructive link text to be used in interactions.
+
+  # destructive
+  color-text-destructive-stronger:
+    value: "{!palette-red-30}"
+    comment: Stronger shade of destructive text.
+
+  # status
+  color-text-neutral:
+    value: "{!palette-blue-40}"
+    comment: Color for text indicating a neutral status.
+  color-text-inverse-new:
+    value: "{!palette-purple-30}"
+    comment: Inverse color for indicating a new status.
+
+  # icon
+  color-text-icon-inverse:
+    value: "{!palette-gray-50}"
+    comment: Default icon color for inverse backgrounds.
+
+  # decorative
+  color-text-decorative-40:
+    value: "{!palette-purple-30}"
+    comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
+
+  # user
+  color-text-user:
+    value: "{!palette-purple-30}"
+    comment: Text color for user avatar.
+
+  # product
+  color-text-subaccount:
+    value: "{!palette-yellow-30}"
+    comment: Text color for the subaccount badge

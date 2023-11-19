@@ -1,11 +1,10 @@
----
-title: Input - Components
-package: '@twilio-paste/input'
-description: An input allows users to enter text on a single line.
-slug: /components/input/
----
+export const meta = {
+  title: 'Input - Components',
+  package: '@twilio-paste/input',
+  description: 'An input allows users to enter text on a single line.',
+  slug: '/components/input/',
+};
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {HelpText} from '@twilio-paste/help-text';
@@ -16,150 +15,95 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
+import {Blockquote} from '../../../components/Blockquote';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/input/CHANGELOG.md';
+import packageJson from '@twilio-paste/input/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/input"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/input/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Input"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input"
-  storybookUrl="/?path=/story/components-input--"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Input');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input',
+        storybookUrl: '/?path=/story/components-input--default-input',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_address" required>Email address</Label>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
+</>`}
+</LivePreview>
 
 ## Guidelines
 
 ### About Input
 
-Use an input when you want to allow a user to enter a single line of text. By default, text inputs allow users to enter any type of text (letters, numbers, and symbols).
+Use an Input when you want to allow a user to enter a single line of text. By default, text inputs allow users to enter any type of text (letters, numbers, and symbols).
 You can set the input to more [specific types](#input-types) if needed. It is used with the [Label](/components/label) and [Help Text](/components/help-text) components.
 
 ### Accessibility
 
-<UnorderedList>
-  <ListItem>
-    Include a visible label on <strong>all</strong> form fields.
-  </ListItem>
-  <ListItem>
-    Each label must use the <inlineCode>htmlFor</inlineCode> prop that equals the <inlineCode>id</inlineCode> of the
-    associated input.
-  </ListItem>
-  <ListItem>
-    Don't use placeholder text as a replacement for labels. It can be used to provide an example to users, but will
-    disappear from the field when a user enters text. It's also not broadly supported by assistive technologies and
-    won't display in older browsers.
-  </ListItem>
-  <ListItem>
-    Use one of 3 ways to label a form field:
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Visible label with <Anchor href="/components/label">Label</Anchor> (preferred)
-      </ListItem>
-      <ListItem>
-        Visible label that's associated to the input with <inlineCode>aria-labelledby</inlineCode>
-      </ListItem>
-      <ListItem>
-        Label directly using <inlineCode>aria-label</inlineCode>
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Provide clear identification of required fields in the label or at the start of a form. If you use the required
-    field indicator, include the form key at the start of the form.
-    <UnorderedList marginBottom="space0">
-      <ListItem>
-        Use the <inlineCode>required</inlineCode> prop to programatically indicate they are required to browsers.
-      </ListItem>
-    </UnorderedList>
-  </ListItem>
-  <ListItem>
-    Include inline error text with the error icon on any field that errors to make it visually clear that the field
-    changed.
-  </ListItem>
-  <ListItem>
-    If the input has associated help text or error text, include the <inlineCode>aria-describedby</inlineCode> prop on
-    the input. This should match the <inlineCode>id</inlineCode> of the help or error text.
-  </ListItem>
-</UnorderedList>
+- Include a visible label on **all** form fields.
+- Each label must use the `htmlFor` prop that equals the `id` of the associated input.
+- Avoid placeholder text. It disappears from the field when the user enters text, isn't broadly supported by assistive technologies, and doesn't display in older browsers.
+- Use 1 of 3 ways to label a form field:
+  - Visible label with [Label](/components/label) (preferred)
+  - Visible label that's associated to the input with `aria-labelledby`
+  - Label directly using `aria-label`
+- Provide clear identification of required fields in the label or at the start of a form. If you use the required field indicator, include the form key at the start of the form.
+  - Use the `required` prop to programatically indicate they are required to browsers.
+- Use [Help Text](/components/help-text) and an error icon to show [inline error text](/patterns/error-state) on any field that errors to make it visually clear that the field changed.
+- If the Input has associated help text or error text, include the `aria-describedby` prop on the input. This should match the `id` of the help or error text.
 
 ## Examples
 
 ### Input
 
-The input component should include the base input, along with supporting elements to compose an input field that gives users the context they need to successfully fill it out.
+The Input component should include the base input, along with supporting elements to compose an input field that gives users the context they need to successfully fill it out.
 
-- **Label** — A label should be included for every form field and provide a short title for its associated input.
-- **Required field indicator** — In a form where there are fewer or as many required fields as optional, use a required indicator to show users which fields are required to be filled out.
-- **Help text** — Text that's placed below the field to help users prevent an error and describe what makes the form field successful.
+- **[Label](/components/label)** — Every form field should have a label. The label should indicate what should be entered into field.
+- **Required field indicator** — If most of the inputs on a form are optional, indicate the few that are required with text or a required indicator.
+- [**Help Text**](/components/help-text) — Text that's placed below the field to help users prevent an error and describes what makes the form field successful.
 
-<Callout>
-  <CalloutTitle as="h4">Accessibility insight</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
   <CalloutText>
     Make sure to connect the <inlineCode>Label</inlineCode> to the <inlineCode>Input</inlineCode>. This is done with the{' '}
     <inlineCode>htmlFor</inlineCode> prop on the label, and the <inlineCode>id</inlineCode> prop on the input. Those two
     need to match.
   </CalloutText>
   <CalloutText>
-    If the input has any associated help text, the input should also use the <inlineCode>aria-describedby</inlineCode>{' '}
-    prop that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text
-    ties directly to the input.
+    If the Input has associated Help Text, the Input should also use the <inlineCode>aria-describedby</inlineCode> prop
+    that equals the <inlineCode>id</inlineCode> of the help text. This ensures screen readers know the help text ties
+    directly to the input.
   </CalloutText>
 </Callout>
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -167,12 +111,12 @@ The input component should include the base input, along with supporting element
 ### Input with add-ons (prefix/suffix text or icons)
 
 - **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
-- **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, clearing a field) or in rare cases, provide further context to what value should be entered to make a field's purpose more immediately visible (_e.g._, a search icon).
+- **Icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (like clearing a field) or in rare cases, provide further context to what value should be entered to make a field's purpose more immediately visible (like a search icon).
 
 <LivePreview scope={{Input, Label, HelpText, Text}} language="jsx">
   {`<>
   <Label htmlFor="payment_amount" required>Payment amount</Label>
-  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text as="span" fontWeight="fontWeightSemibold">$</Text>} onChange="" required />
+  <Input aria-describedby="payment_amount_help_text" id="payment_amount" name="payment_amount" type="text" placeholder="124.45" insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">$</Text>} onChange={()=>{}} required />
   <HelpText id="payment_amount_help_text">Enter a dollar amount in USD format.</HelpText>
 </>`}
 </LivePreview>
@@ -182,7 +126,7 @@ The input component should include the base input, along with supporting element
   <Label htmlFor="message_title" required>Message title</Label>
   <Input
     aria-describedby="display_name_help_text"
-    id="display_name"
+    id="message_title"
     name="display_name"
     type="text"
     placeholder="Ahoy, World"
@@ -191,7 +135,7 @@ The input component should include the base input, along with supporting element
         <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
       </Button>
     }
-    onChange=""
+    onChange={()=>{}}
   />
   <HelpText id="display_name_help_text">Enter a short title for your message.</HelpText>
 </>`}
@@ -213,12 +157,6 @@ An input for editing an email address. This looks like a text-type input but has
 
 An input that is not displayed but whose value is submitted to the server.
 
-#### number
-
-An input for entering a number. It displays a numeric keypad in some devices with dynamic keypads.
-
-**Note:** We do not support the native HTML `input[type="number"]` element due to some accessibility concerns. These are best described in the following [research article from the gov.uk digital team](https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/).
-
 #### password
 
 An input whose value is obscured. This input alerts a user if the site isn't secure.
@@ -235,18 +173,63 @@ An input for entering search strings. It may include an icon in supporting brows
 
 An input for entering a telephone number. It displays a telephone keypad in some devices with dynamic keypads.
 
+#### url
+
+An input for entering a URL. The input value is [automatically validated](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url#value) to ensure that it's either empty or a properly-formatted URL before the form can be submitted.
+
+### Input with number functionality
+
+Use an Input with number functionality by setting `type="number"`. Users can change the numeric value by entering a number,
+using keyboard arrow keys and increment buttons.
+
+It displays a numeric keypad in some devices with dynamic keypads.
+
+<Blockquote
+  name="Mozilla"
+  source="MDN web docs"
+  sourceUrl="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/number#using_number_inputs"
+>
+  The number input type should only be used for incremental numbers...The number input type is not appropriate for
+  values that happen to only consist of numbers but aren't strictly speaking a number, such as postal codes in many
+  countries or credit card numbers.
+</Blockquote>
+
+In most cases, include a default value that the user can change and would not cause harm if accidentally used. Use [Help
+Text](/components/help-text) to explain what inputs are accepted, like minimum or maximum values or step intervals, especially if there's no default value.
+Help Text should also include any important contextual information about what the number input represents.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="reload_amount">Reload amount</Label>
+  <Input aria-describedby="reload_amount_help" id="reload_amount" name="reload_amount" defaultValue="0" type="number" min="0" max="1000" />
+  <HelpText id="reload_amount_help">Maximum amount is $1,000.</HelpText>
+</>`}
+</LivePreview>
+
+#### Internationalization
+
+Provide translated strings for the 'increment' and 'decrement' button labels to make NumberInput localized. The `i18nStepUpLabel` and `i18nStepDownLabel` props should be used for this purpose.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="cantidad_de_recarga">Cantidad de recarga</Label>
+  <Input aria-describedby="cantidad_de_recarga_help" id="cantidad_de_recarga" name="cantidad_de_recarga" defaultValue="0" type="number" min="0" max="1000" i18nStepUpLabel="incrementar" i18nStepDownLabel="decrementar" />
+  <HelpText id="cantidad_de_recarga_help">La cantidad máxima es $1,000.</HelpText>
+</>`}
+</LivePreview>
+
 ## States
 
 ### Input with inline error
 
-Change a form field to its error state and add an inline error if the value entered doesn't pass validation requirements.
+Change a form field to its error state and use [Help Text](/components/help-text) to add an inline error if the value entered doesn't pass validation requirements.
 
-An inline error is placed below the field to inform a user of any errors in their value. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
+An error Help Text is placed below the field to inform a user of any errors in their value. Change the Help Text to `variant=“error”` and add error copy before the original help text copy. Review the [error state pattern](/patterns/error-state) for guidance on writing error messages.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_error">Email address</Label>
-  <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange="" hasError />
+  <Input aria-describedby="email_error_help_text" id="email_error" name="email_error" type="email" placeholder="example@twilio.com" onChange={()=>{}} hasError />
   <HelpText id="email_error_help_text" variant="error">Enter a valid email. Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -260,7 +243,7 @@ If you want to show information that can't be edited, use a [read-only](#read-on
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_disabled" disabled>Email address</Label>
-  <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange="" disabled />
+  <Input aria-describedby="email_disabled_help_text" id="email_disabled" name="email_disabled" type="email" placeholder="example@twilio.com" onChange={()=>{}} disabled />
   <HelpText id="email_disabled_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -272,21 +255,23 @@ Use a read-only form field when a field's value can't be changed, but users shou
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_readonly">Email address</Label>
-  <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange="" readOnly />
+  <Input aria-describedby="email_readonly_help_text" id="email_readonly" name="email_readonly" type="email" placeholder="example@twilio.com" value="example@twilio.com" onChange={()=>{}} readOnly />
   <HelpText id="email_readonly_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
 
 ## Composition notes
 
-An input field must have at least a label and an input.
+### Labels and Help Text
 
-<LivePreview scope={{Input, Label}} language="jsx">
-  {`<>
-  <Label htmlFor="name">Name</Label>
-  <Input id="name" name="name" type="text" onChange=""/>
-</>`}
-</LivePreview>
+Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
+
+- Use [Help Text](/components/help-text) to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
+- Avoid articles (like "a" and "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
+
+To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
+
+Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
 
 ### Positioning form fields
 
@@ -296,36 +281,25 @@ Stack form fields vertically with `$space-80` spacing between each field.
   {`<>
   <Box marginBottom="space80">
     <Label htmlFor="first_name">First name</Label>
-    <Input id="first_name" name="first_name" type="text" placeholder="John" onChange="" />
+    <Input id="first_name" name="first_name" type="text" placeholder="John" onChange={()=>{}} />
   </Box>
   <Box>
     <Label htmlFor="last_name">Last name</Label>
-    <Input id="last_name" name="last_name" type="text" placeholder="Smith" onChange="" />
+    <Input id="last_name" name="last_name" type="text" placeholder="Smith" onChange={()=>{}} />
   </Box>
 </>`}
 </LivePreview>
 
 Avoid placing multiple form fields on the same horizontal row to help make it easier to scan a page vertically. Use the Grid component if you need to place form fields horizontally.
 
-### Labels and help text
-
-Labels should clearly describe the value being requested. They should be concise and descriptive, not instructional. To do this:
-
-- Use help text to provide instruction if needed. For example, don't use "Enter the registration code on the back of your SIM card below" as label text. Instead, use "SIM registration code" as a label and "Find the registration code on the back of your SIM card" as help text.
-- Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
-
-To support internationalization, avoid starting a sentence with the label and using the field to finish it since sentence structures vary across languages. For example, use "Call log expiration date" or "How long should logs be stored?". Don't use "Remove logs after:".
-
-Give users enough information in help text to prevent input and formatting errors. Keep it concise and scoped to information that will help with validation. For example, use help text if a password field has specific requirements that a user should know prior to filling it out.
-
 ### Required field indicator
 
-Use required indicators to show users which fields they must fill out.
+Use text or required indicators to show users which fields they must fill out.
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
   <Label htmlFor="email_address" required>Email address</Label>
-  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange="" required/>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
   <HelpText id="email_help_text">Use your work email address.</HelpText>
 </>`}
 </LivePreview>
@@ -336,36 +310,26 @@ Validate form fields on form submission.
 
 Validating a form field when the user leaves the current field (on blur) can be helpful to check for syntax errors. However, this can be frustrating to users who tab through controls to navigate a page, and to screen reader users, who might not be able to detect that an error occurred on blur.
 
-Don't prevent form submission by disabling the submit button. An error message can give more information than a disabled button can to help users figure out which fields are invalid.
+Don't prevent form submission by disabling the submit button. A disabled button cannot be detected by assistive technologies. Use error messages to explain what information is missing or incorrect.
 
 ### Errors
 
-Use inline error text to explain how to fix an error.
+Use [Help Text](/components/help-text) to show an inline error text that explains how to fix an error.
 
-Ideally, help text should have enough information to help users prevent errors. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
+Help Text should include information to help users prevent errors. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy.
 
-Error text should:
-
-- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
-- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
-- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 ### Optional compositional elements
 
 - **Prefix/suffix** — Use a prefix or suffix to help users format their input and to provide more context about the value a user is entering. For example, you could prefix or suffix a field with a currency symbol, or use suffix to append a character counter. Make sure to consider internationalization when using prefixes or suffixes since formatting may differ across languages. For example, currency symbols are placed on the left in American English, while they're placed on the right in French. Don't use prefix/suffix text as a replacement for a label.
 - **Icon** — Use an icon if you need to give the user additional controls for the field. For example, use an icon to clear a field on click, removing the need for users to manually delete their entered value. Place icon buttons that trigger an action on the right side of the field. If you need 2 actions on a field (e.g., popover trigger and clear field), place the icon button that affects the field value on the right, and the other icon on the left.
-- **Placeholder** — Use a placeholder when you want to give an example of the type of data a user should enter, mainly to help with recall. For example, when asking for links to social media profiles, you could give examples of a few social media sites. Placeholders should be used in addition to the label and not as a replacement since they'll disappear when a user begins entering their own value. If you need to show supporting instructions, use help text instead.
-
-## When to use an input
-
-Use an input when users are expected to enter less than a single line of text, or text that's shorter than a sentence.
 
 <DoDont>
   <Do title="Do" body="Use an input to encourage short text entry." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="short_do">Name</Label>
-      <Input id="short_do" name="short_do" type="text" onChange="" />
+      <Input id="short_do" name="short_do" type="text" onChange={() => {}} />
     </Box>
   </Do>
   <Dont
@@ -375,7 +339,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="short_dont">Tell us your life story</Label>
-      <Input id="short_dont" name="short_dont" type="text" onChange="" />
+      <Input id="short_dont" name="short_dont" type="text" onChange={() => {}} />
     </Box>
   </Dont>
 </DoDont>
@@ -387,7 +351,13 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_do">Job title (60 characters)</Label>
-      <Input aria-describedby="limited_do_help_text" id="limited_do" name="limited_do" type="text" onChange="" />
+      <Input
+        aria-describedby="limited_do_help_text"
+        id="limited_do"
+        name="limited_do"
+        type="text"
+        onChange={() => {}}
+      />
       <HelpText id="limited_do_help_text">Limit to 60 characters.</HelpText>
     </Box>
   </Do>
@@ -398,7 +368,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="limited_dont">Abbreviated country</Label>
-      <Input id="limited_dont" name="limited_dont" type="text" onChange="" />
+      <Input id="limited_dont" name="limited_dont" type="text" onChange={() => {}} />
     </Box>
   </Dont>
 </DoDont>
@@ -406,21 +376,20 @@ Use an input when users are expected to enter less than a single line of text, o
   <Do title="Do" body="Use help text to help users prevent errors and fill out a form field correctly." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="email_do">Email address</Label>
-      <Input
-        aria-describedby="email_do_help_text"
-        id="email_do"
-        name="email_do"
-        type="email"
-        placeholder="example@twilio.com"
-        onChange=""
-      />
+      <Input aria-describedby="email_do_help_text" id="email_do" name="email_do" type="email" onChange={() => {}} />
       <HelpText id="email_do_help_text">Use your work email address.</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use placeholder text for validation instructions." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="email_dont">Email address</Label>
-      <Input id="email_dont" name="email_dont" type="email" placeholder="Use your work email address" onChange="" />
+      <Input
+        id="email_dont"
+        name="email_dont"
+        type="email"
+        placeholder="Use your work email address"
+        onChange={() => {}}
+      />
     </Box>
   </Dont>
 </DoDont>
@@ -432,7 +401,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="tel_do">Phone number</Label>
-      <Input id="tel_do" name="tel_do" type="tel" onChange="" />
+      <Input id="tel_do" name="tel_do" type="tel" onChange={() => {}} />
     </Box>
   </Do>
   <Dont
@@ -442,26 +411,26 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="tel_dont">Phone number</Label>
-      <Input id="tel_dont" name="tel_dont" type="text" onChange="" />
+      <Input id="tel_dont" name="tel_dont" type="text" onChange={() => {}} />
     </Box>
   </Dont>
 </DoDont>
 <DoDont>
   <Do
     title="Do"
-    body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or trigger a popover instead."
+    body="Keep help text and error text concise and simple. If you need to use more than 2 sentences to explain a field, link out to supporting docs or use a popover instead."
     center
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="help_do">Phone number</Label>
-      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange="" />
+      <Input aria-describedby="help_do_help_text" id="help_do" name="help_do" type="tel" onChange={() => {}} />
       <HelpText id="help_do_help_text">Use the following format: (###) ###-####</HelpText>
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use more than 2 sentences in help text or error text." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="help_dont">Email address</Label>
-      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange="" />
+      <Input aria-describedby="help_dont_help_text" id="help_dont" name="help_dont" type="email" onChange={() => {}} />
       <HelpText id="help_dont_help_text">
         Go to your settings. Then click on email addresses. After doing that, copy and paste your email address in this
         field.
@@ -473,7 +442,7 @@ Use an input when users are expected to enter less than a single line of text, o
   <Do title="Do" body="Include a visible label on every form field." center>
     <Box width="100%" padding="space60">
       <Label htmlFor="label_do">Name</Label>
-      <Input id="label_do" name="label_do" type="text" onChange="" />
+      <Input id="label_do" name="label_do" type="text" onChange={() => {}} />
     </Box>
   </Do>
   <Dont title="Don't" body="Don't use prefix/suffix text as a replacement for a label." center>
@@ -482,9 +451,9 @@ Use an input when users are expected to enter less than a single line of text, o
         id="label_dont"
         name="label_dont"
         type="text"
-        onChange=""
+        onChange={() => {}}
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             Name
           </Text>
         }
@@ -500,7 +469,7 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_do">Name</Label>
-      <Input id="disabled_do" name="disabled_do" type="text" onChange="" disabled />
+      <Input id="disabled_do" name="disabled_do" type="text" onChange={() => {}} disabled />
     </Box>
   </Do>
   <Dont
@@ -510,213 +479,25 @@ Use an input when users are expected to enter less than a single line of text, o
   >
     <Box width="100%" padding="space60">
       <Label htmlFor="disabled_dont">Company</Label>
-      <Input id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange="" disabled />
+      <Input id="disabled_dont" name="disabled_dont" type="text" value="Twilio" onChange={() => {}} disabled />
     </Box>
   </Dont>
 </DoDont>
-
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Box Shadow</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
-            <ListItem>Disabled: $shadow-border-weak</ListItem>
-            <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Background</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-background-body</ListItem>
-            <ListItem>Disabled, Readonly: $color-background</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-lighter</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weak</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Value text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default, Readonly: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No, but it can take any children</Td>
-      </Tr>
-      <Tr>
-        <Td>Placeholder text </Td>
-        <Td>$color-text-weak, italic</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Help text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Input:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Left padding: $space-40</ListItem>
-                <ListItem>Top, right, bottom padding: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>Prefix/suffix padding: $space-30</ListItem>
-            <ListItem>
-              Help text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Inline error:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Spacing between icon and text: $space-20</ListItem>
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/input - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-const Component = () => (
-  <>
-    <Label htmlFor="foo" required>
-      foo
-    </Label>
-    <Input aria-describedby="foo_text" id="foo" name="foo" type="text" placeholder="foo" onChange={FOO} required />
-    <HelpText id="foo_text">Please enter some text</HelpText>
-  </>
-);
-```
-
-#### Input props
-
-All the valid HTML attributes for `input` are supported including the following props:
-
-| Prop         | Type                                                             | Description                                                                               | Default   |
-| ------------ | ---------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | --------- |
-| id?          | string                                                           | Sets the id of the input. Should match the htmlFor of `Label`.                            | null      |
-| type         | 'text', 'email', 'hidden', 'number', 'password', 'search', 'tel' | Sets the type of the input. Required.                                                     | null      |
-| name?        | string                                                           | Sets the name of the input.                                                               | null      |
-| value?       | string                                                           | Sets the value of the input.                                                              | null      |
-| placeholder? | string                                                           | Sets the placeholder of the input.                                                        | null      |
-| disabled?    | boolean                                                          | Disables the input.                                                                       | false     |
-| readOnly?    | boolean                                                          | Sets the input to readonly.                                                               | false     |
-| required?    | boolean                                                          | Sets the input as required.                                                               | false     |
-| hasError?    | boolean                                                          | Sets the input to an error state.                                                         | false     |
-| onChange?    | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
-| onFocus?     | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
-| onBlur?      | `(event: React.MouseEvent<HTMLElement>)`                         |                                                                                           | null      |
-| variant?     | 'default', 'inverse'                                             |                                                                                           | 'default' |
-| element?     | `string`                                                         | Overrides the default element name to apply unique styles with the Customization Provider | 'INPUT'   |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>
+<DoDont>
+  <Do title="Do" body="Use an input with number functionality when a user is expected to input numbers." center>
+    <Box width="100%" padding="space60">
+      <Label htmlFor="number_do">Reload amount</Label>
+      <Input id="number_do" name="number_do" type="number" defaultValue="0" min="0" max="1000" />
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don't use an input with number functionality when a user is expected to input other characters. Use Input instead."
+    center
+  >
+    <Box width="100%" padding="space60">
+      <Label htmlFor="number_dont">Phone number</Label>
+      <Input id="number_dont" name="number_dont" type="number" onChange={() => {}} />
+    </Box>
+  </Dont>
+</DoDont>

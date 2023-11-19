@@ -1,24 +1,34 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {TBodyProps} from './types';
-import {TBodyPropTypes} from './proptypes';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
+import * as React from "react";
 
-const TBody = React.forwardRef<HTMLTableSectionElement, TBodyProps>(({element = 'TBODY', ...props}, ref) => {
-  return (
-    <Box
-      {...safelySpreadBoxProps(props)}
-      ref={ref}
-      as="tbody"
-      backgroundColor="colorBackgroundBody"
-      element={element}
-    />
-  );
-});
+import type { TBodyProps } from "./types";
 
-TBody.displayName = 'TBody';
+const bodyCellStyles: BoxStyleProps = {
+  borderBottomWidth: "borderWidth0",
+};
 
-if (process.env.NODE_ENV === 'development') {
-  TBody.propTypes = TBodyPropTypes;
-}
+const StyledTBody = styled.tbody<TBodyProps>(
+  css({
+    backgroundColor: "colorBackgroundBody",
+    "& > tr:last-of-type > td": bodyCellStyles,
+    "& > tr:last-of-type > th": bodyCellStyles,
+  }),
+);
 
-export {TBody};
+const TBody = React.forwardRef<HTMLTableSectionElement, TBodyProps>(
+  ({ element = "TBODY", children, ...props }, ref) => {
+    /* eslint-disable @typescript-eslint/no-explicit-any */
+    return (
+      <Box as={StyledTBody as any} {...safelySpreadBoxProps(props)} ref={ref} element={element} color="colorText">
+        {children}
+      </Box>
+    );
+    /* eslint-enable @typescript-eslint/no-explicit-any */
+  },
+);
+
+TBody.displayName = "TBody";
+
+export { TBody };

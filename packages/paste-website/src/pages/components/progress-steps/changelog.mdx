@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Progress Steps',
+  package: '@twilio-paste/progress-steps',
+  description: 'Progress Steps show a user a clear path to complete a complex multi-step task.',
+  slug: '/components/progress-steps/changelog',
+};
+
+import Changelog from '@twilio-paste/progress-steps/CHANGELOG.md';
+import packageJson from '@twilio-paste/progress-steps/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Progress Steps');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/progress-steps',
+        storybookUrl: '/?path=/story/components-progress-steps-horizontal--divs',
+      },
+    },
+  };
+};
+
+<Changelog />

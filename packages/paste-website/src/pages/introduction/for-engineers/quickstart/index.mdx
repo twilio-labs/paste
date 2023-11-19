@@ -1,35 +1,30 @@
----
-title: Quick Start for Paste
-description: Instructions to create a new Paste project.
-slug: /introduction/for-engineers/quickstart/
----
+export const meta = {
+  title: 'Quick Start for Paste',
+  description: 'Instructions to create a new Paste project.',
+  slug: '/introduction/for-engineers/quickstart/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Paragraph} from '@twilio-paste/paragraph';
-import {Callout, CalloutText} from '../../../../components/callout';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/introduction/for-engineers/quickstart/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 </content>
 
@@ -37,11 +32,11 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
-The quickest way to get started with Paste is to bootstrap a new React app using one of our templates for popular React frameworks, [Next.js](https://nextjs.org/) and [Create React App](https://create-react-app.dev/). Both approaches will create a new React app with Paste installed and ready for development.
+The quickest way to get started with Paste is to bootstrap a new React app using our template for [Next.js](https://nextjs.org/). This will create a new React app with Paste installed and ready for development.
 
 ## Create an App
 
@@ -55,8 +50,8 @@ Paste has a pre-made template for `create-next-app` that comes with `@twilio-pas
 
 To create a new `create-next-app` app using the Paste template execute the following commands:
 
-```shell
-yarn create next-app --example https://github.com/twilio-labs/paste/tree/main/packages/paste-nextjs-template my-paste-app
+```bash
+yarn create next-app --example https://github.com/twilio-labs/paste/tree/main/templates/paste-nextjs-template my-paste-app
 cd my-paste-app
 yarn dev
 ```
@@ -65,7 +60,7 @@ This starts your project in development mode and it can be seen at `http://local
 
 When you create the project, Paste is used in 2 files:
 
-- `pages/_app.tsx`: creates a `MyApp` component, which wraps all pages. This is where the Paste [`<Theme.Provider>`](/core/theme-package#theme-provider) is added which enables any child component to use tokens.
+- `pages/_app.tsx`: creates a `MyApp` component, which wraps all pages. This is where the Paste [`<Theme.Provider>`](/theme/#theme-provider) is added which enables any child component to use tokens.
 - `pages/index.tsx`: a sample page with Paste components.
 
 #### Scripts
@@ -75,36 +70,6 @@ When you create the project, Paste is used in 2 files:
 - `yarn start`: runs the project in production mode, need to run `yarn build` first
 
 To read more in depth about how `create-next-app` works, check out [their documentation](https://nextjs.org/docs/api-reference/create-next-app).
-
-### Using create-react-app
-
-[`create-react-app`](https://create-react-app.dev/) initializes a new React project with minimal configuration.
-
-Paste has a pre-made template for `create-react-app` that comes with `@twilio-paste/core` and `@twilio-paste/icons` as dependencies and uses TypeScript.
-
-To create a new `create-react-app` app using the Paste template execute the following command:
-
-```shell
-yarn create react-app --template @twilio-paste my-paste-app
-cd my-paste-app
-yarn start
-```
-
-This starts your project in development mode and it can be seen at `http://localhost:3000`.
-
-When you create the project, Paste is used in a few places:
-
-- `src/App.tsx`: creates an `App` component, which wraps all pages. This is where the Paste [`<Theme.Provider>`](/core/theme-package#theme-provider) is added which enables any child component to use tokens.
-- `src/components`: a directory with 2 sample components that use Paste components.
-- `src/pages/`: a directory with 3 sample pages that use Paste components.
-
-#### Scripts
-
-- `yarn start`: runs project in development mode, with hot reloading
-- `yarn build`: creates a production build of the project
-- `yarn test`: runs tests in watcher mode
-
-To read more in depth about how `create-react-app` works, check out [their documentation](https://create-react-app.dev/docs/getting-started/).
 
 ## Usage
 
@@ -138,7 +103,7 @@ const Component = () => (
 );
 ```
 
-For more information about our icon system, checkout our [usage guide here](/components/icons/usage-guidelines).
+For more information about our icon system, checkout our [usage guide here](/components/icon/usage-guidelines).
 
 </content>
 

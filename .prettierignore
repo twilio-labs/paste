@@ -1,14 +1,23 @@
+**/*.ts
+**/*.tsx
+**/*.js
+**/*.jsx
+**/*.json
+**/*.jsonc
+**/*.css
+**/*.md
+**/*.mdx
+
 node_modules
 bower_components
-lib
 dist
 bin
 __testfixtures__
 
+packages/paste-design-tokens/docs
 packages/paste-icons/cjs
 packages/paste-icons/esm
 packages/paste-icons/json
-packages/paste-website/public
 packages/paste-theme-designer/public/
 .cache
 .next
@@ -18,3 +27,6 @@ tsconfig.build.tsbuildinfo
 **/*.d.ts
 .codesandbox/ci.json
 build.icon-list.js
+
+**/*.hbs
+apps/backend/supabase/schema.gen.ts

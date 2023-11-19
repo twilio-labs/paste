@@ -1,75 +1,57 @@
----
-title: Button
-package: '@twilio-paste/button'
-description: A Button communicates that users can trigger an action.
-slug: /components/button/
----
+export const meta = {
+  title: 'Button',
+  package: '@twilio-paste/button',
+  description: 'A Button is a clickable element which communicates that users can trigger an action.',
+  slug: '/components/button/',
+};
 
-import {graphql} from 'gatsby';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
-import Changelog from '@twilio-paste/button/CHANGELOG.md';
+import {Box} from '@twilio-paste/box';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import {BoldIcon} from '@twilio-paste/icons/esm/BoldIcon';
+import {PauseIcon} from '@twilio-paste/icons/esm/PauseIcon';
+import {PlayIcon} from '@twilio-paste/icons/esm/PlayIcon';
+import {ArrowDownIcon} from '@twilio-paste/icons/esm/ArrowDownIcon';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {ToggleExample} from '../../../component-examples/ButtonExamples';
+import packageJson from '@twilio-paste/button/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/button"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/button/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Button"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/Button"
-  storybookUrl="/?path=/story/components-Button--primary-Button"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Button');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/button',
+        storybookUrl: '/?path=/story/components-Button--',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Button}} language="jsx">
+  {`<Button variant="primary">
+  ✊ Action
+</Button>`}
+</LivePreview>
 
 ## Guidelines
 
@@ -82,8 +64,8 @@ a Button include:
 - Closing a modal
 - Moving to the next step in a flow
 
-A Button can contain an icon and/or text. See Composing a Button below
-for more detailed guidelines.
+A Button can contain an icon and/or text. See [Icon Buttons](#icon-buttons)
+for detailed guidelines.
 
 #### Button vs. Anchor (Link)
 
@@ -128,7 +110,7 @@ screen readers and dictation software. Here are some quick tips:
   make sure the Button text also indicates the action is destructive
 - Use anchors that look like Buttons sparingly. Voice dictation users may encounter issues when trying to activate them. A user may say, “Click the read more Button”, but the dictation software won’t respond since it can’t tell what the anchor looks like visually. Use an alternative where possible, such as an anchor with an icon or with a larger font size.
 
-### Examples
+## Examples
 
 <LivePreview scope={{Button, Stack, PlusIcon}} language="jsx">
   {`<Stack orientation="horizontal" spacing="space30">
@@ -167,7 +149,7 @@ screen readers and dictation software. Here are some quick tips:
 </Stack>`}
 </LivePreview>
 
-#### Primary Button
+### Primary Button
 
 Use a primary Button to indicate the most prominent action a customer would
 make on a screen. It should be a safe and if possible, reversible action
@@ -182,7 +164,7 @@ distracting.
 </Button>`}
 </LivePreview>
 
-#### Secondary Button
+### Secondary Button
 
 The secondary Button is the most frequently used Button.
 
@@ -196,7 +178,7 @@ possible, reversible action without much cost.
 </Button>`}
 </LivePreview>
 
-#### Destructive secondary Button
+### Destructive secondary Button
 
 A destructive secondary Button indicates a destructive action, such as “Delete” or
 “Remove”, that might be difficult to reverse. If possible, give users
@@ -208,7 +190,7 @@ the ability to undo the action, or at least, confirm the action.
 </Button>`}
 </LivePreview>
 
-#### Destructive Button
+### Destructive Button
 
 Use a destructive primary Button for the most prominent action a customer would make on a
 screen if that action is destructive and could be difficult to reverse.
@@ -219,12 +201,12 @@ screen if that action is destructive and could be difficult to reverse.
 </Button>`}
 </LivePreview>
 
-#### Link-style Button
+### Link-style Button
 
 Use Link-style Buttons when other types of Buttons may be too distracting.
 
-<Callout>
-  <CalloutTitle as="h4">Accessibility insight</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
   <CalloutText>
     To reiterate, be mindful when choosing this variant as dictation software users may experience usability issues.
     Read the guidelines first.
@@ -240,10 +222,26 @@ Use Link-style Buttons when other types of Buttons may be too distracting.
 </Stack>`}
 </LivePreview>
 
-#### Buttons with link functionality
+### Toggle Button
 
-<Callout>
-  <CalloutTitle as="h4">Accessibility insight</CalloutTitle>
+To make a Toggle Button, set the `pressed` attribute to either `true` or `false`. The variant must be either `secondary`, `secondary_icon`, or `destructive_secondary`.
+
+Use a Toggle Button when the button controls a binary state. It can contain text or an icon.
+
+Toggle Buttons use the `aria-pressed` attribute and color to communicate the state of the button. The icon can change based on the state, but the text should not. For example, if it is a follow button, the text should not change from "follow" to "unfollow" when the user clicks it.
+
+<LivePreview
+  scope={{Button, Box, CheckboxCheckIcon, BoldIcon, ScreenReaderOnly, PlayIcon, PauseIcon, PlusIcon}}
+  language="jsx"
+  noInline
+>
+  {ToggleExample}
+</LivePreview>
+
+### Buttons with link functionality
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility insight</CalloutHeading>
   <CalloutText>
     To reiterate, be mindful when choosing this variant as dictation software users may experience usability issues.
     Read the guidelines first.
@@ -270,7 +268,7 @@ To create a Button-styled anchor, use the Button component and add the `as="a"` 
 </Stack>`}
 </LivePreview>
 
-#### Small Button
+### Small Button
 
 Use small Buttons sparingly, only when needed for vertical density.
 Guidelines for using variants in small Buttons are the same as in
@@ -293,7 +291,30 @@ their default size.
 </Stack>`}
 </LivePreview>
 
-#### Reset Button styles
+### Rounded Small Button
+
+Use rounded small Buttons sparingly, only when needed for vertical density and visual differentiation. Guidelines for using variants in rounded small Buttons are the same as in
+their default size.
+
+<LivePreview scope={{Button, ArrowDownIcon, Stack}} language="jsx">
+  {`<Stack orientation="horizontal" spacing="space30">
+  <Button variant="primary" size="rounded_small">
+    New messages
+    <ArrowDownIcon decorative />
+  </Button>
+  <Button variant="secondary" size="rounded_small">
+    5 Unread messages
+  </Button>
+  <Button variant="destructive" size="rounded_small">
+    End chat
+  </Button>
+  <Button variant="destructive_secondary" size="rounded_small">
+    Kick chat participant
+  </Button>
+</Stack>`}
+</LivePreview>
+
+### Reset Button styles
 
 The reset Button is basically a primitive Button. The Button styles are
 reset, so styles won't interfere with any child elements. This allows you to
@@ -306,13 +327,13 @@ styles. No other Button functionality is reset.
 </Button>`}
 </LivePreview>
 
-#### Icon Buttons
+### Icon Buttons
 
 Use primary icon, secondary icon, and destructive icon Button variants for buttons
 that, for a specific reason and purpose, can only have an icon in them, such as in
 compact UI situations. These variants do not have any border nor background color.
 When using these variants, use `size="reset"` in the Button component to remove
-any unnecessary padding. To change the size of an icon button, change the size of the Icon component itself.
+any unnecessary padding. To change the size of an icon button, [change the size of the Icon component](/components/icon/usage-guidelines#resizing-icons) itself.
 
 Use an icon that can only convey a single action.
 
@@ -365,7 +386,50 @@ Use icon-only Buttons sparingly. If there is any text in a button, do not use th
 </Stack>`}
 </LivePreview>
 
-#### Internationalization
+### Circle Buttons
+
+You can create circle Buttons from variants that have background colors and borders,
+like primary and secondary, by using that variant and changing the size of the Button
+component to `size="circle"` or `size="circle_small"`.
+
+Like icon buttons, circle buttons can only have an icon in them.
+To change the size of the Button, change [the size of the Icon component](/components/icon/usage-guidelines#resizing-icons) itself.
+
+Use an icon that can only convey a single action.
+
+Use circular icon-only Buttons sparingly. If there is any text in a button, do not use a circle button.
+
+<LivePreview scope={{Button, Stack, PlusIcon, MinusIcon, CloseIcon}} language="jsx">
+  {`
+<Stack orientation="horizontal" spacing="space60">
+  <Button variant="primary" size="circle">
+    <PlusIcon decorative={false} title="Add to cart" />
+  </Button>
+  <Button variant="secondary" size="circle">
+    <PlusIcon decorative={false} title="Add to cart" />
+  </Button>
+  <Button variant="destructive" size="circle">
+    <PlusIcon decorative={false} title="Add to cart" />
+  </Button>
+  <Button variant="destructive_secondary" size="circle">
+    <PlusIcon decorative={false} title="Add to cart" />
+  </Button>
+  <Button variant="primary" size="circle_small">
+    <PlusIcon decorative={false} title="Add to cart" />
+  </Button>
+  <Button variant="secondary" size="circle_small">
+    <PlusIcon decorative={false} title="Add to cart" />
+  </Button>
+  <Button variant="destructive" size="circle_small">
+    <PlusIcon decorative={false} title="Add to cart" />
+  </Button>
+  <Button variant="destructive_secondary" size="circle_small">
+    <PlusIcon decorative={false} title="Add to cart" />
+  </Button>
+</Stack>`}
+</LivePreview>
+
+### Internationalization
 
 To internationalize a Button, simply pass different text as the children. If the Button is an anchor with an external link, you need to also pass the `i18nExternalLinkLabel` prop, with the value wrapped in parentheses. The value should be a translation of the phrase "link takes you to an external page", to indicate that the `showExternal` link will open the link in a new URL.
 
@@ -380,9 +444,9 @@ To internationalize a Button, simply pass different text as the children. If the
 </Button>`}
 </LivePreview>
 
-### States
+## States
 
-#### Loading
+### Loading
 
 Use the loading state if the action doesn’t happen instantly.
 The Button is also disabled in this state.
@@ -429,7 +493,7 @@ from completing. Use it when you can’t move the user to the next state.
 </Stack>`}
 </LivePreview>
 
-#### Disabled
+### Disabled
 
 Use the disabled state sparingly.
 
@@ -477,30 +541,23 @@ provide helpful error text after it's pressed.
 </Stack>`}
 </LivePreview>
 
-### Composing a Button
+## Composition notes
 
 In most cases, you’ll use a text-only Button.
 
 Button text should:
 
-- Use sentence case (“Log in”, not “Log In”)
-- Clearly indicate what’ll happen when a user presses it.
+- Use sentence case ("Sign up now", not "Sign Up Now").
+- Avoid articles ("a", "the").
+- Clearly indicate what will happen when a user selects it.
 - Start with a verb, except for a common action like “Done.”
 - Be concise without sacrificing clarity and user confidence.
 
-Pair text with an icon only if the icon clarifies the meaning of
-the Button. Use no more than one icon before text and one icon after text.
+In general, align Buttons to the direction of the text (for example, left-aligned in English) for easy scannability. When moving customers through a sequence, place the primary Button in the direction of the movement (e.g., a “Next” Button goes on the right in an English-language flow).
 
-### When to use a Button
+Pair text with an icon only if the icon clarifies the meaning of the Button. Use no more than one icon before text and one icon after text.
 
-Use a Button to indicate that users can trigger an action.
-
-In general, align Buttons to the direction of the text (_e.g._,
-left-aligned in English) for easy scannability.
-
-When moving customers through a sequence, place the primary Button in
-the direction of the movement (e.g., a “Next” Button goes on the
-right in an English-language flow).
+## Do and don't
 
 <DoDont>
   <Do
@@ -528,59 +585,3 @@ right in an English-language flow).
     preview={false}
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/button - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Button} from '@twilio-paste/core/button';
-
-const Component = () => (
-  <Button variant="secondary" size="small" onClick={() => {}}>
-    Submit
-  </Button>
-);
-```
-
-#### Props
-
-All the valid HTML attributes for `Button` are supported including the following props:
-
-| Prop                   | Type                                     | Description                                                                                                                                                                          | Default                                |
-| ---------------------- | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
-| as?                    | `string`                                 | The HTML tag to replace the default `<button>` tag.                                                                                                                                  | 'button'                               |
-| disabled?              | `boolean`                                | Prevent actions from firing on this Button                                                                                                                                           | false                                  |
-| fullWidth              | `boolean`                                | Sets the Button width to 100% of the parent container.                                                                                                                               | false                                  |
-| href?                  | `string`                                 | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                                          | null                                   |
-| loading?               | `boolean`                                | Prevent actions and show a loading spinner                                                                                                                                           | false                                  |
-| size?                  | `ButtonSizes`                            | 'default', 'small', 'icon', 'icon_small', 'reset'                                                                                                                                    | 'default'                              |
-| type?                  | `ButtonTypes`                            | 'button', 'submit', 'reset'. If the Button is inside a `<form>`: use 'submit'. Otherwise use 'button' (default).                                                                     | 'button'                               |
-| variant?               | `ButtonVariants`                         | 'primary', 'secondary', 'inverse', 'destructive', 'destructive_secondary', 'destructive_link', 'link', 'inverse_link', 'reset', 'primary_icon', 'secondary_icon', 'destructive_icon' | 'primary'                              |
-| i18nExternalLinkLabel? | `string`                                 | Title for `showExternal` icon                                                                                                                                                        | '(link takes you to an external page)' |
-| onClick?               | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseDown?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseUp?             | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseEnter?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onMouseLeave?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onFocus?               | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| onBlur?                | `(event: React.FocusEvent<HTMLElement>)` |                                                                                                                                                                                      | null                                   |
-| element?               | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider                                                                                            | 'BUTTON'                               |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

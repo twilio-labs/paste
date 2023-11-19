@@ -1,0 +1,73 @@
+export const meta = {
+  title: 'Menu - Components',
+  package: '@twilio-paste/menu',
+  description: 'A menu presents a list of menu items that a user can choose to perform an action with.',
+  slug: '/components/menu/api',
+};
+
+import Changelog from '@twilio-paste/menu/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/menu/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Menu');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/menu');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/menu',
+        storybookUrl: '/?path=/story/components-menu--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/menu - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Menu, MenuButton, MenuItem, MenuSeparator, useMenuState} from '@twilio-paste/core/menu';
+import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+
+const PreferencesMenu = () => {
+  const menu = useMenuState();
+  return (
+    <>
+      <MenuButton {...menu} variant="primary">
+        Preferences <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Preferences">
+        <MenuItem {...menu}>Settings</MenuItem>
+        <MenuItem {...menu} disabled>
+          Extensions
+        </MenuItem>
+        <MenuSeparator {...menu} />
+        <MenuItem {...menu}>Keyboard shortcuts</MenuItem>
+      </Menu>
+    </>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

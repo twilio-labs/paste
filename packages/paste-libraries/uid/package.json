@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/uid-library",
-  "version": "0.2.4",
+  "version": "2.0.0",
   "category": "library",
   "status": "production",
   "description": "A library to generate unique IDs for use in user interfaces such as forms.",
@@ -20,19 +20,18 @@
   "scripts": {
     "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
-    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
   "dependencies": {
-    "react-uid": "2.3.1"
+    "react-uid": "2.3.3"
   },
   "peerDependencies": {
-    "react": "^16.8.6 || ^17.0.2",
-    "react-dom": "^16.8.6 || ^17.0.2"
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

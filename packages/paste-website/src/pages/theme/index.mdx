@@ -1,0 +1,189 @@
+export const meta = {
+  title: 'Theme Package',
+  package: '@twilio-paste/theme',
+  description:
+    'The Paste Theme Package allows easy and simple access to the design tokens via a theme provider to React components',
+  slug: '/theme',
+};
+
+import {Box} from '@twilio-paste/box';
+import Changelog from '@twilio-paste/theme/CHANGELOG.md';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay.tsx';
+import {SidebarCategoryRoutes} from '../../constants';
+import packageJson from '@twilio-paste/theme/package.json';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      data: {
+        ...packageJson,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.THEME}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-theme"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+This package allows for straight-forward access to Paste design tokens via a Theme Provider to React components. By using this package, you can express your UIs with each of our supported themes, and get their associated token values.
+
+For more information about how Paste is built and where themes fit into that hierarchy, read [About Paste](/introduction/about-paste#whats-a-design-system).
+
+## Theme
+
+Paste components are built using our Styling Library, which currently wraps [Emotion](https://emotion.sh/) and
+[Styled System](https://styled-system.com). Our Styling Library provide a **Theme object** containing our
+design tokens. This enables our components to be themed, and also provide styling properties to some of
+our design primtive components like `Box` and `Text`. The theme object is grouped by categories,
+and within each category a camelCase key represents a design token name. To see our supported themes
+and their values, check out the [Token List](/tokens/list/) page.
+
+For example: If you were looking for token `$color-background-success`, you would see it listed on key `backgroundColors` as `colorBackgroundSuccess` i.e. `theme.backgroundColors.colorBackgroundSuccess`.
+
+The shape of the Theme object currently looks like this:
+
+<ThemeObjectDisplay />
+
+## Theme Provider
+
+The Paste `ThemeProvider` leverages React's [Context](https://reactjs.org/docs/context.html) to provide
+the theme object to any descendant components in the tree. For that reason, we recommend wrapping your
+application at the root level with the Paste `ThemeProvider`. This allows all sub-components to retrieve
+the correct token value for the supplied theme.
+
+```javascript
+import {Theme} from '@twilio-paste/theme';
+
+<Theme.Provider theme="default">
+  <App />
+</Theme.Provider>;
+```
+
+### Props
+
+| Prop               | Type     | Description                                                                               | Default           |
+| ------------------ | -------- | ----------------------------------------------------------------------------------------- | ----------------- |
+| theme?             | enum     | 'default', 'dark', 'twilio', 'twilio-dark' and 'evergreen'                                | 'default'         |
+| customBreakpoints? | string[] | An optional array of string values for custom screen sizes in the usual CSS width formats | theme.breakpoints |
+
+### Choosing a theme
+
+Paste includes a number of themes out of the box. Choosing the right one for your project will depend on who you are and what you are building.
+
+| Theme       | When to use                                                                            |
+| ----------- | -------------------------------------------------------------------------------------- |
+| Default     | If you are not building an application for Twilio, use this theme                      |
+| Dark        | If you are not building an application for Twilio and want a dark mode, use this theme |
+| Twilio      | If you are building an application for Twilio, use this theme                          |
+| Twilio Dark | If you are building an application for Twilio and want a dark mode, use this theme     |
+| Evergreen   | If you are building an application for Segment, use this theme                         |
+
+## Using tokens in custom components
+
+Sometimes you will need to create something custom that is not available in Paste but you need that component to still look like it's from Paste. The use of Paste Tokens in your styles is the way that you can access global design properties used in all Paste Components.
+
+### Styled Component
+
+By using the `Theme.Provider`, when you create a custom component using Styling-Library, the theme object is available on `props` via context. You can access those via the [`css` utility](https://github.com/styled-system/styled-system/blob/master/packages/css/README.md) or props object directly.
+
+This is the preferred method.
+
+```javascript
+import {styled, css} from '@twilio-paste/styling-library';
+
+const custom = styled.div(
+  css({
+    backgroundColor: 'colorBackgroundPrimary',
+    padding: 'spacing20',
+  })
+);
+```
+
+### Alternatives when not using Emotion
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Careful!</CalloutHeading>
+  <CalloutText>
+    This is not a recommended approach for using Tokens. If you must do so, we strongly recommend reaching out at{' '}
+    <em>#help-design-system</em>
+  </CalloutText>
+</Callout>
+
+If you are not using Styled Components or want to access the values of tokens in your React components outside of styling, there are three ways this can be achieved.
+
+#### Paste ThemeConsumer
+
+Paste Theme provides `Theme.Consumer` - a React Context Consumer for the theme. It takes a function as a child, which provides the theme object as an argument.
+
+```javascript
+import {Theme} from '@twilio-paste/theme';
+
+<Theme.Consumer>
+  {({theme}) => {
+    return <p>What is the default text color {theme.textColors.colorText}</p>;
+  }}
+</Theme.Consumer>;
+```
+
+#### Paste useTheme Hook
+
+Paste Theme provides a React Hook called `useTheme` which returns the theme object from the React Context via the Theme Provider.
+
+```javascript
+import React from 'react';
+import {useTheme} from '@twilio-paste/theme';
+
+const HookExampleComponent = (): React.ReactElement => {
+  const theme = useTheme();
+  return <p>What is the default text color {theme.textColors.colorText}</p>;
+};
+```
+
+### Higher Order Component (HoC)
+
+Paste also provides a HoC to be able to access the theme object.
+
+```javascript
+import React from 'react';
+import {withTheme} from '@twilio-paste/theme';
+
+const ExampleComponent = ({theme}) => <p>What is the default text color {theme.textColors.colorText}</p>;
+
+// Provides this component with the theme object as a prop
+const ExampleComponentwithTheme = withTheme(ExampleComponent);
+```
+
+## Give us Feedback on this Page
+
+As you use Paste, you'll likely encounter things that _don't seem right_. Please reach out with your feedback! Here's some prompts to consider:
+
+- Is this page easy for me to consume?
+- Is the information supporting it sufficient / well-described?
+- What information is missing?
+- How approachable is the documentation? Can a new engineer / PM / designer at Twilio get started with it easily?
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

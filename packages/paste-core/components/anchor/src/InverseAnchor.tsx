@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {AnchorPropTypes} from './proptypes';
-import type {AnchorProps} from './types';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
+
+import type { AnchorProps } from "./types";
 
 const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, ref) => (
   <Box
@@ -15,27 +15,23 @@ const InverseAnchor = React.forwardRef<HTMLAnchorElement, AnchorProps>((props, r
     ref={ref}
     textDecoration="underline"
     _active={{
-      color: 'colorTextInverse',
-      textDecoration: 'none',
+      color: "colorTextInverse",
+      textDecoration: "none",
     }}
     _focus={{
-      boxShadow: 'shadowFocusInverse',
-      color: 'colorTextInverse',
-      textDecoration: 'none',
+      boxShadow: "shadowFocusInverse",
+      color: "colorTextInverse",
+      textDecoration: "underline",
     }}
     _hover={{
-      color: 'colorTextInverse',
-      textDecoration: 'none',
+      color: "colorTextInverse",
+      textDecoration: "none",
     }}
   >
     {props.children}
   </Box>
 ));
 
-InverseAnchor.displayName = 'InverseAnchor';
+InverseAnchor.displayName = "InverseAnchor";
 
-if (process.env.NODE_ENV === 'development') {
-  InverseAnchor.propTypes = AnchorPropTypes;
-}
-
-export {InverseAnchor};
+export { InverseAnchor };

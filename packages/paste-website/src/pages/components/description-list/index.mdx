@@ -1,0 +1,215 @@
+export const meta = {
+  title: 'Description List',
+  package: '@twilio-paste/description-list',
+  description: 'A Description List is a set or sets of terms and their definitions, or details, used to display data.',
+  slug: '/components/description-list/',
+};
+
+import {Card} from '@twilio-paste/card';
+import {Box} from '@twilio-paste/box';
+import {
+  DescriptionList,
+  DescriptionListSet,
+  DescriptionListTerm,
+  DescriptionListDetails,
+} from '@twilio-paste/description-list';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
+import {ProcessErrorIcon} from '@twilio-paste/icons/esm/ProcessErrorIcon';
+import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
+import {Text} from '@twilio-paste/text';
+
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {Codeblock} from '../../../components/codeblock';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  basicDescriptionList,
+  descriptionListWithStatusIcon,
+  descriptionListWithMultipleTerms,
+  descriptionListWithMultipleDetails,
+  descriptionListWithEmptyState,
+} from '../../../component-examples/DescriptionListExamples.ts';
+import packageJson from '@twilio-paste/description-list/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Description List');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/description-list',
+        storybookUrl: '/?path=/story/components-description-list--default',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails, Card}} noInline>
+  {basicDescriptionList}
+</LivePreview>
+
+## Guidelines
+
+<Paragraph>{meta.description}</Paragraph>
+
+### About Description List
+
+The Description List package consists of `DescriptionList` itself, plus `DescriptionListSet`, `DescriptionListTerm`, and `DescriptionListDetails`. The `DescriptionList` should wrap the other elements, and its children should always follow the order of term, details, term, details, each of the term-details pairs inside of a set. It's okay for multiple terms to correlate to a single detail, and for multiple details to correlate to a single term. As long as they're in the proper order, and nested inside of their unique sets, the term-details association will be clear. If you have a term without details, be sure to include either the empty state of the details tag (`<DescriptionListDetails />`) or a symbol to indicate the empty state such as `-`.
+
+#### Accessibility
+
+Description List is a `<dl>`, Description List Term is a `<dt>`, and Description List Details is a `<dd>`. Assistive technology isn't perfect when it comes to reading Description Lists. In order to best support screen readers and other ATs, be sure to follow best practices for building accessible Description Lists. They must only contain properly-ordered Description Terms and Description Details. If the children are out of order, the screen readers will have trouble conveying the intended meaning to the user.
+
+If any of your terms are missing details, or vice versa, be sure to still include the empty tag. This will communicate to ATs that the value is empty, rather than assuming it's paired with the next existing term/details. If, in your Description List, you have a term with 2 details, or 2 terms that apply to the same detail, list them in order and don't include empty tags to follow the term-details pattern. [See the examples below](#examples) for more guidance.
+
+## Examples
+
+### Basic Description List
+
+Use a basic Description List for conveying small, static bits of data.
+
+<LivePreview
+  scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails}}
+  language="jsx"
+  noInline
+>
+  {basicDescriptionList}
+</LivePreview>
+
+### Description List with Icon
+
+The Description List can be used with [Status Pattern](/patterns/status).
+
+<LivePreview
+  scope={{
+    DescriptionList,
+    DescriptionListSet,
+    DescriptionListTerm,
+    DescriptionListDetails,
+    ProcessSuccessIcon,
+    ProcessErrorIcon,
+    ProcessInProgressIcon,
+    Text,
+    Box,
+  }}
+  language="jsx"
+  noInline
+>
+  {descriptionListWithStatusIcon}
+</LivePreview>
+
+### Description List with multiple Terms
+
+Sometimes you'll need to pair multiple terms with a single detail. Use this example for guidance.
+
+<LivePreview
+  scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails}}
+  language="jsx"
+  noInline
+>
+  {descriptionListWithMultipleTerms}
+</LivePreview>
+
+### Description List with multiple Details
+
+Sometimes you'll need to pair multiple details with a single term. Use this example for guidance.
+
+<LivePreview
+  scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails}}
+  language="jsx"
+  noInline
+>
+  {descriptionListWithMultipleDetails}
+</LivePreview>
+
+### Description List with empty state
+
+If one of your details is missing, indicate the empty state by using an empty tag (`<DescriptionListDetails />`) or using a symbol such as `-`.
+
+<LivePreview
+  scope={{DescriptionList, DescriptionListSet, DescriptionListTerm, DescriptionListDetails}}
+  language="jsx"
+  noInline
+>
+  {descriptionListWithEmptyState}
+</LivePreview>
+
+## Composition Notes
+
+Be sure to include text in each term. The content of a term should not be a standalone icon or other visual element.
+
+Terms are paired with details based on their order within the Description List. If a Description List Term has an empty Description List Details, be sure to still include an empty details tag or a `-` to signify the empty state. In the example below, the email address value is paired with both terms - Phone Number and Email.
+
+<Card>
+  <Codeblock>
+    {`
+<DescriptionList>
+  <DescriptionListSet>
+    <DescriptionListTerm>Phone Number</DescriptionListTerm>
+    <DescriptionListTerm>Email</DescriptionListTerm>
+    <DescriptionListDetails>twilion@twilio.com</DescriptionListDetails>
+  </DescriptionListSet>
+</DescriptionList>
+`}
+  </Codeblock>
+</Card>
+<br />
+
+Instead, include an empty tag (or a symbol, such as `-`) to signify the empty state of a given term, and separate out the sets:
+
+<Card>
+  <Codeblock>
+    {`
+<DescriptionList>
+  <DescriptionListSet>
+    <DescriptionListTerm>Phone Number</DescriptionListTerm>
+    <DescriptionListDetails />
+  </DescriptionListSet>
+  <DescriptionListSet>
+    <DescriptionListTerm>Email</DescriptionListTerm>
+    <DescriptionListDetails>twilion@twilio.com</DescriptionListDetails>
+  </DescriptionListSet>
+</DescriptionList>
+`}
+  </Codeblock>
+</Card>
+<br />
+
+### When to use Description List
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a <DescriptionListSet> to wrap your set of Term and Details within the Description List for extra separation and control."
+    center
+  />
+  <Dont
+    title="Don't"
+    body="Don't use any other type of HTML element as children of the Description List (besides DescriptionListSet, DescriptionListTerm, DescriptionListDetails, or <div>)."
+    center
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Description List for small amounts of data." />
+  <Dont
+    title="Don't"
+    body="Don't use for interactive data, form controls, or data sets. Consider using Table or Data Grid, especially if you want columns or column headers."
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use flow content as children to Description Term and Description Details." />
+  <Dont title="Don't" body="Don’t use headers or footers as children to Description Term or Description Details." />
+</DoDont>

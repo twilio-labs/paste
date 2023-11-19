@@ -1,0 +1,88 @@
+export const meta = {
+  title: 'Changing the Theme',
+  description: 'When using Paste, swapping to a different theme is simple and quick.',
+  slug: '/theme/changing-theme',
+};
+
+import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.THEME} />
+
+---
+
+ <contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Update the theme provider
+
+The `<Theme.Provider>` is a wrapper component that provides a theme object to any descendant. It is usually placed at or near the root of your app.
+
+```jsx
+import {Theme} from '@twilio-paste/theme';
+
+<Theme.Provider theme="default">
+  <App />
+</Theme.Provider>;
+```
+
+To change the theme, simply change the value of the `theme` prop on the `Theme.Provider`. If you are using Paste components correctly and only using the tokens to style your app, the `<Theme.Provider>` handles (almost) everything for you.
+
+## Load the font
+
+**For the default theme:** the best way to load the fonts is to include the following snippet in the `<head />` of your app.
+
+```html
+<link rel="preconnect" href="https://assets.twilio.com" crossorigin />
+<link rel="stylesheet" href="https://assets.twilio.com/public_assets/paste-fonts/1.5.1/fonts.css" />
+```
+
+Alternatively, Paste will automatically load the default theme's font via JavaScript. **Note:** this will result in slower download times than including the fonts in the `<head />`.
+
+**For other themes, see our [manual installation page](/introduction/for-engineers/manual-installation/#how-to-load-the-right-font) for more information.**
+
+## FAQs
+
+### Some of my styles look broken!
+
+There are a few places that can cause styling bugs:
+
+- Check if there's more than one `<Theme.Provider>` and update of all of them, or the remove extra ones if they are unnecessary.
+- Make sure you aren't overriding any Paste component styles with CSS classes or selectors. The `<Theme.Provider>` cannot access these styles, so they do not get updated.
+- Also check that you are using Paste tokens when styling custom components. See our [guidelines for theming custom components](/theme/#using-tokens-in-custom-components) for more information.
+
+### What if I'm using a custom theme?
+
+If you are using a custom theme, you can update the base theme similarly to how you update a normal theme. Find the `<Customization.Provider>` that wraps your app and change the `baseTheme` prop. See the [customization documentation](/customization/customization-provider/) for more information.
+
+```jsx
+import {Customization} from '@twilio-paste/core/customization';
+
+<Customization.Provider baseTheme="default">
+  <App />
+</Customization.Provider>;
+```
+
+### How do I change themes in Figma?
+
+The main Paste Components Figma library includes variables in our most-used themes as modes. Check out [Figma's documentation on switching modes](https://help.figma.com/hc/en-us/articles/15343816063383-Modes-for-variables#h_01H3ADKDF7JBTRV1Z5P1X1DZVE) to learn how to swap from the default "Twilio" theme mode to other modes.
+
+As long as every part of your UI (even the white background fill on your frames) is referencing tokens in Figma, swapping between modes will work smoothly. Switching modes won't work for raw hex codes, for example, because Figma won't know what to swap them to.
+
+</content>
+</contentwrapper>

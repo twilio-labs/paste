@@ -1,4 +1,4 @@
-import {MAX_VALUE, MIN_VALUE} from './constants';
+import { MAX_VALUE, MIN_VALUE } from "./constants";
 
 export const clampValueToRange = (computedValue: number): number => {
   if (computedValue > MAX_VALUE) {

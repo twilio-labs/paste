@@ -1,0 +1,398 @@
+export const meta = {
+  title: 'Topbar',
+  package: '@twilio-paste/topbar',
+  description: 'A Topbar contains application-wide controls that rest at the top of the screen.',
+  slug: '/components/topbar/',
+};
+
+import Changelog from '@twilio-paste/topbar/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Topbar, TopbarActions} from '@twilio-paste/topbar';
+import {Menu, MenuItem, MenuButton, MenuGroup, useMenuState, MenuSeparator, MenuBadge} from '@twilio-paste/menu';
+import {
+  StatusMenu,
+  StatusMenuBadge,
+  StatusMenuItemChild,
+  StatusMenuItemRadio,
+  useStatusMenuState,
+} from '@twilio-paste/status';
+import {Badge} from '@twilio-paste/badge';
+import {Box} from '@twilio-paste/box';
+import {Input} from '@twilio-paste/input';
+import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
+import {Combobox} from '@twilio-paste/combobox';
+import {ChevronDownIcon} from '@twilio-paste/icons/esm/ChevronDownIcon';
+import {
+  ProductSwitcher,
+  ProductSwitcherButton,
+  ProductSwitcherItem,
+  useProductSwitcherState,
+} from '@twilio-paste/product-switcher';
+import {ProductDebuggerIcon} from '@twilio-paste/icons/esm/ProductDebuggerIcon';
+import {Button} from '@twilio-paste/button';
+import {Anchor} from '@twilio-paste/anchor';
+import {
+  UserDialog,
+  UserDialogContainer,
+  UserDialogList,
+  UserDialogListItem,
+  UserDialogSeparator,
+  UserDialogUserEmail,
+  UserDialogUserInfo,
+  UserDialogUserName,
+  useUserDialogListState,
+} from '@twilio-paste/user-dialog';
+import {
+  AccountSwitcher,
+  AccountSwitcherBadge,
+  AccountSwitcherGroup,
+  AccountSwitcherItem,
+  AccountSwitcherItemRadio,
+  AccountSwitcherSeparator,
+  useAccountSwitcherState,
+} from '@twilio-paste/account-switcher';
+import {Popover, PopoverButton, PopoverContainer} from '@twilio-paste/popover';
+import {NotificationIcon} from '@twilio-paste/icons/esm/NotificationIcon';
+import {ThemeIcon} from '@twilio-paste/icons/esm/ThemeIcon';
+import {TranslationIcon} from '@twilio-paste/icons/esm/TranslationIcon';
+import {LogOutIcon} from '@twilio-paste/icons/esm/LogOutIcon';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
+import packageJson from '@twilio-paste/topbar/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {
+  basicTopbarExample,
+  flexTopbarExample,
+  consoleTopbarExample,
+  segmentTopbarExample,
+} from '../../../component-examples/TopbarExamples.ts';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Topbar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/topbar',
+        storybookUrl: '/?path=/story/components-topbar--push-default-topbar',
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{
+    Topbar,
+    TopbarActions,
+    Box,
+    Input,
+    Menu,
+    MenuItem,
+    MenuButton,
+    useMenuState,
+    MenuBadge,
+    Badge,
+    ProductSwitcher,
+    ProductSwitcherButton,
+    ProductSwitcherItem,
+    useProductSwitcherState,
+    LogoTwilioIcon,
+    ProductSegmentIcon,
+    ProductFlexIcon,
+    ProductEmailAPIIcon,
+    SearchIcon,
+    StatusMenu,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    StatusMenuItemRadio,
+    useStatusMenuState,
+    SupportIcon,
+    UserDialog,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    UserDialogSeparator,
+    UserDialogUserEmail,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    useUserDialogListState,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    LogOutIcon,
+    ProductDebuggerIcon,
+    Button,
+  }}
+  noInline
+>
+  {basicTopbarExample}
+</LivePreview>
+
+## Guidelines
+
+### Accessibility
+
+- Set a value for `id` to be used with Sidebar skip link functionality. The ID must be a unique string not used elsewhere in the application.
+
+### About Topbar
+
+A Topbar is sticky to the top of the screen and consists of application-wide controls including:
+
+Account-specific controls (aligned to the left) such as:
+
+- [Account Switcher](/components/account-switcher)
+- Account type indicators, such as subaccount [Badges](/components/badge)
+- Possible upgrade actions
+
+User-specific controls (aligned to the right) such as:
+
+- Search [Input](/components/input)
+- Support [Button](/components/button)
+- [Product Switcher](/components/product-switcher)
+- [User Dialog](/components/user-dialog)
+
+Each set of controls should be contained within a `TopbarActions` component, which comes with a `justify` property. You can justify these controls to either the `start` or the `end` of the `Topbar`.
+
+## Examples
+
+<LivePreview
+  scope={{
+    Topbar,
+    TopbarActions,
+    Box,
+    Input,
+    Menu,
+    MenuItem,
+    MenuButton,
+    useMenuState,
+    MenuBadge,
+    Badge,
+    ProductSwitcher,
+    ProductSwitcherButton,
+    ProductSwitcherItem,
+    useProductSwitcherState,
+    LogoTwilioIcon,
+    ProductSegmentIcon,
+    ProductFlexIcon,
+    ProductEmailAPIIcon,
+    SearchIcon,
+    StatusMenu,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    StatusMenuItemRadio,
+    useStatusMenuState,
+    SupportIcon,
+    UserDialog,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    UserDialogSeparator,
+    UserDialogUserEmail,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    useUserDialogListState,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    LogOutIcon,
+    ProductDebuggerIcon,
+    Button,
+  }}
+  noInline
+>
+  {basicTopbarExample}
+</LivePreview>
+
+## Composition notes
+
+### Topbar for Twilio Flex
+
+<LivePreview
+  scope={{
+    Topbar,
+    TopbarActions,
+    Box,
+    Input,
+    Menu,
+    MenuItem,
+    MenuButton,
+    useMenuState,
+    MenuBadge,
+    Badge,
+    ProductSwitcher,
+    ProductSwitcherButton,
+    ProductSwitcherItem,
+    useProductSwitcherState,
+    LogoTwilioIcon,
+    ProductSegmentIcon,
+    ProductFlexIcon,
+    ProductEmailAPIIcon,
+    SearchIcon,
+    StatusMenu,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    StatusMenuItemRadio,
+    useStatusMenuState,
+    SupportIcon,
+    UserDialog,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    UserDialogSeparator,
+    UserDialogUserEmail,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    useUserDialogListState,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    LogOutIcon,
+    ProductDebuggerIcon,
+    Button,
+  }}
+  noInline
+>
+  {flexTopbarExample}
+</LivePreview>
+
+### Topbar for Twilio Console
+
+<LivePreview
+  scope={{
+    Topbar,
+    TopbarActions,
+    Box,
+    Anchor,
+    Input,
+    Menu,
+    MenuItem,
+    MenuButton,
+    useMenuState,
+    MenuBadge,
+    MenuGroup,
+    MenuSeparator,
+    Badge,
+    ProductSwitcher,
+    ProductSwitcherButton,
+    ProductSwitcherItem,
+    useProductSwitcherState,
+    LogoTwilioIcon,
+    ProductSegmentIcon,
+    ProductFlexIcon,
+    ProductEmailAPIIcon,
+    ChevronDownIcon,
+    SearchIcon,
+    StatusMenu,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    StatusMenuItemRadio,
+    useStatusMenuState,
+    SupportIcon,
+    UserDialog,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    UserDialogSeparator,
+    UserDialogUserEmail,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    useUserDialogListState,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    LogOutIcon,
+    ProductDebuggerIcon,
+    Button,
+    AccountSwitcher,
+    AccountSwitcherBadge,
+    AccountSwitcherGroup,
+    AccountSwitcherItem,
+    AccountSwitcherItemRadio,
+    AccountSwitcherSeparator,
+    useAccountSwitcherState,
+    Combobox,
+  }}
+  noInline
+>
+  {consoleTopbarExample}
+</LivePreview>
+
+### Topbar for Twilio Segment
+
+<LivePreview
+  scope={{
+    Topbar,
+    TopbarActions,
+    Box,
+    Anchor,
+    Input,
+    Menu,
+    MenuItem,
+    MenuButton,
+    useMenuState,
+    MenuBadge,
+    MenuGroup,
+    MenuSeparator,
+    Badge,
+    ProductSwitcher,
+    ProductSwitcherButton,
+    ProductSwitcherItem,
+    useProductSwitcherState,
+    LogoTwilioIcon,
+    ProductSegmentIcon,
+    ProductFlexIcon,
+    ProductEmailAPIIcon,
+    ChevronDownIcon,
+    SearchIcon,
+    StatusMenu,
+    StatusMenuBadge,
+    StatusMenuItemChild,
+    StatusMenuItemRadio,
+    useStatusMenuState,
+    SupportIcon,
+    UserDialog,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    UserDialogSeparator,
+    UserDialogUserEmail,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    useUserDialogListState,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    LogOutIcon,
+    ProductDebuggerIcon,
+    Button,
+    AccountSwitcher,
+    AccountSwitcherBadge,
+    AccountSwitcherGroup,
+    AccountSwitcherItem,
+    AccountSwitcherItemRadio,
+    AccountSwitcherSeparator,
+    useAccountSwitcherState,
+    Combobox,
+    Popover,
+    PopoverButton,
+    PopoverContainer,
+    NotificationIcon,
+  }}
+  noInline
+>
+  {segmentTopbarExample}
+</LivePreview>

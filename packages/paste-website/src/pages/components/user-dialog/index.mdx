@@ -1,0 +1,124 @@
+export const meta = {
+  title: 'User Dialog',
+  package: '@twilio-paste/user-dialog',
+  description: 'User dialog is a menu that contains user profile-related actions.',
+  slug: '/components/user-dialog/',
+};
+
+import Changelog from '@twilio-paste/user-dialog/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  useUserDialogState,
+  UserDialog,
+  UserDialogUserInfo,
+  UserDialogUserName,
+  UserDialogUserEmail,
+  UserDialogContainer,
+  UserDialogList,
+  UserDialogListItem,
+  useUserDialogListState,
+  UserDialogSeparator,
+} from '@twilio-paste/user-dialog';
+import {UserIcon} from '@twilio-paste/icons/esm/UserIcon';
+import {ThemeIcon} from '@twilio-paste/icons/esm/ThemeIcon';
+import {TranslationIcon} from '@twilio-paste/icons/esm/TranslationIcon';
+import {Badge} from '@twilio-paste/badge';
+import {Box} from '@twilio-paste/box';
+import {useUID} from '@twilio-paste/uid-library';
+import packageJson from '@twilio-paste/user-dialog/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {defaultUserDialogExample, imageUserDialogExample} from '../../../component-examples/UserDialogExamples.ts';
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('User Dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/user-dialog',
+        storybookUrl: '/?path=/story/components-user-dialog--basic-user-dialog',
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{
+    UserDialog,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    UserDialogUserEmail,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    useUserDialogListState,
+    UserDialogSeparator,
+    useUID,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    Box,
+    Badge,
+  }}
+  noInline
+  showOverflow
+>
+  {defaultUserDialogExample}
+</LivePreview>
+
+## Guidelines
+
+### About User Dialog
+
+A User Dialog is a composition of [Avatar](/components/avatar), [Button](/components/button), the [Non-Modal Dialog primitive](/primitives/non-modal-dialog-primitive), and the [Listbox primitive](/primitives/listbox-primitive) that opens a dialog of profile-related actions. These actions can include visiting a user settings page, switching the language of a product, or logging out.
+
+### Accessibility
+
+When the user is focused on the User Dialog Button, enter and space open the menu.
+
+When the user is focused on a list item, the following keyboard interactions apply:
+
+- Enter and space select the current menu item
+- Up and down arrows move the user between the menu items
+- Disabled menu items and separators are never focused
+
+## Examples
+
+Use a User Dialog to display actions that a user can trigger related to their profile. Add separators to group menu items.
+
+User Dialog works similarly to [Avatar](/components/avatar), in that you may use either initials, an image, or a [Paste Icon](/components/icon) to represent the user. Pass `name`/`src`/`icon` to UserDialogContainer.
+
+In order to use links as options for the UserDialogList items, provide the `href` prop to the UserDialogListItem.
+
+<LivePreview
+  scope={{
+    useUserDialogState,
+    UserDialog,
+    UserDialogUserInfo,
+    UserDialogUserName,
+    UserDialogUserEmail,
+    UserDialogContainer,
+    UserDialogList,
+    UserDialogListItem,
+    useUserDialogListState,
+    UserDialogSeparator,
+    useUID,
+    UserIcon,
+    ThemeIcon,
+    TranslationIcon,
+    Box,
+    Badge,
+  }}
+  noInline
+>
+  {imageUserDialogExample}
+</LivePreview>

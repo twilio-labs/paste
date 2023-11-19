@@ -1,0 +1,183 @@
+export const meta = {
+  title: 'Minimizable Dialog',
+  package: '@twilio-paste/minimizable-dialog',
+  description: 'An accessible, non-modal dialog that can be minimized to the bottom of the page.',
+  slug: '/components/minimizable-dialog/',
+};
+
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {ChatIcon} from '@twilio-paste/icons/esm/ChatIcon';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {Heading} from '@twilio-paste/heading';
+import {Input} from '@twilio-paste/input';
+import {Label} from '@twilio-paste/label';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {TextArea} from '@twilio-paste/textarea';
+import {Anchor} from '@twilio-paste/anchor';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {
+  MinimizableDialog,
+  MinimizableDialogButton,
+  MinimizableDialogHeader,
+  MinimizableDialogContainer,
+  MinimizableDialogContent,
+  useMinimizableDialogState,
+} from '@twilio-paste/minimizable-dialog';
+import Changelog from '@twilio-paste/minimizable-dialog/CHANGELOG.md';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultExample,
+  minimizableDialogButtonExample,
+  hookExample,
+} from '../../../component-examples/MinimizableDialogExamples';
+import packageJson from '@twilio-paste/minimizable-dialog/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Minimizable Dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/minimizable-dialog',
+        storybookUrl: '/?path=/story/components-minimizable-dialog--default-for-vrt',
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{
+    MinimizableDialog,
+    MinimizableDialogButton,
+    MinimizableDialogHeader,
+    MinimizableDialogContainer,
+    MinimizableDialogContent,
+    Heading,
+    Input,
+    Label,
+    TextArea,
+    Paragraph,
+    ChatIcon,
+    Button,
+    Box,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
+## Guidelines
+
+### About Minimizable Dialog
+
+The Minimizable Dialog component is a non-modal dialog that can be minimized to the bottom right of the page. It is meant for situations like a chat dialog, where the user may start the chat and then want to minimize it while they complete other tasks on the page.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Only use one Minimizable Dialog on a page</CalloutHeading>
+  <CalloutText>
+    We currenly only support having one Minimizable Dialog open on a page. If you have questions, please post{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+      a GitHub Discussion
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
+
+### Accessibility
+
+Minimizable Dialog and non-modal dialogs follow these accessibility guidelines:
+
+- There must be a focusable element inside the dialog.
+- There should be a close button so screen readers have a specific close action to target.
+- A Minimizable Dialog is a focus trap, and focus is placed inside it when it's shown.
+- A Minimizable Dialog must be triggered by an explicit user action, e.g. clicking a button.
+
+## Examples
+
+### Basic Minimizable Dialog
+
+<LivePreview
+  scope={{
+    MinimizableDialog,
+    MinimizableDialogButton,
+    MinimizableDialogHeader,
+    MinimizableDialogContainer,
+    MinimizableDialogContent,
+    Heading,
+    Input,
+    Label,
+    TextArea,
+    Paragraph,
+    ChatIcon,
+    Button,
+    Box,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
+### MinimizableDialogButton
+
+The MinimizableDialogButton renders a Button component and accepts all of its props, which are listed [on the Button page](/components/button#props).
+
+<LivePreview
+  scope={{
+    MinimizableDialog,
+    MinimizableDialogButton,
+    MinimizableDialogHeader,
+    MinimizableDialogContainer,
+    MinimizableDialogContent,
+    PlusIcon,
+    Box,
+  }}
+  noInline
+>
+  {minimizableDialogButtonExample}
+</LivePreview>
+
+### Using state hooks
+
+Minimizable Dialog comes with the option of "hooking" into the internal state by using the state hook originally provided by
+[Reakit](https://reakit.io/docs/popover/#usepopoverstate).
+
+Rather than the state be internal to the component, you can use the `useMinimizableDialogState` hook and pass the returned state
+to `MinimizableDialogContainer` as the `state` prop.
+
+This allows you to use certain returned props from the state hook, including functions like `hide` and `show`.
+
+It should be noted that when doing so, the state prop takes precedent over the other properties that affect
+the state or initial state of the Minimizable Dialog. They will be ignored in favour of them being provided as arguments
+to the `useMinimizableDialogState` hook.
+
+For full details on how to use the state hook, and what props to provide it, follow the
+[Non-Modal Dialog Primitive documentation](/primitives/non-modal-dialog-primitive).
+
+<LivePreview
+  scope={{
+    MinimizableDialog,
+    MinimizableDialogButton,
+    MinimizableDialogHeader,
+    MinimizableDialogContainer,
+    MinimizableDialogContent,
+    useMinimizableDialogState,
+    Button,
+    Box,
+  }}
+  noInline
+>
+  {hookExample}
+</LivePreview>

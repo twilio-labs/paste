@@ -1,18 +1,19 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {Truncate} from '@twilio-paste/truncate';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {IconObject} from './types';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Truncate } from "@twilio-paste/truncate";
+import * as React from "react";
+
+import type { IconObject } from "./types";
 
 export interface IconTileProps {
   children?: React.ReactNode;
   icon: IconObject;
   onClick: () => void;
 }
-const IconTile = React.forwardRef<HTMLButtonElement, IconTileProps>(({children, icon, onClick, ...props}, ref) => {
+const IconTile = React.forwardRef<HTMLButtonElement, IconTileProps>(({ children, icon, onClick, ...props }, ref) => {
   const handleOnKeypress = (e: React.KeyboardEvent): void => {
     e.preventDefault();
-    if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === "Enter" || e.key === " ") {
       onClick();
     }
   };
@@ -34,15 +35,15 @@ const IconTile = React.forwardRef<HTMLButtonElement, IconTileProps>(({children, 
       onKeyPress={handleOnKeypress}
       role="option"
       _hover={{
-        boxShadow: 'shadowLow',
+        boxShadow: "shadowLow",
       }}
       _selected={{
-        borderColor: 'colorBorderPrimaryStronger',
-        boxShadow: 'shadowBorderPrimary',
+        borderColor: "colorBorderPrimaryStronger",
+        boxShadow: "shadowBorderPrimary",
       }}
       _focus={{
-        boxShadow: 'shadowFocus',
-        outline: 'none',
+        boxShadow: "shadowFocus",
+        outline: "none",
       }}
       ref={ref}
       {...safelySpreadBoxProps(props)}
@@ -50,11 +51,11 @@ const IconTile = React.forwardRef<HTMLButtonElement, IconTileProps>(({children, 
       {children}
       <Box as="div" display="flex" color="colorTextWeak" marginTop="space30" maxWidth="100%">
         <ScreenReaderOnly>Show details for:</ScreenReaderOnly>
-        <Truncate title={icon.name}>{icon.name.replace('Icon', '')}</Truncate>
+        <Truncate title={icon.name}>{icon.name.replace("Icon", "")}</Truncate>
       </Box>
     </Box>
   );
 });
 
-IconTile.displayName = 'IconTile';
-export {IconTile};
+IconTile.displayName = "IconTile";
+export { IconTile };

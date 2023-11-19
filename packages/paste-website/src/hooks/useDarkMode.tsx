@@ -1,34 +1,47 @@
-import * as React from 'react';
+import type { ValueOf } from "@twilio-paste/types";
+import * as React from "react";
 
-type Theme = 'default' | 'dark';
-export type UseDarkModeReturn = [Theme, () => void, boolean];
+import { SimpleStorage } from "../utils/SimpleStorage";
+
+export type UseDarkModeReturn = [ValidThemeName, () => void, boolean];
+
+const ValidThemes = {
+  DEFAULT: "twilio",
+  DARK: "twilio-dark",
+} as const;
+
+type ValidThemeName = ValueOf<typeof ValidThemes>;
+
+const isValidTheme = (themeName: ValidThemeName): boolean => {
+  return themeName === ValidThemes.DEFAULT || themeName === ValidThemes.DARK;
+};
 
 export const useDarkMode = (): UseDarkModeReturn => {
-  const [theme, setTheme] = React.useState<Theme>('default');
+  const [theme, setTheme] = React.useState<ValidThemeName>(ValidThemes.DEFAULT);
   const [componentMounted, setComponentMounted] = React.useState(false);
 
-  const setMode = (mode: Theme): void => {
-    window.localStorage.setItem('theme', mode);
+  const setMode = (mode: ValidThemeName): void => {
+    SimpleStorage.set("theme", mode);
     setTheme(mode);
   };
 
   const toggleTheme = (): void => {
-    if (theme === 'default') {
-      setMode('dark');
+    if (theme === ValidThemes.DEFAULT) {
+      setMode(ValidThemes.DARK);
     } else {
-      setMode('default');
+      setMode(ValidThemes.DEFAULT);
     }
   };
 
   React.useEffect(() => {
-    const localTheme = window.localStorage.getItem('theme') as Theme;
+    const localTheme = SimpleStorage.get("theme") as ValidThemeName;
 
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localTheme) {
-      setMode('dark');
-    } else if (localTheme) {
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches && !localTheme) {
+      setMode(ValidThemes.DARK);
+    } else if (localTheme && isValidTheme(localTheme)) {
       setTheme(localTheme);
     } else {
-      setMode('default');
+      setMode(ValidThemes.DEFAULT);
     }
 
     setComponentMounted(true);

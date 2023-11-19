@@ -1,11 +1,10 @@
----
-title: Tabs
-package: '@twilio-paste/tabs'
-description: An accessible and styled tabs component.
-slug: /components/tabs/
----
+export const meta = {
+  title: 'Tabs',
+  package: '@twilio-paste/tabs',
+  description: 'Tabs are labeled controls that allow users to switch between multiple views within a page.',
+  slug: '/components/tabs/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -19,90 +18,43 @@ import Changelog from '@twilio-paste/tabs/CHANGELOG.md';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import {DetailText} from '@twilio-paste/detail-text';
 import {Text} from '@twilio-paste/text';
 import {useUID} from '@twilio-paste/uid-library';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {
   HorizontalTabsExample,
-  FittedTabsExample,
+  FullWidthTabsExample,
   VerticalTabsExample,
   StateHookTabsExample,
 } from '../../../component-examples/TabsExamples';
+import packageJson from '@twilio-paste/tabs/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/tabs"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/tabs/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Tabs"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tabs"
-  storybookUrl="/?path=/story/components-tabs--horizontal-tabs"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
-
-## Guidelines
-
-### About Tabs
-
-The Tabs component allows a user to flip through multiple views within the same page.
-
-### Accessibility
-
-When the user is focused on a tab in a TabList, the following keyboard interactions apply:
-
-- Right and left arrow move the user between tabs and opens the currently focused tab's panel
-  - If the tabs are vertical, up and down arrows move between tabs instead of right and left
-  - If the currently focused tab is disabled, the tab panel does not open
-
-## Examples
-
-### Horizontal Tabs
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Tabs');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tabs',
+        storybookUrl: '/?path=/story/components-tabs--horizontal-tabs',
+      },
+    },
+  };
+};
 
 <LivePreview
   scope={{
@@ -122,9 +74,54 @@ When the user is focused on a tab in a TabList, the following keyboard interacti
   {HorizontalTabsExample}
 </LivePreview>
 
-### Fitted Tabs
+## Guidelines
 
-Fitted tabs allow the tabs to expand and fit the width of a containing element.
+### About Tabs
+
+Tabs are labeled controls that allow users to switch between multiple views within a page. Tabs do not take the user to a new URL. To take users to a new URL, use [In Page Navigation](/components/in-page-navigation).
+
+Panels within a set of Tabs should present different views of similar, parallel information. For example, [these Twilio docs](https://www.twilio.com/docs/usage/api) contain a block of code on the right side of the page with Tabs, allowing users to view the code in different languages. [Reddit also uses tabs](https://www.reddit.com/t/technology/), switching the user’s view between **Posts**, **Communities**, and **Related Topics**. The Tabs in both of these examples control views; they don’t direct to a new page. Conversely, [the Github website](https://github.com/twilio-labs/paste) demonstrates how some interactions may seem like Tabs, but are actually in-page navigation. Clicking on one of the sections at the top, like **Code** or **Pull Requests**, changes the URL.
+
+Distinguishing between the two components (Tabs and In Page Navigation) leads to an improved user experience by visually communicating that interacting will lead to different behaviors. Selecting the correct component based on your use case also gives users of assistive technologies a better idea of where the interaction will lead.
+
+Choose Tabs when users don’t need to see content from multiple views simultaneously. When thinking through what type of content to put in your Tabs, remember that the content should be parallel across the board. What lives in one Tab should be a different view of what lives in another Tab.
+
+<DetailText>
+  Source:{' '}
+  <Anchor showExternal href="https://www.nngroup.com/articles/tabs-used-right/">
+    Nielsen Norman Group
+  </Anchor>
+</DetailText>
+
+<br />
+
+The Tabs component contains the following elements:
+
+- `Tab`: Clickable element that causes a selection within a tabset
+- `TabPanel`: Contains the content associated with the selected `Tab`
+- `TabList`: A collection of `Tab`s
+- `TabPanels`: A collection of `TabPanel`s
+- Tabset (or `Tabs`): Composition of `TabList` and `TabPanel`s
+
+### Accessibility
+
+A Tab should never contain an interactive element, as doing so makes it difficult for users of assistive technologies to focus or click on the Tabs. Interactive elements may live within the TabPanels.
+
+When the user is focused on a tab in a TabList, the following keyboard interactions apply:
+
+- Horizontal Tabs: `Right` and `Left` arrow keys move the user between Tabs and open the currently focused Tab's panel
+- Vertical Tabs: `Up` and `Down` arrow keys move between Tabs and open the currently focused Tab's panel
+- If the currently focused Tab is disabled, the TabPanel does not open
+
+### Tabs vs. In Page Navigation
+
+Tabs are used to layer related pieces of information together and display one layer at a time on the same URL. Use Tabs to alternate between views within the same context. [In Page Navigation](/components/in-page-navigation) is a collection of anchors, rather than buttons. Use In Page Navigation to switch between different, related pages. Tabs replace the entire view based on the selected tab. In Page Navigation links navigate the user to a new page.
+
+## Examples
+
+### Horizontal Tabs
+
+Use Horizontal Tabs in most cases, as they most realistically mimic a physical tab, and they catch the user’s attention because they live directly above the content.
 
 <LivePreview
   scope={{
@@ -141,10 +138,34 @@ Fitted tabs allow the tabs to expand and fit the width of a containing element.
   }}
   noInline
 >
-  {FittedTabsExample}
+  {HorizontalTabsExample}
+</LivePreview>
+
+### Full-width Tabs
+
+Use full-width Tabs to fill a parent element with a set width. Each Tab will equally expand and fit the width of the containing element. Full-width Tabs are recommended for compact spaces.
+
+<LivePreview
+  scope={{
+    Tabs,
+    Tab,
+    TabList,
+    TabPanels,
+    TabPanel,
+    useUID,
+    Heading,
+    Card,
+    Paragraph,
+    Stack,
+  }}
+  noInline
+>
+  {FullWidthTabsExample}
 </LivePreview>
 
 ### Vertical Tabs
+
+Use Vertical Tabs when the TabPanels are tall and narrow, or when users tend to swap views often as they scroll through the content.
 
 <LivePreview
   scope={{
@@ -168,11 +189,9 @@ Fitted tabs allow the tabs to expand and fit the width of a containing element.
 
 The `state` prop allows you to hook into, and keep in sync the state of the Tabs and the state of your application.
 
-This will allow you to set initial state and merge the returned state from the hook with the application state,
-and keep it in sync with user interactions.
+This will allow you to set the initial state and merge the returned state from the hook with the application state, and keep it in sync with user interactions.
 
-You could use this if you want to add functionality to a button within the tab content. In the example below we're
-using the `select` function from the tab state to advance to the next tab, and go back to the previous tab.
+You could use this if you want to add functionality to a Button within the Tab content. In the example below we're using the `select` function from the Tab state to advance to the next Tab, and go back to the previous Tab.
 
 <LivePreview
   scope={{
@@ -195,197 +214,30 @@ using the `select` function from the tab state to advance to the next tab, and g
   {StateHookTabsExample}
 </LivePreview>
 
-## Anatomy
+## Composition notes
 
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Tab label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Always: $font-size-30, $font-weight-semibold, $line-height-20</ListItem>
-            <ListItem>Default: $color-text-weak, on hover: $color-text</ListItem>
-            <ListItem>Selected: $color-text-link</ListItem>
-            <ListItem>Disabled: $color-text-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Tab Label box</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Horizontal Tabs
-              <UnorderedList marginBottom="space0">
-                <ListItem>padding-top: $space-40</ListItem>
-                <ListItem>padding-right: $space-20</ListItem>
-                <ListItem>padding-bottom: $space-40</ListItem>
-                <ListItem>padding-left: $space-20</ListItem>
-                <ListItem>margin-right: $space-70 (except for last tab)</ListItem>
-                <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
-                <ListItem>border-bottom (on hover): $color-border-primary-stronger</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Fitted Tabs
-              <UnorderedList marginBottom="space0">
-                <ListItem>padding-top: $space-40</ListItem>
-                <ListItem>padding-right: $space-20</ListItem>
-                <ListItem>padding-bottom: $space-40</ListItem>
-                <ListItem>padding-left: $space-20</ListItem>
-                <ListItem>border-bottom (selected tab): $color-border-primary</ListItem>
-                <ListItem>border-bottom (on hover): $color-border-primary-stronger</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Vertical Tabs
-              <UnorderedList marginBottom="space0">
-                <ListItem>padding-top: $space-30</ListItem>
-                <ListItem>padding-right: $space-50</ListItem>
-                <ListItem>padding-bottom: $space-30</ListItem>
-                <ListItem>padding-left: $space-50</ListItem>
-                <ListItem>margin-bottom: $space-40 (except for last tab)</ListItem>
-                <ListItem>border-left (selected tab): $color-border-primary</ListItem>
-                <ListItem>border-left (on hover): $color-border-primary-stronger</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Tab List Border</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Always: $color-border-weak</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
+Don't add interactive elements to a Tab, as doing so makes it difficult for users of assistive technologies to focus or click on the Tabs. Interactive elements may live within the TabPanels.
 
----
+Tab labels should be short to improve readability. Users should be able to easily scan the Tabs and know what type of content to expect. Try to keep labels to 1-2 words each.
 
-## Usage Guide
+Labels should be parallel parts of speech. For example, all nouns (Documents, Images, Downloads).
 
-### API
+## When to use Tabs
 
-#### Installation
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Tabs for displaying different views of similar information, such as one same block of code shown in different languages."
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don’t use Tabs when the selection of a new Tab will direct the user to a new URL."
+    preview={false}
+  />
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Keep Tab labels concise." preview={false} />
+  <Dont title="Don't" body="Don’t use more than 2 words in a Tab label, unless absolutely necessary." preview={false} />
+</DoDont>
 
-```bash
-yarn add @twilio-paste/tabs - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/core/tabs';
-
-const HorizontalTabsExample: React.FC = () => {
-  const selectedId = useUID();
-  return (
-    <Tabs selectedId={selectedId} baseId="horizontal-tabs-example">
-      <TabList aria-label="My tabs">
-        <Tab>Tab 1</Tab>
-        <Tab disabled>Tab 2</Tab>
-        <Tab id={selectedId}>Tab 3</Tab>
-      </TabList>
-      <TabPanels paddingTop="space20">
-        <TabPanel>Tab 1</TabPanel>
-        <TabPanel>Tab 2</TabPanel>
-        <TabPanel>Tab 3</TabPanel>
-      </TabPanels>
-    </Tabs>
-  );
-};
-```
-
-#### Tabs Props
-
-##### `orientation?: 'horizontal' (default) | 'vertical' | undefined`
-
-Changes the Tabs' direction to either have the panels below or on the right side.
-
-##### `variant?: 'fitted' | undefined (default)`
-
-Changes the Tabs' to either fit the width of the containing element or not.
-
-##### `selectedId?: string | null`
-
-Tells the Tabs which panel to load when it mounts. Important to provide, otherwise the first render may be a little delayed.
-
-##### `baseId?: string`
-
-Sets the prefix for the auto-generated ids on each Tab and TabPanel. Useful for consistent renders, like for tests.
-
-###### `element?: string`
-
-Overrides the default element name ('HORIZONTAL_TABS') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TABS'.
-
-#### TabList Props
-
-##### `aria-label: string`
-
-Required label for this Tabs component. Titles the entire Tabbing context for screen readers.
-
-###### `element?: string`
-
-Overrides the default element name ('HORIZONTAL_TAB_LIST') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TAB_LIST'.
-
-#### Tab Props
-
-##### `id?: string | undefined`
-
-Same as the HTML attribute.
-
-##### `focusable?: boolean | undefined`
-
-When an element is disabled, it may still be focusable.
-It works similarly to readOnly on form elements. In this case, only aria-disabled will be set.
-
-##### `disabled?: boolean | undefined`
-
-Same as the HTML attribute.
-
-###### `element?: string`
-
-Overrides the default element name ('HORIZONTAL_TAB') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TAB'.
-
-#### TabPanels Props
-
-###### `element?: string`
-
-Overrides the default element name ('HORIZONTAL_TAB_PANELS') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TAB_PANELS'.
-
-#### TabPanel Props
-
-##### `id?: string | undefined`
-
-Same as the HTML attribute.
-
-##### `tabId?: string | undefined`
-
-The ID of the Tab component this Panel pairs with.
-
-###### `element?: string`
-
-Overrides the default element name ('HORIZONTAL_TAB_PANEL') to apply unique styles with the Customization Provider. If the Tabs are vertical, the default element value is 'VERTICAL_TAB_PANEL'.
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

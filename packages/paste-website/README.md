@@ -3,7 +3,7 @@
 To run just run
 
 ```
-yarn start
+yarn dev
 ```
 
 At the root of the Paste monorepo.

@@ -1,59 +1,70 @@
----
-title: Libraries
-description: Standalone tools and plugins built and supported by the Paste team.
-slug: /core/libraries/
----
+export const meta = {
+  title: 'Libraries',
+  description: 'Standalone tools and plugins built and supported by the Paste team.',
+  slug: '/core/libraries/',
+};
 
-import {graphql} from 'gatsby';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+import {SidebarCategoryRoutes} from '../../../constants';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/core/libraries/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} description={meta.description} />
+
+---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
-
-<h1>{props.pageContext.frontmatter.title}</h1>
-
-<p>{props.pageContext.frontmatter.description}</p>
-
----
 
 All of these libraries are first-party; we actively support them and hope they provide you with as much value as they provide us.
 
 ## Libraries
 
-### [uid-library](/core/libraries/uid-library)
+### [Code editor](/core/libraries/code-editor)
 
-This is used to generate unique `id` values throughout React applications. This is most commonly used for
-mapping form labels to form inputs, or mapping titles for accessibility. This library works when SSR and dynamically importing
-application code.
+A library to display and make changes to large blocks of code. A wrapper around the Monaco editor, which is used to build the popular Visual Studio Code program.
+
+### [Codemods](/core/libraries/codemods)
+
+A collection of codemods for maintaining projects built with Paste.
+
+### [Data Visualization](/core/libraries/data-visualization)
+
+A library that helps theme Highcharts data visualizations with Paste tokens.
+
+### [clipboard-copy](https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/clipboard-copy)
+
+This is a simple wrapper around <strong>[use-clipboard-copy](https://github.com/wsmd/use-clipboard-copy)</strong>. We leverage this package to provide our baseline functionality for developers to intuitively interact with the Clipboard API.
 
 ### [SVG-to-React](https://github.com/twilio-labs/svg-to-react)
 
 SVG-to-React allows users to generate fully-formed and accessible React components from an SVG input.
 The output will work similarly to the icons provided in Paste. This library was created to allow for
 self-service when suggesting new Paste icons or when individual product needs differ from Paste. For more
-information, see our [icon guidelines](/components/icons/usage-guidelines) and our [how-to docs](/introduction/contributing/icons).
+information, see our [icon guidelines](/components/icon/usage-guidelines) and our [how-to docs](/introduction/contributing/icons).
 
-### [clipboard-copy](https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/clipboard-copy)
+### [UID library](/core/libraries/uid-library)
 
-This is a simple wrapper around <strong>[use-clipboard-copy](https://github.com/wsmd/use-clipboard-copy)</strong>. We leverage this package to provide our baseline functionality for developers to intuitively interact with the Clipboard API.
+This is used to generate unique `id` values throughout React applications. This is most commonly used for
+mapping form labels to form inputs, or mapping titles for accessibility. This library works when SSR and dynamically importing
+application code.
+
+### [VS Code Plugin](/core/libraries/vs-code-plugin)
+
+Paste's Visual Studio Code Plugin provides a set of tools to help you build with Paste. It includes a set of snippets, a color picker, and a command to generate a new component.
 
 </content>
 

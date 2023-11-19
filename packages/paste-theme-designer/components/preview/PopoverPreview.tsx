@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/core/popover';
-import {Text} from '@twilio-paste/core/text';
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/core/popover";
+import { Text } from "@twilio-paste/core/text";
+import * as React from "react";
 
-const PopoverPreview: React.FC = () => {
+const PopoverPreview = (): JSX.Element => {
   return (
     <PopoverContainer baseId="popover-example" placement="right-start">
       <PopoverButton variant="primary">Open popover</PopoverButton>
@@ -13,4 +13,4 @@ const PopoverPreview: React.FC = () => {
   );
 };
 
-export {PopoverPreview};
+export { PopoverPreview };

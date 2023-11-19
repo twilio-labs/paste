@@ -1,0 +1,142 @@
+export const meta = {
+  title: 'Account Switcher - Components',
+  package: '@twilio-paste/account-switcher',
+  description: "An Account Switcher is a stylized Menu Badge with a list of actions related to a user's accounts.",
+  slug: '/components/account-switcher/',
+};
+
+import {
+  AccountSwitcher,
+  AccountSwitcherBadge,
+  AccountSwitcherGroup,
+  AccountSwitcherItem,
+  AccountSwitcherItemRadio,
+  AccountSwitcherSeparator,
+  useAccountSwitcherState,
+} from '@twilio-paste/account-switcher';
+
+import {Box} from '@twilio-paste/box';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/account-switcher/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {accountSwitcherExample} from '../../../component-examples/AccountSwitcherExamples';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Account Switcher');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/account-switcher',
+        storybookUrl: '/?path=/story/components-accountswitcher--account-switcher-menu',
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{
+    AccountSwitcher,
+    AccountSwitcherBadge,
+    AccountSwitcherGroup,
+    AccountSwitcherItem,
+    AccountSwitcherItemRadio,
+    AccountSwitcherSeparator,
+    useAccountSwitcherState,
+  }}
+  noInline
+  showOverflow
+>
+  {accountSwitcherExample}
+</LivePreview>
+
+## Guidelines
+
+## About Account Switcher
+
+Account Switcher can be used anywhere a user needs to switch between accounts or sub-accounts, and can usually be found in the Topbar. Other names for accounts in Twilio products include "workspaces" and "projects".
+
+Account Switcher is a stylized [Menu Badge](/components/menu#menu-badge), with groups of account options displayed in the menu item list. The Menu Badge itself should display the current account the user is viewing and update if a new account is selected.
+
+Examples of account-related options include:
+
+- Navigating to recently visited accounts
+- Creating an account
+- Viewing all of a user’s accounts
+
+Account Switcher is an implementation of the [Menu](/components/menu) component and shares a lot of its sub-components and hooks. That means it shares a lot of the API.
+
+### Accessibility
+
+The Account Switcher implements a grouped Menu and supports all the same keyboard navigation that the [Menu](/components/menu) component does.
+
+## Examples
+
+<LivePreview
+  scope={{
+    AccountSwitcher,
+    AccountSwitcherBadge,
+    AccountSwitcherGroup,
+    AccountSwitcherItem,
+    AccountSwitcherItemRadio,
+    AccountSwitcherSeparator,
+    useAccountSwitcherState,
+  }}
+  noInline
+  showOverflow
+>
+  {accountSwitcherExample}
+</LivePreview>
+
+---
+
+## Composition Notes
+
+The Account Switcher is made up of the following sub-components:
+
+- `AccountSwitcherBadge`
+- `AccountSwitcher`
+- `AccountSwitcherGroup`
+- `AccountSwitcherItem`
+- `AccountSwitcherItemRadio`
+- `AccountSwitcherSeparator`
+- `useAccountSwitcherState`
+
+### Account Switcher Badge
+
+Used to display the name of the current account selected or being viewed, and contains the menu trigger. The text inside the badge should update when a new account is selected.
+
+### Account Switcher
+
+Container for Account Switcher menu items.
+
+### Account Switcher Group
+
+Used to group similar items together in the Account Switcher menu. An example of this might be a list of recent accounts.
+
+### Account Switcher Item
+
+A menu item that can either perform an action or navigate to a new URL.
+
+### Account Switcher ItemRadio
+
+A menu item that can perform a single selection of an item within a named group. Similar to a radio button group, only one item can be selected at a time. Each item in the group should have a `name` and `value` and must be contained in a Group.
+
+### Account Switcher Separator
+
+Simple horizontal rule used to separate groups or individual items.
+
+### useAccountSwitcherState hook
+
+React hook used to initialise the Account Switcher with various options. It returns state and actions that can be taken on the Account Switcher.

@@ -1,0 +1,198 @@
+export const meta = {
+  title: 'Side Modal',
+  package: '@twilio-paste/side-modal',
+  description:
+    'A Side Modal is a page overlay that displays information that does not block the user from interacting with the rest of the page.',
+  slug: '/components/side-modal/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {
+  SideModal,
+  SideModalButton,
+  SideModalHeader,
+  SideModalHeading,
+  SideModalContainer,
+  SideModalBody,
+  useSideModalState,
+  SideModalFooter,
+  SideModalFooterActions,
+} from '@twilio-paste/side-modal';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultExample,
+  footerExample,
+  sideModalButtonExample,
+  hookExample,
+} from '../../../component-examples/SideModalExamples';
+import packageJson from '@twilio-paste/side-modal/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Side Modal');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/side-modal',
+        storybookUrl: '/?path=/story/components-side-modal--default',
+      },
+    },
+  };
+};
+
+
+<LivePreview
+  scope={{
+    Paragraph,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalHeader,
+    SideModalHeading,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
+## Guidelines
+
+### About Side Modal
+
+The Side Modal component is a non-modal dialog that sits on top of the right side of the page. It is meant for situations like a preview of a record while looking at a table.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Only use one Side Modal on a page</CalloutHeading>
+  <CalloutText>
+    We currenly only support having one Side Modal open on a page. If you have questions, please post{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+      a GitHub Discussion
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
+
+### Accessibility
+
+Side Modal and non-modal dialogs follow these accessibility guidelines:
+
+- There must be a focusable element inside the dialog.
+- There should be a close button so screen readers have a specific close action to target.
+- A Side Modal is a focus trap, and focus is placed inside it when it's shown.
+- A Side Modal must be triggered by an explicit user action, e.g. clicking a button.
+
+## Examples
+
+### Basic Side Modal
+
+<LivePreview
+  scope={{
+    Paragraph,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalHeader,
+    SideModalHeading,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
+
+### Side Modal with a footer
+
+The SideModalFooter component has a `justifyContent` prop that lets you change how the actions are displayed within the footer. It can be set to `flex-start`, `flex-end`, or `space-between` and the default is `flex-end`.
+
+<LivePreview
+  scope={{
+    Button,
+    Paragraph,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalFooter,
+    SideModalFooterActions,
+    SideModalHeader,
+    SideModalHeading,
+  }}
+  noInline
+>
+  {footerExample}
+</LivePreview>
+
+### SideModalButton
+
+The SideModalButton renders a Button component and accepts all of its props, which are listed [on the Button page](/components/button#props).
+
+<LivePreview
+  scope={{
+    Box,
+    Paragraph,
+    PlusIcon,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalHeader,
+    SideModalHeading,
+  }}
+  noInline
+>
+  {sideModalButtonExample}
+</LivePreview>
+
+### Using state hooks
+
+Side Modal comes with the option of "hooking" into the internal state by using the state hook originally provided by
+[Reakit](https://reakit.io/docs/popover/#usepopoverstate).
+
+Rather than the state be internal to the component, you can use the `useSideModalState` hook and pass the returned state
+to `SideModalContainer` as the `state` prop.
+
+This allows you to use certain returned props from the state hook, including functions like `hide` and `show`.
+
+It should be noted that when doing so, the state prop takes precedent over the other properties that affect
+the state or initial state of the Side Modal. They will be ignored in favour of them being provided as arguments
+to the `useSideModalState` hook.
+
+For full details on how to use the state hook, and what props to provide it, follow the
+[Non-Modal Dialog Primitive documentation](/primitives/non-modal-dialog-primitive).
+
+<LivePreview
+  scope={{
+    Box,
+    Button,
+    Paragraph,
+    SideModal,
+    SideModalBody,
+    SideModalButton,
+    SideModalContainer,
+    SideModalHeader,
+    SideModalHeading,
+    useSideModalState,
+  }}
+  noInline
+>
+  {hookExample}
+</LivePreview>

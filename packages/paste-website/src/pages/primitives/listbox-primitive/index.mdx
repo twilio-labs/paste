@@ -1,0 +1,301 @@
+export const meta = {
+  title: 'Listbox - Primitives',
+  package: '@twilio-paste/listbox-primitive',
+  description: 'An unstyled and accessible basis upon which to build Listboxes.',
+  slug: '/primitives/listbox-primitive/',
+};
+
+import Changelog from '@twilio-paste/listbox-primitive/CHANGELOG.md';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Grid, Column} from '@twilio-paste/grid';
+import {CheckboxCheckIcon} from '@twilio-paste/icons/esm/CheckboxCheckIcon';
+import {MinusIcon} from '@twilio-paste/icons/esm/MinusIcon';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {
+  useListboxPrimitiveState,
+  ListboxPrimitive,
+  ListboxPrimitiveGroup,
+  ListboxPrimitiveItem,
+} from '@twilio-paste/listbox-primitive';
+import {Stack} from '@twilio-paste/stack';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultExample,
+  horizontalExample,
+  groupsExample,
+  multipleExample,
+  dualExample,
+  customExample,
+} from '../../../component-examples/ListboxPrimitiveExamples';
+import packageJson from '@twilio-paste/listbox-primitive/package.json';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Listbox Primitive');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
+  categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
+  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/listbox"
+  storybookUrl="/?path=/story/primitives-listbox--vertical-listbox"
+  data={props.data}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<LivePreview
+  scope={{
+    useListboxPrimitiveState,
+    ListboxPrimitive,
+    ListboxPrimitiveItem,
+    Stack,
+  }}
+  noInline
+  showOverflow
+>
+  {defaultExample}
+</LivePreview>
+
+## Guidelines
+
+### About the Listbox Primitive
+
+The Listbox primitive is an unstyled, functional version of a listbox component. It can be used to build a component following the [WAI-ARIA Listbox Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/listbox/).
+
+This unstyled primitive is to be used when the listbox components, like FormPillGroup, provided by Paste don&rsquo;t meet the requirements needed to solve a unique customer problem. At that point, you are welcome to fall back to this functional primitive to roll your own styled Listbox while still providing a functional and accessible experience to your customers.
+
+This primitive should be used to compose all custom Listboxes to ensure accessibility and upgrade paths.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h3">Before you roll your own listboxes...</CalloutHeading>
+  <CalloutText>
+    We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
+    go through the UX Review process to ensure an excellent experience for our customers.
+  </CalloutText>
+</Callout>
+
+## Examples
+
+### Selection
+
+To make items inside the Listbox selectable, you can manage the selection state yourself and combine it with the state returned from the `useListboxPrimitiveState` hook. To do so, track which item is selected in a separate store of state. When rendering the Listbox, cross reference the rendered items with the selection state, and conditionally set `selected` on each `ListboxPrimitiveItem` that requires it.
+
+The `onSelect` event handler will fire whenever the item is clicked, or the spacebar or enter key is pressed. Use this to respond to your users' selection interactions.
+
+### Horizontal Listbox
+
+Our listbox is vertical by default. To change it to horizontal, specify the orientation when initializing the state with `useListboxPrimitiveState({orientation: 'horizontal'})`:
+
+<LivePreview
+  scope={{
+    useListboxPrimitiveState,
+    ListboxPrimitive,
+    ListboxPrimitiveItem,
+  }}
+  noInline
+  showOverflow
+>
+  {horizontalExample}
+</LivePreview>
+
+### Listbox with groups
+
+Use `ListboxPrimitiveGroup` to create different groupings within the same listbox:
+
+<LivePreview
+  scope={{
+    useListboxPrimitiveState,
+    ListboxPrimitive,
+    ListboxPrimitiveGroup,
+    ListboxPrimitiveItem,
+    Stack,
+  }}
+  noInline
+  showOverflow
+>
+  {groupsExample}
+</LivePreview>
+
+### Multiselect Listbox
+
+Our listbox is set for single selection by default. To change it to allow multiple selections, specify the variant as `multiple` on `ListboxPrimitive`:
+
+<LivePreview
+  scope={{
+    useListboxPrimitiveState,
+    ListboxPrimitive,
+    ListboxPrimitiveItem,
+  }}
+  noInline
+  showOverflow
+>
+  {multipleExample}
+</LivePreview>
+
+### Dual Listboxes
+
+Listboxes can be used in any situation where a user needs to select items in a list or rearrange a list. One example is a UI where users need to move items between two lists like this:
+
+<LivePreview
+  scope={{
+    useListboxPrimitiveState,
+    ListboxPrimitive,
+    ListboxPrimitiveItem,
+    Box,
+    Button,
+    CheckboxCheckIcon,
+    PlusIcon,
+    MinusIcon,
+    Column,
+    Grid,
+    Stack,
+  }}
+  noInline
+  showOverflow
+>
+  {dualExample}
+</LivePreview>
+
+### Custom styling
+
+You can provide custom styling to the primitive listbox by utilizing the `as` prop on each component.
+
+The listbox primitive does not come with any styling, and thus you could mix the functionality of it with another component by using the _as_ prop. By doing so, you can get styling from another component, and listbox functionality from this primitive.
+
+Because these are not styled, rendering any of them _as_ another component you can mix the functionality of two components together. Styling from one, listbox functionlity from the primitive component.
+
+In the example below, we import the Paste Button `import {Button} from '@twilio-paste/button';` and use it as the Listbox items via the `as` prop.
+
+<LivePreview
+  scope={{
+    useListboxPrimitiveState,
+    ListboxPrimitive,
+    ListboxPrimitiveItem,
+    Button,
+    Stack,
+    CheckboxCheckIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {customExample}
+</LivePreview>
+
+---
+
+## Usage Guide
+
+This package is a wrapper around the [Reakit Composite](https://reakit.io/docs/composite/). If you’re wondering why we wrapped that package into our own, we reasoned that it would be best for our consumers’ developer experience. For example:
+
+- If we want to migrate the underlying nuts and bolts in the future, Twilio products that depend on this primitive would need to replace all occurrences of `import … from ‘x-package’` to `import … from ‘@some-new/package’`. By wrapping it in `@twilio-paste/x-primitive`, this refactor can be avoided. The only change would be a version bump in the ‘package.json` file for the primitive.
+- We can more strictly enforce semver and backwards compatibility than some of our dependencies.
+- We can control when to provide an update and which versions we allow, to help reduce potential bugs our consumers may face.
+- We can control which APIs we expose. For example, we may chose to enable or disable usage of certain undocumented APIs.
+
+### API
+
+#### Installation
+
+```bash
+yarn add @twilio-paste/listbox-primitive - or - yarn add @twilio-paste/core
+```
+
+#### Props
+
+This props list is a scoped version of the properties available from the [Reakit Composite](https://reakit.io/docs/composite/) package.
+
+##### useListboxPrimitiveState
+
+| Prop           | Type                         | Description                                            | Default     |
+| -------------- | ---------------------------- | ------------------------------------------------------ | ----------- |
+| `baseId?`      | `string`                     | ID that will serve as a base for all the items IDs     |             |
+| `rtl?`         | `boolean`                    | Determines how next and previous functions will behave |             |
+| `orientation?` | `"horizontal" \| "vertical"` | Defines the orientation of the listbox                 | "vertical"` |
+| `currentId?`   | `string`                     | The current focused item id                            |             |
+
+##### ListboxPrimitive
+
+**Note:** Most required props are provided by spreading the returned state from `useListboxPrimitiveState`.
+
+| Prop           | Type                                                    | Description                                                                                                                                            | Default     |
+| -------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| `move`         | `(id: string \| null) => void`                          | Moves focus to a given item ID                                                                                                                         |             |
+| `first`        | `() => void`                                            | Moves focus to the first item                                                                                                                          |             |
+| `last`         | `() => void`                                            | Moves focus to the last item                                                                                                                           |             |
+| `items`        | `Item[]`                                                | Lists all the listbox items with their id, DOM ref, disabled state and groupId if any. It is updated when registerItem and unregisterItem are called.  |             |
+| `setCurrentId` | `Dispatch<SetStateAction<string \| null \| undefined>>` | Sets currentId. It only updates the currentId state without moving focus.                                                                              |             |
+| `focusable?`   | `boolean`                                               | When an element is disabled, it may still be focusable. It works similarly to readOnly on form elements. In this case, only aria-disabled will be set. |             |
+| `disabled?`    | `boolean`                                               | Same as the HTML attribute                                                                                                                             |             |
+| `baseId?`      | `string`                                                | ID that will serve as a base for all the items IDs                                                                                                     |             |
+| `currentId?`   | `string`                                                | The current focused item id                                                                                                                            |             |
+| `groups?`      | `Group[]`                                               | Lists all the composite groups with their id and DOM ref. It is updated when registerGroup and unregisterGroup are called.                             |             |
+| `orientation?` | `"horizontal" \| "vertical"`                            | Defines the orientation of the listbox                                                                                                                 | "vertical"` |
+| `variant?`     | `"single" \| "multiple"`                                | Defines the selection mode of the listbox                                                                                                              | "single"`   |
+
+##### ListboxPrimitiveGroup
+
+No props to show
+
+##### ListboxPrimitiveItem
+
+**Note:** Most required props are provided by spreading the returned state from `useListboxPrimitiveState`.
+
+| Prop              | Type                                                              | Description                                                                                                                                           | Default        |
+| ----------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| `baseId`          | `string`                                                          | ID that will serve as a base for all the items IDs                                                                                                    |                |
+| `setBaseId`       | `Dispatch<SetStateAction<string>>`                                | Sets the baseId                                                                                                                                       |                |
+| `items`           | `Item[]`                                                          | Lists all the listbox items with their id, DOM ref, disabled state and groupId if any. It is updated when registerItem and unregisterItem are called. |                |
+| `groups`          | `Group[]`                                                         | Lists all the composite groups with their id and DOM ref. It is updated when registerGroup and unregisterGroup are called.                            |                |
+| `rtl`             | `boolean`                                                         | Determines how next and previous functions will behave                                                                                                |                |
+| `loop`            | `boolean \| "horizontal" \| "vertical"`                           | Determines how the keyboard navigation loops through the items                                                                                        | `'horizontal'` |
+| `registerItem`    | `(item: Item) => void`                                            | Registers a composite item.                                                                                                                           |                |
+| `unregisterItem`  | `(item: Item) => void`                                            | Unregisters a composite item.                                                                                                                         |                |
+| `registerGroup`   | `(group: Group) => void`                                          | Registers a composite group.                                                                                                                          |                |
+| `unregisterGroup` | `(group: Group) => void`                                          | Unregisters a composite group.                                                                                                                        |                |
+| `move`            | `(id: string \| null) => void`                                    | Moves focus to a given item ID                                                                                                                        |                |
+| `next`            | `() => void`                                                      | Moves focus to the next item                                                                                                                          |                |
+| `previous`        | `() => void`                                                      | Moves focus to the previous item                                                                                                                      |                |
+| `up`              | `() => void`                                                      | Moves focus to the item above                                                                                                                         |                |
+| `down`            | `() => void`                                                      | Moves focus to the item below                                                                                                                         |                |
+| `first`           | `() => void`                                                      | Moves focus to the first item                                                                                                                         |                |
+| `last`            | `() => void`                                                      | Moves focus to the last item                                                                                                                          |                |
+| `sort`            | `() => void`                                                      | Sorts the items based on their position in the DOM                                                                                                    |                |
+| `setRTL`          | `Dispatch<SetStateAction<boolean>>`                               | Sets rtl                                                                                                                                              |                |
+| `setOrientation`  | `Dispatch<SetStateAction<boolean \| "horizontal" \| "vertical">>` | Sets orientation                                                                                                                                      |                |
+| `setCurrentId`    | `Dispatch<SetStateAction<string \| null \| undefined>>`           | Sets currentId. It only updates the currentId state without moving focus.                                                                             |                |
+| `setLoop`         | `Dispatch<SetStateAction<boolean \| "horizontal" \| "vertical">>` | Sets loop                                                                                                                                             |                |
+| `reset`           | `() => void`                                                      | Resets to the initial state                                                                                                                           |                |
+| `selected?`       | `boolean`                                                         | Set if an item is in a selected state                                                                                                                 |                |
+| `disabled?`       | `boolean`                                                         | Set if an item is disabled                                                                                                                            |                |
+| `onSelect?`       | `() => void`                                                      | Event handler called when an item is selected                                                                                                         |                |
+| `currentId?`      | `string`                                                          | The current focused item id                                                                                                                           |                |
+| `orientation?`    | `"horizontal" \| "vertical"`                                      | Defines the orientation of the listbox                                                                                                                | "vertical"`    |
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+
+</contentwrapper>

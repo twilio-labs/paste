@@ -1,10 +1,10 @@
----
-title: Patterns
-description: Common, repeatable, and extensible Twilio UX compositions that you can use to solve product and UI problems.
-slug: /patterns/
----
+export const meta = {
+  title: 'Patterns',
+  description:
+    'Common, repeatable, and extensible Twilio UX compositions that you can use to solve product and UI problems.',
+  slug: '/patterns/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -15,53 +15,34 @@ import {Separator} from '@twilio-paste/separator';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getAllComponents, getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(
-      sort: {fields: [data___Feature]}
-      filter: {data: {status: {nin: [null]}, Component_Category: {eq: "pattern"}}}
-    ) {
-      edges {
-        node {
-          data {
-            Feature
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const components = await getAllComponents(['pattern']);
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      componentList: components,
+      navigationData,
+    },
+  };
+};
 
 <content>
 
 <Breadcrumb>
-  <BreadcrumbItem to="/">Home</BreadcrumbItem>
+  <BreadcrumbItem href="/">Home</BreadcrumbItem>
 </Breadcrumb>
 <Heading as="h1" variant="heading10">
-  {props.pageContext.frontmatter.title}
+  {meta.title}
 </Heading>
 
 </content>
@@ -77,6 +58,8 @@ There are two primary goals of patterns:
 - To drive efficiency across Twilio product teams by ensuring that no one needs to solve the same problem twice.
 - To establish cohesion across the full Twilio platform so that users do not need to re-learn how to perform certain actions as they move from product to product.
 
+For more information about how Paste is built and where patterns fit into that hierarchy, read [About Paste](/introduction/about-paste#whats-a-design-system).
+
 ## Patterns
 
 <Tabs selectedId="available-patterns" baseId="patterns-tabs">
@@ -86,18 +69,15 @@ There are two primary goals of patterns:
   </TabList>
   <TabPanels paddingTop="space20">
     <TabPanel>
-      <ComponentOverviewTable
-        categoryRoute={SidebarCategoryRoutes.PATTERNS}
-        componentsList={props.data.allAirtable.edges}
-      />
+      <ComponentOverviewTable categoryRoute={SidebarCategoryRoutes.PATTERNS} componentsList={props.componentList} />
     </TabPanel>
     <TabPanel>
       <Paragraph>
         These patterns have been highly requested by Twilio product designers and engineers and have been ranked based
         on customer impact, ease of work, and how frequently they appear on product UI roadmaps.
       </Paragraph>
-      <Callout>
-        <CalloutTitle>Are you working on solutions that use these patterns?</CalloutTitle>
+      <Callout variant="neutral" marginY="space70">
+        <CalloutHeading as="h3">Are you working on solutions that use these patterns?</CalloutHeading>
         <CalloutText>
           This pattern library relies on contributions from folks like you (yes, YOU). If you are using any of these
           patterns in your work, or if you are extra passionate about a particular pattern,{' '}

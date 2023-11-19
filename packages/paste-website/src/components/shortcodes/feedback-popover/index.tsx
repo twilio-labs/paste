@@ -1,26 +1,27 @@
-import * as React from 'react';
-import {Heading} from '@twilio-paste/heading';
-import {Text} from '@twilio-paste/text';
-import {PopoverContainer, PopoverButton, Popover} from '@twilio-paste/popover';
-import {useUID} from '@twilio-paste/uid-library';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Separator} from '@twilio-paste/separator';
-import {Anchor} from '@twilio-paste/anchor';
-import {Button} from '@twilio-paste/button';
-import {ThumbsUpIcon} from '@twilio-paste/icons/esm/ThumbsUpIcon';
-import {ThumbsDownIcon} from '@twilio-paste/icons/esm/ThumbsDownIcon';
-import {SupportIcon} from '@twilio-paste/icons/esm/SupportIcon';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {SimpleStorage} from '../../../utils/SimpleStorage';
-import {useLocationPathname} from '../../../utils/RouteUtils';
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Heading } from "@twilio-paste/heading";
+import { SupportIcon } from "@twilio-paste/icons/esm/SupportIcon";
+import { ThumbsDownIcon } from "@twilio-paste/icons/esm/ThumbsDownIcon";
+import { ThumbsUpIcon } from "@twilio-paste/icons/esm/ThumbsUpIcon";
+import { Popover, PopoverButton, PopoverContainer } from "@twilio-paste/popover";
+import { Separator } from "@twilio-paste/separator";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { event } from "../../../lib/gtag";
+import { useLocationPathname } from "../../../utils/RouteUtils";
+import { SimpleStorage } from "../../../utils/SimpleStorage";
 
 type RatingProps = {
   likePage: (event: React.MouseEvent) => void;
   dislikePage: (event: React.MouseEvent) => void;
 };
 
-export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => {
+export const UnratedPage: React.FC<React.PropsWithChildren<RatingProps>> = ({ likePage, dislikePage }) => {
   const pathname = useLocationPathname();
   return (
     <>
@@ -42,7 +43,7 @@ export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => {
       </Stack>
       <Separator orientation="horizontal" verticalSpacing="space50" />
       <Text as="p">
-        Spot an issue?{' '}
+        Spot an issue?{" "}
         <Anchor
           href={`https://github.com/twilio-labs/paste/issues/new?assignees=&labels=Type%3A+Bug&template=bug_report.md&title=Spotted%20a%20documentation%20error%20on%20${pathname}`}
         >
@@ -53,7 +54,7 @@ export const UnratedPage: React.FC<RatingProps> = ({likePage, dislikePage}) => {
   );
 };
 
-export const LikedPage: React.FC<RatingProps> = () => (
+export const LikedPage: React.FC<React.PropsWithChildren<RatingProps>> = () => (
   <>
     <Box display="flex" lineHeight="lineHeight50">
       <ThumbsUpIcon size="sizeIcon50" decorative={false} title="Like this page" />
@@ -63,7 +64,7 @@ export const LikedPage: React.FC<RatingProps> = () => (
     </Box>
     <Separator orientation="horizontal" verticalSpacing="space40" />
     <Text as="span">
-      You&apos;re the best! Thanks for helping us improve.{' '}
+      You&apos;re the best! Thanks for helping us improve.{" "}
       <span role="img" aria-label="raised hands emoji">
         🙌
       </span>
@@ -71,7 +72,7 @@ export const LikedPage: React.FC<RatingProps> = () => (
   </>
 );
 
-export const DislikedPage: React.FC<RatingProps> = () => (
+export const DislikedPage: React.FC<React.PropsWithChildren<RatingProps>> = () => (
   <>
     <Box display="flex" lineHeight="lineHeight50">
       <ThumbsDownIcon display="inline-block" size="sizeIcon50" decorative={false} title="Dislike this page" />
@@ -81,49 +82,49 @@ export const DislikedPage: React.FC<RatingProps> = () => (
     </Box>
     <Separator orientation="horizontal" verticalSpacing="space40" />
     <Text as="p" marginBottom="space40">
-      Thank you for helping us improve!{' '}
+      Thank you for helping us improve!{" "}
       <span role="img" aria-label="raised hands emoji">
         🙌
       </span>
     </Text>
     <Text as="p">
-      It would mean a lot to us if you could{' '}
+      It would mean a lot to us if you could{" "}
       <Anchor href="https://github.com/twilio-labs/paste/discussions">create a Github discussion</Anchor> with your
       feedback so that we can make this page better. Thank you!
     </Text>
   </>
 );
 
-export const FeedbackPopover: React.FC = () => {
+export const FeedbackPopover = (): JSX.Element => {
   const pathname = useLocationPathname();
   const localStorageKey = `page-rating${pathname}`;
   const popoverId = useUID();
-  const [pageRating, setPageRating] = React.useState<string>(SimpleStorage.get(localStorageKey) || '');
+  const [pageRating, setPageRating] = React.useState<string>(SimpleStorage.get(localStorageKey) || "");
 
   const likePage = React.useCallback((): void => {
-    SimpleStorage.set(localStorageKey, 'like');
-    setPageRating('like');
-    trackCustomEvent({
-      category: 'page-rating',
+    SimpleStorage.set(localStorageKey, "like");
+    setPageRating("like");
+    event({
+      category: "page-rating",
       label: pathname,
-      action: 'like-page',
+      action: "like-page",
     });
   }, []);
 
   const dislikePage = React.useCallback((): void => {
-    SimpleStorage.set(localStorageKey, 'dislike');
-    setPageRating('dislike');
-    trackCustomEvent({
-      category: 'page-rating',
+    SimpleStorage.set(localStorageKey, "dislike");
+    setPageRating("dislike");
+    event({
+      category: "page-rating",
       label: pathname,
-      action: 'dislike-page',
+      action: "dislike-page",
     });
   }, []);
 
   let ShownComponent = UnratedPage;
-  if (pageRating === 'like') {
+  if (pageRating === "like") {
     ShownComponent = LikedPage;
-  } else if (pageRating === 'dislike') {
+  } else if (pageRating === "dislike") {
     ShownComponent = DislikedPage;
   }
 

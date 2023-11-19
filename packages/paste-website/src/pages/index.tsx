@@ -1,16 +1,22 @@
-import * as React from 'react';
-import VisibilitySensor from 'react-visibility-sensor';
-import {Helmet} from 'react-helmet';
-import {SiteWrapper} from '../components/site-wrapper';
-import {SiteMetaDefaults} from '../constants';
-import {HomeHero} from '../components/homepage/HomeHero';
-import {GetStarted} from '../components/homepage/GetStarted';
-import {Experiment} from '../components/homepage/Experiment';
-import {PopularComponentsAndPatterns} from '../components/homepage/Popular';
+import type { GetStaticProps, InferGetStaticPropsType } from "next";
+import Head from "next/head";
+import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
-const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.ReactElement => {
-  // Only load the Experiment section iframe when the user scrolls down to
-  // the Popular section (the section prior)
+import { Experiment } from "../components/homepage/Experiment";
+import { GetStarted } from "../components/homepage/GetStarted";
+import { HomeHero } from "../components/homepage/HomeHero";
+import { PopularComponentsAndPatterns } from "../components/homepage/Popular";
+import { SiteWrapper } from "../components/site-wrapper";
+import { SiteMetaDefaults } from "../constants";
+import { getNavigationData } from "../utils/api";
+import type { Feature } from "../utils/api";
+
+const Homepage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticProps>): React.ReactElement => {
+  /*
+   * Only load the Experiment section iframe when the user scrolls down to
+   * the Popular section (the section prior)
+   */
   const [showIframe, setShowIframe] = React.useState(false);
   function handleVisibilityChange(isVisible: boolean): void {
     if (!showIframe) {
@@ -19,13 +25,12 @@ const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.R
   }
 
   return (
-    <SiteWrapper pathname={location.pathname}>
-      <Helmet>
+    <SiteWrapper navigationData={navigationData}>
+      <Head>
         <title>{SiteMetaDefaults.TITLE}</title>
         <link rel="canonical" href="https://paste.twilio.design" />
-        <meta name="description" content={SiteMetaDefaults.DESCRIPTION} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </Helmet>
+        <meta key="description" name="description" content={SiteMetaDefaults.DESCRIPTION} />
+      </Head>
       <HomeHero />
       <GetStarted />
       <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
@@ -34,6 +39,16 @@ const Homepage: React.FC<{location: {pathname: string}}> = ({location}): React.R
       <Experiment showIframe={showIframe} />
     </SiteWrapper>
   );
+};
+
+export const getStaticProps: GetStaticProps<{ navigationData: Feature[] }> = async () => {
+  const navigationData = await getNavigationData();
+
+  return {
+    props: {
+      navigationData,
+    },
+  };
 };
 
 export default Homepage;

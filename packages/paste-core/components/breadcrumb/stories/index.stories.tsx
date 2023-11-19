@@ -1,19 +1,23 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {useTheme} from '@twilio-paste/theme';
-import {Truncate} from '@twilio-paste/truncate';
-import {Breadcrumb, BreadcrumbItem} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { useTheme } from "@twilio-paste/theme";
+import { Truncate } from "@twilio-paste/truncate";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { Breadcrumb, BreadcrumbItem } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Breadcrumb',
+  title: "Components/Breadcrumb",
   component: Breadcrumb,
 };
 
 export const Anchors = (): React.ReactNode => {
+  const uniqueLandmarkIdentifier = useUID();
   return (
-    <Breadcrumb>
+    <Breadcrumb aria-label={`breadcrumb ${uniqueLandmarkIdentifier}`}>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
       <BreadcrumbItem href="#">Active Numbers</BreadcrumbItem>
     </Breadcrumb>
@@ -21,8 +25,9 @@ export const Anchors = (): React.ReactNode => {
 };
 
 export const AnchorsAndCurrentPage = (): React.ReactNode => {
+  const uniqueLandmarkIdentifier = useUID();
   return (
-    <Breadcrumb>
+    <Breadcrumb aria-label={`breadcrumb ${uniqueLandmarkIdentifier}`}>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
       <BreadcrumbItem href="#">Active Numbers</BreadcrumbItem>
       <BreadcrumbItem>Infrrd Germany hotline B</BreadcrumbItem>
@@ -30,13 +35,12 @@ export const AnchorsAndCurrentPage = (): React.ReactNode => {
   );
 };
 
-AnchorsAndCurrentPage.story = {
-  name: 'Anchors and current page ',
-};
+AnchorsAndCurrentPage.storyName = "Anchors and current page ";
 
 export const AnchorsWithTruncation = (): React.ReactNode => {
+  const uniqueLandmarkIdentifier = useUID();
   return (
-    <Breadcrumb>
+    <Breadcrumb aria-label={`breadcrumb ${uniqueLandmarkIdentifier}`}>
       <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
       <BreadcrumbItem href="#">
         <Box as="span" display="inline-flex" maxWidth="size10">
@@ -48,30 +52,30 @@ export const AnchorsWithTruncation = (): React.ReactNode => {
   );
 };
 
-AnchorsWithTruncation.story = {
-  name: 'Anchors with truncation ',
-};
+AnchorsWithTruncation.storyName = "Anchors with truncation ";
 
-export const CustomizationBreadcrumb = (): React.ReactNode => {
+export const CustomizationBreadcrumb: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
+  const uniqueLandmarkIdentifier = useUID();
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        BREADCRUMB: {fontVariantNumeric: 'slashed-zero'},
-        BREADCRUMB_ITEM: {fontWeight: 'fontWeightMedium'},
+        BREADCRUMB: { fontVariantNumeric: "slashed-zero" },
+        BREADCRUMB_ITEM: { fontWeight: "fontWeightMedium" },
         BREADCRUMB_ANCHOR: {
-          textDecoration: 'underline wavy',
-          color: 'colorTextInverseWeaker',
-          ':hover': {color: 'colorLinkStronger'},
+          textDecoration: "underline wavy",
+          color: "colorTextWeak",
+          ":hover": { color: "colorLinkStronger" },
         },
-        BREADCRUMB_TEXT: {letterSpacing: '0.25rem'},
+        BREADCRUMB_TEXT: { letterSpacing: "0.25rem" },
         BREADCRUMB_SEPARATOR: {
-          color: 'colorTextBrandHighlight',
+          color: "colorTextBrandHighlight",
         },
       }}
     >
-      <Breadcrumb>
+      <Breadcrumb aria-label={`breadcrumb ${uniqueLandmarkIdentifier}`}>
         <BreadcrumbItem href="#">0 Great grandparent</BreadcrumbItem>
         <BreadcrumbItem href="#">1 Grandparent</BreadcrumbItem>
         <BreadcrumbItem href="#">2 Parent</BreadcrumbItem>
@@ -82,31 +86,37 @@ export const CustomizationBreadcrumb = (): React.ReactNode => {
   );
 };
 
-CustomizationBreadcrumb.story = {
-  name: 'Customized ',
+CustomizationBreadcrumb.storyName = "Customized ";
+CustomizationBreadcrumb.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };
 
-export const CustomizationBreadcrumbWithCustomName = (): React.ReactNode => {
+export const CustomizationBreadcrumbWithCustomName: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const currentTheme = useTheme();
+  const uniqueLandmarkIdentifier = useUID();
   return (
     <CustomizationProvider
+      disableAnimations={isTestEnvironment}
       theme={currentTheme}
       elements={{
-        DOGS_BREADCRUMB: {marginY: 'space60', fontVariantNumeric: 'ordinal'},
-        GOOD: {fontWeight: 'fontWeightLight'},
-        GOOD_ANCHOR: {fontWeight: 'fontWeightBold'},
-        GOOD_SEPARATOR: {fontWeight: 'fontWeightLight'},
-        DOGS: {fontWeight: 'fontWeightNormal'},
-        DOGS_SEPARATOR: {fontWeight: 'fontWeightNormal'},
-        SAY: {fontWeight: 'fontWeightMedium'},
-        SAY_SEPARATOR: {fontWeight: 'fontWeightMedium'},
-        BORK: {fontWeight: 'fontWeightSemibold'},
-        BORK_SEPARATOR: {fontWeight: 'fontWeightSemibold'},
-        WOOF: {fontWeight: 'fontWeightBold'},
-        WOOF_SEPARATOR: {fontWeight: 'fontWeightBold'},
+        DOGS_BREADCRUMB: { marginY: "space60", fontVariantNumeric: "ordinal" },
+        GOOD: { fontWeight: "fontWeightLight" },
+        GOOD_ANCHOR: { fontWeight: "fontWeightBold" },
+        GOOD_SEPARATOR: { fontWeight: "fontWeightLight" },
+        DOGS: { fontWeight: "fontWeightNormal" },
+        DOGS_SEPARATOR: { fontWeight: "fontWeightNormal" },
+        SAY: { fontWeight: "fontWeightMedium" },
+        SAY_SEPARATOR: { fontWeight: "fontWeightMedium" },
+        BORK: { fontWeight: "fontWeightSemibold" },
+        BORK_SEPARATOR: { fontWeight: "fontWeightSemibold" },
+        WOOF: { fontWeight: "fontWeightBold" },
+        WOOF_SEPARATOR: { fontWeight: "fontWeightBold" },
       }}
     >
-      <Breadcrumb element="DOGS_BREADCRUMB">
+      <Breadcrumb element="DOGS_BREADCRUMB" aria-label={`breadcrumb ${uniqueLandmarkIdentifier}`}>
         <BreadcrumbItem element="GOOD" href="#">
           0th
         </BreadcrumbItem>
@@ -126,6 +136,10 @@ export const CustomizationBreadcrumbWithCustomName = (): React.ReactNode => {
   );
 };
 
-CustomizationBreadcrumbWithCustomName.story = {
-  name: 'Customized unique name',
+CustomizationBreadcrumbWithCustomName.storyName = "Customized unique name";
+CustomizationBreadcrumbWithCustomName.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

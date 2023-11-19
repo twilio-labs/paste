@@ -1,0 +1,139 @@
+export const meta = {
+  title: 'Detail Text',
+  package: '@twilio-paste/detail-text',
+  description: 'Detail Text is typography used for short pieces of secondary text content.',
+  slug: '/components/detail-text/',
+};
+
+import {DetailText} from '@twilio-paste/detail-text';
+import Changelog from '@twilio-paste/detail-text/CHANGELOG.md';
+import {Callout, CalloutText} from '@twilio-paste/callout';
+import {Box} from '@twilio-paste/box';
+import {Anchor} from '@twilio-paste/anchor';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Table, THead, Tr, Th, Td, TBody} from '@twilio-paste/table';
+import {Text} from '@twilio-paste/text';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+import {ArrowUpIcon} from '@twilio-paste/icons/esm/ArrowUpIcon';
+import {Card} from '@twilio-paste/card';
+
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  detailTextWithImage,
+  detailTextWithPrimaryContent,
+  detailTextWithNoMargin,
+  detailTextAsFootnote,
+} from '../../../component-examples/DetailTextExamples.ts';
+import packageJson from '@twilio-paste/detail-text/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Detail Text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/detail-text',
+        storybookUrl: '/?path=/story/components-detail-text--default',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{DetailText, Box}} noInline>
+  {detailTextWithImage}
+</LivePreview>
+
+## Guidelines
+
+### About Detail Text
+
+The Detail Text component is used for small pieces of text that are secondary to body text in the hierarchy of a page. Common examples include an image caption, chart element legend, or a paragraph footnote.
+
+Detail Text should not be used for body text, and should be reserved for small pieces of content only. It should not be used solely for its stylistic properties within other typographic elements.
+
+### Accessibility
+
+The Detail Text component is a `div` element by default. You can modify the element in situations where a `div` isn’t semantically correct. For example, set `as=”figcaption”` if working with Detail Text inside a [`figure` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure).
+
+If your Detail Text is used to describe another element, use an `id` for the Detail Text component and `aria-describedby` for the other element to make the connection clear.
+
+<Callout variant="neutral">
+  <CalloutText>
+    Detail Text is not the same as alt text on images. The context and content of your usage might mean including alt
+    text for further detail, or making alt text an empty string to prevent redundancy.{' '}
+    <Anchor href="https://www.w3.org/WAI/tutorials/images/decision-tree/" showExternal>
+      Learn more about alt text and when to use it.
+    </Anchor>
+  </CalloutText>
+</Callout>
+
+<Box paddingBottom="space70" />
+
+---
+
+## Examples
+
+### Detail Text below an image
+
+Use Detail Text to add a caption below an image.
+
+<LivePreview scope={{DetailText, Box}} noInline>
+  {detailTextWithImage}
+</LivePreview>
+
+### Detail Text below primary content
+
+Use Detail Text to add a description below primary content for extra context.
+
+<LivePreview scope={{DetailText, Table, THead, Tr, Th, Td, TBody, Text}} noInline>
+  {detailTextWithPrimaryContent}
+</LivePreview>
+
+### Detail Text with no top margin
+
+Detail Text includes a marginTop prop to remove its default top margin of `space30`.
+
+<LivePreview scope={{DetailText, Text, Box, Heading, ArrowUpIcon, Card}} noInline>
+  {detailTextWithNoMargin}
+</LivePreview>
+
+### Detail Text as a footnote
+
+Use Detail Text to add a footnote below a paragraph.
+
+<LivePreview scope={{DetailText, Heading, Paragraph}} noInline>
+  {detailTextAsFootnote}
+</LivePreview>
+
+---
+
+## When to use Detail Text
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Detail Text for small pieces of text that are not the main content of the UI, like graph legends and image captions"
+  />
+  <Dont title="Don't" body="Don’t use Detail Text for body content. Consider using Paragraph instead." />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Detail Text semantically" />
+  <Dont
+    title="Don't"
+    body="Don’t use Detail Text for stylistic purposes within other typography. Consider using the Text primitive instead."
+  />
+</DoDont>

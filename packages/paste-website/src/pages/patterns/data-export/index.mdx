@@ -1,10 +1,9 @@
----
-title: Data Export
-description: The Data Export pattern provides a way for the user to extract data from their account.
-slug: /patterns/data-export/
----
+export const meta = {
+  title: 'Data Export',
+  description: 'The Data Export pattern provides a way for the user to extract data from their account.',
+  slug: '/patterns/data-export/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
@@ -25,7 +24,6 @@ import {Toaster, useToaster} from '@twilio-paste/toast';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
 import {Modal, ModalHeader, ModalHeading, ModalBody, ModalFooter, ModalFooterActions} from '@twilio-paste/modal';
 import {useUID, useUIDSeed} from '@twilio-paste/uid-library';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {
   exportButton,
   exportImmediate,
@@ -35,45 +33,27 @@ import {
   exportPlacement,
   exportCard,
 } from '../../../component-examples/DataExportPatternExamples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/data-export/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Data export"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Data export');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizePatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -81,7 +61,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -114,7 +94,7 @@ export const pageQuery = graphql`
   <Column>
     <Card>
       <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="/components/icons">Export Icon</Anchor>
+        <Anchor href="/components/icon">Export Icon</Anchor>
       </Heading>
     </Card>
   </Column>
@@ -166,11 +146,11 @@ Exporting should:
   {exportButton}
 </LivePreview>
 
-Using the word “Export” and the [ExportIcon](/components/icons) are predictable signals to customers that they can extract data from Twilio.
+Using the word “Export” and the [ExportIcon](/components/icon) are predictable signals to customers that they can extract data from Twilio.
 
 Twilio products generally enable customers to convert files to a range of formats before downloading and saving. However if you can’t provide a format conversion, you should still use the word “Export” and the ExportIcon.
 
-The [delayed export](#delayed-export) is an exception to this copy guideline and uses the word “Download” and the [DownloadIcon](/components/icons) instead.
+The [delayed export](#delayed-export) is an exception to this copy guideline and uses the word “Download” and the [DownloadIcon](/components/icon) instead.
 
 ## Variations
 

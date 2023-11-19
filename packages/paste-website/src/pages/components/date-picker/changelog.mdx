@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Date Picker - Changelog',
+  package: '@twilio-paste/date-picker',
+  description: 'A form component used to select a date.',
+  slug: '/components/date-picker/changelog',
+};
+
+import Changelog from '@twilio-paste/date-picker/CHANGELOG.md';
+import packageJson from '@twilio-paste/date-picker/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Date Picker');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/date-picker',
+        storybookUrl: '/?path=/story/components-date-picker--default-date-picker',
+      },
+    },
+  };
+};
+
+<Changelog />

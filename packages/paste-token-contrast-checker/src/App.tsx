@@ -1,7 +1,7 @@
-import * as React from 'react';
-import {Theme} from '@twilio-paste/theme';
-import type {ThemeVariants} from '@twilio-paste/theme';
-import {StylingGlobals, css} from '@twilio-paste/styling-library';
+import { StylingGlobals, css } from "@twilio-paste/core/styling-library";
+import { Theme } from "@twilio-paste/core/theme";
+import type { ThemeVariants } from "@twilio-paste/theme";
+import * as React from "react";
 
 interface SelectedThemeContextProps {
   selectedTheme: string;
@@ -9,15 +9,15 @@ interface SelectedThemeContextProps {
 }
 export const SelectedThemeContext = React.createContext<SelectedThemeContextProps>({} as SelectedThemeContextProps);
 
-const App: React.FC = ({children}) => {
-  const [selectedTheme, setSelectedTheme] = React.useState('default');
+const App: React.FC<React.PropsWithChildren> = ({ children }) => {
+  const [selectedTheme, setSelectedTheme] = React.useState("twilio");
   return (
-    <SelectedThemeContext.Provider value={{selectedTheme, setSelectedTheme}}>
+    <SelectedThemeContext.Provider value={{ selectedTheme, setSelectedTheme }}>
       <Theme.Provider theme={selectedTheme as ThemeVariants}>
         <StylingGlobals
           styles={css({
             body: {
-              overflow: 'hidden',
+              overflow: "hidden",
             },
           })}
         />
@@ -27,5 +27,4 @@ const App: React.FC = ({children}) => {
   );
 };
 
-// eslint-disable-next-line import/no-default-export
 export default App;

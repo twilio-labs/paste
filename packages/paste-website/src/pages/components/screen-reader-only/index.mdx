@@ -1,10 +1,11 @@
----
-title: Screen Reader Only - Components
-description: The Screen Reader Only component should be used to visually hide content that is necessary to provide appropriate context to users who experience a page using assistive technology.
-slug: /components/screen-reader-only/
----
+export const meta = {
+  title: 'Screen Reader Only - Components',
+  package: '@twilio-paste/screen-reader-only',
+  description:
+    'The Screen Reader Only component should be used to visually hide content that is necessary to provide appropriate context to users who experience a page using assistive technology.',
+  slug: '/components/screen-reader-only/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
 import {Text} from '@twilio-paste/text';
@@ -15,72 +16,42 @@ import {Card} from '@twilio-paste/card';
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {InlineCode} from '@twilio-paste/inline-code';
 import Changelog from '@twilio-paste/screen-reader-only/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {InlineCode} from '../../../components/Typography';
+import packageJson from '@twilio-paste/screen-reader-only/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/screen-reader-only"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/screen-reader-only/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Screen Reader Only"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/screen-reader-only"
-  storybookUrl="/?path=/story/components-screen-reader-only--default"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Screen Reader Only');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/screen-reader-only',
+        storybookUrl: '/?path=/story/components-screen-reader-only--default',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
 
 ## Guidelines
 
 ### About Screen Reader Only
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 When wrapped with the Screen Reader Only component, content is visually hidden but still available to assistive technology. This can be useful when information or relationships between UI controls are only communicated _visually_. By being able to visually hide some content you are able to provide clarifying information to non-sighted users without adding redundancy to the visual design.
 
@@ -88,7 +59,7 @@ When wrapped with the Screen Reader Only component, content is visually hidden b
 
 ### Providing visually hidden headings to sectioned content
 
-All sectioning elements, such as Cards, should contain a heading to provide a clear document outline and form of navigation to assistive technology users. However, there may be times a heading is not required (or even redundant) in a particular UI for sighted users. By using the Screen Reader Only component you can provide a visually hidden heading to give additional context and heirarchy. In the example below, we've added "Flex" as a heading that is accessible to assistive technology, but hidden visually.
+All sectioning elements, such as Cards, should contain a heading to provide a clear document outline and form of navigation to assistive technology users. However, there may be times a heading is not required (or even redundant) in a particular UI for sighted users. By using the Screen Reader Only component you can provide a visually hidden heading to give additional context and hierarchy. In the example below, we've added "Flex" as a heading that is accessible to assistive technology, but hidden visually.
 
 <LivePreview scope={{Card, ScreenReaderOnly, Heading, Paragraph, Button, Anchor, Flex}} language="jsx">
   {`<Card>
@@ -187,42 +158,3 @@ Use the Screen Reader Only component when you are required to provide additional
   <Do title="Do" body="Use to provide additional text content to users of assistive technology" preview={false} />
   <Dont title="Don't" body="Don't use to hide interactive content" preview={false} />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/screen-reader-only - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {ScreenReaderOnly} from '@twilio-paste/core/screen-reader-only';
-
-const Component = () => (
-  <Button variant="secondary" size="small">
-    Buy <ScreenReaderOnly>+1 (484) 662-4088</ScreenReaderOnly>
-  </Button>
-);
-```
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-| Prop | Type                          | Description       | Default |
-| ---- | ----------------------------- | ----------------- | ------- |
-| as?  | `keyof JSX.IntrinsicElements` | A custom HTML tag | `span`  |
-| id?  | `string`                      |                   |         |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,28 +1,32 @@
-import * as theo from 'theo';
-import {resolve} from 'path';
-import {sketchpaletteTokenFormat} from '../sketchpalette';
+import { resolve } from "path";
 
-theo.registerFormat('sketchpalette', sketchpaletteTokenFormat);
+import * as theo from "theo";
 
-describe('sketchPaletteTokenFormatter', () => {
-  it('should return sketch palette color formatted tokens', () => {
+import { sketchpaletteTokenFormat } from "../sketchpalette";
+
+theo.registerFormat("sketchpalette", sketchpaletteTokenFormat);
+
+describe("sketchPaletteTokenFormatter", () => {
+  it("should return sketch palette color formatted tokens", async () => {
     return theo
       .convert({
         transform: {
-          type: 'web',
-          file: resolve(__dirname, '../__fixtures__/colors.yml'),
+          type: "web",
+          file: resolve(__dirname, "../__fixtures__/colors.yml"),
         },
         format: {
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
           // @ts-ignore Theo isn't typed for custom format types
-          type: 'sketchpalette',
+          type: "sketchpalette",
         },
       })
       .then((sketchPalette: string) => {
         return expect(sketchPalette).toMatchSnapshot();
       })
       .catch((error: string) => {
+        // eslint-disable-next-line no-console
         console.log(`Something  went wrong: ${error}`);
-        throw new Error('[sketchpalette test]: should return sketch palette color formatted tokens threw');
+        throw new Error("[sketchpalette test]: should return sketch palette color formatted tokens threw");
       });
   });
 });

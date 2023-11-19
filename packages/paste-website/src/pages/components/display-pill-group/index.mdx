@@ -1,230 +1,207 @@
----
-title: Display Pill Group
-package: '@twilio-paste/display-pill-group'
-description: A Display Pill Group is a set of Pills used to visually represent a collection of entities outside of form-based UIs.
-slug: /components/display-pill-group/
----
+export const meta = {
+  title: 'Display Pill Group',
+  package: '@twilio-paste/display-pill-group',
+  description: 'A Display Pill Group is a non-editable set of Pills that represent a collection of static objects.',
+  slug: '/components/display-pill-group/',
+};
 
-import {graphql} from 'gatsby';
+import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
 import {DisplayPill, DisplayPillGroup} from '@twilio-paste/display-pill-group';
-import Changelog from '@twilio-paste/display-pill-group/CHANGELOG.md';
-import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+import {Truncate} from '@twilio-paste/truncate';
+
+import {AgentIcon} from '@twilio-paste/icons/esm/AgentIcon';
+import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import {MMSCapableIcon} from '@twilio-paste/icons/esm/MMSCapableIcon';
+import {ProductBillingIcon} from '@twilio-paste/icons/esm/ProductBillingIcon';
+import {ProductCodeExchangePartnerIcon} from '@twilio-paste/icons/esm/ProductCodeExchangePartnerIcon';
+import {ProductConversationsIcon} from '@twilio-paste/icons/esm/ProductConversationsIcon';
+import {ProductEngagementIntelligencePlatformIcon} from '@twilio-paste/icons/esm/ProductEngagementIntelligencePlatformIcon';
+import {ProductFrontlineIcon} from '@twilio-paste/icons/esm/ProductFrontlineIcon';
+import {ProductInterconnectIcon} from '@twilio-paste/icons/esm/ProductInterconnectIcon';
+import {ProductInternetOfThingsIcon} from '@twilio-paste/icons/esm/ProductInternetOfThingsIcon';
+import {ProductLookupIcon} from '@twilio-paste/icons/esm/ProductLookupIcon';
+import {ProductMarketingCampaignsIcon} from '@twilio-paste/icons/esm/ProductMarketingCampaignsIcon';
+import {ProductMessagingIcon} from '@twilio-paste/icons/esm/ProductMessagingIcon';
+import {ProductPhoneNumbersIcon} from '@twilio-paste/icons/esm/ProductPhoneNumbersIcon';
+import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import {ProductVerifyIcon} from '@twilio-paste/icons/esm/ProductVerifyIcon';
+import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
+
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {FormPillVsDisplayPillTable} from '../../../components/FormPillVsDisplayPillTable';
+import {DisplayPillVsFormPillTable} from '../../../components/FormPillVsDisplayPillTable';
 import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  mainExample,
+  basicExample,
+  linkedExample,
+  groupExample,
+  truncateExample,
+  avatarExample,
+  iconExample,
+} from '../../../component-examples/DisplayPillGroup.ts';
+import packageJson from '@twilio-paste/display-pill-group/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/display-pill-group"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/display-pill-group/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Display Pill Group"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/display-pill-group"
-  storybookUrl="/?path=/story/components-display-pill-group--basic"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Display Pill Group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/display-pill-group',
+        storybookUrl: '/?path=/story/components-display-pill-group--basic',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
-
-<LivePreview scope={{DisplayPill, DisplayPillGroup, CalendarIcon}}>
-  {`<DisplayPillGroup aria-label="Your favorite sports:">
-  <DisplayPill href="https://google.com">
-    <CalendarIcon decorative size="sizeIcon10" />
-    Tennis
-  </DisplayPill>
-  <DisplayPill>Football</DisplayPill>
-  <DisplayPill href="/">Baseball</DisplayPill>
-  <DisplayPill>Basketball</DisplayPill>
-  <DisplayPill>Soccer</DisplayPill>
-</DisplayPillGroup>`}
+<LivePreview scope={{DisplayPill, DisplayPillGroup, MMSCapableIcon, SMSCapableIcon, AgentIcon, Avatar}} noInline>
+  {mainExample}
 </LivePreview>
 
 ## Guidelines
 
 ### About Display Pill Group
 
-<Paragraph>
-  {props.pageContext.frontmatter.description} Display Pills are static and should be used in situations where data is
-  not being modified.
-</Paragraph>
+A Display Pill Group represents a collection of static objects. Display Pills are static text and should be used where Pills aren’t in a state where they’re actively being modified.
 
-Display Pills can link to other pages. This can useful when the entity the pill represents has its own detail page within the application.
+### Accessibility
 
-#### Accessibility
+A label helps explain what a collection of data objects represents. Set a non-visual label on a Display Pill Group using `aria-label`.
 
-A list of data entities benefits from a label that explains what the collection represents. The Display Pill Group requires that a non-visual label be set on it using `aria-label`.
+#### Keyboard navigation
 
-#### Display Pill vs. Form Pill
+A [linked Display Pill](/components/display-pill-group#linked) is a focusable element and a single tab stop to a keyboard user. Once a user focuses on a linked Display Pill, pressing the enter key will open the link.
 
-There are some very important semantic differences between a Display Pill and Form Pill Group. Below is a table explaining the main differences to get a better understanding of when to use each type of pill.
+### Display Pill vs. Form Pill
 
-<FormPillVsDisplayPillTable />
+Display Pill Group creates a list of static items, whereas [Form Pill Group](/components/form-pill-group) creates a list from which a user may select items.
+
+Use the table below to get a better understanding of when to use Display Pill or Form Pill.
+
+<DisplayPillVsFormPillTable />
 
 ## Examples
 
-### Basic Display Pill Group
+### Basic
 
-Display Pills can be linked, or unlinked by passing an `href` prop to the Display Pill. A Display Pill Group can have a mixture of linked and unlinked Pills.
+Use a Basic Display Pill to display read-only text, such as a list of email addresses or keywords.
 
-When provided with an `href` the `DisplayPill` will render itself as an HTML Anchor element, and will respond to any anchor based events and accept any event handlers.
+A Display Pill can have an optional [Avatar](/components/avatar) or [Icon](/components/icon). Use no more than one icon before or after the text.
 
-<LivePreview scope={{DisplayPill, DisplayPillGroup, CalendarIcon}}>
-  {`<DisplayPillGroup aria-label="Your favorite sports:">
-  <DisplayPill
-    onFocus={() => {
-      console.log('Focused Tennis!');
-    }}
-    onBlur={() => {
-      console.log('Blurred Tennis!');
-    }}
-    href="https://google.com"
-  >
-    <CalendarIcon decorative size="sizeIcon10" />
-    Tennis
-  </DisplayPill>
-  <DisplayPill>Football</DisplayPill>
-  <DisplayPill href="/">Baseball</DisplayPill>
-  <DisplayPill>Basketball</DisplayPill>
-  <DisplayPill>Soccer</DisplayPill>
-</DisplayPillGroup>`}
+<LivePreview scope={{DisplayPill, DisplayPillGroup, ProductVerifyIcon, ProductInterconnectIcon}} noInline>
+  {basicExample}
+</LivePreview>
+
+### Linked
+
+A Display Pill can link to other pages. This can be useful when the entity the pill represents has its own detail page. To do so, pass an `href` prop to the Display Pill.
+
+When provided with an `href` the `DisplayPill` will render itself as an HTML Anchor element, and will respond to any anchor-based events and accept any event handlers.
+
+<LivePreview
+  scope={{DisplayPill, DisplayPillGroup, ProductPhoneNumbersIcon, ProductFrontlineIcon, AgentIcon, Avatar}}
+  noInline
+>
+  {linkedExample}
+</LivePreview>
+
+### Display Pill Group
+
+A Display Pill Group wraps a collection of basic and linked Display Pills with a common group component.
+
+`DisplayPillGroup` takes `DisplayPill`s as children. Don’t place any other type of child component directly inside of a `DisplayPillGroup`.
+
+<LivePreview scope={{DisplayPill, DisplayPillGroup, ProductSegmentIcon, LogoTwilioIcon}} noInline>
+  {groupExample}
 </LivePreview>
 
 ## Composition Notes
 
-`DisplayPillGroup` takes `DisplayPill`s as children. You should not place any other type of child component directly inside of a `DisplayPillGroup`.
+### Truncating text
 
-### When to use a Display Pill Group
+Pill text should never wrap to the next line. If the text length is longer than the max width of the pill group’s container, consider moving the Pill to a new row or use [Truncate](/components/truncate) to truncate the Display Pill text.
+
+<LivePreview
+  scope={{
+    DisplayPill,
+    DisplayPillGroup,
+    Truncate,
+    Box,
+    ProductInternetOfThingsIcon,
+    ProductMarketingCampaignsIcon,
+    ProductCodeExchangePartnerIcon,
+    ProductEngagementIntelligencePlatformIcon,
+  }}
+  noInline
+>
+  {truncateExample}
+</LivePreview>
+
+### Adding an avatar
+
+A Display Pill can have an optional [Avatar](/components/avatar). Considering the size of a Display Pill, it is recommended to use either an image or icon within an Avatar, and to avoid using initials as some initials may get cut off if the characters are particularly wide.
+
+We recommend placing the Avatar ahead of the pill text. Use no more than one before or after the text.
+
+<LivePreview scope={{DisplayPill, DisplayPillGroup, Avatar, AgentIcon}} noInline>
+  {avatarExample}
+</LivePreview>
+
+### Adding an icon
+
+A Display Pill can have an optional [Icon](/components/icon). We recommend placing the Icon ahead of the pill text. Use no more than one before or after the text.
+
+<LivePreview
+  scope={{
+    DisplayPill,
+    DisplayPillGroup,
+    ProductMessagingIcon,
+    ProductBillingIcon,
+    ProductLookupIcon,
+    ProductConversationsIcon,
+  }}
+  noInline
+>
+  {iconExample}
+</LivePreview>
+
+## When to use a Display Pill Group
 
 <DoDont>
-  <Do title="Do" body="Use Display Pills in non-editable pages to represent a collection of similar entities." />
-  <Dont title="Don't" body="Don’t use Display Pills inside of a form or when editing that collection of data." />
+  <Do title="Do" body="Use Display Pills in non-editable situations to represent a collection of similar objects." />
+  <Dont
+    title="Don't"
+    body="Don’t use Display Pills inside of a form or when editing a collection of data. Use a Multi-select Combobox or Form Pill Group instead."
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Display Pills to display a list of objects, usually nouns, such as email addresses or keywords."
+  />
+  <Dont
+    title="Don't"
+    body="Don’t use Display Pills to highlight an attribute of an object for quick identification. Consider using a Badge instead."
+  />
 </DoDont>
 
 <DoDont>
   <Do title="Do" body="Only pass DisplayPill as a direct descendent of a DisplayPillGroup." />
   <Dont
     title="Don't"
-    body="Don’t pass DisplayPillGroup any other component type, and do not wrap DisplayPill in any other component of DOM element"
+    body="Don’t pass DisplayPillGroup in any other component type, and do not wrap DisplayPill in any other component of the DOM element."
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/display-pill-group - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {DisplayPillGroup, DisplayPill} from '@twilio-paste/core/display-pill-group';
-
-export const Basic = () => {
-  return (
-    <DisplayPillGroup aria-label="Your favorite sports:">
-      <DisplayPill
-        onFocus={() => {
-          console.log('Focused Tennis!');
-        }}
-        onBlur={() => {
-          console.log('Blurred Tennis!');
-        }}
-        href="https://google.com"
-      >
-        <CalendarIcon decorative size="sizeIcon10" />
-        Tennis
-      </DisplayPill>
-      <DisplayPill>Football</DisplayPill>
-      <DisplayPill href="/">Baseball</DisplayPill>
-      <DisplayPill>Basketball</DisplayPill>
-      <DisplayPill>Soccer</DisplayPill>
-    </DisplayPillGroup>
-  );
-};
-```
-
-#### Props
-
-##### DisplayPillGroup
-
-`DisplayPillGroup` will take any global HTML attribute for an HTML List element, plus the following:
-
-###### `aria-label: string`
-
-Defines a string value that labels the current element.
-
-###### `element?: string`
-
-Overrides the default element name ('DISPLAY_PILL_GROUP') to apply unique styles with the Customization Provider
-
----
-
-##### DisplayPill
-
-`DisplayPill` will take any global HTML attribute for an HTML Anchor element, plus the following:
-
-###### `element?: string`
-
-Overrides the default element name ('DISPLAY_PILL') to apply unique styles with the Customization Provider
-
-###### `href?: string`
-
-URL the pill is to link to.
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,9 +1,9 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {Stack} from '@twilio-paste/stack';
-import {Avatar} from '@twilio-paste/avatar';
-import {Anchor} from '@twilio-paste/anchor';
+import { Anchor } from "@twilio-paste/anchor";
+import { Avatar } from "@twilio-paste/avatar";
+import { Box } from "@twilio-paste/box";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
 export interface ArticleAuthorProps {
   author: string;
@@ -13,7 +13,13 @@ export interface ArticleAuthorProps {
   authorLink?: string;
 }
 
-const ArticleAuthor: React.FC<ArticleAuthorProps> = ({author, avatar, date, authorLink, machineDate}) => {
+const ArticleAuthor: React.FC<React.PropsWithChildren<ArticleAuthorProps>> = ({
+  author,
+  avatar,
+  date,
+  authorLink,
+  machineDate,
+}) => {
   return (
     <Box marginY="space40">
       <Stack orientation="horizontal" spacing="space40">
@@ -44,6 +50,6 @@ const ArticleAuthor: React.FC<ArticleAuthorProps> = ({author, avatar, date, auth
   );
 };
 
-ArticleAuthor.displayName = 'ArticleAuthor';
+ArticleAuthor.displayName = "ArticleAuthor";
 
-export {ArticleAuthor};
+export { ArticleAuthor };

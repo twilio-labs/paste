@@ -1,13 +1,16 @@
-import shell from 'shelljs';
-import {resolve} from 'path';
-import chalk from 'chalk';
+import { resolve } from "path";
+
+import chalk from "chalk";
+import shell from "shelljs";
 
 const TSCONFIG_BUILDINFO_REGEX = /tsconfig(\.build)?\.tsbuildinfo$/;
-const PACKAGES_DIR = resolve(__dirname, '../../packages');
+const PACKAGES_DIR = resolve(__dirname, "../../packages");
 
-export async function removeTsconfigBuildFiles() {
-  // Make an array of all files within the 'packages/' folder
-  // https://github.com/shelljs/shelljs#findpath--path-
+export async function removeTsconfigBuildFiles(): Promise<void> {
+  /*
+   * Make an array of all files within the 'packages/' folder
+   * https://github.com/shelljs/shelljs#findpath--path-
+   */
   const allPackageFiles = shell.find(PACKAGES_DIR);
 
   // Get all the tsconfig build files

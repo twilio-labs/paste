@@ -1,60 +1,39 @@
----
-title: Modal Dialog - Primitives
-description: An accessible modal dialog window
-slug: /primitives/modal-dialog-primitive/
----
+export const meta = {
+  title: 'Modal Dialog Primitive',
+  package: '@twilio-paste/modal-dialog-primitive',
+  description: 'An unstyled and accessible basis upon which to build Modal Dialogs.',
+  slug: '/primitives/modal-dialog-primitive/',
+};
 
-import {graphql} from 'gatsby';
 import {ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay} from '@twilio-paste/modal-dialog-primitive';
+import packageJson from '@twilio-paste/modal-dialog-primitive/package.json';
 import Changelog from '@twilio-paste/modal-dialog-primitive/CHANGELOG.md';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {ModalDialogPrimitiveExample} from '../../../component-examples/ModalDialogPrimitiveExample.tsx';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPastePrimitive(filter: {name: {eq: "@twilio-paste/modal-dialog-primitive"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/primitives/modal-dialog-primitive/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Modal Dialog Primitive"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<NormalizeComponentHeader
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Modal Dialog Primitive');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/modal-dialog"
   storybookUrl="/?path=/story/primitives-modaldialog--custom-overlay-and-content"
@@ -65,9 +44,13 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
+
+<Box paddingBottom="space80">
+  <ModalDialogPrimitiveExample />
+</Box>
 
 ## Guidelines
 
@@ -81,8 +64,8 @@ we suggest falling back to this component to roll your own solution. We encourag
 using this code as a basis for all modal dialogs in order to avoid code fragmentation
 and accessibility issues in our products.
 
-<Callout>
-  <CalloutTitle as="h4">Looking for Paste's styled Modal?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Looking for Paste's styled Modal?</CalloutHeading>
   <CalloutText>
     Only use this primitive if you have a bespoke modal design. For most Twilio interfaces, we recommend using the{' '}
     <Anchor href="/components/modal">Paste Modal component</Anchor>.
@@ -192,7 +175,7 @@ export const ModalActivator: React.FC = () => {
 
 ### API
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>
     Much of the following is copied directly from{' '}
     <Anchor href="https://reacttraining.com/reach-ui/dialog/">reach-ui's docs</Anchor>. Because we may update at a

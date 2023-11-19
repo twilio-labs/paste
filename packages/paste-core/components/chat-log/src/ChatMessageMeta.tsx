@@ -1,40 +1,50 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import {MessageVariantContext} from './MessageVariantContext';
-import type {ChatMessageMetaProps} from './types';
+import { MessageVariantContext } from "./MessageVariantContext";
 
-const ChatMessageMeta = React.forwardRef<HTMLDivElement, ChatMessageMetaProps>(
-  ({children, element = 'CHAT_MESSAGE_META', ...props}, ref) => {
+export interface ChatMessageMetaProps extends HTMLPasteProps<"div"> {
+  /**
+   *
+   * @default null
+   * @type {string}
+   * @memberof ChatMessageMetaProps
+   */
+  "aria-label": string;
+  children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_MESSAGE_META"
+   * @type {BoxProps["element"]}
+   * @memberof ChatMessageMetaProps
+   */
+  element?: BoxElementProps["element"];
+}
+
+export const ChatMessageMeta = React.forwardRef<HTMLDivElement, ChatMessageMetaProps>(
+  ({ children, element = "CHAT_MESSAGE_META", ...props }, ref) => {
     const variant = React.useContext(MessageVariantContext);
-
-    const hasMultipleChildren = React.Children.count(children) > 1;
 
     return (
       <Box
+        {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
         display="flex"
-        justifyContent={hasMultipleChildren ? 'space-between' : 'flex-end'}
-        textAlign={!hasMultipleChildren ? 'right' : undefined}
-        alignItems="flex-start"
+        justifyContent={variant === "inbound" ? "flex-start" : "flex-end"}
+        textAlign={variant === "outbound" ? "right" : "left"}
+        alignItems="center"
         variant={variant}
-        columnGap="space40"
-        {...safelySpreadBoxProps(props)}
+        columnGap="space30"
+        fontWeight="fontWeightMedium"
       >
         {children}
       </Box>
     );
-  }
+  },
 );
 
-ChatMessageMeta.displayName = 'ChatMessageMeta';
-
-ChatMessageMeta.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
-  element: PropTypes.string,
-};
-
-export {ChatMessageMeta};
+ChatMessageMeta.displayName = "ChatMessageMeta";

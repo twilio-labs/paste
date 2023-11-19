@@ -1,0 +1,228 @@
+export const meta = {
+  title: 'Icon Usage Guidelines',
+  description: 'Overview on how to use icons in the context of Paste projects.',
+  slug: '/components/icon/usage-guidelines/',
+};
+
+import Link from 'next/link';
+import {SiteLink} from '../../../../components/SiteLink';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Anchor} from '@twilio-paste/anchor';
+import {Button} from '@twilio-paste/button';
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {DoDont, Do, Dont} from '../../../../components/DoDont';
+import Changelog from '@twilio-paste/icons/CHANGELOG.md';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<h1>{meta.title}</h1>
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h2">Can't find the icon you need?</CalloutHeading>
+  <CalloutText>
+    Check <Anchor href="https://streamlineicons.com/">Streamline</Anchor> and contribute it to the library following{' '}
+    <SiteLink href="/introduction/contributing/icons">our guidelines.</SiteLink>
+  </CalloutText>
+</Callout>
+
+Icons are small graphical representation of a program or a function. They can be used to enhance the
+appearance of a web interface and break up the monotony of text.
+
+Use an icon only when it provides additional clarity or is necessary to draw attention to a UI element.
+
+## Accessibility
+
+### Specify if an icon is decorative
+
+Icons can either be **decorative** or **informative**. _"Decorative icons don’t add information to the content
+of a page. The information provided by the image might already be given using adjacent text, or the image
+might be included to make the website more visually attractive."_ (<Anchor href="https://www.w3.org/WAI/tutorials/images/decorative/">w3.org</Anchor>)
+
+Our icons require the developer define whether an icon is decorative by [providing the required property](/components/icon/usage-guidelines#making-an-icon-decorative-or-informative).
+
+### Give informative icons a title
+
+A title is required so assistive technology can infer equal meaning as a sighted user would.
+
+<DoDont>
+  <Do title="Do" body="Use title text that gives context and meaning to the icon." center>
+    <PlusIcon decorative={false} title="Add to cart" /> (Title: "Add to cart")
+    <Box position="absolute" right={0} bottom={0}>
+      (Hover over icon for tooltip)
+    </Box>
+  </Do>
+  <Dont title="Avoid" body="Avoid title text that only describes the icon image." center>
+    <PlusIcon decorative={false} title="Plus" /> (Title: "Plus")
+    <Box position="absolute" right={0} bottom={0}>
+      (Hover over icon for tooltip)
+    </Box>
+  </Dont>
+</DoDont>
+
+### Pair icons with text
+
+Remember that different cultures may interpret the same image in different ways so despite our best intentions it is helpful to provide adjoining text.
+
+<DoDont>
+  <Do title="Do" body="Pair icons with text." center>
+    <PlusIcon decorative={true} />
+    <Box marginLeft="space20">Add to cart</Box>
+  </Do>
+  <Dont title="Avoid" body="Avoid having standalone icons." center>
+    <PlusIcon decorative={false} title="Plus" />
+  </Dont>
+</DoDont>
+
+### Icons shouldn't be interactive
+
+Icons should not have interactions such as click or hover behavior. Instead they should be wrapped with an
+interactive element such as [Button](/components/button) and [Anchor](/components/anchor).
+
+<DoDont>
+  <Do title="Do" body="Wrap icons in an interactive component." center>
+    <Button variant="primary">
+      <PlusIcon decorative={true} />
+      Add to cart
+    </Button>
+  </Do>
+  <Dont title="Avoid" body="Avoid making icons interactive without an interactive metaphor." center>
+    <div
+      onClick={() => {
+        alert(`This isn't a great user experience.`);
+      }}
+    >
+      <PlusIcon decorative={false} title="Add to cart" />
+    </div>
+  </Dont>
+</DoDont>
+
+## Examples
+
+#### Adapting the icon's color
+
+We can change the icon color directly using [text color tokens](/tokens/list/#text-colors).
+
+<LivePreview scope={{LoadingIcon}} language="jsx">
+  {`<LoadingIcon decorative={true} color="colorTextError" />`}
+</LivePreview>
+
+Alternatively, icons can inherit the current text color.
+
+<LivePreview scope={{Box, Text, LoadingIcon}} language="jsx">
+  {`<Text as="p" color="colorTextInverse">
+  <Box as="span" display="flex" alignItems="center" backgroundColor="colorBackgroundBodyInverse" padding="space30" borderRadius="borderRadius20">
+    <LoadingIcon decorative={true}  />
+    <Box marginLeft="space20">Now loading</Box>
+  </Box>
+</Text>`}
+</LivePreview>
+
+#### Resizing icons
+
+Icons accept one of our `sizeIcon` [tokens](/tokens/list/#sizings).
+
+<LivePreview scope={{Box, Text, PlusIcon}} language="jsx">
+  {`<Text as="p">
+  <Box><PlusIcon decorative={false} title="Add to cart" size="sizeIcon10" /></Box>
+  <Box><PlusIcon decorative={false} title="Add to cart" size="sizeIcon20" /></Box>
+  <Box><PlusIcon decorative={false} title="Add to cart" size="sizeIcon30" /></Box>
+  <Box><PlusIcon decorative={false} title="Add to cart" size="sizeIcon40" /></Box>
+</Text>`}
+</LivePreview>
+
+#### Making an icon decorative or informative
+
+If an icon is decorative, no title is necessary. However, if an icon isn't decorative,
+you must provide a title property.
+
+<LivePreview scope={{Text, PlusIcon}} language="jsx">
+  {`<Text as="p">
+  <PlusIcon decorative={false} title="Add to cart" />
+  <PlusIcon decorative={true} />
+</Text>`}
+</LivePreview>
+
+## Usage Guide
+
+### Installation
+
+```bash
+yarn add @twilio-paste/icons
+```
+
+### Usage
+
+Icons have to be imported individually. This import style was decided for [important
+performance benefits](/components/icon/usage-guidelines#why-react-components). As our icon set grows to contain over 100 icons, we don't
+want projects that use only a few icons to pay the price of a large bundle.
+
+```jsx
+import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
+
+<Button variant="secondary" size="small" onClick={() => {}}>
+  <PlusIcon decorative={true} />
+  Add to cart
+</Button>;
+```
+
+### Props
+
+| Prop       | Type                                   | Description                                                                                                                                           | Default        |
+| ---------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| as?        | string                                 | The HTML tag to replace the default `<span>` tag.                                                                                                     | `span`         |
+| title?     | string                                 | The accessibility text that is read when screenreaders get to this component.                                                                         |                |
+| display?   | `ResponsiveValue<CSS.DisplayProperty>` |                                                                                                                                                       | `block`        |
+| decorative | boolean                                | Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not. |                |
+| size?      | IconSize                               | `sizeIcon10` `sizeIcon20` `sizeIcon30` `sizeIcon40`                                                                                                   | `sizeIcon20`   |
+| color?     | TextColor                              | Sets the icon color to any of our text color tokens or `currentColor`, which inherits text color from the parent element.                             | `currentColor` |
+| element?   | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                             | 'ICON'         |
+
+---
+
+## Icon Format
+
+Paste icons are distributed as both SVG files and React components.
+
+### Why SVG?
+
+PNGs and JPGs are created using thousands of tiny pixels. SVGs are made out of geometric
+primitives such as points, lines, and basic shapes. Because of this attribute, SVGs can
+be resized without any loss of quality to the image. We can also write code to change SVG
+attributes in realtime. These characteristics are ideal for icons since we usually want to
+customize their size or color. To do this with PNGs or JPGs we would need to create a
+separate file for each variation.
+
+### Why React components?
+
+If you're using any Paste component, you're familiar with how to install and use a React
+component. Our icon components have accessibility baked in. They also use our tokens for
+sizing and coloring. With icon components, you can import only the icons your project needs.
+
+Curious why we chose to make React component icons? Check our [write-up document](https://github.com/twilio-labs/svg-to-react/blob/master/RATIONALE.md).
+
+<ChangelogRevealer>
+  <Changelog />
+</ChangelogRevealer>
+
+</content>
+</contentwrapper>

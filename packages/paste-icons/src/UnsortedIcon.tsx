@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface UnsortedIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface UnsortedIconProps extends IconWrapperProps {
 }
 
 const UnsortedIcon = React.forwardRef<HTMLElement, UnsortedIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `UnsortedIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[UnsortedIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[UnsortedIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -24,6 +25,7 @@ const UnsortedIcon = React.forwardRef<HTMLElement, UnsortedIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
           fill="none"
@@ -38,8 +40,8 @@ const UnsortedIcon = React.forwardRef<HTMLElement, UnsortedIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-UnsortedIcon.displayName = 'UnsortedIcon';
-export {UnsortedIcon};
+UnsortedIcon.displayName = "UnsortedIcon";
+export { UnsortedIcon };

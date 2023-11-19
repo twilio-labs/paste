@@ -1,11 +1,10 @@
----
-title: Tooltip
-package: '@twilio-paste/tooltip'
-description: An accessible and styled tooltip component.
-slug: /components/tooltip/
----
+export const meta = {
+  title: 'Tooltip',
+  package: '@twilio-paste/tooltip',
+  description: 'A Tooltip is a page overlay that displays non-interactive clarifying text related to an element that’s in a focused or hovered state.',
+  slug: '/components/tooltip/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -13,73 +12,52 @@ import {Stack} from '@twilio-paste/stack';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {Text} from '@twilio-paste/text';
-import Changelog from '@twilio-paste/tooltip/CHANGELOG.md';
 import {useTooltipState, Tooltip} from '@twilio-paste/tooltip';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
 import {StateHookTabsExample, NonPasteChildComponentExample} from '../../../component-examples/TooltipExamples';
+import packageJson from '@twilio-paste/tooltip/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/tooltip"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/tooltip/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Tooltip"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tooltip"
-  storybookUrl="/?path=/story/components-tooltip--default"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Tooltip');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/tooltip',
+        storybookUrl: '/?path=/story/components-tooltip--default',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview
+  scope={{
+    Tooltip,
+    Button,
+  }}
+>
+  {`<Tooltip text="Black Lives Matter. We stand with the Black community.">
+  <Button variant="primary">✊ Action</Button>
+</Tooltip>`}
+</LivePreview>
 
 ## Guidelines
 
 ### About Tooltip
 
 The Tooltip component is a popup that displays text related to an element when the element is focused via
-the keyboard or on mouse hover. Tooltip follows the
+the keyboard or on mouse hover. They should never contain information essential to task completion, or be used for an error. Tooltip follows the
 [WAI-ARIA Tooltip Pattern](https://www.w3.org/TR/wai-aria-practices/#tooltip).
 
 ### Tooltip compared to Popover
@@ -98,15 +76,13 @@ the keyboard or on mouse hover. Tooltip follows the
 
 ### Accessibility
 
-A tooltip **must only** be placed on a **natively focusable** HTML element. Good candidates include a [Paste Button](/components/button) or a [Paste Anchor](/components/anchor) if the tip also links to a help article.
-
-**Do not** place tooltips on non-focusable elements, like an icon.
+A tooltip must be placed on **only a natively focusable HTML element**, like an enabled [Button](/components/button) or an [Anchor](/components/anchor). **Do not** place tooltips on non-focusable elements, like an icon, or disabled components, like a button. Keyboard users cannot focus on disabled components.
 
 If your tooltip wraps a natively focusable HTML element that includes only an icon, make sure you set the prop `decorative={false}`, and
 give the icon a title. The title of the icon should be the accessible name for the button action, like "Delete phone number". The tooltip provides the additional context, like "You can delete phone numbers every 7 days".
 This ensures the icon and tooltip are accessible to screen readers. Refer to the [focusable element example](#focusable-element) for implementation.
 
-When the user focuses an element with a tooltip, their focus stays on the element. Focus never goes inside the tooltip.
+When the user focuses an element with a tooltip, their focus stays on the element. Since focus never goes inside the tooltip, do not use additional components, like an [Anchor](/components/anchor), within the Tooltip.
 
 ## Examples
 
@@ -214,193 +190,42 @@ For full details on how to use the state hook, and what props to provide it, fol
   {StateHookTabsExample}
 </LivePreview>
 
-## Anatomy
+## Composition notes
 
-### Tooltip
+Tooltips can only contain text content, and should contain only information that is useful additional context or guidance for the user. If you need to include an [Anchor](/components/anchor) or icons, use a [Popover](/components/popover) instead.
 
-| Property         | Default token                 | Modifiable? |
-| ---------------- | ----------------------------- | ----------- |
-| background-color | color-background-body-inverse | No          |
-| border-width     | border-width-10               | No          |
-| border-color     | color-border-strong           | No          |
-| border-radius    | border-radius-20              | No          |
-| box-shadow       | shadow                        | No          |
-| max-width        | size-30                       | No          |
-| padding          | space-30                      | No          |
-| padding-top      | space-20                      | No          |
-| padding-bottom   | space-20                      | No          |
-| z-index          | z-index-90                    | No          |
+Never put information essential to task completion in a Tooltip. Furthermore, Tooltips are easily overlooked and disappear when not focused on, so consider whether the information may be better served by another component. Use [Help Text](/components/help-text), which is persistent and more obvious, for essential information.
 
----
+Do not use a Tooltip on a disabled [Button](/components/button) to explain why the button is unavailable. The disabled button isn't focusable.
 
-## Usage Guide
+Use full sentences and punctuation. Include no more than three lines of text.
 
-### API
+## Do and don't
 
-#### Installation
+<DoDont>
+  <Do title="Do" body="Use Tooltips to provide additional helpful information or guidance." preview={false} />
+  <Dont title="Don't" body="Don't use Tooltips for information essential to task completion." preview={false} />
+</DoDont>
 
-```bash
-yarn add @twilio-paste/tooltip - or - yarn add @twilio-paste/core
-```
+<DoDont>
+  <Do title="Do" body="Use Tooltips only on focusable elements." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don't use Tooltips on non-focusable elements, like icons and disabled buttons."
+    preview={false}
+  />
+</DoDont>
 
-#### Usage
+<DoDont>
+  <Do
+    title="Do"
+    body="Include only text in Tooltip content."
+    preview={false}
+  />
+  <Dont
+  title="Don't"
+  body="Don't include links in Tooltip content."
+  preview={false}
+  />
 
-```jsx
-import {Tooltip} from '@twilio-paste/core/tooltip';
-
-const PopoverExample: React.FC = () => {
-  return (
-    <Tooltip baseId="tooltip-example" text="Tooltip text...">
-      <Button variant="primary">Open Tooltip</Button>
-    </Tooltip>
-  );
-};
-```
-
-#### Props
-
-##### useTooltipState
-
-Pass these as part of an object to the useTooltipState hook.
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the tooltip on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `TooltipPrimitiveReference`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `visible?: boolean`
-
-Whether the tooltip is visible or not.
-
-##### `animated?: number | boolean`
-
-If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
-
-##### useTooltipState returned props
-
-These props are returned by the state hook. You can spread them into this component (`{...state}`) or pass them separately. You can also provide these props from your own state logic.
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the tooltip on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of popover in relation to the `TooltipPrimitiveReference`. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `visible?: boolean`
-
-Whether the tooltip is visible or not.
-
-##### `animated?: number | boolean`
-
-If true, animating will be set to true when visible is updated. It'll wait for stopAnimation to be called or a CSS transition ends. If animated is set to a number, stopAnimation will be called only after the same number of milliseconds have passed.
-
-##### `animating?: boolean`
-
-Whether it's animating or not.
-
-##### `stopAnimation?: () => void`
-
-Stops animation. It's called automatically if there's a CSS transition.
-
-##### `show?: () => void`
-
-Changes the `visible` state to `true`.
-
-##### `hide?: () => void`
-
-Changes the `visible` state to `false`.
-
-##### Tooltip
-
-##### `baseId?: string`
-
-Sets the ID that will serve as a base for all the items IDs.
-
-##### `children: ReactElement`
-
-The tooltip reference, meaning the element where the tooltip originates. Must be a focusable element.
-
-##### `gutter?: string`
-
-Sets the offset between the reference and the tooltip on the main axis.
-
-##### `placement?: "auto-start" | "auto" | "auto-end" | "top-start...`
-
-Sets the placement of tooltip in relation to the child element. Available options include:
-
-- auto-start
-- auto-end
-- auto
-- top-start
-- top-end
-- top
-- bottom-start
-- bottom-end
-- bottom
-- right-start
-- right-end
-- right
-- left-start
-- left-end
-- left
-
-##### `text: string`
-
-The text content of the Tooltip.
-
-###### `element?: string`
-
-Overrides the default element name ('TOOLTIP') to apply unique styles with the Customization Provider
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>
+</DoDont>

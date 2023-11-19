@@ -1,21 +1,23 @@
----
-title: Colors
-description: Color helps us create cohesive experiences throughout our products and distinguishes the Twilio brand.
-slug: /foundations/colors/
----
-
-import {graphql} from 'gatsby';
+export const meta = {
+  title: 'Colors',
+  description: 'Color helps us create cohesive experiences throughout our products and distinguishes the Twilio brand.',
+  slug: '/foundations/colors/',
+};
 
 import {Button} from '@twilio-paste/button';
 import {Anchor} from '@twilio-paste/anchor';
 import {Stack} from '@twilio-paste/stack';
 import {DeleteIcon} from '@twilio-paste/icons/esm/DeleteIcon';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {ColorSwatch} from '../../../components/color-swatch/ColorSwatch';
 import {ColorGradientRainbow} from '../../../components/color-swatch/ColorGradient';
 import {SidebarCategoryRoutes} from '../../../constants';
+import TokensDiagram from '../../../assets/images/foundations/colors/tokens-diagram.png';
+import UseOfColor from '../../../assets/images/foundations/colors/use-of-color-example.png';
+import InteractingStates from '../../../assets/images/foundations/colors/interacting-states.png';
 
 import {
   PrimaryColorExample,
@@ -30,30 +32,23 @@ import {
   TokensDiagramImgCaption,
   InteractingStatesImgCaption,
 } from '../../../component-examples/ColorsFoundationExamples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/colors/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<ComponentHeader
-  name={props.pageContext.frontmatter.title}
-  description={props.pageContext.frontmatter.description}
-  categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}
-/>
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
 
 </content>
 
@@ -61,7 +56,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -101,7 +96,8 @@ Design tokens represent fundamental decisions of Paste’s design language, spec
 
 To learn more about design tokens, [check out our Tokens Overview](/tokens/).
 
-![](../../../assets/images/foundations/colors/tokens-diagram.png)
+<ResponsiveImage src={TokensDiagram} alt="" />
+
 <TokensDiagramImgCaption />
 
 ## Color tokens
@@ -186,7 +182,7 @@ Paste uses blue to indicate neutral information or a neutral state to a user. Bl
 
 ### Color themes
 
-Paste is a themable system. Themes are collections of design tokens that reference specific values. Paste has a Default Theme, as well as a Dark Theme in early preview. Choose which themes to use based on content and user experience needs.
+Paste is a themable system. Themes are collections of design tokens that reference specific values. Paste has a Default Theme, as well as a Dark Theme. Choose which themes to use based on content and user experience needs.
 
 If you’re looking to create a new or custom theme, [check out our theme documentation](/customization/creating-a-custom-theme).
 
@@ -296,7 +292,7 @@ The following have no contrast requirements:
 
 As detailed in [WCAG Success Criterion 1.4.1 (Level A)](https://www.w3.org/TR/WCAG21/#use-of-color), it is important not to use color alone as a means of conveying information, indicating an action, prompting a response, or distinguishing a visual element. Instead, convey such information with text and/or iconography, and use color only as a means to further enforce the meaning.
 
-![](../../../assets/images/foundations/colors/use-of-color-example.png)
+<ResponsiveImage src={UseOfColor} alt="" />
 
 <UseOfColorImgCaption />
 
@@ -312,12 +308,12 @@ As detailed in [WCAG Success Criterion 1.4.11 (Level AA)](https://www.w3.org/TR/
   - If you change the physical shape, i.e. adding a shadow, the shadow must meet 3:1 against adjacent color.
   - If you change the physical attributes outside of color alone, e.g., underline the text, color contrast requirements for the control is exempt.
 
-![](../../../assets/images/foundations/colors/interacting-states.png)
+<ResponsiveImage src={InteractingStates} alt="" />
 
 <InteractingStatesImgCaption />
 
-<Callout>
-  <CalloutTitle as="h4">Still need more guidance?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Still need more guidance?</CalloutHeading>
   <CalloutText>
     This guideline has many exceptions and rules, so it can get complicated. The information provided is an attempt to
     cover most cases, but doesn’t cover everything.{' '}

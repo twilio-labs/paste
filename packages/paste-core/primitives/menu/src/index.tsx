@@ -4,17 +4,19 @@ export {
   MenuGroup as MenuPrimitiveGroup,
   MenuItem as MenuPrimitiveItem,
   MenuItemCheckbox as MenuPrimitiveItemCheckbox,
-  MenuItemRadio as MenuPrimitiveItemRadioMenuItemRadio,
+  MenuItemRadio as MenuPrimitiveItemRadio,
   MenuButton as MenuPrimitiveButton,
   MenuSeparator as MenuPrimitiveSeparator,
-} from '@twilio-paste/reakit-library';
+} from "@twilio-paste/reakit-library";
 
 export type {
   MenuProps as MenuPrimitiveProps,
   MenuGroupProps as MenuPrimitiveGroupProps,
   MenuItemProps as MenuPrimitiveItemProps,
   MenuItemCheckboxProps as MenuPrimitiveItemCheckboxProps,
-  MenuItemRadioProps as MenuPrimitiveItemRadioMenuItemRadioProps,
+  MenuItemRadioProps as MenuPrimitiveItemRadioProps,
   MenuButtonProps as MenuPrimitiveButtonProps,
   MenuSeparatorProps as MenuPrimitiveSeparatorProps,
-} from '@twilio-paste/reakit-library';
+  MenuInitialState as MenuPrimitiveInitialState,
+  MenuStateReturn as MenuPrimitiveStateReturn,
+} from "@twilio-paste/reakit-library";

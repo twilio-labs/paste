@@ -1,14 +1,13 @@
----
-title: Notification and feedback patterns
-description: The Notifications and Feedback pattern communicates timely and intentional information to the user.
-slug: /patterns/notifications-and-feedback/
----
+export const meta = {
+  title: 'Notification and feedback patterns',
+  description: 'The Notifications and Feedback pattern communicates timely and intentional information to the user.',
+  slug: '/patterns/notifications-and-feedback/',
+};
 
-import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Flex} from '@twilio-paste/flex';
@@ -24,45 +23,33 @@ import {Text} from '@twilio-paste/text';
 import {Toast} from '@twilio-paste/toast';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import NotificationsAlertImage from '../../../assets/images/patterns/notifications-alert@3x.png';
+import NotificationsToastImage from '../../../assets/images/patterns/notifications-toast@3x.png';
+import NotificationsModalImage from '../../../assets/images/patterns/notifications-modal@3x.png';
+import NotificationsInlineMessagingImage from '../../../assets/images/patterns/notifications-inline-messaging@3x.png';
+import NotificationsInpageMessagingImage from '../../../assets/images/patterns/notifications-inpage-messaging@3x.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/notifications-and-feedback/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Notifications and feedback"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Notifications and feedback');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizePatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -70,7 +57,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -152,8 +139,8 @@ There are 3 levels of notifications and feedback:
 - **Feedback indicators:** Acknowledgment of a user action, like submitting a form or pressing a “Copy code” button.
 - **Notification centers and reminders:** Currently, these are highly specific to products’ business needs and should be treated as a product feature, rather than a pattern. While the implementation of a notification center might use Paste components, guidelines specific to a notification center won’t be covered in this page.
 
-<Callout>
-  <CalloutTitle>Notifications in high-emotion or high-stress situations</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Notifications in high-emotion or high-stress situations</CalloutHeading>
   <CalloutText>
     For high-emotion or high-stress parts of the customer journey, use a component that appropriately matches the
     customer's level of emotion. For example, to confirm that a customer has successfully upgraded their account, you
@@ -180,7 +167,7 @@ Visit the [Alert](/components/alert), [Modal](/components/modal), [Form element]
 
 To communicate information from the system that isn't triggered by a user action, use an **[alert](/components/alert)**, especially for high-priority or time-sensitive changes to the system.
 
-![Screen with alert informing users of a server error](../../../assets/images/patterns/notifications-alert@3x.png)
+<ResponsiveImage src={NotificationsAlertImage} alt="Screen with alert informing users of a server error" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -205,10 +192,13 @@ Use a Toast when
 - You're providing only one link or button to help a user continue a flow.
 - There’s no other way for a user to immediately know that their action was acknowledged. For example, a Toast may not be needed when a modal closes after a user presses “Save” in it. The modal dismissal may sufficiently communicate that the information in the modal was saved, without needing further messaging.
 
-![Screen with toast confirming a password reset email has been sent](../../../assets/images/patterns/notifications-toast@3x.png)
+<ResponsiveImage
+  src={NotificationsToastImage}
+  alt="Screen with toast confirming a password reset email has been sent"
+/>
 
-<Callout>
-  <CalloutTitle>Toasts in Flex and SendGrid?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Toasts in Flex and SendGrid?</CalloutHeading>
   <CalloutText>
     While the recommendation is to migrate to Paste Toast components to acknowledge user actions, Flex and SendGrid
     currently use banners for this purpose.
@@ -228,7 +218,7 @@ Use a Modal when
 - You’re focusing a user’s attention and confirming a definitive action at the end of a Modal flow.
 - You’re providing lengthy text, multiple links, or multiple buttons to help a user continue a flow.
 
-![Modal congratulating a user at the end of a Modal flow](../../../assets/images/patterns/notifications-modal@3x.png)
+<ResponsiveImage src={NotificationsModalImage} alt="Modal congratulating a user at the end of a Modal flow" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -247,7 +237,7 @@ Use contextual, inline messaging (e.g., inline errors on form fields) when
 - You’re providing links or buttons that are contextual to a UI element and help a user continue a flow.
 - You’re communicating dynamically changing content, like a progress bar.
 
-![Screen with inline error with anchor on a form field](../../../assets/images/patterns/notifications-inline-messaging@3x.png)
+<ResponsiveImage src={NotificationsInlineMessagingImage} alt="Screen with inline error with anchor on a form field" />
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -265,7 +255,10 @@ Use in-page messaging (e.g., full-page confirmation composition) when
 - You’re communicating a direct response to a _high-emotion_ user action or flow.
 - You’re providing information that a user might want to copy, screenshot, or save, like a confirmation number or invoice details.
 
-![Full-page congratulations message on setting up a Twilio Messaging Service with SIDs to copy](../../../assets/images/patterns/notifications-inpage-messaging@3x.png)
+<ResponsiveImage
+  src={NotificationsInpageMessagingImage}
+  alt="Full-page congratulations message on setting up a Twilio Messaging Service with SIDs to copy"
+/>
 
 <Box marginBottom="space80">
   <Disclosure variant="contained">
@@ -288,7 +281,7 @@ Coming soon
 
 ## Related discussions
 
-- [Thoughts on expanded size variants for <Toast /\>](https://github.com/twilio-labs/paste/discussions/834)
+- [Thoughts on expanded size variants for Toast](https://github.com/twilio-labs/paste/discussions/834)
 
 </content>
 

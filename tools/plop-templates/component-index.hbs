@@ -1,22 +1,2 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-
-export interface {{pascalCase component-name}}Props {
-  children?: React.ReactNode;
-}
-
-const {{pascalCase component-name}} = React.forwardRef<HTMLDivElement, {{pascalCase component-name}}Props>((props, ref) => {
-  return (
-    <div ref={ref}>
-      {props.children}
-    </div>
-  );
-});
-
-{{pascalCase component-name}}.displayName = '{{pascalCase component-name}}';
-
-{{pascalCase component-name}}.propTypes = {
-  children: PropTypes.node,
-};
-
-{{export component-name}};
+export {{{pascalCase component-name}}} from './{{pascalCase component-name}}'
+export type {{{pascalCase component-name}}Props} from './{{pascalCase component-name}}'

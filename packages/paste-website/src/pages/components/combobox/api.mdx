@@ -1,0 +1,64 @@
+export const meta = {
+  title: 'Combobox',
+  package: '@twilio-paste/combobox',
+  description: 'An accessible styled drop-down list box.',
+  slug: '/components/combobox/api',
+};
+
+import Changelog from '@twilio-paste/combobox/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/combobox/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Combobox');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/combobox');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox',
+        storybookUrl: '/?path=/story/components-combobox-combobox--default-combobox',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/combobox - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Combobox} from '@twilio-paste/core/combobox';
+
+const authors = [
+  'James Baldwin',
+  'Adrienne Maree Brown',
+  'Octavia Butler',
+  'Ta-Nehisi Coates',
+  'Audre Lorde',
+  'Nnedi Okorafor',
+];
+
+const Component = () => <Combobox autocomplete items={authors} labelText="Select an author" required />;
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

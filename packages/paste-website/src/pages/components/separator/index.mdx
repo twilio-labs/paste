@@ -1,78 +1,54 @@
----
-title: Separator - Components
-description: The Separator component can be used to create visual and semantic separation between UI elements or sections.
-slug: /components/separator/
----
+export const meta = {
+  title: "Separator - Components",
+  package: "@twilio-paste/separator",
+  description:
+    "The Separator component can be used to create visual and semantic separation between UI elements or sections.",
+  slug: "/components/separator/",
+};
 
-import {graphql} from 'gatsby';
-import {Separator} from '@twilio-paste/separator';
-import {Text} from '@twilio-paste/text';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Box} from '@twilio-paste/box';
-import Changelog from '@twilio-paste/separator/CHANGELOG.md';
-import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {SidebarCategoryRoutes} from '../../../constants';
+import { Separator } from "@twilio-paste/separator";
+import { Text } from "@twilio-paste/text";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Box } from "@twilio-paste/box";
+import { DoDont, Do, Dont } from "../../../components/DoDont";
+import { SidebarCategoryRoutes } from "../../../constants";
+import packageJson from "@twilio-paste/separator/package.json";
+import ComponentPageLayout from "../../../layouts/ComponentPageLayout";
+import { getFeature, getNavigationData } from "../../../utils/api";
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/separator"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature("Separator");
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      mdxHeadings,
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/separator',
+        storybookUrl: '/?path=/story/components-separator--horizontal',
       }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/separator/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Separator"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+    },
+  };
+};
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/separator"
-  storybookUrl="/?path=/story/components-separator--horizontal"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{ Box, Separator }} language="jsx">
+  {`<Box backgroundColor="colorBackgroundBody" padding="space50">
+  <Separator orientation="horizontal" verticalSpacing="space50" />
+</Box>`}
+</LivePreview>
 
 ## Guidelines
 
 ### About Separator
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 It can be used to create separation between large sections of page content, or between smaller parts of single UI controls such as menu items in a menu.
 
@@ -86,7 +62,7 @@ It is heavily inspired by the [Chakra UI](https://chakra-ui.com/divider) impleme
 
 Vertical separation can be created by using a horizontal separator. This is achieved by setting `orientation="horizontal"`. A `verticalSpacing` styling property is provided to let you to create space above and below the separator. `verticalSpacing` will take any [Spacing Token](/tokens#spacings) as its value.
 
-<LivePreview scope={{Box, Separator}} language="jsx">
+<LivePreview scope={{ Box, Separator }} language="jsx">
   {`<Box backgroundColor="colorBackgroundBody" padding="space50">
   <Separator orientation="horizontal" verticalSpacing="space50" />
 </Box>`}
@@ -96,7 +72,7 @@ Vertical separation can be created by using a horizontal separator. This is achi
 
 Horizontal separation can be created by using a vertical separator. This is achieved by setting `orientation="vertical"`. A `horizontalSpacing` styling property is provided to let you to create space on either side of the separator. `horizontalSpacing` will take any [Spacing Token](/tokens#spacings) as its value.
 
-<LivePreview scope={{Separator, Text, Box}} language="jsx">
+<LivePreview scope={{ Separator, Text, Box }} language="jsx">
   {`<Box backgroundColor="colorBackgroundBody" padding="space50" display="flex">
   <Text as="span">Option 1</Text>
   <Separator orientation="vertical" horizontalSpacing="space40" />
@@ -118,9 +94,9 @@ When used, the spacing properties create equal space in both directions along th
 
 #### Responsive spacing
 
-`horizontalSpacing` and `verticalSpacing` are responsive props. You can provide them an array of spacing values to change the spacing based on the screen sizes supported by your [theme](/core/theme-package#theme-provider).
+`horizontalSpacing` and `verticalSpacing` are responsive props. You can provide them an array of spacing values to change the spacing based on the screen sizes supported by your [theme](/theme/#theme-provider).
 
-<LivePreview scope={{Separator, Text, Box}} language="jsx">
+<LivePreview scope={{ Separator, Text, Box }} language="jsx">
   {`<Box backgroundColor="colorBackgroundBody" padding="space50">
   <Box display="flex">
     <Text as="span">Option 1</Text>
@@ -158,42 +134,3 @@ A Separator can also be used as an element inside components. For example, it ca
     preview={false}
   />
 </DoDont>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/separator - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Separator} from '@twilio-paste/core/separator';
-
-const Component = () => <Separator orientation="horizontal" />;
-```
-
-#### Separator props
-
-All the regular HTML attributes (`role`, `aria-*`, `type`, and so on) including the following custom props:
-
-| Prop               | Type                                               | Description                                                                               | Default     |
-| ------------------ | -------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| orientation?       | 'horizontal', 'vertical'                           | Separator direction                                                                       |             |
-| horizontalSpacing? | ResponsiveValue<[Spacing](/tokens/list/#spacings)> | Space left and right of the separator                                                     |             |
-| verticalSpacing?   | ResponsiveValue<[Spacing](/tokens/list/#spacings)> | Space top and bottom of the separator                                                     |             |
-| element?           | `string`                                           | Overrides the default element name to apply unique styles with the Customization Provider | 'SEPARATOR' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

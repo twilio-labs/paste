@@ -1,11 +1,10 @@
-import * as React from 'react';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
-import {Anchor} from '@twilio-paste/anchor';
+import { Anchor } from "@twilio-paste/anchor";
+import { ProductFlexIcon } from "@twilio-paste/icons/esm/ProductFlexIcon";
+import { Paragraph } from "@twilio-paste/paragraph";
 
-import {ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo} from './ProjectCard';
+import { ProjectCard, ProjectCardBody, ProjectHeading, ProjectLogo } from "./ProjectCard";
 
-export const FlexCard: React.FC = () => {
+export const FlexCard = (): JSX.Element => {
   return (
     <ProjectCard>
       <ProjectCardBody>

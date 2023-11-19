@@ -1,11 +1,11 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import type {PaginationArrowIconWrapperProps} from '../types';
-import {PaginationArrowIconWrapperPropTypes} from '../proptypes';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
 
-const PaginationArrowIconWrapper: React.FC<PaginationArrowIconWrapperProps> = ({
+import type { PaginationArrowIconWrapperProps } from "../types";
+
+const PaginationArrowIconWrapper: React.FC<React.PropsWithChildren<PaginationArrowIconWrapperProps>> = ({
   children,
-  element = 'PAGINATION_ARROW_ICON_WRAPPER',
+  element = "PAGINATION_ARROW_ICON_WRAPPER",
   isFocused,
   isHovered,
 }) => {
@@ -13,11 +13,9 @@ const PaginationArrowIconWrapper: React.FC<PaginationArrowIconWrapperProps> = ({
     <Box
       element={element}
       alignItems="center"
-      backgroundColor={isHovered || isFocused ? 'colorBackgroundPrimaryWeakest' : 'none'}
-      borderColor="inherit"
+      backgroundColor="colorBackgroundBody"
+      boxShadow={isHovered && !isFocused ? "shadowBorderPrimary" : "shadowBorderWeak"}
       borderRadius="borderRadiusCircle"
-      borderStyle="solid"
-      borderWidth="borderWidth10"
       display="flex"
       height="sizeSquare80"
       justifyContent="center"
@@ -29,8 +27,6 @@ const PaginationArrowIconWrapper: React.FC<PaginationArrowIconWrapperProps> = ({
   );
 };
 
-PaginationArrowIconWrapper.displayName = 'PaginationArrowIconWrapper';
+PaginationArrowIconWrapper.displayName = "PaginationArrowIconWrapper";
 
-PaginationArrowIconWrapper.propTypes = PaginationArrowIconWrapperPropTypes;
-
-export {PaginationArrowIconWrapper};
+export { PaginationArrowIconWrapper };

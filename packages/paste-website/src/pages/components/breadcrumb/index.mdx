@@ -1,11 +1,11 @@
----
-title: Breadcrumb
-package: '@twilio-paste/breadcrumb'
-description: Breadcrumbs are used to show navigation hierarchy on a page. They provide a way for users to navigate a nested path of parent pages.
-slug: /components/breadcrumb/
----
+export const meta = {
+  title: 'Breadcrumb',
+  package: '@twilio-paste/breadcrumb',
+  description:
+    'Breadcrumbs are used to show navigation hierarchy on a page. They provide a way for users to navigate a nested path of parent pages.',
+  slug: '/components/breadcrumb/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
@@ -15,63 +15,40 @@ import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {Truncate} from '@twilio-paste/truncate';
 import Changelog from '@twilio-paste/breadcrumb/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/breadcrumb/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/breadcrumb"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/breadcrumb/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Breadcrumb"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb"
-  storybookUrl="/?path=/story/components-breadcrumb--anchors"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Breadcrumb');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb',
+        storybookUrl: '/?path=/story/components-breadcrumb--anchors',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Breadcrumb, BreadcrumbItem}} language="jsx">
+  {`<Breadcrumb>
+  <BreadcrumbItem href="#">Phone Numbers</BreadcrumbItem>
+  <BreadcrumbItem href="#">Active Numbers</BreadcrumbItem>
+</Breadcrumb>`}
+</LivePreview>
 
 ## Guidelines
 
@@ -79,15 +56,12 @@ export const pageQuery = graphql`
 
 Breadcrumb navigation helps the user understand their location in an app or website by providing a trail back to the top level of the website.
 
-Breadcrumbs are listed in order and represent the hierarchy of the page in the product. They will include links to parent pages and can optionally show the current page.
+Breadcrumbs are listed in order and represent the hierarchy of the page in the product. Do not include the current page in the hierarchy unless there is no page header on the current page.
 
-<Callout variant="warning">
-  <CalloutTitle>Using Breadcrumb in Console products</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Using Breadcrumb in Console products</CalloutHeading>
   <CalloutText>
-    If you're planning on using Breadcrumbs in a Console product, please read the{' '}
-    <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit" showExternal>
-      Console Navigation guidelines
-    </Anchor>{' '}
+    If you're planning on using Breadcrumbs in a Console product, please read the <Anchor href="https://docs.google.com/document/d/1hQ0S4qC0N8lwpVAo4ySv3woYHjTNMEyK2bPKKPZ1eBo/edit" showExternal>Console Navigation guidelines</Anchor>
     and reach out to the Console team (#help-console-beta). Breadcrumbs will eventually be provided through the
     navigation framework.
   </CalloutText>
@@ -113,7 +87,9 @@ The Breadcrumb component uses [Anchors](/components/anchor) to link back to pare
 
 ### Breadcrumb with unlinked page
 
-Use a Breadcrumb with an unlinked page when there's a parent page that customers can't return to, but showing the navigation hierarchy of the current page still helps a customer with their workflow. However this should **not** be used to show the current page, especially if there is a visible page heading directly below the Breadcrumb.
+Always show the full IA hierarchy of the current page, even if one of the parent pages cannot be navigated to. When a parent page cannot be navigated to, use an unlinked Breadcrumb.
+
+Do not use an unlinked Breadcrumb to display the name of the current page in the Breadcrumb. The current page's header provides a clearer indication to the user of where they are in the product.
 
 To show an unlinked page, use a `BreadcrumbItem` with no `href`.
 
@@ -162,7 +138,7 @@ our BreadcrumbItem component creates links using [Anchor](/components/anchor) un
 
 <iframe
   src="https://codesandbox.io/embed/using-breadcrumb-with-react-router-t24en?fontsize=14&hidenavigation=1&theme=dark&initialpath=/page2"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="Using BreadcrumbItem with React Router"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -170,7 +146,13 @@ our BreadcrumbItem component creates links using [Anchor](/components/anchor) un
 
 ---
 
-## Considerations
+## Composition notes
+
+Keep breadcrumb text short, ideally less than 15 characters. When the linked page has a longer title, follow [the truncation guidance](#breadcrumb-with-truncation).
+
+Do not include the current page in the navigation, since the page header provides a clearer indication to the user of where they are in the product.
+
+## Do and don't
 
 <DoDont>
   <Do title="Do" body="Add a slash between two BreadcrumbItems." center>
@@ -197,7 +179,7 @@ our BreadcrumbItem component creates links using [Anchor](/components/anchor) un
   </Do>
   <Dont
     title="Don't"
-    body="Avoid using an unlinked BreadcrumbItem, especially if there's already a visible heading on the page. Exceptions can be made when there are parent pages that customers can't return to, but still need to actively reference."
+    body="Do not include the current page in the navigation trail, unless the current page doesn't have a header."
     center
   >
     <Breadcrumb>
@@ -211,110 +193,3 @@ our BreadcrumbItem component creates links using [Anchor](/components/anchor) un
 
 - [Breadcrumb without href or plain text](https://github.com/twilio-labs/paste/discussions/1234)
 - [Last separator using Breadcrumb](https://github.com/twilio-labs/paste/discussions/1135)
-
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>color</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>BreadcrumbItem: $color-text or $color-text-link</ListItem>
-            <ListItem>BreadcrumbSeparator: $color-text-weak</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>font-size</Td>
-        <Td>$font-size-20</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>line-height</Td>
-        <Td>$line-height-20</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>margin</Td>
-        <Td>$space-0</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>padding</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$space-0</ListItem>
-            <ListItem>
-              BreadcrumbSeparator:
-              <UnorderedList marginBottom="space0">
-                <ListItem>padding-left: $space-20</ListItem>
-                <ListItem>padding-right: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/breadcrumb - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Breadcrumb, BreadcrumbItem} from '@twilio-paste/core/breadcrumb';
-
-const BreadcrumbExample: React.FC = () => {
-  return (
-    <Breadcrumb>
-      <BreadcrumbItem href="#">Item One</BreadcrumbItem>
-      <BreadcrumbItem href="#">Item Two</BreadcrumbItem>
-    </Breadcrumb>
-  );
-};
-```
-
-#### Breadcrumb Props
-
-| Prop     | Type        | Description | Default |
-| -------- | ----------- | ----------- | ------- |
-| children | `ReactNode` |             | null    |
-
-#### BreadcrumbItem Props
-
-| Prop     | Type        | Description                                                                               | Default      |
-| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------ |
-| children | `ReactNode` |                                                                                           | null         |
-| href?    | `string`    | The URL the breadcrumb routes to.                                                         | null         |
-| last?    | `boolean`   | If true, removes the `BreadcrumbSeparator` after the last breadcrumb item.                | null         |
-| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'BREADCRUMB' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

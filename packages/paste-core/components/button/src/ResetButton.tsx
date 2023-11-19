@@ -1,20 +1,19 @@
-import * as React from 'react';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
-import {SizeStyles, BaseStyles} from './styles';
-import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Box } from "@twilio-paste/box";
+import merge from "deepmerge";
+import * as React from "react";
 
-// This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const merge = require('deepmerge');
+import { BaseStyles, SizeStyles } from "./styles";
+import type { DirectButtonProps } from "./types";
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  fontWeight: 'inherit',
-  color: 'inherit',
+  fontWeight: "inherit",
+  color: "inherit",
 });
 
-const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {fontSize: 'inherit', fontWeight: 'inherit'});
+const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, { fontSize: "inherit", fontWeight: "inherit" });
 
-const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {fontSize: 'inherit', fontWeight: 'inherit'});
+const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, { fontSize: "inherit", fontWeight: "inherit" });
 
 const ButtonStyleMapping = {
   default: defaultStyles,
@@ -23,25 +22,23 @@ const ButtonStyleMapping = {
 };
 
 const ResetButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
-        width={fullWidth ? '100%' : 'auto'}
-        {...safelySpreadBoxProps(props)}
+        width={fullWidth ? "100%" : "auto"}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
+        {...(props as any)}
       />
     );
-  }
+  },
 );
 ResetButton.defaultProps = {
-  as: 'button',
+  as: "button",
 };
-if (process.env.NODE_ENV === 'development') {
-  ResetButton.propTypes = DirectButtonPropTypes;
-}
-ResetButton.displayName = 'ResetButton';
 
-export {ResetButton};
+ResetButton.displayName = "ResetButton";
+
+export { ResetButton };

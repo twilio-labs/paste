@@ -1,22 +1,74 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import type {BoxProps} from '@twilio-paste/box';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
+import { Box, type BoxProps, type BoxStyleProps, safelySpreadBoxProps } from "@twilio-paste/box";
+import { HelpText } from "@twilio-paste/help-text";
+import { Label } from "@twilio-paste/label";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-export interface InlineControlGroupProps
-  extends Pick<BoxProps, 'element'>,
-    Omit<React.FieldsetHTMLAttributes<HTMLFieldSetElement>, 'onChange'> {
+export interface InlineControlGroupProps extends Omit<HTMLPasteProps<"fieldset">, "onChange"> {
   children: React.ReactNode;
+  /**
+   * Make the Group disabled
+   *
+   * @type {boolean}
+   * @memberof InlineControlGroupProps
+   */
   disabled?: boolean;
+  /**
+   * String to render as the error text.
+   *
+   * @type {string | React.ReactNode}
+   * @memberof InlineControlGroupProps
+   */
   errorText?: string | React.ReactNode;
+  /**
+   * String to render as the help text.
+   *
+   * @type {string | React.ReactNode}
+   * @memberof InlineControlGroupProps
+   */
   helpText?: string | React.ReactNode;
+  /**
+   * String to render as the label text.
+   *
+   * @type {"vertical" | "horizontal"}
+   * @memberof InlineControlGroupProps
+   */
   legend: string | NonNullable<React.ReactNode>;
-  orientation?: 'vertical' | 'horizontal';
-  ref?: any;
+  /**
+   * Sets the direction in which the group is rendered.
+   *
+   * @type {"vertical" | "horizontal"}
+   * @memberof InlineControlGroupProps
+   */
+  orientation?: "vertical" | "horizontal";
+  /**
+   * Make the Group required
+   *
+   * @type {boolean}
+   * @memberof InlineControlGroupProps
+   */
   required?: boolean;
+  /**
+   * Accessible label for the required dot on the Label.
+   *
+   * @type {string}
+   * @memberof InlineControlGroupProps
+   */
   i18nRequiredLabel?: string;
+  /**
+   *
+   * @type {BoxStyleProps}
+   * @memberof InlineControlGroupProps
+   */
+  fieldStyleProps?: BoxStyleProps;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'INLINE_CONTROL_GROUP'
+   * @type {BoxProps['element']}
+   * @memberof InlineControlGroupProps
+   */
+  element?: BoxProps["element"];
 }
 
 const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGroupProps>(
@@ -24,17 +76,20 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
     {
       children,
       disabled,
-      element = 'INLINE_CONTROL_GROUP',
+      element = "INLINE_CONTROL_GROUP",
       errorText,
       helpText,
       legend,
-      orientation = 'vertical',
+      orientation = "vertical",
       required,
       i18nRequiredLabel,
+      fieldStyleProps,
       ...props
     },
-    ref
+    ref,
   ) => {
+    const isVisualPicker = Boolean(fieldStyleProps); // This prop is only used in Visual Picker
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -58,19 +113,35 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
           {legend}
         </Label>
         {helpText && <HelpText marginTop="space0">{helpText}</HelpText>}
-        <Box element={`${element}_SET`} marginLeft="space20" marginRight="space20">
-          {React.Children.map(children, (child) => {
-            return (
-              <Box
-                element={`${element}_FIELD`}
-                display={orientation === 'horizontal' ? 'inline-block' : 'block'}
-                marginTop="space40"
-                marginRight={orientation === 'horizontal' ? 'space70' : null}
-              >
-                {child}
-              </Box>
-            );
-          })}
+        <Box element={`${element}_SET`} marginRight={isVisualPicker ? undefined : "space20"}>
+          <Box
+            display={isVisualPicker && orientation === "horizontal" ? "inline-flex" : "block"} // Sets equal heights for horizontal Visual Pickers
+            width={isVisualPicker ? "100%" : undefined} // Allows vertical Visual Pickers to take up the full width of the container
+          >
+            {React.Children.map(children, (child, index) => {
+              return (
+                <Box
+                  element={`${element}_FIELD`}
+                  display={orientation === "horizontal" ? "inline-block" : "block"}
+                  flexBasis={isVisualPicker ? "50%" : undefined} // Makes horizontal Visual Pickers grow to fill the width of the container
+                  marginTop={
+                    fieldStyleProps?.marginTop
+                      ? // eslint-disable-next-line unicorn/no-nested-ternary
+                        index === 0 && orientation === "vertical"
+                        ? "space40"
+                        : fieldStyleProps?.marginTop
+                      : "space40"
+                  }
+                  marginRight={orientation === "horizontal" && !isVisualPicker ? "space70" : null}
+                  marginLeft={
+                    isVisualPicker && orientation === "horizontal" ? (index === 0 ? "space0" : "space30") : "space0" // Sets spacing between horizontal Visual Pickers except for the first one
+                  }
+                >
+                  {child}
+                </Box>
+              );
+            })}
+          </Box>
           {errorText && (
             <Box element={`${element}_ERROR_TEXT_WRAPPER`} marginTop="space40">
               <HelpText variant="error">{errorText}</HelpText>
@@ -79,23 +150,9 @@ const InlineControlGroup = React.forwardRef<HTMLFieldSetElement, InlineControlGr
         </Box>
       </Box>
     );
-  }
+  },
 );
 
-InlineControlGroup.displayName = 'InlineControlGroup';
+InlineControlGroup.displayName = "InlineControlGroup";
 
-if (process.env.NODE_ENV === 'development') {
-  InlineControlGroup.propTypes = {
-    children: PropTypes.node.isRequired,
-    disabled: PropTypes.bool,
-    errorText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    helpText: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    legend: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-    name: PropTypes.string.isRequired,
-    orientation: PropTypes.oneOf(['vertical', 'horizontal']),
-    required: PropTypes.bool,
-    i18nRequiredLabel: PropTypes.string,
-  };
-}
-
-export {InlineControlGroup};
+export { InlineControlGroup };

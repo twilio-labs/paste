@@ -1,5 +1,268 @@
 # Change Log
 
+## 16.2.1
+
+### Patch Changes
+
+- [`c58b3bfbd`](https://github.com/twilio-labs/paste/commit/c58b3bfbd50d07221eff953feed9bbb2b9a84186) [#3540](https://github.com/twilio-labs/paste/pull/3540) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Fix `placeholder` cropping issue in MultiselectCombobox
+
+## 16.2.0
+
+### Minor Changes
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+### Patch Changes
+
+- [`dc8deca8a`](https://github.com/twilio-labs/paste/commit/dc8deca8aa22bc4a8dd7c4604f5e42bd44caaea2) [#3505](https://github.com/twilio-labs/paste/pull/3505) Thanks [@nkrantz](https://github.com/nkrantz)! - [Combobox] Improved TsDoc type annotations
+
+## 16.1.0
+
+### Minor Changes
+
+- [`4d5dc6842`](https://github.com/twilio-labs/paste/commit/4d5dc684258f3f5766b402f988191572aaf42848) [#3470](https://github.com/twilio-labs/paste/pull/3470) Thanks [@TheSisb](https://github.com/TheSisb)! - [MultiSelect Combobox] allow inversion of control with the internal state so that consumers can manage the selectedItems array themselves. This enables functionality like clearing the selectedItems through an external Button.
+
+### Patch Changes
+
+- [`f6320be83`](https://github.com/twilio-labs/paste/commit/f6320be83fd744aee1c677da1dbaed1e1c89b5ce) [#3462](https://github.com/twilio-labs/paste/pull/3462) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [combobox]: improve the way combobox handles hidden labels and conditional help text related aria attributes for improved accessibility
+
+## 16.0.1
+
+### Patch Changes
+
+- [`e6ebb11f7`](https://github.com/twilio-labs/paste/commit/e6ebb11f71ee930a0cc5fb7256f750ff5caa8498) [#3450](https://github.com/twilio-labs/paste/pull/3450) Thanks [@TheSisb](https://github.com/TheSisb)! - [MultiselectCombobox] fix bug where passing `required` would block form submit events. `required` now only blocks the submit event if no items are selected rather than when the input box is blank.
+
+* [`29b6b7b65`](https://github.com/twilio-labs/paste/commit/29b6b7b65ced04ee9f7ac3361fdd5c60025f21bf) [#3459](https://github.com/twilio-labs/paste/pull/3459) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Now opens the dropdown menu upwards when positioned towards the bottom of the viewport.
+
+## 16.0.0
+
+### Major Changes
+
+- [`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603) [#3395](https://github.com/twilio-labs/paste/pull/3395) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Modified the compile target of our JavaScript bundles from `node` to `browser` to minimize the risk of clashing with RequireJS. This is marked as a major out of an abundance of caution. You shouldn't need to do anything but we wanted you to be aware of the change on the off chance it has unintended consequences
+
+### Patch Changes
+
+- Updated dependencies [[`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603)]:
+  - @twilio-paste/uid-library@2.0.0
+  - @twilio-paste/color-contrast-utils@5.0.0
+  - @twilio-paste/anchor@12.0.0
+  - @twilio-paste/button@14.0.0
+  - @twilio-paste/form-pill-group@8.0.0
+  - @twilio-paste/help-text@13.0.0
+  - @twilio-paste/input@9.0.0
+  - @twilio-paste/input-box@10.0.0
+  - @twilio-paste/label@13.0.0
+  - @twilio-paste/screen-reader-only@13.0.0
+  - @twilio-paste/spinner@14.0.0
+  - @twilio-paste/flex@8.0.0
+  - @twilio-paste/media-object@10.0.0
+  - @twilio-paste/stack@8.0.0
+  - @twilio-paste/box@10.0.0
+  - @twilio-paste/combobox-primitive@2.0.0
+  - @twilio-paste/text@10.0.0
+  - @twilio-paste/customization@8.0.0
+  - @twilio-paste/design-tokens@10.0.0
+  - @twilio-paste/icons@12.0.0
+  - @twilio-paste/animation-library@2.0.0
+  - @twilio-paste/dropdown-library@3.0.0
+  - @twilio-paste/reakit-library@2.0.0
+  - @twilio-paste/styling-library@3.0.0
+  - @twilio-paste/style-props@9.0.0
+  - @twilio-paste/theme@11.0.0
+  - @twilio-paste/types@6.0.0
+  - @twilio-paste/utils@5.0.0
+
+## 15.0.4
+
+### Patch Changes
+
+- [`abf6c1912`](https://github.com/twilio-labs/paste/commit/abf6c19126a1e4fef5898c10354efe2141f27464) [#3347](https://github.com/twilio-labs/paste/pull/3347) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox] small fix for multiselect combobox listbox positioning now that it uses a portal
+
+## 15.0.3
+
+### Patch Changes
+
+- [`db35f7150`](https://github.com/twilio-labs/paste/commit/db35f71500623bf090741039ba8e49a7ed581c1a) [#3217](https://github.com/twilio-labs/paste/pull/3217) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox]: ability to have a truly visually hidden label for search comboboxes
+
+## 15.0.2
+
+### Patch Changes
+
+- [`1ada1e37c`](https://github.com/twilio-labs/paste/commit/1ada1e37c758bc79c6ed0e5641e4b74dbe685553) [#3260](https://github.com/twilio-labs/paste/pull/3260) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] prevent selection of disabled items when using keyboard navigation and the enter key
+
+## 15.0.1
+
+### Patch Changes
+
+- [`215a44717`](https://github.com/twilio-labs/paste/commit/215a44717bc11c87479e9b5c367749d87db31ffb) [#3142](https://github.com/twilio-labs/paste/pull/3142) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Fix incorrect dropdown menu position when Combobox is opened on a scrolled page.
+
+* [`c882c0884`](https://github.com/twilio-labs/paste/commit/c882c088430d5ce655befb5d01de2a445203220b) [#3140](https://github.com/twilio-labs/paste/pull/3140) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Multiselect Combobox now correctly clears the input value when selecting an item in the dropdown.
+
+## 15.0.0
+
+### Major Changes
+
+- [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c) [#3114](https://github.com/twilio-labs/paste/pull/3114) Thanks [@SiTaggart](https://github.com/SiTaggart)! - ### Breaking change
+
+  We have moved `@types/react` and `@types/react-dom` to peer dependencies of the library. This should allow for greater control and backwards compatibility with older versions of React as Paste is no longer bundling the type libraries.
+
+  Your application likely has both of these as dependencies anyway, but it is now up to you to manage that version number.
+
+  **Action needed**
+
+  Ensure `@types/react` and `@types/react-dom` are installed as dependencies of your application.
+
+### Patch Changes
+
+- [`1e100909f`](https://github.com/twilio-labs/paste/commit/1e100909f279ddb0b52287a1ad45de97fb3b4981) [#3105](https://github.com/twilio-labs/paste/pull/3105) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox, Form Pill Group] Updated Combobox styles as part of the One Twilio design update.
+
+  Fixed height and alignment issues with Multi select Combobox and form pills
+
+- Updated dependencies [[`6730aac19`](https://github.com/twilio-labs/paste/commit/6730aac19056d33373032eb37abb6150caea9f08), [`1d75f223e`](https://github.com/twilio-labs/paste/commit/1d75f223e0e2011a7a969e7ef1980fa9366cfbca), [`1e100909f`](https://github.com/twilio-labs/paste/commit/1e100909f279ddb0b52287a1ad45de97fb3b4981), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`50cde4668`](https://github.com/twilio-labs/paste/commit/50cde4668b003c410713d4a51eed16a394471ed0), [`bce889344`](https://github.com/twilio-labs/paste/commit/bce889344773d840d7dc75902e1be64f1a010da3), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c), [`3ab2bb6f4`](https://github.com/twilio-labs/paste/commit/3ab2bb6f4b294379e9dcba4ad7173ebf18eac56c)]:
+  - @twilio-paste/button@13.0.0
+  - @twilio-paste/icons@11.0.0
+  - @twilio-paste/form-pill-group@7.0.0
+  - @twilio-paste/anchor@11.0.0
+  - @twilio-paste/theme@10.0.0
+  - @twilio-paste/box@9.0.0
+  - @twilio-paste/text@9.0.0
+  - @twilio-paste/help-text@12.0.0
+  - @twilio-paste/input@8.0.0
+  - @twilio-paste/input-box@9.0.0
+  - @twilio-paste/label@12.0.0
+  - @twilio-paste/screen-reader-only@12.0.0
+  - @twilio-paste/spinner@13.0.0
+  - @twilio-paste/flex@7.0.0
+  - @twilio-paste/media-object@9.0.0
+  - @twilio-paste/stack@7.0.0
+  - @twilio-paste/customization@7.0.0
+  - @twilio-paste/style-props@8.0.0
+  - @twilio-paste/types@5.0.0
+  - @twilio-paste/utils@4.0.0
+
+## 14.0.0
+
+### Major Changes
+
+- [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a) [#2965](https://github.com/twilio-labs/paste/pull/2965) Thanks [@Niznikr](https://github.com/Niznikr)! - Add support for React 18
+
+* [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea) [#3020](https://github.com/twilio-labs/paste/pull/3020) Thanks [@SiTaggart](https://github.com/SiTaggart)! - This major version included listing all the missing peer dependencies for each Paste package.
+
+  If you are using a package from Paste in isolation from Core, when upgrading to this latest version, be sure to correctly install all the missing peer dependencies.
+
+### Patch Changes
+
+- Updated dependencies [[`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c), [`3c89fd83d`](https://github.com/twilio-labs/paste/commit/3c89fd83d09c0f49e362c4d33ade4d3688d7381a), [`d97098846`](https://github.com/twilio-labs/paste/commit/d970988465700f5b396f71911b750ba2ac7f5bea), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee), [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df), [`154b02c06`](https://github.com/twilio-labs/paste/commit/154b02c06d209a72337ead97b2a6f6e132868b39), [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee)]:
+  - @twilio-paste/anchor@10.0.0
+  - @twilio-paste/design-tokens@9.0.0
+  - @twilio-paste/button@12.0.0
+  - @twilio-paste/form-pill-group@6.0.0
+  - @twilio-paste/help-text@11.0.0
+  - @twilio-paste/input@7.0.0
+  - @twilio-paste/input-box@8.0.0
+  - @twilio-paste/label@11.0.0
+  - @twilio-paste/screen-reader-only@11.0.0
+  - @twilio-paste/spinner@12.0.0
+  - @twilio-paste/flex@6.0.0
+  - @twilio-paste/media-object@8.0.0
+  - @twilio-paste/stack@6.0.0
+  - @twilio-paste/box@8.0.0
+  - @twilio-paste/combobox-primitive@1.0.0
+  - @twilio-paste/text@8.0.0
+  - @twilio-paste/customization@6.0.0
+  - @twilio-paste/icons@10.0.0
+  - @twilio-paste/animation-library@1.0.0
+  - @twilio-paste/dropdown-library@2.0.0
+  - @twilio-paste/reakit-library@1.0.0
+  - @twilio-paste/styling-library@2.0.0
+  - @twilio-paste/uid-library@1.0.0
+  - @twilio-paste/style-props@7.0.0
+  - @twilio-paste/theme@9.0.0
+  - @twilio-paste/types@4.0.0
+  - @twilio-paste/utils@3.0.0
+  - @twilio-paste/color-contrast-utils@4.0.0
+
+## 13.0.3
+
+### Patch Changes
+
+- [`2fe476a71`](https://github.com/twilio-labs/paste/commit/2fe476a71f73f96e69d2a2b6b451e98b0799d9a1) [#2949](https://github.com/twilio-labs/paste/pull/2949) Thanks [@shleewhite](https://github.com/shleewhite)! - [Combobox] Render the listbox in a portal to fix a bug where the contents of the listbox are cut off when it placed inside a scrolling container. Adds a new dependency on @radix-ui/react-use-rect.
+
+## 13.0.2
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - Update packages to be ESM-compatible
+
+## 13.0.1
+
+### Patch Changes
+
+- [`efffcde51`](https://github.com/twilio-labs/paste/commit/efffcde5161524fb00d09942fca0471315b2fbe5) [#2782](https://github.com/twilio-labs/paste/pull/2782) Thanks [@shleewhite](https://github.com/shleewhite)! - [Combobox] remove inherited HTML `autoComplete` prop because it conflicts with the autocomplete prop and remove state prop from Multiselect Combobox because we don't support using it with the useComboboxState hook.
+
+* [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
+## 13.0.0
+
+### Patch Changes
+
+- [`d068c208a`](https://github.com/twilio-labs/paste/commit/d068c208aa2657a48656acc47381ee9a8920d555) [#2711](https://github.com/twilio-labs/paste/pull/2711) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Refine typings and styling for group options for Multiselect Combobox.
+
+- Updated dependencies [[`38a210f9f`](https://github.com/twilio-labs/paste/commit/38a210f9f7c229a46ab9850f528eb60204dd1273)]:
+  - @twilio-paste/utils@2.0.0
+
+## 12.2.0
+
+### Minor Changes
+
+- [`312a3ccf6`](https://github.com/twilio-labs/paste/commit/312a3ccf66c217a332526dfdd09c21606fbf4e9d) [#2660](https://github.com/twilio-labs/paste/pull/2660) Thanks [@TheSisb](https://github.com/TheSisb)! - [Combobox] Several improvements, including the addition of the much awaited `MultiselectCombobox` component!
+
+  - Improve styling of Combobox menu items
+  - Performance improvements around virtualized list items
+  - Add a new `emptyState` prop that is rendered when there are no items in the list.
+  - Accessibility improvements.
+
+## 12.1.1
+
+### Patch Changes
+
+- [`87146566c`](https://github.com/twilio-labs/paste/commit/87146566c4188d986da7cd4fcb84d54edc84dcf2) [#2647](https://github.com/twilio-labs/paste/pull/2647) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Combobox] Minor fix to controlled Comboboxes, where the input cursor would always jump to the end of the input string in autocomplete examples, even when you want to amend the beginning or middle. Cursor position should now remain in place as you type or modify the input value.
+
+## 12.1.0
+
+### Minor Changes
+
+- [`b79d20d2a`](https://github.com/twilio-labs/paste/commit/b79d20d2a4cdaaa85ffec09d280f7315f2556f76) [#2595](https://github.com/twilio-labs/paste/pull/2595) Thanks [@TheSisb](https://github.com/TheSisb)! - [InputBox, Combobox, Select] InputBox's `InputChevronWrapper` has refreshed styling which will appear in Select and Combobox. InputBox now exports a `getInputChevronIconColor()` function which returns a textColor to use for styling the icon child to the `InputChevronWrapper`.
+
+## 12.0.0
+
+### Patch Changes
+
+- Updated dependencies [[`12c4ba22a`](https://github.com/twilio-labs/paste/commit/12c4ba22a0e7675e63964bf9846fb540cd50957c), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355), [`ee2e535e9`](https://github.com/twilio-labs/paste/commit/ee2e535e906397caacaf1f5137acac34d4034213), [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355)]:
+  - @twilio-paste/box@7.0.0
+  - @twilio-paste/style-props@6.0.0
+  - @twilio-paste/design-tokens@8.0.0
+  - @twilio-paste/theme@8.0.0
+  - @twilio-paste/button@11.0.0
+  - @twilio-paste/help-text@10.0.0
+  - @twilio-paste/input@6.0.0
+  - @twilio-paste/input-box@7.0.0
+  - @twilio-paste/label@10.0.0
+  - @twilio-paste/screen-reader-only@10.0.0
+  - @twilio-paste/spinner@11.0.0
+  - @twilio-paste/flex@5.0.0
+  - @twilio-paste/stack@5.0.0
+  - @twilio-paste/text@7.0.0
+  - @twilio-paste/icons@9.0.0
+
+## 11.0.2
+
+### Patch Changes
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
 ## 11.0.1
 
 ### Patch Changes

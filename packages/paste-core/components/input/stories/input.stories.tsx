@@ -1,53 +1,63 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {action} from '@storybook/addon-actions';
-import {Anchor} from '@twilio-paste/anchor';
-import {useTheme} from '@twilio-paste/theme';
-import {Box} from '@twilio-paste/box';
-import {Text} from '@twilio-paste/text';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {Label} from '@twilio-paste/label';
-import {HelpText} from '@twilio-paste/help-text';
-import {Stack} from '@twilio-paste/stack';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Input} from '../src';
+import { action } from "@storybook/addon-actions";
+import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Form, FormControl } from "@twilio-paste/form";
+import { HelpText } from "@twilio-paste/help-text";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { Label } from "@twilio-paste/label";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { Input } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Input',
+  title: "Components/Input",
   component: Input,
 };
 
 export const DefaultInput = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("");
   return (
-    <>
-      <Label htmlFor={uid}>Label</Label>
-      <Input
-        id={uid}
-        type="text"
-        placeholder="Placeholder"
-        value={value}
-        onChange={(event) => {
-          setValue(event.target.value);
-          action('handleChange');
-        }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
-      />
-      <HelpText>Info that helps a user with this field.</HelpText>
-    </>
+    <Form>
+      <FormControl>
+        <Label required htmlFor={uid}>
+          Website
+        </Label>
+        <Input
+          id={uid}
+          aria-describedby={helpTextUid}
+          type="url"
+          pattern="https://.*"
+          required
+          placeholder="https://twilio.com"
+          value={value}
+          onChange={(event) => {
+            setValue(event.target.value);
+            action("handleChange");
+          }}
+          onFocus={action("handleFocus")}
+          onBlur={action("handleBlur")}
+        />
+        <HelpText id={helpTextUid}>The URL to your personal homepage.</HelpText>
+      </FormControl>
+    </Form>
   );
 };
 
-DefaultInput.story = {
-  name: 'Input',
-};
+DefaultInput.storyName = "Input";
 
 export const InputInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse">
@@ -55,29 +65,31 @@ export const InputInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-InputInverse.story = {
-  name: 'Input - Inverse',
-};
+InputInverse.storyName = "Input - Inverse";
 
 export const InputRequired = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - Required');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input - Required");
   return (
     <>
       <Label htmlFor={uid} required>
@@ -85,29 +97,29 @@ export const InputRequired = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         required
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-InputRequired.story = {
-  name: 'Input - Required',
-};
+InputRequired.storyName = "Input - Required";
 
 export const InputRequiredInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - Required');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input - Required");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse" required>
@@ -115,75 +127,78 @@ export const InputRequiredInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         required
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-InputRequiredInverse.story = {
-  name: 'Input - Required inverse',
-};
+InputRequiredInverse.storyName = "Input - Required inverse";
 
 export const InputError = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - Error');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input - Error");
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         hasError
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
       <HelpText variant="error">Error info. Explains why the input has an error.</HelpText>
     </>
   );
 };
 
-InputError.story = {
-  name: 'Input - Error',
-};
+InputError.storyName = "Input - Error";
 
 export const InputReallyLongError = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Email address');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Email address");
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="email"
         placeholder="Placeholder"
         hasError
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText variant="error">
+      <HelpText id={helpTextUid} variant="error">
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
@@ -193,13 +208,12 @@ export const InputReallyLongError = (): React.ReactNode => {
   );
 };
 
-InputReallyLongError.story = {
-  name: 'Input - Really Long Error',
-};
+InputReallyLongError.storyName = "Input - Really Long Error";
 
 export const InputErrorInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse">
@@ -207,30 +221,32 @@ export const InputErrorInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         hasError
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="error_inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="error_inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-InputErrorInverse.story = {
-  name: 'Input - Error inverse',
-};
+InputErrorInverse.storyName = "Input - Error inverse";
 
 export const InputReallyLongErrorInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Email address');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Email address");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse">
@@ -238,19 +254,20 @@ export const InputReallyLongErrorInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="email"
         placeholder="Placeholder"
         hasError
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="error_inverse">
+      <HelpText id={helpTextUid} variant="error_inverse">
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
         Please enter a valid email. Please enter a valid email. Please enter a valid email. Please enter a valid email.
@@ -260,13 +277,12 @@ export const InputReallyLongErrorInverse = (): React.ReactNode => {
   );
 };
 
-InputReallyLongErrorInverse.story = {
-  name: 'Input - Really Long Error inverse',
-};
+InputReallyLongErrorInverse.storyName = "Input - Really Long Error inverse";
 
 export const InputDisabled = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - Disabled');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input - Disabled");
   return (
     <>
       <Label htmlFor={uid} disabled>
@@ -274,28 +290,29 @@ export const InputDisabled = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         disabled
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-InputDisabled.story = {
-  name: 'Input - Disabled',
-};
+InputDisabled.storyName = "Input - Disabled";
 
 export const InputDisabledInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - Disabled');
+  const helpTextUid = useUID();
+
+  const [value, setValue] = React.useState("Input - Disabled");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse" disabled>
@@ -303,57 +320,59 @@ export const InputDisabledInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         disabled
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-InputDisabledInverse.story = {
-  name: 'Input - Disabled inverse',
-};
+InputDisabledInverse.storyName = "Input - Disabled inverse";
 
 export const InputReadOnly = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - ReadOnly');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input - ReadOnly");
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         readOnly
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-InputReadOnly.story = {
-  name: 'Input - ReadOnly',
-};
+InputReadOnly.storyName = "Input - ReadOnly";
 
 export const InputReadOnlyInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse">
@@ -361,30 +380,31 @@ export const InputReadOnlyInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         readOnly
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-InputReadOnlyInverse.story = {
-  name: 'Input - ReadOnly inverse',
-};
+InputReadOnlyInverse.storyName = "Input - ReadOnly inverse";
 
 export const InputHidden = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - Hidden');
+  const [value, setValue] = React.useState("Input - Hidden");
   return (
     <>
       <Input
@@ -393,22 +413,20 @@ export const InputHidden = (): React.ReactNode => {
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
     </>
   );
 };
 
-InputHidden.story = {
-  name: 'Input - Hidden',
-};
+InputHidden.storyName = "Input - Hidden";
 
 export const InputHiddenInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - Hidden');
+  const [value, setValue] = React.useState("Input - Hidden");
   return (
     <>
       <Input
@@ -417,38 +435,38 @@ export const InputHiddenInverse = (): React.ReactNode => {
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
     </>
   );
 };
 
-InputHiddenInverse.story = {
-  name: 'Input - Hidden inverse',
-};
+InputHiddenInverse.storyName = "Input - Hidden inverse";
 
 export const InputInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - ReadOnly');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input - ReadOnly");
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -458,18 +476,17 @@ export const InputInsertBeforeAndAfter = (): React.ReactNode => {
           </Anchor>
         }
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-InputInsertBeforeAndAfter.story = {
-  name: 'Input - insert before and after',
-};
+InputInsertBeforeAndAfter.storyName = "Input - insert before and after";
 
 export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - ReadOnly');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input - ReadOnly");
   return (
     <>
       <Label htmlFor={uid} disabled>
@@ -477,16 +494,17 @@ export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         insertBefore={
-          <Text as="span" fontWeight="fontWeightSemibold">
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -497,18 +515,17 @@ export const InputDisabledInsertBeforeAndAfter = (): React.ReactNode => {
         }
         disabled
       />
-      <HelpText>Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid}>Info that helps a user with this field.</HelpText>
     </>
   );
 };
 
-InputDisabledInsertBeforeAndAfter.story = {
-  name: 'Input - Disabled insert before and after',
-};
+InputDisabledInsertBeforeAndAfter.storyName = "Input - Disabled insert before and after";
 
 export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse">
@@ -516,18 +533,19 @@ export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
+          <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -537,18 +555,19 @@ export const InputInsertBeforeAndAfterInverse = (): React.ReactNode => {
           </Anchor>
         }
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-InputInsertBeforeAndAfterInverse.story = {
-  name: 'Input - insert before and after inverse',
-};
+InputInsertBeforeAndAfterInverse.storyName = "Input - insert before and after inverse";
 
 export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse" disabled>
@@ -556,18 +575,19 @@ export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
       </Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="text"
         placeholder="Placeholder"
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
         insertBefore={
-          <Text as="span" color="colorTextInverse" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
+          <Text as="span" color="colorTextInverseWeak" lineHeight="lineHeight20" fontWeight="fontWeightSemibold">
             $10.99
           </Text>
         }
@@ -578,46 +598,48 @@ export const InputDisabledInsertBeforeAndAfterInverse = (): React.ReactNode => {
         }
         disabled
       />
-      <HelpText variant="inverse">Info that helps a user with this field.</HelpText>
+      <HelpText id={helpTextUid} variant="inverse">
+        Info that helps a user with this field.
+      </HelpText>
     </Box>
   );
 };
 
-InputDisabledInsertBeforeAndAfterInverse.story = {
-  name: 'Input - Disabled insert before and after inverse',
-};
+InputDisabledInsertBeforeAndAfterInverse.storyName = "Input - Disabled insert before and after inverse";
 
 export const InputNumberError = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('Input - Number Error');
+  const helpTextUid = useUID();
+  const [value, setValue] = React.useState("Input - Number Error");
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
       <Input
         id={uid}
+        aria-describedby={helpTextUid}
         type="number"
         placeholder="Placeholder"
         hasError
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
-      <HelpText variant="error">Not a number error. Should have no box-shadow.</HelpText>
+      <HelpText id={helpTextUid} variant="error">
+        Not a number error. Should have no box-shadow.
+      </HelpText>
     </>
   );
 };
 
-InputNumberError.story = {
-  name: 'Input - Number Error',
-};
+InputNumberError.storyName = "Input - Number Error";
 
 export const InputPlaceholder = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState("");
   return (
     <>
       <Label htmlFor={uid}>Label</Label>
@@ -628,22 +650,20 @@ export const InputPlaceholder = (): React.ReactNode => {
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
       />
     </>
   );
 };
 
-InputPlaceholder.story = {
-  name: 'Input - Placeholder',
-};
+InputPlaceholder.storyName = "Input - Placeholder";
 
 export const InputPlaceholderInverse = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState("");
   return (
     <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
       <Label htmlFor={uid} variant="inverse">
@@ -656,31 +676,295 @@ export const InputPlaceholderInverse = (): React.ReactNode => {
         value={value}
         onChange={(event) => {
           setValue(event.target.value);
-          action('handleChange');
+          action("handleChange");
         }}
-        onFocus={action('handleFocus')}
-        onBlur={action('handleBlur')}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
         variant="inverse"
       />
     </Box>
   );
 };
 
-InputPlaceholderInverse.story = {
-  name: 'Input - Placeholder inverse',
+InputPlaceholderInverse.storyName = "Input - Placeholder inverse";
+
+export const DefaultNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState("0");
+  return (
+    <Box>
+      <Label htmlFor={uid} variant="default">
+        Label
+      </Label>
+      <Input
+        id={uid}
+        type="number"
+        max="50"
+        min="-50"
+        step={5}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+      />
+    </Box>
+  );
 };
 
-export const CustomInput: React.FC = () => {
+DefaultNumberInput.storyName = "Number Input - Controlled";
+
+export const TestNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState("0");
+  const [minValue, setMinValue] = React.useState("-10");
+  const [maxValue, setMaxValue] = React.useState("10");
+  const [stepValue, setStepValue] = React.useState("1");
+  return (
+    <>
+      <Box display="flex" flexDirection="row" columnGap="space40">
+        <Box maxWidth="size10">
+          <Label htmlFor="min">Min</Label>
+          <Input type="text" id="min" value={minValue} onChange={(evt) => setMinValue(evt.target.value)} />
+        </Box>
+        <Box maxWidth="size10">
+          <Label htmlFor="max">Max</Label>
+          <Input type="text" id="max" value={maxValue} onChange={(evt) => setMaxValue(evt.target.value)} />
+        </Box>
+        <Box maxWidth="size10">
+          <Label htmlFor="step">Step</Label>
+          <Input type="text" id="step" value={stepValue} onChange={(evt) => setStepValue(evt.target.value)} />
+        </Box>
+        <Box width="size20">
+          <Label htmlFor={uid} variant="default">
+            Number Input
+          </Label>
+          <Input
+            id={uid}
+            type="number"
+            max={maxValue}
+            min={minValue}
+            step={stepValue}
+            value={value}
+            onChange={(event) => {
+              setValue(event.target.value);
+            }}
+          />
+        </Box>
+      </Box>
+      <Box paddingY="space50" maxWidth="size50">
+        <strong>Note:</strong> this story is for testing the functionality of the Number Input logic (specifically the
+        increment and decrement buttons). Min, max, and step inputs are type=text just for the purpose of testing the
+        one type=number input in a controlled way, but please only put number values in those fields. <br /> <br /> The
+        expected behavior is that a console error will be thrown if the min/max values do not line up with the step
+        value (e.g. min=0; max=10; step=6). Valid min/max/step values are only when the step value brings the value from
+        the min to the max without any remainders (e.g. min=0; max=10; step=2). <br /> <br /> The increment and
+        decrement buttons should not appear if the value is hitting the min or max. Arrow keys (up/down) and clicking
+        the stepper buttons should have the same effect.
+      </Box>
+    </>
+  );
+};
+
+TestNumberInput.storyName = "Number Input - Test";
+
+export const UncontrolledNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const helpTextUid = useUID();
+  return (
+    <>
+      <Label htmlFor={uid}>Reload amount</Label>
+      <Input
+        id={uid}
+        aria-describedby={helpTextUid}
+        name="reload_amount"
+        type="number"
+        defaultValue="0"
+        min="0"
+        max="1000"
+      />
+      <HelpText id={helpTextUid}>Maximum amount is $1,000.</HelpText>
+    </>
+  );
+};
+
+UncontrolledNumberInput.storyName = "Number Input - Uncontrolled";
+
+export const ErrorNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState("0");
+  return (
+    <Box>
+      <Label htmlFor={uid} variant="default">
+        Label
+      </Label>
+      <Input
+        id={uid}
+        type="number"
+        max="50"
+        min="-50"
+        step={3}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+        hasError
+      />
+    </Box>
+  );
+};
+
+ErrorNumberInput.storyName = "Number Input - Error";
+
+export const DisabledNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState("0");
+  return (
+    <Box>
+      <Label htmlFor={uid} variant="default">
+        Label
+      </Label>
+      <Input
+        id={uid}
+        type="number"
+        max="50"
+        min="-50"
+        step={3}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+        disabled
+      />
+    </Box>
+  );
+};
+
+DisabledNumberInput.storyName = "Number Input - Disabled";
+
+export const I18nNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState("0");
+  return (
+    <Box>
+      <Label htmlFor={uid} variant="default">
+        Número
+      </Label>
+      <Input
+        id={uid}
+        type="number"
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+        i18nStepUpLabel="incrementar"
+        i18nStepDownLabel="decrementar"
+      />
+    </Box>
+  );
+};
+
+I18nNumberInput.storyName = "Number Input - i18n";
+
+export const CustomizedNumberInput = (): React.ReactNode => {
+  const theme = useTheme();
+  const uid1 = useUID();
+  const uid2 = useUID();
+  const [value1, setValue1] = React.useState("0");
+  const [value2, setValue2] = React.useState("0");
+  return (
+    <Box>
+      <Box margin="space60">
+        <Label htmlFor={uid1} variant="default">
+          Label
+        </Label>
+        <Input
+          id={uid1}
+          type="number"
+          max="50"
+          min="-50"
+          value={value1}
+          onChange={(event) => {
+            setValue1(event.target.value);
+          }}
+        />
+      </Box>
+      <CustomizationProvider
+        theme={theme}
+        elements={{
+          INPUT: { backgroundColor: "colorBackgroundPrimaryWeakest" },
+          INPUT_ELEMENT: {
+            padding: "space50",
+          },
+          INPUT_STEP_WRAPPER: { backgroundColor: "colorBackgroundBrandHighlightWeakest", paddingLeft: "space30" },
+          INPUT_INCREMENT_BUTTON: {
+            borderRadius: "borderRadiusCircle",
+            backgroundColor: "colorBackgroundDestructiveWeak",
+          },
+          INPUT_INCREMENT_ICON: { size: "sizeIcon20" },
+          INPUT_DECREMENT_BUTTON: {
+            borderRadius: "borderRadiusCircle",
+            backgroundColor: "colorBackgroundDestructiveWeak",
+          },
+          INPUT_DECREMENT_ICON: { size: "sizeIcon20" },
+        }}
+      >
+        <Box margin="space60">
+          <Label htmlFor={uid2} variant="inverse">
+            Label
+          </Label>
+          <Input
+            id={uid2}
+            type="number"
+            max="50"
+            min="-50"
+            value={value2}
+            onChange={(event) => {
+              setValue2(event.target.value);
+            }}
+          />
+        </Box>
+      </CustomizationProvider>
+    </Box>
+  );
+};
+
+export const MinNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  return (
+    <>
+      <Label htmlFor={uid}>number input</Label>
+      <Input id={uid} type="number" defaultValue="-50" max="50" min="-50" />
+    </>
+  );
+};
+
+MinNumberInput.storyName = "Number Input - Min number matched";
+
+export const MaxNumberInput = (): React.ReactNode => {
+  const uid = useUID();
+  return (
+    <>
+      <Label htmlFor={uid}>number input</Label>
+      <Input id={uid} type="number" defaultValue="50" max="50" min="-50" />
+    </>
+  );
+};
+
+MaxNumberInput.storyName = "Number Input - Max number matched";
+
+CustomizedNumberInput.storyName = "Number Input - Customized";
+
+export const CustomInput: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
   const uidOne = useUID();
   const uidTwo = useUID();
   const uidTwoVariant = useUID();
   const uidThree = useUID();
   const uidThreeVariant = useUID();
-  const [valueOne, setValueOne] = React.useState('');
-  const [valueTwo, setValueTwo] = React.useState('');
-  const [valueTwoVariant, setValueTwoVariant] = React.useState('');
-  const [valueThree, setValueThree] = React.useState('');
-  const [valueThreeVariant, setValueThreeVariant] = React.useState('');
+  const [valueOne, setValueOne] = React.useState("");
+  const [valueTwo, setValueTwo] = React.useState("");
+  const [valueTwoVariant, setValueTwoVariant] = React.useState("");
+  const [valueThree, setValueThree] = React.useState("");
+  const [valueThreeVariant, setValueThreeVariant] = React.useState("");
   const theme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
@@ -693,12 +977,12 @@ export const CustomInput: React.FC = () => {
           value={valueOne}
           onChange={(event) => {
             setValueOne(event.target.value);
-            action('handleChange');
+            action("handleChange");
           }}
-          onFocus={action('handleFocus')}
-          onBlur={action('handleBlur')}
+          onFocus={action("handleFocus")}
+          onBlur={action("handleBlur")}
           insertBefore={
-            <Text as="span" fontWeight="fontWeightSemibold">
+            <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
               $10.99
             </Text>
           }
@@ -710,72 +994,72 @@ export const CustomInput: React.FC = () => {
         />
       </Box>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
         theme={theme}
         elements={{
           INPUT: {
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
-            borderRadius: 'borderRadius30',
-            boxShadow: 'none',
-            borderStyle: 'solid',
-            borderWidth: 'borderWidth10',
-            borderColor: 'colorBorderPrimary',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            borderRadius: "borderRadius30",
+            boxShadow: "none",
+            borderStyle: "solid",
+            borderWidth: "borderWidth10",
+            borderColor: "colorBorderPrimary",
             variants: {
               default: {
-                backgroundColor: 'colorBackgroundPrimaryWeakest',
+                backgroundColor: "colorBackgroundPrimaryWeakest",
               },
               inverse: {
-                backgroundColor: 'colorBackgroundDestructiveWeakest',
-                borderColor: 'colorBorderDestructive',
+                backgroundColor: "colorBackgroundDestructiveWeakest",
+                borderColor: "colorBorderDestructive",
               },
             },
           },
           INPUT_ELEMENT: {
-            color: 'colorTextLinkStronger',
-            padding: 'space50',
-            '::placeholder': {
-              color: 'colorTextLink',
+            color: "colorTextLinkStronger",
+            padding: "space50",
+            "::placeholder": {
+              color: "colorTextLink",
             },
             variants: {
               default: {
-                backgroundColor: 'colorBackgroundPrimaryWeakest',
+                backgroundColor: "colorBackgroundPrimaryWeakest",
               },
               inverse: {
-                backgroundColor: 'colorBackgroundDestructiveWeakest',
+                backgroundColor: "colorBackgroundDestructiveWeakest",
               },
             },
           },
           INPUT_PREFIX: {
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
-            borderTopLeftRadius: 'borderRadius30',
-            borderBottomLeftRadius: 'borderRadius30',
-            borderRightColor: 'colorBorderPrimary',
-            padding: 'space50',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            borderTopLeftRadius: "borderRadius30",
+            borderBottomLeftRadius: "borderRadius30",
+            borderRightColor: "colorBorderPrimary",
+            padding: "space50",
             variants: {
               default: {
-                backgroundColor: 'colorBackgroundPrimaryWeakest',
-                borderRightColor: 'colorBorderDestructive',
+                backgroundColor: "colorBackgroundPrimaryWeakest",
+                borderRightColor: "colorBorderDestructive",
               },
               inverse: {
-                backgroundColor: 'colorBackgroundDestructiveWeakest',
-                borderRightColor: 'colorBorderDestructive',
+                backgroundColor: "colorBackgroundDestructiveWeakest",
+                borderRightColor: "colorBorderDestructive",
               },
             },
           },
           INPUT_SUFFIX: {
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
-            borderTopRightRadius: 'borderRadius30',
-            borderBottomRightRadius: 'borderRadius30',
-            borderLeftColor: 'colorBorderPrimary',
-            padding: 'space50',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            borderTopRightRadius: "borderRadius30",
+            borderBottomRightRadius: "borderRadius30",
+            borderLeftColor: "colorBorderPrimary",
+            padding: "space50",
             variants: {
               default: {
-                backgroundColor: 'colorBackgroundPrimaryWeakest',
-                borderLeftColor: 'colorBorderDestructive',
+                backgroundColor: "colorBackgroundPrimaryWeakest",
+                borderLeftColor: "colorBorderDestructive",
               },
               inverse: {
-                backgroundColor: 'colorBackgroundDestructiveWeakest',
-                borderLeftColor: 'colorBorderDestructive',
+                backgroundColor: "colorBackgroundDestructiveWeakest",
+                borderLeftColor: "colorBorderDestructive",
               },
             },
           },
@@ -791,12 +1075,12 @@ export const CustomInput: React.FC = () => {
               value={valueTwo}
               onChange={(event) => {
                 setValueTwo(event.target.value);
-                action('handleChange');
+                action("handleChange");
               }}
-              onFocus={action('handleFocus')}
-              onBlur={action('handleBlur')}
+              onFocus={action("handleFocus")}
+              onBlur={action("handleBlur")}
               insertBefore={
-                <Text as="span" fontWeight="fontWeightSemibold">
+                <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
                   $10.99
                 </Text>
               }
@@ -817,12 +1101,12 @@ export const CustomInput: React.FC = () => {
               variant="inverse"
               onChange={(event) => {
                 setValueTwoVariant(event.target.value);
-                action('handleChange');
+                action("handleChange");
               }}
-              onFocus={action('handleFocus')}
-              onBlur={action('handleBlur')}
+              onFocus={action("handleFocus")}
+              onBlur={action("handleBlur")}
               insertBefore={
-                <Text as="span" fontWeight="fontWeightSemibold">
+                <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
                   $10.99
                 </Text>
               }
@@ -836,75 +1120,75 @@ export const CustomInput: React.FC = () => {
         </Stack>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
         theme={theme}
         elements={{
           NEW_INPUT: {
-            backgroundColor: 'colorBackgroundDestructiveWeakest',
-            borderRadius: 'borderRadius30',
-            boxShadow: 'none',
-            borderStyle: 'solid',
-            borderWidth: 'borderWidth20',
-            borderColor: 'colorBorderDestructive',
+            backgroundColor: "colorBackgroundDestructiveWeakest",
+            borderRadius: "borderRadius30",
+            boxShadow: "none",
+            borderStyle: "solid",
+            borderWidth: "borderWidth20",
+            borderColor: "colorBorderDestructive",
             variants: {
               default: {
-                backgroundColor: 'colorBackgroundDestructiveWeakest',
+                backgroundColor: "colorBackgroundDestructiveWeakest",
               },
               inverse: {
-                backgroundColor: 'colorBackgroundPrimaryWeakest',
-                borderColor: 'colorBorderPrimary',
+                backgroundColor: "colorBackgroundPrimaryWeakest",
+                borderColor: "colorBorderPrimary",
               },
             },
           },
           NEW_INPUT_ELEMENT: {
-            color: 'colorTextLinkDestructive',
-            padding: 'space70',
-            '::placeholder': {
-              color: 'colorTextLinkDestructive',
+            color: "colorTextLinkDestructive",
+            padding: "space70",
+            "::placeholder": {
+              color: "colorTextLinkDestructive",
             },
             variants: {
               default: {
-                backgroundColor: 'colorBackgroundDestructiveWeakest',
+                backgroundColor: "colorBackgroundDestructiveWeakest",
               },
               inverse: {
-                backgroundColor: 'colorBackgroundPrimaryWeakest',
-                borderRadius: 'borderRadius30',
+                backgroundColor: "colorBackgroundPrimaryWeakest",
+                borderRadius: "borderRadius30",
               },
             },
           },
           NEW_INPUT_PREFIX: {
-            backgroundColor: 'colorBackgroundDestructiveWeakest',
-            borderTopLeftRadius: 'borderRadius30',
-            borderBottomLeftRadius: 'borderRadius30',
-            borderRightColor: 'colorBorderDestructive',
-            borderWidth: 'borderWidth20',
-            padding: 'space70',
+            backgroundColor: "colorBackgroundDestructiveWeakest",
+            borderTopLeftRadius: "borderRadius30",
+            borderBottomLeftRadius: "borderRadius30",
+            borderRightColor: "colorBorderDestructive",
+            borderWidth: "borderWidth20",
+            padding: "space70",
             variants: {
               default: {
-                backgroundColor: 'colorBackgroundDestructiveWeakest',
-                borderRightColor: 'colorBorderDestructive',
+                backgroundColor: "colorBackgroundDestructiveWeakest",
+                borderRightColor: "colorBorderDestructive",
               },
               inverse: {
-                backgroundColor: 'colorBackgroundPrimaryWeakest',
-                borderRightColor: 'colorBorderPrimary',
+                backgroundColor: "colorBackgroundPrimaryWeakest",
+                borderRightColor: "colorBorderPrimary",
               },
             },
           },
           NEW_INPUT_SUFFIX: {
-            backgroundColor: 'colorBackgroundDestructiveWeakest',
-            borderTopRightRadius: 'borderRadius30',
-            borderBottomRightRadius: 'borderRadius30',
-            borderLeftColor: 'colorBorderDestructive',
-            borderWidth: 'borderWidth20',
-            padding: 'space70',
+            backgroundColor: "colorBackgroundDestructiveWeakest",
+            borderTopRightRadius: "borderRadius30",
+            borderBottomRightRadius: "borderRadius30",
+            borderLeftColor: "colorBorderDestructive",
+            borderWidth: "borderWidth20",
+            padding: "space70",
             variants: {
               default: {
-                backgroundColor: 'colorBackgroundDestructiveWeakest',
-                borderLeftColor: 'colorBorderDestructive',
+                backgroundColor: "colorBackgroundDestructiveWeakest",
+                borderLeftColor: "colorBorderDestructive",
               },
               inverse: {
-                backgroundColor: 'colorBackgroundPrimaryWeakest',
-                borderLeftColor: 'colorBorderPrimary',
+                backgroundColor: "colorBackgroundPrimaryWeakest",
+                borderLeftColor: "colorBorderPrimary",
               },
             },
           },
@@ -921,12 +1205,12 @@ export const CustomInput: React.FC = () => {
               element="NEW_INPUT"
               onChange={(event) => {
                 setValueThree(event.target.value);
-                action('handleChange');
+                action("handleChange");
               }}
-              onFocus={action('handleFocus')}
-              onBlur={action('handleBlur')}
+              onFocus={action("handleFocus")}
+              onBlur={action("handleBlur")}
               insertBefore={
-                <Text as="span" fontWeight="fontWeightSemibold">
+                <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
                   $10.99
                 </Text>
               }
@@ -948,12 +1232,12 @@ export const CustomInput: React.FC = () => {
               variant="inverse"
               onChange={(event) => {
                 setValueThreeVariant(event.target.value);
-                action('handleChange');
+                action("handleChange");
               }}
-              onFocus={action('handleFocus')}
-              onBlur={action('handleBlur')}
+              onFocus={action("handleFocus")}
+              onBlur={action("handleBlur")}
               insertBefore={
-                <Text as="span" fontWeight="fontWeightSemibold">
+                <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
                   $10.99
                 </Text>
               }
@@ -968,4 +1252,10 @@ export const CustomInput: React.FC = () => {
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomInput.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

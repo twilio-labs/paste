@@ -1,10 +1,10 @@
----
-title: Non-Modal Dialog - Primitives
-description: An unstyled and accessible base upon which to build a non-modal dialog.
-slug: /primitives/non-modal-dialog-primitive/
----
+export const meta = {
+  title: 'Non-Modal Primitive',
+  package: '@twilio-paste/non-modal-dialog-primitive',
+  description: 'An unstyled and accessible base upon which to build a non-modal dialog.',
+  slug: '/primitives/non-modal-dialog-primitive/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {useTheme, StyledBase} from '@twilio-paste/theme';
@@ -16,56 +16,36 @@ import {
   NonModalDialogDisclosurePrimitive,
   NonModalDialogArrowPrimitive,
 } from '@twilio-paste/non-modal-dialog-primitive';
+import packageJson from '@twilio-paste/non-modal-dialog-primitive/package.json';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {
   defaultExample,
   rightExample,
   gutterExample,
   styledExample,
 } from '../../../component-examples/NonModalDialogPrimitiveExamples';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPastePrimitive(filter: {name: {eq: "@twilio-paste/non-modal-dialog-primitive"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/primitives/non-modal-dialog-primitive/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Non-modal Dialog Primitive"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<NormalizeComponentHeader
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Non-modal Dialog Primitive');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/non-modal-dialog"
   storybookUrl="/?path=/story/primitives-non-modal-dialog--simple-non-modal-dialog"
@@ -76,9 +56,21 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
+
+<LivePreview
+  scope={{
+    useNonModalDialogPrimitiveState,
+    NonModalDialogPrimitive,
+    NonModalDialogDisclosurePrimitive,
+    NonModalDialogArrowPrimitive,
+  }}
+  noInline
+>
+  {defaultExample}
+</LivePreview>
 
 ## Guidelines
 
@@ -90,8 +82,8 @@ The purpose of providing these unstyled primitives is to cater for instances whe
 
 This primitive should be used to compose all custom non-modal dialogs or popoovers to ensure accessibility and upgrade paths.
 
-<Callout variant="warning">
-  <CalloutTitle as="h3">Before you roll your own non-modal dialogs...</CalloutTitle>
+<Callout variant="warning" marignY="space70">
+  <CalloutHeading as="h3">Before you roll your own non-modal dialogs...</CalloutHeading>
   <CalloutText>
     We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
     go through the UX Review process to ensure an excellent experience for our customers.

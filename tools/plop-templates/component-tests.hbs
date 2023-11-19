@@ -1,20 +1,11 @@
 import * as React from 'react';
 import {render} from '@testing-library/react';
-// @ts-ignore typescript doesn't like js imports
-import axe from '../../../../../.jest/axe-helper';
+
 {{import component-name}} from '../src';
 
 describe('{{pascalCase component-name}}', () => {
   it('should render', () => {
     const {getByText} = render(<{{pascalCase component-name}}>test</{{pascalCase component-name}}>);
     expect(getByText('test')).toBeDefined();
-  });
-
-  describe('Accessibility', () => {
-    it('Should have no accessibility violations', async () => {
-      const {container} = render(<{{pascalCase component-name}}>test</{{pascalCase component-name}}>);
-      const results = await axe(container);
-      expect(results).toHaveNoViolations();
-    });
   });
 });

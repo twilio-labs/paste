@@ -1,35 +1,32 @@
----
-title: Product style guide
-description: Core principles, punctuation, grammar and formatting in Product content.
-slug: /foundations/content/product-style-guide/
----
+export const meta = {
+  title: 'Product style guide',
+  description: 'Core principles, punctuation, grammar and formatting in Product content.',
+  slug: '/foundations/content/product-style-guide/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
-import {DoDont, Do, Dont} from '../../../../components/DoDont';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/content/product-style-guide/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+import {DoDont, Do, Dont} from '../../../../components/DoDont';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
 </content>
 
@@ -37,7 +34,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -53,13 +50,10 @@ export const pageQuery = graphql`
 - Use simple, short sentences and common words.
 - Explain technical terms and write acronyms in full the first time a user sees them.
 
-<Callout>
-  <CalloutTitle>Using readability tools</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Using readability tools</CalloutHeading>
   <CalloutText>
-    Sites offering{' '}
-    <Anchor href="https://readabilityformulas.com/free-readability-formula-tests.php">
-      free readability tools like this one
-    </Anchor>{' '}
+    Sites offering <Anchor href="https://readabilityformulas.com/free-readability-formula-tests.php">free readability tools like this one</Anchor>
     can be useful for assessing the "reading age" of long content (more than 150 words). However, they're not great at
     testing short UI content that might only contain two or three words. Use them with caution. Look for a simpler word
     whenever you can to improve the readability of your content.
@@ -92,8 +86,8 @@ export const pageQuery = graphql`
 - And you can start sentences with _But_ or _And_.
 - Use contractions with pronouns &mdash; _it’s, there’s, you’ll, we’ll, you’re_ &mdash; to sound conversational.
 
-<Callout>
-  <CalloutTitle>Exception: avoid contractions in error messages</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Exception: avoid contractions in error messages</CalloutHeading>
   <CalloutText>
     Avoid contractions in negative scenarios. When a user is stressed, their comprehension suffers. Often users will
     read <em>can’t</em> as <em>can</em>, missing the -’t at the end. Write out error messages or destructive action
@@ -115,10 +109,9 @@ export const pageQuery = graphql`
 
 **Don't** use "&" just to make content shorter. If space is an issue, address the content and design together.
 
-<Callout>
-  <CalloutTitle>Why?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Why?</CalloutHeading>
   <CalloutText>
-    {' '}
     Using "and" rather than the ampersand symbol (&) supports localization and users with lower literacy or cognitive
     impairments. Some screen readers can’t interpret the code behind an ampersand, which obscures the meaning for the
     user.
@@ -131,13 +124,13 @@ export const pageQuery = graphql`
 
 **Do** use an apostrophe to indicate possession or belonging.
 
-- The APIs of Twilio > Twilio's APIs
+- The APIs of Twilio &gt; Twilio's APIs
   - _The phone number's prefix._
   - _Choose from one of SendGrid's responsive email designs._
 
 **Do** use an apostrophe to indicate missing letters.
 
-- You are > you're
+- You are &gt; you're
   - _You're not logged in._
 
 **Don't** use apostrophes to make a plural. We should never see _Upgrade to buy phone number's_, _Install plugin's_, or _SID's_.
@@ -353,8 +346,8 @@ _Avoid_ using abbreviations in body copy. It might reduce the character count bu
   - _To access billing information, select My Account._
   - _I understand._ (This usage is almost exclusively for legal consent.)
 
-<Callout>
-  <CalloutTitle as="h4">Legal content</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Legal content</CalloutHeading>
   <CalloutText>
     Legal content follows different rules to product &mdash; e.g., in Terms of Service, Twilio is usually referenced in
     the third person. Always check with the legal team if the content regards consent.
@@ -506,7 +499,7 @@ _Avoid_ using abbreviations in body copy. It might reduce the character count bu
 
 #### Their/there/they're
 
-- _Their_ = plural possessive pronoun (belonging to them)
+- _Their_ = plural and/or gender neutral possessive pronoun (belonging to them)
   - _The main priority for agents is reducing their wrap-up time._
 - _There_ = adverb meaning existing in/at that place
   - _There is a new version available._

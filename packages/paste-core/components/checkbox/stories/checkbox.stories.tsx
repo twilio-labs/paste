@@ -1,15 +1,16 @@
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {Anchor} from '@twilio-paste/anchor';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '../src';
+import { Anchor } from "@twilio-paste/anchor";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { Checkbox, CheckboxDisclaimer, CheckboxGroup } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Checkbox',
+  title: "Components/Checkbox",
   component: Checkbox,
-  subcomponents: {CheckboxGroup, CheckboxDisclaimer},
+  subcomponents: { CheckboxGroup, CheckboxDisclaimer },
 };
 
 export const DefaultCheckbox = (): React.ReactNode => {
@@ -19,9 +20,7 @@ export const DefaultCheckbox = (): React.ReactNode => {
     </Checkbox>
   );
 };
-DefaultCheckbox.story = {
-  name: 'Checkbox',
-};
+DefaultCheckbox.storyName = "Checkbox";
 
 export const CheckboxChecked = (): React.ReactNode => {
   const [checked, setChecked] = React.useState(true);
@@ -40,9 +39,25 @@ export const CheckboxChecked = (): React.ReactNode => {
   );
 };
 
-CheckboxChecked.story = {
-  name: 'Checkbox - Checked',
+CheckboxChecked.storyName = "Checkbox - Checked";
+
+export const CheckboxWithNoID = (): React.ReactNode => {
+  const [checked, setChecked] = React.useState(true);
+  return (
+    <Checkbox
+      value="1"
+      name="foo"
+      checked={checked}
+      onChange={(event) => {
+        setChecked(event.target.checked);
+      }}
+    >
+      Label
+    </Checkbox>
+  );
 };
+
+CheckboxWithNoID.storyName = "Checkbox - With no ID";
 
 export const CheckboxDefaultChecked = (): React.ReactNode => {
   return (
@@ -51,9 +66,7 @@ export const CheckboxDefaultChecked = (): React.ReactNode => {
     </Checkbox>
   );
 };
-CheckboxDefaultChecked.story = {
-  name: 'Checkbox - defaultChecked',
-};
+CheckboxDefaultChecked.storyName = "Checkbox - defaultChecked";
 
 export const CheckboxRequired = (): React.ReactNode => {
   return (
@@ -63,9 +76,7 @@ export const CheckboxRequired = (): React.ReactNode => {
   );
 };
 
-CheckboxRequired.story = {
-  name: 'Checkbox - Required',
-};
+CheckboxRequired.storyName = "Checkbox - Required";
 
 export const CheckboxDisabled = (): React.ReactNode => {
   return (
@@ -75,9 +86,7 @@ export const CheckboxDisabled = (): React.ReactNode => {
   );
 };
 
-CheckboxDisabled.story = {
-  name: 'Checkbox - Disabled',
-};
+CheckboxDisabled.storyName = "Checkbox - Disabled";
 
 export const CheckboxDisabledChecked = (): React.ReactNode => {
   const [checked, setChecked] = React.useState(true);
@@ -97,9 +106,7 @@ export const CheckboxDisabledChecked = (): React.ReactNode => {
   );
 };
 
-CheckboxDisabledChecked.story = {
-  name: 'Checkbox - Disabled & Checked',
-};
+CheckboxDisabledChecked.storyName = "Checkbox - Disabled & Checked";
 
 export const CheckboxError = (): React.ReactNode => {
   return (
@@ -109,9 +116,7 @@ export const CheckboxError = (): React.ReactNode => {
   );
 };
 
-CheckboxError.story = {
-  name: 'Checkbox - Error',
-};
+CheckboxError.storyName = "Checkbox - Error";
 
 export const CheckboxErrorChecked = (): React.ReactNode => {
   const [checked, setChecked] = React.useState(true);
@@ -131,9 +136,7 @@ export const CheckboxErrorChecked = (): React.ReactNode => {
   );
 };
 
-CheckboxErrorChecked.story = {
-  name: 'Checkbox - Error & Checked',
-};
+CheckboxErrorChecked.storyName = "Checkbox - Error & Checked";
 
 export const CheckboxErrorDisabled = (): React.ReactNode => {
   return (
@@ -143,9 +146,7 @@ export const CheckboxErrorDisabled = (): React.ReactNode => {
   );
 };
 
-CheckboxErrorDisabled.story = {
-  name: 'Checkbox - Error & Disabled',
-};
+CheckboxErrorDisabled.storyName = "Checkbox - Error & Disabled";
 
 export const CheckboxErrorDisabledChecked = (): React.ReactNode => {
   return (
@@ -155,9 +156,7 @@ export const CheckboxErrorDisabledChecked = (): React.ReactNode => {
   );
 };
 
-CheckboxErrorDisabledChecked.story = {
-  name: 'Checkbox - Error & Disabled & Checked',
-};
+CheckboxErrorDisabledChecked.storyName = "Checkbox - Error & Disabled & Checked";
 
 export const CheckboxHelpTextString = (): React.ReactNode => {
   return (
@@ -167,9 +166,7 @@ export const CheckboxHelpTextString = (): React.ReactNode => {
   );
 };
 
-CheckboxHelpTextString.story = {
-  name: 'Checkbox - Help text string',
-};
+CheckboxHelpTextString.storyName = "Checkbox - Help text string";
 
 export const CheckboxHelpTextChildren = (): React.ReactNode => {
   return (
@@ -179,7 +176,7 @@ export const CheckboxHelpTextChildren = (): React.ReactNode => {
       name="foo"
       helpText={
         <>
-          Some interesting help text with a <a href="http://www.google.com">link</a>
+          Some interesting help text with a <Anchor href="http://www.google.com">link</Anchor>
         </>
       }
     >
@@ -188,9 +185,7 @@ export const CheckboxHelpTextChildren = (): React.ReactNode => {
   );
 };
 
-CheckboxHelpTextChildren.story = {
-  name: 'Checkbox - Help text children',
-};
+CheckboxHelpTextChildren.storyName = "Checkbox - Help text children";
 
 export const CheckboxSelectAll = (): React.ReactNode => {
   const [checked, setChecked] = React.useState(true);
@@ -210,9 +205,7 @@ export const CheckboxSelectAll = (): React.ReactNode => {
   );
 };
 
-CheckboxSelectAll.story = {
-  name: 'Checkbox - Select all',
-};
+CheckboxSelectAll.storyName = "Checkbox - Select all";
 
 export const CheckboxControlled = (): React.ReactNode => {
   const [checked1, setChecked1] = React.useState(true);
@@ -257,9 +250,7 @@ export const CheckboxControlled = (): React.ReactNode => {
   );
 };
 
-CheckboxControlled.story = {
-  name: 'Checkbox - Controlled',
-};
+CheckboxControlled.storyName = "Checkbox - Controlled";
 
 export const DefaultCheckboxGroup = (): React.ReactNode => {
   const [checked1, setChecked1] = React.useState(true);
@@ -319,9 +310,7 @@ export const DefaultCheckboxGroup = (): React.ReactNode => {
   );
 };
 
-DefaultCheckboxGroup.story = {
-  name: 'CheckboxGroup',
-};
+DefaultCheckboxGroup.storyName = "CheckboxGroup";
 
 export const CheckboxGroupError = (): React.ReactNode => {
   return (
@@ -339,9 +328,7 @@ export const CheckboxGroupError = (): React.ReactNode => {
   );
 };
 
-CheckboxGroupError.story = {
-  name: 'Checkbox Group - Error',
-};
+CheckboxGroupError.storyName = "Checkbox Group - Error";
 
 export const CheckboxGroupDisabled = (): React.ReactNode => {
   return (
@@ -359,9 +346,7 @@ export const CheckboxGroupDisabled = (): React.ReactNode => {
   );
 };
 
-CheckboxGroupDisabled.story = {
-  name: 'Checkbox Group - Disabled',
-};
+CheckboxGroupDisabled.storyName = "Checkbox Group - Disabled";
 
 export const CheckboxGroupOverrideDisabled = (): React.ReactNode => {
   return (
@@ -379,9 +364,7 @@ export const CheckboxGroupOverrideDisabled = (): React.ReactNode => {
   );
 };
 
-CheckboxGroupOverrideDisabled.story = {
-  name: 'Checkbox Group - Override Disabled',
-};
+CheckboxGroupOverrideDisabled.storyName = "Checkbox Group - Override Disabled";
 
 export const CheckboxGroupHorizontal = (): React.ReactNode => {
   return (
@@ -405,9 +388,7 @@ export const CheckboxGroupHorizontal = (): React.ReactNode => {
   );
 };
 
-CheckboxGroupHorizontal.story = {
-  name: 'Checkbox Group - Horizontal',
-};
+CheckboxGroupHorizontal.storyName = "Checkbox Group - Horizontal";
 
 export const CheckboxGroupHorizontalDisabled = (): React.ReactNode => {
   return (
@@ -425,9 +406,7 @@ export const CheckboxGroupHorizontalDisabled = (): React.ReactNode => {
   );
 };
 
-CheckboxGroupHorizontalDisabled.story = {
-  name: 'Checkbox Group - Horizontal disabled',
-};
+CheckboxGroupHorizontalDisabled.storyName = "Checkbox Group - Horizontal disabled";
 
 export const CheckboxGroupHorizontalError = (): React.ReactNode => {
   return (
@@ -457,9 +436,7 @@ export const CheckboxGroupHorizontalError = (): React.ReactNode => {
   );
 };
 
-CheckboxGroupHorizontalError.story = {
-  name: 'Checkbox Group - Horizontal error',
-};
+CheckboxGroupHorizontalError.storyName = "Checkbox Group - Horizontal error";
 
 export const CheckboxIndeterminateGroup = (): React.ReactNode => {
   const [checkedItems, setCheckedItems] = React.useState([true, false]);
@@ -498,9 +475,7 @@ export const CheckboxIndeterminateGroup = (): React.ReactNode => {
   );
 };
 
-CheckboxIndeterminateGroup.story = {
-  name: 'Checkbox - Indeterminate group',
-};
+CheckboxIndeterminateGroup.storyName = "Checkbox - Indeterminate group";
 
 export const CheckboxIndeterminateGroupDisabled = (): React.ReactNode => {
   const [checkedItems, setCheckedItems] = React.useState([true, false]);
@@ -579,9 +554,7 @@ export const CheckboxIndeterminateGroupDisabled = (): React.ReactNode => {
   );
 };
 
-CheckboxIndeterminateGroupDisabled.story = {
-  name: 'Checkbox - Indeterminate group disabled',
-};
+CheckboxIndeterminateGroupDisabled.storyName = "Checkbox - Indeterminate group disabled";
 
 export const CheckboxIndeterminateHorizontalGroup = (): React.ReactNode => {
   const [checkedItems, setCheckedItems] = React.useState([true, false]);
@@ -620,9 +593,7 @@ export const CheckboxIndeterminateHorizontalGroup = (): React.ReactNode => {
   );
 };
 
-CheckboxIndeterminateHorizontalGroup.story = {
-  name: 'Checkbox - Indeterminate horizontal group',
-};
+CheckboxIndeterminateHorizontalGroup.storyName = "Checkbox - Indeterminate horizontal group";
 
 export const DefaultCheckboxDisclaimer = (): React.ReactNode => {
   return (
@@ -637,9 +608,7 @@ export const DefaultCheckboxDisclaimer = (): React.ReactNode => {
   );
 };
 
-DefaultCheckboxDisclaimer.story = {
-  name: 'Checkbox Disclaimer',
-};
+DefaultCheckboxDisclaimer.storyName = "Checkbox Disclaimer";
 
 export const CheckboxDisclaimerRequired = (): React.ReactNode => {
   return (
@@ -654,9 +623,7 @@ export const CheckboxDisclaimerRequired = (): React.ReactNode => {
   );
 };
 
-CheckboxDisclaimerRequired.story = {
-  name: 'Checkbox Disclaimer - Required',
-};
+CheckboxDisclaimerRequired.storyName = "Checkbox Disclaimer - Required";
 
 export const CheckboxDisclaimerError = (): React.ReactNode => {
   return (
@@ -671,9 +638,7 @@ export const CheckboxDisclaimerError = (): React.ReactNode => {
   );
 };
 
-CheckboxDisclaimerError.story = {
-  name: 'Checkbox Disclaimer - Error',
-};
+CheckboxDisclaimerError.storyName = "Checkbox Disclaimer - Error";
 
 export const CheckboxDisclaimerDisabled = (): React.ReactNode => {
   return (
@@ -686,6 +651,4 @@ export const CheckboxDisclaimerDisabled = (): React.ReactNode => {
   );
 };
 
-CheckboxDisclaimerDisabled.story = {
-  name: 'Checkbox Disclaimer - Disabled',
-};
+CheckboxDisclaimerDisabled.storyName = "Checkbox Disclaimer - Disabled";

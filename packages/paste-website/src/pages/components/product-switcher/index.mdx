@@ -1,0 +1,106 @@
+export const meta = {
+  title: 'Product Switcher - Components',
+  package: '@twilio-paste/product-switcher',
+  description:
+    'A Product Switcher is an opinionated Menu that presents a list of Twilio products that a user has access to and can switch between.',
+  slug: '/components/product-switcher/',
+};
+
+import Changelog from '@twilio-paste/product-switcher/CHANGELOG.md';
+import {StatusBadge} from '@twilio-paste/product-switcher';
+
+import {Box} from '@twilio-paste/box';
+import packageJson from '@twilio-paste/product-switcher/package.json';
+import {
+  ProductSwitcher,
+  ProductSwitcherButton,
+  ProductSwitcherItem,
+  useProductSwitcherState,
+} from '@twilio-paste/product-switcher';
+import {LogoTwilioIcon} from '@twilio-paste/icons/esm/LogoTwilioIcon';
+import {ProductSegmentIcon} from '@twilio-paste/icons/esm/ProductSegmentIcon';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import {ProductEmailAPIIcon} from '@twilio-paste/icons/esm/ProductEmailAPIIcon';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {productSwitcherExample} from '../../../component-examples/ProductSwitcherExamples';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Product Switcher');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/product-switcher',
+        storybookUrl: '/?path=/story/components-productswitcher--product-switcher-menu',
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{
+    ProductSwitcher,
+    ProductSwitcherButton,
+    ProductSwitcherItem,
+    useProductSwitcherState,
+    LogoTwilioIcon,
+    ProductSegmentIcon,
+    ProductFlexIcon,
+    ProductEmailAPIIcon,
+  }}
+  noInline
+  showOverflow
+>
+  {productSwitcherExample}
+</LivePreview>
+
+## Guidelines
+
+## About Product Switcher
+
+Product Switcher is an implementation of [Menu](/components/menu) that shows the Twilio products a user has access to and can switch between.
+
+It's a mechanism to jump between top-level Twilio product applications such as Twilio Console, Segment, SendGrid, and Flex. It is ideally placed in the application [Topbar](/components/topbar).
+
+### Accessibility
+
+The Product Switcher implements a Menu and supports all the same keyboard navigation that the [Menu](/components/menu) component does.
+
+---
+
+## Composition Notes
+
+The Product Switcher is made up of the following sub-components:
+
+- `ProductSwitcherButton`
+- `ProductSwitcher`
+- `ProductSwitcherItem`
+- `useProductSwitcherState`
+
+### Product Switcher Button
+
+Product Switcher Button is a composed [icon-only Menu Button](/components/menu#choosing-a-menu-trigger).
+
+### Product Switcher
+
+Container for Product Switcher menu items.
+
+### Product Switcher Item
+
+A radio menu item that can either perform an action or navigate to a new url. It can show the currently selected product the user is in. Only one product can be selected at a time via the `checked` property. Ensure that the Items all belong to the same group by sharing a `name`.
+
+### useProductSwitcherState hook
+
+React Hook used to initialise the Product Switcher with various options. It returns state and actions that can be taken on the Product Switcher.

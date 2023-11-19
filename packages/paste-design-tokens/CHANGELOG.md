@@ -1,5 +1,205 @@
 # Change Log
 
+## 10.3.0
+
+### Minor Changes
+
+- [`28db966db`](https://github.com/twilio-labs/paste/commit/28db966dbafbb52a384407acb0f3952de4ff8979) [#3579](https://github.com/twilio-labs/paste/pull/3579) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Add three new box shadow tokens, shadow-border-top-primary, shadow-border-top-inverse-strongest, and shadow-border-top-primary-strongest for use in the tabs package. Add new background color, color-background-inverse-strongest.
+
+## 10.2.0
+
+### Minor Changes
+
+- [`b8d79200b`](https://github.com/twilio-labs/paste/commit/b8d79200b03d2bef7e0f2106ea1ab2bc6335bc85) [#3442](https://github.com/twilio-labs/paste/pull/3442) Thanks [@TheSisb](https://github.com/TheSisb)! - Removed all run-time [prop-type checking](https://www.npmjs.com/package/prop-types)from Paste components. Paste now ships with only TypeScript types.
+
+  **ACTION NEEDED**: None. This should be 100% backwards compatible.
+
+## 10.1.0
+
+### Minor Changes
+
+- [`eb055b2b4`](https://github.com/twilio-labs/paste/commit/eb055b2b4624390b3356ca6727981ad86bb5a1f8) [#3424](https://github.com/twilio-labs/paste/pull/3424) Thanks [@loreina](https://github.com/loreina)! - - [design-tokens] Add colorTextDestructive tokens
+
+## 10.0.0
+
+### Major Changes
+
+- [`733709127`](https://github.com/twilio-labs/paste/commit/7337091278722531e0b7498163be96857c889603) [#3395](https://github.com/twilio-labs/paste/pull/3395) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Modified the compile target of our JavaScript bundles from `node` to `browser` to minimize the risk of clashing with RequireJS. This is marked as a major out of an abundance of caution. You shouldn't need to do anything but we wanted you to be aware of the change on the off chance it has unintended consequences
+
+## 9.3.0
+
+### Minor Changes
+
+- [`176b7a5b6`](https://github.com/twilio-labs/paste/commit/176b7a5b6d0c2bbcdb5323d9afda12c57aa78bc2) [#3342](https://github.com/twilio-labs/paste/pull/3342) Thanks [@serifluous](https://github.com/serifluous)! - Add new brand colors as aliases, sun and accents
+
+## 9.2.1
+
+### Patch Changes
+
+- [`9e5b3b7f0`](https://github.com/twilio-labs/paste/commit/9e5b3b7f05b591af9349d17f646cf8e4f51c6981) [#3224](https://github.com/twilio-labs/paste/pull/3224) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] update the `shadowFocusInverseInset` token in the `twilio` and `twilio-dark` themes
+
+* [`dd884662b`](https://github.com/twilio-labs/paste/commit/dd884662b06eea1adc694ff35a9a9e99d62ad4ba) [#3279](https://github.com/twilio-labs/paste/pull/3279) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Make focus shadows in evergreen theme consistent by matching them to twilio theme
+
+## 9.2.0
+
+### Minor Changes
+
+- [`9e6399dda`](https://github.com/twilio-labs/paste/commit/9e6399dda8ea592a57319685144deda714565c93) [#3208](https://github.com/twilio-labs/paste/pull/3208) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new box shadow tokens (shadow-border-subaccount, shadow-border-bottom-subaccount, shadow-border-inverse-new, shadow-border-bottom-inverse-new) and text tokens (color-text-subaccount, color-text-inverse-new) and update existing background color token (color-background-subaccount) for use in the subaccount badge and the sidebar beta badge
+
+* [`48e5f1e5c`](https://github.com/twilio-labs/paste/commit/48e5f1e5cd1c06c6967ee4e43f30179498efede8) [#3225](https://github.com/twilio-labs/paste/pull/3225) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] Add shadow-focus-inverse-inset token, adjust inverse text tokens for navigation ui kit
+
+### Patch Changes
+
+- [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] adjust avatar border tokens for default and dark themes
+
+* [`d0ea87541`](https://github.com/twilio-labs/paste/commit/d0ea875419dfa20bb47c3b2d689ec85e6c034e84) [#3218](https://github.com/twilio-labs/paste/pull/3218) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] update `shadow-border-user` token to fix grouped avatars bug in default theme
+
+- [`6060c8dfd`](https://github.com/twilio-labs/paste/commit/6060c8dfd15f4fb338d92637eec503e87c509125) [#3205](https://github.com/twilio-labs/paste/pull/3205) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] add `size-topbar` token
+
+## 9.1.0
+
+### Minor Changes
+
+- [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design-tokens] add the `color-border-weakest` token
+
+* [`0c3861824`](https://github.com/twilio-labs/paste/commit/0c38618244d1494c7153b341cfd4e486afafc47d) [#3154](https://github.com/twilio-labs/paste/pull/3154) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design tokens] add `size-sidebar-compact` token
+
+### Patch Changes
+
+- [`1a09aa61d`](https://github.com/twilio-labs/paste/commit/1a09aa61d57d4bd6339c65a0869befed9659870f) [#3146](https://github.com/twilio-labs/paste/pull/3146) Thanks [@serifluous](https://github.com/serifluous)! - [Design tokens] Fixed visual bugs in Evergreen theme tokens: $color-text-icon-brand-highlight, $color-background-overlay, $color-background-primary-strongest, $color-text-user
+
+* [`c2de547e4`](https://github.com/twilio-labs/paste/commit/c2de547e4eb60b2385837c452b5132277ad9db9e) [#3141](https://github.com/twilio-labs/paste/pull/3141) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens] adjusting inverse colors for the `Twilio` and `Twilio-Dark` themes
+
+  - `color-background-body-inverse` from `gray-110` to `gray-100`
+  - `shadow-border-inverse-weakest` from `gray-90` to `gray-100`
+  - `color-border-inverse-weakest` from `gray-90` to `gray-100`
+
+## 9.0.3
+
+### Patch Changes
+
+- [`c42ad640b`](https://github.com/twilio-labs/paste/commit/c42ad640b6e4af057a7f0ff982b6f7533d028493) [#3130](https://github.com/twilio-labs/paste/pull/3130) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Enable the ability to theme the [color-scheme css property](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme) which can be used to control native HTML elements and the way they render in light or dark mode
+
+## 9.0.2
+
+### Patch Changes
+
+- [`bce889344`](https://github.com/twilio-labs/paste/commit/bce889344773d840d7dc75902e1be64f1a010da3) [#3090](https://github.com/twilio-labs/paste/pull/3090) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens, Theme] add ability to override the base font size that Paste uses from the HTML element tag via the new token `$font-size-base`. Also removes setting font size from the body element for when Paste is embedded into another application with its own styles
+
+## 9.0.1
+
+### Patch Changes
+
+- [`6b159b597`](https://github.com/twilio-labs/paste/commit/6b159b59728e5b425315ef7215fd6c4e982365e2) [#3069](https://github.com/twilio-labs/paste/pull/3069) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] update default theme token to fix Avatar styles, no changes to new Twilio theme
+
+* [`71f5b1898`](https://github.com/twilio-labs/paste/commit/71f5b18980c1ced85dcce101e74fb8c385a60bab) [#3033](https://github.com/twilio-labs/paste/pull/3033) Thanks [@gloriliale](https://github.com/gloriliale)! - [design tokens] update shadow focuc shadow border design tokens for the twilio themes
+
+- [`a081285f2`](https://github.com/twilio-labs/paste/commit/a081285f29cca470ff09a9faa2b4aac4bed7b0a5) [#3034](https://github.com/twilio-labs/paste/pull/3034) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens]: correct color contrast token pair naming for decorative background 10
+
+* [`fa0596ead`](https://github.com/twilio-labs/paste/commit/fa0596ead628d49adb8ff766ad865e18b08e0996) [#3055](https://github.com/twilio-labs/paste/pull/3055) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens] Fix modal background overlay color for evergreen theme
+
+## 9.0.0
+
+### Major Changes
+
+- [`0acdf3486`](https://github.com/twilio-labs/paste/commit/0acdf3486c0956d5e70fda67c8031eda96aae9ee) [#3049](https://github.com/twilio-labs/paste/pull/3049) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Design Tokens] remove deprecated light/dark color tokens from the system
+
+### Patch Changes
+
+- [`dbd9bf992`](https://github.com/twilio-labs/paste/commit/dbd9bf992c6dfec2858a8a73e7ec428d8185f12c) [#3028](https://github.com/twilio-labs/paste/pull/3028) Thanks [@gloriliale](https://github.com/gloriliale)! - [design tokens] update evergreen theme font-sizes
+
+* [`ef094db4a`](https://github.com/twilio-labs/paste/commit/ef094db4a259f734eac1ad926edfd07e5b4e58df) [#3021](https://github.com/twilio-labs/paste/pull/3021) Thanks [@shleewhite](https://github.com/shleewhite)! - [Design Tokens] update the value of colorTextUser for default and dark themes
+
+## 8.5.0
+
+### Minor Changes
+
+- [`c056da73e`](https://github.com/twilio-labs/paste/commit/c056da73e1d6379dfc74d49201c4129902791c17) [#2927](https://github.com/twilio-labs/paste/pull/2927) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Theme, Design Tokens] Add evergreen design tokens and theme
+
+## 8.4.0
+
+### Minor Changes
+
+- [`b7e429ef5`](https://github.com/twilio-labs/paste/commit/b7e429ef5d34309a8e09efb2a4653fbc446302c2) [#2948](https://github.com/twilio-labs/paste/pull/2948) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Add tokens for new themes `twilio` and `twilio-dark`:
+
+  - Aliases: color-palette
+    - Add `palette-red-65`
+    - Add `palette-red-05`
+    - Add `palette-orange-05`
+    - Add `palette-yellow-05`
+    - Add `palette-green-05`
+    - Add `palette-blue-05`
+    - Add `palette-blue-55`
+    - Add `palette-purple-05`
+
+## 8.3.0
+
+### Minor Changes
+
+- [`135df9631`](https://github.com/twilio-labs/paste/commit/135df963190e60ce7a51572b197edc7ea0bf02fb) [#2908](https://github.com/twilio-labs/paste/pull/2908) Thanks [@shleewhite](https://github.com/shleewhite)! - [Design Tokens] add a new colorBackgroundWeak token
+
+### Patch Changes
+
+- [`804fb9316`](https://github.com/twilio-labs/paste/commit/804fb9316aa473529920a269b204dbb2710abd1b) [#2895](https://github.com/twilio-labs/paste/pull/2895) Thanks [@Niznikr](https://github.com/Niznikr)! - [Design Tokens] Update `tokens.generic.js` export from commonjs to ESM
+
+## 8.2.0
+
+### Minor Changes
+
+- [`026bf7f52`](https://github.com/twilio-labs/paste/commit/026bf7f52f6273f8294c313796ba97971e4bc679) [#2799](https://github.com/twilio-labs/paste/pull/2799) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens, theme] updated mono spaced font in default and dark themes to use the new Twilio Sans Mono font
+
+* [`6af951ded`](https://github.com/twilio-labs/paste/commit/6af951ded6516200e0c40c61a92b54291489e554) [#2806](https://github.com/twilio-labs/paste/pull/2806) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens]: add 7 new tokens for the Display Heading package: fontSizeDisplay10, fontSizeDisplay20, fontSizeDisplay30, fontWeightExtrabold, lineHeightDisplay10, lineHeightDisplay20, and lineHeightDisplay30.
+
+## 8.1.2
+
+### Patch Changes
+
+- [`a4c9e70b0`](https://github.com/twilio-labs/paste/commit/a4c9e70b0820bfb2a41f58a61e7f991d9fa3a09b) [#2763](https://github.com/twilio-labs/paste/pull/2763) Thanks [@shleewhite](https://github.com/shleewhite)! - Update ESLint rules, which changed some formatting.
+
+## 8.1.1
+
+### Patch Changes
+
+- [`d49514a27`](https://github.com/twilio-labs/paste/commit/d49514a274f30ba9ccaae45c23fb30f987cda37c) [#2746](https://github.com/twilio-labs/paste/pull/2746) Thanks [@jb-twilio](https://github.com/jb-twilio)! - [Design Tokens] Add token for box-shadow that includes focus and regular border
+
+## 8.1.0
+
+### Minor Changes
+
+- [`bd0a3feaa`](https://github.com/twilio-labs/paste/commit/bd0a3feaad502ad834bb4333cac4821ff8deb184) [#2625](https://github.com/twilio-labs/paste/pull/2625) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new icon size and line height tokens (05), adust dark theme background tokens
+
+## 8.0.0
+
+### Major Changes
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Created a new category of design token, Data Visualization, and subsequently relocated all of the Data Visualization tokens from the generic Color category. If you are using categorized Data Visualization design tokens, you will need to update their reference.
+
+### Patch Changes
+
+- [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Updates ordering on design tokens to be alphanumeric.
+
+* [`364083627`](https://github.com/twilio-labs/paste/commit/3640836277f46f6f8bbe994d5aa3f9af44c9e355) [#2577](https://github.com/twilio-labs/paste/pull/2577) Thanks [@zahnster](https://github.com/zahnster)! - [Design tokens] Update the generic export to exclude deprecated tokens, provide pre-computed alt values, and to omit the originalValue key.
+
+## 7.4.0
+
+### Minor Changes
+
+- [`95b65bdfd`](https://github.com/twilio-labs/paste/commit/95b65bdfd87ba4c6a1e9fd20a6cdcf0d5d7f95bf) [#2526](https://github.com/twilio-labs/paste/pull/2526) Thanks [@TheSisb](https://github.com/TheSisb)! - [Design Tokens] add color-background-error-strongest and color-text-error-stronger tokens
+
+## 7.3.0
+
+### Minor Changes
+
+- [`1c7765ac0`](https://github.com/twilio-labs/paste/commit/1c7765ac091bb50157257665337216af7aeb845d) [#2467](https://github.com/twilio-labs/paste/pull/2467) Thanks [@andipants12](https://github.com/andipants12)! - [Design tokens] Add a new generic export featuring additional metadata. This can be used in documentation or software tooling.
+
+  - CommonJS export `tokens.generic.js`
+  - complimentary declaration file included `tokens.generic.d.ts`
+  - Maps token buckets/categories (e.g. "background-colors") to a list of token objects.
+
+### Patch Changes
+
+- [`ae9dd50f`](https://github.com/twilio-labs/paste/commit/ae9dd50fd2c14436cb984c2daec3914daca20866) [#2466](https://github.com/twilio-labs/paste/pull/2466) Thanks [@TheSisb](https://github.com/TheSisb)! - [All packages] Update our ESBuild version and remove minification of identifiers in our production builds.
+
 ## 7.2.2
 
 ### Patch Changes

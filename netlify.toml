@@ -1,26 +1,14 @@
-[dev]
-  command = "yarn start:website"
-  targetPort = 8000
-  framework = "#custom"
-
-[context.deploy-preview]
-  ignore = "git diff --quiet main...HEAD -- packages/paste-core packages/paste-website packages/paste-theme-designer ':!packages/**/__tests__/*' ':!packages/paste-website/stories'"
+[functions]
+  external_node_modules = ["@sparticuz/chromium", "puppeteer-core", "@swc"]
 
 [context.deploy-preview.environment]
-  GATSBY_ENVIRONMENT_CONTEXT = "deploy-preview"
+  NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "deploy-preview"
 
 [context.branch-deploy.environment]
-  GATSBY_ENVIRONMENT_CONTEXT = "branch-deploy"
+  NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "branch-deploy"
 
 [context.production.environment]
-  GATSBY_ENVIRONMENT_CONTEXT = "production"
-
-[[plugins]]
-  package = "@netlify/plugin-gatsby"
-
-[functions]
-  directory = "packages/paste-website/functions"
-  external_node_modules = ["chrome-aws-lambda", "puppeteer-core"]
+  NEXT_PUBLIC_ENVIRONMENT_CONTEXT = "production"
 
 # INTRODUCTION/
 [[redirects]]
@@ -67,7 +55,11 @@
 # COMPONENTS/
 [[redirects]]
   from = '/icons/*'
-  to = '/components/icons/:splat'
+  to = '/components/icon/:splat'
+
+[[redirects]]
+  from = '/components/icons/*'
+  to = '/components/icon/:splat'
 
 [[redirects]]
   from = '/layout/*'
@@ -75,12 +67,21 @@
 
 # CORE/
 [[redirects]]
-  from = '/tokens/theme-package'
-  to = '/core/theme-package'
-
-[[redirects]]
   from = '/libraries/*'
   to = '/core/libraries/:splat'
+
+# THEME/
+[[redirects]]
+  from = '/core/theme-package'
+  to = '/theme/'
+
+[[redirects]]
+  from = '/tokens/theme-package'
+  to = '/theme/'
+
+[[redirects]]
+  from = '/core/changing-theme'
+  to = '/theme/changing-theme'
 
 # CUSTOMIZATION/
 [[redirects]]

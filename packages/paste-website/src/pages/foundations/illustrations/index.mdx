@@ -1,48 +1,37 @@
----
-title: Illustrations
-description: Guidelines and repository of illustrations that can be used in Twilio UIs.
-slug: /foundations/illustrations/
----
+export const meta = {
+  title: 'Illustrations',
+  description: 'Guidelines and repository of illustrations that can be used in Twilio UIs.',
+  slug: '/foundations/illustrations/',
+};
 
-import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {Box} from '@twilio-paste/box';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {Flex} from '@twilio-paste/flex';
-import {Anchor} from '@twilio-paste/anchor';
-import {Grid} from '@twilio-paste/grid';
-import {Card} from '@twilio-paste/card';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
-import {Link} from 'gatsby';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+import {SidebarCategoryRoutes} from '../../../constants';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/illustrations/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
 
-<p>{props.pageContext.frontmatter.description}</p>
+</content>
 
 ---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
 
 Illustrations help breathe life into our brand. It can take a complex idea and make it easier to understand. It is a tool that allows us to communicate our product in a way that feels human and fun.
 

@@ -1,13 +1,14 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Input} from '@twilio-paste/input';
-import {Menu, useMenuState, MenuButton, MenuItem, MenuSeparator} from '@twilio-paste/menu';
-import {MoreIcon} from '@twilio-paste/icons/esm/MoreIcon';
-import {Select, Option} from '@twilio-paste/select';
-import {DataGrid, DataGridHead, DataGridRow, DataGridHeader, DataGridBody, DataGridCell} from '../../src';
-import {TableHeaderData, TableBodyData} from './constants';
+import { Box } from "@twilio-paste/box";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { Input } from "@twilio-paste/input";
+import { Menu, MenuButton, MenuItem, MenuSeparator, useMenuState } from "@twilio-paste/menu";
+import { Option, Select } from "@twilio-paste/select";
+import * as React from "react";
 
-const ActionMenu: React.FC = () => {
+import { DataGrid, DataGridBody, DataGridCell, DataGridHead, DataGridHeader, DataGridRow } from "../../src";
+import { TableBodyData, TableHeaderData } from "./constants";
+
+const ActionMenu = (): JSX.Element => {
   const menu = useMenuState();
   return (
     <Box display="flex" justifyContent="center">
@@ -28,7 +29,7 @@ const ActionMenu: React.FC = () => {
   );
 };
 
-export const ComposableCellsDataGrid: React.FC = () => {
+export const ComposableCellsDataGrid = (): JSX.Element => {
   /* eslint-disable react/no-array-index-key */
   return (
     <DataGrid aria-label="User list" data-testid="data-grid" striped>
@@ -52,7 +53,7 @@ export const ComposableCellsDataGrid: React.FC = () => {
                     <Input
                       aria-label={TableHeaderData[colIndex]}
                       data-testid={`input-${rowIndex}-${colIndex}`}
-                      value={col || ''}
+                      value={col || ""}
                       type="text"
                       onChange={() => {}}
                     />
@@ -72,7 +73,7 @@ export const ComposableCellsDataGrid: React.FC = () => {
               }
               return <DataGridCell key={`col-${colIndex}`}>{col}</DataGridCell>;
             })}
-            <DataGridCell key={`col-5`}>
+            <DataGridCell key="col-5">
               <ActionMenu />
             </DataGridCell>
           </DataGridRow>

@@ -1,10 +1,11 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {AspectRatio} from '../src';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
+
+import { AspectRatio } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Layout/Aspect Ratio',
+  title: "Layout/Aspect Ratio",
   component: AspectRatio,
 };
 

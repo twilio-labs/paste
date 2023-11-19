@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Topbar - Changelog',
+  package: '@twilio-paste/topbar',
+  description: 'A Topbar contains application-wide controls that rest at the top of the screen.',
+  slug: '/components/topbar/changelog',
+};
+
+import Changelog from '@twilio-paste/topbar/CHANGELOG.md';
+import packageJson from '@twilio-paste/topbar/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Topbar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/topbar',
+        storybookUrl: '/?path=/story/components-topbar--push-default-topbar',
+      },
+    },
+  };
+};
+
+<Changelog />

@@ -1,41 +1,38 @@
----
-title: How to build custom UI with Paste Tokens and Primitives
-description: You may encounter times where you are required to build an experience that isn't covered by out of the box Paste components. This guide aims to help you create custom experiences while still using the design system.
-slug: /customization/composing-custom-components-with-design-tokens/
----
+export const meta = {
+  title: 'How to build custom UI with Paste Tokens and Primitives',
+  description:
+    "You may encounter times where you are required to build an experience that isn't covered by out of the box Paste components. This guide aims to help you create custom experiences while still using the design system.",
+  slug: '/customization/composing-custom-components-with-design-tokens/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
-import {Callout, CalloutTitle, CalloutText} from '../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {P} from '../../components/Typography';
 import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/customization/composing-custom-components-with-design-tokens/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<ComponentHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
-<P variant="lead">{props.pageContext.frontmatter.description}</P>
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
+
+<P variant="lead">{meta.description}</P>
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -63,7 +60,7 @@ The list of components you're left with may not be expressed via Paste. At this 
 
 ## Design Primitive Components
 
-Design Primitive Components are React components that expose style properties using [Styled-System](https://www.styled-system.com). These style properties are typed React props that only expose design tokens as values. There are style properties for each of the categories that are included on the [Theme Object](/core/theme-package#theme) from the [Theme Package](/core/theme-package).
+Design Primitive Components are React components that expose style properties using [Styled-System](https://www.styled-system.com). These style properties are typed React props that only expose design tokens as values. There are style properties for each of the categories that are included on the [Theme Object](/theme/#theme) from the [Theme Package](/theme).
 
 We use these components internally to create almost everything in Paste. When used, they provide more than enough combinations of design tokens to to create new, unique things while still looking like a part of the Design System. They also support the themes Paste offers out of the box, and allow for easy upgrades to design language updates in the future. _Your custom components are important and will never be left behind._
 
@@ -73,8 +70,8 @@ Each Design Primitive is a [Styled Component](https://emotion.sh/docs/styled) th
 
 The Box Primitive component is designed to be a block level primitive. Think of it as a `div`, except with super powers. By exposing the `as` prop, Box can become any _valid_ HTML element (obviously the sensible choices would be box or block style things). It exposes important styling properties like background color, padding, margin, border styles, etc., to allow you to create custom block level containers. The values the styling properties take are the names of the design tokens exposed on the theme object.
 
-<Callout>
-  <CalloutTitle as="h4">RIP Hex Values!</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">RIP Hex Values!</CalloutHeading>
   <CalloutText>
     To ensure design system resiliency, Box and Text <strong>do not</strong> accept HTML Color Codes, Font Sizes, or
     arbitrary pixel values. Any styling choices must be expressed using tokens, and tokens only.
@@ -175,7 +172,7 @@ These compositions will automatically respond to the theme that the provider has
 
 ## Other alternatives to Design Primitives
 
-If you choose to not use the design primitive components directly (and, if so, we'd love to learn more about your use case), check out the options provided by [Theme Package](/core/theme-package). This package showcases ways to harness design tokens in React in a few different ways.
+If you choose to not use the design primitive components directly (and, if so, we'd love to learn more about your use case), check out the options provided by [Theme Package](/theme). This package showcases ways to harness design tokens in React in a few different ways.
 
 ### Not using React?
 

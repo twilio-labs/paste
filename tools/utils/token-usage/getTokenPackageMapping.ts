@@ -1,11 +1,14 @@
-import path from 'path';
-import camelCase from 'lodash/camelCase';
-import {fileSearch} from 'search-in-file';
-import tokenJson from '@twilio-paste/design-tokens/dist/tokens.json';
-import {convertFilePathsToPackageNames} from './convertFilePathsToPackageNames';
-import type {TokenPackageMap} from './types';
+import path from "path";
 
-const CORE_PACKAGES_PATH = path.join(__dirname, '../../../packages/paste-core');
+// eslint-disable-next-line import/no-extraneous-dependencies
+import tokenJson from "@twilio-paste/design-tokens/dist/tokens.json";
+import camelCase from "lodash/camelCase";
+import { fileSearch } from "search-in-file";
+
+import { convertFilePathsToPackageNames } from "./convertFilePathsToPackageNames";
+import type { TokenPackageMap } from "./types";
+
+const CORE_PACKAGES_PATH = path.join(__dirname, "../../../packages/paste-core");
 const tokenNames: string[] = Object.keys(tokenJson).map(camelCase);
 
 /**
@@ -16,7 +19,7 @@ const tokenNames: string[] = Object.keys(tokenJson).map(camelCase);
 async function findFilesWithWord(word: string): Promise<string[]> {
   return fileSearch([CORE_PACKAGES_PATH], word, {
     recursive: true,
-    ignoreDir: ['dist', 'core-bundle', '__tests__', 'stories', '.md', '.txt', '.json', '.js', 'types.ts'],
+    ignoreDir: ["dist", "core-bundle", "__tests__", "stories", ".md", ".txt", ".json", ".js", "types.ts"],
     words: true,
   });
 }
@@ -34,8 +37,9 @@ export async function getTokenPackageMapping(): Promise<TokenPackageMap> {
     let filesPathsThatContainToken: string[] = [];
     try {
       filesPathsThatContainToken = await findFilesWithWord(tokenName);
-    } catch (e) {
-      console.error('[getTokenPackageMapping]: ', e);
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error("[getTokenPackageMapping]:", error);
     }
     tokenPackageMap[tokenName] = convertFilePathsToPackageNames(filesPathsThatContainToken);
   }

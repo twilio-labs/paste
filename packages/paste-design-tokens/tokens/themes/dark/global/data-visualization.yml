@@ -1,0 +1,37 @@
+global:
+  type: color
+  category: data-visualization
+imports:
+  - ../../../global/palette-color.yml
+props:
+  # Data visualization colors
+  color-data-visualization-1:
+    value: "{!palette-blue-60}"
+    comment: Color used for data visualizations. Must be used in a sequence.
+  color-data-visualization-2:
+    value: "{!palette-purple-30}"
+    comment: Color used for data visualizations. Must be used in a sequence.
+  color-data-visualization-3:
+    value: "{!palette-gray-60}"
+    comment: Color used for data visualizations. Must be used in a sequence.
+  color-data-visualization-4:
+    value: "{!palette-blue-40}"
+    comment: Color used for data visualizations. Must be used in a sequence.
+  color-data-visualization-5:
+    value: "{!palette-green-70}"
+    comment: Color used for data visualizations. Must be used in a sequence.
+  color-data-visualization-6:
+    value: "{!palette-orange-50}"
+    comment: Color used for data visualizations. Must be used in a sequence.
+  color-data-visualization-7:
+    value: "{!palette-orange-70}"
+    comment: Color used for data visualizations. Must be used in a sequence.
+  color-data-visualization-8:
+    value: "{!palette-red-30}"
+    comment: Color used for data visualizations. Must be used in a sequence.
+  color-data-visualization-9:
+    value: "{!palette-purple-50}"
+    comment: Color used for data visualizations. Must be used in a sequence.
+  color-data-visualization-10:
+    value: "{!palette-yellow-60}"
+    comment: Color used for data visualizations. Must be used in a sequence.

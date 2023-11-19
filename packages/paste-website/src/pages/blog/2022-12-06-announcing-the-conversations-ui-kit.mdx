@@ -1,0 +1,100 @@
+export const meta = {
+  title: 'Announcing the Conversations UI Kit',
+  slug: '/blog/2022-12-06-announcing-the-conversations-ui-kit/',
+  date: '2022-12-06',
+  author: 'Lee White',
+  avatar: 'https://avatars.githubusercontent.com/u/8482334?v=4',
+  status: 'published',
+  excerpt: 'The Paste team has been working on something big for the past year!',
+};
+
+import {Box} from '@twilio-paste/box';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import {ChatHeroExample} from '../../component-examples/ConversationsUIKitAnnouncement';
+import ComponentBreakdown from '../../assets/images/articles/2022-12-06-announcing-the-conversations-ui-kit/component-breakdown.png';
+import Figma from '../../assets/images/articles/2022-12-06-announcing-the-conversations-ui-kit/figma-screenshot.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader title={meta.title} date={meta.date} machineDate={meta.date} author={meta.author} avatar={meta.avatar} />
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+The Paste team has been working on something big for the past year: the Conversations UI Kit! It is a set of React components and Figma design assets that make building a chat experience with [the Twilio Conversations API](https://www.twilio.com/messaging/conversations-api) a breeze.
+
+<ChatHeroExample />
+
+## Why make chat components?
+
+Developing a great chat experience from the ground up is full of challenges. It has to be beautiful and intuitive, flexible enough to support many features, and made with all users in mind… and that doesn’t include the time spent maintaining it once it’s built!
+
+Twilio currently has multiple chat-related products. Some include a UI, like [Frontline](https://www.twilio.com/frontline) and [Flex WebChat](https://www.twilio.com/docs/flex/developer/messaging/webchat/setup), and some do not, like [the Conversations API](https://www.twilio.com/messaging/conversations-api). We saw an opportunity to unify the chat experience across all these different products. Our new UI Kit will help product teams and customers build high quality chat experiences without compromise.
+
+## The work
+
+Before we could build, the team had to hammer down the specifics. We audited Figma screens and met with the people who think about these UIs all the time: the engineers, designers, and product managers who work on Twilio’s chat products.
+
+<ResponsiveImage src={ComponentBreakdown} />
+
+From this work, we gathered a list of the potential new components and new variants of existing components that Paste needed for the initial release of the Conversations UI Kit:
+
+- [Minimizable Dialog](/components/minimizable-dialog): a dialog that can be minimized to the bottom right corner of the screen
+- [Chat Log](/components/chat-log), which is a component package that includes:
+  - Chat Log: a wrapper that displays a conversation between people
+  - [Chat Message](/components/chat-log#basic-message): a wrapper for Chat Bubbles, Chat Message Meta, and Chat Attachments
+  - [Chat Bubble](/components/chat-log#basic-message): the visual bubble around the content of a Chat.
+  - [Chat Bookend](/components/chat-log#chat-bookend): an indicator for the start, end, or day of a chat.
+  - [Chat Event](/components/chat-log#chat-event): an indicator for events in a chat, such as a person joining.
+  - [Chat Attachment](/components/chat-log#message-with-attachment): a file sent in a Chat Message.
+  - [Chat Message Meta](/components/chat-log#message-with-message-meta): additional information about a message, such as the name of the sender, time stamp, or read receipt.
+  - [useChatLogger](/components/chat-log#usechatlogger-hook) hook: a hook that handles the adding or removing messages from the Chat Log.
+  - [Chat Logger](/components/chat-log#usechatlogger-hook): a component that takes a list of messages and animates them into the Chat Log
+- [Chat Composer](/components/chat-composer): a rich text editor that grows as the user types a message
+- And three new variants for Button: [rounded-small](/components/button#rounded-small-button), [circle](/components/button#circle-buttons), and [circle-small](/components/button#circle-buttons).
+
+## Building with the Conversations UI Kit
+
+Ok— now that we have these components, how do you use them?
+
+Like all Paste components, they are composable, presentational, and customizable. You can use these components for an agent’s side of the chat or within a dialog for a customer, and they can be styled to fit your brand’s identity.
+
+<iframe
+  src="https://codesandbox.io/embed/conversations-ui-kit-example-vhcjnw?fontsize=14&hidenavigation=1&theme=dark"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
+  title="Conversations UI Kit Example"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
+<Box marginBottom="space70" />
+
+For designers, the Conversations UI Kit is available as a set of components in [the Twilio Paste Components library](https://www.figma.com/community/file/1012844215105752327).
+
+<ResponsiveImage src={Figma} />
+
+## Wrapping up
+
+Try out the Conversations UI Kit by duplicating [the Twilio Paste Components library in Figma](https://www.figma.com/community/file/1012844215105752327) or forking [the example CodeSandbox](https://codesandbox.io/s/conversations-ui-kit-example-vhcjnw). To learn more about a specific component, check out its documentation page on the Paste website. If you have any questions, please post [a Github discussion](https://github.com/twilio-labs/paste/discussions).
+
+Thanks to the engineers, designers, and product managers that helped the Paste team create this work!
+
+</ArticleContent>
+
+</contentwrapper>

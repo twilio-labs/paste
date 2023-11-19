@@ -1,30 +1,37 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Anchor} from '@twilio-paste/anchor';
-import {SiteLink, SiteLinkProps} from '../SiteLink';
+import { Anchor } from "@twilio-paste/anchor";
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
+
+import type { SiteLinkProps } from "../SiteLink";
+import { SiteLink } from "../SiteLink";
 
 export interface NewComponentBannerAnchorProps {
   children: NonNullable<React.ReactNode>;
   showExternal?: boolean;
-  to: SiteLinkProps['to'];
+  href: SiteLinkProps["href"];
   onClick?: () => void;
 }
 
-const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({children, to, onClick, showExternal}) => {
+const NewComponentBannerLink: React.FC<React.PropsWithChildren<NewComponentBannerAnchorProps>> = ({
+  children,
+  href,
+  onClick,
+  showExternal,
+}) => {
   return (
     <Box
       as="span"
       flex="0 0 auto"
-      fontSize={['fontSize20', 'fontSize30']}
+      fontSize={["fontSize20", "fontSize30"]}
       fontWeight="fontWeightSemibold"
-      lineHeight={['lineHeight20', 'lineHeight30']}
+      lineHeight={["lineHeight20", "lineHeight30"]}
     >
       {showExternal ? (
-        <Anchor href={to} onClick={onClick} showExternal={showExternal}>
+        <Anchor href={href} onClick={onClick} showExternal={showExternal}>
           {children}
         </Anchor>
       ) : (
-        <SiteLink to={to} onClick={onClick}>
+        <SiteLink href={href} onClick={onClick}>
           {children}
         </SiteLink>
       )}
@@ -32,4 +39,4 @@ const NewComponentBannerLink: React.FC<NewComponentBannerAnchorProps> = ({childr
   );
 };
 
-export {NewComponentBannerLink};
+export { NewComponentBannerLink };

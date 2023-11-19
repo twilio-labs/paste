@@ -1,8 +1,8 @@
-import * as React from 'react';
-import {useMenuState, MenuButton, Menu, MenuItem} from '@twilio-paste/core/menu';
-import {ChevronDownIcon} from '@twilio-paste/icons/cjs/ChevronDownIcon';
+import { Menu, MenuButton, MenuItem, useMenuState } from "@twilio-paste/core/menu";
+import { ChevronDownIcon } from "@twilio-paste/icons/cjs/ChevronDownIcon";
+import * as React from "react";
 
-const MenuPreview: React.FC = () => {
+const MenuPreview = (): JSX.Element => {
   const menu = useMenuState();
 
   return (
@@ -19,4 +19,4 @@ const MenuPreview: React.FC = () => {
   );
 };
 
-export {MenuPreview};
+export { MenuPreview };

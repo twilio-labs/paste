@@ -1,15 +1,15 @@
-import * as React from 'react';
-import {useUIDSeed} from '@twilio-paste/uid-library';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ULStyles, LIStyles} from './styles';
-import type {PaginationItemsProps} from './types';
-import {PaginationItemsPropTypes} from './proptypes';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import { useUIDSeed } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import { LIStyles, ULStyles } from "./styles";
+import type { PaginationItemsProps } from "./types";
 
 const PaginationItems = React.forwardRef<HTMLUListElement, PaginationItemsProps>(
-  ({children, element = 'PAGINATION_ITEMS', ...props}, ref) => {
+  ({ children, element = "PAGINATION_ITEMS", ...props }, ref) => {
     const [validChildren] = React.useMemo(
       () => [React.Children.toArray(children).filter((child) => React.isValidElement(child))],
-      [children]
+      [children],
     );
     const keySeed = useUIDSeed();
 
@@ -24,7 +24,7 @@ const PaginationItems = React.forwardRef<HTMLUListElement, PaginationItemsProps>
               as="li"
               marginRight="space90"
               _last={{
-                marginRight: 'space0',
+                marginRight: "space0",
               }}
             >
               {child}
@@ -33,11 +33,9 @@ const PaginationItems = React.forwardRef<HTMLUListElement, PaginationItemsProps>
         })}
       </Box>
     );
-  }
+  },
 );
 
-PaginationItems.displayName = 'PaginationItems';
+PaginationItems.displayName = "PaginationItems";
 
-PaginationItems.propTypes = PaginationItemsPropTypes;
-
-export {PaginationItems};
+export { PaginationItems };

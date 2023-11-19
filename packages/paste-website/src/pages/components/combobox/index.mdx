@@ -1,11 +1,11 @@
----
-title: Combobox
-package: '@twilio-paste/combobox'
-description: An accessible styled drop-down list box.
-slug: /components/combobox/
----
+export const meta = {
+  title: 'Combobox',
+  package: '@twilio-paste/combobox',
+  description: 'An accessible styled drop-down list box.',
+  slug: '/components/combobox/',
+};
 
-import {graphql} from 'gatsby';
+import filter from 'lodash/filter';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Combobox, useCombobox} from '@twilio-paste/combobox';
@@ -13,7 +13,7 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
 import {ProductStudioIcon} from '@twilio-paste/icons/esm/ProductStudioIcon';
 import {ProductAutopilotIcon} from '@twilio-paste/icons/esm/ProductAutopilotIcon';
 import {ProductInsightsIcon} from '@twilio-paste/icons/esm/ProductInsightsIcon';
@@ -21,146 +21,158 @@ import {SearchIcon} from '@twilio-paste/icons/esm/SearchIcon';
 import {CloseIcon} from '@twilio-paste/icons/esm/CloseIcon';
 import {Text} from '@twilio-paste/text';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import filter from 'lodash/filter';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {SidebarCategoryRoutes} from '../../../constants';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import Changelog from '@twilio-paste/combobox/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
 import {
   autoCompleteExample,
   defaultExample,
   optionTemplateExample,
   errorExample,
   disabledExample,
+  disabledOptionsExample,
+  emptyStateExample,
   prefixSuffixExample,
   controlledComboboxExample,
   groupedComboboxExample,
   groupedLabelComboboxExample,
   stateHookCombobox,
 } from '../../../component-examples/ComboboxExamples';
+import packageJson from '@twilio-paste/combobox/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/combobox"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/combobox/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Combobox"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox"
-  storybookUrl="/?path=/story/components-combobox--default-combobox"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
-
-## Guidelines
-
-### About Combobox
-
-The Combobox is an opinionated implementation and wrapper around the **very excellent [Downshift component](https://downshift.netlify.app/downshift)**.
-
-Combobox allows a user to make a selection from a styled list box of options. Each option can consist of more than just text,
-_e.g._ text paired with an icon. It can also be set up with autocomplete/typeahead functionality so users can easily find a
-specific option.
-
-### Accessibility
-
-When the user is focused on a Combobox, the following keyboard interactions apply:
-
-- Up and down arrows move the user between the options
-- Enter selects the currently active option
-
-## Examples
-
-#### Basic Combobox
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Combobox');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/combobox',
+        storybookUrl: '/?path=/story/components-combobox-combobox--default-combobox',
+      },
+    },
+  };
+};
 
 <LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {defaultExample}
 </LivePreview>
 
-#### Autocomplete Combobox
+## Guidelines
+
+### About Combobox
+
+A Combobox allows a user to select a single value from a styled listbox of options. Each option
+can consist of more than just text, _e.g._ text paired with an icon. However, an option can
+only be paired with non-interactive content and shouldn’t contain components like a checkbox
+or button. It can also be set up with autocomplete functionality so users can easily find a specific option.
+
+This component is an opinionated implementation and wrapper around the
+[Downshift library](https://downshift.netlify.app/downshift).
+
+### What’s the difference between Select and Combobox?
+
+At its most basic, a Select has an options list that’s styled according to the browser default.
+A Combobox has a Twilio-styled options list and can allow for additional functionality like
+autocomplete and grouping options.
+
+Use a [Select](/components/select) when:
+
+- You need a native picker experience, especially on mobile devices.
+- You only need to show text in an option.
+- Users will be selecting from a list of 4-10 options, or a sorted list of highly familiar options (e.g., alphabetical list of states or countries). For less than 4 items, consider using a [Radio Group](/components/radio-group) instead.
+- You need the component to work out-of-the-box across all operating systems and browsers.
+
+Use a Combobox when:
+
+- You need a Twilio-styled options list.
+- You need to show more than text in an option (e.g., text paired with an icon).
+- You need to group options under labels.
+- You need to disable options in the list.
+- Users would benefit from autocomplete functionality (e.g., autocomplete, search). For example, autocomplete may be useful when users need to select from a list of more than 10 options.
+- You need to lazy load a much longer list of options to improve page load performance.
+
+### Accessibility
+
+Combobox is built with consideration for the [ARIA combobox pattern](https://www.w3.org/WAI/ARIA/apg/patterns/combobox/).
+
+When a user is focused on a Combobox, the listbox opens. When a user makes a selection, the listbox closes so the selected option can be registered to screen readers.
+
+#### Keyboard interaction
+
+When the user is focused on a Combobox, the following keyboard interactions apply:
+
+- Up and down arrows move the user between the options
+- Enter selects the currently active option
+- Escape closes the listbox or clears the selected option if the listbox is already closed
+
+## Examples
+
+### Basic Combobox
+
+Use a basic Combobox to allow users to select a value from a list of
+predefined options.
+
+<LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
+  {defaultExample}
+</LivePreview>
+
+### Autocomplete Combobox
+
+The autocomplete Combobox allows users to filter the list of options by typing into the input directly.
+
+This is useful when a user needs to filter a list of options, or when there are more than 15 options as
+users may find it difficult to navigate with only scrolling. Pass the `autocomplete` prop to enable
+the feature.
 
 <LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {autoCompleteExample}
 </LivePreview>
 
-#### Combobox using Option Template
+### Combobox with add-ons (prefix/suffix text or icons)
 
-The `optionTemplate` prop allows you to pass `jsx` in order to display more complex items in the list box.
+Use add-ons to provide users with guidance on formatting their input and to offer more context about the value a user is entering.
 
-<LivePreview
-  scope={{Combobox, LinkExternalIcon, MediaBody, MediaObject, MediaFigure, Text}}
-  noInline
-  language="jsx"
-  showOverflow
->
-  {optionTemplateExample}
-</LivePreview>
-
-#### Combobox with add-ons (prefix/suffix text or icons)
-
-- **Prefix/suffix text** - Text that can be used as a prefix or suffix to the value that is entered. Use prefix/suffix to help users format text.
-- **Icon** - Icons that can be placed in the same area as the prefix and suffix text. Icons should trigger an action (_e.g._, opening a popover).
+- **Prefix/suffix text** — Text that can be used as a prefix and/or suffix to the value that is entered. Use prefix/suffix to help users format text.
+- **Prefix/suffix icon** — Icons can be placed in the same area as the prefix and suffix text. Icons should trigger an action (e.g., clearing a field) or in rare cases, provide further context to what value should be entered to make a field's purpose more immediately visible (e.g., a search icon).
 
 <LivePreview scope={{Combobox, Anchor, InformationIcon, Text}} noInline language="jsx" showOverflow>
   {prefixSuffixExample}
 </LivePreview>
 
-#### Combobox with option groups
+### Combobox with option groups
 
-The list of options shown to the user, known as the `Listbox`, can be grouped to create labelled sections. Structure your data into an array of objects and use a key on each object as the grouping identifier. Then tell the Combobox what you would like to group the items by, by setting `groupItemsBy` to match the intended group identifier.
+Use option groups to create labeled sections of options.
 
-In the example below we have a list of components and we are grouping them based on their type.
+Structure your data into an array of objects and use a key on each object as the grouping identifier.
+Then, tell the Combobox what you would like to group the items by, by setting `groupItemsBy` to match
+the intended group identifier.
+
+In the example below, we have a list of components and we are grouping them based on their type.
 
 <LivePreview scope={{Combobox, filter}} noInline language="jsx" showOverflow>
   {groupedComboboxExample}
 </LivePreview>
 
-#### Combobox with custom group label
+### Combobox with custom group label
 
-You can control the contents of the group label is a similar way to options, by providing a custom template. The `groupLabelTemplate` prop takes a method with `groupName` argument, that you can use to return valid JSX from. It will render the contents of that JSX as a child of the group label.
+Expanding on the previous example, it's also possible to customize the group label.
 
-In the example below we are checking the `groupName` and rendering an icon next to it based on the name.
+The `groupLabelTemplate` prop accepts a method with a `groupName` argument. This method should return
+valid JSX, which it will render in place of a group label string.
+
+In the example below, we are checking the `groupName` and rendering an icon next to
+it based on the name.
 
 <LivePreview
   scope={{
@@ -180,14 +192,30 @@ In the example below we are checking the `groupName` and rendering an icon next 
   {groupedLabelComboboxExample}
 </LivePreview>
 
-#### Controlled Combobox
+### Combobox using Option Template
+
+Use the option template to display more complex options in a listbox.
+
+The `optionTemplate` prop allows you to pass `jsx` to customize the options. Note that we use native HTML input elements
+to build Combobox and these HTML elements don't allow for images, icons, or svgs to be added even with the option template.
+
+<LivePreview
+  scope={{Combobox, CalendarIcon, MediaBody, MediaObject, MediaFigure, Text}}
+  noInline
+  language="jsx"
+  showOverflow
+>
+  {optionTemplateExample}
+</LivePreview>
+
+### Controlled Combobox
 
 The Combobox can be used as a [controlled component](https://reactjs.org/docs/forms.html#controlled-components) when you would like full control over your state. Use the properties `selectedItem`, `inputValue`, `onInputValueChange` and `onSelectedItemChange` to control the value of the Combobox via your own application state.
 
 In the example below the value of the Combobox is stored in a piece of our application state. We update that value based on user input into the Combobox, resetting the value of the Combobox. Upon the user selecting a defined option, we hook into `onSelectedItemChange` to set our selectedItem state value based on user selection.
 
 <LivePreview
-  scope={{Combobox, Box, LinkExternalIcon, MediaBody, MediaObject, MediaFigure, Text}}
+  scope={{Combobox, Box, CalendarIcon, MediaBody, MediaObject, MediaFigure, Text}}
   noInline
   language="jsx"
   showOverflow
@@ -195,10 +223,10 @@ In the example below the value of the Combobox is stored in a piece of our appli
   {controlledComboboxExample}
 </LivePreview>
 
-#### useCombobox state hook
+### useCombobox state hook
 
-<Callout variant="warning">
-  <CalloutTitle as="h5">Power user move!</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h5">Power user move!</CalloutHeading>
   <CalloutText>
     Only use this property if you are a power user. It's very easy to break your implementation and unfortunately the
     Paste team will not be able to debug this for you. Proceed with extreme caution.
@@ -211,7 +239,7 @@ Rather than the state be internal to the component, you can use the `useCombobox
 
 This allows you to destructure certain returned props from the state hook, including action methods like `reset`.
 
-An example usecase of this might be programmatically providing the user a way to clear or reset the Combobox of it's previous selections. In the example below we are providing a clear button as an input suffix. When pressed, it uses the `reset` action method from the hook to clear the input and select item values.
+An example use case of this might be programmatically providing the user a way to clear or reset the Combobox of its previous selections.
 
 It should be noted that when doing so, the `state` prop takes precident over the [other properties](#state-props) that affect the state or initial state of the `Combobox`. They will be ignored in favour of them being provided as arguments to the `useCombobox` hook.
 
@@ -228,272 +256,54 @@ For full details on how to use the state hook, and what props to provide it, fol
 
 ## States
 
-#### Disabled Combobox
+### Disabled Combobox
 
 <LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {disabledExample}
 </LivePreview>
 
-#### Combobox with inline error
+### Combobox with disabled options
+
+<LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
+  {disabledOptionsExample}
+</LivePreview>
+
+### Combobox with inline error
 
 <LivePreview scope={{Combobox}} noInline language="jsx" showOverflow>
   {errorExample}
 </LivePreview>
 
-## Anatomy
+### Combobox with an empty state
 
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Label text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$font-size-30</ListItem>
-            <ListItem>Default: $color-text, $font-weight-semibold</ListItem>
-            <ListItem>Disabled: $color-text-weaker, $font-weight-semibold</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Required field indicator</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>4px size (0.25rem)</ListItem>
-            <ListItem>Background: $color-background-required</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Box Shadow</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $shadow-border</ListItem>
-            <ListItem>Hover: $shadow-border-primary-strong</ListItem>
-            <ListItem>Disabled: $shadow-border-weak</ListItem>
-            <ListItem>Error: $shadow-border-error</ListItem>
-            <ListItem>Error hover: $shadow-border-error-strong</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Background</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-background-body</ListItem>
-            <ListItem>Disabled: $color-background</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Background: $color-background</ListItem>
-            <ListItem>Border: $color-border-weaker</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Prefix/suffix text</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Default: $color-text</ListItem>
-            <ListItem>Disabled: $color-text-weak</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Help text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Label:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Bottom: $space-10</ListItem>
-                <ListItem>Between label and required indicator: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Input:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Left padding: $space-40</ListItem>
-                <ListItem>Top, right, bottom padding: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>Prefix/suffix padding: $space-30</ListItem>
-            <ListItem>
-              Help text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-            <ListItem>
-              Inline error:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Spacing between icon and text: $space-20</ListItem>
-                <ListItem>Top: $space-20</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Chevron</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Icon: IconChevronDown, $space-20 from left</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
+Use an empty state to indicate to a user that their input does not match any value in the list of options.
 
----
+<LivePreview scope={{Combobox, Box, Text}} noInline language="jsx" showOverflow>
+  {emptyStateExample}
+</LivePreview>
 
-## Usage guide
+## Composition Notes
 
-### API
+A Combobox consists of a label, an input and a listbox.
 
-#### Installation
+### Positioning form fields
 
-```bash
-yarn add @twilio-paste/combobox - or - yarn add @twilio-paste/core
-```
+Stack form fields vertically with `$space-80` spacing between each field. Avoid placing multiple form fields on the
+same horizontal row to help make it easier to scan a page vertically.
 
-#### Usage
+### Options in a Combobox
 
-```jsx
-import {Combobox} from '@twilio-paste/core/combobox';
+Keep option text concise and simple.
 
-const Component = () => <Combobox autocomplete items={foo} labelText="Foo" helpText="Bar" />;
-```
+If setting a default selected value, use a safe and reversible option as the default selected value.
 
-#### Component props
+Use at least 7 options in a Combobox. If there are less than 7 options or if choosing options requires more explanation,
+consider using a [Radio Group](/components/radio-group) instead and add help text for each option, or give more
+explanation through help text. Sort options logically (e.g., alphabetically, by value) or in an order that’s
+intuitive to your user.
 
-All the valid HTML attributes for `input` are supported including the following props:
+### Error messages
 
-##### `autocomplete?: boolean`
+Use help text to provide information to help users avoid errors.
 
-Allows autocomplete/typehead feature.
-
-##### `groupItemsBy?: string`
-
-The name of the key in your item objects that you would like Combobox to group the items by.
-
-##### `groupLabelTemplate?: (groupName: string) => React.ReactNode`
-
-This function allows you to use your own `jsx` template for the group label in the drop-down list.
-
-##### `helpText?: string | React.ReactNode`
-
-The contents of the help and error text.
-
-##### `labelText: string | NonNullable<React.ReactNode>`
-
-The contents of the label text.
-
-##### `optionTemplate?: (item: string | {}) => React.ReactNode`
-
-This function allows you to use your own `jsx` template for the items in the drop-down list.
-
-##### `variant?: string`
-
-The variant of the Combobox. Available variants are `default` or `inverse`.
-
-#### State props
-
-These props are used when want to create a Controlled Combobox. They control the state of the Combobox.
-
-##### `initialIsOpen?: boolean`
-
-Sets whether the Combobox is open on initial render.
-
-##### `initialSelectedItem?: Item`
-
-Sets the initial item selected when a Combobox is initialized.
-
-##### `inputValue?: string`
-
-Sets the value of the input inside the Combobox.
-
-##### `items: Item[]`
-
-Array of items to be displayed in the option list.
-
-##### `itemToString?: (item: Item) => string`
-
-If items are stored as an object, used to convert item to a string.
-
-##### `onHighlightedIndexChange?: (changes: Partial<UseComboboxState<Item>>) => void`
-
-This function is called each time the highlighted item was changed. Items are highlighted if they are hovered over
-or with keyboard actions.
-
-##### `onInputValueChange?: (changes: Partial<UseComboboxState<Item>>) => void`
-
-This function is each time the value of the input changes.
-
-##### `onIsOpenChange?: (changes: Partial<UseSelectState<Item>>) => void`
-
-This function is each time the value of the input changes.
-
-##### `onSelectedItemChange?: (changes: Partial<UseSelectState<Item>>) => void`
-
-This function is called each time the selected item changes. Items are selected by click or the enter key while
-highlighted.
-
-##### `selectedItem?: any`
-
-Used to set the Selected Item of the Combobox.
-
-##### `state?: Partial<UseComboboxPrimitiveReturnValue<Item>>`
-
-Used as a replacement the state props when coupled with using the `useCombobox` hook. When using this prop, all other state props are **ignored**. They must be passed to `useCombobox` as arguments instead.
-
-##### `element?: string`
-
-Overrides the default element name ('COMBOBOX') to apply unique styles with the Customization Provider
-
-#### useCombobox arguments
-
-See the [Combobox Primitive](/primitives/combobox-primitive#usecomboboxprimitive-arguments).
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>
+Use Help Text to show an inline error text beneath the combobox to explain how to fix an error. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).

@@ -1,0 +1,75 @@
+export const meta = {
+  title: 'Side Modal - API',
+  package: '@twilio-paste/side-modal',
+  description:
+    'A Side Modal is a page overlay that displays information that does not block the user from interacting with the rest of the page.',
+  slug: '/components/side-modal/api',
+};
+
+import Changelog from '@twilio-paste/side-modal/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/side-modal/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Side Modal');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/side-modal');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/side-modal',
+        storybookUrl: '/?path=/story/components-side-modal--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/side-modal - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  SideModal,
+  SideModalBody,
+  SideModalButton,
+  SideModalContainer,
+  SideModalHeader,
+  SideModalHeading,
+} from '@twilio-paste/core/side-modal';
+
+const SideModalExample: React.FC = () => {
+  return (
+    <SideModalContainer>
+      <SideModalButton variant="primary">Open dialog</SideModalButton>
+      <SideModal aria-label="My Dialog">
+        <SideModalHeader>
+          <SideModalHeading>Dialog header</SideModalHeading>
+        </SideModalHeader>
+        <SideModalBody>Dialog content</SideModalBody>
+      </SideModal>
+    </SideModalContainer>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

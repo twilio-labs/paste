@@ -1,0 +1,378 @@
+export const meta = {
+  title: 'Sidebar Container',
+  package: '@twilio-paste/sidebar',
+  description: 'Sidebar contains navigation controls that rest on the left side of the screen.',
+  slug: '/components/sidebar/',
+};
+
+import {Box} from '@twilio-paste/box';
+import {Anchor} from '@twilio-paste/anchor';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {ProductFlexIcon} from '@twilio-paste/icons/esm/ProductFlexIcon';
+import {ProductHomeIcon} from '@twilio-paste/icons/esm/ProductHomeIcon';
+import {ProductConnectionsIcon} from '@twilio-paste/icons/esm/ProductConnectionsIcon';
+import {
+  SidebarBody,
+  SidebarHeader,
+  SidebarBetaBadge,
+  SidebarHeaderLabel,
+  SidebarHeaderIconButton,
+  SidebarFooter,
+  SidebarCollapseButton,
+  SidebarNavigation,
+  SidebarNavigationItem,
+  SidebarNavigationDisclosure,
+  SidebarNavigationDisclosureHeading,
+  SidebarNavigationDisclosureHeadingWrapper,
+  SidebarNavigationDisclosureContent,
+} from '@twilio-paste/sidebar';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/sidebar/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Sidebar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar',
+        storybookUrl: '/?path=/story/components-sidebar-sidebar-push--default',
+      },
+    },
+  };
+};
+
+<StoryPreview
+  title="Compact push Sidebar example"
+  storyID="components-sidebar-sidebar-push--compact"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Push Sidebar
+  </Button>
+</SidebarPushContentWrapper>`}
+/>
+
+## Guidelines
+
+### About Sidebar
+
+Sidebar contains app navigation. It sits on the left side of the screen.
+
+### Accessibility
+
+The Sidebar follows these accessibility guidelines:
+
+- `Sidebar` is an `aside` element.
+- `SidebarCollapseButton` provides `aria-controls` and `aria-expanded` HTML attributes that match `Sidebar`.
+- Always use `SidebarCollapseButton` with `Sidebar`. Otherwise there is no accessible `Sidebar` trigger for screen readers.
+- For skip links to function correctly you must provide the follow three props:
+  - `sidebarNavigationSkipLinkID`: ID given to the `SidebarNavigation` component.
+  - `mainContentSkipLinkID`: ID given to the container that wraps the main content of your application.
+  - `topbarSkipLinkID`: ID given to the `Topbar` component in your application.
+
+## Examples
+
+### Compact push Sidebar
+
+The compact "push" Sidebar moves the page content as it expands and collapses. The difference between it and the default variant is that it maintains a fixed, visible width when collapsed.
+
+For most Twilio products, which are desktop experiences, we currently believe the compact push Sidebar gives the best experience when dealing with varied, interactive content.
+
+<Callout variant="success" marginY="space70">
+  <CalloutText>This is the variant that the Paste team recommends in most Twilio applications.</CalloutText>
+</Callout>
+
+<StoryPreview
+  title="Compact push Sidebar example"
+  storyID="components-sidebar-sidebar-push--compact"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Push Sidebar
+  </Button>
+</SidebarPushContentWrapper>`}
+/>
+
+### Push Sidebar
+
+The "push" Sidebar moves the page content as it expands and collapses. The default variant hides completely on collapse. This can be a useful variant for responsive layouts, where screen real estate can be limited on smaller viewports.
+
+<StoryPreview
+  title="Push Sidebar example"
+  storyID="components-sidebar-sidebar-push--default"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={false}
+  variant="default"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody></SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarPushContentWrapper collapsed={false} variant="default">
+  <Box padding="space70">
+    <Button variant="primary" mainContentSkipLinkID={mainContentSkipLinkID}>
+      Toggle Push Sidebar
+    </Button>
+  </Box>
+</SidebarPushContentWrapper>`}
+/>
+
+### Compact overlay Sidebar
+
+The "overlay" Sidebar sits on top of the page content as it expands and collapses. The compact variant maintains a fixed visible width on collapse.
+
+A significant downside to the overlay Sidebar is that it can cover up or hide page content, which can result in a poor user experience for some users, particularly those with low vision or cognitive disabilities. If you choose to use this option in your application, you should carefully weigh up the accessibility challenges you might introduce to some Twilio customers against your desired experience and use case.
+
+<StoryPreview
+  title="Compact overlay Sidebar example"
+  storyID="components-sidebar-sidebar-overlay--compact"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={true}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody></SidebarBody>
+  <SidebarFooter>
+    <Box padding="space70">
+      <SidebarCollapseButton
+        i18nCollapseLabel="Close sidebar"
+        i18nExpandLabel="Open sidebar"
+      />
+    </Box>
+  </SidebarFooter>
+</Sidebar>
+<SidebarOverlayContentWrapper collapsed={true} variant="compact">
+  <Button variant="primary">
+    Toggle Overlay Sidebar
+  </Button>
+</SidebarOverlayContentWrapper>`}
+/>
+
+### Overlay Sidebar
+
+The "overlay" Sidebar sits on top of the page content as it expands and collapses. The default variant hides completely on collapse.
+
+<StoryPreview
+  title="Overlay Sidebar example"
+  storyID="components-sidebar-sidebar-overlay--default"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={false}
+  variant="default"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody></SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+<SidebarOverlayContentWrapper collapsed={false} variant="default">
+  <Box as="main" padding="space70" id={mainContentSkipLinkID}>
+    <Button variant="primary">
+      Toggle Overlay Sidebar
+    </Button>
+  </Box>
+</SidebarOverlayContentWrapper>`}
+/>
+
+## Composition notes
+
+The Sidebar comes with some smaller components that can be used to compose a Sidebar to your application's needs.
+
+### Sidebar Header
+
+The Sidebar header is a container for the application's name and associated icon. It is placed at the top of the Sidebar and can be used to orientate the user to the root of the application they are using.
+
+The `SidebarHeaderIconButton` is designed to be used as a way to navigate back to the application's root. It can take any product or brand icon, depending on what application you are building. You must choose whether or not you want to render your `SidebarHeaderIconButton` as a link or a button by setting the as and a corresponding `onClick` or `href`. We recommend rendering as an anchor element so a user can navigate to the homepage via a URL route.
+
+The `SidebarHeaderLabel` should be used to display the name of the application the user is currently in.
+
+<LivePreview scope={{Box, SidebarHeader, SidebarHeaderIconButton, ProductFlexIcon, SidebarHeaderLabel}} language="jsx">
+  {`<Box backgroundColor="colorBackgroundInverse">
+  <SidebarHeader>
+    <SidebarHeaderIconButton href="/" as="a">
+      <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+</Box>`}
+</LivePreview>
+
+### Sidebar Body
+
+The `SidebarBody` component is used to house the main content of the sidebar. Typically, this includes the Sidebar Navigation collection of components that can be used to compose your applications navigation structure.
+
+The `SidebarBody` should be place between the `SidebarHeader` and `SidebarFooter`, within the `Sidebar`.
+
+<LivePreview
+  scope={{
+    Box,
+    SidebarBody,
+    SidebarNavigation,
+    SidebarNavigationItem,
+    SidebarNavigationDisclosure,
+    SidebarNavigationDisclosureHeading,
+    SidebarNavigationDisclosureHeadingWrapper,
+    SidebarNavigationDisclosureContent,
+    ProductHomeIcon,
+    ProductConnectionsIcon,
+  }}
+  language="jsx"
+>
+  {`<Box backgroundColor="colorBackgroundInverse">
+  <SidebarBody>
+    <SidebarNavigation aria-label="Main navigation" hierarchical hideItemsOnCollapse>
+      <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
+        Home
+      </SidebarNavigationItem>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductConnectionsIcon decorative />} selected>
+            Connections
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com" selected>
+            Overview
+          </SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+    </SidebarNavigation>
+  </SidebarBody>
+</Box>`}
+</LivePreview>
+
+#### Sidebar Beta Badge
+
+The `SidebarBetaBadge` component is used to indicate that a product or feature is in beta. It should be used in conjunction with the Sidebar navigation items.
+
+<LivePreview scope={{SidebarBetaBadge}} language="jsx">
+  {`<SidebarBetaBadge as="span">Beta</SidebarBetaBadge>`}
+</LivePreview>
+
+### Sidebar Footer
+
+The `SidebarFooter` is used to house the collapse feature of the Sidebar. It is anchored to the foot of the Sidebar and should contain the `SidebarCollapseButton` component.
+
+Use the `SidebarCollapseButton` to control the expand and collapse behavior of the Sidebar.
+
+<LivePreview scope={{Box, SidebarFooter, SidebarCollapseButton}} language="jsx">
+  {`<Box backgroundColor="colorBackgroundInverse">
+  <SidebarFooter>
+    <SidebarCollapseButton
+      onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Box>`}
+</LivePreview>
+
+### Skip links
+
+The Sidebar incorporates a feature known as "[Skip links](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html)". This feature provides users with the ability to bypass large, repeated content areas, such as navigation. Skip Links are essentially a hidden set of links that facilitate navigation to key points within the application. Within the Sidebar, there are three types of skip links:
+
+- Skip to navigation - allows quick access to the site navigation.
+- Skip to Topbar - enables a swift jump to the site's Topbar.
+- Skip to content - provides a fast route to the main content, bypassing both the Sidebar and Topbar.
+
+Skip Links are the first items in the Document Object Model (DOM) structure. They remain hidden until a keyboard user presses the Tab key, at which point the skip link becomes visible and is brought into user focus.
+
+For these links to function correctly, it's vital to correctly assign unique ID references to the corresponding DOM elements:
+
+- `sidebarNavigationSkipLinkID`: This ID should be given to the SidebarNavigation component.
+- `mainContentSkipLinkID`: This ID should be assigned to the container that wraps the main content of your application.
+- `topbarSkipLinkID`: This ID should be given to the Topbar component in your application.
+
+If these unique ID references are not correctly applied to the target DOM elements and passed to the Sidebar, the Skip Links will not function as intended.

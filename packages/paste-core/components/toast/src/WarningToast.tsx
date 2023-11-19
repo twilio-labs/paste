@@ -1,33 +1,30 @@
-import * as React from 'react';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
-import {ToastPropTypes} from './propTypes';
-import type {ToastProps} from './types';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import * as React from "react";
 
-const WarningToast = React.forwardRef<HTMLDivElement, ToastProps>(({element = 'TOAST', variant, ...props}, ref) => {
+import type { ToastProps } from "./types";
+
+const WarningToast = React.forwardRef<HTMLDivElement, ToastProps>(({ element = "TOAST", variant, ...props }, ref) => {
   return (
     <Box
       {...safelySpreadBoxProps(props)}
       ref={ref}
-      backgroundColor="colorBackgroundBody"
-      borderColor="colorBorderWeaker"
-      borderRadius="borderRadius20"
+      color="colorTextWarningStrong"
+      width={["100%", "size40", "size40"]}
+      backgroundColor="colorBackgroundWarningWeakest"
+      borderColor="colorBorderWarningWeak"
+      borderRadius="borderRadius30"
       borderStyle="solid"
       borderWidth="borderWidth10"
-      borderLeftWidth="borderWidth30"
-      borderLeftColor="colorBorderWarningWeak"
       boxShadow="shadowHigh"
       element={element}
       padding="space60"
       variant={variant}
-      width="size40"
     >
       {props.children}
     </Box>
   );
 });
 
-WarningToast.displayName = 'WarningToast';
+WarningToast.displayName = "WarningToast";
 
-WarningToast.propTypes = ToastPropTypes;
-
-export {WarningToast};
+export { WarningToast };

@@ -1,15 +1,21 @@
 export const customStyleProps = {
   color: {
-    property: 'color',
-    scale: 'textColors',
+    property: "color",
+    scale: "textColors",
   },
   cursor: true,
   outline: true,
   transition: true,
+  transitionDelay: true,
   textDecoration: true,
   textTransform: true,
   whiteSpace: true,
   wordBreak: true,
   wordWrap: true,
   fontVariantNumeric: true,
+  textOverflow: true,
+  overflowWrap: true,
+  listStyleType: true,
+  listStylePosition: true,
+  listStyleImage: true,
 };

@@ -1,0 +1,82 @@
+export const meta = {
+  title: 'Display Pill Group - API',
+  package: '@twilio-paste/display-pill-group',
+  description: 'A Display Pill Group is a non-editable set of Pills that represent a collection of static objects.',
+  slug: '/components/display-pill-group/api',
+};
+
+import Changelog from '@twilio-paste/display-pill-group/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/display-pill-group/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Display Pill Group');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/display-pill-group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/display-pill-group',
+        storybookUrl: '/?path=/story/components-display-pill-group--basic',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/display-pill-group - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {AgentIcon} from '@twilio-paste/icons/esm/AgentIcon';
+import {Avatar} from '@twilio-paste/core/display-pill-group';
+import {DisplayPillGroup, DisplayPill} from '@twilio-paste/core/display-pill-group';
+import {MMSCapableIcon} from '@twilio-paste/icons/esm/MMSCapableIcon';
+import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
+
+const DisplayPillGroupExample = () => {
+  return (
+    <DisplayPillGroup aria-label="Products:">
+      <DisplayPill>Voice</DisplayPill>
+      <DisplayPill href="https://google.com">Studio</DisplayPill>
+      <DisplayPill>
+        <SMSCapableIcon decorative size="sizeIcon10" />
+        SMS
+      </DisplayPill>
+      <DisplayPill href="https://google.com">
+        <MMSCapableIcon decorative size="sizeIcon10" />
+        MMS
+      </DisplayPill>
+      <DisplayPill>
+        <Avatar size="sizeIcon10" name="Customer" src="/images/avatars/avatar4.png" />
+        Customer
+      </DisplayPill>
+      <DisplayPill href="https://google.com">
+        <Avatar size="sizeIcon10" name="Agent" icon={AgentIcon} />
+        Agent
+      </DisplayPill>
+    </DisplayPillGroup>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

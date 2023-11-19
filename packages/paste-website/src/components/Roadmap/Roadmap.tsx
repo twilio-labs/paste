@@ -1,18 +1,19 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
-import {Stack} from '@twilio-paste/stack';
-import {useUID} from '@twilio-paste/uid-library';
-import {ProcessInProgressIcon} from '@twilio-paste/icons/esm/ProcessInProgressIcon';
-import {ProcessDraftIcon} from '@twilio-paste/icons/esm/ProcessDraftIcon';
-import {ProcessWarningIcon} from '@twilio-paste/icons/esm/ProcessWarningIcon';
-import {ProcessSuccessIcon} from '@twilio-paste/icons/esm/ProcessSuccessIcon';
-import {Statuses} from './constants';
-import type {RoadmapProps} from './types';
-import {slugify} from '../../utils/RouteUtils';
-import {AnchoredHeading} from '../Heading';
+import { Box } from "@twilio-paste/box";
+import { ProcessDraftIcon } from "@twilio-paste/icons/esm/ProcessDraftIcon";
+import { ProcessInProgressIcon } from "@twilio-paste/icons/esm/ProcessInProgressIcon";
+import { ProcessSuccessIcon } from "@twilio-paste/icons/esm/ProcessSuccessIcon";
+import { ProcessWarningIcon } from "@twilio-paste/icons/esm/ProcessWarningIcon";
+import { Stack } from "@twilio-paste/stack";
+import { TBody, THead, Table, Td, Th, Tr } from "@twilio-paste/table";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 
-const StatusIconWrapper: React.FC = ({children}) => (
+import { slugify } from "../../utils/RouteUtils";
+import { AnchoredHeading } from "../Heading";
+import { Statuses } from "./constants";
+import type { ReleaseData, RoadmapProps } from "./types";
+
+const StatusIconWrapper: React.FC<React.PropsWithChildren> = ({ children }) => (
   <Box display="flex" columnGap="space20" justifyContent="flex-start">
     {children}
   </Box>
@@ -45,18 +46,17 @@ const StatusIcons = {
   ),
 };
 
-const Roadmap: React.FC<RoadmapProps> = ({data}) => {
-  /* eslint-disable no-underscore-dangle */
+const Roadmap: React.FC<RoadmapProps> = ({ data }) => {
   return (
     <Box width="100%">
       <Stack orientation="vertical" spacing="space190">
-        {data.map((release) => {
-          const releaseSlug = slugify(release.release);
+        {Object.keys(data).map((release) => {
+          const releaseSlug = slugify(release);
 
           return (
             <Box key={useUID()} id={releaseSlug} data-cy={`release-container-#${releaseSlug}`}>
               <AnchoredHeading as="h2" variant="heading20" existingSlug={releaseSlug}>
-                {release.release}
+                {release}
               </AnchoredHeading>
               <Table scrollHorizontally>
                 <THead>
@@ -69,16 +69,16 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
                   </Tr>
                 </THead>
                 <TBody>
-                  {release.edges.map((feature) => {
+                  {data[release].map((feature: ReleaseData) => {
                     return (
                       <Tr verticalAlign="top" key={useUID()}>
-                        <Th>{feature.node.data.Release_feature_name}</Th>
+                        <Th>{feature["Release feature name"]}</Th>
                         <Td>
-                          {feature.node.data.Public_Description__from_System_
-                            ? feature.node.data.Public_Description__from_System_[0]
-                            : feature.node.data.Release_Description}
+                          {feature["Public Description (from System)"]
+                            ? feature["Public Description (from System)"][0]
+                            : feature["Release Description"]}
                         </Td>
-                        <Td>{StatusIcons[feature.node.data.Status]}</Td>
+                        <Td>{StatusIcons[feature.Status]}</Td>
                       </Tr>
                     );
                   })}
@@ -90,6 +90,5 @@ const Roadmap: React.FC<RoadmapProps> = ({data}) => {
       </Stack>
     </Box>
   );
-  /* eslint-enable no-underscore-dangle */
 };
-export {Roadmap};
+export { Roadmap };

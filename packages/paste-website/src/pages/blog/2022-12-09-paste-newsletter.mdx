@@ -1,0 +1,304 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - December 2022 Edition',
+  slug: '/blog/2022-12-09-paste-newsletter/',
+  date: '2022-12-09',
+  author: 'Paste',
+  status: 'published',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  excerpt: "What's new in Paste in December 2022? New components, new variants, and more!",
+};
+
+import Image from 'next/image';
+import {Anchor} from '@twilio-paste/anchor';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import {Blockquote} from '../../components/Blockquote';
+import ChatLog from '../../assets/images/articles/2022-12-09-paste-newsletter/animated-chat-log.gif';
+import PageNav from '../../assets/images/articles/2022-12-09-paste-newsletter/in-page-nav.gif';
+import ChatComposer from '../../assets/images/articles/2022-12-09-paste-newsletter/chat-composer.gif';
+import DisplayHeading from '../../assets/images/articles/2022-12-09-paste-newsletter/display-heading.png';
+import Robb from '../../assets/images/articles/2022-12-09-paste-newsletter/robb-niznik.jpeg';
+import Justin from '../../assets/images/articles/2022-12-09-paste-newsletter/justin-young.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What's new in Paste
+
+### Chat Log animations
+
+<Box as={Image} maxWidth="size60" src={ChatLog} alt="" style={{objectFit: 'contain'}} />
+
+The final piece of [the Chat Log package](/components/chat-log) is complete— animation! There is a new useChatLogger hook that manages a list of messages, bookends, and events and a new ChatLogger component that animates the list into a Chat Log.
+
+<Paragraph>
+  <Anchor href="/components/chat-log#usechatlogger-hook">Check out the useChatLogger docs</Anchor>
+</Paragraph>
+
+### In Page Navigation
+
+<Box as={Image} maxWidth="size60" src={PageNav} alt="" style={{objectFit: 'contain'}} />
+
+The In Page Navigation component is a collection of links that navigate users to related pages. Although stylistically similar to Tabs, this component’s structure allows for straightforward integration with routers like React Router.
+
+<Paragraph>
+  <Anchor href="/components/in-page-navigation">Check out the In Page Navigation docs</Anchor>
+</Paragraph>
+
+### Chat Composer
+
+<Box as={Image} maxWidth="size60" src={ChatComposer} alt="" style={{objectFit: 'contain'}} />
+
+A highly anticipated component, the Chat Composer is a rich text input that users can type chat messages into. It is built with [the Lexical text editor](https://lexical.dev/) and can be extended to include the features you need through Lexical’s plugins.
+
+<Paragraph>
+  <Anchor href="/components/chat-composer">Check out the Chat Composer docs</Anchor>
+</Paragraph>
+
+### Display Heading
+
+<ResponsiveImage src={DisplayHeading} />
+
+Many marketing pages use large text to call attention to information or express their brand. Display Heading is a new component that is meant to be used for large text that does not provide any hierarchical structure to the page.
+
+<Paragraph>
+  <Anchor href="/components/display-heading">Check out the Display Heading docs</Anchor>
+</Paragraph>
+
+### Additional updates
+
+#### New
+
+- Paste now uses Twilio Sans Mono for monospace text! Check it out in the [Inline Code](/components/inline-code) and [Code Block](/components/code-block) components.
+- [Localization documentation](/foundations/localization) has been updated with info on how to internationalize Paste components.
+- [Word list](/foundations/content/word-list) provides guidance on how, when, and whether to use specific words, as well as guidance on capitalization for product-specific terms. Reach out to **Megan Allison** and **Aren Goetcherian** to learn more.
+- New components in Figma
+  - [Date Picker](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=19925%3A139727&t=2InhUyZENIDeic72-4)
+  - [Time Picker](https://www.figma.com/file/E6KUvMhioUmAgN0nwmReTM/Paste-Components?node-id=19929%3A173093&t=2InhUyZENIDeic72-4)
+
+#### Improvements
+
+- [Switch](/components/switch): updated the API to match checkbox
+- [Combobox](/components/combobox/): improved the types for the single and multi select combobox components (thanks **David Synnott** and **Sam Johnson** for finding these issues!)
+
+## 👋 New Paste team members!
+
+### Robb Niznik
+
+<ResponsiveImage src={Robb} />
+
+Robb Niznik (he/him/his) has joined the UX Infrastructure team as a Staff UX Engineer!
+
+Robb started his design systems career at ITHAKA where he architected and built one to support product teams using different front-end frameworks. He then joined LaunchDarkly to lead design systems projects and implement dark mode for components. He loves working with designers and advocating for open source projects.
+
+Robb enjoys going on hikes, listening to his records, and volunteering at Therapeutic Riding, Inc. in Ann Arbor.
+
+## ✨ Pastemates™ spotlight
+
+<em>
+  Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption
+  within their products and channeling important feedback and contributions back into the system.
+</em>
+
+<Box marginBottom="space70" />
+
+<ResponsiveImage src={Justin} />
+
+In this edition of Pastemates, we're spotlighting a mate from Twilio Contact Center Sales, Justin Young! Justin has been busy emboldening the Twilio Builder Spirit, stitching together the new Flex UI and its inbuilt support of Paste, with builder.io, to create a drag and drop Flex UI builder!
+
+<div style={{position: 'relative', paddingBottom: '55.26590198123045%', height: 0}}>
+  <iframe
+    src="https://www.loom.com/embed/8162c351e3524b818b29697a5736ca54"
+    frameborder="0"
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+  ></iframe>
+</div>
+
+<Box marginBottom="space70" />
+
+Justin registered Paste React components to Builder.io which allows Justin and his team to rapidly create rich Paste-based experiences in the Flex UI using a drag and drop editor. By exposing paste component properties like variants in the Builder.io editor, Justin can choose between different styles of buttons, alerts and any other Paste component that they have wired up. As you can see by the video demo's the authoring is easy and intuitive and the customer experiences and functionality it creates are excellent and fully functional. Another benefit to his team is that they can begin to build complex components using many different Paste components, and save them as templates for easy re-use in customer demos.
+
+<div style={{position: 'relative', paddingBottom: '55.26590198123045%', height: 0}}>
+  <iframe
+    src="https://www.loom.com/embed/2c3b6d26919749738aa47ff11d48fcd4"
+    frameborder="0"
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen
+    style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}
+  ></iframe>
+</div>
+
+<Box marginBottom="space70" />
+
+In Justin’s own words:
+
+<Blockquote>
+  I am no designer, but this is already better than every flex demo we’ve ever built from a UX perspective because of
+  access to paste
+</Blockquote>
+
+We're stoked that Justin and team were able to create this builder experience all on their own, just by the Flex and Paste teams collaborating together! We can't wait to see what other people build next, with Paste on top of Flex.
+
+## 🚦 BPM update
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>BPM</Th>
+      <Th>Status</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Establish Paste as a leading Next-Gen Monorepo through tooling and infrastructure improvements</strong>
+      </Td>
+      <Td>
+        ✅ Done
+        <br />
+        <br />
+        Objectives completed for 2022.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Evolve the Twilio design language to support the vision of “One Twilio”</strong>
+      </Td>
+      <Td>
+        🟢 Green
+        <br />
+        <br />
+        As we wrap up 2022, we’re excited to be making updates to our Figma design assets to reflect our desired changes
+        for One Twilio!
+        <br />
+        We’ve created new Figma theme libraries and are making huge strides in updating our Figma component library. The
+        changes in Figma will be available in early 2023. We’ll then begin making updates to the code assets.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Build a UI kit for the Twilio Conversations API</strong>
+      </Td>
+      <Td>
+        ✅ Done
+        <br />
+        <br />
+        All of the components for the Conversations UI Kit have been released, [check out the blog post to learn more](/blog/2022-12-06-announcing-the-conversations-ui-kit/).
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Paste goes international</strong>
+      </Td>
+      <Td>
+        ✅ Done
+        <br />
+        <br />
+        Objectives completed for 2022.
+      </Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+For more information, check out [our full BPM document](https://docs.google.com/document/d/1mH5ImzP5Kzb_nVKOHoTksr5jOY0aG6cbqtcEKbFlLYU/edit#heading=h.sa1nb3t9on2x).
+
+## 👀 What's next
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Feature</Th>
+      <Th>Description</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Form components</strong>
+      </Td>
+      <Td>A group of components with sensible defaults used to quickly layout form elements in a consistent manner</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Caption Text component</strong>
+      </Td>
+      <Td>Component for creating supplementary UI text</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Description List component</strong>
+      </Td>
+      <Td>
+        The classic Description List component. The pairing of a Term and a Description, often in a key, value pair
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Listbox primitive</strong>
+      </Td>
+      <Td>
+        Component used to create accessible Listboxes that can be styled to create interactive, list based components
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>One Twilio: Design Language update in Figma</strong>
+      </Td>
+      <Td>
+        Launch of the new One Twilio Design Language update that will be available via Paste. A cohesive design language
+        to unify Twilio, Segment and SendGrid products
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>One Twilio: Design language guidelines</strong>
+      </Td>
+      <Td>Updating existing Design Guidelines to accompany the new One Twilio Design Language</Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+See you in the New Year!
+
+<em>— The UX Infrastructure Team</em>
+
+</ArticleContent>
+
+</contentwrapper>

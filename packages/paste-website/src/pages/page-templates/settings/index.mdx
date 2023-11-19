@@ -1,0 +1,111 @@
+export const meta = {
+  title: 'Settings',
+  description: 'The Settings page template lets customers edit information and update simple settings.',
+  slug: '/page-templates/settings/',
+};
+
+import {SettingsIngredients} from '../../../components/ingredients/SettingsIngredients';
+import {SidebarCategoryRoutes} from '../../../constants';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {FullSettingsExample, SettingsOverviewExample} from '../../../component-examples/page-templates/SettingsExamples';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Settings');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<NormalizedPatternHeader
+  description={meta.description}
+  name={meta.title}
+  data={props.data}
+  categoryRoute={SidebarCategoryRoutes.PAGE_TEMPLATES}
+/>
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<StoryPreview
+  title="Settings page template - full"
+  storyID="website-pagetemplateexamples--full-settings-example"
+  code={FullSettingsExample}
+/>
+
+## About Settings
+
+Settings pages let customers edit information and update simple settings.
+
+If a customer is creating an object or the editing process is complex and requires additional guidance or focus, use the [create](/patterns/create) pattern and [wizard](/page-templates/wizard) template instead.
+
+A Settings page can be a standalone page, or you can use a Settings overview page that links to multiple Settings pages.
+
+## Ingredients
+
+<SettingsIngredients />
+
+## How to use this template
+
+### Page header
+
+At the top of the page, add a page heading using the format “[Settings type] settings.” For example, “Workplace settings” or “Source settings.” Optionally, use text under the heading to explain the primary settings on the page.
+
+Heading and Paragraph should have a max width of `$size-70`.
+
+### Body
+
+Like [Object details](/page-templates/object-details), Settings should also allow a customer to easily scan for the information they’re looking to edit. Group related settings under Headings. Use sentence case for all Headings (“Billing details” not “Billing Details”).
+
+If a group of settings needs additional explanation, use a Paragraph under a single Heading. If a single setting needs additional explanation, use Help Text with its form field.
+
+Use customer research to inform how to order sections on the Settings page.
+
+### Settings overview page
+
+If there are too many settings to fit on a single page, split related settings into separate pages or Modals, and link to them from a Settings overview page. On a Settings overview page, use [Cards](/components/card) to group sections and surface the most relevant information with [Description Lists](components/description-list).
+
+Position the page content in the center with a max width of `$size-90`.
+
+<StoryPreview
+  title="Settings page template - full"
+  storyID="website-pagetemplateexamples--settings-overview-example"
+  code={SettingsOverviewExample}
+/>
+
+### Using Switches
+
+If all settings on a page have only “on/off” or “yes/no” states, you can use Switches.
+
+However when you’re using a Switch, all settings on that page _must_ use Switches because their interaction result is immediate. Use a [Toast](/components/toast) to confirm the result. No “Save” Button is needed.
+
+## Starter kits
+
+### CodeSandbox
+
+Coming soon
+
+### Figma
+
+Add the “[Paste Patterns & Templates](https://www.figma.com/file/S4z0Kqjb9AYosnkRQldLte/Paste-Patterns-%26-Templates?type=design&node-id=367-27339&mode=design&t=dC1B5k0lVIB0JIuX-0)” library to your file.
+
+</content>
+
+</contentwrapper>

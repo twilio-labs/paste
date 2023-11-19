@@ -1,16 +1,16 @@
----
-title: Status
-description: The status pattern informs the user of the dynamic state or condition of an object.
-slug: /patterns/status/
----
+export const meta = {
+  title: 'Status',
+  description: 'The status pattern informs the user of the dynamic state or condition of an object.',
+  slug: '/patterns/status/',
+};
 
-import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Avatar} from '@twilio-paste/avatar';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {StatusBadge} from '@twilio-paste/status';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Card} from '@twilio-paste/card';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
@@ -60,45 +60,27 @@ import {
   BannerExample,
   connectivityStatusExamples,
 } from '../../../component-examples/StatusPatternExamples.tsx';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/patterns/status/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Status"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-            Product_suitability
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Status');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<NormalizePatternHeader
-  description={props.pageContext.frontmatter.description}
-  name={props.pageContext.frontmatter.title}
-  data={props.data}
-/>
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
 
 </content>
 
@@ -106,7 +88,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -118,7 +100,7 @@ export const pageQuery = graphql`
   <Column>
     <Card>
       <Heading as="h3" variant="heading40" marginBottom="space0">
-        <Anchor href="/components/icons">Icon</Anchor>
+        <Anchor href="/components/icon">Icon</Anchor>
       </Heading>
     </Card>
   </Column>
@@ -174,7 +156,7 @@ Statuses are:
 
 Non-text status indicators (such as icons or status dots) should be paired with text whenever
 possible and should always be given a `title` to give context and meaning to the icon or shape.
-Check out the [icon usage guidelines](/components/icons/usage-guidelines) for more detailed accessibility information.
+Check out the [icon usage guidelines](/components/icon/usage-guidelines) for more detailed accessibility information.
 
 ## Variations
 
@@ -279,18 +261,6 @@ used to 3 or 4 of the most important statuses. For statuses that are not as crit
   </TBody>
 </Table>
 
-<Callout>
-  <CalloutTitle>Does your product have a use case where there are only one or two statuses on a page?</CalloutTitle>
-  <CalloutText>
-    We are keeping our eyes peeled for use cases such as this to understand them in more depth. If your product has a
-    use case like this, please create a{' '}
-    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
-      GitHub Discussion
-    </Anchor>{' '}
-    and let us know how these current Status guidelines are working for you.
-  </CalloutText>
-</Callout>
-
 ### Connectivity status
 
 Connectivity statuses are used to show if a user, object, or system is online or offline. Connectivity statuses are composed using a connectivity Icon and Text.
@@ -368,8 +338,8 @@ Connectivity statuses are used to show if a user, object, or system is online or
   </TBody>
 </Table>
 
-<Callout>
-  <CalloutTitle>Connectivity statuses in Flex</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Connectivity statuses in Flex</CalloutHeading>
   <CalloutText>
     Connectivity statuses are used heavily throughout Flex, where the circle indicators should retain the same color
     across the product on any background color (including the dark topmast).
@@ -414,6 +384,56 @@ to ensure that the icon and the text are vertically aligned.
 
 **It is strongly recommended that status icons be paired with text**, especially for statuses that are important for a user to understand.
 
+### Status badges
+
+Use the [`StatusBadge`](/components/status-badge) component to compose a status icon with a text label, usually when a status is shown outside of a Table. Common placements are near avatars (particularly for connectivity statuses), in cards, and in lists.
+
+<LivePreview scope={{Box, StatusBadge}} language="jsx">
+  {`<Box display="flex" flexDirection="column" rowGap="space40">
+  <Box display="flex" columnGap="space40" rowGap="space40" flexWrap="wrap">
+    <StatusBadge as="span" variant="ProcessSuccess">
+      Success
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessError">
+      Error
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessWarning">
+      Warning
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessInProgress">
+      In-progress
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessDisabled">
+      Disabled
+    </StatusBadge>
+    <StatusBadge as="span" variant="ProcessDraft">
+      Draft
+    </StatusBadge>
+  </Box>
+  <Box display="flex" columnGap="space40">
+    <StatusBadge as="span" variant="ConnectivityAvailable">
+      Available
+    </StatusBadge>
+    <StatusBadge as="span" variant="ConnectivityUnavailable">
+      Unavailable
+    </StatusBadge>
+    <StatusBadge as="span" variant="ConnectivityBusy">
+      Busy
+    </StatusBadge>
+    <StatusBadge as="span" variant="ConnectivityNeutral">
+      Neutral
+    </StatusBadge>
+    <StatusBadge as="span" variant="ConnectivityOffline">
+      Offline
+    </StatusBadge>
+  </Box>
+</Box>
+`.trim()}
+</LivePreview>
+
 ### Positioning in a table
 
 Statuses are most often used in tables across our products.
@@ -432,7 +452,7 @@ Placement of the status in the table should depend on the importance of the stat
     Td,
     Th,
     ProcessSuccessIcon,
-    ProcessNeutralIcon,
+    StatusBadge,
   }}
   language="jsx"
 >
@@ -456,7 +476,7 @@ is a great way to highlight information that is most important for a user to kno
     Tr,
     Td,
     Th,
-    ProcessWarningIcon,
+    StatusBadge,
   }}
   language="jsx"
 >
@@ -510,8 +530,7 @@ Statuses are not always placed in tables. Other common placements are near avata
     MediaBody,
     Paragraph,
     Stack,
-    ProcessSuccessIcon,
-    ProcessWarningIcon,
+    StatusBadge,
   }}
   language="jsx"
 >
@@ -552,8 +571,8 @@ Statuses are not always placed in tables. Other common placements are near avata
         <Tr>
           <Td>
             <Box display="flex">
-              <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="in progress" />
-              <Text marginLeft="space20">In Progress</Text>
+              <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="In-progress" />
+              <Text marginLeft="space20">In-progress</Text>
             </Box>
           </Td>
         </Tr>
@@ -610,8 +629,8 @@ Statuses are not always placed in tables. Other common placements are near avata
         <Tr>
           <Td>
             <Box display="flex">
-              <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="in progress" />
-              <Text marginLeft="space20">In Progress</Text>
+              <ProcessInProgressIcon color="colorTextIconNeutral" decorative={false} title="In-progress" />
+              <Text marginLeft="space20">In-progress</Text>
             </Box>
           </Td>
         </Tr>

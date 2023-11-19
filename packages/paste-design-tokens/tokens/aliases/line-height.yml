@@ -1,5 +1,6 @@
 aliases:
   line-height-0: "0" # 0
+  line-height-05: "0.75rem" # 8px * 1.4 = 12px / 16 = 0.75
   line-height-10: "1rem" # 10px * 1.4 = 16px / 16 = 1
   line-height-20: "1.25rem" # 12px * 1.4 = 20px / 16 = 1.25
   line-height-30: "1.25rem" # 14px * 1.4 = 20px / 16 = 1.25
@@ -11,3 +12,12 @@ aliases:
   line-height-90: "2.75rem" # 32px * 1.3 = 44px / 16 = 2.75
   line-height-100: "3.25rem" # 40px * 1.3 = 52px / 16 = 3.25
   line-height-110: "4rem" # 48px * 1.3 = 64px / 16 = 4
+
+  line-height-display-10: "2.5rem" # 32px * 1.25 = 40px / 16 = 2.5
+  line-height-display-20: "3.75rem" # 48px * 1.25 = 60px / 16 = 3.75
+  line-height-display-30: "5rem" # 64px * 1.25 = 80px / 16 = 5
+
+
+  # How to do the typography mathematics:
+  # Font size in pixels * scale multiple = line height in pixels
+  # Line height in pixels / base font size = line height in rem

@@ -1,72 +1,55 @@
----
-title: Aspect Ratio - Layout
-package: '@twilio-paste/aspect-ratio'
-description: The Aspect Ratio layout component is used to embed images, video, media, components, or other HTML elements. It prevents skewing, cropping, etc.
-slug: /components/aspect-ratio/
----
+export const meta = {
+  title: 'Aspect Ratio - Layout',
+  package: '@twilio-paste/aspect-ratio',
+  description:
+    'The Aspect Ratio layout component is used to embed images, video, media, components, or other HTML elements. It prevents skewing, cropping, etc.',
+  slug: '/components/aspect-ratio/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {AspectRatio} from '@twilio-paste/aspect-ratio';
 import {Box} from '@twilio-paste/box';
-import Changelog from '@twilio-paste/aspect-ratio/CHANGELOG.md';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/aspect-ratio/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteLayout(filter: {name: {eq: "@twilio-paste/aspect-ratio"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/aspect-ratio/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Aspect Ratio"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/aspect-ratio"
-  storybookUrl="/?path=/story/layout-aspect-ratio--default"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Aspect Ratio');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/aspect-ratio',
+        storybookUrl: '/?path=/story/layout-aspect-ratio--default',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{AspectRatio, Box}} language="jsx">
+  {`<Box
+  padding="space30"
+  maxWidth="size60"
+  borderColor="colorBorderWeak"
+  borderStyle="solid"
+  borderWidth="borderWidth10"
+>
+  <AspectRatio ratio="16:9">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UBFDdTIYZ6Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </AspectRatio>
+</Box>`}
+</LivePreview>
 
 ## Guidelines
 
@@ -103,7 +86,7 @@ customer needs to see a preview of an uploaded document.
   borderWidth="borderWidth10"
 >
   <AspectRatio ratio="16:9">
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/OCUlE5ldPvM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UBFDdTIYZ6Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </AspectRatio>
 </Box>`}
 </LivePreview>
@@ -163,44 +146,3 @@ Aspect Ratio will allow the color swatches to resize correctly based on a ratio.
     preview={false}
   />
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/aspect-ratio - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```js
-import {AspectRatio} from '@twilio-paste/core/aspect-ratio';
-import {Box} from '@twilio-paste/core/box';
-
-const Component = () => (
-  <AspectRatio ratio="4:3">
-    <Box position="absolute" top={0} right={0} bottom={0} right={0}>
-      Test
-    </Box>
-  </AspectRatio>
-);
-```
-
-#### Props
-
-| Prop  | Type   | Description                                                                                               | Default |
-| ----- | ------ | --------------------------------------------------------------------------------------------------------- | ------- |
-| ratio | string | Determines the aspect ratio of the element. Use a colon separated number pattern (width:height). Required | 4:3     |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,0 +1,62 @@
+export const meta = {
+  title: 'Popover',
+  package: '@twilio-paste/popover',
+  description: 'An accessible and styled popover component.',
+  slug: '/components/popover/api',
+};
+
+import Changelog from '@twilio-paste/popover/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/popover/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Popover');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/popover');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/popover',
+        storybookUrl: '/?path=/story/components-popover--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/popover - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {Popover, PopoverContainer, PopoverButton} from '@twilio-paste/core/popover';
+
+const PopoverExample: React.FC = () => {
+  return (
+    <PopoverContainer baseId="popover-example">
+      <PopoverButton variant="primary">Open popover</PopoverButton>
+      <Popover aria-label="Popover">Popover content</Popover>
+    </PopoverContainer>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

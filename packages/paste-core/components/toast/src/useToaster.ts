@@ -1,6 +1,7 @@
-import * as React from 'react';
-import {uid} from '@twilio-paste/uid-library';
-import type {ToasterToast, ToasterPush, UseToasterReturnedProps} from './types';
+import { uid } from "@twilio-paste/uid-library";
+import * as React from "react";
+
+import type { ToasterPush, ToasterToast, UseToasterReturnedProps } from "./types";
 
 export const useToaster = (): UseToasterReturnedProps => {
   const isMounted = React.useRef<boolean | null>(null);
@@ -21,7 +22,7 @@ export const useToaster = (): UseToasterReturnedProps => {
     };
   }, []);
 
-  const pop = (id: ToasterToast['id']): void => {
+  const pop = (id: ToasterToast["id"]): void => {
     if (!isMounted.current) {
       return;
     }
@@ -39,7 +40,7 @@ export const useToaster = (): UseToasterReturnedProps => {
         }
 
         return toast.id !== id;
-      })
+      }),
     );
   };
 
@@ -50,22 +51,26 @@ export const useToaster = (): UseToasterReturnedProps => {
 
     const generatedID = uid(newToast);
     let timeOutId;
-    // if you are setting a dismissAfter time, we need to grab a timeout id to use later if we need to clear the timeout
-    // for that particular toast. We also need to make sure the time is an integer to prevent locking the browser
+    /*
+     * if you are setting a dismissAfter time, we need to grab a timeout id to use later if we need to clear the timeout
+     * for that particular toast. We also need to make sure the time is an integer to prevent locking the browser
+     */
     if (newToast.dismissAfter != null && Number.isInteger(newToast.dismissAfter)) {
       timeOutId = window.setTimeout(pop, newToast.dismissAfter, newToast.id || generatedID);
     }
-    // We set a new toast to always setFocus. For all the existing toasts in the stack, we need to clear setFocus
-    // without creating a new state object. If you create a new state object, you cause react spring to rerun
-    // all the animations for the entire stack. So we mutate existing state instead.
+    /*
+     * We set a new toast to always setFocus. For all the existing toasts in the stack, we need to clear setFocus
+     * without creating a new state object. If you create a new state object, you cause react spring to rerun
+     * all the animations for the entire stack. So we mutate existing state instead.
+     */
     const existingToasts = toasts.map((toast) => {
       const tmpToast = toast;
       tmpToast.setFocus = false;
       return tmpToast;
     });
     // add the new toast with a generatedID, timeoutid and setFocus to true. Allow for user to override
-    setToasts([{id: generatedID, timeOutId, setFocus: true, ...newToast}, ...existingToasts]);
+    setToasts([{ id: generatedID, timeOutId, setFocus: true, ...newToast }, ...existingToasts]);
   };
 
-  return {toasts, push, pop};
+  return { toasts, push, pop };
 };

@@ -1,40 +1,61 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxElementProps, BoxStyleProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import type {ChatBubbleProps} from './types';
-import {MessageVariantContext} from './MessageVariantContext';
-import {bubbleVariantStyles} from './styles';
+import { MessageVariantContext } from "./MessageVariantContext";
+import type { MessageVariants } from "./MessageVariantContext";
 
-const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
-  ({children, element = 'CHAT_BUBBLE', ...props}, ref) => {
+export interface ChatBubbleProps extends HTMLPasteProps<"div"> {
+  children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "CHAT_BUBBLE"
+   * @type {BoxProps["element"]}
+   * @memberof ChatBubbleProps
+   */
+  element?: BoxElementProps["element"];
+}
+
+const bubbleVariantStyles: {
+  [key in MessageVariants]: BoxStyleProps;
+} = {
+  inbound: {
+    backgroundColor: "colorBackground",
+    alignSelf: "flex-start",
+  },
+  outbound: {
+    backgroundColor: "colorBackgroundInverseStronger",
+    alignSelf: "flex-end",
+    color: "colorTextInverse",
+  },
+};
+
+export const ChatBubble = React.forwardRef<HTMLDivElement, ChatBubbleProps>(
+  ({ children, element = "CHAT_BUBBLE", ...props }, ref) => {
     const variant = React.useContext(MessageVariantContext);
 
     return (
       <Box
+        display="inline-block"
         fontSize="fontSize30"
         lineHeight="lineHeight20"
-        borderRadius="borderRadius30"
+        borderRadius="borderRadius20"
         paddingY="space30"
         paddingX="space40"
         marginBottom="space30"
         element={element}
         ref={ref}
         variant={variant}
+        whiteSpace="pre-wrap"
         {...bubbleVariantStyles[variant]}
         {...safelySpreadBoxProps(props)}
       >
         {children}
       </Box>
     );
-  }
+  },
 );
 
-ChatBubble.displayName = 'ChatBubble';
-
-ChatBubble.propTypes = {
-  children: PropTypes.node,
-  element: PropTypes.string,
-};
-
-export {ChatBubble};
+ChatBubble.displayName = "ChatBubble";

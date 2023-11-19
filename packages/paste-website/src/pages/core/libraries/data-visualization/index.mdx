@@ -1,48 +1,47 @@
----
-title: Data visualization library
-description: A library that helps theme data visualizations with Paste tokens.
-slug: /core/libraries/data-visualization/
----
+export const meta = {
+  title: 'Data visualization library',
+  package: '@twilio-paste/data-visualization-library',
+  description: 'A library that helps theme data visualizations with Paste tokens.',
+  slug: '/core/libraries/data-visualization/',
+};
 
-import {graphql} from 'gatsby';
-import PackageJSON from '@twilio-paste/data-visualization-library/package.json';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import packageJson from '@twilio-paste/data-visualization-library/package.json';
 import Changelog from '@twilio-paste/data-visualization-library/CHANGELOG.md';
 import Highcharts from 'highcharts';
 import HighchartsReact from 'highcharts-react-official';
 import {usePasteHighchartsTheme} from '@twilio-paste/data-visualization-library';
-
 import {SidebarCategoryRoutes} from '../../../../constants';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/core/libraries/data-visualization/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<ComponentHeader
-  name="Data visualization library"
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      data: {
+        ...packageJson,
+      },
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader
+  name={meta.title}
   categoryRoute={SidebarCategoryRoutes.LIBRARIES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/data-visualization"
   storybookUrl="/?path=/story/libraries-data-visualization"
-  packageName={PackageJSON.name}
-  version={PackageJSON.version}
-  description={PackageJSON.description}
+  packageName={props.data.name}
+  version={props.data.version}
+  description={props.data.description}
 />
 
 ---
 
 <contentwrapper>
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 <content>
 
 ## Usage Guide
@@ -52,7 +51,7 @@ This package is meant to be used with another data visualization library to styl
 ### Installation
 
 ```bash
-yarn add @twilio-paste/data-visualization-library - or - yarn add @twilio-paste/core/data-visualization-library
+yarn add @twilio-paste/data-visualization-library - or - yarn add @twilio-paste/core
 ```
 
 ### usePasteHighchartsTheme

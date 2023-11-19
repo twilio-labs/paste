@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/dropdown-library",
-  "version": "1.1.4",
+  "version": "3.0.0",
   "category": "dropdown",
   "status": "production",
   "description": "A library to build dropdowns.",
@@ -20,19 +20,18 @@
   "scripts": {
     "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
-    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
   "dependencies": {
-    "downshift": "6.0.6"
+    "downshift": "6.1.7"
   },
   "peerDependencies": {
-    "react": "^16.8.6 || ^17.0.2",
-    "react-dom": "^16.8.6 || ^17.0.2"
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

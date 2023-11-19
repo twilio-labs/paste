@@ -1,18 +1,19 @@
-import * as React from 'react';
-import {ThemeVariants, useThemeContrastCheck} from '@twilio-paste/core/theme';
-import {Box} from '@twilio-paste/core/box';
-import {MediaBody, MediaFigure, MediaObject} from '@twilio-paste/core/media-object';
-import {SuccessIcon} from '@twilio-paste/icons/cjs/SuccessIcon';
-import {Heading} from '@twilio-paste/core/heading';
-import {ErrorIcon} from '@twilio-paste/icons/cjs/ErrorIcon';
-import {SelectedThemeContext} from '../App';
-import {ThemeSelector} from './ThemeSelector';
-import {TokenPairRating} from './TokenPairRating';
+import { Box } from "@twilio-paste/core/box";
+import { Heading } from "@twilio-paste/core/heading";
+import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/core/media-object";
+import { ThemeVariants, useThemeContrastCheck } from "@twilio-paste/core/theme";
+import { ErrorIcon } from "@twilio-paste/icons/cjs/ErrorIcon";
+import { SuccessIcon } from "@twilio-paste/icons/cjs/SuccessIcon";
+import * as React from "react";
 
-export const SideBar: React.FC = () => {
-  const {selectedTheme, setSelectedTheme} = React.useContext(SelectedThemeContext);
+import { SelectedThemeContext } from "../App";
+import { ThemeSelector } from "./ThemeSelector";
+import { TokenPairRating } from "./TokenPairRating";
 
-  const {textContrastRating, uiControlContrastRating, totalFailures} = useThemeContrastCheck();
+export const SideBar = (): JSX.Element => {
+  const { selectedTheme, setSelectedTheme } = React.useContext(SelectedThemeContext);
+
+  const { textContrastRating, uiControlContrastRating, totalFailures } = useThemeContrastCheck();
 
   const themes = Object.keys(ThemeVariants) as [keyof typeof ThemeVariants];
   return (
@@ -23,7 +24,7 @@ export const SideBar: React.FC = () => {
           borderStyle="solid"
           borderWidth="borderWidth0"
           borderBottomWidth="borderWidth10"
-          borderBottomColor="colorBorderLight"
+          borderBottomColor="colorBorderWeak"
         >
           <ThemeSelector
             value={selectedTheme}
@@ -45,7 +46,7 @@ export const SideBar: React.FC = () => {
           </MediaFigure>
           <MediaBody>
             <Box padding="space40" paddingY="space80" fontSize="fontSize60" fontWeight="fontWeightBold">
-              {totalFailures > 0 ? `${totalFailures} Failures` : 'Everything is passing'}
+              {totalFailures > 0 ? `${totalFailures} Failures` : "Everything is passing"}
             </Box>
           </MediaBody>
         </MediaObject>
@@ -60,10 +61,11 @@ export const SideBar: React.FC = () => {
       {textContrastRating.map((rating) => {
         return (
           <TokenPairRating
+            key={`text-${rating.background}-${rating.foreground}`}
             contrast={rating.contrast}
             background={rating.background}
             foreground={rating.foreground}
-            rating={rating.aa ? 'pass' : 'fail'}
+            rating={rating.aa ? "pass" : "fail"}
             variant="text"
           />
         );
@@ -78,10 +80,11 @@ export const SideBar: React.FC = () => {
       {uiControlContrastRating.map((rating) => {
         return (
           <TokenPairRating
+            key={`control-${rating.background}-${rating.foreground}`}
             contrast={rating.contrast}
             background={rating.background}
             foreground={rating.foreground}
-            rating={rating.aaLarge ? 'pass' : 'fail'}
+            rating={rating.aaLarge ? "pass" : "fail"}
             variant="control"
           />
         );

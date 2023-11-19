@@ -1,33 +1,30 @@
----
-title: Voice and tone
-description: How to use the Twilio Voice and tonal qualities to communicate effectively in our products.
-slug: /foundations/content/voice-and-tone/
----
+export const meta = {
+  title: 'Voice and tone',
+  description: 'How to use the Twilio Voice and tonal qualities to communicate effectively in our products.',
+  slug: '/foundations/content/voice-and-tone/',
+};
 
-import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/content/voice-and-tone/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
 </content>
 
@@ -35,7 +32,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -49,8 +46,8 @@ Voice makes us &mdash; Twilio &mdash; identifiable, consistent, and familiar.
 
 Tone enables you to choose words, structures, punctuation, or syntax appropriate to the scenario.
 
-<Callout>
-  <CalloutTitle as="h4">Voice or tone?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Voice or tone?</CalloutHeading>
   <CalloutText>
     Think of your best friend. You can recognize their voice &mdash; that doesn't change. But how they speak in a job
     interview is different from how they chat with you at the weekend. They <strong>sound</strong> the same &mdash;

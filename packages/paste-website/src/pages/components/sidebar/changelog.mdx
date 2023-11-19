@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Sidebar Container - Changelog',
+  package: '@twilio-paste/sidebar',
+  description: 'Sidebar contains navigation controls that rest on the left side of the screen.',
+  slug: '/components/sidebar/changelog',
+};
+
+import Changelog from '@twilio-paste/sidebar/CHANGELOG.md';
+import packageJson from '@twilio-paste/sidebar/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Sidebar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/sidebar',
+        storybookUrl: '/?path=/story/components-sidebar-sidebar-push--default',
+      },
+    },
+  };
+};
+
+<Changelog />

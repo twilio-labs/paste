@@ -1,27 +1,28 @@
-import * as React from 'react';
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import {useTheme} from '@twilio-paste/theme';
-import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
-import {Box} from '@twilio-paste/box';
-import {Grid, Column} from '@twilio-paste/grid';
-import {Heading} from '@twilio-paste/heading';
-import {Text} from '@twilio-paste/text';
+import { Box } from "@twilio-paste/box";
+import { Column, Grid } from "@twilio-paste/grid";
+import { Heading } from "@twilio-paste/heading";
+import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import Image from "next/image";
+
+import HomeCreateIllustration from "../../assets/illustrations/home_create_illustration.svg";
+import HomeDeleteIllustration from "../../assets/illustrations/home_delete_illustration.svg";
+import { event } from "../../lib/gtag";
+import { SiteLink } from "../SiteLink";
+import PatternsIcon from "../icons/PatternsIcon";
 import {
   ComponentCard,
+  ComponentCardFooter,
   ComponentCardHeader,
   ComponentCardIllustration,
-  ComponentCardFooter,
-} from './PopularComponentCard';
-import {SiteLink} from '../SiteLink';
-import PatternsIcon from '../icons/PatternsIcon';
-import HomeCreateIllustration from '../../assets/illustrations/home_create_illustration.svg';
-import HomeDeleteIllustration from '../../assets/illustrations/home_delete_illustration.svg';
+} from "./PopularComponentCard";
 
-const PopularPatterns: React.FC = () => {
+const PopularPatterns = (): JSX.Element => {
   const theme = useTheme();
 
   return (
-    <Box marginBottom={['space130', 'space0']}>
+    <Box marginBottom={["space130", "space0"]}>
       <Box textAlign="center">
         <Box
           alignItems="center"
@@ -36,7 +37,7 @@ const PopularPatterns: React.FC = () => {
           width="sizeSquare150"
         >
           <PatternsIcon
-            css={{height: theme.heights.sizeIcon40, width: theme.widths.sizeIcon40}}
+            css={{ height: theme.heights.sizeIcon40, width: theme.widths.sizeIcon40 }}
             color={theme.textColors.colorTextErrorStrong}
             decorative
           />
@@ -50,10 +51,10 @@ const PopularPatterns: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Create</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeCreateIllustration aria-hidden="true" />
+              <Image src={HomeCreateIllustration} aria-hidden="true" alt="" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/patterns/create">See Create</SiteLink>
+              <SiteLink href="/patterns/create">See Create</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
@@ -61,24 +62,24 @@ const PopularPatterns: React.FC = () => {
           <ComponentCard>
             <ComponentCardHeader>Delete</ComponentCardHeader>
             <ComponentCardIllustration>
-              <HomeDeleteIllustration aria-hidden="true" />
+              <Image src={HomeDeleteIllustration} aria-hidden="true" alt="" />
             </ComponentCardIllustration>
             <ComponentCardFooter>
-              <SiteLink to="/patterns/delete">See Delete</SiteLink>
+              <SiteLink href="/patterns/delete">See Delete</SiteLink>
             </ComponentCardFooter>
           </ComponentCard>
         </Column>
       </Grid>
       <Box textAlign="center" marginTop="space20" marginBottom="space60">
         <Text as="span" fontWeight="fontWeightSemibold">
-          Explore{' '}
+          Explore{" "}
           <SiteLink
-            to="/patterns"
+            href="/patterns"
             onClick={() =>
-              trackCustomEvent({
-                category: 'Popular',
-                action: 'click-all-patterns',
-                label: 'Explore all patterns',
+              event({
+                category: "Popular",
+                action: "click-all-patterns",
+                label: "Explore all patterns",
               })
             }
           >
@@ -90,4 +91,4 @@ const PopularPatterns: React.FC = () => {
   );
 };
 
-export {PopularPatterns};
+export { PopularPatterns };

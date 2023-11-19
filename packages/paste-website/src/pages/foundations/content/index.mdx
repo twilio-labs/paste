@@ -1,34 +1,31 @@
----
-title: Guideline Usage
-description: An overview to help you navigate product content guidance and a look at what's coming soon.
-slug: /foundations/content/
----
+export const meta = {
+  title: 'Guideline Usage',
+  description: "An overview to help you navigate product content guidance and a look at what's coming soon.",
+  slug: '/foundations/content/',
+};
 
-import {graphql} from 'gatsby';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Anchor} from '@twilio-paste/anchor';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/content/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
 </content>
 
@@ -36,17 +33,9 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
-
-<Callout variant="warning">
-  <CalloutTitle as="h4">Early Access! Early Access! Early Access!</CalloutTitle>
-  <CalloutText>
-    These guidelines are still in development and are not yet complete. If you can't see what you need here, you've
-    found an edge-case or exception, or you have other comments, reach out to Caroline Tecks on Slack.
-  </CalloutText>
-</Callout>
 
 **Use the guidance in the way that makes most sense to you.**
 These content pages should help you to feel more confident in writing concise, clear, and consistent product content.
@@ -92,8 +81,8 @@ These guidelines rely on your feedback to evolve and grow. Please reach out on S
 - Additional examples &mdash; have a great example of before/after?
 - Questions and queries &mdash; if something isn't clear, let us know.
 
-<Callout>
-  <CalloutTitle as="h4">Need support with non-product content?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Need support with non-product content?</CalloutHeading>
   <CalloutText>
     {' '}
     Visit the <Anchor href="https://www.twilio.com/brand/guidelines/writing-style">

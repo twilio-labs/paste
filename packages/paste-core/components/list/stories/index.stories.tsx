@@ -1,14 +1,17 @@
-import * as React from 'react';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {OrderedList, UnorderedList, ListItem} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
+import { ListItem, OrderedList, UnorderedList } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/List',
+  title: "Components/List",
   component: OrderedList,
-  subcomponents: {UnorderedList, ListItem},
+  subcomponents: { UnorderedList, ListItem },
 };
 
 export const DefaultOrderedList = (): React.ReactNode => {
@@ -43,9 +46,7 @@ export const DefaultOrderedList = (): React.ReactNode => {
   );
 };
 
-DefaultOrderedList.story = {
-  name: 'Ordered List',
-};
+DefaultOrderedList.storyName = "Ordered List";
 
 export const DefaultUnorderedList = (): React.ReactNode => {
   return (
@@ -75,9 +76,7 @@ export const DefaultUnorderedList = (): React.ReactNode => {
   );
 };
 
-DefaultUnorderedList.story = {
-  name: 'Unordered List',
-};
+DefaultUnorderedList.storyName = "Unordered List";
 
 export const NestedUnorderedList = (): React.ReactNode => {
   return (
@@ -111,7 +110,8 @@ export const NestedUnorderedList = (): React.ReactNode => {
   );
 };
 
-export const CustomOrderedList: React.FC = () => {
+export const CustomOrderedList: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <OrderedList aria-label="ordered list">
@@ -126,16 +126,17 @@ export const CustomOrderedList: React.FC = () => {
         </ListItem>
       </OrderedList>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           ORDERED_LIST: {
-            backgroundColor: 'colorBackgroundPrimaryWeaker',
-            marginLeft: 'space0',
-            padding: 'space40',
-            paddingLeft: 'space70',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            marginLeft: "space0",
+            padding: "space40",
+            paddingLeft: "space70",
           },
           LIST_ITEM: {
-            color: 'colorTextError',
+            color: "colorTextError",
           },
         }}
       >
@@ -152,19 +153,20 @@ export const CustomOrderedList: React.FC = () => {
         </OrderedList>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_ORDERED_LIST: {
-            backgroundColor: 'colorBackgroundTrial',
-            marginLeft: 'space0',
-            padding: 'space40',
-            paddingLeft: 'space70',
+            backgroundColor: "colorBackgroundTrial",
+            marginLeft: "space0",
+            padding: "space40",
+            paddingLeft: "space70",
           },
           NEW_LIST_ITEM: {
-            color: 'colorTextLink',
+            color: "colorTextLink",
           },
           ANOTHER_NEW_LIST_ITEM: {
-            color: 'colorTextErrorStrong',
+            color: "colorTextErrorStrong",
           },
         }}
       >
@@ -183,8 +185,15 @@ export const CustomOrderedList: React.FC = () => {
     </Stack>
   );
 };
+CustomOrderedList.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
 
-export const CustomUnorderedList: React.FC = () => {
+export const CustomUnorderedList: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <UnorderedList aria-label="ordered list">
@@ -199,16 +208,17 @@ export const CustomUnorderedList: React.FC = () => {
         </ListItem>
       </UnorderedList>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           UNORDERED_LIST: {
-            backgroundColor: 'colorBackgroundPrimaryWeaker',
-            marginLeft: 'space0',
-            padding: 'space40',
-            paddingLeft: 'space70',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            marginLeft: "space0",
+            padding: "space40",
+            paddingLeft: "space70",
           },
           LIST_ITEM: {
-            color: 'colorTextError',
+            color: "colorTextError",
           },
         }}
       >
@@ -225,19 +235,20 @@ export const CustomUnorderedList: React.FC = () => {
         </UnorderedList>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_UNORDERED_LIST: {
-            backgroundColor: 'colorBackgroundTrial',
-            marginLeft: 'space0',
-            padding: 'space40',
-            paddingLeft: 'space70',
+            backgroundColor: "colorBackgroundTrial",
+            marginLeft: "space0",
+            padding: "space40",
+            paddingLeft: "space70",
           },
           NEW_LIST_ITEM: {
-            color: 'colorTextLink',
+            color: "colorTextLink",
           },
           ANOTHER_NEW_LIST_ITEM: {
-            color: 'colorTextErrorStrong',
+            color: "colorTextErrorStrong",
           },
         }}
       >
@@ -255,4 +266,10 @@ export const CustomUnorderedList: React.FC = () => {
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomUnorderedList.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

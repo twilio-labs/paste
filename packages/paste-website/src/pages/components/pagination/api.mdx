@@ -1,0 +1,81 @@
+export const meta = {
+  title: 'Pagination',
+  package: '@twilio-paste/pagination',
+  description: 'Pagination lets users navigate through content or a dataset that’s been broken up into multiple pages.',
+  slug: '/components/pagination/api',
+};
+
+import Changelog from '@twilio-paste/pagination/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/pagination/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Pagination');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/pagination');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/pagination',
+        storybookUrl: '/?path=/story/components-pagination--arrows',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/pagination - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  Pagination,
+  PaginationItems,
+  PaginationArrow,
+  PaginationLabel,
+  PaginationNumbers,
+  PaginationNumber,
+  PaginationEllipsis,
+} from '@twilio-paste/core/pagination';
+
+const Component = () => {
+  return (
+    <Pagination label="pagination navigation">
+      <PaginationItems>
+        <PaginationArrow variant="back" label="Go to previous page" visibleLabel="Previous" />
+        <PaginationNumbers pageLabel="Page 5 of 10">
+          <PaginationNumber label="Go to page 1">1</PaginationNumber>
+          <PaginationEllipsis label="Collapsed previous pages" />
+          <PaginationNumber label="Go to page 4">4</PaginationNumber>
+          <PaginationNumber label="Go to page 5" isCurrent>
+            5
+          </PaginationNumber>
+          <PaginationNumber label="Go to page 6">6</PaginationNumber>
+          <PaginationEllipsis label="Collapsed next pages" />
+          <PaginationNumber label="Go to page 10">10</PaginationNumber>
+        </PaginationNumbers>
+        <PaginationArrow variant="forward" label="Go to next page" visibleLabel="Next" />
+      </PaginationItems>
+    </Pagination>
+  );
+};
+```
+## Props
+<PropsTable componentApi={props.componentApi} />

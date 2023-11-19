@@ -1,17 +1,36 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box, safelySpreadBoxProps} from '@twilio-paste/box';
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from "react";
 
-import type {Element} from './types';
+import type { Element } from "./types";
 
-export interface OptionGroupProps extends React.OptgroupHTMLAttributes<HTMLOptGroupElement> {
+export interface OptionGroupProps extends HTMLPasteProps<"optgroup"> {
+  /**
+   * Sets the label of the option group.
+   *
+   * @type {string}
+   * @memberof OptionGroupProps
+   */
   label: string;
+  /**
+   * Must be `Option`.
+   *
+   * @type {NonNullable<React.ReactNode>}
+   * @memberof OptionGroupProps
+   */
   children: NonNullable<React.ReactNode>;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "OPTION_GROUP"
+   * @type {Element}
+   * @memberof OptionGroupProps
+   */
   element?: Element;
 }
 
 const OptionGroup = React.forwardRef<HTMLOptGroupElement, OptionGroupProps>(
-  ({label, children, element = 'OPTION_GROUP', ...props}, ref) => (
+  ({ label, children, element = "OPTION_GROUP", ...props }, ref) => (
     <Box
       ref={ref}
       label={label}
@@ -27,17 +46,9 @@ const OptionGroup = React.forwardRef<HTMLOptGroupElement, OptionGroupProps>(
     >
       {children}
     </Box>
-  )
+  ),
 );
 
-OptionGroup.displayName = 'OptionGroup';
+OptionGroup.displayName = "OptionGroup";
 
-if (process.env.NODE_ENV === 'development') {
-  OptionGroup.propTypes = {
-    label: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-    element: PropTypes.string,
-  };
-}
-
-export {OptionGroup};
+export { OptionGroup };

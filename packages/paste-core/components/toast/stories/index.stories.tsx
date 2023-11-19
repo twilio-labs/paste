@@ -1,59 +1,49 @@
-import * as React from 'react';
-import {action} from '@storybook/addon-actions';
-import {loremIpsum} from 'lorem-ipsum';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Button} from '@twilio-paste/button';
-import {Text} from '@twilio-paste/text';
-import {Truncate} from '@twilio-paste/truncate';
-import {useUID} from '@twilio-paste/uid-library';
-import {Input} from '@twilio-paste/input';
-import {Label} from '@twilio-paste/label';
-import {RadioGroup, Radio} from '@twilio-paste/radio-group';
-import type {ToastVariants} from '../src';
-import {Toast, ToastContainer, Toaster, useToaster} from '../src';
-import {ToastVariantObject} from '../src/constants';
+import { action } from "@storybook/addon-actions";
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
+import { Input } from "@twilio-paste/input";
+import { Label } from "@twilio-paste/label";
+import { Radio, RadioGroup } from "@twilio-paste/radio-group";
+import { Stack } from "@twilio-paste/stack";
+import { Truncate } from "@twilio-paste/truncate";
+import { useUID } from "@twilio-paste/uid-library";
+import { loremIpsum } from "lorem-ipsum";
+import * as React from "react";
+
+import type { ToastVariants } from "../src";
+import { Toast, ToastContainer, Toaster, useToaster } from "../src";
+import { ToastVariantObject } from "../src/constants";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Toast',
+  title: "Components/Toast",
   component: Toast,
-  subcomponents: {Toaster, ToastContainer},
+  subcomponents: { Toaster, ToastContainer },
 };
 
 export const Neutral = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
-        <Toast variant="neutral">
-          <Text as="div">I am a toast</Text>
-        </Toast>
-        <Toast variant="neutral" onDismiss={action('dismiss')}>
-          <Text as="div">
-            <strong>Toast title</strong> I am a toast
-          </Text>
+      <ToastContainer left={["space40", "unset", "unset"]}>
+        <Toast variant="neutral">I am a toast</Toast>
+        <Toast variant="neutral" onDismiss={action("dismiss")}>
+          <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="neutral">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
-        <Toast variant="neutral" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+        <Toast variant="neutral" onDismiss={action("dismiss")}>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
@@ -63,36 +53,26 @@ export const Neutral = (): React.ReactNode => {
 export const Success = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
-        <Toast variant="success">
-          <Text as="div">I am a toast</Text>
-        </Toast>
-        <Toast variant="success" onDismiss={action('dismiss')}>
-          <Text as="div">
-            <strong>Toast title</strong> I am a toast
-          </Text>
+      <ToastContainer left={["space40", "unset", "unset"]}>
+        <Toast variant="success">I am a toast</Toast>
+        <Toast variant="success" onDismiss={action("dismiss")}>
+          <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="success">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
-        <Toast variant="success" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+        <Toast variant="success" onDismiss={action("dismiss")}>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
@@ -102,36 +82,26 @@ export const Success = (): React.ReactNode => {
 export const Error = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
-        <Toast variant="error">
-          <Text as="div">I am a toast</Text>
-        </Toast>
-        <Toast variant="error" onDismiss={action('dismiss')}>
-          <Text as="div">
-            <strong>Toast title</strong> I am a toast
-          </Text>
+      <ToastContainer left={["space40", "unset", "unset"]}>
+        <Toast variant="error">I am a toast</Toast>
+        <Toast variant="error" onDismiss={action("dismiss")}>
+          <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="error">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
-        <Toast variant="error" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+        <Toast variant="error" onDismiss={action("dismiss")}>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
@@ -141,36 +111,26 @@ export const Error = (): React.ReactNode => {
 export const Warning = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
-        <Toast variant="warning">
-          <Text as="div">I am a toast</Text>
-        </Toast>
-        <Toast variant="warning" onDismiss={action('dismiss')}>
-          <Text as="div">
-            <strong>Toast title</strong> I am a toast
-          </Text>
+      <ToastContainer left={["space40", "unset", "unset"]}>
+        <Toast variant="warning">I am a toast</Toast>
+        <Toast variant="warning" onDismiss={action("dismiss")}>
+          <strong>Toast title</strong> I am a toast
         </Toast>
         <Toast variant="warning">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
-        <Toast variant="warning" onDismiss={action('dismiss')}>
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+        <Toast variant="warning" onDismiss={action("dismiss")}>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
@@ -180,53 +140,45 @@ export const Warning = (): React.ReactNode => {
 export const I18n = (): React.ReactNode => {
   return (
     <Box minHeight="size90">
-      <ToastContainer>
+      <ToastContainer left={["space40", "unset", "unset"]}>
         <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
-          <Text as="div">Soy una notificacion</Text>
+          Soy una notificacion
         </Toast>
         <Toast
           variant="neutral"
-          onDismiss={action('dismiss')}
+          onDismiss={action("dismiss")}
           i18nDismissLabel="Cerrar notificacion"
           i18nNeutralLabel="(informacion)"
         >
-          <Text as="div">
-            <strong>Título</strong> Soy una notificacion
-          </Text>
+          <strong>Título</strong> Soy una notificacion
         </Toast>
         <Toast variant="neutral" i18nDismissLabel="Cerrar notificacion" i18nNeutralLabel="(informacion)">
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna.
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna.
         </Toast>
         <Toast
           variant="neutral"
-          onDismiss={action('dismiss')}
+          onDismiss={action("dismiss")}
           i18nDismissLabel="Cerrar notificacion"
           i18nNeutralLabel="(informacion)"
         >
-          <Text as="div">
-            Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
-            commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
-            porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
-            vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
-            malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
-            mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec
-            ullamcorper nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
-          </Text>
-          <Text as="p">
-            <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
-              http://www.extremelylongurlthatmightbreakthelayout.com
-            </Truncate>
-          </Text>
+          Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem malesuada magna mollis euismod. Praesent
+          commodo cursus magna, vel scelerisque nisl consectetur et. Duis mollis, est non commodo luctus, nisi erat
+          porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper nulla non metus auctor fringilla. Nulla
+          vitae elit libero, a pharetra augue. Donec ullamcorper nulla non metus auctor fringilla. Etiam porta sem
+          malesuada magna mollis euismod. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Duis
+          mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec ullamcorper
+          nulla non metus auctor fringilla. Nulla vitae elit libero, a pharetra augue.
+          <Truncate title="http://www.extremelylongurlthatmightbreakthelayout.com">
+            http://www.extremelylongurlthatmightbreakthelayout.com
+          </Truncate>
         </Toast>
       </ToastContainer>
     </Box>
   );
 };
 
-I18n.storyName = 'i18n Prop';
+I18n.storyName = "i18n Prop";
 
 interface ToastContainerExample {
   variant: ToastVariants;
@@ -243,19 +195,19 @@ export const ToastContainerStory = (): React.ReactNode => {
           // eslint-disable-next-line @typescript-eslint/no-shadow
           setToasts((toasts) => [
             ...toasts,
-            {variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum()},
+            { variant: variants[Math.floor(Math.random() * 3 + 0)], message: loremIpsum() },
           ])
         }
       >
         Add toast
       </Button>
-      <ToastContainer>
+      <ToastContainer left={["space40", "unset", "unset"]}>
         <Toast variant="success" onDismiss={() => {}}>
-          <Text as="div">I am a toast</Text>
+          I am a toast
         </Toast>
         {toasts.map((toast) => (
-          <Toast variant={toast.variant} onDismiss={() => {}}>
-            <Text as="div">{toast.message}</Text>
+          <Toast variant={toast.variant} onDismiss={() => {}} key={toast.message}>
+            {toast.message}
           </Toast>
         ))}
       </ToastContainer>
@@ -263,28 +215,27 @@ export const ToastContainerStory = (): React.ReactNode => {
   );
 };
 
-ToastContainerStory.story = {
-  name: 'Toast container',
-};
+ToastContainerStory.storyName = "Toast container";
 
 export const ToasterStory = (): React.ReactNode => {
   const toaster = useToaster();
   const messageID = useUID();
   const dismissAfterID = useUID();
   const [messageText, setMessageText] = React.useState(
-    'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis veniam, et deleniti sequi est ut aliquam suscipit autem explicabo quod, mollitia pariatur facere aut ab quidem enim molestiae magni.'
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius perferendis veniam, et deleniti sequi est ut aliquam suscipit autem explicabo quod, mollitia pariatur facere aut ab quidem enim molestiae magni.",
   );
-  const [variant, setVariant] = React.useState<ToastVariants>('success');
-  const [toastTimeout, setToastTimeout] = React.useState('');
+  const [variant, setVariant] = React.useState<ToastVariants>("success");
+  const [toastTimeout, setToastTimeout] = React.useState("");
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
     toaster.push({
       variant,
       message: messageText,
-      ...(toastTimeout !== '0' && {dismissAfter: Number.parseInt(toastTimeout, 10)}),
+      ...(toastTimeout !== "0" && { dismissAfter: Number.parseInt(toastTimeout, 10) }),
       onDismiss: () => {
-        console.log('dismissed!');
+        // eslint-disable-next-line no-console
+        console.log("dismissed!");
       },
     });
   };
@@ -342,11 +293,9 @@ export const ToasterStory = (): React.ReactNode => {
           </Button>
         </Stack>
       </form>
-      <Toaster {...toaster} />
+      <Toaster left={["space40", "unset", "unset"]} {...toaster} />
     </div>
   );
 };
 
-ToasterStory.story = {
-  name: 'Toaster',
-};
+ToasterStory.storyName = "Toaster";

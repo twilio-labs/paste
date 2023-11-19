@@ -8,12 +8,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
         with:
-          node-version: 16.13.x
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
 
       - uses: zahnster/compressed-size-action@2.4.2
         with:

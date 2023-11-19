@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'File Uploader - Changelog',
+  package: '@twilio-paste/file-uploader',
+  description: 'A File Uploader is a form element used to upload multiple files.',
+  slug: '/components/file-uploader/changelog',
+};
+
+import Changelog from '@twilio-paste/file-uploader/CHANGELOG.md';
+import packageJson from '@twilio-paste/file-uploader/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('File Uploader');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-uploader',
+        storybookUrl: '/?path=/story/components-file-uploader--default',
+      },
+    },
+  };
+};
+
+<Changelog />

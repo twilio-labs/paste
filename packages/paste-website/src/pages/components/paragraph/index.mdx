@@ -1,11 +1,11 @@
----
-title: Paragraph
-package: '@twilio-paste/paragraph'
-description: The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.
-slug: /components/paragraph/
----
+export const meta = {
+  title: 'Paragraph',
+  package: '@twilio-paste/paragraph',
+  description:
+    'The paragraph component is used to render blocks of text, with a preset amount of space beneath it to distinguish from adjacent content.',
+  slug: '/components/paragraph/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
@@ -13,61 +13,31 @@ import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
 import Changelog from '@twilio-paste/paragraph/CHANGELOG.md';
+import packageJson from '@twilio-paste/paragraph/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/paragraph"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/paragraph/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Paragraph"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/paragraph"
-  storybookUrl="/?path=/story/components-paragraph--default"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Paragraph');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/paragraph',
+        storybookUrl: '/?path=/story/components-paragraph--default',
+      },
+    },
+  };
+};
 
 <LivePreview scope={{Paragraph}} language="jsx">
   {`<Paragraph>
@@ -143,28 +113,33 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
 
 <DoDont>
   <Do title="Do" body="Break content up into small paragraphs that allow users to skim the information." center>
-    <Codeblock>{`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
-  mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
-</Paragraph>
-<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
-  mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
-</Paragraph>`}
+    <Codeblock>
+      {`
+        <Paragraph>
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
+          mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
+        </Paragraph>
+        <Paragraph>
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus
+          mollis interdum. Maecenas sed diam eget risus varius blandit sit amet non magna.
+        </Paragraph>
+      `}
     </Codeblock>
   </Do>
   <Dont title="Don't" body="Don’t create overly long paragraphs that make it difficult for the reader to find information.">
-    <Codeblock>{`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
-
-</Paragraph>`}
+    <Codeblock>
+      {`
+        <Paragraph>
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          sit amet non magna. Nullam quis risus eget urna mollis ornare vel eu leo.
+        </Paragraph>
+      `}
     </Codeblock>
   </Dont>
 </DoDont>
@@ -176,14 +151,16 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
     center
   >
     <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. <a href="#">Aenean lacinia</a> bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>
-<Paragraph marginBottom="space0">
-  Donec sed odio dui. <strong>Aenean lacinia bibendum</strong> nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-</Paragraph>`}
+      {`
+        <Paragraph>
+          Donec sed odio dui. <a href="#">Aenean lacinia</a> bibendum nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+        </Paragraph>
+        <Paragraph marginBottom="space0">
+          Donec sed odio dui. <strong>Aenean lacinia bibendum</strong> nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+        </Paragraph>
+      `}
     </Codeblock>
   </Do>
   <Dont
@@ -191,69 +168,16 @@ Paragraphs should be used for most text blocks. Paragraphs provide defaults for 
     body="Don’t nest paragraphs within each other either, only inline elements should be nested within a paragraph."
   >
     <Codeblock>
-      {`<Paragraph>
-  Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-  Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  <Paragraph marginBottom="space0">
-    Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
-    Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
-  </Paragraph>
-</Paragraph>`}
+      {`
+        <Paragraph>
+          Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+          Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          <Paragraph marginBottom="space0">
+            Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+            Maecenas faucibus mollis interdum. Maecenas sed diam eget risus varius blandit
+          </Paragraph>
+        </Paragraph>
+      `}
     </Codeblock>
   </Dont>
 </DoDont>
-
-## Anatomy
-
-| Property      | Default token      | Modifiable? |
-| ------------- | ------------------ | ----------- |
-| font-size     | font-size-30       | No          |
-| line-height   | line-height-30     | No          |
-| font-weight   | font-weight-normal | No          |
-| margin-bottom | space-70           | Yes         |
-| color         | color-text         | No          |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/paragraph - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Paragraph} from '@twilio-paste/core/paragraph';
-
-const Component = () => (
-  <Paragraph>
-    We have inherited a fear of memories of slavery. It is as if to remember and acknowledge slavery would amount to our
-    being consumed by it. As a matter of fact, in the popular black imagination, it is easier for us to construct
-    ourselves as children of Africa, as the sons and daughters of kings and queens, and thereby ignore the Middle
-    Passage and centuries of enforced servitude in the Americas. Although some of us might indeed be the descendants of
-    African royalty, most of us are probably descendants of their subjects, the daughters and sons of African peasants
-    or workers.
-  </Paragraph>
-);
-```
-
-#### Props
-
-| Prop         | Type        | Default                                                                                                                                      |
-| ------------ | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| marginBottom | 'space0'    | Only allows passing 'space0' to unset the bottom margin. Useful when using Paragraph as the last child of a wrapping component, like a Card. |             |
-| children?    | `ReactNode` | null                                                                                                                                         |             |
-| element?     | `string`    | Overrides the default element name to apply unique styles with the Customization Provider                                                    | 'PARAGRAPH' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

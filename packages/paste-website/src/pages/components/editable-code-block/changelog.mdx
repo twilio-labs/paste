@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Editable CodeBlock - Changelog',
+  package: '@twilio-paste/editable-code-block',
+  description: 'An Editable Code Block is a text field that allows users to enter formatted code.',
+  slug: '/components/editable-code-block/changelog',
+};
+
+import Changelog from '@twilio-paste/editable-code-block/CHANGELOG.md';
+import packageJson from '@twilio-paste/editable-code-block/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Editable Code Block');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/editable-code-block',
+        storybookUrl: '/?path=/story/components-editable-code-block--default',
+      },
+    },
+  };
+};
+
+<Changelog />

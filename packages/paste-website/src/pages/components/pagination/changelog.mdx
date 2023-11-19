@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Pagination',
+  package: '@twilio-paste/pagination',
+  description: 'Pagination lets users navigate through content or a dataset that’s been broken up into multiple pages.',
+  slug: '/components/pagination/changelog',
+};
+
+import Changelog from '@twilio-paste/pagination/CHANGELOG.md';
+import packageJson from '@twilio-paste/pagination/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Pagination');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/pagination',
+        storybookUrl: '/?path=/story/components-pagination--arrows',
+      },
+    },
+  };
+};
+
+<Changelog />

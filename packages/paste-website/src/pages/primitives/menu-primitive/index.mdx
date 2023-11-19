@@ -1,16 +1,17 @@
----
-title: Menu - Primitives
-description: An unstyled and accessible basis upon which to build Menus.
-slug: /primitives/menu-primitive/
----
+export const meta = {
+  title: 'Menu Primitive',
+  package: '@twilio-paste/menu-primitive',
+  description: 'An unstyled and accessible basis upon which to build Menus.',
+  slug: '/primitives/menu-primitive/',
+};
 
-import {graphql} from 'gatsby';
-import {GatsbyImage} from 'gatsby-plugin-image';
+import Image from 'next/image';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Button} from '@twilio-paste/button';
 import Changelog from '@twilio-paste/menu-primitive/CHANGELOG.md';
+import packageJson from '@twilio-paste/menu-primitive/package.json';
 import {
   useMenuPrimitiveState,
   MenuPrimitive,
@@ -18,59 +19,31 @@ import {
   MenuPrimitiveButton,
   MenuPrimitiveSeparator,
 } from '@twilio-paste/menu-primitive';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {defaultExample, subMenuExample, customExample} from '../../../component-examples/MenuPrimitiveExamples';
+import MenuBar from '../../../assets/images/menu-primitive-images/menubar.png';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPastePrimitive(filter: {name: {eq: "@twilio-paste/menu-primitive"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    menuBarExample: file(
-      sourceInstanceName: {eq: "assets"}
-      relativePath: {eq: "images/menu-primitive-images/menubar.png"}
-    ) {
-      childImageSharp {
-        gatsbyImageData(layout: FULL_WIDTH)
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/primitives/menu-primitive/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Menu Primitive"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<NormalizeComponentHeader
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Menu Primitive');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<NormalizedComponentHeader
   categoryRoute={SidebarCategoryRoutes.PRIMITIVES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/primitives/menu"
   storybookUrl="/?path=/story/primitives-menu--simple-menu"
@@ -81,9 +54,23 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
+
+<LivePreview
+  scope={{
+    useMenuPrimitiveState,
+    MenuPrimitiveButton,
+    MenuPrimitive,
+    MenuPrimitiveItem,
+    MenuPrimitiveSeparator,
+  }}
+  noInline
+  showOverflow
+>
+  {defaultExample}
+</LivePreview>
 
 ## Guidelines
 
@@ -95,8 +82,8 @@ The purpose of providing these unstyled primitives is to cater for instances whe
 
 This primitive should be used to compose all custom menus to ensure accessibility and upgrade paths.
 
-<Callout variant="warning">
-  <CalloutTitle as="h3">Before you roll your own menus...</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h3">Before you roll your own menus...</CalloutHeading>
   <CalloutText>
     We strongly suggest that all components built on top of this primitive get reviewed by the Design Systems team and
     go through the UX Review process to ensure an excellent experience for our customers.
@@ -174,14 +161,16 @@ This package is a wrapper around the [Reakit Menu](https://reakit.io/docs/menu/)
 - We can control when to provide an update and which versions we allow, to help reduce potential bugs our consumers may face.
 - We can control which APIs we expose. For example, we may chose to enable or disable usage of certain undocumented APIs.
 
-<Callout>
-  <CalloutTitle as="h3">We've chosen not to include MenuBar for now</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">We've chosen not to include MenuBar for now</CalloutHeading>
   <CalloutText>
     Reakit includes a menubar which we are not exposing. The reason being is that a menubar is directly aligned to the
     desktop software menubar you see at the top of your screen. These have limited use cases on the web unless you're
     building a desktop replacement like Figma or Google Docs. We may reconsider this in the future if we see a good use
     for this.
-    <GatsbyImage image={props.data.menuBarExample.childImageSharp.gatsbyImageData} />
+    <Box display="flex" justifyContent="center">
+      <Image src={MenuBar} placeholder="blur" style={{height: '100%', maxWidth: '100%'}} />
+    </Box>
   </CalloutText>
 </Callout>
 
@@ -190,7 +179,7 @@ This package is a wrapper around the [Reakit Menu](https://reakit.io/docs/menu/)
 #### Installation
 
 ```bash
-yarn add @twilio-paste/menu-primitve - or - yarn add @twilio-paste/core
+yarn add @twilio-paste/menu-primitive - or - yarn add @twilio-paste/core
 ```
 
 #### Props

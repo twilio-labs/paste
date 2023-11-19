@@ -1,0 +1,317 @@
+export const meta = {
+  title: 'File Uploader',
+  package: '@twilio-paste/file-uploader',
+  description: 'A File Uploader is a form element used to upload multiple files.',
+  slug: '/components/file-uploader/',
+};
+
+import {
+  FileUploader,
+  FileUploaderLabel,
+  FileUploaderHelpText,
+  FileUploaderDropzone,
+  FileUploaderDropzoneText,
+  FileUploaderItemsList,
+  FileUploaderItem,
+  FileUploaderErrorText,
+  FileUploaderItemTitle,
+  FileUploaderItemDescription,
+} from '@twilio-paste/file-uploader';
+import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
+import snakeCase from 'lodash/snakeCase';
+import {ScreenReaderOnly} from '@twilio-paste/screen-reader-only';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultFileUploader,
+  requiredFileUploader,
+  disabledFileUploader,
+  loadingFileUploader,
+  errorFileUploader,
+  dragDropExample,
+} from '../../../component-examples/FileUploaderExamples.ts';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import packageJson from '@twilio-paste/file-uploader/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('File Uploader');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/file-uploader',
+        storybookUrl: '/?path=/story/components-file-uploader--default',
+      },
+    },
+  };
+};
+
+<LivePreview
+  scope={{
+    DownloadIcon,
+    FileUploader,
+    FileUploaderLabel,
+    FileUploaderHelpText,
+    FileUploaderDropzone,
+    FileUploaderDropzoneText,
+    FileUploaderItemsList,
+    FileUploaderItem,
+    FileUploaderItemTitle,
+    FileUploaderItemDescription,
+  }}
+  language="jsx"
+  noInline
+>
+  {requiredFileUploader}
+</LivePreview>
+
+## Guidelines
+
+### About File Uploader
+
+A File Uploader is a form element that can trigger a file browser or accept drag-and-drop attachments. It can accept multiple attachments. The package consists of an associated label (`FileUploaderLabel`), help text (`FileUploaderInfo`), the dropzone (`FileUploaderDropzone`), and cards for each uploaded attachment (`FileUploaderItem`).
+
+### Accessibility
+
+- The File Uploader should always use `FileUploaderLabel` to ensure it has an associated label.
+- The only tab stop in the File Uploader is the visually hidden input within the dropzone. The “Enter” and “Space” keys open the file selector.
+- Use an accessible option for drag and drop implementation. See the Drag and drop section below for more guidance.
+
+### File Uploader vs. File Picker
+
+[File Picker](/components/file-picker) is another form component that, like File Uploader, allows the user to upload an attachment. There are a few key differences between the two components. File Uploader is more dynamic than File Picker – it allows multiple attachments and all of them are removable by the user. File Picker allows the user to upload only one file at a time with no way to clear the selection if a file has already been uploaded (besides selecting a new file). Because File Uploader has the ability to display loading and real-time error states, it’s a safer bet than File Picker for complex or potentially risky user flows.
+
+Visually, File Picker is much more compact than the File Uploader, so it will fit snugly into your form UI, and won’t stand out as much as File Uploader, which takes up more vertical and horizontal space.
+
+### Drag and drop functionality
+
+The File Uploader doesn’t come with drag and drop functionality built into the dropzone. When implementing drag and drop, please use an option that provides full keyboard, screen reader, and mouse capabilities. One highly recommended option is [React Aria](https://react-spectrum.adobe.com/react-aria/dnd.html).
+
+There are various drag and drop technologies that don’t include accessible solutions (like [ReactDnD](https://github.com/react-dnd/react-dnd/issues/3310), for example) so please take the time to ensure the accessibility of your implementation. For more information on drag and drop accessibility, read the WCAG guidelines.
+
+See the example below for an implementation that uses plain JavaScript.
+
+<LivePreview
+  scope={{
+    snakeCase,
+    DownloadIcon,
+    FileUploader,
+    FileUploaderLabel,
+    FileUploaderHelpText,
+    FileUploaderDropzone,
+    FileUploaderDropzoneText,
+    FileUploaderItemsList,
+    FileUploaderItem,
+    FileUploaderItemTitle,
+    FileUploaderItemDescription,
+    ScreenReaderOnly,
+  }}
+  language="jsx"
+  noInline
+>
+  {dragDropExample}
+</LivePreview>
+
+## Examples
+
+### Default File Uploader
+
+Use a default File Uploader when your user needs to upload any number of files.
+
+<LivePreview
+  scope={{
+    DownloadIcon,
+    FileUploader,
+    FileUploaderLabel,
+    FileUploaderHelpText,
+    FileUploaderDropzone,
+    FileUploaderDropzoneText,
+    FileUploaderItemsList,
+    FileUploaderItem,
+    FileUploaderItemTitle,
+    FileUploaderItemDescription,
+  }}
+  language="jsx"
+  noInline
+>
+  {defaultFileUploader}
+</LivePreview>
+
+### Required File Uploader
+
+<LivePreview
+  scope={{
+    DownloadIcon,
+    FileUploader,
+    FileUploaderLabel,
+    FileUploaderHelpText,
+    FileUploaderDropzone,
+    FileUploaderDropzoneText,
+    FileUploaderItemsList,
+    FileUploaderItem,
+    FileUploaderItemTitle,
+    FileUploaderItemDescription,
+  }}
+  language="jsx"
+  noInline
+>
+  {requiredFileUploader}
+</LivePreview>
+
+## States
+
+### Disabled File Uploader
+
+Use a disabled File Uploader to show users that they can’t interact with the component.
+
+<LivePreview
+  scope={{
+    FileUploader,
+    FileUploaderLabel,
+    FileUploaderHelpText,
+    FileUploaderDropzone,
+    FileUploaderDropzoneText,
+  }}
+  language="jsx"
+  noInline
+>
+  {disabledFileUploader}
+</LivePreview>
+
+### Loading File Uploader
+
+Use the loading state of FileUploaderItem so the user doesn’t move on before their action is complete or while the upload might still fail.
+
+<LivePreview
+  scope={{
+    DownloadIcon,
+    FileUploader,
+    FileUploaderLabel,
+    FileUploaderHelpText,
+    FileUploaderDropzone,
+    FileUploaderDropzoneText,
+    FileUploaderItemsList,
+    FileUploaderItem,
+    FileUploaderItemTitle,
+    FileUploaderItemDescription,
+  }}
+  language="jsx"
+  noInline
+>
+  {loadingFileUploader}
+</LivePreview>
+
+### Error File Uploader
+
+If an upload fails or doesn’t meet the acceptable criteria, use the File Uploader in its error state. The user will still be able to upload files. Be sure to also display the failed FileUploaderAttachmentItem in its error state so the user knows where to direct their attention. See composition notes below for guidance around error state copy.
+
+<LivePreview
+  scope={{
+    DownloadIcon,
+    FileUploader,
+    FileUploaderLabel,
+    FileUploaderHelpText,
+    FileUploaderErrorText,
+    FileUploaderDropzone,
+    FileUploaderDropzoneText,
+    FileUploaderItemsList,
+    FileUploaderItem,
+    FileUploaderItemTitle,
+    FileUploaderItemDescription,
+  }}
+  language="jsx"
+  noInline
+>
+  {errorFileUploader}
+</LivePreview>
+
+## Composition notes
+
+### File Uploader Label
+
+Always include a Label with the File Uploader. Labels should clearly describe the file(s) being requested. They should be concise and descriptive, not instructional.
+
+- Use File Uploader Info as help text to provide instruction if needed. For example, don't use "Upload an image in the form of a jpeg or png" as label text. Instead, use "Profile photo" as a label and "Upload an image file" as help text.
+- Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
+
+### File Uploader Help Text
+
+File limitations should be communicated to the user up front to help avoid errors, like uploading an incompatible file type or one that’s too large.
+
+Make each limitation its own sentence. Use positive framing to clearly communicate limitations to the user:
+
+| Requirements    | Recommended phrasing                          |
+| --------------- | --------------------------------------------- |
+| File type       | You can upload [x], [x] and [x] file formats. |
+| File size       | Files can be up to [file limit].              |
+| Number of files | You can upload up to [max #] files.           |
+
+### File Uploader Item
+
+Using the `FileUploaderItem` with your File Uploader will allow users to receive instant feedback on progress of the file upload.
+
+Truncate the file name in the middle if it’s too long.
+
+Include description text that communicates when it’s uploading, when it’s successful, or when it fails (and why). If the delete action is destructive, consider using [the Delete pattern](/patterns/delete) for communicating the severity.
+
+| Requirements   | Recommended phrasing                  |
+| -------------- | ------------------------------------- |
+| File uploading | Uploading...                          |
+| File size      | _Display the file size_ (e.g., 15 MB) |
+
+In the case of an upload error, the card displaying the failed file should be in error state and include an error message that clearly communicates why it wasn’t uploaded. These error types may include invalid file type or file over the file size limit. We recommend the following phrasing:
+
+| Status                                                                                         | Recommended phrasing                                                                              |
+| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| Invalid file type                                                                              | This file is not an accepted format. You can upload [x], [x] and [x] file formats.                |
+| Exceeds file size limit                                                                        | This file size is too big. You can upload files up to [file limit].                               |
+| Network errors (internet connection dropped while uploading, request timeout, service is down) | Something went wrong with the network. Check your internet connection, then try again.            |
+| Too many uploads in a certain amount of time                                                   | We couldn’t upload so many files so quickly. Try uploading files more slowly, or try again later. |
+| Generic (encountered an internal error)                                                        | Something went wrong. Try uploading your files again.                                             |
+
+Note: be sure to also put the File Uploader in error state and include an error message underneath the FileUploaderDropzone in the case of an upload failure. This will ensure the user notices the failed File Uploader Item, even if it’s at the bottom of a long list of attachments.
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+### When to use File Uploader
+
+<DoDont>
+  <Do title="Do" body="Use a File Uploader when you need users to upload multiple files." />
+  <Dont
+    title="Don't"
+    body="Use File Uploader for a single file upload if you’re tight on UI space – use File Picker instead."
+  />
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Always include a label with the File Uploader (use the FileUploaderLabel)." />
+  <Dont title="Don't" body="Use FileUploader without FileUploaderLabel." />
+</DoDont>
+<DoDont>
+  <Do
+    title="Do"
+    body="Be sure to communicate to your user when a file is still uploading using the loading state for the FileUploaderItem."
+  />
+  <Dont
+    title="Don't"
+    body="Let users remove uploaded files that may be destructive actions without a warning – instead use the Delete Pattern."
+  />
+</DoDont>
+<DoDont>
+  <Do title="Do" body="Use descriptive help and error text to communicate the types of files that are allowed." />
+  <Dont
+    title="Don't"
+    body="Display a FileUploaderItem
+     in error state without putting the FileUploader itself into error state and providing a helpful error message."
+  />
+</DoDont>

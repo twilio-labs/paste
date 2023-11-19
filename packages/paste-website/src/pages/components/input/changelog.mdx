@@ -1,0 +1,36 @@
+export const meta = {
+  title: 'Input - Components',
+  package: '@twilio-paste/input',
+  description: 'An input allows users to enter text on a single line.',
+  slug: '/components/input/changelog',
+};
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import Changelog from '@twilio-paste/input/CHANGELOG.md';
+import packageJson from '@twilio-paste/input/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Input');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/input',
+        storybookUrl: '/?path=/story/components-input--default-input',
+      },
+    },
+  };
+};
+
+<Changelog />

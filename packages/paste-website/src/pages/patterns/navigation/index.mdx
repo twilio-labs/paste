@@ -1,0 +1,617 @@
+export const meta = {
+  title: 'Navigation',
+  description:
+    'The Navigation pattern structures the main navigation bars, Sidebar and Topbar, in a unified way across customer experiences.',
+  slug: '/patterns/navigation/',
+};
+
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import {Anchor} from '@twilio-paste/anchor';
+import {Box} from '@twilio-paste/box';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import NavigationPattern from '../../../assets/images/patterns/navigation-pattern.png';
+import NavigationWireframe from '../../../assets/images/patterns/navigation-wireframe.png';
+import NavigationTopbar from '../../../assets/images/patterns/navigation-topbar.png';
+import NavigationSidebar from '../../../assets/images/patterns/navigation-sidebar.png';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Navigation');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+<ResponsiveImage src={NavigationPattern} aria-hidden="true" alt="" />
+
+## Usage
+
+### General
+
+The Navigation pattern structures common elements found in Twilio products to provide customers a cohesive, expected way to find what they’re looking for. Applying this pattern across all our experiences also makes the Twilio product suite feel and behave like one family of products.
+
+### What’s a product, experience, or feature?
+
+- **Products** or **product platforms**: Twilio Console, Flex, Segment, and SendGrid.
+- **Experiences**: All the products above, as well as Twilio Docs and internal tools.
+- **Product features**: Something with a distinct Twilio name (e.g., Voice, Engage) or groups of task-based features (e.g., Queue stats, Insights)
+- **Product-wide features**: Controls that apply to the entire product, like search, support, and user settings.
+
+These are different from Twilio’s internal definition of these terms, but are used in these guidelines for simplicity.
+
+### What’s an account, workspace, or user?
+
+At Twilio, we define accounts, users, and workspaces as:
+
+- **Account**: In Twilio Console, a group of resources that are administered and billed together. Similar to workspaces in Segment. [Read more about accounts.](https://support.twilio.com/hc/en-us/articles/360011132374-Getting-Started-with-Twilio-Accounts-and-Subaccounts)
+- **Workspace**: In Segment, a group of sources that are administered and billed together. Similar to accounts in Twilio Console. [Read more about workspaces.](https://segment.com/docs/guides/#whats-a-workspace)
+- **User**: A person with a login. Users can have access to multiple accounts or workspaces.
+
+### Layout and composition
+
+To decide where to place new navigation elements, use these general principles:
+
+- The **Sidebar** is where customers navigate between product features using [Sidebar Navigation](/components/sidebar-navigation) and where they can control the Sidebar's visibility.
+- The **left side of the Topbar** is where customers navigate to account or workspace controls.
+- The **right side of the Topbar** is where customers find product- or experience-wide features, like search, [Product Switcher](/components/product-switcher), and [User Dialog](/components/user-dialog).
+- **Navigating within a product feature** should be handled at the page-level, with components like [In-Page Navigation](/components/in-page-navigation) and [Breadcrumb](/components/breadcrumb).
+
+<ResponsiveImage src={NavigationWireframe} aria-hidden="true" alt="" />
+
+### Accessibility
+
+The Sidebar and Topbar navigation components have the following considerations:
+
+- Ensure the [Skip links](https://www.w3.org/TR/UNDERSTANDING-WCAG20/navigation-mechanisms-skip.html) are [correctly implemented](/components/sidebar#skip-links). This ensures users can easily and quickly access the main content of a web page by bypassing repeated blocks of content such as navigation links.
+- Ensure the `SidebarNavigation` component is labelled with an accessible name.
+
+## Ingredients
+
+### Topbar ingredients
+
+<ResponsiveImage src={NavigationTopbar} aria-hidden="true" alt="" />
+
+- [Topbar](/components/topbar)
+- [Account Switcher](/components/account-switcher)
+- [Anchor](/components/anchor)
+- [Badge](/components/badge)
+- [Combobox](/components/combobox)
+- [Icons](/components/icon), particularly `ChevronDownIcon`, `SearchIcon`, `SupportIcon`, `UserIcon`
+- [Menu](/components/menu)
+- [Product Switcher](/components/product-switcher)
+- [Status Menu](/components/status-menu)
+- [User Dialog](/components/user-dialog)
+
+### Sidebar ingredients
+
+<ResponsiveImage src={NavigationSidebar} aria-hidden="true" alt="" />
+
+- [Sidebar container](/components/sidebar)
+- [Sidebar Navigation](/components/sidebar-navigation)
+- [Icons](/components/icon), mainly product and feature logo icons
+
+## Examples
+
+### Product-agnostic
+
+<StoryPreview
+  title="Generic docs full composition"
+  storyID="components-sidebar-fullcompositions--docs"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={pushSidebarCollapsed}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Twilio Docs homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Docs</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+    <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
+      <SidebarNavigationItem href="https://google.com" selected>
+        Twilio CLI
+      </SidebarNavigationItem>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading>Examples</SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading>General usage</SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading>Getting started</SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationItem href="https://google.com">Plugins</SidebarNavigationItem>
+      <SidebarNavigationItem href="https://google.com">Quick start</SidebarNavigationItem>
+      <SidebarNavigationItem href="https://google.com">Uninstall</SidebarNavigationItem>
+    </SidebarNavigation>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+
+<SidebarPushContentWrapper collapsed={pushSidebarCollapsed} variant="compact">
+  <Topbar id={topbarSkipLinkID}>
+    <TopbarActions justify="start">
+      <InPageNavigation aria-label="Product" marginBottom="space0">
+        <InPageNavigationItem href="#" currentPage>
+          Messaging
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#">Voice</InPageNavigationItem>
+        <InPageNavigationItem href="#">Serverless</InPageNavigationItem>
+        <InPageNavigationItem href="#">Video</InPageNavigationItem>
+        <InPageNavigationItem href="#">Studio</InPageNavigationItem>
+      </InPageNavigation>
+    </TopbarActions>
+    <TopbarActions justify="end">
+      <SearchBox />
+      <Box
+        as="a"
+        href="#"
+        color="colorText"
+        textDecoration="none"
+        fontWeight="fontWeightMedium"
+        _hover={{textDecoration: 'underline'}}
+      >
+        Log in
+      </Box>
+      <Box
+        as="a"
+        href="#"
+        color="colorText"
+        textDecoration="none"
+        fontWeight="fontWeightMedium"
+        _hover={{textDecoration: 'underline'}}
+      >
+        Sign up
+      </Box>
+    </TopbarActions>
+  </Topbar>
+  <Box padding="space70" id={mainContentSkipLinkID}>
+    <Button variant="primary" onClick={() => setPushSidebarCollapsed(!pushSidebarCollapsed)}>
+      Toggle Push Sidebar
+    </Button>
+  </Box>
+</SidebarPushContentWrapper>
+`} />
+
+<Box marginBottom="space70">
+  <Callout variant="neutral">
+    <CalloutHeading as="h3">Do you work on a Twilio product platform team?</CalloutHeading>
+    <CalloutText>
+      Navigation and information architecture are ever-evolving. Collaborate with us on defining more specific
+      guidelines for your product by{' '}
+      <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+        starting a GitHub Discussion
+      </Anchor>
+      .
+    </CalloutText>
+  </Callout>
+</Box>
+
+### Flex
+
+<StoryPreview
+  title="Flex full composition"
+  storyID="components-sidebar-fullcompositions--flex"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={collapsed}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <ProductFlexIcon size="sizeIcon20" decorative={false} title="Go to Flex homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Flex</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+    <SidebarNavigation aria-label={id}>
+      <SidebarNavigationItem
+        href="https://google.com"
+        selected
+        icon={<ProductContactCenterAdminIcon decorative={false} title="Admin" />}
+      >
+        Admin
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductContactCenterTasksIcon decorative={false} title="Agent dashboard" />}
+      >
+        Agent dashboard
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductContactCenterTeamsIcon decorative={false} title="Teams view" />}
+      >
+        Teams view
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductContactCenterQueuesIcon decorative={false} title="Queue stats" />}
+      >
+        Queue stats
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductPrivacyIcon decorative={false} title="Privacy" />}
+      >
+        Privacy
+      </SidebarNavigationItem>
+      <SidebarNavigationItem
+        href="https://google.com"
+        icon={<ProductUsageIcon decorative={false} title="Insights" />}
+      >
+        Insights
+      </SidebarNavigationItem>
+    </SidebarNavigation>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      onClick={() => setCollapsed(!collapsed)}
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+
+<SidebarOverlayContentWrapper collapsed={collapsed} variant="compact">
+  <Topbar id={topbarSkipLinkID}>
+    <TopbarActions justify="start">
+      <StatusMenuExample />
+    </TopbarActions>
+    <TopbarActions justify="end">
+      <SupportMenu />
+      <DebuggerAction />
+      <AppSwitcher />
+      <UserDialogExample />
+    </TopbarActions>
+  </Topbar>
+  <Box padding="space70" id={mainContentSkipLinkID}>
+    <Button variant="primary" onClick={() => setCollapsed(!collapsed)}>
+      Toggle Overlay Sidebar
+    </Button>
+  </Box>
+</SidebarOverlayContentWrapper>
+`} />
+
+### Segment
+
+<StoryPreview
+  title="Flex full composition"
+  storyID="components-sidebar-fullcompositions--segment"
+  code={`
+<Sidebar
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+  collapsed={collapsed}
+  variant="compact"
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <ProductSegmentIcon size="sizeIcon20" decorative={false} title="Go to Segment homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Segment</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+    <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
+      <SidebarNavigationItem href="https://google.com" icon={<ProductHomeIcon decorative />}>
+        Home
+      </SidebarNavigationItem>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductConnectionsIcon decorative />} selected>
+            Connections
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com" selected>
+            Overview
+          </SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductReverseETLIcon decorative />}>
+            Reverse ETL
+          </SidebarNavigationDisclosureHeading>
+          <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductPrivacyIcon decorative />}>
+            Privacy
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductProtocolsIcon decorative />}>
+            Protocols
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductEngageIcon decorative />}>
+            Enagage
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductSettingsIcon decorative />}>
+            Settings
+          </SidebarNavigationDisclosureHeading>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+    </SidebarNavigation>
+  </SidebarBody>
+  <SidebarFooter>
+    <SidebarCollapseButton
+      onClick={() => setCollapsed(!collapsed)}
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+
+<SidebarPushContentWrapper collapsed={collapsed} variant="compact">
+  <Topbar id={topbarSkipLinkID}>
+    <TopbarActions justify="start">
+      <WorkspaceSwitcherMenu />
+      <UpgradeBadge />
+    </TopbarActions>
+    <TopbarActions justify="end">
+      <SearchBox />
+      <SupportMenu />
+      <NotificationsDialog />
+      <AppSwitcher />
+      <UserDialogExample />
+    </TopbarActions>
+  </Topbar>
+  <Box padding="space70" id={mainContentSkipLinkID}>
+    <Button variant="primary" onClick={() => setCollapsed(!collapsed)}>
+      Toggle Push Sidebar
+    </Button>
+  </Box>
+</SidebarPushContentWrapper>
+`} />
+
+### Twilio Console
+
+<StoryPreview
+  title="Flex full composition"
+  storyID="components-sidebar-fullcompositions--console"
+  code={`
+<Sidebar
+  collapsed={collapsed}
+  variant="compact"
+  sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
+  topbarSkipLinkID={topbarSkipLinkID}
+  mainContentSkipLinkID={mainContentSkipLinkID}
+>
+  <SidebarHeader>
+    <SidebarHeaderIconButton as="a" href="#">
+      <LogoTwilioIcon size="sizeIcon20" decorative={false} title="Go to Console homepage" />
+    </SidebarHeaderIconButton>
+    <SidebarHeaderLabel>Twilio Console</SidebarHeaderLabel>
+  </SidebarHeader>
+  <SidebarBody>
+    <SidebarNavigation aria-label={id} hierarchical hideItemsOnCollapse>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductMessagingIcon decorative />} selected>
+            Messaging
+          </SidebarNavigationDisclosureHeading>
+          <MenuButton {...menu} variant="inverse_link" size="icon_small">
+            <MoreIcon decorative={false} title="More" />
+          </MenuButton>
+          <Menu {...menu} aria-label="Preferences">
+            <MenuItem {...menu} onClick={onClick}>
+              Unpin from sidebar
+            </MenuItem>
+            <MenuItem {...menu} href="http://www.google.com">
+              Go to docs
+            </MenuItem>
+          </Menu>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+          <SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureHeading selected>Try it out</SidebarNavigationDisclosureHeading>
+            </SidebarNavigationDisclosureHeadingWrapper>
+            <SidebarNavigationDisclosureContent>
+              <SidebarNavigationItem href="https://google.com">Send an SMS</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com" selected>
+                Send a Whatsapp message
+              </SidebarNavigationItem>
+            </SidebarNavigationDisclosureContent>
+          </SidebarNavigationDisclosure>
+          <SidebarNavigationItem href="https://google.com">Services</SidebarNavigationItem>
+          <SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureHeading>Senders</SidebarNavigationDisclosureHeading>
+              <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+            </SidebarNavigationDisclosureHeadingWrapper>
+            <SidebarNavigationDisclosureContent>
+              <SidebarNavigationItem href="https://google.com">Addons</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+            </SidebarNavigationDisclosureContent>
+          </SidebarNavigationDisclosure>
+          <SidebarNavigationDisclosure>
+            <SidebarNavigationDisclosureHeadingWrapper>
+              <SidebarNavigationDisclosureHeading>Settings</SidebarNavigationDisclosureHeading>
+            </SidebarNavigationDisclosureHeadingWrapper>
+            <SidebarNavigationDisclosureContent>
+              <SidebarNavigationItem href="#">
+                Addons <SidebarBetaBadge as="span">Beta</SidebarBetaBadge>
+              </SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+              <SidebarNavigationItem href="https://google.com">Navigation Item</SidebarNavigationItem>
+            </SidebarNavigationDisclosureContent>
+          </SidebarNavigationDisclosure>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductLookupIcon decorative />}>
+            Lookup
+          </SidebarNavigationDisclosureHeading>
+          <MenuButton {...menuLookup} variant="inverse_link" size="icon_small">
+            <MoreIcon decorative={false} title="More" />
+          </MenuButton>
+          <Menu {...menuLookup} aria-label="Preferences">
+            <MenuItem {...menuLookup} onClick={onClick}>
+              Unpin from sidebar
+            </MenuItem>
+            <MenuItem {...menuLookup} href="http://www.google.com">
+              Go to docs
+            </MenuItem>
+          </Menu>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Lookup a phone number</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationSeparator />
+      <SidebarNavigationDisclosure>
+        <SidebarNavigationDisclosureHeadingWrapper>
+          <SidebarNavigationDisclosureHeading icon={<ProductVideoIcon decorative />}>
+            Video
+          </SidebarNavigationDisclosureHeading>
+          <MenuButton {...menuVideo} variant="inverse_link" size="icon_small">
+            <MoreIcon decorative={false} title="More" />
+          </MenuButton>
+          <Menu {...menuVideo} aria-label="Preferences">
+            <MenuItem {...menuVideo} onClick={onClick}>
+              Unpin from sidebar
+            </MenuItem>
+            <MenuItem {...menuVideo} href="http://www.google.com">
+              Go to docs
+            </MenuItem>
+          </Menu>
+        </SidebarNavigationDisclosureHeadingWrapper>
+        <SidebarNavigationDisclosureContent>
+          <SidebarNavigationItem href="https://google.com">Overview</SidebarNavigationItem>
+        </SidebarNavigationDisclosureContent>
+        <SidebarNavigationSeparator />
+      </SidebarNavigationDisclosure>
+      <SidebarNavigationItem href="https://google.com">
+        Explore products <PlusIcon decorative />
+      </SidebarNavigationItem>
+    </SidebarNavigation>
+  </SidebarBody>
+
+  <SidebarFooter>
+    <SidebarCollapseButton
+      onClick={() => setCollapsed(!collapsed)}
+      i18nCollapseLabel="Close sidebar"
+      i18nExpandLabel="Open sidebar"
+    />
+  </SidebarFooter>
+</Sidebar>
+
+<SidebarPushContentWrapper collapsed={collapsed} variant="compact">
+  <Topbar id={topbarSkipLinkID}>
+    <TopbarActions justify="start">
+      <AccountSwitcherMenu />
+      <TrialBadge />
+    </TopbarActions>
+    <TopbarActions justify="end">
+      <SearchBox />
+      <AccountMenu />
+      <BillingMenu />
+      <SupportMenu />
+      <AppSwitcher />
+      <UserDialogExample />
+    </TopbarActions>
+  </Topbar>
+  <Box padding="space70" id={mainContentSkipLinkID}>
+    <Button variant="primary" onClick={() => setCollapsed(!collapsed)}>
+      Toggle Push Sidebar
+    </Button>
+  </Box>
+</SidebarPushContentWrapper>
+`} />
+
+## Starter kits
+
+- [Figma](https://www.figma.com/file/l2qtpQVMmXzQPVB3rEAA8i/%5BNEW%5D-Paste-Components?type=design&node-id=27837-187276&mode=design)
+- Paste prototyping kit (update coming soon)
+
+</content>
+
+</contentwrapper>

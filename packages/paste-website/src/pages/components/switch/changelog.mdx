@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Switch - Changelog',
+  package: '@twilio-paste/switch',
+  description: 'A Switch is an interactive binary control.',
+  slug: '/components/switch/changelog',
+};
+
+import Changelog from '@twilio-paste/switch/CHANGELOG.md';
+import packageJson from '@twilio-paste/switch/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Switch');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/switch',
+        storybookUrl: '/?path=/story/components-switch--default-switch',
+      },
+    },
+  };
+};
+
+<Changelog />

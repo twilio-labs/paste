@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/clipboard-copy-library",
-  "version": "1.0.3",
+  "version": "3.0.0",
   "category": "library",
   "status": "production",
   "description": "A library that allows the user to copy text with the click of a button.",
@@ -20,7 +20,6 @@
   "scripts": {
     "build": "yarn clean && NODE_ENV=production node build.js && tsc",
     "build:js": "NODE_ENV=development node build.js",
-    "build:props": "typedoc --tsconfig ./tsconfig.json --json ./dist/prop-types.json",
     "clean": "rm -rf ./dist",
     "tsc": "tsc"
   },
@@ -28,11 +27,11 @@
     "use-clipboard-copy": "0.2.0"
   },
   "peerDependencies": {
-    "react": "^16.8.6 || ^17.0.2",
-    "react-dom": "^16.8.6 || ^17.0.2"
+    "react": "^16.8.6 || ^17.0.2 || ^18.0.0",
+    "react-dom": "^16.8.6 || ^17.0.2 || ^18.0.0"
   },
   "devDependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   }
 }

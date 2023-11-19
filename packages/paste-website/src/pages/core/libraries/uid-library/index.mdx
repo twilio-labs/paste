@@ -1,45 +1,45 @@
----
-title: UID Library
-description: Generates unique identifiers for HTML and JS
-slug: /core/libraries/uid-library/
----
+export const meta = {
+  title: 'UID Library',
+  package: '@twilio-paste/uid-library',
+  description: 'Generates unique identifiers for HTML and JS',
+  slug: '/core/libraries/uid-library/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
-import PackageJSON from '@twilio-paste/uid-library/package.json';
+import packageJson from '@twilio-paste/uid-library/package.json';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SidebarCategoryRoutes} from '../../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {getNavigationData} from '../../../../utils/api';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/core/libraries/uid-library/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<ComponentHeader
-  name="UID Library"
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      data: {
+        ...packageJson,
+      },
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader
+  name={meta.title}
   categoryRoute={SidebarCategoryRoutes.LIBRARIES}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-libraries/uid"
   storybookUrl="/?path=/story/libraries-uid"
-  packageName={PackageJSON.name}
-  version={PackageJSON.version}
-  description={PackageJSON.description}
+  packageName={props.data.name}
+  version={props.data.version}
+  description={props.data.description}
 />
 
 ---
 
 <contentwrapper>
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 <content>
 
 ## Guidelines
@@ -56,7 +56,7 @@ Here's what could happen without unique IDs:
 
 <iframe
   src="https://codesandbox.io/embed/blue-http-xqqo4?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:310px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '310px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="blue-http-xqqo4"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -105,7 +105,7 @@ This is a React Hook to generate a UID.
 
 <iframe
   src="https://codesandbox.io/embed/happy-bush-ued0c?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:310px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '310px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="useUID example"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -119,7 +119,7 @@ This React Hook creates a seed from which you can generate several UIDs. It's ha
 
 <iframe
   src="https://codesandbox.io/embed/useuidseed-example-p0sxb?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:310px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '310px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="useUIDSeed example"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -129,7 +129,7 @@ This React Hook creates a seed from which you can generate several UIDs. It's ha
 
 #### UIDFork Component
 
-<Callout>
+<Callout variant="neutral" marginY="space70">
   <CalloutText>This is only needed for lazy-loaded or code-split chunks.</CalloutText>
 </Callout>
 
@@ -141,8 +141,8 @@ to garantee there isn't any collisions.
 
 #### uid(item, index)
 
-<Callout variant="warning">
-  <CalloutTitle>Don't use this API in React Components</CalloutTitle>
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h3">Don't use this API in React Components</CalloutHeading>
   <CalloutText>
     Prefer using the other React Hooks (useUID or useUIDSeed) in React components. They are Server Side Rendering (SSR)
     compatible and the recommended future-proof API.
@@ -156,7 +156,7 @@ We provide this export for quick UID generation in utility files.
 
 <iframe
   src="https://codesandbox.io/embed/uid-example-s35fo?fontsize=14&hidenavigation=1&theme=dark"
-  style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+  style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
   title="uid Example"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"

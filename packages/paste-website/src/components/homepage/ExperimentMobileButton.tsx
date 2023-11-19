@@ -1,14 +1,13 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Button} from '@twilio-paste/button';
+import { Box } from "@twilio-paste/box";
+import { Button } from "@twilio-paste/button";
 
-const ExperimentMobileButton: React.FC = () => {
+const ExperimentMobileButton = (): JSX.Element => {
   return (
     <>
       <Box
         alignItems="center"
         backgroundColor="colorBackgroundBody"
-        display={['flex', 'none']}
+        display={["flex", "none"]}
         justifyContent="center"
         position="absolute"
         top={0}
@@ -19,7 +18,7 @@ const ExperimentMobileButton: React.FC = () => {
       />
       <Box
         alignItems="center"
-        display={['flex', 'none']}
+        display={["flex", "none"]}
         justifyContent="center"
         position="absolute"
         top={0}
@@ -35,4 +34,4 @@ const ExperimentMobileButton: React.FC = () => {
   );
 };
 
-export {ExperimentMobileButton};
+export { ExperimentMobileButton };

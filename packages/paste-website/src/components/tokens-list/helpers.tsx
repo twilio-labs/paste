@@ -1,70 +1,81 @@
-/* eslint-disable react/react-in-jsx-scope */
-import {trackCustomEvent} from 'gatsby-plugin-google-analytics';
-import type {ThemeVariants} from '@twilio-paste/theme';
-import type {TokenCategory, TokensListProps} from './types';
-import {Callout, CalloutTitle, CalloutText} from '../callout';
+import type { Properties } from "csstype";
+import debounce from "lodash/debounce";
 
-import debounce from 'lodash/debounce';
+import { event } from "../../lib/gtag";
+import type { Token, TokenExampleColors, Tokens, TokensShape } from "./types";
 
 export const trackTokenFilterString = debounce((filter: string): void => {
-  if (filter !== '') {
-    trackCustomEvent({
-      category: 'Design Tokens',
-      action: 'filter',
+  if (filter !== "") {
+    event({
+      category: "Design Tokens",
+      action: "filter",
       label: filter,
     });
   }
 }, 500);
 
-const filterDeprecatedTokens = (tokens: TokenCategory[]): TokenCategory[] => {
-  return tokens.map((category) => {
-    return {...category, tokens: [...category.tokens.filter((token) => !token.deprecated)]};
-  });
-};
+function sanitizeForSearch(filterString: string): string {
+  /*
+   * Remove space and `-` characters
+   * Lowercases
+   */
+  return filterString.replace(/[\s-]+/g, "").toLowerCase();
+}
 
-export const getTokensByTheme = (props: TokensListProps, theme: ThemeVariants): TokenCategory[] => {
-  const unfilteredTokensBasedOnTheme =
-    theme === 'default' ? props.defaultTokens[0].node.tokens : props.darkTokens[0].node.tokens;
-  let tokens = [] as TokenCategory[];
+export const filterTokenList = (filterString: string, tokens: Tokens): Partial<Tokens> | null => {
+  const sanitizedFilterString = sanitizeForSearch(filterString);
+  const categories = Object.keys(tokens);
 
-  if (unfilteredTokensBasedOnTheme != null) {
-    tokens = filterDeprecatedTokens(unfilteredTokensBasedOnTheme);
-  }
+  let newTokens: Partial<Tokens> | null = null;
 
-  const fontSize = tokens.find((ele) => ele.categoryName === 'font-sizes');
-  if (fontSize) {
-    fontSize.info = (
-      <Callout>
-        <CalloutTitle as="h4">Heads up about font sizes in Paste!</CalloutTitle>
-        <CalloutText>
-          Font-sizes in our Paste tokens use rem values. Unlike em values which are relative to their parent element,
-          rem values are relative to the html element. If you aren&apos;t using the Theme.Provider component, you must
-          set font-size: 100%; on your page&apos;s html tag for the font-sizes to be sized correctly as 1rem=16px.
-        </CalloutText>
-      </Callout>
-    );
-  }
-
-  return tokens;
-};
-
-export const filterTokenList = (
-  filter: string,
-  propsArg: TokensListProps,
-  themeArg: string
-): TokenCategory[] | null => {
-  const newTokenCategories = getTokensByTheme(propsArg, themeArg).map((category): TokenCategory => {
-    const newTokens = category.tokens.filter((token) => {
-      return token.name.includes(filter) || token.value.includes(filter);
+  for (const category of categories) {
+    const filteredTokens = tokens[category].filter((token: Token) => {
+      return (
+        sanitizeForSearch(token.name).includes(sanitizedFilterString) ||
+        sanitizeForSearch(token.value.toString()).includes(sanitizedFilterString) ||
+        (token.altValue && sanitizeForSearch(token.altValue).includes(sanitizedFilterString))
+      );
     });
-    return {...category, tokens: newTokens};
-  });
-  const filteredCategories = newTokenCategories.filter((category) => {
-    return category.tokens.length > 0;
-  });
-  if (filteredCategories.length > 0) {
-    return filteredCategories;
+
+    if (filteredTokens.length > 0) {
+      if (newTokens === null) {
+        newTokens = {};
+      }
+      newTokens[category] = filteredTokens;
+    }
   }
-  return null;
+
+  return newTokens;
 };
-/* eslint-enable react/react-in-jsx-scope */
+
+export const getTokenExampleColors = (tokens: Tokens): TokenExampleColors => {
+  return {
+    backgroundColor: tokens["background-colors"].find((token) => token.name === "color-background-body")
+      ?.value as Properties["backgroundColor"],
+    backgroundColorInverse: tokens["background-colors"].find((token) => token.name === "color-background-body-inverse")
+      ?.value as Properties["backgroundColor"],
+    borderColor: tokens["border-colors"].find((token) => token.name === "color-border")
+      ?.value as Properties["borderColor"],
+    highlightColor: tokens["background-colors"].find((token) => token.name === "color-background-stronger")
+      ?.value as Properties["backgroundColor"],
+    textColor: tokens["text-colors"].find((token) => token.name === "color-text")?.value as Properties["color"],
+    textColorInverse: tokens["text-colors"].find((token) => token.name === "color-text-inverse")
+      ?.value as Properties["color"],
+  };
+};
+
+export const getTokenContrastPairs = (Tokens: TokensShape): Record<string, string[]> => {
+  const { tokens } = Tokens;
+  const tokensWithPairs: Record<string, string[]> = {};
+  const tokenCategories = tokens ? (Object.keys(tokens) as [keyof typeof tokens]) : [];
+  tokenCategories.forEach((tokenCatgory) => {
+    if (tokens) {
+      tokens[tokenCatgory].forEach((token) => {
+        if (token.text_contrast_pairing) {
+          tokensWithPairs[token.name] = token.text_contrast_pairing;
+        }
+      });
+    }
+  });
+  return tokensWithPairs;
+};

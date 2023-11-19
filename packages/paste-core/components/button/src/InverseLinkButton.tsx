@@ -1,29 +1,28 @@
-import * as React from 'react';
-import {Box, BoxStyleProps, safelySpreadBoxProps} from '@twilio-paste/box';
-import {SizeStyles, BaseStyles} from './styles';
-import type {DirectButtonProps} from './types';
-import {DirectButtonPropTypes} from './proptypes';
+import type { BoxStyleProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import merge from "deepmerge";
+import * as React from "react";
 
-// This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-const merge = require('deepmerge');
+import { BaseStyles, SizeStyles } from "./styles";
+import type { DirectButtonProps } from "./types";
 
 const defaultStyles: BoxStyleProps = merge(BaseStyles.default, {
-  color: 'colorTextInverse',
-  textAlign: 'left',
-  transition: 'none',
-  _hover: {color: 'colorTextInverseWeaker', textDecoration: 'underline'},
-  _focus: {color: 'colorTextInverseWeaker', boxShadow: 'shadowFocusInverse', textDecoration: 'underline'},
-  _active: {textDecoration: 'underline'},
+  color: "colorTextInverse",
+  textAlign: "left",
+  transition: "none",
+  _hover: { color: "colorTextInverseWeaker", textDecoration: "underline" },
+  _focus: { boxShadow: "shadowFocusInverse" },
+  _active: { color: "colorTextInverseWeaker", textDecoration: "underline" },
 });
 
 const loadingStyles: BoxStyleProps = merge(BaseStyles.loading, {
-  color: 'colorTextInverse',
-  textAlign: 'left',
+  color: "colorTextInverse",
+  textAlign: "left",
 });
 
 const disabledStyles: BoxStyleProps = merge(BaseStyles.disabled, {
-  color: 'colorTextInverseWeaker',
-  textAlign: 'left',
+  color: "colorTextInverseWeakest",
+  textAlign: "left",
 });
 
 const ButtonStyleMapping = {
@@ -33,25 +32,23 @@ const ButtonStyleMapping = {
 };
 
 const InverseLinkButton = React.forwardRef<HTMLButtonElement, DirectButtonProps>(
-  ({size, buttonState, fullWidth, ...props}, ref) => {
+  ({ size, buttonState, fullWidth, ...props }, ref) => {
     // Must spread size styles after button styles
     return (
       <Box
         ref={ref}
-        width={fullWidth ? '100%' : 'auto'}
+        width={fullWidth ? "100%" : "auto"}
         {...safelySpreadBoxProps(props)}
         {...ButtonStyleMapping[buttonState]}
         {...SizeStyles[size]}
       />
     );
-  }
+  },
 );
 InverseLinkButton.defaultProps = {
-  as: 'a',
+  as: "a",
 };
-if (process.env.NODE_ENV === 'development') {
-  InverseLinkButton.propTypes = DirectButtonPropTypes;
-}
-InverseLinkButton.displayName = 'InverseLinkButton';
 
-export {InverseLinkButton};
+InverseLinkButton.displayName = "InverseLinkButton";
+
+export { InverseLinkButton };

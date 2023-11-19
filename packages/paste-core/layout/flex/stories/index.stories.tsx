@@ -1,14 +1,17 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Text} from '@twilio-paste/text';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Truncate} from '@twilio-paste/truncate';
-import {Flex} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import { Truncate } from "@twilio-paste/truncate";
+import * as React from "react";
+
+import { Flex } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Layout/Flex',
+  title: "Layout/Flex",
   component: Flex,
 };
 
@@ -357,7 +360,10 @@ export const ContainedWidth = (): React.ReactNode => {
   );
 };
 
-export const CustomizedFlex = (): React.ReactNode => {
+ContainedWidth.storyName = "Contained width";
+
+export const CustomizedFlex: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
   return (
     <>
       <Paragraph>Default Flex Row</Paragraph>
@@ -375,7 +381,11 @@ export const CustomizedFlex = (): React.ReactNode => {
         </Flex>
       </Box>
       <Paragraph>Customized Flex Row</Paragraph>
-      <CustomizationProvider baseTheme="default" elements={{FLEX: {backgroundColor: 'colorBackgroundBusy'}}}>
+      <CustomizationProvider
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
+        elements={{ FLEX: { backgroundColor: "colorBackgroundBusy" } }}
+      >
         <Box padding="space30" borderStyle="solid" marginBottom="space70">
           <Flex display="flex">
             <Flex>
@@ -391,7 +401,11 @@ export const CustomizedFlex = (): React.ReactNode => {
         </Box>
       </CustomizationProvider>
       <Paragraph>Customized Flex Row With Custom Element Attribute</Paragraph>
-      <CustomizationProvider baseTheme="default" elements={{MY_FLEX: {backgroundColor: 'colorBackgroundSuccess'}}}>
+      <CustomizationProvider
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
+        elements={{ MY_FLEX: { backgroundColor: "colorBackgroundSuccess" } }}
+      >
         <Box padding="space30" borderStyle="solid" marginBottom="space70">
           <Flex display="flex" element="MY_FLEX">
             <Flex>
@@ -409,7 +423,9 @@ export const CustomizedFlex = (): React.ReactNode => {
     </>
   );
 };
-
-ContainedWidth.story = {
-  name: 'Contained width',
+CustomizedFlex.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

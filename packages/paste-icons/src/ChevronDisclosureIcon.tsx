@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ChevronDisclosureIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface ChevronDisclosureIconProps extends IconWrapperProps {
 }
 
 const ChevronDisclosureIcon = React.forwardRef<HTMLElement, ChevronDisclosureIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ChevronDisclosureIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ChevronDisclosureIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ChevronDisclosureIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -26,20 +27,22 @@ const ChevronDisclosureIcon = React.forwardRef<HTMLElement, ChevronDisclosureIco
           aria-hidden={decorative}
           width="100%"
           height="100%"
-          viewBox="0 0 24 24"
+          viewBox="0 0 20 20"
+          fill="none"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M16.258 14.882l3.67-4.371a.305.305 0 00-.052-.442.34.34 0 00-.206-.069h-7.34c-.182 0-.33.14-.33.314 0 .072.026.141.072.197l3.67 4.371a.341.341 0 00.516 0z"
+            clipRule="evenodd"
+            d="M9.707 6.293a1 1 0 00-1.497 1.32l.083.094L10.585 10l-2.292 2.293a1 1 0 00-.083 1.32l.083.094a1 1 0 001.32.083l.094-.083 3-3a1 1 0 00.083-1.32l-.083-.094-3-3z"
           />
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ChevronDisclosureIcon.displayName = 'ChevronDisclosureIcon';
-export {ChevronDisclosureIcon};
+ChevronDisclosureIcon.displayName = "ChevronDisclosureIcon";
+export { ChevronDisclosureIcon };

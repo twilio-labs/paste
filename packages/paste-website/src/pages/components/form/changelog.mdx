@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Form - Changelog',
+  package: '@twilio-paste/form',
+  description: 'A Form groups related form elements that allow users to input information or configure options.',
+  slug: '/components/form/changelog',
+};
+
+import Changelog from '@twilio-paste/form/CHANGELOG.md';
+import packageJson from '@twilio-paste/form/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Form');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/form',
+        storybookUrl: '/?path=/story/components-form--default',
+      },
+    },
+  };
+};
+
+<Changelog />

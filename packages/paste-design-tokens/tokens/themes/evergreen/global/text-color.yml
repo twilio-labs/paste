@@ -1,0 +1,156 @@
+global:
+  type: color
+  category: text-color
+imports:
+  - ../../../global/text-color.yml
+  - ../aliases/color.yml
+  - ../aliases/color-palette.yml
+props:
+  # body text
+  color-text:
+    value: "#474D66"
+    comment: Body text color
+  color-text-weak:
+    value: "#696F8C"
+    comment: Weak body text for visual hierarchy.
+  color-text-weaker:
+    value: "#8F95B2"
+    comment: Weaker body text for visual hierarchy. Inaccessible unless used on disabled controls.
+  color-text-weakest:
+    value: "#FFFFFF"
+    comment: Weakest body text for visual hierarchy. Inaccessible unless used on disabled controls.
+  color-text-inverse:
+    value: "#FFFFFF"
+    comment: Inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
+  color-text-inverse-weak:
+    value: "#8891AA"
+    comment: Weak inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
+  color-text-inverse-weaker:
+    value: "#606B85"
+    comment: Weaker inverse text color for dark backgrounds. Must pass AA color contrast with color-background-body-inverse.
+  color-text-brand-inverse:
+    value: "#FFFFFF"
+    comment: Text color used on any brand color
+  color-text-brand-highlight:
+    value: "#52BD94"
+    comment: Segment brand color.
+
+  # links
+  color-text-link:
+    value: "#3366FF"
+    comment: Link text
+  color-text-link-weak:
+    value: "#9DB5FF"
+    comment: Weak shade of link text to be used in interactions
+  color-text-link-strong:
+    value: "#1F3D99"
+    comment: Strong shade of link text to be used in interactions
+  color-text-link-stronger:
+    value: "#0C1E56"
+    comment: Stronger shade of link text to be used in interactions
+  color-text-link-strongest:
+    value: "#071337"
+    comment: Strongest shade of link text to be used in interactions
+  color-text-link-destructive:
+    value: "#D14343"
+    comment: Destructive link text
+  color-text-link-destructive-weak:
+    value: "#D14343"
+    comment: Weak shade of destructive link text to be used in interactions
+  color-text-link-destructive-strong:
+    value: "#7D2828"
+    comment: Strong shade of destructive link text to be used in interactions
+  color-text-link-destructive-stronger:
+    value: "#310C0C"
+    comment: Stronger shade of destructive link text to be used in interactions
+  color-text-link-destructive-strongest:
+    value: "#310C0C"
+    comment: Strongest shade of destructive link text to be used in interactions
+
+  # destructive
+  color-text-destructive:
+    value: "{!palette-red-65}"
+    comment: Destructive text.
+
+  # status
+  color-text-error-weak:
+    value: "#D14343"
+    comment: Weak error text for inputs and error misc
+  color-text-error:
+    value: "#A73636"
+    comment: Error text for inputs and error misc
+  color-text-error-strong:
+    value: "#7D2828"
+    comment: Strong error text for inputs and error misc
+  color-text-error-stronger:
+    value: "#310C0C"
+    comment: Stronger error text for inputs and error misc
+  color-text-success:
+    value: "#24634B"
+    comment: Text color for success text.
+  color-text-warning:
+    value: "#B25E3A"
+    comment: Color for warning text.
+  color-text-warning-strong:
+    value: "#85462B"
+    comment: Color for dark warning text.
+  color-text-new:
+    value: "#524988"
+    comment: Color for text indicating a new status.
+  color-text-neutral:
+    value: "#1F3D99"
+    comment: Color for text indicating a neutral status.
+
+  # icon
+  color-text-icon:
+    value: "#8F95B2"
+    comment: Default icon color.
+  color-text-icon-available:
+    value: "#52BD94"
+    comment: "Icon color for indicating a available status"
+  color-text-icon-unavailable:
+    value: "#D14343"
+    comment: "Icon color for indicating a unavailable status"
+  color-text-icon-offline:
+    value: "#8F95B2"
+    comment: "Icon color for indicating a offline status"
+  color-text-icon-busy:
+    value: "#DE7548"
+    comment: "Icon color for indicating a busy status"
+  color-text-icon-inverse:
+    value: "#8F95B2"
+    comment: Default icon color for inverse backgrounds.
+  color-text-icon-error:
+    value: "#D14343"
+    comment: Icon color for indicating an error.
+  color-text-icon-success:
+    value: "#52BD94"
+    comment: Icon color for indicating success.
+  color-text-icon-warning:
+    value: "#DE7548"
+    comment: Icon color for indicating a warning.
+  color-text-icon-neutral:
+    value: "#2952CC"
+    comment: Icon color for being neutral.
+  color-text-icon-brand-highlight:
+    value: "#52BD94"
+    comment: Segment brand color used for the Segment logo.
+
+  # decorative
+  color-text-decorative-10:
+    value: "#696F8C"
+    comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
+  color-text-decorative-20:
+    value: "#2952CC"
+    comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
+  color-text-decorative-30:
+    value: "#317159"
+    comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
+  color-text-decorative-40:
+    value: "#6E62B6"
+    comment: Text color with no semantic meaning, used for decorative purposes only. Should generally be used with matching decorative background and/or border tokens.
+
+  # user
+  color-text-user:
+    value: "#6D2ED1"
+    comment: Text color for user avatar.

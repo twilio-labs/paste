@@ -1,29 +1,28 @@
-import * as React from 'react';
-import type {Story, Meta} from '@storybook/react';
-import {Stack} from '@twilio-paste/stack';
+import type { Meta, StoryFn } from "@storybook/react";
+import { Stack } from "@twilio-paste/stack";
 /* eslint-disable import/no-extraneous-dependencies */
-import Highcharts from 'highcharts';
-import HighchartsReact from 'highcharts-react-official';
+import Highcharts from "highcharts";
+import HighchartsReact from "highcharts-react-official";
+import * as React from "react";
 /* eslint-enable */
 
-import {usePasteHighchartsTheme} from '../src';
-
-import {lineChartOptions} from './options/lineChartOptions';
-import {lineChartWithAnnotationsOptions} from './options/lineChartWithAnnotationsOptions';
-import {columnChartOptions} from './options/columnChartOptions';
-import {timeSeriesOptions} from './options/timeSeriesOptions';
-import {basicAreaChartOptions} from './options/basicAreaChartOptions';
-import {pieChartOptions} from './options/pieChartOptions';
+import { usePasteHighchartsTheme } from "../src";
+import { basicAreaChartOptions } from "./options/basicAreaChartOptions";
+import { columnChartOptions } from "./options/columnChartOptions";
+import { lineChartOptions } from "./options/lineChartOptions";
+import { lineChartWithAnnotationsOptions } from "./options/lineChartWithAnnotationsOptions";
+import { pieChartOptions } from "./options/pieChartOptions";
+import { timeSeriesOptions } from "./options/timeSeriesOptions";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Libraries/data-visualization',
+  title: "Libraries/data-visualization",
   parameters: {
-    chromatic: {delay: 1000},
+    chromatic: { disableSnapshot: true },
   },
 } as Meta;
 
-export const LineChart: Story = () => {
+export const LineChart: StoryFn = () => {
   const themedLineChartOptions = usePasteHighchartsTheme(lineChartOptions);
 
   return (
@@ -34,7 +33,7 @@ export const LineChart: Story = () => {
   );
 };
 
-export const LineChartWithAnnotations: Story = () => {
+export const LineChartWithAnnotations: StoryFn = () => {
   const themedLineChartWithAnnotationsOptions = usePasteHighchartsTheme(lineChartWithAnnotationsOptions);
 
   return (
@@ -45,7 +44,7 @@ export const LineChartWithAnnotations: Story = () => {
   );
 };
 
-export const TimeSeries: Story = () => {
+export const TimeSeries: StoryFn = () => {
   const themedTimeSeriesChartOptions = usePasteHighchartsTheme(timeSeriesOptions);
 
   return (
@@ -56,7 +55,7 @@ export const TimeSeries: Story = () => {
   );
 };
 
-export const ColumnChart: Story = () => {
+export const ColumnChart: StoryFn = () => {
   const themedColumnChartOptions = usePasteHighchartsTheme(columnChartOptions);
 
   return (
@@ -67,7 +66,7 @@ export const ColumnChart: Story = () => {
   );
 };
 
-export const BasicAreaChart: Story = () => {
+export const BasicAreaChart: StoryFn = () => {
   const themedBasicAreaChartOptions = usePasteHighchartsTheme(basicAreaChartOptions);
 
   return (
@@ -78,7 +77,7 @@ export const BasicAreaChart: Story = () => {
   );
 };
 
-export const PieChart: Story = () => {
+export const PieChart: StoryFn = () => {
   const themedPieChartOptions = usePasteHighchartsTheme(pieChartOptions);
 
   return (

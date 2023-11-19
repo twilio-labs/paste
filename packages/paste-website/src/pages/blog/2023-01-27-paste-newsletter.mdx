@@ -1,0 +1,336 @@
+export const meta = {
+  title: 'Paste Design System Newsletter - January 2023 Edition',
+  slug: '/blog/2023-01-27-paste-newsletter/',
+  date: '2023-01-27',
+  author: 'Paste',
+  avatar: 'https://avatars.githubusercontent.com/t/3335688?s=280&v=4',
+  status: 'published',
+  excerpt: "What's new in Paste in January 2023? New components, new design language, and more!",
+};
+
+import Image from 'next/image';
+import {Anchor} from '@twilio-paste/anchor';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+import {Blockquote} from '../../components/Blockquote';
+import DependencyIntake from '../../assets/images/articles/2023-01-27-paste-newsletter/dependency-intake.png';
+import Spacing from '../../assets/images/articles/2023-01-27-paste-newsletter/spacing-guidelines.png';
+import OneTwilio from '../../assets/images/articles/2023-01-27-paste-newsletter/one-twilio.png';
+import DescriptionList from '../../assets/images/articles/2023-01-27-paste-newsletter/description-list.png';
+import Form from '../../assets/images/articles/2023-01-27-paste-newsletter/form.gif';
+import FileUploader from '../../assets/images/articles/2023-01-27-paste-newsletter/file-uploader.gif';
+import ListboxPrimitive from '../../assets/images/articles/2023-01-27-paste-newsletter/listbox-primitive.gif';
+import Nathan from '../../assets/images/articles/2023-01-27-paste-newsletter/nathan-sharp.jpg';
+import DesignLanguage from '../../assets/images/articles/2023-01-27-paste-newsletter/design-language.png';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+## 📣 What's new in Paste
+
+### Submit feature requests through our new dependency intake form
+
+<ResponsiveImage src={DependencyIntake} />
+
+To help us prioritize our work and keep us accountable, we now have an Airtable form that you and your team can use to submit dependencies for the features and components you need from us.
+
+We factor your requests directly into our roadmap planning, so submit a request today to help us better understand your needs!
+
+<Paragraph>
+  <Anchor href="https://airtable.com/shrvMvL3BG6Zm0f9l">Submit a request</Anchor>
+</Paragraph>
+
+### Page spacing and layout guidelines
+
+<ResponsiveImage src={Spacing} />
+
+Want to learn more about spacing and hierarchy within your flows? Then these spacing and layout guidelines are for you! This foundational page breaks down the importance of creating visual relationships with your elements.
+
+<Paragraph>
+  <Anchor href="/foundations/spacing-and-layout">Check out the Spacing and Layout foundations documentation</Anchor>
+</Paragraph>
+
+### One Twilio: Design language update in Figma
+
+<ResponsiveImage src={OneTwilio} />
+
+We are excited to announce the new design language is live in Figma! This update comes from the One Twilio initiative to create a cohesive design language to unify Twilio’s product suite. Learn more about the work on the Twilio Blog: “[Bringing Cohesion to the Twilio Product Suite](https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-i).”
+
+Stay tuned for more news about this design language update and what product teams can expect over this year. If you have any questions about implementing in the meantime, please refer to the [Twilio Theme: Design Language Updates Guide](https://docs.google.com/document/d/1RACJwSG78YJtKMDgFY-VnbUzYyDqTae8nc3e-Y9a9Ho).
+
+### Description List component
+
+<ResponsiveImage src={DescriptionList} />
+
+As product builders, we are constantly trying to find ways to organize our content within a layout that feels digestible and manageable. We want our customers to be able to quickly find the right information they need to make decisions. We now have a component that helps with organizing lots of pieces of small information at once, the Description List!
+
+<Paragraph>
+  <Anchor href="/components/description-list">Check out the Description List</Anchor>
+</Paragraph>
+
+### Form Component
+
+<Box
+  as={Image}
+  maxWidth="size60"
+  borderRadius="borderRadius20"
+  border="1px solid lightgray"
+  src={Form}
+  alt=""
+  style={{objectFit: 'contain'}}
+/>
+
+A Form groups related form elements that allow users to input information or configure options. This component package enhances the HTML form element with preset spacing, so forms remain visually consistent across different pages.
+
+<Paragraph>
+  <Anchor href="/components/form">Take a look at the Form component</Anchor>
+</Paragraph>
+
+### File Uploader
+
+<Box
+  as={Image}
+  maxWidth="size60"
+  borderRadius="borderRadius20"
+  border="1px solid lightgray"
+  src={FileUploader}
+  alt=""
+  style={{objectFit: 'contain'}}
+/>
+
+The File Uploader is a visually enhanced form element that is used to upload multiple attachments. It is fully accessible and supports dragging-and-dropping attachments.
+
+<Paragraph>
+  <Anchor href="/components/file-uploader">Learn more about File Uploader here</Anchor>
+</Paragraph>
+
+### Listbox primitive
+
+<Box
+  as={Image}
+  maxWidth="size60"
+  borderRadius="borderRadius20"
+  border="1px solid lightgray"
+  src={ListboxPrimitive}
+  alt=""
+  style={{objectFit: 'contain'}}
+/>
+
+The Listbox Primitive is a component used to create accessible Listboxes that can be styled to create interactive, list-based components.Listboxes can also be used in any situation where a user needs to select items in a list or rearrange a list.
+
+<Paragraph>
+  <Anchor href="/primitives/listbox-primitive">Check out other examples here!</Anchor>
+</Paragraph>
+
+### Additional updates
+
+- [Conversations UI Kit](/blog/2022-12-06-announcing-the-conversations-ui-kit/): The Paste team has been working on something big for the past year: the Conversations UI Kit! It is a set of React components and Figma design assets that make building a chat experience a breeze.
+- Added ProductUSSDIcon and Segment [product icons](/components/icon) with the help from **Brandon Templar** from Segment!
+
+  New icons include:
+
+  - ProductAudiencesIcon
+  - ProductConnectionsIcon
+  - ProductEngageIcon
+  - ProductPersonasIcon
+  - ProductPrivacyIcon
+  - ProductProtocolsIcon
+  - ProductReverseETLIcon
+  - ProductTraitsIcon
+  - ProductUSSDIcon
+
+## ✨ Pastemates™ spotlight
+
+<em>
+  Pastemates are individuals and teams who have been critical contributors to Paste, through advocating for adoption
+  within their products and channeling important feedback and contributions back into the system.
+</em>
+
+<Box marginBottom="space70" />
+
+<ResponsiveImage src={Nathan} />
+
+In this edition of Pastemates, we're spotlighting a mate from Twilio Brand, Nathan Sharp! Nathan has been such a huge support with our One Twilio efforts, and we’d like to say thanks! We’re truly grateful for our relationship with the Brand team and excited about what we will collab on next!
+
+Nathan and the brand team have been instrumental to our One Twilio project, an initiative to evolve the product design language in order to give our customers a cohesive experience across all products.
+
+Not only did we work across product teams to land on this design language, but it was really essential to have a close relationship with Brand, so we could ensure we were being true to Twilio’s personality.
+
+Marketing energizes customers and invites them in, while product UI reassures customers that we’re here every step of the way to make their experience seamless.
+
+<ResponsiveImage src={DesignLanguage} />
+
+Finding that balance can be a tricky endeavor. However, with Nathan’s help, we were able to keep the brand personality that makes us, well, us. We started using our new super family typeface, Twilio Sans, and also collaborated on lighter color hues, thoughtful brand moments to celebrate success, more negative space, and other visual elements, to give designers tools to set a customer up for success.
+
+We're stoked that Nathan and team were able to work with us on this initiative! If you would like to hear more about the Twilio Sans brand story, [check out Nathan's blog post](https://www.twilio.com/blog/introducing-twilio-sans)!
+
+We have just created a new theme of Paste that all products using Paste can use starting later this year. If you or your teams have questions, please feel free to reach out on [GitHub Discussions](https://github.com/twilio-labs/paste/discussions) and check out the [Twilio Design Language Updates Guide](https://docs.google.com/document/d/1RACJwSG78YJtKMDgFY-VnbUzYyDqTae8nc3e-Y9a9Ho).
+
+## 🎊 New year, New Goals (or OKRs)
+
+<em>
+  The UX Infrastructure team is moving to an OKR format for tracking our goals and projects. Below are our OKRs for Q1
+  of 2023:
+</em>
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Objective</Th>
+      <Th>Key Results</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>
+          Establish Paste as the standard UI framework for Segment, and unify
+          Twilio customer experiences in a single, beautiful Design Language update.
+        </strong>
+        <p>R&D Shared Goal: One Identity, One Invoice</p>
+      </Td>
+      <Td>
+        <ul>
+          <li>100% of Paste components updated to new design language</li>
+          <li>
+            Designs for a unified or universal Navigation and Masthead reviewed and approved by downstream applications;
+            Aion, Console, Sendgrid and Segment
+          </li>
+          <li>Segment themed Paste shipped in Segment Core App with 1 Paste component in production</li>
+        </ul>
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>
+          Drive reliability, resiliency, and quality in Twilio products through investments in infrastructure
+        </strong>
+        <p>R&D Shared Goal: Reliability First</p>
+      </Td>
+      <Td>
+        <ul>
+          <li>Monorepo dependency management is automated and key dependencies are updated on an agreed cadence</li>
+          <li>Fully support the use of Paste inside a React 18 application</li>
+          <li>Decrease resiliency ticket backlog by 25%</li>
+          <li>Avg CI runtime/s is reduced by 20%</li>
+          <li>Graduate 2 components out of stage 1 status</li>
+        </ul>
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Establish the foundations for best in class product and visual design at Twilio</strong>
+        <p>R&D Shared Goal: One Identity, One Invoice</p>
+      </Td>
+      <Td>
+        <ul>
+          <li>Creation of 1 content design pattern</li>
+          <li>10 designers attend visual design office hours</li>
+          <li>2 new Design Foundations Guideline added to the Paste docs site</li>
+          <li>Establish the baseline CSAT score for Foundational design guidelines in Paste</li>
+        </ul>
+      </Td>
+    </Tr>
+
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+## 👀 What we’re working on next
+
+<Table>
+  <THead>
+    <Tr>
+      <Th>Feature</Th>
+      <Th>Description</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr>
+      <Td>
+        <strong>Evergreen theme</strong>
+      </Td>
+      <Td>
+        Establish Paste as the standard UI framework for Segment by creating a Segment theme, so it's easier to
+        implement Paste for other phases of work.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Typography guidelines</strong>
+      </Td>
+      <Td>Guidelines for using typography and how to better establish hierarchy within Twilio products.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>
+          <Anchor href="/components/tabs">Tabs</Anchor> component, refined
+        </strong>
+      </Td>
+      <Td>
+        This update to Tabs refines the design to create distinct visual hierarchy within a page for tabbed content and
+        when paired with the <Anchor href="/components/in-page-navigation">In Page Navigation component</Anchor>.
+      </Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>
+          <Anchor href="/components/popover">Popover</Anchor> component, refined
+        </strong>
+      </Td>
+      <Td>This update to Popover includes improved documentation.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>Detail Text</strong>
+      </Td>
+      <Td>Detail Text is a typography component used for small, short pieces of secondary text content.</Td>
+    </Tr>
+    <Tr>
+      <Td>
+        <strong>CSAT survey</strong>
+      </Td>
+      <Td>Look out for our biannual survey to check in on your satisfaction with using Paste.</Td>
+    </Tr>
+  </TBody>
+</Table>
+
+<Box marginBottom="space120" />
+
+As always, we’re better together.
+
+<em>— The UX Infrastructure Team</em>
+
+</ArticleContent>
+
+</contentwrapper>

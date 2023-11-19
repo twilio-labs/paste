@@ -1,0 +1,161 @@
+export const meta = {
+  title: 'Radio Button Group',
+  package: '@twilio-paste/radio-button-group',
+  description:
+    'Radio Button Group is a set of related, mutually exclusive options where only one can be selected at a time.',
+  slug: '/components/radio-button-group/',
+};
+
+import {RadioButtonGroup, RadioButton} from '@twilio-paste/radio-button-group';
+import {Tooltip} from '@twilio-paste/tooltip';
+import {DataBarChartIcon} from '@twilio-paste/icons/esm/DataBarChartIcon';
+import {DataLineChartIcon} from '@twilio-paste/icons/esm/DataLineChartIcon';
+import {DataPieChartIcon} from '@twilio-paste/icons/esm/DataPieChartIcon';
+import {DataTableIcon} from '@twilio-paste/icons/esm/DataTableIcon';
+import {CallIcon} from '@twilio-paste/icons/esm/CallIcon';
+import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
+import {EmailIcon} from '@twilio-paste/icons/esm/EmailIcon';
+import {Text} from '@twilio-paste/text';
+import packageJson from '@twilio-paste/radio-button-group/package.json';
+
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  TextExample,
+  TextAndIconExample,
+  ErrorExample,
+  DisabledExample,
+} from '../../../component-examples/RadioButtonGroupExamples';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Radio Button Group');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/radio-button-group',
+        storybookUrl: '/?path=/story/components-radiobuttongroup--attached',
+      }
+    },
+  };
+};
+
+<LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
+  {TextExample}
+</LivePreview>
+
+## Guidelines
+
+### About Radio Button Group
+
+A Radio Button Group is a set of 2–6 mutually exclusive radio buttons. It is often used as a way to swap between different views of the same data (e.g., swapping between different chart types for a data set).
+
+### Radio Button Groups in forms
+
+Be thoughtful when using Radio Button Groups in forms. It can be difficult for users to discern which option is “selected” with only 2 options, while having too many options can be overwhelming. We recommend no more than 6 options.
+Radio Button Groups used in forms should have a label.
+
+### Radio Button Groups vs Tabs
+
+[Tabs](/components/tabs) are used to layer related pieces of information together and display one layer at a time. Use Tabs to alternate between views within the same context. Use Radio Button Groups to toggle between different functionality in a single view. Tabs replace the entire view based on the selected tab. Radio Buttons update the data within the view.
+
+### Button Group vs Radio Button Group
+
+[Radio Groups](/components/radio-group) are form elements that allow customers to select only one option from a list of text at a time. Radio Groups are easily scannable and work well within a larger form because they visually compete less with primary page actions.
+
+Radio Button Groups are functionally the same as Radio Groups since only one option can be selected at a time. However, the Radio Button Group contains buttons while Radio Groups contain Radios. This distinction makes Radio Button Groups more visually prominent, so they may be ideal for a more graphical element. They can also be great options when selecting between simple things, like days of the week, modes of contact (e.g., phone, sms, email), etc.
+
+### Accessibility
+
+A Radio Button Group is the same as a Radio Group to assistive technology.
+
+- If the Radio Button only has an icon, the icon needs a label.
+- The Radio Button Group needs a legend, which labels what the set of Radio Buttons does.
+
+## Examples
+
+### Text
+
+Use the text variant with short labels, no more than 3 words per label.
+
+<LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
+  {TextExample}
+</LivePreview>
+
+### Text and icon
+
+Use the text and icon variant when icons are not easily recognizable (like product-specific icons) and a text label would help with understanding. If an icon has a chance of not being completely understood at a glance, pair it with a text label.
+
+<LivePreview scope={{RadioButtonGroup, RadioButton, CallIcon, SMSCapableIcon, EmailIcon}} language="jsx" noInline>
+  {TextAndIconExample}
+</LivePreview>
+
+## States
+
+### Error
+
+Display an error message below the radio button group. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+<LivePreview scope={{RadioButtonGroup, RadioButton, Text}} language="jsx" noInline>
+  {ErrorExample}
+</LivePreview>
+
+### Disabled
+
+<LivePreview scope={{RadioButtonGroup, RadioButton}} language="jsx" noInline>
+  {DisabledExample}
+</LivePreview>
+
+## Composition notes
+
+Radio Button Group labels should be 1-3 words to prevent the group from becoming too large. Use sentence case for each option.
+
+Consider context and the user goal to determine the order of items. For example, days of the week have an obvious order, while asking users to select a programming language might be listed in order of anticipated popularity.
+
+When possible, automatically select a default option.
+
+## Do and don't
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use Radio Button Group when options are mutually exclusive and only one option is valid."
+    preview={false}
+  />
+  <Dont title="Don't" body="Don’t use Radio Button Groups if you need to select multiple options." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Group related buttons in a Radio Button Group (e.g., types of graphs)." preview={false} />
+  <Dont title="Don't" body="Don’t group buttons together that are not related to each other." preview={false} />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Pair icon-only variants with text for better context." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don’t use the icon-only variant if the icons are not easily recognizable."
+    preview={false}
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use Radio Button Group to let users select one option from a list." preview={false} />
+  <Dont
+    title="Don't"
+    body="Don’t use Radio Button Groups for actions, such as save, edit, or delete. Use single Buttons or a Button Group instead."
+    preview={false}
+  />
+</DoDont>
+

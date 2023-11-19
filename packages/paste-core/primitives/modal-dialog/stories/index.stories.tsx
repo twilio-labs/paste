@@ -1,28 +1,29 @@
-import * as React from 'react';
-import {styled} from '@twilio-paste/styling-library';
-import {Text} from '@twilio-paste/text';
-import {Button} from '@twilio-paste/button';
-import {ModalDialogPrimitiveOverlay, ModalDialogPrimitiveContent} from '../src';
+import { Button } from "@twilio-paste/button";
+import { styled } from "@twilio-paste/styling-library";
+import { Text } from "@twilio-paste/text";
+import * as React from "react";
+
+import { ModalDialogPrimitiveContent, ModalDialogPrimitiveOverlay } from "../src";
 
 const StyledModalDialogOverlay = styled(ModalDialogPrimitiveOverlay)({
-  position: 'fixed',
+  position: "fixed",
   top: 0,
   right: 0,
   bottom: 0,
   left: 0,
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  background: 'rgba(0, 0, 0, 0.7)',
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  background: "rgba(0, 0, 0, 0.7)",
 });
 
 const StyledModalDialogContent = styled(ModalDialogPrimitiveContent)({
-  width: '100%',
-  maxWidth: '560px',
-  maxHeight: 'calc(100% - 60px)',
-  background: '#f4f5f6',
-  borderRadius: '5px',
-  padding: '20px',
+  width: "100%",
+  maxWidth: "560px",
+  maxHeight: "calc(100% - 60px)",
+  background: "#f4f5f6",
+  borderRadius: "5px",
+  padding: "20px",
 });
 
 interface BasicModalDialogProps {
@@ -30,7 +31,7 @@ interface BasicModalDialogProps {
   handleClose: () => void;
 }
 
-const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}) => {
+const BasicModalDialog: React.FC<React.PropsWithChildren<BasicModalDialogProps>> = ({ isOpen, handleClose }) => {
   const inputRef: React.RefObject<HTMLInputElement> = React.useRef(null);
 
   return (
@@ -49,9 +50,9 @@ const BasicModalDialog: React.FC<BasicModalDialogProps> = ({isOpen, handleClose}
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Primitives/ModalDialog',
+  title: "Primitives/ModalDialog",
   component: ModalDialogPrimitiveOverlay,
-  subcomponents: {ModalDialogPrimitiveContent},
+  subcomponents: { ModalDialogPrimitiveContent },
 };
 
 export const CustomOverlayAndContent = (): React.ReactNode => {
@@ -69,6 +70,4 @@ export const CustomOverlayAndContent = (): React.ReactNode => {
   );
 };
 
-CustomOverlayAndContent.story = {
-  name: 'Custom overlay and content',
-};
+CustomOverlayAndContent.storyName = "Custom overlay and content";

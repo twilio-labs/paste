@@ -1,16 +1,19 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Card} from '@twilio-paste/card';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {Heading} from '@twilio-paste/heading';
-import {Paragraph} from '@twilio-paste/paragraph';
-import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
-import {Separator} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { Card } from "@twilio-paste/card";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Heading } from "@twilio-paste/heading";
+import { Paragraph } from "@twilio-paste/paragraph";
+import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import * as React from "react";
+
+import { Separator } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Separator',
+  title: "Components/Separator",
   component: Separator,
 };
 
@@ -28,9 +31,7 @@ export const Horizontal = (): React.ReactNode => {
   );
 };
 
-Horizontal.story = {
-  name: 'horizontal',
-};
+Horizontal.storyName = "horizontal";
 
 export const Vertical = (): React.ReactNode => {
   return (
@@ -84,19 +85,17 @@ export const Vertical = (): React.ReactNode => {
   );
 };
 
-Vertical.story = {
-  name: 'vertical',
-};
+Vertical.storyName = "vertical";
 
 export const Responsive = (): React.ReactNode => {
   return (
     <>
       <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
-      <Separator orientation="horizontal" verticalSpacing={['space20', 'space60', 'space100']} />
+      <Separator orientation="horizontal" verticalSpacing={["space20", "space60", "space100"]} />
       <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
-      <Separator orientation="horizontal" verticalSpacing={['space20', 'space60', 'space100']} />
+      <Separator orientation="horizontal" verticalSpacing={["space20", "space60", "space100"]} />
       <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
-      <Separator orientation="horizontal" verticalSpacing={['space20', 'space60', 'space100']} />
+      <Separator orientation="horizontal" verticalSpacing={["space20", "space60", "space100"]} />
       <Paragraph>Nulla vitae elit libero, a pharetra augue.</Paragraph>
       <Box display="flex">
         <Card>
@@ -109,7 +108,7 @@ export const Responsive = (): React.ReactNode => {
             provident? Eligendi?
           </Paragraph>
         </Card>
-        <Separator orientation="vertical" horizontalSpacing={['space20', 'space60', 'space190']} />
+        <Separator orientation="vertical" horizontalSpacing={["space20", "space60", "space190"]} />
         <Card>
           <Heading as="h2" variant="heading20">
             An Example Card
@@ -120,7 +119,7 @@ export const Responsive = (): React.ReactNode => {
             provident? Eligendi?
           </Paragraph>
         </Card>
-        <Separator orientation="vertical" horizontalSpacing={['space20', 'space60', 'space190']} />
+        <Separator orientation="vertical" horizontalSpacing={["space20", "space60", "space190"]} />
         <Card>
           <Heading as="h2" variant="heading20">
             An Example Card
@@ -136,11 +135,10 @@ export const Responsive = (): React.ReactNode => {
   );
 };
 
-Responsive.story = {
-  name: 'responsive',
-};
+Responsive.storyName = "responsive";
 
-export const CustomSeparator: React.FC = () => {
+export const CustomSeparator: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
   return (
     <Stack orientation="vertical" spacing="space60">
       <Box>
@@ -159,11 +157,12 @@ export const CustomSeparator: React.FC = () => {
         </Card>
       </Box>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           SEPARATOR: {
-            borderColor: 'colorBorderDestructive',
-            borderWidth: 'borderWidth40',
+            borderColor: "colorBorderDestructive",
+            borderWidth: "borderWidth40",
           },
         }}
       >
@@ -184,16 +183,17 @@ export const CustomSeparator: React.FC = () => {
         </Box>
       </CustomizationProvider>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_SEPARATOR: {
-            borderColor: 'colorBorderPrimary',
-            borderWidth: 'borderWidth30',
+            borderColor: "colorBorderPrimary",
+            borderWidth: "borderWidth30",
           },
           ANOTHER_NEW_SEPARATOR: {
-            borderColor: 'colorBorderSuccess',
-            borderWidth: 'borderWidth40',
-            borderStyle: 'dashed',
+            borderColor: "colorBorderSuccess",
+            borderWidth: "borderWidth40",
+            borderStyle: "dashed",
           },
         }}
       >
@@ -215,4 +215,10 @@ export const CustomSeparator: React.FC = () => {
       </CustomizationProvider>
     </Stack>
   );
+};
+CustomSeparator.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

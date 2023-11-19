@@ -1,34 +1,30 @@
----
-title: Content checklist
-description: Self-service tips and how to access UX Writer support from Caroline (London, GMT).
-slug: /foundations/content/content-checklist/
----
+export const meta = {
+  title: 'Content checklist',
+  description: 'Self-service tips and how to access UX Writer support.',
+  slug: '/foundations/content/content-checklist/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/foundations/content/content-checklist/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <content>
 
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
-<p>{props.pageContext.frontmatter.description}</p>
+<p>{meta.description}</p>
 
 </content>
 
@@ -36,7 +32,7 @@ export const pageQuery = graphql`
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
@@ -85,8 +81,8 @@ How do you know if your content is "done" or "good"?
 - If their understanding matches your intent, great! Your content is clear.
 - If they stumble on words or don't understand, ask why. Use their feedback to iterate, then try again.
 
-<Callout>
-  <CalloutTitle as="h4">Need support with non-product content?</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Need support with non-product content?</CalloutHeading>
   <CalloutText>
     {' '}
     Visit the <Anchor href="https://www.twilio.com/brand/guidelines/writing-style">

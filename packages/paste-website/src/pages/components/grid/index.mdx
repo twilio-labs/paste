@@ -1,10 +1,10 @@
----
-title: Grid - Layout
-description: The grid component controls the visual layout and spacing between elements on a page or in containers.
-slug: /components/grid/
----
+export const meta = {
+  title: 'Grid - Layout',
+  package: '@twilio-paste/grid',
+  description: 'The grid component controls the visual layout and spacing between elements on a page or in containers.',
+  slug: '/components/grid/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Anchor} from '@twilio-paste/anchor';
@@ -13,72 +13,65 @@ import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Text} from '@twilio-paste/text';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste//callout';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {SiteLink} from '../../../components/SiteLink';
 import Changelog from '@twilio-paste/grid/CHANGELOG.md';
 import {TwilioIcon} from '../../../components/icons/TwilioIcon';
 import {TWILIO_RED} from '../../../constants';
+import packageJson from '@twilio-paste/grid/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteLayout(filter: {name: {eq: "@twilio-paste/grid"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/grid/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Grid"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/grid"
-  storybookUrl="/?path=/story/layout-grid--grid-12-column-and-gutter-support"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Grid');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/grid',
+        storybookUrl: '/?path=/story/layout-grid--grid-12-column-and-gutter-support',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Grid, Column, Card, Heading, Paragraph}} language="jsx">
+  {`<Grid gutter="space30">
+  <Column>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Instant Provisioning</Heading>
+      <Paragraph>The API and the Console allow you to search and provision local, toll-free, or mobile numbers by capability, geography, prefix or keyword.</Paragraph>
+    </Card>
+  </Column>
+  <Column>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Vast Inventory</Heading>
+      <Paragraph>Twilio maintains phone number inventory at a rate of 50 times the quantity provisioned daily for over 600 area codes and prefixes.</Paragraph>
+    </Card>
+  </Column>
+  <Column>
+    <Card padding="space70">
+      <Heading as="h4" variant="heading40">Quality Screening</Heading>
+      <Paragraph>Every phone number in the inventory passes a rigorous 60-day screening process to verify capabilities and test for unwanted call traffic.</Paragraph>
+    </Card>
+  </Column>
+</Grid>`}
+</LivePreview>
 
 ## Guidelines
 
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 ### About Grid
 
@@ -147,10 +140,10 @@ In our example we're setting one column to equal 8 of the 12 columns (`span={8}`
 </Grid>`}
 </LivePreview>
 
-<Callout>
-  <CalloutTitle as="h4" variant="heading40">
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4" variant="heading40">
     An important note about span and offset props
-  </CalloutTitle>
+  </CalloutHeading>
   <CalloutText>
     When using <strong>span</strong> or <strong>offset</strong>, base your layout off a 12-column grid. For example, if
     you want to have two columns with one spanning twice as much as the other, then one column would span=8 and the
@@ -352,10 +345,8 @@ When creating responsive layouts with the Grid, it is important to remember to c
 
 Grid can be used to compose various types of layouts ranging from whole application pages and views down to individual component layouts.
 
-<Callout>
-  <CalloutTitle as="h4" variant="heading40">
-    Gutter sizing
-  </CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">Gutter sizing</CalloutHeading>
   <CalloutText>
     For spacing content in a layout wider than 1440 pixels, we recommend using a 24-pixel gutter. Use $space-40 to get a
     24-pixel gutter.
@@ -560,7 +551,7 @@ Since the grid is sized to the full width of its parent container, you may not w
         <Column>
           <Card>
             <Paragraph>
-              Unnecessary HTML elements. Use <SiteLink to="/primitives/box">Box</SiteLink> instead.
+              Unnecessary HTML elements. Use <SiteLink href="/primitives/box">Box</SiteLink> instead.
             </Paragraph>
           </Card>
         </Column>
@@ -622,50 +613,3 @@ Since the grid is sized to the full width of its parent container, you may not w
     </Box>
   </Dont>
 </DoDont>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/grid - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Grid, Column} from '@twilio-paste/core/grid';
-
-const Component = () => (
-  <Grid>
-    <Column>Foo</Column>
-  </Grid>
-);
-```
-
-#### Grid Props
-
-| Prop                | Type                                         | Description                                                                                                                         | Default |
-| ------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| equalColumnHeights? | `boolean`                                    | Sets the height of columns in a row to be equal.                                                                                    |         |
-| gutter?             | `ResponsiveValue<keyof ThemeShape['space']>` | Sets the spacing on both sides of a Column. Use a spacing token that represents half of the total space you need between 2 Columns. |         |
-| vertical?           | `boolean, ResponsiveValue<boolean>`          | Stacks the Columns                                                                                                                  |         |
-
-#### Column Props
-
-| Prop    | Type                              | Description                                                            | Default |
-| ------- | --------------------------------- | ---------------------------------------------------------------------- | ------- |
-| span?   | `number, ResponsiveValue<number>` | Sets the width of Columns (how many columns a column can span)         |         |
-| offset? | `number, ResponsiveValue<number>` | Sets the left margin of a Column (how many columns a column is offset) |         |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

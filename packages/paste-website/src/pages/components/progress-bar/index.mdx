@@ -1,0 +1,328 @@
+export const meta = {
+  title: 'Progress Bar',
+  package: '@twilio-paste/progress-bar',
+  description: 'A Progress Bar communicates the completion status of a process or task.',
+  slug: '/components/progress-bar/',
+};
+
+import Changelog from '@twilio-paste/progress-bar/CHANGELOG.md';
+import packageJson from '@twilio-paste/progress-bar/package.json';
+
+
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Progress Bar');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/progress-bar',
+        storybookUrl: '/?path=/story/components-progressbar--default',
+      },
+    },
+  };
+};
+
+
+<StoryPreview
+  height="230px"
+  title="Default Progress Bar"
+  storyID="components-progressbar--default"
+  code={`// See storybook for full code
+<Box maxWidth="400px">
+  {value >= 100 ? (
+    <Box marginBottom="space90" display="flex" alignItems="center" columnGap="space30">
+      <AcceptIcon decorative size="sizeIcon30" color="colorTextSuccess" />
+      Your submission has been approved!
+    </Box>
+  ) : (
+    <Box marginBottom="space90">
+      <ProgressBarLabel htmlFor={progressBarId} valueLabel={Math.round(value)%}>
+        Reviewing submission
+      </ProgressBarLabel>
+      <ProgressBar
+        id={progressBarId}
+        aria-describedby={helpTextId}
+        value={value}
+        valueLabel={Math.round(value)%}
+      />
+      <HelpText id={helpTextId}>Automatically reviewing your submission with our AI agents.</HelpText>
+    </Box>
+  )}
+  <Button
+    variant="primary"
+    onClick={() => {
+      setRerun(1);
+      setValue(0);
+    }}
+    disabled={rerun === 1}
+  >
+    Restart Progress
+  </Button>
+</Box>`}
+/>
+
+## Guidelines
+
+### About Progress Bar
+
+A Progress Bar communicates the completion status of a process, like
+downloads and data processing, or a task, like filling out a form. A
+Progress Bar enhances user understanding of where they are in a task
+or where the system is in a process.
+
+### Progress Bar vs. Meter
+
+A Progress Bar represents only completion progress, like a file upload
+or filling out a form. If you're not displaying progress, use a [Meter](/components/meter).
+
+One way to check if you need a Progress Bar or a Meter is to ask
+yourself: _Could you substitute your UI element for [Progress Steps](/components/progress-steps)?
+Would it communicate roughly the same intent?_ If yes, then Progress
+Bar is probably the right element to use.
+
+
+### Progress Bar vs. Progress Steps
+
+Use Progress Bar for tasks that are short, straightforward, and linear
+that don't need the extra layer of information that Progress Steps
+provides. Example: A sign-up flow that a customer can reasonably
+complete without leaving the flow.
+
+In contrast, [Progress Steps](/components/progress-steps) are a visual representation of a complex
+task broken up into multiple steps. They indicate what has and what
+needs to be done to fully complete the task. Use Progress Steps when
+the task is nonlinear or can't be completed in one sitting. Example:
+A task that requires a customer to go to a third-party application
+to configure their settings before returning to Twilio to complete
+the full task.
+
+
+### Accessibility
+
+- A label is required when using Progress Bar. Use one of these options:
+  - Visible label using `ProgressBarLabel`, with `htmlFor` set equal to
+    the `id` of the Progress Bar (preferred)
+  - Visible label that's associated to the Progress Bar with `aria-labelledby`
+  - Label directly using `aria-label`
+- A numerical `value` is required, between 0 and any maximum value provided.
+
+
+## Examples
+
+### Default
+
+Use a Progress Bar to communicate the completion status of a process or task.
+Use the `valueLabel` prop to show a visible value.
+
+If you don't show a visible value, communicate what kind of process is
+happening through `ProgressBarLabel`. For example, the Progress Bar Label should say
+“Uploading filename.png…” not just “filename.png” if you don't show the completion percentage.
+If the label starts with a verb and the Progress Bar is not disabled, use an ellipsis at the
+end of the label. 
+
+
+<StoryPreview
+  height="230px"
+  title="Default Progress Bar"
+  storyID="components-progressbar--default"
+  code={`// See storybook for full code
+<Box maxWidth="400px">
+  {value >= 100 ? (
+    <Box marginBottom="space90" display="flex" alignItems="center" columnGap="space30">
+      <AcceptIcon decorative size="sizeIcon30" color="colorTextSuccess" />
+      Your submission has been approved!
+    </Box>
+  ) : (
+    <Box marginBottom="space90">
+      <ProgressBarLabel htmlFor={progressBarId} valueLabel={Math.round(value)%}>
+        Reviewing submission
+      </ProgressBarLabel>
+      <ProgressBar
+        id={progressBarId}
+        aria-describedby={helpTextId}
+        value={value}
+        valueLabel={Math.round(value)%}
+      />
+      <HelpText id={helpTextId}>Automatically reviewing your submission with our AI agents.</HelpText>
+    </Box>
+  )}
+  <Button
+    variant="primary"
+    onClick={() => {
+      setRerun(1);
+      setValue(0);
+    }}
+    disabled={rerun === 1}
+  >
+    Restart Progress
+  </Button>
+</Box>`}
+/>
+
+When the process or task is complete, swap the Progress Bar out with an
+element that represents the completed process or task. For example, for
+a file upload, that could be a card representing the file.
+
+
+### Min and max values
+
+By default, Progress Bar has a value of 0 (represented as a percentage)
+and range of 0 to 100. Pass `maxValue` to Progress Bar to set a custom
+max value. The min value is always 0.
+
+To show a visible max value, use the `valueLabel` prop to show
+“[current value] of [max value]”. Consider what type of value would
+be most useful for a user. For example, choose either “50%” or “5,000
+of 10,000”, not both.
+
+
+<StoryPreview
+  height="145px"
+  title="Adjusting the progress bar range"
+  storyID="components-progressbar--custom-range"
+  code={`<ProgressBarLabel htmlFor={progressBarId} valueLabel="688KB of 834KB">
+  mtn_sunrise.png
+</ProgressBarLabel>
+<ProgressBar id={progressBarId} value={688} maxValue={834} />`}
+/>
+
+## States
+
+### Indeterminate
+
+Use an indeterminate Progress Bar when progress is being made, but
+you can't calculate how much progress or you don't know the value.
+This is common when computing the progress value interferes with
+showing an accurate value, or when connection is lost but the
+process is still continuing.
+
+For indeterminate states, communicate what kind of process is
+happening through `ProgressBarLabel`. If the label starts with a
+verb, use an ellipsis at the end of the label. For example, the
+Progress Bar Label should say “Uploading filename.png…” not just
+“filename.png”.
+
+<StoryPreview
+  height="260px"
+  title="Indeterminate progress state"
+  storyID="components-progressbar--indeterminate"
+  code={`<ProgressBarLabel htmlFor={progressBarIdA}>Uploading sunrise_video.mov...</ProgressBarLabel>
+<ProgressBar id={progressBarIdA} aria-describedby={helpTextId} isIndeterminate />
+
+<Separator orientation="horizontal" verticalSpacing="space60" />
+
+<ProgressBarLabel htmlFor={progressBarIdB}>Converting files...</ProgressBarLabel>
+<ProgressBar id={progressBarIdB} aria-describedby={helpTextId} isIndeterminate />
+<HelpText id={helpTextId}>
+  Connection lost. Check your connection and refresh the page to get up-to-date information.
+</HelpText>`}
+/>
+
+### Error
+
+Use the error state to show a process has stopped, and the user
+must do something to continue it.
+
+Use [error Help Text](/components/help-text#error-help-text) to
+describe the error and what needs to be done to fix it. For
+additional guidance on how to compose error messages, refer
+to the [error state pattern](/patterns/error-state).
+
+<StoryPreview
+  height="165px"
+  title="Progress bar with error state"
+  storyID="components-progressbar--error"
+  code={`<ProgressBarLabel htmlFor={progressBarId} valueLabel="50%">
+  mtn_sunrise.png
+</ProgressBarLabel>
+<ProgressBar id={progressBarId} aria-describedby={helpTextId} value={50} valueLabel="50%" hasError />
+<HelpText variant="error" id={helpTextId}>
+  Upload failed. <Anchor href="#">Retry upload</Anchor>
+</HelpText>`}
+/>
+
+### Disabled
+
+Use a disabled Progress Bar to show a task has stopped, and
+the system needs to do something before the user can continue
+the task. Let users know when they can expect their next steps.
+
+Do not include an ellipsis on a disabled Progress Bar.
+
+<StoryPreview
+  height="185px"
+  title="Disabled Progress Bar"
+  storyID="components-progressbar--disabled"
+  code={`<ProgressBarLabel disabled htmlFor={progressBarId} valueLabel="50%">
+  Campaign registration
+</ProgressBarLabel>
+<ProgressBar id={progressBarId} aria-describedby={helpTextId} value={80} disabled />
+<HelpText variant="default" id={helpTextId}>
+  Your profile is in review. You will receive an email about your application status in 3-5 business days.
+</HelpText>`}
+/>
+
+## Composition Notes
+
+The Progress Bar label should communicate what the Progress Bar
+is measuring. Where possible, avoid a label that wraps onto two lines.
+
+A Progress Bar can include a numerical value through `valueLabel`.
+When using a custom value label, consider what type of value would
+be most useful for a user to see (for example, “50%” vs. “5000 of 10,000”).
+
+If you don't show a visible value through `valueLabel`, or if the
+Progress Bar is indeterminate, communicate what kind of process is
+happening through `ProgressBarLabel`. If the label starts with a
+verb and the Progress Bar is not disabled, use an ellipsis at the
+end of the label. For example, the Progress Bar Label should say
+“Uploading filename.png…” not just “filename.png”.
+
+Use Help Text to offer additional information to contextualize or
+help the user understand the Progress Bar, especially if the
+process is complex or has a long wait time to better communicate
+current status with users.
+
+
+## When to use Progress Bar
+
+<DoDont>
+  <Do title="Do" body="Use a Progress Bar when you want to represent the status of an ongoing task (like downloading files, setting up an account, etc.) within a fixed 0-100% range. It’s especially useful when you don’t need to communicate the details of each step." />
+  <Dont
+    title="Don't"
+    body="Don’t use a Progress Bar when you need a user to navigate between different steps of a task. Use Progress Steps instead when the task is nonlinear or can’t be completed in one sitting."
+  />
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a Progress Bar to show real-time feedback to users as tasks are completed, or when they need to wait for a process to finish."
+  />
+  <Dont
+    title="Don't"
+    body="Don’t use a Progress Bar for entire page loads. In this case, use a Spinner or Skeleton Loader instead. "
+  />
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use a Progress Bar when you need to display the completion percentage of a task." />
+  <Dont
+    title="Don't"
+    body="Don’t use Progress Bar if you’re communicating capacity. Use Meter instead."
+  />
+</DoDont>

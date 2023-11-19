@@ -1,34 +1,145 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import {Box} from '@twilio-paste/box';
-import type {BoxProps, BoxStyleProps} from '@twilio-paste/box';
-import {InputBox} from '@twilio-paste/input-box';
-import type {InputBoxTypes} from '@twilio-paste/input-box';
-import {safelySpreadFormControlProps} from './utils';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import { InputBox } from "@twilio-paste/input-box";
+import type { InputBoxTypes } from "@twilio-paste/input-box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useMergeRefs } from "@twilio-paste/utils";
+import * as React from "react";
 
-export type InputVariants = 'default' | 'inverse';
+import { DecrementButton } from "./DecrementButton";
+import { IncrementButton } from "./IncrementButton";
+import { safelySpreadFormControlProps } from "./utils";
 
-export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'color'>,
-    Pick<BoxProps, 'element'>,
-    Pick<BoxStyleProps, 'paddingRight'> {
-  className?: never;
+export type InputVariants = "default" | "inverse";
+
+export interface InputProps extends HTMLPasteProps<"input"> {
+  /**
+   * Disables the input.
+   *
+   * @type {boolean}
+   * @memberof InputProps
+   */
   disabled?: boolean;
+  /**
+   * Sets the input to an error state.
+   *
+   * @type {boolean}
+   * @memberof InputProps
+   */
   hasError?: boolean;
   height?: never;
+  /**
+   * Sets the id of the input. Should match the `htmlFor` of Label.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
   id?: string;
+  /**
+   * Used to add a suffix to an input. Often used with text or an icon.
+   *
+   * @type {React.ReactNode}
+   * @memberof InputProps
+   */
   insertAfter?: React.ReactNode;
+  /**
+   * Used to add a prefix to an input. Often used with text or an icon.
+   *
+   * @type {React.ReactNode}
+   * @memberof InputProps
+   */
   insertBefore?: React.ReactNode;
+  /**
+   * Sets the name of the input.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
   name?: string;
+  /**
+   * Sets the placeholder of the input.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
   placeholder?: string;
+  /**
+   * Sets the input to readonly.
+   *
+   * @type {boolean}
+   * @memberof InputProps
+   */
   readOnly?: boolean;
+  /**
+   * Sets the input as required.
+   *
+   * @type {boolean}
+   * @memberof InputProps
+   */
   required?: boolean;
   size?: never;
   style?: never;
+  /**
+   * Sets the type of the input.
+   *
+   * @type {InputBoxTypes}
+   * @memberof InputProps
+   */
   type: InputBoxTypes;
+  /**
+   * Sets the value of the input.
+   *
+   * @type {InputVariants}
+   * @memberof InputProps
+   */
   value?: string;
+  /**
+   *
+   * @type {InputVariants}
+   * @memberof InputProps
+   */
   variant?: InputVariants;
   width?: never;
+  /**
+   *
+   * @type {"space0"}
+   * @memberof InputProps
+   */
+  padding?: "space0";
+  /**
+   *
+   * @type {BoxStyleProps["paddingRight"]}
+   * @memberof InputProps
+   */
+  paddingRight?: BoxStyleProps["paddingRight"];
+  /**
+   *
+   * @type {BoxStyleProps["cursor"]}
+   * @memberof InputProps
+   */
+  cursor?: BoxStyleProps["cursor"];
+  /**
+   * Provides an accessible label for the increment button on inputs of type "number" when using non-English languages.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
+  i18nStepUpLabel?: string;
+  /**
+   * Provides an accessible label for the decrement button on inputs of type "number" when using non-English languages.
+   *
+   * @type {string}
+   * @memberof InputProps
+   */
+  i18nStepDownLabel?: string;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider.
+   *
+   * @default 'INPUT'
+   * @type {BoxProps['element']}
+   * @memberof InputProps
+   */
+  element?: BoxProps["element"];
 }
 
 interface TypeProps {
@@ -37,7 +148,7 @@ interface TypeProps {
   pattern?: string | undefined;
 }
 
-export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({element, ...props}, ref) => {
+export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ element, ...props }, ref) => {
   return (
     <Box
       appearance="none"
@@ -47,7 +158,7 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ele
       borderRadius="borderRadius20"
       boxShadow="none"
       color="inherit"
-      cursor={(props.type === 'date' || props.type === 'time') && !props.readOnly && !props.disabled ? 'text' : 'auto'}
+      cursor={(props.type === "date" || props.type === "time") && !props.readOnly && !props.disabled ? "text" : "auto"}
       display="block"
       element={element}
       fontFamily="inherit"
@@ -65,59 +176,108 @@ export const InputElement = React.forwardRef<HTMLInputElement, InputProps>(({ele
       variant={props.variant}
       ref={ref}
       _placeholder={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
-        fontStyle: 'italic',
+        color: props.variant === "inverse" ? "colorTextInverseWeaker" : "colorTextWeak",
+        fontStyle: "italic",
       }}
       _focus_placeholder={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeak' : 'colorTextWeak',
+        color: props.variant === "inverse" ? "colorTextInverseWeaker" : "colorTextWeak",
       }}
       _disabled={{
-        color: props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
-        cursor: 'not-allowed',
-        '-webkit-text-fill-color': props.variant === 'inverse' ? 'colorTextInverseWeaker' : 'colorTextWeaker',
-        '-webkit-opacity': '1',
+        color: props.variant === "inverse" ? "colorTextInverseWeakest" : "colorTextWeaker",
+        cursor: "not-allowed",
+        "-webkit-text-fill-color": props.variant === "inverse" ? "colorTextInverseWeakest" : "colorTextWeaker",
+        "-webkit-opacity": "1",
       }}
       __webkit_datetime_edit={{
-        display: 'flex',
+        display: "flex",
       }}
       __webkit_calendar_picker_indicator_hover={{
-        cursor: props.readOnly || props.disabled ? 'default' : 'pointer',
+        cursor: props.readOnly || props.disabled ? "default" : "pointer",
       }}
+      // Hide native number input stepper buttons
+      __webkit_inner_spin_button={{
+        display: "none",
+        margin: "space0",
+      }}
+      __webkit_outer_spin_button={{
+        display: "none",
+        margin: "space0",
+      }}
+      {...{ "-moz-appearance": "textfield" }}
       {...props}
     />
   );
 });
 
-InputElement.displayName = 'InputElement';
+InputElement.displayName = "InputElement";
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       disabled,
-      element = 'INPUT',
+      element = "INPUT",
       hasError,
       id,
       insertAfter,
       insertBefore,
+      max,
+      min,
       name,
       placeholder,
       readOnly,
       required,
+      step,
       type,
       value,
       variant,
+      i18nStepUpLabel,
+      i18nStepDownLabel,
       ...props
     },
-    ref
+    ref,
   ) => {
-    const typeProps: TypeProps = {type};
+    const typeProps: TypeProps = { type };
 
-    // https://technology.blog.gov.uk/2020/02/24/why-the-gov-uk-design-system-team-changed-the-input-type-for-numbers/
-    if (type === 'number') {
-      typeProps.type = 'text';
-      typeProps.inputmode = 'numeric';
-      typeProps.pattern = '[0-9]*';
-    }
+    const internalRef = React.useRef<HTMLInputElement>();
+    const mergedRef = useMergeRefs(internalRef, ref) as React.Ref<HTMLInputElement>;
+
+    const [showIncrement, setShowIncrement] = React.useState(true);
+    const [showDecrement, setShowDecrement] = React.useState(true);
+
+    // used for number inputs to be able to track uncontrolled number inputs value being changed by a user and it not being tracked by an applications
+    const [internalValue, setInternalValue] = React.useState(props.defaultValue ? props.defaultValue : "0");
+
+    React.useEffect(() => {
+      if (type !== "number") return;
+      if (disabled) {
+        setShowDecrement(false);
+        setShowIncrement(false);
+        return;
+      }
+
+      const numVal = Number(internalValue);
+      const numStep = step && !isNaN(Number(step)) ? Number(step) : 1;
+      const numMax = Number(max);
+      if (isNaN(numMax)) return;
+      const numMin = Number(min);
+      if (isNaN(numMin)) return;
+
+      if ((numMax - numMin) % numStep !== 0)
+        // eslint-disable-next-line no-console
+        console.error(
+          "[Paste Input]: when using min/max, and step values with a Number Input, please make sure that the min and max are multiples of the step value.",
+        );
+      if (numVal < numMax && numVal + numStep <= numMax) {
+        setShowIncrement(true);
+      } else {
+        setShowIncrement(false);
+      }
+      if (numVal > numMin && numVal - numStep >= numMin) {
+        setShowDecrement(true);
+      } else {
+        setShowDecrement(false);
+      }
+    }, [max, min, step, disabled, type, internalValue]);
 
     return (
       <InputBox
@@ -139,37 +299,68 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
           element={`${element}_ELEMENT`}
           id={id}
           name={name}
+          max={max}
+          min={min}
           placeholder={placeholder}
           readOnly={readOnly}
-          ref={ref}
+          ref={mergedRef}
           required={required}
+          step={step}
           value={value}
           variant={variant}
+          onChange={(event) => {
+            if (props.onChange != null && typeof props.onChange === "function") {
+              props.onChange(event);
+            }
+            setInternalValue(event.target.value);
+          }}
         />
+        {type === "number" ? (
+          <Box
+            display="flex"
+            flexDirection="column"
+            rowGap="space10"
+            justifyContent="center"
+            element={`${element}_STEP_WRAPPER`}
+          >
+            {showIncrement ? (
+              <IncrementButton
+                element={element}
+                onClick={() => {
+                  internalRef.current?.stepUp();
+                  const ev = new Event("change", { bubbles: true });
+                  internalRef.current?.dispatchEvent(ev);
+                  internalRef.current?.focus();
+                }}
+                i18nStepUpLabel={i18nStepUpLabel}
+              />
+            ) : (
+              <Box height="12px" width="12px" element={`${element}_INCREMENT_PLACEHOLDER`} />
+            )}
+            {showDecrement ? (
+              <DecrementButton
+                element={element}
+                onClick={() => {
+                  internalRef.current?.stepDown();
+                  const ev = new Event("change", { bubbles: true });
+                  internalRef.current?.dispatchEvent(ev);
+                  internalRef.current?.focus();
+                }}
+                i18nStepDownLabel={i18nStepDownLabel}
+              />
+            ) : (
+              <Box height="12px" width="12px" element={`${element}_DECREMENT_PLACEHOLDER`} />
+            )}
+          </Box>
+        ) : (
+          <></>
+        )}
       </InputBox>
     );
-  }
+  },
 );
 
-Input.displayName = 'Input';
+Input.displayName = "Input";
 
-Input.propTypes = {
-  disabled: PropTypes.bool,
-  element: PropTypes.string,
-  hasError: PropTypes.bool,
-  id: PropTypes.string,
-  name: PropTypes.string,
-  onBlur: PropTypes.func,
-  onChange: PropTypes.func,
-  onFocus: PropTypes.func,
-  placeholder: PropTypes.string,
-  readOnly: PropTypes.bool,
-  required: PropTypes.bool,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  type: PropTypes.oneOf(['text', 'email', 'hidden', 'number', 'password', 'search', 'tel', 'date', 'time'])
-    .isRequired as any,
-  value: PropTypes.string,
-};
-
-export {Input};
-export type {InputBoxTypes as InputTypes};
+export { Input };
+export type { InputBoxTypes as InputTypes };

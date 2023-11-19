@@ -1,0 +1,215 @@
+import { Box } from "@twilio-paste/box";
+import { HelpText } from "@twilio-paste/help-text";
+import type { HelpTextVariants } from "@twilio-paste/help-text";
+import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
+import type { InputVariants } from "@twilio-paste/input";
+import { InputBox, InputChevronWrapper, getInputChevronIconColor } from "@twilio-paste/input-box";
+import { Label } from "@twilio-paste/label";
+import { Portal } from "@twilio-paste/reakit-library";
+import { useUID } from "@twilio-paste/uid-library";
+import { useWindowSize } from "@twilio-paste/utils";
+import * as React from "react";
+import { useVirtual } from "react-virtual";
+
+import { ComboboxItems } from "../ComboboxItems";
+import { ListBoxPositioner } from "../ListboxPositioner";
+import { visuallyHiddenStyles } from "../helpers";
+import { ComboboxInputSelect } from "../styles/ComboboxInputSelect";
+import { ComboboxInputWrapper } from "../styles/ComboboxInputWrapper";
+import { ComboboxListbox } from "../styles/ComboboxListbox";
+import type { ComboboxProps } from "../types";
+import { extractPropsFromState } from "./extractPropsFromState";
+
+const getHelpTextVariant = (variant: InputVariants, hasError: boolean | undefined): HelpTextVariants => {
+  if (hasError && variant === "inverse") {
+    return "error_inverse";
+  }
+  if (hasError) {
+    return "error";
+  }
+  if (variant === "inverse") {
+    return "inverse";
+  }
+  return "default";
+};
+
+const Combobox = React.forwardRef<HTMLInputElement, ComboboxProps>(
+  (
+    {
+      autocomplete,
+      disabled,
+      element = "COMBOBOX",
+      hasError,
+      hideVisibleLabel,
+      helpText,
+      initialSelectedItem,
+      disabledItems,
+      initialIsOpen,
+      inputValue,
+      insertAfter,
+      insertBefore,
+      items,
+      itemToString,
+      labelText,
+      onInputValueChange,
+      onSelectedItemChange,
+      optionTemplate,
+      onHighlightedIndexChange,
+      onIsOpenChange,
+      required,
+      selectedItem,
+      groupItemsBy,
+      groupLabelTemplate,
+      variant = "default",
+      emptyState,
+      getA11yStatusMessage,
+      getA11ySelectionMessage,
+      state,
+      ...props
+    },
+    ref,
+  ) => {
+    const parentRef = React.useRef<HTMLElement>(null);
+    const helpTextId = useUID();
+    const { width } = useWindowSize();
+
+    // gets the dimensions of the inputBox to position the listbox
+    const inputBoxRef = React.useRef<HTMLDivElement>(null);
+
+    const {
+      getComboboxProps,
+      getInputProps,
+      getItemProps,
+      getLabelProps,
+      getMenuProps,
+      getToggleButtonProps,
+      highlightedIndex,
+      selectedItem: internalSelectedItem,
+      isOpen,
+    } = extractPropsFromState({
+      onInputValueChange,
+      onIsOpenChange,
+      onSelectedItemChange,
+      onHighlightedIndexChange,
+      itemToString,
+      initialIsOpen,
+      inputValue,
+      selectedItem,
+      initialSelectedItem,
+      items,
+      state,
+      getA11yStatusMessage,
+      getA11ySelectionMessage,
+      disabledItems,
+    });
+
+    if (
+      getComboboxProps === undefined ||
+      getInputProps === undefined ||
+      getItemProps === undefined ||
+      getLabelProps === undefined ||
+      getMenuProps === undefined ||
+      getToggleButtonProps === undefined ||
+      highlightedIndex === undefined ||
+      isOpen === undefined
+    ) {
+      throw new Error(
+        "[Combobox]: One of getComboboxProps, getInputProps, getItemProps, getLabelProps, getMenuProps, getToggleButtonProps, highlightedIndex or isOpen is missing from the state object. Please make sure this is provided.",
+      );
+    }
+
+    // Virtualizer for long lists that don't use `groupItemsBy`
+    const rowVirtualizer = useVirtual({
+      size: items.length,
+      parentRef,
+      overscan: 8,
+    });
+
+    // Fixes issue where dynamic height items would not recompute on window resize and list content wrapping
+    React.useEffect(() => {
+      rowVirtualizer.measure();
+    }, [width]);
+
+    /*
+     * Use ref to focus the current selected item when the list is opened
+     * https://tkdodo.eu/blog/avoiding-use-effect-with-callback-refs
+     */
+    const scrollToIndexRef = React.useCallback(
+      (node: any) => {
+        if (node) {
+          rowVirtualizer.scrollToIndex(items.indexOf(internalSelectedItem));
+        }
+      },
+      [items, internalSelectedItem],
+    );
+
+    return (
+      <Box position="relative" element={`${element}_WRAPPER`}>
+        <Box {...(hideVisibleLabel && { ...visuallyHiddenStyles })}>
+          <Label disabled={disabled} required={required} variant={variant} {...getLabelProps()}>
+            {labelText}
+          </Label>
+        </Box>
+        <InputBox
+          disabled={disabled}
+          element={element}
+          hasError={hasError}
+          insertBefore={insertBefore}
+          insertAfter={insertAfter}
+          variant={variant}
+          ref={inputBoxRef}
+        >
+          <ComboboxInputWrapper {...getComboboxProps({ role: "combobox" })}>
+            <ComboboxInputSelect
+              {...getToggleButtonProps({ tabIndex: 0 })}
+              // we spread props into `getInputProps` so that Downshift handles events correctly
+              {...getInputProps({ disabled, required, ref, ...props })}
+              {...(!autocomplete ? { onChange: (event: React.ChangeEvent) => event.preventDefault() } : undefined)}
+              autocomplete={autocomplete}
+              aria-describedby={helpText != null ? helpTextId : null}
+              element={`${element}_ELEMENT`}
+            />
+            {!autocomplete && (
+              <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
+                <ChevronDownIcon
+                  decorative
+                  color={getInputChevronIconColor(variant, disabled, false)}
+                  size="sizeIcon30"
+                />
+              </InputChevronWrapper>
+            )}
+          </ComboboxInputWrapper>
+        </InputBox>
+        <Portal>
+          <ListBoxPositioner inputBoxRef={inputBoxRef} dropdownBoxRef={parentRef}>
+            <ComboboxListbox hidden={!isOpen} element={`${element}_LISTBOX`} {...getMenuProps({ ref: parentRef })}>
+              <ComboboxItems
+                ref={scrollToIndexRef}
+                items={items}
+                element={element}
+                getItemProps={getItemProps}
+                highlightedIndex={highlightedIndex}
+                disabledItems={disabledItems}
+                optionTemplate={optionTemplate}
+                groupItemsBy={groupItemsBy}
+                groupLabelTemplate={groupLabelTemplate}
+                totalSize={rowVirtualizer.totalSize}
+                virtualItems={rowVirtualizer.virtualItems}
+                emptyState={emptyState}
+              />
+            </ComboboxListbox>
+          </ListBoxPositioner>
+        </Portal>
+        {helpText && (
+          <HelpText id={helpTextId} variant={getHelpTextVariant(variant, hasError)}>
+            {helpText}
+          </HelpText>
+        )}
+      </Box>
+    );
+  },
+);
+
+Combobox.displayName = "Combobox";
+
+export { Combobox };

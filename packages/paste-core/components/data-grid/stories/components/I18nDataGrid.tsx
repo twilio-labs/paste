@@ -1,16 +1,17 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
+import { Box } from "@twilio-paste/box";
+import * as React from "react";
+
 import {
   DataGrid,
-  DataGridHead,
-  DataGridRow,
-  DataGridHeader,
-  DataGridHeaderSort,
   DataGridBody,
   DataGridCell,
-} from '../../src';
-import type {SortDirection} from '../../src';
-import {I18nTableHeaderData, I18nTableBodyData} from './constants';
+  DataGridHead,
+  DataGridHeader,
+  DataGridHeaderSort,
+  DataGridRow,
+} from "../../src";
+import type { SortDirection } from "../../src";
+import { I18nTableBodyData, I18nTableHeaderData } from "./constants";
 
 // Sorting function
 const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId: number): number => {
@@ -24,7 +25,7 @@ const simpleComparator = (a: string[], b: string[], ascending: boolean, columnId
 };
 
 const numColumns = I18nTableHeaderData.length;
-const initialHeaderData = [...new Array(numColumns)].map((_, index) => (index === 0 ? 'ascending' : 'none'));
+const initialHeaderData = [...new Array(numColumns)].map((_, index) => (index === 0 ? "ascending" : "none"));
 const initialBodyData = I18nTableBodyData.sort((a, b) => simpleComparator(a, b, true, 0));
 
 export const I18nDataGrid = (): React.ReactNode => {
@@ -34,17 +35,17 @@ export const I18nDataGrid = (): React.ReactNode => {
   // Handle sorting behavior
   const handleSortingColumn = (columnId: number): void => {
     // Update the state of the sort direction in column headers
-    const newSortedColumns: Array<SortDirection> = sortedColumns.map(() => 'none');
-    if (sortedColumns[columnId] === 'ascending') {
-      newSortedColumns[columnId] = 'descending';
+    const newSortedColumns: Array<SortDirection> = sortedColumns.map(() => "none");
+    if (sortedColumns[columnId] === "ascending") {
+      newSortedColumns[columnId] = "descending";
     } else {
-      newSortedColumns[columnId] = 'ascending';
+      newSortedColumns[columnId] = "ascending";
     }
     setSortedColumns(newSortedColumns);
 
     // Update the table data to be sorted correctly
     setSortedData(
-      I18nTableBodyData.sort((a, b) => simpleComparator(a, b, newSortedColumns[columnId] === 'ascending', columnId))
+      I18nTableBodyData.sort((a, b) => simpleComparator(a, b, newSortedColumns[columnId] === "ascending", columnId)),
     );
   };
 
@@ -103,4 +104,4 @@ export const I18nDataGrid = (): React.ReactNode => {
   /* eslint-enable react/no-array-index-key */
 };
 
-I18nDataGrid.storyName = 'i18n Data Grid';
+I18nDataGrid.storyName = "i18n Data Grid";

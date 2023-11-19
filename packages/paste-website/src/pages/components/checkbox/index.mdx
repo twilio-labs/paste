@@ -1,11 +1,11 @@
----
-title: Checkbox - Components
-package: '@twilio-paste/checkbox'
-description: The Checkbox and Checkbox Group are used to enable binary choices. These can either be used for an individual choice or to form a collection of choices.
-slug: /components/checkbox/
----
+export const meta = {
+  title: 'Checkbox - Components',
+  package: '@twilio-paste/checkbox',
+  description:
+    'The Checkbox and Checkbox Group are used to enable binary choices. These can either be used for an individual choice or to form a collection of choices.',
+  slug: '/components/checkbox/',
+};
 
-import {graphql} from 'gatsby';
 import {Checkbox, CheckboxGroup, CheckboxDisclaimer} from '@twilio-paste/checkbox';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
@@ -21,89 +21,61 @@ import {
   uncontrolledCheckbox,
   controlledCheckbox,
 } from '../../../component-examples/CheckboxExamples';
+import packageJson from '@twilio-paste/checkbox/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/checkbox"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/checkbox/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Checkbox"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox"
-  storybookUrl="/?path=/story/components-checkbox--checkbox"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Checkbox');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/checkbox',
+        storybookUrl: '/?path=/story/components-checkbox--default-checkbox',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Checkbox}} noInline>
+  {checkedCheckbox}
+</LivePreview>
 
 ## Guidelines
 
-## Checkbox and Checkbox Group
+### Checkbox Group
 
-### About Checkbox Group
-
-<Paragraph>{props.pageContext.frontmatter.description}</Paragraph>
+<Paragraph>{meta.description}</Paragraph>
 
 Checkbox groups are used when you have multiple binary choices to make but all choices belong to a single group or field. For example, choosing capabilities when searching for a Phone Number to provision from Twilio. By placing them in a group, users should be able to clearly understand which options make up the collection and also how those options are related to each other.
 
-#### Accessibility information
+#### Accessibility
 
 - Checkbox groups **must** have a group legend that describes the collection.
   - The label _should_ be visible.
   - The label may be visually hidden or provided via `aria-label` on the group component if the entire form is just a single checkbox group with no other form elements. The grouping should be visually implicit, but a description still needs to be provided for assistive technology.
 
-### About Checkbox
+### Checkbox
 
-Use a checkbox to present a user with a binary (e.g. on/off) choice that is part of a form. A checkbox should not be used to apply a user's choice instantly. In that case, such as enabling a system feature, you should consider using the toggle switch component ([coming soon](https://paste.twilio.design/roadmap/)).
+Use a checkbox to present a user with a binary (e.g. on/off) choice that is part of a form. A checkbox should not be used to apply a user's choice instantly. In that case, such as enabling a system feature, you should consider using the [Switch component](/components/switch).
 
-#### Accessibility information
+#### Accessibility
 
 - A checkbox must have a visible label that is in close proximity to the control
 - HTML checkboxes don't natively support the `required` attribute. In cases where a checkbox is required to be checked:
   - Display a required indicator
   - Ensure the label text includes wording that successfully describes the requirement to the user that they should check the box
-- When in an error state display an inline error message below the offending checkbox that clearly describes the error along with an icon that depicts the severity.
+- When in an error state, display an inline error message below the checkbox or checkbox group that clearly describes the error along with an icon that depicts the severity.
 - When displaying additional content based on checking a checkbox, be sure that the new content appears after the checkbox so that it is naturally discoverable by assistive technology users.
 
 ## Controlled vs. uncontrolled checkboxes
@@ -134,7 +106,7 @@ A checkbox is always displayed next to a visible label.
 
 ### Checkbox with help text
 
-In cases where the checkbox requires additional context, you can display this information as help text below the checkbox control and label. This can help keep checkbox labels concise.
+In cases where the checkbox requires additional context, you can display this information as help text below the checkbox control and label. This can help keep checkbox labels concise. In order to maintain styling consistency, be sure to use the `helpText` prop here instead of using the Help Text component.
 
 <LivePreview scope={{Checkbox}} language="jsx">
   {`<Checkbox id="enabled" value="enabled" name="enabled" helpText="Determines if certificate validation is performed on all Twilio originated requests">
@@ -318,9 +290,7 @@ Use a disabled checkbox group to indicate that all options cannot be interacted 
 
 ### Checkbox group with an inline error
 
-If the selected options don't pass the group validation requirements, an inline error message should be displayed.
-
-An inline error is placed at the bottom of the group to inform a user of any errors in their choices.
+If the selected options don't pass the group validation requirements, display an inline error message below the checkbox group.
 
 <LivePreview scope={{Checkbox, CheckboxGroup}} language="jsx">
   {`<CheckboxGroup
@@ -339,37 +309,29 @@ An inline error is placed at the bottom of the group to inform a user of any err
 
 ## Composition notes
 
-### Checkbox labels, legends and help text
+### Checkbox labels, legends, and help text
 
-A checkbox must have a visible label. A checkbox group must have a visible legend.
+Checkboxes and Checkbox Groups must have a visible label.
 
-Labels should clearly describe the value being requested. Legends should clearly describe the group. They should be concise and descriptive. To do this:
-
-- Use help text to provide additional context about the option if needed.
+- Aim for no more than 3 words. If the label must be longer and space is limited, wrap the label.
+- Structure each checkbox label similarly. For example, make each checkbox a noun.
 - Avoid articles ("a", "the") and punctuation. For example, use "SIM registration code" rather than "The SIM registration code".
 
-Give users enough information in help text to prevent an error. Keep it concise and scoped to information that will help with validation. For example, use help text if a particular option has a long description necessary to inform the users choice.
+Checkbox labels should reflect what happens if the box is checked. Avoid situations where the user must check a box to negate something. For example, "Don't send message."
+
+Avoid constructing the legend and label text to read as a sentence.
+
+Use [Help Text](/components/help-text) to give additional context and provide enough information to avoid errors. Consider using Help Text to indicate to users that they can select multiple options. Limit Help Text to 1-2 sentences.
 
 To support internationalization, avoid starting a sentence with the legend and using the field to finish it since sentence structures vary across languages. For example, use "Phone Number capabilities", not "Phone Number capabilities include:".
 
 ### Validation and errors
 
-Validate form fields on form submission. Don't validate each item in a group, treat validation on the group as a whole. Ideally, help text should have enough information to help users prevent errors.
+Validate form fields on form submission. Don't validate each item in a group, treat validation on the group as a whole.
 
-Use inline error text to explain how to fix an error.
+Use inline error text to explain how to fix an error. Because space is typically limited, focus the error text on how users can fix the issue. For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
-Error text should:
-
-- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
-- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for input errors to avoid placing blame on the user. For example, "A Friendly Name is required."
-- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team.".
-
-## When to use a Checkbox and Checkbox Group
-
-Use a checkbox when users are required to make a binary choice. Use a checkbox group when more than one checkbox is related to one another.
-
-There is no maximum number of checkboxes you can have in a group, but consider using another component when you have more than 6 options. Some alternatives might be a [Select](https://paste.twilio.design/components/select/) or [Combobox](https://paste.twilio.design/components/combobox/).
+## Do and don't
 
 <DoDont>
   <Do title="Do" body="Use checkboxes to enable multiple choice." />
@@ -415,89 +377,13 @@ There is no maximum number of checkboxes you can have in a group, but consider u
   <Dont title="Don't" body="Don't display system messages as error text or only what field errored." />
 </DoDont>
 
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/checkbox - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Checkbox, CheckboxGroup} from '@twilio-paste/core/checkbox';
-
-const Component = () => (
-  <CheckboxGroup name="foo" legend="foo">
-    <Checkbox id="foo" value="foo" name="foo">
-      Foo
-    </Checkbox>
-  </CheckboxGroup>
-);
-```
-
-#### Checkbox props
-
-All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
-
-| Prop              | Type                                     | Description                                                                               | Default    |
-| ----------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | ---------- |
-| children          | `ReactNode`                              |                                                                                           | null       |
-| id?               | `string`                                 |                                                                                           | null       |
-| checked?          | `boolean`                                |                                                                                           | false      |
-| defaultChecked?   | `boolean`                                |                                                                                           | null       |
-| hasError?         | `boolean`                                |                                                                                           | false      |
-| helpText?         | `string` or `ReactNode`                  |                                                                                           | null       |
-| indeterminate?    | `boolean`                                |                                                                                           | false      |
-| isSelectAll?      | `boolean`                                |                                                                                           | false      |
-| isSelectAllChild? | `boolean`                                |                                                                                           | false      |
-| onChange?         | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| onFocus?          | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| onBlur?           | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null       |
-| element?          | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'CHECKBOX' |
-
-#### CheckboxGroup props
-
-| Prop               | Type                                | Description                                                                               | Default          |
-| ------------------ | ----------------------------------- | ----------------------------------------------------------------------------------------- | ---------------- |
-| children           | `ReactNode`                         |                                                                                           | null             |
-| legend             | `string` or `ReactNode`             |                                                                                           | null             |
-| name               | `string`                            |                                                                                           | null             |
-| value              | `string`                            |                                                                                           | null             |
-| orientation        | `oneOf(['vertical', 'horizontal'])` |                                                                                           | vertical         |
-| errorText?         | `string` or `ReactNode`             |                                                                                           | null             |
-| helpText?          | `string` or `ReactNode`             |                                                                                           | null             |
-| disabled?          | `boolean`                           |                                                                                           | false            |
-| required?          | `boolean`                           |                                                                                           | false            |
-| isSelectAll?       | `boolean`                           |                                                                                           | false            |
-| i18nRequiredLabel? | `string`                            | Label text for the required dot in the legend                                             | '(required)'     |
-| element?           | `string`                            | Overrides the default element name to apply unique styles with the Customization Provider | 'CHECKBOX_GROUP' |
-
-#### CheckboxDisclaimer props
-
-All the valid HTML attributes for `input[type=checkbox]` are supported including the following props:
-
-| Prop            | Type                                     | Description                                                                               | Default               |
-| --------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------- | --------------------- |
-| children        | `ReactNode`                              |                                                                                           | null                  |
-| id?             | `string`                                 |                                                                                           | null                  |
-| checked?        | `boolean`                                |                                                                                           | false                 |
-| defaultChecked? | `boolean`                                |                                                                                           | null                  |
-| errorText?      | `string` or `ReactNode`                  |                                                                                           | null                  |
-| onChange?       | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null                  |
-| onFocus?        | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null                  |
-| onBlur?         | `(event: React.MouseEvent<HTMLElement>)` |                                                                                           | null                  |
-| element?        | `string`                                 | Overrides the default element name to apply unique styles with the Customization Provider | 'CHECKBOX_DISCLAIMER' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>
+<DoDont>
+  <Do
+    title="Do"
+    body="Use error text to explain how to resolve the error. For example, 'Accept the terms of agreement.'"
+  />
+  <Dont
+    title="Don't"
+    body="Don’t focus on whether the field is required. For example, 'Accepting the terms of agreement is required.'"
+  />
+</DoDont>

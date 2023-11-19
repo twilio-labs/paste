@@ -1,0 +1,672 @@
+export const meta = {
+  title: 'Typography',
+  description:
+    'Typography includes typeface, line height, sizing, and spacing considerations that lead to legible and appealing text in the UI.',
+  slug: '/foundations/typography/',
+};
+
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Text} from '@twilio-paste/text';
+import {Stack} from '@twilio-paste/stack';
+import {DisplayHeading} from '@twilio-paste/display-heading';
+import {InlineCode} from '@twilio-paste/inline-code';
+import {Card} from '@twilio-paste/card';
+import {Separator} from '@twilio-paste/separator';
+import {Heading} from '@twilio-paste/heading';
+import {DetailText} from '@twilio-paste/detail-text';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+
+import {TextColorSwatches} from '../../../component-examples/ColorsFoundationExamples';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import {SidebarCategoryRoutes} from '../../../constants';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../utils/api';
+import typography1 from '../../../assets/images/foundations/typography/typography1.png';
+import typography2 from '../../../assets/images/foundations/typography/typography2.png';
+import typography3 from '../../../assets/images/foundations/typography/typography3.png';
+import typography4 from '../../../assets/images/foundations/typography/typography4.png';
+import typography5 from '../../../assets/images/foundations/typography/typography5.png';
+import typography6 from '../../../assets/images/foundations/typography/typography6.png';
+import typography7 from '../../../assets/images/foundations/typography/typography7.png';
+import typography8 from '../../../assets/images/foundations/typography/typography8.png';
+import typography9 from '../../../assets/images/foundations/typography/typography9.png';
+import typography10 from '../../../assets/images/foundations/typography/typography10.png';
+import typography11 from '../../../assets/images/foundations/typography/typography11.png';
+import typography12 from '../../../assets/images/foundations/typography/typography12.png';
+import typography13 from '../../../assets/images/foundations/typography/typography13.png';
+import typography14 from '../../../assets/images/foundations/typography/typography14.png';
+import typography15 from '../../../assets/images/foundations/typography/typography15.png';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## The super family, Twilio Sans
+
+Twilio&rsquo;s branded typeface is a super family composed of three related, but distinct, typefaces: Display, Text, and Mono. Each is designed for a specific function that is core to the Twilio brand.
+
+### Use the right font for the job
+
+For our products, we have simplified the fonts used within Twilio Sans in order to quickly orient people to the most important information.
+
+[Learn more about Twilio&rsquo;s brand guidelines](https://www.twilio.com/brand/elements/typography)
+
+<Card>
+  <Box display="flex" flexDirection="column" columnGap="space50" paddingBottom="space40">
+    <DisplayHeading as="div" variant="displayHeading30" marginBottom="space0">
+      Twilio Sans Display is used for brand moments and editorial headlines
+    </DisplayHeading>
+    <Text as="p" fontSize="fontSize70" marginY="space50">
+      Twilio Sans Text is used for UI text
+    </Text>
+    <Box>
+      <InlineCode>Twilio Sans Mono is used for code</InlineCode>
+    </Box>
+  </Box>
+</Card>
+<br />
+
+#### Font weight
+
+We have tokens ranging from Light to Extrabold for font weights. However, our system does not use Light or Bold. We have simplified fonts used within the product to better blend layouts and not add confusion to the visual hierarchy. If your designs use `$font-weight-light`, they will appear as `font-weight: 400`. If your designs use `$font-weight-bold`, they will appear as `font-weight: 600`.
+
+[Check out our font weights ready for you to implement](/tokens/list#heading-font-weights)
+
+<ResponsiveImage src={typography1} alt="examples of Paste's various font weight tokens" />
+
+### Font choices in product
+
+#### Twilio Sans Display Extrabold is perfect for those brand moments
+
+We use Twilio Sans Display in Extrabold weight for unique, expressive headings and editorial moments.
+
+[Learn more about the Display Heading component](/components/display-heading)
+
+<Card>
+  <DisplayHeading as="div" variant="displayHeading10" marginBottom="space0">
+    DisplayHeading10
+  </DisplayHeading>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Display</InlineCode>
+  <br />
+  <InlineCode>Font-weight: extrabold</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-display-30</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-display-30</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <DisplayHeading as="div" variant="displayHeading20" marginBottom="space0">
+    DisplayHeading20
+  </DisplayHeading>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Display</InlineCode>
+  <br />
+  <InlineCode>Font-weight: extrabold</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-display-20</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-display-20</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <DisplayHeading as="div" variant="displayHeading30" marginBottom="space0">
+    DisplayHeading30
+  </DisplayHeading>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Display</InlineCode>
+  <br />
+  <InlineCode>Font-weight: extrabold</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-display-10</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-display-10</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+</Card>
+<br />
+
+#### We use Twilio Sans Text Semibold for headings and labels
+
+We like to keep type styles consistent for customers to be able to quickly scan content and create visual hierarchy. In order to do so, we only use Semibold for headings and labels.
+
+Need a place to start in your designs? Start with [the Heading component](/components/heading).
+
+<Card>
+  <Heading as="div" variant="heading10" marginBottom="space0">
+    Heading10
+  </Heading>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Text</InlineCode>
+  <br />
+  <InlineCode>Font-weight: semibold</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-90</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-90</InlineCode>
+  <br />
+  <InlineCode>Letter-spacing: -.02rem</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <Heading as="div" variant="heading20" marginBottom="space0">
+    Heading20
+  </Heading>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Text</InlineCode>
+  <br />
+  <InlineCode>Font-weight: semibold</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-70</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-70</InlineCode>
+  <br />
+  <InlineCode>Letter-spacing: -.02rem</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <Heading as="div" variant="heading30" marginBottom="space0">
+    Heading30
+  </Heading>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Text</InlineCode>
+  <br />
+  <InlineCode>Font-weight: semibold</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-60</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-60</InlineCode>
+  <br />
+  <InlineCode>Letter-spacing: -.02rem</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+</Card>
+<br />
+
+#### When you have lots to say, use Twilio Sans Text Regular
+
+In order to create juxtaposition and legibility within our designs, Twilio Sans Text&rsquo;s Regular font weight is used for all body copy. This blends well and gives a nice balance with the headings that are Semibold.
+
+[The Paragraph component](/components/paragraph) is perfect for large blocks of content.
+
+<Card>
+  <Paragraph>Paragraph</Paragraph>
+  <InlineCode>Font-family: Twilio Sans Text</InlineCode>
+  <br />
+  <InlineCode>Font-weight: normal</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-30</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-40</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+</Card>
+<br />
+
+#### Reserve Twilio Sans Text Medium for smaller type
+
+For captions, we use Twilio Sans Text&rsquo;s Medium font weight to anchor small units of type.
+Need to display smaller, supplementary text under an image or add a footnote? Check out your new best friend, [the Detail Text component](/components/detail-text).
+
+<Card>
+  <DetailText>Detail Text</DetailText>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Text</InlineCode>
+  <br />
+  <InlineCode>Font-weight: medium</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-20</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-20</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text-weak</InlineCode>
+  <br />
+</Card>
+<br />
+
+#### For displaying coded type, use Twilio Sans Mono Regular
+
+To display code or a programming language, we use Twilio Sans Mono Regular.
+
+Check out [the Code Block component](/components/code-block) and [the Inline Code component](/components/inline-code).
+
+<Card>
+  <InlineCode>Inline Code (default)</InlineCode>
+  <br />
+  <br />
+  <InlineCode>Font-family: Twilio Sans Mono</InlineCode>
+  <br />
+  <InlineCode>Font-weight: normal</InlineCode>
+  <br />
+  <InlineCode>Font-size: inherit</InlineCode>
+  <br />
+  <InlineCode>Line-height: inherit</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text-primary-stronger</InlineCode>
+  <br />
+  <InlineCode>Background-color: color-background-primary-weakest</InlineCode>
+  <br />
+  <InlineCode>Border-color: color-border-primary-weaker</InlineCode>
+  <br />
+</Card>
+<br />
+
+## Tokens and styles
+
+Typography is managed through the use of design tokens in Paste. Type tokens are pre-set style decisions for font size, font weight, or leading (line height). Below are just a few examples of the many tokens and styles you can use to compose your UI&rsquo;s.
+
+### Some well-loved type tokens
+
+#### Size + leading (line-height)
+
+Leading refers to the overall space between lines and blocks of content. In product, we use line-height to determine the amount of space a line of text takes up. It&rsquo;s important to pick the appropriate line height with your selected type size for better readability and processing of information quickly. If your line heights look like a railroad track, they are too open. We don't want our lines of text to look too open nor too tight.
+
+In Paste, we&rsquo;ve matched our line height and font size tokens so that it&rsquo;s easy for you to pair them. For example, using `$font-size-40` with `$line-height-40` will give you the ideal sizing and spacing pair. The same is true for `$font-size-10` and `$line-height-10`, etc.
+
+<Callout variant="neutral">
+  <CalloutHeading as="h3">Heads up about font sizes in Paste</CalloutHeading>
+  <CalloutText>
+    If you aren't using the Theme.Provider component, you must set font-size: 100%; on your page's html tag for the
+    font-sizes to be sized correctly as 1rem=16px.
+  </CalloutText>
+</Callout>
+<br />
+
+[Check out our line height and font size tokens.](/foundations/colors/#text-and-icon-colors)
+
+<Card>
+  <Text fontSize="fontSize80" lineHeight="lineHeight80">
+    Create a function to respond to Twilio Webhook Events like an incoming call.
+  </Text>
+  <br />
+  <InlineCode>Font-size: font-size-80</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-80</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <Text fontSize="fontSize90" lineHeight="lineHeight90">
+    Create a function to respond to Twilio Webhook Events like an incoming call.
+  </Text>
+  <br />
+  <InlineCode>Font-size: font-size-90</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-90</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <Text fontSize="fontSize100" lineHeight="lineHeight100">
+    Create a function to respond to Twilio Webhook Events.
+  </Text>
+  <br />
+  <InlineCode>Font-size: font-size-100</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-100</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <Text fontSize="fontSize110" lineHeight="lineHeight110">
+    Create a function to respond to Twilio Events.
+  </Text>
+  <br />
+  <InlineCode>Font-size: font-size-110</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-110</InlineCode>
+  <br />
+</Card>
+<br />
+
+#### Text and icon colors
+
+Text color tokens are used to define text and icon colors. We&rsquo;ve created a set of accessible text color tokens to promote legibility and readability to be used on dark and light backgrounds.
+We specifically have color-text-_ and color-text-icon-_ tokens, since icons have different contrast requirements. Since they are graphical objects, they only need to meet a 3:1 color contrast ratio, as opposed to text, which must meet 4.5:1. This means that icons can use any color-text-_ or color-text-icon-_ token, but text should never use color-text-icon-\* tokens.
+
+[Take a look at all our color text tokens.](/foundations/colors/#text-and-icon-colors)
+
+<Card>
+  <TextColorSwatches />
+</Card>
+<br />
+
+## Our components
+
+We know how time-consuming it is to fiddle with type styles to get the correct one. This is why we have created type components, so they have style built into them. You can focus on designing full layouts, and we can worry about the nitty-gritty.
+
+<Card>
+  <DisplayHeading as="div" variant="displayHeading10" marginBottom="space0">
+    DisplayHeading10
+  </DisplayHeading>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Display</InlineCode>
+  <br />
+  <InlineCode>Font-weight: extrabold</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-display-30</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-display-30</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <Heading as="div" variant="heading10" marginBottom="space0">
+    Heading10
+  </Heading>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Text</InlineCode>
+  <br />
+  <InlineCode>Font-weight: semibold</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-90</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-90</InlineCode>
+  <br />
+  <InlineCode>Letter-spacing: -.02rem</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <Paragraph>Paragraph</Paragraph>
+  <br />
+  <br />
+  <InlineCode>Font-family: Twilio Sans Text</InlineCode>
+  <br />
+  <InlineCode>Font-weight: normal</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-30</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-40</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text</InlineCode>
+  <br />
+  <Separator orientation="horizontal" verticalSpacing="space40" />
+  <DetailText>Detail Text</DetailText>
+  <br />
+  <InlineCode>Font-family: Twilio Sans Text</InlineCode>
+  <br />
+  <InlineCode>Font-weight: medium</InlineCode>
+  <br />
+  <InlineCode>Font-size: font-size-20</InlineCode>
+  <br />
+  <InlineCode>Line-height: line-height-20</InlineCode>
+  <br />
+  <InlineCode>Text-color: color-text-weak</InlineCode>
+  <br />
+</Card>
+<br />
+
+Here are some of our typography components:
+
+- [Anchor](/components/anchor)
+- [Description List](/components/description-list)
+- [Detail Text](/components/detail-text)
+- [Display Heading](/components/display-heading)
+- [Heading](/components/) -[Inline Code](/components/heading)
+- [Label](/components/label)
+- [Help Text](/components/help-text)
+- [List](/components/list)
+- [Paragraph](/components/paragraph)
+- [Truncate](/components/truncate)
+
+Most of our block-level typography components like Heading, Paragraph, and Detail Text have preset margins so that stacking components will give your layout the ideal amount of spacing without having to adjust margins manually too much yourself.
+
+<LivePreview scope={{Heading, Paragraph, Card}} language="jsx" showOverflow>
+  {`<Card padding="space0">
+    <Heading as="h2" variant="heading20">
+      Heading
+    </Heading>
+    <Paragraph>This is a paragraph component. The bottom margin is automatically set because it's followed by another paragraph.</Paragraph>
+    <Paragraph marginBottom="space0">This is also a paragraph component. The bottom margin is removed using props because it's the last paragraph of this section of the page. View the code below to see how.</Paragraph>
+</Card>`}
+</LivePreview>
+
+## Ever wonder why we make the choices we make when it comes to styling type?
+
+Let&rsquo;s do a <small>small</small> deep dive into some of our favorite tips for typography.
+
+### Alignment
+
+#### When in doubt, flush left
+
+We suggest using a left alignment for styling UI copy in left-to-right languages. This provides a stronger vertical alignment of your design and a better reading experience while seeing the hierarchy of the content. This also makes it easier to scan content, especially for users of screen magnifiers or higher zoom levels.
+
+<Box display="flex" justifyContent="space-around" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Don't
+  </Text>
+</Box>
+
+<ResponsiveImage
+  src={typography2}
+  alt="do: left-aligned UI with a heading, paragraph, and button; don't: right-aligned UI with a heading, paragraph, and button"
+/>
+
+#### When to center type
+
+We don&rsquo;t suggest centering large groups of text, it&rsquo;s not always the most effective in information design and legibility. However, it may make sense within a card or under a data visual or image if it's a small amount of content.
+
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+</Box>
+<ResponsiveImage src={typography3} alt="do: centered content with a heading, paragraph, and button" />
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+</Box>
+<ResponsiveImage
+  src={typography4}
+  alt="do: left-aligned content with a heading, paragraph, and button, next to an image with a centered caption underneath"
+/>
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Don't
+  </Text>
+</Box>
+<ResponsiveImage
+  src={typography5}
+  alt="don't: left-aligned content with a heading, paragraph, and button, next to an image with a centered heading and caption underneath"
+/>
+
+#### Base alignment
+
+In some instances, it is helpful to bottom align your units of type instead of centering your type. This helps when you have multiple type sizes and gives a unified look. It's that it's easier for humans to scan text content when it's on the same baseline.
+
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+</Box>
+<ResponsiveImage
+  src={typography6}
+  alt="do: examples of UIs next to each other, where the headers and paragraphs all line up appropriately vertically"
+/>
+
+#### Leading (line height)
+
+Leading helps with legibility in your designs. Having leading too tight or too open can be strenuous on the reader. Lucky for you, Paste already uses the best line-height tokens within our type-based components to have the perfect leading already built in.
+
+<Box display="flex" justifyContent="space-around" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Don't
+  </Text>
+</Box>
+
+<ResponsiveImage
+  src={typography7}
+  alt="do: appropriately spaced line height in a paragraph; don't: too much spacing in between lines in a paragraph"
+/>
+
+### Case styles
+
+#### All caps
+
+We recommend avoiding forced capitalization. It&rsquo;s not accessible with screen readers, and in many languages, does not translate. It also tends to be less legible than sentence case.
+
+<Box display="flex" justifyContent="space-around" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Don't
+  </Text>
+</Box>
+
+<ResponsiveImage
+  src={typography8}
+  alt="do: use sentence casing in general UI; don't: use all caps unless absolutely necessary"
+/>
+
+#### In almost all cases in Twilio, use title case
+
+More tips on when to not capitalize:
+
+- Avoid setting a single capitalization design rule that fits all languages.
+- In French, Italian, and Spanish (among others) only the first letter should be capitalized for certain words.
+- In German, certain types of nouns, gerunds, and names must start with upper-case.
+
+Developers should avoid using CSS, e.g. text-transform: capitalize; to handle capitalization.
+
+[Read about capitalization and more on our localization page.](/foundations/localization/#avoid-forced-capitalization)
+
+Here&rsquo;s when you do capitalize:
+
+- Proper nouns – products, people, places.
+- Products include features, programs, or systems that Twilio has given a specific name to.
+- If a brand or product name uses a mix of upper and lower case (TwiML, eBay) use the name's convention.
+- People - named individuals or identifiable roles.
+
+[Have content questions? Read the content guidelines section.](/foundations/content/product-style-guide/#capitalization)
+
+### Stacked headings
+
+We understand that in product, typesetting is sometimes out of our control.
+However, it&rsquo;s good to be mindful of awkward ragged edges in our content blocks, known as [rags](https://fonts.google.com/knowledge/glossary/rag). We also want to be aware of [orphans and widows](https://fonts.google.com/knowledge/glossary/widows_orphans), which is where the content breaks awkwardly, and one word is alone on a single line.
+
+Though we may not be able to adjust content blocks as screen sizes vary, we can still be mindful of these sorts of type accidents. They are especially noticeable in headings. We suggest stacking a headline into two or three lines, versus one long line, which helps to avoid widows.
+
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+</Box>
+<ResponsiveImage src={typography9} alt="do: wrap headings and paragraphs so that they are cohesive" />
+
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Don't
+  </Text>
+</Box>
+<ResponsiveImage
+  src={typography10}
+  alt="don't: wrap headings and paragraphs so that one word is wrapped by itself on a new line, or so that headings stay on one line and look disjointed from the paragraph"
+/>
+
+For this example, you can see the top example has a nice stacked heading that makes the headline and the body copy a compact unit.
+
+In the below examples, you can see one heading and one word in the paragraph are alone, which is harder to scan, but also feels unrefined. The second example has a one line headline which feels disjointed from the rest of the content, as the paragraph line length is shorter. This makes the heading not feel as visually impactful as when it could go to two lines. We want to use design to not only add functionality, but to make a statement.
+
+### Text wrap (line length)
+
+We want to create comfortable reading for our customers. We suggest no more than 120 characters per line. When working with line lengths we want to create short, but efficient lines of text, so the content is easier to scan, it's readable, and not overwhelming.
+
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+</Box>
+<ResponsiveImage src={typography11} alt="do: keep characters per line to a reasonable amount" />
+
+<Box display="flex" justifyContent="center" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Don't
+  </Text>
+</Box>
+<ResponsiveImage src={typography12} alt="don't: let sections of content become to wide and short, or narrow and tall" />
+
+It's also good practice to give more padding (space) if your content is within a container. Just like us humans, our type doesn&rsquo;t like to feel claustrophobic.
+
+<Box display="flex" justifyContent="space-around" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Do
+  </Text>
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Don't
+  </Text>
+</Box>
+
+<ResponsiveImage
+  src={typography13}
+  alt="do: make use of padding in text content areas; don't: let paragrapht text reach the borders of its parent component"
+/>
+
+## Let&rsquo;s play with type ✨
+
+### 3-minute type zhush
+
+- Stack headlines into two or even three lines instead of keeping them one long line (44 characters or more). This helps create a compact reading unit.
+- A good rule is to use no more than 3 type styles (semibold, medium, regular fonts). This helps blend type styles properly and not get carried away.
+- Be generous with the spacing around your type. It thrives when it has room to breathe. We suggest 8–32 pixels between type if they are friends, of course 🙂. [Check out the spacing and layout guidelines for more info.](/foundations/spacing-and-layout)
+
+### Elevating your designs with type
+
+<Box display="flex" justifyContent="flex-start" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Example UI before typography improvements:
+  </Text>
+</Box>
+<ResponsiveImage
+  src={typography15}
+  alt="example of a UI with extra unnecessary text content and typographical choices that make the content harder to digest"
+/>
+<Box display="flex" justifyContent="flex-start" marginBottom="space40">
+  <Text fontWeight="fontWeightBold" fontSize="fontSize40">
+    Example UI after typography improvements:
+  </Text>
+</Box>
+<ResponsiveImage src={typography14} alt="example of a UI with clean, easy to digest spacing and typography" />
+
+## Here&rsquo;s some typography resources we are loving
+
+- [Thinking with Type, 2nd revised and expanded edition: A Critical Guide for Designers, Writers, Editors, & Students](https://www.amazon.com/Thinking-Type-2nd-revised-expanded/dp/1568989695/ref=zg_bs_1875_sccl_3/144-6229454-1545658?pd_rd_i=1568989695&psc=1)
+- [User Friendly: How the hidden Rules of Design Are Changing the Way We Live, Work, and Play](https://www.amazon.com/User-Friendly-Hidden-Design-Changing/dp/0374279756/ref=asc_df_0374279756/?tag=hyprod-20&linkCode=df0&hvadid=385641680285&hvpos=&hvnetw=g&hvrand=3773570413195077771&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9029145&hvtargid=pla-841674880230&psc=1&tag=&ref=&adgrpid=79288120715&hvpone=&hvptwo=&hvadid=385641680285&hvpos=&hvnetw=g&hvrand=3773570413195077771&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9029145&hvtargid=pla-841674880230)
+- [Basic Typography: A Design Manual by James Craig](https://www.thriftbooks.com/w/basic-typography-a-design-manual_james---craig/1346435/item/3529509/?gclid=CjwKCAiAuOieBhAIEiwAgjCvcswmUA462Ir-Ux18gMDvL2EyNuW1c-3Ef-hkk_WO8XG9XApuSqYr9RoC7fwQAvD_BwE#isbn=0823004511&idiq=3529509)
+- [Type and Color: How to Design and Use Multicolored Typefaces](https://www.ebay.com/itm/144916480273?chn=ps&mkevt=1&mkcid=28&srsltid=Ad5pg_ENOISu1RUfF7ti8xO7jdl_5PhpNd9Wsn0rymZq97B4Fj8vPu2nfOY)
+
+</content>
+
+</contentwrapper>

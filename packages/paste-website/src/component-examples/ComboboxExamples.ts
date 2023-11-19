@@ -3,7 +3,7 @@ const authors = ['James Baldwin', 'Adrienne Maree Brown', 'Octavia Butler', 'Ta-
 
 const BasicCombobox = () => {
   return (
-    <Combobox items={authors} labelText="Select an author" required />
+    <Combobox items={authors} initialSelectedItem={authors[2]} labelText="Select an author" required />
   );
 };
 
@@ -20,7 +20,7 @@ const PrefixSuffixCombobox = () => {
     <Combobox
       items={numbers}
       labelText="Select a phone number"
-      insertBefore={<Text as="span" fontWeight="fontWeightSemibold">+1</Text>}
+      insertBefore={<Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">+1</Text>}
       insertAfter={
         <Anchor href="#" display="flex">
           <InformationIcon decorative={false} size="sizeIcon20" title="Get more info" />
@@ -40,6 +40,7 @@ const artists = ['The Aces', 'Brandi Carlile', 'Claud', 'Deb Never', 'Hayley Kiy
 
 const AutoCompleteCombobox = () => {
   const [inputItems, setInputItems] = React.useState(artists);
+
   return (
     <Combobox
       autocomplete
@@ -74,6 +75,9 @@ const OptionTemplateCombobox = () => {
       labelText="Select a month"
       optionTemplate={(item) => (
         <MediaObject verticalAlign="center">
+          <MediaFigure spacing="space30">
+            <CalendarIcon decorative={true} />
+          </MediaFigure>
           <MediaBody>
             <Text as="span" fontStyle="italic" color="colorTextWeak">
             ({item.abbr}){' '}
@@ -82,9 +86,6 @@ const OptionTemplateCombobox = () => {
               {item.label} {item.year}
             </Text>
           </MediaBody>
-          <MediaFigure spacing="space20">
-            <LinkExternalIcon decorative={false} title="external" />
-          </MediaFigure>
         </MediaObject>
       )}
       itemToString={item => (item ? String(item.label) : null)}
@@ -117,6 +118,9 @@ const ControlledCombobox = () => {
         labelText="Select a month"
         optionTemplate={(item) => (
           <MediaObject verticalAlign="center">
+            <MediaFigure spacing="space30">
+              <CalendarIcon decorative={true} />
+            </MediaFigure>
             <MediaBody>
               <Text as="span" fontStyle="italic" color="colorTextWeak">
               ({item.abbr}){' '}
@@ -125,9 +129,6 @@ const ControlledCombobox = () => {
                 {item.label} {item.year}
               </Text>
             </MediaBody>
-            <MediaFigure spacing="space20">
-              <LinkExternalIcon decorative={false} title="external" />
-            </MediaFigure>
           </MediaObject>
         )}
         itemToString={item => (item ? String(item.label) : null)}
@@ -324,6 +325,20 @@ render(
 )
 `.trim();
 
+export const disabledOptionsExample = `
+const products = ['SMS', 'Fax', 'Phone Numbers', 'Video', 'Email', 'Chat'];
+
+const DisabledCombobox = () => {
+  return (
+    <Combobox items={products} labelText="Select a product" disabledItems={products.slice(1,3)} />
+  );
+};
+
+render(
+  <DisabledCombobox />
+)
+`.trim();
+
 export const inverseExample = `
 const products = ['SMS', 'Phone Numbers', 'Video'];
 
@@ -369,7 +384,22 @@ const objectItems = [
   {code: 'AQ', label: 'Antarctica', phone: '672'},
   {code: 'AR', label: 'Argentina', phone: '54'},
   {code: 'AS', label: 'American Samoa', phone: '1-684'},
-  {code: 'AT', label: 'Austria', phone: '43'},
+  {code: 'AT', label: 'Austria', phone: '44'},
+  {code: 'BS', label: 'Bahamas', phone: '43'},
+  {code: 'BH', label: 'Bahrain', phone: '48'},
+  {code: 'BD', label: 'Bangladesh', phone: '50'},
+  {code: 'BB', label: 'Barbados', phone: '52'},
+  {code: 'BY', label: 'Belarus', phone: '112'},
+  {code: 'BE', label: 'Belgium', phone: '56'},
+  {code: 'BZ', label: 'Belize', phone: '84'},
+  {code: 'BJ', label: 'Benin', phone: '204'},
+  {code: 'BM', label: 'Bermuda', phone: '60'},
+  {code: 'BT', label: 'Bhutan', phone: '64'},
+  {code: 'BO', label: 'Bolivia', phone: '68'},
+  {code: 'BW', label: 'Botswana', phone: '72'},
+  {code: 'BR', label: 'Brazil', phone: '76'},
+  {code: 'KH', label: 'Cambodia', phone: '116'},
+  {code: 'CA', label: 'Canada', phone: '124'},
 ];
 
 const ComboboxControlledUsingState = () => {
@@ -392,8 +422,8 @@ const ComboboxControlledUsingState = () => {
         setValue(inputValue);
       }
     },
-    inputValue: value,
-    selectedItem,
+    initialInputValue: value,
+    initialSelectedItem: selectedItem,
   });
   return (
     <>
@@ -434,5 +464,41 @@ const ComboboxControlledUsingState = () => {
 
 render(
   <ComboboxControlledUsingState />
+)
+`.trim();
+
+export const emptyStateExample = `
+const authors = ['James Baldwin', 'Adrienne Maree Brown', 'Octavia Butler', 'Ta-Nehisi Coates', 'Audre Lorde', 'Nnedi Okorafor'];
+
+const SampleEmptyState = () => (
+  <Box paddingY="space40" paddingX="space50">
+    <Text as="span" fontStyle="italic" color="colorTextWeak">
+      No results found
+    </Text>
+  </Box>
+);
+
+const EmptyStateCombobox = () => {
+  const [inputItems, setInputItems] = React.useState([]);
+
+  return (
+    <Combobox
+      autocomplete
+      items={inputItems}
+      inputValue="test123"
+      onInputValueChange={({inputValue}) => {
+        if (inputValue !== undefined) {
+          setInputItems(items.filter((item) => item.toLowerCase().startsWith(inputValue.toLowerCase())));
+        }
+      }}
+      emptyState={SampleEmptyState}
+      labelText="Select an author"
+      helpText="Try searching for an item that doesn't exist in the list."
+    />
+  );
+};
+
+render(
+  <EmptyStateCombobox />
 )
 `.trim();

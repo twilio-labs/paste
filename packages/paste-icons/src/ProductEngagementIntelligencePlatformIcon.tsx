@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ProductEngagementIntelligencePlatformIconProps extends IconWrapperProps {
   title?: string;
@@ -14,11 +15,11 @@ export interface ProductEngagementIntelligencePlatformIconProps extends IconWrap
 const ProductEngagementIntelligencePlatformIcon = React.forwardRef<
   HTMLElement,
   ProductEngagementIntelligencePlatformIconProps
->(({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+>(({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
   const titleId = `ProductEngagementIntelligencePlatformIcon-${useUID()}`;
 
   if (!decorative && title == null) {
-    throw new Error('[ProductEngagementIntelligencePlatformIcon]: Missing a title for non-decorative icon.');
+    throw new Error("[ProductEngagementIntelligencePlatformIcon]: Missing a title for non-decorative icon.");
   }
 
   return (
@@ -30,6 +31,7 @@ const ProductEngagementIntelligencePlatformIcon = React.forwardRef<
         height="100%"
         viewBox="0 0 20 20"
         fill="none"
+        xmlns="http://www.w3.org/2000/svg"
         aria-labelledby={titleId}
       >
         {title ? <title id={titleId}>{title}</title> : null}
@@ -44,5 +46,5 @@ const ProductEngagementIntelligencePlatformIcon = React.forwardRef<
   );
 });
 
-ProductEngagementIntelligencePlatformIcon.displayName = 'ProductEngagementIntelligencePlatformIcon';
-export {ProductEngagementIntelligencePlatformIcon};
+ProductEngagementIntelligencePlatformIcon.displayName = "ProductEngagementIntelligencePlatformIcon";
+export { ProductEngagementIntelligencePlatformIcon };

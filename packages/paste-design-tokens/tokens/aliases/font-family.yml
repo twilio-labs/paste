@@ -1,6 +1,6 @@
 aliases:
   font-family-10: "'Inter var experimental', 'Inter var', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif"
-  font-family-20: "'Fira Mono', Courier, monospace"
+  font-family-20: "'TwilioSansMono', Courier, monospace"
   font-family-30: "'Inter var experimental', 'Inter var', Hiragino Sans, 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, Osaka, 'MS PGothic', sans-serif"
   font-family-40: "'Inter var experimental', 'Inter var', 'Microsoft JhengHei', 微軟正黑體, 'Microsoft JhengHei UI', 'Microsoft YaHei', 微軟雅黑, 宋体, SimSun, sans-serif"
   font-family-50: "'Inter var experimental', 'Inter var', 'Microsoft JhengHei', 微軟正黑體, 'Microsoft JhengHei UI', 'Microsoft YaHei', 微軟雅黑, 宋体, SimSun, sans-serif"

@@ -20,23 +20,27 @@
 
 Before you begin there are some things that you will need to have installed, and some things that we recommend, but are not essential:
 
-1. **[Git](https://git-scm.com/)** - distributed version control. This should be preinstalled on a Mac
+1. **[Git](https://git-scm.com/)** - distributed version control. This should be preinstalled on a Mac.
    1. `git config --global user.name “first last”`
    2. `git config --global user.email johndoe@example.com`
-2. **[Xcode Command Line Tools](https://developer.apple.com/xcode/)** - Used to build some Apple software and node packages
+2. **[Xcode Command Line Tools](https://developer.apple.com/xcode/)** - Used to build some Apple software and node packages.
 3. **[Homebrew](https://brew.sh/)** (optional)- A package manager for Mac software
-   1. Follow the installation instructions on the Homebrew website [https://brew.sh/](https://brew.sh/)
-4. **NodeJS v16.13.x**- A JavaScript runtime for running JavaScript applications
+   1. Follow the installation instructions on the [Homebrew website](https://brew.sh/)
+4. **NodeJS v20.5.x**- A JavaScript runtime for running JavaScript applications
    1. Node is preinstalled on Macs but you might need to manage the version that is installed.
-5. **[NVM](https://github.com/nvm-sh/nvm)** (optional) - A Node version manager that can help installing and managing Node versions on your machine 5. Install via Homebrew
+5. **[NVM](https://github.com/nvm-sh/nvm)** (optional) - A Node version manager that can help installing and managing Node versions on your machine
+   1. Follow the [installation instructions on NVM](https://github.com/nvm-sh/nvm#installing-and-updating).
 6. **[Yarn](https://classic.yarnpkg.com/en/)** - A package manager for node packages.
    1. Install via NPM instructions on the Yarn website [https://classic.yarnpkg.com/en/](https://classic.yarnpkg.com/en/)
    2. Paste currently uses v3.
 7. **[Visual Studio Code](https://code.visualstudio.com/)** (optional) - Lightweight IDE that’s really good working with Typescript codebases.
-   1. Check out the recommended extensions in the extensions tab. 9. We supply some handy React code snippets in the Paste repo too
+   1. Check out the recommended extensions in the extensions tab.
+   2. We supply some handy React code snippets in the Paste repo too
 8. **Chrome, Edge, Firefox and Safari browsers** - Browsers we support.
 9. **[iTerm2](https://iterm2.com/)** - (optional) Handy terminal with many features.
    1. We’re fans of zShell coupled with [Oh My Zsh!](https://ohmyz.sh/)
+10. **[Connect to Github with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)** - You'll need this to connect your local machine to Github and clone the Paste repo.
+    1. Follow the [Github instructions to check if you have an existing SSH key](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys). If not, continue through the instructions to generate and add a new one.
 
 ## First time working on Paste
 
@@ -147,19 +151,19 @@ DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
 
 <table>
   <tr>
-   <td>GATSBY_ENVIRONMENT_CONTEXT
+   <td>NEXT_PUBLIC_ENVIRONMENT_CONTEXT
    </td>
    <td>Set to “local”. This replicates <a href="https://docs.netlify.com/configure-builds/environment-variables/#build-metadata">Netlify deployment context</a>
    </td>
   </tr>
   <tr>
-   <td>GATSBY_DATADOG_APPLICATION_ID
+   <td>NEXT_PUBLIC_DATADOG_APPLICATION_ID
    </td>
    <td>Datadog RUM app ID
    </td>
   </tr>
   <tr>
-   <td>GATSBY_DATADOG_CLIENT_TOKEN
+   <td>NEXT_PUBLIC_DATADOG_CLIENT_TOKEN
    </td>
    <td>Datadog RUM client token
    </td>
@@ -174,24 +178,6 @@ DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
    <td>AIRTABLE_BASEID
    </td>
    <td>ID of the Airtable that contains our roadmap
-   </td>
-  </tr>
-  <tr>
-   <td>GATSBY_DOCSEARCHV3_APIKEY
-   </td>
-   <td>API key for powering our docs search
-   </td>
-  </tr>
-  <tr>
-   <td>GATSBY_DOCSEARCHV3_APPID
-   </td>
-   <td>Docs search app ID
-   </td>
-  </tr>
-  <tr>
-   <td>GATSBY_DOCSEARCHV3_INDEXNAME
-   </td>
-   <td>twilio_paste
    </td>
   </tr>
 </table>
@@ -220,85 +206,79 @@ Paste is a monorepo. It means most of the packages and projects Paste distribute
 
 For example, our Button depends on our Box package. Box depends on Theme, and Theme depends on Design Tokens. If you make a change to Design Tokens, it’s easier to observe and manage the side effects that it will have on dependent packages, if all packages are managed under a single repo.
 
-We use [Lerna](https://lerna.js.org/) and [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to link all the internal dependencies together whilst working locally.
+We use [Nx](https://nx.dev/) and [Yarn workspaces](https://classic.yarnpkg.com/en/docs/workspaces/) to link all the internal dependencies together whilst working locally.
 
-All packages and projects that rely on the latest version of components, live under the packages directory.
+All packages and projects that rely on the latest version of components, live under the packages, apps, and templates directory.
 
 <table>
   <tr>
-   <td>paste-core
+   <td>packages/paste-core
    </td>
    <td>All React components, split into layout, primitives, and components
    </td>
   </tr>
   <tr>
-   <td>paste-codemods
+   <td>packages/paste-codemods
    </td>
    <td><a href="https://github.com/facebook/codemod">Codemods</a> that allow the Paste team to write scripts that can be run on a consuming code base, that automatically make code changes.
    </td>
   </tr>
   <tr>
-   <td>paste-cra-template
-   </td>
-   <td>A create-react-app template to get started with Paste
-   </td>
-  </tr>
-  <tr>
-   <td>paste-customization
+   <td>packages/paste-customization
    </td>
    <td>Customization provider will allow customers to change the look and feel of their Paste apps
    </td>
   </tr>
   <tr>
-   <td>paste-design-tokens
+   <td>packages/paste-design-tokens
    </td>
    <td>Paste Design Language
    </td>
   </tr>
   <tr>
-   <td>paste-icons
+   <td>packages/paste-icons
    </td>
    <td>Paste icons
    </td>
   </tr>
   <tr>
-   <td>paste-libraries
+   <td>packages/paste-libraries
    </td>
    <td>Third party libraries that Paste uses
    </td>
   </tr>
   <tr>
-   <td>paste-nextjs-template
+   <td>templates/paste-nextjs-template
    </td>
    <td>A create-next-app template to get started with Paste
    </td>
   </tr>
   <tr>
-   <td>paste-style-props
+   <td>packages/paste-style-props
    </td>
    <td>Paste style props
    </td>
   </tr>
   <tr>
-   <td>paste-theme
+   <td>packages/paste-theme
    </td>
    <td>Paste theme provider and default themes
    </td>
   </tr>
   <tr>
-   <td>paste-theme-designer
+   <td>packages/paste-theme-designer
    </td>
    <td>A web app to help Paste consumers design a custom theme
    </td>
   </tr>
   <tr>
-   <td>paste-types
+   <td>packages/paste-types
    </td>
    <td>Typescript types for the Paste project
    </td>
   </tr>
   <tr>
-   <td>paste-website
+   <td>packages/paste-website
    </td>
    <td>Paste documentation site
    </td>

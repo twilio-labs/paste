@@ -1,32 +1,33 @@
-import * as React from 'react';
-import {Heading} from '@twilio-paste/heading';
-import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
-import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
-import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
-import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
-import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
-import {styled, css} from '@twilio-paste/styling-library';
+import { Heading } from "@twilio-paste/heading";
+import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
+import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
+import { UsersIcon } from "@twilio-paste/icons/esm/UsersIcon";
+import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
+import { css, styled } from "@twilio-paste/styling-library";
+import * as React from "react";
 
-import {Badge} from '../src';
+import { Badge } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Components/Badge',
+  title: "Components/Badge",
   component: Badge,
 };
 
 const Wrapper = styled.div(
   css({
-    display: 'flex',
-    columnGap: 'space60',
-    alignItems: 'center',
-    rowGap: 'space60',
-    flexWrap: 'wrap',
-    marginBottom: 'space80',
-  })
+    display: "flex",
+    columnGap: "space60",
+    alignItems: "center",
+    rowGap: "space60",
+    flexWrap: "wrap",
+    marginBottom: "space80",
+  }),
 );
 
-export const AllBadges: React.FC = () => (
+export const AllBadges = (): JSX.Element => (
   <Wrapper>
     <Badge as="span" variant="neutral">
       Neutral
@@ -42,6 +43,9 @@ export const AllBadges: React.FC = () => (
     </Badge>
     <Badge as="span" variant="new">
       New
+    </Badge>
+    <Badge as="span" variant="subaccount">
+      Subaccount
     </Badge>
     <Badge as="span" variant="decorative10">
       Decorative10
@@ -63,8 +67,48 @@ export const AllBadges: React.FC = () => (
     </Badge>
   </Wrapper>
 );
+export const SmallBadges = (): JSX.Element => (
+  <Wrapper>
+    <Badge as="span" size="small" variant="neutral">
+      Neutral
+    </Badge>
+    <Badge as="span" size="small" variant="warning">
+      Warning
+    </Badge>
+    <Badge as="span" size="small" variant="error">
+      Error
+    </Badge>
+    <Badge as="span" size="small" variant="success">
+      Success
+    </Badge>
+    <Badge as="span" size="small" variant="new">
+      New
+    </Badge>
+    <Badge as="span" size="small" variant="subaccount">
+      Subaccount
+    </Badge>
+    <Badge as="span" size="small" variant="decorative10">
+      Decorative10
+    </Badge>
+    <Badge as="span" size="small" variant="decorative20">
+      Decorative20
+    </Badge>
+    <Badge as="span" size="small" variant="decorative30">
+      Decorative30
+    </Badge>
+    <Badge as="span" size="small" variant="decorative40">
+      Decorative40
+    </Badge>
+    <Badge as="span" size="small" variant="neutral_counter">
+      1
+    </Badge>
+    <Badge as="span" size="small" variant="error_counter">
+      1
+    </Badge>
+  </Wrapper>
+);
 
-export const NeutralBadge: React.FC = () => (
+export const NeutralBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -121,7 +165,7 @@ export const NeutralBadge: React.FC = () => (
   </>
 );
 
-export const WarningBadge: React.FC = () => (
+export const WarningBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -174,7 +218,7 @@ export const WarningBadge: React.FC = () => (
   </>
 );
 
-export const ErrorBadge: React.FC = () => (
+export const ErrorBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -227,7 +271,7 @@ export const ErrorBadge: React.FC = () => (
   </>
 );
 
-export const SuccessBadge: React.FC = () => (
+export const SuccessBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -284,7 +328,7 @@ export const SuccessBadge: React.FC = () => (
   </>
 );
 
-export const NewBadge: React.FC = () => (
+export const NewBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -337,7 +381,60 @@ export const NewBadge: React.FC = () => (
   </>
 );
 
-export const Decorative10Badge: React.FC = () => (
+export const SubaccountBadge = (): JSX.Element => (
+  <>
+    <Heading as="h2" variant="heading40">
+      Span
+    </Heading>
+    <Wrapper>
+      <Badge as="span" variant="subaccount">
+        Subaccount
+      </Badge>
+      <Badge as="span" variant="subaccount">
+        <UsersIcon decorative />
+        Subaccount
+      </Badge>
+      <Badge as="span" variant="subaccount">
+        Subaccount
+        <UsersIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Anchor
+    </Heading>
+    <Wrapper>
+      <Badge as="a" href="#" variant="subaccount">
+        Subaccount
+      </Badge>
+      <Badge as="a" href="#" variant="subaccount">
+        <UsersIcon decorative />
+        Subaccount
+      </Badge>
+      <Badge as="a" href="#" variant="subaccount">
+        Subaccount
+        <UsersIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Button
+    </Heading>
+    <Wrapper>
+      <Badge as="button" onClick={() => {}} variant="subaccount">
+        Subaccount
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="subaccount">
+        <UsersIcon decorative />
+        Subaccount
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="subaccount">
+        Subaccount
+        <UsersIcon decorative />
+      </Badge>
+    </Wrapper>
+  </>
+);
+
+export const Decorative10Badge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -390,7 +487,7 @@ export const Decorative10Badge: React.FC = () => (
   </>
 );
 
-export const Decorative20Badge: React.FC = () => (
+export const Decorative20Badge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -443,7 +540,7 @@ export const Decorative20Badge: React.FC = () => (
   </>
 );
 
-export const Decorative30Badge: React.FC = () => (
+export const Decorative30Badge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -496,7 +593,7 @@ export const Decorative30Badge: React.FC = () => (
   </>
 );
 
-export const Decorative40Badge: React.FC = () => (
+export const Decorative40Badge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -549,7 +646,7 @@ export const Decorative40Badge: React.FC = () => (
   </>
 );
 
-export const NeutralCounterBadge: React.FC = () => (
+export const NeutralCounterBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -596,7 +693,7 @@ export const NeutralCounterBadge: React.FC = () => (
   </>
 );
 
-export const ErrorCounterBadge: React.FC = () => (
+export const ErrorCounterBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -643,7 +740,7 @@ export const ErrorCounterBadge: React.FC = () => (
   </>
 );
 
-export const DefaultBadge: React.FC = () => (
+export const DefaultBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -690,7 +787,7 @@ export const DefaultBadge: React.FC = () => (
   </>
 );
 
-export const InfoBadge: React.FC = () => (
+export const InfoBadge = (): JSX.Element => (
   <>
     <Heading as="h2" variant="heading40">
       Span
@@ -737,7 +834,7 @@ export const InfoBadge: React.FC = () => (
   </>
 );
 
-export const LongTextBadge: React.FC = () => (
+export const LongTextBadge = (): JSX.Element => (
   <Wrapper>
     <Badge as="a" href="#" variant="neutral">
       <InformationIcon decorative />

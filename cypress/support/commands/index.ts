@@ -1,2 +1,1 @@
-import './child-commands';
-import './parent-commands';
+import "./parent-commands";

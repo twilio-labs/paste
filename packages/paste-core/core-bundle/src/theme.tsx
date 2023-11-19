@@ -1,1 +1,1 @@
-export * from '@twilio-paste/theme';
+export * from "@twilio-paste/theme";

@@ -1,0 +1,27 @@
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import * as React from 'react';
+
+export interface {{pascalCase component-name}}Props extends HTMLPasteProps<"div"> {
+  children?: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   * @default '{constantCase component-name}'
+   * @type {BoxProps['element']}
+   * @memberof {{pascalCase component-name}}Props
+   */
+  element?: BoxProps['element'];
+}
+
+const {{pascalCase component-name}} = React.forwardRef<HTMLDivElement, {{pascalCase component-name}}Props>(({element = "{{constantCase component-name}}", ...props}, ref) => {
+  return (
+    <Box ref={ref}>
+      {props.children}
+    </Box>
+  );
+});
+
+{{pascalCase component-name}}.displayName = '{{pascalCase component-name}}';
+
+{{export component-name}};

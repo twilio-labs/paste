@@ -1,0 +1,44 @@
+body:
+  - type: "textarea"
+    id: "background"
+    attributes:
+      label: "Background"
+      description: "What do we need to know about your product, customers, and constraints? A short paragraph or a problem statement is helpful."
+    validations:
+      required: true
+  - type: "textarea"
+    id: "feedback"
+    attributes:
+      label: "Feedback"
+      description: "What feedback are you hoping to get? What specific questions do you have? Examples:  - How do I make sure the way I've used this icon is clear to all users? - I've tried a few different ways of making my CTA prominent. Are there any concerns with how I've used the components on any of these explorations? - See my comments in the mockup for DSYS questions."
+    validations:
+      required: true
+  - type: "textarea"
+    id: "stage"
+    attributes:
+      label: "Stage of design"
+      description: "Details on what design stage the process is in"
+      placeholder: "Planning, Discover - Define, Exploration, High-fidelity, etc."
+  - type: "textarea"
+    id: "research"
+    attributes:
+      label: "Research"
+      description: "Include links to any findings"
+  - type: "textarea"
+    id: "link"
+    attributes:
+      label: "Relevant links"
+      description: |
+        A link to Figma, CodeSandbox, prototype, etc.
+  - type: "checkboxes"
+    id: "visual-design"
+    attributes:
+      label: "Are you looking for visual design support?"
+      options:
+        - label: "Yes"
+  - type: "textarea"
+    id: "additional-information"
+    attributes:
+      label: "Additional Information"
+      description: |
+        Add any other context about the problem here.

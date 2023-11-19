@@ -1,8 +1,9 @@
-import {join} from 'path';
-import fs from 'fs';
-import startcase from 'lodash/startCase';
+import fs from "fs";
+import { join } from "path";
 
-import {SVG_PATH, REACT_PATH} from './constants';
+import startcase from "lodash/startCase";
+
+import { REACT_PATH, SVG_PATH } from "./constants";
 
 // Ramda-like general purpose functional pipe method
 const pipe =
@@ -10,17 +11,19 @@ const pipe =
   (x: T) =>
     fns.reduce((y, f) => f(y), x);
 
-// Split ComponentName (PascalCase) to multi word regex
-// Used for icon title text for a11y
-const pascalCaseWordSplitter = (str: string): string => str.replace(/([A-Z]+)/g, ' $1').trim();
+/*
+ * Split ComponentName (PascalCase) to multi word regex
+ * Used for icon title text for a11y
+ */
+const pascalCaseWordSplitter = (str: string): string => str.replace(/([A-Z]+)/g, " $1").trim();
 
 const addTsxExtension = (str: string): string => `${str}.tsx`;
 const addIconSuffix = (str: string): string => `${str}Icon`;
-const removeIconSuffix = (str: string): string => str.replace('Icon', '');
-const removeSvgExtension = (str: string): string => str.replace('.svg', '');
-const removeTsxExtension = (str: string): string => str.replace('.tsx', '');
-const cleanFileName = (str: string): string => startcase(str).replace(/ /g, '');
-const removeDashes = (str: string): string => str.replace(/[_-]/g, '');
+const removeIconSuffix = (str: string): string => str.replace("Icon", "");
+const removeSvgExtension = (str: string): string => str.replace(".svg", "");
+const removeTsxExtension = (str: string): string => str.replace(".tsx", "");
+const cleanFileName = (str: string): string => startcase(str).replace(/ /g, "");
+const removeDashes = (str: string): string => str.replace(/[_-]/g, "");
 const lowerCase = (str: string): string => str.toLowerCase();
 
 const getOutputComponentName = pipe(removeSvgExtension, removeIconSuffix, addIconSuffix, cleanFileName);
@@ -33,7 +36,7 @@ const normalizeFileName = pipe(
   removeIconSuffix,
   removeDashes,
   cleanFileName,
-  lowerCase
+  lowerCase,
 );
 
 const getBuildFileName = pipe((str: string) => `src/${str}`, addTsxExtension);
@@ -57,7 +60,7 @@ function getReactOutputPath(fileName: string): string {
 }
 
 // To use await, until fs.promises is no longer experimental
-const readdirAsync = (path: string): Promise<string[]> =>
+const readdirAsync = async (path: string): Promise<string[]> =>
   new Promise((resolve, reject) => {
     fs.readdir(path, (error, result) => {
       if (error) {

@@ -1,0 +1,582 @@
+export const meta = {
+  title: 'Error state',
+  description: 'An error state notifies a user that something went wrong.',
+  slug: '/patterns/error-state/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Alert} from '@twilio-paste/alert';
+import {Box} from '@twilio-paste/box';
+import {Card} from '@twilio-paste/card';
+import {Grid, Column} from '@twilio-paste/grid';
+import {Heading} from '@twilio-paste/heading';
+import {Label} from '@twilio-paste/label';
+import {Input} from '@twilio-paste/input';
+import {HelpText} from '@twilio-paste/help-text';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Toast} from '@twilio-paste/toast';
+import {Table, THead, Tr, Th, TBody, Td, TFoot} from '@twilio-paste/table';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import DefaultLayout from '../../../layouts/DefaultLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Error state');
+  return {
+    props: {
+      data: {
+        ...feature,
+      },
+      navigationData,
+    },
+  };
+};
+
+<content>
+
+<NormalizedPatternHeader description={meta.description} name={meta.title} data={props.data} />
+
+</content>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} />
+
+<content>
+
+## Ingredients
+
+<Grid gutter="space30" marginBottom="space80">
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/alert">Alert</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/callout">Callout</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/toast">Toast</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+  <Column>
+    <Card>
+      <Heading as="h3" variant="heading40" marginBottom="space0">
+        <Anchor href="/components/help-text">Help Text</Anchor>
+      </Heading>
+    </Card>
+  </Column>
+</Grid>
+
+```jsx
+// import one of the following ingredients for the error state pattern
+import {Alert} from '@twilio-paste/core/alert';
+import {Callout} from '@twilio-paste/core/callout';
+import {Toast} from '@twilio-paste/core/toast';
+import {HelpText} from '@twilio-paste/core/help-text';
+```
+
+## Usage
+
+### General
+
+Use an error state _after_ a problem occurs. For example:
+
+- A user tried to submit a form with required fields missing.
+- A failed connection terminates a user action.
+
+To _proactively_ call a user’s attention to information that can help them avoid errors or undesirable outcomes, use a [warning](/components/callout#callout-variants). For example:
+
+- Telling a user an action might increase their bill.
+- Telling a user they’re about to hit a limit.
+- Telling a user a selection has notable limitations.
+- Telling a user an action could result in lost data.
+
+### Composition
+
+When developing an error message:
+
+- **Tell the user what happened, why it happened, and how to fix it (if they can).**
+  - If you’re tight on space, prioritize what happened and how to fix it.
+  - If you have extra room, explain what happens if the error isn’t fixed.
+- **Be as specific as possible.** Develop a tailored error message for each possible cause.
+- **Use plain, human-readable language.** Prioritize active voice, but consider passive voice when the
+  emphasis should be on the outcome and not who/what caused the outcome.
+- **Avoid blaming the user.** Focus on what the user needs to do to move forward, not what they did not
+  do.
+- **Avoid certain words.** The language we use during an undesirable experience matters. Avoid the
+  following language:
+  - **Technical jargon.** Don’t introduce terms your users may not understand.
+  - **Negative or alarmist words** like: forbidden, illegal, prohibited, valid/invalid.
+  - **“Please.”** It makes the action sound optional.
+  - **“Sorry.”** Overusing it makes it lose its meaning. Reserve this for situations where something
+    highly detrimental has happened, like lost data.
+- **Place the error message as close to the source of the error as possible.**
+
+### Accessibility
+
+When possible, use an icon and color to indicate an error. When using only an icon or color, ensure the content clearly indicates something went wrong.
+
+## Recommended phrasings and templates
+
+### Generic errors
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Type</Th>
+      <Th>Recommended phrasing(s)</Th>
+      <Th>Notes</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td>We don’t know what happened and there are many possible causes</Td>
+      <Td>
+        Something went wrong. Try again later.
+        <br />
+        <br />
+        Something went wrong. Contact customer support.
+        <br />
+        <br />
+        Something went wrong. Try again later. If the problem persists, contact customer support.
+      </Td>
+      <Td>
+        Don’t use “Something went wrong” if we can tell them specifically what went wrong.
+        <br />
+        <br />
+        Don’t include “Try again later.” if we don’t think that could help the situation.’
+        <br />
+        <br />
+        If we can’t pinpoint the issue but we know that the user cannot solve the issue on their own, include language
+        around customer support.
+        <br />
+        <br />
+        Only include a directive to contact support if you’ve confirmed with the customer success team that it’s OK, and
+        there’s a reasonable chance that they could help with the possible underlying problems.
+      </Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Data retrieval error</Td>
+      <Td>
+        The [data type] could not be loaded. Try reloading the page. If the problem persists, contact customer support.
+      </Td>
+      <Td>
+        Only include a directive to contact support if you’ve confirmed with the customer success team that it’s OK, and
+        there’s a reasonable chance that they could help with the possible underlying problems.
+      </Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Another service is down</Td>
+      <Td>[Service] could not be reached. Check [website] for more information.</Td>
+      <Td>Link to a status page if available. For example, https://status.twilio.com/.</Td>
+    </Tr>
+  </TBody>
+</Table>
+<br />
+
+### Network errors
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Type</Th>
+      <Th>Recommended phrasing(s)</Th>
+      <Th>Notes</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td>Internet connection problem</Td>
+      <Td>Internet connection failed. Check your connection, then try again.</Td>
+      <Td></Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Request timeout</Td>
+      <Td>Server connection failed. Try again later.</Td>
+      <Td></Td>
+    </Tr>
+  </TBody>
+</Table>
+<br />
+
+### Validation errors
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Type</Th>
+      <Th>Recommended phrasing(s)</Th>
+      <Th>Notes</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td>Required fields</Td>
+      <Td>Enter [thing].</Td>
+      <Td></Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Required selection fields</Td>
+      <Td>
+        Select [thing].
+        <br />
+        <br />
+        Select at least [#] thing(s).
+      </Td>
+      <Td></Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Character limits</Td>
+      <Td>
+        [Thing] is too long. [Thing] must be [#] characters or fewer.
+        <br />
+        <br />
+        [Thing] is too short. [Thing] must be at least [#] characters.
+        <br />
+        <br />
+        [Thing] must be between [#] and [#] characters.
+      </Td>
+      <Td>If we can, tell them how many characters over the limit they are.</Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Character types</Td>
+      <Td>
+        [Thing] cannot include [character type].
+        <br />
+        <br />
+        [Thing] can only include [character types].
+      </Td>
+      <Td></Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Format validation</Td>
+      <Td>Enter [thing] in this format: [example].</Td>
+      <Td>
+        When possible, standardize formatting on the backend instead of forcing users to use precise formatting
+        standards.
+      </Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Value limits</Td>
+      <Td>Too many [things]. You can enter up to [#] [things].</Td>
+      <Td></Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Duplication of value</Td>
+      <Td>[Thing] already exists. Enter a different [thing].</Td>
+      <Td></Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Multiple missing required values in a section</Td>
+      <Td>Enter values for all fields.</Td>
+      <Td></Td>
+    </Tr>
+  </TBody>
+</Table>
+<br />
+
+### Access errors
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Type</Th>
+      <Th>Recommended phrasing(s)</Th>
+      <Th>Notes</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td>Access authorization</Td>
+      <Td>
+        You do not have access to [thing]. Contact your workspace admin.
+        <br />
+        <br />
+        You do not have permission to [thing]. Contact your workspace admin.
+      </Td>
+      <Td></Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Authentication</Td>
+      <Td>[Thing] could not be authenticated. Check the [type of credential], then try again.</Td>
+      <Td></Td>
+    </Tr>
+  </TBody>
+</Table>
+<br />
+
+### Settings errors
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Type</Th>
+      <Th>Recommended phrasing(s)</Th>
+      <Th>Notes</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td>Setting not enabled</Td>
+      <Td>To [action], enable [setting].</Td>
+      <Td></Td>
+    </Tr>
+    <Tr verticalAlign="top">
+      <Td>Connection missing</Td>
+      <Td>To [action], connect [thing].</Td>
+      <Td></Td>
+    </Tr>
+  </TBody>
+</Table>
+<br />
+
+### Actions errors
+
+<Table tableLayout="fixed" striped>
+  <THead>
+    <Tr>
+      <Th>Type</Th>
+      <Th>Recommended phrasing(s)</Th>
+      <Th>Notes</Th>
+    </Tr>
+  </THead>
+  <TBody>
+    <Tr verticalAlign="top">
+      <Td>Something didn’t send</Td>
+      <Td>[Thing] did not send. Check [some things], then try again.</Td>
+      <Td>Don’t include “Try again later.” if we don’t think that could help the situation.</Td>
+    </Tr>
+  </TBody>
+</Table>
+<br />
+
+Work with engineers to try to avoid an endless “try again” loop. Explore whether you can offer a series of things to check if the user hits a particular error several times in a row.
+
+## Variations
+
+### Error codes
+
+Include error codes only when the user can use it to troubleshoot by themselves or by giving the code to customer support. Ensure there is either public documentation or support team documentation that maps error codes to specific resolution instructions before including error codes.
+
+Place error codes at the end of the message inside parentheses.
+
+### Empty states
+
+An empty state is also an error state when content fails to load. Error empty states can result from problems like a system issue or access issue. Error empty states are different from [empty states that result from a lack of data to show](/patterns/empty-state). If the error empty state occurs in a small component (a card, for example), prioritize communicating how to fix the problem.
+
+### Metrics cards
+
+When cards are used as part of a dashboard to display metrics, error states can occur on individual cards because the data populating a particular card isn’t available. Since these cards are usually small, use error iconography paired with a 3-5 word error message. 
+
+## Specific component guidance
+
+### When to use which component
+
+**[Alert](/components/alert)**
+
+<Alert variant="error">
+  <strong>Please update your billing information or we'll suspend your account on March 2.</strong> We couldn't renew
+  your subscription with the information we currently have. <Anchor href="#">Update billing information</Anchor>
+</Alert>
+
+- Alerts communicate a critical issue at the system level, like site-wide service disruptions, active incidents, or
+  expired billing information.
+- Alert error messages do not result from a user action.
+
+**[Callout](/components/callout)**
+
+<Callout variant="error">
+  <CalloutHeading as="h4">Missing information</CalloutHeading>
+  <CalloutText>Enter values for all required fields.</CalloutText>
+</Callout>
+
+- Callouts communicate:
+  - An error specific to a particular section of a page, or that applies to a whole page.
+  - An error summary of multiple errors on the page. When used for form validation, still include the inline error
+    messages.
+  - Use Callouts for situations like operation failures with multiple pieces of information, or a form submission
+    missing many required fields.
+- Callout error messages can result from a user action, but don’t have to.
+
+**[Toast](/components/toast)**
+
+<Toast onDismiss={() => alert('dismissed')} variant="error">
+  There was an error when deleting the profile. Please try again.
+</Toast>
+
+- Toasts communicate brief, easily comprehended error messages that are not the user’s fault, like a failed
+  connection.
+- Toast error messages usually result from a user action.
+- Toast error messages should never automatically disappear.
+
+**[Help Text](/components/help-text)**
+
+<HelpText id="email_error_help_text" variant="error">
+  Enter a valid email. Use your work email address.
+</HelpText>
+
+- Help Text communicates contextual errors, like field validation.
+- Help Text can result from a user action, but doesn’t have to.
+
+### Components with additional error guidance
+
+- [Alert](/components/alert)
+- [Badge](/components/badge)
+- [Singleselect Combobox](/components/combobox)
+- [Multiselect Combobox](/components/multiselect-combobox)
+- [Date picker](/components/date-picker)
+- [Disclosure](/components/disclosure)
+- [File picker](/components/file-picker)
+- [File uploader](/components/file-uploader)
+- [Form](/components/form)
+- [Form pill group](/components/form-pill-group)
+- [Help text](/components/help-text)
+- [Input](/components/input)
+- [Radio button group](/components/radio-button-group)
+- [Radio group](/components/radio-group)
+- [Select](/components/select)
+- [Textarea](/components/textarea)
+- [Time picker](/components/time-picker)
+- [Toast](/components/toast)
+
+## Dos & Don'ts
+
+<DoDont>
+  <Do title="Do" body="Focus on what the user can do to fix the issue." center>
+    <Box padding="space30">
+      <Label htmlFor="do1">Phone number</Label>
+      <Input id="do1" type="number" />
+      <HelpText variant="error">Enter a phone number.</HelpText>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Avoid phrasing error messages in a way that blames the user." center>
+    <Box padding="space30">
+      <Label htmlFor="dont1">Phone number</Label>
+      <Input id="dont1" type="number" />
+      <HelpText variant="error">You did not enter a phone number.</HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use passive voice when the outcome is most important." center>
+    <Box padding="space50" width="100%">
+      <Toast variant="error">The connection was lost.</Toast>
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Avoid prioritizing active voice when it’s more important that the user knows what happened, not who did it."
+    center
+  >
+    <Box padding="space50" width="100%">
+      <Toast variant="error">Our servers lost the connection.</Toast>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use individual error messages for different validations." center>
+    <Box padding="space50">
+      <Label htmlFor="do2">Password</Label>
+      <Input id="do2" type="password" />
+      <HelpText variant="error">Your password must contain at least 8 characters.</HelpText>
+      <HelpText variant="error">Your password cannot have spaces.</HelpText>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t combine possible error causes if we can validate against each one." center>
+    <Box padding="space50">
+      <Label htmlFor="dont2">Password</Label>
+      <Input id="dont2" type="password" />
+      <HelpText variant="error">
+        Your password might be too long, too short, have spaces, or lack a number or special character.
+      </HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Show all relevant validation error messages at once, so the user doesn’t hit multiple errors in a row."
+    center
+  >
+    <Box padding="space50">
+      <Label htmlFor="do3">Password</Label>
+      <Input id="do3" type="password" />
+      <HelpText variant="error">Your password must contain at least 8 characters.</HelpText>
+      <HelpText variant="error">Your password cannot include special characters.</HelpText>
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="If there are multiple validation errors, don’t make the user fix each one individually."
+    center
+  >
+    <Box padding="space50">
+      <Label htmlFor="dont3">Password</Label>
+      <Input id="dont3" type="password" defaultValue="· · · · · · ·" />
+      <HelpText variant="error">Your password must contain at least 8 characters.</HelpText>
+      <Label htmlFor="dont3">Password</Label>
+      <Input id="dont3" type="password" defaultValue="· · · · · · · ·" />
+      <HelpText variant="error">Your password cannot include special characters.</HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use plain language to explain what went wrong." center>
+    <Box padding="space50">
+      <Label htmlFor="do4">Password</Label>
+      <Input id="do4" type="password" />
+      <HelpText variant="error">Name cannot contain special characters. Use only letters and numbers.</HelpText>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t use scary or negative words." center>
+    <Box padding="space50">
+      <Label htmlFor="dont4">Password</Label>
+      <Input id="dont4" type="password" />
+      <HelpText variant="error">Name is invalid. You entered an illegal character.</HelpText>
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Include error codes in parentheses at the end of the message only when the user can use it to troubleshoot by themselves or by giving the code to customer support."
+    center
+  >
+    <Box padding="space50">
+      <Callout variant="error">
+        <CalloutText>Something went wrong. Contact customer support. (Error code: 6789)</CalloutText>
+      </Callout>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t start error messages with “Error” or the error code." center>
+    <Box padding="space50">
+      <Callout variant="error">
+        <CalloutText>Error: Code 6789: Something went wrong. Contact customer support.</CalloutText>
+      </Callout>
+    </Box>
+  </Dont>
+</DoDont>
+
+</content>
+
+</contentwrapper>

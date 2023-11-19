@@ -1,38 +1,37 @@
-import kebabCase from 'lodash/kebabCase';
-import startCase from 'lodash/startCase';
-import toLower from 'lodash/toLower';
-// Gatsby uses @reach/router under the hood
-import {useLocation} from '@reach/router';
-import {PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes} from '../constants';
+import kebabCase from "lodash/kebabCase";
+import startCase from "lodash/startCase";
+import toLower from "lodash/toLower";
+import { useRouter } from "next/router";
 
-const hasWindowObject = (): boolean => typeof window !== `undefined` && window.location != null;
+import { PASTE_PACKAGE_PREFIX, SidebarCategoryRoutes } from "../constants";
+
+export const hasWindowObject = (): boolean => typeof window !== "undefined" && window.location != null;
 
 // Gets the current browser pathname
 export function useLocationPathname(): string {
-  const {pathname} = hasWindowObject() ? window.location : useLocation();
+  const { pathname } = hasWindowObject() ? window.location : useRouter();
   return pathname;
 }
 
 // Gets the current url params
 export function useLocationSearch(): string {
-  const {search} = hasWindowObject() ? window.location : useLocation();
-  return search;
+  return hasWindowObject() ? window.location.search : "";
 }
 
 export function useLocationOrigin(): string {
-  const {origin} = hasWindowObject() ? window.location : useLocation();
+  const origin = hasWindowObject() ? window.location.origin : "";
   // By default, assume the origin is our own domain
-  return origin || 'https://paste.twilio.design';
+  return origin || "https://paste.twilio.design";
 }
 
 export function useOpengraphServiceUrl(path: string): string {
   const origin = useLocationOrigin();
-  return `${origin}/.netlify/functions/opengraph/${path}`;
+  return `${origin}/api/opengraph/?componentRequested=${path}`;
 }
 
 // Returns "aspect-ratio" from "@twilio-paste/aspect-ratio"
 export function getNameFromPackageName(packageName: string): string {
-  return packageName.replace(PASTE_PACKAGE_PREFIX, '');
+  return packageName?.replace(PASTE_PACKAGE_PREFIX, "");
 }
 
 // Returns "Aspect Ratio" from "@twilio-paste/aspect-ratio"
@@ -42,32 +41,36 @@ export function getHumanizedNameFromPackageName(packageName: string): string {
 
 // Returns `/components/button` from a category constant and package name
 export function getPackagePath(categoryRoute: string, packageName: string): string {
-  return `${categoryRoute}/${packageName.replace(/\s+/g, '-').toLowerCase()}`;
+  return `${categoryRoute}/${packageName.replace(/\s+/g, "-").toLowerCase()}`;
 }
 
 export function slugify(text: string): string {
-  return kebabCase(text.toLowerCase().replace(/[&+]/g, '-and-'));
+  return kebabCase(text.toLowerCase().replace(/[&+]/g, "-and-"));
 }
 
 export const getCategoryNameFromRoute = (categoryRoute: string): string => {
   switch (categoryRoute) {
     case SidebarCategoryRoutes.FOUNDATIONS:
-      return 'Foundations';
+      return "Foundations";
     case SidebarCategoryRoutes.COMPONENTS:
-      return 'Components';
+      return "Components";
     case SidebarCategoryRoutes.PRIMITIVES:
-      return 'Primitives';
+      return "Primitives";
     case SidebarCategoryRoutes.TOKENS:
-      return 'Tokens';
+      return "Tokens";
     case SidebarCategoryRoutes.LIBRARIES:
-      return 'Libraries';
+      return "Libraries";
     case SidebarCategoryRoutes.CUSTOMIZATION:
-      return 'Customization';
+      return "Customization";
     case SidebarCategoryRoutes.CORE:
-      return 'Core';
+      return "Core";
     case SidebarCategoryRoutes.PATTERNS:
-      return 'Patterns';
+      return "Patterns";
+    case SidebarCategoryRoutes.THEME:
+      return "Theme";
+    case SidebarCategoryRoutes.PAGE_TEMPLATES:
+      return "Page templates";
     default:
-      return 'Components';
+      return "Components";
   }
 };

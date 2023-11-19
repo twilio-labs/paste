@@ -1,0 +1,27 @@
+{
+  "name": "mock-package",
+  "version": "1.0.0",
+  "dependencies": {
+    "csstype": "3.0.11",
+    "lodash": "^4.17.21"
+  },
+  "peerDependencies": {
+    "@twilio-paste/animation-library": "^0.3.1",
+    "@twilio-paste/color-contrast-utils": "^3.0.0",
+    "@twilio-paste/design-tokens": "^8.0.0",
+    "@twilio-paste/styling-library": "^1.0.0",
+    "@twilio-paste/types": "^3.1.1",
+    "react": "^16.8.6 || ^17.0.2",
+    "react-dom": "^16.8.6 || ^17.0.2"
+  },
+  "devDependencies": {
+    "@twilio-paste/animation-library": "^0.3.7",
+    "@twilio-paste/color-contrast-utils": "^3.0.0",
+    "@twilio-paste/design-tokens": "^8.0.0",
+    "@twilio-paste/styling-library": "^1.0.2",
+    "@twilio-paste/types": "^3.1.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0"
+  }
+}

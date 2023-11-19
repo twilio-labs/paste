@@ -1,8 +1,9 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/core/box';
-import {SiteHeaderLogo} from './SiteHeaderLogo';
+import { Box } from "@twilio-paste/core/box";
+import * as React from "react";
 
-const TopBar: React.FC = () => {
+import { SiteHeaderLogo } from "./SiteHeaderLogo";
+
+const TopBar = (): JSX.Element => {
   return (
     <Box
       as="header"
@@ -18,4 +19,4 @@ const TopBar: React.FC = () => {
   );
 };
 
-export {TopBar};
+export { TopBar };

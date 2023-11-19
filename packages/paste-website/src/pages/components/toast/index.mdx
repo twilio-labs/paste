@@ -1,173 +1,127 @@
----
-title: Toast
-package: '@twilio-paste/toast'
-description: A toast communicates an immediate and direct response to a user action.
-slug: /components/toast/
----
+export const meta = {
+  title: 'Toast',
+  package: '@twilio-paste/toast',
+  description: 'A toast communicates an immediate and direct response to a user action.',
+  slug: '/components/toast/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Button} from '@twilio-paste/button';
 import {Box} from '@twilio-paste/box';
 import {Card} from '@twilio-paste/card';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
-import {Text} from '@twilio-paste/text';
 import {Alert} from '@twilio-paste/alert';
 import {Toast, ToastContainer, Toaster, useToaster} from '@twilio-paste/toast';
 import {useUID} from '@twilio-paste/uid-library';
 import {Input} from '@twilio-paste/input';
 import {Label} from '@twilio-paste/label';
 import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {InlineCode} from '@twilio-paste/inline-code';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
-import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {InlineCode} from '../../../components/Typography';
 import {ToasterExample, i18nExample} from '../../../component-examples/ToastExamples';
-import Changelog from '@twilio-paste/toast/CHANGELOG.md';
+import packageJson from '@twilio-paste/toast/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/toast"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/toast/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Toast"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/toast"
-  storybookUrl="/?path=/story/components-toast--neutral"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Toast');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/toast',
+        storybookUrl: '/?path=/story/components-toast--neutral',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Toast}} language="jsx">
+  {`<Toast onDismiss={() => alert('dismissed')} variant="neutral">
+    Your function is currently being deployed.
+</Toast>`}
+</LivePreview>
 
 ## Guidelines
 
 ## About Toast
 
-Use a toast to communicate a direct response to a user based on their action. Using a toast lets users know that their action was acknowledged.
-
-Toasts appear over content on a page and stack vertically. All toasts have a close button so that users can dismiss any toasts that may be blocking underlying page content.
-
-Use a toast for one of these types of responses:
+Use a Toast to respond to a user action. The type of Toast you use depends on the situation:
 
 - **Success.** Confirm a successful or completed action.
-- **Warning.** Help a user avoid a future issue that might happen based on their action. If the user can take an immediate action to avoid the issue, provide a way to do that. In most cases, a warning toast lets users know that their current action was successful but may have triggered a related issue, or that their action can't be completed because of an issue that they need to fix outside their current flow.
-- **Error.** Communicate an issue that's preventing a user from completing their current action and can be fixed within their current flow.
-- **Neutral or general response.** Let a user know that an asynchronous process has been triggered based on their action, especially if they have to wait for the process to finish before continuing a workflow. This could include a large download or a request that's been sent to a third party.
+- **Warning.** Help a user avoid a future issue that might happen based on their action.
+- **Error.** Communicate an issue that's preventing a user from completing their current action.
+- **Neutral.** Let a user know that an asynchronous process has been triggered based on their action, especially if they have to wait for the process to finish before continuing a workflow. This could include a large download or a request that's been sent to a third party.
 
-In general, use Toasts for response to user action. To decide whether you should use Toasts or another type of messaging, jump to [Toasts vs. Alerts vs. Inline messaging](#toast-vs-alerts-vs-inline-messaging).
+To decide whether a Toast is the appropriate component, refer to the [Alerts vs. Callouts vs. Toasts vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text).
+
+Toasts appear over content on a page and stack vertically. All Toasts have a close button so that users can dismiss any Toasts that may be blocking underlying page content.
 
 ### Accessibility
 
-If you make a [toast automatically time out](#showing-dismissing-and-timing-out-a-toast), consider users that have different reading speeds, vision levels, and literacy levels (more details in the research insight below).
+If you make a [Toast automatically time out](#showing-dismissing-and-timing-out-a-toast), consider users that have different reading speeds, vision levels, and literacy levels (more details in the research insight below).
 
-We recommend giving users about 500 milliseconds per word. For short toasts (about 5–10 words), give users about 2,000–4,000 milliseconds to read the toast message. For toasts at our [max suggested length of 140 characters](#composition-notes), that's about 30,000 milliseconds for about 55 English words. In this case, consider not making the toast automatically time out since the longer content length could suggest that there's information worth persisting for the customer.
+We recommend giving users about 500 milliseconds per word. For short Toasts (about 5–10 words), give users about 2,000–4,000 milliseconds to read the toast message. For Toasts at our [max suggested length of 140 characters](#composition-notes), that's about 30,000 milliseconds for about 55 English words. In this case, consider not making the Toast automatically time out since the longer content length could suggest that there's information worth persisting for the customer.
 
-In addition to reading time, consider the time users need to make a decision based on the message. If a toast has any interactive element in it, like a link or button, don't add an automatic time-out to the toast.
+In addition to reading time, consider the time users need to make a decision based on the message. If a Toast has any interactive element in it, like a link or button, don't add an automatic time-out to the Toast.
 
-<Callout>
-  <CalloutTitle>Research insight into reading speeds</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Research insight into reading speeds</CalloutHeading>
   <CalloutText>
-    From the{' '}
-    <Anchor href="https://www.perkinselearning.org/technology/blog/reading-rates">Perkins School for the Blind</Anchor>:
+    From the <Anchor href="https://www.perkinselearning.org/technology/blog/reading-rates">Perkins School for the Blind</Anchor>:
     Reading rates are 1.5–2 times slower for people with low vision compared to those with sighted vision. If we take an
     8th grade reading level at 197 words per minute (wpm), we can suggest a 131 wpm reading rate.
   </CalloutText>
   <CalloutText>
-    Additional research by{' '}
-    <Anchor href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5557829/">
-      researchers at the University of Alabama at Birmingham
-    </Anchor>{' '}
-    and by{' '}
-    <Anchor href="https://www.microsoft.com/en-us/research/uploads/prod/2019/01/readerview_chi2019.pdf">
-      Microsoft Research
-    </Anchor>{' '}
+    Additional research by <Anchor href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5557829/">researchers at the University of Alabama at Birmingham</Anchor>
+    and by <Anchor href="https://www.microsoft.com/en-us/research/uploads/prod/2019/01/readerview_chi2019.pdf">Microsoft Research</Anchor>
     suggests that reading rates for adults with dyslexia or increased age are similar or slightly higher.
   </CalloutText>
 </Callout>
 
-Don't use toasts to communicate dynamically changing content, including progress bars. Since toasts have ARIA `role=status`, they'll need to trigger a status update to assistive technology, such as screen readers, each time the content changes, which could get annoying. Use a [non-modal dialog](/primitives/non-modal-dialog-primitive), [modal](/components/modal), or show the changing content on the underlying page instead.
+Don't use Toasts to communicate dynamically changing content, including progress bars. Toasts have ARIA `role=status` and trigger a status update to assistive technology each time the content changes, potentially annoying users. Use a [Non-Modal Dialog](/primitives/non-modal-dialog-primitive) or [Modal](/components/modal), or show the changing content on the underlying page instead.
 
 ## Examples
 
-Here are ways that you can compose neutral, warning, error, success, and dismissible toasts.
+Here are ways that you can compose neutral, warning, error, success, and dismissible Toasts.
 
 <Box marginBottom="space80">
   <Stack orientation="vertical" spacing="space40">
     <Toast onDismiss={() => alert('dismissed')} variant="neutral">
-      <Text as="span">
-        <strong>Martin Luther King, Jr.:</strong> We may have all come on different ships, but we’re in the same boat
-        now.
-      </Text>
+      <strong>Martin Luther King, Jr.:</strong> We may have all come on different ships, but we’re in the same boat now.
     </Toast>
     <Toast onDismiss={() => alert('dismissed')} variant="warning">
-      <Text as="span">
-        <strong>James Baldwin:</strong> Love takes off masks that we fear we cannot live without and know we cannot live
-        within.
-      </Text>
+      <strong>James Baldwin:</strong> Love takes off masks that we fear we cannot live without and know we cannot live
+      within.
     </Toast>
     <Toast onDismiss={() => alert('dismissed')} variant="error">
-      <Text as="span">
-        <strong>Chimamanda Ngozi Adichie:</strong> Racism should never have happened and so you don't get a cookie for
-        reducing it.
-      </Text>
+      <strong>Chimamanda Ngozi Adichie:</strong> Racism should never have happened and so you don't get a cookie for
+      reducing it.
     </Toast>
     <Toast onDismiss={() => alert('dismissed')} variant="success">
-      <Text as="span">
-        <strong>Toni Morrison:</strong> You wanna fly, you got to give up the shit that weighs you down.
-      </Text>
+      <strong>Toni Morrison:</strong> You wanna fly, you got to give up the shit that weighs you down.
     </Toast>
   </Stack>
 </Box>
 
-### Showing, dismissing, and timing out a toast
+### Showing, dismissing, and timing out a Toast
 
 The Toaster is a convenient way to manage showing and dismissing Toasts. The Toaster comes in two parts:
 
 - A `useToaster` hook that handles adding, removing, auto dismissing and state.
-- A `<Toaster />` component that handles rendering toasts into the DOM.
+- A `<Toaster />` component that handles rendering Toasts into the DOM.
 
 #### useToaster hook
 
@@ -179,7 +133,7 @@ The easiest way to use the Toaster is to use the `useToaster` hook. It will hand
 - A `push` method used to add a Toast to the Toaster.
 - A `pop` method used to remove a Toast from the Toaster via its ID.
 
-Below is a form you can use to create toasts dynamically using the Toaster. The form data is used to `push` a new Toast to the Toaster.
+Below is a form you can use to create Toasts dynamically using the Toaster. The form data is used to `push` a new Toast to the Toaster.
 
 <Box marginBottom="space70">
   <Card>
@@ -207,7 +161,7 @@ const MyComponent = () => {
       <Button variant="primary" onClick={handleClick}>
         Add a toast
       </Button>
-      <Toaster {...toaster} />
+      <Toaster left={['space40', 'unset', 'unset']} {...toaster} />
     </>
   )
 }
@@ -215,7 +169,7 @@ const MyComponent = () => {
 
 ##### Removing a Toast
 
-You can optionally provide an `id` to a toast when you push it to the stack. The ID can then be used to programmatically `pop` the Toast from the stack:
+You can optionally provide an `id` to a Toast when you push it to the stack. The ID can then be used to programmatically `pop` the Toast from the stack:
 
 ```
 toaster.push({
@@ -231,7 +185,7 @@ When providing your own custom ID, make sure they are unique.
 
 ##### Automatic dismissal
 
-You can optionally provide a time-out to a toast, after which the Toast is automatically dismissed. This can be done by setting a `dismissAfter` value. The value must be a valid time-out, set in milliseconds.
+You can optionally provide a time-out to a Toast, after which the Toast is automatically dismissed. This can be done by setting a `dismissAfter` value. The value must be a valid time-out, set in milliseconds.
 
 ```
 toaster.push({
@@ -245,163 +199,197 @@ toaster.push({
 Add an automatic time-out if all these conditions are true:
 
 - The user wouldn't need to remember or copy the information in order to continue with their current flow, or any future flow.
-- The toast doesn't have any interactive content, such as a link or button.
+- The Toast doesn't have any interactive content, such as a link or button.
 
-We recommend giving users about 500 milliseconds per word before timing out a toast.
+We recommend giving users about 500 milliseconds per word before timing out a Toast.
 
 #### Toaster component
 
-The `<Toaster />` component handles rendering the toasts it is passed via props. It handles how the Toast enters and leaves the UI.
+The `<Toaster />` component handles rendering the Toasts it is passed via props. It handles how the Toast enters and leaves the UI.
 
 If you pass it the returned state of the `useToaster` hook, state, pushing, popping, and handling browser window time-outs is taken care of for you.
 
 ```jsx
 const toaster = useToaster();
 
-return <Toaster {...toaster} />;
+return <Toaster left={['space40', 'unset', 'unset']} {...toaster} />;
 ```
 
 ### Neutral Toast
 
-Let a user know that a background process has been triggered based on their action, especially if they have to wait for the process to finish before continuing a flow.
+Use a neutral Toast to communicate that a background process was triggered based on their action, especially if they have to wait for the process to finish before continuing a flow.
 
-<LivePreview scope={{Toast, Text}} language="jsx">
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for neutral Toasts.
+
+<LivePreview scope={{Toast}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="neutral">
-  <Text as="span">
     Your function is currently being deployed.
-  </Text>
 </Toast>`}
 </LivePreview>
 
 ### Success Toast
 
-Use a success toast to confirm a successful or completed action. If a creation flow is a 2-step process—a user creates an object, then edits the details of that object—confirm the completion after each step with a toast.
+Use a success Toast to confirm a successful or completed action. Avoid using the word "successfully" in the message - it's redundant.
 
-Provide an "undo" action in the toast if it's easily and safely reversible, and you're able to take the user back to their previous state. For example, you can allow the user to undo an action through a toast if:
+If a creation flow has 2 steps, where a user creates an object then edits edits it, use a success Toast after each step.
 
-- They submitted a short form that updates something. Undoing the action can take them back to their filled form with any sensitive fields cleared.
+Occasionally, it's helpful to embed a link or action in a success Toast.
 
-- They deleted non-sensitive information we'd want them to easily retrieve.
+- **Creation flow**: Consider whether it makes sense to offer a link to the newly created object.
 
-<LivePreview scope={{Toast, Text, Anchor}} language="jsx">
+- **Undo**: Provide an "undo" action if it's easily and safely reversible and you can take the user back to the previous state. For example, offer an undo action if:
+
+  - A user submitted a short form that updates something. Undoing the action can take them back to their filled form with any sensitive fields cleared.
+  - A user deleted non-sensitive information we'd want them to easily retrieve.
+
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for success Toasts.
+
+<LivePreview scope={{Toast, Anchor}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="success">
-  <Text as="span">
     Your email address has been updated. You can view your profile <Anchor href="#">here</Anchor>.
-  </Text>
 </Toast>`}
 </LivePreview>
 
-<Callout>
-  <CalloutTitle>When to automatically time-out a success toast</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">When to automatically time-out a success Toast</CalloutHeading>
   <CalloutText>
-    Add an automatic time-out to a success toast if the <i>only</i> thing it does is confirm that the action was
-    completed. If it has any additional information or interactive content, like a link or button, the toast shouldn't
+    Add an automatic time-out to a success Toast if the <i>only</i> thing it does is confirm that the action was
+    completed. If it has any additional information or interactive content, like a link or button, the Toast shouldn't
     time-out.
   </CalloutText>
   <CalloutText>
     Anecdotal data from product designers have also suggested that some Twilio customers find it annoying to have to
-    manually close success toasts.
+    manually close success Toasts.
   </CalloutText>
 </Callout>
 
 ### Warning Toast
 
-Use a warning toast to help a user avoid a potential future issue that might happen based on their action. If the user can take an immediate action to avoid the issue, provide a way to do that. In most cases, a warning toast lets users know that their current action completed but may have triggered a related issue, or that their action can't be completed because of an issue that they need to fix outside their current flow.
+Use a warning Toast to help a user avoid a potential future issue that might happen based on their action. If the user can take an immediate action to avoid the issue, provide a way to do that. In most cases, a warning Toast lets users know that their current action completed but may have triggered a related issue.
 
-Be cautious when using a warning toast because they can be stressful for a user to see. If the information you're trying to convey is not very critical, consider using a neutral toast instead.
+Be cautious when using a warning Toast because they can be stressful for a user to see. If the information you're trying to convey is not very critical, consider using a neutral Toast instead.
 
-<LivePreview scope={{Toast, Text, Anchor}} language="jsx">
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for warning Toasts.
+
+<LivePreview scope={{Toast, Anchor}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="warning">
-  <Text as="span">
     The phone number has been deleted. Functions still using this phone number may fail. Verify there are no functions tied to that number <Anchor href="#">here</Anchor>.
-  </Text>
 </Toast>`}
 </LivePreview>
 
 ### Error Toast
 
-Use an error toast to help a user understand an issue that's preventing them from completing their current action. Provide a way to resolve the issue either in the underlying page content or in the toast.
+Use an error Toast to communicate a brief, easily comprehended issue that's preventing them from completing their current action. Provide a way to resolve the issue either in the underlying page content or in the Toast.
 
-Be cautious when using an error alert because they can be stressful for a user to see.
+Consider using a [Callout](/components/callout) instead if:
 
-<LivePreview scope={{Toast, Text}} language="jsx">
+- The issue or the resolution requires more than two short sentences.
+- The error is specific to a particular part of the page, since Toasts do not appear in contextually relevant locations on the page.
+
+Never allow an error Toast to automatically time out.
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
+
+You may use [the Text primitive](/primitives/text) as a child of Toast, but if you do, be sure to pass `color="inherit"` for error Toasts.
+
+<LivePreview scope={{Toast}} language="jsx">
   {`<Toast onDismiss={() => alert('dismissed')} variant="error">
-  <Text as="span">
     There was an error when deleting the profile. Please try again.
-  </Text>
 </Toast>`}
 </LivePreview>
 
+### Responsive Toast
+
+Use the `left` prop on Toaster and Toast Container so that you can use your app's breakpoints to set the placement of your Toasts.
+
+```jsx
+import {Toast, Toaster, ToastContainer} from '@twilio-paste/core/toast';
+
+const ToastWithToaster = () => {
+  const toaster = useToaster();
+  return <Toaster left={['space40', 'unset', 'unset']} {...toaster} />;
+};
+
+const ToastWithContainer = () => {
+  return (
+    <ToastContainer left={['space40', 'unset', 'unset']}>
+      <Toast>I am toast</Toast>
+    </ToastContainer>
+  );
+};
+```
+
 ### Internationalization
 
-To internationalize a toast, simply pass different text as children to the toast.
-The only exceptions to this are the labels for both the dismiss button and the variant icons.
-To change the dismiss button&apos;s label text, use the `i18nDismissLabel` prop.
+To internationalize a Toast, simply pass different text as children to the Toast.
+The only exceptions to this are the labels for both the dismiss [Button](/components/button) and the variant icons.
+To change the dismiss [Button's](/components/button) label text, use the `i18nDismissLabel` prop.
 To change the label of a variant's icon, use the matching i18n prop for the variant.
 For a `success` variant, for example, set the `i18nSuccessLabel` prop.
 
 <LivePreview
   scope={{
     Toast,
-    Text,
   }}
   noInline
 >
   {i18nExample}
 </LivePreview>
 
-## Composition Notes
+## Composition notes
 
-Keep toast text brief and scannable by placing only the highest priority information in it. Too much text in a toast can overwhelm a user. Aim for no more than 140 characters in a toast, and keep the text directly related to the user's current action. Success toasts generally run about 50 characters long, while all other alerts might run about 100 characters long. However, don't [sacrifice being direct and straightforward](/foundations/content/product-style-guide#be-direct-and-straightforward) for a shorter message.
+Keep the Toast text brief, scannable, and specific to the current user action. Only include the highest priority information and aim for no more than 140 characters. Success Toasts generally run about 50 characters long, while all other alerts might run about 100 characters long. It's okay to exclude articles to keep messages concise.
 
-Be specific in your response to the user's action and if applicable, provide a resolution by navigating a user to another page using an [anchor](/components/anchor/). Be cautious about using a button in a toast since it should be used only to trigger an action. If you must use a button, use a [small secondary button](/components/button#small-button) in a toast.
+Compose a Toast with:
+
+- **Title (optional)**. Bold the text at the beginning of the Toast. The title should be concise and convey the essence of the issue.
+- **Body text**. Use the default text style. Do not repeat information contained in a title. Limit body text to 1-2 sentences.
+- **Full punctuation.** Use periods after full sentences. Avoid using exclamation points.
+
+If the user needs to take action on another page, or more information would be helpful to them, use an [Anchor](/components/anchor). Be cautious about using a button in a Toast since it should be used only to trigger an action. If you must use a [Button](/components/button), use a [small secondary button](/components/button#small-button).
+
+### Alert vs. Callout vs. Toast vs. Help Text
+
+[Alert](/components/alert)
+
+- Alerts communicate information relevant at the system level.
+- Do not use Alerts in response to user action.
+
+[Callout](/components/callout)
+
+- Callouts communicate information particular to a section of a page, or information that applies to a whole page.
+- Use a Callout when there are multiple pieces of information to convey. For example, an error summary.
+- Callouts can result from a user action, but don’t have to. Therefore, they can include either static or contextual content.
+
+[Toast](/components/toast)
+
+- Toasts communicate brief, easily comprehended messages.
+- Toasts generally result from a user action.
+- If the message is contextual or specific to a particular part of a page, consider Help Text or a Callout.
+- Do not use a Toast if the message is longer than two sentences (~140 characters). Use a Callout instead.
+- Do not use a Toast if there is more than one anchor or button. Use a Callout instead.
+
+[Help Text](/components/help-text)
+
+- Help Text communicates contextual responses.
+- Help Text can result from a user action, but don’t have to.
 
 ## When to use a Toast
 
-Help users avoid scenarios where more than 3 toasts could show at a time. If more than 3 could appear at a time, show only one toast that summarizes the information you were intending to show in all of the toasts.
-
-### Toast vs. Alerts vs. Inline messaging
-
-To communicate feedback on a user action, use a toast or in-page validation (_e.g._, full-page confirmation, inline error). You may also want to pair a toast with in-page validation. For example, when a user submits a long form, you can show an error toast that lets users know they need to fix some form fields, while also showing inline errors on each incorrect field.
-
-To communicate information from the system that isn't triggered by a user action, use an [alert](/components/alert) or other in-page messaging.
-
-##### Use Toasts when...
-
-- You need to communicate a direct response to a user action. Example: _"asset.jpg" successfully added._
-- You're providing only one link or button to help a user continue a flow.
-
-##### Use Alerts when...
-
-- You need to notify a user about a high-priority or time-sensitive change that isn't triggered by a user action.
-- You're providing only one link or button to help a user resolve an issue.
-
-##### Use in-page messaging, e.g., inline errors, in-page call-outs when...
-
-- You need to communicate a direct and contextual response to a user action.
-- You need to provide links or buttons next to an in-page element.
-- You need to communicate dynamically changing content, like a progress bar. Use a [non-modal dialog](/primitives/non-modal-dialog-primitive) instead.
-- You need to communicate general promotional information to a user that is unrelated to completing their current action.
-
-##### Use an alert dialog or modal when...
-
-- You need to interrupt a user flow.
-- You need to provide multiple links or buttons to help a user continue a flow.
-
 <DoDont>
-  <Do title="Do" body="Show only 1 toast in response to a single user action." preview={false} />
-  <Dont
-    title="Don't"
-    body="Avoid putting users in scenarios where more than 3 toasts could show at once. If you need to use more than 3, consider batching them."
+  <Do
+    title="Do"
+    body="Allow Toasts to persist on a page until a user closes them, especially if the Toast has a link or button. Success Toasts are an exception. Add an automatic time-out to a success Toast if the only thing it does is confirm that the action was completed."
     preview={false}
   />
+  <Dont title="Don't" body="Don't add an automatic time-out to a Toast if it has a link or button." preview={false} />
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use a toast to communicate a single, focused text status update." preview={false} />
+  <Do title="Do" body="Show only one Toast in response to a single user action." preview={false} />
   <Dont
     title="Don't"
-    body="Don't use toasts to communicate dynamically changing content, including progress bars. Use a non-modal dialog, modal, or show the changing content on the underlying page instead."
+    body="Avoid putting users in scenarios where more than three Toasts could show at once. If you need to use more than three, consider batching them."
     preview={false}
   />
 </DoDont>
@@ -409,130 +397,9 @@ To communicate information from the system that isn't triggered by a user action
 <DoDont>
   <Do
     title="Do"
-    body="Allow toasts to persist on a page until a user closes them, especially if the toast has a link or button. Success toasts are an exception. Add an automatic time-out to a success toast if the only thing it does is confirm that the action was completed."
+    body="Use a Toast to communicate a single, focused text status update."
     preview={false}
   />
-  <Dont title="Don't" body="Don't add an automatic time-out to a toast if it has a link or button." preview={false} />
+  <Dont title="Don't" body="Don't use Toasts to communicate dynamically changing content, including progress bars. Use a Non-Modal Dialog or Modal, or show the changing content on the underlying page instead." preview={false} />
 </DoDont>
 
----
-
-## Anatomy
-
-| Property          | Default token                                                                                                                                                                                         | Modifiable? |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| background-color  | color-background-body                                                                                                                                                                                 | No          |
-| border-color      | color-border-weaker                                                                                                                                                                                   | No          |
-| border-radius     | border-radius-20                                                                                                                                                                                      | No          |
-| border-width      | border-width-10                                                                                                                                                                                       | No          |
-| border-left-color | <ul><li>Error: color-border-error-weak</li><li>Neutral: color-border-neutral</li><li>Success: color-border-success-weak</li><li>Warning: color-border-warning-weak</li></ul>                          | No          |
-| border-left-width | border-width-30                                                                                                                                                                                       | No          |
-| icon color        | <ul><li>Error: color-text-error</li><li>Neutral: color-text-neutral</li><li>Success: color-text-success</li><li>Warning: color-text-warning</li><li>Close: color-text-icon</li></ul>                  | No          |
-| icon size         | <ul><li>Alert icon: size-icon-20</li><li>Close icon: size-icon-20</li></ul>                                                                                                                           | No          |
-| spacing           | <ul><li>Top padding: space-60</li><li>Bottom padding: space-60</li><li>left/right padding: space-60</li><li>Between icon and body: space-60</li><li>Between body and close button: space-40</li></ul> | No          |
-| width             | size-40                                                                                                                                                                                               | No          |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/toast - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Toast, Toaster} from '@twilio-paste/core/toast';
-
-const Component = () => {
-  const toaster = useToaster();
-  return <Toaster {...toaster} />;
-};
-```
-
-##### Toaster component
-
-If you choose to handle state entirely yourself, you can use `<Toaster />` on its own, but you are fully responsible for handling state, time-outs, and the dismiss functionality.
-
-```
-<Toaster
-  toasts={[{
-    id: '',
-    message: '',
-    variant: ''
-    dismissAfter: ''
-  }]}
-  pop={(id) =>{
-    // called when a toast is dismissed
-  }}
-/>
-```
-
-#### Toast Props
-
-| Prop             | Type         | Description                                                                               | Default         |
-| ---------------- | ------------ | ----------------------------------------------------------------------------------------- | --------------- |
-| children         | `ReactNode`  |                                                                                           | null            |
-| onDismiss?       | `() => void` | Create dismissable toast by providing an onDismiss callback                               | null            |
-| variant          | `string`     | `error` / `neutral` / `sucess` / `warning`                                                | null            |
-| i18nDismissLabel | `string`     | Label for the dismiss button in a dismissable toast                                       | 'Dismiss toast' |
-| i18nErrorLabel   | `string`     | Icon label text for the `error` variant                                                   | '(error)'       |
-| i18nNeutralLabel | `string`     | Icon label text for the `neutral` variant                                                 | '(information)' |
-| i18nSuccessLabel | `string`     | Icon label text for the `success` variant                                                 | '(success)'     |
-| i18nWarningLabel | `string`     | Icon label text for the `warning` variant                                                 | '(warning)'     |
-| element?         | `string`     | Overrides the default element name to apply unique styles with the Customization Provider | 'TOAST'         |
-
-#### useToaster return state
-
-| Prop   | Type                    | Description                                             | Default |
-| ------ | ----------------------- | ------------------------------------------------------- | ------- |
-| toasts | `ToasterToast[]`        | Array of Toasts to render inside the toaster. See below | null    |
-| push?  | `(ToasterPush) => void` | Method used to push a Toast to the Toast stack          | null    |
-| pop?   | `(id) => void`          | Method used to pop a Toast from the Toast stack         | null    |
-
-##### UseToasterToast
-
-| Prop          | Type        | Description                                | Default |
-| ------------- | ----------- | ------------------------------------------ | ------- |
-| id            | `string`    | Unique identifier of the toast             | null    |
-| message       | `ReactNode` | Message displayed in the toast             | null    |
-| dismissAfter? | `number`    | Timeout in milliseconds                    | null    |
-| setFocus?     | `boolean`   | Sets focus inside the Toast on render      | true    |
-| variant       | `string`    | `error` / `neutral` / `sucess` / `warning` | null    |
-
-#### Toaster Props
-
-| Prop               | Type             | Description                                             | Default |
-| ------------------ | ---------------- | ------------------------------------------------------- | ------- |
-| toasts             | `ToasterToast[]` | Array of Toasts to render inside the toaster. See below | null    |
-| pop?               | `(id) => void`   | Method called when a toast is dismissed                 | null    |
-| \_\_console_patch? | `boolean`        | A temporary z-index fix for the Console product         | null    |
-
-##### ToasterToast
-
-| Prop      | Type        | Description                                | Default |
-| --------- | ----------- | ------------------------------------------ | ------- |
-| id        | `string`    | Unique identifier of the toast             | null    |
-| message   | `ReactNode` | Message displayed in the toast             | null    |
-| setFocus? | `boolean`   | Sets focus inside the Toast on render      | null    |
-| variant   | `string`    | `error` / `neutral` / `sucess` / `warning` | null    |
-
-#### ToastContainer Props
-
-| Prop               | Type        | Description                                     | Default |
-| ------------------ | ----------- | ----------------------------------------------- | ------- |
-| children           | `ReactNode` |                                                 | null    |
-| \_\_console_patch? | `boolean`   | A temporary z-index fix for the Console product | null    |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,35 +1,18 @@
+import type { CustomTheme } from "@twilio-paste/customization";
 import type {
   BackgroundProps,
   BorderProps,
+  CSSProps,
   FlexboxProps,
+  GridProps,
   LayoutProps,
   PositionProps,
   ShadowProps,
   SpaceProps,
   TypographyProps,
-  AnimationProperty,
-  AppearanceProperty,
-  BoxSizingProperty,
-  ClipProperty,
-  CursorProperty,
-  FloatProperty,
-  ObjectFitProperty,
-  ObjectPositionProperty,
-  OpacityProperty,
-  OutlineProperty,
-  PointerEventsProperty,
-  ResizeProperty,
-  TableLayoutProperty,
-  TransformOriginProperty,
-  TransformProperty,
-  TransitionProperty,
-  UserSelectProperty,
-  VisibilityProperty,
-  WillChangeProperty,
-} from '@twilio-paste/style-props';
-import type {CustomTheme} from '@twilio-paste/customization';
+} from "@twilio-paste/style-props";
 
-import type {PseudoPropStyles} from './PseudoPropStyles';
+import type { PseudoPropStyles } from "./PseudoPropStyles";
 
 export interface BoxBaseStyleProps
   extends LayoutProps,
@@ -39,30 +22,9 @@ export interface BoxBaseStyleProps
     ShadowProps,
     PositionProps,
     TypographyProps,
-    FlexboxProps {
-  animation?: AnimationProperty;
-  appearance?: AppearanceProperty;
-  boxSizing?: BoxSizingProperty;
-  clip?: ClipProperty;
-  content?: string;
-  cursor?: CursorProperty;
-  float?: FloatProperty;
-  objectFit?: ObjectFitProperty;
-  objectPosition?: ObjectPositionProperty;
-  opacity?: OpacityProperty;
-  outline?: OutlineProperty;
-  pointerEvents?: PointerEventsProperty;
-  resize?: ResizeProperty;
-  tableLayout?: TableLayoutProperty;
-  transform?: TransformProperty;
-  transformOrigin?: TransformOriginProperty;
-  transition?: TransitionProperty;
-  userSelect?: UserSelectProperty;
-  visibility?: VisibilityProperty;
-  willChange?: WillChangeProperty;
-  '-webkit-text-fill-color'?: string;
-  '-webkit-opacity'?: string;
-}
+    FlexboxProps,
+    GridProps,
+    CSSProps {}
 
 export type BoxPseudoStyleProps = Partial<Record<keyof typeof PseudoPropStyles, BoxBaseStyleProps>>;
 
@@ -70,28 +32,106 @@ export interface BoxStyleProps extends BoxBaseStyleProps, BoxPseudoStyleProps {}
 
 // Omits potential clashes from our style props with HTMLAttributes (i.e.: color)
 export interface BoxElementProps extends Omit<React.HTMLAttributes<HTMLElement>, keyof BoxBaseStyleProps> {
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
+  accept?: string;
+  /**
+   * Controls the HTML element that that will be rendered in the DOM.
+   *
+   * @type {keyof JSX.IntrinsicElements}
+   * @memberof BoxElementProps
+   */
   as?: keyof JSX.IntrinsicElements;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   type?: string;
-  /** Typed as any because Box can literally be any HTML element */
-  ref?: any | null;
-  // image props
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   alt?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   src?: string;
-  // link props
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   href?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   rel?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   target?: string;
-  //  select props
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   multiple?: boolean;
-  // optgroup props
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   label?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   datetime?: string;
-  /** element identifier for customization */
+  /**
+   * Used to set a custom element name for customization.
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   element?: string;
-  /** variant for variant styling */
+  /**
+   * Used to style custom variants via customization.
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
   variant?: string;
+  /**
+   * Same as HTML
+   *
+   * @type {string}
+   * @memberof BoxElementProps
+   */
+  disabled?: boolean;
 }
 
 export interface BoxProps extends BoxElementProps, BoxStyleProps {}
 
-export type StyledBoxProps = BoxProps & {'data-paste-element': string; theme: CustomTheme};
+export type StyledBoxProps = BoxProps & { "data-paste-element": string; theme: CustomTheme };

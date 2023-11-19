@@ -8,7 +8,7 @@
     "incremental": true,
     "isolatedModules": true,
     "jsx": "react",
-    "lib": ["es2017", "DOM"],
+    "lib": ["es2020", "dom", "dom.iterable"],
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": false,
@@ -16,7 +16,7 @@
     "noResolve": false,
     "skipLibCheck": true,
     "sourceMap": true,
-    "target": "es6",
+    "target": "es2019",
     "typeRoots": ["./@types", "node_modules/@types", "node_modules/@emotion/jest/types"],
     "forceConsistentCasingInFileNames": true,
     "newLine": "lf",
@@ -26,7 +26,18 @@
     "resolveJsonModule": true,
     "esModuleInterop": true
   },
-  "include": ["packages/**/*", "dangerfile.ts", ".danger/**/*", "./.jest/@types/index.d.ts", "tools/**/*"],
+  "include": [
+    "apps/**/*",
+    "packages/**/*",
+    "templates/**/*",
+    "performance-benchmarks/**/*",
+    "dangerfile.ts",
+    ".danger/**/*",
+    "./.jest/@types/index.d.ts",
+    "tools/**/*",
+    "cypress.config.ts",
+    "vite.config.ts"
+  ],
   "exclude": [
     "node_modules",
     "docs",

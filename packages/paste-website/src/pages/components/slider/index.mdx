@@ -1,0 +1,272 @@
+export const meta = {
+  title: 'Slider',
+  package: '@twilio-paste/slider',
+  description:
+    'A Slider is a draggable input that allows a user to select an imprecise numerical value within a range.',
+  slug: '/components/slider/',
+};
+
+import {RadioButtonGroup, RadioButton} from '@twilio-paste/radio-button-group';
+import {RadioGroup, Radio} from '@twilio-paste/radio-group';
+import {Box} from '@twilio-paste/box';
+import {Input} from '@twilio-paste/input';
+import {Text} from '@twilio-paste/text';
+import {Slider} from '@twilio-paste/slider';
+import packageJson from '@twilio-paste/slider/package.json';
+import {Label} from '@twilio-paste/label';
+import {HelpText} from '@twilio-paste/help-text';
+import {Form, FormControl} from '@twilio-paste/form';
+import {useUID} from '@twilio-paste/uid-library';
+import {Meter, MeterLabel} from '@twilio-paste/meter';
+
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import {
+  defaultSlider,
+  disabledSlider,
+  errorSlider,
+  customRangeSlider,
+  customStepSlider,
+  hiddenRangeLabelsSlider,
+} from '../../../component-examples/SliderExamples';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Slider');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/slider',
+        storybookUrl: '/?path=/story/components-slider--default',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {defaultSlider}
+</LivePreview>
+
+## Guidelines
+
+### About Slider
+
+A Slider allows a user to select a numerical value when:
+
+- Immediate feedback is important.
+- The value doesn’t need to be precise, especially when the act of choosing a
+  bigger or smaller value is more important than the value itself.
+- The value is in a defined range.
+
+Slider uses [Adobe's Spectrum React-Aria useSlider](https://react-spectrum.adobe.com/react-aria/useSlider.html) under the hood.
+
+### Slider vs. number Input
+
+Both Sliders and [number Inputs](/components/input#input-with-number-functionality) are form
+fields that take numerical values. Because the mouse and touch interaction on a Slider is less
+precise, use a Slider when the exact number value isn’t important, for example, when
+selecting image opacity or audio volume.
+
+If the user needs to select an exact value, use a [number Input](/components/input#input-with-number-functionality)
+instead. If you want to let users select between consecutive values, you can
+also use a [Radio Button Group](/components/radio-button-group).
+
+### Accessibility
+
+Slider is a form element and follows the same accessibility guidelines as other form fields:
+
+- Include a label on **all** form fields. Use one of 3 ways to label a form field:
+  - Visible label with [Label](/components/label) (preferred)
+  - Visible label that's associated to the input with `aria-labelledby`
+  - Label directly using `aria-label`
+- Each label must use the `htmlFor` prop that equals the `id` of the associated Input.
+- Provide clear identification of required fields in the label or at the start of a form.
+  Use the `required` prop to programmatically indicate they are required to browsers.
+- Include inline [error Help Text](/components/help-text#error-help-text) on any field
+  that errors to make it visually clear that the field changed.
+- If the input has associated help text, include the `aria-describedby` prop on the input.
+  This should match the `id` of the help text.
+
+## Examples
+
+### Default
+
+Use a Slider when a user should select an imprecise value from a midsized and defined numerical range, such as 1–100.
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {defaultSlider}
+</LivePreview>
+
+### Error
+
+Avoid errors on Sliders by changing the defined range so no errors can occur.
+
+If a user is still able to choose an invalid option, change the Slider to its error
+state and use [Help Text](/components/help-text#error-help-text) to add an inline error.
+For additional guidance on how to compose error messages, refer to the
+[error state pattern](/patterns/error-state).
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {errorSlider}
+</LivePreview>
+
+### Disabled
+
+Use a disabled Slider to show users that they can't interact with the Slider.
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {disabledSlider}
+</LivePreview>
+
+### Custom Range
+
+Use a custom range Slider when the default range doesn't fit your use case.
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {customRangeSlider}
+</LivePreview>
+
+### Hide Range Labels
+
+Use a Slider with hidden range labels when the range is obvious or the labels are not needed.
+
+<LivePreview scope={{Form, FormControl, Label, Slider, HelpText, useUID}} language="jsx" noInline>
+  {hiddenRangeLabelsSlider}
+</LivePreview>
+
+## When to use a Slider
+
+<DoDont>
+  <Do title="Do" body="Use a Slider for mid-sized, defined ranges, usually 1–100." center>
+    <Box width="80%">
+      <Label>Opacity</Label>
+      <Slider
+        minValue={0}
+        maxValue={1}
+        value={0.5}
+        numberFormatter={new Intl.NumberFormat('en-US', {style: 'percent'})}
+      />
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t use a Slider for very large or very small ranges." center>
+    <Box width="80%">
+      <Label>Number of backups</Label>
+      <Slider value={1} minValue={0} maxValue={3} numberFormatter={new Intl.NumberFormat('en-US')} />
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do title="Do" body="Use a number Input when an exact number value matters." center>
+    <Box width="80%">
+      <Label>Auto-reload amount</Label>
+      <Input
+        type="number"
+        value={55}
+        insertBefore={
+          <Text color="colorTextWeak" as="span" fontWeight="fontWeightSemibold">
+            ¥
+          </Text>
+        }
+      />
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t use a Slider when an exact number value matters." center>
+    <Box width="80%">
+      <Label>Auto-reload amount</Label>
+      <Slider
+        value={420}
+        minValue={0}
+        maxValue={10000}
+        numberFormatter={new Intl.NumberFormat('ja-JP', {style: 'currency', currency: 'JPY'})}
+      />
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a Meter when you need to visually show the size of a numerical value, but don’t want the bar to be interactive."
+    center
+  >
+    <Box width="80%">
+      <MeterLabel htmlFor="meter">Current balance</MeterLabel>
+      <Meter
+        id="meter"
+        value={8673}
+        minValue={0}
+        maxValue={10000}
+        formatOptions={{style: 'currency', currency: 'JPY'}}
+      />
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don’t use a disabled Slider when the value of the Slider is important to show. Disabled form fields aren’t high-contrast enough to be visible."
+    center
+  >
+    <Box width="80%">
+      <Label>Current balance</Label>
+      <Slider
+        disabled
+        value={8673}
+        minValue={0}
+        maxValue={10000}
+        numberFormatter={new Intl.NumberFormat('ja-JP', {style: 'currency', currency: 'JPY'})}
+      />
+    </Box>
+  </Dont>
+</DoDont>
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Use a Radio Group or Radio Button Group to allow users to select a list of consecutive options with precision, whether they’re numerical or not."
+    center
+  >
+    <Box display="grid" width="80%" gridTemplateColumns="1fr" rowGap="space60">
+      <RadioButtonGroup attached name="uncontroled-msg-limit-radio-button-group" legend="Maximum messages per month">
+        <RadioButton value="10">10</RadioButton>
+        <RadioButton value="50" defaultChecked>
+          50
+        </RadioButton>
+        <RadioButton value="100">100</RadioButton>
+        <RadioButton value="500">500</RadioButton>
+        <RadioButton value="500+">500+</RadioButton>
+      </RadioButtonGroup>
+      <RadioGroup name="uncontrolled-protection-level-radio-group" legend="Protection level">
+        <Radio id={useUID()} value="lowest">
+          Basic protection
+        </Radio>
+        <Radio id={useUID()} value="existing">
+          Standard protection
+        </Radio>
+        <Radio id={useUID()} value="new" defaultChecked>
+          Max protection
+        </Radio>
+      </RadioGroup>
+    </Box>
+  </Do>
+  <Dont
+    title="Don't"
+    body="Don’t use a Slider to allow selection of non-numerical values or when there isn’t a definable range."
+    center
+  >
+    <Box width="80%">
+      <Label>Auto-reload amount (50,000+)</Label>
+      <Slider value={50000} minValue={0} maxValue={50000} numberFormatter={new Intl.NumberFormat('en-US')} />
+    </Box>
+  </Dont>
+</DoDont>

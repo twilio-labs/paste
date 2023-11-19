@@ -1,10 +1,9 @@
----
-title: Upgrade Guide
-description: Summary of Breaking Changes to Core, with actions that should be taken before upgrading
-slug: /core/upgrade-guide
----
+export const meta = {
+  title: 'Upgrade Guide',
+  description: 'Summary of Breaking Changes to Core, with actions that should be taken before upgrading',
+  slug: '/core/upgrade-guide',
+};
 
-import {graphql} from 'gatsby';
 import {Card} from '@twilio-paste/card';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -13,32 +12,157 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Disclosure, DisclosureHeading, DisclosureContent} from '@twilio-paste/disclosure';
 import {Codeblock} from '../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../constants';
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/core/upgrade-guide"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+import {getNavigationData} from '../../utils/api';
+import DefaultLayout from '../../layouts/DefaultLayout';
 
-<ComponentHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CORE} />
-<p>{props.pageContext.frontmatter.description}</p>
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} />
+<p>{meta.description}</p>
 
 ---
 
  <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
+
+### Core 20.0.0 - August 2023
+
+Updated the compilation target of our JavaScript bundles to be `browser` and not `node`. This has resulted in a small `24.5 kB` reduction in file size across the entire Core library.
+
+**ACTION NEEDED**: None. This should be 100% backwards compatible, but you should be aware you are running different code.
+
+See [the full change list](/core/changelog#20-0-0)
+
+### Core 19.0.0 - March 2023
+
+- We have moved `@types/react` and `@types/react-dom` to peer dependencies of the library. This should allow for greater control and backwards compatibility with older versions of React as Paste is no longer bundling the type libraries. Your application likely has both of these as dependencies anyway, but it is now up to you to manage that version number.
+
+**Action needed**
+
+Ensure `@types/react` and `@types/react-dom` are installed as dependencies of your application.
+
+- Removes the `__console_patch` prop from the Toast package. This was a temporary z-index fix for Twilio Console that is no longer necessary.
+
+**ACTION NEEDED**: No action should be necessary. If you are still using the `__console_patch` prop with Toast and this change affects your codebase, please [reach out to us with a Github Discussion](https://github.com/twilio-labs/paste/discussions/new/choose).
+
+See [the full change list](/core/changelog#19-0-0) and the [documentation snapshot](https://release-v19--paste-docs.netlify.app/).
+
+### Core 18.0.0 - February 2023
+
+- Adds [support for React 18](https://github.com/twilio-labs/paste/pull/2965). This should "just work" and remains backwards compatible. [Let us know if you have any issues](https://github.com/twilio-labs/paste/discussions).
+- This major version included listing all the missing peer dependencies for each Paste package.
+- Deprecated light/dark named design tokens have been removed.
+
+**ACTION NEEDED**: If you are using a package from Paste in isolation (not from `@twilio-paste/core`), be sure to correctly
+install all the missing peer dependencies.
+
+**ACTION NEEDED**: If you are using the deprecated light/dark named design tokens, you will need to update your references to the new weak/strong named design tokens. You can find the new design tokens in the [design tokens changelog](/tokens/design-tokens-package#6-7-0).
+
+See [the full change list](/core/changelog#18-0-0) and the [documentation snapshot](https://release-v18--paste-docs.netlify.app/).
+
+### Core 17.0.0 - October 2022
+
+- [Switch] Updated Switch component API to match other form components in Paste.
+
+  - `SwitchContainer` has been replaced with `SwitchGroup`
+  - `SwitchGroup` props changes:
+    - removes `id?: string`
+    - removes `label: ReactNode` - use the new `legend` prop instead.
+    - adds `legend: string | NonNullable<React.ReactNode>` to replace the old `label` prop.
+    - adds `errorText?: string | React.ReactNode` to handle error states.
+    - adds `orientation?: 'vertical' | 'horizontal;` to set children orientation.
+    - adds `i18nRequiredLabel?: string` to change the required label for internationalization.
+    - adds `name: string` to label the switch group for forms.
+    - adds `onChange?: (checked: boolean) => void` to handle changes to any child Switch's checked state in a single function.
+    - `helpText` prop now accepts a string.
+    - `required` prop is now optional.
+    - `element` prop default value changed to `SWITCH_GROUP` from `SWITCH_CONTAINER`
+  - `Switch` props changes:
+    - `children` prop type changed to ` NonNullable<React.ReactNode>`
+    - adds `hasError?: boolean` to handle error states.
+    - adds `helpText?: string | React.React.Node` to add additional context to a switch.
+    - adds `checked?: boolean` to use the Switch in a controlled manner.
+    - adds `defaultChecked?: boolean` to set the default checked value in an uncontrolled manner.
+
+**ACTION NEEDED**: If you are using the Switch component, you will need to update your code to use the new API. You can find the new API in the [Switch documentation](/components/switch).
+
+See [the full change list](/core/changelog#17-0-0) and the [documentation snapshot](https://deploy-preview-2779--paste-docs.netlify.app/).
+
+### Core 16.0.0 - October 2022
+
+- [Modal] We removed the `\_\_console_patch`` prop because it is no longer necessary. It was a hack needed for the legacy Console application, which is no longer in use. [See PR #2697](https://github.com/twilio-labs/paste/pull/2697)
+
+  **ACTION NEEDED**: None, but the `__console_patch` prop will no longer work if you are on a legacy application and need to use the Modal component. We recommend migrating to the new Console application.
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2687) and the [documentation snapshot](https://deploy-preview-2687--paste-docs.netlify.app/).
+
+### Core 15.0.0 - August 2022
+
+- [Design tokens] Created a new category of design token, Data Visualization, and subsequently relocated all
+  of the Data Visualization tokens from the generic Color category. If you are using categorized Data
+  Visualization design tokens, you will need to update their reference.
+
+  **ACTION NEEDED**: If you are referencing the `color.dataVisualization` tokens directly from the `@twilio-paste/design-tokens` package, you will need to update your references to the `dataVisualization` bucket.
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2579/files) and the [documentation snapshot](https://deploy-preview-2579--paste-docs.netlify.app/).
+
+### Core 14.0.0 - June 2022
+
+- [Textarea] Update Textarea to use `@twilio-paste/react-autosize-textarea` library and add the `resize` prop which allows users to resize the Textarea height.
+
+  **ACTION NEEDED**: None, but because `@twilio-paste/react-autosize-textarea` is a new peer dependency requirement of `@twilio-paste/textarea`, out of an abundance of caution with how npm and yarn differ with regards to handling peer dependencies, we decided to mark this change as a major to be safe.
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2455) and the [documentation snapshot](https://deploy-preview-2455--paste-docs.netlify.app/).
+
+### Core 13.0.0
+
+- [Styling Library] Upgrade to Emotion v11 from v10.
+
+  **ACTION NEEDED**: None, the upgrade from v10 to v11 is largely a backwards compatible upgrade, but there were significant changes to the types exported from Emotion that could impact compilation of your application when using Typescript.
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2393) and the [documentation snapshot](https://deploy-preview-2393--paste-docs.netlify.app/).
+
+### Core 12.0.0
+
+- [Icons] Add `React.forwardRef` to all Icon components.
+
+  **ACTION NEEDED**: None, but you should be aware of the change due to the fact that refs on Icons are now assigned differently, and there is the potential for exported types to be different.
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2359) and the [documentation snapshot](https://deploy-preview-2359--paste-docs.netlify.app/).
+
+### Core 11.0.0
+
+- [Design Tokens] Remove the Console theme from the Design Tokens package, as that design language is officially deprecated.
+
+  **ACTION NEEDED**: If you were importing the Console theme directly from the Design Tokens package, you should switch your import statements to use the Default, Dark, or SendGrid themes.
+
+  ```
+  // Before:
+  import DefaultRawTokenJSON from '@twilio-paste/design-tokens/dist/themes/console/tokens.raw.json';
+  import {
+    backgroundColors
+  } from '@twilio-paste/design-tokens/dist/themes/console/tokens.common';
+
+  // AFTER
+  import DefaultRawTokenJSON from '@twilio-paste/design-tokens/dist/tokens.raw.json';
+  import {
+    backgroundColors
+  } from '@twilio-paste/design-tokens/dist/tokens.common';
+  ```
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2149) and the [documentation snapshot](https://62670a903c653a000973739e--paste-docs.netlify.app/).
 
 ### Core 10.0.0
 
@@ -54,6 +178,8 @@ export const pageQuery = graphql`
   <Truncate title="Some very long text to truncate">Some very long text to truncate</Truncate>
 
   ```
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/1617) and the [documentation snapshot](https://6201b7fc1c305e0007f5619d--paste-docs.netlify.app/).
 
 ### Core 9.0.0
 
@@ -95,6 +221,8 @@ export const pageQuery = graphql`
   <Button as="a" href="https://twilio.com">Twilio</Button>
 
   ```
+
+See [the full change list](https://github.com/twilio-labs/paste/pull/2149) and the [documentation snapshot](https://60db9a93dac22a00072c060b--paste-docs.netlify.app/).
 
 ### Core 4.3.2
 

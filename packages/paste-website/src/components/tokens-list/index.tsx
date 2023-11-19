@@ -1,144 +1,261 @@
-import * as React from 'react';
-import {Box} from '@twilio-paste/box';
-import {Stack} from '@twilio-paste/stack';
-import {Label} from '@twilio-paste/label';
-import {Heading} from '@twilio-paste/heading';
-import {Card} from '@twilio-paste/card';
-import {Button} from '@twilio-paste/button';
-import {Input} from '@twilio-paste/input';
-import {Table, Tr, Th, Td, THead, TBody} from '@twilio-paste/table';
-import {Text} from '@twilio-paste/text';
-import {useUID} from '@twilio-paste/uid-library';
-import {InlineCode} from '../Typography';
-import {AnchoredHeading} from '../Heading';
-import {TokenExample} from './TokensExample';
-import {getTokenValue} from './getTokenValue';
-import {useDarkModeContext} from '../../context/DarkModeContext';
-import {trackTokenFilterString, filterTokenList, getTokensByTheme} from './helpers';
-import type {Token, TokenCategory, TokensListProps} from './types';
-import {NoResultImage} from '../images/EmptyStateImages';
+import { Box } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { useClipboard } from "@twilio-paste/clipboard-copy-library";
+import DarkThemeTokens from "@twilio-paste/design-tokens/dist/themes/dark/tokens.generic";
+import EvergreenThemeTokens from "@twilio-paste/design-tokens/dist/themes/evergreen/tokens.generic";
+import TwilioDarkThemeTokens from "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.generic";
+import TwilioThemeTokens from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.generic";
+import DefaultThemeTokens from "@twilio-paste/design-tokens/dist/tokens.generic";
+import kebabCase from "lodash/kebabCase";
+import * as React from "react";
+
+import type { Themes } from "../../types";
+import { SimpleStorage } from "../../utils/SimpleStorage";
+import { AnchoredHeading } from "../Heading";
+import { PageAside } from "../shortcodes/PageAside";
+import { NoTokensFound } from "./NoTokensFound";
+import { ScrollToTopLink } from "./ScrollToTopLink";
+import { TokensListFilter } from "./TokensListFilter";
+import { filterTokenList, getTokenContrastPairs, getTokenExampleColors, trackTokenFilterString } from "./helpers";
+import { sectionIntros } from "./sectionIntros";
+import { TokenCard } from "./token-card";
+import type { TokenExampleColors, Tokens } from "./types";
 
 const sentenceCase = (catName: string): string => {
   return catName
-    .split('-')
-    .join(' ')
+    .split("-")
+    .join(" ")
     .replace(/[a-z]/i, (letter): string => {
       return letter.toUpperCase();
     });
 };
 
-const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+const ContentWrapper: React.FC<React.PropsWithChildren<BoxProps>> = (props) => (
+  <Box as="div" display={["block", "block", "flex"]} {...props} />
+);
+const Content: React.FC<React.PropsWithChildren<BoxProps>> = (props) => (
+  <Box as="div" position="relative" maxWidth="size70" minWidth="0" width="100%" {...props} />
+);
 
-export const TokensList: React.FC<TokensListProps> = (props) => {
-  const {theme} = useDarkModeContext();
-  const [filterString, setFilterString] = React.useState('');
-  const [tokens, setTokens] = React.useState<TokenCategory[] | null>(getTokensByTheme(props, theme));
+const defaultTheme = "twilio";
+const defaultFormat = "css";
 
-  // The rendered tokens should update every time the filterString, props, or theme changes
+const getTokenListByTheme = (theme: Themes): Tokens => {
+  let tokenList: Tokens = TwilioThemeTokens.tokens;
+
+  // Set the theme tokens based on the user's preference
+  switch (theme) {
+    case "default":
+      tokenList = DefaultThemeTokens.tokens;
+      break;
+    case "dark":
+      tokenList = DarkThemeTokens.tokens;
+      break;
+    case "twilio-dark":
+      tokenList = TwilioDarkThemeTokens.tokens;
+      break;
+    case "evergreen":
+      tokenList = EvergreenThemeTokens.tokens;
+      break;
+    default:
+      tokenList = TwilioThemeTokens.tokens;
+      break;
+  }
+  return tokenList;
+};
+
+export const TokensList = (): JSX.Element => {
+  // State related to the list of tokens
+  const [tokens, setTokens] = React.useState<Tokens>(DefaultThemeTokens.tokens);
+  const [tokenCategories, setTokenCategories] = React.useState(Object.keys(tokens));
+  const [filteredTokens, setFilteredTokens] = React.useState<Partial<Tokens> | null>(tokens);
+  const [exampleColors, setExampleColors] = React.useState<TokenExampleColors>(getTokenExampleColors(tokens));
+  const [shadowOpacity, setShadowOpacity] = React.useState(0);
+  const [showJumpLink, setShowJumpLink] = React.useState(false);
+
+  // State related to select and filter controls
+  const [filterString, setFilterString] = React.useState("");
+  const [selectedTheme, setSelectedTheme] = React.useState<Themes>(defaultTheme);
+  const [selectedFormat, setSelectedFormat] = React.useState(defaultFormat);
+  const [useJavascriptNames, setUseJavascriptNames] = React.useState(false);
+
+  // State related to the clipboard
+  const [lastCopiedValue, setLastCopiedValue] = React.useState("");
+
+  // Get a static list of tokens and color contrast pairs
+  const tokenContrastPairs = getTokenContrastPairs(DefaultThemeTokens);
+
+  /*
+   * This runs on hydration, grabs any settings from the client's localStorage,
+   * and populates the token list.
+   */
   React.useEffect(() => {
-    setTokens(filterTokenList(filterString, props, theme));
-    trackTokenFilterString(filterString);
-  }, [filterString, props, theme]);
+    const userTheme = (SimpleStorage.get("themeControl") as Themes) || defaultTheme;
+    const userFormat = SimpleStorage.get("formatControl") || defaultFormat;
 
+    const tokenList = getTokenListByTheme(userTheme);
+
+    setSelectedTheme(userTheme);
+    setSelectedFormat(userFormat);
+    setUseJavascriptNames(userFormat === "javascript");
+    setTokens(tokenList);
+    setFilteredTokens(tokenList);
+    setExampleColors(getTokenExampleColors(tokenList));
+  }, []);
+
+  /*
+   * Set up code needed for passing & receiving clipboard copy functionality
+   * into the TokenCard components.
+   */
+  const clipboard = useClipboard({ copiedTimeout: 2000 });
+  const handleCopyName = React.useCallback((_tokenName: string): void => {
+    clipboard.copy(_tokenName);
+    // The inverse of what we do in TokenCard
+    setLastCopiedValue(useJavascriptNames ? _tokenName.slice(1) : kebabCase(_tokenName));
+  }, []);
+
+  // Event handler for Tokens Filter
   const handleInput = (e: React.FormEvent<HTMLInputElement>): void => {
-    const filter = e.currentTarget.value;
-    setFilterString(filter);
+    const { value } = e.currentTarget;
+    setFilterString(value);
   };
 
-  const uid = useUID();
+  // Event handler for Theme select change
+  const handleThemeChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const { value } = e.currentTarget;
+    const newTokens = getTokenListByTheme(value as Themes);
 
-  return (
-    <>
-      <Box
-        as="form"
-        marginTop="space100"
-        marginBottom="space100"
-        maxWidth="size40"
-        onSubmit={(e) => e.preventDefault()}
-      >
-        <Label htmlFor={uid}>Filter tokens</Label>
-        <Input
-          autoComplete="off"
-          id={uid}
-          onChange={handleInput}
-          placeholder="filter by name or value"
-          type="text"
+    SimpleStorage.set("themeControl", value);
+    setSelectedTheme(value as Themes);
+    setTokens(newTokens);
+    setExampleColors(getTokenExampleColors(newTokens));
+  };
+
+  // Event handler for Format select change
+  const handleFormatChange = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    const { value } = e.currentTarget;
+    SimpleStorage.set("formatControl", value);
+    setSelectedFormat(value);
+    setUseJavascriptNames(value === "javascript");
+  };
+
+  // The rendered tokens should update every time the filterString changes
+  React.useEffect(() => {
+    if (!tokens) return;
+
+    // set the filtered tokens based on the query
+    const newFilteredTokens = filterTokenList(filterString, tokens);
+    setFilteredTokens(newFilteredTokens);
+
+    // Sometimes the filtered object will find no results and return null
+    setTokenCategories(newFilteredTokens == null ? [] : Object.keys(newFilteredTokens));
+
+    trackTokenFilterString(filterString);
+  }, [filterString, tokens]);
+
+  /*
+   * Intersection observer for the Token Filter UI. The Tokens Filter gets a shadow
+   * as the user scrolls past its inherent position, and this intersection observer
+   * checks against a 'canary' element to determine when the shadow should be applied
+   */
+  React.useEffect(() => {
+    const intObserver = new IntersectionObserver(
+      (entries) => {
+        const shadowState = entries[0].intersectionRatio;
+        setShadowOpacity(1 - shadowState);
+        setShowJumpLink(shadowState < 1);
+      },
+      {
+        root: null,
+        rootMargin: "0px",
+        threshold: [1, 0.8, 0.6, 0.4, 0.2, 0],
+      },
+    );
+
+    const tokensFilter = document.querySelector("#filter-canary");
+    if (tokensFilter) {
+      intObserver.observe(tokensFilter);
+    }
+    // Clean up observer
+    return () => {
+      intObserver.disconnect();
+    };
+  }, []);
+
+  // Render code
+  return tokens ? (
+    <ContentWrapper>
+      <PageAside
+        data={tokenCategories
+          .filter((value) => value !== "colors") // filter out colors section
+          .map((value) => ({ value: sentenceCase(value), depth: 2 }))}
+        stickyTop="0px"
+        topPadding="space130"
+      />
+      <Content>
+        <Box id="filter-canary" position="absolute" height="50px" width="100%" zIndex="zIndex0" />
+        <TokensListFilter
           value={filterString}
-          name="tokens-filter"
+          handleThemeChange={handleThemeChange}
+          handleFormatChange={handleFormatChange}
+          handleInput={handleInput}
+          handleClearSearch={() => setFilterString("")}
+          selectedFormat={selectedFormat}
+          selectedTheme={selectedTheme}
+          shadowOpacity={shadowOpacity}
         />
-      </Box>
-      {tokens != null ? (
-        tokens.map((cat) => {
-          return (
-            <React.Fragment key={`catname${cat.categoryName}`}>
-              <AnchoredHeading as="h2" variant="heading20">
-                {sentenceCase(cat.categoryName)}
-              </AnchoredHeading>
-              {cat.info}
-              <Box marginBottom="space160" data-cy="tokens-table-container">
-                <Table scrollHorizontally>
-                  <THead>
-                    <Tr>
-                      <Th>Token</Th>
-                      <Th width="250px">Value</Th>
-                      <Th width="250px">Example</Th>
-                    </Tr>
-                  </THead>
-                  <TBody>
-                    {cat.tokens
-                      .sort((a, b) => {
-                        if (cat.categoryName === 'font-weights') {
-                          return collator.compare(a.value, b.value);
-                        }
-                        return collator.compare(a.name, b.name);
-                      })
-                      .map((token: Token) => {
-                        return (
-                          <Tr key={`token${token.name}`}>
-                            <Td>
-                              <Text as="p" marginBottom="space30">
-                                <InlineCode>${token.name}</InlineCode>
-                              </Text>
-                              <Text as="p">{token.comment}</Text>
-                            </Td>
-                            <Td>{getTokenValue(token)}</Td>
-                            <Td>
-                              <TokenExample token={token} />
-                            </Td>
-                          </Tr>
-                        );
-                      })}
-                  </TBody>
-                </Table>
+        {filteredTokens === null ? (
+          <NoTokensFound onClearSearch={() => setFilterString("")} />
+        ) : (
+          tokenCategories.map((tokenCategory) => {
+            // do not render colors section
+            if (tokenCategory === "colors") return undefined;
+
+            const sectionIntro = sectionIntros[tokenCategory];
+            const categoryTokens = filteredTokens[tokenCategory] ?? null;
+
+            return (
+              <Box key={`catname-${tokenCategory}`} id={kebabCase(tokenCategory)}>
+                <AnchoredHeading as="h2" variant="heading20" existingSlug={`heading-${kebabCase(tokenCategory)}`}>
+                  {sentenceCase(tokenCategory)}
+                </AnchoredHeading>
+                {sectionIntro}
+                <Box as="ul" padding="space0" marginBottom="space130" data-cy="tokens-table-container">
+                  {categoryTokens ? (
+                    categoryTokens.map(({ name, value, altValue, comment }) => (
+                      <TokenCard
+                        key={`token${name}`}
+                        category={tokenCategory}
+                        name={name}
+                        value={value}
+                        altValue={altValue}
+                        comment={comment}
+                        backgroundColor={exampleColors?.backgroundColor}
+                        backgroundColorInverse={exampleColors?.backgroundColorInverse}
+                        textColor={exampleColors?.textColor}
+                        textColorInverse={exampleColors?.textColorInverse}
+                        borderColor={exampleColors?.borderColor}
+                        highlightColor={exampleColors?.highlightColor}
+                        useCamelCase={useJavascriptNames}
+                        onCopyText={handleCopyName}
+                        isCopied={clipboard.copied && lastCopiedValue === name}
+                        text_contrast_pairing={tokenContrastPairs[name]}
+                        selectedTheme={selectedTheme}
+                      />
+                    ))
+                  ) : (
+                    <p>Placeholder...</p>
+                  )}
+                </Box>
               </Box>
-            </React.Fragment>
-          );
-        })
-      ) : (
-        <Card data-cy="tokens-empty-state" padding="space150">
-          <Stack orientation="horizontal" spacing="space110">
-            <NoResultImage />
-            <Stack orientation="vertical" spacing="space50">
-              <Heading as="h3" variant="heading30">
-                Oh no! We couldn&apos;t find any matches
-              </Heading>
-              <Stack orientation="vertical" spacing="space70">
-                <Text as="span">
-                  Try clearing your search and using another query to find the token you&apos;re looking for.
-                </Text>
-                <Button
-                  variant="secondary"
-                  onClick={() => {
-                    setFilterString('');
-                  }}
-                >
-                  Clear search
-                </Button>
-              </Stack>
-            </Stack>
-          </Stack>
-        </Card>
-      )}
-    </>
+            );
+          })
+        )}
+        <ScrollToTopLink show={showJumpLink} />
+      </Content>
+    </ContentWrapper>
+  ) : (
+    // Loading Box
+    <Box height="size120" width="100%" />
   );
 };

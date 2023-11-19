@@ -1,24 +1,23 @@
 {
   "name": "@twilio-paste/theme-designer",
-  "version": "0.2.30",
+  "version": "0.2.37",
   "author": "Twilio Inc.",
   "private": true,
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "NEXT_TELEMETRY_DISABLED=1 next build",
     "start": "next start",
     "clean": "rm -rf .next",
+    "lint": "next lint",
     "type-check": "tsc"
   },
   "dependencies": {
-    "@datadog/browser-rum": "^2.8.1",
-    "@twilio-paste/core": "^13.0.0",
-    "@twilio-paste/icons": "^8.0.0",
-    "next": "10.0.4",
+    "@datadog/browser-rum": "^4.46.0",
+    "@twilio-paste/core": "^20.0.0",
+    "@twilio-paste/icons": "^12.0.0",
+    "next": "^14.0.0",
+    "react": "^18.0.0",
     "react-color": "^2.19.3"
-  },
-  "devDependencies": {
-    "netlify-cli": "^6.13.1"
   }
 }

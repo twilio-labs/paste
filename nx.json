@@ -1,0 +1,84 @@
+{
+  "npmScope": "@twilio-paste",
+  "affected": {
+    "defaultBase": "main"
+  },
+  "workspaceLayout": {
+    "appsDir": "apps",
+    "libsDir": "packages"
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx-cloud",
+      "options": {
+        "cacheableOperations": [
+          "build",
+          "build:js",
+          "build:typedocs",
+          "tsc",
+          "build:types",
+          "build:codemods",
+          "build:icons",
+          "build:tokens"
+        ],
+        "parallel": 10,
+        "accessToken": "MjY0NzIzMDYtMjFkNi00NDVkLWI2NWQtMjZhMzY2MmY1MjY2fHJlYWQ="
+      }
+    }
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/cjs",
+        "{projectRoot}/esm",
+        "{projectRoot}/json",
+        "{projectRoot}/types",
+        "{projectRoot}/.next"
+      ]
+    },
+    "build:js": {
+      "dependsOn": ["^build:js"],
+      "outputs": [
+        "{projectRoot}/dist",
+        "{projectRoot}/cjs",
+        "{projectRoot}/esm",
+        "{projectRoot}/json",
+        "{projectRoot}/types"
+      ]
+    },
+    "build:typedocs": {
+      "dependsOn": ["^build:typedocs"],
+      "outputs": ["{projectRoot}/type-docs.json"]
+    },
+    "tsc": {
+      "dependsOn": ["^tsc"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
+    },
+    "build:dev": {
+      "dependsOn": ["^build:dev"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
+    },
+    "build:types": {
+      "dependsOn": ["^build:types"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
+    },
+    "tokens": {
+      "outputs": ["{projectRoot}/dist"]
+    },
+    "list-icons": {
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/json"]
+    },
+    "compile:dev": {
+      "outputs": ["{projectRoot}/dist"]
+    }
+  },
+  "defaultBase": "main",
+  "$schema": "./node_modules/nx/schemas/nx-schema.json",
+  "namedInputs": {
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
+    "sharedGlobals": [],
+    "production": ["default"]
+  }
+}

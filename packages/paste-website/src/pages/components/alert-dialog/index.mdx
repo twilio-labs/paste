@@ -1,10 +1,10 @@
----
-title: Alert Dialog - Components
-description: An alert dialog displays content over the main page and blocks any interaction with the page.
-slug: /components/alert-dialog/
----
+export const meta = {
+  title: 'Alert Dialog - Components',
+  package: '@twilio-paste/alert-dialog',
+  description: 'An alert dialog displays content over the main page and blocks any interaction with the page.',
+  slug: '/components/alert-dialog/',
+};
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/alert-dialog/CHANGELOG.md';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
@@ -14,76 +14,51 @@ import {Heading} from '@twilio-paste/heading';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {defaultExample, destructiveExample, modalExample} from '../../../component-examples/AlertDialogExamples';
+import packageJson from '@twilio-paste/alert-dialog/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/alert-dialog"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/alert-dialog/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Alert Dialog"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert-dialog"
-  storybookUrl="/?path=/story/components-alert-dialog--alert-dialog-with-two-actions"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Alert Dialog');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/alert-dialog',
+        storybookUrl: '/?path=/story/components-alert-dialog--alert-dialog-with-two-actions-story',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{AlertDialog, Button}} noInline>
+  {defaultExample}
+</LivePreview>
 
 ## Guidelines
 
 ### About Alert Dialog
 
-The Alert Dialog should be used to interrupt a user flow until a specific action is taken. It is used to convey important messages that can't be ignored like [Alert](/components/alert) content. Potential use cases for Alert Dialog are:
+The Alert Dialog should be used to interrupt a user flow until a specific action is taken. It is used to convey important messages that can't be ignored like [Alerts](/components/alert) and [confirmation messages for deletions](/patterns/delete). Potential use cases for an Alert Dialog are:
 
-- Confirming a permanent change, like deleting data
+- Confirming a permanent change, like [deleting data](/patterns/delete)
 - Relaying an important system message like a maintenance downtime window
 
-Though it's visually similar to a [Modal](/components/modal), an Alert Dialog requires the user to acknowledge the information in the dialog.
+Though visually similar to a [Modal](/components/modal), an Alert Dialog requires the user to acknowledge the information in the dialog before they can interact with outside content.
 
-Users cannot interact with content outside an active Alert Dialog window until the user explicitly closes it. When the Alert Dialog opens, focus moves to an element contained in it (by default, the first element that can be focused), and the focus should stay in and cycle through the Alert Dialog's content. Focus shouldn't return to the underlying page until the user closes the Alert Dialog. This can happen in any of the following ways:
+Avoid using Alert Dialogs for error messages. Since the Alert Dialog blocks interaction with the underlying page, the user loses access to the information contained in the message when they go to fix the error. Instead, refer to the error message pattern for [additional guidance on components](/patterns/error-state#when-to-use-which-component).
+
+When the Alert Dialog opens, focus moves to an element contained in it (by default, the first element that can be focused), and the focus should stay in and cycle through the Alert Dialog's content. Focus shouldn't return to the underlying page until the user closes the Alert Dialog. This can happen in any of the following ways:
 
 - Presses a "Cancel" button in the Alert Dialog footer
 - Presses a "Submit" or "Confirm" button in the Alert Dialog footer
@@ -130,106 +105,3 @@ Users cannot interact with content outside an active Alert Dialog window until t
 >
   {modalExample}
 </LivePreview>
-
-## Anatomy
-
-### General
-
-| Property         | Default token            | Modifiable? |
-| ---------------- | ------------------------ | ----------- |
-| background-color | color-background-body    | No          |
-| border-color     | color-border-weak        | No          |
-| border-radius    | border-radius-20         | No          |
-| drop-shadow      | shadow                   | No          |
-| width            | size-40                  | No          |
-| overlay-color    | color-background-overlay | No          |
-
-### Heading
-
-| Property      | Default token/child | Modifiable? |
-| ------------- | ------------------- | ----------- |
-| Heading       | h3                  | No          |
-| marginBottom  | space-0             | No          |
-| paddingTop    | space-50            | No          |
-| paddingRight  | space-50            | No          |
-| paddingBottom | space-0             | No          |
-| paddingLeft   | space-50            | No          |
-
-### Body
-
-| Property | Default token | Modifiable? |
-| -------- | ------------- | ----------- |
-| padding  | space-50      | No          |
-
-### Footer
-
-| Property      | Default token | Modifiable? |
-| ------------- | ------------- | ----------- |
-| paddingTop    | space-0       | No          |
-| paddingRight  | space-50      | No          |
-| paddingBottom | space-50      | No          |
-| paddingLeft   | space-50      | No          |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/alert-dialog - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {AlertDialog} from '@twilio-paste/core/alert-dialog';
-import {Button} from '@twilio-paste/core/button';
-
-const AlertDialogExample = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const handleOpen = () => setIsOpen(true);
-  const handleClose = () => setIsOpen(false);
-
-  return (
-    <div>
-      <Button variant="primary" onClick={handleOpen}>
-        Open alert dialog
-      </Button>
-      <AlertDialog
-        heading="Submit application"
-        isOpen={isOpen}
-        onConfirm={() => {}}
-        onConfirmLabel="Submit"
-        onDismiss={handleClose}
-        onDismissLabel="Cancel"
-      >
-        Are you sure you want to submit this application? No information can be changed after submitting.
-      </AlertDialog>
-    </div>
-  );
-};
-```
-
-#### Props
-
-| Prop           | Type                 | Description                                                                               | Default        |
-| -------------- | -------------------- | ----------------------------------------------------------------------------------------- | -------------- |
-| children       | `ReactNode`          |                                                                                           | null           |
-| isOpen         | `boolean`            |                                                                                           | null           |
-| destructive?   | `boolean`            |                                                                                           | null           |
-| onConfirmLabel | `string`             |                                                                                           | null           |
-| onConfirm      | `Function() => void` |                                                                                           | null           |
-| onDismissLabel | `string`             |                                                                                           | null           |
-| onDismiss      | `Function() => void` |                                                                                           | null           |
-| element?       | `string`             | Overrides the default element name to apply unique styles with the Customization Provider | 'ALERT_DIALOG' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,25 +1,28 @@
-import * as React from 'react';
-import {Text} from '@twilio-paste/text';
-import {Box} from '@twilio-paste/box';
-import {Truncate} from '@twilio-paste/truncate';
-import type {ThemeShape} from '@twilio-paste/theme';
-import {CustomizationProvider} from '@twilio-paste/customization';
-import {MediaObject, MediaFigure, MediaBody} from '../src';
+import type { StoryFn } from "@storybook/react";
+import { Box } from "@twilio-paste/box";
+import { CustomizationProvider } from "@twilio-paste/customization";
+import { Text } from "@twilio-paste/text";
+import { useTheme } from "@twilio-paste/theme";
+import type { ThemeShape } from "@twilio-paste/theme";
+import { Truncate } from "@twilio-paste/truncate";
+import * as React from "react";
+
+import { MediaBody, MediaFigure, MediaObject } from "../src";
 
 // eslint-disable-next-line import/no-default-export
 export default {
-  title: 'Layout/Media Object',
+  title: "Layout/Media Object",
   component: MediaObject,
-  subcomponents: {MediaFigure, MediaBody},
-  argTypes: {verticalAlign: {defaultValue: 'top'}},
+  subcomponents: { MediaFigure, MediaBody },
+  argTypes: { verticalAlign: { defaultValue: "top" } },
 };
 
 export const Default = (): React.ReactNode => {
-  const spaceValue = 'space20' as keyof ThemeShape['space'];
-  const marginBottomValue = 'space0' as keyof ThemeShape['space'];
-  const marginTopValue = 'space0' as keyof ThemeShape['space'];
-  const verticalAlignValue = 'top';
-  const asValue = 'span' as keyof JSX.IntrinsicElements;
+  const spaceValue = "space20" as keyof ThemeShape["space"];
+  const marginBottomValue = "space0" as keyof ThemeShape["space"];
+  const marginTopValue = "space0" as keyof ThemeShape["space"];
+  const verticalAlignValue = "top";
+  const asValue = "span" as keyof JSX.IntrinsicElements;
   return (
     <MediaObject
       as={asValue}
@@ -38,11 +41,11 @@ export const Default = (): React.ReactNode => {
 };
 
 export const DoubleFigure = (): React.ReactNode => {
-  const spaceValue = 'space20' as keyof ThemeShape['space'];
-  const marginBottomValue = 'space0' as keyof ThemeShape['space'];
-  const marginTopValue = 'space0' as keyof ThemeShape['space'];
-  const verticalAlignValue = 'top';
-  const asValue = 'span' as keyof JSX.IntrinsicElements;
+  const spaceValue = "space20" as keyof ThemeShape["space"];
+  const marginBottomValue = "space0" as keyof ThemeShape["space"];
+  const marginTopValue = "space0" as keyof ThemeShape["space"];
+  const verticalAlignValue = "top";
+  const asValue = "span" as keyof JSX.IntrinsicElements;
   return (
     <MediaObject
       as={asValue}
@@ -85,8 +88,10 @@ export const ConstrainedWidth = (): React.ReactNode => {
     </Box>
   );
 };
+ConstrainedWidth.storyName = "Constrained width";
 
-export const CustomMediaObject: React.FC = () => {
+export const CustomMediaObject: StoryFn = (_args, { parameters: { isTestEnvironment } }) => {
+  const currentTheme = useTheme();
   return (
     <>
       <MediaObject as="div" verticalAlign="center">
@@ -109,18 +114,19 @@ export const CustomMediaObject: React.FC = () => {
         <Text as="span">Customized</Text>
       </Box>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           MEDIA_OBJECT: {
-            backgroundColor: 'colorBackground',
-            padding: 'space30',
+            backgroundColor: "colorBackground",
+            padding: "space30",
           },
           MEDIA_FIGURE: {
-            backgroundColor: 'colorBackgroundSuccess',
-            padding: 'space30',
+            backgroundColor: "colorBackgroundSuccess",
+            padding: "space30",
           },
           MEDIA_BODY: {
-            backgroundColor: 'colorBackgroundPrimaryWeaker',
+            backgroundColor: "colorBackgroundPrimaryWeaker",
           },
         }}
       >
@@ -145,26 +151,27 @@ export const CustomMediaObject: React.FC = () => {
         <Text as="span">Customized element</Text>
       </Box>
       <CustomizationProvider
-        baseTheme="default"
+        disableAnimations={isTestEnvironment}
+        theme={currentTheme}
         elements={{
           NEW_MEDIA_OBJECT: {
-            backgroundColor: 'colorBackgroundPrimaryWeakest',
-            borderRadius: 'borderRadius30',
-            padding: 'space60',
+            backgroundColor: "colorBackgroundPrimaryWeakest",
+            borderRadius: "borderRadius30",
+            padding: "space60",
           },
           NEW_MEDIA_FIGURE: {
-            backgroundColor: 'colorBackgroundPrimary',
-            borderRadius: 'borderRadius30',
-            padding: 'space60',
+            backgroundColor: "colorBackgroundPrimary",
+            borderRadius: "borderRadius30",
+            padding: "space60",
           },
           ANOTHER_NEW_MEDIA_FIGURE: {
-            backgroundColor: 'colorBackgroundStrongest',
-            padding: 'space90',
+            backgroundColor: "colorBackgroundStrongest",
+            padding: "space90",
           },
           NEW_MEDIA_BODY: {
-            backgroundColor: 'colorBackgroundBrandHighlightWeakest',
-            borderRadius: 'borderRadius30',
-            padding: 'space60',
+            backgroundColor: "colorBackgroundBrandHighlightWeakest",
+            borderRadius: "borderRadius30",
+            padding: "space60",
           },
         }}
       >
@@ -188,7 +195,9 @@ export const CustomMediaObject: React.FC = () => {
     </>
   );
 };
-
-ConstrainedWidth.story = {
-  name: 'Constrained width',
+CustomMediaObject.parameters = {
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
 };

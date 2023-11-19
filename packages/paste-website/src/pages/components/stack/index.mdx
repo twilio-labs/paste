@@ -1,10 +1,10 @@
----
-title: Stack - Layout
-description: Stack is a horizontal and vertical flow component used to create space between components.
-slug: /components/stack/
----
+export const meta = {
+  title: 'Stack - Layout',
+  package: '@twilio-paste/stack',
+  description: 'Stack is a horizontal and vertical flow component used to create space between components.',
+  slug: '/components/stack/',
+};
 
-import {graphql} from 'gatsby';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
@@ -15,70 +15,47 @@ import {Heading} from '@twilio-paste/heading';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/stack/CHANGELOG.md';
+import packageJson from '@twilio-paste/stack/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteLayout(filter: {name: {eq: "@twilio-paste/stack"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/stack/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Stack"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/stack"
-  storybookUrl="/?path=/story/layout-stack--stack"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Stack');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/layout/stack',
+        storybookUrl: '/?path=/story/layout-stack--default-stack',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Box, Stack}} language="jsx">
+  {`<Stack orientation="horizontal" spacing="space60">
+  <Box size="sizeSquare150" backgroundColor="colorBackgroundStrong" />
+  <Box size="sizeSquare150" backgroundColor="colorBackgroundStrong" />
+  <Box size="sizeSquare150" backgroundColor="colorBackgroundStrong" />
+</Stack>`}
+</LivePreview>
 
 ## Guidelines
 
 ### About Stack
 
 <Paragraph>
-  {props.pageContext.frontmatter.description} It allows you to easily stack elements together with defined spacing
-  between them. It can be set up either vertically or horizontally, and uses tokens for spacing.
+  {meta.description} It allows you to easily stack elements together with defined spacing between them. It can be set up
+  either vertically or horizontally, and uses tokens for spacing.
 </Paragraph>
 
 #### Accessibility
@@ -93,7 +70,7 @@ the visual or content hierarchy of your page.
 
 Elements within the stack are placed vertically with bottom spacing. This is achieved by setting
 `orientation="vertical"`. A `spacing` property is provided to let you to create space between each stacked element.
-`spacing` will take any [Spacing Token](/tokens#spacings) as its value.
+`spacing` will take any [Spacing Token](/tokens/list#spacings) as its value.
 
 <LivePreview scope={{Button, Card, Heading, Paragraph, Stack}} language="jsx">
   {`<Stack orientation="vertical" spacing="space60">
@@ -114,7 +91,7 @@ Elements within the stack are placed vertically with bottom spacing. This is ach
 
 Elements within the stack are placed horizontally with right spacing. This is achieved by setting
 `orientation="horizontal"`. A `spacing` property is provided to let you to create space between each stacked element.
-`spacing` will take any [Spacing Token](/tokens#spacings) as its value.
+`spacing` will take any [Spacing Token](/tokens/list#spacings) as its value.
 
 <LivePreview scope={{Anchor, Button, Stack}} language="jsx">
   {`<Stack orientation="horizontal" spacing="space60">
@@ -127,7 +104,7 @@ Elements within the stack are placed horizontally with right spacing. This is ac
 ### Responsive Stack
 
 `orientation` is a responsive props. You can provide it an array of orientation
-values to change the orientation based on the screen sizes supported by your [theme](/core/theme-package#theme-provider).
+values to change the orientation based on the screen sizes supported by your [theme](/theme/#theme-provider).
 
 <LivePreview scope={{Anchor, Button, Card, Input, Label, Heading, Stack}} language="jsx">
   {`<Stack orientation={['vertical', 'vertical', 'horizontal']} spacing="space60">
@@ -143,41 +120,3 @@ values to change the orientation based on the screen sizes supported by your [th
   </Card>
 </Stack>`}
 </LivePreview>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/stack
-```
-
-#### Usage
-
-```jsx
-import {Stack} from '@twilio-paste/core/stack';
-
-<Stack orientation="vertical" spacing="space40">
-  Foo
-</Stack>;
-```
-
-#### Props
-
-| Prop        | Type                                      | Description                                                                               | Default |
-| ----------- | ----------------------------------------- | ----------------------------------------------------------------------------------------- | ------- |
-| orientation | ResponsiveValue<'horizontal', 'vertical'> |                                                                                           | null    |
-| spacing     | [Spacing](/tokens/list/#spacings)         |                                                                                           | null    |
-| element?    | `string`                                  | Overrides the default element name to apply unique styles with the Customization Provider | 'STACK' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

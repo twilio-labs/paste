@@ -1,5 +1,6 @@
-import fs from 'fs';
-import chalk from 'chalk';
+import fs from "fs";
+
+import chalk from "chalk";
 
 interface mkdirArgs {
   callback: () => unknown;
@@ -7,8 +8,8 @@ interface mkdirArgs {
   errorMessage?: string | null;
 }
 
-export function mkdir(folderPath: string, {callback, successMessage, errorMessage}: mkdirArgs) {
-  fs.mkdir(folderPath, {recursive: true}, (error) => {
+export function mkdir(folderPath: string, { callback, successMessage, errorMessage }: mkdirArgs): void {
+  fs.mkdir(folderPath, { recursive: true }, (error) => {
     if (error) {
       if (errorMessage != null) {
         // eslint-disable-next-line no-console
@@ -16,12 +17,13 @@ export function mkdir(folderPath: string, {callback, successMessage, errorMessag
       }
       // eslint-disable-next-line no-console
       console.log(error);
-      return false;
     }
     if (successMessage != null) {
       // eslint-disable-next-line no-console
       console.log(chalk.green(successMessage));
     }
-    callback && callback();
+    if (callback) {
+      callback();
+    }
   });
 }

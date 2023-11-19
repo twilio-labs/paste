@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface OrderedListIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface OrderedListIconProps extends IconWrapperProps {
 }
 
 const OrderedListIcon = React.forwardRef<HTMLElement, OrderedListIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `OrderedListIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[OrderedListIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[OrderedListIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -24,22 +25,23 @@ const OrderedListIcon = React.forwardRef<HTMLElement, OrderedListIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
+          xmlns="http://www.w3.org/2000/svg"
           width="100%"
           height="100%"
-          viewBox="0 0 20 20"
           fill="none"
+          viewBox="0 0 20 20"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
-            d="M5.625 4.63a.625.625 0 00-.993-.505l-1.37 1a.625.625 0 10.736 1.01l.377-.275v2.52a.625.625 0 101.25 0V4.63zM7.374 5.25c0-.345.28-.625.625-.625h8.376a.625.625 0 110 1.25H7.999a.625.625 0 01-.625-.625zM7.374 10c0-.345.28-.625.625-.625h8.376a.625.625 0 110 1.25H7.999A.625.625 0 017.374 10zM7.999 14.125a.625.625 0 100 1.25h8.376a.625.625 0 100-1.25H7.999zM4.668 12.255a.398.398 0 00-.285.124.463.463 0 00-.128.322.625.625 0 11-1.25 0c0-.444.17-.873.48-1.192.31-.32.736-.504 1.183-.504.448 0 .873.183 1.183.504.31.32.48.748.48 1.192 0 .231-.026.452-.117.682a2.426 2.426 0 01-.36.595c-.12.156-.416.467-.718.777h.744a.625.625 0 110 1.25H3.63a.625.625 0 01-.439-1.07l.063-.062a95.09 95.09 0 00.698-.697c.415-.419.812-.831.915-.964a1.25 1.25 0 00.184-.286.575.575 0 00.03-.225.463.463 0 00-.127-.322.398.398 0 00-.286-.124z"
+            d="M5.595 4.6a.625.625 0 00-.993-.505l-1.37 1a.625.625 0 10.736 1.01l.377-.275V8.4a.625.625 0 101.25 0V4.6zM8.5 5a.5.5 0 000 1h8a.5.5 0 000-1h-8zM8 9.5a.5.5 0 01.5-.5h8a.5.5 0 010 1h-8a.5.5 0 01-.5-.5zm0 4a.5.5 0 01.5-.5h8a.5.5 0 010 1h-8a.5.5 0 01-.5-.5zm-3.362-2.4a.523.523 0 00-.375.162.588.588 0 00-.163.409.5.5 0 01-1 0c0-.412.158-.81.445-1.105a1.52 1.52 0 012.187 0c.286.295.445.693.445 1.105 0 .22-.026.425-.109.637-.08.202-.2.38-.342.563-.144.186-.55.607-.918.979H5.85a.5.5 0 110 1H3.6a.5.5 0 01-.35-.856l.062-.062a108.383 108.383 0 00.7-.699c.41-.415.815-.834.924-.974a1.36 1.36 0 00.202-.317.696.696 0 00.039-.271.589.589 0 00-.163-.41.523.523 0 00-.376-.161z"
           />
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-OrderedListIcon.displayName = 'OrderedListIcon';
-export {OrderedListIcon};
+OrderedListIcon.displayName = "OrderedListIcon";
+export { OrderedListIcon };

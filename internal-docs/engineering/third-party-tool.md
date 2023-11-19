@@ -2,7 +2,7 @@
 
 - [Third party tools](#third-party-tools)
   - [Chromatic](#chromatic)
-  - [Applitools](#applitools)
+  - [Percy](#percy)
   - [Cypress](#cypress)
   - [Netlify](#netlify)
 
@@ -14,9 +14,9 @@ Chromatic is a visual regression testing tool with a few added features. At its 
 
 Chromatic also provides feedback via UI review. The UI review is a designer centric feedback mechanism, which we use to give designers approval responsibility to ensure design quality. Any new components or components with updated styles should be reviewed/approved by a designer before merging to the main branch
 
-## Applitools
+## Percy
 
-Applitools is another VRT tool, but this time it is better suited to full page tests. We can use this in conjunction with Cypress, to create visual regression tests for our hosted web properties.
+Percy is another VRT tool, but this time it is better suited to full page tests. We can use this in conjunction with Cypress, to create visual regression tests for our hosted web properties.
 
 ## Cypress
 

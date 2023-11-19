@@ -1,10 +1,12 @@
-describe('Overview page', () => {
+describe("Overview page", () => {
   beforeEach(() => {
-    cy.visit('/primitives');
+    cy.visit("/primitives");
   });
 
-  it('should render the primitives overview page correctly', () => {
-    cy.pageHeaderShouldBeVisible('Primitives');
+  it("should render the primitives overview page correctly", () => {
+    cy.pageHeaderShouldBeVisible({
+      headerText: "Primitives",
+    });
 
     cy.overviewTableRendersCorrectly();
   });

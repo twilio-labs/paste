@@ -6,24 +6,30 @@ on:
 
 jobs:
   build:
-    name: Build system packages
+    name: Build system packages and type check
     runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
         with:
-          node-version: 16.13.x
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -32,7 +38,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -47,85 +53,34 @@ jobs:
       - name: Build packages
         run: yarn build
 
-      - name: Store build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: |
-            packages/**/dist/**/*
-            packages/paste-core/core-bundle/**/*
-            packages/paste-icons/cjs/**/*
-            packages/paste-icons/esm/**/*
-            packages/paste-design-tokens/types/**/*
-            packages/paste-codemods/tools/.cache/mappings.json
-
-  type_check:
-    name: Type check
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.13.x
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
-
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
-
-      - name: Run type checker
-        run: yarn type-check
+      - run: yarn build:typedocs
+      - name: Verify generated types are checked in for website
+        run: yarn check:type-docs
 
   eslint:
     name: Lint repository
-    needs: build
     runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
         with:
-          node-version: 16.13.x
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -134,7 +89,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -146,34 +101,34 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+      - name: Build packages
+        run: yarn build
 
       - name: Run eslint
         run: yarn lint
 
   tests:
-    name: Test repository using React 17
-    needs: build
+    name: Test repository using React 18
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
         with:
-          node-version: 16.13.x
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -182,7 +137,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -194,34 +149,89 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
+      - name: Build packages
+        run: yarn build
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
+      - name: Run tests
+        run: yarn test
+
+  react17_tests:
+    name: Test repository using React 17
+    runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
         with:
-          name: compiled-js-and-types
-          path: packages/
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Load Yarn cache
+        uses: actions/cache@v3
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      # Note: Yarn cache has been removed from the following step
+      # since we need to change the React version installed
+      - name: Install Dependencies
+        run: yarn install --immutable
+
+      # Note: Build first before we change the react version installed.
+      - name: Build packages
+        run: yarn build
+
+      - name: Install React 17
+        run: |
+          yarn add @types/react@^17.0.0 react@^17.0.2 react-dom@^17.0.2
+          yarn set resolution react@npm:^18.0.0 ^17.0.2
+          yarn set resolution @types/react@npm:^18.0.0 ^17.0.31
+          yarn set resolution react-dom@npm:^18.0.0 ^17.0.2
+          yarn set resolution @testing-library/react@npm:^13.4.0 ^12.1.4
 
       - name: Run tests
         run: yarn test
 
   react16_tests:
     name: Test repository using React 16
-    needs: build
     runs-on: ubuntu-latest
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
         with:
-          node-version: 16.13.x
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -229,47 +239,48 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn
 
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
+      # Note: Yarn cache has been removed from the following step
+      # since we need to change the React version installed
       - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+      # Note: Build first before we change the react version installed.
+      - name: Build packages
+        run: yarn build
+
+      - name: Install React 16
+        run: |
+          yarn add @types/react@^16.0.0 react@^16.8.6 react-dom@^16.8.6
+          yarn set resolution react@npm:^18.0.0 ^16.8.6
+          yarn set resolution @types/react@npm:^18.0.0 ^16.0.0
+          yarn set resolution react-dom@npm:^18.0.0 ^16.8.6
+          yarn set resolution @testing-library/react@npm:^13.4.0 ^12.1.4
 
       - name: Run tests
-        run: yarn test:react-16
+        run: yarn test
 
-  prettier:
-    name: Prettier checks
-    needs: build
+  format:
+    name: Code format checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
-
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+        uses: actions/checkout@v3
         with:
-          node-version: 16.13.x
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -278,7 +289,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -290,39 +301,35 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
-
-      - name: Run prettier
-        run: yarn prettier
+      - name: Run BiomeJS + Prettier format for their respective files
+        run: yarn format:ci
 
   chromatic:
     name: Component Visual regression tests
-    needs: build
     runs-on: ubuntu-latest
     if: github.event.pull_request.draft == false
+    outputs:
+      storybookUrl: ${{ steps.chromaticaction.outputs.storybookUrl }}
 
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
-          # Chromatic needs the full git history to work
           fetch-depth: 0
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+      - uses: nrwl/nx-set-shas@v3
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.13.x
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -331,7 +338,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -343,62 +350,102 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Download build artifacts
-        uses: actions/download-artifact@v2
-        with:
-          name: compiled-js-and-types
-          path: packages/
+      - name: Build packages
+        run: yarn build
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
       - name: Run Chromatic
+        id: chromaticaction
         uses: chromaui/action@v1
         with:
+          zip: true
           projectToken: ${{ secrets.CHROMA_APP_CODE }}
           token: ${{ secrets.GITHUB_TOKEN }}
           buildScriptName: "build:storybook"
           autoAcceptChanges: "main"
           exitOnceUploaded: true
+          onlyChanged: true
+          externals: |
+            - 'packages/paste-design-tokens/tokens/**'
+            - 'packages/paste-icons/src/**'
+            - '.storybook/static/**'
         env:
           STORYBOOK_GITHUB_SHA: ${{ github.event.pull_request.head.sha }}
+          # https://github.com/storybookjs/builder-vite/issues/409#issuecomment-1199236279
+          NODE_OPTIONS: --max-old-space-size=6144
+
+  storybook_tests:
+    name: Storybook test runner
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    needs: chromatic
+    strategy:
+      matrix:
+        shard: [1/4, 2/4, 3/4, 4/4]
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
+
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Load Yarn cache
+        uses: actions/cache@v3
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      - name: Node modules cache
+        uses: actions/cache@v3
+        id: node_modules_cache_id
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Get playwright version
+        id: pw-version
+        run: echo "version=$(yarn playwright --version)" >> $GITHUB_OUTPUT
+
+      - name: Cache playwright binaries
+        uses: actions/cache@v3
+        id: playwright-cache
+        with:
+          path: "~/.cache/ms-playwright"
+          key: cache-playwright-${{ runner.os }}-${{ steps.pw-version.outputs.version }}
+
+      - name: Install Playwright
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
+        run: npx playwright install --with-deps
+
+      - name: Run Storybook test runner
+        run: yarn test-storybook --url ${{ needs.chromatic.outputs.storybookUrl }} --ci --shard=${{ matrix.shard }}
 
   pr-categorizer:
     name: Categorize the PR using labels
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
-        with:
-          node-version: 16.13.x
-
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
-
-      - name: Load Yarn cache
-        uses: actions/cache@v2
-        id: yarn_cache_id
-        with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-yarn
-
-      - name: Node modules cache
-        uses: actions/cache@v2
-        id: node_modules_cache_id
-        with:
-          path: |
-            node_modules
-            */*/node_modules
-          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
-
-      - name: Install Dependencies
-        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
-        run: yarn install --immutable
-
-      - uses: actions/labeler@v3
+      - uses: actions/labeler@v4
         with:
           repo-token: "${{ secrets.GITHUB_TOKEN }}"
           sync-labels: true
@@ -408,19 +455,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Setup Node.js 16.13
-        uses: actions/setup-node@v2
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
         with:
-          node-version: 16.13.x
+          node-version: 20.5.x
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn config get cacheFolder)"
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
 
       - name: Load Yarn cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: yarn_cache_id
         with:
           path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
@@ -429,7 +476,7 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Node modules cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         id: node_modules_cache_id
         with:
           path: |
@@ -445,3 +492,22 @@ jobs:
         run: yarn danger ci
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  typos:
+    name: Typos checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Check for typos
+        uses: reviewdog/action-misspell@v1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          locale: "US"
+          reporter: github-pr-review
+          level: error
+          pattern: |
+            *.md
+            *.mdx
+            **/type-docs.json

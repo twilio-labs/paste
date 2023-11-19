@@ -1,0 +1,71 @@
+name: "Bug Report"
+description: "File a bug report"
+body:
+  - type: "markdown"
+    attributes:
+      value: |
+        Thanks for helping make Paste better!
+
+        Please search open/closed issues and discussions before submitting. Someone
+        might have asked the same thing before 😉!
+
+        For general questions or feature requests, please post [a discussion](https://github.com/twilio-labs/paste/discussions/new)
+  - type: "textarea"
+    id: "description"
+    attributes:
+      label: "Description"
+      description: "A clear and concise description of what the bug is."
+      placeholder: |
+        When I ____, I expected ____ to happen but ____ happened instead.
+    validations:
+      required: true
+  - type: "input"
+    id: "reproduction"
+    attributes:
+      label: "Link to Reproduction"
+      description: |
+        A link to a CodeSandbox reproduction which demonstrates the bug using
+        https://codesandbox.io/s/paste-starter-template-rz6u3
+      placeholder: "https://codesandbox.io/"
+    validations:
+      required: true
+  - type: "textarea"
+    id: "steps"
+    attributes:
+      label: "Steps to reproduce"
+      description: |
+        Steps to reproduce the behavior:
+      value: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+  - type: "input"
+    id: "version"
+    attributes:
+      label: "Paste Core Version"
+      description: "The version of Paste Core you use."
+      placeholder: "16.1.0"
+    validations:
+      required: true
+  - type: "input"
+    id: "browser"
+    attributes:
+      label: "Browser"
+      description: "The browser(s) this issue occurred with."
+      placeholder: "Google Chrome 93"
+  - type: "checkboxes"
+    id: "operating-system"
+    attributes:
+      label: "Operating System"
+      description: "The operating system(s) this issue occurred with."
+      options:
+        - label: "macOS"
+        - label: "Windows"
+        - label: "Linux"
+  - type: "textarea"
+    id: "additional-information"
+    attributes:
+      label: "Additional Information"
+      description: |
+        Add any other context about the problem here.

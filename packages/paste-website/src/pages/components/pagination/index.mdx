@@ -1,11 +1,10 @@
----
-title: Pagination
-package: '@twilio-paste/pagination'
-description: Pagination lets users navigate through content or a dataset that’s been broken up into multiple pages.
-slug: /components/pagination/
----
+export const meta = {
+  title: 'Pagination',
+  package: '@twilio-paste/pagination',
+  description: 'Pagination lets users navigate through content or a dataset that’s been broken up into multiple pages.',
+  slug: '/components/pagination/',
+};
 
-import {graphql} from 'gatsby';
 import {useUID} from '@twilio-paste/uid-library';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
@@ -27,71 +26,62 @@ import {Grid, Column} from '@twilio-paste/grid';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Stack} from '@twilio-paste/stack';
 import Changelog from '@twilio-paste/pagination/CHANGELOG.md';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {Blockquote} from '../../../components/Blockquote';
 import {defaultExample, numberExample, positioningExample} from '../../../component-examples/PaginationExamples';
+import packageJson from '@twilio-paste/pagination/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/pagination"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/pagination/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Pagination"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/pagination"
-  storybookUrl="/?path=/story/components-pagination--arrows"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Pagination');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/pagination',
+        storybookUrl: '/?path=/story/components-pagination--arrows',
+      },
+    },
+  };
+};
 
----
+<LivePreview
+  scope={{Pagination, PaginationItems, PaginationArrow, PaginationNumbers, PaginationNumber, PaginationEllipsis}}
+  language="jsx"
+>
+  {`<Pagination label="truncated pagination navigation">
+  <PaginationItems>
+    <PaginationArrow label="Go to previous page" variant="back" />
+    <PaginationNumbers>
+      <PaginationNumber label="Go to page 1">1</PaginationNumber>
+      <PaginationEllipsis label="Collapsed previous pages" />
+      <PaginationNumber label="Go to page 4">4</PaginationNumber>
+      <PaginationNumber label="Go to page 5" isCurrent>5</PaginationNumber>
+      <PaginationNumber label="Go to page 6">6</PaginationNumber>
+      <PaginationEllipsis label="Collapsed next pages" />
+      <PaginationNumber label="Go to page 9">9</PaginationNumber>
+    </PaginationNumbers>
+    <PaginationArrow label="Go to next page" variant="forward" />
+  </PaginationItems>
+</Pagination>`}
+</LivePreview>
 
-<contentwrapper>
+## Guidelines
 
-<PageAside data={props.data.mdx} />
-
-<content>
-
-# Guidelines
-
-## About Pagination
+### About Pagination
 
 Use Pagination to split up content when a user’s goal is "to find a specific item [in a list] and click through to that destination page" (source: [Nielsen Norman Group](https://www.nngroup.com/articles/item-list-view-all/)). Pagination is used to communicate only where a user is in paged content. It isn’t used to show the status of each page—use a Progress Stepper ([coming soon](/roadmap)) instead.
 
@@ -205,8 +195,8 @@ Use the Pagination variant with total page count in cases when knowing the exact
 
 This variant also allows customers to skip ahead pages in a dataset, though this hasn't been identified as a common use case.
 
-<Callout>
-  <CalloutTitle>Considering the tradeoffs for showing the total count of a dataset</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Considering the tradeoffs for showing the total count of a dataset</CalloutHeading>
   <CalloutText>
     By default,{' '}
     <Anchor href="https://www.twilio.com/blog/replacing-absolute-paging-and-related-properties" showExternal>
@@ -243,9 +233,11 @@ This variant also allows customers to skip ahead pages in a dataset, though this
   {numberExample}
 </LivePreview>
 
-## Composition Notes
+## Composition notes
 
-Make sure the current page label and arrow controls in the Pagination component give customers enough clarity on where they are and where they’ll be going. Show the current page number whenever possible.
+Make sure the current page label and arrow controls in the Pagination component indicate to the user which page of results they are on and which way they'll go in the data set when using the arrows. Show the current page number whenever possible.
+
+When including custom labels, use sentence case and keep labels under 30 characters.
 
 ### Positioning Pagination
 
@@ -365,7 +357,7 @@ If a single default can’t satisfy customers’ needs, you can give customers a
 
 Consider [contributing a Table Actions pattern](/introduction/contributing/patterns) to help standardize this across Twilio!
 
-## When to use Pagination
+## Do and don't
 
 <DoDont>
   <Do
@@ -400,279 +392,3 @@ Consider [contributing a Table Actions pattern](/introduction/contributing/patte
     preview={false}
   />
 </DoDont>
-
----
-
-## Anatomy
-
-### PaginationArrow
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>background-color (arrow only)</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Hover: $color-background-primary-weakest</ListItem>
-            <ListItem>Focus: $color-background-primary-weakest</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>border-color</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$color-border</ListItem>
-            <ListItem>Hover: $color-border-primary-stronger</ListItem>
-            <ListItem>Focus: $color-border-primary-stronger</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>color</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$color-text</ListItem>
-            <ListItem>Hover: $color-text-link-stronger</ListItem>
-            <ListItem>Focus: $color-text-link-stronger</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>font-size</Td>
-        <Td>$font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>font-weight</Td>
-        <Td>$font-weight-normal</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>line-height</Td>
-        <Td>$line-height-30</Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
-### PaginationNumber
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>background-color</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>transparent</ListItem>
-            <ListItem>Hover: $color-background-primary-weakest</ListItem>
-            <ListItem>Focus: $color-background-primary-weakest</ListItem>
-            <ListItem>Current: $color-background-primary-stronger</ListItem>
-            <ListItem>Current hover: $color-background-primary-stronger</ListItem>
-            <ListItem>Current focus: $color-background-primary-stronger</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>border-color</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>transparent</ListItem>
-            <ListItem>Hover: $color-border-primary-stronger</ListItem>
-            <ListItem>Focus: $color-border-primary-stronger</ListItem>
-            <ListItem>Current: transparent</ListItem>
-            <ListItem>Current hover: transparent</ListItem>
-            <ListItem>Current focus: transparent</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>color</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>$color-text</ListItem>
-            <ListItem>Hover: $color-text-link-stronger</ListItem>
-            <ListItem>Focus: $color-text-link-stronger</ListItem>
-            <ListItem>Current: $color-text-weakest</ListItem>
-            <ListItem>Current hover: $color-text-weakest</ListItem>
-            <ListItem>Current focus: $color-text-weakest</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>font-size</Td>
-        <Td>$font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>font-weight</Td>
-        <Td>$font-weight-normal</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>line-height</Td>
-        <Td>$line-height-30</Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
-### PaginationEllipsis
-
-| Property    | Default token       | Modifiable? |
-| ----------- | ------------------- | ----------- |
-| color       | $color-text         | No          |
-| font-size   | $font-size-30       | No          |
-| font-weight | $font-weight-normal | No          |
-| line-height | $line-height-30     | No          |
-
-### PaginationLabel
-
-| Property    | Default token       | Modifiable? |
-| ----------- | ------------------- | ----------- |
-| color       | $color-text-weak    | No          |
-| font-size   | $font-size-30       | No          |
-| font-weight | $font-weight-normal | No          |
-| line-height | $line-height-30     | No          |
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/pagination - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {
-  Pagination,
-  PaginationItems,
-  PaginationArrow,
-  PaginationLabel,
-  PaginationNumbers,
-  PaginationNumber,
-  PaginationEllipsis,
-} from '@twilio-paste/core/pagination';
-
-const Component = () => {
-  return (
-    <Pagination label="pagination navigation">
-      <PaginationItems>
-        <PaginationArrow variant="back" label="Go to previous page" visibleLabel="Previous" />
-        <PaginationNumbers pageLabel="Page 5 of 10">
-          <PaginationNumber label="Go to page 1">1</PaginationNumber>
-          <PaginationEllipsis label="Collapsed previous pages" />
-          <PaginationNumber label="Go to page 4">4</PaginationNumber>
-          <PaginationNumber label="Go to page 5" isCurrent>
-            5
-          </PaginationNumber>
-          <PaginationNumber label="Go to page 6">6</PaginationNumber>
-          <PaginationEllipsis label="Collapsed next pages" />
-          <PaginationNumber label="Go to page 10">10</PaginationNumber>
-        </PaginationNumbers>
-        <PaginationArrow variant="forward" label="Go to next page" visibleLabel="Next" />
-      </PaginationItems>
-    </Pagination>
-  );
-};
-```
-
-#### Props
-
-#### Pagination Props
-
-| Prop     | Type        | Description                                                                               | Default      |
-| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------ |
-| children | `ReactNode` |                                                                                           | null         |
-| label    | `string`    | `aria-label` for the pagination navigation element                                        | null         |
-| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION' |
-
-#### PaginationItems Props
-
-| Prop     | Type        | Description                                                                               | Default            |
-| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| children | `ReactNode` |                                                                                           | null               |
-| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_ITEMS' |
-
-#### PaginationLabel Props
-
-| Prop     | Type        | Description                                                                               | Default            |
-| -------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| children | `ReactNode` |                                                                                           | null               |
-| element? | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_LABEL' |
-
-#### PaginationArrow Props
-
-| Prop          | Type      | Description                                                                               | Default            |
-| ------------- | --------- | ----------------------------------------------------------------------------------------- | ------------------ |
-| as?           | `string`  | `a` / `button`                                                                            | `button`           |
-| disabled?     | `boolean` | Sets `aria-hidden` to be true, and `visibility: hidden`                                   | null               |
-| href?         | `string`  | href used when as `a`                                                                     | null               |
-| label         | `string`  | `aria-label` text                                                                         | null               |
-| variant       | `string`  | `back` / `forward`                                                                        | null               |
-| visibleLabel? | `string`  | Visible text of the button or anchor                                                      | null               |
-| element?      | `string`  | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_ARROW' |
-
-#### PaginationNumbers Props
-
-| Prop       | Type        | Description                                                                               | Default              |
-| ---------- | ----------- | ----------------------------------------------------------------------------------------- | -------------------- |
-| children   | `ReactNode` |                                                                                           | null                 |
-| pageLabel? | `string`    | Page label text used in `PaginationLabel`                                                 | null                 |
-| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_NUMBERS' |
-
-#### PaginationNumber Props
-
-| Prop       | Type        | Description                                                                               | Default             |
-| ---------- | ----------- | ----------------------------------------------------------------------------------------- | ------------------- |
-| as?        | `string`    | `a` / `button`                                                                            | `button`            |
-| children?  | `ReactNode` |                                                                                           | null                |
-| href?      | `string`    | href used when as `a`                                                                     | null                |
-| isCurrent? | `boolean`   | Sets the `aria-current` to be true                                                        | null                |
-| label      | `string`    | `aria-label` text                                                                         | null                |
-| element?   | `string`    | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_NUMBER' |
-
-#### PaginationEllipsis Props
-
-| Prop     | Type     | Description                                                                               | Default               |
-| -------- | -------- | ----------------------------------------------------------------------------------------- | --------------------- |
-| label    | `string` | `aria-label` text                                                                         | null                  |
-| element? | `string` | Overrides the default element name to apply unique styles with the Customization Provider | 'PAGINATION_ELLIPSIS' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

@@ -1,78 +1,153 @@
-import {filterTokenList} from '../components/tokens-list/helpers';
+import { filterTokenList } from "../components/tokens-list/helpers";
 
-describe('filterTokenList', () => {
-  let filterString = '';
-  const defaultTokens = [
+const DefaultThemeTokens = {
+  "border-widths": [
     {
-      categoryName: 'background-colors',
-      tokens: [
-        {
-          category: 'background-color',
-          name: 'color-background',
-          value: 'rgb(244, 244, 246)',
-          comment: '',
-          type: '',
-          deprecated: false,
-        },
-      ],
+      category: "border-widths",
+      altValue: null,
+      comment: "Border width reset",
+      name: "border-width-0",
+      type: "size",
+      value: "0",
     },
     {
-      categoryName: 'border-colors',
-      tokens: [
-        {
-          category: 'border-color',
-          name: 'color-border',
-          value: 'rgb(136, 145, 170)',
-          comment: '',
-          type: '',
-          deprecated: false,
-        },
-      ],
+      category: "border-widths",
+      altValue: null,
+      comment: "Constant border width token for border width 10",
+      name: "border-width-10",
+      type: "size",
+      value: "1px",
     },
-  ];
-  const darkTokens = [
+  ],
+  "background-colors": [
     {
-      categoryName: 'background-colors',
-      tokens: [
-        {
-          category: 'background-color',
-          name: 'color-background',
-          value: 'rgb(18, 28, 45)',
-          comment: '',
-          type: '',
-          deprecated: false,
-        },
-      ],
+      category: "background-color",
+      name: "color-background",
+      value: "rgb(244, 244, 246)",
+      comment: "Background color used for containers.",
+      type: "color",
+      altValue: "#F4F4F6",
     },
+  ],
+  "border-colors": [
     {
-      categoryName: 'border-colors',
-      tokens: [
-        {
-          category: 'border-color',
-          name: 'color-border',
-          value: 'rgb(96, 107, 133)',
-          comment: '',
-          type: '',
-          deprecated: false,
-        },
-      ],
+      altValue: "#8891AA",
+      comment: "Default border color",
+      name: "color-border",
+      type: "color",
+      uicontrol_contrast_pairing: ["color-background-body"],
+      value: "rgb(136, 145, 170)",
+      category: "border-colors",
     },
-  ];
-  const props = {
-    defaultTokens: [{node: {tokens: defaultTokens}}],
-    darkTokens: [{node: {tokens: darkTokens}}],
-  };
-  let theme = 'default';
+  ],
+};
 
-  it('should correctly filter tokens based on theme', () => {
-    const filteredTokens = filterTokenList(filterString, props, theme);
-    expect(filteredTokens).toEqual(defaultTokens);
+describe("filterTokenList", () => {
+  it("correctly filters tokens by name, value, and altValue", () => {
+    const backgroundFilter = filterTokenList("background", DefaultThemeTokens);
+    expect(backgroundFilter).toEqual({
+      "background-colors": [
+        {
+          altValue: "#F4F4F6",
+          category: "background-color",
+          comment: "Background color used for containers.",
+          name: "color-background",
+          type: "color",
+          value: "rgb(244, 244, 246)",
+        },
+      ],
+    });
+
+    const byValue = filterTokenList("rgb(244, 244, 246)", DefaultThemeTokens);
+    expect(byValue).toEqual({
+      "background-colors": [
+        {
+          altValue: "#F4F4F6",
+          category: "background-color",
+          comment: "Background color used for containers.",
+          name: "color-background",
+          type: "color",
+          value: "rgb(244, 244, 246)",
+        },
+      ],
+    });
+
+    const byValue2 = filterTokenList("1px", DefaultThemeTokens);
+    expect(byValue2).toEqual({
+      "border-widths": [
+        {
+          category: "border-widths",
+          altValue: null,
+          comment: "Constant border width token for border width 10",
+          name: "border-width-10",
+          type: "size",
+          value: "1px",
+        },
+      ],
+    });
+
+    const byAltValue = filterTokenList("#8891AA", DefaultThemeTokens);
+    expect(byAltValue).toEqual({
+      "border-colors": [
+        {
+          altValue: "#8891AA",
+          comment: "Default border color",
+          name: "color-border",
+          type: "color",
+          uicontrol_contrast_pairing: ["color-background-body"],
+          value: "rgb(136, 145, 170)",
+          category: "border-colors",
+        },
+      ],
+    });
   });
 
-  it('should correctly filter tokens based on theme and filter string', () => {
-    filterString = 'background';
-    theme = 'dark';
-    const filteredTokens = filterTokenList(filterString, props, theme);
-    expect(filteredTokens).toEqual([darkTokens[0]]);
+  it("handles capitalization, hyphenation, and spaces", () => {
+    const capitalization = filterTokenList("COLORBackGround", DefaultThemeTokens);
+    expect(capitalization).toEqual({
+      "background-colors": [
+        {
+          altValue: "#F4F4F6",
+          category: "background-color",
+          comment: "Background color used for containers.",
+          name: "color-background",
+          type: "color",
+          value: "rgb(244, 244, 246)",
+        },
+      ],
+    });
+
+    const hyphenation = filterTokenList("color-background", DefaultThemeTokens);
+    expect(hyphenation).toEqual({
+      "background-colors": [
+        {
+          altValue: "#F4F4F6",
+          category: "background-color",
+          comment: "Background color used for containers.",
+          name: "color-background",
+          type: "color",
+          value: "rgb(244, 244, 246)",
+        },
+      ],
+    });
+
+    const spaces = filterTokenList("rgb(244,244,   246)", DefaultThemeTokens);
+    expect(spaces).toEqual({
+      "background-colors": [
+        {
+          altValue: "#F4F4F6",
+          category: "background-color",
+          comment: "Background color used for containers.",
+          name: "color-background",
+          type: "color",
+          value: "rgb(244, 244, 246)",
+        },
+      ],
+    });
+  });
+
+  it("returns null when nothing is found", () => {
+    const nullCheck = filterTokenList("dimensions", DefaultThemeTokens);
+    expect(nullCheck).toEqual(null);
   });
 });

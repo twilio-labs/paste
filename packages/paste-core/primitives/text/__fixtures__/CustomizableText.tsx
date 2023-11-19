@@ -8,10 +8,10 @@ const styles: {[key: string]: TextStyleProps} = {
   _hover: {textDecoration: 'underline'},
   primary: {color: 'colorTextLink'},
   _primaryHover: {fontWeight: 'fontWeightBold'},
-  secondary: {color: 'colorTextErrorDark'},
+  secondary: {color: 'colorTextErrorStrong'},
   _secondaryHover: {fontStyle: 'italic'},
 };
-export const CustomizableTextExample: React.FC<CustomizableTextExampleProps> = ({
+export const CustomizableTextExample: React.FC<React.PropsWithChildren<CustomizableTextExampleProps>> = ({
   children,
   variant,
   element,

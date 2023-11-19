@@ -1,0 +1,5 @@
+global:
+  type: size
+  category: radius
+imports:
+  - ../../twilio/global/border-radius.yml

@@ -1,9 +1,8 @@
-import * as React from 'react';
-import {ThemeContext} from '@twilio-paste/styling-library';
-import type {ThemeShape} from '@twilio-paste/theme';
-import type Highcharts from 'highcharts';
-
-const merge = require('deepmerge');
+import { ThemeContext } from "@twilio-paste/styling-library";
+import type { ThemeShape } from "@twilio-paste/theme";
+import merge from "deepmerge";
+import type Highcharts from "highcharts";
+import * as React from "react";
 
 /**
  * A hook to apply the Paste theme to Highcharts options.
@@ -14,14 +13,14 @@ const merge = require('deepmerge');
 export const usePasteHighchartsTheme = (options: Highcharts.Options): Highcharts.Options => {
   if (options == null) {
     throw new Error(
-      `[usePasteHighchartsTheme]: Must provide highcharts options into this function. Options are deepmerged against the theme and returned for usage.`
+      `[usePasteHighchartsTheme]: Must provide highcharts options into this function. Options are deepmerged against the theme and returned for usage.`,
     );
   }
 
   const context = React.useContext(ThemeContext) as ThemeShape;
   if (!context) {
     throw new Error(
-      '[usePasteHighchartsTheme]: must be used within the @twilio-paste/theme provider. https://paste.twilio.design/introduction/for-engineers/manual-installation#setting-up-the-theme-provider'
+      "[usePasteHighchartsTheme]: must be used within the @twilio-paste/theme provider. https://paste.twilio.design/introduction/for-engineers/manual-installation#setting-up-the-theme-provider",
     );
   }
 
@@ -31,8 +30,8 @@ export const usePasteHighchartsTheme = (options: Highcharts.Options): Highcharts
    * For this reason we need to sort the keys numerically before retrieving their values.
    */
   const colors: string[] = React.useMemo(() => {
-    const collator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
-    const tokenNames = Object.keys(context.dataVisualization) as Array<keyof ThemeShape['dataVisualization']>;
+    const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+    const tokenNames = Object.keys(context.dataVisualization) as Array<keyof ThemeShape["dataVisualization"]>;
     const sortedTokenNames = tokenNames.sort((a, b) => collator.compare(a, b));
 
     // Now we can get the color array in the correct order
@@ -118,7 +117,7 @@ export const usePasteHighchartsTheme = (options: Highcharts.Options): Highcharts
     },
     plotOptions: {
       series: {
-        borderColor: 'transparent',
+        borderColor: "transparent",
       },
     },
   });

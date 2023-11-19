@@ -1,82 +1,58 @@
----
-title: Spinner
-package: '@twilio-paste/spinner'
-description: An icon component that can used in various loading situations.
-slug: /components/spinner/
----
+export const meta = {
+  title: 'Spinner',
+  package: '@twilio-paste/spinner',
+  description: 'An icon component that can used in various loading situations.',
+  slug: '/components/spinner/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {Stack} from '@twilio-paste/stack';
 import {Spinner} from '@twilio-paste/spinner';
-import Changelog from '@twilio-paste/spinner/CHANGELOG.md';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {SiteLink} from '../../../components/SiteLink';
 import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/spinner/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/spinner"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/spinner/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Spinner"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/spinner"
-  storybookUrl="/?path=/story/components-spinner--"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Spinner');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/spinner',
+        storybookUrl: '/?path=/story/components-spinner--colors',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview
+  scope={{
+    Spinner,
+  }}
+>
+  {`<Spinner decorative={false} title="Loading" size="sizeIcon80" />`}
+</LivePreview>
 
 ## Guidelines
 
 ### About Spinner
 
-The spinner is an icon component that can be used in situations where you would like to communicate a loading state to the user. It inherits a lot of properties from the [Icon component](/components/icons/usage-guidelines/).
+The spinner is an icon component that can be used in situations where you would like to communicate a loading state to the user. It inherits a lot of properties from the [Icon component](/components/icon/usage-guidelines/).
 
-<Callout>
-  <CalloutTitle>Accessible animation</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessible animation</CalloutHeading>
   <CalloutText>
     The spinner animation will automatically respect user preferences set at the operating system level via the prefers
     reduced motion API.
@@ -87,13 +63,13 @@ The spinner is an icon component that can be used in situations where you would 
 
 ### Default
 
-The default Spinner settings are using the default icon size and color, which is designed to match our default text size and color.
+The default Spinner uses the default text color (`color-text`) and default icon size (`icon-size-20`), which is meant to be paired with our default text size.
 
-<Callout>
-  <CalloutTitle>Accessibility</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h4">Accessibility</CalloutHeading>
   <CalloutText>
     You are required to set whether the Spinner is decorative or not, please follow the{' '}
-    <SiteLink to="/components/icons/usage-guidelines#accessibility">icon accessibility guidelines</SiteLink>.
+    <SiteLink href="/components/icon/usage-guidelines#accessibility">icon accessibility guidelines</SiteLink>.
   </CalloutText>
 </Callout>
 
@@ -132,7 +108,7 @@ To resize the Spinner set a `size` prop. It will accept any valid [icon size tok
 
 ## Setting a color
 
-The Spinner, like any other icon, can be re-colored to meet your needs. Set an `color` in the [same way you would with an icon](/components/icons/usage-guidelines#adapting-the-icons-color).
+The Spinner, like any other icon, can be re-colored to meet your needs. Set an `color` in the [same way you would with an icon](/components/icon/usage-guidelines#adapting-the-icons-color).
 
 <LivePreview
   scope={{
@@ -142,63 +118,3 @@ The Spinner, like any other icon, can be re-colored to meet your needs. Set an `
 >
   {`<Spinner color="colorTextSuccess" decorative={false} title="Loading" />`}
 </LivePreview>
-
----
-
-## Usage Guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/spinner - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Spinner} from '@twilio-paste/core/spinner';
-
-const Component = () => {
-  return <Spinner decorative={false} title="Loading" />;
-};
-```
-
-#### Spinner Props
-
-##### `as?: keyof JSX.IntrinsicElements`
-
-Changes the sematic element of the spinner wrapper.
-
-##### `decorative?: boolean`
-
-Whether or not the SVG is just visual flair or adds meaning to the page. Specifically for screenreaders to know whether to read out the title or not.
-
-##### `title?: string`
-
-The accessibility text that is read when screenreaders get to this component.
-
-##### `size?: IconSize`
-
-Used to change the size of the Spinner.
-
-##### `color?: TextColor`
-
-Sets the icon color to any of our text color tokens or currentColor, which inherits text color from the parent element.
-
-##### `delay?: number`
-
-Time delay in milliseconds of the animation.
-
-###### `element?: string`
-
-Overrides the default element name ('SPINNER') to apply unique styles with the Customization Provider
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

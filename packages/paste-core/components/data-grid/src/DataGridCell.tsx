@@ -1,31 +1,58 @@
-import * as React from 'react';
-import * as PropTypes from 'prop-types';
-import type {BoxElementProps} from '@twilio-paste/box';
-import {CompositeItem} from '@twilio-paste/reakit-library';
-import {useMutationObservable} from '@twilio-paste/utils';
-import {DataGridContext} from './DataGridContext';
-import {updateTabIndexForActionable, isCell, ensureFocus} from './utils';
-import {Td} from './table/Td';
-import {Th} from './table/Th';
-import type {TdProps} from './table/Td';
+import type { BoxElementProps } from "@twilio-paste/box";
+import { CompositeItem } from "@twilio-paste/reakit-library";
+import { useMutationObservable } from "@twilio-paste/utils";
+import isElement from "lodash/isElement";
+import * as React from "react";
+
+import { DataGridContext } from "./DataGridContext";
+import { Td } from "./table/Td";
+import type { TdProps } from "./table/Td";
+import { Th } from "./table/Th";
+import type { ThProps } from "./table/Th";
+import { ensureFocus, isCell, updateTabIndexForActionable } from "./utils";
 
 // This module can only be referenced with ECMAScript imports/exports by turning on the 'esModuleInterop' flag and referencing its default export
-import isElement from 'lodash/isElement';
 
-type CellType = 'th' | 'td';
-export interface DataGridCellProps extends Pick<TdProps, 'textAlign'> {
+export type DataGridCellBasePropsProps = {
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'DATA_GRID_CELL'
+   * @type {BoxElementProps['element']}
+   * @memberof DataGridCellProps
+   */
+  element?: BoxElementProps["element"];
+  /**
+   * How many columns the cell spans across
+   *
+   * @type {number}
+   * @memberof DataGridCellProps
+   */
   colSpan?: number;
-  as?: CellType;
-  element?: BoxElementProps['element'];
-}
+};
+type DataGridCellAsThProps = ThProps &
+  DataGridCellBasePropsProps & {
+    as?: "th";
+  };
+type DataGridCellAsTdProps = TdProps &
+  DataGridCellBasePropsProps & {
+    as?: "td";
+  };
+
+export type DataGridCellProps = DataGridCellAsThProps | DataGridCellAsTdProps;
 
 /**
  * DataGrid cell component. Every visible box in a data grid is powered by the cell.
  *
- * @param {"th" | "td"} as - is it a header or a regular cell
- * @param {string} element - customization element
+ * @param {"th" | "td"} [as=td] - is it a header or a regular cell
+ * @param {string} [element=DATA_GRID_CELL] - customization element
+ * @param {number} [colSpan] - how many columns the cell spans across
  */
-export const DataGridCell: React.FC<DataGridCellProps> = ({element = 'DATA_GRID_CELL', as = 'td', ...props}) => {
+export const DataGridCell: React.FC<React.PropsWithChildren<DataGridCellProps>> = ({
+  element = "DATA_GRID_CELL",
+  as = "td",
+  ...props
+}) => {
   const dataGridState = React.useContext(DataGridContext);
   const cellRef = React.useRef() as React.MutableRefObject<HTMLTableCellElement>;
 
@@ -57,7 +84,7 @@ export const DataGridCell: React.FC<DataGridCellProps> = ({element = 'DATA_GRID_
          * when in actionable mode
          */
         if (
-          mutation.attributeName === 'tabindex' &&
+          mutation.attributeName === "tabindex" &&
           dataGridState.actionable &&
           target.tabIndex === 0 &&
           isCell(target)
@@ -66,7 +93,7 @@ export const DataGridCell: React.FC<DataGridCellProps> = ({element = 'DATA_GRID_
         }
       });
     },
-    [dataGridState.actionable]
+    [dataGridState.actionable],
   );
   useMutationObservable(cellRef.current, onListMutation);
 
@@ -74,9 +101,12 @@ export const DataGridCell: React.FC<DataGridCellProps> = ({element = 'DATA_GRID_
    * When actionable mode changes, toggle the tabindex of the cell and children
    */
   React.useEffect(() => {
-    if (cellRef.current) {
-      updateTabIndexForActionable(cellRef.current, dataGridState.actionable);
-    }
+    setTimeout(() => {
+      if (cellRef.current) {
+        // This delay solves issues around components that re-render immediately on mount, like the Select componenent
+        updateTabIndexForActionable(cellRef.current, dataGridState.actionable);
+      }
+    }, 10);
   }, [dataGridState.actionable]);
 
   return (
@@ -85,14 +115,10 @@ export const DataGridCell: React.FC<DataGridCellProps> = ({element = 'DATA_GRID_
       {...dataGridState}
       element={element}
       ref={cellRef}
-      as={as === 'td' ? Td : Th}
+      as={as === "td" ? Td : Th}
       onClick={handleMouseDown}
     />
   );
 };
 
-DataGridCell.displayName = 'DataGridCell';
-DataGridCell.propTypes = {
-  as: PropTypes.oneOf<CellType>(['th', 'td']),
-  element: PropTypes.string,
-};
+DataGridCell.displayName = "DataGridCell";

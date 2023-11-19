@@ -1,11 +1,10 @@
----
-title: Help Text - Components
-package: '@twilio-paste/help-text'
-description: 'Help Text that can be paired with a Paste form component.'
-slug: /components/help-text/
----
+export const meta = {
+  title: 'Help Text - Components',
+  package: '@twilio-paste/help-text',
+  description: 'Help Text that can be paired with a Paste form component.',
+  slug: '/components/help-text/',
+};
 
-import {graphql} from 'gatsby';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
 import {Select, Option} from '@twilio-paste/select';
@@ -18,72 +17,51 @@ import {Button} from '@twilio-paste/button';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {InformationIcon} from '@twilio-paste/icons/esm/InformationIcon';
 import {UnorderedList, ListItem} from '@twilio-paste/list';
-import {Callout, CalloutText} from '../../../components/callout';
+import {Callout, CalloutText} from '@twilio-paste/callout';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
-import Changelog from '@twilio-paste/help-text/CHANGELOG.md';
+import packageJson from '@twilio-paste/help-text/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/help-text"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/help-text/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Help Text"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/help-text"
-  storybookUrl="/?path=/story/components-help-text--default"
-  data={props.data}
-/>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Help Text');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/help-text',
+        storybookUrl: '/?path=/story/components-help-text--default',
+      },
+    },
+  };
+};
 
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_address" required>Email address</Label>
+  <Input aria-describedby="email_help_text" id="email_address" name="email_address" type="email" placeholder="example@twilio.com" onChange={()=>{}} required/>
+  <HelpText id="email_help_text">Use your work email address.</HelpText>
+</>`}
+</LivePreview>
 
 ## Guidelines
 
 ### About Help Text
 
-Text that's placed below the field to help users prevent an error and describe what makes the form field successful.
+Help Text is placed below a form field to help users prevent an error and describe what makes the form field successful. It’s also used in compact UI situations to communicate feedback on specific page elements, like in a <Anchor href="/components/chat-log">Chat Log</Anchor>.
+
+If you’re highlighting important information, especially if it’s unrelated to an interactive element or a user action, consider using a <Anchor href="/components/callout">Callout</Anchor> or <Anchor href="/components/alert">Alert</Anchor> instead. For additional guidance on what kind of component to use, use the [Alert vs. Callout vs. Toast vs. Help Text guide](#alert-vs-callout-vs-toast-vs-help-text).
 
 ### Accessibility
 
@@ -100,7 +78,7 @@ Text that's placed below the field to help users prevent an error and describe w
   </ListItem>
 </UnorderedList>
 
-<Callout>
+<Callout variant="neutral">
   <CalloutText>
     Including the <inlineCode>aria-describedby</inlineCode> prop ensures screen readers know the Help Text ties directly
     to the form element.
@@ -119,7 +97,7 @@ Text that's placed below the field to help users prevent an error and describe w
 </>`}
 </LivePreview>
 
-### HelpText with Select
+### Help Text with Select
 
 <LivePreview scope={{Select, Option, HelpText, Label}} language="jsx">
   {`<>
@@ -143,7 +121,7 @@ Text that's placed below the field to help users prevent an error and describe w
 </>`}
 </LivePreview>
 
-## States
+## Variants
 
 ### Default Help Text
 
@@ -164,12 +142,7 @@ Give users enough information in Help Text to prevent input and formatting error
 
 An inline error is placed below the field to inform a user of any errors in their value. If `HelpText` is already on a form field, change it to `variant=“error”` and add error copy before the original help text copy. If only rendering error text, be sure to include the appropriate attributes on the form element and the Help Text.
 
-Error text should:
-
-- Be actionable. Explain how to fix an error and if reasonable, why it happened so that it might also be prevented in the future.
-- Be concise and simple, maybe even more than normal. Avoid jargon. Try to keep error text to 2 sentences or fewer.
-- Use the passive voice for input errors to avoid placing blame on the user. For example, "A friendly name is required."
-- Use the active voice for system errors. For example, "Our systems are currently down. Please contact our support team."
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 <LivePreview scope={{Input, Label, HelpText}} language="jsx">
   {`<>
@@ -178,6 +151,66 @@ Error text should:
   <HelpText id="email_error_help_text" variant="error">Enter a valid email. Use your work email address.</HelpText>
 </>`}
 </LivePreview>
+
+### Warning Help Text
+
+Warning Help Text can be used to:
+
+- Preemptively warn a user before an action is taken that may result in an undesired effect (e.g., “You have entered an external email. Use your work email address.”).
+- Help a user avoid a potential issue.
+
+Warning Help Text should explain the possible issue, what to do, and what happens if they don't.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_warning_example">Email address</Label>
+  <Input aria-describedby="email_warning_help_text" id="email_warning_example" defaultValue="paste@abc.com" name="email_warning_example" type="email" placeholder="example@twilio.com" onChange={()=>{}} />
+  <HelpText id="email_warning_help_text" variant="warning">You have entered an external email. Use your work email address.</HelpText>
+</>`}
+</LivePreview>
+
+### Success Help Text
+
+Success Help Text should be used to:
+
+- Confirm an action has completed.
+- Inform a user that a process has started or is in progress (e.g., “Valid work email address.”).
+
+Avoid using the word "successfully" when composing success Help Text—it's redundant.
+
+<LivePreview scope={{Input, Label, HelpText}} language="jsx">
+  {`<>
+  <Label htmlFor="email_success_example">Email address</Label>
+  <Input aria-describedby="email_success_help_text" id="email_success_example" defaultValue="paste@twilio.com" name="email_success_example" type="email" placeholder="example@twilio.com" onChange={()=>{}} />
+  <HelpText id="email_success_help_text" variant="success">Valid work email address.</HelpText>
+</>`}
+</LivePreview>
+
+## Alert vs. Callout vs. Toast vs. Help Text
+
+Alert
+
+- Alerts communicate information relevant at the system level.
+- Do not use Alerts in response to user action.
+
+Callout
+
+- Callouts communicate information particular to a section of a page, or information that applies to a whole page.
+- Use a Callout when there are multiple pieces of information to convey. For example, an error summary.
+- Callouts can result from a user action, but don’t have to. Therefore, they can include either static or contextual content.
+
+Toast
+
+- Toasts communicate brief, easily comprehended messages.
+- Toasts generally result from a user action.
+- If the message is contextual or specific to a particular part of a page, consider Help Text or a Callout.
+- Do not use a Toast if the message is longer than two sentences (~140 characters). Use a Callout instead.
+- Do not use a Toast if there is more than one anchor or button. Use a Callout instead.
+
+Help Text
+
+- Help Text communicates contextual responses.
+- Help Text can result from a user action, but don’t have to.
 
 ## When to use Help Text
 
@@ -284,97 +317,3 @@ Use Help Text when users might need additional information to fill out a form fi
     </Box>
   </Dont>
 </DoDont>
-
-## Anatomy
-
-<Box marginBottom="space60">
-  <Table scrollHorizontally>
-    <THead>
-      <Tr>
-        <Th>Property</Th>
-        <Th>Default token</Th>
-        <Th>Modifiable?</Th>
-      </Tr>
-    </THead>
-    <TBody>
-      <Tr>
-        <Td>Help Text</Td>
-        <Td>$color-text-weak, $font-size-30</Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Inline error</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>Text: $color-text-error, $font-size-30</ListItem>
-            <ListItem>Icon: IconError, $color-text-error, $icon-size-20</ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-      <Tr>
-        <Td>Spacing</Td>
-        <Td>
-          <UnorderedList marginBottom="space0">
-            <ListItem>
-              Help Text:
-              <UnorderedList marginBottom="space0">
-                <ListItem>Top: $space-30</ListItem>
-              </UnorderedList>
-            </ListItem>
-          </UnorderedList>
-        </Td>
-        <Td>No</Td>
-      </Tr>
-    </TBody>
-  </Table>
-</Box>
-
----
-
-## Usage guide
-
-### API
-
-#### Installation
-
-```bash
-yarn add @twilio-paste/help-text - or - yarn add @twilio-paste/core
-```
-
-#### Usage
-
-```jsx
-import {Input} from '@twilio-paste/core/input';
-import {Label} from '@twilio-paste/core/label';
-import {HelpText} from '@twilio-paste/core/help-text';
-
-const Component = () => (
-  <>
-    <Label htmlFor="foo" required>
-      Foo
-    </Label>
-    <Input id="foo" type="text" value="" onChange={() => {}} aria-describedby="foo_text" />
-    <HelpText id="foo_text">Enter some text.</HelpText>
-  </>
-);
-```
-
-#### HelpText props
-
-All the [valid HTML attributes](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes) (role, aria-\*, type, and so on) are supported including the following props:
-
-| Prop       | Type                                           | Description                                                                               | Default     |
-| ---------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| children?  | `ReactNode`                                    |                                                                                           | null        |
-| marginTop? | 'space0'                                       | Sets the top margin on the `div` element.                                                 | 'space30'   |
-| variant?   | 'default', 'error', 'error_inverse', 'inverse' | Changes the render state.                                                                 | 'default'   |
-| element?   | `string`                                       | Overrides the default element name to apply unique styles with the Customization Provider | 'HELP_TEXT' |
-
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>

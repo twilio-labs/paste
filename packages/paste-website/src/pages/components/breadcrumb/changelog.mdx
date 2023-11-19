@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Breadcrumb',
+  package: '@twilio-paste/breadcrumb',
+  description:
+    'Breadcrumbs are used to show navigation hierarchy on a page. They provide a way for users to navigate a nested path of parent pages.',
+  slug: '/components/breadcrumb/changelog',
+};
+
+import Changelog from '@twilio-paste/breadcrumb/CHANGELOG.md';
+import packageJson from '@twilio-paste/breadcrumb/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Breadcrumb');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/breadcrumb',
+        storybookUrl: '/?path=/story/components-breadcrumb--anchors',
+      },
+    },
+  };
+};
+
+<Changelog />

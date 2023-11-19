@@ -1,39 +1,28 @@
----
-title: Articles
-description: Articles published by the Design Systems team at Twilio
-slug: /blog/
----
+export const meta = {
+  title: 'Articles',
+  description: 'Articles published by the Design Systems team at Twilio',
+  slug: '/blog/',
+};
 
-import {graphql} from 'gatsby';
 import {ArticleList} from '../../components/ArticleList';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getArticles, getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allMdx(
-      filter: {frontmatter: {slug: {glob: "/blog/*"}, status: {ne: "draft"}}}
-      sort: {fields: frontmatter___date, order: DESC}
-    ) {
-      edges {
-        node {
-          frontmatter {
-            date(formatString: "MMMM D, YYYY")
-            machineDate: date
-            author
-            description
-            slug
-            title
-            avatar
-            external_link
-          }
-          excerpt(pruneLength: 400)
-        }
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const articles = await getArticles();
+  return {
+    props: {
+      articles: articles,
+      navigationData,
+    },
+  };
+};
 
 # Articles and Posts about Paste
 
 ---
 
-<ArticleList articles={props.data.allMdx.edges} />
+<ArticleList articles={props.articles} />

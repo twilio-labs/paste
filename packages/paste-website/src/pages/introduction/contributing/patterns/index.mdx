@@ -1,16 +1,14 @@
----
-title: Contributing a pattern
-description: How to contribute a pattern to Paste.
-slug: /introduction/contributing/patterns/
----
+export const meta = {
+  title: 'Contributing a pattern',
+  description: 'How to contribute a pattern to Paste.',
+  slug: '/introduction/contributing/patterns/',
+};
 
-import {graphql} from 'gatsby';
 import {Alert} from '@twilio-paste/alert';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Breadcrumb, BreadcrumbItem} from '../../../../components/breadcrumb';
 import {Button} from '@twilio-paste/button';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
 import {Card} from '@twilio-paste/card';
 import {Label} from '@twilio-paste/label';
 import {Input} from '@twilio-paste/input';
@@ -30,29 +28,26 @@ import {Codeblock} from '../../../../components/codeblock';
 import {useUID} from '@twilio-paste/uid-library';
 import {Modal, ModalBody, ModalFooter, ModalFooterActions, ModalHeader, ModalHeading} from '@twilio-paste/modal';
 import {defaultExample, initialFocusExample, wideExample} from '../../../../component-examples/ModalExamples';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/introduction/contributing/patterns/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
 How to contribute a pattern to Paste.
 

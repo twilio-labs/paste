@@ -1,0 +1,75 @@
+import { animated, useSpring } from "@twilio-paste/animation-library";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
+import { useTheme } from "@twilio-paste/theme";
+import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useWindowSize } from "@twilio-paste/utils";
+import * as React from "react";
+
+import type { Variants } from "../types";
+
+const StyledContentWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
+  <Box {...props} as="div" position="relative" ref={ref} />
+));
+StyledContentWrapper.displayName = "StyledContentWrapper";
+const AnimatedStyledContentWrapper = animated(StyledContentWrapper);
+
+export interface SidebarPushContentWrapperProps extends HTMLPasteProps<"div"> {
+  children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default "SIDEBAR_PUSH_CONTENT_WRAPPER"
+   * @type {BoxProps["element"]}
+   * @memberof SidebarPushContentWrapperProps
+   */
+  element?: BoxProps["element"];
+  /**
+   * Whether the sidebar is collapsed / closed.
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof SidebarPushContentWrapperProps
+   */
+  collapsed?: boolean;
+  /**
+   * Whether the sidebar should hide completely or collapse into a fixed width bar.
+   *
+   * @default "default"
+   * @type {Variants}
+   * @memberof SidebarPushContentWrapperProps
+   */
+  variant?: Variants;
+}
+
+export const SidebarPushContentWrapper = React.forwardRef<HTMLDivElement, SidebarPushContentWrapperProps>(
+  ({ collapsed = false, variant = "default", element = "SIDEBAR_PUSH_CONTENT_WRAPPER", children, ...props }, ref) => {
+    const theme = useTheme();
+    const isCompact = variant === "compact";
+    const { breakpointIndex } = useWindowSize();
+
+    const styles = useSpring({
+      // eslint-disable-next-line unicorn/no-nested-ternary
+      marginLeft: !collapsed ? theme.sizes.sizeSidebar : isCompact ? theme.sizes.sizeSidebarCompact : `0rem`,
+      config: {
+        mass: 0.3,
+        tension: 288,
+        friction: 20,
+      },
+    });
+
+    return (
+      <AnimatedStyledContentWrapper
+        {...safelySpreadBoxProps(props)}
+        ref={ref}
+        element={element}
+        // when using push sidebars in responsive layouts, we don't want any left margin in small screen, or initial SSR render situations. So basically never apply it in those situations
+        style={breakpointIndex === undefined || breakpointIndex === 0 ? undefined : styles}
+        marginLeft={["space0", theme.sizes.sizeSidebar]}
+      >
+        {children}
+      </AnimatedStyledContentWrapper>
+    );
+  },
+);
+SidebarPushContentWrapper.displayName = "SidebarPushContentWrapper";

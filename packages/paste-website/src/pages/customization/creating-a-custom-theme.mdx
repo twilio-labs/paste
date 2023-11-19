@@ -1,10 +1,10 @@
----
-title: Creating a Custom Theme
-description: Creating a custom theme is the most the common way a consumer can customize the look and feel of a Paste application.
-slug: /customization/creating-a-custom-theme/
----
+export const meta = {
+  title: 'Creating a Custom Theme',
+  description:
+    'Creating a custom theme is the most the common way a consumer can customize the look and feel of a Paste application.',
+  slug: '/customization/creating-a-custom-theme/',
+};
 
-import {graphql} from 'gatsby';
 import {Box} from '@twilio-paste/box';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
 import {AccessibilityCallout} from '../../components/page-components/customization/customization-provider/AccessibilityCallout';
@@ -12,51 +12,44 @@ import {FontCallout} from '../../components/page-components/customization/custom
 import {CustomThemeKeyList} from '../../components/page-components/customization/customization-provider/CustomThemeKeyList';
 import {P} from '../../components/Typography';
 import {SidebarCategoryRoutes} from '../../constants';
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/customization/creating-a-custom-theme/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
 
-<ComponentHeader name={props.pageContext.frontmatter.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
-<P variant="lead">{props.pageContext.frontmatter.description}</P>
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
+
+<P variant="lead">{meta.description}</P>
 
 ---
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
 
-A custom theme can be created either manually or using the [Paste Theme Designer](https://remix.twilio.design). A [Paste Theme](/core/theme-package) is categorized into groups of [Design Tokens](/tokens). The value of any Design Token from any Group can be changed when supplied to the Customization Provider via the theme object. The following token groups are available for customization:
+A custom theme can be created either manually or using the [Paste Theme Designer](https://remix.twilio.design). A [Paste Theme](/theme) is categorized into groups of [Design Tokens](/tokens). The value of any Design Token from any Group can be changed when supplied to the Customization Provider via the theme object. The following token groups are available for customization:
 
 <CustomThemeKeyList />
 
 ### Choosing your base theme
 
-Firstly you need to decide what base theme you want to extend from. The Customization Provider allows you to choose either the Default or Dark themes as a base. This means that you can choose to only override certain tokens from the base theme, or completely replace it with a whole new theme.
+Firstly you need to decide what base theme you want to extend from. The Customization Provider allows you to choose either the default or dark themes as a base. This means that you can choose to only override certain tokens from the base theme, or completely replace it with a whole new theme.
 
-```
+```jsx
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
-const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark">
-    rest of app
-  </CustomizationProvider>
-)
+const MyApp = () => <CustomizationProvider baseTheme="dark">rest of app</CustomizationProvider>;
 ```
 
 ### Manually creating a custom theme
@@ -65,11 +58,11 @@ Manually creating a custom theme can be done by duplicating the Paste default th
 
 Below we are choosing the dark theme as our base, and manually creating a custom theme by providing the Customization Provider an object that only overrides certain font weights and border widths.
 
-```
+```jsx
 import {CustomizationProvider} from '@twilio-paste/core/customization';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Dark" theme={{
+  <CustomizationProvider baseTheme="dark" theme={{
     "fontWeights": {
       "fontWeightNormal": "light"
       "fontWeightMedium": "500"
@@ -99,7 +92,7 @@ import {CustomizationProvider} from '@twilio-paste/core/customization';
 import CustomTheme from './themes/theme.json';
 
 const MyApp = () => (
-  <CustomizationProvider baseTheme="Default" theme={CustomTheme}>
+  <CustomizationProvider baseTheme="default" theme={CustomTheme}>
     rest of app
   </CustomizationProvider>
 );
@@ -127,7 +120,7 @@ Something simple, yet effective that you might want to do is apply branding to y
 
 As an example you might provide the Customization Provider a theme object that only sets values for the follow Design Tokens, based on your own companies branding:
 
-```
+```json
 {
   backgroundColors: {
     colorBackgroundPrimaryWeakest: PROVIDE_YOUR_COLOR,
@@ -169,7 +162,7 @@ This will apply your companies brand color as the primary accent to all Paste co
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/custom-branding-uh7cc?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
     title="Custom Branding"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -182,30 +175,30 @@ Another small customization might involve changing the typography that is suppli
 
 To achieve the result displayed below, we have provided Paste with the following partial theme object.
 
-```
+```json
 {
-  fonts: {
-    fontFamilyText: "'Poppins', sans-serif"
+  "fonts": {
+    "fontFamilyText": "'Poppins', sans-serif"
   },
-  fontWeights: {
-    fontWeightLight: "400",
-    fontWeightNormal: "400",
-    fontWeightMedium: "500",
-    fontWeightSemibold: "600",
-    fontWeightBold: "800"
+  "fontWeights": {
+    "fontWeightLight": "400",
+    "fontWeightNormal": "400",
+    "fontWeightMedium": "500",
+    "fontWeightSemibold": "600",
+    "fontWeightBold": "800"
   },
-  fontSizes: {
-    fontSize10: "10px",
-    fontSize20: "12px",
-    fontSize30: "16px",
-    fontSize40: "20px",
-    fontSize50: "24px",
-    fontSize60: "28px",
-    fontSize70: "32px",
-    fontSize80: "36px",
-    fontSize90: "40px",
-    fontSize100: "44px",
-    fontSize110: "48px"
+  "fontSizes": {
+    "fontSize10": "10px",
+    "fontSize20": "12px",
+    "fontSize30": "16px",
+    "fontSize40": "20px",
+    "fontSize50": "24px",
+    "fontSize60": "28px",
+    "fontSize70": "32px",
+    "fontSize80": "36px",
+    "fontSize90": "40px",
+    "fontSize100": "44px",
+    "fontSize110": "48px"
   }
 }
 ```
@@ -215,7 +208,7 @@ To achieve the result displayed below, we have provided Paste with the following
 <Box marginBottom="space70">
   <iframe
     src="https://codesandbox.io/embed/custom-typography-ioudh?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-    style="width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;"
+    style={{width: '100%', height: '500px', border: 0, borderRadius: '4px', overflow: 'hidden'}}
     title="Custom Typography"
     allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
     sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"

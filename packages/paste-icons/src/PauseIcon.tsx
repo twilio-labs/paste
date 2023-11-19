@@ -1,10 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import * as React from "react";
+
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface PauseIconProps extends IconWrapperProps {
   title?: string;
@@ -12,11 +13,11 @@ export interface PauseIconProps extends IconWrapperProps {
 }
 
 const PauseIcon = React.forwardRef<HTMLElement, PauseIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `PauseIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[PauseIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[PauseIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -27,19 +28,21 @@ const PauseIcon = React.forwardRef<HTMLElement, PauseIconProps>(
           width="100%"
           height="100%"
           viewBox="0 0 20 20"
+          fill="none"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
           <path
             fill="currentColor"
             fillRule="evenodd"
-            d="M8.5 4c.552 0 1 .488 1 1.09v9.82c0 .602-.448 1.09-1 1.09H7c-.552 0-1-.488-1-1.09V5.09C6 4.489 6.448 4 7 4h1.5zM13 4c.552 0 1 .488 1 1.09v9.82c0 .602-.448 1.09-1 1.09h-1.5c-.552 0-1-.488-1-1.09V5.09c0-.602.448-1.09 1-1.09H13zM8.5 5.09H7v9.82h1.5V5.09zm4.5 0h-1.5v9.82H13V5.09z"
+            clipRule="evenodd"
+            d="M8.143 4C8.616 4 9 4.488 9 5.09v9.82c0 .602-.384 1.09-.857 1.09H6.857C6.384 16 6 15.512 6 14.91V5.09C6 4.489 6.384 4 6.857 4h1.286zm5 0c.473 0 .857.488.857 1.09v9.82c0 .602-.384 1.09-.857 1.09h-1.286c-.473 0-.857-.488-.857-1.09V5.09c0-.602.384-1.09.857-1.09h1.286z"
           />
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-PauseIcon.displayName = 'PauseIcon';
-export {PauseIcon};
+PauseIcon.displayName = "PauseIcon";
+export { PauseIcon };

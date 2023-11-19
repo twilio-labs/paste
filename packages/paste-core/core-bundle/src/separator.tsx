@@ -1,1 +1,1 @@
-export * from '@twilio-paste/separator';
+export * from "@twilio-paste/separator";

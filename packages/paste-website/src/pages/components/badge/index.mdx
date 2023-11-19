@@ -1,10 +1,10 @@
----
-title: Badge - Components
-description: A badge is a visually highlighted text label that describes an attribute of an object.
-slug: /components/badge/
----
+export const meta = {
+  title: 'Badge - Components',
+  package: '@twilio-paste/badge',
+  description: 'A badge is a visually highlighted text label that describes an attribute of an object.',
+  slug: '/components/badge/',
+};
 
-import {graphql} from 'gatsby';
 import Changelog from '@twilio-paste/badge/CHANGELOG.md';
 
 import {Badge} from '@twilio-paste/badge';
@@ -19,6 +19,7 @@ import {WarningIcon} from '@twilio-paste/icons/esm/WarningIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {NewIcon} from '@twilio-paste/icons/esm/NewIcon';
+import {UsersIcon} from '@twilio-paste/icons/esm/UsersIcon';
 import {ProductVoiceIcon} from '@twilio-paste/icons/esm/ProductVoiceIcon';
 import {ProductElasticSIPTrunkingIcon} from '@twilio-paste/icons/esm/ProductElasticSIPTrunkingIcon';
 import {SMSCapableIcon} from '@twilio-paste/icons/esm/SMSCapableIcon';
@@ -28,7 +29,7 @@ import {FaxCapableIcon} from '@twilio-paste/icons/esm/FaxCapableIcon';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Tabs, Tab, TabList, TabPanel, TabPanels} from '@twilio-paste/tabs';
-import {DisplayPill} from '@twilio-paste/core/display-pill-group';
+import {DisplayPill} from '@twilio-paste/display-pill-group';
 
 import {Truncate} from '@twilio-paste/truncate';
 import {styled, css} from '@twilio-paste/styling-library';
@@ -43,7 +44,6 @@ import {useUID} from '@twilio-paste/uid-library';
 
 import {SidebarCategoryRoutes} from '../../../constants';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
-import {Callout, CalloutTitle, CalloutText} from '../../../components/callout';
 import {
   tableExample,
   betaFeatureExample,
@@ -51,61 +51,31 @@ import {
   badgeModalExample,
   counterExample,
 } from '../../../component-examples/BadgeExamples';
+import packageJson from '@twilio-paste/badge/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    allPasteComponent(filter: {name: {eq: "@twilio-paste/badge"}}) {
-      edges {
-        node {
-          name
-          description
-          status
-          version
-        }
-      }
-    }
-    mdx(frontmatter: {slug: {eq: "/components/badge/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-    allAirtable(filter: {data: {Feature: {eq: "Badge"}}}) {
-      edges {
-        node {
-          data {
-            Documentation
-            Figma
-            Design_committee_review
-            Engineer_committee_review
-            Code
-            status
-          }
-        }
-      }
-    }
-  }
-`;
+export default ComponentPageLayout;
 
-<NormalizeComponentHeader
-  categoryRoute={SidebarCategoryRoutes.COMPONENTS}
-  githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/badge"
-  storybookUrl="/?path=/story/components-badge--all-badges"
-  data={props.data}
-/>
-
----
-
-<contentwrapper>
-
-<PageAside data={props.data.mdx} />
-
-<content>
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Badge');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/badge',
+        storybookUrl: '/?path=/story/components-badge--all-badges',
+      },
+    },
+  };
+};
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
@@ -123,6 +93,9 @@ export const pageQuery = graphql`
   </Badge>
   <Badge as="span" variant="new">
     New
+  </Badge>
+  <Badge as="span" variant="subaccount">
+    Subaccount
   </Badge>
   <Badge as="span" variant="decorative10">
     Decorative 10
@@ -155,27 +128,25 @@ It can be used in a wide variety of situations, such as labeling Beta product fe
 or an attribute such as “Inbound” or “Outbound”. A Badge can also be used to show a count,
 such as the number of new messages.
 
-A Badge should contain text content and can optionally contain an Icon.
-Text length should be kept short.
+A Badge should contain text content and can optionally contain an [Icon](/components/icon).
+Text length should be kept short, generally 1-3 words.
 
 ### Accessibility
 
-- Ensure that Badge text is clear enough to understand immediately without having to rely on color to communicate meaning.
-  For example, an error badge should say “Token missing” rather than just “Token”, so the error is communicated via the Badge label.
-- For Status Badges, the inclusion of an icon is recommended to further reinforce the meaning.
+- Ensure that Badge text can be understood immediately, so the user does not have to rely on color to communicate meaning.
+- For Status Badges, it's recommended to include an icon to reinforce meaning.
 
 ## Examples
 
-### Status
+### Variants
 
-Status Badges should be used in cases where the Badge is intended to communicate a specific,
-semantic attribute, such as “warning” or “new”. Status Badges should generally have an Icon that
+Use Badge variants such as `success` and `warning` when the Badge is intended to communicate a specific,
+semantic attribute, such as “warning” or “new”. These Badges should generally have an [Icon](/components/icon) that
 should be prefixed before the text.
 
 #### Neutral
 
-Use the Neutral Badge to highlight neutral attributes of an object. When using the Neutral Badge,
-the inclusion of an Information icon is optional.
+Use the neutral Badge to highlight neutral attributes of an object. An information icon is optional.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -192,8 +163,7 @@ the inclusion of an Information icon is optional.
 
 #### Warning
 
-Use the Warning Badge to highlight attributes of an object that the user must be made aware of to avoid incurring an
-impending error. When using the Warning Badge, it is recommended that you include a Warning icon.
+Use the warning Badge to highlight attributes of an object that the user must be made aware of to avoid incurring an error. A warning icon is recommended.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -210,8 +180,11 @@ impending error. When using the Warning Badge, it is recommended that you includ
 
 #### Error Badge
 
-Use the Error Badge to highlight attributes of an object that the user must be made aware of because they are considered
-to be in a bad or broken state and should be addressed. When using the Error Badge, it is recommended that you include an Error icon.
+Use the error Badge to highlight attributes of an object that signal to the user that they object is in bad or broken state. An error icon is recommended.
+
+Do not use an error Badge unless there is additional guidance elsewhere on the page that explains to the user how to fix the broken state.
+
+For additional guidance on how to compose error messages, refer to the [error state pattern](/patterns/error-state).
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -228,8 +201,8 @@ to be in a bad or broken state and should be addressed. When using the Error Bad
 
 #### Success Badge
 
-Use the Success Badge to highlight attributes of an object that were completed or would be considered to be in a good
-state. When using the Success Badge, it is recommended that you include a Success icon.
+Use the success Badge to highlight attributes of an object that were completed or are considered to be in a good
+state. A success icon is recommended.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -246,8 +219,7 @@ state. When using the Success Badge, it is recommended that you include a Succes
 
 #### New Badge
 
-Use the New Badge to highlight an object that is new, beta, pilot, or experimental.
-When using the New Badge, it is recommended that you include a New icon.
+Use the new Badge to highlight an object that is new, beta, pilot, or experimental. A new icon is recommended.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -262,11 +234,28 @@ When using the New Badge, it is recommended that you include a New icon.
 `.trim()}
 </LivePreview>
 
+#### Subaccount Badge
+
+The subaccount Badge is reserved for specific use cases only. Consult with the Console team before implementing this variant.
+A users icon is recommended.
+
+<LivePreview scope={{Box, Badge, UsersIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge as="span" variant="subaccount">
+    Subaccount
+  </Badge>
+  <Badge as="span" variant="subaccount">
+    <UsersIcon decorative />
+    Subaccount
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
 ### Decorative
 
-Use Decorative Badges to highlight attributes that do not have a strictly semantic meaning (like warning, error, or success)
-but would benefit from the visual affordance of differently-colored Badges. Decorative Badges can have an optional Icon that,
-when used, should be prefixed before the text.
+Use the decorative Badge to highlight attributes that do not have a strictly semantic meaning (like warning, error, or success)
+but would benefit from the visual affordance of differently-colored Badges. Icons are optional, and should appear before the text.
 
 <LivePreview scope={{Box, Badge, SMSCapableIcon, MMSCapableIcon, VoiceCapableIcon, FaxCapableIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -292,9 +281,9 @@ when used, should be prefixed before the text.
 
 ### Counter
 
-Counter Badges should be used to visually highlight a count in a UI.
+Use the counter Badge should be used to visually highlight a count in a UI.
 For example, the number of pending invitations or the number of errors.
-Counter Badges are limited to Neutral and Error variants, and the error variant will always include an error icon.
+Counter Badges are limited to Neutral and Error variants, and the error variant should always include an error icon.
 
 <LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
   {`<Box display="flex" columnGap="space80">
@@ -325,7 +314,7 @@ To do so, add an `href` prop and set `as="a"` on the Badge.
 
 ### Badge with button functionality
 
-A Badge can also be used to trigger an in-page action, such as showing a Popover or Modal Dialog.
+A Badge can also be used to trigger an in-page action, such as showing a [Popover](/components/popover) or [Modal](/components/modal).
 To do so, provide an `onClick` event handler and set `as="button"` on the Badge.
 Refer to the [PopoverBadgeButton](/components/popover/#popoverbadgebutton) section
 of the Popover docs to add a Popover to a Badge.
@@ -354,11 +343,45 @@ of the Popover docs to add a Popover to a Badge.
   {badgeModalExample}
 </LivePreview>
 
+### Small Badges
+
+Use a small Badge only when vertical density is a concern. The guidelines for using variants in a small Badge are the same as in their default size.
+
+<LivePreview scope={{Box, Badge, InformationIcon, ErrorIcon, WarningIcon, SuccessIcon, NewIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space40" rowGap="space60" flexWrap="wrap">
+  <Badge as="span" size="small" variant="neutral">
+    Neutral
+  </Badge>
+  <Badge as="span" size="small" variant="warning">
+    Warning
+  </Badge>
+  <Badge as="span" size="small" variant="error">
+    Error
+  </Badge>
+  <Badge as="span" size="small" variant="success">
+    Success
+  </Badge>
+  <Badge as="span" size="small" variant="new">
+    New
+  </Badge>
+  <Badge as="span" size="small" variant="subaccount">
+    Subaccount
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
 ---
 
-## Composition Notes
+## Composition notes
 
 Use a Badge when you want to add a label to a piece of UI for quick identification and navigation.
+
+Badge labels should be 1-3 words and ideally less than 20 characters. Badge labels can also be numbers.
+
+Use sentence case for Badge labels. Do not wrap Badge text to more than one line.
+
+Use the same grammatical construction for a set of Badges. For example, if a set of Badges highlights statuses, make each Badge an adjective.
 
 ### Use cases
 
@@ -444,7 +467,7 @@ Use a Badge when you want to add a label to a piece of UI for quick identificati
 
 ---
 
-### Do &amp; Don't
+### Do and don't
 
 <DoDont>
   <Do title="Do" body="Use Badge to highlight an attribute of an object for quick identification.">
@@ -466,7 +489,7 @@ Use a Badge when you want to add a label to a piece of UI for quick identificati
 </DoDont>
 
 <DoDont>
-  <Do title="Do" body="Use 1-3 words as Badge text.">
+  <Do title="Do" body="Use 1-3 words and sentence case for Badge text.">
     <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
       <Badge variant="new" as="span">
         <NewIcon title="New Badge component" size="sizeIcon10" />
@@ -572,6 +595,25 @@ Use a Badge when you want to add a label to a piece of UI for quick identificati
   </Dont>
 </DoDont>
 
+<DoDont>
+  <Do title="Do" body="Ensure badge text communicates the problem.">
+    <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
+      <Badge variant="error" as="span">
+        <ErrorIcon title="error" size="sizeIcon10" />
+        Token missing
+      </Badge>
+    </Box>
+  </Do>
+  <Dont title="Don't" body="Don’t rely just on color to communicate meaning.">
+    <Box alignItems="center" display="flex" justifyContent="space-around" height="100%" paddingX="space60">
+      <Badge variant="error" as="span">
+        <ErrorIcon title="error" size="sizeIcon10" />
+        Token
+      </Badge>
+    </Box>
+  </Dont>
+</DoDont>
+
 ---
 
 ## Usage Guide
@@ -598,19 +640,14 @@ const BadgeExample = () => (
 
 #### Props
 
-| Prop     | Type                                   | Description                                                                                                                                         | Default     |
-| -------- | -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| children | `NonNullable<React.ReactNode>`         |                                                                                                                                                     | `null`      |
-| variant  | `BadgeVariants`                        | `neutral`, `success`, `warning`, `error`, `new`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter` | `null`      |
-| as       | `BadgeBaseElements`                    | The HTML tag to use as base - `span`, `button`, `a`                                                                                                 | `null`      |
-| href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                         | `undefined` |
-| onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                  | `undefined` |
-| element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                           | 'BADGE'     |
+##### Badge
 
-<ChangelogRevealer>
-  <Changelog />
-</ChangelogRevealer>
-
-</content>
-
-</contentwrapper>
+| Prop     | Type                                   | Description                                                                                                                                                       | Default     |
+| -------- | -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| children | `NonNullable<React.ReactNode>`         |                                                                                                                                                                   | `null`      |
+| variant  | `BadgeVariants`                        | `neutral`, `success`, `warning`, `error`, `new`, `subaccount`, `decorative10`, `decorative20`, `decorative30`, `decorative40`, `neutral_counter`, `error_counter` | `null`      |
+| size     | `BadgeSizes`                           | `default`, `small`                                                                                                                                                | `default`   |
+| as       | `BadgeBaseElements`                    | The HTML tag to use as base - `span`, `button`, `a`                                                                                                               | `null`      |
+| href?    | `string`                               | A URL to route to. Must use `as="a"` for this prop to work.                                                                                                       | `undefined` |
+| onClick? | `MouseEventHandler<HTMLButtonElement>` | React event handler. Must use `as="button"` for this prop to work.                                                                                                | `undefined` |
+| element? | `string`                               | Overrides the default element name to apply unique styles with the Customization Provider                                                                         | 'BADGE'     |

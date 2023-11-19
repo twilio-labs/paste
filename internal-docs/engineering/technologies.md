@@ -92,13 +92,13 @@ For more information on how to use the theme see our [Theme Package documentatio
 
 ## Documentation site
 
-The documentation site is a [Gatsby](https://www.gatsbyjs.com/) website using the latest Paste components and Design language.
+The documentation site is a [NextJS](https://nextjs.org/) website using the latest Paste components and Design language.
 
 The content is largely written in [MDX](https://mdxjs.com/) pages.
 
-The search is provided by [Algolia Docsearch](https://docsearch.algolia.com/).
+The search is custom built based on OpenAI embeddings, a vector DB and a similarity search that allows us to return results across mdx pages and Github discussions. [Learn more](https://github.com/twilio-labs/paste/blob/main/internal-docs/engineering/doc-site/docsearch.md).
 
-The [roadmap](https://paste.twilio.design/roadmap/) is stored in an [Airtable](https://airtable.com/) and imported upon building the website via the [Airtable Gatsby plugin](https://www.gatsbyjs.com/plugins/gatsby-source-airtable/).
+The [roadmap](https://paste.twilio.design/roadmap/) is stored in an [Airtable](https://airtable.com/) and imported upon building the website via the [Airtable JS client](https://github.com/Airtable/airtable.js).
 
 ## Theme designer web application
 
@@ -118,4 +118,4 @@ Our icons are converted from SVG to React components at compile time using our o
 
 ## Code Style
 
-We use eslint (https://eslint.org/) and Prettier ([https://prettier.io/](https://prettier.io/)) to maintain a consistent, readable code style throughout the entire monorepo.
+We use eslint (https://eslint.org/), [BiomeJS](https://biomejs.dev/), and Prettier ([https://prettier.io/](https://prettier.io/)) to maintain a consistent, readable code style throughout the entire monorepo.

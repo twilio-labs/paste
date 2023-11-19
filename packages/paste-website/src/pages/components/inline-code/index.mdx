@@ -1,0 +1,78 @@
+export const meta = {
+  title: 'Inline Code',
+  package: '@twilio-paste/inline-code',
+  description:
+    'An Inline Code component visually distinguishes pieces of texts as fragments of code.  It is used to display important inline code snippets, such as SIDs, IDs and API keys.',
+  slug: '/components/inline-code/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Stack} from '@twilio-paste/stack';
+import {InlineCode} from '@twilio-paste/inline-code';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Text} from '@twilio-paste/text';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import Changelog from '@twilio-paste/inline-code/CHANGELOG.md';
+import {SidebarCategoryRoutes} from '../../../constants';
+import packageJson from '@twilio-paste/inline-code/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Inline Code');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: "https://github.com/twilio-labs/paste/blob/main/packages/paste-core/components/inline-code/",
+        storybookUrl: "/?path=/story/components-inline-code--default"
+      },
+    },
+  };
+};
+
+  <LivePreview scope={{InlineCode}} language="jsx">
+    {`<InlineCode>
+    console.log(mySustainabilityGoals)
+</InlineCode>`}
+  </LivePreview>
+
+## Guidelines
+
+### About Inline Code
+
+The Inline Code component emphasizes short, inline pieces of computer code such as variable names, commands, and function calls.
+It's also used to display important inline code snippets, such as SIDs, IDs, and API keys
+
+## Examples
+
+The most common use for Inline Code is inside of other pieces of text. Inline Code emphasizes that the text is a piece of code using styling conventions.
+
+<LivePreview scope={{InlineCode, Text}} language="jsx">
+  {`<Text as="span">
+      A  <InlineCode>Service</InlineCode> is the top-level scope of all other resources in the REST API. It owns
+      {' '}<InlineCode>Sessions</InlineCode> and <InlineCode>Participants</InlineCode> for a Proxy application.
+    </Text>`}
+</LivePreview>
+
+Inline Code is also commonly used standalone for key pieces of code text, such as SIDs or Keys.
+
+<LivePreview scope={{InlineCode, Text, Stack}} language="jsx">
+  {`
+    <Stack orientation="vertical" spacing="space30">
+      <Text fontWeight="fontWeightMedium" as="div">
+        API Key
+      </Text>
+      <InlineCode>WQC0000001111111122234444444</InlineCode>
+    </Stack>
+`}
+</LivePreview>

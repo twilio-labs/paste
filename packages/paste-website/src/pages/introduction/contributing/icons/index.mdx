@@ -1,47 +1,43 @@
----
-title: Contributing an icon
-description: Guidelines on how to create and export SVG icons for Paste.
-slug: /introduction/contributing/icons/
----
+export const meta = {
+  title: 'Contributing an icon',
+  description: 'Guidelines on how to create and export SVG icons for Paste.',
+  slug: '/introduction/contributing/icons/',
+};
 
-import {graphql} from 'gatsby';
-import {Link} from 'gatsby';
+import Link from 'next/link';
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
 import {LoadingIcon} from '@twilio-paste/icons/esm/LoadingIcon';
-import {Callout, CalloutTitle, CalloutText} from '../../../../components/callout';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Grid} from '../../../../components/grid';
+import DefaultLayout from '../../../../layouts/DefaultLayout';
+import {getNavigationData} from '../../../../utils/api';
 
-export const pageQuery = graphql`
-  {
-    mdx(frontmatter: {slug: {eq: "/introduction/contributing/icons/"}}) {
-      fileAbsolutePath
-      frontmatter {
-        slug
-        title
-      }
-      headings {
-        depth
-        value
-      }
-    }
-  }
-`;
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
 
 <contentwrapper>
 
-<PageAside data={props.data.mdx} />
+<PageAside data={mdxHeadings} />
 
 <content>
-<h1>{props.pageContext.frontmatter.title}</h1>
+<h1>{meta.title}</h1>
 
 ---
 
 ## Finding an icon
 
-1. Make sure the icon you need doesn't already exist in [our icon list](/components/icons).
+1. Make sure the icon you need doesn't already exist in [our icon list](/components/icon).
 2. If the icon can be used for a similar use case to yours in multiple products ("UI icon"), find a new icon by searching through the [Streamline app](https://app.streamlineicons.com/streamline-regular). If the icon needs to be reserved for use in your product only ("logo icon"), please [request one from our Brand team](https://www.twilio.com/brand/documentation/creative-project-request#Filling_out_the_request).
 3. Create a [GitHub discussion](https://github.com/twilio-labs/paste/discussions) with:
    1. A link or screenshot of the icon in Streamline
@@ -60,8 +56,8 @@ export const pageQuery = graphql`
 5. In the frame name, replace "IconName" with the name of your icon. Follow the naming pattern of the existing icon frames in that section (e.g. "action/Filter").
 6. Select the frame and convert it to a new component.
 
-<Callout>
-  <CalloutTitle>How to name icon frames</CalloutTitle>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h3">How to name icon frames</CalloutHeading>
   <CalloutText>
     Use PascalCase. For an interface icon, give the icon a name that describes its purpose rather than its content. For
     example, "LinkExternal" instead of "ArrowUpRight".
@@ -93,7 +89,7 @@ export const pageQuery = graphql`
 ## Exporting the icon
 
 1. Make sure you have the [SVG Export Figma plugin](https://www.figma.com/community/plugin/814345141907543603/SVG-Export) installed.
-2. Export the icon frame (not the layer) as an SVG. Right-click on the frame and go to "Plugins > SVG Export". Export the SVG.
+2. Export the icon frame (not the layer) as an SVG. Right-click on the frame and go to "Plugins &gt; SVG Export". Export the SVG.
 3. Make sure the SVG code is clean:
    1. You shouldn't see `id`.
    2. You shouldn't see `transform`. If you do, flatten your shape.

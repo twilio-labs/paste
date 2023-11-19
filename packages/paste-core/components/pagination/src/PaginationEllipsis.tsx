@@ -1,10 +1,10 @@
-import * as React from 'react';
-import {Text, safelySpreadTextProps} from '@twilio-paste/text';
-import type {PaginationEllipsisProps} from './types';
-import {PaginationEllipsisPropTypes} from './proptypes';
+import { Text, safelySpreadTextProps } from "@twilio-paste/text";
+import * as React from "react";
+
+import type { PaginationEllipsisProps } from "./types";
 
 const PaginationEllipsis = React.forwardRef<HTMLSpanElement, PaginationEllipsisProps>(
-  ({label, element = 'PAGINATION_ELLIPSIS', ...props}, ref) => {
+  ({ label, element = "PAGINATION_ELLIPSIS", ...props }, ref) => {
     return (
       <Text
         {...safelySpreadTextProps(props)}
@@ -17,15 +17,14 @@ const PaginationEllipsis = React.forwardRef<HTMLSpanElement, PaginationEllipsisP
         paddingLeft="space30"
         paddingRight="space30"
         paddingTop="space20"
+        fontWeight="fontWeightMedium"
       >
         &hellip;
       </Text>
     );
-  }
+  },
 );
 
-PaginationEllipsis.displayName = 'PaginationEllipsis';
+PaginationEllipsis.displayName = "PaginationEllipsis";
 
-PaginationEllipsis.propTypes = PaginationEllipsisPropTypes;
-
-export {PaginationEllipsis};
+export { PaginationEllipsis };

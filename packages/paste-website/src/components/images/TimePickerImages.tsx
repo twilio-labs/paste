@@ -1,58 +1,61 @@
-import * as React from 'react';
-import {StaticImage} from 'gatsby-plugin-image';
-import {css} from '@twilio-paste/styling-library';
-import {useTheme} from '@twilio-paste/theme';
+import { css } from "@twilio-paste/styling-library";
+import { useTheme } from "@twilio-paste/theme";
+import Image from "next/image";
+import * as React from "react";
+
+import Chrome from "../../assets/images/time-picker/chrome.png";
+import Firefox from "../../assets/images/time-picker/firefox.png";
+import Safari from "../../assets/images/time-picker/safari.png";
 
 export const ChromeImage: React.FC = () => {
   const theme = useTheme();
   return (
-    <StaticImage
-      src="../../assets/images/time-picker/chrome.png"
+    <Image
+      src={Chrome}
       alt="Chrome/Edge implementation of time picker"
       width={300}
-      placeholder="blurred"
-      layout="fixed"
+      placeholder="blur"
       css={css({
-        margin: 'space20',
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
+        margin: "space20",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
       })(theme)}
     />
   );
 };
 
-export const SafariImage: React.FC = () => {
+export const SafariImage = (): JSX.Element => {
   const theme = useTheme();
   return (
-    <StaticImage
-      src="../../assets/images/time-picker/safari.png"
+    <Image
+      src={Safari}
       alt="Safari implementation of time picker"
       css={css({
-        margin: 'space20',
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: '300px',
-        height: 'auto',
+        margin: "space20",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
+        maxWidth: "300px",
+        height: "auto",
       })(theme)}
     />
   );
 };
 
-export const FirefoxImage: React.FC = () => {
+export const FirefoxImage = (): JSX.Element => {
   const theme = useTheme();
   return (
-    <StaticImage
-      src="../../assets/images/time-picker/firefox.png"
+    <Image
+      src={Firefox}
       alt="Firefox implementation of time picker"
       css={css({
-        margin: 'space20',
-        display: 'block',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: '300px',
-        height: 'auto',
+        margin: "space20",
+        display: "block",
+        marginLeft: "auto",
+        marginRight: "auto",
+        maxWidth: "300px",
+        height: "auto",
       })(theme)}
     />
   );
