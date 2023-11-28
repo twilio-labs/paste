@@ -128,7 +128,7 @@
     "@storybook/cli": "7.2.0",
     "@storybook/react": "7.0.6",
     "@storybook/react-vite": "7.1.0",
-    "@storybook/test-runner": "0.10.0",
+    "@storybook/test-runner": "0.16.0",
     "@storybook/testing-library": "0.1.0",
     "@swc/core": "^1.2.160",
     "@swc/jest": "^0.2.20",
