@@ -1,5 +1,5 @@
 ---
-"@twilio-paste/box": patch
+"@twilio-paste/tabs": patch
 "@twilio-paste/core": patch
 ---
 
