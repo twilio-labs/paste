@@ -958,7 +958,7 @@
       "description": "Responsive prop for the CSS `bottom` property"
     },
     "boxShadow": {
-      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottomDecorative10Weaker\" | \"shadowBorderBottomDecorative20Weaker\" | \"shadowBorderBottomDecorative30Weaker\" | \"shadowBorderBottomDecorative40Weaker\" | ... 60 more ... | { ...; }",
+      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottomDecorative10Weaker\" | \"shadowBorderBottomDecorative20Weaker\" | \"shadowBorderBottomDecorative30Weaker\" | \"shadowBorderBottomDecorative40Weaker\" | ... 59 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

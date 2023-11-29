@@ -158,10 +158,10 @@ props:
     value: "0px -1px {!offset-0} {!palette-blue-90}"
     comment: Top shadow border for selected hover status of horizontal tabs
 
-  # End borders
-  shadow-border-end-inverse-strong:
+  # Right borders
+  shadow-border-right-inverse-strong:
     value: "1px 0px {!palette-gray-20}"
-    comment: End shadow border for hover status of vertical tabs on inverse backgrounds
+    comment: Right shadow border for hover status of vertical tabs on inverse backgrounds
 
   # Bottom borders
   shadow-border-bottom-primary:

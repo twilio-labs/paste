@@ -42,7 +42,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         },
         _hover: {
           color: isInverse ? "colorTextInverse" : "colorTextLinkStronger",
-          boxShadow: isInverse ? "shadowBorderEndInverseStrong" : "none",
+          boxShadow: isInverse ? "shadowBorderRightInverseStrong" : "none",
         },
         _disabled: {
           borderLeftColor: "transparent",
