@@ -138,6 +138,12 @@
       "required": false,
       "externalProp": false
     },
+    "_disabled_focus_after": {
+      "type": "BoxBaseStyleProps",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": false
+    },
     "_disabledSibling": {
       "type": "BoxStyleProps",
       "defaultValue": null,
@@ -1054,7 +1060,7 @@
       "description": "Responsive prop for the CSS `bottom` property"
     },
     "boxShadow": {
-      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottomDecorative10Weaker\" | \"shadowBorderBottomDecorative20Weaker\" | \"shadowBorderBottomDecorative30Weaker\" | \"shadowBorderBottomDecorative40Weaker\" | ... 58 more ... | { ...; }",
+      "type": "\"none\" | \"shadow\" | \"shadowBorder\" | \"shadowBorderBottomDecorative10Weaker\" | \"shadowBorderBottomDecorative20Weaker\" | \"shadowBorderBottomDecorative30Weaker\" | \"shadowBorderBottomDecorative40Weaker\" | ... 59 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

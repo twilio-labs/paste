@@ -41,6 +41,7 @@ export const PseudoPropStyles = {
   _focus_selected_after: "&[aria-selected=true]:focus:after",
   _selected_hover_after: "&[aria-selected=true]:hover:after",
   _focus_selected_hover_after: "&[aria-selected=true]:focus:hover:after",
+  _disabled_focus_after: "&:disabled:focus:after, &[aria-disabled=true]:focus:after",
   _focusWithin: "&:focus-within",
   _focusVisible: "&:focus-visible",
   _placeholder: "&::placeholder",

@@ -57,22 +57,26 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
 
 HorizontalTabList.displayName = "HorizontalTabList";
 
-const VerticalTabList: React.FC<React.PropsWithChildren<{ element?: BoxProps["element"] }>> = ({
+const VerticalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; element?: BoxProps["element"] }>> = ({
   children,
   element,
-}) => (
-  <Box
-    element={element}
-    marginRight="space110"
-    minWidth="size20"
-    maxWidth="size40"
-    borderRightStyle="solid"
-    borderRightWidth="borderWidth10"
-    borderRightColor="colorBorderWeak"
-  >
-    {children}
-  </Box>
-);
+  variant,
+}) => {
+  const isInverse = variant === "inverse" || variant === "inverse_fitted";
+  return (
+    <Box
+      element={element}
+      marginRight="space110"
+      minWidth="size20"
+      maxWidth="size40"
+      borderRightStyle="solid"
+      borderRightWidth="borderWidth10"
+      borderRightColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
+    >
+      {children}
+    </Box>
+  );
+};
 
 VerticalTabList.displayName = "VerticalTabList";
 
