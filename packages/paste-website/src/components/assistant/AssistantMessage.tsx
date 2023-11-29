@@ -10,7 +10,9 @@ export const AssistantMessage: React.FC<{ threadMessage: ThreadMessage }> = ({ t
   return (
     <ChatMessage variant="inbound">
       <ChatBubble>
-        <Markdown key={threadMessage.id}>{threadMessage.content[0].text.value}</Markdown>
+        {threadMessage.content[0].type === "text" && (
+          <Markdown key={threadMessage.id}>{threadMessage.content[0].text.value}</Markdown>
+        )}
       </ChatBubble>
       <ChatMessageMeta aria-label={`said by the assistant at ${formatTimestamp(threadMessage.created_at)}`}>
         <ChatMessageMetaItem>

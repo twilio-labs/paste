@@ -7,15 +7,11 @@ import { Heading } from "@twilio-paste/heading";
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
 import { $getRoot, ClearEditorPlugin, type EditorState } from "@twilio-paste/lexical-library";
 import { useListboxPrimitiveState } from "@twilio-paste/listbox-primitive";
-import differenceWith from "lodash/differenceWith";
-import isEqual from "lodash/isEqual";
 import type { NextPage } from "next";
 import { type ThreadMessagesPage } from "openai/resources/beta/threads/messages";
-import { type Run } from "openai/resources/beta/threads/runs";
 import { type Thread } from "openai/resources/beta/threads/threads";
 import * as React from "react";
 
-import { set } from "lodash";
 import { Logo } from "../assets/Logo";
 import { AssistantMessage } from "../components/assistant/AssistantMessage";
 import { EnterKeySubmitPlugin } from "../components/assistant/EnterKeySubmitPlugin";
@@ -24,11 +20,25 @@ import { ThreadList, ThreadListItem, ThreadListMeta, ThreadListTitle } from "../
 import { UserMessage } from "../components/assistant/UserMessage";
 import { formatTimestamp } from "../utils/formatTimestamp";
 
+const createAssistantThreadRun = async ({
+  userMessage,
+  threadID,
+}: { userMessage: string; threadID: string }): Promise<void> => {
+  await fetch("/api/paste-assistant-message/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ threadId: threadID, message: userMessage }),
+  }).catch((error) => {
+    throw error;
+  });
+};
+
 const Assistant: NextPage = () => {
   const listboxState = useListboxPrimitiveState();
   const [selectedThread, setSelectedThread] = React.useState<Thread["id"]>();
   const [selectedThreadMessages, setSelectedThreadMessages] = React.useState<ThreadMessagesPage["data"]>();
-  const [lastAssistantRun, setLastAssistantRun] = React.useState<Run["id"]>();
 
   const [threads, setThreads] = React.useState<Thread[]>([
     {
@@ -63,7 +73,7 @@ const Assistant: NextPage = () => {
   };
 
   const handleThreadDelete = async (threadID: Thread["id"]): Promise<void> => {
-    const deleteAction = await fetch("/api/paste-assistant-thread", {
+    await fetch("/api/paste-assistant-thread", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -73,23 +83,6 @@ const Assistant: NextPage = () => {
       throw error;
     });
     setThreads(threads.filter((thread) => thread.id !== threadID));
-  };
-
-  const createAssistantThreadRun = async ({
-    userMessage,
-    threadID,
-  }: { userMessage: string; threadID: string }): Promise<void> => {
-    const thread = await fetch("/api/paste-assistant-message/", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ threadId: threadID, message: userMessage }),
-    }).catch((error) => {
-      throw error;
-    });
-    const assistantThreadRun = (await thread.json()) as Run;
-    setLastAssistantRun(assistantThreadRun.id);
   };
 
   const handleThreadClick = (threadID: Thread["id"]): void => {
@@ -146,10 +139,6 @@ const Assistant: NextPage = () => {
     };
   }, [selectedThread, selectedThreadMessages]);
 
-  React.useEffect(() => {
-    console.log("selectedThreadMessages", selectedThreadMessages);
-  }, [selectedThreadMessages]);
-
   // scroll to bottom of chat log when new messages are added
   React.useEffect(() => {
     if (!mounted || !loggerRef.current || scrolled) return;
@@ -201,6 +190,7 @@ const Assistant: NextPage = () => {
                 }}
               >
                 <ThreadListTitle key={`${thread.id}-title`}>
+                  {/* @ts-expect-error threadTitle is a custom prop on metadata */}
                   {thread.metadata?.threadTitle ?? thread.id}
                 </ThreadListTitle>
                 <ThreadListMeta key={`${thread.id}-meta`}>{formatTimestamp(thread.created_at)}</ThreadListMeta>
