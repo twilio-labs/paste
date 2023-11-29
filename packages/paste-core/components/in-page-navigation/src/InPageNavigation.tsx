@@ -67,6 +67,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
     ref,
   ) => {
     const isFullWidth = variant === "fullWidth" || variant === "inverse_fullWidth";
+    const isInverse = variant === "inverse" || variant === "inverse_fullWidth";
 
     if (orientation === "vertical") {
       return (
@@ -105,7 +106,7 @@ const InPageNavigation = React.forwardRef<HTMLDivElement, InPageNavigationProps>
             marginBottom={marginBottom || "space60"}
             borderBottomWidth={hideBottomBorder ? "borderWidth0" : "borderWidth10"}
             borderBottomStyle={hideBottomBorder ? "none" : "solid"}
-            borderBottomColor="colorBorderWeaker"
+            borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeaker"}
           >
             {children}
           </Box>
