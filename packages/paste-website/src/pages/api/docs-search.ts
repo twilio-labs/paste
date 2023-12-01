@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import { createClient } from "@supabase/supabase-js";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { Configuration, type CreateEmbeddingResponse, OpenAIApi } from "openai-edge";
+import OpenAI from "openai";
 import Rollbar from "rollbar";
 
 import { logger } from "../../functions-utils/logger";
@@ -24,10 +24,9 @@ const openAiKey = process.env.OPENAI_API_KEY;
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_KEY;
 
-const config = new Configuration({
+const openai = new OpenAI({
   apiKey: openAiKey,
 });
-const openai = new OpenAIApi(config);
 
 const LOG_PREFIX = "[/api/docs-search]:";
 
@@ -68,18 +67,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     logger.info(`${LOG_PREFIX} Reqesting openai embedding`);
 
     // Create embedding from query
-    const embeddingResponse = await openai.createEmbedding({
+    const embeddingResponse = await openai.embeddings.create({
       model: "text-embedding-ada-002",
       input: sanitizedQuery.replaceAll("\n", " "),
     });
 
-    if (embeddingResponse.status !== 200) {
+    if (embeddingResponse.data.length === 0) {
       throw new ApplicationError("Failed to create embedding for question", embeddingResponse);
     }
 
-    const {
-      data: [{ embedding }],
-    }: CreateEmbeddingResponse = await embeddingResponse.json();
+    const { embedding } = embeddingResponse.data[0];
 
     logger.info(`${LOG_PREFIX} Request page sections based on embeddings`);
 
