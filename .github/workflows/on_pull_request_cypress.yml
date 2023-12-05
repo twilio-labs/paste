@@ -80,15 +80,14 @@ jobs:
       - name: Percy Batch ID
         run: echo "${{ needs.percy-batch-id.outputs.result }}"
 
-      - name: Run site
-        run: yarn start:website
-
       - name: Cypress run
         uses: cypress-io/github-action@v4
         if: ${{ !contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
         with:
           record: true
           parallel: true
+          start: yarn start:website
+          wait-on: "http://localhost:3000"
           group: "Paste Actions Parallel"
           config: baseUrl=http://localhost:3000
         env:
@@ -100,6 +99,8 @@ jobs:
         with:
           record: true
           parallel: true
+          start: yarn start:website
+          wait-on: "http://localhost:3000"
           group: "Paste Actions with VRT Parallel"
           config: baseUrl=http://localhost:3000
           # enabled percy to run cypress for VRT
