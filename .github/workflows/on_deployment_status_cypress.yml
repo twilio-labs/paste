@@ -45,16 +45,7 @@ jobs:
       - name: Percy Batch ID
         run: echo "${{ needs.percy-batch-id.outputs.result }}"
 
-      - name: Cypress run without site VRT
-        uses: cypress-io/github-action@v4
-        with:
-          record: true
-          parallel: true
-          group: "Paste Actions Parallel"
-          config: baseUrl=${{ github.event.deployment_status.environment_url }}
-        env:
-          CYPRESS_BASE_URL: ${{ github.event.deployment_status.environment_url }}
-
+      # Run cypress on merge to main aong with VRT to create our new baelines
       - name: Cypress run with site VRT on main
         uses: cypress-io/github-action@v4
         if: ${{ github.ref == 'refs/heads/main' }}
