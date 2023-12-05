@@ -31,11 +31,21 @@ jobs:
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
+      AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      CYPRESS_BASE_URL: http://localhost:3000
+      SUPABASE_KEY: ${{ secrets.SUPABASE_STAGING_KEY }}
+      SUPABASE_URL: ${{ secrets.SUPABASE_STAGING_URL }}
       USE_CYPRESS_VRT: false
 
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v3
@@ -45,9 +55,6 @@ jobs:
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
-
-      - name: Percy Batch ID
-        run: echo "${{ needs.percy-batch-id.outputs.result }}"
 
       - name: Load Yarn cache
         uses: actions/cache@v3
@@ -71,13 +78,11 @@ jobs:
         if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
         run: yarn install --immutable
 
-      - name: Wait for Netlify
-        uses: hharnisc/wait-for-netlify-action@3.2.0
-        id: waitForDeployment
-        with:
-          site_id: ${{ secrets.NETLIFY_SITE_ID }}
-        env:
-          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+      - name: Build packages
+        run: yarn build
+
+      - name: Percy Batch ID
+        run: echo "${{ needs.percy-batch-id.outputs.result }}"
 
       - name: Cypress run
         uses: cypress-io/github-action@v4
@@ -85,10 +90,10 @@ jobs:
         with:
           record: true
           parallel: true
+          start: yarn start:website
+          wait-on: "http://localhost:3000"
           group: "Paste Actions Parallel"
-          config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
-        env:
-          CYPRESS_BASE_URL: ${{ steps.waitForDeployment.outputs.url }}
+          config: baseUrl=http://localhost:3000
 
       - name: Cypress run with site VRT
         uses: cypress-io/github-action@v4
@@ -96,12 +101,13 @@ jobs:
         with:
           record: true
           parallel: true
+          start: yarn start:website
+          wait-on: "http://localhost:3000"
           group: "Paste Actions with VRT Parallel"
-          config: baseUrl=${{ steps.waitForDeployment.outputs.url }}
+          config: baseUrl=http://localhost:3000
           # enabled percy to run cypress for VRT
           command-prefix: "percy exec --parallel -- npx"
         env:
           USE_CYPRESS_VRT: true
           PERCY_PARALLEL_NONCE: ${{ needs.percy-batch-id.outputs.result }}
           PERCY_PARALLEL_TOTAL: 3
-          CYPRESS_BASE_URL: ${{ steps.waitForDeployment.outputs.url }}
