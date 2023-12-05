@@ -1,7 +1,8 @@
-name: Cypress Deployment Checks
+name: Cypress PR Checks
 
 on:
-  deployment_status:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled]
 
 jobs:
   # run this job first to create a single timestamped id for all percy batches on parallel machines
@@ -17,11 +18,10 @@ jobs:
         # adding a timestamp makes the batch id more unique for re-runs
         run: echo "result=${{ github.run_id }}-$(date +%s)" >> $GITHUB_OUTPUT
 
-  cypress_on_deployment:
+  cypress:
     name: Website tests
     runs-on: ubuntu-latest
     needs: percy-batch-id
-    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && startsWith(github.event.deployment_status.environment_url, 'https://paste-docs')
     strategy:
       fail-fast: false
       matrix:
@@ -36,37 +36,74 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v3
 
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v3
         with:
           node-version: 20.5.x
 
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+      - name: Load Yarn cache
+        uses: actions/cache@v3
+        id: yarn_cache_id
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn
+
+      - name: Node modules cache
+        uses: actions/cache@v3
+        id: node_modules_cache_id
+        with:
+          path: |
+            node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Dependencies
+        if: steps.yarn_cache_id.outputs.cache-hit != 'true' || steps.node_modules_cache_id.outputs.cache-hit != 'true'
+        run: yarn install --immutable
+
+      - name: Build packages
+        run: yarn build
+
       - name: Percy Batch ID
         run: echo "${{ needs.percy-batch-id.outputs.result }}"
 
-      - name: Cypress run without site VRT
+      - name: Run site
+        run: yarn start:website
+
+      - name: Cypress run
         uses: cypress-io/github-action@v4
+        if: ${{ !contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
         with:
           record: true
           parallel: true
           group: "Paste Actions Parallel"
-          config: baseUrl=${{ github.event.deployment_status.environment_url }}
+          config: baseUrl=http://localhost:3000
         env:
-          CYPRESS_BASE_URL: ${{ github.event.deployment_status.environment_url }}
+          CYPRESS_BASE_URL: http://localhost:3000
 
-      - name: Cypress run with site VRT on main
+      - name: Cypress run with site VRT
         uses: cypress-io/github-action@v4
-        if: ${{ github.ref == 'refs/heads/main' }}
+        if: ${{ contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
         with:
           record: true
           parallel: true
           group: "Paste Actions with VRT Parallel"
-          config: baseUrl=${{ github.event.deployment_status.environment_url }}
+          config: baseUrl=http://localhost:3000
           # enabled percy to run cypress for VRT
           command-prefix: "percy exec --parallel -- npx"
         env:
           USE_CYPRESS_VRT: true
           PERCY_PARALLEL_NONCE: ${{ needs.percy-batch-id.outputs.result }}
           PERCY_PARALLEL_TOTAL: 3
-          CYPRESS_BASE_URL: ${{ github.event.deployment_status.environment_url }}
+          CYPRESS_BASE_URL: http://localhost:3000
