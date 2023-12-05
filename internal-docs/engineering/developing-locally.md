@@ -153,7 +153,7 @@ DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
   <tr>
    <td>NEXT_PUBLIC_ENVIRONMENT_CONTEXT
    </td>
-   <td>Set to “local”. This replicates <a href="https://docs.netlify.com/configure-builds/environment-variables/#build-metadata">Netlify deployment context</a>
+   <td>Set to development”. This replicates <a href="https://vercel.com/docs/projects/environment-variables/system-environment-variables#system-environment-variables">Vercel deployment context</a>
    </td>
   </tr>
   <tr>
