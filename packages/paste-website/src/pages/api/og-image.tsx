@@ -10,6 +10,9 @@ export type PackageData = Package & Feature & { type: string };
 
 export const config = {
   runtime: "edge",
+  unstable_allowDynamic: [
+    "**/node_modules/lodash/_root.js", // use a glob to allow anything in the function-bind 3rd party module
+  ],
 };
 
 const EMPTY_PACKAGE_DATA = {
