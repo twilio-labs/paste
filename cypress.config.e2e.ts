@@ -1,7 +1,7 @@
 import { defineConfig } from "cypress";
 
 // eslint-disable-next-line import/no-default-export
-// Cypress config to run all test include the site vrt tests via Percy
+// Cypress config to only run the site e2e tests, excluding the VRT tests.
 export default defineConfig({
   e2e: {
     baseUrl: "http://localhost:3000",
@@ -27,6 +27,7 @@ export default defineConfig({
       "*.googletagmanager.com",
     ],
     specPattern: ["cypress/**/*.spec.ts"],
+    excludeSpecPattern: ["cypress/integration/sitemap-vrt/**/*"],
     defaultCommandTimeout: 6000,
   },
 });
