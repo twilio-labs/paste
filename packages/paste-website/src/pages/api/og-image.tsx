@@ -244,13 +244,13 @@ export default async function handler(req: NextRequest): Promise<ImageResponse> 
 
   // Make sure the font exists in the specified path:
   const fontData = await fetch(
-    new URL("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Regular.woff", import.meta.url),
+    "https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Regular.woff",
   ).then(async (res) => res.arrayBuffer());
   const fontDataMedium = await fetch(
-    new URL("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Medium.woff", import.meta.url),
+    "https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Medium.woff",
   ).then(async (res) => res.arrayBuffer());
   const fontDataSemiBold = await fetch(
-    new URL("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Semibold.woff", import.meta.url),
+    "https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Semibold.woff",
   ).then(async (res) => res.arrayBuffer());
 
   console.log(`${LOG_PREFIX} return image`);
