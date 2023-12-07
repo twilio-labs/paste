@@ -1,8 +1,9 @@
+/* eslint-disable no-console */
 import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
 
-import featureData from "../../../data/feature-data.json";
-import pacakageData from "../../../data/package-data.json";
+import featureDataJSON from "../../../data/feature-data.json";
+import packageDataJSON from "../../../data/package-data.json";
 import { getHumanizedNameFromPackageName } from "../../utils/RouteUtils";
 import { type Feature, type Package } from "../../utils/api";
 
@@ -100,105 +101,8 @@ function AssetStatus({ status }: { status?: string }): JSX.Element {
   return <div style={{ color: "rgb(96, 107, 133)", fontSize: "20px", lineHeight: "28px" }}>Pending</div>;
 }
 
-export default async function handler(req: NextRequest): Promise<ImageResponse> {
-  const { searchParams } = new URL(req.url);
-  const componentRequested = searchParams.get("componentRequested");
-
-  if (!componentRequested) {
-    throw new Error("No componentRequested parameter provided");
-  }
-
-  const [packageType, packageName] = componentRequested.split("/");
-
-  if (!packageType || !packageName) {
-    throw new Error("Couldn't parse componentRequested parameter into packageType/packageName");
-  }
-
-  const navigationData = pacakageData;
-  const features = featureData;
-
-  const data = {
-    ...navigationData,
-    allAirtable: features,
-  };
-
-  // Make sure the font exists in the specified path:
-  const fontData = await fetch(
-    new URL("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Regular.woff", import.meta.url),
-  ).then(async (res) => res.arrayBuffer());
-  const fontDataMedium = await fetch(
-    new URL("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Medium.woff", import.meta.url),
-  ).then(async (res) => res.arrayBuffer());
-  const fontDataSemiBold = await fetch(
-    new URL("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Semibold.woff", import.meta.url),
-  ).then(async (res) => res.arrayBuffer());
-
-  function mergeAirtableDataForNode(node: Package, type: string): PackageData {
-    const { name, description, version } = node;
-
-    /*
-     * If this package is in our manual mapping list, use that.
-     * otherwise, humanize the package name.
-     */
-    const humanizedName =
-      ManualPackageNameMapping[name] != null ? ManualPackageNameMapping[name] : getHumanizedNameFromPackageName(name);
-
-    // Find the airtable array entry for this node
-    const itemAirtable = data.allAirtable.find((entry) => {
-      return entry.Feature === humanizedName;
-    }) as PackageData;
-
-    // Someone is requesting a package that doesn't exist.
-    if (!itemAirtable) {
-      return EMPTY_PACKAGE_DATA;
-    }
-
-    return {
-      ...itemAirtable,
-      name,
-      description,
-      type,
-      version,
-    };
-  }
-
-  let packageData: PackageData = EMPTY_PACKAGE_DATA;
-
-  switch (packageType) {
-    case "components": {
-      const entry = data.allPasteComponent.find((component) => {
-        return component.name === `@twilio-paste/${packageName}`;
-      });
-      if (entry) {
-        packageData = mergeAirtableDataForNode(entry, "components");
-      }
-      break;
-    }
-    case "primitives": {
-      const entry = data.allPastePrimitive.find((primitive) => {
-        return primitive.name === `@twilio-paste/${packageName}`;
-      });
-      if (entry) {
-        packageData = mergeAirtableDataForNode(entry, "primitives");
-      }
-      break;
-    }
-    case "layout": {
-      const entry = data.allPasteLayout.find((layout) => {
-        return layout.name === `@twilio-paste/${packageName}`;
-      });
-      if (entry) {
-        packageData = mergeAirtableDataForNode(entry, "layout");
-      }
-      break;
-    }
-    default: {
-      // Just keeps the default package data
-      break;
-    }
-  }
-
-  return new ImageResponse(
+function OgImageCard({ packageData }: { packageData: PackageData }): JSX.Element {
+  return (
     <div
       style={{
         backgroundColor: "white",
@@ -317,29 +221,144 @@ export default async function handler(req: NextRequest): Promise<ImageResponse> 
           </div>
         </div>
       </div>
-    </div>,
-    {
-      width: 800,
-      height: 420,
-      fonts: [
-        {
-          name: "TwilioSansText",
-          data: fontData,
-          style: "normal",
-        },
-        {
-          name: "TwilioSansTextMedium",
-          data: fontDataMedium,
-          style: "normal",
-          weight: 500,
-        },
-        {
-          name: "TwilioSansTextSemiBold",
-          data: fontDataSemiBold,
-          style: "normal",
-          weight: 600,
-        },
-      ],
-    },
+    </div>
   );
 }
+
+const LOG_PREFIX = "[/api/og-image]:";
+
+export default async function handler(req: NextRequest): Promise<ImageResponse> {
+  console.log(`${LOG_PREFIX} Incoming request`);
+
+  const { searchParams } = new URL(req.url);
+  const componentRequested = searchParams.get("componentRequested");
+
+  if (!componentRequested) {
+    throw new Error("No componentRequested parameter provided");
+  }
+
+  console.log(`${LOG_PREFIX} component requested: ${componentRequested}`);
+
+  const [packageType, packageName] = componentRequested.split("/");
+
+  if (!packageType || !packageName) {
+    throw new Error("Couldn't parse componentRequested parameter into packageType/packageName");
+  }
+
+  console.log(`${LOG_PREFIX} packageType: ${packageType}`);
+  console.log(`${LOG_PREFIX} packageName: ${packageName}`);
+
+  const data = {
+    ...packageDataJSON,
+    allAirtable: featureDataJSON,
+  };
+
+  console.log(`${LOG_PREFIX} data loaded`, data);
+
+  function mergeAirtableDataForNode(node: Package, type: string): PackageData {
+    const { name, description, version } = node;
+
+    /*
+     * If this package is in our manual mapping list, use that.
+     * otherwise, humanize the package name.
+     */
+    const humanizedName =
+      ManualPackageNameMapping[name] != null ? ManualPackageNameMapping[name] : getHumanizedNameFromPackageName(name);
+
+    // Find the airtable array entry for this node
+    const itemAirtable = data.allAirtable.find((entry) => {
+      return entry.Feature === humanizedName;
+    }) as PackageData;
+
+    // Someone is requesting a package that doesn't exist.
+    if (!itemAirtable) {
+      return EMPTY_PACKAGE_DATA;
+    }
+
+    return {
+      ...itemAirtable,
+      name,
+      description,
+      type,
+      version,
+    };
+  }
+
+  let packageData: PackageData = EMPTY_PACKAGE_DATA;
+
+  switch (packageType) {
+    case "components": {
+      const entry = data.allPasteComponent.find((component) => {
+        return component.name === `@twilio-paste/${packageName}`;
+      });
+      if (entry) {
+        packageData = mergeAirtableDataForNode(entry, "components");
+      }
+      break;
+    }
+    case "primitives": {
+      const entry = data.allPastePrimitive.find((primitive) => {
+        return primitive.name === `@twilio-paste/${packageName}`;
+      });
+      if (entry) {
+        packageData = mergeAirtableDataForNode(entry, "primitives");
+      }
+      break;
+    }
+    case "layout": {
+      const entry = data.allPasteLayout.find((layout) => {
+        return layout.name === `@twilio-paste/${packageName}`;
+      });
+      if (entry) {
+        packageData = mergeAirtableDataForNode(entry, "layout");
+      }
+      break;
+    }
+    default: {
+      // Just keeps the default package data
+      break;
+    }
+  }
+
+  console.log(`${LOG_PREFIX} package data`, packageData);
+
+  console.log(`${LOG_PREFIX} get fonts`);
+
+  // Make sure the font exists in the specified path:
+  const fontData = await fetch(
+    new URL("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Regular.woff", import.meta.url),
+  ).then(async (res) => res.arrayBuffer());
+  const fontDataMedium = await fetch(
+    new URL("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Medium.woff", import.meta.url),
+  ).then(async (res) => res.arrayBuffer());
+  const fontDataSemiBold = await fetch(
+    new URL("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Semibold.woff", import.meta.url),
+  ).then(async (res) => res.arrayBuffer());
+
+  console.log(`${LOG_PREFIX} return image`);
+
+  return new ImageResponse(<OgImageCard packageData={packageData} />, {
+    width: 800,
+    height: 420,
+    fonts: [
+      {
+        name: "TwilioSansText",
+        data: fontData,
+        style: "normal",
+      },
+      {
+        name: "TwilioSansTextMedium",
+        data: fontDataMedium,
+        style: "normal",
+        weight: 500,
+      },
+      {
+        name: "TwilioSansTextSemiBold",
+        data: fontDataSemiBold,
+        style: "normal",
+        weight: 600,
+      },
+    ],
+  });
+}
+/* eslint-enable no-console */

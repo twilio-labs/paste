@@ -45,6 +45,9 @@ jobs:
       - name: Percy Batch ID
         run: echo "${{ needs.percy-batch-id.outputs.result }}"
 
+      - name: Print ref
+        run: echo "${{ github.ref }}"
+
       # Run cypress on merge to main aong with VRT to create our new baelines
       - name: Cypress run with site VRT on main
         uses: cypress-io/github-action@v4
