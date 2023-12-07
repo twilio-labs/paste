@@ -62,6 +62,7 @@
 /modal
 /modal-dialog-primitive
 /non-modal-dialog-primitive
+/page-header
 /pagination
 /paragraph
 /popover
