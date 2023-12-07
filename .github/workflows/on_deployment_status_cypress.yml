@@ -51,7 +51,7 @@ jobs:
       # Run cypress on merge to main aong with VRT to create our new baelines
       - name: Cypress run with site VRT on main
         uses: cypress-io/github-action@v4
-        if: github.ref == 'refs/heads/main'
+        if: contains(github.ref, 'main')
         with:
           record: true
           parallel: true
