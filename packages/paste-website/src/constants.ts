@@ -29,13 +29,18 @@ export const TOKEN_LIST_PAGE_REGEX = /^\/tokens\/list$/;
 export const DATADOG_APPLICATION_ID = process.env.NEXT_PUBLIC_DATADOG_APPLICATION_ID || "no env variable";
 export const DATADOG_CLIENT_TOKEN = process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN || "no env variable";
 /*
- * Netlify provides an environment variable called CONTEXT which reflects their build context https://docs.netlify.com/site-deploys/overview/#deploy-contexts
+ * Vercel provides an environment variable called VERCEL_ENV which reflects their deployment context https://vercel.com/docs/projects/environment-variables/system-environment-variables#system-environment-variables
  * We need to use this to know where the Next site is being run for metrics tracking. Next env variables all need
- * start with NEXT_PUBLIC_, so NEXT_PUBLIC_ENVIRONMENT_CONTEXT is just a re-implementation of Netlify's $CONTEXT
+ * start with NEXT_PUBLIC_, so NEXT_PUBLIC_ENVIRONMENT_CONTEXT is just a re-implementation of Vercels's $VERCEL_ENV
+ * Mapping to our own ENVIRONMENT_CONTEXT variable allows us to be a little platform agnostic as Vercel and Netlify use differnt names for this variable.
  */
 export type EnvironmentContext = "production" | "deploy-preview" | "branch-deploy" | "local";
 export const ENVIRONMENT_CONTEXT: EnvironmentContext =
-  (process.env.NEXT_PUBLIC_ENVIRONMENT_CONTEXT as EnvironmentContext) || "local";
+  // comes from Netlify config
+  (process.env.NEXT_PUBLIC_ENVIRONMENT_CONTEXT as EnvironmentContext) ||
+  // comes from Vercel environment
+  (process.env.NEXT_PUBLIC_VERCEL_ENV as EnvironmentContext) ||
+  "local";
 
 export const SidebarCategoryRoutes = {
   INTRODUCTION: "/introduction",

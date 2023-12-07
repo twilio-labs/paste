@@ -1,0 +1,63 @@
+name: Cypress Deployment Checks
+
+on:
+  deployment_status:
+
+jobs:
+  # run this job first to create a single timestamped id for all percy batches on parallel machines
+  percy-batch-id:
+    runs-on: ubuntu-latest
+    # persist job results to other jobs in the workflow
+    outputs:
+      result: ${{ steps.percy-batch-id.outputs.result }}
+    steps:
+      # persist step results to other steps in the job
+      - name: Create Percy Batch ID
+        id: percy-batch-id
+        # adding a timestamp makes the batch id more unique for re-runs
+        run: echo "result=${{ github.run_id }}-$(date +%s)" >> $GITHUB_OUTPUT
+
+  cypress_on_deployment:
+    name: Website tests
+    runs-on: ubuntu-latest
+    needs: percy-batch-id
+    if: github.event_name == 'deployment_status' && github.event.deployment_status.state == 'success' && startsWith(github.event.deployment_status.environment_url, 'https://paste-docs')
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3]
+    env:
+      CYPRESS_CACHE_FOLDER: ./node_modules/cypress
+      CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      USE_CYPRESS_VRT: false
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 20.5
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.5.x
+
+      - name: Percy Batch ID
+        run: echo "${{ needs.percy-batch-id.outputs.result }}"
+
+      # Run cypress on merge to main aong with VRT to create our new baelines
+      - name: Cypress run with site VRT on main
+        uses: cypress-io/github-action@v4
+        if: github.ref == 'refs/heads/main'
+        with:
+          record: true
+          parallel: true
+          group: "Paste Actions with VRT Parallel"
+          config: baseUrl=${{ github.event.deployment_status.environment_url }}
+          # enabled percy to run cypress for VRT
+          command-prefix: "percy exec --parallel -- npx"
+        env:
+          USE_CYPRESS_VRT: true
+          PERCY_PARALLEL_NONCE: ${{ needs.percy-batch-id.outputs.result }}
+          PERCY_PARALLEL_TOTAL: 3
+          CYPRESS_BASE_URL: ${{ github.event.deployment_status.environment_url }}
