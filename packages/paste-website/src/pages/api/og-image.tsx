@@ -2,9 +2,6 @@
 import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
 
-import featureDataJSON from "../../../data/feature-data.json";
-import packageDataJSON from "../../../data/package-data.json";
-import { getHumanizedNameFromPackageName } from "../../utils/RouteUtils";
 import { type Feature, type Package } from "../../utils/api";
 
 export type PackageData = Package & Feature & { type: string };
@@ -18,10 +15,10 @@ export const config = {
 
 const EMPTY_PACKAGE_DATA = {
   name: "",
-  description: "",
+  description: "Description",
   version: "",
   status: "",
-  Feature: "",
+  Feature: "Badge",
   Figma: "",
   Documentation: false,
   "Design committee review": "",
@@ -30,15 +27,6 @@ const EMPTY_PACKAGE_DATA = {
   "Component Category": "",
   "Product suitability": [""],
   type: "",
-};
-
-/*
- * Some packages can't be found just by humanizing the package name,
- * so I need to manually map them.
- */
-const ManualPackageNameMapping: Record<string, string> = {
-  // This package needs to preserve one of the hyphens in the name.
-  "@twilio-paste/non-modal-dialog-primitive": "Non-modal Dialog Primitive",
 };
 
 function PasteLogo(): JSX.Element {
@@ -248,77 +236,7 @@ export default async function handler(req: NextRequest): Promise<ImageResponse> 
   console.log(`${LOG_PREFIX} packageType: ${packageType}`);
   console.log(`${LOG_PREFIX} packageName: ${packageName}`);
 
-  const data = {
-    ...packageDataJSON,
-    allAirtable: featureDataJSON,
-  };
-
-  console.log(`${LOG_PREFIX} data loaded`, data);
-
-  function mergeAirtableDataForNode(node: Package, type: string): PackageData {
-    const { name, description, version } = node;
-
-    /*
-     * If this package is in our manual mapping list, use that.
-     * otherwise, humanize the package name.
-     */
-    const humanizedName =
-      ManualPackageNameMapping[name] != null ? ManualPackageNameMapping[name] : getHumanizedNameFromPackageName(name);
-
-    // Find the airtable array entry for this node
-    const itemAirtable = data.allAirtable.find((entry) => {
-      return entry.Feature === humanizedName;
-    }) as PackageData;
-
-    // Someone is requesting a package that doesn't exist.
-    if (!itemAirtable) {
-      return EMPTY_PACKAGE_DATA;
-    }
-
-    return {
-      ...itemAirtable,
-      name,
-      description,
-      type,
-      version,
-    };
-  }
-
-  let packageData: PackageData = EMPTY_PACKAGE_DATA;
-
-  switch (packageType) {
-    case "components": {
-      const entry = data.allPasteComponent.find((component) => {
-        return component.name === `@twilio-paste/${packageName}`;
-      });
-      if (entry) {
-        packageData = mergeAirtableDataForNode(entry, "components");
-      }
-      break;
-    }
-    case "primitives": {
-      const entry = data.allPastePrimitive.find((primitive) => {
-        return primitive.name === `@twilio-paste/${packageName}`;
-      });
-      if (entry) {
-        packageData = mergeAirtableDataForNode(entry, "primitives");
-      }
-      break;
-    }
-    case "layout": {
-      const entry = data.allPasteLayout.find((layout) => {
-        return layout.name === `@twilio-paste/${packageName}`;
-      });
-      if (entry) {
-        packageData = mergeAirtableDataForNode(entry, "layout");
-      }
-      break;
-    }
-    default: {
-      // Just keeps the default package data
-      break;
-    }
-  }
+  const packageData: PackageData = EMPTY_PACKAGE_DATA;
 
   console.log(`${LOG_PREFIX} package data`, packageData);
 
