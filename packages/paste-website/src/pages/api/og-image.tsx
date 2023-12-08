@@ -2,7 +2,9 @@
 import { ImageResponse } from "@vercel/og";
 import type { NextRequest } from "next/server";
 
+// eslint-disable-next-line import/no-unresolved
 import featureDataJSON from "../../../data/feature-data.json";
+// eslint-disable-next-line import/no-unresolved
 import packageDataJSON from "../../../data/package-data.json";
 import { getHumanizedNameFromPackageName } from "../../utils/RouteUtils";
 import { type Feature, type Package } from "../../utils/api";

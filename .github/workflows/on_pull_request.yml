@@ -104,6 +104,9 @@ jobs:
       - name: Build packages
         run: yarn build
 
+      - name: Generate website data files
+        run: yarn workspace @twilio-paste/website fetch:data
+
       - name: Run eslint
         run: yarn lint
 

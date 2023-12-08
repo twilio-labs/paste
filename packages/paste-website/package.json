@@ -15,6 +15,7 @@
     "tsc:watch": "yarn tsc --watch",
     "lint": "NEXT_TELEMETRY_DISABLED=1 next lint",
     "analyze": "ANALYZE=true yarn build",
+    "fetch:data": "node -r dotenv/config scripts/fetch-data.mjs",
     "generate:embeddings": "tsx -r dotenv/config ./scripts/search/generate-embeddings",
     "generate:embeddings:refresh": "tsx -r dotenv/config ./scripts/search/generate-embeddings --refresh"
   },
