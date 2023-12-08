@@ -63,6 +63,7 @@ jobs:
     env:
       NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
       AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
+      AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
