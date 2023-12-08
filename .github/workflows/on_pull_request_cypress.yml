@@ -19,7 +19,7 @@ jobs:
         run: echo "result=${{ github.run_id }}-$(date +%s)" >> $GITHUB_OUTPUT
 
   cypress:
-    name: Website tests
+    name: Website vrt
     runs-on: ubuntu-latest
     needs: percy-batch-id
     if: ${{ contains(github.event.pull_request.labels.*.name, '🕵🏻‍♀️ Run website visual regression') }}
