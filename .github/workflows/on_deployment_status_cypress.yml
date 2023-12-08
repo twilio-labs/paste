@@ -47,18 +47,10 @@ jobs:
           GITHUB_CONTEXT: ${{ toJson(github) }}
         run: echo "$GITHUB_CONTEXT"
 
-      - name: Show default environment variables
-        run: |
-          echo "The job_id is: $GITHUB_JOB"   # reference the default environment variables
-          echo "The id of this action is: $GITHUB_ACTION"   # reference the default environment variables
-          echo "The run id is: $GITHUB_RUN_ID"
-          echo "The GitHub Actor's username is: $GITHUB_ACTOR"
-          echo "GitHub SHA: $GITHUB_SHA"
-
       # Run cypress on preview deployments as integration tests, but without VRT
       - name: Cypress run website preview
         uses: cypress-io/github-action@v4
-        if: github.event.production_environment == 'false'
+        if: github.event.production_environment == false
         with:
           record: true
           parallel: true
@@ -73,13 +65,10 @@ jobs:
           # this config excludes the VRT tests. Those are run on the pull_request event if requested
           config-file: cypress.config.e2e.ts
 
-      - name: Print ref
-        run: echo "${{ github.ref }}"
-
-      # Run cypress on merge to main aong with VRT to create our new baelines
+      # Run cypress on merge to main aong with VRT to create our new baselines
       - name: Cypress run with site VRT on main
         uses: cypress-io/github-action@v4
-        if: github.event.production_environment == 'true'
+        if: github.event.production_environment
         with:
           record: true
           parallel: true
