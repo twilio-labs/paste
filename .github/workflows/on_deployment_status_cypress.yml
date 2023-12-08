@@ -61,10 +61,10 @@ jobs:
           config: baseUrl=${{ github.event.deployment_status.environment_url }}
           # enabled percy to run cypress for VRT
           command-prefix: "percy exec --parallel -- npx"
-        env:
-          CYPRESS_BASE_URL: ${{ github.event.deployment_status.environment_url }}
           # this config excludes the VRT tests. Those are run on the pull_request event if requested
           config-file: cypress.config.e2e.ts
+        env:
+          CYPRESS_BASE_URL: ${{ github.event.deployment_status.environment_url }}
 
       # Run cypress on merge to main aong with VRT to create our new baselines
       - name: Cypress run with site VRT on main
