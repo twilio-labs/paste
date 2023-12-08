@@ -55,6 +55,9 @@ jobs:
         run: yarn prerelease
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+          # needed to generate website data files for the website linting
+          AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
+          AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
 
       - name: Setup CI Git User
         run: |
@@ -138,3 +141,16 @@ jobs:
           STORYBOOK_GITHUB_SHA: ${{ github.sha }}
           # https://github.com/storybookjs/builder-vite/issues/409#issuecomment-1199236279
           NODE_OPTIONS: --max-old-space-size=6144
+
+  # run this job first to create a single timestamped id for all percy batches on parallel machines
+  percy-batch-id:
+    runs-on: ubuntu-latest
+    # persist job results to other jobs in the workflow
+    outputs:
+      result: ${{ steps.percy-batch-id.outputs.result }}
+    steps:
+      # persist step results to other steps in the job
+      - name: Create Percy Batch ID
+        id: percy-batch-id
+        # adding a timestamp makes the batch id more unique for re-runs
+        run: echo "result=${{ github.run_id }}-$(date +%s)" >> $GITHUB_OUTPUT

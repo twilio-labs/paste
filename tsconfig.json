@@ -36,6 +36,8 @@
     "./.jest/@types/index.d.ts",
     "tools/**/*",
     "cypress.config.ts",
+    "cypress.config.vrt.ts",
+    "cypress.config.e2e.ts",
     "vite.config.ts"
   ],
   "exclude": [
