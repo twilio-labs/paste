@@ -48,6 +48,9 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
 
       # Run cypress on preview deployments as integration tests, but without VRT
+      # We only want to run VRT on demand, not on every preview deployment
+      # The deployment_status event though, has no PR related context, so we can't conditionally run VRT
+      # So we run VRT on every merge to main, and on every PR (on_pull_request_cypress) if requested via a label
       - name: Cypress run website preview
         uses: cypress-io/github-action@v4
         if: github.event.production_environment == false
