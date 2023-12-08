@@ -54,7 +54,7 @@ jobs:
         with:
           record: true
           parallel: true
-          group: "Paste Actions with VRT Parallel"
+          group: "Paste Docsite integration tests"
           config: baseUrl=${{ github.event.deployment_status.environment_url }}
           # enabled percy to run cypress for VRT
           command-prefix: "percy exec --parallel -- npx"
@@ -72,7 +72,7 @@ jobs:
         with:
           record: true
           parallel: true
-          group: "Paste Actions with VRT Parallel"
+          group: "Paste Docsite VRT Baseline Creation"
           config: baseUrl=${{ github.event.deployment_status.environment_url }}
           # enabled percy to run cypress for VRT
           command-prefix: "percy exec --parallel -- npx"

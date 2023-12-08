@@ -93,7 +93,7 @@ jobs:
           parallel: true
           start: yarn start:website
           wait-on: "http://localhost:3000"
-          group: "Paste Actions with VRT Parallel"
+          group: "Paste Docsite VRT"
           config: baseUrl=http://localhost:3000
           # enabled percy to run cypress for VRT
           command-prefix: "percy exec --parallel -- npx"
