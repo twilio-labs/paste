@@ -53,14 +53,12 @@ jobs:
       # So we run VRT on every merge to main, and on every PR (on_pull_request_cypress) if requested via a label
       - name: Cypress run website preview
         uses: cypress-io/github-action@v4
-        if: github.event.production_environment == false
+        if: github.event.deployment.environment == 'Preview – paste-docs'
         with:
           record: true
           parallel: true
           group: "Paste Docsite integration tests"
           config: baseUrl=${{ github.event.deployment_status.environment_url }}
-          # enabled percy to run cypress for VRT
-          command-prefix: "percy exec --parallel -- npx"
           # this config excludes the VRT tests. Those are run on the pull_request event if requested
           config-file: cypress.config.e2e.ts
         env:
@@ -69,7 +67,7 @@ jobs:
       # Run cypress on merge to main aong with VRT to create our new baselines
       - name: Cypress run with site VRT on main
         uses: cypress-io/github-action@v4
-        if: github.event.production_environment
+        if: github.event.deployment.environment == 'Production – paste-docs'
         with:
           record: true
           parallel: true
