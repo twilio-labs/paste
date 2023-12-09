@@ -53,7 +53,7 @@ jobs:
       # So we run VRT on every merge to main, and on every PR (on_pull_request_cypress) if requested via a label
       - name: Cypress run website preview
         uses: cypress-io/github-action@v4
-        if: github.event.environment == 'Preview – paste-docs'
+        if: github.event.deployment.environment == 'Preview – paste-docs'
         with:
           record: true
           parallel: true
@@ -67,7 +67,7 @@ jobs:
       # Run cypress on merge to main aong with VRT to create our new baselines
       - name: Cypress run with site VRT on main
         uses: cypress-io/github-action@v4
-        if: github.event.environment == 'Production – paste-docs'
+        if: github.event.deployment.environment == 'Production – paste-docs'
         with:
           record: true
           parallel: true
