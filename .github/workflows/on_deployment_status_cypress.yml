@@ -31,6 +31,7 @@ jobs:
       CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      OPENAI_API_SECRET: ${{ secrets.OPENAI_API_SECRET }}
       USE_CYPRESS_VRT: false
 
     steps:
@@ -42,17 +43,36 @@ jobs:
         with:
           node-version: 20.5.x
 
-      - name: Percy Batch ID
-        run: echo "${{ needs.percy-batch-id.outputs.result }}"
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
 
-      # Run cypress on merge to main aong with VRT to create our new baelines
-      - name: Cypress run with site VRT on main
+      # Run cypress on preview deployments as integration tests, but without VRT
+      # We only want to run VRT on demand, not on every preview deployment
+      # The deployment_status event though, has no PR related context, so we can't conditionally run VRT
+      # So we run VRT on every merge to main, and on every PR (on_pull_request_cypress) if requested via a label
+      - name: Cypress run website preview
         uses: cypress-io/github-action@v4
-        if: github.ref == 'refs/heads/main'
+        if: github.event.deployment.environment == 'Preview – paste-docs'
         with:
           record: true
           parallel: true
-          group: "Paste Actions with VRT Parallel"
+          group: "Paste Docsite integration tests"
+          config: baseUrl=${{ github.event.deployment_status.environment_url }}
+          # this config excludes the VRT tests. Those are run on the pull_request event if requested
+          config-file: cypress.config.e2e.ts
+        env:
+          CYPRESS_BASE_URL: ${{ github.event.deployment_status.environment_url }}
+
+      # Run cypress on merge to main aong with VRT to create our new baselines
+      - name: Cypress run with site VRT on main
+        uses: cypress-io/github-action@v4
+        if: github.event.deployment.environment == 'Production – paste-docs'
+        with:
+          record: true
+          parallel: true
+          group: "Paste Docsite VRT Baseline Creation"
           config: baseUrl=${{ github.event.deployment_status.environment_url }}
           # enabled percy to run cypress for VRT
           command-prefix: "percy exec --parallel -- npx"
