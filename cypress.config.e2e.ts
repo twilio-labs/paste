@@ -8,6 +8,7 @@ export default defineConfig({
     env: {
       USE_CYPRESS_VRT: process.env.USE_CYPRESS_VRT,
       CYPRESS_BASE_URL: process.env.CYPRESS_BASE_URL,
+      OPENAI_API_SECRET: process.env.OPENAI_API_SECRET,
     },
     viewportWidth: 1440,
     viewportHeight: 1440,

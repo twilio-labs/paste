@@ -35,6 +35,7 @@ jobs:
       AIRTABLE_APIKEY: ${{ secrets.AIRTABLE_APIKEY }}
       AIRTABLE_BASEID: ${{ secrets.AIRTABLE_BASEID }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      OPENAI_API_SECRET: ${{ secrets.OPENAI_API_SECRET }}
       CYPRESS_BASE_URL: http://localhost:3000
       SUPABASE_KEY: ${{ secrets.SUPABASE_STAGING_KEY }}
       SUPABASE_URL: ${{ secrets.SUPABASE_STAGING_URL }}
