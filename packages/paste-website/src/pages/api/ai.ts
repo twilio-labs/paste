@@ -178,17 +178,17 @@ export default async function handler(req: NextRequest): Promise<void | Response
         "Sorry, I don't know how to help with that."
       `}
 
+      Include as many related code snippets inside your answer as needed if available, and links to the documentation using
+      the full https://paste.twilio.design domain.
+
+      Do not wrap your answer in any markdown or code blocks, just return the answer as plain text.
+
       Context sections:
       ${contextText}
 
       Question: """
       ${sanitizedQuery}
       """
-
-      Include as many related code snippets inside your answer as needed if available, and links to the documentation using
-      the full https://paste.twilio.design domain.
-
-      Do not wrap your answer in any markdown or code blocks, just return the answer as plain text.
     `;
 
     const chatMessage: OpenAI.Chat.ChatCompletionMessageParam = {
