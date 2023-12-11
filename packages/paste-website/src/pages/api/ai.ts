@@ -18,13 +18,7 @@ import { OpenAIStream, StreamingTextResponse } from "ai";
 import { codeBlock, oneLine } from "common-tags";
 import GPT3Tokenizer from "gpt3-tokenizer";
 import type { NextRequest } from "next/server";
-import {
-  type ChatCompletionRequestMessage,
-  Configuration,
-  type CreateEmbeddingResponse,
-  type CreateModerationResponse,
-  OpenAIApi,
-} from "openai-edge";
+import OpenAI from "openai";
 
 class ApplicationError extends Error {
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
@@ -39,10 +33,9 @@ const openAiSecret = process.env.OPENAI_API_SECRET;
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_KEY;
 
-const config = new Configuration({
+const openai = new OpenAI({
   apiKey: openAiKey,
 });
-const openai = new OpenAIApi(config);
 
 /**
  * Because we're using an edge function for streaming we can't use winston for logging
@@ -102,9 +95,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
     console.log(`${LOG_PREFIX} Moderate user prompt`);
 
     // Moderate the content to comply with OpenAI T&C
-    const moderationResponse: CreateModerationResponse = await openai
-      .createModeration({ input: sanitizedQuery })
-      .then((res: any) => res.json());
+    const moderationResponse: OpenAI.ModerationCreateResponse = await openai.moderations.create({
+      input: sanitizedQuery,
+    });
 
     // @ts-expect-error this is a bug in the types
     if (moderationResponse.error) {
@@ -126,18 +119,16 @@ export default async function handler(req: NextRequest): Promise<void | Response
     console.log(`${LOG_PREFIX} Reqesting openai embedding`);
 
     // Create embedding from query
-    const embeddingResponse = await openai.createEmbedding({
+    const embeddingResponse = await openai.embeddings.create({
       model: "text-embedding-ada-002",
       input: sanitizedQuery.replaceAll("\n", " "),
     });
 
-    if (embeddingResponse.status !== 200) {
+    if (embeddingResponse.data.length === 0) {
       throw new ApplicationError("Failed to create embedding for question", embeddingResponse);
     }
 
-    const {
-      data: [{ embedding }],
-    }: CreateEmbeddingResponse = await embeddingResponse.json();
+    const { embedding } = embeddingResponse.data[0];
 
     // eslint-disable-next-line no-console
     console.log(`${LOG_PREFIX} Request Page sections based on embeddings`);
@@ -187,36 +178,34 @@ export default async function handler(req: NextRequest): Promise<void | Response
         "Sorry, I don't know how to help with that."
       `}
 
+      Include as many related code snippets inside your answer as needed if available, and links to the documentation using
+      the full https://paste.twilio.design domain.
+
+      Do not wrap your answer in any markdown or code blocks, just return the answer as plain text.
+
       Context sections:
       ${contextText}
 
       Question: """
       ${sanitizedQuery}
       """
-
-      Answer as markdown (including related code snippets if available):
     `;
 
-    const chatMessage: ChatCompletionRequestMessage = {
+    const chatMessage: OpenAI.Chat.ChatCompletionMessageParam = {
       role: "user",
       content: prompt,
     };
     // eslint-disable-next-line no-console
     console.log(`${LOG_PREFIX} Request chat completion`);
 
-    const response = await openai.createChatCompletion({
-      model: "gpt-4",
+    const response = await openai.chat.completions.create({
+      model: "gpt-4-1106-preview",
       messages: [chatMessage],
       // eslint-disable-next-line camelcase
-      max_tokens: 512,
+      max_tokens: 2000,
       temperature: 0,
       stream: true,
     });
-
-    if (!response.ok) {
-      const error = await response.json();
-      throw new ApplicationError("Failed to generate completion", error);
-    }
 
     // eslint-disable-next-line no-console
     console.log(`${LOG_PREFIX} Open ai Returned response`);
