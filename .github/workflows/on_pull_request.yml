@@ -362,7 +362,7 @@ jobs:
 
       - name: Run Chromatic
         id: chromaticaction
-        uses: chromaui/action@v1
+        uses: chromaui/action@v10
         with:
           zip: true
           projectToken: ${{ secrets.CHROMA_APP_CODE }}
