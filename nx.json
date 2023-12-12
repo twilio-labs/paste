@@ -1,30 +1,10 @@
 {
-  "npmScope": "@twilio-paste",
   "affected": {
     "defaultBase": "main"
   },
   "workspaceLayout": {
     "appsDir": "apps",
     "libsDir": "packages"
-  },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "nx-cloud",
-      "options": {
-        "cacheableOperations": [
-          "build",
-          "build:js",
-          "build:typedocs",
-          "tsc",
-          "build:types",
-          "build:codemods",
-          "build:icons",
-          "build:tokens"
-        ],
-        "parallel": 10,
-        "accessToken": "MjY0NzIzMDYtMjFkNi00NDVkLWI2NWQtMjZhMzY2MmY1MjY2fHJlYWQ="
-      }
-    }
   },
   "targetDefaults": {
     "build": {
@@ -36,7 +16,8 @@
         "{projectRoot}/json",
         "{projectRoot}/types",
         "{projectRoot}/.next"
-      ]
+      ],
+      "cache": true
     },
     "build:js": {
       "dependsOn": ["^build:js"],
@@ -46,15 +27,18 @@
         "{projectRoot}/esm",
         "{projectRoot}/json",
         "{projectRoot}/types"
-      ]
+      ],
+      "cache": true
     },
     "build:typedocs": {
       "dependsOn": ["^build:typedocs"],
-      "outputs": ["{projectRoot}/type-docs.json"]
+      "outputs": ["{projectRoot}/type-docs.json"],
+      "cache": true
     },
     "tsc": {
       "dependsOn": ["^tsc"],
-      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"],
+      "cache": true
     },
     "build:dev": {
       "dependsOn": ["^build:dev"],
@@ -62,7 +46,8 @@
     },
     "build:types": {
       "dependsOn": ["^build:types"],
-      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"],
+      "cache": true
     },
     "tokens": {
       "outputs": ["{projectRoot}/dist"]
@@ -72,6 +57,15 @@
     },
     "compile:dev": {
       "outputs": ["{projectRoot}/dist"]
+    },
+    "build:codemods": {
+      "cache": true
+    },
+    "build:icons": {
+      "cache": true
+    },
+    "build:tokens": {
+      "cache": true
     }
   },
   "defaultBase": "main",
@@ -80,5 +74,7 @@
     "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "sharedGlobals": [],
     "production": ["default"]
-  }
+  },
+  "nxCloudAccessToken": "MjY0NzIzMDYtMjFkNi00NDVkLWI2NWQtMjZhMzY2MmY1MjY2fHJlYWQ=",
+  "parallel": 10
 }

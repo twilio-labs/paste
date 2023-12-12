@@ -101,3 +101,5 @@ cypress/downloads
 # vs-code-intellisense
 out
 .vscode-test
+
+.nx/cache
