@@ -8,9 +8,7 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
+      "dependsOn": ["^build"],
       "outputs": [
         "{projectRoot}/dist",
         "{projectRoot}/cjs",
@@ -22,9 +20,7 @@
       "cache": true
     },
     "build:js": {
-      "dependsOn": [
-        "^build:js"
-      ],
+      "dependsOn": ["^build:js"],
       "outputs": [
         "{projectRoot}/dist",
         "{projectRoot}/cjs",
@@ -35,58 +31,32 @@
       "cache": true
     },
     "build:typedocs": {
-      "dependsOn": [
-        "^build:typedocs"
-      ],
-      "outputs": [
-        "{projectRoot}/type-docs.json"
-      ],
+      "dependsOn": ["^build:typedocs"],
+      "outputs": ["{projectRoot}/type-docs.json"],
       "cache": true
     },
     "tsc": {
-      "dependsOn": [
-        "^tsc"
-      ],
-      "outputs": [
-        "{projectRoot}/dist",
-        "{projectRoot}/types"
-      ],
+      "dependsOn": ["^tsc"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"],
       "cache": true
     },
     "build:dev": {
-      "dependsOn": [
-        "^build:dev"
-      ],
-      "outputs": [
-        "{projectRoot}/dist",
-        "{projectRoot}/types"
-      ]
+      "dependsOn": ["^build:dev"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"]
     },
     "build:types": {
-      "dependsOn": [
-        "^build:types"
-      ],
-      "outputs": [
-        "{projectRoot}/dist",
-        "{projectRoot}/types"
-      ],
+      "dependsOn": ["^build:types"],
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/types"],
       "cache": true
     },
     "tokens": {
-      "outputs": [
-        "{projectRoot}/dist"
-      ]
+      "outputs": ["{projectRoot}/dist"]
     },
     "list-icons": {
-      "outputs": [
-        "{projectRoot}/dist",
-        "{projectRoot}/json"
-      ]
+      "outputs": ["{projectRoot}/dist", "{projectRoot}/json"]
     },
     "compile:dev": {
-      "outputs": [
-        "{projectRoot}/dist"
-      ]
+      "outputs": ["{projectRoot}/dist"]
     },
     "build:codemods": {
       "cache": true
@@ -101,14 +71,9 @@
   "defaultBase": "main",
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "namedInputs": {
-    "default": [
-      "{projectRoot}/**/*",
-      "sharedGlobals"
-    ],
+    "default": ["{projectRoot}/**/*", "sharedGlobals"],
     "sharedGlobals": [],
-    "production": [
-      "default"
-    ]
+    "production": ["default"]
   },
   "nxCloudAccessToken": "MjY0NzIzMDYtMjFkNi00NDVkLWI2NWQtMjZhMzY2MmY1MjY2fHJlYWQ=",
   "parallel": 10
