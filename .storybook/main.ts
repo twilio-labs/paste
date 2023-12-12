@@ -13,7 +13,6 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
     "@storybook/addon-interactions",
     "./addons/google-analytics/register",
-    "@storybook/addon-mdx-gfm",
   ],
   framework: "@storybook/react-vite",
   features: {

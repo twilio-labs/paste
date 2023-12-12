@@ -30,3 +30,5 @@ build.icon-list.js
 
 **/*.hbs
 apps/backend/supabase/schema.gen.ts
+
+/.nx/cache
