@@ -15757,6 +15757,7 @@ __metadata:
     use-resize-observer: ^9.1.0
     uuid: ^9.0.1
     winston: ^3.11.0
+    zod: ^3.22.4
   languageName: unknown
   linkType: soft
 
@@ -46082,6 +46083,13 @@ resolve@^2.0.0-next.3:
   version: 0.3.3
   resolution: "yoga-wasm-web@npm:0.3.3"
   checksum: ff65192a832975ff531a1b6eae160c2da859c250feaa58b6389b684f9b48f53fda849a7ea49d12d241198309e671e6bd230a44e7155af9573d7843ac48831c98
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.22.4":
+  version: 3.22.4
+  resolution: "zod@npm:3.22.4"
+  checksum: 80bfd7f8039b24fddeb0718a2ec7c02aa9856e4838d6aa4864335a047b6b37a3273b191ef335bf0b2002e5c514ef261ffcda5a589fb084a48c336ffc4cdbab7f
   languageName: node
   linkType: hard
 
