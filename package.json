@@ -197,7 +197,7 @@
     "lorem-ipsum": "^2.0.3",
     "monopeers": "^1.0.2",
     "msw": "^2.0.1",
-    "nx": "17.2.2",
+    "nx": "999.9.9",
     "playwright": "^1.28.1",
     "plop": "^3.0.0",
     "precise-commits": "^1.0.2",
