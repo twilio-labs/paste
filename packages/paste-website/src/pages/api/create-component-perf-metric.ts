@@ -85,7 +85,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  const requestBody = JSON.parse(req.body);
+  const requestBody = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
 
   if (!requestBody) {
     logger.error(`${LOG_PREFIX} Missing request body`);
