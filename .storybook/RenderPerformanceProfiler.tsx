@@ -6,7 +6,7 @@ import { version } from "../packages/paste-core/core-bundle/package.json";
 const trackRenderPerformance = (data) => {
   const commitSha = import.meta.env.STORYBOOK_GITHUB_SHA ? import.meta.env.STORYBOOK_GITHUB_SHA : "localdev";
 
-  fetch("https://paste-data.netlify.app/.netlify/functions/create-component-perf-metric", {
+  fetch("https://paste.twilio.design/api/create-component-perf-metric", {
     method: "POST",
     keepalive: true,
     mode: "cors",

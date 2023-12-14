@@ -135,6 +135,67 @@ export interface Database {
         }
         Relationships: []
       }
+      story: {
+        Row: {
+          created_at: string
+          id: number
+          name: string | null
+          storybook_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          name?: string | null
+          storybook_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          name?: string | null
+          storybook_id?: string | null
+        }
+        Relationships: []
+      }
+      story_render: {
+        Row: {
+          actual_duration: number | null
+          base_duration: number | null
+          commit_sha: string | null
+          core_version_number: string | null
+          id: number
+          phase: string | null
+          run_at: string
+          story_id: number | null
+        }
+        Insert: {
+          actual_duration?: number | null
+          base_duration?: number | null
+          commit_sha?: string | null
+          core_version_number?: string | null
+          id?: number
+          phase?: string | null
+          run_at?: string
+          story_id?: number | null
+        }
+        Update: {
+          actual_duration?: number | null
+          base_duration?: number | null
+          commit_sha?: string | null
+          core_version_number?: string | null
+          id?: number
+          phase?: string | null
+          run_at?: string
+          story_id?: number | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "story_render_story_id_fkey"
+            columns: ["story_id"]
+            referencedRelation: "story"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never
@@ -227,6 +288,18 @@ export interface Database {
           heading: string
           slug: string
         }[]
+      }
+      upsert_story_and_create_story_render: {
+        Args: {
+          _storybook_id: string
+          _story_name: string
+          _actual_duration: number
+          _base_duration: number
+          _commit_sha: string
+          _core_version: string
+          _phase: string
+        }
+        Returns: undefined
       }
       vector_avg: {
         Args: {

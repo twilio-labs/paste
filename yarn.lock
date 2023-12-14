@@ -15708,6 +15708,7 @@ __metadata:
     "@twilio-paste/utils": ^5.0.0
     "@twilio-paste/visual-picker": ^2.0.2
     "@types/airtable": ^0.10.1
+    "@types/dogapi": ^2.8.10
     "@types/gtag.js": ^0.0.12
     "@types/lodash": ^4.14.182
     "@types/mdx-js__react": ^1.5.5
@@ -15718,6 +15719,7 @@ __metadata:
     common-tags: ^1.8.2
     date-fns: 2.21.3
     deepmerge: 4.2.2
+    dogapi: ^2.8.4
     dotenv: ^16.0.0
     github-slugger: ^2.0.0
     globby-esm: "npm:globby@^13.1.3"
@@ -15757,6 +15759,7 @@ __metadata:
     use-resize-observer: ^9.1.0
     uuid: ^9.0.1
     winston: ^3.11.0
+    zod: ^3.22.4
   languageName: unknown
   linkType: soft
 
@@ -16008,6 +16011,13 @@ __metadata:
   version: 0.0.9
   resolution: "@types/doctrine@npm:0.0.9"
   checksum: 3909eaca42e7386b2ab866f082b78da3e00718d2fa323597e254feb0556c678b41f2c490729067433630083ac9c806ec6ae1e146754f7f8ba7d3e43ed68d6500
+  languageName: node
+  linkType: hard
+
+"@types/dogapi@npm:^2.8.10":
+  version: 2.8.10
+  resolution: "@types/dogapi@npm:2.8.10"
+  checksum: bd94a0610386ecdb95339c0d47c8ffd1f544fc330ec59050c992c867603ab9f34eb6eacebed8655e5fb92c41f78ea966c5f2b454152d160c085443a561b51b4f
   languageName: node
   linkType: hard
 
@@ -19645,6 +19655,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"bignumber.js@npm:^9.0.0":
+  version: 9.1.2
+  resolution: "bignumber.js@npm:9.1.2"
+  checksum: 582c03af77ec9cb0ebd682a373ee6c66475db94a4325f92299621d544aa4bd45cb45fd60001610e94aef8ae98a0905fa538241d9638d4422d57abbeeac6fadaf
+  languageName: node
+  linkType: hard
+
 "bin-links@npm:^4.0.1":
   version: 4.0.2
   resolution: "bin-links@npm:4.0.2"
@@ -23260,6 +23277,21 @@ __metadata:
   dependencies:
     esutils: ^2.0.2
   checksum: fd7673ca77fe26cd5cba38d816bc72d641f500f1f9b25b83e8ce28827fe2da7ad583a8da26ab6af85f834138cf8dae9f69b0cd6ab925f52ddab1754db44d99ce
+  languageName: node
+  linkType: hard
+
+"dogapi@npm:^2.8.4":
+  version: 2.8.4
+  resolution: "dogapi@npm:2.8.4"
+  dependencies:
+    extend: ^3.0.2
+    json-bigint: ^1.0.0
+    lodash: ^4.17.21
+    minimist: ^1.2.5
+    rc: ^1.2.8
+  bin:
+    dogapi: bin/dogapi
+  checksum: 153da30207eb124c6e1d742ef10bc04bb4d671022a04e7a7b0122c236deaebe3cd1086e47fde7c61242f9e6bbee3271025abf6db083c008117f662a5ac355c3e
   languageName: node
   linkType: hard
 
@@ -31169,6 +31201,15 @@ fsevents@^1.2.7:
   bin:
     jsesc: bin/jsesc
   checksum: b8b44cbfc92f198ad972fba706ee6a1dfa7485321ee8c0b25f5cedd538dcb20cde3197de16a7265430fce8277a12db066219369e3d51055038946039f6e20e17
+  languageName: node
+  linkType: hard
+
+"json-bigint@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "json-bigint@npm:1.0.0"
+  dependencies:
+    bignumber.js: ^9.0.0
+  checksum: c67bb93ccb3c291e60eb4b62931403e378906aab113ec1c2a8dd0f9a7f065ad6fd9713d627b732abefae2e244ac9ce1721c7a3142b2979532f12b258634ce6f6
   languageName: node
   linkType: hard
 
@@ -46082,6 +46123,13 @@ resolve@^2.0.0-next.3:
   version: 0.3.3
   resolution: "yoga-wasm-web@npm:0.3.3"
   checksum: ff65192a832975ff531a1b6eae160c2da859c250feaa58b6389b684f9b48f53fda849a7ea49d12d241198309e671e6bd230a44e7155af9573d7843ac48831c98
+  languageName: node
+  linkType: hard
+
+"zod@npm:^3.22.4":
+  version: 3.22.4
+  resolution: "zod@npm:3.22.4"
+  checksum: 80bfd7f8039b24fddeb0718a2ec7c02aa9856e4838d6aa4864335a047b6b37a3273b191ef335bf0b2002e5c514ef261ffcda5a589fb084a48c336ffc4cdbab7f
   languageName: node
   linkType: hard
 
