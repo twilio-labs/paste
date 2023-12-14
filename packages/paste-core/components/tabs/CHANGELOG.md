@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.2.1
+
+### Patch Changes
+
+- [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a) [#3634](https://github.com/twilio-labs/paste/pull/3634) Thanks [@nkrantz](https://github.com/nkrantz)! - [Tabs] Minor styling bug fixes on horizontal and vertical tabs.
+
 ## 8.2.0
 
 ### Minor Changes

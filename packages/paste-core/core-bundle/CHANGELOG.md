@@ -1,5 +1,27 @@
 # Change Log
 
+## 20.7.0
+
+### Minor Changes
+
+- [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a) [#3634](https://github.com/twilio-labs/paste/pull/3634) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new box shadow token "shadow-border-right-inverse-strong" for vertical Tabs, update values of "shadow-border-top-primary-strongest" tokens in dark themes.
+
+* [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a) [#3634](https://github.com/twilio-labs/paste/pull/3634) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] Add new pseydo prop style `_disabled_focus_after` for controlling styling of disabled tabs.
+
+### Patch Changes
+
+- [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a) [#3634](https://github.com/twilio-labs/paste/pull/3634) Thanks [@nkrantz](https://github.com/nkrantz)! - [Tabs] Minor styling bug fixes on horizontal and vertical tabs.
+
+* [`4d7e2364d`](https://github.com/twilio-labs/paste/commit/4d7e2364da2ad00acdd1fa4b0eb26366a640063a) [#3649](https://github.com/twilio-labs/paste/pull/3649) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Swap SVGs for ProductDestinationsIcon and ProductSourcesIcon because they were backwards.
+
+- [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a) [#3634](https://github.com/twilio-labs/paste/pull/3634) Thanks [@nkrantz](https://github.com/nkrantz)! - [In Page Navigation] change border bottom color of In Page Nav Items to "colorBorderInverseWeaker" when using inverse variants for improved styling.
+
+- Updated dependencies [[`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a), [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a), [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a), [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a)]:
+  - @twilio-paste/design-tokens@10.4.0
+  - @twilio-paste/tabs@8.2.1
+  - @twilio-paste/in-page-navigation@4.3.1
+  - @twilio-paste/box@10.3.0
+
 ## 20.6.0
 
 ### Minor Changes

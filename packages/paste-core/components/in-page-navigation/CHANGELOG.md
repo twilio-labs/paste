@@ -1,5 +1,11 @@
 # @twilio-paste/in-page-navigation
 
+## 4.3.1
+
+### Patch Changes
+
+- [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a) [#3634](https://github.com/twilio-labs/paste/pull/3634) Thanks [@nkrantz](https://github.com/nkrantz)! - [In Page Navigation] change border bottom color of In Page Nav Items to "colorBorderInverseWeaker" when using inverse variants for improved styling.
+
 ## 4.3.0
 
 ### Minor Changes
