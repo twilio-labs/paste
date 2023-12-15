@@ -2,7 +2,7 @@
 
 Full list of Environment variables and where they are needed.
 
-| Variable                             | Description                                                           | Local | GH Secrets | Netlify paste | Netlify remix |
+| Variable                             | Description                                                           | Local | GH Secrets | Vercel paste | Vercel remix |
 | ------------------------------------ | --------------------------------------------------------------------- | ----- | ---------- | ------------- | ------------- |
 | AIRTABLE_APIKEY                      | Airtable API key for Next                                             | ✅    |            | ✅            |               |
 | AIRTABLE_BASEID                      | Airtable Base to look up data                                         | ✅    |            | ✅            |               |
@@ -13,8 +13,6 @@ Full list of Environment variables and where they are needed.
 | NEXT_PUBLIC_DATADOG_APPLICATION_ID   | Datadog application ID for docsite RUM tracking                       | ✅    |            | ✅            |               |
 | NEXT_PUBLIC_DATADOG_CLIENT_TOKEN     | Datadog client token for docsite RUM tracking                         | ✅    |            | ✅            |               |
 | NEXT_PUBLIC_ENVIRONMENT_CONTEXT      | Informs Next which deployment environment its in                      | ✅    |            | ✅            |               |
-| NETLIFY_SITE_ID                      | Docsite site ID for Netlify deployment wait in GH actions             |       | ✅         |               |               |
-| NETLIFY_TOKEN                        | Docsite token for Netlify deployment wait in GH actions               |       | ✅         |               |               |
 | NPM_TOKEN                            | NPM package publish token                                             |       | ✅         |               |               |
 | SLACK_BOT_USER_OAUTH_ACCESS_TOKEN    | Slack app oath access token for release posting                       |       | ✅         |               |               |
 | SLACK_RELEASE_CHANNEL_ID             | Slack app channel id for release posting in                           |       | ✅         |               |               |

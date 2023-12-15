@@ -24,6 +24,4 @@ Once the website have started running, you can hit the function at `/api/og-imag
 
 The images rendered is 800px x 420px. The information is display for the component being requested comes from Airtable, via the JS client.
 
-[Winston](https://github.com/winstonjs/winston) does our logging, so we can observe the function running in real time in the Netlify UI.
-
-[Rollbar](https://docs.rollbar.com/docs/aws-lambda) wraps our function and helps log errors to the Rollbar service so we are alerted if it starts to break.
+[Winston](https://github.com/winstonjs/winston) does our logging, so we can observe the function running in real time in the Vercel UI.

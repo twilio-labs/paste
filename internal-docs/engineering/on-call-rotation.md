@@ -12,7 +12,7 @@ During your rotation, you will be responsible for responding to an incident with
 
 ### Things that may trigger an incident include:
 
-- Netlify outages:
+- Vercel outages:
   - The docs site may go down
   - Remix might go down
 - Airtable outage (an ongoing outage could prevent site deployments or break an attempted site deployment)

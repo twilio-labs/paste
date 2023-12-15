@@ -20,7 +20,6 @@
       "packages/paste-website/data",
       ".cache/",
       ".next/",
-      ".netlify/",
       ".yarn/",
       "packages/**/dist/*",
       "tsconfig.build.tsbuildinfo",
