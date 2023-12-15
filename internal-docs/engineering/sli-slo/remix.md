@@ -20,7 +20,7 @@ All user sessions are tracked captured in DataDog RUM.
 
 | Type     | Name    | SLA     | Notes                                                               |
 | -------- | ------- | ------- | ------------------------------------------------------------------- |
-| External | Netlify | 99.999% | If Netlify breaches SLA the whole site will go down, with no backup |
+| External | Vercel | 99.999% | If Vercel breaches SLA the whole site will go down, with no backup |
 
 ## SLIs and SLOs
 

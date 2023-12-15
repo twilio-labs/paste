@@ -13,8 +13,6 @@ module.exports = {
     "<rootDir>/apps/",
     "<rootDir>/packages/(?:.+?)/.next/",
     "<rootDir>/templates/(?:.+?)/.next/",
-    "<rootDir>/packages/(?:.+?)/.netlify/",
-    "<rootDir>/.netlify/",
     "<rootDir>/.nx/",
   ],
   cacheDirectory: ".jest-cache",

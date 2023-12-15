@@ -12,10 +12,10 @@
     - [Danger checks](#danger-checks)
     - [Check package sizes](#check-package-sizes)
     - [CodeSandbox](#codesandbox)
-    - [Website test(1/2/3)](#website-test123)
+    - [Cypress Deployment Checks: Website test(1/2/3)](#cypress-deployment-checks-website-test123)
     - [Percy](#percy)
     - [Component Visual regression tests](#component-visual-regression-tests)
-    - [Netlify](#netlify)
+    - [Vercel](#vercel)
     - [Kodiak hq](#kodiak-hq)
     - [remove-test-label](#remove-test-label)
   - [Github Actions (main branch)](#github-actions-main-branch)
@@ -86,9 +86,9 @@ The package size job runs on every pull request and push. It uses a [forked vers
 
 Each pull request gets its own CodeSandbox environment through the CodeSandbox Github integration. On each push the environment is updated with the working versions of Paste packages. This way we can actually test new components or changes to components in a production environment. Each environment gets a unique CodeSandbox URL which is left in a comment in the pull request.
 
-### Website test(1/2/3)
+### Cypress Deployment Checks: Website test(1/2/3)
 
-Website tests is a test runner for Cypress and Percy, using the [Cypress Github Integration](https://docs.cypress.io/guides/dashboard/github-integration.html#Install-the-Cypress-GitHub-app). It will first wait for Netlify to finish deploying the preview of the website, and then run cypress against that url.
+Website tests is a test runner for Cypress, using the [Cypress Github Integration](https://docs.cypress.io/guides/dashboard/github-integration.html#Install-the-Cypress-GitHub-app). It will first wait for Vercel to finish deploying the preview of the website, and then run cypress against that url. This makes sure we are testing deployed functionality, which for API routes can be different than local development.
 
 It will parallelize Cypress test suites across 3 boxes.
 
@@ -110,9 +110,9 @@ Chromatic looks at our Storybook stories and takes a screenshot of each one. It 
 
 We also use Chromatic to review component styles with the design team. Once the stories are built they can access the build in Chromatic and leave comments if there are any changes. All new or changed component styles need to be reviewed and approved by the design team.
 
-### Netlify
+### Vercel
 
-We use Netlify to host and continuously deploy the Paste documentation site as well as the Paste Remix site. Netlify deploys both the production versions of each site, as well as preview versions for each pull request. For pull requests, every push will build a new preview version of each site. The preview URLs are posted in a comment in the pull request. These preview URLs can be shared with the team if content approval is needed.
+We use Vercel to host and continuously deploy the Paste documentation site as well as the Paste Remix site. Vercel deploys both the production versions of each site, as well as preview versions for each pull request. For pull requests, every push will build a new preview version of each site. The preview URLs are posted in a comment in the pull request. These preview URLs can be shared with the team if content approval is needed.
 
 The production versions of each site are only built when a pull request is merged into the main branch.
 
@@ -130,7 +130,7 @@ After any change to the PR, this action will remove the `🕵🏻‍♀️ Run w
 
 ## Github Actions (main branch)
 
-When a pull request is merged to the main branch an additional Github action is run to publish the new package versions to NPM. The Netlify action also runs to deploy the production versions of the Paste documentation site and the Paste Remix site. The Cypress and VRT actions are also run again to verify the production version of the Paste documentation site is working properly.
+When a pull request is merged to the main branch an additional Github action is run to publish the new package versions to NPM. The Vercel action also runs to deploy the production versions of the Paste documentation site and the Paste Remix site. The Cypress and VRT actions are also run again to verify the production version of the Paste documentation site is working properly.
 
 ### Version or Publish
 

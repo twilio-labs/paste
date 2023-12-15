@@ -36,11 +36,7 @@ export const DATADOG_CLIENT_TOKEN = process.env.NEXT_PUBLIC_DATADOG_CLIENT_TOKEN
  */
 export type EnvironmentContext = "production" | "deploy-preview" | "branch-deploy" | "local";
 export const ENVIRONMENT_CONTEXT: EnvironmentContext =
-  // comes from Netlify config
-  (process.env.NEXT_PUBLIC_ENVIRONMENT_CONTEXT as EnvironmentContext) ||
-  // comes from Vercel environment
-  (process.env.NEXT_PUBLIC_VERCEL_ENV as EnvironmentContext) ||
-  "local";
+  (process.env.NEXT_PUBLIC_VERCEL_ENV as EnvironmentContext) || "local";
 
 export const SidebarCategoryRoutes = {
   INTRODUCTION: "/introduction",

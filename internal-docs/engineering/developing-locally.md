@@ -4,9 +4,7 @@
   - [Prerequisites](#prerequisites)
   - [First time working on Paste](#first-time-working-on-paste)
   - [Environment variables](#environment-variables)
-    - [Login](#login)
-    - [Link](#link)
-    - [Environment variables](#environment-variables-1)
+    - [Pull Environment variables](#pull-environment-variables)
       - [Theme designer](#theme-designer)
       - [Website](#website)
   - [Building packages](#building-packages)
@@ -72,39 +70,15 @@ yarn build
 
 ## Environment variables
 
-To run the website locally you will need to have the following environment variable set. These are managed via the [Netlify CLI](https://cli.netlify.com/) which is automatically installed at the root of the repository.
+To run the website locally you will need to have the following environment variable set. These can be managed via the [Vercel CLI](https://vercel.com/docs/cli).
 
-You will need to request a login to Netlify via a Service Now ticket.
+You will need to request a login to Vercel via a Service Now ticket.
 
-### Login
+### Pull Environment variables
 
-[Log into Netlify](https://cli.netlify.com/commands/login) via the CLI. Run:
-
-```bash
-yarn netlify login
-```
-
-### Link
-
-Link the Website and Theme Designer directories to the Netlity projects:
-
-```bash
-yarn workspace @twilio-paste/theme-designer netlify link
-```
-
-```bash
-yarn workspace @twilio-paste/website netlify link
-```
-
-### Environment variables
-
-Use the Netlify CLI to list the environment variables used by each website by running:
+To pull the environment variables from Vercel, follow the documentation on the [Vercel CLI](https://vercel.com/docs/cli/env).
 
 #### Theme designer
-
-```bash
-yarn workspace @twilio-paste/theme-designer netlify env:list
-```
 
 Create a `.env.local` file at the root of packages/paste-theme-designer/
 
@@ -118,7 +92,7 @@ DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
   <tr>
    <td>CONTEXT
    </td>
-   <td>Set to “local”. This replicates <a href="https://docs.netlify.com/configure-builds/environment-variables/#build-metadata">Netlify deployment context</a>
+   <td>Set to “development”. This replicates <a href="https://vercel.com/docs/projects/environment-variables/system-environment-variables">Vercel environment variables</a>
    </td>
   </tr>
   <tr>
@@ -136,10 +110,6 @@ DATADOG_CLIENT_TOKEN=xxxxxxxxxxxxxxxxxxxxxxxxx
 </table>
 
 #### Website
-
-```bash
-yarn workspace @twilio-paste/website netlify env:list
-```
 
 Create a `.env` (specifically different from theme designer) file at the root of packages/paste-website/
 
