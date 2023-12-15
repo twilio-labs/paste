@@ -1,5 +1,16 @@
 # @twilio-paste/website
 
+## 2.23.41
+
+### Patch Changes
+
+- Updated dependencies [[`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a), [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a), [`4d7e2364d`](https://github.com/twilio-labs/paste/commit/4d7e2364da2ad00acdd1fa4b0eb26366a640063a), [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a), [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a)]:
+  - @twilio-paste/design-tokens@10.4.0
+  - @twilio-paste/tabs@8.2.1
+  - @twilio-paste/icons@12.2.2
+  - @twilio-paste/in-page-navigation@4.3.1
+  - @twilio-paste/box@10.3.0
+
 ## 2.23.40
 
 ### Patch Changes

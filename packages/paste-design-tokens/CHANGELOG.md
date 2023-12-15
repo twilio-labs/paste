@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.4.0
+
+### Minor Changes
+
+- [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a) [#3634](https://github.com/twilio-labs/paste/pull/3634) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new box shadow token "shadow-border-right-inverse-strong" for vertical Tabs, update values of "shadow-border-top-primary-strongest" tokens in dark themes.
+
 ## 10.3.0
 
 ### Minor Changes
