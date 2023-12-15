@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.3.0
+
+### Minor Changes
+
+- [`ecbba0427`](https://github.com/twilio-labs/paste/commit/ecbba0427542d91c05b1f17aa64762606984d63a) [#3634](https://github.com/twilio-labs/paste/pull/3634) Thanks [@nkrantz](https://github.com/nkrantz)! - [Box] Add new pseydo prop style `_disabled_focus_after` for controlling styling of disabled tabs.
+
 ## 10.2.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.2.2
+
+### Patch Changes
+
+- [`4d7e2364d`](https://github.com/twilio-labs/paste/commit/4d7e2364da2ad00acdd1fa4b0eb26366a640063a) [#3649](https://github.com/twilio-labs/paste/pull/3649) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Swap SVGs for ProductDestinationsIcon and ProductSourcesIcon because they were backwards.
+
 ## 12.2.1
 
 ### Patch Changes
