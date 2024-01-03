@@ -33,7 +33,7 @@ const PageHeaderDetails = React.forwardRef<HTMLDivElement, PageHeaderDetailsProp
         marginBottom={size === "compact" ? "space50" : "space130"}
         display="grid"
         gridTemplateColumns="min-content auto 1fr"
-        gridTemplateRowsw="auto-fit"
+        gridTemplateRows="auto-fit"
         gridTemplateAreas={size === "compact" ? compactGridTemplateAreas : defaultGridTemplateAreas}
       >
         {children}
