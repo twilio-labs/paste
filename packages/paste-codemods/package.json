@@ -26,6 +26,6 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.20.7",
     "@babel/preset-env": "^7.21.4",
     "@twilio-paste/core": "^20.6.0",
-    "tsx": "^3.12.10"
+    "tsx": "^4.0.0"
   }
 }

@@ -189,7 +189,7 @@
     "@next/eslint-plugin-next": "^14.0.0",
     "@storybook/react": "7.6.4",
     "@testing-library/react": "^13.4.0",
-    "tsx": "^3.12.10"
+    "tsx": "^4.0.0"
   },
   "resolutions": {
     "@types/lodash": "^4.14.182"
