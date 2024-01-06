@@ -51,6 +51,7 @@ export * from "@twilio-paste/minimizable-dialog";
 export * from "@twilio-paste/modal";
 export * from "@twilio-paste/modal-dialog-primitive";
 export * from "@twilio-paste/non-modal-dialog-primitive";
+export * from "@twilio-paste/page-header";
 export * from "@twilio-paste/pagination";
 export * from "@twilio-paste/paragraph";
 export * from "@twilio-paste/popover";
