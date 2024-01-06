@@ -17,7 +17,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v3
+      - uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v4
@@ -70,7 +70,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v3
+      - uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v4
@@ -121,7 +121,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v3
+      - uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v4
@@ -173,7 +173,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v3
+      - uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v4
@@ -224,7 +224,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v3
+      - uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v4
@@ -273,7 +273,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v3
+      - uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v4
@@ -322,7 +322,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: nrwl/nx-set-shas@v3
+      - uses: nrwl/nx-set-shas@v4
 
       - name: Setup Node.js 20.5
         uses: actions/setup-node@v4
