@@ -66,6 +66,7 @@
     "/packages/paste-core/components/modal",
     "/packages/paste-core/primitives/modal-dialog",
     "/packages/paste-core/primitives/non-modal-dialog",
+    "/packages/paste-core/components/page-header",
     "/packages/paste-core/components/pagination",
     "/packages/paste-core/components/paragraph",
     "/packages/paste-core/components/popover",

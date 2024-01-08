@@ -20,7 +20,7 @@ describe("Heading", () => {
       expect(renderedHeading).toHaveStyleRule("margin-bottom", "1.5rem");
       expect(renderedHeading).toHaveStyleRule("font-size", "2rem");
       expect(renderedHeading).toHaveStyleRule("font-weight", "600");
-      expect(renderedHeading).toHaveStyleRule("line-height", "2.75rem");
+      expect(renderedHeading).toHaveStyleRule("line-height", "2.5rem");
     });
 
     it("should render an H2 at fontSize70", (): void => {

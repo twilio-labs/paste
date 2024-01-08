@@ -133,6 +133,7 @@
     "@twilio-paste/modal": "^16.1.1",
     "@twilio-paste/modal-dialog-primitive": "^2.0.1",
     "@twilio-paste/non-modal-dialog-primitive": "^2.0.2",
+    "@twilio-paste/page-header": "^0.0.0",
     "@twilio-paste/pagination": "^7.1.1",
     "@twilio-paste/paragraph": "^10.1.1",
     "@twilio-paste/popover": "^13.2.0",
