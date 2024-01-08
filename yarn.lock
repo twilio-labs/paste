@@ -27039,7 +27039,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"glob@npm:^8.0.1, glob@npm:^8.0.3":
+"glob@npm:^8.0.1":
   version: 8.1.0
   resolution: "glob@npm:8.1.0"
   dependencies:
@@ -44829,7 +44829,7 @@ resolve@^2.0.0-next.3:
     base-64: 1.0.0
     esbuild: ^0.15.18
     eslint: ^8.29.0
-    glob: ^8.0.3
+    glob: ^10.0.0
     lodash.camelcase: 4.3.0
     lodash.kebabcase: 4.1.1
     mocha: ^10.0.0
