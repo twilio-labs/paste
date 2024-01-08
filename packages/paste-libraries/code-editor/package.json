@@ -24,8 +24,8 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@monaco-editor/react": "4.5.1",
-    "monaco-editor": "0.39.0"
+    "@monaco-editor/react": "4.6.0",
+    "monaco-editor": "0.45.0"
   },
   "peerDependencies": {
     "react": "^16.8.6 || ^17.0.2 || ^18.0.0",

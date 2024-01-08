@@ -14,12 +14,12 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
-    "execa": "3.2.0",
-    "globby": "npm:globby@10.0.1",
-    "inquirer": "7.0.0",
+    "execa": "3.4.0",
+    "globby": "npm:globby@10.0.2",
+    "inquirer": "7.3.3",
     "is-git-clean": "1.1.0",
-    "jscodeshift": "0.11.0",
-    "meow": "8.0.0"
+    "jscodeshift": "0.15.1",
+    "meow": "8.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",
