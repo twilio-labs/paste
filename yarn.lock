@@ -12467,7 +12467,7 @@ __metadata:
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
   dependencies:
     "@types/gulp": ^4.0.6
-    "@types/gulp-if": ^0.0.33
+    "@types/gulp-if": ^3.0.0
     "@types/gulp-terser": ^1.2.1
     gulp: ^4.0.2
     gulp-cli: ^2.2.0
@@ -16205,13 +16205,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/gulp-if@npm:^0.0.33":
-  version: 0.0.33
-  resolution: "@types/gulp-if@npm:0.0.33"
+"@types/gulp-if@npm:^3.0.0":
+  version: 3.0.4
+  resolution: "@types/gulp-if@npm:3.0.4"
   dependencies:
+    "@types/gulp-match": "*"
+    "@types/minimatch": "*"
     "@types/node": "*"
+  checksum: b00b971ee927df328fb0fb505ac5214c595e8975ba198a0c6dc713ad086879c6e51157ce50dc665cfafe6ad4199f8a7dc7ee78c14040eb7647fc801a85c0152f
+  languageName: node
+  linkType: hard
+
+"@types/gulp-match@npm:*":
+  version: 1.1.5
+  resolution: "@types/gulp-match@npm:1.1.5"
+  dependencies:
+    "@types/minimatch": "*"
     "@types/vinyl": "*"
-  checksum: 987f187d640b881b26372905415dc10ac9c00c197f3385cce2dcd590474ecbaf2653383fb1740e4a055c40771d9c117183a4179ef227b9b7ddbacbfc08c89637
+  checksum: 3668c4063d25dac269f785ff5de934c67fdffeb03728ddcc1036a593ecd579f67c983c761fb2c2dedbced9d1a29c14c2714e4fa776beab38de282e706059149f
   languageName: node
   linkType: hard
 

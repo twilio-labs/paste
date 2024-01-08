@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@types/gulp": "^4.0.6",
-    "@types/gulp-if": "^0.0.33",
+    "@types/gulp-if": "^3.0.0",
     "@types/gulp-terser": "^1.2.1",
     "gulp": "^4.0.2",
     "gulp-cli": "^2.2.0",
