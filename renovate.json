@@ -7,7 +7,29 @@
       "rangeStrategy": "update-lockfile"
     },
     {
-      "matchPackageNames": ["@mdx-js/mdx", "@mdx-js/react", "@types/webpack", "webpack"],
+      "matchPackageNames": [
+        "@typescript-eslint/eslint-plugin",
+        "@typescript-eslint/parser",
+        "eslint",
+        "eslint-config-prettier",
+        "eslint-config-twilio-react",
+        "eslint-config-twilio-ts",
+        "eslint-plugin-cypress",
+        "eslint-plugin-eslint-comments",
+        "eslint-plugin-import",
+        "eslint-plugin-jest",
+        "eslint-plugin-jsx-a11y",
+        "eslint-plugin-prettier",
+        "eslint-plugin-promise",
+        "eslint-plugin-react",
+        "eslint-plugin-react-hooks",
+        "eslint-plugin-storybook",
+        "eslint-plugin-unicorn",
+        "@mdx-js/mdx",
+        "@mdx-js/react",
+        "@types/webpack",
+        "webpack"
+      ],
       "enabled": false
     }
   ]
