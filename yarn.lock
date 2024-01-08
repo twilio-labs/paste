@@ -13749,7 +13749,7 @@ __metadata:
   dependencies:
     "@twilio-paste/core": ^20.4.0
     "@twilio-paste/icons": ^12.2.0
-    "@types/node": ^18.11.13
+    "@types/node": ^20.0.0
     eslint: ^8.29.0
     next: ^14.0.0
     react: ^18.0.0
@@ -16559,10 +16559,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^18.11.13, @types/node@npm:^18.11.18":
+"@types/node@npm:^18.11.18":
   version: 18.17.17
   resolution: "@types/node@npm:18.17.17"
   checksum: ff28f347c77723780836f9bb2ffa6db0cd72490bfd7604397c03db31db34f1f2899e82f0aaf3e825efeb09c15bd94d076ea9aca19a1407e1b56cb4603318936c
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^20.0.0":
+  version: 20.10.7
+  resolution: "@types/node@npm:20.10.7"
+  dependencies:
+    undici-types: ~5.26.4
+  checksum: 86f4f96f5169538f47bbd652ab8e3712cd307701481ff3e9ce0c1ea7d8424a38b5ac4a1d33088cdd9ea1bfe68fd27bbae005a21969aa6d9a36295904da6f09f2
   languageName: node
   linkType: hard
 
@@ -36610,7 +36619,7 @@ fsevents@^1.2.7:
     "@types/browser-sync": ^2.26.3
     "@types/color": ^3.0.0
     "@types/jest": ^24.0.18
-    "@types/node": ^18.11.13
+    "@types/node": ^20.0.0
     "@types/react": ^18.0.27
     "@types/react-color": ^3.0.6
     "@types/react-github-button": ^0.1.1
@@ -44820,7 +44829,7 @@ resolve@^2.0.0-next.3:
     "@types/lodash.camelcase": ^4.3.7
     "@types/lodash.kebabcase": ^4.1.7
     "@types/mocha": ^10.0.1
-    "@types/node": ^18.11.13
+    "@types/node": ^20.0.0
     "@types/utf8": ^3.0.1
     "@types/vscode": ^1.68.0
     "@typescript-eslint/eslint-plugin": ^5.46.0
