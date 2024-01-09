@@ -1,5 +1,5 @@
 {
-  "extends": ["config:base", "group:allNonMajor", "schedule:earlyMondays"],
+  "extends": ["config:base", "group:allNonMajor", "schedule:monthly"],
   "draftPR": true,
   "packageRules": [
     {
@@ -8,8 +8,10 @@
     },
     {
       "matchPackageNames": [
+        "@biomejs/biome",
         "@typescript-eslint/eslint-plugin",
         "@typescript-eslint/parser",
+        "csstype",
         "eslint",
         "eslint-config-prettier",
         "eslint-config-twilio-react",
@@ -25,6 +27,8 @@
         "eslint-plugin-react-hooks",
         "eslint-plugin-storybook",
         "eslint-plugin-unicorn",
+        "esbuild",
+        "supabase",
         "@mdx-js/mdx",
         "@mdx-js/react",
         "@types/webpack",
