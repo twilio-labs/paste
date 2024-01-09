@@ -10702,7 +10702,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@twilio-paste/backend@workspace:apps/backend"
   dependencies:
-    supabase: ^1.99.5
+    supabase: 1.127.4
   languageName: unknown
   linkType: soft
 
@@ -18882,7 +18882,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bin-links@npm:^4.0.3":
+"bin-links@npm:^4.0.1":
   version: 4.0.3
   resolution: "bin-links@npm:4.0.3"
   dependencies:
@@ -33918,7 +33918,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"node-fetch@npm:^3.3.2":
+"node-fetch@npm:^3.2.10":
   version: 3.3.2
   resolution: "node-fetch@npm:3.3.2"
   dependencies:
@@ -41345,17 +41345,17 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"supabase@npm:^1.99.5":
-  version: 1.131.3
-  resolution: "supabase@npm:1.131.3"
+"supabase@npm:1.127.4":
+  version: 1.127.4
+  resolution: "supabase@npm:1.127.4"
   dependencies:
-    bin-links: ^4.0.3
+    bin-links: ^4.0.1
     https-proxy-agent: ^7.0.2
-    node-fetch: ^3.3.2
+    node-fetch: ^3.2.10
     tar: 6.2.0
   bin:
     supabase: bin/supabase
-  checksum: 971ae6185f88e6bb2a4b7ec849f71920635409f8542c1948543990741e3eebd82c281a8265d79a505dada8601b3127d8679c0a4a87ed8abb29c2a1a5a2f5e39d
+  checksum: 20110f86ccaa6adab74e2a97e83e95f6c90e1349ebbe579d21ea37d4179bc4ad63990dd9310311635ffad09231507e9cbcd44aa72ca414ff8b217f66de407708
   languageName: node
   linkType: hard
 
