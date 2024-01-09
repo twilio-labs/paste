@@ -139,12 +139,25 @@
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -166,6 +179,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -194,6 +214,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -391,6 +418,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -459,14 +493,26 @@
       "required": false,
       "externalProp": true
     },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "autoSave": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -478,7 +524,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1572,12 +1618,6 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "prefix": {
       "type": "string",
       "defaultValue": null,
@@ -1596,6 +1636,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -1604,6 +1650,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -1722,12 +1774,25 @@
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -1749,6 +1814,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -1777,6 +1849,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -1981,6 +2060,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -2049,14 +2135,26 @@
       "required": false,
       "externalProp": true
     },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "autoSave": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -2068,7 +2166,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3177,12 +3275,6 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "prefix": {
       "type": "string",
       "defaultValue": null,
@@ -3201,6 +3293,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -3209,6 +3307,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3320,12 +3424,25 @@
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -3347,6 +3464,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -3375,6 +3499,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -3579,6 +3710,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -3647,14 +3785,26 @@
       "required": false,
       "externalProp": true
     },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "autoSave": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -3666,7 +3816,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4760,12 +4910,6 @@
       "required": false,
       "externalProp": true
     },
-    "placeholder": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "prefix": {
       "type": "string",
       "defaultValue": null,
@@ -4784,6 +4928,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -4792,6 +4942,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -4903,12 +5059,25 @@
       "externalProp": true,
       "description": "Indicates whether inputting text could trigger display of one or more predictions of the user's intended value for an input and specifies how predictions would be\npresented if they are made."
     },
+    "aria-braillelabel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that labels the current element, which is intended to be converted into Braille."
+    },
+    "aria-brailleroledescription": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human-readable, author-localized abbreviated description for the role of an element, which is intended to be converted into Braille."
+    },
     "aria-busy": {
       "type": "Booleanish",
       "defaultValue": null,
       "required": false,
-      "externalProp": true,
-      "description": "Indicates an element is being modified and that assistive technologies MAY want to wait until the modifications are complete before exposing them to the user."
+      "externalProp": true
     },
     "aria-checked": {
       "type": "boolean | \"true\" | \"false\" | \"mixed\"",
@@ -4930,6 +5099,13 @@
       "required": false,
       "externalProp": true,
       "description": "Defines an element's column index or position with respect to the total number of columns within a table, grid, or treegrid."
+    },
+    "aria-colindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-colindex."
     },
     "aria-colspan": {
       "type": "number",
@@ -4958,6 +5134,13 @@
       "required": false,
       "externalProp": true,
       "description": "Identifies the element (or elements) that describes the object."
+    },
+    "aria-description": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a string value that describes or annotates the current element."
     },
     "aria-details": {
       "type": "string",
@@ -5162,6 +5345,13 @@
       "externalProp": true,
       "description": "Defines an element's row index or position with respect to the total number of rows within a table, grid, or treegrid."
     },
+    "aria-rowindextext": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true,
+      "description": "Defines a human readable text alternative of aria-rowindex."
+    },
     "aria-rowspan": {
       "type": "number",
       "defaultValue": null,
@@ -5230,14 +5420,26 @@
       "required": false,
       "externalProp": true
     },
+    "autoFocus": {
+      "type": "boolean",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "autoSave": {
       "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true
     },
+    "content": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "contentEditable": {
-      "type": "Booleanish | \"inherit\"",
+      "type": "Booleanish | \"inherit\" | \"plaintext-only\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -5249,7 +5451,7 @@
       "externalProp": true
     },
     "dangerouslySetInnerHTML": {
-      "type": "{ __html: string }",
+      "type": "{ __html: string | TrustedHTML }",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -6351,12 +6553,6 @@
       "externalProp": false,
       "description": "Removes the default padding from the TabPanel."
     },
-    "placeholder": {
-      "type": "string",
-      "defaultValue": null,
-      "required": false,
-      "externalProp": true
-    },
     "prefix": {
       "type": "string",
       "defaultValue": null,
@@ -6375,6 +6571,12 @@
       "required": false,
       "externalProp": true
     },
+    "rel": {
+      "type": "string",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
     "resource": {
       "type": "string",
       "defaultValue": null,
@@ -6383,6 +6585,12 @@
     },
     "results": {
       "type": "number",
+      "defaultValue": null,
+      "required": false,
+      "externalProp": true
+    },
+    "rev": {
+      "type": "string",
       "defaultValue": null,
       "required": false,
       "externalProp": true

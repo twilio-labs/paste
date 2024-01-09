@@ -8,8 +8,10 @@
     },
     {
       "matchPackageNames": [
+        "@biomejs/biome",
         "@typescript-eslint/eslint-plugin",
         "@typescript-eslint/parser",
+        "csstype",
         "eslint",
         "eslint-config-prettier",
         "eslint-config-twilio-react",
@@ -25,6 +27,7 @@
         "eslint-plugin-react-hooks",
         "eslint-plugin-storybook",
         "eslint-plugin-unicorn",
+        "esbuild",
         "@mdx-js/mdx",
         "@mdx-js/react",
         "@types/webpack",
