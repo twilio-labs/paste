@@ -71,6 +71,27 @@ When you create the project, Paste is used in 2 files:
 
 To read more in depth about how `create-next-app` works, check out [their documentation](https://nextjs.org/docs/api-reference/create-next-app).
 
+## Using Twilio Flex with Paste
+
+When creating a custom component or plugin for Twilio Flex, you can leverage Paste's UI components in your React app to build your user interface elements with ease. Paste's core and icons packages are dependencies in your plugin via the `flex-ui` package.
+
+To avoid any potential issues during Paste upgrades, it's crucial to specify the version of Paste you want to use in your plugin's `package.json` file. You must either set the `overrides` (using npm), or the `resolutions` (using yarn, pnpm) key to override the version bundled with `flex-ui`. This will ensure that your plugin takes precedence over the version that is set via `flex-ui`.
+
+Here's an example of how to configure your plugin's dependencies:
+```json
+{
+  "dependencies": {
+    "@twilio-paste/core": "x.x.x",
+    "@twilio-paste/icons": "x.x.x"
+  },
+  "resolutions": {
+    "@twilio-paste/core": "x.x.x",
+    "@twilio-paste/icons": "x.x.x"
+  }
+}
+```
+Be sure to follow the [Twilio Flex plugin with Paste guide](https://www.twilio.com/docs/flex/developer/ui/use-paste-with-a-plugin) to set up the Providers and theme for your plugin, as Flex utilizes a proprietary approach to manage providers within a React plugin.
+
 ## Usage
 
 ### Paste Components
