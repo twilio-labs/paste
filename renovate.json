@@ -28,6 +28,7 @@
         "eslint-plugin-storybook",
         "eslint-plugin-unicorn",
         "esbuild",
+        "supabase",
         "@mdx-js/mdx",
         "@mdx-js/react",
         "@types/webpack",
