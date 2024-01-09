@@ -1,3 +1,4 @@
+import type { StoryFn } from "@storybook/react";
 import { Box } from "@twilio-paste/box";
 import { AttachIcon } from "@twilio-paste/icons/esm/AttachIcon";
 import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
@@ -457,3 +458,22 @@ export const AutoPlacementMenuStory = (): React.ReactNode => {
 };
 
 AutoPlacementMenuStory.storyName = "auto placed menu";
+
+export const ManyItemsMenu: StoryFn = () => {
+  const menu = useMenuState({ visible: true });
+
+  return (
+    <>
+      <MenuButton {...menu} variant="primary">
+        Many items <ChevronDownIcon decorative />
+      </MenuButton>
+      <Menu {...menu} aria-label="Preferences">
+        {Array.from(new Array(100).keys()).map((item) => (
+          <MenuItem {...menu} key={item}>
+            Item {item}
+          </MenuItem>
+        ))}
+      </Menu>
+    </>
+  );
+};
