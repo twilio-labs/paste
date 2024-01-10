@@ -1,0 +1,238 @@
+export const meta = {
+  title: 'Page Header',
+  package: '@twilio-paste/page-header',
+  description: 'Page Header is a layout component that wraps all top-level components on a page.',
+  slug: '/components/page-header/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import { Avatar } from "@twilio-paste/avatar";
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/core/callout';
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { Breadcrumb, BreadcrumbItem } from "@twilio-paste/breadcrumb";
+import { InPageNavigation, InPageNavigationItem } from "@twilio-paste/in-page-navigation";
+import { StatusBadge } from "@twilio-paste/status";
+import { Badge } from "@twilio-paste/badge";
+import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
+import {
+  PageHeader, 
+  PageHeaderActions,
+  PageHeaderDetails,
+  PageHeaderHeading,
+  PageHeaderInPageNavigation,
+  PageHeaderKeyword,
+  PageHeaderMeta,
+  PageHeaderParagraph,
+  PageHeaderPrefix,
+  PageHeaderSetting
+} from '@twilio-paste/page-header';
+import {
+  ProgressStepComplete,
+  ProgressStepCurrent,
+  ProgressStepIncomplete,
+  ProgressStepSeparator,
+  ProgressSteps,
+} from "@twilio-paste/progress-steps";
+import {ArrowBackIcon} from '@twilio-paste/icons/esm/ArrowBackIcon';
+import { Button } from "@twilio-paste/button";
+import { ButtonGroup } from "@twilio-paste/button-group";
+import Changelog from '@twilio-paste/page-header/CHANGELOG.md';
+import {Codeblock} from '../../../components/codeblock';
+import {ResponsiveImage} from '../../../components/ResponsiveImage';
+import {SidebarCategoryRoutes} from '../../../constants';
+import {Blockquote} from '../../../components/Blockquote';
+import {DoDont, Do, Dont} from '../../../components/DoDont';
+import PageHeaderPNG from '../../../assets/images/PageHeaderPNG.png';
+import packageJson from '@twilio-paste/page-header/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+import {defaultPageHeaderExample, interruptedPageHeaderExample, compactPageHeaderExample, objectDetailsPageHeaderExample, objectsListPageHeaderExample, settingsPageHeaderExample, wizardPageHeaderExample} from '../../../component-examples/PageHeaderExamples'
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Page header');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/page-header',
+        storybookUrl: '/?path=/story/components-page-header--default',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{PageHeader, PageHeaderKeyword, PageHeaderSetting, Breadcrumb, BreadcrumbItem, Badge, NewIcon, ArrowForwardIcon, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, PageHeaderParagraph, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
+  {defaultPageHeaderExample}
+</LivePreview>
+
+## Guidelines
+
+Page Header controls the spacing and layout for any potential components used above the main content of the page. Components that may be a part of the Page Header include [Breadcrumb](/components/breadcrumb), [Progress Steps](/components/progress-steps), [Heading](/components/heading), and [Button Group](/components/button-group), among others.
+
+There are 3 sections that make up the Page Header component, though you won’t always use all 3 at the same time. 
+
+1. **PageHeaderSetting** contains any components that relate to the positioning of the current page in relation to parent or sibling pages, including navigating between those pages. Context components may include:
+    - [Breadcrumb](/components/breadcrumb)
+    - [Anchor](/components/anchor) (e.g. “<-- Back to parent page” link)
+    - [Progress Steps](/components/progress-steps)
+2. **PageHeaderDetails** is where all page-related information belongs. It includes static text and interactive components that relate to the page as a whole. Components that might live within the PageHeaderDetails include:
+    - [Detail Text](/components/detail-text) (e.g. the title of the entire wizard flow)
+    - [Heading](/components/heading) (e.g. the page title)
+    - [Badge](/components/badge) (e.g. “enabled”, “beta”, etc.)
+    - [Paragraph](/components/paragraph) (e.g. additional text below the title)
+    - [Button](/components/button) and [Button Group](/components/button-group) (e.g. “create”, “edit”, “cancel”, etc. buttons)
+    - [Anchor](/components/anchor) (e.g. link to a related/useful page such as docs - not a parent page)
+    - [Select](/components/select)
+3. **PageHeaderInPageNavigation** contains the [In Page Navigation](/components/in-page-navigation) for the page content, if using.
+
+Here’s what the component layout looks like with all its bits and pieces:
+
+<ResponsiveImage src={PageHeaderPNG} alt="Visual representation of the Page Header API and design" />
+
+
+<Callout variant='neutral' marginY="space60">
+    <CalloutHeading as="h2">Using Alerts with Page Headers</CalloutHeading>
+    <CalloutText>There are times when you’ll need to display an <Anchor href="/components/alert">Alert</Anchor> at the top of a page to communicate an important message to the user. Alerts should not be children of the Page Header component. If the Alert communicates a platform-level message, place it above the Page Header. If the Alert communicates a page-level message, place it below the Page Header.</CalloutText>
+</Callout>
+
+Much of the Paste Page Header component was inspired by the wonderful work of Github’s Primer Design system and [their own Page Header](https://primer.style/components/page-header) API and documentation.
+
+### Accessibility 
+
+Page Header has no inherent accessibility concerns. However, there will likely need to manage accessibility concerns based on the components used within Page Header. Recommended considerations include:
+- The accessibility considerations of the components used. See the component’s documentation.
+- How the order and visual or content hierarchy of the children passed to Page Header affect readability. 
+- What you pass to the `as` property when using [Headings](/components/heading).  Headings that live at the top of the page and are the title of the page (most Page Headers fall under this category) should be `h1`s. Only use a heading level lower than `h1` if the Page Header exists within a page that already has an `h1` title (very few Page Headers fall under this category).
+
+
+## Examples
+
+### Default Page Header
+
+The Page Header can be composed to fit the needs of your page. Only include necessary components.
+
+Default Page Headers should have `space-130` clearspace above them. Place platform-level Alerts above this clearspace.
+
+<LivePreview scope={{PageHeader, PageHeaderKeyword, PageHeaderSetting, Breadcrumb, BreadcrumbItem, Badge, NewIcon, ArrowForwardIcon, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, PageHeaderParagraph, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
+  {defaultPageHeaderExample}
+</LivePreview>
+
+### Page Header in an interrupted flow
+
+When the user navigates to an unrelated page, such as a separate product’s marketing page, it might not make sense to use a Breadcrumb in the page header for navigation. Instead, use an anchor with the text “<-- Return to [previous page name]”.
+
+<LivePreview scope={{PageHeader, PageHeaderMeta, PageHeaderSetting, Anchor, ArrowBackIcon, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, Box, PageHeaderParagraph, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
+  {interruptedPageHeaderExample}
+</LivePreview>
+
+### Compact Page Header
+
+Use the compact size of Page Header for narrow containers, such as a [Chat Log](/components/chat-log) within a [Minimizable Dialog](/components/minimizable-dialog) or a custom dialog. If the Page Header only applies to a small portion of the page, you may pass a non-`h1` value to the `as` property.
+
+Compact Page Headers should have at least `space-50` clearspace above them. Be sure to use size small Buttons for Page Header Actions.
+
+<LivePreview scope={{PageHeader, UserIcon, Anchor, Badge, PageHeaderPrefix, MoreIcon, StatusBadge, PageHeaderMeta, Avatar, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, Box, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
+  {compactPageHeaderExample}
+</LivePreview>
+
+### Page Header on an object details page
+
+See the [object details page template](/page-templates/object-details) documentation for more guidance.
+
+<LivePreview scope={{PageHeader, PageHeaderKeyword, PageHeaderSetting, Breadcrumb, BreadcrumbItem, Badge, NewIcon, ArrowForwardIcon, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, PageHeaderParagraph, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
+  {objectDetailsPageHeaderExample}
+</LivePreview>
+
+### Page Header on an objects list page
+
+See the [objects list page template](/page-templates/objects-list) documentation for more guidance.
+
+<LivePreview scope={{PageHeader, PageHeaderKeyword, PageHeaderSetting, Breadcrumb, BreadcrumbItem, Badge, NewIcon, ArrowForwardIcon, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, PageHeaderParagraph, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
+  {objectsListPageHeaderExample}
+</LivePreview>
+
+### Page Header on a settings page
+
+See the [settings page template](/page-templates/settings) documentation for more guidance.
+
+<LivePreview scope={{PageHeader, PageHeaderKeyword, PageHeaderSetting, Breadcrumb, BreadcrumbItem, Badge, NewIcon, ArrowForwardIcon, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, PageHeaderParagraph, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
+  {settingsPageHeaderExample}
+</LivePreview>
+
+### Page Header on a wizard page
+
+Use the [Progress Steps](/components/progress-steps) in the context wrapper when included as part of the [wizard page template](/page-templates/wizard).
+
+<LivePreview scope={{PageHeader, PageHeaderKeyword, PageHeaderSetting, Breadcrumb, BreadcrumbItem, ProgressSteps, ProgressStepComplete, ProgressStepSeparator, ProgressStepCurrent, ProgressStepIncomplete, Badge, NewIcon, ArrowForwardIcon, PageHeaderActions, PageHeaderHeading, PageHeaderDetails, ButtonGroup, Button, PageHeaderParagraph, PageHeaderInPageNavigation, InPageNavigation, InPageNavigationItem}} language="jsx" noInline>
+  {wizardPageHeaderExample}
+</LivePreview>
+
+## Composition notes
+
+When deciding which components to include in your Page Header, only use what is absolutely necessary. Most Page Headers will include a minimum of Breadcrumb and a Heading, with additional components when needed.
+
+### PageHeaderSetting
+
+The most common navigation component that will be used is [Breadcrumb](/components/breadcrumb). In some cases, such as when the user navigates to an unrelated page (e.g., marketing for another product), Breadcrumbs might not make the most sense because the new page isn’t hierarchically related to the previous page. In cases when Breadcrumb isn’t the best option, use an Anchor with the ArrowBackIcon (for example “<-- Return to [previous page name]”).
+
+### PageHeaderDetails
+
+Again, we encourage you to be conservative here when deciding which components to include. Page Headers can feel overwhelming when crowded, so only use what is necessary.
+
+#### Above and before the heading
+
+When using PageHeaderKeyword above the Heading:
+- Detail Text should appear above the Heading only on [Wizard pages](/page-templates/wizard#content-structure). Use it to describe the overall goal the customer is trying to achieve.
+- Badges should only be used to describe the release stage of the feature on the page, like “Beta” or “Experimental”. [Status Badges](/components/status-badge) or other badges that have dynamic content should be placed in the PageHeaderMeta.
+
+When using PageHeaderPrefix (visual that appears before the Heading):
+- If you’re using the default size of Page Header, set the height of the Prefix element to `size-icon-90` or `size-square-110` to match the line height of the Heading. 
+- If you’re using the compact size, set the height of the Prefix element to `size-icon-100` or `size-square-140` as the closest match to the line heights of the Heading and Meta combined. If you have no Meta content, use `size-icon-60` or `size-square-80`.
+
+#### The heading
+
+Follow the [composition guidelines on the Heading component](/components/heading#composition-notes).
+
+#### After and below the heading
+
+PageHeaderActions lives on the right side of the Page Header and is vertically aligned with the heading. When deciding whether to include actions in your Page Header, consider the importance of the action in relation to the entire content of the page.
+
+Use no more than 2 text Buttons in the actions. If you need to include additional actions, use a  [Menu Button](/components/menu) with the `MoreIcon`. A primary Button in the header should only be used for [Create actions](/patterns/create).
+
+PageHeaderMeta can include:
+- Short details about the feature or object on the page, like a version number. If you find yourself explaining the page, or if the text gets lengthy, use PageHeaderParagraph underneath the Meta instead.
+- A documentation link
+- [Badges](/components/badge), [Status Badges](/components/status-badge), or [Display Pills](/components/display-pill-group)
+- Other inline elements
+
+Generally, the PageHeaderMeta will have content that dynamically changes (like status) or text content that is fairly consistent between related pages (like a documentation link or the name of the source that a destination is receiving data from).
+
+PageHeaderParagraph explains what the page is for or how to use it.
+
+### When to use Page Header
+
+<DoDont>
+  <Do
+    title="Do"
+    body="Place Page Header at the top of a page"
+    preview={false}
+  />
+  <Dont
+    title="Don't"
+    body="Don’t use multiple Page Headers within a page or place Page Headers in the middle or bottom of a page"
+    preview={false}
+  />
+</DoDont>
