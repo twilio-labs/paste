@@ -1,37 +1,30 @@
 export const FullSettingsExample = `
-<Box
-  paddingX="space100"
-  paddingTop="space130"
-  paddingBottom="space160"
-  display="flex"
-  flexDirection="column"
-  rowGap="space130"
->
-  <Box display="flex" flexDirection="column">
-    <Box display="flex" rowGap="space30" marginBottom="space30">
+<Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+  <PageHeader size="default">
+    <PageHeaderSetting>
       <Breadcrumb aria-label={useUID()}>
         <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
         <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
         <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
       </Breadcrumb>
-    </Box>
-    <Box>
-      <Heading as="h4" variant="heading10" marginBottom="space0">
-        Billing settings
-      </Heading>
-    </Box>
-  </Box>
+    </PageHeaderSetting>
+    <PageHeaderDetails>
+      <PageHeaderHeading>Billing settings</PageHeaderHeading>
+    </PageHeaderDetails>
+    <PageHeaderInPageNavigation>
+      <InPageNavigation aria-label={useUID()}>
+        <InPageNavigationItem href="#">Invoicing</InPageNavigationItem>
+        <InPageNavigationItem href="#" currentPage>
+          Service address
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#">Tax information</InPageNavigationItem>
+      </InPageNavigation>
+    </PageHeaderInPageNavigation>
+  </PageHeader>
   <Box>
-    <InPageNavigation aria-label={useUID()}>
-      <InPageNavigationItem href="#invoicing">Invoicing</InPageNavigationItem>
-      <InPageNavigationItem href="#service-address" currentPage>
-        Service address
-      </InPageNavigationItem>
-      <InPageNavigationItem href="#tax-information">Tax information</InPageNavigationItem>
-    </InPageNavigation>
     <Form maxWidth="size70">
       <Box display="flex" flexDirection="column">
-        <Heading as="h5" variant="heading20">
+        <Heading as="h2" variant="heading20">
           Service address
         </Heading>
         <Paragraph marginBottom="space0">
@@ -72,38 +65,38 @@ export const FullSettingsExample = `
 
 export const SettingsOverviewExample = `
 <Box display="flex" width="100%" justifyContent="center">
-  <Box
-    paddingTop="space130"
-    paddingBottom="space160"
-    display="flex"
-    flexDirection="column"
-    rowGap="space130"
-    maxWidth="size90"
-  >
-    <Box display="flex" flexDirection="column">
-      <Box display="flex" rowGap="space30" marginBottom="space30">
+  <Box paddingTop="space130" paddingBottom="space160" maxWidth="size90">
+    <PageHeader>
+      <PageHeaderSetting>
         <Breadcrumb aria-label={useUID()}>
           <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
           <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
           <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
         </Breadcrumb>
-      </Box>
-      <Box>
-        <Heading as="h4" variant="heading10">
-          Welcome, Dena
-        </Heading>
-        <Paragraph marginBottom="space0">
+      </PageHeaderSetting>
+      <PageHeaderDetails>
+        <PageHeaderHeading>Welcome, Dena</PageHeaderHeading>
+        <PageHeaderParagraph>
           View and manage your user settings, security, and preferences here.
-        </Paragraph>
-      </Box>
-    </Box>
+        </PageHeaderParagraph>
+      </PageHeaderDetails>
+    </PageHeader>
     <Box>
       <Grid vertical gutter="space40">
         <Column padding="space0">
           <Grid gutter="space40" equalColumnHeights>
-            <Column span={6}>
-              <Card padding="space100">
-                <Heading as="h5" variant="heading20">
+            <Column>
+              <Box
+                as="article"
+                padding="space100"
+                borderWidth="borderWidth10"
+                borderColor="colorBorderWeaker"
+                borderStyle="solid"
+                borderRadius="borderRadius30"
+                backgroundColor="colorBackgroundBody"
+                width="100%"
+              >
+                <Heading as="h2" variant="heading20">
                   Personal information
                 </Heading>
                 <DescriptionList>
@@ -124,11 +117,11 @@ export const SettingsOverviewExample = `
                   <EditIcon decorative />
                   Edit
                 </Button>
-              </Card>
+              </Box>
             </Column>
-            <Column span={6}>
+            <Column>
               <Card padding="space100">
-                <Heading as="h5" variant="heading20">
+                <Heading as="h2" variant="heading20">
                   Two-factor authentication (2FA)
                 </Heading>
                 <DescriptionList>
@@ -158,7 +151,7 @@ export const SettingsOverviewExample = `
             <Box display="flex" flexDirection="row" justifyContent="space-between">
               <Box display="flex" flexDirection="row">
                 <LockIcon decorative size="sizeIcon70" color="colorTextIcon" />
-                <Heading as="h5" variant="heading20" marginBottom="space0">
+                <Heading as="h2" variant="heading20" marginBottom="space0">
                   Password
                 </Heading>
               </Box>
