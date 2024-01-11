@@ -1,36 +1,27 @@
 export const FullObjectsListExample = `
-<Box
-  paddingX="space100"
-  paddingTop="space130"
-  paddingBottom="space160"
-  display="flex"
-  flexDirection="column"
-  rowGap="space130"
->
-  <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-start">
-    <Box maxWidth="size70">
-      <Box display="flex" rowGap="space30" marginBottom="space30">
-        <Breadcrumb aria-label={useUID()}>
-          <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-          <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-          <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-        </Breadcrumb>
-      </Box>
-      <Heading as="h4" variant="heading10">
-        Objects
-      </Heading>
-      <Paragraph marginBottom="space0">
+<Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+  <PageHeader size="default">
+    <PageHeaderSetting>
+      <Breadcrumb aria-label={useUID()}>
+        <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+        <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+        <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+      </Breadcrumb>
+    </PageHeaderSetting>
+    <PageHeaderDetails>
+      <PageHeaderHeading>Objects</PageHeaderHeading>
+      <PageHeaderActions>
+        <ButtonGroup>
+          <Button variant="secondary">Label</Button>
+          <Button variant="primary">Label</Button>
+        </ButtonGroup>
+      </PageHeaderActions>
+      <PageHeaderParagraph>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non ex risus. Aenean at ante id lectus
         faucibus hendrerit a fringilla lorem. Pellentesque faucibus sit amet dolor vitae lacinia.
-      </Paragraph>
-    </Box>
-    <Box marginBottom="space30" marginTop="space80">
-      <ButtonGroup>
-        <Button variant="secondary">Label</Button>
-        <Button variant="primary">Label</Button>
-      </ButtonGroup>
-    </Box>
-  </Box>
+      </PageHeaderParagraph>
+    </PageHeaderDetails>
+  </PageHeader>
   <Box>
     <Box display="flex" flexDirection="column" rowGap="space50" marginBottom="space90">
       <Box display="flex" columnGap="space80" alignItems="flex-end">
@@ -48,6 +39,7 @@ export const FullObjectsListExample = `
             <Select id={criteria3}>3</Select>
           </Box>
         </Box>
+
         <Box
           height="100%"
           display="flex"
@@ -169,34 +161,25 @@ export const FullObjectsListExample = `
 </Box>`.trim();
 
 export const DefaultObjectsListExample = `
-<Box
-  paddingX="space100"
-  paddingTop="space130"
-  paddingBottom="space160"
-  display="flex"
-  flexDirection="column"
-  rowGap="space130"
->
-  <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-start">
-    <Box maxWidth="size70">
-      <Box display="flex" rowGap="space30" marginBottom="space30">
-        <Breadcrumb aria-label={useUID()}>
-          <BreadcrumbItem href="#">Phone numbers</BreadcrumbItem>
-          <BreadcrumbItem href="#">Manage</BreadcrumbItem>
-        </Breadcrumb>
-      </Box>
-      <Heading as="h4" variant="heading10">
-        Verified caller IDs
-      </Heading>
-      <Paragraph marginBottom="space0">
-        Verify a number that you own to use it as a caller ID or as the “To” number for outbound calls and messages.
-        The phone numbers you buy from Twilio or port to Twilio can always be used as caller IDs.
-      </Paragraph>
-    </Box>
-    <Box marginBottom="space30" marginTop="space80" whiteSpace="nowrap">
-      <Button variant="primary">Add a new caller ID</Button>
-    </Box>
-  </Box>
+<Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+  <PageHeader size="default">
+    <PageHeaderSetting>
+      <Breadcrumb aria-label={useUID()}>
+        <BreadcrumbItem href="#">Phone numbers</BreadcrumbItem>
+        <BreadcrumbItem href="#">Manage</BreadcrumbItem>
+      </Breadcrumb>
+    </PageHeaderSetting>
+    <PageHeaderDetails>
+      <PageHeaderHeading>Verified caller IDs</PageHeaderHeading>
+      <PageHeaderActions>
+        <Button variant="primary">Add caller ID</Button>
+      </PageHeaderActions>
+      <PageHeaderParagraph>
+        Use numbers you own as caller ID or the &quot;To&quot; number for outbound calls and messages. Phone numbers
+        you buy from Twilio or port to Twilio can always be used as caller IDs.
+      </PageHeaderParagraph>
+    </PageHeaderDetails>
+  </PageHeader>
   <Box>
     <Box maxWidth="size70" marginBottom="space90" display="flex" columnGap="space80" alignItems="flex-end">
       <Box maxWidth="size90" display="flex" columnGap="space50">

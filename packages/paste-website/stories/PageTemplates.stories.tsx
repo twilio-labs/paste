@@ -1,6 +1,6 @@
-import { Anchor } from "@twilio-paste/anchor";
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/jsx-max-depth */
+import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Breadcrumb, BreadcrumbItem } from "@twilio-paste/breadcrumb";
 import { Button } from "@twilio-paste/button";
@@ -47,6 +47,18 @@ import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
 import { InPageNavigation, InPageNavigationItem } from "@twilio-paste/in-page-navigation";
 import { Input } from "@twilio-paste/input";
 import { Label } from "@twilio-paste/label";
+import {
+  PageHeader,
+  PageHeaderActions,
+  PageHeaderDetails,
+  PageHeaderHeading,
+  PageHeaderInPageNavigation,
+  PageHeaderKeyword,
+  PageHeaderMeta,
+  PageHeaderParagraph,
+  PageHeaderPrefix,
+  PageHeaderSetting,
+} from "@twilio-paste/page-header";
 import { Paragraph } from "@twilio-paste/paragraph";
 import {
   ProgressStepComplete,
@@ -72,43 +84,34 @@ export default {
 
 export const FullObjectDetailsExample = (): JSX.Element => {
   return (
-    <Box
-      paddingX="space100"
-      paddingTop="space130"
-      paddingBottom="space160"
-      display="flex"
-      flexDirection="column"
-      rowGap="space130"
-    >
-      <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-end">
-        <Box>
-          <Box display="flex" rowGap="space30" marginBottom="space30">
-            <Breadcrumb aria-label={useUID()}>
-              <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-              <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-            </Breadcrumb>
-          </Box>
-          <Box>
-            <Heading as="h4" variant="heading10" marginBottom="space0">
-              Object details
-            </Heading>
-          </Box>
-        </Box>
-        <Box marginBottom="space30">
-          <Button variant="secondary">Label</Button>
-        </Box>
-      </Box>
+    <Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+      <PageHeader size="default">
+        <PageHeaderSetting>
+          <Breadcrumb aria-label={useUID()}>
+            <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+            <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+          </Breadcrumb>
+        </PageHeaderSetting>
+        <PageHeaderDetails>
+          <PageHeaderHeading>Object details</PageHeaderHeading>
+          <PageHeaderActions>
+            <Button variant="secondary">Label</Button>
+          </PageHeaderActions>
+        </PageHeaderDetails>
+        <PageHeaderInPageNavigation>
+          <InPageNavigation aria-label={useUID()}>
+            <InPageNavigationItem href="#" currentPage>
+              Nav item
+            </InPageNavigationItem>
+            <InPageNavigationItem href="#">Nav item</InPageNavigationItem>
+            <InPageNavigationItem href="#">Nav item</InPageNavigationItem>
+          </InPageNavigation>
+        </PageHeaderInPageNavigation>
+      </PageHeader>
       <Box display="flex" flexDirection="column">
-        <InPageNavigation aria-label={useUID()}>
-          <InPageNavigationItem href="#" currentPage>
-            Nav item
-          </InPageNavigationItem>
-          <InPageNavigationItem href="#">Nav item</InPageNavigationItem>
-          <InPageNavigationItem href="#">Nav item</InPageNavigationItem>
-        </InPageNavigation>
         <Box display="flex" flexDirection="column" rowGap="space100">
           <Box>
-            <Heading as="h5" variant="heading20">
+            <Heading as="h2" variant="heading20">
               Heading
             </Heading>
             <Box display="flex" columnGap="space70" width="size80">
@@ -164,7 +167,7 @@ export const FullObjectDetailsExample = (): JSX.Element => {
           </Box>
           <Box>
             <Box display="flex" width="100%" justifyContent="space-between" alignItems="flex-start">
-              <Heading as="h5" variant="heading20">
+              <Heading as="h2" variant="heading20">
                 Heading
               </Heading>
               <Button variant="secondary">Label</Button>
@@ -213,42 +216,33 @@ FullObjectDetailsExample.parameters = {
 
 export const DefaultObjectDetailsExample = (): JSX.Element => {
   return (
-    <Box
-      paddingX="space100"
-      paddingTop="space130"
-      paddingBottom="space160"
-      display="flex"
-      flexDirection="column"
-      rowGap="space130"
-    >
-      <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-end">
-        <Box>
-          <Box display="flex" rowGap="space30" marginBottom="space30">
-            <Breadcrumb aria-label={useUID()}>
-              <BreadcrumbItem href="#">Voice</BreadcrumbItem>
-              <BreadcrumbItem href="#">Calls</BreadcrumbItem>
-            </Breadcrumb>
-          </Box>
-          <Box>
-            <Heading as="h4" variant="heading10" marginBottom="space0">
-              Call details
-            </Heading>
-          </Box>
-        </Box>
-        <Box marginBottom="space30">
-          <Button variant="secondary">Give call quality feedback</Button>
-        </Box>
-      </Box>
+    <Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+      <PageHeader size="default">
+        <PageHeaderSetting>
+          <Breadcrumb aria-label={useUID()}>
+            <BreadcrumbItem href="#">Voice</BreadcrumbItem>
+            <BreadcrumbItem href="#">Calls</BreadcrumbItem>
+          </Breadcrumb>
+        </PageHeaderSetting>
+        <PageHeaderDetails>
+          <PageHeaderHeading>Call details</PageHeaderHeading>
+          <PageHeaderActions>
+            <Button variant="secondary">Give call quality feedback</Button>
+          </PageHeaderActions>
+        </PageHeaderDetails>
+        <PageHeaderInPageNavigation>
+          <InPageNavigation aria-label={useUID()}>
+            <InPageNavigationItem href="#" currentPage>
+              Overview
+            </InPageNavigationItem>
+            <InPageNavigationItem href="#">Insights summary</InPageNavigationItem>
+          </InPageNavigation>
+        </PageHeaderInPageNavigation>
+      </PageHeader>
       <Box display="flex" flexDirection="column">
-        <InPageNavigation aria-label={useUID()}>
-          <InPageNavigationItem href="#overview" currentPage>
-            Overview
-          </InPageNavigationItem>
-          <InPageNavigationItem href="#insights-summary">Insights summary</InPageNavigationItem>
-        </InPageNavigation>
         <Box display="flex" flexDirection="column" rowGap="space130">
           <Box>
-            <Heading as="h5" variant="heading20">
+            <Heading as="h2" variant="heading20">
               Properties
             </Heading>
             <Box display="flex" columnGap="space70" width="size80">
@@ -328,7 +322,7 @@ export const DefaultObjectDetailsExample = (): JSX.Element => {
             </DescriptionList>
           </Box>
           <Box>
-            <Heading as="h5" variant="heading20">
+            <Heading as="h2" variant="heading20">
               Errors and warnings
             </Heading>
             <Table>
@@ -369,38 +363,29 @@ export const FullObjectsListExample = (): JSX.Element => {
   const criteria2 = useUID();
   const criteria3 = useUID();
   return (
-    <Box
-      paddingX="space100"
-      paddingTop="space130"
-      paddingBottom="space160"
-      display="flex"
-      flexDirection="column"
-      rowGap="space130"
-    >
-      <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-start">
-        <Box maxWidth="size70">
-          <Box display="flex" rowGap="space30" marginBottom="space30">
-            <Breadcrumb aria-label={useUID()}>
-              <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-              <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-              <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-            </Breadcrumb>
-          </Box>
-          <Heading as="h4" variant="heading10">
-            Objects
-          </Heading>
-          <Paragraph marginBottom="space0">
+    <Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+      <PageHeader size="default">
+        <PageHeaderSetting>
+          <Breadcrumb aria-label={useUID()}>
+            <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+            <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+            <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+          </Breadcrumb>
+        </PageHeaderSetting>
+        <PageHeaderDetails>
+          <PageHeaderHeading>Objects</PageHeaderHeading>
+          <PageHeaderActions>
+            <ButtonGroup>
+              <Button variant="secondary">Label</Button>
+              <Button variant="primary">Label</Button>
+            </ButtonGroup>
+          </PageHeaderActions>
+          <PageHeaderParagraph>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non ex risus. Aenean at ante id lectus
             faucibus hendrerit a fringilla lorem. Pellentesque faucibus sit amet dolor vitae lacinia.
-          </Paragraph>
-        </Box>
-        <Box marginBottom="space30" marginTop="space80">
-          <ButtonGroup>
-            <Button variant="secondary">Label</Button>
-            <Button variant="primary">Label</Button>
-          </ButtonGroup>
-        </Box>
-      </Box>
+          </PageHeaderParagraph>
+        </PageHeaderDetails>
+      </PageHeader>
       <Box>
         <Box display="flex" flexDirection="column" rowGap="space50" marginBottom="space90">
           <Box display="flex" columnGap="space80" alignItems="flex-end">
@@ -549,34 +534,25 @@ export const DefaultObjectsListExample = (): JSX.Element => {
   const input1 = useUID();
   const input2 = useUID();
   return (
-    <Box
-      paddingX="space100"
-      paddingTop="space130"
-      paddingBottom="space160"
-      display="flex"
-      flexDirection="column"
-      rowGap="space130"
-    >
-      <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-start">
-        <Box maxWidth="size70">
-          <Box display="flex" rowGap="space30" marginBottom="space30">
-            <Breadcrumb aria-label={useUID()}>
-              <BreadcrumbItem href="#">Phone numbers</BreadcrumbItem>
-              <BreadcrumbItem href="#">Manage</BreadcrumbItem>
-            </Breadcrumb>
-          </Box>
-          <Heading as="h4" variant="heading10">
-            Verified caller IDs
-          </Heading>
-          <Paragraph marginBottom="space0">
+    <Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+      <PageHeader size="default">
+        <PageHeaderSetting>
+          <Breadcrumb aria-label={useUID()}>
+            <BreadcrumbItem href="#">Phone numbers</BreadcrumbItem>
+            <BreadcrumbItem href="#">Manage</BreadcrumbItem>
+          </Breadcrumb>
+        </PageHeaderSetting>
+        <PageHeaderDetails>
+          <PageHeaderHeading>Verified caller IDs</PageHeaderHeading>
+          <PageHeaderActions>
+            <Button variant="primary">Add caller ID</Button>
+          </PageHeaderActions>
+          <PageHeaderParagraph>
             Use numbers you own as caller ID or the &quot;To&quot; number for outbound calls and messages. Phone numbers
             you buy from Twilio or port to Twilio can always be used as caller IDs.
-          </Paragraph>
-        </Box>
-        <Box marginBottom="space30" marginTop="space80" whiteSpace="nowrap">
-          <Button variant="primary">Add caller ID</Button>
-        </Box>
-      </Box>
+          </PageHeaderParagraph>
+        </PageHeaderDetails>
+      </PageHeader>
       <Box>
         <Box maxWidth="size70" marginBottom="space90" display="flex" columnGap="space80" alignItems="flex-end">
           <Box maxWidth="size90" display="flex" columnGap="space50">
@@ -689,39 +665,32 @@ export const FullSettingsExample = (): JSX.Element => {
   const input5 = useUID();
   const input6 = useUID();
   return (
-    <Box
-      paddingX="space100"
-      paddingTop="space130"
-      paddingBottom="space160"
-      display="flex"
-      flexDirection="column"
-      rowGap="space130"
-    >
-      <Box display="flex" flexDirection="column">
-        <Box display="flex" rowGap="space30" marginBottom="space30">
+    <Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+      <PageHeader size="default">
+        <PageHeaderSetting>
           <Breadcrumb aria-label={useUID()}>
             <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
             <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
             <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
           </Breadcrumb>
-        </Box>
-        <Box>
-          <Heading as="h4" variant="heading10" marginBottom="space0">
-            Billing settings
-          </Heading>
-        </Box>
-      </Box>
+        </PageHeaderSetting>
+        <PageHeaderDetails>
+          <PageHeaderHeading>Billing settings</PageHeaderHeading>
+        </PageHeaderDetails>
+        <PageHeaderInPageNavigation>
+          <InPageNavigation aria-label={useUID()}>
+            <InPageNavigationItem href="#">Invoicing</InPageNavigationItem>
+            <InPageNavigationItem href="#" currentPage>
+              Service address
+            </InPageNavigationItem>
+            <InPageNavigationItem href="#">Tax information</InPageNavigationItem>
+          </InPageNavigation>
+        </PageHeaderInPageNavigation>
+      </PageHeader>
       <Box>
-        <InPageNavigation aria-label={useUID()}>
-          <InPageNavigationItem href="#invoicing">Invoicing</InPageNavigationItem>
-          <InPageNavigationItem href="#service-address" currentPage>
-            Service address
-          </InPageNavigationItem>
-          <InPageNavigationItem href="#tax-information">Tax information</InPageNavigationItem>
-        </InPageNavigation>
         <Form maxWidth="size70">
           <Box display="flex" flexDirection="column">
-            <Heading as="h5" variant="heading20">
+            <Heading as="h2" variant="heading20">
               Service address
             </Heading>
             <Paragraph marginBottom="space0">
@@ -768,31 +737,22 @@ FullSettingsExample.parameters = {
 export const SettingsOverviewExample = (): JSX.Element => {
   return (
     <Box display="flex" width="100%" justifyContent="center">
-      <Box
-        paddingTop="space130"
-        paddingBottom="space160"
-        display="flex"
-        flexDirection="column"
-        rowGap="space130"
-        maxWidth="size90"
-      >
-        <Box display="flex" flexDirection="column">
-          <Box display="flex" rowGap="space30" marginBottom="space30">
+      <Box paddingTop="space130" paddingBottom="space160" maxWidth="size90">
+        <PageHeader>
+          <PageHeaderSetting>
             <Breadcrumb aria-label={useUID()}>
               <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
               <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
               <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
             </Breadcrumb>
-          </Box>
-          <Box>
-            <Heading as="h4" variant="heading10">
-              Welcome, Dena
-            </Heading>
-            <Paragraph marginBottom="space0">
+          </PageHeaderSetting>
+          <PageHeaderDetails>
+            <PageHeaderHeading>Welcome, Dena</PageHeaderHeading>
+            <PageHeaderParagraph>
               View and manage your user settings, security, and preferences here.
-            </Paragraph>
-          </Box>
-        </Box>
+            </PageHeaderParagraph>
+          </PageHeaderDetails>
+        </PageHeader>
         <Box>
           <Grid vertical gutter="space40">
             <Column padding="space0">
@@ -808,7 +768,7 @@ export const SettingsOverviewExample = (): JSX.Element => {
                     backgroundColor="colorBackgroundBody"
                     width="100%"
                   >
-                    <Heading as="h5" variant="heading20">
+                    <Heading as="h2" variant="heading20">
                       Personal information
                     </Heading>
                     <DescriptionList>
@@ -833,7 +793,7 @@ export const SettingsOverviewExample = (): JSX.Element => {
                 </Column>
                 <Column>
                   <Card padding="space100">
-                    <Heading as="h5" variant="heading20">
+                    <Heading as="h2" variant="heading20">
                       Two-factor authentication (2FA)
                     </Heading>
                     <DescriptionList>
@@ -863,7 +823,7 @@ export const SettingsOverviewExample = (): JSX.Element => {
                 <Box display="flex" flexDirection="row" justifyContent="space-between">
                   <Box display="flex" flexDirection="row">
                     <LockIcon decorative size="sizeIcon70" color="colorTextIcon" />
-                    <Heading as="h5" variant="heading20" marginBottom="space0">
+                    <Heading as="h2" variant="heading20" marginBottom="space0">
                       Password
                     </Heading>
                   </Box>
@@ -888,72 +848,64 @@ export const DefaultWizardExample = (): JSX.Element => {
   const input4 = useUID();
   return (
     <Box display="flex" width="100%" justifyContent="center" paddingX="space10">
-      <Box
-        paddingTop="space130"
-        paddingBottom="space160"
-        display="flex"
-        flexDirection="column"
-        rowGap="space130"
-        width="size70"
-        maxWidth="size80"
-      >
-        <Box display="flex" flexDirection="column">
-          <Box display="flex" rowGap="space30" marginBottom="space130">
+      <Box paddingTop="space130" paddingBottom="space160" width="size70" maxWidth="size80">
+        <PageHeader>
+          <PageHeaderSetting>
             <Breadcrumb aria-label={useUID()}>
               <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
               <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
               <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
             </Breadcrumb>
-          </Box>
-          <ProgressSteps>
-            <ProgressStepCurrent as="div">Label</ProgressStepCurrent>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
-          </ProgressSteps>
-          <Box marginTop="space70">
-            <DetailText marginTop="space0">Wizard title</DetailText>
-            <Heading as="h4" variant="heading10">
-              Verb heading
-            </Heading>
-            <Paragraph marginBottom="space0">
+            <ProgressSteps>
+              <ProgressStepCurrent as="div">Label</ProgressStepCurrent>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+            </ProgressSteps>
+          </PageHeaderSetting>
+          <PageHeaderDetails>
+            <PageHeaderKeyword>Wizard title</PageHeaderKeyword>
+            <PageHeaderHeading>Verb heading</PageHeaderHeading>
+            <PageHeaderParagraph>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non ex risus. Aenean at ante id lectus
               faucibus hendrerit a fringilla lorem. Pellentesque faucibus sit amet dolor vitae lacinia.
-            </Paragraph>
+            </PageHeaderParagraph>
+          </PageHeaderDetails>
+        </PageHeader>
+        <Box display="flex" flexDirection="column" rowGap="space130">
+          <Box>
+            <Form>
+              <FormControl>
+                <Label htmlFor={input1}>Label</Label>
+                <Input type="text" id={input1} name="input1" />
+              </FormControl>
+              <FormControl>
+                <Label htmlFor={input2}>Label</Label>
+                <Input type="text" id={input2} name="input2" />
+              </FormControl>
+              <FormControl>
+                <Label htmlFor={input3}>Label</Label>
+                <Input type="text" id={input3} name="input3" />
+              </FormControl>
+              <FormControl>
+                <Label htmlFor={input4}>Label</Label>
+                <Input type="text" id={input4} name="input4" />
+              </FormControl>
+            </Form>
           </Box>
-        </Box>
-        <Box>
-          <Form>
-            <FormControl>
-              <Label htmlFor={input1}>Label</Label>
-              <Input type="text" id={input1} name="input1" />
-            </FormControl>
-            <FormControl>
-              <Label htmlFor={input2}>Label</Label>
-              <Input type="text" id={input2} name="input2" />
-            </FormControl>
-            <FormControl>
-              <Label htmlFor={input3}>Label</Label>
-              <Input type="text" id={input3} name="input3" />
-            </FormControl>
-            <FormControl>
-              <Label htmlFor={input4}>Label</Label>
-              <Input type="text" id={input4} name="input4" />
-            </FormControl>
-          </Form>
-        </Box>
-        <Box display="flex" justifyContent="end">
-          <ButtonGroup>
-            <Button variant="secondary">Cancel or Close</Button>
-            <Button variant="primary">
-              Next <ArrowForwardIcon decorative />
-            </Button>
-          </ButtonGroup>
+          <Box display="flex" justifyContent="end">
+            <ButtonGroup>
+              <Button variant="secondary">Cancel or Close</Button>
+              <Button variant="primary">
+                Next <ArrowForwardIcon decorative />
+              </Button>
+            </ButtonGroup>
+          </Box>
         </Box>
       </Box>
     </Box>
@@ -984,42 +936,36 @@ export const DefaultWizardWithContentExample = (): JSX.Element => {
       <SidebarPushContentWrapper collapsed={true} variant="compact">
         <Topbar id={topbarSkipLinkID}> </Topbar>
         <Box display="flex" width="100%" justifyContent="center" paddingX="space50" id={mainContentSkipLinkID}>
-          <Box
-            paddingTop="space130"
-            paddingBottom="space160"
-            display="flex"
-            flexDirection="column"
-            rowGap="space130"
-            width="size70"
-            maxWidth="size80"
-          >
-            <Box display="flex" flexDirection="column">
-              <DetailText marginTop="space0">Add Reverse ETL destination</DetailText>
-              <Heading as="h4" variant="heading10" marginBottom="space0">
-                Set up destination
-              </Heading>
-            </Box>
-            <Box>
-              <Form>
-                <FormControl>
-                  <Label htmlFor={input1}>Destination name</Label>
-                  <Input type="text" id={input1} name="input1" />
-                  <HelpText>
-                    Identifies this destination within your organization and typically includes the business unit,
-                    geographic region, or environment. Example: Google Analytics North America Prod.
-                  </HelpText>
-                </FormControl>
-              </Form>
-            </Box>
-            <Box display="flex" justifyContent="space-between">
-              <Button variant="secondary">
-                <ArrowBackIcon decorative />
-                Back
-              </Button>
-              <ButtonGroup>
-                <Button variant="secondary">Cancel or Close</Button>
-                <Button variant="primary">Create destination</Button>
-              </ButtonGroup>
+          <Box paddingTop="space130" paddingBottom="space160" width="size70" maxWidth="size80">
+            <PageHeader>
+              <PageHeaderDetails>
+                <PageHeaderKeyword>Add Reverse ETL destination</PageHeaderKeyword>
+                <PageHeaderHeading>Set up destination</PageHeaderHeading>
+              </PageHeaderDetails>
+            </PageHeader>
+            <Box display="flex" flexDirection="column" rowGap="space130">
+              <Box>
+                <Form>
+                  <FormControl>
+                    <Label htmlFor={input1}>Destination name</Label>
+                    <Input type="text" id={input1} name="input1" />
+                    <HelpText>
+                      Identifies this destination within your organization and typically includes the business unit,
+                      geographic region, or environment. Example: Google Analytics North America Prod.
+                    </HelpText>
+                  </FormControl>
+                </Form>
+              </Box>
+              <Box display="flex" justifyContent="space-between">
+                <Button variant="secondary">
+                  <ArrowBackIcon decorative />
+                  Back
+                </Button>
+                <ButtonGroup>
+                  <Button variant="secondary">Cancel or Close</Button>
+                  <Button variant="primary">Create destination</Button>
+                </ButtonGroup>
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -1039,166 +985,160 @@ export const DefaultWizardOrderedListExample = (): JSX.Element => {
   const input5 = useUID();
   return (
     <Box display="flex" width="100%" justifyContent="center" paddingX="space10">
-      <Box
-        paddingTop="space130"
-        paddingBottom="space160"
-        display="flex"
-        flexDirection="column"
-        rowGap="space130"
-        width="size70"
-        maxWidth="size80"
-      >
-        <Box display="flex" flexDirection="column">
-          <ProgressSteps>
-            <ProgressStepComplete as="div">Select warehouse type</ProgressStepComplete>
-            <ProgressStepSeparator />
-            <ProgressStepCurrent as="div">Connect warehouse</ProgressStepCurrent>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Set sync schedule</ProgressStepIncomplete>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Set selective sync</ProgressStepIncomplete>
-          </ProgressSteps>
-          <Box marginTop="space70">
-            <DetailText marginTop="space0">Add warehouse</DetailText>
-            <Heading as="h4" variant="heading10">
-              Connect Azure SQL data warehouse
-            </Heading>
-            <Paragraph marginBottom="space0">
+      <Box paddingTop="space130" paddingBottom="space160" width="size70" maxWidth="size80">
+        <PageHeader>
+          <PageHeaderSetting>
+            <ProgressSteps>
+              <ProgressStepComplete as="div">Select warehouse type</ProgressStepComplete>
+              <ProgressStepSeparator />
+              <ProgressStepCurrent as="div">Connect warehouse</ProgressStepCurrent>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Set sync schedule</ProgressStepIncomplete>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Set selective sync</ProgressStepIncomplete>
+            </ProgressSteps>
+          </PageHeaderSetting>
+          <PageHeaderDetails>
+            <PageHeaderKeyword>Add warehouse</PageHeaderKeyword>
+            <PageHeaderHeading>Connect Azure SQL data warehouse</PageHeaderHeading>
+            <PageHeaderParagraph>
               Follow the steps below to start setting up Azure SQL data warehouse.
-            </Paragraph>
+            </PageHeaderParagraph>
+          </PageHeaderDetails>
+        </PageHeader>
+        <Box display="flex" flexDirection="column" rowGap="space130">
+          <Box display="flex" flexDirection="column" rowGap="space130" role="list">
+            <Form>
+              <Box display="flex" role="listitem">
+                <Box width="size10" flexShrink={0}>
+                  <Text
+                    as="span"
+                    color="colorTextWeak"
+                    fontWeight="fontWeightSemibold"
+                    fontSize="fontSize60"
+                    lineHeight="lineHeight60"
+                  >
+                    1
+                  </Text>
+                </Box>
+                <Box width="100%">
+                  <FormSection>
+                    <FormSectionHeading variant="heading30">Configure your AzureSQL database</FormSectionHeading>
+                    <FormSectionDescription>
+                      Make sure you’re logging in with a user that has read and write permissions so that we can write
+                      to your database. If you’re unsure on how to get started, view our documentation on Azure SQL data
+                      warehouse.
+                    </FormSectionDescription>
+                  </FormSection>
+                </Box>
+              </Box>
+              <Box display="flex" role="listitem">
+                <Box width="size10" flexShrink={0}>
+                  <Text
+                    as="span"
+                    color="colorTextWeak"
+                    fontWeight="fontWeightSemibold"
+                    fontSize="fontSize60"
+                    lineHeight="lineHeight60"
+                  >
+                    2
+                  </Text>
+                </Box>
+                <Box width="100%">
+                  <FormSection>
+                    <FormSectionHeading variant="heading30">Name your schema</FormSectionHeading>
+                    <FormSectionDescription>
+                      Pick a name to help you identify this space in the warehouse, or use the default name provided.
+                      This can’t be changed once the warehouse is connected.
+                    </FormSectionDescription>
+                    <FormControl>
+                      <Label htmlFor={input1} required>
+                        Name
+                      </Label>
+                      <Input type="text" id={input1} name="input1" required value="vik_test" />
+                    </FormControl>
+                  </FormSection>
+                </Box>
+              </Box>
+              <Box display="flex" role="listitem">
+                <Box width="size10" flexShrink={0}>
+                  <Text
+                    as="span"
+                    color="colorTextWeak"
+                    fontWeight="fontWeightSemibold"
+                    fontSize="fontSize60"
+                    lineHeight="lineHeight60"
+                  >
+                    3
+                  </Text>
+                </Box>
+                <Box width="100%">
+                  <FormSection>
+                    <FormSectionHeading variant="heading30">Enter your credentials</FormSectionHeading>
+                    <FormSectionDescription>Copy and paste these credentials from AzureSQL.</FormSectionDescription>
+                    <FormControl>
+                      <Label htmlFor={input2}>Server name</Label>
+                      <Input type="text" id={input2} name="input2" />
+                    </FormControl>
+                    <FormControl>
+                      <Label htmlFor={input3}>Database</Label>
+                      <Input type="text" id={input3} name="input3" />
+                    </FormControl>
+                    <FormControl>
+                      <Label htmlFor={input4}>User</Label>
+                      <Input type="text" id={input4} name="input4" />
+                    </FormControl>
+                    <FormControl>
+                      <Label htmlFor={input5}>Password</Label>
+                      <Input type="text" id={input5} name="input5" />
+                    </FormControl>
+                  </FormSection>
+                </Box>
+              </Box>
+              <Box display="flex" role="listitem">
+                <Box width="size10" flexShrink={0}>
+                  <Text
+                    as="span"
+                    color="colorTextWeak"
+                    fontWeight="fontWeightSemibold"
+                    fontSize="fontSize60"
+                    lineHeight="lineHeight60"
+                  >
+                    4
+                  </Text>
+                </Box>
+                <Box width="100%">
+                  <FormSection>
+                    <FormSectionHeading variant="heading30" marginBottom="space0">
+                      Test connection
+                    </FormSectionHeading>
+                    <Box>
+                      <Button variant="primary">Test warehouse connection</Button>
+                    </Box>
+                  </FormSection>
+                </Box>
+              </Box>
+            </Form>
           </Box>
-        </Box>
-        <Box display="flex" flexDirection="column" rowGap="space130" role="list">
-          <Form>
-            <Box display="flex" role="listitem">
-              <Box width="size10" flexShrink={0}>
-                <Text
-                  as="span"
-                  color="colorTextWeak"
-                  fontWeight="fontWeightSemibold"
-                  fontSize="fontSize60"
-                  lineHeight="lineHeight60"
-                >
-                  1
-                </Text>
-              </Box>
-              <Box width="100%">
-                <FormSection>
-                  <FormSectionHeading variant="heading30">Configure your AzureSQL database</FormSectionHeading>
-                  <FormSectionDescription>
-                    Make sure you’re logging in with a user that has read and write permissions so that we can write to
-                    your database. If you’re unsure on how to get started, view our documentation on Azure SQL data
-                    warehouse.
-                  </FormSectionDescription>
-                </FormSection>
-              </Box>
-            </Box>
-            <Box display="flex" role="listitem">
-              <Box width="size10" flexShrink={0}>
-                <Text
-                  as="span"
-                  color="colorTextWeak"
-                  fontWeight="fontWeightSemibold"
-                  fontSize="fontSize60"
-                  lineHeight="lineHeight60"
-                >
-                  2
-                </Text>
-              </Box>
-              <Box width="100%">
-                <FormSection>
-                  <FormSectionHeading variant="heading30">Name your schema</FormSectionHeading>
-                  <FormSectionDescription>
-                    Pick a name to help you identify this space in the warehouse, or use the default name provided. This
-                    can’t be changed once the warehouse is connected.
-                  </FormSectionDescription>
-                  <FormControl>
-                    <Label htmlFor={input1} required>
-                      Name
-                    </Label>
-                    <Input type="text" id={input1} name="input1" required value="vik_test" />
-                  </FormControl>
-                </FormSection>
-              </Box>
-            </Box>
-            <Box display="flex" role="listitem">
-              <Box width="size10" flexShrink={0}>
-                <Text
-                  as="span"
-                  color="colorTextWeak"
-                  fontWeight="fontWeightSemibold"
-                  fontSize="fontSize60"
-                  lineHeight="lineHeight60"
-                >
-                  3
-                </Text>
-              </Box>
-              <Box width="100%">
-                <FormSection>
-                  <FormSectionHeading variant="heading30">Enter your credentials</FormSectionHeading>
-                  <FormSectionDescription>Copy and paste these credentials from AzureSQL.</FormSectionDescription>
-                  <FormControl>
-                    <Label htmlFor={input2}>Server name</Label>
-                    <Input type="text" id={input2} name="input2" />
-                  </FormControl>
-                  <FormControl>
-                    <Label htmlFor={input3}>Database</Label>
-                    <Input type="text" id={input3} name="input3" />
-                  </FormControl>
-                  <FormControl>
-                    <Label htmlFor={input4}>User</Label>
-                    <Input type="text" id={input4} name="input4" />
-                  </FormControl>
-                  <FormControl>
-                    <Label htmlFor={input5}>Password</Label>
-                    <Input type="text" id={input5} name="input5" />
-                  </FormControl>
-                </FormSection>
-              </Box>
-            </Box>
-            <Box display="flex" role="listitem">
-              <Box width="size10" flexShrink={0}>
-                <Text
-                  as="span"
-                  color="colorTextWeak"
-                  fontWeight="fontWeightSemibold"
-                  fontSize="fontSize60"
-                  lineHeight="lineHeight60"
-                >
-                  4
-                </Text>
-              </Box>
-              <Box width="100%">
-                <FormSection>
-                  <FormSectionHeading variant="heading30" marginBottom="space0">
-                    Test connection
-                  </FormSectionHeading>
-                  <Box>
-                    <Button variant="primary">Test warehouse connection</Button>
-                  </Box>
-                </FormSection>
-              </Box>
-            </Box>
-          </Form>
-        </Box>
-        <Box>
-          <Separator orientation="horizontal" />
-          <Box
-            display="flex"
-            justifyContent="space-between"
-            columnGap="space40"
-            marginTop="space50"
-            alignItems="center"
-          >
-            <Button variant="secondary">
-              <ArrowBackIcon decorative />
-              Back
-            </Button>
-            <Box display="flex" columnGap="space40" alignItems="center">
-              <Paragraph marginBottom="space0">Test your warehouse connection first.</Paragraph>
-              <Button variant="primary" disabled>
-                Next <ArrowForwardIcon decorative />
+          <Box>
+            <Separator orientation="horizontal" />
+            <Box
+              display="flex"
+              justifyContent="space-between"
+              columnGap="space40"
+              marginTop="space50"
+              alignItems="center"
+            >
+              <Button variant="secondary">
+                <ArrowBackIcon decorative />
+                Back
               </Button>
+              <Box display="flex" columnGap="space40" alignItems="center">
+                <Paragraph marginBottom="space0">Test your warehouse connection first.</Paragraph>
+                <Button variant="primary" disabled>
+                  Next <ArrowForwardIcon decorative />
+                </Button>
+              </Box>
             </Box>
           </Box>
         </Box>
@@ -1269,35 +1209,39 @@ export const WizardFullPageExample = (): JSX.Element => {
         </TopbarActions>
       </Topbar>
       <Box width="100%" display="flex" justifyContent="center">
-        <Box width="size70" marginTop="space130" display="flex" flexDirection="column" rowGap="space130">
-          <Heading as="h5" variant="heading10" marginBottom="space0">
-            Add warehouse
-          </Heading>
-          <VisualPickerRadioGroup
-            value={value}
-            legend="Select warehouse type"
-            onChange={(newValue) => {
-              setValue(newValue);
-            }}
-            name="warehouse type"
-          >
-            <VisualPickerRadio labelText="Snowflake" value="snowflake">
-              Snowflake
-            </VisualPickerRadio>
-            <VisualPickerRadio labelText="Redshift" value="redshift">
-              Redshift
-            </VisualPickerRadio>
-            <VisualPickerRadio labelText="BigQuery" value="bigquery">
-              BigQuery
-            </VisualPickerRadio>
-          </VisualPickerRadioGroup>
-          <Box display="flex" justifyContent="flex-end">
-            <ButtonGroup>
-              <Button variant="secondary">Cancel or close</Button>
-              <Button variant="primary">
-                Next <ArrowForwardIcon decorative />
-              </Button>
-            </ButtonGroup>
+        <Box width="size70" marginTop="space130">
+          <PageHeader>
+            <PageHeaderDetails>
+              <PageHeaderHeading>Add warehouse</PageHeaderHeading>
+            </PageHeaderDetails>
+          </PageHeader>
+          <Box display="flex" flexDirection="column" rowGap="space130">
+            <VisualPickerRadioGroup
+              value={value}
+              legend="Select warehouse type"
+              onChange={(newValue) => {
+                setValue(newValue);
+              }}
+              name="warehouse type"
+            >
+              <VisualPickerRadio labelText="Snowflake" value="snowflake">
+                Snowflake
+              </VisualPickerRadio>
+              <VisualPickerRadio labelText="Redshift" value="redshift">
+                Redshift
+              </VisualPickerRadio>
+              <VisualPickerRadio labelText="BigQuery" value="bigquery">
+                BigQuery
+              </VisualPickerRadio>
+            </VisualPickerRadioGroup>
+            <Box display="flex" justifyContent="flex-end">
+              <ButtonGroup>
+                <Button variant="secondary">Cancel or close</Button>
+                <Button variant="primary">
+                  Next <ArrowForwardIcon decorative />
+                </Button>
+              </ButtonGroup>
+            </Box>
           </Box>
         </Box>
       </Box>
@@ -1320,36 +1264,34 @@ export const WizardDefaultHeaderWithProgressStepsExample = (): JSX.Element => {
         width="size70"
         maxWidth="size80"
       >
-        <Box display="flex" flexDirection="column">
-          <Box display="flex" rowGap="space30" marginBottom="space130">
+        <PageHeader>
+          <PageHeaderSetting>
             <Breadcrumb aria-label={useUID()}>
               <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
               <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
               <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
             </Breadcrumb>
-          </Box>
-          <ProgressSteps>
-            <ProgressStepCurrent as="div">Label</ProgressStepCurrent>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
-            <ProgressStepSeparator />
-            <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
-          </ProgressSteps>
-          <Box marginTop="space70">
-            <DetailText marginTop="space0">Wizard title</DetailText>
-            <Heading as="h4" variant="heading10">
-              Verb heading
-            </Heading>
-            <Paragraph marginBottom="space0">
+            <ProgressSteps>
+              <ProgressStepCurrent as="div">Label</ProgressStepCurrent>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+              <ProgressStepSeparator />
+              <ProgressStepIncomplete as="div">Label</ProgressStepIncomplete>
+            </ProgressSteps>
+          </PageHeaderSetting>
+          <PageHeaderDetails>
+            <PageHeaderKeyword>Wizard title</PageHeaderKeyword>
+            <PageHeaderHeading>Verb heading</PageHeaderHeading>
+            <PageHeaderParagraph>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non ex risus. Aenean at ante id lectus
               faucibus hendrerit a fringilla lorem. Pellentesque faucibus sit amet dolor vitae lacinia.
-            </Paragraph>
-          </Box>
-        </Box>
+            </PageHeaderParagraph>
+          </PageHeaderDetails>
+        </PageHeader>
       </Box>
     </Box>
   );
