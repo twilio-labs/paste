@@ -77,14 +77,14 @@ const HomeHero = (): JSX.Element => {
                   <NewIcon decorative />
                   New
                 </Badge>
-                <NewComponentBannerText>Introducing page templates!</NewComponentBannerText>
+                <NewComponentBannerText>The Page Header component is here!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  href="/page-templates"
+                  href="/components/page-header"
                   onClick={() =>
                     event({
                       category: "Hero",
                       action: "click-new-banner",
-                      label: "Page templates announcement",
+                      label: "Page header announcement",
                     })
                   }
                 >
