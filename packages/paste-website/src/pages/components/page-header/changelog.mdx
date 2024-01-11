@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'Page Header',
+  package: '@twilio-paste/page-header',
+  description: 'Page Header is a layout component that wraps all top-level components on a page.',
+  slug: '/components/page-header/changelog',
+};
+
+import Changelog from '@twilio-paste/page-header/CHANGELOG.md';
+import packageJson from '@twilio-paste/page-header/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Page header');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/page-header',
+        storybookUrl: '/?path=/story/components-page-header--default',
+      },
+    },
+  };
+};
+
+<Changelog />

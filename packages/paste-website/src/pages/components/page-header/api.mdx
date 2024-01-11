@@ -1,0 +1,105 @@
+export const meta = {
+  title: 'Page Header',
+  package: '@twilio-paste/page-header',
+  description: 'Page Header is a layout component that wraps all top-level components on a page.',
+  slug: '/components/page-header/api',
+};
+
+import Changelog from '@twilio-paste/page-header/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/page-header/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Page header');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/page-header');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/page-header',
+        storybookUrl: '/?path=/story/components-page-header--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/page-header - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  PageHeader,
+  PageHeaderActions,
+  PageHeaderDetails,
+  PageHeaderHeading,
+  PageHeaderInPageNavigation,
+  PageHeaderKeyword,
+  PageHeaderMeta,
+  PageHeaderParagraph,
+  PageHeaderPrefix,
+  PageHeaderSetting,
+} from '@twilio-paste/core/page-header';
+
+const MyPageHeader = () => {
+  return (
+    <PageHeader size="default">
+      <PageHeaderSetting>
+        <Breadcrumb>
+          <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+          <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+        </Breadcrumb>
+      </PageHeaderSetting>
+      <PageHeaderDetails>
+        <PageHeaderKeyword>Wizard title</PageHeaderKeyword>
+        <PageHeaderPrefix>
+          <Avatar size="sizeIcon90" name="Avatar Name" />
+        </PageHeaderPrefix>
+        <PageHeaderHeading>Page title</PageHeaderHeading>
+        <PageHeaderActions>
+          <ButtonGroup>
+            <Button variant="secondary">Action</Button>
+            <Button variant="secondary">Action</Button>
+          </ButtonGroup>
+        </PageHeaderActions>
+        <PageHeaderMeta>
+          <Badge variant="success" as="span">
+            Badge
+          </Badge>
+          Meta
+          <Anchor href="#">Meta</Anchor>
+        </PageHeaderMeta>
+        <PageHeaderParagraph>Paragraph text</PageHeaderParagraph>
+      </PageHeaderDetails>
+      <PageHeaderInPageNavigation>
+        <InPageNavigation aria-label="get started">
+          <InPageNavigationItem href="#" currentPage>
+            Label
+          </InPageNavigationItem>
+          <InPageNavigationItem href="#">Label</InPageNavigationItem>
+          <InPageNavigationItem href="#">Label</InPageNavigationItem>
+        </InPageNavigation>
+      </PageHeaderInPageNavigation>
+    </PageHeader>
+  );
+};
+```
+## Props
+<PropsTable componentApi={props.componentApi} />
