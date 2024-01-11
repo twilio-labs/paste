@@ -1,41 +1,32 @@
 export const FullObjectDetailsExample = `
-<Box
-  paddingX="space100"
-  paddingTop="space130"
-  paddingBottom="space160"
-  display="flex"
-  flexDirection="column"
-  rowGap="space130"
->
-  <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-end">
-    <Box>
-      <Box display="flex" rowGap="space30" marginBottom="space30">
-        <Breadcrumb aria-label={useUID()}>
-          <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-          <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
-        </Breadcrumb>
-      </Box>
-      <Box>
-        <Heading as="h4" variant="heading10" marginBottom="space0">
-          Object details
-        </Heading>
-      </Box>
-    </Box>
-    <Box marginBottom="space30">
-      <Button variant="secondary">Label</Button>
-    </Box>
-  </Box>
+<Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+  <PageHeader size="default">
+    <PageHeaderSetting>
+      <Breadcrumb aria-label={useUID()}>
+        <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+        <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+      </Breadcrumb>
+    </PageHeaderSetting>
+    <PageHeaderDetails>
+      <PageHeaderHeading>Object details</PageHeaderHeading>
+      <PageHeaderActions>
+        <Button variant="secondary">Label</Button>
+      </PageHeaderActions>
+    </PageHeaderDetails>
+    <PageHeaderInPageNavigation>
+      <InPageNavigation aria-label={useUID()}>
+        <InPageNavigationItem href="#" currentPage>
+          Nav item
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#">Nav item</InPageNavigationItem>
+        <InPageNavigationItem href="#">Nav item</InPageNavigationItem>
+      </InPageNavigation>
+    </PageHeaderInPageNavigation>
+  </PageHeader>
   <Box display="flex" flexDirection="column">
-    <InPageNavigation aria-label={useUID()}>
-      <InPageNavigationItem href="#" currentPage>
-        Nav item
-      </InPageNavigationItem>
-      <InPageNavigationItem href="#">Nav item</InPageNavigationItem>
-      <InPageNavigationItem href="#">Nav item</InPageNavigationItem>
-    </InPageNavigation>
     <Box display="flex" flexDirection="column" rowGap="space100">
       <Box>
-        <Heading as="h5" variant="heading20">
+        <Heading as="h2" variant="heading20">
           Heading
         </Heading>
         <Box display="flex" columnGap="space70" width="size80">
@@ -91,7 +82,7 @@ export const FullObjectDetailsExample = `
       </Box>
       <Box>
         <Box display="flex" width="100%" justifyContent="space-between" alignItems="flex-start">
-          <Heading as="h5" variant="heading20">
+          <Heading as="h2" variant="heading20">
             Heading
           </Heading>
           <Button variant="secondary">Label</Button>
@@ -134,42 +125,33 @@ export const FullObjectDetailsExample = `
 </Box>`.trim();
 
 export const DefaultObjectDetailsExample = `
-<Box
-  paddingX="space100"
-  paddingTop="space130"
-  paddingBottom="space160"
-  display="flex"
-  flexDirection="column"
-  rowGap="space130"
->
-  <Box display="flex" columnGap="space30" justifyContent="space-between" alignItems="flex-end">
-    <Box>
-      <Box display="flex" rowGap="space30" marginBottom="space30">
-        <Breadcrumb aria-label={useUID()}>
-          <BreadcrumbItem href="#">Voice</BreadcrumbItem>
-          <BreadcrumbItem href="#">Calls</BreadcrumbItem>
-        </Breadcrumb>
-      </Box>
-      <Box>
-        <Heading as="h4" variant="heading10" marginBottom="space0">
-          Call details
-        </Heading>
-      </Box>
-    </Box>
-    <Box marginBottom="space30">
-      <Button variant="secondary">Give call quality feedback</Button>
-    </Box>
-  </Box>
+<Box paddingX="space100" paddingTop="space130" paddingBottom="space160">
+  <PageHeader size="default">
+    <PageHeaderSetting>
+      <Breadcrumb aria-label={useUID()}>
+        <BreadcrumbItem href="#">Voice</BreadcrumbItem>
+        <BreadcrumbItem href="#">Calls</BreadcrumbItem>
+      </Breadcrumb>
+    </PageHeaderSetting>
+    <PageHeaderDetails>
+      <PageHeaderHeading>Call details</PageHeaderHeading>
+      <PageHeaderActions>
+        <Button variant="secondary">Give call quality feedback</Button>
+      </PageHeaderActions>
+    </PageHeaderDetails>
+    <PageHeaderInPageNavigation>
+      <InPageNavigation aria-label={useUID()}>
+        <InPageNavigationItem href="#" currentPage>
+          Overview
+        </InPageNavigationItem>
+        <InPageNavigationItem href="#">Insights summary</InPageNavigationItem>
+      </InPageNavigation>
+    </PageHeaderInPageNavigation>
+  </PageHeader>
   <Box display="flex" flexDirection="column">
-    <InPageNavigation aria-label={useUID()}>
-      <InPageNavigationItem href="#overview" currentPage>
-        Overview
-      </InPageNavigationItem>
-      <InPageNavigationItem href="#insights-summary">Insights summary</InPageNavigationItem>
-    </InPageNavigation>
     <Box display="flex" flexDirection="column" rowGap="space130">
       <Box>
-        <Heading as="h5" variant="heading20">
+        <Heading as="h2" variant="heading20">
           Properties
         </Heading>
         <Box display="flex" columnGap="space70" width="size80">
@@ -181,11 +163,7 @@ export const DefaultObjectDetailsExample = `
               </DescriptionListSet>
               <DescriptionListSet>
                 <DescriptionListTerm>Message service</DescriptionListTerm>
-                <DescriptionListDetails>
-                  <Text as="span" fontStyle="italic" color="colorTextWeak">
-                    Not available
-                  </Text>
-                </DescriptionListDetails>
+                <DescriptionListDetails>N/A</DescriptionListDetails>
               </DescriptionListSet>
               <DescriptionListSet>
                 <DescriptionListTerm>Created at</DescriptionListTerm>
@@ -209,11 +187,7 @@ export const DefaultObjectDetailsExample = `
               </DescriptionListSet>
               <DescriptionListSet>
                 <DescriptionListTerm>API endpoint</DescriptionListTerm>
-                <DescriptionListDetails>
-                  <Text as="span" fontStyle="italic" color="colorTextWeak">
-                    Not available
-                  </Text>
-                </DescriptionListDetails>
+                <DescriptionListDetails>N/A</DescriptionListDetails>
               </DescriptionListSet>
               <DescriptionListSet>
                 <DescriptionListTerm>Message segments</DescriptionListTerm>
@@ -221,11 +195,7 @@ export const DefaultObjectDetailsExample = `
               </DescriptionListSet>
               <DescriptionListSet>
                 <DescriptionListTerm>Encoding</DescriptionListTerm>
-                <DescriptionListDetails>
-                  <Text as="span" fontStyle="italic" color="colorTextWeak">
-                    Not available
-                  </Text>
-                </DescriptionListDetails>
+                <DescriptionListDetails>N/A</DescriptionListDetails>
               </DescriptionListSet>
               <DescriptionListSet>
                 <DescriptionListTerm>
@@ -261,7 +231,7 @@ export const DefaultObjectDetailsExample = `
         </DescriptionList>
       </Box>
       <Box>
-        <Heading as="h5" variant="heading20">
+        <Heading as="h2" variant="heading20">
           Errors and warnings
         </Heading>
         <Table>
