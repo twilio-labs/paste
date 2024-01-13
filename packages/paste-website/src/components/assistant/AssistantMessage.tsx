@@ -1,17 +1,17 @@
 import { ChatBubble, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "@twilio-paste/chat-log";
-import Markdown from "markdown-to-jsx";
 import { type ThreadMessage } from "openai/resources/beta/threads/messages";
 import * as React from "react";
 
 import { Logo } from "../../assets/Logo";
 import { formatTimestamp } from "../../utils/formatTimestamp";
+import { AssistantMarkdown } from "./AssistantMarkdown";
 
 export const AssistantMessage: React.FC<{ threadMessage: ThreadMessage }> = ({ threadMessage }) => {
   return (
     <ChatMessage variant="inbound">
       <ChatBubble>
         {threadMessage.content[0].type === "text" && (
-          <Markdown key={threadMessage.id}>{threadMessage.content[0].text.value}</Markdown>
+          <AssistantMarkdown key={threadMessage.id}>{threadMessage.content[0].text.value}</AssistantMarkdown>
         )}
       </ChatBubble>
       <ChatMessageMeta aria-label={`said by the assistant at ${formatTimestamp(threadMessage.created_at)}`}>
