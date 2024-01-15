@@ -12,7 +12,7 @@ export const AssistantThreads: React.FC<React.PropsWithChildren> = () => {
   const listboxState = useListboxPrimitiveState();
   const threadsStore = useStoreWithLocalStorage(useAssistantThreadsStore, (state) => state);
   const deleteThreadMutation = useDeleteThreadMutation();
-  const { resetMessages } = useAssistantMessagesStore();
+  const resetMessages = useAssistantMessagesStore((state) => state.resetMessages);
 
   const handleThreadDelete = (threadID: AssistantThread["id"]): void => {
     deleteThreadMutation.mutate(threadID, {

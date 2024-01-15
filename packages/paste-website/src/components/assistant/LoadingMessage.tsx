@@ -25,7 +25,7 @@ const STATUS_MAP = {
 };
 
 export const LoadingMessage: React.FC<{ maxWidth: number }> = ({ maxWidth }) => {
-  const { activeRun } = useAssistantRunStore();
+  const activeRun = useAssistantRunStore((state) => state.activeRun);
 
   const newDateTime = new Date();
   const timestamp = Math.floor(newDateTime.getTime() / 1000);

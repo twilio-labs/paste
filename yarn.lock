@@ -10909,6 +10909,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-devtools@npm:5.17.7":
+  version: 5.17.7
+  resolution: "@tanstack/query-devtools@npm:5.17.7"
+  checksum: 5336f5366aa1fd377a54d296d3a7a115c1a70180e0a2e8729a7cb087d780a9260625c52ce83f159f2fb3f152e91e2d98ad2fc86f5c22801e462117e275b332d8
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-devtools@npm:^5.17.10":
+  version: 5.17.10
+  resolution: "@tanstack/react-query-devtools@npm:5.17.10"
+  dependencies:
+    "@tanstack/query-devtools": 5.17.7
+  peerDependencies:
+    "@tanstack/react-query": ^5.17.10
+    react: ^18.0.0
+  checksum: 89eb663816bb77fc3834d6ce2887c97e613377128a016093da4935e6684c1f91b4113ff94bde92e14b83ec1fb7f087955cd028ac724aaee88d0bb5d8cfa90e9a
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-query@npm:^5.17.9":
   version: 5.17.9
   resolution: "@tanstack/react-query@npm:5.17.9"
@@ -15648,6 +15667,7 @@ __metadata:
     "@supabase/supabase-js": ^2.36.0
     "@tanstack/eslint-plugin-query": ^5.17.7
     "@tanstack/react-query": ^5.17.9
+    "@tanstack/react-query-devtools": ^5.17.10
     "@testing-library/react": ^13.4.0
     "@twilio-paste/account-switcher": ^3.0.1
     "@twilio-paste/alert": ^14.1.0

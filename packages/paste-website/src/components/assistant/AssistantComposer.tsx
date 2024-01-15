@@ -18,8 +18,9 @@ export const AssistantComposer: React.FC = () => {
   const selectedThread = threadsStore?.selectedThreadID;
   const createAssistantRun = useCreateAssistantRunMutation();
   const simpleCompletionMutation = useSimpleCompletionMutation();
-  const { setActiveRun } = useAssistantRunStore();
-  const { addMessage, messages } = useAssistantMessagesStore();
+  const setActiveRun = useAssistantRunStore((state) => state.setActiveRun);
+  const addMessage = useAssistantMessagesStore((state) => state.addMessage);
+  const messages = useAssistantMessagesStore((state) => state.messages);
   const editorRef = React.useRef(null);
 
   const handleComposerChange = (editorState: EditorState): void => {
@@ -33,11 +34,12 @@ export const AssistantComposer: React.FC = () => {
     if (message === "" || selectedThread == null) return;
     const date = new Date();
 
+    // add the new user message to the store to optimistically render it
     addMessage({
       id: "",
       object: "thread.message",
       created_at: Math.floor(date.getTime() / 1000),
-      thread_id: "thread_4TQxpcPcMSUzhuJ10S1S3YNe",
+      thread_id: "xxxx",
       role: "user",
       content: [
         {
@@ -66,7 +68,11 @@ export const AssistantComposer: React.FC = () => {
     );
 
     if (messages.length === 0) {
-      // summarise the first question as the title of the thread
+      /**
+       * summarise the first question as the title of the
+       * thread, if this is the first message in that thread
+       * for it to appear in the thread list
+       */
       simpleCompletionMutation.mutateAsync(
         {
           prompt:

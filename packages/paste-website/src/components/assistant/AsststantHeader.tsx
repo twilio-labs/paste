@@ -21,8 +21,7 @@ export const AssistantHeader: React.FC = () => {
           // @ts-expect-error I don't know how to type this right now so it knows it's a response
           const newThread = await data.json();
           if (threadStore == null) return;
-          threadStore.createThread(newThread);
-          threadStore.setSelectedThread(newThread.id);
+          threadStore.createAndSelectThread(newThread);
         },
       },
     );
