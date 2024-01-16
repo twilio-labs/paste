@@ -245,7 +245,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     const [showDecrement, setShowDecrement] = React.useState(true);
 
     // used for number inputs to be able to track uncontrolled number inputs value being changed by a user and it not being tracked by an applications
-    const [internalValue, setInternalValue] = React.useState(props.defaultValue ? props.defaultValue : "0");
+    const [internalValue, setInternalValue] = React.useState(value ?? props.defaultValue ?? "0");
 
     React.useEffect(() => {
       if (type !== "number") return;

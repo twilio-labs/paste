@@ -715,8 +715,8 @@ DefaultNumberInput.storyName = "Number Input - Controlled";
 
 export const TestNumberInput = (): React.ReactNode => {
   const uid = useUID();
-  const [value, setValue] = React.useState("0");
-  const [minValue, setMinValue] = React.useState("-10");
+  const [value, setValue] = React.useState("5");
+  const [minValue, setMinValue] = React.useState("0");
   const [maxValue, setMaxValue] = React.useState("10");
   const [stepValue, setStepValue] = React.useState("1");
   return (
