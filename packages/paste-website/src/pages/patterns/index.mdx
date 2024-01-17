@@ -16,6 +16,7 @@ import {UnorderedList, ListItem} from '@twilio-paste/list';
 import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {PageHeader, PageHeaderDetails, PageHeaderHeading, PageHeaderSetting} from "@twilio-paste/page-header";
 import {SiteLink} from '../../components/SiteLink.tsx';
 import {Breadcrumb, BreadcrumbItem} from '../../components/breadcrumb';
 import {SidebarCategoryRoutes} from '../../constants';
@@ -38,16 +39,18 @@ export const getStaticProps = async () => {
 
 <content>
 
-<Breadcrumb>
-  <BreadcrumbItem href="/">Home</BreadcrumbItem>
-</Breadcrumb>
-<Heading as="h1" variant="heading10">
-  {meta.title}
-</Heading>
+<PageHeader>
+  <PageHeaderSetting>
+    <Breadcrumb>
+      <BreadcrumbItem href="/">Home</BreadcrumbItem>
+    </Breadcrumb>
+  </PageHeaderSetting>
+  <PageHeaderDetails>
+    <PageHeaderHeading>{meta.title}</PageHeaderHeading>
+  </PageHeaderDetails>
+</PageHeader>
 
 </content>
-
----
 
 ## What is a pattern?
 

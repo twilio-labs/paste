@@ -5,6 +5,7 @@ export const meta = {
 };
 
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {PageHeader, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph} from "@twilio-paste/page-header";
 
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../../utils/api';
@@ -21,14 +22,13 @@ export const getStaticProps = async () => {
 };
 
 <content>
-
-<h1>{meta.title}</h1>
-
-<p>{meta.description}</p>
-
+  <PageHeader>
+    <PageHeaderDetails>
+      <PageHeaderHeading>{meta.title}</PageHeaderHeading>
+      <PageHeaderParagraph>{meta.description}</PageHeaderParagraph>
+    </PageHeaderDetails>
+  </PageHeader>
 </content>
-
----
 
 <contentwrapper>
 

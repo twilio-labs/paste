@@ -1,11 +1,12 @@
 export const meta = {
   title: 'Contributing an icon',
-  description: 'Guidelines on how to create and export SVG icons for Paste.',
+  description: 'How to create and export SVG icons for Paste.',
   slug: '/introduction/contributing/icons/',
 };
 
 import Link from 'next/link';
 import {Box} from '@twilio-paste/box';
+import {PageHeader, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph} from "@twilio-paste/page-header";
 import {Text} from '@twilio-paste/text';
 import {Button} from '@twilio-paste/button';
 import {PlusIcon} from '@twilio-paste/icons/esm/PlusIcon';
@@ -26,14 +27,21 @@ export const getStaticProps = async () => {
   };
 };
 
+
+<content>
+  <PageHeader>
+    <PageHeaderDetails>
+      <PageHeaderHeading>{meta.title}</PageHeaderHeading>
+      <PageHeaderParagraph>{meta.description}</PageHeaderParagraph>
+    </PageHeaderDetails>
+  </PageHeader>
+</content>
+
 <contentwrapper>
 
 <PageAside data={mdxHeadings} />
 
 <content>
-<h1>{meta.title}</h1>
-
----
 
 ## Finding an icon
 

@@ -5,6 +5,7 @@ export const meta = {
 };
 
 import {Anchor} from '@twilio-paste/anchor';
+import {PageHeader, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph} from "@twilio-paste/page-header";
 import {Grid} from '../../../components/grid';
 import Link from 'next/link';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -22,14 +23,13 @@ export const getStaticProps = async () => {
 };
 
 <content>
-
-<h1>{meta.title}</h1>
-
-<p>{meta.description}</p>
-
+  <PageHeader>
+    <PageHeaderDetails>
+      <PageHeaderHeading>{meta.title}</PageHeaderHeading>
+      <PageHeaderParagraph>{meta.description}</PageHeaderParagraph>
+    </PageHeaderDetails>
+  </PageHeader>
 </content>
-
----
 
 <contentwrapper>
 

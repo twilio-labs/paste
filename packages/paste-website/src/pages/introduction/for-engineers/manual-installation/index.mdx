@@ -6,6 +6,7 @@ export const meta = {
 
 import {Box} from '@twilio-paste/box';
 import {Paragraph} from '@twilio-paste/paragraph';
+import {PageHeader, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph} from "@twilio-paste/page-header";
 import {Table, THead, TBody, Td, Th, Tr} from '@twilio-paste/table';
 import CorePkgJson from '@twilio-paste/core/package.json';
 import IconsPkgJson from '@twilio-paste/icons/package.json';
@@ -26,14 +27,13 @@ export const getStaticProps = async () => {
 };
 
 <content>
-
-<h1>{meta.title}</h1>
-
-<Paragraph>{meta.description}</Paragraph>
-
+  <PageHeader>
+    <PageHeaderDetails>
+      <PageHeaderHeading>{meta.title}</PageHeaderHeading>
+      <PageHeaderParagraph>{meta.description}</PageHeaderParagraph>
+    </PageHeaderDetails>
+  </PageHeader>
 </content>
-
----
 
 <contentwrapper>
 

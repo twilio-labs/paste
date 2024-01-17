@@ -1,9 +1,17 @@
 import { Anchor } from "@twilio-paste/anchor";
+import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Breadcrumb, BreadcrumbItem } from "@twilio-paste/breadcrumb";
 import { Heading } from "@twilio-paste/heading";
 import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
-import { Stack } from "@twilio-paste/stack";
+import {
+  PageHeader,
+  PageHeaderDetails,
+  PageHeaderHeading,
+  PageHeaderMeta,
+  PageHeaderParagraph,
+  PageHeaderSetting,
+} from "@twilio-paste/page-header";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import Head from "next/head";
@@ -44,6 +52,8 @@ export interface GenericHeaderProps {
   url?: string;
   version?: string;
   shouldShowBreadcrumbs?: boolean;
+  productSuitability?: [string];
+  children?: React.ReactNode;
 }
 
 const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
@@ -60,6 +70,8 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   url,
   version,
   shouldShowBreadcrumbs = true,
+  productSuitability,
+  children,
 }) => {
   const theme = useTheme();
 
@@ -89,14 +101,14 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   ].includes(categoryRoute);
 
   return (
-    <Box element="PAGE_HEADER">
+    <PageHeader>
       {openGraphServiceUrl && shouldHavePreview && (
         <Head>
           <meta property="og:image" content={openGraphServiceUrl} />
         </Head>
       )}
       {shouldShowBreadcrumbs && (
-        <Box marginBottom="space50">
+        <PageHeaderSetting>
           <Breadcrumb>
             {isFoundations ? (
               <BreadcrumbItem>{categoryName}</BreadcrumbItem>
@@ -104,14 +116,9 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
               <BreadcrumbItem href={categoryRoute}>{categoryName}</BreadcrumbItem>
             )}
           </Breadcrumb>
-        </Box>
+        </PageHeaderSetting>
       )}
-      <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">
-        <Box marginRight="space50">
-          <Heading as="h1" variant="heading10" marginBottom="space0">
-            {name}
-          </Heading>
-        </Box>
+      <PageHeaderDetails>
         {showPackageStatus && (
           <PackageStatusLegend
             packageStatus={packageStatus}
@@ -120,17 +127,13 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
             engineerCommitteeReview={engineerCommitteeReview}
           />
         )}
-      </Box>
-      {description && (
-        <Box maxWidth="size70">
-          <Text as="p" fontSize="fontSize40">
-            {description}
-          </Text>
-        </Box>
-      )}
-      {shouldShowSecondary && (
-        <Box marginTop="space70">
-          <Stack orientation="horizontal" spacing="space70">
+        <PageHeaderHeading>
+          <Heading as="h1" variant="heading10" marginBottom="space0">
+            {name}
+          </Heading>
+        </PageHeaderHeading>
+        {shouldShowSecondary && (
+          <PageHeaderMeta>
             {version && (
               <Text as="span" color="colorTextWeak">
                 Version {version}
@@ -157,11 +160,21 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
                 Storybook
               </IconAnchor>
             )}
-          </Stack>
-        </Box>
-      )}
-    </Box>
+            {productSuitability && (
+              <Badge as="span" variant="decorative10" key="1">
+                           product
+                         </Badge>
+            )
+              
+            }
+          </PageHeaderMeta>
+        )}
+        {description && <PageHeaderParagraph>{description}</PageHeaderParagraph>}
+      </PageHeaderDetails>
+      {children}
+    </PageHeader>
   );
 };
 
 export { GenericHeader };
+

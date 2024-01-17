@@ -26,13 +26,13 @@ export const getStaticProps = async () => {
   };
 };
 
-<NormalizedComponentHeader
+<NormalizedPatternHeader
   categoryRoute={SidebarCategoryRoutes.TOKENS}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-design-tokens"
   data={props.data}
+  shoudShowInPageNav={false}
+  shouldShowVersion
 />
-
----
 
 <contentwrapper>
 
