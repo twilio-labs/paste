@@ -3,7 +3,7 @@ import React from "react";
 
 const Window: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <Box display="grid" gridTemplateColumns="400px 1fr" height="100vh" width="100%">
+    <Box display="grid" gridTemplateColumns="400px 1fr" height="100svh" width="100%">
       {children}
     </Box>
   );
@@ -11,7 +11,7 @@ const Window: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 const Canvas: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
-    <Box display="grid" gridTemplateRows="1fr auto" overflow="hidden" height="100vh">
+    <Box display="grid" gridTemplateRows="1fr auto" overflow="hidden" height="100svh">
       {children}
     </Box>
   );
@@ -26,7 +26,7 @@ const Threads: React.FC<React.PropsWithChildren> = ({ children }) => {
       borderRightColor="colorBorderWeaker"
       borderRightWidth="borderWidth10"
       backgroundColor="colorBackgroundWeak"
-      height="100vh"
+      height="100svh"
       overflowY="auto"
     >
       {children}

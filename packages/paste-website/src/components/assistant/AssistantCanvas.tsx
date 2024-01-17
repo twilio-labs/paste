@@ -1,6 +1,6 @@
 import { useIsMutating, useQuery } from "@tanstack/react-query";
 import { Box } from "@twilio-paste/box";
-import { ChatLog } from "@twilio-paste/chat-log";
+import { ChatBookend, ChatBookendItem, ChatLog } from "@twilio-paste/chat-log";
 import * as React from "react";
 import { useShallow } from "zustand/react/shallow";
 
@@ -63,6 +63,18 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
       <Box maxWidth="1000px" marginX="auto">
         {activeRun != null && <AssistantMessagePoller />}
         <ChatLog ref={loggerRef}>
+          <ChatBookend>
+            <ChatBookendItem>
+              Welcome to the Paste Design System Assistant! We&apos;re excited to have you here.
+            </ChatBookendItem>
+          </ChatBookend>
+          <ChatBookend>
+            <ChatBookendItem>
+              Keep in mind that this is an experimental tool and so the information provided{" "}
+              <strong>may not be entirely accurate</strong>.
+            </ChatBookendItem>
+            <ChatBookendItem>Your conversations are not stored or used to train OpenAI&apos;s models.</ChatBookendItem>
+          </ChatBookend>
           {messages?.map((threadMessage): React.ReactNode => {
             if (threadMessage.role === "assistant") {
               return <AssistantMessage key={threadMessage.id} threadMessage={threadMessage} />;

@@ -30,7 +30,7 @@ export const useDeleteThreadMutation = (): UseMutationResult => {
 export const useCreateAssistantRunMutation = (): UseMutationResult => {
   return useMutation({
     mutationFn: async (messageDetails) => {
-      return fetch("/api/paste-assistant-message/", {
+      return fetch("/api/paste-assistant-message", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
