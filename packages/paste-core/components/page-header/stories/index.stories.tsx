@@ -18,6 +18,7 @@ import {
   ProgressStepSeparator,
   ProgressSteps,
 } from "@twilio-paste/progress-steps";
+import { Separator } from "@twilio-paste/separator";
 import { StatusBadge } from "@twilio-paste/status";
 import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
@@ -32,6 +33,7 @@ import {
   PageHeaderMeta,
   PageHeaderParagraph,
   PageHeaderPrefix,
+  PageHeaderSeparator,
   PageHeaderSetting,
 } from "../src";
 
@@ -81,6 +83,81 @@ export const Default = (): React.ReactElement => {
         </InPageNavigation>
       </PageHeaderInPageNavigation>
     </PageHeader>
+  );
+};
+
+export const SeparatorVersusNav = (): React.ReactElement => {
+  return (
+    <Box display="flex" columnGap="space200">
+      <Box width="size70" backgroundColor="colorBackground" height="min-content">
+        <PageHeader size="default">
+          <PageHeaderSetting>
+            <Breadcrumb>
+              <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+              <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+            </Breadcrumb>
+          </PageHeaderSetting>
+          <PageHeaderDetails>
+            <PageHeaderKeyword>Wizard title</PageHeaderKeyword>
+            <PageHeaderPrefix>
+              <Avatar size="sizeIcon90" name="Avatar Name" />
+            </PageHeaderPrefix>
+            <PageHeaderHeading>Page title</PageHeaderHeading>
+            <PageHeaderActions>
+              <Button variant="secondary">Action</Button>
+            </PageHeaderActions>
+            <PageHeaderMeta>
+              <Badge variant="success" as="span">
+                Badge
+              </Badge>
+              Meta
+              <Anchor href="#">Meta</Anchor>
+            </PageHeaderMeta>
+            <PageHeaderParagraph>Paragraph text</PageHeaderParagraph>
+          </PageHeaderDetails>
+          <PageHeaderSeparator>
+            <Separator orientation="horizontal" />
+          </PageHeaderSeparator>
+        </PageHeader>
+      </Box>
+      <Box width="size70" backgroundColor="colorBackground" height="min-content">
+        <PageHeader size="default">
+          <PageHeaderSetting>
+            <Breadcrumb>
+              <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+              <BreadcrumbItem href="#">Breadcrumb</BreadcrumbItem>
+            </Breadcrumb>
+          </PageHeaderSetting>
+          <PageHeaderDetails>
+            <PageHeaderKeyword>Wizard title</PageHeaderKeyword>
+            <PageHeaderPrefix>
+              <Avatar size="sizeIcon90" name="Avatar Name" />
+            </PageHeaderPrefix>
+            <PageHeaderHeading>Page title</PageHeaderHeading>
+            <PageHeaderActions>
+              <Button variant="secondary">Action</Button>
+            </PageHeaderActions>
+            <PageHeaderMeta>
+              <Badge variant="success" as="span">
+                Badge
+              </Badge>
+              Meta
+              <Anchor href="#">Meta</Anchor>
+            </PageHeaderMeta>
+            <PageHeaderParagraph>Paragraph text</PageHeaderParagraph>
+          </PageHeaderDetails>
+          <PageHeaderInPageNavigation>
+            <InPageNavigation aria-label="get started">
+              <InPageNavigationItem href="#" currentPage>
+                Label
+              </InPageNavigationItem>
+              <InPageNavigationItem href="#">Label</InPageNavigationItem>
+              <InPageNavigationItem href="#">Label</InPageNavigationItem>
+            </InPageNavigation>
+          </PageHeaderInPageNavigation>
+        </PageHeader>
+      </Box>
+    </Box>
   );
 };
 
