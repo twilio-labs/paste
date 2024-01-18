@@ -1,5 +1,7 @@
 import merge from "deepmerge";
 import * as React from "react";
+import merge from "deepmerge";
+import * as React from "react";
 
 import { SidebarCategoryRoutes } from "../../../constants";
 import { getNormalizedHeaderData } from "../../../utils/DataUtils";
@@ -41,7 +43,11 @@ const NormalizedPatternHeader: React.FC<React.PropsWithChildren<NormalizedPatter
       figmaStatus={figmaStatus}
       version={shouldShowVersion ? version : undefined}
       productSuitability={productSuitability}
-    />
+    >
+      <PageHeaderSeparator>
+        <Separator orientation="horizontal" />
+      </PageHeaderSeparator>
+    </GenericHeader>
   );
 };
 

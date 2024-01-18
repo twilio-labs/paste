@@ -10,7 +10,7 @@ import { StatusDescriptions } from "../../../constants";
 
 type BadgeVariants = BadgeProps["variant"];
 interface PackageStatusLegendProps {
-  packageStatus?: string | null;
+  packageStatus?: "Alpha" | "Beta" | "Production" | null;
   figmaStatus?: string | null;
   designCommitteeReview?: string | null;
   engineerCommitteeReview?: string | null;
@@ -61,7 +61,8 @@ const PackageStatusLegend: React.FC<React.PropsWithChildren<PackageStatusLegendP
   const shouldShowFigmaNeeded = !figmaStatus;
   const shouldShowPeerReviewNeeded = !designCommitteeReview || !engineerCommitteeReview;
 
-  const shouldShowStatus = packageStatus || shouldShowFigmaNeeded || shouldShowPeerReviewNeeded;
+  const shouldShowStatus =
+    packageStatus === "Alpha" || packageStatus === "Beta" || shouldShowFigmaNeeded || shouldShowPeerReviewNeeded;
 
   if (shouldShowStatus) {
     return (

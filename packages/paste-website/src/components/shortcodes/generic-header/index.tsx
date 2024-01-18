@@ -47,7 +47,7 @@ export interface GenericHeaderProps {
   figmaStatus?: string | null;
   githubUrl?: string;
   packageName?: string;
-  packageStatus?: string | null;
+  packageStatus?: "Alpha" | "Beta" | "Production" | null;
   storybookUrl?: string;
   url?: string;
   version?: string;
@@ -161,12 +161,11 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
               </IconAnchor>
             )}
             {productSuitability && (
+              // TODO: fix product badges for patterns
               <Badge as="span" variant="decorative10" key="1">
-                           product
-                         </Badge>
-            )
-              
-            }
+                product
+              </Badge>
+            )}
           </PageHeaderMeta>
         )}
         {description && <PageHeaderParagraph>{description}</PageHeaderParagraph>}
@@ -177,4 +176,3 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
 };
 
 export { GenericHeader };
-

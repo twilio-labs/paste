@@ -1,5 +1,6 @@
 import { InPageNavigation, InPageNavigationItem } from "@twilio-paste/in-page-navigation";
-import { PageHeaderInPageNavigation } from "@twilio-paste/page-header";
+import { PageHeaderInPageNavigation, PageHeaderSeparator } from "@twilio-paste/page-header";
+import { Separator } from "@twilio-paste/separator";
 import merge from "deepmerge";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -63,7 +64,7 @@ export const NormalizedComponentHeader: React.FC<React.PropsWithChildren<Normali
       githubUrl={githubUrl}
       storybookUrl={storybookUrl}
     >
-      {shoudShowInPageNav && (
+      {shoudShowInPageNav ? (
         <PageHeaderInPageNavigation>
           <InPageNavigation aria-label="Component page navigation">
             <Link href={componentPageNavLinks.GUIDELINES} legacyBehavior passHref>
@@ -86,6 +87,10 @@ export const NormalizedComponentHeader: React.FC<React.PropsWithChildren<Normali
             </Link>
           </InPageNavigation>
         </PageHeaderInPageNavigation>
+      ) : (
+        <PageHeaderSeparator>
+          <Separator orientation="horizontal" />
+        </PageHeaderSeparator>
       )}
     </GenericHeader>
   );
