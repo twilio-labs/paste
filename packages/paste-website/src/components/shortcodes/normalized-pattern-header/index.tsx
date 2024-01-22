@@ -1,5 +1,5 @@
-import merge from "deepmerge";
-import * as React from "react";
+import { PageHeaderSeparator } from "@twilio-paste/page-header";
+import { Separator } from "@twilio-paste/separator";
 import merge from "deepmerge";
 import * as React from "react";
 
@@ -12,12 +12,14 @@ import type { GenericHeaderProps } from "../generic-header";
 interface NormalizedPatternHeaderProps extends GenericHeaderProps {
   data: ApiData;
   shouldShowVersion: boolean;
+  shouldShowGithubUrl: boolean;
 }
 
 const NormalizedPatternHeader: React.FC<React.PropsWithChildren<NormalizedPatternHeaderProps>> = ({
   data,
   categoryRoute = SidebarCategoryRoutes.PATTERNS,
   shouldShowVersion = false,
+  shouldShowGithubUrl = false,
   ...props
 }) => {
   const normalizedData = getNormalizedHeaderData(data);
@@ -30,6 +32,7 @@ const NormalizedPatternHeader: React.FC<React.PropsWithChildren<NormalizedPatter
     engineerCommitteeReview,
     productSuitability,
     version,
+    githubUrl,
   } = merge(normalizedData, props);
 
   return (
@@ -43,6 +46,7 @@ const NormalizedPatternHeader: React.FC<React.PropsWithChildren<NormalizedPatter
       figmaStatus={figmaStatus}
       version={shouldShowVersion ? version : undefined}
       productSuitability={productSuitability}
+      githubUrl={shouldShowGithubUrl ? githubUrl : undefined}
     >
       <PageHeaderSeparator>
         <Separator orientation="horizontal" />

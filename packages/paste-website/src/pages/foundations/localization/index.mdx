@@ -6,6 +6,8 @@ export const meta = {
 
 import {Anchor} from '@twilio-paste/anchor';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {PageHeaderSeparator} from '@twilio-paste/page-header';
+import {Separator} from '@twilio-paste/separator';
 
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -25,11 +27,11 @@ export const getStaticProps = async () => {
   };
 };
 
-<content>
-
-<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
-
-</content>
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <contentwrapper>
 

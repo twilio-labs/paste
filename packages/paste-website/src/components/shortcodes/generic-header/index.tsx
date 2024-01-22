@@ -80,7 +80,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
     : undefined;
   const openGraphServiceUrl = ogImagePath ? useOpengraphServiceUrl(ogImagePath) : null;
 
-  const shouldShowSecondary = version || githubUrl || storybookUrl;
+  const shouldShowSecondary = version || githubUrl || storybookUrl || productSuitability;
   const sharedIconStyles = {
     height: theme.space.space40,
     width: theme.space.space40,
@@ -161,10 +161,16 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
               </IconAnchor>
             )}
             {productSuitability && (
-              // TODO: fix product badges for patterns
-              <Badge as="span" variant="decorative10" key="1">
-                product
-              </Badge>
+              <>
+                Product
+                <Box display="flex" columnGap="space20">
+                  {productSuitability.map((product: string) => (
+                    <Badge as="span" variant="decorative10" key={product}>
+                      {product}
+                    </Badge>
+                  ))}
+                </Box>
+              </>
             )}
           </PageHeaderMeta>
         )}

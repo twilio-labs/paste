@@ -6,6 +6,8 @@ export const meta = {
 };
 
 import {Box} from '@twilio-paste/box';
+import {PageHeaderSeparator} from '@twilio-paste/page-header'
+import {Separator} from '@twilio-paste/separator';
 
 import {SidebarCategoryRoutes} from '../../../../constants';
 import {WordsList} from '../../../../components/word-list';
@@ -28,6 +30,10 @@ export const getStaticProps = async () => {
   categoryRoute={SidebarCategoryRoutes.CONTENT}
   shouldShowBreadcrumbs={false}
   description={meta.description}
-/>
+>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <WordsList />

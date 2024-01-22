@@ -17,12 +17,13 @@ import {Select, Option} from '@twilio-paste/select';
 import {Grid, Column} from '@twilio-paste/grid';
 import {Heading} from '@twilio-paste/heading';
 import {MediaObject, MediaFigure, MediaBody} from '@twilio-paste/media-object';
-import {PageHeader, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph} from "@twilio-paste/page-header";
+import {PageHeader, PageHeaderSeparator, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph} from "@twilio-paste/page-header";
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
 import {Tabs, TabList, Tab, TabPanels, TabPanel} from '@twilio-paste/tabs';
 import {Text} from '@twilio-paste/text';
 import {Toast} from '@twilio-paste/toast';
+import {Separator} from "@twilio-paste/separator";
 import {ErrorIcon} from '@twilio-paste/icons/esm/ErrorIcon';
 import {SuccessIcon} from '@twilio-paste/icons/esm/SuccessIcon';
 import {Codeblock} from '../../../../components/codeblock';
@@ -44,14 +45,15 @@ export const getStaticProps = async () => {
 };
 
 
-<content>
-  <PageHeader>
-    <PageHeaderDetails>
-      <PageHeaderHeading>{meta.title}</PageHeaderHeading>
-      <PageHeaderParagraph>{meta.description}</PageHeaderParagraph>
-    </PageHeaderDetails>
-  </PageHeader>
-</content>
+<PageHeader>
+  <PageHeaderDetails>
+    <PageHeaderHeading>{meta.title}</PageHeaderHeading>
+    <PageHeaderParagraph>{meta.description}</PageHeaderParagraph>
+  </PageHeaderDetails>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</PageHeader>
 
 <contentwrapper>
 

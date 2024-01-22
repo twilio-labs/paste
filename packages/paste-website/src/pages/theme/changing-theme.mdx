@@ -4,6 +4,9 @@ export const meta = {
   slug: '/theme/changing-theme',
 };
 
+import {PageHeaderSeparator} from '@twilio-paste/page-header'
+import {Separator} from '@twilio-paste/separator'
+
 import {SidebarCategoryRoutes} from '../../constants';
 import DefaultLayout from '../../layouts/DefaultLayout';
 import {getNavigationData} from '../../utils/api';
@@ -19,9 +22,12 @@ export const getStaticProps = async () => {
   };
 };
 
-<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.THEME} />
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.THEME}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal" />
+  </PageHeaderSeparator>
+</GenericHeader>
 
----
 
  <contentwrapper>
 

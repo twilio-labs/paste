@@ -4,8 +4,8 @@ export const meta = {
   slug: '/introduction/contributing/components/',
 };
 
-import {PageHeader, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph} from "@twilio-paste/page-header";
-
+import {PageHeader, PageHeaderSeparator, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph} from "@twilio-paste/page-header";
+import {Separator} from "@twilio-paste/separator";
 
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../../utils/api';
@@ -22,15 +22,15 @@ export const getStaticProps = async () => {
 };
 
 
-
-<content>
-  <PageHeader>
-    <PageHeaderDetails>
-      <PageHeaderHeading>{meta.title}</PageHeaderHeading>
-      <PageHeaderParagraph>{meta.description}</PageHeaderParagraph>
-    </PageHeaderDetails>
-  </PageHeader>
-</content>
+<PageHeader>
+  <PageHeaderDetails>
+    <PageHeaderHeading>{meta.title}</PageHeaderHeading>
+    <PageHeaderParagraph>{meta.description}</PageHeaderParagraph>
+  </PageHeaderDetails>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</PageHeader>
 
 <contentwrapper>
 
