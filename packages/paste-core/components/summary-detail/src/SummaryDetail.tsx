@@ -6,6 +6,7 @@ import {
   useDisclosurePrimitiveState,
 } from "@twilio-paste/disclosure-primitive";
 import * as React from "react";
+
 import { SummaryDetailContext } from "./SummaryDetailContext";
 
 export interface SummaryDetailStateReturn extends DisclosurePrimitveStateReturn {

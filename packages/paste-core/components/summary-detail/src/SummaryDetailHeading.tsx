@@ -1,6 +1,7 @@
 import { Box, type BoxProps, safelySpreadBoxProps } from "@twilio-paste/box";
 import { DisclosurePrimitive } from "@twilio-paste/disclosure-primitive";
 import * as React from "react";
+
 import { SummaryDetailContext } from "./SummaryDetailContext";
 import { SummaryToggleButton } from "./SummaryToggleButton";
 

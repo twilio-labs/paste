@@ -1,6 +1,7 @@
 import { Box, type BoxProps, safelySpreadBoxProps } from "@twilio-paste/box";
 import { DisclosurePrimitiveContent } from "@twilio-paste/disclosure-primitive";
 import * as React from "react";
+
 import { SummaryDetailContext } from "./SummaryDetailContext";
 
 export interface SummaryDetailContentProps {
