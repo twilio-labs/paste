@@ -49,6 +49,9 @@ const PageHeaderExample = () => {
         <PageHeaderHeading>Getting started with Segment</PageHeaderHeading>
         <PageHeaderMeta><Anchor href="#">Download the help guide PDF</Anchor></PageHeaderMeta>
       </PageHeaderDetails>
+      <PageHeaderSeparator>
+        <Separator orientation="horizontal" />
+      </PageHeaderSeparator>
     </PageHeader>
   );
 };
@@ -144,6 +147,9 @@ const PageHeaderExample = () => {
         </PageHeaderActions>
         <PageHeaderParagraph>Use numbers you own as caller ID or the "To" number for outbound calls and messages. Phone numbers you buy from Twilio or port to Twilio can always be used as caller IDs.</PageHeaderParagraph>
       </PageHeaderDetails>
+      <PageHeaderSeparator>
+        <Separator orientation="horizontal" />
+      </PageHeaderSeparator>
     </PageHeader>
   );
 };
@@ -205,6 +211,9 @@ const PageHeaderExample = () => {
         <PageHeaderHeading>Connect Azure SQL data warehouse</PageHeaderHeading>
         <PageHeaderParagraph>Follow the steps below to start setting up Azure SQL data warehouse.</PageHeaderParagraph>
       </PageHeaderDetails>
+      <PageHeaderSeparator>
+        <Separator orientation="horizontal" />
+      </PageHeaderSeparator>
     </PageHeader>
   );
 };
