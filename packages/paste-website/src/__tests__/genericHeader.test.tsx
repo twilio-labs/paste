@@ -19,7 +19,7 @@ describe("GenericHeader", () => {
           figmaStatus={null}
           githubUrl="https://google.com"
           packageName="@twilio-paste/alert"
-          packageStatus="alpha"
+          packageStatus="Alpha"
           storybookUrl="/?path=/story/components-alert--"
           version="1.0.0"
         />
@@ -29,8 +29,8 @@ describe("GenericHeader", () => {
 
   it("should render an h1 tag using the name prop as text", () => {
     render(<FullHeader />);
-    const heading = screen.getByRole("heading", { level: 1 });
-    expect(heading.textContent).toEqual("Alert");
+    const heading = screen.getAllByRole("heading", { level: 1 });
+    expect(heading[0].textContent).toEqual("Alert");
   });
 
   it("should render text using the description prop", () => {
