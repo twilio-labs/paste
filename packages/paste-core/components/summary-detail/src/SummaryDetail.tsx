@@ -1,5 +1,5 @@
-import { type BoxProps } from "@twilio-paste/box";
-import { Card } from "@twilio-paste/card";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
 import {
   type DisclosurePrimitiveInitialState,
   type DisclosurePrimitveStateReturn,
@@ -37,10 +37,17 @@ export const SummaryDetail = React.forwardRef<HTMLDivElement, SummaryDetailProps
     const stateForContext = state || useDisclosurePrimitiveState(props);
 
     return (
-      <SummaryDetailContext.Provider value={stateForContext}>
-        <Card {...props} ref={ref} element={element} padding="space60">
+      <SummaryDetailContext.Provider value={{ ...stateForContext, headerId: React.useId() }}>
+        <Box
+          {...safelySpreadBoxProps(props)}
+          ref={ref}
+          element={element}
+          display="flex"
+          flexDirection="column"
+          rowGap="space40"
+        >
           {children}
-        </Card>
+        </Box>
       </SummaryDetailContext.Provider>
     );
   },

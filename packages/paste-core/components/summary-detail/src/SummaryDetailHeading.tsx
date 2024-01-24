@@ -1,18 +1,20 @@
 import { Box, type BoxProps, safelySpreadBoxProps } from "@twilio-paste/box";
-import { DisclosurePrimitive } from "@twilio-paste/disclosure-primitive";
 import * as React from "react";
 
-import { SummaryDetailContext } from "./SummaryDetailContext";
-import { SummaryToggleButton } from "./SummaryToggleButton";
-
 export interface SummaryDetailHeadingProps {
-  element?: BoxProps["element"];
   children: React.ReactNode;
+  /**
+   * Overrides the default element name to apply unique styles with the Customization Provider
+   *
+   * @default 'SUMMARY_DETAIL_HEADING'
+   * @type {BoxProps['element']}
+   * @memberof SummaryDetailHeadingProps
+   */
+  element?: BoxProps["element"];
 }
+
 export const SummaryDetailHeading = React.forwardRef<HTMLDivElement, SummaryDetailHeadingProps>(
   ({ children, element = "SUMMARY_DETAIL_HEADING", ...props }, ref) => {
-    const context = React.useContext(SummaryDetailContext);
-
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -22,12 +24,7 @@ export const SummaryDetailHeading = React.forwardRef<HTMLDivElement, SummaryDeta
         columnGap="space40"
         element={element}
       >
-        <DisclosurePrimitive as={SummaryToggleButton} {...context}>
-          Toggle summary detail
-        </DisclosurePrimitive>
-        <Box width="100%" element={`${element}_CONTENT`}>
-          {children}
-        </Box>
+        {children}
       </Box>
     );
   },
