@@ -92,6 +92,16 @@ function OgImageCard({ title, description }: { title: string; description: strin
 
 const LOG_PREFIX = "[/api/simple-og-image]:";
 
+/**
+ * Create a very basic open graph image with a static title and description for static pages on the website.
+ *
+ * usage:
+ * <meta property="og:image" content="https://paste.twilio.design/api/simple-og-image?title=Hello%20World&description=This%20is%20a%20description" />
+ *
+ * @export
+ * @param {NextRequest} req
+ * @return {*}  {Promise<ImageResponse>}
+ */
 export default async function handler(req: NextRequest): Promise<ImageResponse> {
   console.log(`${LOG_PREFIX} Incoming request`);
 

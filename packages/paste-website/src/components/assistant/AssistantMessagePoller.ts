@@ -21,16 +21,13 @@ export const AssistantMessagePoller: React.FC = () => {
     queryKey: ["assistant-active-run", selectedThread, activeRun?.id],
     queryFn: async () => {
       if (selectedThread == null || activeRun?.id == null) return {};
-      const response = await fetch("/api/paste-assistant-run", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ threadId: selectedThread, runId: activeRun?.id }),
+      const response = await fetch(`/api/paste-assistant-thread/${selectedThread}/run/${activeRun?.id}`, {
+        method: "GET",
       });
       const runDetails = await response.json();
       if (runDetails.status === "completed") {
         setActiveRun(undefined);
+        // invalidate the assistant-messages query, essentially tell it to refetch
         queryClient.invalidateQueries({ queryKey: ["assistant-messages"] });
       } else {
         // reset the active run to the latest run details so we can montior the status of the run
@@ -40,7 +37,7 @@ export const AssistantMessagePoller: React.FC = () => {
       return runDetails;
     },
     notifyOnChangeProps: ["data", "error"],
-    // Poll every second
+    // Poll every second whilst we wait for it to complete
     refetchInterval: 1000,
   });
   return null;

@@ -24,20 +24,14 @@ async function createThread(): Promise<OpenAI.Beta.Threads.ThreadCreateParams> {
   return openai.beta.threads.create({ metadata: { threadTitle: "New thread" } });
 }
 
-async function deleteThread(id: string): Promise<OpenAI.Beta.Threads.ThreadDeleted> {
-  return openai.beta.threads.del(id);
-}
-
-async function updateThread({
-  id,
-  metadata,
-}: {
-  id: OpenAI.Beta.Thread["id"];
-  metadata: OpenAI.Beta.Thread["metadata"];
-}): Promise<OpenAI.Beta.Threads.ThreadUpdateParams> {
-  return openai.beta.threads.update(id, { metadata });
-}
-
+/**
+ * Simple endpoint for creating a thread via a POST.
+ *
+ * @export
+ * @param {NextApiRequest} req
+ * @param {NextApiResponse} res
+ * @return {*}  {(Promise<void | Response>)}
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`);
 
@@ -57,56 +51,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   }
 
-  const requestData = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-  logger.info(`${LOG_PREFIX} Request data`, { requestData });
-
-  const { method } = req;
-
-  switch (method) {
-    case "POST": {
-      logger.info(`${LOG_PREFIX} POST request`);
-      try {
-        const thread = await createThread();
-        logger.info(`${LOG_PREFIX} Created thread`, { thread });
-        res.status(200).json(thread);
-      } catch (error) {
-        logger.error(`${LOG_PREFIX} Error creating thread`, { error });
-        rollbar.error(`${LOG_PREFIX} Error creating thread`, { error });
-        res.status(500).json({
-          error: "Error creating thread",
-        });
-      }
-      break;
-    }
-    case "DELETE": {
-      logger.info(`${LOG_PREFIX} DELETE request`);
-      try {
-        const thread = await deleteThread(requestData.id);
-        logger.info(`${LOG_PREFIX} Deleted thread`, { thread });
-        res.status(200).json(thread);
-      } catch (error) {
-        logger.error(`${LOG_PREFIX} Error deleting thread`, { error });
-        rollbar.error(`${LOG_PREFIX} Error deleting thread`, { error });
-        res.status(500).json({
-          error: "Error deleting thread",
-        });
-      }
-      break;
-    }
-    case "PUT": {
-      logger.info(`${LOG_PREFIX} PUT request`);
-      try {
-        const thread = await updateThread(requestData);
-        logger.info(`${LOG_PREFIX} Updated thread`, { thread });
-        res.status(200).json(thread);
-      } catch (error) {
-        logger.error(`${LOG_PREFIX} Error updating thread`, { error });
-        rollbar.error(`${LOG_PREFIX} Error updating thread`, { error });
-        res.status(500).json({
-          error: "Error updating thread",
-        });
-      }
-      break;
-    }
+  try {
+    const thread = await createThread();
+    logger.info(`${LOG_PREFIX} Created thread`, { thread });
+    res.status(200).json(thread);
+  } catch (error) {
+    logger.error(`${LOG_PREFIX} Error creating thread`, { error });
+    rollbar.error(`${LOG_PREFIX} Error creating thread`, { error });
+    res.status(500).json({
+      error: "Error creating thread",
+    });
   }
 }

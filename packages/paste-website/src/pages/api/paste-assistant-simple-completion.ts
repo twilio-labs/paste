@@ -17,7 +17,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // defaults to process.env["OPENAI_API_KEY"]
 });
 
-const LOG_PREFIX = "[/api/paste-assistant-simple-completion/:rid]:";
+const LOG_PREFIX = "[/api/paste-assistant-simple-completion]:";
 
 async function getCompletion(prompt: OpenAI.Chat.ChatCompletionMessageParam): Promise<OpenAI.Chat.ChatCompletion> {
   return openai.chat.completions.create({
@@ -29,6 +29,15 @@ async function getCompletion(prompt: OpenAI.Chat.ChatCompletionMessageParam): Pr
   });
 }
 
+/**
+ * Super simple OpenAI completion endpoint for the paste assistant to call.
+ * Provide a prompt and any context you would like to provide and get a completion back from OpenAI.
+ *
+ * @export
+ * @param {NextApiRequest} req
+ * @param {NextApiResponse} res
+ * @return {*}  {(Promise<void | Response>)}
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`);
 
@@ -63,8 +72,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     content: combinedPrompt,
   };
 
-  const completion = await getCompletion(chatMessage);
-
-  logger.info(`${LOG_PREFIX} Recieved completion`, { completion });
-  res.status(200).json(completion);
+  try {
+    const completion = await getCompletion(chatMessage);
+    logger.info(`${LOG_PREFIX} Recieved completion`, { completion });
+    res.status(200).json(completion);
+  } catch (error) {
+    logger.error(`${LOG_PREFIX} Error getting assistant completion`, { error });
+    rollbar.error(`${LOG_PREFIX} Error getting assistant completion`, { error });
+    res.status(500).json({
+      error: "Error getting assistant completion",
+    });
+  }
 }

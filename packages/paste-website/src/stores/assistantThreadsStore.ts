@@ -16,6 +16,7 @@ type Actions = {
 
 export const useAssistantThreadsStore = create<State & Actions>()(
   devtools(
+    // persist middleware adds the thread list to localstorage
     persist(
       (set) => ({
         threads: [],
@@ -41,10 +42,12 @@ export const useAssistantThreadsStore = create<State & Actions>()(
         createAndSelectThread: (newThread) => {
           set((state) => ({
             threads: [
+              // deselect any current threads
               ...state.threads.map((thread) => ({
                 ...thread,
                 selected: false,
               })),
+              // add new thread and set it to selected
               { ...newThread, selected: true },
             ],
             selectedThreadID: newThread.id,

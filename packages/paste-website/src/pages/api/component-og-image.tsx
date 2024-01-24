@@ -225,7 +225,7 @@ function OgImageCard({ packageData }: { packageData: PackageData }): JSX.Element
   );
 }
 
-const LOG_PREFIX = "[/api/og-image]:";
+const LOG_PREFIX = "[/api/component-og-image]:";
 
 export default async function handler(req: NextRequest): Promise<ImageResponse> {
   console.log(`${LOG_PREFIX} Incoming request`);

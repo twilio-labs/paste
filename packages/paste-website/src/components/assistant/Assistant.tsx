@@ -1,10 +1,12 @@
 /* eslint-disable camelcase */
+import type { ThreadMessage } from "openai/resources/beta/threads/messages/messages";
 import * as React from "react";
 
 import {
   useCreateAssistantRunMutation,
   useCreateThreadMutation,
   useSimpleCompletionMutation,
+  useUpdateThreadMutation,
 } from "../../api/assistantAPIs";
 import { useAssistantMessagesStore } from "../../stores/assistantMessagesStore";
 import { useAssistantRunStore } from "../../stores/assistantRunStore";
@@ -17,10 +19,36 @@ import { AsssistantLayout } from "./AssistantLayout";
 import { AssistantThreads } from "./AssistantThreads";
 import { AssistantHeader } from "./AsststantHeader";
 
+const getMockMessage = ({ message }: { message: string }): ThreadMessage => {
+  const date = new Date();
+
+  return {
+    id: "",
+    object: "thread.message",
+    created_at: Math.floor(date.getTime() / 1000),
+    thread_id: "xxxx",
+    role: "user",
+    content: [
+      {
+        type: "text",
+        text: {
+          value: message,
+          annotations: [],
+        },
+      },
+    ],
+    file_ids: [],
+    assistant_id: null,
+    run_id: null,
+    metadata: {},
+  };
+};
+
 export const Assistant: React.FC = () => {
   const threadsStore = useStoreWithLocalStorage(useAssistantThreadsStore, (state) => state);
   const createAssistantRun = useCreateAssistantRunMutation();
   const createThreadMutation = useCreateThreadMutation();
+  const updateThreadMutation = useUpdateThreadMutation();
   const simpleCompletionMutation = useSimpleCompletionMutation();
   const setActiveRun = useAssistantRunStore((state) => state.setActiveRun);
   const addMessage = useAssistantMessagesStore((state) => state.addMessage);
@@ -29,30 +57,10 @@ export const Assistant: React.FC = () => {
   if (threadsStore == null) return null;
 
   const handleMessageCreation = (message: string, threadId: string): void => {
-    const date = new Date();
+    // add the new user message to the store to optimistically render it whilst we wait for openAI to do its thing
+    addMessage(getMockMessage({ message }));
 
-    // add the new user message to the store to optimistically render it
-    addMessage({
-      id: "",
-      object: "thread.message",
-      created_at: Math.floor(date.getTime() / 1000),
-      thread_id: "xxxx",
-      role: "user",
-      content: [
-        {
-          type: "text",
-          text: {
-            value: message,
-            annotations: [],
-          },
-        },
-      ],
-      file_ids: [],
-      assistant_id: null,
-      run_id: null,
-      metadata: {},
-    });
-
+    // Create a new "assistant run" on the thread so that openAI processes the new message and updates the thread with a response
     createAssistantRun.mutate(
       { threadId, message },
       {
@@ -68,7 +76,8 @@ export const Assistant: React.FC = () => {
       /**
        * summarise the first question as the title of the
        * thread, if this is the first message in that thread
-       * for it to appear in the thread list
+       * for it to appear in the thread list as an identifier
+       * of the thread
        */
       simpleCompletionMutation.mutate(
         {
@@ -80,13 +89,22 @@ export const Assistant: React.FC = () => {
           onSuccess: async (completion) => {
             // @ts-expect-error I don't know how to type this right now so it knows it's a response
             const newCompletion = await completion.json();
+            // update the thread title in the store
             threadsStore?.setThreadTitle(threadId, newCompletion.choices[0].message.content);
+            // update the thread title in openAI
+            updateThreadMutation.mutate({ id: threadId, threadTitle: newCompletion.choices[0].message.content });
           },
         },
       );
     }
   };
 
+  /**
+   * From one of the canned new thread messages, create a new thread, select it, and then
+   * create a new message run on the newly created thread.
+   *
+   * @param {string} message
+   */
   const handleCannedThreadCreation = (message: string): void => {
     createThreadMutation.mutate(
       {},

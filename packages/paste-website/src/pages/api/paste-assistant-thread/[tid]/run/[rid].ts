@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
 import Rollbar from "rollbar";
 
-import { logger } from "../../../functions-utils/logger";
+import { logger } from "../../../../../functions-utils/logger";
 
 const rollbar = new Rollbar({
   accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
@@ -18,7 +18,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // defaults to process.env["OPENAI_API_KEY"]
 });
 
-const LOG_PREFIX = "[/api/paste-assistant-run/:rid]:";
+const LOG_PREFIX = "[/api/paste-assistant-thread/:tid/run/:rid]:";
 
 async function getRun(
   threadId: OpenAI.Beta.Thread["id"],
@@ -27,6 +27,16 @@ async function getRun(
   return openai.beta.threads.runs.retrieve(threadId, runId);
 }
 
+/**
+ * Simple endpoint for returning a run from a given thread based on a threadId and runId.
+ *
+ * /api/paste-assistant-thread/:tid/run/:rid
+ *
+ * @export
+ * @param {NextApiRequest} req
+ * @param {NextApiResponse} res
+ * @return {*}  {(Promise<void | Response>)}
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`);
 
@@ -46,16 +56,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
   }
 
-  const requestData = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
-  logger.info(`${LOG_PREFIX} Request data`, { requestData });
-
-  const { threadId, runId } = requestData;
+  const { tid: threadId, rid: runId } = req.query;
 
   if (threadId === undefined || threadId === "") {
     logger.error(`${LOG_PREFIX} Thread ID is undefined`);
     rollbar.error(`${LOG_PREFIX} Thread ID is undefined`);
     res.status(500).json({
       error: "Thread ID is undefined",
+    });
+    return;
+  }
+
+  if (typeof threadId !== "string") {
+    logger.error(`${LOG_PREFIX} Thread ID is not a string`);
+    rollbar.error(`${LOG_PREFIX} Thread ID is not a string`);
+    res.status(500).json({
+      error: "Thread ID is not a string",
     });
     return;
   }
@@ -78,10 +94,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  logger.info(`${LOG_PREFIX} Getting assistant run`, { threadId, runId });
-
-  const run = await getRun(threadId, runId);
-
-  logger.info(`${LOG_PREFIX} Recieved run`, { run });
-  res.status(200).json(run);
+  try {
+    logger.info(`${LOG_PREFIX} Getting assistant run`, { threadId, runId });
+    const run = await getRun(threadId, runId);
+    logger.info(`${LOG_PREFIX} Recieved run`, { run });
+    res.status(200).json(run);
+  } catch (error) {
+    logger.error(`${LOG_PREFIX} Error getting assistant run`, { error });
+    rollbar.error(`${LOG_PREFIX} Error getting assistant run`, { error });
+    res.status(500).json({
+      error: "Error getting assistant run",
+    });
+  }
 }

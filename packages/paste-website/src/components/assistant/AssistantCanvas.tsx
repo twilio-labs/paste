@@ -73,7 +73,9 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
               Keep in mind that this is an experimental tool and so the information provided{" "}
               <strong>may not be entirely accurate</strong>.
             </ChatBookendItem>
-            <ChatBookendItem>Your conversations are not stored or used to train OpenAI&apos;s models.</ChatBookendItem>
+            <ChatBookendItem>
+              Your conversations are not used to train OpenAI&apos;s models, but are stored by OpenAI.
+            </ChatBookendItem>
           </ChatBookend>
           {messages?.map((threadMessage): React.ReactNode => {
             if (threadMessage.role === "assistant") {

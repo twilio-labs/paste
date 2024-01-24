@@ -38,6 +38,16 @@ async function getRelevantDocs(functionArguments: string): Promise<any> {
   });
 }
 
+/**
+ * End point for the paste assistant to call to send a message to an OpenAI assistant thread, wait for a response,
+ * process if the assistant response is asking for a "Function" to be called, call the function and return the output
+ * to the assistant for it to process a chat response and add it to the thread.
+ *
+ * @export
+ * @param {NextApiRequest} req
+ * @param {NextApiResponse} res
+ * @return {*}  {(Promise<void | Response>)}
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`);
 
@@ -102,7 +112,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   let run = await openai.beta.threads.runs.create(threadId, { assistant_id: assistantID });
 
   /**
-   * poll the run to see if it's completeor if the assistant need to call some "Functions" find it's status
+   * poll the run to see if it's complete or if the assistant need to call some "Functions" find it's status
    * keep polling while the status is ['queued', 'in_progress']
    */
   while (run.status === "queued" || run.status === "in_progress") {
@@ -110,7 +120,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   /**
-   * if the run status becomes `completed` we can respond to the user with the assistant's response
+   * if the run status becomes `completed` we can respond to the user with the assistant's run response
    */
   if (run.status === "completed") {
     logger.info(`${LOG_PREFIX} Assistant run response`, { run });

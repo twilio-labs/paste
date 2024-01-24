@@ -1,4 +1,4 @@
-context("POST /api/paste-assistant-thread", () => {
+context("/api/paste-assistant-thread", () => {
   let threadId: string;
   it("creates an ai thread", () => {
     cy.request("POST", "/api/paste-assistant-thread", {}).then((response) => {
@@ -7,7 +7,7 @@ context("POST /api/paste-assistant-thread", () => {
     });
   });
   it("updates an ai thread", () => {
-    cy.request("PUT", "/api/paste-assistant-thread", { id: threadId, metadata: { testKey: "testData" } }).then(
+    cy.request("PUT", `/api/paste-assistant-thread/${threadId}`, { metadata: { testKey: "testData" } }).then(
       (response) => {
         expect(response.status).to.eq(200);
         expect(response.body.metadata.testKey).to.eq("testData");
@@ -21,7 +21,7 @@ context("POST /api/paste-assistant-thread", () => {
     });
   });
   it("deletes an ai thread", () => {
-    cy.request("DELETE", "/api/paste-assistant-thread", { id: threadId }).then((response) => {
+    cy.request("DELETE", `/api/paste-assistant-thread/${threadId}`).then((response) => {
       expect(response.status).to.eq(200);
       expect(response.body.deleted).to.eq(true);
     });

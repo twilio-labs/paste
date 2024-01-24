@@ -5,25 +5,35 @@ export const useCreateThreadMutation = (): UseMutationResult => {
     mutationFn: async () => {
       return fetch("/api/paste-assistant-thread", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
       });
     },
+    mutationKey: ["create-thread"],
   });
 };
 
 export const useDeleteThreadMutation = (): UseMutationResult => {
   return useMutation({
     mutationFn: async (id) => {
-      return fetch("/api/paste-assistant-thread", {
+      return fetch(`/api/paste-assistant-thread/${id}`, {
         method: "DELETE",
+      });
+    },
+    mutationKey: ["delete-thread"],
+  });
+};
+
+export const useUpdateThreadMutation = (): UseMutationResult => {
+  return useMutation({
+    mutationFn: async ({ id, threadTitle }: any) => {
+      return fetch(`/api/paste-assistant-thread/${id}`, {
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ id }),
+        body: JSON.stringify({ metadata: { threadTitle } }),
       });
     },
+    mutationKey: ["update-thread"],
   });
 };
 
