@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from "next";
+import type { NextApiResponse } from "next";
 import OpenAI from "openai";
 import Rollbar from "rollbar";
 
@@ -28,11 +28,10 @@ async function createThread(): Promise<OpenAI.Beta.Threads.ThreadCreateParams> {
  * Simple endpoint for creating a thread via a POST.
  *
  * @export
- * @param {NextApiRequest} req
  * @param {NextApiResponse} res
  * @return {*}  {(Promise<void | Response>)}
  */
-export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
+export default async function handler(res: NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`);
 
   if (openAiKey === undefined || openAiSecret === undefined) {
