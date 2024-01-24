@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/summary-detail",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "category": "interaction",
   "status": "alpha",
   "description": "A Summary Detail is a collapsible container that can be used to hide or show content.",
