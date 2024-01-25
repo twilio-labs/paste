@@ -6,22 +6,10 @@ imports:
 props:
   font-size-10:
     value: "0.75rem" #12px
-  font-size-20:
-    value: "{!font-size-20}"
-  font-size-30:
-    value: "{!font-size-30}"
-  font-size-40:
-    value: "{!font-size-40}"
   font-size-50:
     value: "1rem" #16px
-  font-size-60:
-    value: "{!font-size-60}"
-  font-size-70:
-    value: "{!font-size-70}"
   font-size-80:
     value: "2rem" #32px
-  font-size-90:
-    value: "{!font-size-90}"
   font-size-100:
     value: "3rem" #48px
   font-size-110:
