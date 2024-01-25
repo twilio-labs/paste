@@ -1,10 +1,12 @@
 export const meta = {
   title: 'Upgrade Guide',
-  description: 'Summary of Breaking Changes to Core, with actions that should be taken before upgrading',
+  description: 'Summary of breaking changes to Core, with actions that should be taken before upgrading',
   slug: '/core/upgrade-guide',
 };
 
 import {Card} from '@twilio-paste/card';
+import {PageHeaderSeparator} from '@twilio-paste/page-header';
+import {Separator} from '@twilio-paste/separator';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
 import {Stack} from '@twilio-paste/stack';
@@ -26,10 +28,11 @@ export const getStaticProps = async () => {
   };
 };
 
-<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} />
-<p>{meta.description}</p>
-
----
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} description={meta.description}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
  <contentwrapper>
 

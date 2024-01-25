@@ -9,6 +9,8 @@ import {Anchor} from '@twilio-paste/anchor';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {Box} from '@twilio-paste/box';
+import {PageHeader, PageHeaderSetting, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph, PageHeaderSeparator} from "@twilio-paste/page-header";
+import {Separator} from "@twilio-paste/separator";
 import {Callout, CalloutHeading, CalloutText, CalloutList, CalloutListItem} from '@twilio-paste/callout';
 import {SiteLink} from '../../components/SiteLink.tsx';
 import {ComponentOverviewTable} from '../../components/component-overview-table';
@@ -30,15 +32,20 @@ export const getStaticProps = async () => {
   };
 };
 
-<Breadcrumb>
-  <BreadcrumbItem href="/">Home</BreadcrumbItem>
-</Breadcrumb>
 
-<Heading as="h1" variant="heading10">
-  Components
-</Heading>
-
----
+<PageHeader>
+  <PageHeaderSetting>
+    <Breadcrumb>
+      <BreadcrumbItem href="/">Home</BreadcrumbItem>
+    </Breadcrumb>
+  </PageHeaderSetting>
+  <PageHeaderDetails>
+    <PageHeaderHeading>Components</PageHeaderHeading>
+  </PageHeaderDetails>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</PageHeader>
 
 For more information about how Paste is built and where components fit into that hierarchy, read [About Paste](/introduction/about-paste#whats-a-design-system).
 

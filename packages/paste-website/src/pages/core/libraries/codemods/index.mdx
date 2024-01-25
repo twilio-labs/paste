@@ -5,6 +5,8 @@ export const meta = {
   slug: '/core/libraries/codemods/',
 };
 
+import {PageHeaderSeparator} from '@twilio-paste/page-header';
+import {Separator} from '@twilio-paste/separator';
 import {SidebarCategoryRoutes} from '../../../../constants';
 import {getNavigationData} from '../../../../utils/api';
 import packageJson from '@twilio-paste/codemods/package.json';
@@ -31,9 +33,11 @@ export const getStaticProps = async () => {
   packageName={props.data.name}
   version={props.data.version}
   description={props.data.description}
-/>
-
----
+>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <contentwrapper>
 <PageAside data={mdxHeadings} />
