@@ -1,6 +1,5 @@
 import type { BadgeProps } from "@twilio-paste/badge";
 import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
-import { PageHeaderKeyword } from "@twilio-paste/page-header";
 import { Popover, PopoverBadgeButton, PopoverContainer } from "@twilio-paste/popover";
 import { StatusBadge } from "@twilio-paste/status";
 import { useUID } from "@twilio-paste/uid-library";
@@ -66,7 +65,7 @@ const PackageStatusLegend: React.FC<React.PropsWithChildren<PackageStatusLegendP
 
   if (shouldShowStatus) {
     return (
-      <PageHeaderKeyword>
+      <>
         {shouldShowStatusBadge && <PackageStatusBadge status={packageStatus} />}
         {shouldShowFigmaNeeded && (
           <StatusBadge as="span" variant="ProcessDraft">
@@ -78,7 +77,7 @@ const PackageStatusLegend: React.FC<React.PropsWithChildren<PackageStatusLegendP
             Peer review pending
           </StatusBadge>
         ) : null}
-      </PageHeaderKeyword>
+      </>
     );
   }
 

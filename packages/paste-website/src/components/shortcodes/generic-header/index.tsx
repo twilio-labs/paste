@@ -1,8 +1,6 @@
 import { Anchor } from "@twilio-paste/anchor";
-import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Breadcrumb, BreadcrumbItem } from "@twilio-paste/breadcrumb";
-import { Heading } from "@twilio-paste/heading";
 import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
 import {
   PageHeader,
@@ -119,19 +117,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
         </PageHeaderSetting>
       )}
       <PageHeaderDetails>
-        {showPackageStatus && (
-          <PackageStatusLegend
-            packageStatus={packageStatus}
-            figmaStatus={figmaStatus}
-            designCommitteeReview={designCommitteeReview}
-            engineerCommitteeReview={engineerCommitteeReview}
-          />
-        )}
-        <PageHeaderHeading>
-          <Heading as="h1" variant="heading10" marginBottom="space0">
-            {name}
-          </Heading>
-        </PageHeaderHeading>
+        <PageHeaderHeading>{name}</PageHeaderHeading>
         {shouldShowSecondary && (
           <PageHeaderMeta>
             {version && (
@@ -160,17 +146,13 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
                 Storybook
               </IconAnchor>
             )}
-            {productSuitability && (
-              <>
-                Product
-                <Box display="flex" columnGap="space20">
-                  {productSuitability.map((product: string) => (
-                    <Badge as="span" variant="decorative10" key={product}>
-                      {product}
-                    </Badge>
-                  ))}
-                </Box>
-              </>
+            {showPackageStatus && (
+              <PackageStatusLegend
+                packageStatus={packageStatus}
+                figmaStatus={figmaStatus}
+                designCommitteeReview={designCommitteeReview}
+                engineerCommitteeReview={engineerCommitteeReview}
+              />
             )}
           </PageHeaderMeta>
         )}
