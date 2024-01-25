@@ -5,6 +5,8 @@ export const meta = {
 };
 
 import {Box} from '@twilio-paste/box';
+import {PageHeaderSetting} from '@twilio-paste/page-header';
+import {Separator} from '@twilio-paste/separator';
 import {TokensList} from '../../../components/tokens-list';
 import {SidebarCategoryRoutes} from '../../../constants';
 import DefaultLayout from '../../../layouts/DefaultLayout';
@@ -25,15 +27,10 @@ export const getStaticProps = async () => {
   name="Token List"
   categoryRoute={SidebarCategoryRoutes.TOKENS}
   description="All tokens that are available in the Paste token system."
-/>
-
-<Box
-  as="hr"
-  borderWidth="borderWidth0"
-  borderColor="colorBorderWeak"
-  borderStyle="solid"
-  borderBottomWidth="borderWidth10"
-  marginTop="space100"
-/>
+>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <TokensList />

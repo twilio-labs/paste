@@ -1,9 +1,15 @@
 import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Breadcrumb, BreadcrumbItem } from "@twilio-paste/breadcrumb";
-import { Heading } from "@twilio-paste/heading";
 import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
-import { Stack } from "@twilio-paste/stack";
+import {
+  PageHeader,
+  PageHeaderDetails,
+  PageHeaderHeading,
+  PageHeaderMeta,
+  PageHeaderParagraph,
+  PageHeaderSetting,
+} from "@twilio-paste/page-header";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 import Head from "next/head";
@@ -39,11 +45,13 @@ export interface GenericHeaderProps {
   figmaStatus?: string | null;
   githubUrl?: string;
   packageName?: string;
-  packageStatus?: string | null;
+  packageStatus?: "Alpha" | "Beta" | "Production" | null;
   storybookUrl?: string;
   url?: string;
   version?: string;
   shouldShowBreadcrumbs?: boolean;
+  productSuitability?: [string];
+  children?: React.ReactNode;
 }
 
 const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
@@ -60,6 +68,8 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   url,
   version,
   shouldShowBreadcrumbs = true,
+  productSuitability,
+  children,
 }) => {
   const theme = useTheme();
 
@@ -68,7 +78,7 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
     : undefined;
   const openGraphServiceUrl = ogImagePath ? useOpengraphServiceUrl(ogImagePath) : null;
 
-  const shouldShowSecondary = version || githubUrl || storybookUrl;
+  const shouldShowSecondary = version || githubUrl || storybookUrl || productSuitability;
   const sharedIconStyles = {
     height: theme.space.space40,
     width: theme.space.space40,
@@ -89,14 +99,14 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
   ].includes(categoryRoute);
 
   return (
-    <Box element="PAGE_HEADER">
+    <PageHeader>
       {openGraphServiceUrl && shouldHavePreview && (
         <Head>
           <meta property="og:image" content={openGraphServiceUrl} />
         </Head>
       )}
       {shouldShowBreadcrumbs && (
-        <Box marginBottom="space50">
+        <PageHeaderSetting>
           <Breadcrumb>
             {isFoundations ? (
               <BreadcrumbItem>{categoryName}</BreadcrumbItem>
@@ -104,33 +114,12 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
               <BreadcrumbItem href={categoryRoute}>{categoryName}</BreadcrumbItem>
             )}
           </Breadcrumb>
-        </Box>
+        </PageHeaderSetting>
       )}
-      <Box display="flex" alignItems="center" flexWrap="wrap" marginBottom="space70" rowGap="space70" maxWidth="size70">
-        <Box marginRight="space50">
-          <Heading as="h1" variant="heading10" marginBottom="space0">
-            {name}
-          </Heading>
-        </Box>
-        {showPackageStatus && (
-          <PackageStatusLegend
-            packageStatus={packageStatus}
-            figmaStatus={figmaStatus}
-            designCommitteeReview={designCommitteeReview}
-            engineerCommitteeReview={engineerCommitteeReview}
-          />
-        )}
-      </Box>
-      {description && (
-        <Box maxWidth="size70">
-          <Text as="p" fontSize="fontSize40">
-            {description}
-          </Text>
-        </Box>
-      )}
-      {shouldShowSecondary && (
-        <Box marginTop="space70">
-          <Stack orientation="horizontal" spacing="space70">
+      <PageHeaderDetails>
+        <PageHeaderHeading>{name}</PageHeaderHeading>
+        {shouldShowSecondary && (
+          <PageHeaderMeta>
             {version && (
               <Text as="span" color="colorTextWeak">
                 Version {version}
@@ -157,10 +146,20 @@ const GenericHeader: React.FC<React.PropsWithChildren<GenericHeaderProps>> = ({
                 Storybook
               </IconAnchor>
             )}
-          </Stack>
-        </Box>
-      )}
-    </Box>
+            {showPackageStatus && (
+              <PackageStatusLegend
+                packageStatus={packageStatus}
+                figmaStatus={figmaStatus}
+                designCommitteeReview={designCommitteeReview}
+                engineerCommitteeReview={engineerCommitteeReview}
+              />
+            )}
+          </PageHeaderMeta>
+        )}
+        {description && <PageHeaderParagraph>{description}</PageHeaderParagraph>}
+      </PageHeaderDetails>
+      {children}
+    </PageHeader>
   );
 };
 

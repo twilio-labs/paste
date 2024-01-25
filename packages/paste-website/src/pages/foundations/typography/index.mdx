@@ -16,6 +16,7 @@ import {Heading} from '@twilio-paste/heading';
 import {DetailText} from '@twilio-paste/detail-text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
+import {PageHeaderSeparator} from '@twilio-paste/page-header'
 
 import {TextColorSwatches} from '../../../component-examples/ColorsFoundationExamples';
 import {ResponsiveImage} from '../../../components/ResponsiveImage';
@@ -49,13 +50,11 @@ export const getStaticProps = async () => {
   };
 };
 
-<content>
-
-<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS} />
-
-</content>
-
----
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.FOUNDATIONS}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <contentwrapper>
 

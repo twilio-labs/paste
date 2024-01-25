@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "layout",
   "status": "production",
-  "description": "Page header is a layout component that wraps all top level components on a page.",
+  "description": "Page Header is a layout component that wraps all top-level components on a page.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",

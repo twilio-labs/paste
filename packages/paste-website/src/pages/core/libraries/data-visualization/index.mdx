@@ -5,6 +5,8 @@ export const meta = {
   slug: '/core/libraries/data-visualization/',
 };
 
+import {PageHeaderSeparator} from '@twilio-paste/page-header';
+import {Separator} from '@twilio-paste/separator';
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import packageJson from '@twilio-paste/data-visualization-library/package.json';
 import Changelog from '@twilio-paste/data-visualization-library/CHANGELOG.md';
@@ -36,9 +38,11 @@ export const getStaticProps = async () => {
   packageName={props.data.name}
   version={props.data.version}
   description={props.data.description}
-/>
-
----
+>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <contentwrapper>
 <PageAside data={mdxHeadings} />

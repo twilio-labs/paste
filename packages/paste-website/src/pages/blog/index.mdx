@@ -4,6 +4,8 @@ export const meta = {
   slug: '/blog/',
 };
 
+import {PageHeader, PageHeaderDetails, PageHeaderHeading} from '@twilio-paste/page-header';
+
 import {ArticleList} from '../../components/ArticleList';
 import DefaultLayout from '../../layouts/DefaultLayout';
 import {getArticles, getNavigationData} from '../../utils/api';
@@ -21,8 +23,10 @@ export const getStaticProps = async () => {
   };
 };
 
-# Articles and Posts about Paste
-
----
+<PageHeader>
+  <PageHeaderDetails>
+    <PageHeaderHeading>Articles and Posts about Paste</PageHeaderHeading>
+  </PageHeaderDetails>
+</PageHeader>
 
 <ArticleList articles={props.articles} />

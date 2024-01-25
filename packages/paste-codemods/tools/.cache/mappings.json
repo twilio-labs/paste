@@ -175,6 +175,7 @@
   "PageHeaderMeta": "@twilio-paste/core/page-header",
   "PageHeaderParagraph": "@twilio-paste/core/page-header",
   "PageHeaderPrefix": "@twilio-paste/core/page-header",
+  "PageHeaderSeparator": "@twilio-paste/core/page-header",
   "PageHeaderSetting": "@twilio-paste/core/page-header",
   "Pagination": "@twilio-paste/core/pagination",
   "PaginationArrow": "@twilio-paste/core/pagination",

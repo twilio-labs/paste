@@ -4,6 +4,8 @@ export const meta = {
   slug: '/core/libraries/',
 };
 
+import {PageHeaderSeparator} from '@twilio-paste/page-header';
+import {Separator} from '@twilio-paste/separator';
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../utils/api';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -19,9 +21,11 @@ export const getStaticProps = async () => {
   };
 };
 
-<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} description={meta.description} />
-
----
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} description={meta.description}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <contentwrapper>
 

@@ -29,13 +29,14 @@ export const getStaticProps = async () => {
   };
 };
 
-<NormalizedComponentHeader
+<NormalizedPatternHeader
   categoryRoute={SidebarCategoryRoutes.THEME}
   githubUrl="https://github.com/twilio-labs/paste/tree/main/packages/paste-theme"
   data={props.data}
+  shouldShowVersion
+  shouldShowGithubUrl
 />
 
----
 
 <contentwrapper>
 

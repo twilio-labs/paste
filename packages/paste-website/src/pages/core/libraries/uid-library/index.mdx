@@ -5,6 +5,8 @@ export const meta = {
   slug: '/core/libraries/uid-library/',
 };
 
+import {Separator} from '@twilio-paste/separator';
+import {PageHeaderSeparator} from '@twilio-paste/page-header';
 import {Box} from '@twilio-paste/box';
 import packageJson from '@twilio-paste/uid-library/package.json';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -34,9 +36,11 @@ export const getStaticProps = async () => {
   packageName={props.data.name}
   version={props.data.version}
   description={props.data.description}
-/>
-
----
+>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <contentwrapper>
 <PageAside data={mdxHeadings} />

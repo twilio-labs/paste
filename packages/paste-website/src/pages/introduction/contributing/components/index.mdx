@@ -4,6 +4,9 @@ export const meta = {
   slug: '/introduction/contributing/components/',
 };
 
+import {PageHeader, PageHeaderSeparator, PageHeaderDetails, PageHeaderHeading, PageHeaderParagraph} from "@twilio-paste/page-header";
+import {Separator} from "@twilio-paste/separator";
+
 import DefaultLayout from '../../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../../utils/api';
 
@@ -18,16 +21,22 @@ export const getStaticProps = async () => {
   };
 };
 
+
+<PageHeader>
+  <PageHeaderDetails>
+    <PageHeaderHeading>{meta.title}</PageHeaderHeading>
+    <PageHeaderParagraph>{meta.description}</PageHeaderParagraph>
+  </PageHeaderDetails>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</PageHeader>
+
 <contentwrapper>
 
 <PageAside data={mdxHeadings} />
 
 <content>
-<h1>{meta.title}</h1>
-
-How to contribute a component to Paste.
-
----
 
 Thanks for your interest in contributing a component! There are many ways to contribute and it’s up to you what scope and type of contribution will have the most impact.
 

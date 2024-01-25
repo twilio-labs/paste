@@ -16,7 +16,7 @@ export default ComponentPageLayout;
 
 export const getStaticProps = async () => {
   const navigationData = await getNavigationData();
-  const feature = await getFeature('Page header');
+  const feature = await getFeature('Page Header');
   const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/page-header');
   return {
     props: {
@@ -56,6 +56,7 @@ import {
   PageHeaderParagraph,
   PageHeaderPrefix,
   PageHeaderSetting,
+  PageHeaderSeparator,
 } from '@twilio-paste/core/page-header';
 
 const MyPageHeader = () => {

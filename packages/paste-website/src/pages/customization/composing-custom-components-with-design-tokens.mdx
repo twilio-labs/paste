@@ -5,6 +5,8 @@ export const meta = {
   slug: '/customization/composing-custom-components-with-design-tokens/',
 };
 
+import {PageHeaderSeparator} from '@twilio-paste/page-header'
+import {Separator} from '@twilio-paste/separator'
 import {Box} from '@twilio-paste/box';
 import {Text} from '@twilio-paste/text';
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -24,11 +26,11 @@ export const getStaticProps = async () => {
   };
 };
 
-<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION} />
-
-<P variant="lead">{meta.description}</P>
-
----
+<GenericHeader name={meta.title} description={meta.description} categoryRoute={SidebarCategoryRoutes.CUSTOMIZATION}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal" />
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <contentwrapper>
 
