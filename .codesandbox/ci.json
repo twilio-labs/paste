@@ -91,6 +91,7 @@
     "/packages/paste-core/components/status",
     "/packages/paste-style-props",
     "/packages/paste-libraries/styling",
+    "/packages/paste-core/components/summary-detail",
     "/packages/paste-core/components/switch",
     "/packages/paste-libraries/syntax-highlighter",
     "/packages/paste-core/components/table",

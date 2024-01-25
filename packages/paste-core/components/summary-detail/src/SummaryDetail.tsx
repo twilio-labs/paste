@@ -18,7 +18,7 @@ export interface SummaryDetailProps extends DisclosurePrimitiveInitialState {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
-   * @default 'DISCLOSURE'
+   * @default 'SUMMARY_DETAIL'
    * @type {BoxProps['element']}
    * @memberof SummaryDetailProps
    */

@@ -71,6 +71,7 @@ export * from "@twilio-paste/slider";
 export * from "@twilio-paste/spinner";
 export * from "@twilio-paste/stack";
 export * from "@twilio-paste/status";
+export * from "@twilio-paste/summary-detail";
 export * from "@twilio-paste/switch";
 export * from "@twilio-paste/table";
 export * from "@twilio-paste/tabs";

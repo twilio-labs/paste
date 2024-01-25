@@ -20,8 +20,8 @@ export interface SummaryDetailToggleButtonProps
 
 const ToggleButton = React.forwardRef<HTMLButtonElement, SummaryDetailToggleButtonProps>((props, ref) => {
   const rotation = props["aria-expanded"] ? "90" : "0";
-  // todo make this logic better
-  const labelledby = props["aria-label"] ? undefined : props["aria-labelledby"];
+  // Only use aria-labelledby if aria-label is not provided
+  const ariaLabelledBy = props["aria-label"] ? undefined : props["aria-labelledby"];
 
   return (
     <Button
@@ -33,7 +33,7 @@ const ToggleButton = React.forwardRef<HTMLButtonElement, SummaryDetailToggleButt
       borderRadius="borderRadius20"
       _hover={{ backgroundColor: "colorBackground" }}
       {...props}
-      aria-labelledby={labelledby}
+      aria-labelledby={ariaLabelledBy}
     >
       <Box as="span" element={`${props.element}_ICON_WRAPPER`} transform={`translateX(0) rotate(${rotation}deg)`}>
         <ChevronDisclosureIcon decorative={true} size="sizeIcon30" element={`${props.element}_ICON}`} />
