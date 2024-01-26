@@ -78,6 +78,7 @@ export interface ThemeProviderProps {
   theme?: ThemeVariants;
   disableAnimations?: boolean;
   cacheProviderProps?: CreateCacheOptions;
+  style?: React.CSSProperties;
 }
 
 const ThemeProvider: React.FunctionComponent<React.PropsWithChildren<ThemeProviderProps>> = ({

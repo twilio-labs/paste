@@ -68,3 +68,16 @@ export const JapaneseFontFamily = (): JSX.Element => (
     </Box>
   </>
 );
+
+export const StylingThemeProviderElement = (): React.ReactNode => (
+  <ThemeProvider theme="twilio" style={{ width: "100px", overflow: "auto" }}>
+    <Paragraph>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Nisi porta lorem mollis aliquam ut porttitor leo. Hendrerit gravida rutrum quisque non. A arcu
+      cursus vitae congue mauris rhoncus aenean vel elit. Tortor dignissim convallis aenean et tortor at risus.
+      Vestibulum lorem sed risus ultricies. Tempor nec feugiat nisl pretium fusce id. Morbi tempus iaculis urna id
+      volutpat lacus laoreet non curabitur. In ante metus dictum at. Sit amet risus nullam eget felis eget nunc
+      lobortis.
+    </Paragraph>
+  </ThemeProvider>
+);

@@ -43,4 +43,5 @@ export interface CustomizationProviderProps {
    * @memberof CustomizationProviderProps
    */
   theme?: Partial<GenericThemeShape>;
+  style?: React.CSSProperties;
 }
