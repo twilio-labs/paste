@@ -22,13 +22,14 @@ type NavData = {
 };
 
 export const getNormalizedHeaderData = (data: ApiData): ApiData => {
-  const { name: packageName, version, description, status, Figma, ...rest } = data;
+  const { name: packageName, version, description, status, Feature, Figma, ...rest } = data;
 
   return {
     name: getHumanizedNameFromPackageName(packageName),
     packageName,
     version,
     description,
+    Feature,
     packageStatus: status ? sentenceCase(status) : undefined,
     figmaStatus: Figma,
     ...mapKeys(rest, (_noop, objKey) => camelCase(objKey)),

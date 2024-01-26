@@ -1,9 +1,11 @@
 export const meta = {
-  title: 'Core Package Changelog',
+  title: 'Core package changelog',
   package: '@twilio-paste/core',
   slug: '/core/changelog',
 };
 
+import {Separator} from "@twilio-paste/separator";
+import {PageHeaderSeparator} from '@twilio-paste/page-header';
 import Changelog from '@twilio-paste/core/CHANGELOG.md';
 import {SidebarCategoryRoutes} from '../../constants';
 import {getNavigationData} from '../../utils/api';
@@ -20,9 +22,11 @@ export const getStaticProps = async () => {
   };
 };
 
-<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE} />
-
----
+<GenericHeader name={meta.title} categoryRoute={SidebarCategoryRoutes.CORE}>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
  <contentwrapper>
 <content>

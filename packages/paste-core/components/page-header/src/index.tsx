@@ -18,3 +18,5 @@ export { PageHeaderActions } from "./PageHeaderActions";
 export type { PageHeaderActionsProps } from "./PageHeaderActions";
 export { PageHeaderInPageNavigation } from "./PageHeaderInPageNavigation";
 export type { PageHeaderInPageNavigationProps } from "./PageHeaderInPageNavigation";
+export { PageHeaderSeparator } from "./PageHeaderSeparator";
+export type { PageHeaderSeparatorProps } from "./PageHeaderSeparator";

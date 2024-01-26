@@ -1,5 +1,4 @@
 import type { BadgeProps } from "@twilio-paste/badge";
-import { Box } from "@twilio-paste/box";
 import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
 import { Popover, PopoverBadgeButton, PopoverContainer } from "@twilio-paste/popover";
 import { StatusBadge } from "@twilio-paste/status";
@@ -10,7 +9,7 @@ import { StatusDescriptions } from "../../../constants";
 
 type BadgeVariants = BadgeProps["variant"];
 interface PackageStatusLegendProps {
-  packageStatus?: string | null;
+  packageStatus?: "Alpha" | "Beta" | "Production" | null;
   figmaStatus?: string | null;
   designCommitteeReview?: string | null;
   engineerCommitteeReview?: string | null;
@@ -61,11 +60,12 @@ const PackageStatusLegend: React.FC<React.PropsWithChildren<PackageStatusLegendP
   const shouldShowFigmaNeeded = !figmaStatus;
   const shouldShowPeerReviewNeeded = !designCommitteeReview || !engineerCommitteeReview;
 
-  const shouldShowStatus = packageStatus || shouldShowFigmaNeeded || shouldShowPeerReviewNeeded;
+  const shouldShowStatus =
+    packageStatus === "Alpha" || packageStatus === "Beta" || shouldShowFigmaNeeded || shouldShowPeerReviewNeeded;
 
   if (shouldShowStatus) {
     return (
-      <Box display="flex" alignItems="center" flexGrow={1} columnGap="space40">
+      <>
         {shouldShowStatusBadge && <PackageStatusBadge status={packageStatus} />}
         {shouldShowFigmaNeeded && (
           <StatusBadge as="span" variant="ProcessDraft">
@@ -77,7 +77,7 @@ const PackageStatusLegend: React.FC<React.PropsWithChildren<PackageStatusLegendP
             Peer review pending
           </StatusBadge>
         ) : null}
-      </Box>
+      </>
     );
   }
 

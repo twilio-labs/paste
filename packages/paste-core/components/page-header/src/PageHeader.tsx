@@ -33,7 +33,7 @@ const PageHeader = React.forwardRef<HTMLDivElement, PageHeaderProps>(
           element={element}
           display="grid"
           gridTemplateRows="auto auto auto"
-          gridTemplateAreas='"setting" "details" "in_page_navigation"'
+          gridTemplateAreas='"setting" "details" "content_barrier"'
         >
           {children}
         </Box>

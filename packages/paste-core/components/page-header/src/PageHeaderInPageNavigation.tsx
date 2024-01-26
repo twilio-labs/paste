@@ -17,7 +17,7 @@ export interface PageHeaderInPageNavigationProps extends HTMLPasteProps<"div"> {
 const PageHeaderInPageNavigation = React.forwardRef<HTMLDivElement, PageHeaderInPageNavigationProps>(
   ({ element = "PAGE_HEADER_IN_PAGE_NAVIGATION", children, ...props }, ref) => {
     return (
-      <Box {...safelySpreadBoxProps(props)} ref={ref} element={element} gridArea="in_page_navigation">
+      <Box {...safelySpreadBoxProps(props)} ref={ref} element={element} gridArea="content_barrier">
         {children}
       </Box>
     );

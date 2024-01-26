@@ -5,6 +5,8 @@ export const meta = {
   slug: '/customization/customization-provider/',
 };
 
+import {PageHeaderSeparator} from '@twilio-paste/page-header'
+import {Separator} from '@twilio-paste/separator'
 import PackageJSON from '@twilio-paste/customization/package.json';
 import Changelog from '@twilio-paste/customization/CHANGELOG.md';
 import {ThemeObjectDisplay} from '../../components/ThemeObjectDisplay';
@@ -31,9 +33,11 @@ export const getStaticProps = async () => {
   packageName={PackageJSON.name}
   version={PackageJSON.version}
   description={PackageJSON.description}
-/>
-
----
+>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal" />
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <contentwrapper>
 

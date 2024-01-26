@@ -5,6 +5,7 @@ export const meta = {
 };
 
 import {Separator} from '@twilio-paste/separator';
+import {PageHeaderSeparator} from '@twilio-paste/page-header'
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Box} from '@twilio-paste/box';
@@ -37,9 +38,12 @@ export const getStaticProps = async () => {
   packageName={PackageJSON.name}
   version={PackageJSON.version}
   description={PackageJSON.description}
-/>
-
----
+  shouldShowBreadcrumbs={false}
+>
+  <PageHeaderSeparator>
+    <Separator orientation="horizontal"/>
+  </PageHeaderSeparator>
+</GenericHeader>
 
 <contentwrapper>
 
