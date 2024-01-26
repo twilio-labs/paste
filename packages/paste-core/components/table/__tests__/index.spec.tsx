@@ -157,7 +157,7 @@ describe("Table", () => {
     expect(renderedTh).toHaveStyleRule("z-index", "zIndex10");
   });
 
-  it("should render Th width and left textAlign styles", (): void => {
+  it("should render width, textAlign, and whiteSpace styles", (): void => {
     render(
       <Table>
         <THead>
@@ -167,89 +167,51 @@ describe("Table", () => {
             </Th>
           </Tr>
         </THead>
+        <TBody>
+          <Tr>
+            <Td width="size50" data-testid="mockTd">
+              Column 1
+            </Td>
+          </Tr>
+        </TBody>
       </Table>,
     );
     const renderedTh = screen.getByTestId("mockTh");
+    const renderedTd = screen.getByTestId("mockTd");
     expect(renderedTh).toHaveStyleRule("width", "size50");
     expect(renderedTh).toHaveStyleRule("text-align", "left");
-  });
+    expect(renderedTh).toHaveStyleRule("white-space", "normal");
 
-  it("should render Th center textAlign styles", (): void => {
-    render(
-      <Table>
-        <THead>
-          <Tr>
-            <Th textAlign="center" data-testid="mockTh">
-              Column 1
-            </Th>
-          </Tr>
-        </THead>
-      </Table>,
-    );
-    const renderedTh = screen.getByTestId("mockTh");
-    expect(renderedTh).toHaveStyleRule("text-align", "center");
-  });
-
-  it("should render Th right textAlign styles", (): void => {
-    render(
-      <Table>
-        <THead>
-          <Tr>
-            <Th textAlign="right" data-testid="mockTh">
-              Column 1
-            </Th>
-          </Tr>
-        </THead>
-      </Table>,
-    );
-    const renderedTh = screen.getByTestId("mockTh");
-    expect(renderedTh).toHaveStyleRule("text-align", "right");
-  });
-
-  it("should render Td left textAlign styles", (): void => {
-    render(
-      <Table>
-        <TBody>
-          <Tr>
-            <Td data-testid="mockTd">Column 1</Td>
-          </Tr>
-        </TBody>
-      </Table>,
-    );
-    const renderedTd = screen.getByTestId("mockTd");
     expect(renderedTd).toHaveStyleRule("text-align", "left");
+    expect(renderedTd).toHaveStyleRule("white-space", "normal");
   });
 
-  it("should render Td center textAlign styles", (): void => {
+  it("should render modified textAlign and whitespace styles", (): void => {
     render(
       <Table>
+        <THead>
+          <Tr>
+            <Th textAlign="center" whiteSpace="nowrap" data-testid="mockTh">
+              Column 1
+            </Th>
+          </Tr>
+        </THead>
         <TBody>
           <Tr>
-            <Td textAlign="center" data-testid="mockTd">
-              Column 1
+            <Td textAlign="center" whiteSpace="nowrap" data-testid="mockTd">
+              Col1 body
             </Td>
           </Tr>
         </TBody>
       </Table>,
     );
+    const renderedTh = screen.getByTestId("mockTh");
     const renderedTd = screen.getByTestId("mockTd");
+    expect(renderedTh).toHaveStyleRule("text-align", "center");
+    expect(renderedTh).toHaveStyleRule("white-space", "nowrap");
+
     expect(renderedTd).toHaveStyleRule("text-align", "center");
-  });
-
-  it("should render Td right textAlign styles", (): void => {
-    render(
-      <Table>
-        <TBody>
-          <Tr>
-            <Td textAlign="right" data-testid="mockTd">
-              Column 1
-            </Td>
-          </Tr>
-        </TBody>
-      </Table>,
-    );
-    const renderedTd = screen.getByTestId("mockTd");
-    expect(renderedTd).toHaveStyleRule("text-align", "right");
+    expect(renderedTd).toHaveStyleRule("white-space", "nowrap");
   });
 
   it("should render responsive table styles", (): void => {
