@@ -116,7 +116,9 @@ describe("SummaryDetail", () => {
     });
 
     it("should render a summary-detail open", async () => {
-      render(<MockSummaryDetail visible />);
+      await waitFor(() => {
+        render(<MockSummaryDetail visible />);
+      });
       const renderedSummaryDetailButton = screen.getByRole("button");
       const summaryDetailContent = screen.getByTestId("summary-detail-content");
       expect(renderedSummaryDetailButton.getAttribute("aria-expanded")).toEqual("true");

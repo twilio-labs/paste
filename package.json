@@ -60,7 +60,7 @@
     "clean:full": "tsx ./tools/build/clean-repo.ts && yarn nx run-many --target=clean && rm -rf node_modules/ && yarn",
     "clean:core": "yarn workspace @twilio-paste/core clean",
     "pre-test": "tsx ./tools/build/pre-test.ts",
-    "test": "node --expose-gc --no-compilation-cache ./node_modules/.bin/jest --logHeapUsage",
+    "test": "node --expose-gc --no-compilation-cache ./node_modules/.bin/jest --runInBand --logHeapUsage",
     "test:coverage": "node --expose-gc --no-compilation-cache ./node_modules/.bin/jest --logHeapUsage --coverage",
     "test:website": "yarn cypress run --record",
     "test:website-percy": "percy exec -- yarn cypress run --record",
