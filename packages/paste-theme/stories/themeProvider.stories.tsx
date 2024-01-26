@@ -70,7 +70,7 @@ export const JapaneseFontFamily = (): JSX.Element => (
 );
 
 export const StylingThemeProviderElement = (): React.ReactNode => (
-  <ThemeProvider theme="twilio" style={{ width: "100px", height: "100px", overflow: "auto", backgroundColor: "#ddd" }}>
+  <ThemeProvider theme="twilio" style={{ width: "100px", overflow: "auto" }}>
     <Paragraph>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
       magna aliqua. Nisi porta lorem mollis aliquam ut porttitor leo. Hendrerit gravida rutrum quisque non. A arcu
