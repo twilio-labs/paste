@@ -3,3 +3,4 @@
 ---
 
 [Codemods] added a new package: page-header
+[Codemods] added a new package: SummaryDetail
