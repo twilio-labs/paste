@@ -133,9 +133,7 @@ describe("SummaryDetail", () => {
       expect(summaryDetailContent).not.toBeVisible();
       userEvent.click(summaryDetailButton);
       expect(summaryDetailButton.getAttribute("aria-expanded")).toEqual("true");
-      waitFor(() => {
-        expect(summaryDetailContent).toBeVisible();
-      });
+      expect(summaryDetailContent).toBeVisible();
     });
 
     it("should toggle open state correctly when using a state hook", async () => {
@@ -147,9 +145,7 @@ describe("SummaryDetail", () => {
       expect(summaryDetailContent).not.toBeVisible();
       userEvent.click(toggleButton);
       expect(summaryDetailButton.getAttribute("aria-expanded")).toEqual("true");
-      waitFor(() => {
-        expect(summaryDetailContent).toBeVisible();
-      });
+      expect(summaryDetailContent).toBeVisible();
     });
   });
 
