@@ -5,6 +5,7 @@ import {
   type DisclosurePrimitveStateReturn,
   useDisclosurePrimitiveState,
 } from "@twilio-paste/disclosure-primitive";
+import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
 import { SummaryDetailContext } from "./SummaryDetailContext";
@@ -34,10 +35,11 @@ export interface SummaryDetailProps extends DisclosurePrimitiveInitialState {
 
 export const SummaryDetail = React.forwardRef<HTMLDivElement, SummaryDetailProps>(
   ({ children, element = "SUMMARY_DETAIL", state, ...props }, ref) => {
+    const headerId = useUID();
     const stateForContext = state || useDisclosurePrimitiveState(props);
 
     return (
-      <SummaryDetailContext.Provider value={{ ...stateForContext, headerId: React.useId() }}>
+      <SummaryDetailContext.Provider value={{ ...stateForContext, headerId }}>
         <Box
           {...safelySpreadBoxProps(props)}
           ref={ref}
