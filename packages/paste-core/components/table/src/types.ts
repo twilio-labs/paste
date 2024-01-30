@@ -1,5 +1,5 @@
 import type { BoxProps } from "@twilio-paste/box";
-import type { WidthOptions } from "@twilio-paste/style-props";
+import type { WhiteSpaceOptions, WidthOptions } from "@twilio-paste/style-props";
 import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
 
 import type {
@@ -140,6 +140,14 @@ export interface ThProps extends HTMLPasteProps<"th"> {
    */
   textAlign?: TableAlignmentOptions;
   /**
+   * Sets how white space inside the Table cell is handled.
+   *
+   * @default 'normal'
+   * @type {WhiteSpaceOptions}
+   * @memberof ThProps
+   */
+  whiteSpace?: WhiteSpaceOptions;
+  /**
    * Sets the width of a Table cell.
    *
    * @type {WidthOptions}
@@ -165,6 +173,14 @@ export interface TdProps extends HTMLPasteProps<"td"> {
    * @memberof TdProps
    */
   textAlign?: TableAlignmentOptions;
+  /**
+   * Sets how white space inside the Table cell is handled.
+   *
+   * @default 'normal'
+   * @type {WhiteSpaceOptions}
+   * @memberof TdProps
+   */
+  whiteSpace?: WhiteSpaceOptions;
 }
 export interface TFootProps extends HTMLPasteProps<"tfoot"> {
   children: NonNullable<React.ReactNode>;

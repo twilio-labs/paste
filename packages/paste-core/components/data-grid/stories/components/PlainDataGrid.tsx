@@ -51,6 +51,7 @@ export const PlainDataGrid: React.FC<React.PropsWithChildren<{ element?: BoxProp
                   key={`col-${colIndex}`}
                   data-testid={rowIndex === 0 && colIndex === 0 ? "data-grid-cell" : null}
                   textAlign={colIndex === 4 ? "right" : "left"}
+                  whiteSpace="nowrap"
                 >
                   {col}
                 </DataGridCell>

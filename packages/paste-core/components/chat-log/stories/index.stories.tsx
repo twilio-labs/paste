@@ -170,7 +170,9 @@ export const ExampleChatLog: StoryFn = () => (
       </ChatMessageMeta>
     </ChatMessage>
     <ChatMessage variant="outbound">
-      <ChatBubble>Nulla sit amet elit mauris.</ChatBubble>
+      <ChatBubble>
+        https://www.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.LONGURLTEST.com
+      </ChatBubble>
       <ChatMessageMeta aria-label="said by you at 4:32pm">
         <ChatMessageMetaItem>4:32pm</ChatMessageMetaItem>
       </ChatMessageMeta>

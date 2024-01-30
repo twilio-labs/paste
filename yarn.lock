@@ -9111,6 +9111,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@slack/logger@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "@slack/logger@npm:4.0.0"
+  dependencies:
+    "@types/node": ">=18.0.0"
+  checksum: dc79e9d2032c4bf9ce01d96cc72882f003dd376d036f172d4169662cfc2c9b384a80d5546b06021578dd473e7059f064303f0ba851eeb153387f2081a1e3062e
+  languageName: node
+  linkType: hard
+
+"@slack/types@npm:^2.9.0":
+  version: 2.11.0
+  resolution: "@slack/types@npm:2.11.0"
+  checksum: b5b7e4be242c9409b247c5be9df480b91a5ad21f367ae96945a7752bd720c65b13623c4a9b37b812107b3a5aa5e5013d7962807230913781ff5f0ad427a79ec2
+  languageName: node
+  linkType: hard
+
+"@slack/web-api@npm:^7.0.1":
+  version: 7.0.1
+  resolution: "@slack/web-api@npm:7.0.1"
+  dependencies:
+    "@slack/logger": ^4.0.0
+    "@slack/types": ^2.9.0
+    "@types/node": ">=18.0.0"
+    axios: ^1.6.5
+    eventemitter3: ^5.0.1
+    form-data: ^4.0.0
+    is-electron: 2.2.2
+    is-stream: ^2
+    p-queue: ^6
+    p-retry: ^4
+    retry: ^0.13.1
+  checksum: 134c0e7416216701b442e74f0057907f78b048e19965f1abd071ad7bc19abb8451b4628899396d20b0348093e8afca2fb234a1708b4da66a132bf069ebe2ffbe
+  languageName: node
+  linkType: hard
+
 "@snyk/dep-graph@npm:^2.3.0":
   version: 2.5.0
   resolution: "@snyk/dep-graph@npm:2.5.0"
@@ -11310,7 +11345,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/anchor@^12.1.0, @twilio-paste/anchor@workspace:packages/paste-core/components/anchor":
+"@twilio-paste/anchor@^12.0.0, @twilio-paste/anchor@^12.1.0, @twilio-paste/anchor@workspace:packages/paste-core/components/anchor":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/anchor@workspace:packages/paste-core/components/anchor"
   dependencies:
@@ -11669,7 +11704,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/button@^14.1.0, @twilio-paste/button@workspace:packages/paste-core/components/button":
+"@twilio-paste/button@^14.0.0, @twilio-paste/button@^14.1.0, @twilio-paste/button@workspace:packages/paste-core/components/button":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/button@workspace:packages/paste-core/components/button"
   dependencies:
@@ -12264,6 +12299,7 @@ __metadata:
     "@twilio-paste/status": ^2.1.1
     "@twilio-paste/style-props": ^9.1.1
     "@twilio-paste/styling-library": ^3.0.0
+    "@twilio-paste/summary-detail": ^0.0.1
     "@twilio-paste/switch": ^5.1.1
     "@twilio-paste/syntax-highlighter-library": ^3.0.0
     "@twilio-paste/table": ^8.1.0
@@ -14700,7 +14736,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/spinner@^14.1.0, @twilio-paste/spinner@^14.1.1, @twilio-paste/spinner@workspace:packages/paste-core/components/spinner":
+"@twilio-paste/spinner@^14.0.0, @twilio-paste/spinner@^14.1.0, @twilio-paste/spinner@^14.1.1, @twilio-paste/spinner@workspace:packages/paste-core/components/spinner":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/spinner@workspace:packages/paste-core/components/spinner"
   dependencies:
@@ -14740,7 +14776,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/stack@^8.1.0, @twilio-paste/stack@workspace:packages/paste-core/layout/stack":
+"@twilio-paste/stack@^8.0.0, @twilio-paste/stack@^8.1.0, @twilio-paste/stack@workspace:packages/paste-core/layout/stack":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/stack@workspace:packages/paste-core/layout/stack"
   dependencies:
@@ -14890,6 +14926,60 @@ __metadata:
     react-dom: ^18.0.0
     styled-system: 5.1.5
   peerDependencies:
+    react: ^16.8.6 || ^17.0.2 || ^18.0.0
+    react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
+  languageName: unknown
+  linkType: soft
+
+"@twilio-paste/summary-detail@^0.0.1, @twilio-paste/summary-detail@workspace:packages/paste-core/components/summary-detail":
+  version: 0.0.0-use.local
+  resolution: "@twilio-paste/summary-detail@workspace:packages/paste-core/components/summary-detail"
+  dependencies:
+    "@twilio-paste/anchor": ^12.0.0
+    "@twilio-paste/animation-library": ^2.0.0
+    "@twilio-paste/box": ^10.3.0
+    "@twilio-paste/button": ^14.0.0
+    "@twilio-paste/card": ^9.1.0
+    "@twilio-paste/color-contrast-utils": ^5.0.0
+    "@twilio-paste/customization": ^8.1.1
+    "@twilio-paste/design-tokens": ^10.4.0
+    "@twilio-paste/disclosure-primitive": ^2.1.1
+    "@twilio-paste/icons": ^12.0.0
+    "@twilio-paste/reakit-library": ^2.0.0
+    "@twilio-paste/spinner": ^14.0.0
+    "@twilio-paste/stack": ^8.0.0
+    "@twilio-paste/style-props": ^9.1.1
+    "@twilio-paste/styling-library": ^3.0.0
+    "@twilio-paste/theme": ^11.0.0
+    "@twilio-paste/types": ^6.0.0
+    "@twilio-paste/uid-library": ^2.0.0
+    "@types/react": ^18.0.27
+    "@types/react-dom": ^18.0.10
+    react: ^18.0.0
+    react-dom: ^18.0.0
+    tsx: ^4.0.0
+    typescript: ^4.9.4
+  peerDependencies:
+    "@twilio-paste/anchor": ^12.0.0
+    "@twilio-paste/animation-library": ^2.0.0
+    "@twilio-paste/box": ^10.3.0
+    "@twilio-paste/button": ^14.0.0
+    "@twilio-paste/card": ^9.1.0
+    "@twilio-paste/color-contrast-utils": ^5.0.0
+    "@twilio-paste/customization": ^8.0.0
+    "@twilio-paste/design-tokens": ^10.0.0
+    "@twilio-paste/disclosure-primitive": ^2.1.1
+    "@twilio-paste/icons": ^12.0.0
+    "@twilio-paste/reakit-library": ^2.0.0
+    "@twilio-paste/spinner": ^14.0.0
+    "@twilio-paste/stack": ^8.0.0
+    "@twilio-paste/style-props": ^9.0.0
+    "@twilio-paste/styling-library": ^3.0.0
+    "@twilio-paste/theme": ^11.0.0
+    "@twilio-paste/types": ^6.0.0
+    "@twilio-paste/uid-library": ^2.0.0
+    "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
+    "@types/react-dom": ^16.8.6 || ^17.0.2 || ^18.0.10
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
   languageName: unknown
@@ -15663,6 +15753,7 @@ __metadata:
     "@next/mdx": ^14.0.0
     "@octokit/core": ^5.0.1
     "@octokit/plugin-paginate-graphql": ^4.0.0
+    "@slack/web-api": ^7.0.1
     "@storybook/react": 7.6.4
     "@supabase/supabase-js": ^2.36.0
     "@tanstack/eslint-plugin-query": ^5.17.7
@@ -16586,6 +16677,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:>=18.0.0":
+  version: 20.11.7
+  resolution: "@types/node@npm:20.11.7"
+  dependencies:
+    undici-types: ~5.26.4
+  checksum: 61ea0718bccda31110c643190518407b7c50d26698a20e3522871608db5fa3d2d43d1ae57c609068eae6996d563db43326045a90f22a9aacc825e8d6c7aea2ce
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:>=8.0.0 <15, @types/node@npm:^14.14.31":
   version: 14.18.36
   resolution: "@types/node@npm:14.18.36"
@@ -16831,6 +16931,13 @@ __metadata:
   dependencies:
     "@types/node": "*"
   checksum: e99fc7cc6265407987b30deda54c1c24bb1478803faf6037557a774b2f034c5b097ffd65847daa87e82a61a250d919f35c3588654b0fdaa816906650f596d1b0
+  languageName: node
+  linkType: hard
+
+"@types/retry@npm:0.12.0":
+  version: 0.12.0
+  resolution: "@types/retry@npm:0.12.0"
+  checksum: 61a072c7639f6e8126588bf1eb1ce8835f2cb9c2aba795c4491cf6310e013267b0c8488039857c261c387e9728c1b43205099223f160bb6a76b4374f741b5603
   languageName: node
   linkType: hard
 
@@ -19270,6 +19377,17 @@ __metadata:
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
   checksum: 4a7429e2b784be0f2902ca2680964391eae7236faa3967715f30ea45464b98ae3f1c6f631303b13dfe721b17126b01f486c7644b9ef276bfc63112db9fd379f8
+  languageName: node
+  linkType: hard
+
+"axios@npm:^1.6.5":
+  version: 1.6.7
+  resolution: "axios@npm:1.6.7"
+  dependencies:
+    follow-redirects: ^1.15.4
+    form-data: ^4.0.0
+    proxy-from-env: ^1.1.0
+  checksum: 87d4d429927d09942771f3b3a6c13580c183e31d7be0ee12f09be6d5655304996bb033d85e54be81606f4e89684df43be7bf52d14becb73a12727bf33298a082
   languageName: node
   linkType: hard
 
@@ -25157,6 +25275,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eventemitter3@npm:^5.0.1":
+  version: 5.0.1
+  resolution: "eventemitter3@npm:5.0.1"
+  checksum: 543d6c858ab699303c3c32e0f0f47fc64d360bf73c3daf0ac0b5079710e340d6fe9f15487f94e66c629f5f82cd1a8678d692f3dbb6f6fcd1190e1b97fcad36f8
+  languageName: node
+  linkType: hard
+
 "events@npm:^3.2.0":
   version: 3.3.0
   resolution: "events@npm:3.3.0"
@@ -26147,6 +26272,16 @@ __metadata:
     debug:
       optional: true
   checksum: faa66059b66358ba65c234c2f2a37fcec029dc22775f35d9ad6abac56003268baf41e55f9ee645957b32c7d9f62baf1f0b906e68267276f54ec4b4c597c2b190
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.4":
+  version: 1.15.5
+  resolution: "follow-redirects@npm:1.15.5"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 5ca49b5ce6f44338cbfc3546823357e7a70813cecc9b7b768158a1d32c1e62e7407c944402a918ea8c38ae2e78266312d617dc68783fac502cbb55e1047b34ec
   languageName: node
   linkType: hard
 
@@ -29194,6 +29329,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"is-electron@npm:2.2.2":
+  version: 2.2.2
+  resolution: "is-electron@npm:2.2.2"
+  checksum: de5aa8bd8d72c96675b8d0f93fab4cc21f62be5440f65bc05c61338ca27bd851a64200f31f1bf9facbaa01b3dbfed7997b2186741d84b93b63e0aff1db6a9494
+  languageName: node
+  linkType: hard
+
 "is-even@npm:^1.0.0":
   version: 1.0.0
   resolution: "is-even@npm:1.0.0"
@@ -29621,6 +29763,13 @@ fsevents@^1.2.7:
   version: 1.1.0
   resolution: "is-stream@npm:1.1.0"
   checksum: 063c6bec9d5647aa6d42108d4c59723d2bd4ae42135a2d4db6eadbd49b7ea05b750fd69d279e5c7c45cf9da753ad2c00d8978be354d65aa9f6bb434969c6a2ae
+  languageName: node
+  linkType: hard
+
+"is-stream@npm:^2":
+  version: 2.0.1
+  resolution: "is-stream@npm:2.0.1"
+  checksum: b8e05ccdf96ac330ea83c12450304d4a591f9958c11fd17bed240af8d5ffe08aedafa4c0f4cfccd4d28dc9d4d129daca1023633d5c11601a6cbc77521f6fae66
   languageName: node
   linkType: hard
 
@@ -36318,7 +36467,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"p-queue@npm:6.6.2":
+"p-queue@npm:6.6.2, p-queue@npm:^6":
   version: 6.6.2
   resolution: "p-queue@npm:6.6.2"
   dependencies:
@@ -36332,6 +36481,16 @@ fsevents@^1.2.7:
   version: 2.1.0
   resolution: "p-reduce@npm:2.1.0"
   checksum: 99b26d36066a921982f25c575e78355824da0787c486e3dd9fc867460e8bf17d5fb3ce98d006b41bdc81ffc0aa99edf5faee53d11fe282a20291fb721b0cb1c7
+  languageName: node
+  linkType: hard
+
+"p-retry@npm:^4":
+  version: 4.6.2
+  resolution: "p-retry@npm:4.6.2"
+  dependencies:
+    "@types/retry": 0.12.0
+    retry: ^0.13.1
+  checksum: 45c270bfddaffb4a895cea16cb760dcc72bdecb6cb45fef1971fa6ea2e91ddeafddefe01e444ac73e33b1b3d5d29fb0dd18a7effb294262437221ddc03ce0f2e
   languageName: node
   linkType: hard
 

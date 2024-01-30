@@ -333,7 +333,9 @@ Tabular data on small screens can be problematic. The data can often cause table
 
 #### Density
 
-You can control a tables vertical density by setting `noWrap` on the table. This will ensure table cell content stays on a single line.
+You can control a tables vertical density by either setting `noWrap` on the table. This will ensure table cell content stays on a single line.
+
+You can also optionally set the `whiteSpace` prop on individual table cells, for more granular control.
 
 Coupled with a fixed table layout and [truncation](/components/table/#table-with-truncated-cells) you can increase the data density of a table dramatically. You should be extremely mindful of readability trade-offs when doing so.
 
@@ -359,7 +361,7 @@ Coupled with a fixed table layout and [truncation](/components/table/#table-with
       <Td>(602) 609-6747</Td>
     </Tr>
     <Tr>
-      <Td>
+      <Td whitespace="wrap">
         16:24:28 PDT 2020-09-17
       </Td>
       <Td>
