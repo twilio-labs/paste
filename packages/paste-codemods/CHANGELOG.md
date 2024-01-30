@@ -1,5 +1,16 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- [`f5a0ae961`](https://github.com/twilio-labs/paste/commit/f5a0ae9610a838503d081f448324c354d39e6394) [#3662](https://github.com/twilio-labs/paste/pull/3662) Thanks [@nkrantz](https://github.com/nkrantz)! - [Codemods] added a new package: page-header
+  [Codemods] added a new package: SummaryDetail
+
+### Patch Changes
+
+- [`e0e69e760`](https://github.com/twilio-labs/paste/commit/e0e69e7601216bc79535b7ee6978ae227a155300) [#3731](https://github.com/twilio-labs/paste/pull/3731) Thanks [@nkrantz](https://github.com/nkrantz)! - [codemods] add new export to page-header package: PageHeaderSeparator
+
 ## 0.6.1
 
 ### Patch Changes

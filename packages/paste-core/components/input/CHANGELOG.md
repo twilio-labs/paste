@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.1.2
+
+### Patch Changes
+
+- [`47c329b57`](https://github.com/twilio-labs/paste/commit/47c329b573b19696b8697ceadc5c3f5a75511c50) [#3722](https://github.com/twilio-labs/paste/pull/3722) Thanks [@TheSisb](https://github.com/TheSisb)! - [Input] Fix rendering logic of decrement arrow on number input
+
 ## 9.1.1
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.2.0
+
+### Minor Changes
+
+- [`d9f96d7d8`](https://github.com/twilio-labs/paste/commit/d9f96d7d8b72f3d3fa8f66c24b5725a2a92bfc35) [#3739](https://github.com/twilio-labs/paste/pull/3739) Thanks [@TheSisb](https://github.com/TheSisb)! - [ThemeProvider, CustomizationProvider] Now accepts an optional `style` prop to override element styles.
+
+  This is helpful in scenarios where ThemeProvider isn't wrapping your app root, but instead is nested in your DOM tree and needs some styling overrides.
+
 ## 8.1.1
 
 ### Patch Changes

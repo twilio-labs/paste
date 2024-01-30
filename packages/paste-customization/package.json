@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/customization",
-  "version": "8.1.1",
+  "version": "8.2.0",
   "description": "The Customization Provider provides functionality to change token values and the style of Paste components.",
   "author": "Twilio Inc.",
   "license": "MIT",
@@ -40,10 +40,10 @@
   "devDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
-    "@twilio-paste/design-tokens": "^10.3.0",
+    "@twilio-paste/design-tokens": "^10.4.1",
     "@twilio-paste/style-props": "^9.1.1",
     "@twilio-paste/styling-library": "^3.0.0",
-    "@twilio-paste/theme": "^11.0.0",
+    "@twilio-paste/theme": "^11.1.0",
     "@twilio-paste/types": "^6.0.0",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
