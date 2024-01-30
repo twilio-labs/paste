@@ -21,12 +21,18 @@ const rollbar = new Rollbar({
 
 const supabaseUrl = process.env.SUPABASE_URL;
 const supabaseServiceKey = process.env.SUPABASE_KEY;
-const slackChannelID = process.env.SLACK_CHANNEL_TMP_PASTE_TESTING;
+const slackChannelID = process.env.SLACK_CHANNEL_HELP_DESIGN_SYSTEM;
 
 const LOG_PREFIX = "[/api/share-search-usage]:";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`);
+
+  // if this doesn't get called from a vercel cron job, then it's unauthorized
+  if (req.headers.authorization !== `Bearer ${process.env.CRON_SECRET}`) {
+    res.status(401).end("Unauthorized");
+    return;
+  }
 
   if (supabaseUrl === undefined) {
     logger.error(`${LOG_PREFIX} Supabase URL is undefined`);
