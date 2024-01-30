@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
 import Rollbar from "rollbar";
 
-import { logger } from "../../../functions-utils/logger";
+import { logger } from "../../../../../functions-utils/logger";
 
 const rollbar = new Rollbar({
   accessToken: process.env.ROLLBAR_ACCESS_TOKEN,
@@ -18,18 +18,19 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // defaults to process.env["OPENAI_API_KEY"]
 });
 
-const LOG_PREFIX = "[/api/paste-assistant-messages/:tid]:";
+const LOG_PREFIX = "[/api/paste-assistant-thread/:tid/run/:rid]:";
 
-async function getThreadMessages({
-  threadId,
-}: { threadId: OpenAI.Beta.Thread["id"] }): Promise<OpenAI.Beta.Threads.Messages.ThreadMessagesPage> {
-  return openai.beta.threads.messages.list(threadId, { order: "asc" });
+async function getRun(
+  threadId: OpenAI.Beta.Thread["id"],
+  runId: OpenAI.Beta.Threads.Run["id"],
+): Promise<OpenAI.Beta.Threads.Run> {
+  return openai.beta.threads.runs.retrieve(threadId, runId);
 }
 
 /**
- * Simple endpoint for returning messages from a thread based on a threadId.
+ * Simple endpoint for returning a run from a given thread based on a threadId and runId.
  *
- * /api/paste-assistant-messages/:tid
+ * /api/paste-assistant-thread/:tid/run/:rid
  *
  * @export
  * @param {NextApiRequest} req
@@ -53,10 +54,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(500).json({
       error: "OpenAI assistant ID is undefined",
     });
-    return;
   }
 
-  const { tid: threadId } = req.query;
+  const { tid: threadId, rid: runId } = req.query;
 
   if (threadId === undefined || threadId === "") {
     logger.error(`${LOG_PREFIX} Thread ID is undefined`);
@@ -76,16 +76,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  try {
-    logger.info(`${LOG_PREFIX} Getting thread messages`, { threadId });
-    const threadMessages = await getThreadMessages({ threadId });
-    logger.info(`${LOG_PREFIX} Recieved thread message`, { threadMessages });
-    res.status(200).json(threadMessages);
-  } catch (error) {
-    logger.error(`${LOG_PREFIX} Error getting thread message`, { error });
-    rollbar.error(`${LOG_PREFIX} Error getting thread message`, { error });
+  if (runId === undefined || runId === "") {
+    logger.error(`${LOG_PREFIX} Run ID is undefined`);
+    rollbar.error(`${LOG_PREFIX} Run ID is undefined`);
     res.status(500).json({
-      error: "Error getting thread message",
+      error: "Run ID is undefined",
+    });
+    return;
+  }
+
+  if (typeof runId !== "string") {
+    logger.error(`${LOG_PREFIX} Run ID is not a string`);
+    rollbar.error(`${LOG_PREFIX} Run ID is not a string`);
+    res.status(500).json({
+      error: "Run ID is not a string",
+    });
+    return;
+  }
+
+  try {
+    logger.info(`${LOG_PREFIX} Getting assistant run`, { threadId, runId });
+    const run = await getRun(threadId, runId);
+    logger.info(`${LOG_PREFIX} Recieved run`, { run });
+    res.status(200).json(run);
+  } catch (error) {
+    logger.error(`${LOG_PREFIX} Error getting assistant run`, { error });
+    rollbar.error(`${LOG_PREFIX} Error getting assistant run`, { error });
+    res.status(500).json({
+      error: "Error getting assistant run",
     });
   }
 }
