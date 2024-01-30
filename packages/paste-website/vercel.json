@@ -1,0 +1,8 @@
+{
+  "crons": [
+    {
+      "path": "/api/share-search-usage",
+      "schedule": "0 10 * * 1"
+    }
+  ]
+}
