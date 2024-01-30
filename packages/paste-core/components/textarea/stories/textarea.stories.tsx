@@ -90,6 +90,37 @@ MultipleTextareas.parameters = {
   chromatic: { disableSnapshot: true },
 };
 
+export const TextareaMaxRows = (): React.ReactElement => {
+  const uid = useUID();
+  const [value, setValue] = React.useState(`1
+2
+3
+4
+5
+6
+7
+8
+9
+10`);
+  return (
+    <>
+      <Label htmlFor={uid}>7 rows maximum</Label>
+      <TextArea
+        id={uid}
+        aria-describedby={`help-text-${uid}`}
+        placeholder="Placeholder"
+        value={value}
+        maxRows={7}
+        onChange={(e) => setValue(e.target.value)}
+        onFocus={action("handleFocus")}
+        onBlur={action("handleBlur")}
+      />
+      <HelpText id={`help-text-${uid}`}>Info that helps a user with this field.</HelpText>
+    </>
+  );
+};
+TextareaMaxRows.storyName = "Textarea - adjustable maxRows";
+
 export const TextareaInverse = (): React.ReactNode => {
   const uid = useUID();
   return (

@@ -8,7 +8,7 @@ import * as React from "react";
 
 type TextAreaVariants = "default" | "inverse";
 
-export interface TextAreaProps extends HTMLPasteProps<"textarea"> {
+export interface TextAreaProps extends Omit<HTMLPasteProps<"textarea">, "maxRows"> {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider.
    *
@@ -96,6 +96,14 @@ export interface TextAreaProps extends HTMLPasteProps<"textarea"> {
    */
   resize?: "none" | "vertical";
   /**
+   * Adjust how big the textarea should grow as the user types into it.
+   *
+   * @default 10
+   * @type {(number)}
+   * @memberof TextAreaProps
+   */
+  maxRows?: number;
+  /**
    * The size of the textarea is strictly controlled by the component
    *
    * @type {never}
@@ -134,7 +142,6 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
       fontSize: "fontSize30",
       fontWeight: "fontWeightMedium",
       lineHeight: "lineHeight20",
-      maxHeight: props.resize === "vertical" ? "none" : "size30",
       outline: "none",
       paddingBottom: "space30",
       paddingLeft: "space40",
@@ -142,7 +149,6 @@ const TextAreaElement = styled(TextareaAutosize)<TextAreaProps>(
       paddingTop: "space30",
       resize: props.resize,
       width: "100%",
-
       "&::placeholder": {
         color: props.variant === "inverse" ? "colorTextInverseWeaker" : "colorTextWeak",
         fontStyle: "italic",
@@ -175,6 +181,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
       readOnly,
       variant,
       resize = "none",
+      maxRows = 10,
       // size, height and width should not be passed down
       size,
       height,
@@ -203,6 +210,7 @@ const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
           ref={ref}
           rows={3}
           minRows={3}
+          maxRows={maxRows}
           spellCheck
           resize={resize}
           variant={variant}
