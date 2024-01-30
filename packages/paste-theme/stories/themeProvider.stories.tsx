@@ -81,3 +81,9 @@ export const StylingThemeProviderElement = (): React.ReactNode => (
     </Paragraph>
   </ThemeProvider>
 );
+StylingThemeProviderElement.parameters = {
+  a11y: {
+    // no need to a11y this story
+    disable: true,
+  },
+};

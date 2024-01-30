@@ -289,6 +289,13 @@ export interface Database {
           slug: string
         }[]
       }
+      match_weekly_search_usage: {
+        Args: Record<PropertyKey, never>
+        Returns: {
+          query_string: string
+          count: number
+        }[]
+      }
       upsert_story_and_create_story_render: {
         Args: {
           _storybook_id: string

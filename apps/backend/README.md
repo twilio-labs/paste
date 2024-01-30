@@ -26,7 +26,7 @@ Link local to upstream project so you can push migrations to staging or prod pro
 yarn supabase link --project-ref $PROJECT_REF
 ```
 
-Push migrations to upstream / clooud project such as staging
+Push migrations to upstream / cloud project such as staging
 
 ```
 yarn supabase db push
