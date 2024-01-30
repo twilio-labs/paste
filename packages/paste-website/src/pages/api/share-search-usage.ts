@@ -25,7 +25,7 @@ const slackChannelID = process.env.SLACK_CHANNEL_TMP_PASTE_TESTING;
 
 const LOG_PREFIX = "[/api/share-search-usage]:";
 
-export default async function handler(_req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
+export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`);
 
   if (supabaseUrl === undefined) {
@@ -54,6 +54,9 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
     });
     return;
   }
+
+  const { host } = req.headers;
+  const protocol = host?.includes("localhost") ? "http" : "https";
 
   const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
 
@@ -121,7 +124,7 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
     );
 
   try {
-    const postToSlackResponse = await fetch("http://localhost:3000/api/post-to-slack", {
+    const postToSlackResponse = await fetch(`${protocol}://${host}/api/post-to-slack`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -142,6 +145,7 @@ export default async function handler(_req: NextApiRequest, res: NextApiResponse
     rollbar.error(`${LOG_PREFIX} Error posting to Slack`, { error });
     res.status(500).json({
       error: "Error posting to Slack",
+      details: error,
     });
   }
 }
