@@ -1,7 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { CustomizationProvider } from "@twilio-paste/customization";
-import { Theme } from "@twilio-paste/theme";
 import * as React from "react";
 
 import {
@@ -18,17 +17,15 @@ const MockSummaryDetail: React.FC<{
   visible?: SummaryDetailProps["visible"];
 }> = ({ visible }) => {
   return (
-    <Theme.Provider theme="default">
-      <SummaryDetail baseId="summary-detail" visible={visible} data-testid="summary-detail">
-        <SummaryDetailHeading data-testid="summary-detail-heading">
-          <SummaryDetailToggleButton data-testid="summary-detail-toggle-button" />
-          <SummaryDetailHeadingContent data-testid="summary-detail-heading-content">
-            Inbound Call
-          </SummaryDetailHeadingContent>
-        </SummaryDetailHeading>
-        <SummaryDetailContent data-testid="summary-detail-content">Agent: John Doe</SummaryDetailContent>
-      </SummaryDetail>
-    </Theme.Provider>
+    <SummaryDetail baseId="summary-detail" visible={visible} data-testid="summary-detail">
+      <SummaryDetailHeading data-testid="summary-detail-heading">
+        <SummaryDetailToggleButton data-testid="summary-detail-toggle-button" />
+        <SummaryDetailHeadingContent data-testid="summary-detail-heading-content">
+          Inbound Call
+        </SummaryDetailHeadingContent>
+      </SummaryDetailHeading>
+      <SummaryDetailContent data-testid="summary-detail-content">Agent: John Doe</SummaryDetailContent>
+    </SummaryDetail>
   );
 };
 
@@ -72,7 +69,7 @@ const MockCustomElementSummaryDetail = (): JSX.Element => {
 const StateHookMock = (): JSX.Element => {
   const summaryDetail = useSummaryDetailState();
   return (
-    <Theme.Provider theme="default">
+    <>
       <button
         onClick={() => {
           summaryDetail.toggle();
@@ -97,7 +94,7 @@ const StateHookMock = (): JSX.Element => {
           Agent: John Doe
         </SummaryDetailContent>
       </SummaryDetail>
-    </Theme.Provider>
+    </>
   );
 };
 
@@ -136,9 +133,7 @@ describe("SummaryDetail", () => {
       expect(summaryDetailContent).not.toBeVisible();
       userEvent.click(summaryDetailButton);
       expect(summaryDetailButton.getAttribute("aria-expanded")).toEqual("true");
-      waitFor(() => {
-        expect(summaryDetailContent).toBeVisible();
-      });
+      expect(summaryDetailContent).toBeVisible();
     });
 
     it("should toggle open state correctly when using a state hook", async () => {
@@ -150,19 +145,13 @@ describe("SummaryDetail", () => {
       expect(summaryDetailContent).not.toBeVisible();
       userEvent.click(toggleButton);
       expect(summaryDetailButton.getAttribute("aria-expanded")).toEqual("true");
-      waitFor(() => {
-        expect(summaryDetailContent).toBeVisible();
-      });
+      expect(summaryDetailContent).toBeVisible();
     });
   });
 
   describe("Customization", () => {
     it("should set an element data attribute for SummaryDetail components", () => {
-      render(
-        <Theme.Provider theme="default">
-          <MockDefaultElementSummaryDetail />
-        </Theme.Provider>,
-      );
+      render(<MockDefaultElementSummaryDetail />);
 
       const renderedSummaryDetailHeading = screen.getByTestId("summary-detail-heading");
       const renderedSummaryDetail = screen.getByTestId("summary-detail");
@@ -182,11 +171,7 @@ describe("SummaryDetail", () => {
     });
 
     it("should set a custom element data attribute for custom named SummaryDetail components", () => {
-      render(
-        <Theme.Provider theme="default">
-          <MockCustomElementSummaryDetail />
-        </Theme.Provider>,
-      );
+      render(<MockCustomElementSummaryDetail />);
 
       const renderedSummaryDetailHeading = screen.getByTestId("summary-detail-heading");
       const renderedSummaryDetail = screen.getByTestId("summary-detail");
