@@ -146,7 +146,7 @@ export const VisualPickerRadio = React.forwardRef<HTMLInputElement, VisualPicker
             </Box>
           </BaseRadioCheckboxControl>
         </BaseRadioCheckboxLabel>
-        <Box element={`${element}_CONTENT`} id={helpTextId} paddingLeft="space50" width="100%">
+        <Box element={`${element}_CONTENT`} id={helpTextId} paddingLeft="space40" width="100%">
           {children}
         </Box>
       </Box>
