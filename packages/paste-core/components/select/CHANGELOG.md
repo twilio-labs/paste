@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.1.1
+
+### Patch Changes
+
+- [`36f33dcfd`](https://github.com/twilio-labs/paste/commit/36f33dcfdd2411122a13691eea071ef5b2f4935c) [#3738](https://github.com/twilio-labs/paste/pull/3738) Thanks [@raffaele-abramini](https://github.com/raffaele-abramini)! - [Select] Fixed a bug in dark mode on Windows where the options list was still white and the options were unreadable
+
 ## 9.1.0
 
 ### Minor Changes

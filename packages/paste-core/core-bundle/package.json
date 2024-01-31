@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/core",
-  "version": "15.3.0",
+  "version": "15.3.1",
   "status": "production",
   "description": "Core contains all the packages from the Paste design system.",
   "author": "Twilio Inc.",
@@ -79,7 +79,7 @@
     "@twilio-paste/react-textarea-autosize-library": "^1.0.0",
     "@twilio-paste/reakit-library": "^0.8.6",
     "@twilio-paste/screen-reader-only": "^10.0.1",
-    "@twilio-paste/select": "^9.1.0",
+    "@twilio-paste/select": "^9.1.1",
     "@twilio-paste/separator": "^5.0.0",
     "@twilio-paste/sibling-box": "^6.0.1",
     "@twilio-paste/side-modal": "^1.0.0",
