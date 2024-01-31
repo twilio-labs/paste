@@ -139,12 +139,14 @@ The Textarea should include the base `Textarea`, along with supporting elements 
 
 ### Resizable Textarea
 
-By default, the textarea is not resizable. To change this, add the prop `resize='vertical'`.
+By default, the textarea is not resizable by the user. To change this, add the prop `resize='vertical'`.
+
+You may also provide a `maxRows` prop to limit how much the textArea grows. By default this value is 10.
 
 <LivePreview scope={{Label, HelpText, TextArea}} language="jsx">
   {`<>
   <Label htmlFor="message" required>Message (at least 120 characters)</Label>
-  <TextArea onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" resize="vertical" required />
+  <TextArea onChange={()=>{}} aria-describedby="message_help_text" id="message" name="message" resize="vertical" maxRows={5} required />
   <HelpText id="message_help_text">Enter at least 120 characters</HelpText>
 </>`}
 </LivePreview>
