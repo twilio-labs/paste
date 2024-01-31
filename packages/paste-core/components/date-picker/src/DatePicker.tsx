@@ -12,7 +12,7 @@ export type DatePickerProps = Omit<InputProps, "type" | "insertBefore" | "insert
 };
 
 const DatePicker = React.forwardRef<HTMLInputElement, DatePickerProps>(({ element = "DATEPICKER", ...props }, ref) => {
-  return <Input element={element} {...props} type="date" ref={ref} />;
+  return <Input element={element} max="9999-12-31" {...props} type="date" ref={ref} />;
 });
 
 DatePicker.displayName = "DatePicker";
