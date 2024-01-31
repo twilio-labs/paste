@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.2.0
+
+### Minor Changes
+
+- [`22a917aed`](https://github.com/twilio-labs/paste/commit/22a917aed53a0e4b3c1a78a8c946321d326fb12c) [#3740](https://github.com/twilio-labs/paste/pull/3740) Thanks [@TheSisb](https://github.com/TheSisb)! - [Table, DataGrid] Allow passing `whiteSpace` style prop to `Th`/`DataGridHeader` and `Td`/`DataGridCell` components.
+
 ## 8.1.0
 
 ### Minor Changes

@@ -8076,6 +8076,13 @@
       "required": false,
       "externalProp": true
     },
+    "whiteSpace": {
+      "type": "WhiteSpace",
+      "defaultValue": "'normal'",
+      "required": false,
+      "externalProp": false,
+      "description": "Sets how white space inside the Table cell is handled."
+    },
     "width": {
       "type": "string | number",
       "defaultValue": null,
@@ -9707,6 +9714,13 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
+    },
+    "whiteSpace": {
+      "type": "WhiteSpace",
+      "defaultValue": "'normal'",
+      "required": false,
+      "externalProp": false,
+      "description": "Sets how white space inside the Table cell is handled."
     },
     "width": {
       "type": "Width<TLengthStyledSystem>",

@@ -1,5 +1,10 @@
 {
-  "extends": ["../../.eslintrc.js", "plugin:@next/next/recommended", "plugin:@next/next/core-web-vitals"],
+  "extends": [
+    "../../.eslintrc.js",
+    "plugin:@next/next/recommended",
+    "plugin:@next/next/core-web-vitals",
+    "plugin:@tanstack/eslint-plugin-query/recommended"
+  ],
   "root": true,
   "rules": {
     "import/no-default-export": "off",

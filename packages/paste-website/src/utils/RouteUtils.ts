@@ -26,7 +26,7 @@ export function useLocationOrigin(): string {
 
 export function useOpengraphServiceUrl(path: string): string {
   const origin = useLocationOrigin();
-  return `${origin}/api/og-image/?componentRequested=${path}`;
+  return `${origin}/api/component-og-image/?componentRequested=${path}`;
 }
 
 // Returns "aspect-ratio" from "@twilio-paste/aspect-ratio"

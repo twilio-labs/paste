@@ -1,5 +1,56 @@
 # Change Log
 
+## 20.8.0
+
+### Minor Changes
+
+- [`55786c61c`](https://github.com/twilio-labs/paste/commit/55786c61cb6c217b0305d7dafc2cadffa6675f92) [#3727](https://github.com/twilio-labs/paste/pull/3727) Thanks [@TheSisb](https://github.com/TheSisb)! - [Summary Detail] Add new SummaryDetail component package.
+
+  A Summary Detail is a collapsible container that can be used to hide or show content.
+
+* [`e0e69e760`](https://github.com/twilio-labs/paste/commit/e0e69e7601216bc79535b7ee6978ae227a155300) [#3731](https://github.com/twilio-labs/paste/pull/3731) Thanks [@nkrantz](https://github.com/nkrantz)! - [Page Header] Create new PageHeaderSeparator component as part of the Page Header package
+
+- [`d9f96d7d8`](https://github.com/twilio-labs/paste/commit/d9f96d7d8b72f3d3fa8f66c24b5725a2a92bfc35) [#3739](https://github.com/twilio-labs/paste/pull/3739) Thanks [@TheSisb](https://github.com/TheSisb)! - [ThemeProvider, CustomizationProvider] Now accepts an optional `style` prop to override element styles.
+
+  This is helpful in scenarios where ThemeProvider isn't wrapping your app root, but instead is nested in your DOM tree and needs some styling overrides.
+
+* [`22a917aed`](https://github.com/twilio-labs/paste/commit/22a917aed53a0e4b3c1a78a8c946321d326fb12c) [#3740](https://github.com/twilio-labs/paste/pull/3740) Thanks [@TheSisb](https://github.com/TheSisb)! - [Table, DataGrid] Allow passing `whiteSpace` style prop to `Th`/`DataGridHeader` and `Td`/`DataGridCell` components.
+
+- [`f5a0ae961`](https://github.com/twilio-labs/paste/commit/f5a0ae9610a838503d081f448324c354d39e6394) [#3662](https://github.com/twilio-labs/paste/pull/3662) Thanks [@nkrantz](https://github.com/nkrantz)! - [Page Header] Create new Page Header package. Page Header is a layout component that wraps all top level components on a page.
+
+### Patch Changes
+
+- [`f5a0ae961`](https://github.com/twilio-labs/paste/commit/f5a0ae9610a838503d081f448324c354d39e6394) [#3662](https://github.com/twilio-labs/paste/pull/3662) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens] Update value of line-height-90 from 2.75rem to 2.5rem
+
+* [`47c329b57`](https://github.com/twilio-labs/paste/commit/47c329b573b19696b8697ceadc5c3f5a75511c50) [#3722](https://github.com/twilio-labs/paste/pull/3722) Thanks [@TheSisb](https://github.com/TheSisb)! - [Input] Fix rendering logic of decrement arrow on number input
+
+- [`855830c89`](https://github.com/twilio-labs/paste/commit/855830c89536073a24bda7cee9c3b6e4756254d0) [#3735](https://github.com/twilio-labs/paste/pull/3735) Thanks [@serifluous](https://github.com/serifluous)! - Remove evergreen font size definitions that inherit from global and update font-size-40 value
+
+* [`048c3cfa0`](https://github.com/twilio-labs/paste/commit/048c3cfa048639da15b77035f7aee2c35df4b167) [#3743](https://github.com/twilio-labs/paste/pull/3743) Thanks [@serifluous](https://github.com/serifluous)! - Reduced left padding on Visual Picker content
+
+- [`fbd399636`](https://github.com/twilio-labs/paste/commit/fbd39963687623baf9352e034b83dbe8bb70eeff) [#3736](https://github.com/twilio-labs/paste/pull/3736) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Theme]: patch bump in Paste fonts to fix a bug in the Twilio sans font regarding backticks not taking up physical space
+
+* [`ba0d7bcfb`](https://github.com/twilio-labs/paste/commit/ba0d7bcfbd6fa8e6413597966667ec7d68f954bf) [#3709](https://github.com/twilio-labs/paste/pull/3709) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu]: Adds overflow scrolling behaviour on menus with a large number of items in, currently defaulting to 10 items
+
+- [`41b3668ea`](https://github.com/twilio-labs/paste/commit/41b3668ea41e914be85f9099cba6e61350d0abed) [#3723](https://github.com/twilio-labs/paste/pull/3723) Thanks [@TheSisb](https://github.com/TheSisb)! - [ChatLog] Fix overflow on message bubbles
+
+* [`f5a0ae961`](https://github.com/twilio-labs/paste/commit/f5a0ae9610a838503d081f448324c354d39e6394) [#3662](https://github.com/twilio-labs/paste/pull/3662) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Update svg of the DocumentationIcon for better alignment with text
+
+- [`d8b33e2b9`](https://github.com/twilio-labs/paste/commit/d8b33e2b9218aa36a3e0651051ec9611a3149cf5) [#3741](https://github.com/twilio-labs/paste/pull/3741) Thanks [@TheSisb](https://github.com/TheSisb)! - [SummaryDetail] Fixed an issue with React versions below 18.
+
+- Updated dependencies [[`f5a0ae961`](https://github.com/twilio-labs/paste/commit/f5a0ae9610a838503d081f448324c354d39e6394), [`55786c61c`](https://github.com/twilio-labs/paste/commit/55786c61cb6c217b0305d7dafc2cadffa6675f92), [`e0e69e760`](https://github.com/twilio-labs/paste/commit/e0e69e7601216bc79535b7ee6978ae227a155300), [`d9f96d7d8`](https://github.com/twilio-labs/paste/commit/d9f96d7d8b72f3d3fa8f66c24b5725a2a92bfc35), [`47c329b57`](https://github.com/twilio-labs/paste/commit/47c329b573b19696b8697ceadc5c3f5a75511c50), [`855830c89`](https://github.com/twilio-labs/paste/commit/855830c89536073a24bda7cee9c3b6e4756254d0), [`048c3cfa0`](https://github.com/twilio-labs/paste/commit/048c3cfa048639da15b77035f7aee2c35df4b167), [`fbd399636`](https://github.com/twilio-labs/paste/commit/fbd39963687623baf9352e034b83dbe8bb70eeff), [`ba0d7bcfb`](https://github.com/twilio-labs/paste/commit/ba0d7bcfbd6fa8e6413597966667ec7d68f954bf), [`41b3668ea`](https://github.com/twilio-labs/paste/commit/41b3668ea41e914be85f9099cba6e61350d0abed), [`22a917aed`](https://github.com/twilio-labs/paste/commit/22a917aed53a0e4b3c1a78a8c946321d326fb12c), [`f5a0ae961`](https://github.com/twilio-labs/paste/commit/f5a0ae9610a838503d081f448324c354d39e6394), [`d8b33e2b9`](https://github.com/twilio-labs/paste/commit/d8b33e2b9218aa36a3e0651051ec9611a3149cf5)]:
+  - @twilio-paste/design-tokens@10.4.1
+  - @twilio-paste/summary-detail@1.0.0
+  - @twilio-paste/page-header@1.0.0
+  - @twilio-paste/customization@8.2.0
+  - @twilio-paste/theme@11.1.0
+  - @twilio-paste/input@9.1.2
+  - @twilio-paste/visual-picker@2.0.3
+  - @twilio-paste/menu@14.1.2
+  - @twilio-paste/chat-log@5.2.1
+  - @twilio-paste/data-grid@8.3.0
+  - @twilio-paste/table@8.2.0
+
 ## 20.7.0
 
 ### Minor Changes

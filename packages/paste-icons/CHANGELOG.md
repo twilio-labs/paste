@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.2.3
+
+### Patch Changes
+
+- [`f5a0ae961`](https://github.com/twilio-labs/paste/commit/f5a0ae9610a838503d081f448324c354d39e6394) [#3662](https://github.com/twilio-labs/paste/pull/3662) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Update svg of the DocumentationIcon for better alignment with text
+
 ## 12.2.2
 
 ### Patch Changes
