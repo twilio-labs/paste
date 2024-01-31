@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.4.1
+
+### Patch Changes
+
+- [`f5a0ae961`](https://github.com/twilio-labs/paste/commit/f5a0ae9610a838503d081f448324c354d39e6394) [#3662](https://github.com/twilio-labs/paste/pull/3662) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design Tokens] Update value of line-height-90 from 2.75rem to 2.5rem
+
+* [`855830c89`](https://github.com/twilio-labs/paste/commit/855830c89536073a24bda7cee9c3b6e4756254d0) [#3735](https://github.com/twilio-labs/paste/pull/3735) Thanks [@serifluous](https://github.com/serifluous)! - Remove evergreen font size definitions that inherit from global and update font-size-40 value
+
 ## 10.4.0
 
 ### Minor Changes
