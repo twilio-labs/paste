@@ -132,7 +132,7 @@
     "@swc/core": "^1.2.160",
     "@swc/jest": "^0.2.20",
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
+    "@testing-library/react": "^14.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@testing-library/user-event": "^13.5.0",
     "@twilio-labs/svg-to-react": "^2.1.1",
