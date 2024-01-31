@@ -8,7 +8,7 @@ When sharing a link to a component page on the internet, we supply a dynamically
 
 ## The way it works
 
-We use [`@vercel/og`](https://vercel.com/docs/functions/edge-functions/og-image-generation) to generate the image via an edge function, `/api/og-image`.
+We use [`@vercel/og`](https://vercel.com/docs/functions/edge-functions/og-image-generation) to generate the image via an edge function, `/api/component-og-image`.
 
 ## Local development
 
@@ -18,7 +18,7 @@ To start, run:
 yarn start:website
 ```
 
-Once the website have started running, you can hit the function at `/api/og-image`.
+Once the website have started running, you can hit the function at `/api/component-og-image`.
 
 ## Technology / Stack
 

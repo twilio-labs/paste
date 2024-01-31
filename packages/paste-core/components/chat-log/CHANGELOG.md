@@ -1,5 +1,11 @@
 # @twilio-paste/chat-log
 
+## 5.2.1
+
+### Patch Changes
+
+- [`41b3668ea`](https://github.com/twilio-labs/paste/commit/41b3668ea41e914be85f9099cba6e61350d0abed) [#3723](https://github.com/twilio-labs/paste/pull/3723) Thanks [@TheSisb](https://github.com/TheSisb)! - [ChatLog] Fix overflow on message bubbles
+
 ## 5.2.0
 
 ### Minor Changes

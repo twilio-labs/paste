@@ -225,7 +225,7 @@ function OgImageCard({ packageData }: { packageData: PackageData }): JSX.Element
   );
 }
 
-const LOG_PREFIX = "[/api/og-image]:";
+const LOG_PREFIX = "[/api/component-og-image]:";
 
 export default async function handler(req: NextRequest): Promise<ImageResponse> {
   console.log(`${LOG_PREFIX} Incoming request`);
@@ -326,13 +326,13 @@ export default async function handler(req: NextRequest): Promise<ImageResponse> 
 
   // Make sure the font exists in the specified path:
   const fontData = await fetch(
-    "https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Regular.woff",
+    "https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Regular.woff",
   ).then(async (res) => res.arrayBuffer());
   const fontDataMedium = await fetch(
-    "https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Medium.woff",
+    "https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Medium.woff",
   ).then(async (res) => res.arrayBuffer());
   const fontDataSemiBold = await fetch(
-    "https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Semibold.woff",
+    "https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Semibold.woff",
   ).then(async (res) => res.arrayBuffer());
 
   console.log(`${LOG_PREFIX} return image`);

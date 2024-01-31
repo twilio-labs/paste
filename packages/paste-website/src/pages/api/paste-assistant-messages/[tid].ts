@@ -26,6 +26,16 @@ async function getThreadMessages({
   return openai.beta.threads.messages.list(threadId, { order: "asc" });
 }
 
+/**
+ * Simple endpoint for returning messages from a thread based on a threadId.
+ *
+ * /api/paste-assistant-messages/:tid
+ *
+ * @export
+ * @param {NextApiRequest} req
+ * @param {NextApiResponse} res
+ * @return {*}  {(Promise<void | Response>)}
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`);
 
@@ -66,10 +76,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
-  logger.info(`${LOG_PREFIX} Getting thread messages`, { threadId });
-
-  const threadMessages = await getThreadMessages({ threadId });
-
-  logger.info(`${LOG_PREFIX} Recieved thread message`, { threadMessages });
-  res.status(200).json(threadMessages);
+  try {
+    logger.info(`${LOG_PREFIX} Getting thread messages`, { threadId });
+    const threadMessages = await getThreadMessages({ threadId });
+    logger.info(`${LOG_PREFIX} Recieved thread message`, { threadMessages });
+    res.status(200).json(threadMessages);
+  } catch (error) {
+    logger.error(`${LOG_PREFIX} Error getting thread message`, { error });
+    rollbar.error(`${LOG_PREFIX} Error getting thread message`, { error });
+    res.status(500).json({
+      error: "Error getting thread message",
+    });
+  }
 }

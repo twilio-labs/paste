@@ -1,6 +1,7 @@
 export const SITEMAP = [
   "/customization/",
   "/",
+  "/assistant",
   "/blog/",
   "/blog/2020-11-26-growing-pains-and-how-we-scaled-our-design-system-support/",
   "/blog/2021-04-29-insights-and-metrics-that-inform-the-paste-design-system/",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 14.1.2
+
+### Patch Changes
+
+- [`ba0d7bcfb`](https://github.com/twilio-labs/paste/commit/ba0d7bcfbd6fa8e6413597966667ec7d68f954bf) [#3709](https://github.com/twilio-labs/paste/pull/3709) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu]: Adds overflow scrolling behaviour on menus with a large number of items in, currently defaulting to 10 items
+
 ## 14.1.1
 
 ### Patch Changes

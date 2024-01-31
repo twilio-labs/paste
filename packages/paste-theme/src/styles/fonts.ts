@@ -10,7 +10,7 @@ Variable font.
   font-display: swap;
   font-style: normal;
   font-named-instance: 'Regular';
-  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/Inter-roman.var.woff2?v=3.19") format("woff2");
+  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.5.2/Inter-roman.var.woff2?v=3.19") format("woff2");
 }
 @font-face {
   font-family: 'Inter var';
@@ -18,7 +18,7 @@ Variable font.
   font-display: swap;
   font-style: italic;
   font-named-instance: 'Italic';
-  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/Inter-italic.var.woff2?v=3.19") format("woff2");
+  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.5.2/Inter-italic.var.woff2?v=3.19") format("woff2");
 }
 /* --------------------------------------------------------------------------
 [EXPERIMENTAL] Multi-axis, single variable font.
@@ -38,7 +38,7 @@ explicitly, e.g.
   font-weight: 100 900;
   font-display: swap;
   font-style: oblique 0deg 8deg;
-  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.5.1/Inter.var.woff2?v=3.19") format("woff2");
+  src: url("https://assets.twilio.com/public_assets/paste-fonts/1.5.2/Inter.var.woff2?v=3.19") format("woff2");
 }
 
 /*
@@ -50,8 +50,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 400;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-Regular.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-Regular.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-Regular.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-Regular.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -59,8 +59,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 400;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-RegularItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-RegularItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-RegularItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-RegularItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -68,8 +68,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 700;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-Bold.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-Bold.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-Bold.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-Bold.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -77,8 +77,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 700;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-BoldItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-BoldItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-BoldItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-BoldItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -86,8 +86,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 500;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-Medium.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-Medium.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-Medium.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-Medium.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansMono';
@@ -95,8 +95,8 @@ Twilio Sans Mono
   font-display: swap;
   font-weight: 500;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-MediumItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansMono-MediumItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-MediumItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansMono-MediumItl.woff') format('woff');
 }
 
 /*
@@ -108,8 +108,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 300;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Light.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Light.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Light.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Light.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -117,8 +117,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 300;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-LightItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-LightItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-LightItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-LightItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -126,8 +126,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 400;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Regular.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Regular.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Regular.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Regular.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -135,8 +135,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 400;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-RegularItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-RegularItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-RegularItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-RegularItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -144,8 +144,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 500;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Medium.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Medium.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Medium.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Medium.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -153,8 +153,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 500;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-MediumItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-MediumItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-MediumItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-MediumItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -162,8 +162,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 600;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Semibold.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Semibold.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Semibold.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Semibold.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -171,8 +171,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 600;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-SemiboldItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-SemiboldItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-SemiboldItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-SemiboldItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -180,8 +180,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 700;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Bold.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Bold.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Bold.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Bold.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -189,8 +189,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 700;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-BoldItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-BoldItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-BoldItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-BoldItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -198,8 +198,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 800;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Extrabold.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-Extrabold.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Extrabold.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-Extrabold.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansText';
@@ -207,8 +207,8 @@ Twilio Sans Text
   font-display: swap;
   font-weight: 800;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-ExtraboldItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansText-ExtraboldItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-ExtraboldItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansText-ExtraboldItl.woff') format('woff');
 }
 
 /*
@@ -220,8 +220,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 300;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Light.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Light.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Light.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Light.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -229,8 +229,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 300;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-LightItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-LightItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-LightItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-LightItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -238,8 +238,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 400;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Regular.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Regular.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Regular.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Regular.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -247,8 +247,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 400;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-RegularItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-RegularItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-RegularItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-RegularItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -256,8 +256,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 500;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Medium.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Medium.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Medium.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Medium.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -265,8 +265,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 500;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-MediumItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-MediumItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-MediumItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-MediumItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -274,8 +274,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 600;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Semibold.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Semibold.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Semibold.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Semibold.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -283,8 +283,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 600;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-SemiboldItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-SemiboldItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-SemiboldItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-SemiboldItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -292,8 +292,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 700;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Bold.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Bold.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Bold.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Bold.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -301,8 +301,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 700;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-BoldItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-BoldItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-BoldItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-BoldItl.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -310,8 +310,8 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 800;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Extrabold.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-Extrabold.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Extrabold.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-Extrabold.woff') format('woff');
 }
 @font-face {
   font-family: 'TwilioSansDisplay';
@@ -319,7 +319,7 @@ Twilio Sans Display
   font-display: swap;
   font-weight: 800;
   src: local(''),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-ExtraboldItl.woff2') format('woff2'),
-       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.1/TwilioSansDisplay-ExtraboldItl.woff') format('woff');
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-ExtraboldItl.woff2') format('woff2'),
+       url('https://assets.twilio.com/public_assets/paste-fonts/1.5.2/TwilioSansDisplay-ExtraboldItl.woff') format('woff');
 }
 `;

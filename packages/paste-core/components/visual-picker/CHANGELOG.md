@@ -1,5 +1,11 @@
 # @twilio-paste/visual-picker
 
+## 2.0.3
+
+### Patch Changes
+
+- [`048c3cfa0`](https://github.com/twilio-labs/paste/commit/048c3cfa048639da15b77035f7aee2c35df4b167) [#3743](https://github.com/twilio-labs/paste/pull/3743) Thanks [@serifluous](https://github.com/serifluous)! - Reduced left padding on Visual Picker content
+
 ## 2.0.2
 
 ### Patch Changes

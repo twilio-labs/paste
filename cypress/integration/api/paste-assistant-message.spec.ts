@@ -10,7 +10,7 @@ context("POST /api/paste-assistant-message", () => {
 
   after(() => {
     // delete the thread
-    cy.request("DELETE", "/api/paste-assistant-thread", { id: threadId });
+    cy.request("DELETE", `/api/paste-assistant-thread/${threadId}`);
   });
 
   it("creates an message on an ai thread", () => {
