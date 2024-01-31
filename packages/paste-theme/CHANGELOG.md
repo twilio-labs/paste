@@ -1,5 +1,17 @@
 # Change Log
 
+## 11.1.0
+
+### Minor Changes
+
+- [`d9f96d7d8`](https://github.com/twilio-labs/paste/commit/d9f96d7d8b72f3d3fa8f66c24b5725a2a92bfc35) [#3739](https://github.com/twilio-labs/paste/pull/3739) Thanks [@TheSisb](https://github.com/TheSisb)! - [ThemeProvider, CustomizationProvider] Now accepts an optional `style` prop to override element styles.
+
+  This is helpful in scenarios where ThemeProvider isn't wrapping your app root, but instead is nested in your DOM tree and needs some styling overrides.
+
+### Patch Changes
+
+- [`fbd399636`](https://github.com/twilio-labs/paste/commit/fbd39963687623baf9352e034b83dbe8bb70eeff) [#3736](https://github.com/twilio-labs/paste/pull/3736) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Theme]: patch bump in Paste fonts to fix a bug in the Twilio sans font regarding backticks not taking up physical space
+
 ## 11.0.1
 
 ### Patch Changes
