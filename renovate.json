@@ -32,7 +32,10 @@
         "@mdx-js/mdx",
         "@mdx-js/react",
         "@types/webpack",
-        "webpack"
+        "webpack",
+        "yarn",
+        "typescript",
+        "@testing-library/react"
       ],
       "enabled": false
     }
