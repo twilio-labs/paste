@@ -8,6 +8,6 @@
     "generate:db-types": "yarn supabase gen types typescript --local > supabase/schema.gen.ts"
   },
   "devDependencies": {
-    "supabase": "^1.99.5"
+    "supabase": "^1.136.3"
   }
 }
