@@ -95,7 +95,7 @@ export interface UseToasterReturnedProps {
   /**
    * Method used to push a toast to the toast stack
    */
-  push: (toast: ToasterPush | ToasterPush[]) => void;
+  push: (toast: ToasterPush) => void;
   /**
    * Method used to pop a toast from the toast stack based on it's id
    */

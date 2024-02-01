@@ -44,7 +44,11 @@ export const useToaster = (): UseToasterReturnedProps => {
     );
   };
 
-  const addToast = (newToast: ToasterPush): void => {
+  const push = (newToast: ToasterPush): void => {
+    if (!isMounted.current) {
+      return;
+    }
+
     const generatedID = uid(newToast);
     let timeOutId: number;
     /*
@@ -69,20 +73,6 @@ export const useToaster = (): UseToasterReturnedProps => {
       });
       return [{ id: generatedID, timeOutId, setFocus: true, ...newToast }, ...existingToasts];
     });
-  };
-
-  const push = (newToast: ToasterPush | ToasterPush[]): void => {
-    if (!isMounted.current) {
-      return;
-    }
-
-    if (Array.isArray(newToast)) {
-      newToast.forEach((toast) => {
-        addToast(toast);
-      });
-    } else {
-      addToast(newToast);
-    }
   };
 
   return { toasts, push, pop };

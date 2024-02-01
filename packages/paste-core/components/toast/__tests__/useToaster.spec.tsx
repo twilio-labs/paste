@@ -46,26 +46,6 @@ describe("useToaster", () => {
       expect(result.current.toasts.length).toEqual(2);
     });
 
-    it("should push multiple toasts by passing an array", () => {
-      const { result } = renderHook(() => useToaster());
-      expect(result.current.toasts).toEqual([]);
-
-      act(() => {
-        result.current.push([
-          {
-            message: "hi",
-            variant: "error",
-          },
-          {
-            message: "hi",
-            variant: "error",
-          },
-        ]);
-      });
-
-      expect(result.current.toasts.length).toEqual(2);
-    });
-
     it("should generate an id when none is passed", () => {
       const { result } = renderHook(() => useToaster());
 
