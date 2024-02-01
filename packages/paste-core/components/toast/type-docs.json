@@ -3253,7 +3253,7 @@
       "description": "Method used to pop a toast from the toast stack based on it's id"
     },
     "push": {
-      "type": "(toast: ToasterPush | ToasterPush[]) => void",
+      "type": "(toast: ToasterPush) => void",
       "defaultValue": null,
       "required": true,
       "externalProp": false,
