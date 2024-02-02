@@ -17,7 +17,7 @@ describe("Docs website search", () => {
     cy.get('[data-cy="paste-docsearch-input"]')
       .should("be.visible")
       .should("be.focused")
-      .type("checkbox")
+      .type("this is a search test")
       .type("{enter}");
     cy.wait("@searchRequest");
     cy.get('[data-cy="paste-docsearch-hits"] h2').should("have.length.above", 0);

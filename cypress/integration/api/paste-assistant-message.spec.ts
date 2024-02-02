@@ -15,9 +15,11 @@ context("POST /api/paste-assistant-message", () => {
 
   it("creates an message on an ai thread", () => {
     // create a message on the thread
-    cy.request("POST", "/api/paste-assistant-message", { threadId, message: "create a button" }).then((response) => {
-      expect(response.status).to.eq(200);
-    });
+    cy.request("POST", "/api/paste-assistant-message", { threadId, message: "this is a search test" }).then(
+      (response) => {
+        expect(response.status).to.eq(200);
+      },
+    );
   });
 
   it("gets messages on an ai thread", () => {
@@ -25,7 +27,7 @@ context("POST /api/paste-assistant-message", () => {
     cy.request("GET", `/api/paste-assistant-messages/${threadId}`).then((response) => {
       expect(response.status).to.eq(200);
       expect(response.body.data).length.to.be.greaterThan(0);
-      expect(response.body.data[0].content[0].text.value).to.eq("create a button");
+      expect(response.body.data[0].content[0].text.value).to.eq("this is a search test");
     });
   });
 });
