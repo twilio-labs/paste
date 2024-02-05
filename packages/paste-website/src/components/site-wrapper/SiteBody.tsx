@@ -1,5 +1,5 @@
 import { Box } from "@twilio-paste/box";
-import { LogoTwilioIcon } from "@twilio-paste/icons/esm/LogoTwilioIcon";
+import { LogoPasteIcon } from "@twilio-paste/icons/esm/LogoPasteIcon";
 import {
   Sidebar,
   SidebarBody,
@@ -112,7 +112,7 @@ export const SiteBody: React.FC<React.PropsWithChildren> = ({ children }) => {
         >
           <SidebarHeader>
             <SidebarHeaderIconButton as="a" href="/">
-              <LogoTwilioIcon decorative={false} title="Twilio Paste" />
+              <LogoPasteIcon decorative={false} title="Twilio Paste" />
             </SidebarHeaderIconButton>
             <SidebarHeaderLabel>Twilio Paste</SidebarHeaderLabel>
           </SidebarHeader>
