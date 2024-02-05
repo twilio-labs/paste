@@ -169,7 +169,7 @@ describe("Table", () => {
         </THead>
         <TBody>
           <Tr>
-            <Td width="size50" data-testid="mockTd">
+            <Td width="size50" data-testid="mockTd" whiteSpace="nowrap">
               Column 1
             </Td>
           </Tr>
@@ -180,10 +180,10 @@ describe("Table", () => {
     const renderedTd = screen.getByTestId("mockTd");
     expect(renderedTh).toHaveStyleRule("width", "size50");
     expect(renderedTh).toHaveStyleRule("text-align", "left");
-    expect(renderedTh).toHaveStyleRule("white-space", "normal");
+    expect(renderedTh).not.toHaveStyleRule("white-space");
 
     expect(renderedTd).toHaveStyleRule("text-align", "left");
-    expect(renderedTd).toHaveStyleRule("white-space", "normal");
+    expect(renderedTd).toHaveStyleRule("white-space", "nowrap");
   });
 
   it("should render modified textAlign and whitespace styles", (): void => {

@@ -49,9 +49,11 @@ describe("Data Grid", () => {
     it("should render width, textAlign, and whiteSpace styles", (): void => {
       render(<PlainDataGrid />);
       const renderedTh = screen.getByTestId("data-grid-header");
+      const renderedThNoWhitespace = screen.getByTestId("data-grid-header-no-whitespace");
       const renderedTd = screen.getByTestId("data-grid-cell");
       expect(renderedTh).toHaveStyleRule("text-align", "left");
-      expect(renderedTh).toHaveStyleRule("white-space", "normal");
+      expect(renderedTh).toHaveStyleRule("white-space", "nowrap");
+      expect(renderedThNoWhitespace).not.toHaveStyleRule("white-space");
 
       expect(renderedTd).toHaveStyleRule("text-align", "left");
       expect(renderedTd).toHaveStyleRule("white-space", "nowrap");
