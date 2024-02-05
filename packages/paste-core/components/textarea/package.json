@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/textarea",
-  "version": "10.1.1",
+  "version": "10.2.0",
   "category": "user input",
   "status": "production",
   "description": "A Textarea is a form element that allows users to enter text on multiple lines.",

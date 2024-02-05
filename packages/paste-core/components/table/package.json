@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/table",
-  "version": "8.2.0",
+  "version": "8.2.1",
   "category": "data display",
   "status": "production",
   "description": "A Table is a collection of information displayed across columns and rows.",

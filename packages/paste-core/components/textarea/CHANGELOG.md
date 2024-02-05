@@ -1,5 +1,11 @@
 # Change Log
 
+## 10.2.0
+
+### Minor Changes
+
+- [`3c3ec9b76`](https://github.com/twilio-labs/paste/commit/3c3ec9b765e22892674a09132987017881724e89) [#3746](https://github.com/twilio-labs/paste/pull/3746) Thanks [@TheSisb](https://github.com/TheSisb)! - [Textarea] add `maxRows` prop which sets a max height the textarea can grow based on its content.
+
 ## 10.1.1
 
 ### Patch Changes

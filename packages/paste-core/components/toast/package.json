@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/toast",
-  "version": "12.1.1",
+  "version": "12.2.0",
   "category": "feedback",
   "status": "production",
   "description": "A Toast is an animated, temporary banner that communicates an immediate and direct response to a user action.",
