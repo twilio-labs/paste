@@ -4,7 +4,7 @@ import * as React from "react";
 import type { TdProps } from "./types";
 
 const Td = React.forwardRef<HTMLTableCellElement, TdProps>(
-  ({ element = "TD", textAlign = "left", whiteSpace = "normal", ...props }, ref) => {
+  ({ element = "TD", textAlign = "left", whiteSpace, ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}

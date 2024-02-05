@@ -7,7 +7,7 @@ export interface TdProps extends TableTdProps {
 }
 
 export const Td = React.forwardRef<HTMLTableCellElement, TdProps>(
-  ({ textAlign = "left", whiteSpace = "normal", element = "DATA_GRID_TD", ...props }, ref) => {
+  ({ textAlign = "left", whiteSpace, element = "DATA_GRID_TD", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
