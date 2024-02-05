@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.2.1
+
+### Patch Changes
+
+- [`27b9e89ea`](https://github.com/twilio-labs/paste/commit/27b9e89ea4b3618216af1dba56dac5128a712ae4) [#3757](https://github.com/twilio-labs/paste/pull/3757) Thanks [@TheSisb](https://github.com/TheSisb)! - [Table, DataGrid] Fix regression that broke `noWrap` prop on Table and DataGrids.
+
 ## 8.2.0
 
 ### Minor Changes

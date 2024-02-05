@@ -1,5 +1,11 @@
 # Change Log
 
+## 12.2.0
+
+### Minor Changes
+
+- [`33116f9c9`](https://github.com/twilio-labs/paste/commit/33116f9c9ef5211959dd844668c803095d202098) [#3749](https://github.com/twilio-labs/paste/pull/3749) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Toast]: adds ability to display multiple toasts from a single call
+
 ## 12.1.1
 
 ### Patch Changes

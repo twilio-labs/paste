@@ -1,5 +1,26 @@
 # Change Log
 
+## 20.9.0
+
+### Minor Changes
+
+- [`33116f9c9`](https://github.com/twilio-labs/paste/commit/33116f9c9ef5211959dd844668c803095d202098) [#3749](https://github.com/twilio-labs/paste/pull/3749) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Toast]: adds ability to display multiple toasts from a single call
+
+* [`3c3ec9b76`](https://github.com/twilio-labs/paste/commit/3c3ec9b765e22892674a09132987017881724e89) [#3746](https://github.com/twilio-labs/paste/pull/3746) Thanks [@TheSisb](https://github.com/TheSisb)! - [Textarea] add `maxRows` prop which sets a max height the textarea can grow based on its content.
+
+### Patch Changes
+
+- [`8d042fe67`](https://github.com/twilio-labs/paste/commit/8d042fe67a6dc1b451af4be8156bd009309b6fd9) [#3747](https://github.com/twilio-labs/paste/pull/3747) Thanks [@TheSisb](https://github.com/TheSisb)! - [DatePicker] limit the max year to 9999 by default. This is overwritable.
+
+* [`27b9e89ea`](https://github.com/twilio-labs/paste/commit/27b9e89ea4b3618216af1dba56dac5128a712ae4) [#3757](https://github.com/twilio-labs/paste/pull/3757) Thanks [@TheSisb](https://github.com/TheSisb)! - [Table, DataGrid] Fix regression that broke `noWrap` prop on Table and DataGrids.
+
+* Updated dependencies [[`33116f9c9`](https://github.com/twilio-labs/paste/commit/33116f9c9ef5211959dd844668c803095d202098), [`8d042fe67`](https://github.com/twilio-labs/paste/commit/8d042fe67a6dc1b451af4be8156bd009309b6fd9), [`3c3ec9b76`](https://github.com/twilio-labs/paste/commit/3c3ec9b765e22892674a09132987017881724e89), [`27b9e89ea`](https://github.com/twilio-labs/paste/commit/27b9e89ea4b3618216af1dba56dac5128a712ae4)]:
+  - @twilio-paste/toast@12.2.0
+  - @twilio-paste/date-picker@6.1.1
+  - @twilio-paste/textarea@10.2.0
+  - @twilio-paste/data-grid@8.3.1
+  - @twilio-paste/table@8.2.1
+
 ## 20.8.0
 
 ### Minor Changes

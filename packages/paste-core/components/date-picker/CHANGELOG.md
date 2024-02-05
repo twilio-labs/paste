@@ -1,5 +1,11 @@
 # @twilio-paste/date-picker
 
+## 6.1.1
+
+### Patch Changes
+
+- [`8d042fe67`](https://github.com/twilio-labs/paste/commit/8d042fe67a6dc1b451af4be8156bd009309b6fd9) [#3747](https://github.com/twilio-labs/paste/pull/3747) Thanks [@TheSisb](https://github.com/TheSisb)! - [DatePicker] limit the max year to 9999 by default. This is overwritable.
+
 ## 6.1.0
 
 ### Minor Changes
