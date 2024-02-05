@@ -27,10 +27,12 @@ export const PlainDataGrid: React.FC<React.PropsWithChildren<{ element?: BoxProp
       <DataGrid aria-label="User information table" data-testid="data-grid" element={element} striped>
         <DataGridHead data-testid="data-grid-head" element={`${element}_HEAD`}>
           <DataGridRow element={`${element}_ROW`}>
-            <DataGridHeader data-testid="data-grid-header" element={`${element}_HEADER`}>
+            <DataGridHeader data-testid="data-grid-header" element={`${element}_HEADER`} whiteSpace="nowrap">
               {TableHeaderData[0]}
             </DataGridHeader>
-            <DataGridHeader element={`${element}_HEADER`}>{TableHeaderData[1]}</DataGridHeader>
+            <DataGridHeader data-testid="data-grid-header-no-whitespace" element={`${element}_HEADER`}>
+              {TableHeaderData[1]}
+            </DataGridHeader>
             <DataGridHeader element={`${element}_HEADER`}>{TableHeaderData[2]}</DataGridHeader>
             <DataGridHeader element={`${element}_HEADER`}>{TableHeaderData[3]}</DataGridHeader>
             <DataGridHeader element={`${element}_HEADER`} textAlign="right">
