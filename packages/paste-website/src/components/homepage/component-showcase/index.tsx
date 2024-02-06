@@ -10,18 +10,17 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
     <Box
       as="span"
       position="relative"
-      // display="flex"
-      // flexDirection="column"
       display="grid"
       gridTemplateColumns="max-content auto"
-      gridTemplateRows="min-content auto"
+      gridTemplateRows="min-content min-content"
       gridTemplateAreas="'top top' 'bottom1 bottom2'"
       rowGap="space70"
+      columnGap="space70"
       backgroundColor="colorBackgroundInverseStrong"
       padding="space130"
       top="0"
       height="min-content"
-      // minWidth="1000px"
+      width="fit-content"
       borderBottomLeftRadius="borderRadius30"
       borderBottomRightRadius="borderRadius30"
       element="COMPONENT_SHOWCASE"
@@ -36,12 +35,8 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
       >
         <ProgressStepsShowcase />
       </Box>
-      <Box gridArea="bottom1" columnGap="space70" element="BOTTOM_ROW">
-        <ColumnOneShowcase />
-      </Box>
-      <Box gridArea="bottom2" columnGap="space70" element="BOTTOM_ROW">
-        <ColumnTwoShowcase />
-      </Box>
+      <ColumnOneShowcase />
+      <ColumnTwoShowcase />
     </Box>
   );
 };

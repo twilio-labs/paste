@@ -32,11 +32,11 @@ const Homepage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticPr
         <meta key="description" name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Head>
       <HomeHero />
-      <GetStarted />
+      {/* <GetStarted /> */}
       <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
-        <PopularComponentsAndPatterns />
+        {/* <PopularComponentsAndPatterns /> */}
       </VisibilitySensor>
-      <Experiment showIframe={showIframe} />
+      {/* <Experiment showIframe={showIframe} /> */}
     </SiteWrapper>
   );
 };

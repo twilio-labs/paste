@@ -22,6 +22,7 @@ const SearchBox: React.FC = () => {
   return (
     <>
       <Box
+        backgroundColor="colorBackgroundBody"
         borderStyle="solid"
         borderWidth="borderWidth10"
         borderColor="colorBorderWeaker"

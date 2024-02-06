@@ -17,7 +17,7 @@ const SiteFooterNav = (): JSX.Element => {
         as="nav"
         display="flex"
         flexDirection={["column", "row"]}
-        marginLeft={["space0", "space120"]}
+        // marginLeft={["space0", "space120"]}
         textAlign={["center", "left"]}
       >
         <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={["space0", "space130"]}>
@@ -182,7 +182,7 @@ const SiteFooterNav = (): JSX.Element => {
           </Stack>
         </Box>
       </Box>
-      <Box marginTop="space120" marginLeft={["space0", "space120"]} textAlign={["center", "left"]}>
+      <Box marginTop="space120" textAlign={["center", "left"]}>
         <Anchor href="https://twilio.com" display="inline-flex">
           <TwilioLogo
             css={{ height: theme.heights.sizeIcon40, width: theme.widths.size10 }}
