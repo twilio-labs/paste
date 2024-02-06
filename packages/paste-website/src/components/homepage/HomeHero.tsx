@@ -62,7 +62,7 @@ const HomeHero = (): JSX.Element => {
         maxWidth={SITE_CONTENT_MAX_WIDTH}
         marginLeft="auto"
         marginRight="auto"
-        zIndex="zIndex10"
+        // zIndex="zIndex10"
         overflow="hidden"
         element="HOME_HERO"
       >

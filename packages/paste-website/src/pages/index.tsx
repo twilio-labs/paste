@@ -6,7 +6,9 @@ import VisibilitySensor from "react-visibility-sensor";
 import { Experiment } from "../components/homepage/Experiment";
 import { GetStarted } from "../components/homepage/GetStarted";
 import { HomeHero } from "../components/homepage/HomeHero";
+import { NewSection } from "../components/homepage/NewSection";
 import { PopularComponentsAndPatterns } from "../components/homepage/Popular";
+import { Themeable } from "../components/homepage/Themeable";
 import { SiteWrapper } from "../components/site-wrapper";
 import { SiteMetaDefaults } from "../constants";
 import { getNavigationData } from "../utils/api";
@@ -32,7 +34,8 @@ const Homepage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticPr
         <meta key="description" name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Head>
       <HomeHero />
-      {/* <GetStarted /> */}
+      <NewSection />
+      <Themeable />
       <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
         {/* <PopularComponentsAndPatterns /> */}
       </VisibilitySensor>
