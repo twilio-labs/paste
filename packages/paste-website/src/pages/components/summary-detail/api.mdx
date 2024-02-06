@@ -1,0 +1,76 @@
+export const meta = {
+  title: 'Summary Detail - Components - API',
+  description:
+    'A Summary Detail is a collapsible container that can be used to hide or show content.',
+  slug: '/components/summary-detail/api',
+};
+
+import Changelog from '@twilio-paste/summary-detail/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/summary-detail/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Summary Detail');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/summary-detail');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/summary-detail',
+        storybookUrl: '/?path=/story/components-summarydetail--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/summary-detail - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  SummaryDetail,
+  SummaryDetailContent,
+  SummaryDetailHeading,
+  SummaryDetailHeadingContent,
+  SummaryDetailToggleButton,
+} from '@twilio-paste/core/summary-detail';
+import {Text} from '@twilio-paste/core/text';
+
+const SummaryDetailExample = () => {
+  return (
+    <SummaryDetail>
+      <SummaryDetailHeading>
+        <SummaryDetailToggleButton />
+        <SummaryDetailHeadingContent>
+            Inbound Call
+        </SummaryDetailHeadingContent>
+      </SummaryDetailHeading>
+      <SummaryDetailContent>
+        <Text as="p">This is the content of the summary detail.</Text>
+      </SummaryDetailContent>
+    </SummaryDetail>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />
