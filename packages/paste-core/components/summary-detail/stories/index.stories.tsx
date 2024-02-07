@@ -1,4 +1,5 @@
 import type { StoryFn } from "@storybook/react";
+import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Card } from "@twilio-paste/card";
 import { Paragraph } from "@twilio-paste/paragraph";
@@ -32,6 +33,9 @@ export const Default: StoryFn = () => {
           </Text>
           <Text as="p" fontSize="fontSize20" fontWeight="fontWeightLight">
             Jan 11, 2023
+            <Anchor href="#" marginLeft="space30">
+              (View transcript)
+            </Anchor>
           </Text>
         </SummaryDetailHeadingContent>
       </SummaryDetailHeading>
