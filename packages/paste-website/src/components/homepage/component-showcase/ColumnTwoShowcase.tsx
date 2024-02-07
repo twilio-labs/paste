@@ -16,6 +16,7 @@ import {
 import { CheckboxCheckIcon } from "@twilio-paste/icons/esm/CheckboxCheckIcon";
 import { FilterIcon } from "@twilio-paste/icons/esm/FilterIcon";
 import { PlusIcon } from "@twilio-paste/icons/esm/PlusIcon";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import * as React from "react";
 
 export const ColumnTwoShowcase: React.FC = () => {
@@ -64,7 +65,10 @@ export const ColumnTwoShowcase: React.FC = () => {
             <ChatBubble>You should receive the refund within 10 days</ChatBubble>
             <ChatBubble>Do you need help with anything else?</ChatBubble>
             <ChatMessageMeta aria-label="said by Gibby Radki at 3:47 PM">
-              <ChatMessageMetaItem>Gibby Radki · 3:47pm</ChatMessageMetaItem>
+              <ChatMessageMetaItem>
+                <Avatar name="gibby radki" icon={UserIcon} size="sizeIcon30" />
+                Gibby Radki · 3:47pm
+              </ChatMessageMetaItem>
             </ChatMessageMeta>
           </ChatMessage>
         </ChatLog>

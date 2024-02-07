@@ -21,8 +21,12 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
       top="0"
       height="min-content"
       width="fit-content"
-      borderBottomLeftRadius="borderRadius30"
-      borderBottomRightRadius="borderRadius30"
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //  @ts-expect-error
+      borderBottomLeftRadius="32px"
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      //  @ts-expect-error
+      borderBottomRightRadius="32px"
       zIndex="zIndex10"
       element="COMPONENT_SHOWCASE"
     >

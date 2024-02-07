@@ -1,6 +1,7 @@
 import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Stack } from "@twilio-paste/stack";
+import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 
 import { FIGMA_PROFILE_URL, REMIX_DOMAIN, STORYBOOK_DOMAIN } from "../../../constants";
@@ -17,11 +18,14 @@ const SiteFooterNav = (): JSX.Element => {
         as="nav"
         display="flex"
         flexDirection={["column", "row"]}
-        // marginLeft={["space0", "space120"]}
+        marginBottom="space130"
         textAlign={["center", "left"]}
       >
-        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={["space0", "space130"]}>
+        <Box flexGrow={[1, 1, 1, 0]} marginRight={["space0", "space130"]}>
           <Stack orientation="vertical" spacing="space60">
+            <Text as="span" color="colorTextInverse" fontWeight="fontWeightSemibold">
+              Learn more
+            </Text>
             <Anchor
               href="/introduction/about-paste"
               variant="inverse"
@@ -34,19 +38,6 @@ const SiteFooterNav = (): JSX.Element => {
               }
             >
               About
-            </Anchor>
-            <Anchor
-              href="/roadmap"
-              variant="inverse"
-              onClick={() =>
-                event({
-                  category: "Footer",
-                  action: "click-our-roadmap",
-                  label: "Our roadmap",
-                })
-              }
-            >
-              Our roadmap
             </Anchor>
             <Anchor
               href="/introduction/for-designers/design-guidelines"
@@ -68,16 +59,80 @@ const SiteFooterNav = (): JSX.Element => {
                 event({
                   category: "Footer",
                   action: "click-quickstart",
-                  label: "Quick Start",
+                  label: "Quick Start for engineers",
                 })
               }
             >
-              Quick start
+              Quick start for engineers
+            </Anchor>
+            <Anchor
+              href="/roadmap"
+              variant="inverse"
+              onClick={() =>
+                event({
+                  category: "Footer",
+                  action: "click-our-roadmap",
+                  label: "Roadmap",
+                })
+              }
+            >
+              Roadmap
             </Anchor>
           </Stack>
         </Box>
-        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={["space0", "space130"]}>
+        <Box flexGrow={[1, 1, 1, 0]} marginRight={["space0", "space130"]}>
           <Stack orientation="vertical" spacing="space60">
+            <Text as="span" color="colorTextInverse" fontWeight="fontWeightSemibold">
+              Get help
+            </Text>
+            <Anchor
+              href="https://github.com/twilio-labs/paste/discussions/new/choose"
+              variant="inverse"
+              showExternal
+              onClick={() =>
+                event({
+                  category: "Footer",
+                  action: "click-github-discussions",
+                  label: "Github discussions",
+                })
+              }
+            >
+              Ask a question
+            </Anchor>
+            <Anchor
+              href="https://github.com/twilio-labs/paste/issues/new/choose"
+              variant="inverse"
+              showExternal
+              onClick={() =>
+                event({
+                  category: "Footer",
+                  action: "click-report-a-bug",
+                  label: "Report a bug",
+                })
+              }
+            >
+              Report a bug
+            </Anchor>
+            <Anchor
+              href="/introduction/working-with-us"
+              variant="inverse"
+              onClick={() =>
+                event({
+                  category: "Footer",
+                  action: "click-how-we-work",
+                  label: "How we work",
+                })
+              }
+            >
+              How we work
+            </Anchor>
+          </Stack>
+        </Box>
+        <Box flexGrow={[1, 1, 1, 0]} marginRight={["space0", "space130"]}>
+          <Stack orientation="vertical" spacing="space60">
+            <Text as="span" color="colorTextInverse" fontWeight="fontWeightSemibold">
+              Build with Paste
+            </Text>
             <Anchor
               href="https://github.com/twilio-labs/paste"
               variant="inverse"
@@ -133,51 +188,6 @@ const SiteFooterNav = (): JSX.Element => {
               }
             >
               Paste Remix
-            </Anchor>
-          </Stack>
-        </Box>
-        <Box flexGrow={[1, 1, 1, 0]} marginBottom="space60" marginRight={["space0", "space130"]}>
-          <Stack orientation="vertical" spacing="space60">
-            <Anchor
-              href="https://github.com/twilio-labs/paste/discussions"
-              variant="inverse"
-              showExternal
-              onClick={() =>
-                event({
-                  category: "Footer",
-                  action: "click-get-support",
-                  label: "Get support",
-                })
-              }
-            >
-              Get support
-            </Anchor>
-            <Anchor
-              href="https://github.com/twilio-labs/paste/issues/new/choose"
-              variant="inverse"
-              showExternal
-              onClick={() =>
-                event({
-                  category: "Footer",
-                  action: "click-report-a-bug",
-                  label: "Report a bug",
-                })
-              }
-            >
-              Report a bug
-            </Anchor>
-            <Anchor
-              href="/introduction/working-with-us"
-              variant="inverse"
-              onClick={() =>
-                event({
-                  category: "Footer",
-                  action: "click-how-we-work",
-                  label: "How we work",
-                })
-              }
-            >
-              How we work
             </Anchor>
           </Stack>
         </Box>

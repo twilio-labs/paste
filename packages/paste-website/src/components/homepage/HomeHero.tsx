@@ -1,54 +1,13 @@
-import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { DisplayHeading } from "@twilio-paste/display-heading";
-import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
-import * as React from "react";
 
 import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
-import { event } from "../../lib/gtag";
 import CircleIcon from "../icons/CircleIcon";
+import { BouncyAnchor } from "./BouncyAnchor";
 import { SearchBox } from "./SearchBox";
 import { ComponentShowcase } from "./component-showcase";
-
-const BouncyAnchor: React.FC<{ text: string; href: string }> = ({ text, href }): JSX.Element => {
-  const [hovered, setHovered] = React.useState(false);
-
-  const handleMouseEnter = (): void => {
-    setHovered(true);
-  };
-  const handleMouseLeave = (): void => {
-    setHovered(false);
-  };
-
-  return (
-    <Box as="span" display="flex" alignItems="center">
-      <Anchor
-        href={href}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={() =>
-          event({
-            category: "Hero",
-            action: "click-see-roadmap",
-            label: "See our roadmap",
-          })
-        }
-      >
-        {text}
-      </Anchor>
-      <Box
-        as="span"
-        display="flex"
-        transform={hovered ? "translateY(1px) translateX(4px)" : "translateY(1px) translateX(0)"}
-        transition="all 100ms ease"
-      >
-        <ArrowForwardIcon decorative display="inline-block" size="sizeIcon40" color="colorTextLink" />
-      </Box>
-    </Box>
-  );
-};
 
 const HomeHero = (): JSX.Element => {
   const theme = useTheme();
@@ -62,7 +21,6 @@ const HomeHero = (): JSX.Element => {
         maxWidth={SITE_CONTENT_MAX_WIDTH}
         marginLeft="auto"
         marginRight="auto"
-        // zIndex="zIndex10"
         overflow="hidden"
         element="HOME_HERO"
       >

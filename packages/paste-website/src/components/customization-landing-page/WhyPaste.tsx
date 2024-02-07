@@ -7,55 +7,11 @@ import Image from "next/image";
 import { DoodleLoopArrowLarge } from "../../assets/illustrations/DoodleLoopArrowLarge";
 import WhyPasteMobile from "../../assets/images/customization/why-paste-mobile.png";
 import WhyPasteImg from "../../assets/images/customization/why-paste.png";
-import { useDarkModeContext } from "../../context/DarkModeContext";
-// import { useSlantedSkew } from "../SlantedBackgroundGradient";
 import { A11yIcon } from "../icons/A11yIcon";
 import { CustomizableIcon } from "../icons/CustomizableIcon";
 import { ThemableIcon } from "../icons/ThemableIcon";
 import { LandingPageSection, LandingPageSectionContent } from "./LandingPageLayoutUtils";
 import { ReasonBlock } from "./ReasonBlock";
-
-const WhyPasteTopAngle = (): JSX.Element => {
-  // const [skewOffset] = useSlantedSkew();
-  const { theme } = useDarkModeContext();
-
-  return (
-    <Box
-      // @ts-expect-error combat semi opaque dark mode token value
-      backgroundColor={theme === "dark" ? "#2a3342" : "colorBackgroundPrimaryWeakest"}
-      borderRadius="borderRadius20"
-      height="95%"
-      left={0}
-      position="absolute"
-      right={0}
-      // top={skewOffset}
-      transform="skewY(10deg)"
-      transformOrigin="100% 0"
-      zIndex="zIndex0"
-    />
-  );
-};
-
-const WhyPasteBottomAngle = (): JSX.Element => {
-  // const [skewOffset] = useSlantedSkew(-0.35);
-  const { theme } = useDarkModeContext();
-
-  return (
-    <Box
-      // @ts-expect-error combat semi opaque dark mode token value
-      backgroundColor={theme === "dark" ? "#2a3342" : "colorBackgroundPrimaryWeakest"}
-      borderRadius="borderRadius20"
-      // bottom={skewOffset}
-      height="100%"
-      left={0}
-      position="absolute"
-      right={0}
-      transform="skewY(10deg)"
-      transformOrigin="100% 0"
-      zIndex="zIndex0"
-    />
-  );
-};
 
 export const WhyPaste = (): JSX.Element => {
   return (
@@ -66,8 +22,6 @@ export const WhyPaste = (): JSX.Element => {
       maxWidth="96%"
       marginX="auto"
     >
-      {/* <WhyPasteTopAngle /> */}
-      {/* <WhyPasteBottomAngle /> */}
       <Box position="relative" maxWidth="1400px" marginX="auto">
         <LandingPageSectionContent variant="narrow" zIndex="zIndex10">
           <Box maxWidth="size60" marginBottom="space130">
