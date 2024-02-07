@@ -6,7 +6,6 @@ import { Heading } from "@twilio-paste/heading";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import { ListItem, UnorderedList } from "@twilio-paste/list";
 import {
-  Modal,
   ModalBody,
   ModalContext,
   ModalDialogContent,
@@ -28,7 +27,7 @@ const Accessibility: React.FC = (): React.ReactElement => {
   const selectedTabId = useUID();
   const [modalIsOpen, setModalIsOpen] = React.useState(true);
   const onDismiss = (): void => setModalIsOpen(false);
-  const onOpenModal = (): void => setModalIsOpen(true);
+  const onOpenModal = (): void => setModalIsOpen(!modalIsOpen);
   const modalHeadingID = useUID();
 
   return (
@@ -97,7 +96,7 @@ const Accessibility: React.FC = (): React.ReactElement => {
                             <Button variant="secondary" onClick={onDismiss}>
                               Cancel
                             </Button>
-                            <Button variant="primary" onClick={onDismiss}>
+                            <Button variant="primary" onClick={onOpenModal}>
                               Next
                               <ArrowForwardIcon decorative />
                             </Button>

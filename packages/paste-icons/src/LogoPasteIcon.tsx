@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface LogoPasteIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface LogoPasteIconProps extends IconWrapperProps {
 }
 
 const LogoPasteIcon = React.forwardRef<HTMLElement, LogoPasteIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `LogoPasteIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[LogoPasteIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[LogoPasteIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -42,8 +42,8 @@ const LogoPasteIcon = React.forwardRef<HTMLElement, LogoPasteIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-LogoPasteIcon.displayName = 'LogoPasteIcon';
-export {LogoPasteIcon};
+LogoPasteIcon.displayName = "LogoPasteIcon";
+export { LogoPasteIcon };
