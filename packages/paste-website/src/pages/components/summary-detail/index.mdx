@@ -59,6 +59,9 @@ export const getStaticProps = async () => {
       </Text>
       <Text as="p" fontSize="fontSize20" fontWeight="fontWeightLight">
         Jan 11, 2023
+        <Anchor href="#" marginLeft="space30">
+          (View transcript)
+        </Anchor>
       </Text>
     </SummaryDetailHeadingContent>
   </SummaryDetailHeading>
@@ -86,7 +89,7 @@ It can be used when you need more click targets & actions in a Disclosure Headin
 
 - Only the toggle button is tabbable and clickable to reveal the content.
 - The toggle button is labelled by the `SummaryDetailHeadingContent` component.
-  - If the heading content is unclear too verbose, you can provide an `aria-label` to `SummaryDetailToggleButton` directly to enable a more descriptive label.
+  - If the heading content is unclear or too verbose, you can provide an `aria-label` to `SummaryDetailToggleButton` directly to enable a more descriptive label.
 
 ## Examples
 
@@ -109,6 +112,9 @@ simple and clean looking Summary Detail.
       </Text>
       <Text as="p" fontSize="fontSize20" fontWeight="fontWeightLight">
         Jan 11, 2023
+        <Anchor href="#" marginLeft="space30">
+          (View transcript)
+        </Anchor>
       </Text>
     </SummaryDetailHeadingContent>
   </SummaryDetailHeading>
