@@ -1,18 +1,12 @@
-import { Box } from "@twilio-paste/box";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import * as React from "react";
 import VisibilitySensor from "react-visibility-sensor";
 
-import { Accessibility } from "../components/homepage/Accessibility";
-import { CommunityOfBuilders } from "../components/homepage/CommunityOfBuilders";
-import { DesignEfficiency } from "../components/homepage/DesignEfficiency";
-import { ForTwilioCustomers } from "../components/homepage/ForTwilioCustomers";
+import { Experiment } from "../components/homepage/Experiment";
+import { GetStarted } from "../components/homepage/GetStarted";
 import { HomeHero } from "../components/homepage/HomeHero";
-import { NewSection } from "../components/homepage/NewSection";
-import { Templates } from "../components/homepage/Templates";
-import { Themeable } from "../components/homepage/Themeable";
-import { WeDoTheThinking } from "../components/homepage/WeDoTheThinking";
+import { PopularComponentsAndPatterns } from "../components/homepage/Popular";
 import { SiteWrapper } from "../components/site-wrapper";
 import { SiteMetaDefaults } from "../constants";
 import { getNavigationData } from "../utils/api";
@@ -29,7 +23,6 @@ const Homepage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticPr
       setShowIframe(isVisible);
     }
   }
-
   return (
     <SiteWrapper navigationData={navigationData}>
       <Head>
@@ -38,29 +31,20 @@ const Homepage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticPr
         <meta key="description" name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Head>
       <HomeHero />
-      <NewSection />
-      <Themeable />
-      <ForTwilioCustomers />
-      <Templates />
-      <DesignEfficiency />
-      <CommunityOfBuilders />
-      <WeDoTheThinking />
-      <Accessibility />
+      <GetStarted />
       <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
-        <Box />
+        <PopularComponentsAndPatterns />
       </VisibilitySensor>
+      <Experiment showIframe={showIframe} />
     </SiteWrapper>
   );
 };
-
 export const getStaticProps: GetStaticProps<{ navigationData: Feature[] }> = async () => {
   const navigationData = await getNavigationData();
-
   return {
     props: {
       navigationData,
     },
   };
 };
-
 export default Homepage;
