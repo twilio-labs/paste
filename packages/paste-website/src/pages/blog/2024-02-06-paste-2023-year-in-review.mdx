@@ -1,0 +1,233 @@
+export const meta = {
+  title: '2023 - A year in review',
+  slug: '/blog/2024-02-06-paste-2023-year-in-review/',
+  date: '2024-02-06',
+  author: 'Simon Taggart',
+  avatar: 'https://avatars.githubusercontent.com/u/368249',
+  excerpt: 'With the year 2023 wrapped up, we want to take a moment to hoot our own horn and look back at the remarkable achievements the Paste team has accomplished. ',
+};
+
+import Image from 'next/image';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {Box} from '@twilio-paste/box';
+import {Text} from '@twilio-paste/text';
+import {Anchor} from '@twilio-paste/anchor';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+
+import {ResponsiveImage} from '../../components/ResponsiveImage';
+
+import NavUIKit from '../../assets/images/articles/2023-06-12-paste-newsletter/nav-ui-kit.png';
+import Pastebot from '../../assets/images/articles/2023-11-08-paste-newsletter/Pastebot.png';
+import Docs from '../../assets/images/articles/2023-year-review/docs.png';
+import Form from '../../assets/images/articles/2023-year-review/form.png';
+import Language from '../../assets/images/articles/2023-year-review/language.png';
+import Layout from '../../assets/images/articles/2023-year-review/layout.png';
+import Numbers from '../../assets/images/articles/2023-year-review/numbers.png';
+import TabsAndStuff from '../../assets/images/articles/2023-year-review/tabsandstuff.png';
+import Templates from '../../assets/images/articles/2023-year-review/templates.png';
+import Theme from '../../assets/images/articles/2023-year-review/theme.png';
+import Typography from '../../assets/images/articles/2023-year-review/type.png';
+
+import DefaultLayout from '../../layouts/DefaultLayout';
+import {getNavigationData} from '../../utils/api';
+
+export default DefaultLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  return {
+    props: {
+      navigationData,
+    },
+  };
+};
+
+<ArticleHeader
+  title={meta.title}
+  description={meta.description}
+  date={meta.date}
+  machineDate={meta.date}
+  author={meta.author}
+  avatar={meta.avatar}
+/>
+
+---
+
+<contentwrapper>
+
+<PageAside data={mdxHeadings} hideFeedback />
+
+<ArticleContent>
+
+With the year 2023 wrapped up, we want to take a moment to hoot our own horn and look back at the remarkable achievements we made as a team. Through dedication and a collaborative spirit, we've launched innovative initiatives, new components, design languages, and cohesive UI kits that have significantly elevated the user experience across Twilio products. This review celebrates the fruits of our labor, spotlighting each component, guideline, and enhancement that has shaped the foundation of our seamless and unified design system.
+
+## 💅 One Twilio Design Language
+
+<ResponsiveImage src={Theme} alt="Nav UI Kit" />
+
+2023 marked the release of the One Twilio Design Language (Read about it on the Twilio Blog) —a milestone in the unification across all of Twilio's platforms. This design language harmonizes visual elements and interactive components under a set of themes, namely twilio and twilio-dark, which are meticulously crafted to cater to a broad spectrum of interface applications and user preferences. The Evergreen theme was released to aid Segments migration to the Twilio Design Language, by providing an evolutionary architecture tool to incrementally replace Evergreen without stopping feature development or customer impact.
+
+## 🧭 Navigation UI Kit
+
+<ResponsiveImage src={NavUIKit} alt="Nav UI Kit" />
+
+The [Navigation UI Kit](https://www.twilio.com/blog/bringing-cohesion-to-the-twilio-product-suite-part-ii),  introduced later in the year in August, solidified our commitment to a unified user interface. By providing building blocks that support every application's navigation needs, we can create cohesive and familiar navigation mechanisms to customers as they switch between Twilio products. It consists of components crucial for facilitating a consistent navigational experience:
+
+- **[Topbar](/components/topbar)**: Serves as a centralized access point for application controls, segmenting into User and Account controls.
+- **[Sidebar](/components/sidebar#compact-overlay-sidebar)**: Functions primarily for application navigation, with flexible modes.
+- **[Account Switcher](/components/account-switcher)**: Standardizes transitions between accounts or related entities within any Twilio application.
+- **[Product Switcher](/components/product-switcher)**: Simplifies transitions between Twilio services.
+- **[User Dialog](/components/user-dialog)**: Offers convenient access to account-related settings and preferences.
+- **[Status Badge](/components/status-badge) and [Status Menu](/components/status-menu)**: Provide visual indicators for processes or connection statuses.
+
+## 🛳️ Where we're seeing it
+
+<ResponsiveImage src={Language} alt="Nav UI Kit" />
+
+Since its release we're already seeing the new design language and navigation rollout to several customer touch points, across [Universal Login](https://login.twilio.com/u/signup), the new [One Support Centre](https://help.twilio.com/), the new [Twilio Docs Platform](https://www.twilio.com/docs/global-infrastructure) and [One Admin](https://oneadmin.twilio.com). We also saw the **[Product Switcher](/components/product-switcher)** get implemented this year to provide super easy navigation between Twilio products.
+
+<Callout variant="neutral">
+  <CalloutHeading as="h4">💡 Did you know?</CalloutHeading>
+  <CalloutText>
+    <strong>80% of all Twilio Console page views</strong> are pages built entirely with Paste, from 0% 4 years ago. <strong>48% of the Segment app</strong> has migrated to Paste in 9 months.
+  </CalloutText>
+  <CalloutText>
+    This makes it so easy to roll out our unified Design Language to the rest of Twilio customers in 2024. With such high adoption, we're so close!
+  </CalloutText>
+</Callout>
+
+<br /><br />
+
+## 📈 2023 in numbers
+
+In addition to those two large projects, the team managed to ship:
+
+| Components | Primitives | Icons | Patterns | Templates | Foundations |
+|------------|------------|-------|----------|-----------|-------------|
+| <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">18</Text>         | <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">1</Text>          | <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">75</Text>    | <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">2</Text>        | <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">4</Text>         | <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">2</Text>           |
+
+### Paste in Code
+
+We continue to see exceptional adoption of components to build out Twilio UIs across the business, here's a highlight of what we're seeing (numbers represent each time a react component is used):
+
+| Console | Internal tools | Segment App | Sendgrid App | Overall Total |
+|---------|----------------|-------------|--------------|---------------|
+| <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">~55,314</Text> | <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">~13,955</Text>        | <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">12,966</Text>      | <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">2,137</Text>        | <Text as="span" fontSize="fontSize80" fontWeight="fontWeightBold">~85,469</Text>       |
+
+## 📝 Typography and Page Layout Guidelines
+
+### [Typography Guidelines](/foundations/typography)
+
+<ResponsiveImage src={Typography} alt="Nav UI Kit" />
+
+The Typography Guidelines set specific parameters for the use of the new typefaces—Twilio Sans Display, Twilio Sans Text, and Twilio Sans Mono—ensuring consistent readability and visual harmony across Twilio's product landscapes.
+
+### [Page Spacing and Layout Guidelines](/foundations/spacing-and-layout)
+
+<ResponsiveImage src={Layout} alt="Nav UI Kit" />
+
+Launched in January, these guidelines provide foundational advice on creating visual relationships between page elements, thus aiding product builders to craft intuitive and visually coherent interfaces.
+
+## 👩‍💻 Form and Functional Components
+
+### [Form Component](/components/form)
+
+<ResponsiveImage src={Form} alt="Nav UI Kit" />
+
+The Form component standardizes form interfaces across different pages, making usability and user interaction uniform and intuitive.
+
+### [File Uploader](/components/file-uploader)
+
+Addressing the frequent need for file attachments, the File Uploader is made easily accessible and user-friendly with drag-and-drop functionalities.
+
+### [Editable Code Block Component](/components/editable-code-block)
+
+The Editable Code Block Component, based on the Paste Code Editor library, allows for essential code-editing functionalities within web applications.
+
+## ⚖️ Numerical Components
+
+### Slider, Number Input, Progress Bar, and Meter
+
+<ResponsiveImage src={Numbers} alt="Nav UI Kit" />
+
+Four new components emerged to depict numerical data effectively:
+
+- [The Slider](/components/slider) allows for precise control over a range of values.
+- [The Number Input](/components/input#input-with-number-functionality) provides a dedicated interface for numerical entry.
+- [The Progress Bar](/components/account-switcher) visualizes progress through processes.
+- [The Meter](/components/product-switcher) is used where capacity or quantity needs to be displayed in a range.
+
+## 	🚧 Context, Progress, and Refreshed Components
+
+<ResponsiveImage src={TabsAndStuff} alt="Nav UI Kit" />
+
+### [Description List Component](/components/description-list)
+
+The Description List Component was designed to present information methodically, managing dense text effectively to extract pertinent details without the clutter.
+
+### [Detail Text Component](/components/detail-text)
+
+April saw the introduction of the Detail Text Component intended for subtly accompanying main content without overpowering it.
+
+### [Progress Steps Component](/components/progress-steps)
+
+The Progress Steps Component, which debuted in August, addresses the challenge of guiding users through multi-step tasks or sessions with a visual tracking system.
+
+### [Refreshed Avatar Component and New Avatar Group](/components/avatar)
+
+A significant refresh was done for the Avatar component to permit the display of groups. This functionality is vital for Twilio products that handle entity or human group representations.
+
+### [Redesigned Tabs Component](/components/tabs)
+
+To delineate tabs from in-page navigation more distinctly, the Tabs component was redesigned to reflect its functionality more clearly.
+
+## 🎨 Patterns, Templates, and Documentation
+
+### [Launch of Page Templates](/page-templates)
+
+<ResponsiveImage src={Templates} alt="Nav UI Kit" />
+
+November saw the launch of a series of page templates. These include settings for various page types ranging from object details to wizards. These templates offer flexible layout choices to cater to product and platform-agnostic needs.
+
+### [Error Messaging Content Guidelines](/patterns/error-state)
+
+Through Megan Allison's contribution, the Error State pattern documentation was formulated, presenting a structured approach for creating precise error messages.
+
+### Documentation Reorganization
+
+<ResponsiveImage src={Docs} alt="Nav UI Kit" />
+
+Component documentation underwent a transformation:
+
+- **Guidelines Page:** Offers comprehensive usage instructions.
+- **API Page:** Provides detailed technical properties, all now automated to ensure accuracy.
+- **Changelog Page:** Keeps a record of component updates and changes.
+
+### [Confirmation Pattern](/patterns/confirmation)
+
+An addition from Megan Allison, the Confirmation Pattern aids in presenting complex or consequential actions to users in a clear manner.
+
+## 🧑‍🔧 Infrastructure and Automation
+
+### Automated Monorepo Dependency Management
+
+By automating monorepo dependency management and ensuring full support for React 18, we've secured a robust foundation for Paste going forward.
+
+### CI Runtime Reduction
+
+Efforts to reduce average Continuous Integration runtime paid off, reducing some long running task by 75%.
+
+### PasteBot and AI
+
+<ResponsiveImage src={Pastebot} alt="Screenshot of a Github Discussion answered by Pastebot" />
+
+We started experimenting with AI 2023, employing a ChatGPT powered Github Discussion answering bot that uses our documentation to try and provide a speedy answer to common, and known questions.
+
+## Closing Remarks
+
+As we kick off 2024, the Paste team is proud to highlight our comprehensive array of components, templates, and guidelines that were shipped in 2023. These latest achievements demonstrate our steadfast commitment to delivering exceptional experiences for developers and users alike. From boldly integrating AI with PasteBot to meticulously refining and updating key design elements, we've not only adapted to the evolving landscape – we've actively shaped it. In our pursuit of excellence, we continue to hone the tools and resources that empower creators and problem-solvers, fostering a dynamic ecosystem of innovation and collaboration. As we look ahead, we do so with renewed vigor and excitement for the next chapter in our journey.
+
+
+</ArticleContent>
+
+</contentwrapper>
