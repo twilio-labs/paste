@@ -15827,6 +15827,7 @@ __metadata:
     "@twilio-paste/status": ^2.1.1
     "@twilio-paste/style-props": ^9.1.1
     "@twilio-paste/styling-library": ^3.0.0
+    "@twilio-paste/summary-detail": ^1.0.0
     "@twilio-paste/switch": ^5.1.1
     "@twilio-paste/syntax-highlighter-library": ^3.0.0
     "@twilio-paste/table": ^8.2.0

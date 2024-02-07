@@ -1,0 +1,221 @@
+export const meta = {
+  title: 'Summary Detail - Components',
+  description:
+    'A Summary Detail is a collapsible container that can be used to hide or show content.',
+  slug: '/components/summary-detail',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Avatar} from '@twilio-paste/avatar';
+import {Box} from '@twilio-paste/box';
+import {Button} from '@twilio-paste/button';
+import {Card} from '@twilio-paste/card';
+import {Heading} from '@twilio-paste/heading';
+import {Paragraph} from '@twilio-paste/paragraph';
+import {SummaryDetail} from '@twilio-paste/summary-detail';
+import {Stack} from '@twilio-paste/stack';
+import {Table, THead, TBody, Tr, Td, Th} from '@twilio-paste/table';
+import {Text} from '@twilio-paste/text';
+import {CalendarIcon} from '@twilio-paste/icons/esm/CalendarIcon';
+import packageJson from '@twilio-paste/summary-detail/package.json';
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Summary Detail');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/summary-detail',
+        storybookUrl: '/?path=/story/components-summarydetail--default',
+      },
+    },
+  };
+};
+
+
+<StoryPreview
+  title="Standard Summary Detail"
+  storyID="components-summarydetail--default"
+  height="200px"
+  code={`
+<SummaryDetail>
+  <SummaryDetailHeading>
+    <SummaryDetailToggleButton aria-label="BOOP" />
+    <SummaryDetailHeadingContent>
+      <Text as="p" fontWeight="fontWeightBold">
+        Inbound Call
+      </Text>
+      <Text as="p" fontSize="fontSize20" fontWeight="fontWeightLight">
+        Jan 11, 2023
+        <Anchor href="#" marginLeft="space30">
+          (View transcript)
+        </Anchor>
+      </Text>
+    </SummaryDetailHeadingContent>
+  </SummaryDetailHeading>
+  <SummaryDetailContent>
+    <Text as="strong">Agent: </Text>
+    <Text as="span">John Doe</Text>
+    <Text as="span" marginX="space40" color="colorTextWeaker">
+      |
+    </Text>
+    <Text as="strong">Duration: </Text>
+    <Text as="span">3m 14s</Text>
+  </SummaryDetailContent>
+</SummaryDetail>`}
+/>
+
+## Guidelines
+
+### About Summary Detail
+
+The Summary Detail component displays a summary of information that can be expanded to show more information.
+It can be used when you need more click targets and actions in a Disclosure Heading.
+
+
+### Accessibility
+
+- Only the toggle button is tabbable and clickable to reveal the content.
+- The toggle button is labelled by the `SummaryDetailHeadingContent` component.
+  - If the heading content is unclear or too verbose, you can provide an `aria-label` to `SummaryDetailToggleButton` directly to enable a more descriptive label.
+
+## Examples
+
+### Basic usage
+
+This example shows how you can compose the [Text component](/primitives/text) to compose a
+basic Summary Detail.
+
+<StoryPreview
+  title="Standard Summary Detail"
+  storyID="components-summarydetail--default"
+  height="200px"
+  code={`
+<SummaryDetail>
+  <SummaryDetailHeading>
+    <SummaryDetailToggleButton aria-label="BOOP" />
+    <SummaryDetailHeadingContent>
+      <Text as="p" fontWeight="fontWeightBold">
+        Inbound Call
+      </Text>
+      <Text as="p" fontSize="fontSize20" fontWeight="fontWeightLight">
+        Jan 11, 2023
+        <Anchor href="#" marginLeft="space30">
+          (View transcript)
+        </Anchor>
+      </Text>
+    </SummaryDetailHeadingContent>
+  </SummaryDetailHeading>
+  <SummaryDetailContent>
+    <Text as="strong">Agent: </Text>
+    <Text as="span">John Doe</Text>
+    <Text as="span" marginX="space40" color="colorTextWeaker">
+      |
+    </Text>
+    <Text as="strong">Duration: </Text>
+    <Text as="span">3m 14s</Text>
+  </SummaryDetailContent>
+</SummaryDetail>`}
+/>
+
+### Open by default
+
+You can set the content to be visible by default with the `visible` prop.
+
+<StoryPreview
+  title="Open by default Summary Detail"
+  storyID="components-summarydetail--open-by-default"
+  height="200px"
+  code={`
+<SummaryDetail visible>
+  <SummaryDetailHeading>
+    <SummaryDetailToggleButton aria-label="BOOP" />
+    <SummaryDetailHeadingContent>
+      <Text as="p" fontWeight="fontWeightBold">
+        Inbound Call
+      </Text>
+      <Text as="p" fontSize="fontSize20" fontWeight="fontWeightLight">
+        Jan 11, 2023
+      </Text>
+    </SummaryDetailHeadingContent>
+  </SummaryDetailHeading>
+  <SummaryDetailContent>
+    <Text as="strong">Agent: </Text>
+    <Text as="span">John Doe</Text>
+    <Text as="span" marginX="space40" color="colorTextWeaker">
+      |
+    </Text>
+    <Text as="strong">Duration: </Text>
+    <Text as="span">3m 14s</Text>
+  </SummaryDetailContent>
+</SummaryDetail>`}
+/>
+
+### State hook
+
+You can control the internal behavior of the Summary Detail component by way of [inversion of control](https://kentcdodds.com/blog/inversion-of-control).
+This is useful for when you want to control the visibility of the Summary Detail component from a parent component.
+
+<StoryPreview
+  title="State hook example"
+  storyID="components-summarydetail--state-hook"
+  height="300px"
+  code={`const useDelayedSummaryDetailState = ({
+  delay,
+  ...initialState
+}) => {
+  const disclosure = useSummaryDetailState(initialState);
+  const [transitioning, setTransitioning] = React.useState(false);
+  return {
+    ...disclosure,
+    transitioning,
+    toggle: () => {
+      setTransitioning(true);
+      setTimeout(() => {
+        disclosure.toggle();
+        setTransitioning(false);
+      }, delay);
+    },
+  };
+};
+const StateHook = () => {
+  const { transitioning, ...summaryDetailState } = useDelayedSummaryDetailState({
+    delay: 500,
+  });
+  const clickableHeading = summaryDetailState.visible ? "Hide with delay" : "Show with delay";
+  return (
+    <>
+      <Paragraph>This Disclosure should be visible on load, and take 1 second to open and close.</Paragraph>
+      <SummaryDetail state={summaryDetailState}>
+        <SummaryDetailHeading>
+          <SummaryDetailToggleButton />
+          <SummaryDetailHeadingContent>
+            {transitioning ? "Please wait..." : clickableHeading}
+          </SummaryDetailHeadingContent>
+        </SummaryDetailHeading>
+        <SummaryDetailContent>
+          <Text as="strong">Agent: </Text>
+          <Text as="span">John Doe</Text>
+          <Text as="span" marginX="space40" color="colorTextWeaker">
+            |
+          </Text>
+          <Text as="strong">Duration: </Text>
+          <Text as="span">3m 14s</Text>
+        </SummaryDetailContent>
+      </SummaryDetail>
+    </>
+  );
+};`}
+/>
