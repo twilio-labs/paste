@@ -23,7 +23,6 @@ const Homepage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticPr
       setShowIframe(isVisible);
     }
   }
-
   return (
     <SiteWrapper navigationData={navigationData}>
       <Head>
@@ -40,15 +39,12 @@ const Homepage = ({ navigationData }: InferGetStaticPropsType<typeof getStaticPr
     </SiteWrapper>
   );
 };
-
 export const getStaticProps: GetStaticProps<{ navigationData: Feature[] }> = async () => {
   const navigationData = await getNavigationData();
-
   return {
     props: {
       navigationData,
     },
   };
 };
-
 export default Homepage;

@@ -271,6 +271,7 @@ export const SITEMAP = [
   "/introduction/for-engineers/manual-installation/",
   "/introduction/for-engineers/quickstart/",
   "/introduction/working-with-us/",
+  "/new",
   "/page-templates/",
   "/page-templates/object-details/",
   "/page-templates/objects-list/",
