@@ -48,18 +48,18 @@ const Accessibility: React.FC = (): React.ReactElement => {
             <Paragraph>
               Accessibility is more than just color contrast. We believe in designing for each user, not just “all
               users”. We build with these considerations in mind:
-              <UnorderedList>
-                <ListItem>
-                  Screen magnification, voice dictation, color blindness, and those who require help with fine motor
-                  control.
-                </ListItem>
-                <ListItem>Semantic HTML to better communicate with assistive technologies.</ListItem>
-                <ListItem>UI controls that are designed to be instantly recognizable and easy to see.</ListItem>
-                <ListItem>
-                  Keyboard navigation and focus management to allow task completion through a variety of input devices.
-                </ListItem>
-              </UnorderedList>
             </Paragraph>
+            <UnorderedList>
+              <ListItem>
+                Screen magnification, voice dictation, color blindness, and those who require help with fine motor
+                control.
+              </ListItem>
+              <ListItem>Semantic HTML to better communicate with assistive technologies.</ListItem>
+              <ListItem>UI controls that are designed to be instantly recognizable and easy to see.</ListItem>
+              <ListItem>
+                Keyboard navigation and focus management to allow task completion through a variety of input devices.
+              </ListItem>
+            </UnorderedList>
             <BouncyAnchor text="Learn more in our Inclusive Design Guide" href="/inclusive-design" />
           </Box>
           <Box>

@@ -17,7 +17,7 @@ const HeartDoodleIcon = React.memo(
         <svg
           role="img"
           aria-hidden={decorative}
-          viewBox="0 0 33 33"
+          viewBox="0 0 45 45"
           width="100%"
           height="100%"
           aria-labelledby={titleId}

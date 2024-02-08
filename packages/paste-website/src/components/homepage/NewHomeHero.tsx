@@ -9,7 +9,7 @@ import { BouncyAnchor } from "./BouncyAnchor";
 import { SearchBox } from "./SearchBox";
 import { ComponentShowcase } from "./component-showcase";
 
-const NewHomeHero = (): JSX.Element => {
+const HomeHero = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Box element="HOME_HERO_WRAPPER">
@@ -73,4 +73,4 @@ const NewHomeHero = (): JSX.Element => {
   );
 };
 
-export { NewHomeHero };
+export { HomeHero };
