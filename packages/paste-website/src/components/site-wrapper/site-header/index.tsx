@@ -44,8 +44,8 @@ export const SiteHeader: React.FC<{
           <Box data-cy="paste-docsearch-container" id="paste-docs-search-input">
             <SiteHeaderSearch />
           </Box>
-          <ContactUsMenu />
           <DarkModeToggle />
+          <ContactUsMenu />
           <FigmaButton />
           <GitHubButton type="stargazers" namespace="twilio-labs" repo="paste" />
         </TopbarActions>
