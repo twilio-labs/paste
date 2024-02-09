@@ -55,6 +55,7 @@ export const AssistantMarkdown: React.FC<{ children: string }> = ({ children }) 
                   <CodeBlockHeader>{node.lang ? node.lang : "javascript"}</CodeBlockHeader>
                   <CodeBlock
                     code={String.raw`${node.text}`}
+                    maxLines={10}
                     language={node.lang ? (node.lang as CodeBlockProps["language"]) : "javascript"}
                   />
                 </CodeBlockWrapper>
