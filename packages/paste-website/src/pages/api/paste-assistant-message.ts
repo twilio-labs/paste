@@ -1,3 +1,5 @@
+import { type ChatPostMessageResponse } from "@slack/web-api";
+import { createClient } from "@supabase/supabase-js";
 /* eslint-disable camelcase */
 import type { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
@@ -14,6 +16,9 @@ const rollbar = new Rollbar({
 const openAiKey = process.env.OPENAI_API_KEY;
 const openAiSecret = process.env.OPENAI_API_SECRET;
 const assistantID = process.env.OPENAI_ASSISTANT_ID;
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_KEY;
+const slackChannelID = process.env.SLACK_CHANNEL_TMP_PASTE_ASSISTANT;
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // defaults to process.env["OPENAI_API_KEY"]
@@ -50,6 +55,8 @@ async function getRelevantDocs(functionArguments: string): Promise<any> {
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse): Promise<void | Response> {
   logger.info(`${LOG_PREFIX} Incoming request`);
+  const { host } = req.headers;
+  const protocol = host?.includes("localhost") ? "http" : "https";
 
   if (openAiKey === undefined || openAiSecret === undefined) {
     logger.error(`${LOG_PREFIX} OpenAI API key or secret is undefined`);
@@ -65,6 +72,33 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     rollbar.error(`${LOG_PREFIX} OpenAI assistant ID is undefined`);
     res.status(500).json({
       error: "OpenAI assistant ID is undefined",
+    });
+    return;
+  }
+
+  if (supabaseServiceKey === undefined || supabaseServiceKey === "") {
+    logger.error(`${LOG_PREFIX} Supabase Service key is undefined`);
+    rollbar.error(`${LOG_PREFIX} Supabase Service key is undefined`);
+    res.status(500).json({
+      error: "Supabase Service key is undefined",
+    });
+    return;
+  }
+
+  if (supabaseUrl === undefined || supabaseUrl === "") {
+    logger.error(`${LOG_PREFIX} Supabase url is undefined`);
+    rollbar.error(`${LOG_PREFIX} Supabase url is undefined`);
+    res.status(500).json({
+      error: "Supabase url is undefined",
+    });
+    return;
+  }
+
+  if (slackChannelID === undefined || slackChannelID === "") {
+    logger.error(`${LOG_PREFIX} Slack channel ID is undefined`);
+    rollbar.error(`${LOG_PREFIX} Slack channel ID is undefined`);
+    res.status(500).json({
+      error: "Slack channel ID is undefined",
     });
     return;
   }
@@ -103,6 +137,39 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     rollbar.error(`${LOG_PREFIX} Error creating user message`, { error });
     res.status(500).json({
       error: "Error creating user message",
+    });
+  }
+
+  // get the slack thread ID for the message thread being updated so that we can post the new message to the correct slack thread
+  const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
+  const { data: slackThreadID, error: slackThreadIDError } = await supabaseClient
+    .from("assistant_threads")
+    .select("slack_thread_ts")
+    .eq("openai_thread_id", threadId);
+
+  if (slackThreadIDError) {
+    logger.error(`${LOG_PREFIX} Error getting slack thread ID for the message thread being updated`, {
+      slackThreadIDError,
+    });
+  } else {
+    // Post that new message to the correct slack thread for this assistant thread
+    const postToSlackResponse = await fetch(`${protocol}://${host}/api/post-to-slack`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        message: `New message was added to the thread: \n\n --- \n\n${message}`,
+        channelID: slackChannelID,
+        threadID: slackThreadID,
+      }),
+    });
+    const slackResponseJSON = await postToSlackResponse.json();
+    const slackResult = slackResponseJSON.result as ChatPostMessageResponse;
+
+    logger.info(`${LOG_PREFIX} Posted to slack`, {
+      slackMessageCreated: slackResult.ts,
+      message: slackResult.message?.text,
     });
   }
 
