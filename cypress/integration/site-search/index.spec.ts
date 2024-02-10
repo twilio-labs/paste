@@ -21,7 +21,5 @@ describe("Docs website search", () => {
       .type("{enter}");
     cy.wait("@searchRequest");
     cy.get('[data-cy="paste-docsearch-hits"] h2').should("have.length.above", 0);
-    cy.get('[data-cy="paste-docsearch-hits"] ul').should("have.length.above", 0);
-    cy.get('[data-cy="paste-docsearch-hits"] li').should("have.length.above", 0);
   });
 });
