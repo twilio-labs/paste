@@ -194,5 +194,4 @@ const SiteFooterNav = (): JSX.Element => {
     </Box>
   );
 };
-
 export { SiteFooterNav };

@@ -32,5 +32,4 @@ const SiteFooter: React.FC = () => {
     </Box>
   );
 };
-
 export { SiteFooter };
