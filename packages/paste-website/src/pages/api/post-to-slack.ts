@@ -1,4 +1,4 @@
-import { LogLevel, WebClient } from "@slack/web-api";
+import { WebClient } from "@slack/web-api";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Rollbar from "rollbar";
 
@@ -12,10 +12,7 @@ const rollbar = new Rollbar({
 
 const slackToken = process.env.SLACK_BOT_USER_OAUTH_ACCESS_TOKEN;
 
-const client = new WebClient(slackToken, {
-  // LogLevel can be imported and used to make debugging simpler
-  logLevel: LogLevel.DEBUG,
-});
+const client = new WebClient(slackToken);
 
 const LOG_PREFIX = "[/api/post-to-slack]:";
 

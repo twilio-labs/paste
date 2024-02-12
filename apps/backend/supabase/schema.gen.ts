@@ -34,6 +34,27 @@ export interface Database {
   }
   public: {
     Tables: {
+      assistant_threads: {
+        Row: {
+          created_at: string
+          id: number
+          openai_thread_id: string | null
+          slack_thread_ts: string | null
+        }
+        Insert: {
+          created_at?: string
+          id?: number
+          openai_thread_id?: string | null
+          slack_thread_ts?: string | null
+        }
+        Update: {
+          created_at?: string
+          id?: number
+          openai_thread_id?: string | null
+          slack_thread_ts?: string | null
+        }
+        Relationships: []
+      }
       page: {
         Row: {
           checksum: string | null

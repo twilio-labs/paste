@@ -1,3 +1,4 @@
+import { createClient } from "@supabase/supabase-js";
 import type { NextApiRequest, NextApiResponse } from "next";
 import OpenAI from "openai";
 import Rollbar from "rollbar";
@@ -13,6 +14,8 @@ const rollbar = new Rollbar({
 const openAiKey = process.env.OPENAI_API_KEY;
 const openAiSecret = process.env.OPENAI_API_SECRET;
 const assistantID = process.env.OPENAI_ASSISTANT_ID;
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseServiceKey = process.env.SUPABASE_KEY;
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY, // defaults to process.env["OPENAI_API_KEY"]
@@ -57,6 +60,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(500).json({
       error: "OpenAI API key or secret is undefined",
     });
+    return;
+  }
+
+  if (
+    supabaseServiceKey === undefined ||
+    supabaseUrl === undefined ||
+    supabaseServiceKey === "" ||
+    supabaseUrl === ""
+  ) {
+    logger.error(`${LOG_PREFIX} Supabase key or url is undefined`);
+    rollbar.error(`${LOG_PREFIX} Supabase key or url is undefined`);
+    res.status(500).json({
+      error: "Supabase key or url is undefined",
+    });
+    return;
   }
 
   if (assistantID === undefined) {
@@ -65,6 +83,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(500).json({
       error: "OpenAI assistant ID is undefined",
     });
+    return;
   }
 
   const { method } = req;
@@ -110,6 +129,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       try {
         const thread = await deleteThread(threadId);
         logger.info(`${LOG_PREFIX} Deleted thread`, { thread });
+
+        const supabaseClient = createClient(supabaseUrl, supabaseServiceKey);
+
+        // delete thread from supabase
+        const { data: deleteAssistantThreadData, error: deleteAssistantThreadError } = await supabaseClient
+          .from("assistant_threads")
+          .delete()
+          .eq("openai_thread_id", threadId);
+
+        if (deleteAssistantThreadError) {
+          logger.info(`${LOG_PREFIX} Failed to delete thread from database but might still have deleted from OpenAI`, {
+            queriesData: deleteAssistantThreadData,
+          });
+        }
+
         res.status(200).json(thread);
       } catch (error) {
         logger.error(`${LOG_PREFIX} Error deleting thread`, { error });
