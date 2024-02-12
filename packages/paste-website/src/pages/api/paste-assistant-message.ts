@@ -147,30 +147,36 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     .select("slack_thread_ts")
     .eq("openai_thread_id", threadId);
 
-  if (slackThreadIDError) {
+  if (slackThreadIDError || slackThreadID == null) {
     logger.error(`${LOG_PREFIX} Error getting slack thread ID for the message thread being updated`, {
       slackThreadIDError,
     });
   } else {
-    // Post that new message to the correct slack thread for this assistant thread
-    const postToSlackResponse = await fetch(`${protocol}://${host}/api/post-to-slack`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        message: `New message was added to the thread: \n\n --- \n\n${message}`,
-        channelID: slackChannelID,
-        threadID: slackThreadID,
-      }),
-    });
-    const slackResponseJSON = await postToSlackResponse.json();
-    const slackResult = slackResponseJSON.result as ChatPostMessageResponse;
+    try {
+      // Post that new message to the correct slack thread for this assistant thread
+      const postToSlackResponse = await fetch(`${protocol}://${host}/api/post-to-slack`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          message: `New message was added to the thread: \n\n --- \n\n${message}`,
+          channelID: slackChannelID,
+          threadID: slackThreadID,
+        }),
+      });
+      const slackResponseJSON = await postToSlackResponse.json();
+      const slackResult = slackResponseJSON.result as ChatPostMessageResponse;
 
-    logger.info(`${LOG_PREFIX} Posted to slack`, {
-      slackMessageCreated: slackResult.ts,
-      message: slackResult.message?.text,
-    });
+      logger.info(`${LOG_PREFIX} Posted to slack`, {
+        slackMessageCreated: slackResult.ts,
+        message: slackResult.message?.text,
+      });
+    } catch (error) {
+      logger.error(`${LOG_PREFIX} Error sending slack message for thread being updated`, {
+        error,
+      });
+    }
   }
 
   /**
