@@ -12,9 +12,9 @@ import { ComponentShowcase } from "./component-showcase";
 const HomeHero = (): JSX.Element => {
   const theme = useTheme();
   return (
-    <Box element="HOME_HERO_WRAPPER">
+    <Box element="HOME_HERO">
       <Box
-        paddingX={["space90", "space180"]}
+        paddingX={["space0", "space90", "space180"]}
         position="relative"
         display="grid"
         gridTemplateColumns="600px min-content"
