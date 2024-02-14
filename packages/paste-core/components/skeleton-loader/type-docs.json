@@ -367,35 +367,35 @@
       "externalProp": true
     },
     "borderBottomLeftRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
+      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
       "description": "Responsive prop of BorderRadius tokens for the CSS `border-bottom-left-radius` property"
     },
     "borderBottomRightRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
+      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
       "description": "Responsive prop of BorderRadius tokens for the CSS `border-bottom-right-radius` property"
     },
     "borderRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
+      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
       "defaultValue": "borderRadius20",
       "required": false,
       "externalProp": false,
       "description": "Responsive prop of BorderRadius tokens for the CSS `border-radius` property"
     },
     "borderTopLeftRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
+      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
       "description": "Responsive prop of BorderRadius tokens for the CSS `border-top-left-radius` property"
     },
     "borderTopRightRadius": {
-      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | (\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadiusCircle\" | \"borderRadiusPill\" | null)[] | { ...; }",
+      "type": "\"borderRadius0\" | \"borderRadius10\" | \"borderRadius20\" | \"borderRadius30\" | \"borderRadius40\" | \"borderRadius50\" | \"borderRadius60\" | \"borderRadius70\" | \"borderRadius80\" | ... 4 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
