@@ -131,9 +131,9 @@ export default async function handler(req: NextRequest): Promise<void | Response
     const { embedding } = embeddingResponse.data[0];
 
     // eslint-disable-next-line no-console
-    console.log(`${LOG_PREFIX} Request Page sections based on embeddings`);
+    console.log(`${LOG_PREFIX} Request Page and Discussions sections based on embeddings`);
 
-    const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_page_sections_for_ai", {
+    const { error: matchError, data: pageSections } = await supabaseClient.rpc("match_page_sections_v3", {
       embedding,
       /* eslint-disable camelcase */
       match_threshold: 0.78,
@@ -158,7 +158,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
       const encoded = tokenizer.encode(content);
       tokenCount += encoded.text.length;
 
-      if (tokenCount >= 1500) {
+      if (tokenCount >= 2500) {
         break;
       }
 
@@ -166,7 +166,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
     }
 
     // eslint-disable-next-line no-console
-    console.log(`${LOG_PREFIX} Context text: ${contextText}`);
+    console.log(`${LOG_PREFIX} Context ${tokenCount} tokens and text: ${contextText}`);
 
     const prompt = codeBlock`
       ${oneLine`
@@ -199,7 +199,7 @@ export default async function handler(req: NextRequest): Promise<void | Response
     console.log(`${LOG_PREFIX} Request chat completion`);
 
     const response = await openai.chat.completions.create({
-      model: "gpt-4-1106-preview",
+      model: "gpt-4-turbo-preview",
       messages: [chatMessage],
       // eslint-disable-next-line camelcase
       max_tokens: 2000,

@@ -21,7 +21,7 @@ const LOG_PREFIX = "[/api/paste-assistant-simple-completion]:";
 
 async function getCompletion(prompt: OpenAI.Chat.ChatCompletionMessageParam): Promise<OpenAI.Chat.ChatCompletion> {
   return openai.chat.completions.create({
-    model: "gpt-4-1106-preview",
+    model: "gpt-4-turbo-preview",
     messages: [prompt],
     // eslint-disable-next-line camelcase
     max_tokens: 2000,
