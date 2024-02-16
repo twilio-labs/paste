@@ -5,7 +5,7 @@ import Image from "next/image";
 import * as React from "react";
 
 import DesignTool from "../../assets/illustrations/illo_design-tool.svg";
-import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 
 const StatBox: React.FC<{ stat: string; description: string }> = ({ stat, description }): React.ReactElement => {
   return (
@@ -36,7 +36,7 @@ const CommunityOfBuilders: React.FC = (): React.ReactElement => {
           display="flex"
           flexDirection="column"
           width="100%"
-          maxWidth={SITE_CONTENT_MAX_WIDTH}
+          maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
           backgroundColor="colorBackgroundWarningWeakest"
           paddingY="space170"
           // eslint-disable-next-line @typescript-eslint/ban-ts-comment

@@ -7,13 +7,19 @@ import Image from "next/image";
 import * as React from "react";
 
 import TokenColors from "../../assets/illustrations/token_colors.svg";
-import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { SectionSeparator } from "./SectionSeparator";
 
 const DesignEfficiency: React.FC = (): React.ReactElement => {
   return (
     <Box display="flex" justifyContent="center" marginY="space200">
-      <Box element="THEMEABLE" display="flex" flexDirection="column" width="100%" maxWidth={SITE_CONTENT_MAX_WIDTH}>
+      <Box
+        element="THEMEABLE"
+        display="flex"
+        flexDirection="column"
+        width="100%"
+        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+      >
         <SectionSeparator>Design efficiency</SectionSeparator>
         <Box display="flex" justifyContent="space-between">
           <Box paddingTop="space190" display="flex" flexDirection="column" maxWidth="size40">

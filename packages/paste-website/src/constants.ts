@@ -5,6 +5,7 @@ export const PASTE_THEME_ALERT_HEIGHT = 54;
 export const SITE_TOPBAR_HEIGHT = 77;
 export const SITE_BREAKPOINTS = ["768px", "1024px", "1220px", "1880px"];
 export const SITE_CONTENT_MAX_WIDTH = "1440px";
+export const HOMEPAGE_SITE_CONTENT_MAX_WIDTH = "1232px";
 
 // Used to 'bleed' sections together. GettingStarted+Popular
 export const HOMEPAGE_SECTION_OVERFLOW_OFFSET = 150;

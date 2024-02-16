@@ -8,12 +8,12 @@ import { Accessibility } from "../../components/homepage/Accessibility";
 import { CommunityOfBuilders } from "../../components/homepage/CommunityOfBuilders";
 import { DesignEfficiency } from "../../components/homepage/DesignEfficiency";
 import { ForTwilioCustomers } from "../../components/homepage/ForTwilioCustomers";
-import { NewHomeHero } from "../../components/homepage/NewHomeHero";
+import { HomeHero } from "../../components/homepage/NewHomeHero";
 import { NewSection } from "../../components/homepage/NewSection";
 import { Templates } from "../../components/homepage/Templates";
 import { Themeable } from "../../components/homepage/Themeable";
 import { WeDoTheThinking } from "../../components/homepage/WeDoTheThinking";
-import { SiteWrapper } from "../../components/site-wrapper";
+import { SiteWrapper } from "../../components/site-wrapper-new";
 import { SiteMetaDefaults } from "../../constants";
 import { getNavigationData } from "../../utils/api";
 import type { Feature } from "../../utils/api";
@@ -33,10 +33,10 @@ const NewHomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStati
     <SiteWrapper navigationData={navigationData}>
       <Head>
         <title>{SiteMetaDefaults.TITLE}</title>
-        <link rel="canonical" href="https://paste.twilio.design/customization" />
-        <meta key="description" name="description" content="" />
+        <link rel="canonical" href="https://paste.twilio.design" />
+        <meta key="description" name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Head>
-      <NewHomeHero />
+      <HomeHero />
       <NewSection />
       <Themeable />
       <ForTwilioCustomers />
@@ -60,5 +60,4 @@ export const getStaticProps: GetStaticProps<{ navigationData: Feature[] }> = asy
     },
   };
 };
-
 export default NewHomePage;

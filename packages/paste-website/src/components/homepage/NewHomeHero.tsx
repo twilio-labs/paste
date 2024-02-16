@@ -3,13 +3,13 @@ import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 
-import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import CircleIcon from "../icons/CircleIcon";
 import { BouncyAnchor } from "./BouncyAnchor";
 import { SearchBox } from "./SearchBox";
 import { ComponentShowcase } from "./component-showcase";
 
-const NewHomeHero = (): JSX.Element => {
+const HomeHero = (): JSX.Element => {
   const theme = useTheme();
   return (
     <Box element="HOME_HERO_WRAPPER">
@@ -18,10 +18,10 @@ const NewHomeHero = (): JSX.Element => {
         position="relative"
         display="grid"
         gridTemplateColumns="600px min-content"
-        maxWidth={SITE_CONTENT_MAX_WIDTH}
+        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
         marginLeft="auto"
         marginRight="auto"
-        overflow="hidden"
+        overflow="visible"
         element="HOME_HERO"
       >
         <Box
@@ -73,4 +73,4 @@ const NewHomeHero = (): JSX.Element => {
   );
 };
 
-export { NewHomeHero };
+export { HomeHero };

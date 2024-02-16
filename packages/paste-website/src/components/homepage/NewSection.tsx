@@ -2,7 +2,7 @@ import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import * as React from "react";
 
-import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { WhatsNew } from "./WhatsNew";
 
 const NewSection: React.FC = (): React.ReactElement => {
@@ -16,7 +16,7 @@ const NewSection: React.FC = (): React.ReactElement => {
         justifyContent="space-between"
         paddingY="space200"
         width="size120"
-        maxWidth={SITE_CONTENT_MAX_WIDTH}
+        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
       >
         <WhatsNew showExternal href="#">
           We&apos;re hiring a Product Designer! <Anchor href="#">Apply here</Anchor>
