@@ -31,26 +31,38 @@ const getCategory = (pkgPath) => {
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 const getAllPatterns = async () => {
-  const patterns = await systemTable
-    .select({
-      filterByFormula: 'AND({Component Category} = "pattern", Documentation, status, status != "in development")',
-      sort: [{ field: "Feature" }],
-      fields: ["Feature", "status"],
-    })
-    .all();
-  return patterns.map(({ fields }) => fields);
+  try {
+    const patterns = await systemTable
+      .select({
+        filterByFormula: 'AND({Component Category} = "pattern", Documentation, status, status != "in development")',
+        sort: [{ field: "Feature" }],
+        fields: ["Feature", "status"],
+      })
+      .all();
+
+    return patterns.map(({ fields }) => fields);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("getAllPatterns fetch error:", error);
+  }
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 const getAllPageTemplates = async () => {
-  const patterns = await systemTable
-    .select({
-      filterByFormula: 'AND({Component Category} = "page_template", Documentation, status, status != "in development")',
-      sort: [{ field: "Feature" }],
-      fields: ["Feature", "status"],
-    })
-    .all();
-  return patterns.map(({ fields }) => fields);
+  try {
+    const patterns = await systemTable
+      .select({
+        filterByFormula:
+          'AND({Component Category} = "page_template", Documentation, status, status != "in development")',
+        sort: [{ field: "Feature" }],
+        fields: ["Feature", "status"],
+      })
+      .all();
+    return patterns.map(({ fields }) => fields);
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("getAllPageTemplates fetch error:", error);
+  }
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
@@ -98,33 +110,38 @@ const getAllPackages = async () => {
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 export const getAllFeatures = async () => {
-  const features = await systemTable
-    .select({
-      filterByFormula: "status",
-      sort: [{ field: "Feature" }],
-      fields: [
-        "Component Category",
-        "Feature",
-        "Documentation",
-        "Figma",
-        "Design committee review",
-        "Engineer committee review",
-        "Code",
-        "status",
-        "Product suitability",
-      ],
-    })
-    .all();
-  const items = features.map(({ fields }) => fields);
+  try {
+    const features = await systemTable
+      .select({
+        filterByFormula: "status",
+        sort: [{ field: "Feature" }],
+        fields: [
+          "Component Category",
+          "Feature",
+          "Documentation",
+          "Figma",
+          "Design committee review",
+          "Engineer committee review",
+          "Code",
+          "status",
+          "Product suitability",
+        ],
+      })
+      .all();
+    const items = features.map(({ fields }) => fields);
 
-  await fs.mkdir(dataPath, { recursive: true }, (err) => {
-    if (err) {
-      // eslint-disable-next-line no-console
-      console.log(err);
-    }
-  });
+    await fs.mkdir(dataPath, { recursive: true }, (err) => {
+      if (err) {
+        // eslint-disable-next-line no-console
+        console.log(err);
+      }
+    });
 
-  await fs.writeFile(path.join(dataPath, "feature-data.json"), JSON.stringify(items, null, 2), "utf8");
+    await fs.writeFile(path.join(dataPath, "feature-data.json"), JSON.stringify(items, null, 2), "utf8");
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("getAllFeatures fetch error:", error);
+  }
 };
 
 getAllPackages();
