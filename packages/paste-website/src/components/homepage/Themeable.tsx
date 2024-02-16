@@ -1,3 +1,6 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable react/jsx-max-depth */
+import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
@@ -10,6 +13,7 @@ import ReactLogo from "../../assets/illustrations/react-logo.svg";
 import TypescriptLogo from "../../assets/illustrations/ts-logo.svg";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { SectionSeparator } from "./SectionSeparator";
+import { ThemeableBuilder } from "./ThemeableBuilder";
 
 const Themeable: React.FC = (): React.ReactElement => {
   return (
@@ -33,13 +37,13 @@ const Themeable: React.FC = (): React.ReactElement => {
                 Start from anywhere
               </Heading>
               <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space70">
-                With Paste, you can get production-ready experiences up in minutes with our 80+ styled components and
-                pre-built themes.
+                With Paste, you can get production-ready experiences up in minutes with our 80+{" "}
+                <Anchor href="">styled components</Anchor> and <Anchor href="">pre-built themes</Anchor>.
               </Text>
 
               <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space70">
-                Or get complete control by bringing your own theme and creating custom components with our functional
-                primitives.
+                Or get complete control by bringing your own theme and creating custom components with our{" "}
+                <Anchor href="">functional primitives</Anchor>.
               </Text>
 
               <Text
@@ -55,17 +59,7 @@ const Themeable: React.FC = (): React.ReactElement => {
                 Check out our templates <ArrowForwardIcon decorative size="sizeIcon40" />
               </Text>
             </Box>
-            <Box
-              width="size60"
-              height="size70"
-              borderStyle="solid"
-              borderColor="colorBorder"
-              borderWidth="borderWidth10"
-              borderRadius="borderRadius30"
-              padding="space70"
-            >
-              component and primitive builder
-            </Box>
+            <ThemeableBuilder />
           </Box>
         </Box>
         <Box maxWidth="size40" alignSelf="center" textAlign="center" gridArea="row2">

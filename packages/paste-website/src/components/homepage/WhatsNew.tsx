@@ -16,6 +16,7 @@ const WhatsNew: React.FC<WhatsNewProps> = ({ showExternal, href, children }) => 
     <Box
       borderStyle="solid"
       borderColor="colorBorderWeaker"
+      borderWidth="borderWidth10"
       backgroundColor="colorBackgroundBody"
       borderRadius="borderRadius30"
       boxShadow="shadowLow"

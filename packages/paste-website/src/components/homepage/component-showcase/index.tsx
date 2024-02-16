@@ -21,7 +21,8 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
       top="0"
       height="min-content"
       width="fit-content"
-      borderRadius="borderRadius90"
+      borderBottomLeftRadius="borderRadius90"
+      borderBottomRightRadius="borderRadius90"
       zIndex="zIndex10"
       element="COMPONENT_SHOWCASE"
     >
