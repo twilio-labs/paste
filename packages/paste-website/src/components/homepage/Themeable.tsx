@@ -8,7 +8,7 @@ import * as React from "react";
 import FigmaLogo from "../../assets/illustrations/figma-logo.svg";
 import ReactLogo from "../../assets/illustrations/react-logo.svg";
 import TypescriptLogo from "../../assets/illustrations/ts-logo.svg";
-import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { SectionSeparator } from "./SectionSeparator";
 
 const Themeable: React.FC = (): React.ReactElement => {
@@ -23,7 +23,7 @@ const Themeable: React.FC = (): React.ReactElement => {
         justifyItems="center"
         rowGap="space100"
         width="100%"
-        maxWidth={SITE_CONTENT_MAX_WIDTH}
+        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
       >
         <SectionSeparator gridArea="separator">Themeable and composable</SectionSeparator>
         <Box element="THISONE" gridArea="row1" width="100%">

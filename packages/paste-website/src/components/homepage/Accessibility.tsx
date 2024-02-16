@@ -19,7 +19,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { BouncyAnchor } from "./BouncyAnchor";
 import { SectionSeparator } from "./SectionSeparator";
 
@@ -32,7 +32,13 @@ const Accessibility: React.FC = (): React.ReactElement => {
 
   return (
     <Box display="flex" justifyContent="center" marginY="space200">
-      <Box element="ACCESSIBILITY" display="flex" flexDirection="column" width="100%" maxWidth={SITE_CONTENT_MAX_WIDTH}>
+      <Box
+        element="ACCESSIBILITY"
+        display="flex"
+        flexDirection="column"
+        width="100%"
+        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+      >
         <SectionSeparator>Accessibility</SectionSeparator>
         <Box
           display="flex"
