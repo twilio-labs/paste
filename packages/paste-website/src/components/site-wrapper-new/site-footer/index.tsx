@@ -1,29 +1,30 @@
 import { Box } from "@twilio-paste/box";
 
-import { SITE_CONTENT_MAX_WIDTH } from "../../../constants";
+import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../../constants";
 import { SiteFooterIllustration } from "./SiteFooterIllustration";
 import { SiteFooterNav } from "./SiteFooterNav";
 
 const SiteFooter: React.FC = () => {
   return (
-    <Box as="footer" margin="space70" paddingTop="space200" position="relative" element="FOOTER">
+    <Box
+      as="footer"
+      margin={["space0", "space50", "space70"]}
+      paddingTop="space200"
+      display="flex"
+      justifyContent="center"
+    >
       <Box
-        borderRadius="borderRadius30"
-        // marginTop={["space0", "space0", "space0", "space0", "space200"]}
+        width="100%"
+        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+        borderRadius={["borderRadius0", "borderRadius30"]}
         backgroundColor="colorBackgroundBodyInverse"
-        // paddingTop={["space0", "space0", "space0", "space0", "space200"]}
+        padding={["space90", "space90", "space180"]}
+        paddingTop={["space130", "space130", "space130"]}
+        display="flex"
+        justifyContent={["center", "center", "space-between"]}
       >
-        <Box
-          maxWidth={SITE_CONTENT_MAX_WIDTH}
-          padding={["space90", "space180"]}
-          paddingTop="space20"
-          marginLeft="space200"
-          marginRight="auto"
-          position="relative"
-        >
-          <SiteFooterIllustration />
-          <SiteFooterNav />
-        </Box>
+        <SiteFooterNav />
+        <SiteFooterIllustration />
       </Box>
     </Box>
   );
