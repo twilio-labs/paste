@@ -1,7 +1,7 @@
 import { Box } from "@twilio-paste/box";
 import { useTheme } from "@twilio-paste/theme";
 
-import HeartDoodleIcon from "../../icons/HeartDoodleIcon";
+import HeartDoodleIcon from "../../icons/NewHeartDoodleIcon";
 
 const SiteFooterHeader = (): JSX.Element => {
   const theme = useTheme();
