@@ -22,7 +22,7 @@ const HomeHero = (): JSX.Element => {
         marginLeft="auto"
         marginRight="auto"
         overflow="visible"
-        element="HOME_HERO"
+        element="HOME_HERO_WITHOUT_CIRCLE"
       >
         <Box
           display="flex"
@@ -31,7 +31,7 @@ const HomeHero = (): JSX.Element => {
           paddingTop="space200"
           paddingRight="space130"
           alignSelf="center"
-          element="HEADER"
+          element="HOME_HERO_LEFT_SIDE"
         >
           <Box display="flex" flexDirection="column" rowGap="space50">
             <DisplayHeading as="h1" variant="displayHeading10" marginBottom="space0">
@@ -62,7 +62,7 @@ const HomeHero = (): JSX.Element => {
         </Box>
         <ComponentShowcase />
       </Box>
-      <Box zIndex="zIndex0" position="absolute" top="50rem" left="40%">
+      <Box zIndex="zIndex0" position="absolute" top="50rem" left="40%" element="CIRCLE">
         <CircleIcon
           css={{ height: theme.heights.size30, width: theme.widths.size30 }}
           color={theme.backgroundColors.colorBackgroundBrandHighlight}

@@ -29,7 +29,7 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
       <Box
         backgroundColor="colorBackgroundBody"
         padding="space70"
-        width="size80"
+        width="100%"
         borderRadius="borderRadius30"
         gridArea="top"
         element="TOP_ROW"

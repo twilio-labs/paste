@@ -31,14 +31,8 @@ const Accessibility: React.FC = (): React.ReactElement => {
   const modalHeadingID = useUID();
 
   return (
-    <Box display="flex" justifyContent="center" marginY="space200">
-      <Box
-        element="ACCESSIBILITY"
-        display="flex"
-        flexDirection="column"
-        width="100%"
-        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
-      >
+    <Box display="flex" justifyContent="center" marginX="space70" element="ACCESSIBILITY">
+      <Box display="flex" flexDirection="column" width="100%" maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}>
         <SectionSeparator>Accessibility</SectionSeparator>
         <Box
           display="flex"
