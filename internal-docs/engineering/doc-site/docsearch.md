@@ -18,6 +18,14 @@ We can then perform a similarity search using the user input as the query.
 
 Embeddings are generated using the the [embedding script](../../../packages/paste-website/scripts/search/).
 
+## Production vs Previews (staging)
+
+We have two separate indexes, one for production and one for previews. This allows us to test changes to the search index without affecting production. We don't however, keep the previews index up to date with the latest content. We only update the previews index when we are testing changes to the search index.
+
+When viewing a preview, the search will use the previews index. When viewing production, the search will use the production index.
+
 ## Returning results
 
-We have a [NextJS API route](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) `/api/documentation-search`. It will return the top 10 most similar page sections across MDX and Github discussions based on a user `prompt`.
+We have a [NextJS API route](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) `/api/docs-search`. It will return the top 10 most similar page sections across MDX and Github discussions based on a user `prompt`.
+
+We have another  API route `/api/dicsussions-search` that will return the top 10 most similar discussions based on a user `prompt`.
