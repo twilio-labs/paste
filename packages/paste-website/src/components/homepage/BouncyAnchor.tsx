@@ -3,7 +3,11 @@ import { Box } from "@twilio-paste/box";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import * as React from "react";
 
-const BouncyAnchor: React.FC<{ text: string; href: string }> = ({ text, href }): JSX.Element => {
+const BouncyAnchor: React.FC<{ text: string; href: string; inverse?: boolean }> = ({
+  text,
+  href,
+  inverse = false,
+}): JSX.Element => {
   const [hovered, setHovered] = React.useState(false);
 
   const handleMouseEnter = (): void => {
@@ -15,7 +19,12 @@ const BouncyAnchor: React.FC<{ text: string; href: string }> = ({ text, href }):
 
   return (
     <Box as="span" display="flex" alignItems="center">
-      <Anchor href={href} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <Anchor
+        href={href}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        variant={inverse ? "inverse" : "default"}
+      >
         {text}
       </Anchor>
       <Box
@@ -24,7 +33,12 @@ const BouncyAnchor: React.FC<{ text: string; href: string }> = ({ text, href }):
         transform={hovered ? "translateY(1px) translateX(4px)" : "translateY(1px) translateX(0)"}
         transition="all 100ms ease"
       >
-        <ArrowForwardIcon decorative display="inline-block" size="sizeIcon40" color="colorTextLink" />
+        <ArrowForwardIcon
+          decorative
+          display="inline-block"
+          size="sizeIcon40"
+          color={inverse ? "colorTextInverse" : "colorTextLink"}
+        />
       </Box>
     </Box>
   );

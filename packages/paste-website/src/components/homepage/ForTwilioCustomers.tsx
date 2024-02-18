@@ -1,26 +1,27 @@
 import { Box } from "@twilio-paste/box";
-import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import { Text } from "@twilio-paste/text";
 import Image from "next/image";
 import * as React from "react";
 
 import PuzzleIllo from "../../assets/illustrations/puzzle_illo.svg";
+import { BouncyAnchor } from "./BouncyAnchor";
 
 const ForTwilioCustomers: React.FC = (): React.ReactElement => {
   return (
-    <Box display="flex" justifyContent="center" width="100%">
+    <Box display="flex" justifyContent="center" width="100%" element="FOR_TWILIO_CUSTOMERS_WRAPPER">
       <Box
         element="FOR_TWILIO_CUSTOMERS"
         width="100%"
-        display="flex"
-        flexDirection="row"
-        justifyContent="center"
-        alignItems="center"
+        marginTop="space170"
+        display="grid"
+        paddingX="space100"
+        paddingY={["space140", "space140", "space0"]}
+        gridTemplateColumns="auto min-content"
         columnGap="space90"
         backgroundColor="colorBackgroundInverse"
         position="relative"
       >
-        <Box paddingY="space100" marginLeft="space90" display="flex" flexDirection="column" textAlign="left">
+        <Box display="flex" flexDirection="column" textAlign="left" alignSelf="center" marginLeft="space200">
           <Text
             as="h3"
             color="colorTextInverse"
@@ -29,41 +30,21 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
             lineHeight="lineHeightDisplay20"
             paddingBottom="space130"
           >
-            For Twilio customers
+            For Twilions and Twilio customers alike
           </Text>
           <Text as="span" color="colorTextInverse" paddingBottom="space70">
-            Some blurb here that’s basically a quick setup guide for customers.
+            Rapidly build enterprise-grade, inclusive, and extensible experiences that look and feel like your brand.
+            Paste works great with Flex plugins, CodeExchange apps, and more.
           </Text>
-          <Text
-            as="a"
-            href="#"
-            color="colorTextInverse"
-            fontWeight="fontWeightSemibold"
-            display="flex"
-            lineHeight="lineHeight40"
-          >
-            Eng quick start <ArrowForwardIcon decorative size="sizeIcon40" />
-          </Text>
-          <Text
-            as="a"
-            href="#"
-            color="colorTextInverse"
-            fontWeight="fontWeightSemibold"
-            display="flex"
-            lineHeight="lineHeight40"
-          >
-            Customization overview <ArrowForwardIcon decorative size="sizeIcon40" />
-          </Text>
-          <Text
-            as="a"
-            href="#"
-            color="colorTextInverse"
-            fontWeight="fontWeightSemibold"
-            display="flex"
-            lineHeight="lineHeight40"
-          >
-            Figma Community file <ArrowForwardIcon decorative size="sizeIcon40" />
-          </Text>
+          <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
+            <BouncyAnchor href="" text="Eng quick start" inverse />
+          </Box>
+          <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
+            <BouncyAnchor href="" text="Customization overview" inverse />
+          </Box>
+          <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
+            <BouncyAnchor href="" text="Figma Community file" inverse />
+          </Box>
         </Box>
         <Box maxWidth="size70" maxHeight="460px" alignSelf="center" textAlign="center" top="-50px" position="relative">
           <Image src={PuzzleIllo} aria-hidden="true" role="img" alt="twilio illustration" />

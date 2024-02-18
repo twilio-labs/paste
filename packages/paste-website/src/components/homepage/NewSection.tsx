@@ -10,25 +10,26 @@ const NewSection: React.FC = (): React.ReactElement => {
   return (
     <Box element="NEW_SECTION" display="flex" justifyContent="center" position="relative">
       <Box
-        display="flex"
-        flexDirection="row"
-        // width="100%"
-        justifyContent="space-between"
-        paddingY="space200"
-        width="size120"
+        display="grid"
+        gridTemplateColumns="1fr 1fr 1fr"
+        gridTemplateRows="min-content"
+        marginBottom="space110"
+        paddingTop="space160"
+        paddingBottom="space110"
+        columnGap="space70"
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
       >
         <WhatsNew showExternal href="#">
           We&apos;re hiring a Product Designer! <Anchor href="#">Apply here</Anchor>
         </WhatsNew>
         <WhatsNew href="#">
-          Read more about our <Anchor href="#">latest release</Anchor>
+          Read about our <Anchor href="#">latest release</Anchor>
         </WhatsNew>
         <WhatsNew href="#">
           Check out <Anchor href="#">our roadmap</Anchor>
         </WhatsNew>
       </Box>
-      <Box position="absolute" top={85} left={10}>
+      <Box position="absolute" top={85} left={50}>
         <NewDoodleLoop />
       </Box>
     </Box>

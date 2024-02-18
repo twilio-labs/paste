@@ -41,13 +41,13 @@ const NewHomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStati
       <Themeable />
       <ForTwilioCustomers />
       <Templates />
-      <DesignEfficiency />
+      {/* <DesignEfficiency />
       <CommunityOfBuilders />
       <WeDoTheThinking />
       <Accessibility />
       <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
         <Box />
-      </VisibilitySensor>
+      </VisibilitySensor> */}
     </SiteWrapper>
   );
 };

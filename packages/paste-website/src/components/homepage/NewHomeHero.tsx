@@ -12,12 +12,15 @@ import { ComponentShowcase } from "./component-showcase";
 const HomeHero = (): JSX.Element => {
   const theme = useTheme();
   return (
-    <Box element="HOME_HERO">
+    <Box element="HOME_HERO" overflowX="hidden">
       <Box
-        paddingX={["space0", "space90", "space180"]}
+        // paddingX="space190"
+        paddingBottom="space120"
         position="relative"
         display="grid"
-        gridTemplateColumns="600px min-content"
+        gridTemplateColumns={["auto", "600px min-content", "600px min-content"]}
+        gridTemplateRows={["min-content min-content", "auto", "auto"]}
+        rowGap={["space100", "space0", "space0"]}
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
         marginLeft="auto"
         marginRight="auto"
@@ -62,7 +65,7 @@ const HomeHero = (): JSX.Element => {
         </Box>
         <ComponentShowcase />
       </Box>
-      <Box zIndex="zIndex0" position="absolute" top="50rem" left="40%" element="CIRCLE">
+      <Box zIndex="zIndex0" position="absolute" top="46rem" left="44%" element="CIRCLE">
         <CircleIcon
           css={{ height: theme.heights.size30, width: theme.widths.size30 }}
           color={theme.backgroundColors.colorBackgroundBrandHighlight}

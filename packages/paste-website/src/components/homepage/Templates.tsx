@@ -9,8 +9,14 @@ import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 
 const Templates: React.FC = (): React.ReactElement => {
   return (
-    <Box display="flex" justifyContent="center" marginY="space200">
-      <Box display="flex" justifyContent="space-between" position="relative" maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}>
+    <Box display="flex" justifyContent="center" element="TEMPLATES_WRAPPER">
+      <Box
+        display="flex"
+        justifyContent="space-between"
+        position="relative"
+        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+        element="TEMPLATES"
+      >
         <Box paddingTop="space190" display="flex" flexDirection="column" maxWidth="size40">
           <Heading as="h3" variant="heading20">
             Explore our templates

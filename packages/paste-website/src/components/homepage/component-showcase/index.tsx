@@ -20,9 +20,9 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
       padding="space130"
       top="0"
       height="min-content"
-      width="fit-content"
-      borderBottomLeftRadius="borderRadius90"
-      borderBottomRightRadius="borderRadius90"
+      // width="fit-content"
+      borderBottomLeftRadius={["borderRadius0", "borderRadius90", "borderRadius90"]}
+      borderBottomRightRadius={["borderRadius0", "borderRadius90", "borderRadius90"]}
       zIndex="zIndex10"
       element="COMPONENT_SHOWCASE"
     >

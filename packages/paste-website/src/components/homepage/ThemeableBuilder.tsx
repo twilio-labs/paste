@@ -288,7 +288,11 @@ const PrimitivesTab: React.FC = (): React.ReactElement => {
           </Box>
         </Box>
       </Box>
-      <CodeEditor>styled components example code</CodeEditor>
+      <CodeEditor>
+        Primitives example codePrimitives example codePrimitives example codePrimitives example codePrimitives example
+        codePrimitives example codePrimitives example codePrimitives example codePrimitives example codePrimitives
+        example codePrimitives example codePrimitives example codePrimitives example codePrimitives example code
+      </CodeEditor>
     </>
   );
 };
@@ -297,7 +301,7 @@ const ThemeableBuilder: React.FC = (): React.ReactElement => {
   const selectedTabId = useUID();
 
   return (
-    <Box width="size60" padding="space70">
+    <Box width="size60">
       <Tabs selectedId={selectedTabId} baseId="full-width-tabs-example" variant="full_width">
         <TabList aria-label="Full width product tabs">
           <Tab id={selectedTabId}>Build with styled components</Tab>
