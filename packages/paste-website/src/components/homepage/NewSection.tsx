@@ -2,21 +2,21 @@ import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import * as React from "react";
 
-import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { SectionContainer } from "./SectionContainer";
 import { WhatsNew } from "./WhatsNew";
 
 const NewSection: React.FC = (): React.ReactElement => {
   return (
-    <Box display="flex" justifyContent="center">
+    <SectionContainer>
       <Box
         element="NEW_SECTION"
         display="flex"
-        flexDirection="row"
-        // width="100%"
-        justifyContent="space-between"
+        flexDirection={["column", "column", "row"]}
+        justifyContent={["center", "center", "space-between"]}
+        alignItems={["center", "center", "initial"]}
         paddingY="space200"
-        width="size120"
-        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+        columnGap="space40"
+        rowGap="space40"
       >
         <WhatsNew showExternal href="#">
           We&apos;re hiring a Product Designer! <Anchor href="#">Apply here</Anchor>
@@ -28,7 +28,7 @@ const NewSection: React.FC = (): React.ReactElement => {
           Check out <Anchor href="#">our roadmap</Anchor>
         </WhatsNew>
       </Box>
-    </Box>
+    </SectionContainer>
   );
 };
 

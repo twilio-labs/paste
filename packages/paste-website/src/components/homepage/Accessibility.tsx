@@ -19,8 +19,10 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
+import { DoodleLoopFooter } from "../../assets/illustrations/DoodleLoopFooter";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { BouncyAnchor } from "./BouncyAnchor";
+import { SectionContainer } from "./SectionContainer";
 import { SectionSeparator } from "./SectionSeparator";
 
 const Accessibility: React.FC = (): React.ReactElement => {
@@ -31,20 +33,15 @@ const Accessibility: React.FC = (): React.ReactElement => {
   const modalHeadingID = useUID();
 
   return (
-    <Box display="flex" justifyContent="center" marginY="space200">
-      <Box
-        element="ACCESSIBILITY"
-        display="flex"
-        flexDirection="column"
-        width="100%"
-        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
-      >
+    <SectionContainer>
+      <Box element="ACCESSIBILITY" width="100%" maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}>
         <SectionSeparator>Accessibility</SectionSeparator>
         <Box
           display="flex"
-          flexDirection="row"
+          flexDirection={["column", "column", "column", "row"]}
           columnGap="space200"
-          paddingTop="space150"
+          rowGap="space150"
+          paddingTop="space160"
           justifyContent="space-between"
         >
           <Box fontWeight="fontWeightSemibold" fontSize="fontSize40" lineHeight="lineHeight40" maxWidth="size60">
@@ -66,82 +63,83 @@ const Accessibility: React.FC = (): React.ReactElement => {
                 Keyboard navigation and focus management to allow task completion through a variety of input devices.
               </ListItem>
             </UnorderedList>
-            <BouncyAnchor text="Learn more in our Inclusive Design Guide" href="/inclusive-design" />
+            <Box paddingTop="space70">
+              <BouncyAnchor text="Learn more in our Inclusive Design Guide" href="/inclusive-design" />
+            </Box>
           </Box>
-          <Box>
-            <Tabs selectedId={selectedTabId} baseId="horizontal-tabs-example" variant="fitted">
-              <TabList aria-label="Horizontal product tabs">
-                <Tab id={selectedTabId}>Focus management</Tab>
-                <Tab>Screen reader support</Tab>
-                <Tab>Keyboard support</Tab>
-              </TabList>
-              <TabPanels>
-                <TabPanel paddingTop="space0">
-                  <Box
-                    width="size60"
-                    paddingX="space150"
-                    paddingY="space100"
-                    backgroundColor="colorBackgroundOverlay"
-                    borderBottomLeftRadius="borderRadius30"
-                    borderBottomRightRadius="borderRadius30"
-                  >
-                    <ModalContext.Provider value={{ onDismiss }}>
-                      <ModalDialogContent aria-labelledby={modalHeadingID}>
-                        <ModalHeader>
-                          <ModalHeading as="h3" id={modalHeadingID}>
-                            Focus management
-                          </ModalHeading>
-                        </ModalHeader>
-                        <ModalBody>
-                          All elements required to interact with the modal, including closing or acknowledging it, are
-                          contained in the modal since they trap focus, and users can&apos;t interact with the
-                          underlying page.
-                        </ModalBody>
-                        <ModalFooter>
-                          <ModalFooterActions>
-                            <Button variant="secondary" onClick={onDismiss}>
-                              Cancel
-                            </Button>
-                            <Button variant="primary" onClick={onOpenModal}>
-                              Next
-                              <ArrowForwardIcon decorative />
-                            </Button>
-                          </ModalFooterActions>
-                        </ModalFooter>
-                      </ModalDialogContent>
-                    </ModalContext.Provider>
-                  </Box>
-                </TabPanel>
-                <TabPanel paddingTop="space0">
-                  <Box
-                    width="size60"
-                    paddingX="space150"
-                    paddingY="space100"
-                    backgroundColor="colorBackgroundOverlay"
-                    borderBottomLeftRadius="borderRadius30"
-                    borderBottomRightRadius="borderRadius30"
-                  >
-                    screen reader support
-                  </Box>
-                </TabPanel>
-                <TabPanel paddingTop="space0">
-                  <Box
-                    width="size60"
-                    paddingX="space150"
-                    paddingY="space100"
-                    backgroundColor="colorBackgroundOverlay"
-                    borderBottomLeftRadius="borderRadius30"
-                    borderBottomRightRadius="borderRadius30"
-                  >
-                    keyboard support
-                  </Box>
-                </TabPanel>
-              </TabPanels>
-            </Tabs>
-          </Box>
+          <Tabs selectedId={selectedTabId} baseId="horizontal-tabs-example" variant="fitted">
+            <TabList aria-label="Horizontal product tabs">
+              <Tab id={selectedTabId}>Focus management</Tab>
+              <Tab>Screen reader support</Tab>
+              <Tab>Keyboard support</Tab>
+            </TabList>
+            <TabPanels>
+              <TabPanel paddingTop="space0">
+                <Box
+                  paddingX="space150"
+                  paddingY="space100"
+                  backgroundColor="colorBackgroundOverlay"
+                  borderBottomLeftRadius="borderRadius30"
+                  borderBottomRightRadius="borderRadius30"
+                >
+                  <ModalContext.Provider value={{ onDismiss }}>
+                    <ModalDialogContent aria-labelledby={modalHeadingID}>
+                      <ModalHeader>
+                        <ModalHeading as="h3" id={modalHeadingID}>
+                          Focus management
+                        </ModalHeading>
+                      </ModalHeader>
+                      <ModalBody>
+                        All elements required to interact with the modal, including closing or acknowledging it, are
+                        contained in the modal since they trap focus, and users can&apos;t interact with the underlying
+                        page.
+                      </ModalBody>
+                      <ModalFooter>
+                        <ModalFooterActions>
+                          <Button variant="secondary" onClick={onDismiss}>
+                            Cancel
+                          </Button>
+                          <Button variant="primary" onClick={onOpenModal}>
+                            Next
+                            <ArrowForwardIcon decorative />
+                          </Button>
+                        </ModalFooterActions>
+                      </ModalFooter>
+                    </ModalDialogContent>
+                  </ModalContext.Provider>
+                </Box>
+              </TabPanel>
+              <TabPanel paddingTop="space0">
+                <Box
+                  paddingX="space150"
+                  paddingY="space100"
+                  backgroundColor="colorBackgroundOverlay"
+                  borderBottomLeftRadius="borderRadius30"
+                  borderBottomRightRadius="borderRadius30"
+                >
+                  screen reader support
+                </Box>
+              </TabPanel>
+              <TabPanel paddingTop="space0">
+                <Box
+                  paddingX="space150"
+                  paddingY="space100"
+                  backgroundColor="colorBackgroundOverlay"
+                  borderBottomLeftRadius="borderRadius30"
+                  borderBottomRightRadius="borderRadius30"
+                >
+                  keyboard support
+                </Box>
+              </TabPanel>
+            </TabPanels>
+          </Tabs>
         </Box>
       </Box>
-    </Box>
+
+      <Box display={["none", "none", "none", "flex"]} justifyContent="center" marginTop="space140">
+        <DoodleLoopFooter />
+      </Box>
+    </SectionContainer>
   );
 };
 

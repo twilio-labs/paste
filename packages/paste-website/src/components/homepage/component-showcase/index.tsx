@@ -8,9 +8,8 @@ import { ProgressStepsShowcase } from "./ProgressStepsShowcase";
 const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
   return (
     <Box
-      as="span"
-      position="relative"
       display="grid"
+      marginTop="spaceNegative200"
       gridTemplateColumns="max-content auto"
       gridTemplateRows="min-content min-content"
       gridTemplateAreas="'top top' 'bottom1 bottom2'"
@@ -18,7 +17,6 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
       columnGap="space70"
       backgroundColor="colorBackgroundInverseStrong"
       padding="space130"
-      top="0"
       height="min-content"
       width="fit-content"
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -29,6 +27,7 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
       borderBottomRightRadius="32px"
       zIndex="zIndex10"
       element="COMPONENT_SHOWCASE"
+      overflow="hidden"
     >
       <Box
         backgroundColor="colorBackgroundBody"
@@ -37,6 +36,7 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
         borderRadius="borderRadius30"
         gridArea="top"
         element="TOP_ROW"
+        overflow="hidden"
       >
         <ProgressStepsShowcase />
       </Box>

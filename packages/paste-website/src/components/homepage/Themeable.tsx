@@ -8,12 +8,13 @@ import * as React from "react";
 import FigmaLogo from "../../assets/illustrations/figma-logo.svg";
 import ReactLogo from "../../assets/illustrations/react-logo.svg";
 import TypescriptLogo from "../../assets/illustrations/ts-logo.svg";
-import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { SectionContainer } from "./SectionContainer";
 import { SectionSeparator } from "./SectionSeparator";
 
 const Themeable: React.FC = (): React.ReactElement => {
   return (
-    <Box display="flex" justifyContent="center" marginY="space200" width="100%" element="THEMEABLE_WRAPPER">
+    <SectionContainer marginTop="spaceNegative100">
+      <SectionSeparator>Themeable and composable</SectionSeparator>
       <Box
         element="THEMEABLE"
         display="grid"
@@ -22,10 +23,7 @@ const Themeable: React.FC = (): React.ReactElement => {
         gridTemplateAreas='"separator" "row1" "row2"'
         justifyItems="center"
         rowGap="space100"
-        width="100%"
-        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
       >
-        <SectionSeparator gridArea="separator">Themeable and composable</SectionSeparator>
         <Box element="THISONE" gridArea="row1" width="100%">
           <Box height="size20" display="flex" flexDirection="row" justifyContent="space-between">
             <Box display="flex" flexDirection="column" maxWidth="size40">
@@ -79,7 +77,7 @@ const Themeable: React.FC = (): React.ReactElement => {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </SectionContainer>
   );
 };
 

@@ -36,18 +36,20 @@ const NewHomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStati
         <link rel="canonical" href="https://paste.twilio.design" />
         <meta key="description" name="description" content={SiteMetaDefaults.DESCRIPTION} />
       </Head>
-      <HomeHero />
-      <NewSection />
-      <Themeable />
-      <ForTwilioCustomers />
-      <Templates />
-      <DesignEfficiency />
-      <CommunityOfBuilders />
-      <WeDoTheThinking />
-      <Accessibility />
-      <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
-        <Box />
-      </VisibilitySensor>
+      <Box overflow="hidden">
+        <HomeHero />
+        <NewSection />
+        <Themeable />
+        <ForTwilioCustomers />
+        <Templates />
+        <DesignEfficiency />
+        <CommunityOfBuilders />
+        <WeDoTheThinking />
+        <Accessibility />
+        <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
+          <Box />
+        </VisibilitySensor>
+      </Box>
     </SiteWrapper>
   );
 };

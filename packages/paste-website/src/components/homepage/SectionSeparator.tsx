@@ -1,19 +1,23 @@
 import { Box } from "@twilio-paste/box";
-import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
 interface SectionSeparatorProps {
   children: React.ReactNode;
-  gridArea?: string;
 }
 
-const SectionSeparator: React.FC<SectionSeparatorProps> = ({ children, gridArea }) => {
+const SectionSeparator: React.FC<SectionSeparatorProps> = ({ children }) => {
   return (
-    <Box width="100%" gridArea={gridArea}>
-      <Text as="span" color="colorTextWeak" fontWeight="fontWeightSemibold">
+    <Box display="flex" columnGap="space50" alignItems="center">
+      <Box as="span" color="colorTextWeak" fontWeight="fontWeightSemibold" flexShrink={0}>
         {children}
-      </Text>
-      <Box borderStyle="dashed" borderColor="colorBorderWeaker" element="SECTION_SEPARATOR" />
+      </Box>
+      <Box
+        width="100%"
+        height="2px"
+        backgroundColor="colorBackgroundStrong"
+        borderRadius="borderRadius20"
+        element="SECTION_SEPARATOR"
+      />
     </Box>
   );
 };
