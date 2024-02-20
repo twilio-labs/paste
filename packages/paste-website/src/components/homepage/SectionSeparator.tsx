@@ -5,17 +5,14 @@ import * as React from "react";
 
 interface SectionSeparatorProps {
   children: React.ReactNode;
-  gridArea?: string;
 }
 
-const SectionSeparator: React.FC<SectionSeparatorProps> = ({ children, gridArea }) => {
+const SectionSeparator: React.FC<SectionSeparatorProps> = ({ children }) => {
   return (
     <Box
-      width="size120"
-      gridArea={gridArea}
+      width="100%"
       element="SECTION_SEPARATOR"
-      display="inline-grid"
-      gridTemplateRows="auto"
+      display="grid"
       gridTemplateColumns="max-content auto"
       alignItems="center"
     >

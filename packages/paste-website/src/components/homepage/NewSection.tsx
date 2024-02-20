@@ -3,21 +3,19 @@ import { Box } from "@twilio-paste/box";
 import * as React from "react";
 
 import { NewDoodleLoop } from "../../assets/illustrations/NewDoodleLoop";
-import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { SectionContainer } from "./SectionContainer";
 import { WhatsNew } from "./WhatsNew";
 
 const NewSection: React.FC = (): React.ReactElement => {
   return (
-    <Box element="NEW_SECTION" display="flex" justifyContent="center" position="relative">
+    <SectionContainer position="relative">
       <Box
-        display="grid"
-        gridTemplateColumns="1fr 1fr 1fr"
-        gridTemplateRows="min-content"
-        marginBottom="space110"
-        paddingTop="space160"
-        paddingBottom="space110"
+        display="flex"
+        flexDirection={["column", "column", "row"]}
+        justifyContent={["center", "center", "space-between"]}
         columnGap="space70"
-        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+        rowGap="space40"
+        element="NEW_SECTION"
       >
         <WhatsNew showExternal href="#">
           We&apos;re hiring a Product Designer! <Anchor href="#">Apply here</Anchor>
@@ -29,10 +27,10 @@ const NewSection: React.FC = (): React.ReactElement => {
           Check out <Anchor href="#">our roadmap</Anchor>
         </WhatsNew>
       </Box>
-      <Box position="absolute" top={85} left={50}>
+      <Box position="absolute" top={10} left={-200}>
         <NewDoodleLoop />
       </Box>
-    </Box>
+    </SectionContainer>
   );
 };
 

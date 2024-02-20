@@ -8,7 +8,7 @@ const SiteFooter: React.FC = () => {
   return (
     <Box
       as="footer"
-      margin={["space0", "space50", "space70"]}
+      margin={["space0", "space80", "space140"]}
       paddingTop="space200"
       display="flex"
       justifyContent="center"

@@ -6,16 +6,17 @@ import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { SectionContainer } from "./SectionContainer";
 
 const Templates: React.FC = (): React.ReactElement => {
   return (
-    <Box display="flex" justifyContent="center" element="TEMPLATES_WRAPPER">
+    <SectionContainer>
       <Box
         display="flex"
         justifyContent="space-between"
         position="relative"
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
-        element="TEMPLATES"
+        overflow="visible"
       >
         <Box paddingTop="space190" display="flex" flexDirection="column" maxWidth="size40">
           <Heading as="h3" variant="heading20">
@@ -53,15 +54,12 @@ const Templates: React.FC = (): React.ReactElement => {
           rowGap="space70"
         >
           <Box
-            width="size100"
             textAlign="center"
             paddingTop="space150"
             borderStyle="solid"
             borderColor="colorBorderWeaker"
             borderWidth="borderWidth10"
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            //  @ts-expect-error
-            borderRadius="16px"
+            borderRadius="borderRadius50"
             backgroundColor="colorBackgroundBody"
           >
             templates carousel
@@ -74,7 +72,7 @@ const Templates: React.FC = (): React.ReactElement => {
           </Pagination>
         </Box>
       </Box>
-    </Box>
+    </SectionContainer>
   );
 };
 

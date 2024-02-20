@@ -28,8 +28,8 @@ export const ColumnTwoShowcase: React.FC = () => {
       flexDirection="column"
       rowGap="space70"
       gridArea="bottom2"
-      // width="100%"
       width="369px"
+      position="relative"
     >
       <Callout variant="neutral">
         <CalloutHeading as="h2">Auto recharge disabled</CalloutHeading>

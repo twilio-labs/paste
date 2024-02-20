@@ -12,16 +12,16 @@ import ReactLogo from "../../assets/illustrations/react-logo.svg";
 import TypescriptLogo from "../../assets/illustrations/ts-logo.svg";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { BouncyAnchor } from "./BouncyAnchor";
+import { SectionContainer } from "./SectionContainer";
 import { SectionSeparator } from "./SectionSeparator";
 import { ThemeableBuilder } from "./ThemeableBuilder";
 
 const Themeable: React.FC = (): React.ReactElement => {
   return (
-    <Box display="flex" justifyContent="center" width="100%" element="THEMEABLE_WRAPPER">
+    <SectionContainer>
+      <SectionSeparator>Themeable and composable</SectionSeparator>
       <Box
         element="THEMEABLE"
-        marginTop="space110"
-        paddingTop="space110"
         paddingBottom="space170"
         display="grid"
         gridTemplateColumns="100%"
@@ -32,7 +32,6 @@ const Themeable: React.FC = (): React.ReactElement => {
         width="100%"
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
       >
-        <SectionSeparator gridArea="separator">Themeable and composable</SectionSeparator>
         <Box element="THEMEABLE_TOP" gridArea="row1" width="100%">
           <Box display="flex" flexDirection="row" justifyContent="space-between">
             <Box display="flex" flexDirection="column" maxWidth="size40">
@@ -66,7 +65,7 @@ const Themeable: React.FC = (): React.ReactElement => {
           </Box>
         </Box>
       </Box>
-    </Box>
+    </SectionContainer>
   );
 };
 

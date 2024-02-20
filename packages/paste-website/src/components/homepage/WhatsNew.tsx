@@ -20,7 +20,7 @@ const WhatsNew: React.FC<WhatsNewProps> = ({ showExternal, href, children }) => 
       backgroundColor="colorBackgroundBody"
       borderRadius="borderRadius30"
       boxShadow="shadowLow"
-      // width="size40"
+      width="100%"
       zIndex="zIndex20"
       paddingY="space40"
       paddingX="space60"

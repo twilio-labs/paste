@@ -17,11 +17,10 @@ import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Separator } from "@twilio-paste/separator";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { Text } from "@twilio-paste/text";
-import { Theme, useTheme } from "@twilio-paste/theme";
+import { Theme } from "@twilio-paste/theme";
 import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
 import Image from "next/image";
 import * as React from "react";
-import { LiveEditor } from "react-live";
 
 import Acme from "../../assets/images/acme.png";
 import { usePreviewThemeContext } from "../../context/PreviewThemeContext";
@@ -84,7 +83,7 @@ const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactEl
     setViewCode(!viewCode);
   };
   const liveEditorId = useUID();
-  const theme = useTheme();
+  // const theme = useTheme();
 
   return (
     <Box

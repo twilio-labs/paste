@@ -8,20 +8,28 @@ import { BouncyAnchor } from "./BouncyAnchor";
 
 const ForTwilioCustomers: React.FC = (): React.ReactElement => {
   return (
-    <Box display="flex" justifyContent="center" width="100%" element="FOR_TWILIO_CUSTOMERS_WRAPPER">
+    <Box
+      display="flex"
+      justifyContent="center"
+      width="100%"
+      backgroundColor="colorBackgroundInverse"
+      marginTop="space170"
+      element="FOR_TWILIO_CUSTOMERS_WRAPPER"
+    >
       <Box
         element="FOR_TWILIO_CUSTOMERS"
         width="100%"
-        marginTop="space170"
-        display="grid"
-        paddingX="space100"
-        paddingY={["space140", "space140", "space0"]}
-        gridTemplateColumns="auto min-content"
+        // maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+        maxWidth="1334px"
+        display="flex"
+        justifyContent="space-between"
+        alignItems="center"
         columnGap="space90"
-        backgroundColor="colorBackgroundInverse"
+        marginX={["space70", "space80", "space140"]}
+        paddingY={["space200", "space200", "space200", "space0"]}
         position="relative"
       >
-        <Box display="flex" flexDirection="column" textAlign="left" alignSelf="center" marginLeft="space200">
+        <Box display="flex" flexDirection="column" textAlign="left" zIndex="zIndex10" paddingY="space200">
           <Text
             as="h3"
             color="colorTextInverse"
@@ -32,7 +40,7 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
           >
             For Twilions and Twilio customers alike
           </Text>
-          <Text as="span" color="colorTextInverse" paddingBottom="space70">
+          <Text as="p" color="colorTextInverse" marginBottom="space70">
             Rapidly build enterprise-grade, inclusive, and extensible experiences that look and feel like your brand.
             Paste works great with Flex plugins, CodeExchange apps, and more.
           </Text>
@@ -46,8 +54,15 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
             <BouncyAnchor href="" text="Figma Community file" inverse />
           </Box>
         </Box>
-        <Box maxWidth="size70" maxHeight="460px" alignSelf="center" textAlign="center" top="-50px" position="relative">
-          <Image src={PuzzleIllo} aria-hidden="true" role="img" alt="twilio illustration" />
+        <Box
+          display={["none", "none", "flex", "flex"]}
+          width="100%"
+          maxWidth="size70"
+          maxHeight="460px"
+          top="-50px"
+          position="relative"
+        >
+          <Image src={PuzzleIllo} width={695} height={527} aria-hidden="true" role="img" alt="" />
         </Box>
       </Box>
     </Box>

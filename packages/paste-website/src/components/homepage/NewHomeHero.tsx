@@ -3,30 +3,17 @@ import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
 
-import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import CircleIcon from "../icons/CircleIcon";
 import { BouncyAnchor } from "./BouncyAnchor";
 import { SearchBox } from "./SearchBox";
+import { SectionContainer } from "./SectionContainer";
 import { ComponentShowcase } from "./component-showcase";
 
 const HomeHero = (): JSX.Element => {
   const theme = useTheme();
   return (
-    <Box element="HOME_HERO" overflowX="hidden">
-      <Box
-        // paddingX="space190"
-        paddingBottom="space120"
-        position="relative"
-        display="grid"
-        gridTemplateColumns={["auto", "600px min-content", "600px min-content"]}
-        gridTemplateRows={["min-content min-content", "auto", "auto"]}
-        rowGap={["space100", "space0", "space0"]}
-        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
-        marginLeft="auto"
-        marginRight="auto"
-        overflow="visible"
-        element="HOME_HERO_WITHOUT_CIRCLE"
-      >
+    <SectionContainer marginY="space0">
+      <Box element="HOME_HERO" display="flex" columnGap="space100">
         <Box
           display="flex"
           flexDirection="column"
@@ -34,6 +21,7 @@ const HomeHero = (): JSX.Element => {
           paddingTop="space200"
           paddingRight="space130"
           alignSelf="center"
+          maxWidth="600px"
           element="HOME_HERO_LEFT_SIDE"
         >
           <Box display="flex" flexDirection="column" rowGap="space50">
@@ -63,16 +51,18 @@ const HomeHero = (): JSX.Element => {
             <BouncyAnchor text="Get started for designers" href="/introduction/for-designers/design-guidelines" />
           </Box>
         </Box>
-        <ComponentShowcase />
+        <Box display={["none", "none", "block"]} maxWidth={["300px", "300px", "300px", "450px"]} zIndex="zIndex10">
+          <ComponentShowcase />
+        </Box>
       </Box>
-      <Box zIndex="zIndex0" position="absolute" top="46rem" left="44%" element="CIRCLE">
+      <Box zIndex="zIndex0" position="absolute" top="45rem" left="42%" element="CIRCLE">
         <CircleIcon
           css={{ height: theme.heights.size30, width: theme.widths.size30 }}
           color={theme.backgroundColors.colorBackgroundBrandHighlight}
           decorative
         />
       </Box>
-    </Box>
+    </SectionContainer>
   );
 };
 
