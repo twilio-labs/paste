@@ -50,6 +50,15 @@ props:
   color-background-brand-highlight-weakest:
     value: "{!amaranth-transparent-10}"
     comment: Weakest background color used for brand highlights.
+  color-background-brand-10:
+    value: "{!saffron}"
+    comment: Brand accent background color representing Twilio.
+  color-background-brand-20:
+    value: "{!sky}"
+    comment: Brand accent background color representing Sendgrid.
+  color-background-brand-30:
+    value: "{!mint}"
+    comment: Brand accent background color representing Segment.
 
   # user background
   color-background-user:

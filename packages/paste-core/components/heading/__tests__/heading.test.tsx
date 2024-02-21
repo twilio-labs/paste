@@ -33,7 +33,7 @@ describe("Heading", () => {
       );
       const renderedHeading = screen.getByRole("heading", { level: 2 });
       expect(renderedHeading).not.toBeNull();
-      expect(renderedHeading).toHaveStyleRule("margin-bottom", "1.5rem");
+      expect(renderedHeading).toHaveStyleRule("margin-bottom", "1.25rem");
       expect(renderedHeading).toHaveStyleRule("font-size", "1.5rem");
       expect(renderedHeading).toHaveStyleRule("font-weight", "600");
       expect(renderedHeading).toHaveStyleRule("line-height", "2rem");
@@ -115,7 +115,7 @@ describe("Heading", () => {
       const renderedHeadingIdiomatic = screen.getByText("This is an italic H2").closest("i");
       expect(renderedHeading).not.toBeNull();
       expect(renderedHeadingIdiomatic).not.toBeNull();
-      expect(renderedHeading).toHaveStyleRule("margin-bottom", "1.5rem");
+      expect(renderedHeading).toHaveStyleRule("margin-bottom", "1.25rem");
       expect(renderedHeading).toHaveStyleRule("font-size", "1.5rem");
       expect(renderedHeading).toHaveStyleRule("font-weight", "600");
       expect(renderedHeading).toHaveStyleRule("line-height", "2rem");
