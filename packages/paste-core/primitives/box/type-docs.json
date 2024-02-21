@@ -727,7 +727,7 @@
       "description": "Responsive prop for the CSS `background-attachment` property"
     },
     "backgroundColor": {
-      "type": "\"inherit\" | \"none\" | \"colorBackground\" | \"colorBackgroundAvailable\" | \"colorBackgroundBody\" | \"colorBackgroundBodyInverse\" | \"colorBackgroundBrand\" | \"colorBackgroundBrandHighlight\" | ... 52 more ... | { ...; }",
+      "type": "\"inherit\" | \"none\" | \"colorBackground\" | \"colorBackgroundAvailable\" | \"colorBackgroundBody\" | \"colorBackgroundBodyInverse\" | \"colorBackgroundBrand\" | \"colorBackgroundBrand10\" | ... 55 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,
@@ -985,7 +985,7 @@
       "description": "Responsive style prop for the CSS `clip` property"
     },
     "color": {
-      "type": "\"inherit\" | \"transparent\" | \"colorText\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | ... 56 more ... | { ...; }",
+      "type": "\"inherit\" | \"transparent\" | \"colorText\" | \"colorTextBrand\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | ... 56 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

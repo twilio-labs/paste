@@ -381,7 +381,7 @@
       "externalProp": true
     },
     "color": {
-      "type": "\"colorText\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | \"colorTextDecorative40\" | ... 57 more ... | { ...; }",
+      "type": "\"colorText\" | \"colorTextBrand\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | \"colorTextDecorative40\" | ... 57 more ... | { ...; }",
       "defaultValue": "currentColor",
       "required": false,
       "externalProp": false,

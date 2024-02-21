@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
+import * as React from "react";
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface ArtificialIntelligenceIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface ArtificialIntelligenceIconProps extends IconWrapperProps {
 }
 
 const ArtificialIntelligenceIcon = React.forwardRef<HTMLElement, ArtificialIntelligenceIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `ArtificialIntelligenceIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[ArtificialIntelligenceIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[ArtificialIntelligenceIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -29,6 +29,7 @@ const ArtificialIntelligenceIcon = React.forwardRef<HTMLElement, ArtificialIntel
           height="100%"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
@@ -45,8 +46,8 @@ const ArtificialIntelligenceIcon = React.forwardRef<HTMLElement, ArtificialIntel
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-ArtificialIntelligenceIcon.displayName = 'ArtificialIntelligenceIcon';
-export {ArtificialIntelligenceIcon};
+ArtificialIntelligenceIcon.displayName = "ArtificialIntelligenceIcon";
+export { ArtificialIntelligenceIcon };
