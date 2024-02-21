@@ -37,6 +37,13 @@ export const ContactUsMenu: React.FC = () => {
       <Menu {...menu} aria-label="Contact us">
         <MenuItem
           {...menu}
+          href="/assistant"
+          onClick={() => handleClick("Ask Paste Assistant", "click-ask-assistant", "Ask Paste Assistant")}
+        >
+          Ask Paste Assistant
+        </MenuItem>
+        <MenuItem
+          {...menu}
           href="https://github.com/twilio-labs/paste/discussions"
           onClick={() => handleClick("Contact Us", "click-ask-question", "Ask question")}
         >

@@ -13,6 +13,7 @@ import { FigmaButton } from "./FigmaButton";
 import { HamburgerToggle } from "./HamburgerToggle";
 import { SiteHeaderLogo } from "./SiteHeaderLogo";
 import { SiteHeaderSearch } from "./SiteHeaderSearch";
+import { AssistantLink } from "./AssistantLink";
 
 export const SiteHeader: React.FC<{
   sidebarMobileCollapsed: boolean;
@@ -44,6 +45,7 @@ export const SiteHeader: React.FC<{
           <Box data-cy="paste-docsearch-container" id="paste-docs-search-input">
             <SiteHeaderSearch />
           </Box>
+          <AssistantLink />
           <ContactUsMenu />
           <DarkModeToggle />
           <FigmaButton />

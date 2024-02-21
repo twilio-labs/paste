@@ -37,9 +37,9 @@ export const DarkModeToggle = (): JSX.Element => {
         }
       >
         {theme === "twilio" ? (
-          <LightModeIcon decorative size="sizeIcon40" />
+          <LightModeIcon decorative size="sizeIcon40" title="Switch the site theme" />
         ) : (
-          <DarkModeIcon decorative size="sizeIcon40" />
+          <DarkModeIcon decorative size="sizeIcon40" title="Switch the site theme" />
         )}
         <ScreenReaderOnly>Switch the site theme</ScreenReaderOnly>
       </MenuButton>

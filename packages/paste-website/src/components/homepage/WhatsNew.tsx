@@ -34,7 +34,7 @@ const WhatsNew: React.FC<WhatsNewProps> = ({ showExternal, href, children }) => 
       <Heading as="h4" variant="heading40" marginBottom="space0">
         {children}
       </Heading>
-      <Button as="a" href={href} size="circle_small" variant="secondary">
+      <Button as="a" href={href} size="circle_small" variant="secondary" target={showExternal ? "_blank" : ""}>
         {showExternal ? (
           <LinkExternalIcon decorative={false} title="external link" />
         ) : (

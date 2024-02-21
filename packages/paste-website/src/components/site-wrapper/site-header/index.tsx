@@ -1,5 +1,6 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { Topbar, TopbarActions } from "@twilio-paste/topbar";
 import { useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
@@ -8,6 +9,7 @@ import "react-github-button/assets/style.css";
 
 import { PASTE_DOCS_TOPBAR } from "../../../constants";
 import { ContactUsMenu } from "../../ContactUsMenu";
+import { AssistantLink } from "./AssistantLink";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { FigmaButton } from "./FigmaButton";
 import { HamburgerToggle } from "./HamburgerToggle";
@@ -44,6 +46,7 @@ export const SiteHeader: React.FC<{
           <Box data-cy="paste-docsearch-container" id="paste-docs-search-input">
             <SiteHeaderSearch />
           </Box>
+          <AssistantLink />
           <DarkModeToggle />
           <ContactUsMenu />
           <FigmaButton />
