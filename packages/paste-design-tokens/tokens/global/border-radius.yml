@@ -9,13 +9,31 @@ props:
     comment: Border radius reset
   border-radius-10:
     value: "{!border-radius-10}"
-    comment: Small border radius
+    comment: Smallest border radius
   border-radius-20:
     value: "{!border-radius-20}"
-    comment: Large border radius
+    comment: Small border radius
   border-radius-30:
     value: "{!border-radius-30}"
+    comment: Small-medium border radius
+  border-radius-40:
+    value: "{!border-radius-40}"
+    comment: Medium border radius
+  border-radius-50:
+    value: "{!border-radius-50}"
+    comment: Medium-large border radius
+  border-radius-60:
+    value: "{!border-radius-60}"
+    comment: Large border radiusr
+  border-radius-70:
+    value: "{!border-radius-70}"
     comment: Larger border radius
+  border-radius-80:
+    value: "{!border-radius-80}"
+    comment: Extra-large border radius
+  border-radius-90:
+    value: "{!border-radius-90}"
+    comment: Largest border radius
   border-radius-circle:
     value: "{!border-radius-circle}"
     comment: Circular border radius

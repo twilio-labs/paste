@@ -1,26 +1,35 @@
 import { Box } from "@twilio-paste/box";
-import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import { Text } from "@twilio-paste/text";
 import Image from "next/image";
 import * as React from "react";
 
 import PuzzleIllo from "../../assets/illustrations/puzzle_illo.svg";
+import { BouncyAnchor } from "./BouncyAnchor";
 
 const ForTwilioCustomers: React.FC = (): React.ReactElement => {
   return (
-    <Box display="flex" justifyContent="center" width="100%">
+    <Box
+      display="flex"
+      justifyContent="center"
+      width="100%"
+      backgroundColor="colorBackgroundInverse"
+      marginTop="space170"
+      element="FOR_TWILIO_CUSTOMERS_WRAPPER"
+    >
       <Box
         element="FOR_TWILIO_CUSTOMERS"
         width="100%"
+        // maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+        maxWidth="1334px"
         display="flex"
-        flexDirection="row"
-        justifyContent="center"
+        justifyContent="space-between"
         alignItems="center"
         columnGap="space90"
-        backgroundColor="colorBackgroundInverse"
+        marginX={["space70", "space80", "space140"]}
+        paddingY={["space200", "space200", "space200", "space0"]}
         position="relative"
       >
-        <Box paddingY="space100" marginLeft="space90" display="flex" flexDirection="column" textAlign="left">
+        <Box display="flex" flexDirection="column" textAlign="left" zIndex="zIndex10" paddingY="space200">
           <Text
             as="h3"
             color="colorTextInverse"
@@ -29,44 +38,31 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
             lineHeight="lineHeightDisplay20"
             paddingBottom="space130"
           >
-            For Twilio customers
+            For Twilions and Twilio customers alike
           </Text>
-          <Text as="span" color="colorTextInverse" paddingBottom="space70">
-            Some blurb here that’s basically a quick setup guide for customers.
+          <Text as="p" color="colorTextInverse" marginBottom="space70">
+            Rapidly build enterprise-grade, inclusive, and extensible experiences that look and feel like your brand.
+            Paste works great with Flex plugins, CodeExchange apps, and more.
           </Text>
-          <Text
-            as="a"
-            href="#"
-            color="colorTextInverse"
-            fontWeight="fontWeightSemibold"
-            display="flex"
-            lineHeight="lineHeight40"
-          >
-            Eng quick start <ArrowForwardIcon decorative size="sizeIcon40" />
-          </Text>
-          <Text
-            as="a"
-            href="#"
-            color="colorTextInverse"
-            fontWeight="fontWeightSemibold"
-            display="flex"
-            lineHeight="lineHeight40"
-          >
-            Customization overview <ArrowForwardIcon decorative size="sizeIcon40" />
-          </Text>
-          <Text
-            as="a"
-            href="#"
-            color="colorTextInverse"
-            fontWeight="fontWeightSemibold"
-            display="flex"
-            lineHeight="lineHeight40"
-          >
-            Figma Community file <ArrowForwardIcon decorative size="sizeIcon40" />
-          </Text>
+          <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
+            <BouncyAnchor href="" text="Eng quick start" inverse />
+          </Box>
+          <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
+            <BouncyAnchor href="" text="Customization overview" inverse />
+          </Box>
+          <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
+            <BouncyAnchor href="" text="Figma Community file" inverse />
+          </Box>
         </Box>
-        <Box maxWidth="size70" maxHeight="460px" alignSelf="center" textAlign="center" top="-50px" position="relative">
-          <Image src={PuzzleIllo} aria-hidden="true" role="img" alt="twilio illustration" />
+        <Box
+          display={["none", "none", "flex", "flex"]}
+          width="100%"
+          maxWidth="size70"
+          maxHeight="460px"
+          top="-50px"
+          position="relative"
+        >
+          <Image src={PuzzleIllo} width={695} height={527} aria-hidden="true" role="img" alt="" />
         </Box>
       </Box>
     </Box>

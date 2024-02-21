@@ -1,8 +1,8 @@
-import { Box } from "@twilio-paste/box";
+// import { Box } from "@twilio-paste/box";
 import type { GetStaticProps, InferGetStaticPropsType } from "next";
 import Head from "next/head";
 import * as React from "react";
-import VisibilitySensor from "react-visibility-sensor";
+// import VisibilitySensor from "react-visibility-sensor";
 
 import { Accessibility } from "../../components/homepage/Accessibility";
 import { CommunityOfBuilders } from "../../components/homepage/CommunityOfBuilders";
@@ -23,12 +23,14 @@ const NewHomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStati
    * Only load the Experiment section iframe when the user scrolls down to
    * the Popular section (the section prior)
    */
-  const [showIframe, setShowIframe] = React.useState(false);
-  function handleVisibilityChange(isVisible: boolean): void {
-    if (!showIframe) {
-      setShowIframe(isVisible);
-    }
-  }
+  /*
+   * const [showIframe, setShowIframe] = React.useState(false);
+   * function handleVisibilityChange(isVisible: boolean): void {
+   *   if (!showIframe) {
+   *     setShowIframe(isVisible);
+   *   }
+   * }
+   */
   return (
     <SiteWrapper navigationData={navigationData}>
       <Head>
@@ -45,9 +47,9 @@ const NewHomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStati
       <CommunityOfBuilders />
       <WeDoTheThinking />
       <Accessibility />
-      <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
+      {/* <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
         <Box />
-      </VisibilitySensor>
+      </VisibilitySensor> */}
     </SiteWrapper>
   );
 };
