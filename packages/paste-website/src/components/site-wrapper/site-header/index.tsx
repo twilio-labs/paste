@@ -1,6 +1,5 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
-import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { Topbar, TopbarActions } from "@twilio-paste/topbar";
 import { useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";

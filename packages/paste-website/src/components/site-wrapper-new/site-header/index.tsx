@@ -8,12 +8,12 @@ import "react-github-button/assets/style.css";
 
 import { PASTE_DOCS_TOPBAR } from "../../../constants";
 import { ContactUsMenu } from "../../ContactUsMenu";
+import { AssistantLink } from "./AssistantLink";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { FigmaButton } from "./FigmaButton";
 import { HamburgerToggle } from "./HamburgerToggle";
 import { SiteHeaderLogo } from "./SiteHeaderLogo";
 import { SiteHeaderSearch } from "./SiteHeaderSearch";
-import { AssistantLink } from "./AssistantLink";
 
 export const SiteHeader: React.FC<{
   sidebarMobileCollapsed: boolean;
