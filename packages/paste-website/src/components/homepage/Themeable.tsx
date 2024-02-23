@@ -32,25 +32,35 @@ const Themeable: React.FC = (): React.ReactElement => {
         width="100%"
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
       >
-        <Box element="THEMEABLE_TOP" gridArea="row1" width="100%">
-          <Box display="flex" flexDirection="row" justifyContent="space-between">
-            <Box display="flex" flexDirection="column" maxWidth="size40">
-              <Heading as="h3" variant="heading20">
-                Start from anywhere
-              </Heading>
-              <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space70">
-                With Paste, you can get production-ready experiences up in minutes with our 80+{" "}
-                <Anchor href="">styled components</Anchor> and <Anchor href="">pre-built themes</Anchor>.
-              </Text>
+        <Box
+          element="THEMEABLE_TOP"
+          gridArea="row1"
+          width="100%"
+          display="flex"
+          flexDirection={["column", "column", "row", "row"]}
+          justifyContent="space-between"
+          columnGap="space100"
+          rowGap="space100"
+          // paddingX={[""]}
+        >
+          <Box display="flex" flexDirection="column">
+            <Heading as="h3" variant="heading20">
+              Start from anywhere
+            </Heading>
+            <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space70">
+              With Paste, you can get production-ready experiences up in minutes with our 80+{" "}
+              <Anchor href="">styled components</Anchor> and <Anchor href="">pre-built themes</Anchor>.
+            </Text>
 
-              <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space70">
-                Or get complete control by bringing your own theme and creating custom components with our{" "}
-                <Anchor href="">functional primitives</Anchor>.
-              </Text>
-              <Box fontWeight="fontWeightSemibold" fontSize="fontSize40" lineHeight="lineHeight40">
-                <BouncyAnchor href="/page-templates" text="Check out our templates" />
-              </Box>
+            <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space70">
+              Or get complete control by bringing your own theme and creating custom components with our{" "}
+              <Anchor href="">functional primitives</Anchor>.
+            </Text>
+            <Box fontWeight="fontWeightSemibold" fontSize="fontSize40" lineHeight="lineHeight40">
+              <BouncyAnchor href="/page-templates" text="Check out our templates" />
             </Box>
+          </Box>
+          <Box display={["none", "none", "none", "block"]}>
             <ThemeableBuilder />
           </Box>
         </Box>

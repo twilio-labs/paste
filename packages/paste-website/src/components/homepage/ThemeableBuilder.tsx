@@ -178,19 +178,17 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
               baseTheme="default"
               elements={{
                 CARD: {
-                  backgroundColor: "colorBackgroundDecorative40Weakest",
+                  backgroundColor: "colorBackgroundDecorative10Weakest",
                   borderRadius: "borderRadius0",
-                  borderWidth: "borderWidth30",
+                  borderWidth: "borderWidth20",
                   borderColor: "colorBorderPrimaryStrong",
                 },
                 SEPARATOR: {
                   borderColor: "colorBorderPrimaryStrong",
-                  borderWidth: "borderWidth20",
                 },
                 BOX: {
                   fontWeight: "fontWeightBold",
                   color: "colorTextDecorative20",
-                  fontStyle: "italic",
                 },
                 AVATAR: {
                   backgroundColor: "colorBackgroundDecorative20Weakest",
