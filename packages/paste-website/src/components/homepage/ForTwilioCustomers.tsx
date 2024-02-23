@@ -14,12 +14,13 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
       width="100%"
       backgroundColor="colorBackgroundInverse"
       marginTop="space170"
+      overflowX="clip"
+      overflowY="visible"
       element="FOR_TWILIO_CUSTOMERS_WRAPPER"
     >
       <Box
         element="FOR_TWILIO_CUSTOMERS"
         width="100%"
-        // maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
         maxWidth="1334px"
         display="flex"
         justifyContent="space-between"
@@ -45,13 +46,17 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
             Paste works great with Flex plugins, CodeExchange apps, and more.
           </Text>
           <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
-            <BouncyAnchor href="" text="Eng quick start" inverse />
+            <BouncyAnchor href="/introduction/for-engineers/quickstart" text="Eng quick start" inverse />
           </Box>
           <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
-            <BouncyAnchor href="" text="Customization overview" inverse />
+            <BouncyAnchor href="/customization" text="Customization overview" inverse />
           </Box>
           <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
-            <BouncyAnchor href="" text="Figma Community file" inverse />
+            <BouncyAnchor
+              href="https://www.figma.com/community/file/1207476064127503112/twilio-paste-components"
+              text="Figma Community file"
+              inverse
+            />
           </Box>
         </Box>
         <Box

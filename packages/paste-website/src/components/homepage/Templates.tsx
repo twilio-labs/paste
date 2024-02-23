@@ -46,16 +46,16 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
   const tab = useTabPrimitiveState();
   return (
     <Box
-      width="100%"
+      width="min-content"
       alignSelf="center"
       position="relative"
-      right={-200}
       display="flex"
       flexDirection="column"
       rowGap="space70"
     >
       <Box
         paddingY="space130"
+        paddingX="space100"
         borderStyle="solid"
         borderColor="colorBorderWeaker"
         borderWidth="borderWidth10"
@@ -134,12 +134,13 @@ const Templates: React.FC = (): React.ReactElement => {
     <SectionContainer position="relative">
       <Box
         display="flex"
-        justifyContent="space-between"
+        justifyContent="center"
+        columnGap="space100"
         position="relative"
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
         overflow="visible"
       >
-        <Box paddingTop="space190" display="flex" flexDirection="column" maxWidth="size40" flexShrink={0}>
+        <Box paddingTop="space190" display="flex" flexDirection="column" flexShrink={1}>
           <Heading as="h3" variant="heading20">
             Explore our templates
           </Heading>
@@ -152,12 +153,14 @@ const Templates: React.FC = (): React.ReactElement => {
             today.
           </Text>
           <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize40" lineHeight="lineHeight40">
-            <BouncyAnchor text="Check out our templates" href="" />
+            <BouncyAnchor text="Check out our templates" href="/page-templates" />
           </Text>
         </Box>
-        <TemplatesCarousel />
+        <Box display={["none", "none", "flex", "flex"]}>
+          <TemplatesCarousel />
+        </Box>
       </Box>
-      <Box zIndex="zIndex30" position="relative" left={-50} element="CIRCLE" top={2575}>
+      <Box zIndex="zIndex30" position="absolute" left={-250} element="CIRCLE" top={300}>
         <CircleIcon
           css={{ height: theme.heights.size20, width: theme.widths.size20 }}
           color={theme.backgroundColors.colorBackgroundBrandHighlight}

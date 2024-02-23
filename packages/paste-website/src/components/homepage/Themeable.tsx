@@ -48,12 +48,12 @@ const Themeable: React.FC = (): React.ReactElement => {
             </Heading>
             <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space70">
               With Paste, you can get production-ready experiences up in minutes with our 80+{" "}
-              <Anchor href="">styled components</Anchor> and <Anchor href="">pre-built themes</Anchor>.
+              <Anchor href="/components">styled components</Anchor> and <Anchor href="/theme">pre-built themes</Anchor>.
             </Text>
 
             <Text as="span" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space70">
               Or get complete control by bringing your own theme and creating custom components with our{" "}
-              <Anchor href="">functional primitives</Anchor>.
+              <Anchor href="/primitives">functional primitives</Anchor>.
             </Text>
             <Box fontWeight="fontWeightSemibold" fontSize="fontSize40" lineHeight="lineHeight40">
               <BouncyAnchor href="/page-templates" text="Check out our templates" />
