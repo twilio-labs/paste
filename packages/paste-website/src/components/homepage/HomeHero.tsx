@@ -1,130 +1,72 @@
-import { Anchor } from "@twilio-paste/anchor";
-import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
-import { Column, Grid } from "@twilio-paste/grid";
-import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
-import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
+import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Text } from "@twilio-paste/text";
-import * as React from "react";
+import { useTheme } from "@twilio-paste/theme";
 
-import { SITE_CONTENT_MAX_WIDTH } from "../../constants";
-import { event } from "../../lib/gtag";
-import { SlantedBackgroundGradient } from "../SlantedBackgroundGradient";
-import { HomeHeroIllustration } from "./HomeHeroIllustration";
-import { NewComponentBanner } from "./NewComponentBanner";
-import { NewComponentBannerLink } from "./NewComponentBannerLink";
-import { NewComponentBannerText } from "./NewComponentBannerText";
-
-const SeeRoadmapAnchor = (): JSX.Element => {
-  const [hovered, setHovered] = React.useState(false);
-
-  const handleMouseEnter = (): void => {
-    setHovered(true);
-  };
-  const handleMouseLeave = (): void => {
-    setHovered(false);
-  };
-
-  return (
-    <Box as="span" display="flex" alignItems="center">
-      <Anchor
-        href="/roadmap"
-        variant="inverse"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        onClick={() =>
-          event({
-            category: "Hero",
-            action: "click-see-roadmap",
-            label: "See our roadmap",
-          })
-        }
-      >
-        See our roadmap
-      </Anchor>
-      <Box
-        as="span"
-        display="flex"
-        transform={hovered ? "translateY(1px) translateX(4px)" : "translateY(1px) translateX(0)"}
-        transition="all 100ms ease"
-      >
-        <ArrowForwardIcon decorative display="inline-block" size="sizeIcon40" />
-      </Box>
-    </Box>
-  );
-};
+import CircleIcon from "../icons/CircleIcon";
+import { BouncyAnchor } from "./BouncyAnchor";
+import { SearchBox } from "./SearchBox";
+import { SectionContainer } from "./SectionContainer";
+import { ComponentShowcase } from "./component-showcase";
 
 const HomeHero = (): JSX.Element => {
+  const theme = useTheme();
   return (
-    <Box
-      paddingX={["space90", "space180"]}
-      paddingTop={["space90", "space200"]}
-      paddingBottom={["space90", "space160", "space160"]}
-      position="relative"
-    >
-      <SlantedBackgroundGradient skewAngle={0} startColor="colorBackgroundBrandStrong" endColor="colorBackgroundBrand">
+    <SectionContainer marginY="space0">
+      <Box element="HOME_HERO" display="flex" columnGap="space100">
         <Box
-          maxWidth={SITE_CONTENT_MAX_WIDTH}
-          marginLeft="auto"
-          marginRight="auto"
-          position="relative"
+          display="flex"
+          flexDirection="column"
+          rowGap="space130"
+          paddingTop="space200"
+          paddingRight={["space0", "space0", "space130", "space130"]}
+          alignSelf="center"
+          maxWidth={["none", "none", "600px", "600px"]}
+          element="HOME_HERO_LEFT_SIDE"
+        >
+          <Box display="flex" flexDirection="column" rowGap="space50">
+            <DisplayHeading as="h1" variant="displayHeading10" marginBottom="space0">
+              Paste
+            </DisplayHeading>
+            <Text
+              as="div"
+              fontSize="fontSize90"
+              lineHeight="lineHeight90"
+              fontWeight="fontWeightSemibold"
+              letterSpacing="-.02em"
+            >
+              Build inclusive, delightful customer experiences with Twilio’s open-source design system.
+            </Text>
+          </Box>
+          <SearchBox />
+          <Box
+            display="flex"
+            flexDirection="column"
+            rowGap="space50"
+            fontWeight="fontWeightBold"
+            fontSize="fontSize60"
+            lineHeight="lineHeight60"
+          >
+            <BouncyAnchor text="Get started for developers" href="/introduction/for-engineers/quickstart" />
+            <BouncyAnchor text="Get started for designers" href="/introduction/for-designers/design-guidelines" />
+          </Box>
+        </Box>
+        <Box
+          display={["none", "none", "block", "block"]}
+          maxWidth={["300px", "300px", "300px", "450px"]}
           zIndex="zIndex10"
         >
-          <Grid vertical={[true, false, false]}>
-            <Column span={6}>
-              <NewComponentBanner>
-                <Badge as="span" variant="new">
-                  <ArtificialIntelligenceIcon decorative />
-                  Assistant
-                </Badge>
-                <NewComponentBannerText>New AI powered Paste Assistant!</NewComponentBannerText>
-                <NewComponentBannerLink
-                  href="/assistant"
-                  onClick={() =>
-                    event({
-                      category: "Hero",
-                      action: "click-new-banner",
-                      label: "Assistant announcement",
-                    })
-                  }
-                >
-                  Try now
-                </NewComponentBannerLink>
-              </NewComponentBanner>
-              <Text
-                as="h1"
-                color="colorTextInverse"
-                fontFamily="fontFamilyDisplay"
-                fontSize={["fontSizeDisplay10", "fontSizeDisplay20", "fontSizeDisplay20", "fontSizeDisplay30"]}
-                fontWeight="fontWeightExtrabold"
-                lineHeight={[
-                  "lineHeightDisplay10",
-                  "lineHeightDisplay20",
-                  "lineHeightDisplay20",
-                  "lineHeightDisplay30",
-                ]}
-                marginTop={["space80", "space120"]}
-              >
-                Build inclusive, delightful Twilio customer experiences with Paste.
-              </Text>
-              <Text
-                as="div"
-                color="colorTextInverse"
-                fontSize="fontSize40"
-                fontWeight="fontWeightBold"
-                lineHeight="lineHeight40"
-                marginTop="space120"
-              >
-                <SeeRoadmapAnchor />
-              </Text>
-            </Column>
-            <Column span={6} height="100%">
-              <HomeHeroIllustration />
-            </Column>
-          </Grid>
+          <ComponentShowcase />
         </Box>
-      </SlantedBackgroundGradient>
-    </Box>
+      </Box>
+      <Box zIndex="zIndex0" position="absolute" top="45rem" left="42%" element="CIRCLE">
+        <CircleIcon
+          css={{ height: theme.heights.size30, width: theme.widths.size30 }}
+          color={theme.backgroundColors.colorBackgroundBrandHighlight}
+          decorative
+        />
+      </Box>
+    </SectionContainer>
   );
 };
 

@@ -37,9 +37,9 @@ export const DarkModeToggle = (): JSX.Element => {
         }
       >
         {theme === "twilio" ? (
-          <LightModeIcon decorative size="sizeIcon40" title="Switch the site theme" />
+          <LightModeIcon decorative size="sizeIcon40" />
         ) : (
-          <DarkModeIcon decorative size="sizeIcon40" title="Switch the site theme" />
+          <DarkModeIcon decorative size="sizeIcon40" />
         )}
         <ScreenReaderOnly>Switch the site theme</ScreenReaderOnly>
       </MenuButton>
@@ -51,7 +51,7 @@ export const DarkModeToggle = (): JSX.Element => {
           checked={theme === "twilio"}
           onClick={() => handleClick("Top Navigation", "click-dark-mode", "Light")}
         >
-          <LightModeIcon decorative /> Light mode
+          <LightModeIcon decorative title="Switch the site theme" /> Light mode
         </MenuItemRadio>
         <MenuItemRadio
           {...menu}
@@ -60,7 +60,7 @@ export const DarkModeToggle = (): JSX.Element => {
           checked={theme === "twilio-dark"}
           onClick={() => handleClick("Top Navigation", "click-dark-mode", "Dark")}
         >
-          <DarkModeIcon decorative /> Dark mode
+          <DarkModeIcon decorative title="Switch the site theme" /> Dark mode
         </MenuItemRadio>
       </Menu>
     </>
