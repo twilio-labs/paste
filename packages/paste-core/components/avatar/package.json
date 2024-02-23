@@ -25,8 +25,8 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@types/react-is": "17.0.3",
-    "react-is": "18.0.0"
+    "@types/react-is": "17.0.7",
+    "react-is": "18.2.0"
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",

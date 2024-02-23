@@ -25,7 +25,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "deepmerge": "4.2.2"
+    "deepmerge": "4.3.1"
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",

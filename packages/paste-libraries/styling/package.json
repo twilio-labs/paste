@@ -24,16 +24,16 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@emotion/cache": "11.10.5",
-    "@emotion/react": "11.10.5",
-    "@emotion/styled": "11.10.5",
+    "@emotion/cache": "11.11.0",
+    "@emotion/react": "11.11.3",
+    "@emotion/styled": "11.11.0",
     "@styled-system/css": "5.1.5",
     "@styled-system/should-forward-prop": "5.1.5",
     "@styled-system/theme-get": "5.1.2",
-    "@types/styled-system": "5.1.9",
-    "@types/styled-system__css": "5.0.17",
-    "@types/styled-system__should-forward-prop": "5.1.2",
-    "@types/styled-system__theme-get": "5.0.2",
+    "@types/styled-system": "5.1.22",
+    "@types/styled-system__css": "5.0.21",
+    "@types/styled-system__should-forward-prop": "5.1.4",
+    "@types/styled-system__theme-get": "5.0.4",
     "styled-system": "5.1.5"
   },
   "peerDependencies": {
