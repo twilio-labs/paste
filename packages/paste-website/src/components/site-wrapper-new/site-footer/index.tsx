@@ -20,7 +20,7 @@ const SiteFooter: React.FC = () => {
         padding={["space90", "space90", "space180"]}
         paddingTop={["space130", "space130", "space130"]}
         display="flex"
-        justifyContent={["center", "center", "space-between"]}
+        justifyContent={["center", "center", "center", "space-between"]}
       >
         <SiteFooterNav />
         <SiteFooterIllustration />
