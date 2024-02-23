@@ -40,12 +40,12 @@ export const getAliasValuesFromPrefix = (prefix: string, theme: Themes): string[
 
 // Need to use styled div because the alias names aren't valid backgroundColors on Box
 const StyledGradientSwatch = styled.div<{ backgroundColor: string }>`
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props: any) => props.backgroundColor};
   height: ${themeGet("space.space60")};
 `;
 
 const StyledGradientSwatchTall = styled.div<{ backgroundColor: string }>`
-background-color: ${(props) => props.backgroundColor};
+background-color: ${(props: any) => props.backgroundColor};
 height: ${themeGet("space.space120")};
 `;
 

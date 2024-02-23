@@ -20,20 +20,22 @@ const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, { 
   };
 }, {});
 
+const someIcons = Object.values(IconComponents);
+someIcons.length = 66; // cap it
+
 const DesignEfficiency: React.FC = (): React.ReactElement => {
-  const someIcons = Object.values(IconComponents);
-  someIcons.length = 66;
   return (
     <SectionContainer>
       <SectionSeparator>Design efficiency</SectionSeparator>
+
       <Box display="flex" flexDirection={["column", "column", "row"]} justifyContent="space-between">
         <Box
           paddingTop="space190"
           display="flex"
           flexDirection="column"
-          maxWidth="size50"
-          flexShrink={0}
+          maxWidth={["100%", "100%", "size40"]}
           position="relative"
+          flexShrink={0}
         >
           <Heading as="h3" variant="heading20">
             Built by designers, for designers
@@ -68,7 +70,14 @@ const DesignEfficiency: React.FC = (): React.ReactElement => {
             ))}
           </Box>
         </Box>
-        <Box marginTop="space150" flexGrow={1} position="relative" right={-200} backgroundColor="colorBackgroundBody">
+        <Box
+          display={["none", "none", "block"]}
+          marginTop="space150"
+          flexGrow={1}
+          position="relative"
+          right={[0, 0, -105, -200]}
+          backgroundColor="colorBackgroundBody"
+        >
           <ColorGradientRainbow omitGrays />
         </Box>
       </Box>
