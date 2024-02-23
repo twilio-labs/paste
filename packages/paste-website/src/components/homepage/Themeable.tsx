@@ -39,7 +39,7 @@ const Themeable: React.FC = (): React.ReactElement => {
           display="flex"
           flexDirection={["column", "column", "column", "row"]}
           justifyContent="space-between"
-          columnGap="space100"
+          columnGap="space200"
           rowGap="space200"
         >
           <Box display="flex" flexDirection="column">
