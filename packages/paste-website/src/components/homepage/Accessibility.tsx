@@ -9,7 +9,6 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { DoodleLoopFooterSide } from "../../assets/illustrations/DoodleLoopFooterSide";
 import { NewDoodleLoop } from "../../assets/illustrations/NewDoodleLoop";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { BouncyAnchor } from "./BouncyAnchor";
@@ -21,15 +20,6 @@ const Accessibility: React.FC = (): React.ReactElement => {
 
   return (
     <SectionContainer>
-      <Box
-        display={["none", "none", "none", "flex"]}
-        position="absolute"
-        justifyContent="center"
-        right={100}
-        marginTop="spaceNegative170"
-      >
-        <DoodleLoopFooterSide />
-      </Box>
       <Box element="ACCESSIBILITY" width="100%" maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}>
         <SectionSeparator>Accessibility</SectionSeparator>
         <Box

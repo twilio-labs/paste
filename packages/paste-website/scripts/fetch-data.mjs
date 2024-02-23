@@ -67,45 +67,50 @@ const getAllPageTemplates = async () => {
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type
 const getAllPackages = async () => {
-  const root = path.resolve(process.cwd(), "../");
-  const packages = await globby(["**/package.json", "!**/node_modules", "!**/core-bundle/**"], {
-    cwd: root,
-  });
-  const data = {
-    allPasteComponent: [],
-    allPasteDesignTokensPackage: [],
-    allPasteLayout: [],
-    allPasteLibraries: [],
-    allPastePrimitive: [],
-    allPasteThemePackage: [],
-    allPastePattern: [],
-    allPastePageTemplate: [],
-  };
+  try {
+    const root = path.resolve(process.cwd(), "../");
+    const packages = await globby(["**/package.json", "!**/node_modules", "!**/core-bundle/**"], {
+      cwd: root,
+    });
+    const data = {
+      allPasteComponent: [],
+      allPasteDesignTokensPackage: [],
+      allPasteLayout: [],
+      allPasteLibraries: [],
+      allPastePrimitive: [],
+      allPasteThemePackage: [],
+      allPastePattern: [],
+      allPastePageTemplate: [],
+    };
 
-  packages.forEach(async (packageJson) => {
-    const category = getCategory(packageJson);
-    if (category) {
-      // eslint-disable-next-line unicorn/prefer-json-parse-buffer
-      const fileContents = await fs.readFile(`${root}/${packageJson}`, "utf8");
-      const { name, status, version, description } = JSON.parse(fileContents);
-      data[category].push({ name, status: status || null, version, description });
-    }
-  });
+    packages.forEach(async (packageJson) => {
+      const category = getCategory(packageJson);
+      if (category) {
+        // eslint-disable-next-line unicorn/prefer-json-parse-buffer
+        const fileContents = await fs.readFile(`${root}/${packageJson}`, "utf8");
+        const { name, status, version, description } = JSON.parse(fileContents);
+        data[category].push({ name, status: status || null, version, description });
+      }
+    });
 
-  const patterns = await getAllPatterns();
-  data.allPastePattern = [...patterns];
+    const patterns = await getAllPatterns();
+    data.allPastePattern = [...patterns];
 
-  const pageTemplates = await getAllPageTemplates();
-  data.allPastePageTemplate = [...pageTemplates];
+    const pageTemplates = await getAllPageTemplates();
+    data.allPastePageTemplate = [...pageTemplates];
 
-  await fs.mkdir(dataPath, { recursive: true }, (err) => {
-    if (err) {
-      // eslint-disable-next-line no-console
-      console.log(err);
-    }
-  });
+    await fs.mkdir(dataPath, { recursive: true }, (err) => {
+      if (err) {
+        // eslint-disable-next-line no-console
+        console.log(err);
+      }
+    });
 
-  await fs.writeFile(path.join(dataPath, "package-data.json"), JSON.stringify(data, null, 2), "utf8");
+    await fs.writeFile(path.join(dataPath, "package-data.json"), JSON.stringify(data, null, 2), "utf8");
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log("getAllPatterns fetch error:", error);
+  }
 };
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types, @typescript-eslint/explicit-function-return-type

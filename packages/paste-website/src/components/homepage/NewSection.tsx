@@ -17,14 +17,14 @@ const NewSection: React.FC = (): React.ReactElement => {
         rowGap="space40"
         element="NEW_SECTION"
       >
-        <WhatsNew showExternal href="/assistant">
-          Paste Assistant, AI powered Design System help, <Anchor href="/assistant">Try it now</Anchor>
+        <WhatsNew href="/assistant">
+          Try out <Anchor href="/assistant">Paste Assistant,</Anchor> our AI-powered Design System chat bot
         </WhatsNew>
-        <WhatsNew href="#">
-          Read about our <Anchor href="#">latest release</Anchor>
+        <WhatsNew href="/core/changelog">
+          Read about our <Anchor href="/core/changelog">latest release</Anchor>
         </WhatsNew>
-        <WhatsNew href="#">
-          Check out <Anchor href="#">our roadmap</Anchor>
+        <WhatsNew href="/roadmap">
+          Check out <Anchor href="/roadmap">our roadmap</Anchor>
         </WhatsNew>
       </Box>
       <Box position="absolute" top={10} left={-200}>

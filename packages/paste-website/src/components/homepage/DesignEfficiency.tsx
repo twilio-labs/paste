@@ -1,13 +1,27 @@
 import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
-import { LinkExternalIcon } from "@twilio-paste/icons/esm/LinkExternalIcon";
 import { Text } from "@twilio-paste/text";
-import Image from "next/image";
+import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import TokenColors from "../../assets/illustrations/token_colors.svg";
+import { ColorGradientRainbow } from "../color-swatch/ColorGradient";
+import type { IconComponent, IconObject } from "../icons-list/types";
+import { BouncyAnchor } from "./BouncyAnchor";
 import { SectionContainer } from "./SectionContainer";
 import { SectionSeparator } from "./SectionSeparator";
+
+const { icons: iconsJson } = require("@twilio-paste/icons/json/icons.json");
+
+const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, { name }: IconObject) => {
+  return {
+    ...icons,
+    // eslint-disable-next-line import/no-dynamic-require,global-require, @typescript-eslint/no-var-requires
+    [`${name}`]: require(`@twilio-paste/icons/esm/${name}.js`)[name],
+  };
+}, {});
+
+const someIcons = Object.values(IconComponents);
+someIcons.length = 66; // cap it
 
 const DesignEfficiency: React.FC = (): React.ReactElement => {
   return (
@@ -15,7 +29,14 @@ const DesignEfficiency: React.FC = (): React.ReactElement => {
       <SectionSeparator>Design efficiency</SectionSeparator>
 
       <Box display="flex" flexDirection={["column", "column", "row"]} justifyContent="space-between">
-        <Box paddingTop="space190" display="flex" flexDirection="column" maxWidth="size40" flexShrink={0}>
+        <Box
+          paddingTop="space190"
+          display="flex"
+          flexDirection="column"
+          maxWidth={["100%", "100%", "size40"]}
+          position="relative"
+          flexShrink={0}
+        >
           <Heading as="h3" variant="heading20">
             Built by designers, for designers
           </Heading>
@@ -26,22 +47,38 @@ const DesignEfficiency: React.FC = (): React.ReactElement => {
             With our libraries, you can swap themes easily with Figma variable modes, and prep design files for
             efficient design and engineering collaboration.
           </Text>
-          <Text
-            as="a"
-            href="#"
-            color="colorTextLink"
-            fontWeight="fontWeightSemibold"
-            fontSize="fontSize40"
-            lineHeight="lineHeight40"
-            display="flex"
-            _hover={{ color: "colorTextLinkStronger" }}
+          <Box fontWeight="fontWeightSemibold" fontSize="fontSize40" lineHeight="lineHeight40">
+            <BouncyAnchor
+              text="Find us on Figma Community"
+              href="https://www.figma.com/community/file/1207476064127503112/twilio-paste-components"
+            />
+          </Box>
+          <Box
+            marginTop="space170"
+            paddingTop="space170"
+            display="grid"
+            gridTemplateRows="repeat(3, 1fr)"
+            gridTemplateColumns="repeat(22, 1fr)"
+            columnGap="space50"
+            rowGap="space100"
+            left={-300}
+            top={300}
+            position="absolute"
           >
-            Find us on Figma Community <LinkExternalIcon decorative={false} title="external link" size="sizeIcon40" />
-          </Text>
-          icons icons icons icons icons
+            {someIcons.map((Icon) => (
+              <Icon decorative key={useUID()} size="sizeIcon70" color="colorTextWeaker" />
+            ))}
+          </Box>
         </Box>
-        <Box paddingTop="space150" textAlign="right" flexGrow={1}>
-          <Image src={TokenColors} width="500" aria-hidden="true" role="img" alt="" />
+        <Box
+          display={["none", "none", "block"]}
+          marginTop="space150"
+          flexGrow={1}
+          position="relative"
+          right={[0, 0, -55, -200]}
+          backgroundColor="colorBackgroundBody"
+        >
+          <ColorGradientRainbow omitGrays />
         </Box>
       </Box>
     </SectionContainer>

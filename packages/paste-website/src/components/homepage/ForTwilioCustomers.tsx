@@ -13,23 +13,29 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
       justifyContent="center"
       width="100%"
       backgroundColor="colorBackgroundInverse"
-      marginTop="space170"
+      overflowX="clip"
+      overflowY="visible"
       element="FOR_TWILIO_CUSTOMERS_WRAPPER"
     >
       <Box
         element="FOR_TWILIO_CUSTOMERS"
         width="100%"
-        // maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
         maxWidth="1334px"
         display="flex"
         justifyContent="space-between"
         alignItems="center"
         columnGap="space90"
-        marginX={["space70", "space80", "space140"]}
+        marginX="space140"
         paddingY={["space200", "space200", "space200", "space0"]}
         position="relative"
       >
-        <Box display="flex" flexDirection="column" textAlign="left" zIndex="zIndex10" paddingY="space200">
+        <Box
+          display="flex"
+          flexDirection="column"
+          textAlign="left"
+          zIndex="zIndex10"
+          marginY={["space0", "space0", "space0", "space200"]}
+        >
           <Text
             as="h3"
             color="colorTextInverse"
@@ -45,22 +51,26 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
             Paste works great with Flex plugins, CodeExchange apps, and more.
           </Text>
           <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
-            <BouncyAnchor href="" text="Eng quick start" inverse />
+            <BouncyAnchor href="/introduction/for-engineers/quickstart" text="Eng quick start" inverse />
           </Box>
           <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
-            <BouncyAnchor href="" text="Customization overview" inverse />
+            <BouncyAnchor href="/customization" text="Customization overview" inverse />
           </Box>
           <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
-            <BouncyAnchor href="" text="Figma Community file" inverse />
+            <BouncyAnchor
+              href="https://www.figma.com/community/file/1207476064127503112/twilio-paste-components"
+              text="Figma Community file"
+              inverse
+            />
           </Box>
         </Box>
         <Box
-          display={["none", "none", "flex", "flex"]}
-          width="100%"
-          maxWidth="size70"
-          maxHeight="460px"
-          top="-50px"
+          display={["none", "none", "none", "flex"]}
           position="relative"
+          top="-50px"
+          width="100%"
+          maxWidth="size50"
+          maxHeight="460px"
         >
           <Image src={PuzzleIllo} width={695} height={527} aria-hidden="true" role="img" alt="" />
         </Box>
