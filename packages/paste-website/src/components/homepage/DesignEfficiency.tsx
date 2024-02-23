@@ -48,10 +48,7 @@ const DesignEfficiency: React.FC = (): React.ReactElement => {
             efficient design and engineering collaboration.
           </Text>
           <Box fontWeight="fontWeightSemibold" fontSize="fontSize40" lineHeight="lineHeight40">
-            <BouncyAnchor
-              text="Find us on Figma Community"
-              href="https://www.figma.com/community/file/1207476064127503112/twilio-paste-components"
-            />
+            <BouncyAnchor text="Find us on Figma Community" href="https://www.figma.com/@twilio" />
           </Box>
           <Box
             marginTop="space170"
