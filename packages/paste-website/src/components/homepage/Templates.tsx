@@ -76,30 +76,6 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
             borderRadius="borderRadius30"
             overflow="hidden"
           >
-            <Image src={Settings} alt="" width="499" />
-          </Box>
-        </TabPrimitivePanel>
-        <TabPrimitivePanel {...tab}>
-          <Box
-            height="354px"
-            width="499px"
-            flexShrink={0}
-            boxShadow="shadow"
-            borderRadius="borderRadius30"
-            overflow="hidden"
-          >
-            <Image src={ObjectsList} alt="" width="499" />
-          </Box>
-        </TabPrimitivePanel>
-        <TabPrimitivePanel {...tab}>
-          <Box
-            height="354px"
-            width="499px"
-            flexShrink={0}
-            boxShadow="shadow"
-            borderRadius="borderRadius30"
-            overflow="hidden"
-          >
             <Image src={Overview} alt="" width="499" />
           </Box>
         </TabPrimitivePanel>
@@ -112,7 +88,31 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
             borderRadius="borderRadius30"
             overflow="hidden"
           >
+            <Image src={Settings} alt="" width="499" />
+          </Box>
+        </TabPrimitivePanel>
+        <TabPrimitivePanel {...tab}>
+          <Box
+            height="354px"
+            width="499px"
+            flexShrink={0}
+            boxShadow="shadow"
+            borderRadius="borderRadius30"
+            overflow="hidden"
+          >
             <Image src={Wizard} alt="" height="354" width="499" />
+          </Box>
+        </TabPrimitivePanel>
+        <TabPrimitivePanel {...tab}>
+          <Box
+            height="354px"
+            width="499px"
+            flexShrink={0}
+            boxShadow="shadow"
+            borderRadius="borderRadius30"
+            overflow="hidden"
+          >
+            <Image src={ObjectsList} alt="" width="499" />
           </Box>
         </TabPrimitivePanel>
         <TabPrimitiveList {...tab} aria-label="page templates carousel">
