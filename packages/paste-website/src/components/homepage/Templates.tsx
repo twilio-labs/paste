@@ -16,17 +16,18 @@ import CircleIcon from "../icons/CircleIcon";
 import { BouncyAnchor } from "./BouncyAnchor";
 import { SectionContainer } from "./SectionContainer";
 
-const CarouselButton: React.FC = (props): React.ReactElement => {
+const CarouselButton: React.FC<{ "aria-label": string }> = (props): React.ReactElement => {
   return (
     <Button
       variant="reset"
       size="reset"
-      height="20px"
-      width="20px"
+      height="14px"
+      width="14px"
       borderStyle="solid"
       borderWidth="borderWidth10"
       borderColor="colorBorderWeak"
       borderRadius="borderRadiusCircle"
+      name={props["aria-label"]}
       _hover={{
         borderColor: "colorBorderPrimary",
       }}
@@ -116,10 +117,10 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
         </TabPrimitivePanel>
         <TabPrimitiveList {...tab} aria-label="page templates carousel">
           <Box display="flex" columnGap="space30" maxHeight="28px">
-            <TabPrimitive {...tab} as={CarouselButton} />
-            <TabPrimitive {...tab} as={CarouselButton} />
-            <TabPrimitive {...tab} as={CarouselButton} />
-            <TabPrimitive {...tab} as={CarouselButton} />
+            <TabPrimitive {...tab} as={CarouselButton} aria-label="objects list page template" />
+            <TabPrimitive {...tab} as={CarouselButton} aria-label="overview page template" />
+            <TabPrimitive {...tab} as={CarouselButton} aria-label="settings page template" />
+            <TabPrimitive {...tab} as={CarouselButton} aria-label="wizard page template" />
           </Box>
         </TabPrimitiveList>
       </Box>

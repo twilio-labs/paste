@@ -56,7 +56,7 @@ const DesignEfficiency: React.FC = (): React.ReactElement => {
             gridTemplateColumns="repeat(22, 1fr)"
             columnGap="space50"
             rowGap="space100"
-            left={-100}
+            left={-200}
             top={300}
             position="absolute"
           >

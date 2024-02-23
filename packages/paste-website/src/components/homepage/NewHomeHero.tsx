@@ -19,9 +19,9 @@ const HomeHero = (): JSX.Element => {
           flexDirection="column"
           rowGap="space130"
           paddingTop="space200"
-          paddingRight="space130"
+          paddingRight={["space0", "space0", "space130", "space130"]}
           alignSelf="center"
-          maxWidth="600px"
+          maxWidth={["none", "none", "600px", "600px"]}
           element="HOME_HERO_LEFT_SIDE"
         >
           <Box display="flex" flexDirection="column" rowGap="space50">
@@ -51,7 +51,11 @@ const HomeHero = (): JSX.Element => {
             <BouncyAnchor text="Get started for designers" href="/introduction/for-designers/design-guidelines" />
           </Box>
         </Box>
-        <Box display={["none", "none", "block"]} maxWidth={["300px", "300px", "300px", "450px"]} zIndex="zIndex10">
+        <Box
+          display={["none", "none", "block", "block"]}
+          maxWidth={["300px", "300px", "300px", "450px"]}
+          zIndex="zIndex10"
+        >
           <ComponentShowcase />
         </Box>
       </Box>
