@@ -126,7 +126,7 @@ const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactEl
           )}
         </Button>
       </Box>
-      <LiveProvider code={children} language="typescript" theme={CodeblockTheme}>
+      <LiveProvider code={children} language="jsx" theme={CodeblockTheme}>
         <LiveEditor
           id={liveEditorId}
           style={{
