@@ -17,6 +17,7 @@ import { AssistantComposer } from "./AssistantComposer";
 import { AssistantEmptyState } from "./AssistantEmptyState";
 import { AsssistantLayout } from "./AssistantLayout";
 import { AssistantThreads } from "./AssistantThreads";
+import { useAssistantToaster } from "./AssistantToaster";
 import { AssistantHeader } from "./AsststantHeader";
 
 const getMockMessage = ({ message }: { message: string }): ThreadMessage => {
@@ -53,6 +54,7 @@ export const Assistant: React.FC = () => {
   const setActiveRun = useAssistantRunStore((state) => state.setActiveRun);
   const addMessage = useAssistantMessagesStore((state) => state.addMessage);
   const messages = useAssistantMessagesStore((state) => state.messages);
+  const assistantToaster = useAssistantToaster();
 
   if (threadsStore == null) return null;
 
@@ -64,10 +66,15 @@ export const Assistant: React.FC = () => {
     createAssistantRun.mutate(
       { threadId, message },
       {
-        onSuccess: async (run) => {
-          // @ts-expect-error I don't know how to type this right now so it knows it's a response
-          const newRun = await run.json();
+        onSuccess: (run: any) => {
+          const newRun = run;
           setActiveRun(newRun.run);
+        },
+        onError(error) {
+          assistantToaster.push({
+            message: error.message,
+            variant: "error",
+          });
         },
       },
     );
@@ -86,13 +93,18 @@ export const Assistant: React.FC = () => {
           context: message,
         },
         {
-          onSuccess: async (completion) => {
-            // @ts-expect-error I don't know how to type this right now so it knows it's a response
-            const newCompletion = await completion.json();
+          onSuccess: (completion: any) => {
+            const newCompletion = completion;
             // update the thread title in the store
             threadsStore?.setThreadTitle(threadId, newCompletion.choices[0].message.content);
             // update the thread title in openAI
             updateThreadMutation.mutate({ id: threadId, threadTitle: newCompletion.choices[0].message.content });
+          },
+          onError(error) {
+            assistantToaster.push({
+              message: error.message,
+              variant: "error",
+            });
           },
         },
       );
@@ -109,12 +121,17 @@ export const Assistant: React.FC = () => {
     createThreadMutation.mutate(
       {},
       {
-        onSuccess: async (data) => {
-          // @ts-expect-error I don't know how to type this right now so it knows it's a response
-          const newThread = await data.json();
+        onSuccess: (data: any) => {
+          const newThread = data;
           if (threadsStore == null) return;
           threadsStore.createAndSelectThread(newThread);
           handleMessageCreation(message, newThread.id);
+        },
+        onError(error) {
+          assistantToaster.push({
+            message: error.message,
+            variant: "error",
+          });
         },
       },
     );

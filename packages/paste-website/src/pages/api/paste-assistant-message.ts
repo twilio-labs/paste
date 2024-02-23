@@ -126,6 +126,34 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return;
   }
 
+  logger.info(`${LOG_PREFIX} Moderate user message`);
+
+  // Moderate the content to comply with OpenAI T&C
+  const moderationResponse: OpenAI.ModerationCreateResponse = await openai.moderations.create({
+    input: message,
+  });
+
+  // @ts-expect-error this is a bug in the types, error does exist on moderationResponse
+  if (moderationResponse.error) {
+    logger.error(`${LOG_PREFIX} Message content moderation failed`);
+    rollbar.error(`${LOG_PREFIX} Message content moderation failed`);
+    res.status(500).json({
+      error: "Message content moderation failed",
+    });
+  }
+
+  const [results] = moderationResponse.results;
+
+  logger.info(`${LOG_PREFIX} Moderated prompt`, { results });
+
+  if (results.flagged) {
+    logger.error(`${LOG_PREFIX} Message content was flagged`, { categories: results.categories });
+    rollbar.error(`${LOG_PREFIX} Message content was flagged`, { categories: results.categories });
+    res.status(500).json({
+      error: "Message content was flagged",
+    });
+  }
+
   logger.info(`${LOG_PREFIX} Creating user message`, { threadId, message });
 
   try {

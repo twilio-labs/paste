@@ -6,6 +6,7 @@ import { useAssistantMessagesStore } from "../../stores/assistantMessagesStore";
 import { type AssistantThread, useAssistantThreadsStore } from "../../stores/assistantThreadsStore";
 import useStoreWithLocalStorage from "../../stores/useStore";
 import { formatTimestamp } from "../../utils/formatTimestamp";
+import { useAssistantToaster } from "./AssistantToaster";
 import { ThreadList, ThreadListItem, ThreadListMeta, ThreadListTitle } from "./ThreadList";
 
 export const AssistantThreads: React.FC<React.PropsWithChildren> = () => {
@@ -13,16 +14,23 @@ export const AssistantThreads: React.FC<React.PropsWithChildren> = () => {
   const threadsStore = useStoreWithLocalStorage(useAssistantThreadsStore, (state) => state);
   const deleteThreadMutation = useDeleteThreadMutation();
   const resetMessages = useAssistantMessagesStore((state) => state.resetMessages);
+  const assistantToaster = useAssistantToaster();
 
   const handleThreadDelete = (threadID: AssistantThread["id"]): void => {
     deleteThreadMutation.mutate(threadID, {
-      onSuccess: async () => {
+      onSuccess: () => {
         if (threadsStore?.deleteThread != null) {
           threadsStore?.deleteThread(threadID);
         }
         if (threadsStore?.selectedThreadID === threadID) {
           resetMessages();
         }
+      },
+      onError: (error) => {
+        assistantToaster.push({
+          message: error.message,
+          variant: "error",
+        });
       },
     });
   };

@@ -1,8 +1,10 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
+import * as React from "react";
 
 import { useAssistantRunStore } from "../../stores/assistantRunStore";
 import { useAssistantThreadsStore } from "../../stores/assistantThreadsStore";
 import useStoreWithLocalStorage from "../../stores/useStore";
+import { useAssistantToaster } from "./AssistantToaster";
 
 /**
  * When an assistant thread run is active, poll the server for updates.
@@ -16,8 +18,9 @@ export const AssistantMessagePoller: React.FC = () => {
   const selectedThread = useStoreWithLocalStorage(useAssistantThreadsStore, (state) => state.selectedThreadID);
   const activeRun = useAssistantRunStore((state) => state.activeRun);
   const setActiveRun = useAssistantRunStore((state) => state.setActiveRun);
+  const assistantToaster = useAssistantToaster();
 
-  useQuery({
+  const { error, isError } = useQuery({
     queryKey: ["assistant-active-run", selectedThread, activeRun?.id],
     queryFn: async () => {
       if (selectedThread == null || activeRun?.id == null) return {};
@@ -25,6 +28,10 @@ export const AssistantMessagePoller: React.FC = () => {
         method: "GET",
       });
       const runDetails = await response.json();
+      // Check if the response is ok
+      if (!response.ok) {
+        throw new Error(runDetails.error);
+      }
       if (runDetails.status === "completed") {
         setActiveRun(undefined);
         // invalidate the assistant-messages query, essentially tell it to refetch
@@ -40,5 +47,14 @@ export const AssistantMessagePoller: React.FC = () => {
     // Poll every second whilst we wait for it to complete
     refetchInterval: 1000,
   });
+
+  React.useEffect(() => {
+    if (isError) {
+      assistantToaster.push({
+        message: error.message,
+        variant: "error",
+      });
+    }
+  }, [isError, error, assistantToaster]);
   return null;
 };

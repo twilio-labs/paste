@@ -8,6 +8,7 @@ import { useAssistantMessagesStore } from "../../stores/assistantMessagesStore";
 import { useAssistantRunStore } from "../../stores/assistantRunStore";
 import { AssistantMessage } from "./AssistantMessage";
 import { AssistantMessagePoller } from "./AssistantMessagePoller";
+import { useAssistantToaster } from "./AssistantToaster";
 import { LoadingMessage } from "./LoadingMessage";
 import { UserMessage } from "./UserMessage";
 
@@ -22,6 +23,7 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
   const setMessages = useAssistantMessagesStore(useShallow((state) => state.setMessages));
   const activeRun = useAssistantRunStore(useShallow((state) => state.activeRun));
   const isCreatingAResponse = useIsMutating({ mutationKey: ["create-assistant-run"] });
+  const assistantToaster = useAssistantToaster();
 
   const memoedMessages = React.useMemo(() => messages, [messages]);
 
@@ -29,7 +31,7 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
   const loggerRef = React.useRef<HTMLDivElement>(null);
 
   // fetch messages for the selected thread
-  useQuery({
+  const { error, isError } = useQuery({
     queryKey: ["assistant-messages", selectedThreadID],
     queryFn: async () => {
       const response = await fetch(`/api/paste-assistant-messages/${selectedThreadID}`, {
@@ -39,6 +41,9 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
         },
       });
       const responseJSON = await response.json();
+      if (!response.ok) {
+        throw new Error(responseJSON.error);
+      }
       const newMessages = responseJSON.data;
       setMessages(newMessages);
       return newMessages;
@@ -57,6 +62,15 @@ export const AssistantCanvas: React.FC<AssistantCanvasProps> = ({ selectedThread
     if (!mounted || !loggerRef.current) return;
     scrollerRef.current?.scrollTo({ top: loggerRef.current.scrollHeight, behavior: "smooth" });
   }, [memoedMessages, mounted]);
+
+  React.useEffect(() => {
+    if (isError) {
+      assistantToaster.push({
+        message: error.message,
+        variant: "error",
+      });
+    }
+  }, [isError, error, assistantToaster]);
 
   return (
     <Box ref={scrollerRef} tabIndex={0} overflowY="auto">
