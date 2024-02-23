@@ -1,25 +1,14 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/jsx-max-depth */
+import { AspectRatio } from "@twilio-paste/aspect-ratio";
 import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
 import { Heading } from "@twilio-paste/heading";
-import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import { ListItem, UnorderedList } from "@twilio-paste/list";
-import {
-  ModalBody,
-  ModalContext,
-  ModalDialogContent,
-  ModalFooter,
-  ModalFooterActions,
-  ModalHeader,
-  ModalHeading,
-} from "@twilio-paste/modal";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { AspectRatio } from "@twilio-paste/aspect-ratio";
 import { DoodleLoopFooterSide } from "../../assets/illustrations/DoodleLoopFooterSide";
 import { NewDoodleLoop } from "../../assets/illustrations/NewDoodleLoop";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
@@ -29,10 +18,6 @@ import { SectionSeparator } from "./SectionSeparator";
 
 const Accessibility: React.FC = (): React.ReactElement => {
   const selectedTabId = useUID();
-  const [modalIsOpen, setModalIsOpen] = React.useState(true);
-  const onDismiss = (): void => setModalIsOpen(false);
-  const onOpenModal = (): void => setModalIsOpen(!modalIsOpen);
-  const modalHeadingID = useUID();
 
   return (
     <SectionContainer>
