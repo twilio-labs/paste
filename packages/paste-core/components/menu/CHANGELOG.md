@@ -1,5 +1,11 @@
 # Change Log
 
+## 14.1.3
+
+### Patch Changes
+
+- [`eb189f10e`](https://github.com/twilio-labs/paste/commit/eb189f10eb88b7df2d2ee02ad6f49cf3360a3cc9) [#3790](https://github.com/twilio-labs/paste/pull/3790) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] Fix a regression in sub-menu items that was introduced whilst preventing very long, non-scrolling menus
+
 ## 14.1.2
 
 ### Patch Changes
