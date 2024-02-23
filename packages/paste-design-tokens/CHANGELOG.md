@@ -1,5 +1,13 @@
 # Change Log
 
+## 10.5.0
+
+### Minor Changes
+
+- [`e954efd02`](https://github.com/twilio-labs/paste/commit/e954efd02bc4a67a8406ae2018185b135641d741) [#3773](https://github.com/twilio-labs/paste/pull/3773) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new border radius tokens (40-90) for new homepage and ai kit'
+
+* [`67c25a7c9`](https://github.com/twilio-labs/paste/commit/67c25a7c9b7bbda3137621182843d2cc44e9cd06) [#3788](https://github.com/twilio-labs/paste/pull/3788) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens]: added three new branding accent background colors and a new text color token to be used on top of those. Updated 3 branding background colors in the Twilio and twilio-dark themes
+
 ## 10.4.1
 
 ### Patch Changes

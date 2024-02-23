@@ -1,5 +1,26 @@
 # Change Log
 
+## 20.10.0
+
+### Minor Changes
+
+- [`e954efd02`](https://github.com/twilio-labs/paste/commit/e954efd02bc4a67a8406ae2018185b135641d741) [#3773](https://github.com/twilio-labs/paste/pull/3773) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add new border radius tokens (40-90) for new homepage and ai kit'
+
+* [`e659ab991`](https://github.com/twilio-labs/paste/commit/e659ab9914bcfbf81fbd6161377116c381955310) [#3758](https://github.com/twilio-labs/paste/pull/3758) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add new LogoPaste icon
+
+- [`67c25a7c9`](https://github.com/twilio-labs/paste/commit/67c25a7c9b7bbda3137621182843d2cc44e9cd06) [#3788](https://github.com/twilio-labs/paste/pull/3788) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [design-tokens]: added three new branding accent background colors and a new text color token to be used on top of those. Updated 3 branding background colors in the Twilio and twilio-dark themes
+
+### Patch Changes
+
+- [`67c25a7c9`](https://github.com/twilio-labs/paste/commit/67c25a7c9b7bbda3137621182843d2cc44e9cd06) [#3788](https://github.com/twilio-labs/paste/pull/3788) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Heading]: minor adjustment to the bottom margin of the variant 20 heading
+
+* [`eb189f10e`](https://github.com/twilio-labs/paste/commit/eb189f10eb88b7df2d2ee02ad6f49cf3360a3cc9) [#3790](https://github.com/twilio-labs/paste/pull/3790) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Menu] Fix a regression in sub-menu items that was introduced whilst preventing very long, non-scrolling menus
+
+* Updated dependencies [[`e954efd02`](https://github.com/twilio-labs/paste/commit/e954efd02bc4a67a8406ae2018185b135641d741), [`67c25a7c9`](https://github.com/twilio-labs/paste/commit/67c25a7c9b7bbda3137621182843d2cc44e9cd06), [`eb189f10e`](https://github.com/twilio-labs/paste/commit/eb189f10eb88b7df2d2ee02ad6f49cf3360a3cc9), [`67c25a7c9`](https://github.com/twilio-labs/paste/commit/67c25a7c9b7bbda3137621182843d2cc44e9cd06)]:
+  - @twilio-paste/design-tokens@10.5.0
+  - @twilio-paste/heading@11.1.2
+  - @twilio-paste/menu@14.1.3
+
 ## 20.9.0
 
 ### Minor Changes

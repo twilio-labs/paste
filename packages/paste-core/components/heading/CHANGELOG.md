@@ -1,5 +1,11 @@
 # Change Log
 
+## 11.1.2
+
+### Patch Changes
+
+- [`67c25a7c9`](https://github.com/twilio-labs/paste/commit/67c25a7c9b7bbda3137621182843d2cc44e9cd06) [#3788](https://github.com/twilio-labs/paste/pull/3788) Thanks [@SiTaggart](https://github.com/SiTaggart)! - [Heading]: minor adjustment to the bottom margin of the variant 20 heading
+
 ## 11.1.1
 
 ### Patch Changes

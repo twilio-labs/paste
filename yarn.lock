@@ -12223,7 +12223,7 @@ __metadata:
     "@twilio-paste/data-visualization-library": ^5.0.0
     "@twilio-paste/date-picker": ^6.1.1
     "@twilio-paste/description-list": ^4.2.0
-    "@twilio-paste/design-tokens": ^10.4.1
+    "@twilio-paste/design-tokens": ^10.5.0
     "@twilio-paste/detail-text": ^3.1.0
     "@twilio-paste/disclosure": ^12.1.0
     "@twilio-paste/disclosure-primitive": ^2.1.1
@@ -12237,9 +12237,9 @@ __metadata:
     "@twilio-paste/form": ^11.1.1
     "@twilio-paste/form-pill-group": ^8.0.1
     "@twilio-paste/grid": ^8.1.1
-    "@twilio-paste/heading": ^11.1.1
+    "@twilio-paste/heading": ^11.1.2
     "@twilio-paste/help-text": ^13.1.0
-    "@twilio-paste/icons": ^12.2.3
+    "@twilio-paste/icons": ^12.3.0
     "@twilio-paste/in-page-navigation": ^4.3.1
     "@twilio-paste/inline-code": ^4.1.1
     "@twilio-paste/inline-control-group": ^13.0.2
@@ -12250,7 +12250,7 @@ __metadata:
     "@twilio-paste/list": ^8.1.2
     "@twilio-paste/listbox-primitive": ^3.0.1
     "@twilio-paste/media-object": ^10.1.0
-    "@twilio-paste/menu": ^14.1.2
+    "@twilio-paste/menu": ^14.1.3
     "@twilio-paste/menu-primitive": ^2.1.1
     "@twilio-paste/meter": ^1.0.3
     "@twilio-paste/minimizable-dialog": ^4.1.1
@@ -12529,7 +12529,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/design-tokens@^10.0.0, @twilio-paste/design-tokens@^10.2.0, @twilio-paste/design-tokens@^10.3.0, @twilio-paste/design-tokens@^10.4.0, @twilio-paste/design-tokens@^10.4.1, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
+"@twilio-paste/design-tokens@^10.0.0, @twilio-paste/design-tokens@^10.2.0, @twilio-paste/design-tokens@^10.3.0, @twilio-paste/design-tokens@^10.4.0, @twilio-paste/design-tokens@^10.4.1, @twilio-paste/design-tokens@^10.5.0, @twilio-paste/design-tokens@workspace:packages/paste-design-tokens":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/design-tokens@workspace:packages/paste-design-tokens"
   dependencies:
@@ -13076,14 +13076,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/heading@^11.1.0, @twilio-paste/heading@^11.1.1, @twilio-paste/heading@workspace:packages/paste-core/components/heading":
+"@twilio-paste/heading@^11.1.0, @twilio-paste/heading@^11.1.1, @twilio-paste/heading@^11.1.2, @twilio-paste/heading@workspace:packages/paste-core/components/heading":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/heading@workspace:packages/paste-core/components/heading"
   dependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/customization": ^8.1.1
-    "@twilio-paste/design-tokens": ^10.3.0
+    "@twilio-paste/design-tokens": ^10.5.0
     "@twilio-paste/style-props": ^9.1.1
     "@twilio-paste/styling-library": ^3.0.0
     "@twilio-paste/text": ^10.1.1
@@ -13152,7 +13152,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/icons@12.2.3, @twilio-paste/icons@^12.0.0, @twilio-paste/icons@^12.1.0, @twilio-paste/icons@^12.2.0, @twilio-paste/icons@^12.2.1, @twilio-paste/icons@^12.2.2, @twilio-paste/icons@^12.2.3, @twilio-paste/icons@workspace:packages/paste-icons":
+"@twilio-paste/icons@12.3.0, @twilio-paste/icons@^12.0.0, @twilio-paste/icons@^12.1.0, @twilio-paste/icons@^12.2.0, @twilio-paste/icons@^12.2.1, @twilio-paste/icons@^12.2.2, @twilio-paste/icons@^12.2.3, @twilio-paste/icons@^12.3.0, @twilio-paste/icons@workspace:packages/paste-icons":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/icons@workspace:packages/paste-icons"
   dependencies:
@@ -13160,7 +13160,7 @@ __metadata:
     "@twilio-paste/box": ^10.3.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/customization": ^8.2.0
-    "@twilio-paste/design-tokens": ^10.4.1
+    "@twilio-paste/design-tokens": ^10.5.0
     "@twilio-paste/style-props": ^9.1.1
     "@twilio-paste/styling-library": ^3.0.0
     "@twilio-paste/theme": ^11.1.0
@@ -13571,7 +13571,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/menu@^14.1.0, @twilio-paste/menu@^14.1.1, @twilio-paste/menu@^14.1.2, @twilio-paste/menu@workspace:packages/paste-core/components/menu":
+"@twilio-paste/menu@^14.1.0, @twilio-paste/menu@^14.1.1, @twilio-paste/menu@^14.1.3, @twilio-paste/menu@workspace:packages/paste-core/components/menu":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/menu@workspace:packages/paste-core/components/menu"
   dependencies:
@@ -13582,8 +13582,8 @@ __metadata:
     "@twilio-paste/button": ^14.1.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
     "@twilio-paste/customization": ^8.2.0
-    "@twilio-paste/design-tokens": ^10.4.1
-    "@twilio-paste/icons": ^12.2.3
+    "@twilio-paste/design-tokens": ^10.5.0
+    "@twilio-paste/icons": ^12.3.0
     "@twilio-paste/media-object": ^10.1.0
     "@twilio-paste/menu-primitive": ^2.1.0
     "@twilio-paste/reakit-library": ^2.1.0
@@ -15771,7 +15771,7 @@ __metadata:
     "@twilio-paste/data-visualization-library": ^5.0.0
     "@twilio-paste/date-picker": ^6.1.0
     "@twilio-paste/description-list": ^4.2.0
-    "@twilio-paste/design-tokens": ^10.4.1
+    "@twilio-paste/design-tokens": ^10.5.0
     "@twilio-paste/detail-text": ^3.1.0
     "@twilio-paste/disclosure": ^12.1.0
     "@twilio-paste/disclosure-primitive": ^2.1.1
@@ -15784,9 +15784,9 @@ __metadata:
     "@twilio-paste/form": ^11.1.1
     "@twilio-paste/form-pill-group": ^8.0.1
     "@twilio-paste/grid": ^8.1.1
-    "@twilio-paste/heading": ^11.1.1
+    "@twilio-paste/heading": ^11.1.2
     "@twilio-paste/help-text": ^13.1.0
-    "@twilio-paste/icons": 12.2.3
+    "@twilio-paste/icons": 12.3.0
     "@twilio-paste/in-page-navigation": ^4.3.1
     "@twilio-paste/inline-code": ^4.1.1
     "@twilio-paste/inline-control-group": ^13.0.2
@@ -15797,7 +15797,7 @@ __metadata:
     "@twilio-paste/list": ^8.1.2
     "@twilio-paste/listbox-primitive": ^3.0.1
     "@twilio-paste/media-object": ^10.1.0
-    "@twilio-paste/menu": ^14.1.2
+    "@twilio-paste/menu": ^14.1.3
     "@twilio-paste/menu-primitive": ^2.1.1
     "@twilio-paste/meter": ^1.0.3
     "@twilio-paste/minimizable-dialog": ^4.1.1

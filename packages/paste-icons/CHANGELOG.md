@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.3.0
+
+### Minor Changes
+
+- [`e659ab991`](https://github.com/twilio-labs/paste/commit/e659ab9914bcfbf81fbd6161377116c381955310) [#3758](https://github.com/twilio-labs/paste/pull/3758) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add new LogoPaste icon
+
+* [`67c25a7c9`](https://github.com/twilio-labs/paste/commit/67c25a7c9b7bbda3137621182843d2cc44e9cd06) [#3788](https://github.com/twilio-labs/paste/pull/3788) Thanks [@SiTaggart](https://github.com/SiTaggart)! - Added ArtificialIntelligenceIcon, AvailableIcon and ProductSendGridIcon
+
 ## 12.2.3
 
 ### Patch Changes
