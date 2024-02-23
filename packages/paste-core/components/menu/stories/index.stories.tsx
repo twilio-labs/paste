@@ -74,7 +74,7 @@ const AutoplacedMenu = (): JSX.Element => {
 };
 
 const PreferencesMenu = React.forwardRef<HTMLButtonElement>((props, ref) => {
-  const menu = useMenuState();
+  const menu = useMenuState({ visible: true });
   return (
     <>
       <SubMenuButton ref={ref} {...menu} {...props}>
@@ -95,7 +95,7 @@ const PreferencesMenu = React.forwardRef<HTMLButtonElement>((props, ref) => {
 PreferencesMenu.displayName = "PreferencesMenu";
 
 const SubMenu = (): JSX.Element => {
-  const menu = useMenuState();
+  const menu = useMenuState({ visible: true });
   return (
     <>
       <MenuButton {...menu} variant="secondary">

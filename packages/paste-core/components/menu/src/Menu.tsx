@@ -15,17 +15,22 @@ const StyledMenu = React.forwardRef<HTMLDivElement, BoxElementProps>(({ style, .
       borderColor="colorBorderWeaker"
       borderRadius="borderRadius30"
       boxShadow="shadow"
-      // scroll at roughly 10 items
-      maxHeight="size40"
       maxWidth="size30"
       minWidth="size20"
-      overflowY="auto"
       zIndex="zIndex20"
       paddingY="space30"
       _focus={{ outline: "none" }}
       style={style}
       ref={ref}
-    />
+    >
+      <Box
+        // scroll at roughly 10 items
+        maxHeight="size50"
+        overflowY="auto"
+      >
+        {props.children}
+      </Box>
+    </Box>
   );
 });
 
