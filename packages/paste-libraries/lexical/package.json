@@ -24,9 +24,9 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@lexical/link": "0.12.0",
-    "@lexical/react": "0.12.0",
-    "lexical": "0.12.0"
+    "@lexical/link": "0.13.1",
+    "@lexical/react": "0.13.1",
+    "lexical": "0.13.1"
   },
   "peerDependencies": {
     "react": "^17.0.2 || ^18.0.0",
