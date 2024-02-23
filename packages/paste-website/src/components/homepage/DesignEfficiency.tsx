@@ -61,7 +61,7 @@ const DesignEfficiency: React.FC = (): React.ReactElement => {
             gridTemplateColumns="repeat(22, 1fr)"
             columnGap="space50"
             rowGap="space100"
-            left={-200}
+            left={-300}
             top={300}
             position="absolute"
           >
@@ -75,7 +75,7 @@ const DesignEfficiency: React.FC = (): React.ReactElement => {
           marginTop="space150"
           flexGrow={1}
           position="relative"
-          right={[0, 0, -105, -200]}
+          right={[0, 0, -55, -200]}
           backgroundColor="colorBackgroundBody"
         >
           <ColorGradientRainbow omitGrays />

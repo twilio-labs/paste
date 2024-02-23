@@ -37,7 +37,7 @@ const CarouselButton: React.FC<{ "aria-label": string }> = (props): React.ReactE
       }}
       {...props}
     >
-      {" "}
+      &nbsp;
     </Button>
   );
 };
@@ -76,6 +76,18 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
             borderRadius="borderRadius30"
             overflow="hidden"
           >
+            <Image src={Settings} alt="" width="499" />
+          </Box>
+        </TabPrimitivePanel>
+        <TabPrimitivePanel {...tab}>
+          <Box
+            height="354px"
+            width="499px"
+            flexShrink={0}
+            boxShadow="shadow"
+            borderRadius="borderRadius30"
+            overflow="hidden"
+          >
             <Image src={ObjectsList} alt="" width="499" />
           </Box>
         </TabPrimitivePanel>
@@ -89,18 +101,6 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
             overflow="hidden"
           >
             <Image src={Overview} alt="" width="499" />
-          </Box>
-        </TabPrimitivePanel>
-        <TabPrimitivePanel {...tab}>
-          <Box
-            height="354px"
-            width="499px"
-            flexShrink={0}
-            boxShadow="shadow"
-            borderRadius="borderRadius30"
-            overflow="hidden"
-          >
-            <Image src={Settings} alt="" width="499" />
           </Box>
         </TabPrimitivePanel>
         <TabPrimitivePanel {...tab}>
@@ -134,13 +134,15 @@ const Templates: React.FC = (): React.ReactElement => {
     <SectionContainer position="relative">
       <Box
         display="flex"
+        flexDirection={["column", "column", "row"]}
         justifyContent="center"
         columnGap="space100"
+        rowGap="space100"
         position="relative"
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
         overflow="visible"
       >
-        <Box paddingTop="space190" display="flex" flexDirection="column" flexShrink={1}>
+        <Box paddingTop="space190" display="flex" flexDirection="column">
           <Heading as="h3" variant="heading20">
             Explore our templates
           </Heading>
@@ -156,9 +158,7 @@ const Templates: React.FC = (): React.ReactElement => {
             <BouncyAnchor text="Check out our templates" href="/page-templates" />
           </Text>
         </Box>
-        <Box display={["none", "none", "flex", "flex"]}>
-          <TemplatesCarousel />
-        </Box>
+        <TemplatesCarousel />
       </Box>
       <Box zIndex="zIndex30" position="absolute" left={-250} element="CIRCLE" top={300}>
         <CircleIcon
