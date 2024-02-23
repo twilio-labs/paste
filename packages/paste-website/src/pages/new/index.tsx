@@ -47,9 +47,6 @@ const NewHomePage = ({ navigationData }: InferGetStaticPropsType<typeof getStati
       <CommunityOfBuilders />
       <WeDoTheThinking />
       <Accessibility />
-      {/* <VisibilitySensor onChange={handleVisibilityChange} partialVisibility minTopValue={50}>
-        <Box />
-      </VisibilitySensor> */}
     </SiteWrapper>
   );
 };

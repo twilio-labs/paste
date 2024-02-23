@@ -21,15 +21,6 @@ const Accessibility: React.FC = (): React.ReactElement => {
 
   return (
     <SectionContainer>
-      <Box
-        display={["none", "none", "none", "flex"]}
-        position="absolute"
-        justifyContent="center"
-        right={100}
-        marginTop="spaceNegative170"
-      >
-        <DoodleLoopFooterSide />
-      </Box>
       <Box element="ACCESSIBILITY" width="100%" maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}>
         <SectionSeparator>Accessibility</SectionSeparator>
         <Box
