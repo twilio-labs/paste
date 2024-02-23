@@ -1,19 +1,9 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/jsx-max-depth */
+import { AspectRatio } from "@twilio-paste/aspect-ratio";
 import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
 import { Heading } from "@twilio-paste/heading";
-import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import { ListItem, UnorderedList } from "@twilio-paste/list";
-import {
-  ModalBody,
-  ModalContext,
-  ModalDialogContent,
-  ModalFooter,
-  ModalFooterActions,
-  ModalHeader,
-  ModalHeading,
-} from "@twilio-paste/modal";
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { useUID } from "@twilio-paste/uid-library";
@@ -28,10 +18,6 @@ import { SectionSeparator } from "./SectionSeparator";
 
 const Accessibility: React.FC = (): React.ReactElement => {
   const selectedTabId = useUID();
-  const [modalIsOpen, setModalIsOpen] = React.useState(true);
-  const onDismiss = (): void => setModalIsOpen(false);
-  const onOpenModal = (): void => setModalIsOpen(!modalIsOpen);
-  const modalHeadingID = useUID();
 
   return (
     <SectionContainer>
@@ -84,62 +70,38 @@ const Accessibility: React.FC = (): React.ReactElement => {
               <Tab>Keyboard support</Tab>
             </TabList>
             <TabPanels>
-              <TabPanel paddingTop="space0">
-                <Box
-                  paddingX="space150"
-                  paddingY="space100"
-                  backgroundColor="colorBackgroundOverlay"
-                  borderBottomLeftRadius="borderRadius30"
-                  borderBottomRightRadius="borderRadius30"
-                >
-                  <ModalContext.Provider value={{ onDismiss }}>
-                    <ModalDialogContent aria-labelledby={modalHeadingID}>
-                      <ModalHeader>
-                        <ModalHeading as="h3" id={modalHeadingID}>
-                          Focus management
-                        </ModalHeading>
-                      </ModalHeader>
-                      <ModalBody>
-                        All elements required to interact with the modal, including closing or acknowledging it, are
-                        contained in the modal since they trap focus, and users can&apos;t interact with the underlying
-                        page.
-                      </ModalBody>
-                      <ModalFooter>
-                        <ModalFooterActions>
-                          <Button variant="secondary" onClick={onDismiss}>
-                            Cancel
-                          </Button>
-                          <Button variant="primary" onClick={onOpenModal}>
-                            Next
-                            <ArrowForwardIcon decorative />
-                          </Button>
-                        </ModalFooterActions>
-                      </ModalFooter>
-                    </ModalDialogContent>
-                  </ModalContext.Provider>
-                </Box>
+              <TabPanel>
+                <AspectRatio ratio="16:9">
+                  <iframe
+                    title="Remix silent demo video"
+                    src="https://www.loom.com/embed/4c584f749e414326b83fed3321132186?sid=42b642cb-3377-4a76-b926-fe0f9f274df7"
+                    frameBorder="0"
+                    allowFullScreen
+                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                  />
+                </AspectRatio>
               </TabPanel>
-              <TabPanel paddingTop="space0">
-                <Box
-                  paddingX="space150"
-                  paddingY="space100"
-                  backgroundColor="colorBackgroundOverlay"
-                  borderBottomLeftRadius="borderRadius30"
-                  borderBottomRightRadius="borderRadius30"
-                >
-                  screen reader support
-                </Box>
+              <TabPanel>
+                <AspectRatio ratio="16:9">
+                  <iframe
+                    title="Remix silent demo video"
+                    src="https://www.loom.com/embed/5328cf9bec074512917180df829250e9?sid=a0a3a1a1-e521-4a86-8ccc-02b45344d97d"
+                    frameBorder="0"
+                    allowFullScreen
+                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                  />
+                </AspectRatio>
               </TabPanel>
-              <TabPanel paddingTop="space0">
-                <Box
-                  paddingX="space150"
-                  paddingY="space100"
-                  backgroundColor="colorBackgroundOverlay"
-                  borderBottomLeftRadius="borderRadius30"
-                  borderBottomRightRadius="borderRadius30"
-                >
-                  keyboard support
-                </Box>
+              <TabPanel>
+                <AspectRatio ratio="16:9">
+                  <iframe
+                    title="Remix silent demo video"
+                    src="https://www.loom.com/embed/7a98f9ded7b24371bd6888fa80f52b19?sid=e9b9fd19-4bbd-4692-aa67-6e8ec72eb617"
+                    frameBorder="0"
+                    allowFullScreen
+                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                  />
+                </AspectRatio>
               </TabPanel>
             </TabPanels>
           </Tabs>
