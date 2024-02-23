@@ -9,15 +9,14 @@ const SiteFooter: React.FC = () => {
     <Box
       as="footer"
       margin={["space0", "space80", "space140"]}
-      paddingTop="space200"
       display="flex"
       justifyContent="center"
+      borderRadius={["borderRadius0", "borderRadius30"]}
+      backgroundColor="colorBackgroundBodyInverse"
     >
       <Box
         width="100%"
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
-        borderRadius={["borderRadius0", "borderRadius30"]}
-        backgroundColor="colorBackgroundBodyInverse"
         padding={["space90", "space90", "space180"]}
         paddingTop={["space130", "space130", "space130"]}
         display="flex"

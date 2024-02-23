@@ -1,11 +1,11 @@
 import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
-import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
 import { Pagination, PaginationArrow, PaginationItems } from "@twilio-paste/pagination";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
+import { BouncyAnchor } from "./BouncyAnchor";
 import { SectionContainer } from "./SectionContainer";
 
 const TemplatesCarousel: React.FC = (): React.ReactElement => {
@@ -104,17 +104,8 @@ const Templates: React.FC = (): React.ReactElement => {
             Get inspired by these examples of Paste templates in use, and start building your customer experiences
             today.
           </Text>
-          <Text
-            as="a"
-            href="#"
-            color="colorTextLink"
-            fontWeight="fontWeightSemibold"
-            fontSize="fontSize40"
-            lineHeight="lineHeight40"
-            display="flex"
-            _hover={{ color: "colorTextLinkStronger" }}
-          >
-            Check out our templates <ArrowForwardIcon decorative size="sizeIcon40" />
+          <Text as="span" fontWeight="fontWeightSemibold" fontSize="fontSize40" lineHeight="lineHeight40">
+            <BouncyAnchor text="Check out our templates" href="" />
           </Text>
         </Box>
         <TemplatesCarousel />
