@@ -25,7 +25,7 @@ const ThinkingLine: React.FC<{ children: React.ReactNode }> = ({ children }): Re
   });
 
   return (
-    <VisibilitySensor onChange={handleVisibilityChange} offset={{ bottom: 120 }}>
+    <VisibilitySensor onChange={handleVisibilityChange} offset={{ bottom: 160 }}>
       <Box display="flex" columnGap="space50" alignItems="center">
         <AnimatedBox
           borderRadius="borderRadiusCircle"
