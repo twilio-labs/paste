@@ -13,6 +13,17 @@ props:
     value: "{!palette-gray-90}"
     comment: Strong inverse background color for any container. Must be used on color-background-body-inverse.
 
+  # brand backgrounds
+  color-background-brand:
+    value: "{!palette-gray-100}"
+    comment: Primary brand background, accessible with inverse text.
+  color-background-brand-strong:
+    value: "{!palette-gray-100}"
+    comment: Strong primary brand background, accessible with inverse text.
+  color-background-brand-stronger:
+    value: "{!palette-gray-100}"
+    comment: Stronger primary brand background, accessible with inverse text.
+
   # user background
   color-background-user:
     value: "{!palette-purple-05}"

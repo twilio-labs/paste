@@ -544,7 +544,7 @@
       "externalProp": true
     },
     "color": {
-      "type": "\"inherit\" | \"transparent\" | \"colorText\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | ... 56 more ... | { ...; }",
+      "type": "\"inherit\" | \"transparent\" | \"colorText\" | \"colorTextBrand\" | \"colorTextBrandHighlight\" | \"colorTextBrandInverse\" | \"colorTextDecorative10\" | \"colorTextDecorative20\" | \"colorTextDecorative30\" | ... 56 more ... | { ...; }",
       "defaultValue": null,
       "required": false,
       "externalProp": false,

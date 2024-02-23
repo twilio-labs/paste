@@ -81,6 +81,13 @@ props:
     text_contrast_pairing:
       - color-background-body-inverse
       - color-background-brand
+  color-text-brand:
+    value: "{!palette-gray-100}"
+    comment: Text color to be used on top of brand accent background colors such as color-background-brand-10 only.
+    text_contrast_pairing:
+      - color-background-brand-10
+      - color-background-brand-20
+      - color-background-brand-30
   color-text-brand-highlight:
     value: "{!amaranth}"
     comment: Twilio brand red, accessible on large text only.

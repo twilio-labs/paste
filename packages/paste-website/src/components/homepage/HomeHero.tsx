@@ -3,7 +3,7 @@ import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Column, Grid } from "@twilio-paste/grid";
 import { ArrowForwardIcon } from "@twilio-paste/icons/esm/ArrowForwardIcon";
-import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
 
@@ -74,21 +74,21 @@ const HomeHero = (): JSX.Element => {
             <Column span={6}>
               <NewComponentBanner>
                 <Badge as="span" variant="new">
-                  <NewIcon decorative />
-                  New
+                  <ArtificialIntelligenceIcon decorative />
+                  Assistant
                 </Badge>
-                <NewComponentBannerText>The Page Header component is here!</NewComponentBannerText>
+                <NewComponentBannerText>New AI powered Paste Assistant!</NewComponentBannerText>
                 <NewComponentBannerLink
-                  href="/components/page-header"
+                  href="/assistant"
                   onClick={() =>
                     event({
                       category: "Hero",
                       action: "click-new-banner",
-                      label: "Page header announcement",
+                      label: "Assistant announcement",
                     })
                   }
                 >
-                  See more
+                  Try now
                 </NewComponentBannerLink>
               </NewComponentBanner>
               <Text

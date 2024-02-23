@@ -8,6 +8,7 @@ import "react-github-button/assets/style.css";
 
 import { PASTE_DOCS_TOPBAR } from "../../../constants";
 import { ContactUsMenu } from "../../ContactUsMenu";
+import { AssistantLink } from "./AssistantLink";
 import { DarkModeToggle } from "./DarkModeToggle";
 import { FigmaButton } from "./FigmaButton";
 import { HamburgerToggle } from "./HamburgerToggle";
@@ -44,6 +45,7 @@ export const SiteHeader: React.FC<{
           <Box data-cy="paste-docsearch-container" id="paste-docs-search-input">
             <SiteHeaderSearch />
           </Box>
+          <AssistantLink />
           <ContactUsMenu />
           <DarkModeToggle />
           <FigmaButton />
