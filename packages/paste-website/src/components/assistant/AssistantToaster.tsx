@@ -11,7 +11,7 @@ export const AssistantToasterContext = React.createContext<AssistantToasterConte
 export const useAssistantToaster = (): AssistantToasterContextValue => {
   const context = React.useContext(AssistantToasterContext);
   if (!context) {
-    throw new Error("useDarkModeContext must be used with DarkModeContextProvider");
+    throw new Error("useAssistantToaster must be used with AssistantToasterContext.Provider");
   }
   return context;
 };
