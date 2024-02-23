@@ -59,13 +59,6 @@ const HomeHero = (): JSX.Element => {
           <ComponentShowcase />
         </Box>
       </Box>
-      <Box zIndex="zIndex0" position="absolute" top="45rem" left="42%" element="CIRCLE">
-        <CircleIcon
-          css={{ height: theme.heights.size30, width: theme.widths.size30 }}
-          color={theme.backgroundColors.colorBackgroundBrandHighlight}
-          decorative
-        />
-      </Box>
     </SectionContainer>
   );
 };
