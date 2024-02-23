@@ -9,7 +9,6 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { DoodleLoopFooterSide } from "../../assets/illustrations/DoodleLoopFooterSide";
 import { NewDoodleLoop } from "../../assets/illustrations/NewDoodleLoop";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { BouncyAnchor } from "./BouncyAnchor";
