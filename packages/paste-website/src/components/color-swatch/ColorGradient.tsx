@@ -1,12 +1,16 @@
+import { animated, useSpring } from "@twilio-paste/animation-library";
 import { Box } from "@twilio-paste/box";
 import DarkRawTokens from "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.raw.json";
 import DefaultRawTokens from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.raw.json";
 import { styled, themeGet } from "@twilio-paste/styling-library";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
 import { useDarkModeContext } from "../../context/DarkModeContext";
 import type { Themes } from "../../types";
+
+const AnimatedBox = animated(Box);
 
 type ThemeShape = Record<string, Record<string, string | number>>;
 
@@ -49,22 +53,6 @@ background-color: ${(props: any) => props.backgroundColor};
 height: ${themeGet("space.space120")};
 `;
 
-// Need to use styled div because Box doesn't support CSS grid
-const StyledGrid = styled.div`
-  display: grid;
-  column-gap: ${themeGet("space.space40")};
-  margin-bottom: ${themeGet("space.space70")};
-  grid-template-columns: repeat(7, 1fr);
-`;
-
-const StyledGridOmitGrays = styled.div`
-display: grid;
-column-gap: ${themeGet("space.space40")};
-margin-bottom: ${themeGet("space.space70")};
-grid-template-columns: repeat(6, 1fr);
-grid-template-rows: max-content
-`;
-
 export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: string; makeTall?: boolean }>> = ({
   aliasPrefix,
   makeTall = "false",
@@ -91,21 +79,42 @@ export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: stri
 };
 
 export const ColorGradientRainbow: React.FC<{ omitGrays?: boolean }> = ({ omitGrays = false }): JSX.Element => {
+  const [show, setShow] = React.useState(false);
+
+  function handleVisibilityChange(isVisible: boolean): void {
+    if (!show) {
+      setShow(isVisible);
+    }
+  }
+
+  const styles = useSpring({
+    opacity: show ? 1 : 0.1,
+  });
+
   if (omitGrays)
     return (
-      <StyledGridOmitGrays>
-        {aliasPrefixes
-          .filter((prefix) => prefix !== "palette-gray")
-          .map((prefix) => (
-            <ColorGradient makeTall aliasPrefix={prefix} key={useUID()} />
-          ))}
-      </StyledGridOmitGrays>
+      <VisibilitySensor onChange={handleVisibilityChange} partialVisibility offset={{ bottom: 150 }}>
+        <AnimatedBox
+          display="grid"
+          columnGap="space40"
+          marginBottom="space70"
+          gridTemplateColumns="repeat(6, 1fr)"
+          gridTemplateRows="max-content"
+          style={styles}
+        >
+          {aliasPrefixes
+            .filter((prefix) => prefix !== "palette-gray")
+            .map((prefix) => (
+              <ColorGradient makeTall aliasPrefix={prefix} key={useUID()} />
+            ))}
+        </AnimatedBox>
+      </VisibilitySensor>
     );
   return (
-    <StyledGrid>
+    <Box display="grid" columnGap="space40" marginBottom="space70" gridTemplateColumns="repeat(7, 1fr)">
       {aliasPrefixes.map((prefix) => (
         <ColorGradient aliasPrefix={prefix} key={useUID()} />
       ))}
-    </StyledGrid>
+    </Box>
   );
 };
