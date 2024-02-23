@@ -8,6 +8,79 @@ import * as React from "react";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { SectionContainer } from "./SectionContainer";
 
+const TemplatesCarousel: React.FC = (): React.ReactElement => {
+  return (
+    <Box
+      width="100%"
+      alignSelf="center"
+      position="relative"
+      right={-200}
+      display="flex"
+      flexDirection="column"
+      rowGap="space70"
+    >
+      <Box
+        paddingY="space130"
+        borderStyle="solid"
+        borderColor="colorBorderWeaker"
+        borderWidth="borderWidth10"
+        borderRadius="borderRadius50"
+        backgroundColor="colorBackgroundBody"
+        display="flex"
+        columnGap="space70"
+        overflow="hidden"
+      >
+        <Box
+          width="499px"
+          height="354px"
+          borderStyle="solid"
+          borderWidth="borderWidth10"
+          flexShrink={0}
+          boxShadow="shadow"
+        >
+          template 1
+        </Box>
+        <Box
+          width="499px"
+          height="354px"
+          borderStyle="solid"
+          borderWidth="borderWidth10"
+          flexShrink={0}
+          boxShadow="shadow"
+        >
+          template 2
+        </Box>
+        <Box
+          width="499px"
+          height="354px"
+          borderStyle="solid"
+          borderWidth="borderWidth10"
+          flexShrink={0}
+          boxShadow="shadow"
+        >
+          template 3
+        </Box>
+        <Box
+          width="499px"
+          height="354px"
+          borderStyle="solid"
+          borderWidth="borderWidth10"
+          flexShrink={0}
+          boxShadow="shadow"
+        >
+          template 4
+        </Box>
+      </Box>
+      <Pagination label="button pagination navigation">
+        <PaginationItems>
+          <PaginationArrow label="Go to previous page" variant="back" />
+          <PaginationArrow label="Go to next page" variant="forward" />
+        </PaginationItems>
+      </Pagination>
+    </Box>
+  );
+};
+
 const Templates: React.FC = (): React.ReactElement => {
   return (
     <SectionContainer>
@@ -18,7 +91,7 @@ const Templates: React.FC = (): React.ReactElement => {
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
         overflow="visible"
       >
-        <Box paddingTop="space190" display="flex" flexDirection="column" maxWidth="size40">
+        <Box paddingTop="space190" display="flex" flexDirection="column" maxWidth="size40" flexShrink={0}>
           <Heading as="h3" variant="heading20">
             Explore our templates
           </Heading>
@@ -44,33 +117,7 @@ const Templates: React.FC = (): React.ReactElement => {
             Check out our templates <ArrowForwardIcon decorative size="sizeIcon40" />
           </Text>
         </Box>
-        <Box
-          width="100%"
-          alignSelf="center"
-          position="relative"
-          right={-200}
-          display="flex"
-          flexDirection="column"
-          rowGap="space70"
-        >
-          <Box
-            textAlign="center"
-            paddingTop="space150"
-            borderStyle="solid"
-            borderColor="colorBorderWeaker"
-            borderWidth="borderWidth10"
-            borderRadius="borderRadius50"
-            backgroundColor="colorBackgroundBody"
-          >
-            templates carousel
-          </Box>
-          <Pagination label="button pagination navigation">
-            <PaginationItems>
-              <PaginationArrow label="Go to previous page" variant="back" />
-              <PaginationArrow label="Go to next page" variant="forward" />
-            </PaginationItems>
-          </Pagination>
-        </Box>
+        <TemplatesCarousel />
       </Box>
     </SectionContainer>
   );

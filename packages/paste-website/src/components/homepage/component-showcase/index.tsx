@@ -23,6 +23,7 @@ const ComponentShowcase: React.FC<React.PropsWithChildren> = () => {
       zIndex="zIndex10"
       element="COMPONENT_SHOWCASE"
       overflow="hidden"
+      aria-hidden="true"
     >
       <RowOneShowcase />
       <ColumnOneShowcase />

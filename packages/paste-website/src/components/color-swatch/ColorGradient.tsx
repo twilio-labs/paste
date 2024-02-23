@@ -44,6 +44,11 @@ const StyledGradientSwatch = styled.div<{ backgroundColor: string }>`
   height: ${themeGet("space.space60")};
 `;
 
+const StyledGradientSwatchTall = styled.div<{ backgroundColor: string }>`
+background-color: ${(props) => props.backgroundColor};
+height: ${themeGet("space.space120")};
+`;
+
 // Need to use styled div because Box doesn't support CSS grid
 const StyledGrid = styled.div`
   display: grid;
@@ -52,10 +57,30 @@ const StyledGrid = styled.div`
   grid-template-columns: repeat(7, 1fr);
 `;
 
-export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: string }>> = ({ aliasPrefix }) => {
+const StyledGridOmitGrays = styled.div`
+display: grid;
+column-gap: ${themeGet("space.space40")};
+margin-bottom: ${themeGet("space.space70")};
+grid-template-columns: repeat(6, 1fr);
+grid-template-rows: max-content
+`;
+
+export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: string; makeTall?: boolean }>> = ({
+  aliasPrefix,
+  makeTall = "false",
+}) => {
   const { theme } = useDarkModeContext();
   const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme);
 
+  if (makeTall) {
+    return (
+      <Box borderRadius="borderRadius20" overflow="hidden">
+        {aliasValues.map((aliasValue) => (
+          <StyledGradientSwatchTall backgroundColor={aliasValue} key={useUID()} />
+        ))}
+      </Box>
+    );
+  }
   return (
     <Box borderRadius="borderRadius20" overflow="hidden">
       {aliasValues.map((aliasValue) => (
@@ -65,7 +90,17 @@ export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: stri
   );
 };
 
-export const ColorGradientRainbow = (): JSX.Element => {
+export const ColorGradientRainbow: React.FC<{ omitGrays?: boolean }> = ({ omitGrays = false }): JSX.Element => {
+  if (omitGrays)
+    return (
+      <StyledGridOmitGrays>
+        {aliasPrefixes
+          .filter((prefix) => prefix !== "palette-gray")
+          .map((prefix) => (
+            <ColorGradient makeTall aliasPrefix={prefix} key={useUID()} />
+          ))}
+      </StyledGridOmitGrays>
+    );
   return (
     <StyledGrid>
       {aliasPrefixes.map((prefix) => (

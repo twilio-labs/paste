@@ -33,7 +33,7 @@ const HomeHero = (): JSX.Element => {
               fontSize="fontSize90"
               lineHeight="lineHeight90"
               fontWeight="fontWeightSemibold"
-              letterSpacing="-2%"
+              letterSpacing="-.02em"
             >
               Build inclusive, delightful customer experiences with Twilio’s open-source design system.
             </Text>
