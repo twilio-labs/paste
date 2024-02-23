@@ -15,6 +15,8 @@ const SectionSeparator: React.FC<SectionSeparatorProps> = ({ children }) => {
       display="grid"
       gridTemplateColumns="max-content auto"
       alignItems="center"
+      position="relative"
+      zIndex="zIndex10"
     >
       <Text as="span" color="colorTextWeak" fontSize="fontSize30" fontWeight="fontWeightSemibold" marginRight="space50">
         {children}

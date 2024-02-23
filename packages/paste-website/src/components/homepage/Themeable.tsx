@@ -37,11 +37,10 @@ const Themeable: React.FC = (): React.ReactElement => {
           gridArea="row1"
           width="100%"
           display="flex"
-          flexDirection={["column", "column", "row", "row"]}
+          flexDirection={["column", "column", "column", "row"]}
           justifyContent="space-between"
           columnGap="space100"
-          rowGap="space100"
-          // paddingX={[""]}
+          rowGap="space200"
         >
           <Box display="flex" flexDirection="column">
             <Heading as="h3" variant="heading20">
@@ -60,7 +59,7 @@ const Themeable: React.FC = (): React.ReactElement => {
               <BouncyAnchor href="/page-templates" text="Check out our templates" />
             </Box>
           </Box>
-          <Box display={["none", "none", "none", "block"]}>
+          <Box display={["none", "none", "flex", "flex"]} justifyContent="center">
             <ThemeableBuilder />
           </Box>
         </Box>
