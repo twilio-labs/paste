@@ -1,33 +1,29 @@
 import { Box } from "@twilio-paste/box";
-import { useRouter } from "next/router";
 
-import { SITE_CONTENT_MAX_WIDTH } from "../../../constants";
+import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../../constants";
 import { SiteFooterIllustration } from "./SiteFooterIllustration";
 import { SiteFooterNav } from "./SiteFooterNav";
-import { SiteFooterTopAngle } from "./SiteFooterTopAngle";
 
 const SiteFooter: React.FC = () => {
-  const router = useRouter();
   return (
-    <Box as="footer" margin="space70" marginTop="space200" paddingTop="space200" position="relative">
-      {router.pathname === "/" && <SiteFooterTopAngle />}
+    <Box
+      as="footer"
+      margin={["space0", "space80", "space140"]}
+      display="flex"
+      justifyContent="center"
+      borderRadius={["borderRadius0", "borderRadius30"]}
+      backgroundColor="colorBackgroundBodyInverse"
+    >
       <Box
-        borderRadius="borderRadius20"
-        backgroundColor="colorBackgroundBrandStronger"
-        marginTop={["space0", "space0", "space0", "space0", "space200"]}
-        paddingTop={["space0", "space0", "space0", "space0", "space200"]}
+        width="100%"
+        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+        padding={["space90", "space90", "space180"]}
+        paddingTop={["space130", "space130", "space130"]}
+        display="flex"
+        justifyContent={["center", "center", "center", "space-between"]}
       >
-        <Box
-          maxWidth={SITE_CONTENT_MAX_WIDTH}
-          padding={["space90", "space180"]}
-          marginTop="space10"
-          marginLeft="auto"
-          marginRight="auto"
-          position="relative"
-        >
-          <SiteFooterIllustration />
-          <SiteFooterNav />
-        </Box>
+        <SiteFooterNav />
+        <SiteFooterIllustration />
       </Box>
     </Box>
   );

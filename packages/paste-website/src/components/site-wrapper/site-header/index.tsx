@@ -46,8 +46,8 @@ export const SiteHeader: React.FC<{
             <SiteHeaderSearch />
           </Box>
           <AssistantLink />
-          <DarkModeToggle />
           <ContactUsMenu />
+          <DarkModeToggle />
           <FigmaButton />
           <GitHubButton type="stargazers" namespace="twilio-labs" repo="paste" />
         </TopbarActions>

@@ -1,12 +1,16 @@
+import { animated, useSpring } from "@twilio-paste/animation-library";
 import { Box } from "@twilio-paste/box";
 import DarkRawTokens from "@twilio-paste/design-tokens/dist/themes/twilio-dark/tokens.raw.json";
 import DefaultRawTokens from "@twilio-paste/design-tokens/dist/themes/twilio/tokens.raw.json";
 import { styled, themeGet } from "@twilio-paste/styling-library";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
 import { useDarkModeContext } from "../../context/DarkModeContext";
 import type { Themes } from "../../types";
+
+const AnimatedBox = animated(Box);
 
 type ThemeShape = Record<string, Record<string, string | number>>;
 
@@ -40,22 +44,31 @@ export const getAliasValuesFromPrefix = (prefix: string, theme: Themes): string[
 
 // Need to use styled div because the alias names aren't valid backgroundColors on Box
 const StyledGradientSwatch = styled.div<{ backgroundColor: string }>`
-  background-color: ${(props) => props.backgroundColor};
+  background-color: ${(props: any) => props.backgroundColor};
   height: ${themeGet("space.space60")};
 `;
 
-// Need to use styled div because Box doesn't support CSS grid
-const StyledGrid = styled.div`
-  display: grid;
-  column-gap: ${themeGet("space.space40")};
-  margin-bottom: ${themeGet("space.space70")};
-  grid-template-columns: repeat(7, 1fr);
+const StyledGradientSwatchTall = styled.div<{ backgroundColor: string }>`
+background-color: ${(props: any) => props.backgroundColor};
+height: ${themeGet("space.space120")};
 `;
 
-export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: string }>> = ({ aliasPrefix }) => {
+export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: string; makeTall?: boolean }>> = ({
+  aliasPrefix,
+  makeTall = "false",
+}) => {
   const { theme } = useDarkModeContext();
   const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme);
 
+  if (makeTall) {
+    return (
+      <Box borderRadius="borderRadius20" overflow="hidden">
+        {aliasValues.map((aliasValue) => (
+          <StyledGradientSwatchTall backgroundColor={aliasValue} key={useUID()} />
+        ))}
+      </Box>
+    );
+  }
   return (
     <Box borderRadius="borderRadius20" overflow="hidden">
       {aliasValues.map((aliasValue) => (
@@ -65,12 +78,43 @@ export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: stri
   );
 };
 
-export const ColorGradientRainbow = (): JSX.Element => {
+export const ColorGradientRainbow: React.FC<{ omitGrays?: boolean }> = ({ omitGrays = false }): JSX.Element => {
+  const [show, setShow] = React.useState(false);
+
+  function handleVisibilityChange(isVisible: boolean): void {
+    if (!show) {
+      setShow(isVisible);
+    }
+  }
+
+  const styles = useSpring({
+    opacity: show ? 1 : 0.1,
+  });
+
+  if (omitGrays)
+    return (
+      <VisibilitySensor onChange={handleVisibilityChange} partialVisibility offset={{ bottom: 150 }}>
+        <AnimatedBox
+          display="grid"
+          columnGap="space40"
+          marginBottom="space70"
+          gridTemplateColumns="repeat(6, 1fr)"
+          gridTemplateRows="max-content"
+          style={styles}
+        >
+          {aliasPrefixes
+            .filter((prefix) => prefix !== "palette-gray")
+            .map((prefix) => (
+              <ColorGradient makeTall aliasPrefix={prefix} key={useUID()} />
+            ))}
+        </AnimatedBox>
+      </VisibilitySensor>
+    );
   return (
-    <StyledGrid>
+    <Box display="grid" columnGap="space40" marginBottom="space70" gridTemplateColumns="repeat(7, 1fr)">
       {aliasPrefixes.map((prefix) => (
         <ColorGradient aliasPrefix={prefix} key={useUID()} />
       ))}
-    </StyledGrid>
+    </Box>
   );
 };

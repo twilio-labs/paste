@@ -226,8 +226,8 @@ export const ColumnOneShowcase: React.FC = () => {
         alignItems="center"
         element="SECOND_BOX_COLUMN_1"
       >
-        <Switch name="animations_switch" checked={switchOn} onChange={() => setSwitchOn(!switchOn)}>
-          Enable animations
+        <Switch name="example_switch" checked={switchOn} onChange={() => setSwitchOn(!switchOn)}>
+          View yearly data
         </Switch>
         <AvatarGroup size="sizeIcon70" variant="user">
           <Avatar name="Maria Ardovini" src="/images/avatars/avatar4.png" />
@@ -245,7 +245,7 @@ export const ColumnOneShowcase: React.FC = () => {
         borderRadius="borderRadius30"
         element="SECOND_BOX_COLUMN_1"
       >
-        <Label htmlFor={sliderId}>Animation tension</Label>
+        <Label htmlFor={sliderId}>Volume</Label>
         <Slider id={sliderId} value={sliderValue} onChange={(newValue) => setSliderValue(newValue)} hideRangeLabels />
       </Box>
       <Disclosure state={customDisclosureState}>

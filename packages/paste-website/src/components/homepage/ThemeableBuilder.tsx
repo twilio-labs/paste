@@ -17,15 +17,18 @@ import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import { Separator } from "@twilio-paste/separator";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { Text } from "@twilio-paste/text";
-import { Theme } from "@twilio-paste/theme";
+import { Theme, useTheme } from "@twilio-paste/theme";
 import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
 import Image from "next/image";
 import * as React from "react";
+import { LiveEditor, LiveProvider } from "react-live";
 
 import Acme from "../../assets/images/acme.png";
 import { usePreviewThemeContext } from "../../context/PreviewThemeContext";
 import { CopyButton } from "../CopyButton";
 import { CodeBlockOverlayShadow } from "../shortcodes/live-preview/CodeBlockOverlayShadow";
+import { CodeblockTheme } from "../shortcodes/live-preview/theme";
+import { CustomSnippet, DefaultSnippet, PrimitiveSnippet } from "./ThemeableBuilderCodeSnippets";
 
 const StyledComponentsCard: React.FC = (): React.ReactElement => {
   return (
@@ -83,7 +86,7 @@ const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactEl
     setViewCode(!viewCode);
   };
   const liveEditorId = useUID();
-  // const theme = useTheme();
+  const theme = useTheme();
 
   return (
     <Box
@@ -123,17 +126,16 @@ const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactEl
           )}
         </Button>
       </Box>
-      {/* <LiveEditor
-        id={liveEditorId}
-        style={{
-          margin: "-10px",
-          fontFamily: theme.fonts.fontFamilyCode,
-          backgroundColor: theme.backgroundColors.colorBackgroundBodyInverse,
-        }}
-      /> */}
-      <Text as="span" color="colorTextWeakest">
-        {children}
-      </Text>
+      <LiveProvider code={children} language="jsx" theme={CodeblockTheme}>
+        <LiveEditor
+          id={liveEditorId}
+          style={{
+            margin: "-10px",
+            fontFamily: theme.fonts.fontFamilyCode,
+            backgroundColor: theme.backgroundColors.colorBackgroundBodyInverse,
+          }}
+        />
+      </LiveProvider>
       {viewCode ? null : <CodeBlockOverlayShadow />}
       {viewCode ? (
         <Box position="absolute" bottom="space40" right="space40">
@@ -172,7 +174,36 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
               <StyledComponentsCard />
             </Theme.Provider>
           ) : (
-            <CustomizationProvider elements={{ AVATAR: { borderRadius: "borderRadius0" } }}>
+            <CustomizationProvider
+              baseTheme="default"
+              elements={{
+                CARD: {
+                  backgroundColor: "colorBackgroundDecorative10Weakest",
+                  borderRadius: "borderRadius0",
+                  borderWidth: "borderWidth20",
+                  borderColor: "colorBorderPrimaryStrong",
+                },
+                SEPARATOR: {
+                  borderColor: "colorBorderPrimaryStrong",
+                },
+                BOX: {
+                  fontWeight: "fontWeightBold",
+                  color: "colorTextDecorative20",
+                },
+                AVATAR: {
+                  backgroundColor: "colorBackgroundDecorative20Weakest",
+                  borderRadius: "borderRadiusCircle",
+                  color: "colorTextIconNew",
+                },
+                BADGE: {
+                  borderRadius: "borderRadius0",
+                  backgroundColor: "colorBackgroundPrimaryStrong",
+                  color: "colorTextInverse",
+                  fontWeight: "fontWeightLight",
+                  paddingX: "space50",
+                },
+              }}
+            >
               <StyledComponentsCard />
             </CustomizationProvider>
           )}
@@ -195,22 +226,17 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
             <RadioButton id={useUID()} value="twilio" name={nameSeed("theme")}>
               Twilio
             </RadioButton>
-            <RadioButton id={useUID()} value="twilio-dark" name={nameSeed("theme")}>
-              Something fun
-            </RadioButton>
-            <RadioButton id={useUID()} value="evergreen" name={nameSeed("theme")}>
-              Something else fun
+            <RadioButton id={useUID()} value="custom" name={nameSeed("theme")}>
+              Custom
             </RadioButton>
           </RadioButtonGroup>
         </Box>
       </Box>
-      <CodeEditor>
-        styled components example codestyled components example codestyled components example codestyled components
-        example codestyled components example codestyled components example codestyled components example codestyled
-        components example codestyled components example codestyled components example codestyled components example
-        codestyled components example codestyled components example codestyled components example codestyled components
-        example codestyled components example codestyled components example codestyled components example code
-      </CodeEditor>
+      {["twilio", "default", "dark"].includes(previewTheme) ? (
+        <CodeEditor>{DefaultSnippet}</CodeEditor>
+      ) : (
+        <CodeEditor>{CustomSnippet}</CodeEditor>
+      )}
     </>
   );
 };
@@ -287,11 +313,7 @@ const PrimitivesTab: React.FC = (): React.ReactElement => {
           </Box>
         </Box>
       </Box>
-      <CodeEditor>
-        Primitives example codePrimitives example codePrimitives example codePrimitives example codePrimitives example
-        codePrimitives example codePrimitives example codePrimitives example codePrimitives example codePrimitives
-        example codePrimitives example codePrimitives example codePrimitives example codePrimitives example code
-      </CodeEditor>
+      <CodeEditor>{PrimitiveSnippet}</CodeEditor>
     </>
   );
 };
