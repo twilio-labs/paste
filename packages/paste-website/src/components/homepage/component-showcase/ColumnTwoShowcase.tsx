@@ -36,11 +36,11 @@ export const ColumnTwoShowcase: React.FC = () => {
         <CalloutText>We recommend enabling auto recharge to keep your account active.</CalloutText>
       </Callout>
       <Box display="flex" flexDirection="row" justifyContent="space-between">
-        <Button variant="secondary" pressed={followPressed} onClick={() => setFollowPressed(!followPressed)}>
+        <Button variant="primary" pressed={followPressed} onClick={() => setFollowPressed(!followPressed)}>
           {followPressed ? <CheckboxCheckIcon decorative /> : <PlusIcon decorative />}Follow
         </Button>
-        <Button variant="destructive_secondary">Remove user</Button>
-        <Button variant="destructive_secondary">
+        <Button variant="destructive">Remove user</Button>
+        <Button variant="destructive">
           <FilterIcon decorative />
           Apply filters
         </Button>
@@ -72,16 +72,18 @@ export const ColumnTwoShowcase: React.FC = () => {
             </ChatMessageMeta>
           </ChatMessage>
         </ChatLog>
-        <ChatComposer
-          config={{
-            namespace: "customer-chat",
-            onError: (e) => {
-              throw e;
-            },
-          }}
-          placeholder="Contact Owl Corp"
-          ariaLabel="A basic chat composer"
-        />
+        <Box paddingX="space40" paddingY="space30">
+          <ChatComposer
+            config={{
+              namespace: "customer-chat",
+              onError: (e) => {
+                throw e;
+              },
+            }}
+            placeholder="Contact Owl Corp"
+            ariaLabel="A basic chat composer"
+          />
+        </Box>
       </Box>
     </Box>
   );
