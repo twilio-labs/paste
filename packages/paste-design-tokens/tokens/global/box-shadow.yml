@@ -122,6 +122,15 @@ props:
   shadow-border-decorative-40-weaker:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-purple-20}"
     comment: Weaker shadow border for decorative 40
+  shadow-border-brand-10:
+    value: "saffron"
+    comment: Shadow border for brand 10
+  shadow-border-brand-20:
+    value: "sky"
+    comment: Shadow border for brand 20
+  shadow-border-brand-30:
+    value: "mint"
+    comment: Shadow border for brand 30
   shadow-border-inverse-weakest:
     value: "{!offset-0} {!offset-0} {!offset-0} 1px {!palette-gray-90}"
     comment: Weakest shadow border on interactive elements on inverse backgrounds.
@@ -194,6 +203,15 @@ props:
   shadow-border-bottom-decorative-40-weaker:
     value: "{!offset-0} 1px {!offset-0} {!palette-purple-20}"
     comment: Weaker bottom shadow border for decorative 40
+  shadow-border-bottom-brand-10-strong:
+    value: "{!offset-0} 1px {!offset-0} {!palette-yellow-80}"
+    comment: Strong bottom shadow border for brand 10
+  shadow-border-bottom-brand-20-strong:
+    value: "{!offset-0} 1px {!offset-0} {!palette-blue-70}"
+    comment: Strong bottom shadow border for brand 20
+  shadow-border-bottom-brand-30-strong:
+    value: "{!offset-0} 1px {!offset-0} {!palette-green-70}"
+    comment: Strong bottom shadow border for brand 30
   shadow-border-bottom-subaccount:
     value: "{!offset-0} 1px {!offset-0} {!palette-yellow-40}"
     comment: Bottom shadow border for subaccount badge
