@@ -27,6 +27,9 @@ import {MMSCapableIcon} from '@twilio-paste/icons/esm/MMSCapableIcon';
 import {VoiceCapableIcon} from '@twilio-paste/icons/esm/VoiceCapableIcon';
 import {FaxCapableIcon} from '@twilio-paste/icons/esm/FaxCapableIcon';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import { ProductCommsIcon } from "@twilio-paste/icons/esm/ProductCommsIcon";
+import { ProductEmailAPIIcon } from "@twilio-paste/icons/esm/ProductEmailAPIIcon";
+import { ProductSegmentIcon } from "@twilio-paste/icons/esm/ProductSegmentIcon";
 import {Grid, Column} from '@twilio-paste/grid';
 import {Tabs, Tab, TabList, TabPanel, TabPanels} from '@twilio-paste/tabs';
 import {DisplayPill} from '@twilio-paste/display-pill-group';
@@ -109,6 +112,15 @@ export const getStaticProps = async () => {
   <Badge as="span" variant="decorative40">
     Decorative 40
   </Badge>
+  <Badge as="span" variant="brand10">
+    Brand 10
+  </Brand>
+  <Badge as="span" variant="brand20">
+    Brand 20
+  </Brand>
+  <Badge as="span" variant="brand30">
+    Brand 30
+  </Brand>
   <Badge as="span" variant="neutral_counter">
     1
   </Badge>
@@ -274,6 +286,28 @@ but would benefit from the visual affordance of differently-colored Badges. Icon
   <Badge as="span" variant="decorative40">
     <FaxCapableIcon decorative />
     MMS
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
+### Brand
+
+Use the brand Badge to highlight Twilio brands, such as for cross-selling opportunities or to recommend specific pricing plans. Brand icons are optional, and should appear before the text.
+
+<LivePreview scope={{Box, Badge, ProductEmailAPIIcon, ProductSegmentIcon, ProductCommsIcon, FaxCapableIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge as="span" variant="brand10">
+    <ProductCommsIcon decorative />
+    Twilio CPaaS
+  </Badge>
+  <Badge as="span" variant="brand20">
+    <ProductEmailAPIIcon decorative />
+    Twilio Segment CDP
+  </Badge>
+  <Badge as="span" variant="brand30">
+    <ProductSegmentIcon decorative />
+    Twilio SendGrid
   </Badge>
 </Box>
 `.trim()}
