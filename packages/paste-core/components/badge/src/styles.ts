@@ -78,6 +78,21 @@ export const badgeVariantStyles: {
     color: "colorTextDecorative40",
     boxShadow: "shadowBorderDecorative40Weaker",
   },
+  brand10: {
+    backgroundColor: "colorBackgroundBrand10",
+    color: "colorTextBrand",
+    boxShadow: "shadowBorderBrand10",
+  },
+  brand20: {
+    backgroundColor: "colorBackgroundBrand20",
+    color: "colorTextBrand",
+    boxShadow: "shadowBorderBrand20",
+  },
+  brand30: {
+    backgroundColor: "colorBackgroundBrand30",
+    color: "colorTextBrand",
+    boxShadow: "shadowBorderBrand30",
+  },
   neutral_counter: {
     backgroundColor: "colorBackgroundNeutralWeakest",
     color: "colorTextNeutral",
@@ -139,6 +154,15 @@ export const badgeButtonStyles: {
   },
   decorative40: {
     boxShadow: "shadowBorderBottomDecorative40Weaker",
+  },
+  brand10: {
+    boxShadow: "shadowBorderBottomBrand10Strong",
+  },
+  brand20: {
+    boxShadow: "shadowBorderBottomBrand20Strong",
+  },
+  brand30: {
+    boxShadow: "shadowBorderBottomBrand30Strong",
   },
   neutral_counter: {
     boxShadow: "shadowBorderBottomNeutralWeaker",

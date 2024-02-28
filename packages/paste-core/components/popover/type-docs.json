@@ -3559,7 +3559,7 @@
   },
   "PopoverBadgeButton": {
     "variant": {
-      "type": "| \"default\"\n  | \"neutral\"\n  | \"warning\"\n  | \"error\"\n  | \"success\"\n  | \"new\"\n  | \"subaccount\"\n  | \"decorative10\"\n  | \"decorative20\"\n  | \"decorative30\"\n  | \"decorative40\"\n  | \"neutral_counter\"\n  | \"error_counter\"\n  | \"info\"",
+      "type": "| \"default\"\n  | \"neutral\"\n  | \"warning\"\n  | \"error\"\n  | \"success\"\n  | \"new\"\n  | \"subaccount\"\n  | \"decorative10\"\n  | \"decorative20\"\n  | \"decorative30\"\n  | \"decorative40\"\n  | \"brand10\"\n  | \"brand20\"\n  | \"brand30\"\n  | \"neutral_counter\"\n  | \"error_counter\"\n  | \"info\"",
       "defaultValue": "null",
       "required": true,
       "externalProp": false
