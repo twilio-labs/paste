@@ -1,16 +1,13 @@
 import { Box } from "@twilio-paste/box";
 import { DisplayHeading } from "@twilio-paste/display-heading";
 import { Text } from "@twilio-paste/text";
-import { useTheme } from "@twilio-paste/theme";
 
-import CircleIcon from "../icons/CircleIcon";
 import { BouncyAnchor } from "./BouncyAnchor";
 import { SearchBox } from "./SearchBox";
 import { SectionContainer } from "./SectionContainer";
 import { ComponentShowcase } from "./component-showcase";
 
 const HomeHero = (): JSX.Element => {
-  const theme = useTheme();
   return (
     <SectionContainer marginY="space0">
       <Box element="HOME_HERO" display="flex" columnGap="space100">
