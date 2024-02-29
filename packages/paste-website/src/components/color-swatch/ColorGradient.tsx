@@ -48,10 +48,17 @@ const StyledGradientSwatch = styled.div<{ backgroundColor: string }>`
   height: ${themeGet("space.space60")};
 `;
 
-const StyledGradientSwatchTall = styled.div<{ backgroundColor: string }>`
-background-color: ${(props: any) => props.backgroundColor};
-height: ${themeGet("space.space120")};
-`;
+const StyledGradientSwatchTall = styled.div<{ backgroundColor: string; rounded: boolean }>((props) => {
+  return {
+    backgroundColor: props.backgroundColor,
+    // @ts-expect-error it exists
+    height: props.theme.space.space120,
+    // @ts-expect-error it exists
+    borderBottomLeftRadius: props.rounded ? props.theme.radii.borderRadius20 : 0,
+    // @ts-expect-error it exists
+    borderBottomRightRadius: props.rounded ? props.theme.radii.borderRadius20 : 0,
+  };
+});
 
 export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: string; makeTall?: boolean }>> = ({
   aliasPrefix,
@@ -59,12 +66,13 @@ export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: stri
 }) => {
   const { theme } = useDarkModeContext();
   const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme);
+  const count = aliasValues.length - 1;
 
   if (makeTall) {
     return (
       <Box borderRadius="borderRadius20" overflow="hidden">
-        {aliasValues.map((aliasValue) => (
-          <StyledGradientSwatchTall backgroundColor={aliasValue} key={useUID()} />
+        {aliasValues.map((aliasValue, index) => (
+          <StyledGradientSwatchTall backgroundColor={aliasValue} key={useUID()} rounded={index === count} />
         ))}
       </Box>
     );
