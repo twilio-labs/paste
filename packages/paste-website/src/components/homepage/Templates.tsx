@@ -1,9 +1,10 @@
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Heading } from "@twilio-paste/heading";
-import { TabPrimitive, TabPrimitiveList, TabPrimitivePanel, useTabPrimitiveState } from "@twilio-paste/tabs-primitive";
 import { Text } from "@twilio-paste/text";
 import { useTheme } from "@twilio-paste/theme";
+import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
 import Image from "next/image";
 import * as React from "react";
 
@@ -16,35 +17,65 @@ import CircleIcon from "../icons/CircleIcon";
 import { BouncyAnchor } from "./BouncyAnchor";
 import { SectionContainer } from "./SectionContainer";
 
-const CarouselButton = React.forwardRef<HTMLButtonElement, { "aria-label": string }>((props, ref) => {
-  return (
-    <Button
-      ref={ref}
-      variant="reset"
-      size="reset"
-      height="14px"
-      width="14px"
-      borderStyle="solid"
-      borderWidth="borderWidth10"
-      borderColor="colorBorderWeak"
-      borderRadius="borderRadiusCircle"
-      name={props["aria-label"]}
-      _hover={{
-        borderColor: "colorBorderPrimary",
-      }}
-      _selected={{
-        borderColor: "colorBorderPrimaryStrong",
-        backgroundColor: "colorBackgroundPrimaryWeaker",
-      }}
-      {...props}
-    >
-      &nbsp;
-    </Button>
-  );
-});
+const CarouselButton = React.forwardRef<HTMLButtonElement, { "aria-label": string; onClick: () => void }>(
+  (props, ref) => {
+    return (
+      <Button
+        role="tab"
+        aria-busy="false"
+        ref={ref}
+        variant="reset"
+        size="reset"
+        height="14px"
+        width="14px"
+        borderStyle="solid"
+        borderWidth="borderWidth10"
+        borderColor="colorBorderWeak"
+        borderRadius="borderRadiusCircle"
+        name={props["aria-label"]}
+        _hover={{
+          borderColor: "colorBorderPrimary",
+        }}
+        _selected={{
+          borderColor: "colorBorderPrimaryStrong",
+          backgroundColor: "colorBackgroundPrimaryWeaker",
+        }}
+        {...props}
+      >
+        &nbsp;
+      </Button>
+    );
+  },
+);
 
 const TemplatesCarousel: React.FC = (): React.ReactElement => {
-  const tab = useTabPrimitiveState();
+  const [selectedIndex, setSelectedIndex] = React.useState(0);
+
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false }, [Autoplay()]);
+
+  const onSelect = React.useCallback(() => {
+    if (emblaApi) {
+      setSelectedIndex(emblaApi.selectedScrollSnap());
+    }
+  }, [emblaApi]);
+
+  React.useEffect(() => {
+    if (!emblaApi) return;
+
+    onSelect();
+    emblaApi.on("reInit", onSelect);
+    emblaApi.on("select", onSelect);
+  }, [onSelect, emblaApi]);
+
+  const onDotButtonClick = React.useCallback(
+    (index: number) => {
+      if (!emblaApi) return;
+      emblaApi.scrollTo(index);
+      setSelectedIndex(index);
+    },
+    [emblaApi],
+  );
+
   return (
     <Box
       width="min-content"
@@ -55,6 +86,8 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
       rowGap="space70"
     >
       <Box
+        ref={emblaRef}
+        width="100%"
         paddingY="space130"
         paddingX="space100"
         borderStyle="solid"
@@ -68,8 +101,10 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
         rowGap="space80"
         overflow="hidden"
       >
-        <TabPrimitivePanel {...tab}>
+        <Box display="flex" width="100%" maxWidth="500px" columnGap="space80">
           <Box
+            flex="0 0 100%"
+            minWidth={0}
             height="354px"
             width="499px"
             flexShrink={0}
@@ -79,9 +114,9 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
           >
             <Image src={Overview} alt="" width="499" />
           </Box>
-        </TabPrimitivePanel>
-        <TabPrimitivePanel {...tab}>
           <Box
+            flex="0 0 100%"
+            minWidth={0}
             height="354px"
             width="499px"
             flexShrink={0}
@@ -91,9 +126,9 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
           >
             <Image src={Settings} alt="" width="499" />
           </Box>
-        </TabPrimitivePanel>
-        <TabPrimitivePanel {...tab}>
           <Box
+            flex="0 0 100%"
+            minWidth={0}
             height="354px"
             width="499px"
             flexShrink={0}
@@ -102,10 +137,10 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
             overflow="hidden"
           >
             <Image src={Wizard} alt="" height="354" width="499" />
-          </Box>
-        </TabPrimitivePanel>
-        <TabPrimitivePanel {...tab}>
+          </Box>{" "}
           <Box
+            flex="0 0 100%"
+            minWidth={0}
             height="354px"
             width="499px"
             flexShrink={0}
@@ -115,15 +150,30 @@ const TemplatesCarousel: React.FC = (): React.ReactElement => {
           >
             <Image src={ObjectsList} alt="" width="499" />
           </Box>
-        </TabPrimitivePanel>
-        <TabPrimitiveList {...tab} aria-label="page templates carousel">
-          <Box display="flex" columnGap="space30" maxHeight="28px">
-            <TabPrimitive {...tab} as={CarouselButton} aria-label="objects list page template" />
-            <TabPrimitive {...tab} as={CarouselButton} aria-label="overview page template" />
-            <TabPrimitive {...tab} as={CarouselButton} aria-label="settings page template" />
-            <TabPrimitive {...tab} as={CarouselButton} aria-label="wizard page template" />
-          </Box>
-        </TabPrimitiveList>
+        </Box>
+
+        <Box role="tablist" aria-label="page templates carousel" display="flex" columnGap="space30" maxHeight="28px">
+          <CarouselButton
+            aria-label="objects list page template"
+            aria-selected={selectedIndex === 0}
+            onClick={() => onDotButtonClick(0)}
+          />
+          <CarouselButton
+            aria-label="overview page template"
+            aria-selected={selectedIndex === 1}
+            onClick={() => onDotButtonClick(1)}
+          />
+          <CarouselButton
+            aria-label="settings page template"
+            aria-selected={selectedIndex === 2}
+            onClick={() => onDotButtonClick(2)}
+          />
+          <CarouselButton
+            aria-label="wizard page template"
+            aria-selected={selectedIndex === 3}
+            onClick={() => onDotButtonClick(3)}
+          />
+        </Box>
       </Box>
     </Box>
   );
@@ -135,7 +185,7 @@ const Templates: React.FC = (): React.ReactElement => {
     <SectionContainer position="relative">
       <Box
         display="flex"
-        flexDirection={["column", "column", "row"]}
+        flexDirection={["column", "column", "column", "row"]}
         justifyContent="center"
         columnGap="space100"
         rowGap="space100"

@@ -151,6 +151,8 @@
     "deepmerge": "4.2.2",
     "dogapi": "^2.8.4",
     "dotenv": "^16.0.0",
+    "embla-carousel-autoplay": "^8.0.0",
+    "embla-carousel-react": "^8.0.0",
     "github-slugger": "^2.0.0",
     "globby-esm": "npm:globby@^13.1.3",
     "gpt3-tokenizer": "^1.1.5",

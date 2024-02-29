@@ -15861,6 +15861,8 @@ __metadata:
     deepmerge: 4.2.2
     dogapi: ^2.8.4
     dotenv: ^16.0.0
+    embla-carousel-autoplay: ^8.0.0
+    embla-carousel-react: ^8.0.0
     github-slugger: ^2.0.0
     globby-esm: "npm:globby@^13.1.3"
     gpt3-tokenizer: ^1.1.5
@@ -23856,6 +23858,43 @@ __metadata:
   version: 1.4.609
   resolution: "electron-to-chromium@npm:1.4.609"
   checksum: 4ef3c32b11adc01ed8227d7bdbe0978b436b817e6b3bd09f19b42afbf9affdb6ddf99f4d20a3b28a494772a2985df12ec95abca849a38cccb217c4ee338561bb
+  languageName: node
+  linkType: hard
+
+"embla-carousel-autoplay@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "embla-carousel-autoplay@npm:8.0.0"
+  peerDependencies:
+    embla-carousel: 8.0.0
+  checksum: 18a2e85cbac0bc6203db5bf62d8cd75df64dc3cfaa052208a495205e16c7b75c1ac6eb5515d9b6b104f13e1f27fbd10df510f34851c81af3e5d668655fcd6e3b
+  languageName: node
+  linkType: hard
+
+"embla-carousel-react@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "embla-carousel-react@npm:8.0.0"
+  dependencies:
+    embla-carousel: 8.0.0
+    embla-carousel-reactive-utils: 8.0.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.1 || ^18.0.0
+  checksum: 7e4acbb45a1c225222400156427e59dba14312032492e38d862a8ba8dc6c0c55aa9d4bd041aff04faa6bd51cf571fddf718f6f2c72a2ed1a400cd4310c835024
+  languageName: node
+  linkType: hard
+
+"embla-carousel-reactive-utils@npm:8.0.0":
+  version: 8.0.0
+  resolution: "embla-carousel-reactive-utils@npm:8.0.0"
+  peerDependencies:
+    embla-carousel: 8.0.0
+  checksum: 5f0ea60fc84d06f4c15481ca56ae67736d27ac802d7b36ed5b03af55425b1dc69c38737446284de7e85b0a6bef4f267a4d985888390630e39bc842b0b2b48d7e
+  languageName: node
+  linkType: hard
+
+"embla-carousel@npm:8.0.0":
+  version: 8.0.0
+  resolution: "embla-carousel@npm:8.0.0"
+  checksum: 0fef615c0fbd8a8f972f55d8ea8780347394a19453248e5260a7ffb74401a84683b21d7c3e473a9bf4e96cf123756c7735906014ada13c8ba79e311b87bf458c
   languageName: node
   linkType: hard
 
