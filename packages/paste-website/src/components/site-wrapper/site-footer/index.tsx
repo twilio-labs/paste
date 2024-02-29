@@ -8,11 +8,10 @@ const SiteFooter: React.FC = () => {
   return (
     <Box
       as="footer"
-      margin={["space0", "space80", "space140"]}
+      padding={["space0", "space80", "space140"]}
       display="flex"
       justifyContent="center"
-      borderRadius={["borderRadius0", "borderRadius30"]}
-      backgroundColor="colorBackgroundBodyInverse"
+      backgroundColor="colorBackgroundInverseStrongest"
     >
       <Box
         width="100%"
@@ -21,6 +20,8 @@ const SiteFooter: React.FC = () => {
         paddingTop={["space130", "space130", "space130"]}
         display="flex"
         justifyContent={["center", "center", "center", "space-between"]}
+        borderRadius={["borderRadius0", "borderRadius30"]}
+        backgroundColor="colorBackgroundBodyInverse"
       >
         <SiteFooterNav />
         <SiteFooterIllustration />

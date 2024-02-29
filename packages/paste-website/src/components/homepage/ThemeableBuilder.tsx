@@ -229,7 +229,7 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
           )}
           <RadioButtonGroup
             attached
-            name="theme"
+            name="themeable-builder"
             value={theme}
             legend={<ScreenReaderOnly>Component preview theme</ScreenReaderOnly>}
             onChange={(newValue) => {
@@ -238,16 +238,16 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
             }}
             orientation="horizontal"
           >
-            <RadioButton id={useUID()} value="default" name={nameSeed("theme")}>
+            <RadioButton id={useUID()} value="default">
               Default
             </RadioButton>
-            <RadioButton id={useUID()} value="dark" name={nameSeed("theme")}>
+            <RadioButton id={useUID()} value="dark">
               Dark
             </RadioButton>
-            <RadioButton id={useUID()} value="twilio" name={nameSeed("theme")}>
+            <RadioButton id={useUID()} value="twilio">
               Twilio
             </RadioButton>
-            <RadioButton id={useUID()} value="custom" name={nameSeed("theme")}>
+            <RadioButton id={useUID()} value="custom">
               Custom
             </RadioButton>
           </RadioButtonGroup>
