@@ -41,7 +41,6 @@ const Boop: React.FC<BoopProps> = ({
 }) => {
   const [isBooped, setIsBooped] = React.useState(false);
   const trigger = React.useCallback(() => {
-    console.log(1);
     setIsBooped(true);
   }, []);
 
@@ -62,11 +61,11 @@ const Boop: React.FC<BoopProps> = ({
       return;
     }
 
-    console.log(2);
     const timeoutId = window.setTimeout(() => {
       setIsBooped(false);
     }, timing);
 
+    // eslint-disable-next-line consistent-return
     return () => {
       window.clearTimeout(timeoutId);
     };
