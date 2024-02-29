@@ -51,11 +51,11 @@ const StyledGradientSwatch = styled.div<{ backgroundColor: string }>`
 const StyledGradientSwatchTall = styled.div<{ backgroundColor: string; rounded: boolean }>((props) => {
   return {
     backgroundColor: props.backgroundColor,
-    // @ts-expect-error it exists
+    // @ts-expect-error this works fine
     height: props.theme.space.space120,
-    // @ts-expect-error it exists
+    // @ts-expect-error this works fine
     borderBottomLeftRadius: props.rounded ? props.theme.radii.borderRadius20 : 0,
-    // @ts-expect-error it exists
+    // @ts-expect-error this works fine
     borderBottomRightRadius: props.rounded ? props.theme.radii.borderRadius20 : 0,
   };
 });
