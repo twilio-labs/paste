@@ -24,7 +24,6 @@ import * as React from "react";
 import { LiveEditor, LiveProvider } from "react-live";
 
 import Acme from "../../assets/images/acme.png";
-import { usePreviewThemeContext } from "../../context/PreviewThemeContext";
 import { CopyButton } from "../CopyButton";
 import { CodeBlockOverlayShadow } from "../shortcodes/live-preview/CodeBlockOverlayShadow";
 import { CodeblockTheme } from "../shortcodes/live-preview/theme";
@@ -146,10 +145,31 @@ const CodeEditor: React.FC<{ children: string }> = ({ children }): React.ReactEl
   );
 };
 
+const Themes = ["default", "dark", "twilio", "custom"];
+type ThemeType = "default" | "dark" | "twilio" | "custom";
+
 const ComponentsTab: React.FC = (): React.ReactElement => {
-  const { theme, selectTheme } = usePreviewThemeContext();
+  const [hasManuallyChangedtheme, setHasManuallyChangedTheme] = React.useState(false);
+  const intervalRef = React.useRef<NodeJS.Timeout | undefined>();
+  const [theme, selectTheme] = React.useState<ThemeType>("default");
   const nameSeed = useUIDSeed();
-  const { theme: previewTheme } = usePreviewThemeContext();
+
+  React.useEffect(() => {
+    if (hasManuallyChangedtheme) {
+      return () => {
+        clearInterval(intervalRef.current);
+      };
+    }
+
+    intervalRef.current = setInterval(() => {
+      const nextThemeIndex = Themes.indexOf(theme) + 1;
+      selectTheme((Themes[nextThemeIndex] || Themes[0]) as ThemeType);
+    }, 1500);
+
+    return () => {
+      clearInterval(intervalRef.current);
+    };
+  }, [hasManuallyChangedtheme, theme, selectTheme]);
 
   return (
     <>
@@ -169,18 +189,14 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
           width="100%"
           element="CARD_AND_BUTTONS"
         >
-          {["twilio", "default", "dark"].includes(previewTheme) ? (
-            <Theme.Provider theme={previewTheme}>
-              <StyledComponentsCard />
-            </Theme.Provider>
-          ) : (
+          {theme === "custom" ? (
             <CustomizationProvider
               baseTheme="default"
               elements={{
                 CARD: {
                   backgroundColor: "colorBackgroundDecorative10Weakest",
                   borderRadius: "borderRadius0",
-                  borderWidth: "borderWidth20",
+                  borderWidth: "borderWidth10",
                   borderColor: "colorBorderPrimaryStrong",
                 },
                 SEPARATOR: {
@@ -206,6 +222,10 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
             >
               <StyledComponentsCard />
             </CustomizationProvider>
+          ) : (
+            <Theme.Provider theme={theme}>
+              <StyledComponentsCard />
+            </Theme.Provider>
           )}
           <RadioButtonGroup
             attached
@@ -213,7 +233,8 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
             value={theme}
             legend={<ScreenReaderOnly>Component preview theme</ScreenReaderOnly>}
             onChange={(newValue) => {
-              selectTheme(newValue);
+              setHasManuallyChangedTheme(true);
+              selectTheme(newValue as ThemeType);
             }}
             orientation="horizontal"
           >
@@ -232,11 +253,7 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
           </RadioButtonGroup>
         </Box>
       </Box>
-      {["twilio", "default", "dark"].includes(previewTheme) ? (
-        <CodeEditor>{DefaultSnippet}</CodeEditor>
-      ) : (
-        <CodeEditor>{CustomSnippet}</CodeEditor>
-      )}
+      {theme === "custom" ? <CodeEditor>{CustomSnippet}</CodeEditor> : <CodeEditor>{DefaultSnippet}</CodeEditor>}
     </>
   );
 };
