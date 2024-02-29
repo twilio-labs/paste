@@ -99,7 +99,7 @@ export const ColumnOneShowcase: React.FC = () => {
       display="flex"
       flexDirection="column"
       rowGap="space70"
-      maxWidth="527px"
+      maxWidth="519px"
     >
       <Box
         backgroundColor="colorBackgroundBody"
