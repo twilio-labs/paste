@@ -16,9 +16,10 @@ import CircleIcon from "../icons/CircleIcon";
 import { BouncyAnchor } from "./BouncyAnchor";
 import { SectionContainer } from "./SectionContainer";
 
-const CarouselButton: React.FC<{ "aria-label": string }> = (props): React.ReactElement => {
+const CarouselButton = React.forwardRef<HTMLButtonElement, { "aria-label": string }>((props, ref) => {
   return (
     <Button
+      ref={ref}
       variant="reset"
       size="reset"
       height="14px"
@@ -40,7 +41,7 @@ const CarouselButton: React.FC<{ "aria-label": string }> = (props): React.ReactE
       &nbsp;
     </Button>
   );
-};
+});
 
 const TemplatesCarousel: React.FC = (): React.ReactElement => {
   const tab = useTabPrimitiveState();
