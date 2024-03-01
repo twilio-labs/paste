@@ -35,6 +35,7 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
           textAlign="left"
           zIndex="zIndex10"
           marginY={["space0", "space0", "space0", "space200"]}
+          maxWidth={["100%", "100%", "100%", "size60"]}
         >
           <Text
             as="h3"
