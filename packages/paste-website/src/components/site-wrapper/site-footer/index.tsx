@@ -6,12 +6,7 @@ import { SiteFooterNav } from "./SiteFooterNav";
 
 const SiteFooter: React.FC = () => {
   return (
-    <Box
-      as="footer"
-      padding={["space0", "space80", "space140"]}
-      display="flex"
-      backgroundColor="colorBackgroundInverseStrongest"
-    >
+    <Box as="footer" padding={["space0", "space80", "space140"]} display="flex" backgroundColor="colorBackgroundBody">
       <Box
         width="100%"
         display="flex"
