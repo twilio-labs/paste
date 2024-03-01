@@ -3,9 +3,8 @@ import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
 import { Text } from "@twilio-paste/text";
 import Image from "next/image";
-import VisibilitySensor from "react-visibility-sensor";
-
 import * as React from "react";
+import VisibilitySensor from "react-visibility-sensor";
 
 import DesignTool from "../../assets/illustrations/illo_design-tool.svg";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
