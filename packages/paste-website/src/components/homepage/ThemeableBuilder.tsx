@@ -18,7 +18,7 @@ import { Separator } from "@twilio-paste/separator";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@twilio-paste/tabs";
 import { Text } from "@twilio-paste/text";
 import { Theme, useTheme } from "@twilio-paste/theme";
-import { useUID, useUIDSeed } from "@twilio-paste/uid-library";
+import { useUID } from "@twilio-paste/uid-library";
 import Image from "next/image";
 import * as React from "react";
 import { LiveEditor, LiveProvider } from "react-live";
@@ -152,7 +152,6 @@ const ComponentsTab: React.FC = (): React.ReactElement => {
   const [hasManuallyChangedtheme, setHasManuallyChangedTheme] = React.useState(false);
   const intervalRef = React.useRef<NodeJS.Timeout | undefined>();
   const [theme, selectTheme] = React.useState<ThemeType>("default");
-  const nameSeed = useUIDSeed();
 
   React.useEffect(() => {
     if (hasManuallyChangedtheme) {
