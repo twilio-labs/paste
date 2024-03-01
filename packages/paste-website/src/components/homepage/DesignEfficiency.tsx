@@ -62,9 +62,16 @@ const DesignEfficiency: React.FC = (): React.ReactElement => {
             top={300}
             position="absolute"
           >
-            {someIcons.map((Icon) => (
-              <Icon decorative key={useUID()} size="sizeIcon70" color="colorTextWeaker" />
-            ))}
+            {someIcons.map((Icon, index) => {
+              if (index >= 22 && index < 44) {
+                return (
+                  <Box marginLeft="spaceNegative180">
+                    <Icon decorative key={useUID()} size="sizeIcon70" color="colorTextWeaker" />
+                  </Box>
+                );
+              }
+              return <Icon decorative key={useUID()} size="sizeIcon70" color="colorTextWeaker" />;
+            })}
           </Box>
         </Box>
         <Box
