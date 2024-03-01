@@ -104,7 +104,7 @@ const Themeable: React.FC = (): React.ReactElement => {
           columnGap="space200"
           rowGap="space200"
         >
-          <Box display="flex" flexDirection="column">
+          <Box display="flex" flexDirection="column" maxWidth={["100%", "100%", "100%", "size40"]}>
             <Heading as="h3" variant="heading20">
               Start from anywhere
             </Heading>
