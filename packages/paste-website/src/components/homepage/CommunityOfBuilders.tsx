@@ -1,16 +1,12 @@
-import { animated, useSpring } from "@twilio-paste/animation-library";
 import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
 import { Text } from "@twilio-paste/text";
 import Image from "next/image";
 import * as React from "react";
-import VisibilitySensor from "react-visibility-sensor";
 
 import DesignTool from "../../assets/illustrations/illo_design-tool.svg";
 import { HOMEPAGE_SITE_CONTENT_MAX_WIDTH } from "../../constants";
 import { SectionContainer } from "./SectionContainer";
-
-const AnimatedBox = animated(Box);
 
 const StatBox: React.FC<{ stat: string; description: string }> = ({ stat, description }): React.ReactElement => {
   return (
@@ -33,21 +29,6 @@ const StatBox: React.FC<{ stat: string; description: string }> = ({ stat, descri
 };
 
 const CommunityOfBuilders: React.FC = (): React.ReactElement => {
-  const [show, setShow] = React.useState(false);
-
-  function handleVisibilityChange(isVisible: boolean): void {
-    if (!show) {
-      setShow(isVisible);
-    }
-  }
-
-  const styles = useSpring({
-    translateX: show ? 0 : -240,
-    config: {
-      duration: 20000,
-    },
-  });
-
   return (
     <SectionContainer>
       <Box
@@ -79,19 +60,9 @@ const CommunityOfBuilders: React.FC = (): React.ReactElement => {
             <StatBox stat="30" description="Monthly Github Discussions" />
           </Box>
         </Box>
-
-        <VisibilitySensor onChange={handleVisibilityChange} offset={{ bottom: 20 }}>
-          <AnimatedBox
-            width="size20"
-            height="size10"
-            position="absolute"
-            bottom={-50}
-            right={[50, 75, 250]}
-            style={styles}
-          >
-            <Image src={DesignTool} aria-hidden="true" role="img" alt="token colors illustration" />
-          </AnimatedBox>
-        </VisibilitySensor>
+        <Box width="size20" height="size10" position="absolute" bottom={-50} right={[50, 75, 250]}>
+          <Image src={DesignTool} aria-hidden="true" role="img" alt="token colors illustration" />
+        </Box>
       </Box>
     </SectionContainer>
   );
