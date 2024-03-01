@@ -186,14 +186,14 @@ const Templates: React.FC = (): React.ReactElement => {
       <Box
         display="flex"
         flexDirection={["column", "column", "column", "row"]}
-        justifyContent="center"
+        justifyContent={["center", "center", "space-between"]}
         columnGap="space100"
         rowGap="space100"
         position="relative"
         maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
         overflow="visible"
       >
-        <Box paddingTop="space190" display="flex" flexDirection="column">
+        <Box paddingTop="space190" display="flex" flexDirection="column" maxWidth={["100%", "100%", "100%", "size40"]}>
           <Heading as="h3" variant="heading20">
             Explore our templates
           </Heading>
