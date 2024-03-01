@@ -60,21 +60,38 @@ const StyledGradientSwatchTall = styled.div<{ backgroundColor: string; rounded: 
   };
 });
 
-export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: string; makeTall?: boolean }>> = ({
-  aliasPrefix,
-  makeTall = "false",
-}) => {
+export const ColorGradient: React.FC<
+  React.PropsWithChildren<{ aliasPrefix: string; makeTall?: boolean; index?: number }>
+> = ({ aliasPrefix, makeTall = "false", index = 0 }) => {
+  const [show, setShow] = React.useState(false);
   const { theme } = useDarkModeContext();
   const aliasValues = getAliasValuesFromPrefix(aliasPrefix, theme);
   const count = aliasValues.length - 1;
 
+  function handleVisibilityChange(isVisible: boolean): void {
+    if (!show) {
+      setTimeout(() => {
+        setShow(isVisible);
+      }, index * 50);
+    }
+  }
+
+  const styles = useSpring({
+    opacity: show ? 1 : 0.1,
+    config: {
+      duration: 500,
+    },
+  });
+
   if (makeTall) {
     return (
-      <Box borderRadius="borderRadius20" overflow="hidden">
-        {aliasValues.map((aliasValue, index) => (
-          <StyledGradientSwatchTall backgroundColor={aliasValue} key={useUID()} rounded={index === count} />
-        ))}
-      </Box>
+      <VisibilitySensor onChange={handleVisibilityChange} partialVisibility offset={{ bottom: 100 }}>
+        <AnimatedBox borderRadius="borderRadius20" overflow="hidden" style={styles}>
+          {aliasValues.map((aliasValue, _index) => (
+            <StyledGradientSwatchTall backgroundColor={aliasValue} key={useUID()} rounded={_index === count} />
+          ))}
+        </AnimatedBox>
+      </VisibilitySensor>
     );
   }
   return (
@@ -87,36 +104,21 @@ export const ColorGradient: React.FC<React.PropsWithChildren<{ aliasPrefix: stri
 };
 
 export const ColorGradientRainbow: React.FC<{ omitGrays?: boolean }> = ({ omitGrays = false }): JSX.Element => {
-  const [show, setShow] = React.useState(false);
-
-  function handleVisibilityChange(isVisible: boolean): void {
-    if (!show) {
-      setShow(isVisible);
-    }
-  }
-
-  const styles = useSpring({
-    opacity: show ? 1 : 0.1,
-  });
-
   if (omitGrays)
     return (
-      <VisibilitySensor onChange={handleVisibilityChange} partialVisibility offset={{ bottom: 150 }}>
-        <AnimatedBox
-          display="grid"
-          columnGap="space40"
-          marginBottom="space70"
-          gridTemplateColumns="repeat(6, 1fr)"
-          gridTemplateRows="max-content"
-          style={styles}
-        >
-          {aliasPrefixes
-            .filter((prefix) => prefix !== "palette-gray")
-            .map((prefix) => (
-              <ColorGradient makeTall aliasPrefix={prefix} key={useUID()} />
-            ))}
-        </AnimatedBox>
-      </VisibilitySensor>
+      <Box
+        display="grid"
+        columnGap="space40"
+        marginBottom="space70"
+        gridTemplateColumns="repeat(6, 1fr)"
+        gridTemplateRows="max-content"
+      >
+        {aliasPrefixes
+          .filter((prefix) => prefix !== "palette-gray")
+          .map((prefix, index) => (
+            <ColorGradient makeTall aliasPrefix={prefix} key={useUID()} index={index} />
+          ))}
+      </Box>
     );
   return (
     <Box display="grid" columnGap="space40" marginBottom="space70" gridTemplateColumns="repeat(7, 1fr)">

@@ -46,17 +46,29 @@ const ForTwilioCustomers: React.FC = (): React.ReactElement => {
           >
             For Twilions and Twilio customers alike
           </Text>
-          <Text as="p" color="colorTextInverse" marginBottom="space70">
+          <Text as="p" fontSize="fontSize40" lineHeight="lineHeight40" color="colorTextInverse" marginBottom="space70">
             Rapidly build enterprise-grade, inclusive, and extensible experiences that look and feel like your brand.
             Paste works great with Flex plugins, CodeExchange apps, and more.
           </Text>
-          <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
+          <Box color="colorTextInverse" fontSize="fontSize40" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
             <BouncyAnchor href="/introduction/for-engineers/quickstart" text="Eng quick start" inverse />
           </Box>
-          <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
+          <Box
+            color="colorTextInverse"
+            fontSize="fontSize40"
+            fontWeight="fontWeightSemibold"
+            lineHeight="lineHeight40"
+            marginTop="space20"
+          >
             <BouncyAnchor href="/customization" text="Customization overview" inverse />
           </Box>
-          <Box color="colorTextInverse" fontWeight="fontWeightSemibold" lineHeight="lineHeight40">
+          <Box
+            color="colorTextInverse"
+            fontSize="fontSize40"
+            fontWeight="fontWeightSemibold"
+            lineHeight="lineHeight40"
+            marginTop="space20"
+          >
             <BouncyAnchor
               href="https://www.figma.com/community/file/1207476064127503112/twilio-paste-components"
               text="Figma Community file"
