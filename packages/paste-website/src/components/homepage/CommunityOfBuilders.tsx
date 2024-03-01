@@ -60,8 +60,7 @@ const CommunityOfBuilders: React.FC = (): React.ReactElement => {
             <StatBox stat="30" description="Monthly Github Discussions" />
           </Box>
         </Box>
-
-        <Box width="size20" height="size10" position="absolute" bottom={-50} right={250}>
+        <Box width="size20" height="size10" position="absolute" bottom={-50} right={[50, 75, 250]}>
           <Image src={DesignTool} aria-hidden="true" role="img" alt="token colors illustration" />
         </Box>
       </Box>
