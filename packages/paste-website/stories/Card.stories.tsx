@@ -19,9 +19,11 @@ import { Stack } from "@twilio-paste/stack";
 import Image from "next/image";
 import * as React from "react";
 
-// import Marketing1 from "../public/images/card/marketing1"
-import { AlertsAndNotifications } from "../src/assets/illustrations/AlertsAndNotifications";
 // import {Marketing1} from "../src/assets/images/card/marketing1"
+import { Marketing3 } from "../public/images/card/Marketing3";
+import { Marketing4 } from "../public/images/card/Marketing4";
+// import Marketing2 from "../public/images/card/marketing2"
+import { AlertsAndNotifications } from "../src/assets/illustrations/AlertsAndNotifications";
 
 export default {
   title: "Website/CardExamples",
@@ -197,10 +199,9 @@ MarketingTwoExample.parameters = {
 export const MarketingThreeExample = (): JSX.Element => {
   return (
     <Card>
-      <MediaObject verticalAlign="center">
+      <MediaObject verticalAlign="top">
         <MediaFigure spacing="space40">
-          {/* TODO: Image wont show up */}
-          <Image src="/images/card/marketing3" alt="marketing card example" width={100} height={50} />
+          <Marketing3 />
         </MediaFigure>
         <MediaBody>
           <Box paddingBottom="space70">
@@ -229,14 +230,20 @@ MarketingThreeExample.parameters = {
 
 export const MarketingFourExample = (): JSX.Element => {
   return (
-    <Box display="flex" flexDirection="column" backgroundColor="colorBackground" padding="space60">
+    <Box
+      display="flex"
+      flexDirection="column"
+      backgroundColor="colorBackground"
+      paddingY="space120"
+      paddingX="space180"
+      borderRadius="borderRadius30"
+    >
       <Box width="100%" display="flex" justifyContent="center">
-        {/* TODO: Image wont show up */}
-        <Image src="/images/card/marketing4" alt="marketing card example" width={100} height={50} />
+        <Marketing4 />
       </Box>
       <Box>
         <Heading as="h6" variant="heading10">
-          Know your customers personally with Twilio Segment
+          Turn your recordings into transcriptions
         </Heading>
         <Paragraph>
           Next steps: Turn your voice recordings into transcripts and extra insights such as key phrases and compliance
