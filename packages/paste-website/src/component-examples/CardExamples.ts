@@ -102,10 +102,9 @@ render(<CardExample />);`.trim();
 export const MarketingOneExample = `const CardExample = () => {
   return (
     <Card>
-      <MediaObject verticalAlign="center">
-        <MediaFigure spacing="space40">
-          {/* TODO: Image wont show up */}
-          <Image src="/images/card/marketing1" alt="marketing card example" width={100} height={50} />
+      <MediaObject verticalAlign="top">
+        <MediaFigure spacing="space90">
+          <Box as="img" src="./card/marketing1.png" maxHeight="150px" />
         </MediaFigure>
         <MediaBody>
           <Heading as="h6" variant="heading30">
@@ -126,10 +125,9 @@ render(<CardExample />);`.trim();
 export const MarketingTwoExample = `const CardExample = () => {
   return (
     <Card>
-      <MediaObject verticalAlign="center">
-        <MediaFigure spacing="space40">
-          {/* TODO: Image wont show up */}
-          <Image src="/images/card/marketing2" alt="marketing card example" width={100} height={50} />
+      <MediaObject verticalAlign="top">
+        <MediaFigure spacing="space90">
+          <Box as="img" src="./card/marketing2.png" maxHeight="150px" />
         </MediaFigure>
         <MediaBody>
           <Heading as="h6" variant="heading30">

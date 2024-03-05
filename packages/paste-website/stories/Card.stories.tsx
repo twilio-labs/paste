@@ -16,13 +16,10 @@ import { MediaBody, MediaFigure, MediaObject } from "@twilio-paste/media-object"
 import { Paragraph } from "@twilio-paste/paragraph";
 import { Separator } from "@twilio-paste/separator";
 import { Stack } from "@twilio-paste/stack";
-import Image from "next/image";
 import * as React from "react";
 
-// import {Marketing1} from "../src/assets/images/card/marketing1"
 import { Marketing3 } from "../public/images/card/Marketing3";
 import { Marketing4 } from "../public/images/card/Marketing4";
-// import Marketing2 from "../public/images/card/marketing2"
 import { AlertsAndNotifications } from "../src/assets/illustrations/AlertsAndNotifications";
 
 export default {
@@ -139,10 +136,9 @@ TitleBodyButtonExample.parameters = {
 export const MarketingOneExample = (): JSX.Element => {
   return (
     <Card>
-      <MediaObject verticalAlign="center">
-        <MediaFigure spacing="space40">
-          {/* TODO: Image wont show up */}
-          <Image src="/images/card/marketing1" alt="marketing card example" width={100} height={50} />
+      <MediaObject verticalAlign="top">
+        <MediaFigure spacing="space90">
+          <Box as="img" src="./card/marketing1.png" maxHeight="150px" />
         </MediaFigure>
         <MediaBody>
           <Heading as="h6" variant="heading30">
@@ -165,10 +161,9 @@ MarketingOneExample.parameters = {
 export const MarketingTwoExample = (): JSX.Element => {
   return (
     <Card>
-      <MediaObject verticalAlign="center">
-        <MediaFigure spacing="space40">
-          {/* TODO: Image wont show up */}
-          <Image src="/images/card/marketing2" alt="marketing card example" width={100} height={50} />
+      <MediaObject verticalAlign="top">
+        <MediaFigure spacing="space90">
+          <Box as="img" src="./card/marketing2.png" maxHeight="150px" />
         </MediaFigure>
         <MediaBody>
           <Heading as="h6" variant="heading30">
