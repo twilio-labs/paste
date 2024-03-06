@@ -9,11 +9,13 @@ import Image from 'next/image';
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Button} from '@twilio-paste/button';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {Card} from '@twilio-paste/card';
 import {Heading} from '@twilio-paste/heading';
 import {Text} from '@twilio-paste/text';
 import {Paragraph} from '@twilio-paste/paragraph';
 import {Stack} from '@twilio-paste/stack';
+import {Separator} from '@twilio-paste/separator'
 import Changelog from '@twilio-paste/card/CHANGELOG.md';
 
 import {DoDont, Do, Dont} from '../../../components/DoDont';
@@ -25,6 +27,7 @@ import MultipleDont from '../../../assets/images/dont2-multiple-primary.png';
 import packageJson from '@twilio-paste/card/package.json';
 import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
 import {getFeature, getNavigationData} from '../../../utils/api';
+import {AdjustingPaddingExample, DefaultExample, TitleBodyButtonExample, MarketingOneExample, MarketingTwoExample, MarketingThreeExample, MarketingFourExample, PricingExample} from '../../../component-examples/CardExamples'
 
 export default ComponentPageLayout;
 
@@ -48,17 +51,12 @@ export const getStaticProps = async () => {
   };
 };
 
-<LivePreview scope={{Card, Paragraph, Heading, Anchor}} language="jsx">
-  {`<Card>
-  <Heading as="h2" variant="heading20">Parable of the Talents</Heading>
-  <Paragraph>
-    Choose your leaders with wisdom and forethought. To be led by a coward is to be controlled by all that the coward fears. To be led by a fool is to be led
-    by the opportunists who control the fool. To be led by a thief is to offer up your most precious treasures to be stolen. To be led by a liar is to ask to be
-    lied to. To be led by a tyrant is to sell yourself and those you love into slavery.
-  </Paragraph>
-  <Paragraph marginBottom="space0">— <Anchor href="https://www.goodreads.com/book/show/60932.Parable_of_the_Talents">Octavia Butler</Anchor></Paragraph>
-</Card>`}
-</LivePreview>
+<StoryPreview
+  height="350px"
+  title="Card examples - default"
+  storyID="website-cardexamples--default-example"
+  code={DefaultExample}
+/>
 
 ## Guidelines
 
@@ -81,79 +79,111 @@ to Design System Office Hours to see if another component or pattern could fit y
 
 ### Examples
 
-#### Basic Card
+#### Default Card
 
-An example of a Card with default padding.
+By default, a Card has `space100` padding, which can be adjusted with [padding props](/components/card/api#card) and [spacing tokens](/tokens/list#spacings).
 
-<LivePreview scope={{Card, Paragraph, Heading, Anchor}} language="jsx">
-  {`<Card>
-  <Heading as="h2" variant="heading20">Parable of the Talents</Heading>
-  <Paragraph>
-    Choose your leaders with wisdom and forethought. To be led by a coward is to be controlled by all that the coward fears. To be led by a fool is to be led
-    by the opportunists who control the fool. To be led by a thief is to offer up your most precious treasures to be stolen. To be led by a liar is to ask to be
-    lied to. To be led by a tyrant is to sell yourself and those you love into slavery.
-  </Paragraph>
-  <Paragraph marginBottom="space0">— <Anchor href="https://www.goodreads.com/book/show/60932.Parable_of_the_Talents">Octavia Butler</Anchor></Paragraph>
-</Card>`}
-</LivePreview>
+<StoryPreview
+  height="350px"
+  title="Card examples - default"
+  storyID="website-cardexamples--default-example"
+  code={DefaultExample}
+/>
+
+#### Adjusting padding
+
+You can set non-default padding on all sides of a Card.
+
+<StoryPreview
+  height="470px"
+  title="Card examples - adjusting padding"
+  storyID="website-cardexamples--adjusting-padding-example"
+  code={AdjustingPaddingExample}
+/>
 
 #### Card with Title, Body and Button
 
 One of the most common use cases for a Card is to relate a title ([Heading](/components/heading)), supporting body copy ([Paragraph](/components/paragraph)),
 and primary action ([Button](/components/button)) together. Relating these three elements together with a Card makes it easy for a user to
-digest and provides a clear call to action. Padding surrounding the inner content of a Card can be
-adjusted to suit the needs of your implementation.
+digest and provides a clear call to action.
 
-<LivePreview scope={{Stack, Card, Paragraph, Heading, Button}} language="jsx">
-  {`<Stack orientation="vertical" spacing="space40">
-    <Card padding="space120">
-      <Heading as="h2" variant="heading20">The Transgender District</Heading>
-      <Paragraph>
-        The mission of the Transgender District is to create an urban environment that fosters the rich history, culture, legacy, and empowerment of transgender
-        people and its deep roots in the southeastern Tenderloin neighborhood. The transgender district aims to stabilize and economically empower the transgender
-        community through ownership of homes, businesses, historic and cultural sites, and safe community spaces.
-      </Paragraph>
-      <Button variant="primary" as="a" href="https://www.transgenderdistrictsf.com/">Support The Transgender District</Button>
-    </Card>
-    <Card padding="space120">
-      <Heading as="h2" variant="heading20">Inside Out</Heading>
-      <Paragraph>
-        Inside Out empowers, educates, and advocates for LGBTQ+ of youth from the Pikes Peak Region in Southern Colorado. Inside Out does this by creating safe spaces,
-        support systems and teaching life skills to all youth in the community and working to make the community safer and more accepting of gender and sexual orientation
-        diversity.
-      </Paragraph>
-      <Button variant="primary" as="a" href="https://insideoutys.org/">Support Inside Out</Button>
-    </Card>
-    <Card padding="space120">
-      <Heading as="h2" variant="heading20">The Audre Lorde Project</Heading>
-      <Paragraph>
-        The Audre Lorde Project is a Lesbian, Gay, Bisexual, Two Spirit, Trans and Gender Non Conforming People of Color center for community organizing, focusing on
-        the New York City area. Through mobilization, education and capacity-building, they work for community wellness and progressive social and economic justice. Committed
-        to struggling across differences, they seek to responsibly reflect, represent and serve their various communities.
-      </Paragraph>
-      <Button variant="primary" as="a" href="https://alp.org/">Support The Audre Lorde Project</Button>
-    </Card>
-  </Stack>`}
-</LivePreview>
+<StoryPreview
+  title="Card examples - title body button"
+  storyID="website-cardexamples--title-body-button-example"
+  code={TitleBodyButtonExample}
+/>
 
-#### Card with Centered Content
+#### Marketing Card
 
-Your implementation use case may call for a Card with centered content. You can accommodate this by
-using the alignment props available on some components, or by creating a custom layout inside your
-Card using Box or Flex.
+Use these layouts when you need to draw customers’ attention to upsell and cross-sell opportunities. Use them sparingly, mainly when they’ll help customers solve immediate problems.
 
-<LivePreview scope={{Card, Paragraph, Anchor, Text}} language="jsx">
-  {`<Card padding="space200">
-  <Text as="div" textAlign="center">
-    <Paragraph>
-      We want a world where boys can feel, girls can lead, and the rest of us can not only exist but thrive. This is not
-      about erasing men and women but rather acknowledging that man and woman are two of many—stars in a constellation that
-      do not compete but amplify one another’s shine.
-    </Paragraph>
-    <Paragraph marginBottom="space0">— <Anchor href="https://www.goodreads.com/book/show/51794301-beyond-the-gender-binary">Alok Vaid-Menon</Anchor></Paragraph>
-  </Text>
-</Card>;`}
-</LivePreview>
+<Callout variant="neutral" marginY="space70">
+  <CalloutHeading as="h5">Research insight on marketing and cross-selling</CalloutHeading>
+  <CalloutText>
+    Research from Twilio has shown that cross-sell cards aren’t useful when the developers are in the product focused on urgent problems. They’re likely to ignore these cards, regardless of how they’re presented, until they’re relevant to a current project they’re working on.
+  </CalloutText>
+</Callout>
+
+To create a marketing Card, start by layering items from the top of this list. Add or remove items as you work your way down to create the right level of emphasis for your card:
+
+1. Place the content at the top of the page.
+2. Add more padding than other text content or Cards around it. Start with `space-130` and size up in 8px increments from there.
+3. Add an illustration.
+4. If you’re cross-selling across platforms (e.g., Segment, SendGrid, Communications, Flex), add a [brand Badge](/components/badge#brand).
+
+Most marketing content in the product is a _suggestion_ to customers. As you layer items from the list, make sure you’re not distracting from their main goals on a page. A marketing Card should catch a customer’s attention but not at the expense of everything else in the flow.
+
+Don’t use everything in the list at once. If your marketing content is not the main content of a page, use 1-2 items. If it is the main content, use no more than 3 items.
+
+You might even find out that you don’t need to put your content in a Card. To emphasize the content without using Card, use [Box](/primitives/box) and `color-background-weak`.
+
+Examples that use more padding and illustrations:
+
+<StoryPreview
+  height="310px"
+  title="Card examples - marketing one"
+  storyID="website-cardexamples--marketing-one-example"
+  code={MarketingOneExample}
+/>
+<StoryPreview
+  height="330px"
+  title="Card examples - marketing two"
+  storyID="website-cardexamples--marketing-two-example"
+  code={MarketingTwoExample}
+/>
+
+An example that uses illustrations and a marketing Badge:
+
+<StoryPreview
+  height="540px"
+  title="Card examples - marketing three"
+  storyID="website-cardexamples--marketing-three-example"
+  code={MarketingThreeExample}
+/>
+
+An example that doesn't use Card at all:
+
+<StoryPreview
+  height="660px"
+  title="Card examples - marketing four"
+  storyID="website-cardexamples--marketing-four-example"
+  code={MarketingFourExample}
+/>
+
+If these options don’t work for your use case and you need to create something custom, [request a creative review with the Brand team](https://library.twilio.com/guidelines/guide/9306890b-4bde-4210-bb35-2a566890e47a/page/db009ba3-57e3-4e04-bfe3-efc5d38860d1) and partner with them to make sure it aligns with Twilio’s brand guidelines.
+
+#### Pricing Cards
+
+Use this layout to show a group of Cards with pricing plans. Use a [brand Badge](/components/badge#brand) to highlight a “recommended” plan and [decorative Badges](/components/badge#decorative) for a customer’s current plan.
+
+The text layout in each Card is a suggestion. Adjust it as needed for your use case.
+
+<StoryPreview
+  height="520px"
+  title="Card examples - pricing"
+  storyID="website-cardexamples--pricing-example"
+  code={PricingExample}
+/>
 
 ## Composition notes
 

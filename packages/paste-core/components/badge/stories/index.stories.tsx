@@ -2,6 +2,9 @@ import { Heading } from "@twilio-paste/heading";
 import { ErrorIcon } from "@twilio-paste/icons/esm/ErrorIcon";
 import { InformationIcon } from "@twilio-paste/icons/esm/InformationIcon";
 import { NewIcon } from "@twilio-paste/icons/esm/NewIcon";
+import { ProductCommsIcon } from "@twilio-paste/icons/esm/ProductCommsIcon";
+import { ProductEmailAPIIcon } from "@twilio-paste/icons/esm/ProductEmailAPIIcon";
+import { ProductSegmentIcon } from "@twilio-paste/icons/esm/ProductSegmentIcon";
 import { SuccessIcon } from "@twilio-paste/icons/esm/SuccessIcon";
 import { UsersIcon } from "@twilio-paste/icons/esm/UsersIcon";
 import { WarningIcon } from "@twilio-paste/icons/esm/WarningIcon";
@@ -59,6 +62,15 @@ export const AllBadges = (): JSX.Element => (
     <Badge as="span" variant="decorative40">
       Decorative40
     </Badge>
+    <Badge as="span" variant="brand10">
+      Brand10
+    </Badge>
+    <Badge as="span" variant="brand20">
+      Brand20
+    </Badge>
+    <Badge as="span" variant="brand30">
+      Brand30
+    </Badge>
     <Badge as="span" variant="neutral_counter">
       1
     </Badge>
@@ -98,6 +110,15 @@ export const SmallBadges = (): JSX.Element => (
     </Badge>
     <Badge as="span" size="small" variant="decorative40">
       Decorative40
+    </Badge>
+    <Badge as="span" size="small" variant="brand10">
+      Brand10
+    </Badge>
+    <Badge as="span" size="small" variant="brand20">
+      Brand20
+    </Badge>
+    <Badge as="span" size="small" variant="brand30">
+      Brand30
     </Badge>
     <Badge as="span" size="small" variant="neutral_counter">
       1
@@ -641,6 +662,164 @@ export const Decorative40Badge = (): JSX.Element => (
       <Badge as="button" onClick={() => {}} variant="decorative40">
         Decorative 40
         <NewIcon decorative />
+      </Badge>
+    </Wrapper>
+  </>
+);
+
+export const Brand10Badge = (): JSX.Element => (
+  <>
+    <Heading as="h2" variant="heading40">
+      Span
+    </Heading>
+    <Wrapper>
+      <Badge as="span" variant="brand10">
+        Brand 10
+      </Badge>
+      <Badge as="span" variant="brand10">
+        <ProductCommsIcon decorative />
+        Brand 10
+      </Badge>
+      <Badge as="span" variant="brand10">
+        Brand 10
+        <ProductCommsIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Anchor
+    </Heading>
+    <Wrapper>
+      <Badge as="a" href="#" variant="brand10">
+        Brand 10
+      </Badge>
+      <Badge as="a" href="#" variant="brand10">
+        <ProductCommsIcon decorative />
+        Brand 10
+      </Badge>
+      <Badge as="a" href="#" variant="brand10">
+        Brand 10
+        <ProductCommsIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Button
+    </Heading>
+    <Wrapper>
+      <Badge as="button" onClick={() => {}} variant="brand10">
+        Brand 10
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="brand10">
+        <ProductCommsIcon decorative />
+        Brand 10
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="brand10">
+        Brand 10
+        <ProductCommsIcon decorative />
+      </Badge>
+    </Wrapper>
+  </>
+);
+
+export const Brand20Badge = (): JSX.Element => (
+  <>
+    <Heading as="h2" variant="heading40">
+      Span
+    </Heading>
+    <Wrapper>
+      <Badge as="span" variant="brand20">
+        Brand 20
+      </Badge>
+      <Badge as="span" variant="brand20">
+        <ProductEmailAPIIcon decorative />
+        Brand 20
+      </Badge>
+      <Badge as="span" variant="brand20">
+        Brand 20
+        <ProductEmailAPIIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Anchor
+    </Heading>
+    <Wrapper>
+      <Badge as="a" href="#" variant="brand20">
+        Brand 20
+      </Badge>
+      <Badge as="a" href="#" variant="brand20">
+        <ProductEmailAPIIcon decorative />
+        Brand 20
+      </Badge>
+      <Badge as="a" href="#" variant="brand20">
+        Brand 20
+        <ProductEmailAPIIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Button
+    </Heading>
+    <Wrapper>
+      <Badge as="button" onClick={() => {}} variant="brand20">
+        Brand 20
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="brand20">
+        <ProductEmailAPIIcon decorative />
+        Brand 20
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="brand20">
+        Brand 20
+        <ProductEmailAPIIcon decorative />
+      </Badge>
+    </Wrapper>
+  </>
+);
+export const Brand30Badge = (): JSX.Element => (
+  <>
+    <Heading as="h2" variant="heading40">
+      Span
+    </Heading>
+    <Wrapper>
+      <Badge as="span" variant="brand30">
+        Brand 30
+      </Badge>
+      <Badge as="span" variant="brand30">
+        <ProductSegmentIcon decorative />
+        Brand 30
+      </Badge>
+      <Badge as="span" variant="brand30">
+        Brand 30
+        <ProductSegmentIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Anchor
+    </Heading>
+    <Wrapper>
+      <Badge as="a" href="#" variant="brand30">
+        Brand 30
+      </Badge>
+      <Badge as="a" href="#" variant="brand30">
+        <ProductSegmentIcon decorative />
+        Brand 30
+      </Badge>
+      <Badge as="a" href="#" variant="brand30">
+        Brand 30
+        <ProductSegmentIcon decorative />
+      </Badge>
+    </Wrapper>
+    <Heading as="h2" variant="heading40">
+      Button
+    </Heading>
+    <Wrapper>
+      <Badge as="button" onClick={() => {}} variant="brand30">
+        Brand 30
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="brand30">
+        <ProductSegmentIcon decorative />
+        Brand 30
+      </Badge>
+      <Badge as="button" onClick={() => {}} variant="brand30">
+        Brand 30
+        <ProductSegmentIcon decorative />
       </Badge>
     </Wrapper>
   </>

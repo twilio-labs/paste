@@ -27,6 +27,9 @@ import {MMSCapableIcon} from '@twilio-paste/icons/esm/MMSCapableIcon';
 import {VoiceCapableIcon} from '@twilio-paste/icons/esm/VoiceCapableIcon';
 import {FaxCapableIcon} from '@twilio-paste/icons/esm/FaxCapableIcon';
 import {LinkExternalIcon} from '@twilio-paste/icons/esm/LinkExternalIcon';
+import { ProductCommsIcon } from "@twilio-paste/icons/esm/ProductCommsIcon";
+import { ProductSendGridIcon } from "@twilio-paste/icons/esm/ProductSendGridIcon";
+import { ProductSegmentIcon } from "@twilio-paste/icons/esm/ProductSegmentIcon";
 import {Grid, Column} from '@twilio-paste/grid';
 import {Tabs, Tab, TabList, TabPanel, TabPanels} from '@twilio-paste/tabs';
 import {DisplayPill} from '@twilio-paste/display-pill-group';
@@ -109,6 +112,15 @@ export const getStaticProps = async () => {
   <Badge as="span" variant="decorative40">
     Decorative 40
   </Badge>
+  <Badge as="span" variant="brand10">
+    Brand 10
+  </Brand>
+  <Badge as="span" variant="brand20">
+    Brand 20
+  </Brand>
+  <Badge as="span" variant="brand30">
+    Brand 30
+  </Brand>
   <Badge as="span" variant="neutral_counter">
     1
   </Badge>
@@ -274,6 +286,28 @@ but would benefit from the visual affordance of differently-colored Badges. Icon
   <Badge as="span" variant="decorative40">
     <FaxCapableIcon decorative />
     MMS
+  </Badge>
+</Box>
+`.trim()}
+</LivePreview>
+
+### Brand
+
+Use the brand Badge for cross-selling opportunities across platforms (e.g., Segment, SendGrid, Communications, Flex) and pricing plans. Use these sparingly.
+
+<LivePreview scope={{Box, Badge, ProductSendGridIcon, ProductSegmentIcon, ProductCommsIcon, FaxCapableIcon}} language="jsx">
+  {`<Box display="flex" columnGap="space80">
+  <Badge as="span" variant="brand10">
+    <ProductCommsIcon decorative />
+    Twilio CPaaS
+  </Badge>
+  <Badge as="span" variant="brand20">
+    <ProductSendGridIcon decorative />
+    Twilio SendGrid
+  </Badge>
+  <Badge as="span" variant="brand30">
+    <ProductSegmentIcon decorative />
+    Twilio Segment CDP
   </Badge>
 </Box>
 `.trim()}
