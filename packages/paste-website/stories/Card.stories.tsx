@@ -18,6 +18,7 @@ import { Separator } from "@twilio-paste/separator";
 import { Stack } from "@twilio-paste/stack";
 import * as React from "react";
 
+import { Marketing2 } from "../public/images/card/Marketing2";
 import { Marketing3 } from "../public/images/card/Marketing3";
 import { Marketing4 } from "../public/images/card/Marketing4";
 import { AlertsAndNotifications } from "../src/assets/illustrations/AlertsAndNotifications";
@@ -163,7 +164,7 @@ export const MarketingTwoExample = (): JSX.Element => {
     <Card>
       <MediaObject verticalAlign="top">
         <MediaFigure spacing="space90">
-          <Box as="img" src="./card/marketing2.png" maxHeight="150px" />
+          <Marketing2 />
         </MediaFigure>
         <MediaBody>
           <Heading as="h6" variant="heading30">

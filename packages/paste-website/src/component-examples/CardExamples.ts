@@ -127,7 +127,7 @@ export const MarketingTwoExample = `const CardExample = () => {
     <Card>
       <MediaObject verticalAlign="top">
         <MediaFigure spacing="space90">
-          <Box as="img" src="./card/marketing2.png" maxHeight="150px" />
+          <Marketing2 />
         </MediaFigure>
         <MediaBody>
           <Heading as="h6" variant="heading30">
