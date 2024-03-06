@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface FolderIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface FolderIconProps extends IconWrapperProps {
 }
 
 const FolderIcon = React.forwardRef<HTMLElement, FolderIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `FolderIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[FolderIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[FolderIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -27,6 +27,7 @@ const FolderIcon = React.forwardRef<HTMLElement, FolderIconProps>(
           aria-hidden={decorative}
           width="100%"
           height="100%"
+          viewBox="0 0 20 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           aria-labelledby={titleId}
@@ -41,8 +42,8 @@ const FolderIcon = React.forwardRef<HTMLElement, FolderIconProps>(
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-FolderIcon.displayName = 'FolderIcon';
-export {FolderIcon};
+FolderIcon.displayName = "FolderIcon";
+export { FolderIcon };

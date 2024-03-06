@@ -1,11 +1,11 @@
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
 /**
  * This file was automatically generated with @twilio-labs/svg-to-react
  */
-import * as React from 'react';
-import {useUID} from '@twilio-paste/uid-library';
 
-import {IconWrapper} from './helpers/IconWrapper';
-import type {IconWrapperProps} from './helpers/IconWrapper';
+import { IconWrapper } from "./helpers/IconWrapper";
+import type { IconWrapperProps } from "./helpers/IconWrapper";
 
 export interface SentimentNeutralIconProps extends IconWrapperProps {
   title?: string;
@@ -13,11 +13,11 @@ export interface SentimentNeutralIconProps extends IconWrapperProps {
 }
 
 const SentimentNeutralIcon = React.forwardRef<HTMLElement, SentimentNeutralIconProps>(
-  ({as, display, element = 'ICON', size, color, title, decorative}, ref) => {
+  ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
     const titleId = `SentimentNeutralIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error('[SentimentNeutralIcon]: Missing a title for non-decorative icon.');
+      throw new Error("[SentimentNeutralIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -45,8 +45,8 @@ const SentimentNeutralIcon = React.forwardRef<HTMLElement, SentimentNeutralIconP
         </svg>
       </IconWrapper>
     );
-  }
+  },
 );
 
-SentimentNeutralIcon.displayName = 'SentimentNeutralIcon';
-export {SentimentNeutralIcon};
+SentimentNeutralIcon.displayName = "SentimentNeutralIcon";
+export { SentimentNeutralIcon };
