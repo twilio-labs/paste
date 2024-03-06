@@ -112,7 +112,7 @@ export const MarketingOneExample = `const CardExample = () => {
           </Heading>
           <Paragraph>Get accurate transcriptions, and use AI-powered language operators.</Paragraph>
           <Button variant="primary">
-            Discover voice intelligence <ArrowForwardIcon decorative />
+            Discover Voice Intelligence <ArrowForwardIcon decorative />
           </Button>
         </MediaBody>
       </MediaObject>
@@ -174,7 +174,7 @@ export const MarketingThreeExample = `const CardExample = () => {
             You can now use your Twilio credentials to log in and explore Segment, our customer data platform. Combine
             data across the customer lifecycle into a single, golden profile with our CDP.
           </Paragraph>
-          <Button variant="secondary">Login to Segment with Twilio</Button>
+          <Button variant="secondary">Log in to Segment with Twilio</Button>
         </MediaBody>
       </MediaObject>
     </Card>
