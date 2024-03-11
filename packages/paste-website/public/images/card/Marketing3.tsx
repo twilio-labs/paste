@@ -129,15 +129,7 @@ export const Marketing3 = (): JSX.Element => {
         fill="#fff"
       />
       <defs>
-        <filter
-          id="Group 19448__a"
-          x="0"
-          y="127.5"
-          width="265"
-          height="192"
-          filterUnits="userSpaceOnUse"
-          colorInterpolationFilters="sRGB"
-        >
+        <filter x="0" y="127.5" width="265" height="192" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
@@ -147,7 +139,6 @@ export const Marketing3 = (): JSX.Element => {
           <feBlend in2="shape" result="effect1_innerShadow_915_16082" />
         </filter>
         <filter
-          id="Group 19448__b"
           x="167"
           y="173.5"
           width="211"

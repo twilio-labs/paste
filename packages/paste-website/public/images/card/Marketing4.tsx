@@ -32,7 +32,6 @@ export const Marketing4 = (): JSX.Element => {
             fill="#51A9E3"
           />
           <mask
-            id="text-marketing_roi__c"
             // style="mask-type:luminance"
             maskUnits="userSpaceOnUse"
             x="175"
@@ -63,7 +62,6 @@ export const Marketing4 = (): JSX.Element => {
             strokeWidth="1.5"
           />
           <mask
-            id="text-marketing_roi__e"
             // style="mask-type:luminance"
             maskUnits="userSpaceOnUse"
             x="175"
@@ -168,7 +166,6 @@ export const Marketing4 = (): JSX.Element => {
       <ellipse cx="3.005" cy="3.045" rx="3.005" ry="3.045" transform="matrix(-1 0 0 1 138.245 187.5)" fill="#fff" />
       <defs>
         <filter
-          id="text-marketing_roi__a"
           x="67"
           y="24.5"
           width="345.607"
@@ -185,7 +182,6 @@ export const Marketing4 = (): JSX.Element => {
           <feBlend in="SourceGraphic" in2="effect1_dropShadow_913_99738" result="shape" />
         </filter>
         <filter
-          id="text-marketing_roi__g"
           x="23"
           y="170.5"
           width="135.816"
@@ -202,7 +198,6 @@ export const Marketing4 = (): JSX.Element => {
           <feBlend in="SourceGraphic" in2="effect1_dropShadow_913_99738" result="shape" />
         </filter>
         <filter
-          id="text-marketing_roi__h"
           x="88"
           y="152.5"
           width="118.938"
@@ -218,29 +213,15 @@ export const Marketing4 = (): JSX.Element => {
           <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_913_99738" />
           <feBlend in="SourceGraphic" in2="effect1_dropShadow_913_99738" result="shape" />
         </filter>
-        <linearGradient
-          id="text-marketing_roi__d"
-          x1="-235.982"
-          y1="-46.638"
-          x2="-235.982"
-          y2="103.748"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient x1="-235.982" y1="-46.638" x2="-235.982" y2="103.748" gradientUnits="userSpaceOnUse">
           <stop stopColor="#008CFF" />
           <stop offset="1" stopColor="#008CFF" stopOpacity=".01" />
         </linearGradient>
-        <linearGradient
-          id="text-marketing_roi__f"
-          x1="-221.89"
-          y1="5.591"
-          x2="-221.89"
-          y2="155.977"
-          gradientUnits="userSpaceOnUse"
-        >
+        <linearGradient x1="-221.89" y1="5.591" x2="-221.89" y2="155.977" gradientUnits="userSpaceOnUse">
           <stop stopColor="#F22F45" />
           <stop offset="1" stopColor="#F22F46" stopOpacity=".01" />
         </linearGradient>
-        <clipPath id="text-marketing_roi__b">
+        <clipPath>
           <rect x="83" y="40.5" width="305.607" height="216" rx="4.889" fill="#fff" />
         </clipPath>
       </defs>

@@ -139,7 +139,7 @@ export const MarketingOneExample = (): JSX.Element => {
     <Card>
       <MediaObject verticalAlign="top">
         <MediaFigure spacing="space90">
-          <Box as="img" src="./card/marketing1.png" maxHeight="150px" />
+          <Box as="img" src="./card/marketing1.png" maxHeight="150px" alt="" />
         </MediaFigure>
         <MediaBody>
           <Heading as="h6" variant="heading30">
