@@ -119,10 +119,11 @@ Once the icon is designed and exported, we need to get it in the hands of our de
 3. Navigate inside the newly cloned repository with cd paste
 4. Install the dependencies with yarn install
 5. Add all the new svg icon files into the packages/paste-icons/svg/ folder.
-6. From the root Paste folder, run the following command in your terminal: `yarn workspace @twilio-paste/icons convert`
+6. From the root Paste folder, run the following commands in your terminal: `yarn workspace @twilio-paste/icons convert-new` and `yarn workspace @twilio-paste/icons list-icons`
 7. Verify your new icons were added correctly by checking the packages/paste-icons/src folder to see the newly created source files.
 8. Create a changeset to document your updates by running `yarn changeset`.
-9. Commit your changes and submit a new PR on Github!
+9. Update the snapshot tests with `yarn jest --u`.
+10. Commit your changes and submit a new PR on Github!
 
 ## Troubleshooting
 
