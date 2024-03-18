@@ -1,5 +1,11 @@
 # @twilio-paste/badge
 
+## 8.2.0
+
+### Minor Changes
+
+- [`dc599cecb`](https://github.com/twilio-labs/paste/commit/dc599cecbb044a06f61cfd3714e22b2d6e0be5aa) [#3798](https://github.com/twilio-labs/paste/pull/3798) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] add 3 new badge variants: brand10, brand20, and brand30
+
 ## 8.1.0
 
 ### Minor Changes
