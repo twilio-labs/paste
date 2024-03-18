@@ -1,5 +1,28 @@
 # Change Log
 
+## 20.11.0
+
+### Minor Changes
+
+- [`dc599cecb`](https://github.com/twilio-labs/paste/commit/dc599cecbb044a06f61cfd3714e22b2d6e0be5aa) [#3798](https://github.com/twilio-labs/paste/pull/3798) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add 6 new shadow border tokens for brand badges:
+
+  - shadow-border-brand-10
+  - shadow-border-brand-20
+  - shadow-border-brand-30
+  - shadow-border-bottom-brand-10-strong
+  - shadow-border-bottom-brand-20-strong
+  - shadow-border-bottom-brand-30-strong
+
+* [`1430b8c80`](https://github.com/twilio-labs/paste/commit/1430b8c80f1abefc2c6ef18d70bbaa5a80fd2ad0) [#3808](https://github.com/twilio-labs/paste/pull/3808) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add new icons SentimentNeutral, SentimentPositive, SentimentNegative, and Folder
+
+- [`dc599cecb`](https://github.com/twilio-labs/paste/commit/dc599cecbb044a06f61cfd3714e22b2d6e0be5aa) [#3798](https://github.com/twilio-labs/paste/pull/3798) Thanks [@nkrantz](https://github.com/nkrantz)! - [Badge] add 3 new badge variants: brand10, brand20, and brand30
+
+### Patch Changes
+
+- Updated dependencies [[`dc599cecb`](https://github.com/twilio-labs/paste/commit/dc599cecbb044a06f61cfd3714e22b2d6e0be5aa), [`dc599cecb`](https://github.com/twilio-labs/paste/commit/dc599cecbb044a06f61cfd3714e22b2d6e0be5aa)]:
+  - @twilio-paste/design-tokens@10.6.0
+  - @twilio-paste/badge@8.2.0
+
 ## 20.10.0
 
 ### Minor Changes
