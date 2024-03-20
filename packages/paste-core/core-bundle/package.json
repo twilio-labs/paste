@@ -150,6 +150,7 @@
     "@twilio-paste/separator": "^8.1.1",
     "@twilio-paste/sibling-box": "^9.1.1",
     "@twilio-paste/side-modal": "^4.1.1",
+    "@twilio-paste/side-panel": "^0.0.0",
     "@twilio-paste/sidebar": "^1.1.1",
     "@twilio-paste/skeleton-loader": "^6.1.1",
     "@twilio-paste/slider": "^3.0.1",
