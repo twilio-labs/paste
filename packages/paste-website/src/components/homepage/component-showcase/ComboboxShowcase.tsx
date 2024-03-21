@@ -25,6 +25,8 @@ export const ComboboxShowcase: React.FC = () => {
   const filteredItems = React.useMemo(() => getFilteredItems(inputValue), [inputValue]);
   return (
     <MultiselectCombobox
+      autoFocus={false}
+      tabIndex={-1}
       labelText="Code sample languages"
       selectedItemsLabelText="Selected code sample languages"
       items={filteredItems}

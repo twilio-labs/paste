@@ -1,5 +1,14 @@
 # @twilio-paste/website
 
+## 2.23.44
+
+### Patch Changes
+
+- Updated dependencies [[`dc599cecb`](https://github.com/twilio-labs/paste/commit/dc599cecbb044a06f61cfd3714e22b2d6e0be5aa), [`1430b8c80`](https://github.com/twilio-labs/paste/commit/1430b8c80f1abefc2c6ef18d70bbaa5a80fd2ad0), [`dc599cecb`](https://github.com/twilio-labs/paste/commit/dc599cecbb044a06f61cfd3714e22b2d6e0be5aa), [`c04a38a0b`](https://github.com/twilio-labs/paste/commit/c04a38a0b9434aee16a3b143a7b76c3d9e6b5553)]:
+  - @twilio-paste/design-tokens@10.6.0
+  - @twilio-paste/icons@12.4.0
+  - @twilio-paste/badge@8.2.0
+
 ## 2.23.43
 
 ### Patch Changes

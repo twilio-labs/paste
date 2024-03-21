@@ -2,7 +2,6 @@ import { animated, useSpring } from "@twilio-paste/animation-library";
 import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
 import { CheckboxCheckIcon } from "@twilio-paste/icons/esm/CheckboxCheckIcon";
-import { Paragraph } from "@twilio-paste/paragraph";
 import { Text } from "@twilio-paste/text";
 import * as React from "react";
 import VisibilitySensor from "react-visibility-sensor";
@@ -11,21 +10,29 @@ import { SectionContainer } from "./SectionContainer";
 
 const AnimatedBox = animated(Box);
 
-const ThinkingLine: React.FC<{ children: React.ReactNode }> = ({ children }): React.ReactElement => {
+const ThinkingLine: React.FC<{ children: React.ReactNode; index: number }> = ({
+  children,
+  index,
+}): React.ReactElement => {
   const [show, setShow] = React.useState(false);
 
   function handleVisibilityChange(isVisible: boolean): void {
     if (!show) {
-      setShow(isVisible);
+      setTimeout(() => {
+        setShow(isVisible);
+      }, index * 50);
     }
   }
 
   const styles = useSpring({
     opacity: show ? 1 : 0.1,
+    config: {
+      duration: 500,
+    },
   });
 
   return (
-    <VisibilitySensor onChange={handleVisibilityChange} offset={{ bottom: 120 }}>
+    <VisibilitySensor onChange={handleVisibilityChange} offset={{ bottom: 100 }}>
       <Box display="flex" columnGap="space50" alignItems="center">
         <AnimatedBox
           borderRadius="borderRadiusCircle"
@@ -56,13 +63,13 @@ const WeDoTheThinking: React.FC = (): React.ReactElement => {
           </Box>
           <span>so you don&apos;t have to</span>
         </Heading>
-        <Paragraph>
+        <Text as="p" fontSize="fontSize40" lineHeight="lineHeight40" marginBottom="space90">
           Creating seamless and accessible user experiences can be a tough task. But we help you simplify the journey.
-        </Paragraph>
-        <Paragraph marginBottom="space0">
+        </Text>
+        <Text as="p" fontSize="fontSize40" lineHeight="lineHeight40">
           Paste handles the research, design, testing, and engineering of the core building blocks. This frees up your
           energy to tackle customer challenges instead of UI issues.
-        </Paragraph>
+        </Text>
         <Box display="flex" justifyContent="center">
           <Box
             display="flex"
@@ -72,15 +79,15 @@ const WeDoTheThinking: React.FC = (): React.ReactElement => {
             maxWidth="size30"
             marginTop="space130"
           >
-            <ThinkingLine>Accessibility standards</ThinkingLine>
-            <ThinkingLine>User research</ThinkingLine>
-            <ThinkingLine>Competitive analysis</ThinkingLine>
-            <ThinkingLine>Product requirements</ThinkingLine>
-            <ThinkingLine>Design & API review</ThinkingLine>
-            <ThinkingLine>Usage guidelines</ThinkingLine>
-            <ThinkingLine>Built-in constraints</ThinkingLine>
-            <ThinkingLine>Dos and Dont&apos;s</ThinkingLine>
-            <ThinkingLine>Performance</ThinkingLine>
+            <ThinkingLine index={0}>Accessibility standards</ThinkingLine>
+            <ThinkingLine index={1}>User research</ThinkingLine>
+            <ThinkingLine index={2}>Competitive analysis</ThinkingLine>
+            <ThinkingLine index={3}>Product requirements</ThinkingLine>
+            <ThinkingLine index={4}>Design & API review</ThinkingLine>
+            <ThinkingLine index={5}>Usage guidelines</ThinkingLine>
+            <ThinkingLine index={6}>Built-in constraints</ThinkingLine>
+            <ThinkingLine index={7}>Dos and Dont&apos;s</ThinkingLine>
+            <ThinkingLine index={8}>Performance</ThinkingLine>
           </Box>
         </Box>
       </Box>

@@ -63,7 +63,7 @@ export const usePopoverArrow = createHook<PopoverArrowOptions, PopoverArrowHTMLP
           />
         </svg>
       ),
-      [transform],
+      [transform, fill, stroke],
     );
 
     return {

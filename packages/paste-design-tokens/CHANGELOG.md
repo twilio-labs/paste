@@ -1,5 +1,18 @@
 # Change Log
 
+## 10.6.0
+
+### Minor Changes
+
+- [`dc599cecb`](https://github.com/twilio-labs/paste/commit/dc599cecbb044a06f61cfd3714e22b2d6e0be5aa) [#3798](https://github.com/twilio-labs/paste/pull/3798) Thanks [@nkrantz](https://github.com/nkrantz)! - [Design tokens] add 6 new shadow border tokens for brand badges:
+
+  - shadow-border-brand-10
+  - shadow-border-brand-20
+  - shadow-border-brand-30
+  - shadow-border-bottom-brand-10-strong
+  - shadow-border-bottom-brand-20-strong
+  - shadow-border-bottom-brand-30-strong
+
 ## 10.5.0
 
 ### Minor Changes

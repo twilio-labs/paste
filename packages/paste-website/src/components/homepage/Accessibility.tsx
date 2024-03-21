@@ -53,48 +53,50 @@ const Accessibility: React.FC = (): React.ReactElement => {
               <BouncyAnchor text="Learn more in our Inclusive Design Guide" href="/inclusive-design" />
             </Box>
           </Box>
-          <Tabs selectedId={selectedTabId} baseId="horizontal-tabs-example" variant="fitted">
-            <TabList aria-label="Horizontal product tabs">
-              <Tab id={selectedTabId}>Focus management</Tab>
-              <Tab>Screen reader support</Tab>
-              <Tab>Keyboard support</Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
-                <AspectRatio ratio="16:9">
-                  <iframe
-                    title="Remix silent demo video"
-                    src="https://www.loom.com/embed/4c584f749e414326b83fed3321132186?sid=42b642cb-3377-4a76-b926-fe0f9f274df7"
-                    frameBorder="0"
-                    allowFullScreen
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                  />
-                </AspectRatio>
-              </TabPanel>
-              <TabPanel>
-                <AspectRatio ratio="16:9">
-                  <iframe
-                    title="Remix silent demo video"
-                    src="https://www.loom.com/embed/5328cf9bec074512917180df829250e9?sid=a0a3a1a1-e521-4a86-8ccc-02b45344d97d"
-                    frameBorder="0"
-                    allowFullScreen
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                  />
-                </AspectRatio>
-              </TabPanel>
-              <TabPanel>
-                <AspectRatio ratio="16:9">
-                  <iframe
-                    title="Remix silent demo video"
-                    src="https://www.loom.com/embed/7a98f9ded7b24371bd6888fa80f52b19?sid=e9b9fd19-4bbd-4692-aa67-6e8ec72eb617"
-                    frameBorder="0"
-                    allowFullScreen
-                    style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
-                  />
-                </AspectRatio>
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
+          <Box flexShrink={0} minWidth="570px">
+            <Tabs selectedId={selectedTabId} baseId="horizontal-tabs-example" variant="fitted">
+              <TabList aria-label="Horizontal product tabs">
+                <Tab id={selectedTabId}>Focus management</Tab>
+                <Tab>Screen reader support</Tab>
+                <Tab>Keyboard support</Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel>
+                  <AspectRatio ratio="16:9">
+                    <iframe
+                      title="Remix silent demo video"
+                      src="https://www.loom.com/embed/4c584f749e414326b83fed3321132186?sid=42b642cb-3377-4a76-b926-fe0f9f274df7"
+                      frameBorder="0"
+                      allowFullScreen
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                    />
+                  </AspectRatio>
+                </TabPanel>
+                <TabPanel>
+                  <AspectRatio ratio="16:9">
+                    <iframe
+                      title="Remix silent demo video"
+                      src="https://www.loom.com/embed/5328cf9bec074512917180df829250e9?sid=a0a3a1a1-e521-4a86-8ccc-02b45344d97d"
+                      frameBorder="0"
+                      allowFullScreen
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                    />
+                  </AspectRatio>
+                </TabPanel>
+                <TabPanel>
+                  <AspectRatio ratio="16:9">
+                    <iframe
+                      title="Remix silent demo video"
+                      src="https://www.loom.com/embed/7a98f9ded7b24371bd6888fa80f52b19?sid=e9b9fd19-4bbd-4692-aa67-6e8ec72eb617"
+                      frameBorder="0"
+                      allowFullScreen
+                      style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "100%" }}
+                    />
+                  </AspectRatio>
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
+          </Box>
         </Box>
       </Box>
 

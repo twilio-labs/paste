@@ -75,7 +75,7 @@ const SearchBox: React.FC = () => {
           >
             <SearchIcon decorative={false} title="search the docs site" color="colorTextIcon" size="sizeIcon30" />
           </Box>
-          <Text as="div" fontStyle="italic" color="colorTextWeak">
+          <Text as="div" fontStyle="italic" color="colorTextWeak" marginLeft="space40">
             Search
           </Text>
         </Button>

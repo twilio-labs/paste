@@ -6,24 +6,25 @@ import { SiteFooterNav } from "./SiteFooterNav";
 
 const SiteFooter: React.FC = () => {
   return (
-    <Box
-      as="footer"
-      margin={["space0", "space80", "space140"]}
-      display="flex"
-      justifyContent="center"
-      borderRadius={["borderRadius0", "borderRadius30"]}
-      backgroundColor="colorBackgroundBodyInverse"
-    >
+    <Box as="footer" padding={["space0", "space80", "space140"]} display="flex" backgroundColor="colorBackgroundBody">
       <Box
         width="100%"
-        maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
-        padding={["space90", "space90", "space180"]}
-        paddingTop={["space130", "space130", "space130"]}
         display="flex"
-        justifyContent={["center", "center", "center", "space-between"]}
+        justifyContent="center"
+        borderRadius={["borderRadius0", "borderRadius30"]}
+        backgroundColor="colorBackgroundBodyInverse"
       >
-        <SiteFooterNav />
-        <SiteFooterIllustration />
+        <Box
+          width="100%"
+          maxWidth={HOMEPAGE_SITE_CONTENT_MAX_WIDTH}
+          padding={["space90", "space90", "space180"]}
+          paddingTop={["space130", "space130", "space130"]}
+          display="flex"
+          justifyContent={["center", "center", "center", "space-between"]}
+        >
+          <SiteFooterNav />
+          <SiteFooterIllustration />
+        </Box>
       </Box>
     </Box>
   );

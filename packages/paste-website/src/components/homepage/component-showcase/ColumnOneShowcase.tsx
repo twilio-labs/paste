@@ -99,7 +99,7 @@ export const ColumnOneShowcase: React.FC = () => {
       display="flex"
       flexDirection="column"
       rowGap="space70"
-      maxWidth="527px"
+      maxWidth="519px"
     >
       <Box
         backgroundColor="colorBackgroundBody"
@@ -248,69 +248,75 @@ export const ColumnOneShowcase: React.FC = () => {
         <Label htmlFor={sliderId}>Volume</Label>
         <Slider id={sliderId} value={sliderValue} onChange={(newValue) => setSliderValue(newValue)} hideRangeLabels />
       </Box>
-      <Disclosure state={customDisclosureState}>
-        <DisclosureHeading as="h3" variant="heading30">
-          Helpful links
-        </DisclosureHeading>
-        <DisclosureContent>
-          <Box display="flex" columnGap="space90">
-            <Box display="flex" flexDirection="column" rowGap="space50" marginLeft="space60" marginBottom="space30">
-              <Anchor href="/components/icon">Icons list</Anchor>
-              <Box display="flex" flexDirection="column" rowGap="space20" flexWrap="wrap">
-                <Box display="flex" flexDirection="row" columnGap="space30">
-                  <EditIcon decorative={false} title="edit icon" size="sizeIcon40" color="colorTextIcon" />
-                  <ShowIcon decorative={false} title="show icon" size="sizeIcon40" color="colorTextIcon" />
-                  <BuildIcon decorative={false} title="build icon" size="sizeIcon40" color="colorTextIcon" />
-                  <CustomIcon decorative={false} title="custom icon" size="sizeIcon40" color="colorTextIcon" />
-                </Box>
-                <Box display="flex" flexDirection="row" columnGap="space30">
-                  <ExpandIcon decorative={false} title="expand icon" size="sizeIcon40" color="colorTextIcon" />
-                  <FeedIcon decorative={false} title="feed icon" size="sizeIcon40" color="colorTextIcon" />
-                  <FileImageIcon decorative={false} title="file image icon" size="sizeIcon40" color="colorTextIcon" />
-                  <TranslationIcon
-                    decorative={false}
-                    title="translation icon"
-                    size="sizeIcon40"
-                    color="colorTextIcon"
-                  />
-                </Box>
-                <Box display="flex" flexDirection="row" columnGap="space30">
-                  <ShareIcon decorative={false} title="share icon" size="sizeIcon40" color="colorTextIcon" />
-                  <TipIcon decorative={false} title="tip icon" size="sizeIcon40" color="colorTextIcon" />
-                  <TimeIcon decorative={false} title="time icon" size="sizeIcon40" color="colorTextIcon" />
-                  <DataLineChartIcon
-                    decorative={false}
-                    title="data line chart icon"
-                    size="sizeIcon40"
-                    color="colorTextIcon"
-                  />
+      <Box
+        backgroundColor="colorBackgroundBody"
+        borderTopLeftRadius="borderRadius30"
+        borderTopRightRadius="borderRadius30"
+      >
+        <Disclosure state={customDisclosureState}>
+          <DisclosureHeading as="h3" variant="heading30">
+            Helpful links
+          </DisclosureHeading>
+          <DisclosureContent>
+            <Box display="flex" columnGap="space90" paddingBottom="space40">
+              <Box display="flex" flexDirection="column" rowGap="space50" marginLeft="space60" marginBottom="space30">
+                <Anchor href="/components/icon">Icons list</Anchor>
+                <Box display="flex" flexDirection="column" rowGap="space20" flexWrap="wrap">
+                  <Box display="flex" flexDirection="row" columnGap="space30">
+                    <EditIcon decorative={false} title="edit icon" size="sizeIcon40" color="colorTextIcon" />
+                    <ShowIcon decorative={false} title="show icon" size="sizeIcon40" color="colorTextIcon" />
+                    <BuildIcon decorative={false} title="build icon" size="sizeIcon40" color="colorTextIcon" />
+                    <CustomIcon decorative={false} title="custom icon" size="sizeIcon40" color="colorTextIcon" />
+                  </Box>
+                  <Box display="flex" flexDirection="row" columnGap="space30">
+                    <ExpandIcon decorative={false} title="expand icon" size="sizeIcon40" color="colorTextIcon" />
+                    <FeedIcon decorative={false} title="feed icon" size="sizeIcon40" color="colorTextIcon" />
+                    <FileImageIcon decorative={false} title="file image icon" size="sizeIcon40" color="colorTextIcon" />
+                    <TranslationIcon
+                      decorative={false}
+                      title="translation icon"
+                      size="sizeIcon40"
+                      color="colorTextIcon"
+                    />
+                  </Box>
+                  <Box display="flex" flexDirection="row" columnGap="space30">
+                    <ShareIcon decorative={false} title="share icon" size="sizeIcon40" color="colorTextIcon" />
+                    <TipIcon decorative={false} title="tip icon" size="sizeIcon40" color="colorTextIcon" />
+                    <TimeIcon decorative={false} title="time icon" size="sizeIcon40" color="colorTextIcon" />
+                    <DataLineChartIcon
+                      decorative={false}
+                      title="data line chart icon"
+                      size="sizeIcon40"
+                      color="colorTextIcon"
+                    />
+                  </Box>
                 </Box>
               </Box>
+              <Box display="flex" flexDirection="column" rowGap="space50">
+                <Anchor href="/tokens/list">Tokens list</Anchor>
+                <DisplayPillGroup aria-label="design tokens">
+                  <DisplayPill>
+                    <Avatar name="color-text-success" src="/images/avatars/token1.png" size="sizeIcon10" />
+                    $color-text-success
+                  </DisplayPill>
+                  <DisplayPill>
+                    <Avatar name="color-text" src="/images/avatars/token2.png" size="sizeIcon10" />
+                    $color-text
+                  </DisplayPill>
+                  <DisplayPill>
+                    <Avatar name="color-data-visualization" src="/images/avatars/token3.png" size="sizeIcon10" />
+                    $color-data-visualization-10
+                  </DisplayPill>
+                  <DisplayPill>
+                    <Avatar name="color-background-primary" src="/images/avatars/token4.png" size="sizeIcon10" />
+                    $color-background-primary
+                  </DisplayPill>
+                </DisplayPillGroup>
+              </Box>
             </Box>
-            <Box display="flex" flexDirection="column" rowGap="space50">
-              <Anchor href="/tokens/list">Tokens list</Anchor>
-              <DisplayPillGroup aria-label="design tokens">
-                <DisplayPill>
-                  <Avatar name="color-text-success" src="/images/avatars/token1.png" size="sizeIcon10" />
-                  $color-text-success
-                </DisplayPill>
-                <DisplayPill>
-                  <Avatar name="color-text" src="/images/avatars/token2.png" size="sizeIcon10" />
-                  $color-text
-                </DisplayPill>
-                <DisplayPill>
-                  <Avatar name="color-data-visualization" src="/images/avatars/token3.png" size="sizeIcon10" />
-                  $color-data-visualization-10
-                </DisplayPill>
-                <DisplayPill>
-                  <Avatar name="color-background-primary" src="/images/avatars/token4.png" size="sizeIcon10" />
-                  $color-background-primary
-                </DisplayPill>
-              </DisplayPillGroup>
-            </Box>
-          </Box>
-        </DisclosureContent>
-      </Disclosure>
+          </DisclosureContent>
+        </Disclosure>
+      </Box>
     </Box>
   );
 };

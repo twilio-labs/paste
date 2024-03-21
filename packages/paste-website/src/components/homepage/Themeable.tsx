@@ -1,6 +1,7 @@
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable react/jsx-max-depth */
 import { Anchor } from "@twilio-paste/anchor";
+import { type UseSpringProps, animated, useSpring } from "@twilio-paste/animation-library";
 import { Box } from "@twilio-paste/box";
 import { Heading } from "@twilio-paste/heading";
 import { Text } from "@twilio-paste/text";
@@ -15,6 +16,67 @@ import { BouncyAnchor } from "./BouncyAnchor";
 import { SectionContainer } from "./SectionContainer";
 import { SectionSeparator } from "./SectionSeparator";
 import { ThemeableBuilder } from "./ThemeableBuilder";
+
+interface BoopProps {
+  x?: number;
+  y?: number;
+  rotation?: number;
+  scale?: number;
+  timing?: number;
+  config?: UseSpringProps["config"];
+  children?: React.ReactNode;
+}
+
+const Boop: React.FC<BoopProps> = ({
+  x = 0,
+  y = 0,
+  rotation = 0,
+  scale = 1,
+  timing = 150,
+  config = {
+    tension: 300,
+    friction: 10,
+  },
+  children,
+}) => {
+  const [isBooped, setIsBooped] = React.useState(false);
+  const trigger = React.useCallback(() => {
+    setIsBooped(true);
+  }, []);
+
+  const style = useSpring({
+    display: "inline-block",
+    transform: isBooped
+      ? `translate(${x}px, ${y}px)
+         rotate(${rotation}deg)
+         scale(${scale})`
+      : `translate(0px, 0px)
+         rotate(0deg)
+         scale(1)`,
+    config,
+  });
+
+  React.useEffect(() => {
+    if (!isBooped) {
+      return;
+    }
+
+    const timeoutId = window.setTimeout(() => {
+      setIsBooped(false);
+    }, timing);
+
+    // eslint-disable-next-line consistent-return
+    return () => {
+      window.clearTimeout(timeoutId);
+    };
+  }, [isBooped, timing]);
+
+  return (
+    <animated.span onMouseEnter={trigger} style={style}>
+      {children}
+    </animated.span>
+  );
+};
 
 const Themeable: React.FC = (): React.ReactElement => {
   return (
@@ -39,10 +101,10 @@ const Themeable: React.FC = (): React.ReactElement => {
           display="flex"
           flexDirection={["column", "column", "column", "row"]}
           justifyContent="space-between"
-          columnGap="space100"
+          columnGap="space200"
           rowGap="space200"
         >
-          <Box display="flex" flexDirection="column">
+          <Box display="flex" flexDirection="column" maxWidth={["100%", "100%", "100%", "size40"]}>
             <Heading as="h3" variant="heading20">
               Start from anywhere
             </Heading>
@@ -67,10 +129,23 @@ const Themeable: React.FC = (): React.ReactElement => {
           <Heading as="h3" variant="heading30">
             Built with your favorite technologies, Typescript + React + Figma
           </Heading>
-          <Box display="flex" flexDirection="row" columnGap="space200" justifyContent="center" marginTop="space90">
-            <Image src={TypescriptLogo} aria-hidden="true" role="img" alt="typescript logo" />
-            <Image src={ReactLogo} aria-hidden="true" role="img" alt="react logo" />
-            <Image src={FigmaLogo} aria-hidden="true" role="img" alt="figma logo" />
+          <Box
+            display="flex"
+            flexDirection="row"
+            columnGap="space200"
+            justifyContent="center"
+            marginTop="space90"
+            aria-hidden="true"
+          >
+            <Boop rotation={6} y={-1} scale={1.05}>
+              <Image src={TypescriptLogo} aria-hidden="true" role="img" alt="typescript logo" />
+            </Boop>
+            <Boop rotation={6} y={-1} scale={1.05}>
+              <Image src={ReactLogo} aria-hidden="true" role="img" alt="react logo" />
+            </Boop>
+            <Boop rotation={6} y={-1} scale={1.05}>
+              <Image src={FigmaLogo} aria-hidden="true" role="img" alt="figma logo" />
+            </Boop>
           </Box>
         </Box>
       </Box>

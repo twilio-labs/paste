@@ -103,7 +103,6 @@ export const settingsAndProducts = `const SettingsAndProducts = () => {
       flexDirection="row"
       alignItems="flex-start"
       columnGap="space40"
-      minWidth="size100"
     >
       <RadioGroup
         name="call-recording"
@@ -120,7 +119,7 @@ export const settingsAndProducts = `const SettingsAndProducts = () => {
         </Radio>
       </RadioGroup>
 
-      <Box display="flex" minWidth="size60" columnGap="space20">
+      <Box display="flex" columnGap="space20">
         <Badge variant="decorative20" as="span">
           <ProductElasticSIPTrunkingIcon decorative size="sizeIcon10" />
           SIP Trunking

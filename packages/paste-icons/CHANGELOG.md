@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.4.0
+
+### Minor Changes
+
+- [`1430b8c80`](https://github.com/twilio-labs/paste/commit/1430b8c80f1abefc2c6ef18d70bbaa5a80fd2ad0) [#3808](https://github.com/twilio-labs/paste/pull/3808) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add new icons SentimentNeutral, SentimentPositive, SentimentNegative, and Folder
+
+* [`c04a38a0b`](https://github.com/twilio-labs/paste/commit/c04a38a0b9434aee16a3b143a7b76c3d9e6b5553) [#3820](https://github.com/twilio-labs/paste/pull/3820) Thanks [@dkundel](https://github.com/dkundel)! - add AI Assistants icon
+
 ## 12.3.0
 
 ### Minor Changes
