@@ -12268,7 +12268,7 @@ __metadata:
     "@twilio-paste/radio-group": ^13.1.1
     "@twilio-paste/react-spectrum-library": ^2.2.0
     "@twilio-paste/react-textarea-autosize-library": ^3.0.0
-    "@twilio-paste/reakit-library": ^2.1.0
+    "@twilio-paste/reakit-library": ^2.1.1
     "@twilio-paste/screen-reader-only": ^13.1.1
     "@twilio-paste/select": ^12.1.2
     "@twilio-paste/separator": ^8.1.1
@@ -14346,7 +14346,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@twilio-paste/reakit-library@^2.0.0, @twilio-paste/reakit-library@^2.1.0, @twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit":
+"@twilio-paste/reakit-library@^2.0.0, @twilio-paste/reakit-library@^2.1.0, @twilio-paste/reakit-library@^2.1.1, @twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit":
   version: 0.0.0-use.local
   resolution: "@twilio-paste/reakit-library@workspace:packages/paste-libraries/reakit"
   dependencies:
