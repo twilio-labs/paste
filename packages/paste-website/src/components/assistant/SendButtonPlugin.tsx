@@ -3,7 +3,7 @@ import { Button } from "@twilio-paste/button";
 import { SendIcon } from "@twilio-paste/icons/esm/SendIcon";
 import { CLEAR_EDITOR_COMMAND, useLexicalComposerContext } from "@twilio-paste/lexical-library";
 
-export const SendButtonPlugin = ({ onClick, disabled }: { onClick: () => void; disabled: boolean }): JSX.Element => {
+export const SendButtonPlugin = ({ onClick, disabled }: { onClick: () => void; disabled?: boolean }): JSX.Element => {
   const [editor] = useLexicalComposerContext();
 
   const handleSend = (): void => {

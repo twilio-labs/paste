@@ -79,13 +79,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     logger.info(`${LOG_PREFIX} Getting thread messages`, { threadId });
     const threadMessages = await getThreadMessages({ threadId });
-    logger.info(`${LOG_PREFIX} Recieved thread message`, { threadMessages });
+    logger.info(`${LOG_PREFIX} Recieved thread messages`, { threadMessages });
     res.status(200).json(threadMessages);
   } catch (error) {
-    logger.error(`${LOG_PREFIX} Error getting thread message`, { error });
-    rollbar.error(`${LOG_PREFIX} Error getting thread message`, { error });
+    logger.error(`${LOG_PREFIX} Error getting thread messages from OpenAI`, { error });
+    rollbar.error(`${LOG_PREFIX} Error getting thread messages from OpenAI`, { error });
     res.status(500).json({
-      error: "Error getting thread message",
+      error: "Error getting thread messages from OpenAI",
     });
   }
 }
