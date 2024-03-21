@@ -4,7 +4,7 @@ import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
+const StyledSidePanel = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box
     {...props}
     role="dialog"
@@ -25,8 +25,8 @@ const StyledSidebar = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) =>
     bottom={0}
   />
 ));
-StyledSidebar.displayName = "StyledSidebar";
-const AnimatedStyledSidePanel = animated(StyledSidebar);
+StyledSidePanel.displayName = "StyledSidePanel";
+const AnimatedStyledSidePanel = animated(StyledSidePanel);
 
 const getDefaultHiddenSpringConfig = (collapsed: boolean): any => ({
   opacity: collapsed ? 0 : 1,
@@ -71,6 +71,7 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
 
 const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
   ({ element = "SIDE_PANEL", size = "default", collapsed = false, children, ...props }, ref) => {
+    // use useTransition instead of useAnimation to un-render the side panel content when collapsed
     const styles =
       size === "wide"
         ? useSpring(getWideHiddenSpringConfig(collapsed))
@@ -84,8 +85,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
         width={size === "wide" ? ["100%", "size90", "size90"] : ["100%", "size40", "size40"]}
         style={styles}
       >
-        {/* un-render the side panel content when collapsed */}
-        {collapsed ? null : children}
+        {children}
       </AnimatedStyledSidePanel>
     );
   },
