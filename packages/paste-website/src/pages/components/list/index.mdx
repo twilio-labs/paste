@@ -66,7 +66,11 @@ export const getStaticProps = async () => {
 
 ## Guidelines
 
-Lists can be ordered or unordered. If the order of the list items matters for context to the user, an ordered list should be used. If the meaning of the list is not changed based on the order of the items, an unordered list should be used.
+Lists can be:
+
+- Unordered, when the meaning of the list is not changed based on the order of the items
+- Ordered, when the order of the list items matters for context to the user.
+- Stylized Ordered List, when you need a visually enhanced numbered list to improve the scannability of sequential steps, instructions, or other content within a single screen.
 
 ### About Lists
 
@@ -74,9 +78,22 @@ Lists are a number of connected list items that are printed consecutively, typic
 
 - Ordered lists are displayed with a preceding number.
 - Unordered lists are displayed with a preceding bullet point.
+- Stylized Ordered Lists are displayed with a preceding visually enhanced number.
 - Lists can be nested as deeply as needed, and they may alternate between ordered and unordered.
 - Lists should align with the font-size, font-weight, and line-height of paragraphs, but are styled with bullets or numbers.
 - Lists can have similar children elements as paragraphs to provide emphasis on a certain word or phrase.
+
+### Stylized Ordered List vs Progress Steps
+
+**Progress Steps**
+
+- [Progress Steps](/components/progress-steps) show users an outline of a complex multi-step task across multiple pages.
+- Progress Steps convey progression and have interactive status states.
+
+**Stylized Ordered List**
+
+- Stylized Ordered Lists structure tasks but don’t outline or show progression or status through a multi-step task.
+- Stylized Ordered Lists organize complex tasks within a single screen, especially in flows where users need to complete tasks outside of Twilio.
 
 ### Accessibility
 
@@ -158,6 +175,24 @@ Use ordered list to display a numbered list of items.
 </OrderedList>`}
 </LivePreview>
 
+### Stylized Ordered List
+
+Use a Stylized Ordered List when you need a visually enhanced numbered list to improve the scannability of sequential steps, instructions, or other content within a single screen.
+
+TODO: EXAMPLE 1
+
+Choose a font size for list item labels that doesn't exceed the size of higher hierarchy levels on the page.
+
+TODO: EXAMPLE 2
+
+For elements under the list item, avoid using text with a font size larger than the list item label.
+
+TODO: EXAMPLE 3
+
+Keep list items labels concise, providing clear and actionable steps for the user to follow.
+
+TODO: EXAMPLE 4
+
 ### Nesting list items
 
 List items can be nested within other list items. To do so create a new list as a child to a `ListItem`.
@@ -198,6 +233,18 @@ List items can be nested within other list items. To do so create a new list as 
   </UnorderedList>
 </div>`}
 </LivePreview>
+
+#### Stylized Ordered List nesting
+
+The Stylized Ordered List is designed to convey hierarchy without influencing deeper levels. 
+
+TODO: EXAMPLE 5
+
+If your content requires more than 2 levels, use Headings to establish hierarchy before starting the list.
+
+All elements under a list item should be included inside the list item, ensuring they share the same indentation.
+
+TODO: EXAMPLE 6
 
 ## Composition notes
 
