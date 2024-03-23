@@ -114,7 +114,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         flexBasis: isFitted ? "50%" : undefined,
         flexGrow: isFitted ? 1 : undefined,
         flexShrink: isFitted ? 1 : undefined,
-        minWidth: "sizeSquare130",
+        minWidth: "max-content",
         paddingY: "space30",
         paddingX: "space50",
         textAlign: "center",
