@@ -58,6 +58,16 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
       const showTimer = setTimeout(() => setShow(true), delay);
       return () => clearTimeout(showTimer);
     }, [delay]);
+
+    // TODO: update animations so we dont need to check browser and render different animations
+    const [isSafari, setIsSafari] = React.useState<boolean | null>(null);
+    React.useEffect(() => {
+      setIsSafari(navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome"));
+    }, []);
+    if (isSafari == null) {
+      return null;
+    }
+
     return (
       <IconWrapper
         as={as}
@@ -68,11 +78,16 @@ const Spinner = React.forwardRef<HTMLDivElement, SpinnerProps>(
         aria-hidden={decorative}
         ref={ref}
       >
-        <StyledSvg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-labelledby={titleId}>
+        <StyledSvg
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-labelledby={titleId}
+          isSafari={isSafari}
+        >
           {title ? <title id={titleId}>{title}</title> : null}
           <g strokeWidth={borderWidth40} stroke="currentColor" strokeLinecap="round" fill="transparent">
             <StyledCircleTrack {...circleGeometry} />
-            <AnimatedStyledCircle show={show} {...circleGeometry} />
+            <AnimatedStyledCircle show={show} {...circleGeometry} isSafari={isSafari} />
           </g>
         </StyledSvg>
       </IconWrapper>
