@@ -8,9 +8,12 @@ export const StyledCircleTrack = styled.circle({
   opacity: 0.25,
 });
 
-export const AnimatedStyledCircle = styled.circle<{ show: boolean }>(({ show }) => {
-  // `transformOrigin: "center"` does not work on Safari, so only apply the animation on non-Safari browsers
-  const isSafari = navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome");
+/*
+ * AnimatedStyledCircle and StyledSvg use different animations for Safari because
+ * Safari does not respect the `transformOrigin: "center"` and causes bugs
+ */
+
+export const AnimatedStyledCircle = styled.circle<{ show: boolean; isSafari: boolean }>(({ show, isSafari }) => {
   return {
     transformOrigin: "center",
     animation: isSafari ? "none" : `1.5s ease-in-out infinite both ${CircleKeyframes}`,
@@ -19,9 +22,7 @@ export const AnimatedStyledCircle = styled.circle<{ show: boolean }>(({ show }) 
   };
 });
 
-export const StyledSvg = styled.svg(() => {
-  // Use simpler animations for Safari to accomodate transformOrigin bug fix
-  const isSafari = navigator.userAgent.includes("Safari") && !navigator.userAgent.includes("Chrome");
+export const StyledSvg = styled.svg<{ isSafari: boolean }>((isSafari) => {
   return {
     height: "100%",
     width: "100%",
