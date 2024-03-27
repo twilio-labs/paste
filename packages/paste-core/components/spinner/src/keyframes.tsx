@@ -34,3 +34,15 @@ export const CircleKeyframes = keyframes`
     transform: rotateZ(360deg);
   }
 `;
+
+export const SafariSvgKeyframes = keyframes`
+  0%,  
+  75% {
+    stroke-dashoffset: 90%;
+  }
+  
+  100% {
+    stroke-dashoffset: 90%;
+    transform: rotate(360deg);
+  }
+`;
