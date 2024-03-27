@@ -2,20 +2,17 @@ import { render, screen } from "@testing-library/react";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import * as React from "react";
 
-import { ListItem, OrderedList, UnorderedList } from "../src";
+import {
+  ListItem,
+  OrderedDisplayList,
+  OrderedDisplayListHeading,
+  OrderedDisplayListItem,
+  OrderedList,
+  UnorderedList,
+} from "../src";
 
 describe("Ordered List", () => {
   describe("Render", () => {
-    it("should render a plain ordered list wrapper", () => {
-      render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <OrderedList>Children</OrderedList>
-        </CustomizationProvider>,
-      );
-      const renderedList = screen.getByRole("list");
-      expect(renderedList).not.toBeNull();
-    });
-
     it("should allow marginTop and marginBottom styling props", () => {
       render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
@@ -71,52 +68,10 @@ describe("Ordered List", () => {
       expect(screen.getByRole("list").getAttribute("data-paste-element")).toEqual("foo");
     });
   });
-
-  describe("Customization", () => {
-    it("should add custom styles to OrderedList", (): void => {
-      render(
-        <CustomizationProvider
-          baseTheme="default"
-          theme={TestTheme}
-          elements={{ ORDERED_LIST: { color: "colorTextWeak", backgroundColor: "colorBackground" } }}
-        >
-          <OrderedList>Custom ordered list</OrderedList>
-        </CustomizationProvider>,
-      );
-      const renderedList = screen.getByRole("list");
-      expect(renderedList).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
-      expect(renderedList).toHaveStyleRule("color", "rgb(96, 107, 133)");
-    });
-
-    it("should add custom styles to OrderedList with a custom element data attribute", (): void => {
-      render(
-        <CustomizationProvider
-          baseTheme="default"
-          theme={TestTheme}
-          elements={{ foo: { color: "colorTextWeak", backgroundColor: "colorBackground" } }}
-        >
-          <OrderedList element="foo">Custom ordered list</OrderedList>
-        </CustomizationProvider>,
-      );
-      const renderedList = screen.getByRole("list");
-      expect(renderedList).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
-      expect(renderedList).toHaveStyleRule("color", "rgb(96, 107, 133)");
-    });
-  });
 });
 
 describe("Unordered List", () => {
   describe("Render", () => {
-    it("should render a plain unordered list wrapper", () => {
-      render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <UnorderedList>Children</UnorderedList>
-        </CustomizationProvider>,
-      );
-      const renderedList = screen.getByRole("list");
-      expect(renderedList).not.toBeNull();
-    });
-
     it("should allow marginTop and marginBottom styling props", () => {
       render(
         <CustomizationProvider baseTheme="default" theme={TestTheme}>
@@ -159,67 +114,19 @@ describe("Unordered List", () => {
       expect(screen.getByRole("list").getAttribute("data-paste-element")).toEqual("foo");
     });
   });
-
-  describe("Customization", () => {
-    it("should add custom styles to UnorderedList", (): void => {
-      render(
-        <CustomizationProvider
-          baseTheme="default"
-          theme={TestTheme}
-          elements={{ UNORDERED_LIST: { color: "colorTextWeak", backgroundColor: "colorBackground" } }}
-        >
-          <UnorderedList>Custom unordered list</UnorderedList>
-        </CustomizationProvider>,
-      );
-      const renderedList = screen.getByRole("list");
-      expect(renderedList).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
-      expect(renderedList).toHaveStyleRule("color", "rgb(96, 107, 133)");
-    });
-
-    it("should add custom styles to UnorderedList with a custom element data attribute", (): void => {
-      render(
-        <CustomizationProvider
-          baseTheme="default"
-          theme={TestTheme}
-          elements={{ foo: { color: "colorTextWeak", backgroundColor: "colorBackground" } }}
-        >
-          <UnorderedList element="foo">Custom unordered list</UnorderedList>
-        </CustomizationProvider>,
-      );
-      const renderedList = screen.getByRole("list");
-      expect(renderedList).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
-      expect(renderedList).toHaveStyleRule("color", "rgb(96, 107, 133)");
-    });
-  });
 });
 
 describe("ListItem", () => {
   describe("Render", () => {
-    it("should render a plain list item", () => {
+    it("should allow aria, html, and data attributes", () => {
       render(
-        <CustomizationProvider baseTheme="default" theme={TestTheme}>
-          <ListItem>Children</ListItem>
-        </CustomizationProvider>,
+        <ListItem aria-pressed="true" data-rando="test-hook" title="random title">
+          Children
+        </ListItem>,
       );
       const renderedListItem = screen.getByRole("listitem");
-      expect(renderedListItem).not.toBeNull();
-    });
-
-    it("should allow aria attributes", () => {
-      render(<ListItem aria-pressed="true">Children</ListItem>);
-      const renderedListItem = screen.getByRole("listitem");
       expect(renderedListItem).toHaveAttribute("aria-pressed", "true");
-    });
-
-    it("should allow data attributes", () => {
-      render(<ListItem data-rando="test-hook">Children</ListItem>);
-      const renderedListItem = screen.getByRole("listitem");
       expect(renderedListItem).toHaveAttribute("data-rando", "test-hook");
-    });
-
-    it("should allow HTML attributes", () => {
-      render(<ListItem title="random title">Children</ListItem>);
-      const renderedListItem = screen.getByRole("listitem");
       expect(renderedListItem).toHaveAttribute("title", "random title");
     });
   });
@@ -234,36 +141,75 @@ describe("ListItem", () => {
       expect(screen.getByRole("listitem").getAttribute("data-paste-element")).toEqual("foo");
     });
   });
+});
 
-  describe("Customization", () => {
-    it("should add custom styles to ListItem", (): void => {
+describe("Ordered Display List", () => {
+  describe("Render", () => {
+    it("should allow marginTop and marginBottom styling props", () => {
       render(
-        <CustomizationProvider
-          baseTheme="default"
-          theme={TestTheme}
-          elements={{ LIST_ITEM: { color: "colorTextWeak", backgroundColor: "colorBackground" } }}
-        >
-          <ListItem>Custom list item</ListItem>
+        <CustomizationProvider baseTheme="default" theme={TestTheme}>
+          <OrderedDisplayList marginTop="space40" marginBottom="space40">
+            Children
+          </OrderedDisplayList>
         </CustomizationProvider>,
       );
-      const renderedListItem = screen.getByRole("listitem");
-      expect(renderedListItem).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
-      expect(renderedListItem).toHaveStyleRule("color", "rgb(96, 107, 133)");
+      const renderedList = screen.getByRole("list");
+      expect(renderedList).toHaveStyleRule("margin-top", "0.75rem");
+      expect(renderedList).toHaveStyleRule("margin-bottom", "0.75rem");
     });
 
-    it("should add custom styles to ListItem with a custom element data attribute", (): void => {
+    it("should allow aria, data, and html attributes", () => {
       render(
-        <CustomizationProvider
-          baseTheme="default"
-          theme={TestTheme}
-          elements={{ foo: { color: "colorTextWeak", backgroundColor: "colorBackground" } }}
-        >
-          <ListItem element="foo">Custom list item</ListItem>
-        </CustomizationProvider>,
+        <OrderedDisplayList aria-expanded="true" data-test="test-hook" title="random title">
+          <OrderedDisplayListItem aria-expanded="true" data-test="test-hook">
+            <OrderedDisplayListHeading aria-expanded="true" data-test="test-hook" as="h2">
+              Heading20
+            </OrderedDisplayListHeading>
+            Text beneath heading
+          </OrderedDisplayListItem>
+        </OrderedDisplayList>,
       );
+      const renderedList = screen.getByRole("list");
+      expect(renderedList).toHaveAttribute("aria-expanded", "true");
+      expect(renderedList).toHaveAttribute("data-test", "test-hook");
+      expect(renderedList).toHaveAttribute("title", "random title");
       const renderedListItem = screen.getByRole("listitem");
-      expect(renderedListItem).toHaveStyleRule("background-color", "rgb(244, 244, 246)");
-      expect(renderedListItem).toHaveStyleRule("color", "rgb(96, 107, 133)");
+      expect(renderedListItem).toHaveAttribute("aria-expanded", "true");
+      expect(renderedListItem).toHaveAttribute("data-test", "test-hook");
+      const renderedHeading = screen.getByRole("heading");
+      expect(renderedHeading).toHaveAttribute("aria-expanded", "true");
+      expect(renderedHeading).toHaveAttribute("data-test", "test-hook");
+    });
+  });
+
+  describe("Customization", () => {
+    it("should set a element data attribute for OrderedDisplayList", () => {
+      render(
+        <OrderedDisplayList>
+          <OrderedDisplayListItem>
+            <OrderedDisplayListHeading as="h2">Heading</OrderedDisplayListHeading>
+            Text
+          </OrderedDisplayListItem>
+        </OrderedDisplayList>,
+      );
+      expect(screen.getByRole("list").getAttribute("data-paste-element")).toEqual("ORDERED_DISPLAY_LIST");
+      expect(screen.getByRole("listitem").getAttribute("data-paste-element")).toEqual("ORDERED_DISPLAY_LIST_ITEM");
+      expect(screen.getByRole("heading").getAttribute("data-paste-element")).toEqual("ORDERED_DISPLAY_LIST_HEADING");
+    });
+    it("should set a custom element data attribute for OrderedDisplayList", () => {
+      render(
+        <OrderedDisplayList element="foo">
+          <OrderedDisplayListItem element="fooitem">
+            <OrderedDisplayListHeading element="foohead" as="h2">
+              Heading
+            </OrderedDisplayListHeading>
+            Text
+          </OrderedDisplayListItem>
+        </OrderedDisplayList>,
+      );
+      expect(screen.getByRole("list").getAttribute("data-paste-element")).toEqual("foo");
+      expect(screen.getByRole("listitem").getAttribute("data-paste-element")).toEqual("fooitem");
+      expect(screen.getByRole("heading").getAttribute("data-paste-element")).toEqual("foohead");
     });
   });
 });
