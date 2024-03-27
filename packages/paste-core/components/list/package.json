@@ -26,9 +26,11 @@
   },
   "peerDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",
+    "@twilio-paste/box": "^10.3.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.0.0",
     "@twilio-paste/design-tokens": "^10.0.0",
+    "@twilio-paste/heading": "^11.1.2",
     "@twilio-paste/style-props": "^9.0.0",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/text": "^10.0.0",
@@ -41,9 +43,11 @@
   },
   "devDependencies": {
     "@twilio-paste/animation-library": "^2.0.0",
+    "@twilio-paste/box": "^10.3.0",
     "@twilio-paste/color-contrast-utils": "^5.0.0",
     "@twilio-paste/customization": "^8.1.1",
     "@twilio-paste/design-tokens": "^10.3.0",
+    "@twilio-paste/heading": "^11.1.2",
     "@twilio-paste/style-props": "^9.1.1",
     "@twilio-paste/styling-library": "^3.0.0",
     "@twilio-paste/text": "^10.1.1",
