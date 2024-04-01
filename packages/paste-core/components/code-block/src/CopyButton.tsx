@@ -17,7 +17,7 @@ interface CopyButtonProps extends Omit<HTMLPasteProps<"button">, "tabIndex"> {
 }
 
 export const getCopyButtonText = (labelBefore: string, labelAfter: string) => {
-  return (copied: boolean) => {
+  return (copied: boolean): string => {
     return copied ? labelAfter : labelBefore;
   };
 };
@@ -43,11 +43,11 @@ export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
   const handleCopy = React.useCallback(() => {
     const formattedText = copyTextFormatter ? copyTextFormatter(text) : text;
     clipboard.copy(formattedText);
-  }, [text]);
+  }, [text, copyTextFormatter, clipboard]);
 
   React.useEffect(() => {
     setTooltipText(getText(clipboard.copied));
-  }, [clipboard.copied]);
+  }, [clipboard.copied, getText]);
 
   /*
    * NOTE: Reakit has a bug where the tooltip doesn't recalc position on content changes
@@ -60,8 +60,11 @@ export const CopyButton: React.FC<React.PropsWithChildren<CopyButtonProps>> = ({
       isFirstRender.current = false;
       return;
     }
-    tooltipState.unstable_update();
-  }, [tooltipText]);
+    // FIX: setTimeout for "flushSync was called from inside a lifecycle method." error
+    setTimeout(() => {
+      tooltipState.unstable_update();
+    }, 0);
+  }, [tooltipState]);
 
   return (
     <Tooltip text={tooltipText} state={tooltipState} element={`${element}_TOOLTIP`}>
