@@ -4368,6 +4368,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@gulpjs/messages@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@gulpjs/messages@npm:1.1.0"
+  checksum: fa23de4f369cee6aec990a3795db0d1b109edca503ccd6c7551986e4936b1f08bdc5b6a2f3022e5828e478b4488ed3ac5677304bc2b691b03c575c9ac4042182
+  languageName: node
+  linkType: hard
+
 "@hapi/hoek@npm:^9.0.0":
   version: 9.1.0
   resolution: "@hapi/hoek@npm:9.1.0"
@@ -12537,7 +12544,7 @@ __metadata:
     "@types/gulp-if": ^3.0.0
     "@types/gulp-terser": ^1.2.1
     gulp: ^4.0.2
-    gulp-cli: ^2.2.0
+    gulp-cli: ^3.0.0
     gulp-if: ^3.0.0
     gulp-terser: ^2.0.1
     gulp-theo: 2.0.1
@@ -21958,6 +21965,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"copy-props@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "copy-props@npm:4.0.0"
+  dependencies:
+    each-props: ^3.0.0
+    is-plain-object: ^5.0.0
+  checksum: 4e3d4ef8dfcf0751f031cd66fa85848d342bbf736df0b486288cc2930c3dc50ca1c9079d9294f5b41da9be0dc41b29e860e49906b46c07391b03d9b33de9b0df
+  languageName: node
+  linkType: hard
+
 "copy-to-clipboard@npm:^3.3.1":
   version: 3.3.3
   resolution: "copy-to-clipboard@npm:3.3.3"
@@ -23782,6 +23799,16 @@ __metadata:
     is-plain-object: ^2.0.1
     object.defaults: ^1.1.0
   checksum: c545c8043910092ce6bbbe1ac4a1d71ee5dbce079d93a42c071e31ba9dbdea6f176b12a60b84cb30e49c613d3626bc42bf7b77c47f79c8f140c6e04c98193031
+  languageName: node
+  linkType: hard
+
+"each-props@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "each-props@npm:3.0.0"
+  dependencies:
+    is-plain-object: ^5.0.0
+    object.defaults: ^1.1.0
+  checksum: 69d493f84692161898956a1251ceadc52fef35b6c4734af55a2de9d344fbf1b4e5643e160095c4a3a8808d893f5ebc5a2178d51039c8716864c6aa0ddf007029
   languageName: node
   linkType: hard
 
@@ -27477,6 +27504,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"glogg@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "glogg@npm:2.2.0"
+  dependencies:
+    sparkles: ^2.1.0
+  checksum: c2159222332f20873d8f9bc59a224f6ac83e79749fed004fab691d016eb0513fcb727266458bf233d18a3f15ecb0df00ee361a31561704580a29161236bcc8e3
+  languageName: node
+  linkType: hard
+
 "gopd@npm:^1.0.1":
   version: 1.0.1
   resolution: "gopd@npm:1.0.1"
@@ -27600,6 +27636,28 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"gulp-cli@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "gulp-cli@npm:3.0.0"
+  dependencies:
+    "@gulpjs/messages": ^1.1.0
+    chalk: ^4.1.2
+    copy-props: ^4.0.0
+    gulplog: ^2.2.0
+    interpret: ^3.1.1
+    liftoff: ^5.0.0
+    mute-stdout: ^2.0.0
+    replace-homedir: ^2.0.0
+    semver-greatest-satisfied-range: ^2.0.0
+    string-width: ^4.2.3
+    v8flags: ^4.0.0
+    yargs: ^16.2.0
+  bin:
+    gulp: bin/gulp.js
+  checksum: 90bef372b0831261c7b583ac9ad63b04ee52d7bb0a89f75dc9cf4378921842ddecc874f77d7dbc2ea30b04ce8083efaa0c6eea774ced0d44d1818facc2523db0
+  languageName: node
+  linkType: hard
+
 "gulp-header@npm:^1.7.1":
   version: 1.8.12
   resolution: "gulp-header@npm:1.8.12"
@@ -27674,6 +27732,15 @@ fsevents@^1.2.7:
   dependencies:
     glogg: ^1.0.0
   checksum: 6732ae5440857e34b9ae910dc4389d6c16b3f0166277d03ac04a6c6239a138ce4f1c0e0534bdfed077e67d6c3fe3ea05bfd20f09ca0ed97ef138edbe0840afa7
+  languageName: node
+  linkType: hard
+
+"gulplog@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "gulplog@npm:2.2.0"
+  dependencies:
+    glogg: ^2.2.0
+  checksum: 8a8c05e39ce2abe5589b8427484f26dd1e27367e0c730f822412de9884b9abd2872443d6c53868b421d80321a2c33455bafb03ec6fb13b465cf8b0452a2059e1
   languageName: node
   linkType: hard
 
@@ -28929,6 +28996,13 @@ fsevents@^1.2.7:
   version: 2.2.0
   resolution: "interpret@npm:2.2.0"
   checksum: f51efef7cb8d02da16408ffa3504cd6053014c5aeb7bb8c223727e053e4235bf565e45d67028b0c8740d917c603807aa3c27d7bd2f21bf20b6417e2bb3e5fd6e
+  languageName: node
+  linkType: hard
+
+"interpret@npm:^3.1.1":
+  version: 3.1.1
+  resolution: "interpret@npm:3.1.1"
+  checksum: 35cebcf48c7351130437596d9ab8c8fe131ce4038da4561e6d665f25640e0034702a031cf7e3a5cea60ac7ac548bf17465e0571ede126f3d3a6933152171ac82
   languageName: node
   linkType: hard
 
@@ -32114,6 +32188,21 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"liftoff@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "liftoff@npm:5.0.0"
+  dependencies:
+    extend: ^3.0.2
+    findup-sync: ^5.0.0
+    fined: ^2.0.0
+    flagged-respawn: ^2.0.0
+    is-plain-object: ^5.0.0
+    rechoir: ^0.8.0
+    resolve: ^1.20.0
+  checksum: ae6a1f3b734fbf0b8b5b7ca189e00fe04fa9966e436313c7e20e3444cec5ae9e4f472666aa02ac23557e412610f111d9d56ef78854cae1580d297d5e365738a8
+  languageName: node
+  linkType: hard
+
 "lilconfig@npm:^2.0.3, lilconfig@npm:^2.0.5":
   version: 2.0.5
   resolution: "lilconfig@npm:2.0.5"
@@ -34783,6 +34872,13 @@ fsevents@^1.2.7:
   version: 1.0.1
   resolution: "mute-stdout@npm:1.0.1"
   checksum: 8ec54203931a24d8e2291666a2e6a0651d7de7855e6a345ddc16b1a0ed88f43c2c6b74d82f340eb3833afbc86b31c90ebcd1d46b14e36350e6c5b0ca09ac67a4
+  languageName: node
+  linkType: hard
+
+"mute-stdout@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "mute-stdout@npm:2.0.0"
+  checksum: b61db228cee454c07bab426701f1d64cd5f3375486607fd60bb01072f9728102820ab0838be18f362f3bca36f9529d4947e515c1478851c609f2d9b4472c4d5d
   languageName: node
   linkType: hard
 
@@ -40128,6 +40224,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"replace-homedir@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "replace-homedir@npm:2.0.0"
+  checksum: 66030e85400b7b4af41aad5595a8a75d1344f768e9a773702a9e16e48bf12e56c006799007e59ea229a74398237b0934aca51795143b071d3578c23309d7e48b
+  languageName: node
+  linkType: hard
+
 "request-ip@npm:~3.3.0":
   version: 3.3.0
   resolution: "request-ip@npm:3.3.0"
@@ -40908,6 +41011,15 @@ resolve@^2.0.0-next.3:
   dependencies:
     sver-compat: ^1.5.0
   checksum: 0aa15bbf69dcec89d7f02edc8171d8e71354d2ed4beebd4de5305f5234088fb970b7078b0ce5585b853773cafb4c3f692e35031c5d691abab0d5bc8c9ebacc80
+  languageName: node
+  linkType: hard
+
+"semver-greatest-satisfied-range@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "semver-greatest-satisfied-range@npm:2.0.0"
+  dependencies:
+    sver: ^1.8.3
+  checksum: 478a52a34fa4a265d7caf1f2279bf3f427abeee36175bfa03c29d48df65040f4d934ccdf5896b7ae6012f60f7364ec30826390ecb7c913f94109002dbd53a588
   languageName: node
   linkType: hard
 
@@ -41725,6 +41837,13 @@ resolve@^2.0.0-next.3:
   version: 1.0.1
   resolution: "sparkles@npm:1.0.1"
   checksum: 022f4ab577291199ec3b2b795726b81d33c6b4b6ebce2ba3520c18600d23fd0c9b401eef70ba16a5480abdc1df922edcd428c2b643f28a286fed402d4a70bc40
+  languageName: node
+  linkType: hard
+
+"sparkles@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "sparkles@npm:2.1.0"
+  checksum: 5243c388b3060762ac3ded676528be486e835c64996512a7e61e1be059c7da48ddf32d244b11b457c4dec2f5227da44963b59f51f772aa503c968f00aa19362d
   languageName: node
   linkType: hard
 
@@ -42694,6 +42813,18 @@ resolve@^2.0.0-next.3:
     es6-iterator: ^2.0.1
     es6-symbol: ^3.1.1
   checksum: d6cddb86bd921d105f33b60faa85ebe6cee128e468f983a1f3da00d486f35c0ca4226d14edac5f3f0ffcac0f5ca6afd4e55e4eb1c7db4e81135d2a7d662f9365
+  languageName: node
+  linkType: hard
+
+"sver@npm:^1.8.3":
+  version: 1.8.4
+  resolution: "sver@npm:1.8.4"
+  dependencies:
+    semver: ^6.3.0
+  dependenciesMeta:
+    semver:
+      optional: true
+  checksum: f6622470f8c574d509e95cbf94fbf1d67f2f7397fad73ffc9fbbeaacfcf8a359d4fe203cae50c34941b860efe6e87b43dd218f41aa2feb33021df7e6a925bfd3
   languageName: node
   linkType: hard
 
