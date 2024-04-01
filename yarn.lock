@@ -3013,16 +3013,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@biomejs/biome@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@biomejs/biome@npm:1.2.2"
+"@biomejs/biome@npm:^1.6.3":
+  version: 1.6.3
+  resolution: "@biomejs/biome@npm:1.6.3"
   dependencies:
-    "@biomejs/cli-darwin-arm64": 1.2.2
-    "@biomejs/cli-darwin-x64": 1.2.2
-    "@biomejs/cli-linux-arm64": 1.2.2
-    "@biomejs/cli-linux-x64": 1.2.2
-    "@biomejs/cli-win32-arm64": 1.2.2
-    "@biomejs/cli-win32-x64": 1.2.2
+    "@biomejs/cli-darwin-arm64": 1.6.3
+    "@biomejs/cli-darwin-x64": 1.6.3
+    "@biomejs/cli-linux-arm64": 1.6.3
+    "@biomejs/cli-linux-arm64-musl": 1.6.3
+    "@biomejs/cli-linux-x64": 1.6.3
+    "@biomejs/cli-linux-x64-musl": 1.6.3
+    "@biomejs/cli-win32-arm64": 1.6.3
+    "@biomejs/cli-win32-x64": 1.6.3
   dependenciesMeta:
     "@biomejs/cli-darwin-arm64":
       optional: true
@@ -3030,7 +3032,11 @@ __metadata:
       optional: true
     "@biomejs/cli-linux-arm64":
       optional: true
+    "@biomejs/cli-linux-arm64-musl":
+      optional: true
     "@biomejs/cli-linux-x64":
+      optional: true
+    "@biomejs/cli-linux-x64-musl":
       optional: true
     "@biomejs/cli-win32-arm64":
       optional: true
@@ -3038,48 +3044,62 @@ __metadata:
       optional: true
   bin:
     biome: bin/biome
-  checksum: 36dfcc756c53e22a5f6b5819ebb261b02acaa4df2832ef00e231bf73d4707121d0acdefa81f12523beb09a7b363676ca8fe719873932794d2e92130c3a41908c
+  checksum: 3d75aad82ecee5e15c965a9b86ce18d86002fc8235d2cbab30883f5c30738174964420aa2ae3a8b6c694133f8cdc9d990ed7b39b4ea3e9e5e11aa7a1fc01e441
   languageName: node
   linkType: hard
 
-"@biomejs/cli-darwin-arm64@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@biomejs/cli-darwin-arm64@npm:1.2.2"
+"@biomejs/cli-darwin-arm64@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@biomejs/cli-darwin-arm64@npm:1.6.3"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-darwin-x64@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@biomejs/cli-darwin-x64@npm:1.2.2"
+"@biomejs/cli-darwin-x64@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@biomejs/cli-darwin-x64@npm:1.6.3"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-arm64@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@biomejs/cli-linux-arm64@npm:1.2.2"
-  conditions: os=linux & cpu=arm64
+"@biomejs/cli-linux-arm64-musl@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@biomejs/cli-linux-arm64-musl@npm:1.6.3"
+  conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@biomejs/cli-linux-x64@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@biomejs/cli-linux-x64@npm:1.2.2"
-  conditions: os=linux & cpu=x64
+"@biomejs/cli-linux-arm64@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@biomejs/cli-linux-arm64@npm:1.6.3"
+  conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@biomejs/cli-win32-arm64@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@biomejs/cli-win32-arm64@npm:1.2.2"
+"@biomejs/cli-linux-x64-musl@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@biomejs/cli-linux-x64-musl@npm:1.6.3"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@biomejs/cli-linux-x64@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@biomejs/cli-linux-x64@npm:1.6.3"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@biomejs/cli-win32-arm64@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@biomejs/cli-win32-arm64@npm:1.6.3"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@biomejs/cli-win32-x64@npm:1.2.2":
-  version: 1.2.2
-  resolution: "@biomejs/cli-win32-x64@npm:1.2.2"
+"@biomejs/cli-win32-x64@npm:1.6.3":
+  version: 1.6.3
+  resolution: "@biomejs/cli-win32-x64@npm:1.6.3"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -36811,7 +36831,7 @@ fsevents@^1.2.7:
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.21.4
     "@babel/types": ^7.21.4
-    "@biomejs/biome": 1.2.2
+    "@biomejs/biome": ^1.6.3
     "@changesets/changelog-github": ^0.2.8
     "@changesets/cli": ^2.13.1
     "@commitlint/cli": 16.2.1

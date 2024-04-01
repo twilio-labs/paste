@@ -22,7 +22,10 @@ import OpenAI from "openai";
 
 class ApplicationError extends Error {
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
-  constructor(message: string, public data: Record<string, any> = {}) {
+  constructor(
+    message: string,
+    public data: Record<string, any> = {},
+  ) {
     super(message);
   }
 }

@@ -17,7 +17,7 @@ export type StatusBadgeVariants =
 
 export type StatusBadges = {
   [key in StatusBadgeVariants]: {
-    badgeVariant: typeof BadgeVariants[number];
+    badgeVariant: (typeof BadgeVariants)[number];
     icon: React.ReactNode;
     color: TextColorOptions;
   };

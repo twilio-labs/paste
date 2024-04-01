@@ -38,7 +38,9 @@ export async function fetchDiscussions(owner: string, repo: string): Promise<Dis
   });
 
   const {
-    repository: { discussions: { nodes: discussions } },
+    repository: {
+      discussions: { nodes: discussions },
+    },
   } = await octokit.graphql.paginate<DiscussionsResponse>(
     `
       query troubleshootDiscussions($cursor: String, $owner: String!, $repo: String!) {
@@ -75,7 +77,10 @@ export class GitHubDiscussionSource extends BaseSource {
   type = "github-discussions" as const;
 
   // eslint-disable-next-line @typescript-eslint/no-parameter-properties
-  constructor(source: string, public discussion: Discussion) {
+  constructor(
+    source: string,
+    public discussion: Discussion,
+  ) {
     super(source, discussion.url);
   }
 
