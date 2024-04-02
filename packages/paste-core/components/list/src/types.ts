@@ -49,7 +49,7 @@ export type OrderedListProps = Omit<BaseListProps, "as" | "listStyleType">;
 export type UnorderedListProps = Omit<BaseListProps, "as" | "listStyleType">;
 
 // Ordered Display List
-export type OrderedDisplayListVariants = Omit<HeadingVariants, "heading10">;
+export type OrderedDisplayListVariants = Exclude<HeadingVariants, "heading10">;
 export type OrderedDisplayListProps = OrderedListProps & { variant?: OrderedDisplayListVariants };
 export type OrderedDisplayListItemProps = {
   children: React.ReactNode;
