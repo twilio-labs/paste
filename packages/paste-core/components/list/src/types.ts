@@ -1,3 +1,4 @@
+import type { HeadingProps, HeadingVariants } from "@twilio-paste/heading";
 import type { Space } from "@twilio-paste/style-props";
 import type { TextProps } from "@twilio-paste/text";
 import type { HTMLPasteProps } from "@twilio-paste/types";
@@ -45,5 +46,15 @@ export type ListItemProps = HTMLPasteProps<"li"> & {
 };
 
 export type OrderedListProps = Omit<BaseListProps, "as" | "listStyleType">;
-
 export type UnorderedListProps = Omit<BaseListProps, "as" | "listStyleType">;
+
+// Ordered Display List
+export type OrderedDisplayListVariants = Exclude<HeadingVariants, "heading10">;
+export type OrderedDisplayListProps = OrderedListProps & { variant?: OrderedDisplayListVariants };
+export type OrderedDisplayListItemProps = {
+  children: React.ReactNode;
+  element?: TextProps["element"];
+};
+export type OrderedDisplayListHeadingProps = OrderedDisplayListItemProps & {
+  as?: HeadingProps["as"];
+};
