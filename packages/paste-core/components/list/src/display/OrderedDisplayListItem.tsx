@@ -81,6 +81,7 @@ const StyledOrderedListItem = styled(Box)(({ variant }: { variant: OrderedDispla
       content: "counter(list-counter)",
       color: "colorTextWeak",
       textAlign: "right",
+      fontWeight: "fontWeightSemibold",
       ...variantStyles.before,
     },
   });
