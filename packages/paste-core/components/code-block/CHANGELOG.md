@@ -1,5 +1,11 @@
 # @twilio-paste/code-block
 
+## 4.1.1
+
+### Patch Changes
+
+- [`9d096e572`](https://github.com/twilio-labs/paste/commit/9d096e5722c236df9cde766efb9c00318c79dba5) [#3841](https://github.com/twilio-labs/paste/pull/3841) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codeblock] fix an error when triggering the copy button while using React v18.
+
 ## 4.1.0
 
 ### Minor Changes
