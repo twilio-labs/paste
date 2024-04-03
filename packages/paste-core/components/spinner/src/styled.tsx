@@ -22,7 +22,7 @@ export const AnimatedStyledCircle = styled.circle<{ show: boolean; isSafari: boo
   };
 });
 
-export const StyledSvg = styled.svg<{ isSafari: boolean }>((isSafari) => {
+export const StyledSvg = styled.svg<{ isSafari: boolean }>(({ isSafari }) => {
   return {
     height: "100%",
     width: "100%",

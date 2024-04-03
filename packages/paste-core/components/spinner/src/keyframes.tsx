@@ -36,11 +36,11 @@ export const CircleKeyframes = keyframes`
 `;
 
 export const SafariSvgKeyframes = keyframes`
-  0%,  
+  0%,
   75% {
     stroke-dashoffset: 90%;
   }
-  
+
   100% {
     stroke-dashoffset: 90%;
     transform: rotate(360deg);
