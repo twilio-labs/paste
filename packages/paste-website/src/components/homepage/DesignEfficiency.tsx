@@ -13,11 +13,9 @@ import { SectionSeparator } from "./SectionSeparator";
 const { icons: iconsJson } = require("@twilio-paste/icons/json/icons.json");
 
 const IconComponents: IconComponent = iconsJson.reduce((icons: IconComponent, { name }: IconObject) => {
-  return {
-    ...icons,
-    // eslint-disable-next-line import/no-dynamic-require,global-require, @typescript-eslint/no-var-requires
-    [`${name}`]: require(`@twilio-paste/icons/esm/${name}.js`)[name],
-  };
+  // eslint-disable-next-line global-require, @typescript-eslint/no-require-imports, unicorn/prefer-module
+  icons[name] = require(`@twilio-paste/icons/esm/${name}.js`)[name];
+  return icons;
 }, {});
 
 const someIcons = Object.values(IconComponents);
@@ -65,7 +63,7 @@ const DesignEfficiency: React.FC = (): React.ReactElement => {
             {someIcons.map((Icon, index) => {
               if (index >= 22 && index < 44) {
                 return (
-                  <Box marginLeft="spaceNegative180">
+                  <Box key={Icon.displayName} marginLeft="spaceNegative180">
                     <Icon decorative key={useUID()} size="sizeIcon70" color="colorTextWeaker" />
                   </Box>
                 );
