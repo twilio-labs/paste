@@ -1,5 +1,27 @@
 # Change Log
 
+## 20.12.0
+
+### Minor Changes
+
+- [`33800d2f9`](https://github.com/twilio-labs/paste/commit/33800d2f9a07114793ab9daa0e52baa4ca2df686) [#3835](https://github.com/twilio-labs/paste/pull/3835) Thanks [@TheSisb](https://github.com/TheSisb)! - [List] add `OrderedDisplayList`, `OrderedDisplayListItem`, and `OrderedDisplayListHeading` components.
+
+  These new components provide a visually enhanced numbered list to improve the scannability of sequential steps.
+
+### Patch Changes
+
+- [`9ab72f5b6`](https://github.com/twilio-labs/paste/commit/9ab72f5b6f84b3c7100c5dee51b6c6d9a80fbc6c) [#3829](https://github.com/twilio-labs/paste/pull/3829) Thanks [@TheSisb](https://github.com/TheSisb)! - [Reakit Library] fix `PopoverArrow` rendering on theme toggles
+
+* [`9d096e572`](https://github.com/twilio-labs/paste/commit/9d096e5722c236df9cde766efb9c00318c79dba5) [#3841](https://github.com/twilio-labs/paste/pull/3841) Thanks [@TheSisb](https://github.com/TheSisb)! - [Codeblock] fix an error when triggering the copy button while using React v18.
+
+- [`c020edefc`](https://github.com/twilio-labs/paste/commit/c020edefcf15f5cb227e79248702e2a72be82e88) [#3834](https://github.com/twilio-labs/paste/pull/3834) Thanks [@nkrantz](https://github.com/nkrantz)! - [Spinner] Fix a bug that previously occured when a Safari user zoomed in on a page with a Spinner. The animated track moving around the Spinner circle would lose its center and appear off of the circle. This was due to the fact that Safari does not accept "center" as a value for the `transformOrigin` property. The fix was to remove the extra animations for Safari windows only.
+
+- Updated dependencies [[`33800d2f9`](https://github.com/twilio-labs/paste/commit/33800d2f9a07114793ab9daa0e52baa4ca2df686), [`9ab72f5b6`](https://github.com/twilio-labs/paste/commit/9ab72f5b6f84b3c7100c5dee51b6c6d9a80fbc6c), [`9d096e572`](https://github.com/twilio-labs/paste/commit/9d096e5722c236df9cde766efb9c00318c79dba5), [`c020edefc`](https://github.com/twilio-labs/paste/commit/c020edefcf15f5cb227e79248702e2a72be82e88)]:
+  - @twilio-paste/list@8.2.0
+  - @twilio-paste/reakit-library@2.1.1
+  - @twilio-paste/code-block@4.1.1
+  - @twilio-paste/spinner@14.1.2
+
 ## 20.11.0
 
 ### Minor Changes

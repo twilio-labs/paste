@@ -1,5 +1,13 @@
 # Change Log
 
+## 8.2.0
+
+### Minor Changes
+
+- [`33800d2f9`](https://github.com/twilio-labs/paste/commit/33800d2f9a07114793ab9daa0e52baa4ca2df686) [#3835](https://github.com/twilio-labs/paste/pull/3835) Thanks [@TheSisb](https://github.com/TheSisb)! - [List] add `OrderedDisplayList`, `OrderedDisplayListItem`, and `OrderedDisplayListHeading` components.
+
+  These new components provide a visually enhanced numbered list to improve the scannability of sequential steps.
+
 ## 8.1.2
 
 ### Patch Changes

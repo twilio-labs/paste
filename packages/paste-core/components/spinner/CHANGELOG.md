@@ -1,5 +1,11 @@
 # Change Log
 
+## 14.1.2
+
+### Patch Changes
+
+- [`c020edefc`](https://github.com/twilio-labs/paste/commit/c020edefcf15f5cb227e79248702e2a72be82e88) [#3834](https://github.com/twilio-labs/paste/pull/3834) Thanks [@nkrantz](https://github.com/nkrantz)! - [Spinner] Fix a bug that previously occured when a Safari user zoomed in on a page with a Spinner. The animated track moving around the Spinner circle would lose its center and appear off of the circle. This was due to the fact that Safari does not accept "center" as a value for the `transformOrigin` property. The fix was to remove the extra animations for Safari windows only.
+
 ## 14.1.1
 
 ### Patch Changes
