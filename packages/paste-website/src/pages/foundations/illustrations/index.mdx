@@ -6,6 +6,7 @@ export const meta = {
 
 import {PageHeaderSeparator} from '@twilio-paste/page-header'
 import {Separator} from '@twilio-paste/separator'
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 
 import DefaultLayout from '../../../layouts/DefaultLayout';
 import {getNavigationData} from '../../../utils/api';
@@ -37,28 +38,117 @@ export const getStaticProps = async () => {
 
 Illustrations help breathe life into our brand. It can take a complex idea and make it easier to understand. It is a tool that allows us to communicate our product in a way that feels human and fun.
 
-Our illustration style is carefully curated by the Twilio Brand team. While adding these elements to your UI, ensure that you are reviewing your work with them. A good place to start is by posting in #mkg-brand.
 
-[Read the brand illustration guidelines](https://www.twilio.com/brand/guidelines/illustration-guidelines)
+## General guidelines for product UIs
 
-[Browse the illustration library](https://library.twilio.com). To log in to the library with your Twilio credentials, request application access through IT via [ServiceNow](https://twilio.service-now.com) for "The Library (Bynder)".
+- Our illustration style is carefully curated by the Twilio Brand team.
+While adding these elements to your UI, ensure that you are reviewing your work
+with them. [Read the brand illustration guidelines](https://library.twilio.com/guidelines/guide/9846225e-b2c4-4cca-9079-dd275f6cdcf2/page/1d0fca68-b518-405a-bfae-1935d603217e).
+If you don’t have access, request application access through [ServiceNow](https://twilio.service-now.com/) for "The Library (Bynder)".
+- Avoid overusing illustrations as it can diminish their emotional and visual impact.
+- Whenever possible, opt for SVGs over PNGs to improve performance and prevent blurring.
 
-### General guidelines for product UIs
 
-- Only make necessary and thoughtful adjustments to the illustration colors. When doing so, ensure that you’re using Paste's palette.
-- Do not add extraneous elements to the illustrations. You may remove unnecessary elements, but do so while maintaining the thematic feel that the illustration is trying to convey.
-- We recommend using SVGs over PNGs when possible, in order to improve performance and avoid blurring.
+## Accessibility
 
-### Accessibility
+- Aim to pair your illustrations with text: Remember that different cultures may interpret the same image in different ways, so despite our best intentions, it is helpful to provide adjoining text.
+- Illustrations shouldn't include navigational interactions: Illustrations should not have interactions such as click or hover behavior that is essential to navigation and usage of the product. Instead they should be wrapped with an (or, ideally, laid out with supporting) interactive element such as Anchor.
+- Give your illustrations a title: An SVG title or image alt text is required on non-decorative illustrations so assistive technology can infer equal meaning as a sighted user would. For example, avoid a title that reads "WhatsApp Illustration - 01". Instead a title that says "Get started with our WhatsApp API" is preferable.
 
-- **Aim to pair your illustrations with text:** Remember that different cultures may interpret the same image in different ways, so despite our best intentions, it is helpful to provide adjoining text.
-- **Illustrations shouldn't include navigational interactions:** Illustrations should not have interactions such as click or hover behavior that is essential to navigation and usage of the product. Instead they should be wrapped with an (or, ideally, laid out with supporting) interactive element such as Anchor.
-- **Give your illustrations a title:** An SVG `title` or image `alt` text is required on non-decorative illustrations so assistive technology can infer equal meaning as a sighted user would. For example, avoid a title that reads "WhatsApp Illustration - 01". Instead a title that says "Get started with our WhatsApp API" is preferable.
 
-### Request new illustrations
+## Types of Illustrations
 
-The best way to request new illustrations is to file a request with the Brand team. You can create a new
-[request on Jira](https://issues.corp.twilio.com/projects/MARK/issues) (VPN required).
+### Spot
+
+Spot illustrations are the most literal expression of a concept, designed to directly
+relate to the content, especially useful in limited space scenarios.
+
+IMG
+
+They often use iconic and repetitive elements to maintain consistency and
+facilitate learnability across patterns like empty states, error messages, or feature comparison.
+
+### Medium scenes
+
+Medium scene illustrations blend real UI screens with people and other graphic
+elements, creating stories to support content in a more conceptual way.
+
+IMG
+
+They maintain a consistent style across characters, devices, and decorative
+elements and are good for providing contextual support for welcome messages,
+highlighted features or onboarding guides.
+
+### Photo illustrations
+
+Photo illustrations blend illustration and photography to produce dynamic, branded
+assets primarily intended for marketing usage. They can also be sporadically
+integrated into the product for upselling or other marketing purposes.
+
+IMG
+
+<Callout variant="neutral" marginY="space70">
+  <CalloutText>
+    Consider the context before adding a photo illustration, as they often
+    represent specific user types. Use restraint, especially in busy or
+    heavily branded environments.
+  </CalloutText>
+</Callout>
+
+## Using Illustrations
+
+You can access a selection of illustrations for products available in the
+[Figma Web Spot Image Repository library](https://www.figma.com/file/tr1bGht8drBOMaeX5EpJ7m/Web-Spot-Image-Repository?type=design&node-id=2310-5106&mode=design),
+which is managed by the Web and Brand teams. Turn it on in your local files for easy access, and use the
+illustrations in the “Product Illustrations” sticker sheet
+
+For the complete illustration collection, browse the [illustration library in Bynder](https://library.twilio.com/collections/view/ECEB801C-323E-4ED7-AADD4A152F5F6D92/) (VPN required).
+
+### Examples
+
+Illustrations are used sporadically in the product, and should support the
+overall message, not just be visual ornaments. These are some common uses of
+illustrations around the product.
+
+#### 1. Welcome and Get Started screens
+
+IMG
+
+Illustrations are commonly placed on the right side of the header section to offer
+a friendly welcome to users. Keep each welcome screen to only 1 illustration to
+prevent overcrowding and maintain a minimalist aesthetic.
+
+
+#### 2. Empty states
+
+IMG
+
+Illustrations are positioned on the left side (or top for small screens) when users
+access a new/empty part of the experience. It helps to add visual interest, ensuring
+users don't miss what they need to do to continue.  Read more about the [empty state pattern](/patterns/empty-state).
+
+#### 3. Error states
+
+IMG
+
+Illustrations are placed on the left side (or top for small screens) for error states, aimed to alleviate frustration. Keep in mind using multiple illustrations for different error states on the same screen may lead to confusion and increased frustration. Follow our Error state pattern carefully when adding error states and illustrations.
+
+#### 4. Highlights
+
+Illustrations are used to draw customers' attention to upsell and cross-sell opportunities. They serve as eye-catching elements, but it's important to be mindful of the number of illustrations on the screen. If every upsell or cross-sell opportunity is illustrated, it can diminish their effectiveness. Read our guidelines for marketing Cards and cross-sell opportunities.
+
+
+### Customization
+
+- If a pre-made illustration doesn’t fit the layout you can slightly adjust to
+better match your design.
+- Do not add outside elements to the illustrations. You may
+remove unnecessary elements, but do so while maintaining the thematic feel
+that the illustration is trying to convey.
+- If existing illustrations don't convey your use case, you can create a new
+one by combining elements from different premade illustrations. Work in
+partnership with the Brand team to achieve the best outcome.
+
 
 </content>
 
