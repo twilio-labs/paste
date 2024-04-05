@@ -8,7 +8,9 @@ export const meta = {
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
+import {InlineCode} from '@twilio-paste/inline-code';
 import {Stack} from '@twilio-paste/stack';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
 import {ListItem, OrderedList, UnorderedList, OrderedDisplayList, OrderedDisplayListHeading, OrderedDisplayListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
@@ -178,40 +180,23 @@ Use ordered list to display a numbered list of items.
 
 ### Ordered Display List
 
-Use a Ordered Display List when you need a visually enhanced numbered list to improve the scannability of sequential steps, instructions, or other content within a single screen.
+Use an Ordered Display List when you need a visually enhanced numbered list to improve the scannability of sequential steps, instructions, or other content within a single screen.
+
+Keep the following guidance in mind when using this component:
+- Choose a font size for list item labels that doesn't exceed the size of higher hierarchy levels on the page.
+- For elements under the list item, avoid using text with a font size larger than the list item label.
+- Keep list items labels concise, providing clear and actionable steps for the user to follow.
 
 
-<LivePreview scope={{OrderedDisplayList, OrderedDisplayListItem}} language="jsx">
-  {`<OrderedDisplayList>
-  <OrderedDisplayListItem>
-    Tamir Elijah Rice, November 23, 2014 (12 years old)
-  </OrderedDisplayListItem>
-  <OrderedDisplayListItem>
-    Philando Divall Castile, July 6, 2016 (32 years old)
-  </OrderedDisplayListItem>
-  <OrderedDisplayListItem>
-    Trayvon Benjamin Martin, February 26, 2012 (17 years old)
-  </OrderedDisplayListItem>
-  <OrderedDisplayListItem>
-    Breonna Taylor, March 13, 2020 (26 years old)
-  </OrderedDisplayListItem>
-  <OrderedDisplayListItem>
-    Shantel Davis, June 14, 2012 (23 years old)
-  </OrderedDisplayListItem>
-  <OrderedDisplayListItem>
-    Walter Scott, April 4, 2015 (50 years old)
-  </OrderedDisplayListItem>
-  <OrderedDisplayListItem>
-    Mario Gonzalez, April 19, 2021 (26 years old)
-  </OrderedDisplayListItem>
-</OrderedDisplayList>`}
-</LivePreview>
-
-Choose a font size for list item labels that doesn't exceed the size of higher hierarchy levels on the page.
-
-For elements under the list item, avoid using text with a font size larger than the list item label.
-
-Keep list items labels concise, providing clear and actionable steps for the user to follow.
+<Callout variant="warning" marginY="space60">
+  <CalloutHeading as="h3">Alignment considerations</CalloutHeading>
+  <CalloutText>
+    If you're not utilizing the <InlineCode>OrderedDisplayListHeading</InlineCode>
+    component, please note that only the <InlineCode>heading50</InlineCode> and
+    <InlineCode>heading60</InlineCode> variants are automatically aligned with their
+    corresponding list item numbers.
+  </CalloutText>
+</Callout>
 
 <LivePreview scope={{Heading, Stack, Anchor, OrderedDisplayList, OrderedDisplayListItem, OrderedDisplayListHeading}} language="jsx">
   {`<div>
