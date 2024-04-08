@@ -83,7 +83,7 @@ export const getStaticProps = async () => {
 
 ### About Pagination
 
-Use Pagination to split up content when a user’s goal is "to find a specific item [in a list] and click through to that destination page" (source: [Nielsen Norman Group](https://www.nngroup.com/articles/item-list-view-all/)). Pagination is used to communicate only where a user is in paged content. It isn’t used to show the status of each page—use a Progress Stepper ([coming soon](/roadmap)) instead.
+Use Pagination to split up content when a user’s goal is "to find a specific item [in a list] and click through to that destination page" (source: [Nielsen Norman Group](https://www.nngroup.com/articles/item-list-view-all/)). Pagination is used to communicate only where a user is in paged content. It isn’t used to show the status of each page—use [Progress Steps](/components/progress-steps) instead.
 
 Pagination is often paired with [Tables](/components/table), one of the most commonly used components in Twilio and one of the primary ways customers view content in our products. Think of Pagination as an important navigation element that helps our customers understand exactly where they are and help them decide where to go next.
 
@@ -367,7 +367,7 @@ Consider [contributing a Table Actions pattern](/introduction/contributing/patte
   />
   <Dont
     title="Don't"
-    body="Don’t use the Pagination component to help users navigate through linear multi-step content like paged forms. In these cases, use a Progress Stepper (coming soon) or something that can communicate more about a user’s status through a flow than the Pagination component allows."
+    body="Don’t use the Pagination component to help users navigate through linear multi-step content like paged forms. In these cases, use Progress Steps or something that can communicate more about a user’s status through a flow than the Pagination component allows."
     preview={false}
   />
 </DoDont>
