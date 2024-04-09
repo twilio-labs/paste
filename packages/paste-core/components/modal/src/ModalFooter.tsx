@@ -22,7 +22,6 @@ const ModalFooter = React.forwardRef<HTMLDivElement, ModalFooterProps>(
         flexShrink={0}
         display="flex"
         padding="space90"
-        paddingTop="space0"
         as="div"
         element={element}
         ref={ref}
