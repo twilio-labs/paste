@@ -4,6 +4,8 @@ export const meta = {
   slug: '/foundations/illustrations/',
 };
 
+import Image from 'next/image';
+import {Box} from '@twilio-paste/box'
 import {PageHeaderSeparator} from '@twilio-paste/page-header'
 import {Separator} from '@twilio-paste/separator'
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -38,6 +40,8 @@ export const getStaticProps = async () => {
 
 Illustrations help breathe life into our brand. It can take a complex idea and make it easier to understand. It is a tool that allows us to communicate our product in a way that feels human and fun.
 
+![](/images/illustrations-foundation/Twilio-homepage.png)
+
 
 ## General guidelines for product UIs
 
@@ -63,7 +67,11 @@ If you don’t have access, request application access through [ServiceNow](http
 Spot illustrations are the most literal expression of a concept, designed to directly
 relate to the content, especially useful in limited space scenarios.
 
-IMG
+<Box display="flex" columnGap="space40" justifyContent="space-between" marginBottom="space60">
+  <img src="/images/illustrations-foundation/spot-a.png" alt="" style={{minWidth: 0}} />
+  <img src="/images/illustrations-foundation/spot-b.png" alt="" style={{minWidth: 0}} />
+  <img src="/images/illustrations-foundation/spot-c.png" alt="" style={{minWidth: 0}} />
+</Box>
 
 They often use iconic and repetitive elements to maintain consistency and
 facilitate learnability across patterns like empty states, error messages, or feature comparison.
@@ -73,7 +81,11 @@ facilitate learnability across patterns like empty states, error messages, or fe
 Medium scene illustrations blend real UI screens with people and other graphic
 elements, creating stories to support content in a more conceptual way.
 
-IMG
+<Box display="flex" columnGap="space40" justifyContent="space-between" marginBottom="space60">
+  <img src="/images/illustrations-foundation/medium-a.png" alt="" style={{minWidth: 0}} />
+  <img src="/images/illustrations-foundation/medium-b.png" alt="" style={{minWidth: 0}} />
+  <img src="/images/illustrations-foundation/medium-c.png" alt="" style={{minWidth: 0}} />
+</Box>
 
 They maintain a consistent style across characters, devices, and decorative
 elements and are good for providing contextual support for welcome messages,
@@ -85,7 +97,11 @@ Photo illustrations blend illustration and photography to produce dynamic, brand
 assets primarily intended for marketing usage. They can also be sporadically
 integrated into the product for upselling or other marketing purposes.
 
-IMG
+<Box display="flex" columnGap="space40" justifyContent="space-between" marginBottom="space60">
+  <img src="/images/illustrations-foundation/photo-a.png" alt="" style={{minWidth: 0}} />
+  <img src="/images/illustrations-foundation/photo-b.png" alt="" style={{minWidth: 0}} />
+  <img src="/images/illustrations-foundation/photo-c.png" alt="" style={{minWidth: 0}} />
+</Box>
 
 <Callout variant="neutral" marginY="space70">
   <CalloutText>
@@ -98,7 +114,7 @@ IMG
 ## Using Illustrations
 
 You can access a selection of illustrations for products available in the
-[Figma Web Spot Image Repository library](https://www.figma.com/file/tr1bGht8drBOMaeX5EpJ7m/Web-Spot-Image-Repository?type=design&node-id=2310-5106&mode=design),
+[Figma Web Spot Image library](https://www.figma.com/file/tr1bGht8drBOMaeX5EpJ7m/Web-Spot-Image-Repository?type=design&node-id=2310-5106&mode=design),
 which is managed by the Web and Brand teams. Turn it on in your local files for easy access, and use the
 illustrations in the “Product Illustrations” sticker sheet
 
@@ -112,7 +128,7 @@ illustrations around the product.
 
 #### 1. Welcome and Get Started screens
 
-IMG
+![](/images/illustrations-foundation/welcome-get-started.png)
 
 Illustrations are commonly placed on the right side of the header section to offer
 a friendly welcome to users. Keep each welcome screen to only 1 illustration to
@@ -121,7 +137,7 @@ prevent overcrowding and maintain a minimalist aesthetic.
 
 #### 2. Empty states
 
-IMG
+![](/images/illustrations-foundation/empty-state.png)
 
 Illustrations are positioned on the left side (or top for small screens) when users
 access a new/empty part of the experience. It helps to add visual interest, ensuring
@@ -129,19 +145,31 @@ users don't miss what they need to do to continue.  Read more about the [empty s
 
 #### 3. Error states
 
-IMG
+![](/images/illustrations-foundation/error-state.png)
 
-Illustrations are placed on the left side (or top for small screens) for error states, aimed to alleviate frustration. Keep in mind using multiple illustrations for different error states on the same screen may lead to confusion and increased frustration. Follow our Error state pattern carefully when adding error states and illustrations.
+Illustrations are placed on the left side (or top for small screens) for error states,
+aimed to alleviate frustration. Keep in mind using multiple illustrations for different
+error states on the same screen may lead to confusion and increased frustration.
+Follow our [Error state pattern](/patterns/empty-state#error-states) carefully when adding error states and illustrations.
 
 #### 4. Highlights
 
-Illustrations are used to draw customers' attention to upsell and cross-sell opportunities. They serve as eye-catching elements, but it's important to be mindful of the number of illustrations on the screen. If every upsell or cross-sell opportunity is illustrated, it can diminish their effectiveness. Read our guidelines for marketing Cards and cross-sell opportunities.
+![](/images/illustrations-foundation/highlight.png)
+
+Illustrations are used to draw customers' attention to upsell and cross-sell opportunities.
+They serve as eye-catching elements, but it's important to be mindful of the number of
+illustrations on the screen. If every upsell or cross-sell opportunity is illustrated,
+it can diminish their effectiveness. Read our guidelines for
+[marketing Cards and cross-sell opportunities](/components/card#marketing-card).
 
 
 ### Customization
 
 - If a pre-made illustration doesn’t fit the layout you can slightly adjust to
 better match your design.
+
+![](/images/illustrations-foundation/customization.png)
+
 - Do not add outside elements to the illustrations. You may
 remove unnecessary elements, but do so while maintaining the thematic feel
 that the illustration is trying to convey.
