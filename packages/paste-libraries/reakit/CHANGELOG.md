@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.1
+
+### Patch Changes
+
+- [`9ab72f5b6`](https://github.com/twilio-labs/paste/commit/9ab72f5b6f84b3c7100c5dee51b6c6d9a80fbc6c) [#3829](https://github.com/twilio-labs/paste/pull/3829) Thanks [@TheSisb](https://github.com/TheSisb)! - [Reakit Library] fix `PopoverArrow` rendering on theme toggles
+
 ## 2.1.0
 
 ### Minor Changes

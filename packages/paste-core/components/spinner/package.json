@@ -1,6 +1,6 @@
 {
   "name": "@twilio-paste/spinner",
-  "version": "14.1.1",
+  "version": "14.1.2",
   "category": "feedback",
   "status": "production",
   "description": "A Spinner is an animation that communicates a loading state to users.",
