@@ -5,6 +5,7 @@ export const meta = {
 };
 
 import {Box} from '@twilio-paste/box'
+import {DetailText} from '@twilio-paste/detail-text';
 import {PageHeaderSeparator} from '@twilio-paste/page-header'
 import {Separator} from '@twilio-paste/separator'
 import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
@@ -165,16 +166,43 @@ it can diminish their effectiveness. Read our guidelines for
 ### Customization
 
 - If a pre-made illustration doesn’t fit the layout you can slightly adjust to
-better match your design.
-
+better match your design:
 ![](/images/illustrations-foundation/customization.png)
-
-- Do not add outside elements to the illustrations. You may
-remove unnecessary elements, but do so while maintaining the thematic feel
-that the illustration is trying to convey.
+<Box marginTop="spaceNegative40" marginBottom="space50">
+  <DetailText>
+  Do not add outside elements to the illustrations. You may remove unnecessary elements, but do so while maintaining the thematic feel that the illustration is trying to convey.
+  </DetailText>
+</Box>
 - If existing illustrations don't convey your use case, you can create a new
-one by combining elements from different premade illustrations. Work in
-partnership with the Brand team to achieve the best outcome.
+one by combining elements from different premade illustrations. For example:
+<Box display="flex" columnGap="space40" marginBottom="space60">
+  <Box display="inline-flex" rowGap="space40" flexDirection="column" flexShrink={1}>
+    <img src="/images/illustrations-foundation/customization-grid-a.png" alt="" style={{minWidth: 0, maxWidth: '100%'}} />
+    <img src="/images/illustrations-foundation/customization-grid-b.png" alt="" style={{minWidth: 0, maxWidth: '100%'}} />
+    <img src="/images/illustrations-foundation/customization-grid-c.png" alt="" style={{minWidth: 0, maxWidth: '100%'}} />
+  </Box>
+  <Box display="inline-flex" flexShrink={1}>
+    <img src="/images/illustrations-foundation/customization-grid-d.png" alt="" style={{minWidth: 0, maxWidth: '100%', objectFit: 'contain'}} />
+  </Box>
+</Box>
+<Box marginTop="spaceNegative40" marginBottom="space50">
+  <DetailText>
+    Make sure you partner with Brand and review your work with them.
+  </DetailText>
+</Box>
+- You can also request a new illustration by [filing a request with the Brand team](https://library.twilio.com/account/dashboard/).
+Follow these guidelines on [how to request a creative asset](https://library.twilio.com/guidelines/guide/9306890b-4bde-4210-bb35-2a566890e47a/page/a0ef0cdf-51e1-472e-9c25-d5e9cce53127).
+
+
+### How to add an illustration to a Figma File
+
+1. Create a frame with the specific size required for your illustration.
+2. Name the frame following the accessibility guidelines provided above.
+3. If you downloaded your .svg from Bynder, drag the SVG file from your computer and place it within the frame.
+    - Leave `space160` around the illustration so you’re sure no element will interfere with it
+4. If you are using the [Product Illustrations sticker sheet](https://www.figma.com/file/tr1bGht8drBOMaeX5EpJ7m/Web-Spot-Image-Repository?type=design&node-id=2310-5106&mode=design), turn on the “Web Spot Image Repository” library in your assets panel.
+    - Make sure you configure the illustration to fill the frame so you can resize freely.
+    - Many illustrations from this library already have padding. If they don’t, leave `space160` around the illustration so you’re sure no element will interfere with it.
 
 
 </content>
