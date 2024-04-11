@@ -11184,7 +11184,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -11246,7 +11246,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -11302,7 +11302,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -11348,7 +11348,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -11400,7 +11400,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -11442,7 +11442,7 @@ __metadata:
     react-dom: ^18.0.0
     react-is: 18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -11495,7 +11495,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -11544,7 +11544,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -11589,7 +11589,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -11628,7 +11628,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -11669,7 +11669,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -11711,7 +11711,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -11756,7 +11756,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -11796,7 +11796,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -11834,7 +11834,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -11881,7 +11881,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -11938,7 +11938,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/base-radio-checkbox": ^13.0.0
@@ -12015,7 +12015,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": 2.0.0
@@ -12105,7 +12105,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/dropdown-library": ^3.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12153,7 +12153,7 @@ __metadata:
     react-dom: ^18.0.0
     react-virtual: 2.10.4
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12307,7 +12307,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/icons": ^12.0.0
     "@types/react": ^16.8.6 || ^17.0.2 || ^18.0.27
@@ -12333,7 +12333,7 @@ __metadata:
     deepmerge: 4.2.2
     react: ^18.0.0
     react-dom: ^18.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -12378,7 +12378,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12466,7 +12466,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12511,7 +12511,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -12563,7 +12563,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -12589,7 +12589,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -12622,7 +12622,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -12666,7 +12666,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -12706,7 +12706,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12773,7 +12773,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12832,7 +12832,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12888,7 +12888,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -12935,7 +12935,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -12976,7 +12976,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13019,7 +13019,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13058,7 +13058,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13094,7 +13094,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -13132,7 +13132,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13211,7 +13211,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -13250,7 +13250,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13293,7 +13293,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13337,7 +13337,7 @@ __metadata:
     "@types/react-dom": ^18.0.10
     react: ^18.0.0
     react-dom: ^18.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13382,7 +13382,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -13430,7 +13430,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13487,7 +13487,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.3.0
@@ -13515,7 +13515,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13541,7 +13541,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13567,7 +13567,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13606,7 +13606,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -13662,7 +13662,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13714,7 +13714,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -13749,7 +13749,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
     react-dom: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13785,7 +13785,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -13825,7 +13825,7 @@ __metadata:
     next: ^14.0.0
     react: ^18.0.0
     react-dom: ^18.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   languageName: unknown
   linkType: soft
 
@@ -13837,7 +13837,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -13866,7 +13866,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.2.0
@@ -13908,7 +13908,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -13947,7 +13947,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -14010,7 +14010,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14071,7 +14071,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14129,7 +14129,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14175,7 +14175,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14227,7 +14227,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14288,7 +14288,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/base-radio-checkbox": ^13.0.0
@@ -14385,7 +14385,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14426,7 +14426,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14465,7 +14465,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14502,7 +14502,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14550,7 +14550,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14610,7 +14610,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14659,7 +14659,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14700,7 +14700,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14743,7 +14743,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14782,7 +14782,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -14833,7 +14833,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -14945,7 +14945,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -15000,7 +15000,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15060,7 +15060,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15086,7 +15086,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -15115,7 +15115,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15154,7 +15154,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -15192,7 +15192,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15241,7 +15241,7 @@ __metadata:
     react-dom: ^18.0.0
     react-helmet: ^6.1.0
     react-shadow: ^20.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/color-contrast-utils": ^5.0.0
@@ -15283,7 +15283,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -15337,7 +15337,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -15386,7 +15386,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/reakit-library": ^2.0.0
     react: ^16.8.6 || ^17.0.2 || ^18.0.0
@@ -15418,7 +15418,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15473,7 +15473,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -15524,7 +15524,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/box": ^10.0.0
@@ -15602,7 +15602,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/anchor": ^12.0.0
     "@twilio-paste/animation-library": ^2.0.0
@@ -15694,7 +15694,7 @@ __metadata:
     react: ^18.0.0
     react-dom: ^18.0.0
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
   peerDependencies:
     "@twilio-paste/animation-library": ^2.0.0
     "@twilio-paste/base-radio-checkbox": ^13.0.0
@@ -15898,7 +15898,7 @@ __metadata:
     rollbar: ^2.26.2
     sharp: ^0.32.5
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
     unist-builder: ^4.0.0
     unist-util-filter: ^5.0.1
     unist-util-visit-esm: "npm:unist-util-visit@^4.1.2"
@@ -36927,7 +36927,7 @@ fsevents@^1.2.7:
     theo: ^8.1.5
     tslib: ^2.0.3
     tsx: ^4.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
     ui-box: ^5.4.0
     unist-util-visit-esm: "npm:unist-util-visit@^4.1.2"
     vite: ^4.5.1
@@ -43874,7 +43874,7 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@^4.3.5, typescript@^4.4.3, typescript@^4.9.4":
+"typescript@^4.3.5, typescript@^4.4.3":
   version: 4.9.4
   resolution: "typescript@npm:4.9.4"
   bin:
@@ -43894,6 +43894,16 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
+"typescript@npm:^5.4.5":
+  version: 5.4.5
+  resolution: "typescript@npm:5.4.5"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 53c879c6fa1e3bcb194b274d4501ba1985894b2c2692fa079db03c5a5a7140587a1e04e1ba03184605d35f439b40192d9e138eb3279ca8eee313c081c8bcd9b0
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@>=3 < 6#~builtin<compat/typescript>":
   version: 5.1.6
   resolution: "typescript@patch:typescript@npm%3A5.1.6#~builtin<compat/typescript>::version=5.1.6&hash=5da071"
@@ -43904,13 +43914,23 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>, typescript@patch:typescript@^4.9.4#~builtin<compat/typescript>":
+"typescript@patch:typescript@^4.3.5#~builtin<compat/typescript>, typescript@patch:typescript@^4.4.3#~builtin<compat/typescript>":
   version: 4.9.4
   resolution: "typescript@patch:typescript@npm%3A4.9.4#~builtin<compat/typescript>::version=4.9.4&hash=289587"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 2160f7ad975c59b2f5816817d3916be1d156c5688a7517602b3b640c5015e740f4ba933996ac85371d68f7bbdd41602150fb8b68334122ac637fdb5418085e7a
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^5.4.5#~builtin<compat/typescript>":
+  version: 5.4.5
+  resolution: "typescript@patch:typescript@npm%3A5.4.5#~builtin<compat/typescript>::version=5.4.5&hash=f3b441"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 2373c693f3b328f3b2387c3efafe6d257b057a142f9a79291854b14ff4d5367d3d730810aee981726b677ae0fd8329b23309da3b6aaab8263dbdccf1da07a3ba
   languageName: node
   linkType: hard
 
@@ -45047,7 +45067,7 @@ resolve@^2.0.0-next.3:
     lodash.camelcase: 4.3.0
     lodash.kebabcase: 4.1.1
     mocha: ^10.0.0
-    typescript: ^4.9.4
+    typescript: ^5.4.5
     utf8: 3.0.0
     vsce: ^2.15.0
   languageName: unknown

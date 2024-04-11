@@ -169,7 +169,9 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
               {children}
             </SelectElement>
           ) : (
-            <SelectElement key="unmounted">{}</SelectElement>
+            <SelectElement key="unmounted">
+              <option />
+            </SelectElement>
           )}
           {!multiple && (
             <InputChevronWrapper element={`${element}_CHEVRON_WRAPPER`}>
