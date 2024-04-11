@@ -1,12 +1,48 @@
 import { Box } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import { css, styled } from "@twilio-paste/styling-library";
 import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
+import type { ThemeShape } from "@twilio-paste/theme";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 import { TabsContext } from "./TabsContext";
 import type { Variants } from "./types";
 import { getElementName } from "./utils";
+
+/**
+ * This wrapper applies styles that customize the scrollbar and its track.
+ */
+const SidebarNavigationWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
+  const { colorBackgroundStronger, colorBackgroundInverseStronger } = theme.backgroundColors;
+
+  return css({
+    paddingBottom: "4px",
+    overflowX: "auto",
+    overflowY: "hidden",
+    overflowScrolling: "touch",
+    /* Firefox scrollbar */
+    "@supports (-moz-appearance:none)": {
+      paddingBottom: "10px",
+      scrollbarColor: `${colorBackgroundStronger} transparent`,
+      scrollbarWidth: "thin",
+    },
+    /* Chrome + Safari scrollbar */
+    "::-webkit-scrollbar": {
+      height: 4,
+    },
+    "::-webkit-scrollbar-track": {
+      background: "transparent",
+    },
+    "::-webkit-scrollbar-thumb": {
+      background: colorBackgroundStronger,
+      borderRadius: "5px",
+    },
+    "::-webkit-scrollbar-thumb:hover": {
+      background: colorBackgroundInverseStronger,
+    },
+  });
+});
 
 export interface TabListProps extends HTMLPasteProps<"div"> {
   /**
@@ -39,18 +75,32 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   variant,
   element,
 }) => {
+  const ref = React.useRef<HTMLElement>(null);
   const isInverse = variant === "inverse" || variant === "inverse_fitted";
+  const isFitted = variant === "fitted" || variant === "inverse_fitted";
 
   return (
-    <Box
-      display="flex"
-      borderBottomStyle="solid"
-      borderBottomWidth="borderWidth10"
-      borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
-      columnGap="space20"
-      element={element}
-    >
-      {children}
+    <Box as={SidebarNavigationWrapper as any} element={`${element}_SCROLL_WRAPPER`}>
+      <Box
+        element={`${element}_CONTAINER`}
+        borderBottomStyle="solid"
+        borderBottomWidth={!ref?.current ? "borderWidth0" : "borderWidth10"}
+        borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
+        width={ref?.current?.scrollWidth}
+        height={isFitted ? ref?.current?.scrollHeight : (ref?.current?.offsetHeight || 40) - 4}
+      >
+        <Box
+          ref={ref}
+          as="nav"
+          display={isFitted ? "flex" : "block"}
+          columnGap="space20"
+          element={element}
+          overflow="visible"
+          whiteSpace="nowrap"
+        >
+          {!ref.current ? null : children}
+        </Box>
+      </Box>
     </Box>
   );
 };

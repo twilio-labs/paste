@@ -108,6 +108,7 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         borderColor: "transparent",
         borderStyle: "solid",
         borderWidth: "borderWidth10",
+        borderBottomWidth: "borderWidth20",
         borderTopLeftRadius: "borderRadius30",
         borderTopRightRadius: "borderRadius30",
         display: "inline-block",
@@ -150,7 +151,6 @@ const getTabBoxStyles = (orientation: Orientation, variant: Variants): BoxStyleP
         },
         _selected_focus: {
           borderStyle: "solid",
-          borderWidth: "borderWidth10",
           boxShadow: "shadowFocusInset",
           color: isInverse ? "colorTextInverse" : "colorTextPrimary",
           borderColor: "colorBorderPrimary",

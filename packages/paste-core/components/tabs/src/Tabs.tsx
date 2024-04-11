@@ -48,13 +48,30 @@ export interface TabsProps extends TabPrimitiveInitialState {
 const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
   ({ children, element, orientation = "horizontal", state, variant, ...initialState }, ref) => {
     // If returned state from primitive has orientation set to undefined, use the default "horizontal"
+    const [prevSelectedTab, setPrevSelectedTab] = React.useState<string | undefined>(undefined);
     const { orientation: tabOrientation = orientation, ...tab } =
       state || useTabPrimitiveState({ orientation, ...initialState });
     const elementName = getElementName(tabOrientation, "TABS", element);
     const value = React.useMemo(
       () => ({ ...tab, orientation: tabOrientation, variant }),
-      [...Object.values(tab), tabOrientation, variant],
+      [tab, tabOrientation, variant],
     );
+
+    const { selectedId } = tab;
+    // Scroll to the selected tab if it exists on mount
+    React.useEffect(() => {
+      if (typeof selectedId === "string") {
+        setTimeout(() => {
+          document
+            // eslint-disable-next-line unicorn/prefer-query-selector
+            .getElementById(selectedId)
+            ?.scrollIntoView({ behavior: prevSelectedTab === undefined ? "instant" : "smooth" });
+
+          setPrevSelectedTab(selectedId);
+        }, 1);
+      }
+    }, [prevSelectedTab, selectedId]);
+
     const returnValue = <TabsContext.Provider value={value}>{children}</TabsContext.Provider>;
 
     if (tabOrientation === "vertical") {
