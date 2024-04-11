@@ -65,6 +65,8 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
           document
             // eslint-disable-next-line unicorn/prefer-query-selector
             .getElementById(selectedId)
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore - behavior is typed incorrectly in Typescript v4, fixed in v5+
             ?.scrollIntoView({ behavior: prevSelectedTab === undefined ? "instant" : "smooth" });
 
           setPrevSelectedTab(selectedId);

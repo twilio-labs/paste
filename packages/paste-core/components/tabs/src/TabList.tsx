@@ -44,6 +44,15 @@ const SidebarNavigationWrapper = styled.div(({ theme }: { theme: ThemeShape }) =
   });
 });
 
+const StyledNav = styled.nav(
+  css({
+    columnGap: "space20",
+    overflow: "visible",
+    whiteSpace: "nowrap",
+    marginBottom: "-5px",
+  }),
+);
+
 export interface TabListProps extends HTMLPasteProps<"div"> {
   /**
    * Required label for this Tabs component. Titles the entire Tabbing context for screen readers.
@@ -84,21 +93,12 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
       <Box
         element={`${element}_CONTAINER`}
         borderBottomStyle="solid"
-        borderBottomWidth={!ref?.current ? "borderWidth0" : "borderWidth10"}
+        borderBottomWidth="borderWidth10"
         borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
         width={ref?.current?.scrollWidth}
-        height={isFitted ? ref?.current?.scrollHeight : (ref?.current?.offsetHeight || 40) - 4}
       >
-        <Box
-          ref={ref}
-          as="nav"
-          display={isFitted ? "flex" : "block"}
-          columnGap="space20"
-          element={element}
-          overflow="visible"
-          whiteSpace="nowrap"
-        >
-          {!ref.current ? null : children}
+        <Box as={StyledNav as any} ref={ref} display={isFitted ? "flex" : "block"} element={element}>
+          {children}
         </Box>
       </Box>
     </Box>
