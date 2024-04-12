@@ -18,6 +18,7 @@ const SidebarNavigationWrapper = styled.div(({ theme }: { theme: ThemeShape }) =
 
   return css({
     paddingBottom: "4px",
+    marginBottom: "4px",
     overflowX: "auto",
     overflowY: "hidden",
     overflowScrolling: "touch",
