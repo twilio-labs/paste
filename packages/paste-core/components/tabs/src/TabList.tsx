@@ -13,7 +13,7 @@ import { getElementName } from "./utils";
 /**
  * This wrapper applies styles that customize the scrollbar and its track.
  */
-const SidebarNavigationWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
+const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
   const { colorBackgroundStronger, colorBackgroundInverseStronger } = theme.backgroundColors;
 
   return css({
@@ -90,7 +90,7 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
   const isFitted = variant === "fitted" || variant === "inverse_fitted";
 
   return (
-    <Box as={SidebarNavigationWrapper as any} element={`${element}_SCROLL_WRAPPER`}>
+    <Box as={StyledTabList as any} element={`${element}_SCROLL_WRAPPER`}>
       <Box
         element={`${element}_CONTAINER`}
         borderBottomStyle="solid"
