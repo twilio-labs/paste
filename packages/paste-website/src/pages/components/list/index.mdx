@@ -8,7 +8,10 @@ export const meta = {
 import {Anchor} from '@twilio-paste/anchor';
 import {Box} from '@twilio-paste/box';
 import {Heading} from '@twilio-paste/heading';
-import {ListItem, OrderedList, UnorderedList} from '@twilio-paste/list';
+import {InlineCode} from '@twilio-paste/inline-code';
+import {Stack} from '@twilio-paste/stack';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {ListItem, OrderedList, UnorderedList, OrderedDisplayList, OrderedDisplayListHeading, OrderedDisplayListItem} from '@twilio-paste/list';
 import {DoDont, Do, Dont} from '../../../components/DoDont';
 import {Codeblock} from '../../../components/codeblock';
 import {SidebarCategoryRoutes} from '../../../constants';
@@ -66,17 +69,34 @@ export const getStaticProps = async () => {
 
 ## Guidelines
 
-Lists can be ordered or unordered. If the order of the list items matters for context to the user, an ordered list should be used. If the meaning of the list is not changed based on the order of the items, an unordered list should be used.
+Lists can be:
+
+- Unordered, when the meaning of the list is not changed based on the order of the items
+- Ordered, when the order of the list items matters for context to the user.
+- Ordered Display List, when you need a visually enhanced numbered list to improve the scannability of sequential steps, instructions, or other content within a single screen.
 
 ### About Lists
 
 Lists are a number of connected list items that are printed consecutively, typically one after the other. Lists can be ordered, using numbers as an indicator to the reader, or unordered with bullet points.
 
-- Ordered lists are displayed with a preceding number.
-- Unordered lists are displayed with a preceding bullet point.
+- **Ordered lists** are displayed with a preceding number.
+- **Unordered lists** are displayed with a preceding bullet point.
+- **Ordered Display lists** are displayed with a preceding visually enhanced number.
 - Lists can be nested as deeply as needed, and they may alternate between ordered and unordered.
 - Lists should align with the font-size, font-weight, and line-height of paragraphs, but are styled with bullets or numbers.
 - Lists can have similar children elements as paragraphs to provide emphasis on a certain word or phrase.
+
+### Ordered Display List vs Progress Steps
+
+**Progress Steps**
+
+- [Progress Steps](/components/progress-steps) show users an outline of a complex multi-step task across multiple pages.
+- Progress Steps convey progression and have interactive status states.
+
+**Ordered Display List**
+
+- Ordered Display Lists structure tasks but don’t outline or show progression or status through a multi-step task.
+- Ordered Display Lists organize complex tasks within a single screen, especially in flows where users need to complete tasks outside of Twilio.
 
 ### Accessibility
 
@@ -105,25 +125,25 @@ Use unordered lists to display a basic list of items related to a particular top
 <LivePreview scope={{UnorderedList, ListItem}} language="jsx">
   {`<UnorderedList>
   <ListItem>
-    Tamir Rice
+    Tamir Elijah Rice, November 23, 2014 (12 years old)
   </ListItem>
   <ListItem>
-    Philando Castile
+    Philando Divall Castile, July 6, 2016 (32 years old)
   </ListItem>
   <ListItem>
-    Trayvon Martin
+    Trayvon Benjamin Martin, February 26, 2012 (17 years old)
   </ListItem>
   <ListItem>
-    Breonna Taylor
+    Breonna Taylor, March 13, 2020 (26 years old)
   </ListItem>
   <ListItem>
-    Shantel Davis
+    Shantel Davis, June 14, 2012 (23 years old)
   </ListItem>
   <ListItem>
-    Walter Scott
+    Walter Scott, April 4, 2015 (50 years old)
   </ListItem>
   <ListItem>
-    Mario Gonzalez
+    Mario Gonzalez, April 19, 2021 (26 years old)
   </ListItem>
 </UnorderedList>`}
 </LivePreview>
@@ -135,28 +155,91 @@ Use ordered list to display a numbered list of items.
 <LivePreview scope={{OrderedList, ListItem}} language="jsx">
   {`<OrderedList>
   <ListItem>
-    Tamir Rice
+    Tamir Elijah Rice, November 23, 2014 (12 years old)
   </ListItem>
   <ListItem>
-    Philando Casitle
+    Philando Divall Castile, July 6, 2016 (32 years old)
   </ListItem>
   <ListItem>
-    Trayvon Martin
+    Trayvon Benjamin Martin, February 26, 2012 (17 years old)
   </ListItem>
   <ListItem>
-    Breonna Taylor
+    Breonna Taylor, March 13, 2020 (26 years old)
   </ListItem>
   <ListItem>
-    Shantel Davis
+    Shantel Davis, June 14, 2012 (23 years old)
   </ListItem>
   <ListItem>
-    Walter Scott
+    Walter Scott, April 4, 2015 (50 years old)
   </ListItem>
   <ListItem>
-    Mario Gonzalez
+    Mario Gonzalez, April 19, 2021 (26 years old)
   </ListItem>
 </OrderedList>`}
 </LivePreview>
+
+### Ordered Display List
+
+Use an Ordered Display List when you need a visually enhanced numbered list to improve the scannability of sequential steps, instructions, or other content within a single screen.
+
+Keep the following guidance in mind when using this component:
+- Choose a font size for list item labels that doesn't exceed the size of higher hierarchy levels on the page.
+- For elements under the list item, avoid using text with a font size larger than the list item label.
+- Keep list items labels concise, providing clear and actionable steps for the user to follow.
+
+
+<Callout variant="warning" marginY="space60">
+  <CalloutHeading as="h3">Alignment considerations</CalloutHeading>
+  <CalloutText>
+    If you're not utilizing the <InlineCode>OrderedDisplayListHeading</InlineCode>
+    component, please note that only the <InlineCode>heading50</InlineCode> and
+    <InlineCode>heading60</InlineCode> variants are automatically aligned with their
+    corresponding list item numbers.
+  </CalloutText>
+</Callout>
+
+<LivePreview scope={{Heading, Stack, Anchor, OrderedDisplayList, OrderedDisplayListItem, OrderedDisplayListHeading}} language="jsx">
+  {`<div>
+  <Heading variant="heading30" as="h3">Getting started with unified profiles</Heading>
+
+  <OrderedDisplayList variant="heading40">
+    <OrderedDisplayListItem>
+      <OrderedDisplayListHeading as="div">Set up your Segment Unify space</OrderedDisplayListHeading>
+      <Stack orientation="vertical" spacing="space40">
+        <div>To get started, let's set up your Segment Unify space. We'll take you to Segment to do this.</div>
+        <Anchor href="https://segment.com" showExternal>
+          Continue setup in Segment
+        </Anchor>
+      </Stack>
+    </OrderedDisplayListItem>
+    <OrderedDisplayListItem>
+      <OrderedDisplayListHeading as="div">Confirm your identifier settings</OrderedDisplayListHeading>
+      <Stack orientation="vertical" spacing="space40">
+        <div>Segment uses identifiers to look up customer profiles. Give your identifiers display
+        names, and select the identifiers to use for automatic profile search.</div>
+        <Anchor href="https://segment.com" showExternal>
+          Continue setup in Segment
+        </Anchor>
+      </Stack>
+    </OrderedDisplayListItem>
+    <OrderedDisplayListItem>
+      <OrderedDisplayListHeading as="div">Choose your traits</OrderedDisplayListHeading>
+      <Stack orientation="vertical" spacing="space40">
+        <span>
+          Customer profiles on your Segment Unify space may include a large number of traits.
+          Choose the traits you want to make available to Flex agents and give them display
+          names.
+        </span>
+        <Anchor href="https://segment.com" showExternal>
+          Continue setup in Segment
+        </Anchor>
+      </Stack>
+    </OrderedDisplayListItem>
+  </OrderedDisplayList>
+</div>`}
+</LivePreview>
+
+
 
 ### Nesting list items
 
@@ -198,6 +281,58 @@ List items can be nested within other list items. To do so create a new list as 
   </UnorderedList>
 </div>`}
 </LivePreview>
+
+### Ordered Display List nesting
+
+The Ordered Display List is designed to convey hierarchy without influencing deeper levels.
+If your content requires more than 2 levels, use Headings to establish hierarchy before starting the list.
+
+All elements under a list item should be included inside the list item, ensuring they share the same indentation.
+
+
+<LivePreview scope={{Stack, OrderedDisplayList, OrderedDisplayListItem, OrderedDisplayListHeading}} language="jsx">
+  {`<div>
+  <OrderedDisplayList variant="heading30">
+    <OrderedDisplayListItem>
+      <OrderedDisplayListHeading as="div">Vivamus sagittiss</OrderedDisplayListHeading>
+      <Stack orientation="vertical" spacing="space40">
+        <div>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</div>
+        <OrderedDisplayList variant="heading40">
+          <OrderedDisplayListItem>
+            <OrderedDisplayListHeading as="div">Vivamus sagittiss</OrderedDisplayListHeading>
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          </OrderedDisplayListItem>
+          <OrderedDisplayListItem>
+            <OrderedDisplayListHeading as="div">Duis mollis</OrderedDisplayListHeading>
+            Duis mollis, est non commodo luctus.
+          </OrderedDisplayListItem>
+        </OrderedDisplayList>
+      </Stack>
+    </OrderedDisplayListItem>
+    <OrderedDisplayListItem>
+      <OrderedDisplayListHeading as="div">Duis mollis</OrderedDisplayListHeading>
+      Duis mollis, est non commodo luctus.
+    </OrderedDisplayListItem>
+    <OrderedDisplayListItem>
+      <OrderedDisplayListHeading as="div">Vivamus sagittiss</OrderedDisplayListHeading>
+      <Stack orientation="vertical" spacing="space40">
+        <div>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</div>
+        <OrderedDisplayList variant="heading40">
+          <OrderedDisplayListItem>
+            <OrderedDisplayListHeading as="div">Vivamus sagittiss</OrderedDisplayListHeading>
+            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+          </OrderedDisplayListItem>
+          <OrderedDisplayListItem>
+            <OrderedDisplayListHeading as="div">Duis mollis</OrderedDisplayListHeading>
+            Duis mollis, est non commodo luctus.
+          </OrderedDisplayListItem>
+        </OrderedDisplayList>
+      </Stack>
+    </OrderedDisplayListItem>
+  </OrderedDisplayList>
+</div>`}
+</LivePreview>
+
 
 ## Composition notes
 

@@ -32,8 +32,8 @@ const VariantStyles = {
   heading40: {
     before: {
       width: "sizeSquare70",
-      fontSize: "fontSize50",
-      lineHeight: "lineHeight50",
+      fontSize: "fontSize40",
+      lineHeight: "lineHeight40",
     },
     element: {
       fontSize: "fontSize30",
@@ -43,8 +43,8 @@ const VariantStyles = {
   heading50: {
     before: {
       width: "sizeSquare60",
-      fontSize: "fontSize40",
-      lineHeight: "lineHeight40",
+      fontSize: "fontSize30",
+      lineHeight: "lineHeight30",
     },
     element: {
       fontSize: "fontSize30",
@@ -54,8 +54,8 @@ const VariantStyles = {
   heading60: {
     before: {
       width: "sizeSquare60",
-      fontSize: "fontSize30",
-      lineHeight: "lineHeight30",
+      fontSize: "fontSize20",
+      lineHeight: "lineHeight20",
     },
     element: {
       fontSize: "fontSize20",

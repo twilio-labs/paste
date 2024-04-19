@@ -102,6 +102,8 @@ export const Variants = (): React.ReactNode => {
           <OrderedDisplayListHeading as="div">Heading20</OrderedDisplayListHeading>
           Text beneath heading
         </OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
       </OrderedDisplayList>
       <Separator orientation="horizontal" verticalSpacing="space60" />
       <OrderedDisplayList variant="heading30">
@@ -113,6 +115,8 @@ export const Variants = (): React.ReactNode => {
           <OrderedDisplayListHeading as="div">Heading30</OrderedDisplayListHeading>
           Text beneath heading
         </OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
       </OrderedDisplayList>
       <Separator orientation="horizontal" verticalSpacing="space60" />
       <OrderedDisplayList variant="heading40">
@@ -124,6 +128,8 @@ export const Variants = (): React.ReactNode => {
           <OrderedDisplayListHeading as="div">Heading40</OrderedDisplayListHeading>
           Text beneath heading
         </OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
       </OrderedDisplayList>
       <Separator orientation="horizontal" verticalSpacing="space60" />
       <OrderedDisplayList variant="heading50">
@@ -135,6 +141,8 @@ export const Variants = (): React.ReactNode => {
           <OrderedDisplayListHeading as="div">Heading50</OrderedDisplayListHeading>
           Text beneath heading
         </OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
       </OrderedDisplayList>
       <Separator orientation="horizontal" verticalSpacing="space60" />
       <OrderedDisplayList variant="heading60">
@@ -146,6 +154,8 @@ export const Variants = (): React.ReactNode => {
           <OrderedDisplayListHeading as="div">Heading60</OrderedDisplayListHeading>
           Text beneath heading
         </OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
+        <OrderedDisplayListItem>Text beneath heading</OrderedDisplayListItem>
       </OrderedDisplayList>
     </>
   );
