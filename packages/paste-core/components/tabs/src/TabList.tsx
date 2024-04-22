@@ -50,7 +50,6 @@ const StyledNav = styled.nav(
     columnGap: "space20",
     overflow: "visible",
     whiteSpace: "nowrap",
-    marginBottom: "-5px",
   }),
 );
 
@@ -98,7 +97,13 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
         width={ref?.current?.scrollWidth}
       >
-        <Box as={StyledNav as any} ref={ref} display={isFitted ? "flex" : "block"} element={element}>
+        <Box
+          as={StyledNav as any}
+          ref={ref}
+          display={isFitted ? "flex" : "block"}
+          element={element}
+          marginBottom={isFitted ? "space0" : "-5px"}
+        >
           {children}
         </Box>
       </Box>
