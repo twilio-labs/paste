@@ -45,13 +45,15 @@ const StyledTabList = styled.div(({ theme }: { theme: ThemeShape }) => {
   });
 });
 
-const StyledNav = styled.nav(
-  css({
+const StyledNav = styled(Box)(({ isFitted }: { isFitted: boolean }) => {
+  return css({
     columnGap: "space20",
     overflow: "visible",
     whiteSpace: "nowrap",
-  }),
-);
+    display: isFitted ? "flex" : "block",
+    marginBottom: isFitted ? "space0" : "-5px",
+  });
+});
 
 export interface TabListProps extends HTMLPasteProps<"div"> {
   /**
@@ -97,15 +99,9 @@ const HorizontalTabList: React.FC<React.PropsWithChildren<{ variant?: Variants; 
         borderBottomColor={isInverse ? "colorBorderInverseWeaker" : "colorBorderWeak"}
         width={ref?.current?.scrollWidth}
       >
-        <Box
-          as={StyledNav as any}
-          ref={ref}
-          display={isFitted ? "flex" : "block"}
-          element={element}
-          marginBottom={isFitted ? "space0" : "-5px"}
-        >
+        <StyledNav ref={ref} isFitted={isFitted} element={element} as="nav">
           {children}
-        </Box>
+        </StyledNav>
       </Box>
     </Box>
   );
