@@ -1,7 +1,8 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
-import type { TabListProps } from "@twilio-paste/tabs";
+import { type TabListProps, TabsContext } from "@twilio-paste/tabs";
+import { TabPrimitiveList } from "@twilio-paste/tabs-primitive";
 import { type ThemeShape, useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
@@ -80,6 +81,7 @@ export interface CodeBlockTabListProps extends Omit<TabListProps, "aria-label"> 
 
 export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabListProps>(
   ({ children, element = "CODE_BLOCK_TAB_LIST", ...props }, fwdRef) => {
+    const tab = React.useContext(TabsContext);
     const theme = useTheme();
     // Create a fallback ref to the scrollable element
     const scrollableRef = React.useRef<HTMLDivElement>(null);
@@ -112,36 +114,38 @@ export const CodeBlockTabList = React.forwardRef<HTMLDivElement, CodeBlockTabLis
     };
 
     return (
-      <Box
-        element={`${element}_WRAPPER`}
-        paddingLeft="space70"
-        position="relative"
-        borderBottomStyle="solid"
-        borderBottomWidth="borderWidth10"
-        borderBottomColor="colorBorderInverseWeaker"
-      >
+      <TabPrimitiveList {...(tab as any)} as={Box} {...props} element={element} ref={ref}>
         <Box
-          {...safelySpreadBoxProps(props)}
-          as={StyledTabList as any}
-          ref={ref}
-          display="flex"
-          flexWrap="nowrap"
-          flexShrink={0}
-          aria-label="label"
-          element={element}
-          overflowX="auto"
-          overflowY="hidden"
-          onScroll={handleScroll}
+          element={`${element}_CHILD_WRAPPER`}
+          paddingLeft="space70"
+          position="relative"
+          borderBottomStyle="solid"
+          borderBottomWidth="borderWidth10"
+          borderBottomColor="colorBorderInverseWeaker"
         >
-          {children}
+          <Box
+            {...safelySpreadBoxProps(props)}
+            as={StyledTabList as any}
+            ref={ref}
+            display="flex"
+            flexWrap="nowrap"
+            flexShrink={0}
+            aria-label="label"
+            element={`${element}_CHILD`}
+            overflowX="auto"
+            overflowY="hidden"
+            onScroll={handleScroll}
+          >
+            {children}
+          </Box>
+          {scrollShadow === "left" || scrollShadow === "both" ? (
+            <ShadowLeft bgColor={theme.backgroundColors.colorBackgroundInverseStrong} />
+          ) : null}
+          {scrollShadow === "right" || scrollShadow === "both" ? (
+            <ShadowRight bgColor={theme.backgroundColors.colorBackgroundInverseStrong} />
+          ) : null}
         </Box>
-        {scrollShadow === "left" || scrollShadow === "both" ? (
-          <ShadowLeft bgColor={theme.backgroundColors.colorBackgroundInverseStrong} />
-        ) : null}
-        {scrollShadow === "right" || scrollShadow === "both" ? (
-          <ShadowRight bgColor={theme.backgroundColors.colorBackgroundInverseStrong} />
-        ) : null}
-      </Box>
+      </TabPrimitiveList>
     );
   },
 );
