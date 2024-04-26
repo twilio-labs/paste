@@ -57,6 +57,13 @@ const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?
   return smartSize;
 };
 
+/**
+ * Determine the button state based on if it is disabled or loading.
+ *
+ * @param disabled - If the button is disabled.
+ * @param loading - If the button is loading.
+ * @returns The button state.
+ */
 const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => {
   if (disabled) {
     return "disabled";
@@ -129,6 +136,9 @@ const handlePropValidation = ({
 
 const variantsWithoutBoundingBox = new Set(["link", "destructive_link", "inverse_link", "reset"]);
 
+/**
+ * Display the inner content of the button.
+ */
 const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = ({
   buttonState,
   children,
@@ -173,6 +183,14 @@ const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = (
 
 ButtonContents.displayName = "ButtonContents";
 
+/**
+ * Determine which of the button components should be used based on variant.
+ *
+ * @description This is a button factory.
+ *
+ * @param variant - The variant of the button.
+ * @returns The button component.
+ */
 const getButtonComponent = (
   variant: ButtonVariants,
 ): React.ForwardRefExoticComponent<DirectButtonProps & React.RefAttributes<HTMLButtonElement>> => {
@@ -206,6 +224,12 @@ const getButtonComponent = (
 };
 
 // memo
+/**
+ * Paste buttton component.
+ *
+ * @link https://paste.twilio.design/components/button
+ * @see https://paste.twilio.design/components/button#button-vs-anchor-link
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ element = "BUTTON", i18nExternalLinkLabel = "(link takes you to an external page)", ...props }, ref) => {
     const { size, variant, children, disabled, loading, ...rest } = props;
