@@ -29,7 +29,7 @@ import type {
 
 const AnimatedBox = animated(Box);
 
-/*
+/**
  * If size isn't passed, come up with a smart default:
  * - 'reset' for variant 'link'
  * - 'icon' if there's 1 child that's an icon
