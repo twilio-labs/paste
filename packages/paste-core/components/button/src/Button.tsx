@@ -74,6 +74,11 @@ const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => 
   return "default";
 };
 
+/**
+ * Validation ensuring the button is not being used in an inaccessible way.
+ *
+ * @throws Error if the button is being used in an inaccessible way.
+ */
 const handlePropValidation = ({
   as,
   href,
@@ -227,12 +232,22 @@ const getButtonComponent = (
 /**
  * Paste buttton component.
  *
- * @link https://paste.twilio.design/components/button
- * @see https://paste.twilio.design/components/button#button-vs-anchor-link
+ * @link [PasteButton](https://paste.twilio.design/components/button)
+ * @see [Accessiblity](https://paste.twilio.design/components/button#button-vs-anchor-link)
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ element = "BUTTON", i18nExternalLinkLabel = "(link takes you to an external page)", ...props }, ref) => {
-    const { size, variant, children, disabled, loading, ...rest } = props;
+  ({
+    element = "BUTTON",
+    i18nExternalLinkLabel = "(link takes you to an external page)",
+    as = 'button',
+    fullWidth = false,
+    disabled = false,
+    loading = false,
+    type = 'button',
+    variant = 'primary',
+    ...props
+  }, ref) => {
+    const { size, children, ...rest } = props;
     const [hovered, setHovered] = React.useState(false);
     const arrowIconStyles = useSpring({
       translateX: hovered ? "4px" : "0px",
@@ -247,7 +262,16 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       return getButtonSize(variant, children, size);
     }, [size, variant, children]);
 
-    handlePropValidation({ ...props, size: smartDefaultSize });
+    handlePropValidation({
+      as,
+      fullWidth,
+      disabled,
+      loading,
+      type,
+      variant,
+      ...props,
+      size: smartDefaultSize
+    });
 
     const buttonState = getButtonState(disabled, loading);
     const showLoading = buttonState === "loading";
@@ -257,7 +281,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
     // Automatically inject AnchorForwardIcon for link's dressed as buttons when possible
     let injectIconChildren = children;
-    if (props.as === "a" && props.href != null && typeof children === "string" && variant !== "reset") {
+    if (as === "a" && props.href != null && typeof children === "string" && variant !== "reset") {
       injectIconChildren = (
         <>
           {children}
@@ -303,15 +327,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     );
   },
 );
-
-Button.defaultProps = {
-  as: "button",
-  fullWidth: false,
-  disabled: false,
-  loading: false,
-  type: "button",
-  variant: "primary",
-};
 
 Button.displayName = "Button";
 
