@@ -1,4 +1,25 @@
 export const defaultExample = `
+const StyledTooltip = React.forwardRef(({ style, element, ...props }, ref) => {
+  return (
+    <Box
+      ref={ref}
+      element={element}
+      zIndex="zIndex90"
+      backgroundColor="colorBackgroundBody"
+      borderRadius="borderRadius20"
+      borderStyle="solid"
+      borderWidth="borderWidth10"
+      borderColor="colorBorderInverse"
+      maxWidth="size50"
+      paddingX="space30"
+      paddingY="space20"
+      fontSize="fontSize30"
+      {...props}
+      {...style}
+    />
+  );
+});
+
 const TooltipExample = () => {
   const tooltip = useTooltipPrimitiveState();
   return (
@@ -6,7 +27,7 @@ const TooltipExample = () => {
       <TooltipPrimitiveReference {...tooltip} as={Button} variant="primary">
         ✊ Action
       </TooltipPrimitiveReference>
-      <TooltipPrimitive {...tooltip} style={{backgroundColor: '#fff', zIndex:10}}>
+      <TooltipPrimitive {...tooltip} as={StyledTooltip}>
         Black Lives Matter. We stand with the Black community.
       </TooltipPrimitive>
     </>
