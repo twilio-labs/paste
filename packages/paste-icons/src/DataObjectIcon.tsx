@@ -25,10 +25,11 @@ const DataObjectIcon = React.forwardRef<HTMLElement, DataObjectIconProps>(
         <svg
           role="img"
           aria-hidden={decorative}
-          width="100%"
           height="100%"
+          width="100%"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20"
           aria-labelledby={titleId}
         >
           {title ? <title id={titleId}>{title}</title> : null}
