@@ -11437,7 +11437,7 @@ __metadata:
     "@twilio-paste/uid-library": ^2.0.0
     "@types/react": ^18.0.27
     "@types/react-dom": ^18.0.10
-    "@types/react-is": 17.0.3
+    "@types/react-is": 18.3.0
     react: ^18.0.0
     react-dom: ^18.0.0
     react-is: 18.0.0
@@ -16843,12 +16843,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react-is@npm:17.0.3":
-  version: 17.0.3
-  resolution: "@types/react-is@npm:17.0.3"
+"@types/react-is@npm:18.3.0":
+  version: 18.3.0
+  resolution: "@types/react-is@npm:18.3.0"
   dependencies:
     "@types/react": "*"
-  checksum: 6abb7c47d54f012272650df8a962a28bd82f219291e5ef8b4dfa7fe0bb98ae243b060bf9fbe8ceff6213141794855a006db194b490b00ffd15842ae19d0ce1f0
+  checksum: c7c9303a76902ecc2bd38a27047da8ffb9d5a19fe6e1f785e13698e7641e7afff0c6a49ddf1c22fb20b58f4fb689d83a887641f62db4ec2fdea3d04124a84023
   languageName: node
   linkType: hard
 

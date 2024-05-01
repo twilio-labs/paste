@@ -25,7 +25,7 @@
     "tsc": "tsc"
   },
   "dependencies": {
-    "@types/react-is": "17.0.3",
+    "@types/react-is": "18.3.0",
     "react-is": "18.0.0"
   },
   "peerDependencies": {
