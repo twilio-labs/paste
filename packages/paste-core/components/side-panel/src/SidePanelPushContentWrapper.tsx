@@ -53,7 +53,7 @@ export const SidePanelPushContentWrapper = React.forwardRef<HTMLDivElement, Side
         element={element}
         // when using side panels in responsive layouts, we don't want any left margin in small screen, or initial SSR render situations. So basically never apply it in those situations
         style={breakpointIndex === undefined || breakpointIndex === 0 ? undefined : styles}
-        marginRight={["space0", theme.sizes.size40]}
+        marginRight={["space40", theme.sizes.size40]}
       >
         {children}
       </AnimatedStyledContentWrapper>

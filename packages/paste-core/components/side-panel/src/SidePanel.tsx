@@ -2,6 +2,8 @@ import { animated, useSpring } from "@twilio-paste/animation-library";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useWindowSize } from "@twilio-paste/utils";
+import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
 const StyledSidePanel = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
@@ -10,14 +12,15 @@ const StyledSidePanel = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) 
     role="dialog"
     display="flex"
     flexDirection="column"
+    width={["100%", "100%", "size40"]}
     ref={ref}
+    aria-label={props.label}
     borderStyle="solid"
     borderRadius="borderRadius70"
     borderWidth="borderWidth10"
     borderColor="colorBorderWeaker"
     backgroundColor="colorBackgroundBody"
-    marginRight="space40"
-    marginY="space40"
+    margin="space40" // make right margin show
     zIndex="zIndex50"
     position="fixed"
     top={0}
@@ -25,21 +28,30 @@ const StyledSidePanel = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) 
     bottom={0}
   />
 ));
+
 StyledSidePanel.displayName = "StyledSidePanel";
 const AnimatedStyledSidePanel = animated(StyledSidePanel);
 
-const getDefaultHiddenSpringConfig = (collapsed: boolean): any => ({
+const config = {
+  mass: 0.3,
+  tension: 288,
+  friction: 20,
+};
+
+const getHiddenSpringConfig = (collapsed: boolean, sidePanelWidth: string): any => ({
   opacity: collapsed ? 0 : 1,
-  width: "size40",
+  width: sidePanelWidth,
   transform: collapsed ? "translateX(100%)" : "translateX(0%)",
-  config: { mass: 0.3, tension: 288, friction: 20 },
+  config,
+  left: "unset",
 });
 
-const getWideHiddenSpringConfig = (collapsed: boolean): any => ({
+const getMobileSpringConfig = (collapsed: boolean): any => ({
   opacity: collapsed ? 0 : 1,
-  width: "size90",
+  width: "100%",
   transform: collapsed ? "translateX(100%)" : "translateX(0%)",
-  config: { mass: 0.3, tension: 200, friction: 15 },
+  config,
+  left: 0,
 });
 
 export interface SidePanelProps extends HTMLPasteProps<"div"> {
@@ -53,13 +65,12 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
    */
   collapsed?: boolean;
   /**
-   * Size of the Side Panel
+   * Accessible label for the Side Panel
    *
-   * @default false
-   * @type {boolean}
+   * @type {string}
    * @memberof SidebarProps
    */
-  size?: "default" | "wide";
+  label: string;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    * @default "SIDE_PANEL"
@@ -70,19 +81,21 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
 }
 
 const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
-  ({ element = "SIDE_PANEL", size = "default", collapsed = false, children, ...props }, ref) => {
+  ({ element = "SIDE_PANEL", collapsed = false, children, ...props }, ref) => {
     // use useTransition instead of useAnimation to un-render the side panel content when collapsed
-    const styles =
-      size === "wide"
-        ? useSpring(getWideHiddenSpringConfig(collapsed))
-        : useSpring(getDefaultHiddenSpringConfig(collapsed));
+    
+    // handle initial focus
+
+    const { breakpointIndex } = useWindowSize();
+    const theme = useTheme()
+    const springConfig = breakpointIndex === (0 || 1) ? getMobileSpringConfig(collapsed) : getHiddenSpringConfig(collapsed, theme.sizes.size40);
+    const styles = useSpring(springConfig);
 
     return (
       <AnimatedStyledSidePanel
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}
-        width={size === "wide" ? ["100%", "size90", "size90"] : ["100%", "size40", "size40"]}
         style={styles}
       >
         {children}

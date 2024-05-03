@@ -20,39 +20,7 @@ export const Default = (): React.ReactNode => {
   const [collapsed, setCollapsed] = React.useState(false);
   return (
     <>
-      <SidePanel collapsed={collapsed}>
-        <SidePanelHeader>
-          <Heading as="h5" variant="heading30" marginBottom="space0">
-            Heading
-          </Heading>
-          <SidePanelHeaderActions>
-            <Button variant="secondary_icon" size="reset" onClick={() => setCollapsed(true)}>
-              <CloseIcon decorative={false} title="close side panel" size="sizeIcon50" />
-            </Button>
-          </SidePanelHeaderActions>
-        </SidePanelHeader>
-        <SidePanelBody>
-          <Box width="100%" backgroundColor="colorBackgroundDecorative10Weakest" />
-        </SidePanelBody>
-      </SidePanel>
-      <SidePanelPushContentWrapper collapsed={collapsed}>
-        <Box borderStyle="solid" borderColor="colorBorder" padding="space100" height="100%" width="100%">
-          <Button variant="secondary" onClick={() => setCollapsed(!collapsed)} pressed={!collapsed}>
-            Toggle Side Panel
-            {collapsed && <ChevronDoubleLeftIcon decorative />}
-            {!collapsed && <ChevronDoubleRightIcon decorative />}
-          </Button>
-        </Box>
-      </SidePanelPushContentWrapper>
-    </>
-  );
-};
-
-export const Wide = (): React.ReactNode => {
-  const [collapsed, setCollapsed] = React.useState(false);
-  return (
-    <>
-      <SidePanel collapsed={collapsed} size="wide">
+      <SidePanel collapsed={collapsed} label="my side panel">
         <SidePanelHeader>
           <Heading as="h5" variant="heading30" marginBottom="space0">
             Heading
