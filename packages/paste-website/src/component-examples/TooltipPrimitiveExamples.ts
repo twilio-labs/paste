@@ -10,6 +10,7 @@ const StyledTooltip = React.forwardRef(({ style, element, ...props }, ref) => {
       borderStyle="solid"
       borderWidth="borderWidth10"
       borderColor="colorBorderInverse"
+      color="colorText"
       maxWidth="size50"
       paddingX="space30"
       paddingY="space20"
