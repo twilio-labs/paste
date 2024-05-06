@@ -1,9 +1,9 @@
 import { animated, useSpring } from "@twilio-paste/animation-library";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import { useTheme } from "@twilio-paste/theme";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import { useWindowSize } from "@twilio-paste/utils";
-import { useTheme } from "@twilio-paste/theme";
 import * as React from "react";
 
 const StyledSidePanel = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
@@ -83,21 +83,19 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
 const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
   ({ element = "SIDE_PANEL", collapsed = false, children, ...props }, ref) => {
     // use useTransition instead of useAnimation to un-render the side panel content when collapsed
-    
+
     // handle initial focus
 
     const { breakpointIndex } = useWindowSize();
-    const theme = useTheme()
-    const springConfig = breakpointIndex === (0 || 1) ? getMobileSpringConfig(collapsed) : getHiddenSpringConfig(collapsed, theme.sizes.size40);
+    const theme = useTheme();
+    const springConfig =
+      breakpointIndex === (0 || 1)
+        ? getMobileSpringConfig(collapsed)
+        : getHiddenSpringConfig(collapsed, theme.sizes.size40);
     const styles = useSpring(springConfig);
 
     return (
-      <AnimatedStyledSidePanel
-        {...safelySpreadBoxProps(props)}
-        ref={ref}
-        element={element}
-        style={styles}
-      >
+      <AnimatedStyledSidePanel {...safelySpreadBoxProps(props)} ref={ref} element={element} style={styles}>
         {children}
       </AnimatedStyledSidePanel>
     );

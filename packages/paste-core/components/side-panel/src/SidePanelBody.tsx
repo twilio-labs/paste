@@ -20,7 +20,8 @@ const SidePanelBody = React.forwardRef<HTMLDivElement, SidePanelBodyProps>(
       <Box
         width="100%"
         height="100%"
-        paddingX="space70"
+        paddingX="space40"
+        paddingBottom="space40"
         display="flex"
         {...safelySpreadBoxProps(props)}
         ref={ref}

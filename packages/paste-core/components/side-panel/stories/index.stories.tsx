@@ -32,7 +32,12 @@ export const Default = (): React.ReactNode => {
           </SidePanelHeaderActions>
         </SidePanelHeader>
         <SidePanelBody>
-          <Box width="100%" backgroundColor="colorBackgroundDecorative10Weakest" />
+          <Box
+            width="100%"
+            backgroundColor="colorBackgroundDecorative10Weakest"
+            borderBottomLeftRadius="borderRadius50"
+            borderBottomRightRadius="borderRadius50"
+          />
         </SidePanelBody>
       </SidePanel>
       <SidePanelPushContentWrapper collapsed={collapsed}>
