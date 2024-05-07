@@ -1,5 +1,12 @@
 {
   "SidePanel": {
+    "label": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "Accessible label for the Side Panel"
+    },
     "about": {
       "type": "string",
       "defaultValue": null,
@@ -1527,13 +1534,6 @@
       "defaultValue": null,
       "required": false,
       "externalProp": true
-    },
-    "size": {
-      "type": "\"default\" | \"wide\"",
-      "defaultValue": false,
-      "required": false,
-      "externalProp": false,
-      "description": "Size of the Side Panel"
     },
     "slot": {
       "type": "string",
