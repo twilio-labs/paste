@@ -1,4 +1,4 @@
-import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
+import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
 type ButtonTypes = "submit" | "button" | "reset";
@@ -11,6 +11,11 @@ export type ButtonSizes =
   | "rounded_small"
   | "circle"
   | "circle_small";
+/**
+ * Base Button variants. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
+ *
+ * @summary List of all of the differnt button appearances minus reset.
+ */
 type ButtonBaseVariants =
   | "primary"
   | "primary_icon"
@@ -24,13 +29,23 @@ type ButtonBaseVariants =
   | "inverse_link"
   | "inverse";
 type ButtonResetVariant = "reset";
+/**
+  * All Button variants. Includes reset. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
+  *
+  * @summary List of all of the differnt button appearances.
+  */
 export type ButtonVariants = ButtonResetVariant | ButtonBaseVariants;
+/** The various states of interactivity for the button. */
 export type ButtonStates = "disabled" | "loading" | "default";
 export type ButtonTabIndexes = 0 | -1;
 
+
 export interface ButtonContentsProps {
+  /** The various states of interactivity for the button. */
   buttonState: ButtonStates;
+  /** Is is the button in a loading state. */
   showLoading: boolean;
+  /** Different kind of button variants */
   variant?: ButtonVariants;
 }
 
@@ -40,6 +55,7 @@ export interface DirectButtonProps extends HTMLPasteProps<"button"> {
    * @default 'button'
    */
   as?: keyof JSX.IntrinsicElements;
+  /** The various states of interactivity for the button. */
   buttonState: ButtonStates;
   children: React.ReactNode;
   /**
@@ -82,16 +98,18 @@ export interface DirectButtonProps extends HTMLPasteProps<"button"> {
    */
   type?: ButtonTypes;
   /**
+   * The different appearance variants for a button. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
+   *
    * @default 'primary'
    */
   variant: ButtonVariants;
 }
 
-type BaseVariantsButtonProps = {
-  variant?: ButtonBaseVariants;
-};
-type ResetVariantButtonProps = Omit<BoxStyleProps, "size"> & {
-  variant?: ButtonResetVariant;
+type VariantsButtonProps = {
+  /**
+   * The different appearance variants for a button. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
+   */
+  variant?: ButtonBaseVariants | ButtonResetVariant;
 };
 
 export type ButtonProps = Omit<DirectButtonProps, "buttonState" | "i18nExternalLinkLabel" | "loading" | "size"> & {
@@ -109,4 +127,4 @@ export type ButtonProps = Omit<DirectButtonProps, "buttonState" | "i18nExternalL
    * @default 'default'
    */
   size?: ButtonSizes;
-} & (BaseVariantsButtonProps | ResetVariantButtonProps);
+} & (VariantsButtonProps);
