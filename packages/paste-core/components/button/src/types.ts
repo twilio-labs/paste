@@ -1,4 +1,4 @@
-import type { BoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
 type ButtonTypes = "submit" | "button" | "reset";
@@ -30,15 +30,14 @@ type ButtonBaseVariants =
   | "inverse";
 type ButtonResetVariant = "reset";
 /**
-  * All Button variants. Includes reset. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
-  *
-  * @summary List of all of the differnt button appearances.
-  */
+ * All Button variants. Includes reset. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
+ *
+ * @summary List of all of the differnt button appearances.
+ */
 export type ButtonVariants = ButtonResetVariant | ButtonBaseVariants;
 /** The various states of interactivity for the button. */
 export type ButtonStates = "disabled" | "loading" | "default";
 export type ButtonTabIndexes = 0 | -1;
-
 
 export interface ButtonContentsProps {
   /** The various states of interactivity for the button. */
@@ -105,11 +104,14 @@ export interface DirectButtonProps extends HTMLPasteProps<"button"> {
   variant: ButtonVariants;
 }
 
-type VariantsButtonProps = {
+type BaseVariantsButtonProps = {
   /**
    * The different appearance variants for a button. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
    */
-  variant?: ButtonBaseVariants | ButtonResetVariant;
+  variant?: ButtonBaseVariants;
+};
+type ResetVariantButtonProps = Omit<BoxStyleProps, "size"> & {
+  variant?: ButtonResetVariant;
 };
 
 export type ButtonProps = Omit<DirectButtonProps, "buttonState" | "i18nExternalLinkLabel" | "loading" | "size"> & {
@@ -127,4 +129,4 @@ export type ButtonProps = Omit<DirectButtonProps, "buttonState" | "i18nExternalL
    * @default 'default'
    */
   size?: ButtonSizes;
-} & (VariantsButtonProps);
+} & (BaseVariantsButtonProps | ResetVariantButtonProps);

@@ -236,17 +236,20 @@ const getButtonComponent = (
  * @see [Accessiblity](https://paste.twilio.design/components/button#button-vs-anchor-link)
  */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({
-    element = "BUTTON",
-    i18nExternalLinkLabel = "(link takes you to an external page)",
-    as = 'button',
-    fullWidth = false,
-    disabled = false,
-    loading = false,
-    type = 'button',
-    variant = 'primary',
-    ...props
-  }, ref) => {
+  (
+    {
+      element = "BUTTON",
+      i18nExternalLinkLabel = "(link takes you to an external page)",
+      as = "button",
+      fullWidth = false,
+      disabled = false,
+      loading = false,
+      type = "button",
+      variant = "primary",
+      ...props
+    },
+    ref,
+  ) => {
     const { size, children, ...rest } = props;
     const [hovered, setHovered] = React.useState(false);
     const arrowIconStyles = useSpring({
@@ -270,7 +273,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       type,
       variant,
       ...props,
-      size: smartDefaultSize
+      size: smartDefaultSize,
     });
 
     const buttonState = getButtonState(disabled, loading);
