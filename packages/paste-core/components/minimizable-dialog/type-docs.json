@@ -1833,7 +1833,8 @@
       "type": "| \"link\"\n  | \"reset\"\n  | \"primary\"\n  | \"primary_icon\"\n  | \"secondary\"\n  | \"secondary_icon\"\n  | \"destructive\"\n  | \"destructive_icon\"\n  | \"destructive_link\"\n  | \"destructive_secondary\"\n  | \"inverse_link\"\n  | \"inverse\"",
       "defaultValue": "'primary'",
       "required": true,
-      "externalProp": false
+      "externalProp": false,
+      "description": "The different appearance variants for a button. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)"
     },
     "about": {
       "type": "string",
