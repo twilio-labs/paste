@@ -67,6 +67,8 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
       setOffsetY(boundingClientRect?.y || 0);
     }, []);
 
+    const screenSize = window.innerHeight;
+
     return (
       <>
         {transitions(
