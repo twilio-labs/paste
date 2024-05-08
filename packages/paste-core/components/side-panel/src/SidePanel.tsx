@@ -1,27 +1,25 @@
 import { animated, useTransition } from "@twilio-paste/animation-library";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import type { HeightOptions } from "@twilio-paste/style-props";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import { useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
 
 const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box
+    {...props}
     role="dialog"
     display="flex"
     ref={ref}
     aria-label={props.label}
-    // zIndex="zIndex40"
-    // position="fixed"
-    position="absolute"
-    top={0}
+    position="sticky"
+    zIndex="zIndex30"
+    top={76} // 76px is the height of the Topbar. make this a prop?
     right={0}
-    bottom={0}
     paddingX={["space0", "space40", "space40"]}
-    paddingBottom="space40"
-    marginBottom={["space0", "space40", "space40"]}
     width={["100%", "size40", "size40"]}
-    {...props}
+    height={((props.height as number) - 76) as HeightOptions} // need to subtract the height of the `top` value when passed to get the actual height.
   />
 ));
 
@@ -83,34 +81,46 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
         ? useTransition(!collapsed, mobileTransitionStyles)
         : useTransition(!collapsed, transitionStyles);
 
+    const screenSize = window.innerHeight;
+
     return (
       <>
         {transitions(
           (styles, item) =>
             item && (
-              <AnimatedStyledSidePanelWrapper
-                {...safelySpreadBoxProps(props)}
-                ref={ref}
-                element={element}
-                style={styles}
+              <Box
+                position="absolute"
+                top={0}
+                right={0}
+                width={["100%", "unset", "unset"]}
+                height="100%"
+                element="SIDE_PANEL_OUTERMOST_WRAPPER"
               >
-                <Box
-                  display="flex"
-                  height="100%"
-                  // width="size40"
-                  flexDirection="column"
-                  width={["100%", "size40", "size40"]}
-                  borderStyle="solid"
-                  borderRadius={["borderRadius0", "borderRadius70", "borderRadius70"]}
-                  borderWidth="borderWidth10"
-                  borderColor="colorBorderWeaker"
-                  backgroundColor="colorBackgroundBody"
-                  // margin={["space0", "space40", "space40"]}
-                  marginY="space40"
+                <AnimatedStyledSidePanelWrapper
+                  {...safelySpreadBoxProps(props)}
+                  ref={ref}
+                  element={element}
+                  style={styles}
+                  height={screenSize}
                 >
-                  {children}
-                </Box>
-              </AnimatedStyledSidePanelWrapper>
+                  <Box
+                    display="flex"
+                    maxHeight="100%"
+                    flexDirection="column"
+                    width={["100%", "size40", "size40"]}
+                    borderStyle="solid"
+                    borderRadius={["borderRadius0", "borderRadius70", "borderRadius70"]}
+                    borderWidth="borderWidth10"
+                    borderColor="colorBorderWeaker"
+                    backgroundColor="colorBackgroundBody"
+                    marginTop="space40"
+                    marginBottom={["space0", "space40", "space40"]}
+                    element="SIDE_PANEL_INSIDE"
+                  >
+                    {children}
+                  </Box>
+                </AnimatedStyledSidePanelWrapper>
+              </Box>
             ),
         )}
       </>

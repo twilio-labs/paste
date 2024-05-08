@@ -29,7 +29,7 @@ export default {
 export const Default = (): React.ReactNode => {
   const [collapsed, setCollapsed] = React.useState(false);
   return (
-    <>
+    <Box position="relative" element="THIS_WILL_BE_IN_API">
       <SidePanel collapsed={collapsed} label="my side panel">
         <SidePanelHeader>
           <Heading as="h5" variant="heading30" marginBottom="space0">
@@ -44,6 +44,7 @@ export const Default = (): React.ReactNode => {
         <SidePanelBody>
           <Box
             width="100%"
+            height="100%"
             backgroundColor="colorBackgroundDecorative10Weakest"
             borderBottomLeftRadius="borderRadius50"
             borderBottomRightRadius="borderRadius50"
@@ -59,7 +60,7 @@ export const Default = (): React.ReactNode => {
           </Button>
         </Box>
       </SidePanelPushContentWrapper>
-    </>
+    </Box>
   );
 };
 Default.parameters = {
@@ -93,7 +94,7 @@ export const Composed = (): React.ReactNode => {
       </Sidebar>
       <SidebarPushContentWrapper collapsed={false} variant="compact">
         <Topbar id={topbarSkipLinkID}>topbar children placeholder</Topbar>
-        <Box position="relative">
+        <Box position="relative" element="THIS_WILL_BE_IN_API">
           <SidePanelPushContentWrapper collapsed={collapsed}>
             <Box
               id={mainContentSkipLinkID}
@@ -105,6 +106,7 @@ export const Composed = (): React.ReactNode => {
               <Button variant="primary" onClick={() => setCollapsed(!collapsed)}>
                 Toggle collapse SidePanel
               </Button>
+              <Box backgroundColor="colorBackgroundAvailable" width="size50" height="size90" />
             </Box>
           </SidePanelPushContentWrapper>
           {/* Can be placed anywhere - position fixed */}
@@ -122,7 +124,7 @@ export const Composed = (): React.ReactNode => {
             <SidePanelBody>
               <Box
                 width="100%"
-                height="size50"
+                height="100%"
                 backgroundColor="colorBackgroundDecorative10Weakest"
                 borderBottomLeftRadius="borderRadius50"
                 borderBottomRightRadius="borderRadius50"
