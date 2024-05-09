@@ -15,11 +15,11 @@ const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props
     aria-label={props.label}
     position="sticky"
     zIndex="zIndex30"
-    top={76} // 76px is the height of the Topbar. make this a prop?
+    top={props.top}
     right={0}
-    paddingX={["space0", "space40", "space40"]}
+    paddingRight={["space0", "space40", "space40"]}
     width={["100%", "size40", "size40"]}
-    height={((props.height as number) - 76) as HeightOptions} // need to subtract the height of the `top` value when passed to get the actual height.
+    height={((props.height as number) - (props.top as number)) as HeightOptions}
   />
 ));
 
@@ -64,6 +64,14 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
    */
   label: string;
   /**
+   * Sets the top position of the Side Panel for full height containers. Defaults to space200 for use on pages with a Topbar.
+   *
+   * @default "space200"
+   * @type {('space0' | 'space200')}
+   * @memberof SidebarProps
+   */
+  top?: string;
+  /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    * @default "SIDE_PANEL"
    * @type {BoxProps['element']}
@@ -73,7 +81,7 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
 }
 
 const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
-  ({ element = "SIDE_PANEL", collapsed = false, children, ...props }, ref) => {
+  ({ element = "SIDE_PANEL", collapsed = false, top = "space200", children, ...props }, ref) => {
     const { breakpointIndex } = useWindowSize();
 
     const transitions =
@@ -82,6 +90,8 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
         : useTransition(!collapsed, transitionStyles);
 
     const screenSize = window.innerHeight;
+
+    const topInPixels = top === "space200" ? 76 : 0;
 
     return (
       <>
@@ -102,6 +112,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
                   element={element}
                   style={styles}
                   height={screenSize}
+                  top={topInPixels}
                 >
                   <Box
                     display="flex"
@@ -115,6 +126,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
                     backgroundColor="colorBackgroundBody"
                     marginTop="space40"
                     marginBottom={["space0", "space40", "space40"]}
+                    paddingBottom="space70"
                     element="SIDE_PANEL_INSIDE"
                   >
                     {children}

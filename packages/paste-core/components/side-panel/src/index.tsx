@@ -8,3 +8,5 @@ export { SidePanelHeaderActions } from "./SidePanelHeaderActions";
 export type { SidePanelHeaderActionsProps } from "./SidePanelHeaderActions";
 export { SidePanelBody } from "./SidePanelBody";
 export type { SidePanelBodyProps } from "./SidePanelBody";
+export { SidePanelPageWrapper } from "./SidePanelPageWrapper";
+export type { SidePanelPageWrapperProps } from "./SidePanelPageWrapper";
