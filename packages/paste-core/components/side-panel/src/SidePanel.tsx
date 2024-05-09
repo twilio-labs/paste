@@ -69,6 +69,8 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
 
     const screenSize = window.innerHeight;
 
+    const topInPixels = top === "space200" ? 76 : 0;
+
     return (
       <>
         {transitions(
