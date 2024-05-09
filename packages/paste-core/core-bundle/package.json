@@ -72,6 +72,7 @@
   },
   "dependencies": {
     "@twilio-paste/account-switcher": "^3.0.1",
+    "@twilio-paste/ai-chat-log": "^0.0.0",
     "@twilio-paste/alert": "^14.1.0",
     "@twilio-paste/alert-dialog": "^9.2.0",
     "@twilio-paste/anchor": "^12.1.0",

@@ -16,7 +16,7 @@ export interface AIChatMessageProps extends HTMLPasteProps<"div"> {
 }
 
 export const AIChatMessage = React.forwardRef<HTMLDivElement, AIChatMessageProps>(
-  ({ children, element = "CHAT_MESSAGE", ...props }, ref) => {
+  ({ children, element = "AI_CHAT_MESSAGE", ...props }, ref) => {
     return (
       <Box
         role="listitem"

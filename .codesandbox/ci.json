@@ -5,6 +5,7 @@
     "/packages/paste-icons",
     "/packages/paste-core/core-bundle",
     "/packages/paste-core/components/account-switcher",
+    "/packages/paste-core/components/ai-chat-log",
     "/packages/paste-core/components/alert",
     "/packages/paste-core/components/alert-dialog",
     "/packages/paste-core/components/anchor",

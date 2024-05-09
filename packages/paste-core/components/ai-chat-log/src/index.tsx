@@ -2,10 +2,14 @@ export { AIChatMessage } from "./AIChatMessage";
 export type { AIChatMessageProps } from "./AIChatMessage";
 export { AIChatMessageMeta } from "./AIChatMessageMeta";
 export type { AIChatMessageMetaProps } from "./AIChatMessageMeta";
-export { AIChatMessageMetaItem } from "./AIChatMessageMetaItem";
-export type { AIChatMessageMetaItemProps } from "./AIChatMessageMetaItem";
-export { AIChatMessageContent } from "./AIChatMessageContent";
-export type { AIChatMessageContentProps } from "./AIChatMessageContent";
+export { AIChatMessageBody } from "./AIChatMessageBody";
+export type { AIChatMessageBodyProps } from "./AIChatMessageBody";
+export { AIChatMessageActions } from "./AIChatMessageActions";
+export type { AIChatMessageActionsProps } from "./AIChatMessageActions";
+export { AIChatMessageFeedback } from "./AIChatMessageFeedback";
+export type { AIChatMessageFeedbackProps } from "./AIChatMessageFeedback";
+export { AIChatMessageLoading } from "./AIChatMessageLoading";
+export type { AIChatMessageLoadingProps } from "./AIChatMessageLoading";
 
 export { AIChatLog } from "./AIChatLog";
 export type { AIChatLogProps } from "./AIChatLog";

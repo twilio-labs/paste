@@ -3,9 +3,8 @@ import type { BoxElementProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface AIChatMessageMetaItemProps extends HTMLPasteProps<"div"> {
+export interface AIChatMessageActionsProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
-  variant: "author" | "timestamp";
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -16,18 +15,10 @@ export interface AIChatMessageMetaItemProps extends HTMLPasteProps<"div"> {
   element?: BoxElementProps["element"];
 }
 
-const variantStyles = {
-  author: {
-    color: "colorText",
-    lineHeight: "lineHeight50",
-    fontSize: "fontSize40",
-  },
-  timestamp: {},
-};
-
-export const AIChatMessageMetaItem = React.forwardRef<HTMLDivElement, AIChatMessageMetaItemProps>(
-  ({ children, element = "CHAT_MESSAGE_META_ITEM", ...props }, ref) => (
+export const AIChatMessageActions = React.forwardRef<HTMLDivElement, AIChatMessageActionsProps>(
+  ({ children, element = "AI_CHAT_MESSAGE_ACTIONS", ...props }, ref) => (
     <Box
+      {...safelySpreadBoxProps(props)}
       ref={ref}
       element={element}
       display="flex"
@@ -36,12 +27,10 @@ export const AIChatMessageMetaItem = React.forwardRef<HTMLDivElement, AIChatMess
       color="colorText"
       lineHeight="lineHeight50"
       fontSize="fontSize40"
-      {...variantStyles[props.variant]}
-      {...safelySpreadBoxProps(props)}
     >
       {children}
     </Box>
   ),
 );
 
-AIChatMessageMetaItem.displayName = "AIChatMessageMetaItem";
+AIChatMessageActions.displayName = "AIChatMessageActions";

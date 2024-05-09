@@ -23,7 +23,7 @@ export interface AIChatMessageMetaProps extends HTMLPasteProps<"div"> {
 }
 
 export const AIChatMessageMeta = React.forwardRef<HTMLDivElement, AIChatMessageMetaProps>(
-  ({ children, element = "CHAT_MESSAGE_META", ...props }, ref) => {
+  ({ children, element = "AI_CHAT_MESSAGE_META", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}

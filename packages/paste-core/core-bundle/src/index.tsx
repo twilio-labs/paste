@@ -1,4 +1,5 @@
 export * from "@twilio-paste/account-switcher";
+export * from "@twilio-paste/ai-chat-log";
 export * from "@twilio-paste/alert";
 export * from "@twilio-paste/alert-dialog";
 export * from "@twilio-paste/anchor";
