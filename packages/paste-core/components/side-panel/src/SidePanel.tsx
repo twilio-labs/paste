@@ -2,16 +2,15 @@ import { animated, useTransition } from "@twilio-paste/animation-library";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUID } from "@twilio-paste/uid-library";
 import { useMergeRefs, useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
 
 const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box
     {...props}
-    role="dialog"
     display="flex"
     ref={ref}
-    aria-label={props.label}
     position="sticky"
     zIndex="zIndex30"
     top={props.top}
@@ -71,7 +70,7 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
 }
 
 const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
-  ({ element = "SIDE_PANEL", collapsed, children, ...props }, ref) => {
+  ({ element = "SIDE_PANEL", collapsed, label, id, children, ...props }, ref) => {
     const { breakpointIndex } = useWindowSize();
 
     const transitions =
@@ -91,6 +90,8 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
       setOffsetY(boundingClientRect?.y || 0);
     }, []);
 
+    const sidePanelId = id || useUID();
+
     return (
       <>
         {transitions(
@@ -98,11 +99,14 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
             item && (
               <Box
                 position="absolute"
+                role="dialog"
+                aria-label={label}
                 top={0}
                 right={0}
-                width={["100%", "unset", "unset"]}
+                width={["100%", "auto", "auto"]}
                 height="100%"
                 element={element}
+                id={sidePanelId}
               >
                 <AnimatedStyledSidePanelWrapper
                   {...safelySpreadBoxProps(props)}
