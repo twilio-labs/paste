@@ -15,6 +15,11 @@ export interface AccountSwitcherProps extends MenuProps {
   element?: BoxProps["element"];
 }
 
+/**
+ * An Account Switcher component is a stylized Menu Badge with a list of actions related to a user's accounts.
+ *
+ * @link [Account Switcher](https://paste.twilio.design/components/account-switcher)
+ */
 const AccountSwitcher = React.forwardRef<HTMLDivElement, AccountSwitcherProps>(
   ({ children, element = "ACCOUNT_SWITCHER", ...props }, ref) => {
     return (

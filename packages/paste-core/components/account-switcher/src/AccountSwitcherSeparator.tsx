@@ -14,6 +14,11 @@ export interface AccountSwitcherSeparatorProps extends MenuSeparatorProps {
   element?: BoxProps["element"];
 }
 
+/**
+ * Simple horizontal rule used to separate groups or individual items.
+ *
+ * @link [Account Switcher Separator](https://paste.twilio.design/components/account-switcher#account-switcher-separator)
+ */
 const AccountSwitcherSeparator = React.forwardRef<HTMLHRElement, AccountSwitcherSeparatorProps>(
   ({ children, element = "ACCOUNT_SWITCHER_SEPARATOR", ...props }, ref) => {
     return (

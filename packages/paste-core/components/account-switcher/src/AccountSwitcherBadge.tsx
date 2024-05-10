@@ -15,6 +15,11 @@ export interface AccountSwitcherBadgeProps extends Omit<MenuBadgeProps, "variant
   element?: BoxProps["element"];
 }
 
+/**
+ * Used to display the name of the current account selected or being viewed, and contains the menu trigger. The text inside the badge should update when a new account is selected.
+ *
+ * @link [Account Switcher Badge](https://paste.twilio.design/components/account-switcher#account-switcher-badge)
+ */
 const AccountSwitcherBadge = React.forwardRef<HTMLButtonElement, AccountSwitcherBadgeProps>(
   ({ children, element = "ACCOUNT_SWITCHER_BADGE", ...props }, ref) => {
     return (
