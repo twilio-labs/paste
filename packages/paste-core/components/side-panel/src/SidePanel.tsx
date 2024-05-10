@@ -69,7 +69,15 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
 
     const screenSize = window.innerHeight;
 
-    const topInPixels = top === "space200" ? 76 : 0;
+    const sidePanelRef = React.useRef<HTMLDivElement>(null);
+    const mergedSidePanelRef = useMergeRefs(sidePanelRef, ref) as React.RefObject<HTMLDivElement>;
+
+    const [offsetY, setOffsetY] = React.useState(0);
+
+    React.useEffect(() => {
+      const boundingClientRect = sidePanelRef?.current?.getBoundingClientRect();
+      setOffsetY(boundingClientRect?.y || 0);
+    }, []);
 
     return (
       <>
