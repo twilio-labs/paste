@@ -39,7 +39,6 @@ export type ButtonVariants = ButtonResetVariant | ButtonBaseVariants;
 export type ButtonStates = "disabled" | "loading" | "default";
 export type ButtonTabIndexes = 0 | -1;
 
-
 export interface ButtonContentsProps {
   /** The various states of interactivity for the button. */
   buttonState: ButtonStates;
@@ -112,9 +111,6 @@ type BaseVariantsButtonProps = {
   variant?: ButtonBaseVariants;
 };
 type ResetVariantButtonProps = Omit<BoxStyleProps, "size"> & {
-  /**
-   * The different appearance variants for a button. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
-   */
   variant?: ButtonResetVariant;
 };
 
