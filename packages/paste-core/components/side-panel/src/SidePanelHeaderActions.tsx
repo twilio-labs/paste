@@ -21,6 +21,7 @@ const SidePanelHeaderActions = React.forwardRef<HTMLDivElement, SidePanelHeaderA
         width="100%"
         display="flex"
         justifyContent="flex-end"
+        columnGap="space20"
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}

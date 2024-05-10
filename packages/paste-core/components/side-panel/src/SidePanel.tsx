@@ -1,9 +1,8 @@
 import { animated, useTransition } from "@twilio-paste/animation-library";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
-import type { HeightOptions } from "@twilio-paste/style-props";
 import type { HTMLPasteProps } from "@twilio-paste/types";
-import { useWindowSize } from "@twilio-paste/utils";
+import { useMergeRefs, useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
 
 const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
@@ -19,7 +18,7 @@ const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props
     right={0}
     paddingRight={["space0", "space40", "space40"]}
     width={["100%", "size40", "size40"]}
-    height={((props.height as number) - (props.top as number)) as HeightOptions}
+    height={props.height}
   />
 ));
 
@@ -51,11 +50,10 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
   /**
    * Determines whether the Side Panel is open or collapsed
    *
-   * @default false
    * @type {boolean}
    * @memberof SidebarProps
    */
-  collapsed?: boolean;
+  collapsed: boolean;
   /**
    * Accessible label for the Side Panel
    *
@@ -63,14 +61,6 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
    * @memberof SidebarProps
    */
   label: string;
-  /**
-   * Sets the top position of the Side Panel for full height containers. Defaults to space200 for use on pages with a Topbar.
-   *
-   * @default "space200"
-   * @type {('space0' | 'space200')}
-   * @memberof SidebarProps
-   */
-  top?: string;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    * @default "SIDE_PANEL"
@@ -81,7 +71,7 @@ export interface SidePanelProps extends HTMLPasteProps<"div"> {
 }
 
 const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
-  ({ element = "SIDE_PANEL", collapsed = false, top = "space200", children, ...props }, ref) => {
+  ({ element = "SIDE_PANEL", collapsed, children, ...props }, ref) => {
     const { breakpointIndex } = useWindowSize();
 
     const transitions =
@@ -91,7 +81,15 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
 
     const screenSize = window.innerHeight;
 
-    const topInPixels = top === "space200" ? 76 : 0;
+    const sidePanelRef = React.useRef<HTMLDivElement>(null);
+    const mergedSidePanelRef = useMergeRefs(sidePanelRef, ref) as React.RefObject<HTMLDivElement>;
+
+    const [offsetY, setOffsetY] = React.useState(0);
+
+    React.useEffect(() => {
+      const boundingClientRect = sidePanelRef?.current?.getBoundingClientRect();
+      setOffsetY(boundingClientRect?.y || 0);
+    }, []);
 
     return (
       <>
@@ -104,15 +102,15 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
                 right={0}
                 width={["100%", "unset", "unset"]}
                 height="100%"
-                element="SIDE_PANEL_OUTERMOST_WRAPPER"
+                element={element}
               >
                 <AnimatedStyledSidePanelWrapper
                   {...safelySpreadBoxProps(props)}
-                  ref={ref}
-                  element={element}
+                  ref={mergedSidePanelRef}
+                  element={`ANIMATED_${element}_WRAPPER`}
                   style={styles}
-                  height={screenSize}
-                  top={topInPixels}
+                  height={screenSize - offsetY}
+                  top={offsetY}
                 >
                   <Box
                     display="flex"
@@ -127,7 +125,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
                     marginTop="space40"
                     marginBottom={["space0", "space40", "space40"]}
                     paddingBottom="space70"
-                    element="SIDE_PANEL_INSIDE"
+                    element={`INNER_${element}`}
                   >
                     {children}
                   </Box>

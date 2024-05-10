@@ -24,6 +24,8 @@ const SidePanelHeader = React.forwardRef<HTMLDivElement, SidePanelHeaderProps>(
         borderBottomColor="colorBorderWeaker"
         borderBottomWidth="borderWidth10"
         display="flex"
+        columnGap="space30"
+        alignItems="center"
         {...safelySpreadBoxProps(props)}
         ref={ref}
         element={element}

@@ -229,6 +229,7 @@
   "SidePanelBody": "@twilio-paste/core/side-panel",
   "SidePanelHeader": "@twilio-paste/core/side-panel",
   "SidePanelHeaderActions": "@twilio-paste/core/side-panel",
+  "SidePanelPageWrapper": "@twilio-paste/core/side-panel",
   "SidePanelPushContentWrapper": "@twilio-paste/core/side-panel",
   "Sidebar": "@twilio-paste/core/sidebar",
   "SidebarBetaBadge": "@twilio-paste/core/sidebar",

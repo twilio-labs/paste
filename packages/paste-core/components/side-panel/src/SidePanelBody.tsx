@@ -10,13 +10,6 @@ const SidePanelBodyWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
   const { colorBackgroundBody, colorBackground, colorBackgroundStrong } = theme.backgroundColors;
 
   return css({
-    /*
-     * backgroundRepeat: "no-repeat",
-     * overflowScrolling: "touch",
-     * backgroundSize: "100% 15px, 100% 15px, 100% 5px, 100% 5px",
-     * backgroundAttachment: "local, local, scroll, scroll",
-     */
-
     // Scrollbar
     "::-webkit-scrollbar": {
       width: "6px",
@@ -61,7 +54,6 @@ const SidePanelBody = React.forwardRef<HTMLDivElement, SidePanelBodyProps>(
         paddingLeft="space40"
         // @ts-expect-error no 6px spacing token but we need this amount of padding to offset the scrollbar
         paddingRight="6px"
-        // paddingBottom="space70"
         display="flex"
         ref={ref}
         element={element}
