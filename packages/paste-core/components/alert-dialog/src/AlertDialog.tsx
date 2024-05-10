@@ -1,9 +1,9 @@
-import type { BoxProps } from "@twilio-paste/box";
-import type { HTMLPasteProps } from "@twilio-paste/types";
 import type { SpringValue } from "@react-spring/web";
+import { useTransition } from "@twilio-paste/animation-library";
+import type { BoxProps } from "@twilio-paste/box";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import { ModalDialogOverlay } from "@twilio-paste/modal";
-import { useTransition } from "@twilio-paste/animation-library";
+import type { HTMLPasteProps } from "@twilio-paste/types";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
