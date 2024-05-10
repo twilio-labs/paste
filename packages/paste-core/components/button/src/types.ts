@@ -1,4 +1,4 @@
-import type { BoxProps } from "@twilio-paste/box";
+import type { BoxProps, BoxStyleProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 
 type ButtonTypes = "submit" | "button" | "reset";
@@ -105,11 +105,17 @@ export interface DirectButtonProps extends HTMLPasteProps<"button"> {
   variant: ButtonVariants;
 }
 
-type VariantsButtonProps = {
+type BaseVariantsButtonProps = {
   /**
    * The different appearance variants for a button. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
    */
-  variant?: ButtonBaseVariants | ButtonResetVariant;
+  variant?: ButtonBaseVariants;
+};
+type ResetVariantButtonProps = Omit<BoxStyleProps, "size"> & {
+  /**
+   * The different appearance variants for a button. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
+   */
+  variant?: ButtonResetVariant;
 };
 
 export type ButtonProps = Omit<DirectButtonProps, "buttonState" | "i18nExternalLinkLabel" | "loading" | "size"> & {
@@ -127,4 +133,4 @@ export type ButtonProps = Omit<DirectButtonProps, "buttonState" | "i18nExternalL
    * @default 'default'
    */
   size?: ButtonSizes;
-} & (VariantsButtonProps);
+} & (BaseVariantsButtonProps | ResetVariantButtonProps);
