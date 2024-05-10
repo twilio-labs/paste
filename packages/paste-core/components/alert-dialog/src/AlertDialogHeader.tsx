@@ -6,9 +6,15 @@ import * as React from "react";
 
 export interface AlertDialogHeaderProps extends HTMLPasteProps<"header">, Pick<BoxProps, "element"> {
   children: string;
+  /** ID for the internal heading element. */
   headingID: string;
 }
 
+/**
+ * Internal alert dialog header component for the AlertDialog component.
+ *
+ * @private
+ */
 export const AlertDialogHeader = React.forwardRef<HTMLHeadElement, AlertDialogHeaderProps>(
   ({ children, element = "ALERT_DIALOG_HEADER", headingID, ...props }, ref) => {
     return (
