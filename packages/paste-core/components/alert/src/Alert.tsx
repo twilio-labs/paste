@@ -121,11 +121,7 @@ interface AlertIconProps {
 /**
  * Component to display the appropriate alert icon.
  */
-const AlertIcon: React.FC<AlertIconProps> = ({
-  variant,
-  element,
-  title,
-}): React.ReactElement => {
+const AlertIcon: React.FC<AlertIconProps> = ({ variant, element, title }): React.ReactElement => {
   switch (variant) {
     case AlertVariants.ERROR:
       return (
@@ -160,7 +156,7 @@ const AlertIcon: React.FC<AlertIconProps> = ({
       );
   }
 };
-AlertIcon.displayName = "AlertIcon"
+AlertIcon.displayName = "AlertIcon";
 
 /**
  * An Alert is a banner that notifies users to high-priority or time-sensitive information.

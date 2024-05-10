@@ -115,9 +115,9 @@ const normalizeStyles = (styles: NormalizeStylesArg): NormalizeStylesReturn => {
   return {
     ...styles,
     opacity: styles.opacity.get(),
-    transform: styles.transform.get()
+    transform: styles.transform.get(),
   };
-}
+};
 
 /**
  * An Alert Dialog is a page overlay that displays critical information, blocks interaction with the page, and only closes after an action is performed.
@@ -145,47 +145,45 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
     const headingID = useUID();
     const bodyID = useUID();
 
-    return transitions(
-      (rawStyles, item) => {
-        if (!item) {
-          return null;
-        }
-        // Normalizing ReactSpring styles.
-        const styles = normalizeStyles(rawStyles);
-
-        return (
-          <ModalDialogOverlay isOpen={isOpen} style={{ opacity: styles.opacity }}>
-            <Box
-              // @ts-expect-error Render overlay as box for customization
-              as={AlertDialogContent}
-              {...safelySpreadBoxProps(props)}
-              aria-labelledby={headingID}
-              aria-describedby={bodyID}
-              element={element}
-              ref={ref}
-              role="alertdialog"
-              style={styles}
-            >
-              <AlertDialogHeader headingID={headingID} element={`${element}_HEADER`}>
-                {heading}
-              </AlertDialogHeader>
-              <AlertDialogBody bodyID={bodyID} element={`${element}_BODY`}>
-                {children}
-              </AlertDialogBody>
-              <AlertDialogFooter
-                destructive={destructive}
-                element={`${element}_FOOTER`}
-                onDismiss={onDismiss}
-                onDismissLabel={onDismissLabel}
-                onConfirm={onConfirm}
-                onConfirmLabel={onConfirmLabel}
-                onConfirmDisabled={onConfirmDisabled}
-              />
-            </Box>
-          </ModalDialogOverlay>
-        );
+    return transitions((rawStyles, item) => {
+      if (!item) {
+        return null;
       }
-    );
+      // Normalizing ReactSpring styles.
+      const styles = normalizeStyles(rawStyles);
+
+      return (
+        <ModalDialogOverlay isOpen={isOpen} style={{ opacity: styles.opacity }}>
+          <Box
+            // @ts-expect-error Render overlay as box for customization
+            as={AlertDialogContent}
+            {...safelySpreadBoxProps(props)}
+            aria-labelledby={headingID}
+            aria-describedby={bodyID}
+            element={element}
+            ref={ref}
+            role="alertdialog"
+            style={styles}
+          >
+            <AlertDialogHeader headingID={headingID} element={`${element}_HEADER`}>
+              {heading}
+            </AlertDialogHeader>
+            <AlertDialogBody bodyID={bodyID} element={`${element}_BODY`}>
+              {children}
+            </AlertDialogBody>
+            <AlertDialogFooter
+              destructive={destructive}
+              element={`${element}_FOOTER`}
+              onDismiss={onDismiss}
+              onDismissLabel={onDismissLabel}
+              onConfirm={onConfirm}
+              onConfirmLabel={onConfirmLabel}
+              onConfirmDisabled={onConfirmDisabled}
+            />
+          </Box>
+        </ModalDialogOverlay>
+      );
+    });
   },
 );
 
