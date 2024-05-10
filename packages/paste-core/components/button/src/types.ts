@@ -30,10 +30,10 @@ type ButtonBaseVariants =
   | "inverse";
 type ButtonResetVariant = "reset";
 /**
-  * All Button variants. Includes reset. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
-  *
-  * @summary List of all of the differnt button appearances.
-  */
+ * All Button variants. Includes reset. [Avoid using link variants when possible.](https://paste.twilio.design/components/button#button-vs-anchor-link)
+ *
+ * @summary List of all of the differnt button appearances.
+ */
 export type ButtonVariants = ButtonResetVariant | ButtonBaseVariants;
 /** The various states of interactivity for the button. */
 export type ButtonStates = "disabled" | "loading" | "default";
