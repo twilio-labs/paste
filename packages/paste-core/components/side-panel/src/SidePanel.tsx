@@ -79,6 +79,8 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
       setOffsetY(boundingClientRect?.y || 0);
     }, []);
 
+    const sidePanelId = id || useUID();
+
     return (
       <>
         {transitions(
