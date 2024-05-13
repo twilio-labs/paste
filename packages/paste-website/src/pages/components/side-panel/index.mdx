@@ -1,0 +1,78 @@
+export const meta = {
+  title: 'Side Panel',
+  package: '@twilio-paste/side-panel',
+  description:
+    'Side Panel is a container that pushes the main page content when open.',
+  slug: '/components/side-panel/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultExample,
+  footerExample,
+  sideModalButtonExample,
+  hookExample,
+} from '../../../component-examples/SideModalExamples';
+import packageJson from '@twilio-paste/side-panel/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Side Panel');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/side-panel',
+        storybookUrl: '/?path=/story/components-side-panel--default',
+      },
+    },
+  };
+};
+
+
+// TODO: storybook example
+
+## Guidelines
+
+### About Side Modal
+
+Side Panel is a container that pushes the main page content when open.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Only use one Side Panel on a page</CalloutHeading>
+  <CalloutText>
+    We currenly only support having one Side Panel open on a page. If you have questions, please post{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+      a GitHub Discussion
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
+
+### Accessibility
+
+Side Panel and non-modal dialogs follow these accessibility guidelines:
+
+- There must be a focusable element inside the dialog.
+- There should be a close button so screen readers have a specific close action to target.
+- There must be an accessible aria label.
+
+## Examples
+
+### Basic Side Panel
+
+// TODO: storybook example
