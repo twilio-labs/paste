@@ -75,13 +75,22 @@ export interface AlertDialogProps extends HTMLPasteProps<"div"> {
    */
   onDismissLabel: string;
   /**
-   * Disable the confirm button
+   * Disable the confirm button. Use isConfirmDisabled
+   * @deprecated This prop has been deprecated in favor of the `isConfirmDisabled` prop.
    *
    * @default false
    * @type {boolean}
    * @memberof AlertDialogProps
    */
   onConfirmDisabled?: boolean;
+  /**
+   * Disable the confirm button
+   *
+   * @default false
+   * @type {boolean}
+   * @memberof AlertDialogProps
+   */
+  isConfirmDisabled?: boolean;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
@@ -105,6 +114,7 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
       onDismiss,
       onDismissLabel,
       onConfirmDisabled,
+      isConfirmDisabled,
       ...props
     },
     ref,
@@ -143,7 +153,7 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
                     onDismissLabel={onDismissLabel}
                     onConfirm={onConfirm}
                     onConfirmLabel={onConfirmLabel}
-                    onConfirmDisabled={onConfirmDisabled}
+                    isConfirmDisabled={isConfirmDisabled || onConfirmDisabled}
                   />
                 </Box>
               </ModalDialogOverlay>
