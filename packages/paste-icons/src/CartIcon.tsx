@@ -7,17 +7,17 @@ import * as React from "react";
 import { IconWrapper } from "./helpers/IconWrapper";
 import type { IconWrapperProps } from "./helpers/IconWrapper";
 
-export interface ProductAdminAccountsIconProps extends IconWrapperProps {
+export interface CartIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const ProductAdminAccountsIcon = React.forwardRef<HTMLElement, ProductAdminAccountsIconProps>(
+const CartIcon = React.forwardRef<HTMLElement, CartIconProps>(
   ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
-    const titleId = `ProductAdminAccountsIcon-${useUID()}`;
+    const titleId = `CartIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error("[ProductAdminAccountsIcon]: Missing a title for non-decorative icon.");
+      throw new Error("[CartIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -37,19 +37,19 @@ const ProductAdminAccountsIcon = React.forwardRef<HTMLElement, ProductAdminAccou
             fill="currentColor"
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M3.81 2.941a.872.872 0 00-.869.868v5.02c0 .476.392.868.868.868h.335a.47.47 0 110 .94h-.335C2.813 10.638 2 9.826 2 8.83v-5.02C2 2.813 2.813 2 3.81 2h5.019c.996 0 1.809.813 1.809 1.81v.334a.47.47 0 01-.941 0v-.335a.872.872 0 00-.868-.868h-5.02z"
+            d="M16.984 2.83a.555.555 0 00-.547.46m0 0l-1.88 11.05a1.585 1.585 0 01-1.562 1.319H5.923a.515.515 0 010-1.03h7.072a.555.555 0 00.547-.461l1.88-11.05A1.585 1.585 0 0116.984 1.8h.701a.515.515 0 010 1.03h-.701M7.26 17.263a.247.247 0 100-.495v-.534a.782.782 0 100 1.563v-.534z"
           />
           <path
             fill="currentColor"
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M7.49 6.622a.872.872 0 00-.868.868v5.02c0 .476.392.868.868.868h.335a.47.47 0 010 .941H7.49c-.996 0-1.809-.813-1.809-1.81V7.49c0-.996.813-1.809 1.81-1.809h5.019c.996 0 1.809.813 1.809 1.81v.334a.47.47 0 01-.941 0V7.49a.872.872 0 00-.868-.868H7.49z"
+            d="M7.26 16.234a.782.782 0 110 1.563v-.534a.247.247 0 010-.495v-.534zM12.606 17.263a.247.247 0 000-.495v-.534a.782.782 0 100 1.563v-.534z"
           />
           <path
             fill="currentColor"
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M11.171 10.303a.872.872 0 00-.868.868v5.02c0 .476.392.868.868.868h5.02a.872.872 0 00.868-.868v-5.02a.872.872 0 00-.868-.868h-5.02zm-1.809.868c0-.996.813-1.809 1.81-1.809h5.019c.996 0 1.809.813 1.809 1.81v5.019c0 .996-.813 1.809-1.81 1.809h-5.019c-.996 0-1.809-.813-1.809-1.81v-5.019z"
+            d="M12.606 16.234a.782.782 0 110 1.563v-.534a.247.247 0 010-.495v-.534zM3.25 6.032a.02.02 0 00-.02.016v.01l1.034 4.134a1.624 1.624 0 001.575 1.23h8.605a.515.515 0 010 1.029H5.839a2.654 2.654 0 01-2.574-2.01L2.231 6.308A1.05 1.05 0 013.25 5.003h12.285a.515.515 0 010 1.03H3.25z"
           />
         </svg>
       </IconWrapper>
@@ -57,5 +57,5 @@ const ProductAdminAccountsIcon = React.forwardRef<HTMLElement, ProductAdminAccou
   },
 );
 
-ProductAdminAccountsIcon.displayName = "ProductAdminAccountsIcon";
-export { ProductAdminAccountsIcon };
+CartIcon.displayName = "CartIcon";
+export { CartIcon };
