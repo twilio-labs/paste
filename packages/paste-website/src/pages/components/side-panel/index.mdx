@@ -50,7 +50,7 @@ export const getStaticProps = async () => {
 
 ### About Side Modal
 
-Side Panel is a container that pushes the main page content when open.
+Side Panel is a container that pushes the main page content when open. It's important for page content to be responsive when using a Side Panel so that the opening and closing of the panel doesn't cause the page to jump or shift. At mobile breakpoints, the Side Panel overlays the page content and takes up the full width of the viewport.
 
 <Callout variant="warning" marginY="space70">
   <CalloutHeading as="h4">Only use one Side Panel on a page</CalloutHeading>
@@ -76,3 +76,27 @@ Side Panel and non-modal dialogs follow these accessibility guidelines:
 ### Basic Side Panel
 
 // TODO: storybook example
+
+## Composition notes
+
+The Side Panel comes with some smaller components that can be used to compose a Side Panel to your application's needs.
+
+### Side Panel Page Wrapper
+
+This wrapper controls the positioning of the Side Panel with relation to the page content and should always wrap both the Side Panel itslef as well as the main page content.
+
+### Side Panel Header
+
+The Side Panel Header is a container for the descriptive title of the panel and sometimes an associated icon, in addition to any action buttons used in the panel.
+
+### Side Panel Header Actions
+
+The Side Panel Header Actions component is a container for action buttons that are used in the Side Panel Header. A "close" button should always be included. Other common actions include a MoreIcon for additional options.
+
+### Side Panel Body
+
+The Side Panel Body is a container for the main content of the Side Panel. This is where the majority of the content will be placed.
+
+### Side Panel Push Content Wrapper
+
+The Side Panel Push Content Wrapper is a container for the main page content that is pushed when the Side Panel is open. This wrapper is used to control the positioning of the main page content when the Side Panel is open.
