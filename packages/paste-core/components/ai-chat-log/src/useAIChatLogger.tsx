@@ -12,7 +12,7 @@ type PushAIChat = (chat: PartialIDChat) => void;
 type PopAIChat = (id?: string) => void;
 
 export type UseAIChatLogger = (...initialChats: PartialIDChat[]) => {
-  aiChats: AIChat[];
+  chats: AIChat[];
   push: PushAIChat;
   pop: PopAIChat;
   clear: () => void;
