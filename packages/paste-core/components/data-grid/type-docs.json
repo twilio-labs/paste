@@ -476,7 +476,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -2120,7 +2120,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -3717,7 +3717,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -5344,7 +5344,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -7036,7 +7036,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -8638,7 +8638,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -10252,7 +10252,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
@@ -11868,7 +11868,7 @@
       "externalProp": true
     },
     "inputMode": {
-      "type": "| \"text\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"\n  | \"search\"",
+      "type": "| \"text\"\n  | \"search\"\n  | \"none\"\n  | \"tel\"\n  | \"url\"\n  | \"email\"\n  | \"numeric\"\n  | \"decimal\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true,
