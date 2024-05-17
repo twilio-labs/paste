@@ -12,6 +12,7 @@ import { Text } from "@twilio-paste/text";
 import {
   AIChatLog,
   AIChatMessage,
+  AIChatMessageAuthor,
   AIChatMessageBody,
   AIChatMessageFeedback,
   AIChatMessageLoading,
@@ -28,22 +29,17 @@ export const StandardUsage = (): React.ReactNode => {
   return (
     <AIChatLog>
       <AIChatMessage>
-        <AIChatMessageMeta aria-label="You said">
-          <Avatar name="Gibby Radki" size="sizeIcon50" color="decorative30" />
-          You
-        </AIChatMessageMeta>
+        <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
         <AIChatMessageBody variant="default">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
           adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
           impedit repellat assumenda.
         </AIChatMessageBody>
       </AIChatMessage>
-
       <AIChatMessage>
-        <AIChatMessageMeta aria-label="AI said">
-          <Avatar name="AI" size="sizeIcon50" icon={ArtificialIntelligenceIcon} />
-          AI Bot
-        </AIChatMessageMeta>
+        <AIChatMessageAuthor aria-label="AI said" bot>
+          Good Bot
+        </AIChatMessageAuthor>
         <AIChatMessageBody variant="default">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
           adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
@@ -66,24 +62,18 @@ export const StandardUsage = (): React.ReactNode => {
           <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
         </AIChatMessageMeta>
       </AIChatMessage>
-
       <AIChatMessage>
-        <AIChatMessageMeta aria-label="You said">
-          <Avatar name="Gibby Radki" size="sizeIcon50" color="decorative30" />
-          You
-        </AIChatMessageMeta>
+        <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
         <AIChatMessageBody>
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
           adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
           impedit repellat assumenda.
         </AIChatMessageBody>
       </AIChatMessage>
-
       <AIChatMessage>
-        <AIChatMessageMeta aria-label="AI said">
-          <Avatar name="AI" size="sizeIcon50" icon={ArtificialIntelligenceIcon} />
-          AI Bot
-        </AIChatMessageMeta>
+        <AIChatMessageAuthor aria-label="AI said" bot>
+          Good Bot
+        </AIChatMessageAuthor>
         <AIChatMessageBody>
           <AIChatMessageLoading onStopLoading={() => {}} />
         </AIChatMessageBody>
