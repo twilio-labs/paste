@@ -29,7 +29,7 @@ import type {
 
 const AnimatedBox = animated(Box);
 
-/*
+/**
  * If size isn't passed, come up with a smart default:
  * - 'reset' for variant 'link'
  * - 'icon' if there's 1 child that's an icon
@@ -57,6 +57,13 @@ const getButtonSize = (variant: ButtonVariants, children: React.ReactNode, size?
   return smartSize;
 };
 
+/**
+ * Determine the button state based on if it is disabled or loading.
+ *
+ * @param disabled - If the button is disabled.
+ * @param loading - If the button is loading.
+ * @returns The button state.
+ */
 const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => {
   if (disabled) {
     return "disabled";
@@ -67,6 +74,11 @@ const getButtonState = (disabled?: boolean, loading?: boolean): ButtonStates => 
   return "default";
 };
 
+/**
+ * Validation ensuring the button is not being used in an inaccessible way.
+ *
+ * @throws Error if the button is being used in an inaccessible way.
+ */
 const handlePropValidation = ({
   as,
   href,
@@ -129,6 +141,9 @@ const handlePropValidation = ({
 
 const variantsWithoutBoundingBox = new Set(["link", "destructive_link", "inverse_link", "reset"]);
 
+/**
+ * Display the inner content of the button.
+ */
 const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = ({
   buttonState,
   children,
@@ -173,6 +188,14 @@ const ButtonContents: React.FC<React.PropsWithChildren<ButtonContentsProps>> = (
 
 ButtonContents.displayName = "ButtonContents";
 
+/**
+ * Determine which of the button components should be used based on variant.
+ *
+ * @description This is a button factory.
+ *
+ * @param variant - The variant of the button.
+ * @returns The button component.
+ */
 const getButtonComponent = (
   variant: ButtonVariants,
 ): React.ForwardRefExoticComponent<DirectButtonProps & React.RefAttributes<HTMLButtonElement>> => {
@@ -206,6 +229,12 @@ const getButtonComponent = (
 };
 
 // memo
+/**
+ * Paste buttton component.
+ *
+ * @link [PasteButton](https://paste.twilio.design/components/button)
+ * @see [Accessiblity](https://paste.twilio.design/components/button#button-vs-anchor-link)
+ */
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ element = "BUTTON", i18nExternalLinkLabel = "(link takes you to an external page)", ...props }, ref) => {
     const { size, variant, children, disabled, loading, ...rest } = props;

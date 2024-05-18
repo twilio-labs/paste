@@ -1,8 +1,23 @@
+import {
+  type NonModalDialogPrimitivePopoverInitialState,
+  type NonModalDialogPrimitiveStateReturn,
+  useNonModalDialogPrimitiveState,
+} from "@twilio-paste/non-modal-dialog-primitive";
+
 import type { SideModalStateReturn } from "./SideModalContainer";
 
 type SideModalStateReturnProps = SideModalStateReturn;
 
-export { useNonModalDialogPrimitiveState as useSideModalState } from "@twilio-paste/non-modal-dialog-primitive";
+/*
+ * Fixes issue where the popover would not open in a portal
+ * when using the state hook directly
+ */
+export const useSideModalState = (
+  options: NonModalDialogPrimitivePopoverInitialState,
+): NonModalDialogPrimitiveStateReturn => {
+  return useNonModalDialogPrimitiveState({ modal: true, unstable_fixed: true, ...options });
+};
+
 export { SideModal } from "./SideModal";
 export type { SideModalProps } from "./SideModal";
 export { SideModalButton } from "./SideModalButton";

@@ -7,17 +7,17 @@ import * as React from "react";
 import { IconWrapper } from "./helpers/IconWrapper";
 import type { IconWrapperProps } from "./helpers/IconWrapper";
 
-export interface ProductAdminAccountsIconProps extends IconWrapperProps {
+export interface PaymentIconProps extends IconWrapperProps {
   title?: string;
   decorative: boolean;
 }
 
-const ProductAdminAccountsIcon = React.forwardRef<HTMLElement, ProductAdminAccountsIconProps>(
+const PaymentIcon = React.forwardRef<HTMLElement, PaymentIconProps>(
   ({ as, display, element = "ICON", size, color, title, decorative }, ref) => {
-    const titleId = `ProductAdminAccountsIcon-${useUID()}`;
+    const titleId = `PaymentIcon-${useUID()}`;
 
     if (!decorative && title == null) {
-      throw new Error("[ProductAdminAccountsIcon]: Missing a title for non-decorative icon.");
+      throw new Error("[PaymentIcon]: Missing a title for non-decorative icon.");
     }
 
     return (
@@ -37,19 +37,19 @@ const ProductAdminAccountsIcon = React.forwardRef<HTMLElement, ProductAdminAccou
             fill="currentColor"
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M3.81 2.941a.872.872 0 00-.869.868v5.02c0 .476.392.868.868.868h.335a.47.47 0 110 .94h-.335C2.813 10.638 2 9.826 2 8.83v-5.02C2 2.813 2.813 2 3.81 2h5.019c.996 0 1.809.813 1.809 1.81v.334a.47.47 0 01-.941 0v-.335a.872.872 0 00-.868-.868h-5.02z"
+            d="M6.939 2.609a8 8 0 116.122 14.782A8 8 0 016.94 2.61zM10 3.166a6.835 6.835 0 100 13.669 6.835 6.835 0 000-13.67z"
           />
           <path
             fill="currentColor"
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M7.49 6.622a.872.872 0 00-.868.868v5.02c0 .476.392.868.868.868h.335a.47.47 0 010 .941H7.49c-.996 0-1.809-.813-1.809-1.81V7.49c0-.996.813-1.809 1.81-1.809h5.019c.996 0 1.809.813 1.809 1.81v.334a.47.47 0 01-.941 0V7.49a.872.872 0 00-.868-.868H7.49z"
+            d="M10.345 7.684A.9.9 0 1010 9.417a2.066 2.066 0 11-2.066 2.066.583.583 0 011.165 0 .9.9 0 10.901-.9 2.066 2.066 0 112.066-2.066.583.583 0 11-1.165 0 .9.9 0 00-.556-.833z"
           />
           <path
             fill="currentColor"
             fillRule="evenodd"
             clipRule="evenodd"
-            d="M11.171 10.303a.872.872 0 00-.868.868v5.02c0 .476.392.868.868.868h5.02a.872.872 0 00.868-.868v-5.02a.872.872 0 00-.868-.868h-5.02zm-1.809.868c0-.996.813-1.809 1.81-1.809h5.019c.996 0 1.809.813 1.809 1.81v5.019c0 .996-.813 1.809-1.81 1.809h-5.019c-.996 0-1.809-.813-1.809-1.81v-5.019z"
+            d="M10 5.461c.322 0 .583.261.583.583v.99a.583.583 0 01-1.166 0v-.99c0-.322.261-.583.583-.583zM10 12.384c.322 0 .583.261.583.583v.989a.583.583 0 01-1.166 0v-.99c0-.321.261-.582.583-.582z"
           />
         </svg>
       </IconWrapper>
@@ -57,5 +57,5 @@ const ProductAdminAccountsIcon = React.forwardRef<HTMLElement, ProductAdminAccou
   },
 );
 
-ProductAdminAccountsIcon.displayName = "ProductAdminAccountsIcon";
-export { ProductAdminAccountsIcon };
+PaymentIcon.displayName = "PaymentIcon";
+export { PaymentIcon };
