@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import { createClient } from "@supabase/supabase-js";
+// import { createClient } from "@supabase/supabase-js";
 import dogapi from "dogapi";
 import type { NextApiRequest, NextApiResponse } from "next";
 import Rollbar from "rollbar";
@@ -107,27 +107,31 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   logger.info(`${LOG_PREFIX} Valid request body: ${JSON.stringify(perfMetric.data)}`);
 
-  logger.info(`${LOG_PREFIX} Save metric to Supabase`);
-
-  const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
-  const { error } = await supabaseClient.rpc("upsert_story_and_create_story_render", {
-    _storybook_id: perfMetric.data.id,
-    _story_name: perfMetric.data.kind,
-    _actual_duration: perfMetric.data.actualDuration,
-    _base_duration: perfMetric.data.baseDuration,
-    _commit_sha: perfMetric.data.commitSha,
-    _core_version: perfMetric.data.coreVersionNumber,
-    _phase: perfMetric.data.phase,
-  });
-
-  if (error) {
-    logger.error(`${LOG_PREFIX} Error upserting story and creating story render`, { error });
-    rollbar.error(`${LOG_PREFIX} Error upserting story and creating story render`, { error });
-    res.status(500).json({ error: "Error upserting story and creating story render", details: error });
-    return;
-  }
-
-  logger.info(`${LOG_PREFIX} Saved metric to Supabase`);
+  /*
+   *   logger.info(`${LOG_PREFIX} Save metric to Supabase`);
+   *
+   *   const supabaseClient = createClient(SUPABASE_URL, SUPABASE_KEY);
+   *
+   *   const { error } = await supabaseClient.rpc("upsert_story_and_create_story_render", {
+   *     _storybook_id: perfMetric.data.id,
+   *     _story_name: perfMetric.data.kind,
+   *     _actual_duration: perfMetric.data.actualDuration,
+   *     _base_duration: perfMetric.data.baseDuration,
+   *     _commit_sha: perfMetric.data.commitSha,
+   *     _core_version: perfMetric.data.coreVersionNumber,
+   *     _phase: perfMetric.data.phase,
+   *   });
+   *
+   *
+   *   if (error) {
+   *     logger.error(`${LOG_PREFIX} Error upserting story and creating story render`, { error });
+   *     rollbar.error(`${LOG_PREFIX} Error upserting story and creating story render`, { error });
+   *     res.status(500).json({ error: "Error upserting story and creating story render", details: error });
+   *     return;
+   *   }
+   *
+   *   logger.info(`${LOG_PREFIX} Saved metric to Supabase`);
+   */
 
   logger.info(`${LOG_PREFIX} Save metric to Datadog`);
 
