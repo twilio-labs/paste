@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "category": "layout",
   "status": "production",
-  "description": "Side panel is a container that pushes the main page content when open.",
+  "description": "Side Panel is a container that pushes the main page content when open.",
   "author": "Twilio Inc.",
   "license": "MIT",
   "main:dev": "src/index.tsx",
