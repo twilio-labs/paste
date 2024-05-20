@@ -9,7 +9,6 @@ import { ChatBubble, ChatLog, ChatMessage, ChatMessageMeta, ChatMessageMetaItem 
 import { DetailText } from "@twilio-paste/detail-text";
 import { Heading } from "@twilio-paste/heading";
 import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
-import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import * as React from "react";
 
@@ -19,8 +18,8 @@ export const SidePanelWithContent: React.FC<
   React.PropsWithChildren<{ collapsed: boolean; setCollapsed: (collapsed) => void }>
 > = ({ collapsed, setCollapsed }) => {
   return (
-    <SidePanel collapsed={collapsed} label="my side panel">
-      <SidePanelHeader>
+    <SidePanel collapsed={collapsed} label="intelligent assistant ai bot side panel">
+      <SidePanelHeader onXClick={() => setCollapsed(true)} i18nCloseButtonTitle="close side panel">
         <ArtificialIntelligenceIcon decorative size="sizeIcon50" color="colorTextIcon" />
         <Heading as="h3" variant="heading30" marginBottom="space0">
           Assistant
@@ -28,9 +27,6 @@ export const SidePanelWithContent: React.FC<
         <SidePanelHeaderActions>
           <Button variant="secondary_icon" size="reset" onClick={() => {}}>
             <MoreIcon decorative={false} title="open menu" size="sizeIcon50" />
-          </Button>
-          <Button variant="secondary_icon" size="reset" onClick={() => setCollapsed(true)}>
-            <CloseIcon decorative={false} title="close side panel" size="sizeIcon50" />
           </Button>
         </SidePanelHeaderActions>
       </SidePanelHeader>

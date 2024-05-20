@@ -3187,6 +3187,20 @@
     }
   },
   "SidePanelHeader": {
+    "i18nCloseButtonTitle": {
+      "type": "string",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "Accessible title for the close button for non-english languages"
+    },
+    "onXClick": {
+      "type": "() => void",
+      "defaultValue": null,
+      "required": true,
+      "externalProp": false,
+      "description": "Function to call when the close button of the Side Panel is clicked"
+    },
     "about": {
       "type": "string",
       "defaultValue": null,

@@ -7,7 +7,7 @@ import { CustomizationProvider } from "@twilio-paste/customization";
 import { Heading } from "@twilio-paste/heading";
 import { ChevronDoubleLeftIcon } from "@twilio-paste/icons/esm/ChevronDoubleLeftIcon";
 import { ChevronDoubleRightIcon } from "@twilio-paste/icons/esm/ChevronDoubleRightIcon";
-import { CloseIcon } from "@twilio-paste/icons/esm/CloseIcon";
+import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { SidebarPushContentWrapper } from "@twilio-paste/sidebar";
 import { useTheme } from "@twilio-paste/theme";
 import { Topbar } from "@twilio-paste/topbar";
@@ -58,6 +58,7 @@ export const ContentDemo = (): React.ReactNode => {
 
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
+  const sidePanelId = useUID();
   return (
     <Box>
       <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
@@ -75,7 +76,12 @@ export const ContentDemo = (): React.ReactNode => {
             >
               I am a box with a gray border and I have width 100%
               <Box margin="space40">
-                <Button variant="primary" onClick={() => setCollapsed(!collapsed)}>
+                <Button
+                  variant="primary"
+                  onClick={() => setCollapsed(!collapsed)}
+                  aria-expanded={!collapsed}
+                  aria-controls={sidePanelId}
+                >
                   Toggle Side Panel
                 </Button>
               </Box>
@@ -91,14 +97,14 @@ export const ContentDemo = (): React.ReactNode => {
               </Box>
             </Box>
           </SidePanelPushContentWrapper>
-          <SidePanel collapsed={collapsed} label="my side panel">
-            <SidePanelHeader>
+          <SidePanel collapsed={collapsed} label="side panel" id={sidePanelId}>
+            <SidePanelHeader onXClick={() => setCollapsed(true)} i18nCloseButtonTitle="close side panel">
               <Heading as="h5" variant="heading30" marginBottom="space0">
                 Heading
               </Heading>
               <SidePanelHeaderActions>
-                <Button variant="secondary_icon" size="reset" onClick={() => setCollapsed(true)}>
-                  <CloseIcon decorative={false} title="close side panel" size="sizeIcon50" />
+                <Button variant="secondary_icon" size="reset" onClick={() => {}}>
+                  <MoreIcon decorative={false} title="open menu" size="sizeIcon50" />
                 </Button>
               </SidePanelHeaderActions>
             </SidePanelHeader>
@@ -182,13 +188,13 @@ export const Customized = (): React.ReactNode => {
           </Box>
         </SidePanelPushContentWrapper>
         <SidePanel label={label} collapsed={collapsed} element="SP">
-          <SidePanelHeader element="SPH">
+          <SidePanelHeader element="SPH" onXClick={() => setCollapsed(true)} i18nCloseButtonTitle="close side panel">
             <Heading as="h3" variant="heading30" marginBottom="space0">
               Heading
             </Heading>
             <SidePanelHeaderActions element="SPHA">
-              <Button variant="secondary_icon" size="reset" onClick={() => setCollapsed(true)}>
-                <CloseIcon decorative={false} title="close side panel" size="sizeIcon50" />
+              <Button variant="secondary_icon" size="reset" onClick={() => {}}>
+                <MoreIcon decorative={false} title="open menu" size="sizeIcon50" />
               </Button>
             </SidePanelHeaderActions>
           </SidePanelHeader>

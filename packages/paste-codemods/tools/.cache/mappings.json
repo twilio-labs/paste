@@ -227,6 +227,7 @@
   "useSideModalState": "@twilio-paste/core/side-modal",
   "SidePanel": "@twilio-paste/core/side-panel",
   "SidePanelBody": "@twilio-paste/core/side-panel",
+  "SidePanelContext": "@twilio-paste/core/side-panel",
   "SidePanelHeader": "@twilio-paste/core/side-panel",
   "SidePanelHeaderActions": "@twilio-paste/core/side-panel",
   "SidePanelPageWrapper": "@twilio-paste/core/side-panel",

@@ -19,7 +19,11 @@ const MockSidePanel = ({ element = "SIDE_PANEL" }: { element?: string }): JSX.El
     <Theme.Provider theme="twilio" data-testid="wrapper">
       <SidePanelPageWrapper element={`${element}_PAGE_WRAPPER`}>
         <SidePanel collapsed={collapsed} label="my side panel" id="side-panel-id" element={element}>
-          <SidePanelHeader element={`${element}_HEADER`}>
+          <SidePanelHeader
+            element={`${element}_HEADER`}
+            onXClick={() => setCollapsed(true)}
+            i18nCloseButtonTitle="close panel"
+          >
             Heading
             <SidePanelHeaderActions element={`${element}_HEADER_ACTIONS`}>
               <Button data-testid="close-button" variant="secondary_icon" onClick={() => setCollapsed(!collapsed)}>

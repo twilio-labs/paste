@@ -6,6 +6,8 @@ import { useUID } from "@twilio-paste/uid-library";
 import { useMergeRefs, useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
 
+import { SidePanelContext } from "./SidePanelContext";
+
 const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box
     {...props}
@@ -85,6 +87,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
 
     const [offsetY, setOffsetY] = React.useState(0);
 
+    // Get the offset of the side panel from the top of the viewport
     React.useEffect(() => {
       const boundingClientRect = sidePanelRef?.current?.getBoundingClientRect();
       setOffsetY(boundingClientRect?.y || 0);
@@ -93,7 +96,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
     const sidePanelId = id || useUID();
 
     return (
-      <>
+      <SidePanelContext.Provider value={{ sidePanelId, collapsed }}>
         {transitions(
           (styles, item) =>
             item && (
@@ -129,6 +132,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
                     marginTop="space40"
                     marginBottom={["space0", "space40", "space40"]}
                     paddingBottom="space70"
+                    overflowY="hidden"
                     element={`INNER_${element}`}
                   >
                     {children}
@@ -137,7 +141,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
               </Box>
             ),
         )}
-      </>
+      </SidePanelContext.Provider>
     );
   },
 );
