@@ -50,7 +50,7 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
           <Button variant="secondary" onClick={onDismiss}>
             {onDismissLabel}
           </Button>
-          <Button variant={primaryVariant} onClick={onConfirm} disabled={destructive && isConfirmDisabled}>
+          <Button variant={primaryVariant} onClick={onConfirm} disabled={destructive && (isConfirmDisabled || onConfirmDisabled)}>
             {onConfirmLabel}
           </Button>
         </Stack>
