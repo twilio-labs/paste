@@ -13,9 +13,9 @@ You're in helper duty and there is a new icon request on GitHub:
 * If the icon is suitable, ask the requester to file a dependency using this [Airtable link](https://airtable.com/appwvsQKyJHfnG5Sa/shrvMvL3BG6Zm0f9l)
 * Once the dependency is submitted, mark the GitHub ticket as 'Fix/change in progress'.
 
-**Keep in mind that icons are batched together in the last sprint of each release. [Check release dates here](https://paste.twilio.design/roadmap)**
+**Keep in mind that icons are batched together in the last sprint of each release. [Check release dates](https://paste.twilio.design/roadmap)**
 
-* Create a Jira ticket with the next release date 'Figma: Icons for YYYY.MM.DD release' for designers to work on the task.
+* Create a Jira ticket with the next release date 'Figma: Icons for YYYY.MM.DD release' for the design ticket.
 * Include the list of icons names to be included in the release along with their links to the GitHub discussion.
 * Clone the Jira ticket and name it 'Add icons for 2024.05.14 release' for the engineering ticket.
 
