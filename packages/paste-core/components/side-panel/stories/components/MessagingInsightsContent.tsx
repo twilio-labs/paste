@@ -22,9 +22,12 @@ import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
 export const MessagingInsightsContent: React.FC<
-  React.PropsWithChildren<{ collapsed: boolean; setCollapsed: (collapsed) => void; mainContentSkipLinkID: string }>
+  React.PropsWithChildren<{ collapsed: boolean; setCollapsed: (collapsed: any) => void; mainContentSkipLinkID: string }>
 > = ({ collapsed, setCollapsed, mainContentSkipLinkID }) => {
   const selectedTabId = useUID();
+  const fieldId = useUID();
+  const operatorId = useUID();
+  const valueId = useUID();
 
   return (
     <Box
@@ -81,20 +84,20 @@ export const MessagingInsightsContent: React.FC<
                 <Separator orientation="horizontal" />
               </Box>
               <Box gridArea="field">
-                <Label htmlFor="field">Field</Label>
-                <Select id="field">
+                <Label htmlFor={fieldId}>Field</Label>
+                <Select id={fieldId}>
                   <Option value=" "> </Option>
                 </Select>
               </Box>
               <Box gridArea="operator">
-                <Label htmlFor="operator">Operator</Label>
-                <Select id="operator">
+                <Label htmlFor={operatorId}>Operator</Label>
+                <Select id={operatorId}>
                   <Option value=" "> </Option>
                 </Select>
               </Box>
               <Box gridArea="value">
-                <Label htmlFor="value">Value</Label>
-                <Select id="value">
+                <Label htmlFor={valueId}>Value</Label>
+                <Select id={valueId}>
                   <Option value=" "> </Option>
                 </Select>
               </Box>
@@ -113,8 +116,8 @@ export const MessagingInsightsContent: React.FC<
         </Disclosure>
       </Box>
       <Box gridArea="content" overflow="auto">
-        <Tabs selectedId={selectedTabId} baseId="horizontal-tabs-example">
-          <TabList aria-label="Horizontal product tabs">
+        <Tabs selectedId={selectedTabId} baseId={useUID()}>
+          <TabList aria-label={useUID()}>
             <Tab id={selectedTabId}>Overview</Tab>
             <Tab>Delivery</Tab>
             <Tab>Responses</Tab>
