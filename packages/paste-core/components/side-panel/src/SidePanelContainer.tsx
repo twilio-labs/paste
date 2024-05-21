@@ -19,7 +19,7 @@ const SidePanelContainer = React.forwardRef<HTMLDivElement, SidePanelContainerPr
     },
     ref,
   ) => {
-    if (sidePanelId == null) sidePanelId = useUID();
+    if (sidePanelId === undefined) sidePanelId = useUID();
     return (
       <SidePanelContext.Provider
         value={{ sidePanelId, isOpen, setIsOpen, i18nCloseSidePanelTitle, i18nOpenSidePanelTitle }}

@@ -17,13 +17,14 @@ const MockSidePanel = ({ element = "SIDE_PANEL" }: { element?: string }): JSX.El
   const [isOpen, setIsOpen] = React.useState(true);
   return (
     <Theme.Provider theme="twilio" data-testid="wrapper">
-      <SidePanelContainer element={`${element}_PAGE_WRAPPER`}>
-        <SidePanel isOpen={isOpen} label="my side panel" id="side-panel-id" element={element}>
-          <SidePanelHeader
-            element={`${element}_HEADER`}
-            onXClick={() => setIsOpen(true)}
-            i18nCloseButtonTitle="close panel"
-          >
+      <SidePanelContainer
+        sidePanelId="side-panel-id"
+        element={`${element}_CONTAINER`}
+        setIsOpen={setIsOpen}
+        isOpen={isOpen}
+      >
+        <SidePanel label="my side panel" element={element}>
+          <SidePanelHeader element={`${element}_HEADER`}>
             Heading
             <SidePanelHeaderActions element={`${element}_HEADER_ACTIONS`}>
               <Button data-testid="close-button" variant="secondary_icon" onClick={() => setIsOpen(!isOpen)}>
@@ -66,7 +67,7 @@ describe("Customization", () => {
     render(<MockSidePanel />);
     const sidePanelWrapper = screen.getByTestId("wrapper");
     const sidePanel = screen.getByRole("dialog");
-    expect(sidePanelWrapper.querySelector('[data-paste-element="SIDE_PANEL_PAGE_WRAPPER"]')).toBeInTheDocument();
+    expect(sidePanelWrapper.querySelector('[data-paste-element="SIDE_PANEL_CONTAINER"]')).toBeInTheDocument();
     expect(
       sidePanelWrapper.querySelector('[data-paste-element="SIDE_PANEL_PUSH_CONTENT_WRAPPER"]'),
     ).toBeInTheDocument();
@@ -85,7 +86,7 @@ describe("Customization", () => {
     render(<MockSidePanel element="FTP" />);
     const sidePanelWrapper = screen.getByTestId("wrapper");
     const sidePanel = screen.getByRole("dialog");
-    expect(sidePanelWrapper.querySelector('[data-paste-element="FTP_PAGE_WRAPPER"]')).toBeInTheDocument();
+    expect(sidePanelWrapper.querySelector('[data-paste-element="FTP_CONTAINER"]')).toBeInTheDocument();
     expect(sidePanelWrapper.querySelector('[data-paste-element="FTP_PUSH_CONTENT_WRAPPER"]')).toBeInTheDocument();
     expect(sidePanel.getAttribute("data-paste-element")).toEqual("FTP");
     expect(sidePanel.querySelector('[data-paste-element="ANIMATED_FTP_WRAPPER"]')).toBeInTheDocument();

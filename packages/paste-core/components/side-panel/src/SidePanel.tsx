@@ -1,7 +1,6 @@
 import { animated, useTransition } from "@twilio-paste/animation-library";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
-import { useUID } from "@twilio-paste/uid-library";
 import { useMergeRefs, useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
 
