@@ -1,9 +1,9 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
-import type { BoxProps } from "@twilio-paste/box";
 import { css, styled } from "@twilio-paste/styling-library";
 import type { ThemeShape } from "@twilio-paste/theme";
-import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
+
+import type { SidePanelBodyProps } from "./types";
 
 // This wrapper applies styles that customize the scrollbar and its track
 const SidePanelBodyWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
@@ -31,17 +31,6 @@ const SidePanelBodyWrapper = styled.div(({ theme }: { theme: ThemeShape }) => {
     },
   });
 });
-
-export interface SidePanelBodyProps extends HTMLPasteProps<"div"> {
-  children?: React.ReactNode;
-  /**
-   * Overrides the default element name to apply unique styles with the Customization Provider
-   * @default "SIDE_PANEL_BODY"
-   * @type {BoxProps['element']}
-   * @memberof SidePanelBodyProps
-   */
-  element?: BoxProps["element"];
-}
 
 const SidePanelBody = React.forwardRef<HTMLDivElement, SidePanelBodyProps>(
   ({ element = "SIDE_PANEL_BODY", children, ...props }, ref) => {

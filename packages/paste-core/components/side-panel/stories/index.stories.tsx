@@ -17,9 +17,10 @@ import * as React from "react";
 import {
   SidePanel,
   SidePanelBody,
+  SidePanelButton,
+  SidePanelContainer,
   SidePanelHeader,
   SidePanelHeaderActions,
-  SidePanelPageWrapper,
   SidePanelPushContentWrapper,
 } from "../src";
 import { MessagingInsightsContent } from "./components/MessagingInsightsContent";
@@ -33,28 +34,44 @@ export default {
 };
 
 export const Default = (): React.ReactNode => {
-  const [collapsed, setCollapsed] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
   return (
-    <SidePanelPageWrapper>
-      <SidePanelWithContent collapsed={collapsed} setCollapsed={setCollapsed} />
-      <SidePanelPushContentWrapper collapsed={collapsed}>
+    <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanelWithContent />
+      <SidePanelPushContentWrapper>
         <Box borderStyle="solid" borderColor="colorBorder" padding="space100" width="100%" overflow="auto">
-          <Button variant="secondary" onClick={() => setCollapsed(!collapsed)} pressed={!collapsed}>
+          <SidePanelButton variant="secondary" pressed={!isOpen}>
             Toggle Side Panel
-            {collapsed && <ChevronDoubleLeftIcon decorative />}
-            {!collapsed && <ChevronDoubleRightIcon decorative />}
-          </Button>
+            {!isOpen && <ChevronDoubleLeftIcon decorative />}
+            {isOpen && <ChevronDoubleRightIcon decorative />}
+          </SidePanelButton>
         </Box>
       </SidePanelPushContentWrapper>
-    </SidePanelPageWrapper>
+    </SidePanelContainer>
   );
 };
 Default.parameters = {
   padding: false,
 };
 
+export const Basic = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanelWithContent />
+      <SidePanelPushContentWrapper>
+        <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  );
+};
+Basic.parameters = {
+  padding: false,
+};
+
 export const ContentDemo = (): React.ReactNode => {
-  const [collapsed, setCollapsed] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
 
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
@@ -64,8 +81,8 @@ export const ContentDemo = (): React.ReactNode => {
       <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
       <SidebarPushContentWrapper collapsed={false} variant="compact">
         <Topbar id={topbarSkipLinkID}> </Topbar>
-        <SidePanelPageWrapper>
-          <SidePanelPushContentWrapper collapsed={collapsed}>
+        <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen} id={sidePanelId}>
+          <SidePanelPushContentWrapper>
             <Box
               id={mainContentSkipLinkID}
               borderStyle="solid"
@@ -76,14 +93,7 @@ export const ContentDemo = (): React.ReactNode => {
             >
               I am a box with a gray border and I have width 100%
               <Box margin="space40">
-                <Button
-                  variant="primary"
-                  onClick={() => setCollapsed(!collapsed)}
-                  aria-expanded={!collapsed}
-                  aria-controls={sidePanelId}
-                >
-                  Toggle Side Panel
-                </Button>
+                <SidePanelButton variant="primary">Toggle Side Panel</SidePanelButton>
               </Box>
               <Box
                 borderStyle="solid"
@@ -97,8 +107,8 @@ export const ContentDemo = (): React.ReactNode => {
               </Box>
             </Box>
           </SidePanelPushContentWrapper>
-          <SidePanel collapsed={collapsed} label="side panel" id={sidePanelId}>
-            <SidePanelHeader onXClick={() => setCollapsed(true)} i18nCloseButtonTitle="close side panel">
+          <SidePanel label="the important side panel">
+            <SidePanelHeader>
               <Heading as="h5" variant="heading30" marginBottom="space0">
                 Heading
               </Heading>
@@ -118,7 +128,7 @@ export const ContentDemo = (): React.ReactNode => {
               />
             </SidePanelBody>
           </SidePanel>
-        </SidePanelPageWrapper>
+        </SidePanelContainer>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -129,7 +139,7 @@ ContentDemo.parameters = {
 };
 
 export const Composed = (): React.ReactNode => {
-  const [collapsed, setCollapsed] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
 
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
@@ -140,17 +150,13 @@ export const Composed = (): React.ReactNode => {
       <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
       <SidebarPushContentWrapper collapsed={false} variant="compact">
         <Topbar id={topbarSkipLinkID}> </Topbar>
-        <SidePanelPageWrapper>
-          <SidePanelPushContentWrapper collapsed={collapsed}>
-            <MessagingInsightsContent
-              setCollapsed={setCollapsed}
-              collapsed={collapsed}
-              mainContentSkipLinkID={mainContentSkipLinkID}
-            />
+        <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
+          <SidePanelPushContentWrapper>
+            <MessagingInsightsContent mainContentSkipLinkID={mainContentSkipLinkID} />
           </SidePanelPushContentWrapper>
           {/* Side Panel can be placed anywhere - position fixed */}
-          <SidePanelWithContent collapsed={collapsed} setCollapsed={setCollapsed} />
-        </SidePanelPageWrapper>
+          <SidePanelWithContent />
+        </SidePanelContainer>
       </SidebarPushContentWrapper>
     </Box>
   );
@@ -161,7 +167,7 @@ Composed.parameters = {
 };
 
 export const Customized = (): React.ReactNode => {
-  const [collapsed, setCollapsed] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
   const label = useUID();
   const theme = useTheme();
 
@@ -179,16 +185,16 @@ export const Customized = (): React.ReactNode => {
         SPB: { width: "75%" },
       }}
     >
-      <SidePanelPageWrapper element="SPPW">
-        <SidePanelPushContentWrapper collapsed={collapsed} element="SPPCW">
+      <SidePanelContainer element="SPPW" isOpen={isOpen} setIsOpen={setIsOpen}>
+        <SidePanelPushContentWrapper element="SPPCW">
           <Box borderStyle="solid" borderWidth="borderWidth20" borderColor="colorBorder">
-            <Button variant="secondary" onClick={() => setCollapsed(!collapsed)}>
+            <Button variant="secondary" onClick={() => setIsOpen(!isOpen)}>
               Toggle Side Panel
             </Button>
           </Box>
         </SidePanelPushContentWrapper>
-        <SidePanel label={label} collapsed={collapsed} element="SP">
-          <SidePanelHeader element="SPH" onXClick={() => setCollapsed(true)} i18nCloseButtonTitle="close side panel">
+        <SidePanel label={label} element="SP">
+          <SidePanelHeader element="SPH">
             <Heading as="h3" variant="heading30" marginBottom="space0">
               Heading
             </Heading>
@@ -207,7 +213,7 @@ export const Customized = (): React.ReactNode => {
             />
           </SidePanelBody>
         </SidePanel>
-      </SidePanelPageWrapper>
+      </SidePanelContainer>
     </CustomizationProvider>
   );
 };

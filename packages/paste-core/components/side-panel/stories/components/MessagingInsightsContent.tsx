@@ -21,9 +21,11 @@ import { Text } from "@twilio-paste/text";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-export const MessagingInsightsContent: React.FC<
-  React.PropsWithChildren<{ collapsed: boolean; setCollapsed: (collapsed: any) => void; mainContentSkipLinkID: string }>
-> = ({ collapsed, setCollapsed, mainContentSkipLinkID }) => {
+import { SidePanelBadgeButton } from "../../src";
+
+export const MessagingInsightsContent: React.FC<React.PropsWithChildren<{ mainContentSkipLinkID: string }>> = ({
+  mainContentSkipLinkID,
+}) => {
   const selectedTabId = useUID();
   const fieldId = useUID();
   const operatorId = useUID();
@@ -32,7 +34,6 @@ export const MessagingInsightsContent: React.FC<
   return (
     <Box
       id={mainContentSkipLinkID}
-      // width="100%"
       padding="space100"
       display="grid"
       gridTemplateAreas="'header actions' 'filters filters' 'content content'"
@@ -47,16 +48,10 @@ export const MessagingInsightsContent: React.FC<
         </Heading>
       </Box>
       <Box gridArea="actions" justifySelf="end">
-        <Badge
-          variant="decorative20"
-          as="button"
-          onClick={() => {
-            setCollapsed(!collapsed);
-          }}
-        >
+        <SidePanelBadgeButton variant="decorative20">
           <ArtificialIntelligenceIcon decorative />
           Ask Intelligent Assistant
-        </Badge>
+        </SidePanelBadgeButton>
       </Box>
       <Box gridArea="filters" marginTop="space80">
         <Disclosure variant="contained" visible>

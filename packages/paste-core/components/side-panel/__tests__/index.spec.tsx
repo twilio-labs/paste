@@ -7,26 +7,26 @@ import * as React from "react";
 import {
   SidePanel,
   SidePanelBody,
+  SidePanelContainer,
   SidePanelHeader,
   SidePanelHeaderActions,
-  SidePanelPageWrapper,
   SidePanelPushContentWrapper,
 } from "../src";
 
 const MockSidePanel = ({ element = "SIDE_PANEL" }: { element?: string }): JSX.Element => {
-  const [collapsed, setCollapsed] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(true);
   return (
     <Theme.Provider theme="twilio" data-testid="wrapper">
-      <SidePanelPageWrapper element={`${element}_PAGE_WRAPPER`}>
-        <SidePanel collapsed={collapsed} label="my side panel" id="side-panel-id" element={element}>
+      <SidePanelContainer element={`${element}_PAGE_WRAPPER`}>
+        <SidePanel isOpen={isOpen} label="my side panel" id="side-panel-id" element={element}>
           <SidePanelHeader
             element={`${element}_HEADER`}
-            onXClick={() => setCollapsed(true)}
+            onXClick={() => setIsOpen(true)}
             i18nCloseButtonTitle="close panel"
           >
             Heading
             <SidePanelHeaderActions element={`${element}_HEADER_ACTIONS`}>
-              <Button data-testid="close-button" variant="secondary_icon" onClick={() => setCollapsed(!collapsed)}>
+              <Button data-testid="close-button" variant="secondary_icon" onClick={() => setIsOpen(!isOpen)}>
                 X
               </Button>
             </SidePanelHeaderActions>
@@ -36,7 +36,7 @@ const MockSidePanel = ({ element = "SIDE_PANEL" }: { element?: string }): JSX.El
         <SidePanelPushContentWrapper element={`${element}_PUSH_CONTENT_WRAPPER`}>
           Page content
         </SidePanelPushContentWrapper>
-      </SidePanelPageWrapper>
+      </SidePanelContainer>
     </Theme.Provider>
   );
 };
@@ -48,7 +48,7 @@ describe("SidePanel", () => {
   it("should render", () => {
     expect(screen.getByRole("dialog")).toBeDefined();
   });
-  it("should be removed from the DOM when collapsed", async () => {
+  it("should be removed from the DOM when isOpen", async () => {
     const closeButton = screen.getByTestId("close-button");
     await userEvent.click(closeButton);
     expect(screen.queryByRole("dialog")).toBeNull(); // queryByRole returns null if no element is found whereas getByRole throws an error

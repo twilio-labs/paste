@@ -14,12 +14,10 @@ import * as React from "react";
 
 import { SidePanel, SidePanelBody, SidePanelHeader, SidePanelHeaderActions } from "../../src";
 
-export const SidePanelWithContent: React.FC<
-  React.PropsWithChildren<{ collapsed: boolean; setCollapsed: (collapsed) => void }>
-> = ({ collapsed, setCollapsed }) => {
+export const SidePanelWithContent: React.FC<React.PropsWithChildren> = () => {
   return (
-    <SidePanel collapsed={collapsed} label="intelligent assistant ai bot side panel">
-      <SidePanelHeader onXClick={() => setCollapsed(true)} i18nCloseButtonTitle="close side panel">
+    <SidePanel label="intelligent assistant ai bot side panel">
+      <SidePanelHeader>
         <ArtificialIntelligenceIcon decorative size="sizeIcon50" color="colorTextIcon" />
         <Heading as="h3" variant="heading30" marginBottom="space0">
           Assistant

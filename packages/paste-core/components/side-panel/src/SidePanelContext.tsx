@@ -1,8 +1,5 @@
 import * as React from "react";
 
-export interface SidePanelContextProps {
-  sidePanelId: string;
-  collapsed: boolean;
-}
+import type { SidePanelContextProps } from "./types";
 
 export const SidePanelContext = React.createContext<SidePanelContextProps>({} as any);

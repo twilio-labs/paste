@@ -1,12 +1,12 @@
 import { animated, useTransition } from "@twilio-paste/animation-library";
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
-import type { HTMLPasteProps } from "@twilio-paste/types";
 import { useUID } from "@twilio-paste/uid-library";
 import { useMergeRefs, useWindowSize } from "@twilio-paste/utils";
 import * as React from "react";
 
 import { SidePanelContext } from "./SidePanelContext";
+import type { SidePanelProps } from "./types";
 
 const StyledSidePanelWrapper = React.forwardRef<HTMLDivElement, BoxProps>((props, ref) => (
   <Box
@@ -46,39 +46,14 @@ const mobileTransitionStyles = {
   config,
 };
 
-export interface SidePanelProps extends HTMLPasteProps<"div"> {
-  children?: React.ReactNode;
-  /**
-   * Determines whether the Side Panel is open or collapsed
-   *
-   * @type {boolean}
-   * @memberof SidebarProps
-   */
-  collapsed: boolean;
-  /**
-   * Accessible label for the Side Panel
-   *
-   * @type {string}
-   * @memberof SidebarProps
-   */
-  label: string;
-  /**
-   * Overrides the default element name to apply unique styles with the Customization Provider
-   * @default "SIDE_PANEL"
-   * @type {BoxProps['element']}
-   * @memberof SidePanelProps
-   */
-  element?: BoxProps["element"];
-}
-
 const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
-  ({ element = "SIDE_PANEL", collapsed, label, id, children, ...props }, ref) => {
+  ({ element = "SIDE_PANEL", label, children, ...props }, ref) => {
+    const { sidePanelId, isOpen } = React.useContext(SidePanelContext);
+
     const { breakpointIndex } = useWindowSize();
 
     const transitions =
-      breakpointIndex === 0
-        ? useTransition(!collapsed, mobileTransitionStyles)
-        : useTransition(!collapsed, transitionStyles);
+      breakpointIndex === 0 ? useTransition(isOpen, mobileTransitionStyles) : useTransition(isOpen, transitionStyles);
 
     const screenSize = window.innerHeight;
 
@@ -93,14 +68,13 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
       setOffsetY(boundingClientRect?.y || 0);
     }, []);
 
-    const sidePanelId = id || useUID();
-
     return (
-      <SidePanelContext.Provider value={{ sidePanelId, collapsed }}>
+      <>
         {transitions(
           (styles, item) =>
             item && (
               <Box
+                {...safelySpreadBoxProps(props)} // moved this from animated wrapper... might cause something
                 position="absolute"
                 role="dialog"
                 aria-label={label}
@@ -112,7 +86,6 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
                 id={sidePanelId}
               >
                 <AnimatedStyledSidePanelWrapper
-                  {...safelySpreadBoxProps(props)}
                   ref={mergedSidePanelRef}
                   element={`ANIMATED_${element}_WRAPPER`}
                   style={styles}
@@ -141,7 +114,7 @@ const SidePanel = React.forwardRef<HTMLDivElement, SidePanelProps>(
               </Box>
             ),
         )}
-      </SidePanelContext.Provider>
+      </>
     );
   },
 );
