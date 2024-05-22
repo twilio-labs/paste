@@ -11,6 +11,7 @@ type SidePanelCloseButtonProps = {
   i18nCloseSidePanelTitle: string;
   sidePanelId: string;
   isOpen: boolean;
+  element: string;
 };
 
 const SidePanelCloseButton: React.FC<React.PropsWithChildren<SidePanelCloseButtonProps>> = ({
@@ -18,6 +19,7 @@ const SidePanelCloseButton: React.FC<React.PropsWithChildren<SidePanelCloseButto
   i18nCloseSidePanelTitle,
   sidePanelId,
   isOpen,
+  element,
 }) => {
   const internalButtonRef = React.useRef<HTMLButtonElement>(null);
 
@@ -36,6 +38,7 @@ const SidePanelCloseButton: React.FC<React.PropsWithChildren<SidePanelCloseButto
       aria-controls={sidePanelId}
       aria-expanded={isOpen}
       aria-label={i18nCloseSidePanelTitle}
+      element={element}
     >
       <CloseIcon decorative={false} title={i18nCloseSidePanelTitle} size="sizeIcon50" />
     </Button>
@@ -50,9 +53,6 @@ const SidePanelHeader = React.forwardRef<HTMLDivElement, SidePanelHeaderProps>(
       <Box
         width="100%"
         padding="space70"
-        borderBottomStyle="solid"
-        borderBottomColor="colorBorderWeaker"
-        borderBottomWidth="borderWidth10"
         display="flex"
         columnGap="space30"
         alignItems="center"
@@ -66,6 +66,7 @@ const SidePanelHeader = React.forwardRef<HTMLDivElement, SidePanelHeaderProps>(
           i18nCloseSidePanelTitle={i18nCloseSidePanelTitle}
           sidePanelId={sidePanelId}
           isOpen={isOpen}
+          element={`${element}_CLOSE_BUTTON`}
         />
       </Box>
     );

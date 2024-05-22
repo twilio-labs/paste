@@ -40,9 +40,9 @@ const SidePanelBody = React.forwardRef<HTMLDivElement, SidePanelBodyProps>(
         as={SidePanelBodyWrapper as any}
         width="100%"
         height="100%"
-        paddingLeft="space40"
-        // @ts-expect-error no 6px spacing token but we need this amount of padding to offset the scrollbar
-        paddingRight="6px"
+        paddingLeft="space70"
+        // @ts-expect-error no 18px spacing token but we need this amount of padding to offset the scrollbar (24px - 6px)
+        paddingRight="18px"
         display="flex"
         ref={ref}
         element={element}

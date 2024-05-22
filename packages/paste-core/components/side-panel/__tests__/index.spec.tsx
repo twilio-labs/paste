@@ -27,8 +27,8 @@ const MockSidePanel = ({ element = "SIDE_PANEL" }: { element?: string }): JSX.El
           <SidePanelHeader element={`${element}_HEADER`}>
             Heading
             <SidePanelHeaderActions element={`${element}_HEADER_ACTIONS`}>
-              <Button data-testid="close-button" variant="secondary_icon" onClick={() => setIsOpen(!isOpen)}>
-                X
+              <Button data-testid="action-button" variant="secondary_icon">
+                ...
               </Button>
             </SidePanelHeaderActions>
           </SidePanelHeader>
@@ -49,9 +49,11 @@ describe("SidePanel", () => {
   it("should render", () => {
     expect(screen.getByRole("dialog")).toBeDefined();
   });
-  it("should be removed from the DOM when isOpen", async () => {
-    const closeButton = screen.getByTestId("close-button");
-    await userEvent.click(closeButton);
+  it("should be removed from the DOM when isOpen=false", async () => {
+    const closeButton = screen
+      .getByRole("dialog")
+      .querySelector('[data-paste-element="SIDE_PANEL_HEADER_CLOSE_BUTTON"]');
+    if (closeButton) await userEvent.click(closeButton);
     expect(screen.queryByRole("dialog")).toBeNull(); // queryByRole returns null if no element is found whereas getByRole throws an error
   });
   it("should have an id", () => {
@@ -75,7 +77,7 @@ describe("Customization", () => {
     expect(sidePanel.querySelector('[data-paste-element="ANIMATED_SIDE_PANEL_WRAPPER"]')).toBeInTheDocument();
     expect(sidePanel.querySelector('[data-paste-element="INNER_SIDE_PANEL"]')).toBeInTheDocument();
     expect(screen.getByText("Heading").getAttribute("data-paste-element")).toBe("SIDE_PANEL_HEADER");
-    expect(screen.getByText("X").parentElement?.parentElement?.getAttribute("data-paste-element")).toBe(
+    expect(screen.getByText("...").parentElement?.parentElement?.getAttribute("data-paste-element")).toBe(
       "SIDE_PANEL_HEADER_ACTIONS",
     );
     expect(screen.getByText("Body").getAttribute("data-paste-element")).toBe("SIDE_PANEL_BODY");
@@ -92,7 +94,7 @@ describe("Customization", () => {
     expect(sidePanel.querySelector('[data-paste-element="ANIMATED_FTP_WRAPPER"]')).toBeInTheDocument();
     expect(sidePanel.querySelector('[data-paste-element="INNER_FTP"]')).toBeInTheDocument();
     expect(screen.getByText("Heading").getAttribute("data-paste-element")).toBe("FTP_HEADER");
-    expect(screen.getByText("X").parentElement?.parentElement?.getAttribute("data-paste-element")).toBe(
+    expect(screen.getByText("...").parentElement?.parentElement?.getAttribute("data-paste-element")).toBe(
       "FTP_HEADER_ACTIONS",
     );
     expect(screen.getByText("Body").getAttribute("data-paste-element")).toBe("FTP_BODY");
