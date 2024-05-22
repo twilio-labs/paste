@@ -2,7 +2,6 @@
 /* eslint-disable react/jsx-max-depth */
 // eslint-disable-next-line eslint-comments/disable-enable-pair
 /* eslint-disable import/no-extraneous-dependencies */
-import { Badge } from "@twilio-paste/badge";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { Card } from "@twilio-paste/card";

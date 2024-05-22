@@ -22,7 +22,7 @@ export const SidebarWithContent: React.FC<
   return (
     <Sidebar
       aria-label={id}
-      collapsed={false}
+      collapsed={true}
       variant="compact"
       sidebarNavigationSkipLinkID={sidebarNavigationSkipLinkID}
       topbarSkipLinkID={topbarSkipLinkID}
@@ -36,7 +36,7 @@ export const SidebarWithContent: React.FC<
       </SidebarHeader>
       <SidebarBody>
         <SidebarNavigation aria-label={id}>
-          <SidebarNavigationItem href="https://google.com" selected>
+          <SidebarNavigationItem href="#" selected>
             Explore products
           </SidebarNavigationItem>
         </SidebarNavigation>

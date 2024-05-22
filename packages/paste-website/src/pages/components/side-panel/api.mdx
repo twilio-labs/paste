@@ -47,30 +47,34 @@ yarn add @twilio-paste/side-panel - or - yarn add @twilio-paste/core
 
 ```jsx
 import {
+  SidePanelContainer,
   SidePanel,
-  SidePanelBody,
   SidePanelHeader,
   SidePanelHeaderActions,
-  SidePanelPageWrapper,
+  SidePanelBody,
   SidePanelPushContentWrapper,
+  SidePanelButton,
 } from '@twilio-paste/core/side-panel';
 
 const SideModalExample: React.FC = () => {
+  const [isOpen, setIsOpen] = React.useState(true);
   return (
-    <SidePanelPageWrapper>
-        <SidePanel collapsed={collapsed} label="my side panel">
-          <SidePanelHeader>
-            {heading}
-            <SidePanelHeaderActions>
-              {actions}
-            </SidePanelHeaderActions>
-          </SidePanelHeader>
-          <SidePanelBody>{body}</SidePanelBody>
-        </SidePanel>
-        <SidePanelPushContentWrapper>
-          {page content}
-        </SidePanelPushContentWrapper>
-      </SidePanelPageWrapper>
+    <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+          Heading goes here.
+          <SidePanelHeaderActions>
+            Actions go here.
+          </SidePanelHeaderActions>
+        </SidePanelHeader>
+        <SidePanelBody>
+          Side Panel content goes here.
+        </SidePanelBody>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
   );
 };
 ```
