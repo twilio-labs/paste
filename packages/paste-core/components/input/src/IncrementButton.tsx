@@ -3,6 +3,7 @@ import { Button, type ButtonProps } from "@twilio-paste/button";
 import { ChevronUpIcon } from "@twilio-paste/icons/esm/ChevronUpIcon";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
+
 import { InputVariants } from "./Input";
 
 export interface IncrementButtonProps extends HTMLPasteProps<"button"> {
