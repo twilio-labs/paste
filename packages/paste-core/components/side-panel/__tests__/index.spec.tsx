@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Button } from "@twilio-paste/button";
 import { Theme } from "@twilio-paste/theme";
@@ -54,6 +54,10 @@ describe("SidePanel", () => {
       .getByRole("dialog")
       .querySelector('[data-paste-element="SIDE_PANEL_HEADER_CLOSE_BUTTON"]');
     if (closeButton) await userEvent.click(closeButton);
+    // r-t-l act() necessary for testing with react 17
+    await act(async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+    });
     expect(screen.queryByRole("dialog")).toBeNull(); // queryByRole returns null if no element is found whereas getByRole throws an error
   });
   it("should have an id", () => {
