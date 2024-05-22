@@ -333,6 +333,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                   internalRef.current?.focus();
                 }}
                 i18nStepUpLabel={i18nStepUpLabel}
+                variant={variant}
               />
             ) : (
               <Box height="12px" width="12px" element={`${element}_INCREMENT_PLACEHOLDER`} />
@@ -347,6 +348,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
                   internalRef.current?.focus();
                 }}
                 i18nStepDownLabel={i18nStepDownLabel}
+                variant={variant}
               />
             ) : (
               <Box height="12px" width="12px" element={`${element}_DECREMENT_PLACEHOLDER`} />

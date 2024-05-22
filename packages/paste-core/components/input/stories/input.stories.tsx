@@ -713,6 +713,32 @@ export const DefaultNumberInput = (): React.ReactNode => {
 
 DefaultNumberInput.storyName = "Number Input - Controlled";
 
+export const DefaultNumberInverseInput = (): React.ReactNode => {
+  const uid = useUID();
+  const [value, setValue] = React.useState("0");
+  return (
+    <Box backgroundColor="colorBackgroundBodyInverse" padding="space60">
+      <Label htmlFor={uid} variant="inverse">
+        Label
+      </Label>
+      <Input
+        id={uid}
+        type="number"
+        max="50"
+        min="-50"
+        step={5}
+        value={value}
+        onChange={(event) => {
+          setValue(event.target.value);
+        }}
+        variant="inverse"
+      />
+    </Box>
+  );
+};
+
+DefaultNumberInverseInput.storyName = "Number Input - Inverse Controlled";
+
 export const TestNumberInput = (): React.ReactNode => {
   const uid = useUID();
   const [value, setValue] = React.useState("5");

@@ -1,0 +1,5 @@
+---
+"@twilio-paste/input": patch
+---
+
+[Input] updated focus stylings on increment/decrement buttons for number input type on both default and inverse variants

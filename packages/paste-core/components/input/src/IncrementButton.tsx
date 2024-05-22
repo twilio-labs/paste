@@ -3,12 +3,14 @@ import { Button, type ButtonProps } from "@twilio-paste/button";
 import { ChevronUpIcon } from "@twilio-paste/icons/esm/ChevronUpIcon";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
+import { InputVariants } from "./Input";
 
 export interface IncrementButtonProps extends HTMLPasteProps<"button"> {
   i18nStepUpLabel?: string;
   element?: BoxProps["element"];
   // Button component restricts tabIndex values
   tabIndex?: ButtonProps["tabIndex"];
+  variant?: InputVariants;
 }
 
 export const IncrementButton = React.forwardRef<HTMLButtonElement, IncrementButtonProps>(
@@ -22,8 +24,17 @@ export const IncrementButton = React.forwardRef<HTMLButtonElement, IncrementButt
         size="reset"
         type="button"
         borderRadius="borderRadius20"
-        backgroundColor="colorBackground"
+        backgroundColor={props.variant === "inverse" ? "colorBackgroundInverseStrong" : "colorBackground"}
         marginRight="space30"
+        _focus={{
+          borderRadius: "borderRadius20",
+          borderWidth: "borderWidth10",
+          borderStyle: "solid",
+          borderColor: props.variant === "inverse" ? "colorBorderInverseStrong" : "colorBorderPrimary",
+        }}
+        borderWidth="borderWidth10"
+        borderStyle="solid"
+        borderColor="transparent"
       >
         <ChevronUpIcon
           decorative={false}
