@@ -28,14 +28,8 @@ export const DecrementButton = React.forwardRef<HTMLButtonElement, DecrementButt
         backgroundColor={variant === "inverse" ? "colorBackgroundInverseStrong" : "colorBackground"}
         marginRight="space30"
         _focus={{
-          borderRadius: "borderRadius20",
-          borderWidth: "borderWidth10",
-          borderStyle: "solid",
-          borderColor: variant === "inverse" ? "colorBorderInverseStrong" : "colorBorderPrimary",
+          boxShadow: variant === "inverse" ? "shadowBorderInverseStrong" : "shadowBorderPrimary",
         }}
-        borderWidth="borderWidth10"
-        borderStyle="solid"
-        borderColor="transparent"
       >
         <ChevronDownIcon
           decorative={false}
