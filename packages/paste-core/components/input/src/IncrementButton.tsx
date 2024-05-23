@@ -15,7 +15,7 @@ export interface IncrementButtonProps extends HTMLPasteProps<"button"> {
 }
 
 export const IncrementButton = React.forwardRef<HTMLButtonElement, IncrementButtonProps>(
-  ({ i18nStepUpLabel = "step value up", element, ...props }, ref) => {
+  ({ i18nStepUpLabel = "step value up", element, variant, ...props }, ref) => {
     return (
       <Button
         {...props}
@@ -25,13 +25,13 @@ export const IncrementButton = React.forwardRef<HTMLButtonElement, IncrementButt
         size="reset"
         type="button"
         borderRadius="borderRadius20"
-        backgroundColor={props.variant === "inverse" ? "colorBackgroundInverseStrong" : "colorBackground"}
+        backgroundColor={variant === "inverse" ? "colorBackgroundInverseStrong" : "colorBackground"}
         marginRight="space30"
         _focus={{
           borderRadius: "borderRadius20",
           borderWidth: "borderWidth10",
           borderStyle: "solid",
-          borderColor: props.variant === "inverse" ? "colorBorderInverseStrong" : "colorBorderPrimary",
+          borderColor: variant === "inverse" ? "colorBorderInverseStrong" : "colorBorderPrimary",
         }}
         borderWidth="borderWidth10"
         borderStyle="solid"
