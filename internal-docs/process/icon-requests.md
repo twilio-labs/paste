@@ -2,6 +2,7 @@
 You're in helper duty and there is a new icon request on GitHub:
 * Read the request and review the needed icon(s).
 * Make sure the requested icon is suitable to be part of Paste library:
+  * If the requester is external to Twilio, determine whether the icon is generic enough to be used by other teams at Twilio. If it's not generic, you can point them to the [SVG-to-React library](https://paste.twilio.design/core/libraries), which allows them to create a React component with their SVG.
   * It doesn’t already exist or is too similar to an existing one
     * If it exists, you can suggest using the current one or ask to explain why a different one is needed.
     * If it's too similar, you can propose other options using streamline and sharing it in the Github discussion.
