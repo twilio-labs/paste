@@ -478,7 +478,7 @@
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "enterKeyHint": {
-      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
@@ -11807,7 +11807,7 @@
       "description": "Overrides the default element name to apply unique styles with the Customization Provider"
     },
     "enterKeyHint": {
-      "type": "| \"search\"\n  | \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"send\"",
+      "type": "| \"enter\"\n  | \"done\"\n  | \"go\"\n  | \"next\"\n  | \"previous\"\n  | \"search\"\n  | \"send\"",
       "defaultValue": null,
       "required": false,
       "externalProp": true
