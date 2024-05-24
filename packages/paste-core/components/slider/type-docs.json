@@ -29,7 +29,7 @@
       "description": "Disables the slider"
     },
     "element": {
-      "type": "any",
+      "type": "string",
       "defaultValue": "SLIDER",
       "required": false,
       "externalProp": false,
