@@ -1,0 +1,84 @@
+export const meta = {
+  title: 'Side Panel - API',
+  package: '@twilio-paste/side-panel',
+  description:
+    'Side Panel is a container that pushes the main page content when open.',
+  slug: '/components/side-panel/api',
+};
+
+import Changelog from '@twilio-paste/side-panel/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/side-panel/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Side Panel');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/side-panel');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/side-panel',
+        storybookUrl: '/?path=/story/components-side-panel--default',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/side-panel - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  SidePanelContainer,
+  SidePanel,
+  SidePanelHeader,
+  SidePanelHeaderActions,
+  SidePanelBody,
+  SidePanelPushContentWrapper,
+  SidePanelButton,
+} from '@twilio-paste/core/side-panel';
+
+const SideModalExample: React.FC = () => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  return (
+    <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+          Heading goes here.
+          <SidePanelHeaderActions>
+            Actions go here.
+          </SidePanelHeaderActions>
+        </SidePanelHeader>
+        <SidePanelBody>
+          Side Panel content goes here.
+        </SidePanelBody>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />

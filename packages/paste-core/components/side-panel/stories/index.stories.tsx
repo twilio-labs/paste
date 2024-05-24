@@ -57,16 +57,75 @@ Default.parameters = {
 export const Basic = (): React.ReactNode => {
   const [isOpen, setIsOpen] = React.useState(true);
   const sidePanelId = useUID();
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
   return (
-    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
-      <SidePanelWithContent />
-      <SidePanelPushContentWrapper>
-        <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
-      </SidePanelPushContentWrapper>
-    </SidePanelContainer>
+    <>
+      <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
+      <SidebarPushContentWrapper collapsed={true} variant="compact">
+        <Topbar id={topbarSkipLinkID}> </Topbar>
+        <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+          <SidePanelWithContent />
+          <SidePanelPushContentWrapper>
+            <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+              <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+            </Box>
+          </SidePanelPushContentWrapper>
+        </SidePanelContainer>
+      </SidebarPushContentWrapper>
+    </>
   );
 };
 Basic.parameters = {
+  padding: false,
+};
+
+export const I18n = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+
+  const topbarSkipLinkID = useUID();
+  const mainContentSkipLinkID = useUID();
+  const sidePanelId = useUID();
+  return (
+    <Box>
+      <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
+      <SidebarPushContentWrapper collapsed={true} variant="compact">
+        <Topbar id={topbarSkipLinkID}> </Topbar>
+        <SidePanelContainer
+          i18nCloseSidePanelTitle="cerrar panel lateral"
+          i18nOpenSidePanelTitle="abrir panel lateral"
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          id={sidePanelId}
+        >
+          <SidePanelPushContentWrapper>
+            <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+              <SidePanelButton variant="primary">Probar Panel Lateral</SidePanelButton>
+            </Box>
+          </SidePanelPushContentWrapper>
+          <SidePanel label="el panel lateral">
+            <SidePanelHeader>
+              <Heading as="h5" variant="heading30" marginBottom="space0">
+                Título
+              </Heading>
+            </SidePanelHeader>
+            <SidePanelBody>
+              <Box
+                width="100%"
+                height="100%"
+                backgroundColor="colorBackgroundDecorative10Weakest"
+                borderBottomLeftRadius="borderRadius50"
+                borderBottomRightRadius="borderRadius50"
+              />
+            </SidePanelBody>
+          </SidePanel>
+        </SidePanelContainer>
+      </SidebarPushContentWrapper>
+    </Box>
+  );
+};
+
+I18n.parameters = {
   padding: false,
 };
 
@@ -148,7 +207,7 @@ export const Composed = (): React.ReactNode => {
     <Box>
       {/* Sidebar can be placed anywhere - position fixed */}
       <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
-      <SidebarPushContentWrapper collapsed={false} variant="compact">
+      <SidebarPushContentWrapper collapsed={true} variant="compact">
         <Topbar id={topbarSkipLinkID}> </Topbar>
         <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
           <SidePanelPushContentWrapper>

@@ -1,0 +1,200 @@
+export const meta = {
+  title: 'Side Panel',
+  package: '@twilio-paste/side-panel',
+  description:
+    'Side Panel is a container that pushes the main page content when open.',
+  slug: '/components/side-panel/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  defaultExample,
+  footerExample,
+  sideModalButtonExample,
+  hookExample,
+} from '../../../component-examples/SideModalExamples';
+import packageJson from '@twilio-paste/side-panel/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Side Panel');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/side-panel',
+        storybookUrl: '/?path=/story/components-side-panel--default',
+      },
+    },
+  };
+};
+
+<StoryPreview
+  title="Basic Side Panel example"
+  storyID="components-side-panel--basic"
+  code={`
+export const SidePanelExample = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+          <Heading as="h3" variant="heading30">Heading</Heading>
+          <SidePanelHeaderActions>
+            <Button variant="reset">
+              <MoreIcon decorative={false} title="side panel actions menu" />
+            </Button>
+          </SidePanelHeaderActions>
+        </SidePanelHeader>
+        <SidePanelBody>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          Side Panel content goes here.
+        </SidePanelBody>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  )`}
+/>
+
+## Guidelines
+
+### About Side Panel
+
+Side Panel is a container that pushes the main page content when open. It's important for page content to be responsive when using a Side Panel so that the opening and closing of the panel doesn't cause the page to jump or shift. At mobile breakpoints, the Side Panel overlays the page content and takes up the full width of the viewport.
+
+<Callout variant="warning" marginY="space70">
+  <CalloutHeading as="h4">Only use one Side Panel on a page</CalloutHeading>
+  <CalloutText>
+    We currently only support having one Side Panel open on a page. If you have questions, please post{' '}
+    <Anchor href="https://github.com/twilio-labs/paste/discussions" showExternal>
+      a GitHub Discussion
+    </Anchor>
+    .
+  </CalloutText>
+</Callout>
+
+### Accessibility
+
+- There must be an accessible aria label. Pass the descriptive label to `SidePanel` using the `label` prop.
+- The close button in the Side Panel Header as well as the Side Panel Button / Side Panel Badge Button all use `aria-controls` and `aria-expanded` to indicate the connection to and the state of the Side Panel.
+- Focus is placed on the close button when the Side Panel is opened, but the Side Panel is not a focus trap. Users can tab through the Side Panel content and then tab out of the Side Panel to the main page content without closing the Side Panel.
+
+### Side Panel vs. Side Modal
+
+Side Panel and [Side Modal](/components/side-modal) are both used to display additional content on the side of the main page content. Side Panel is used for content that is not blocking and can be interacted with while the main page content is still visible. Side Panels are designed to remain open while the user completes other tasks in the main content of the page. Side Modals typically need to be closed before the user returns to their main task as the Modal overlays part of the page.
+
+Side Modals are a focus trap and can't be tabbed out of, while the content of Side Panels can be tabbed through and then tabbed out of to return to the main page content.
+
+## Examples
+
+### Basic Side Panel
+
+Pass the `isOpen` and `setIsOpen` props to the `SidePanelContainer` component to control the open and close state of the Side Panel.
+
+<StoryPreview
+  title="Basic Side Panel example"
+  storyID="components-side-panel--basic"
+  code={`
+export const SidePanelExample = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
+      <SidePanel>
+        <SidePanelHeader>
+          <Heading as="h3" variant="heading30">Heading</Heading>
+          <SidePanelHeaderActions>
+            <Button variant="reset">
+              <MoreIcon decorative={false} title="side panel actions menu" />
+            </Button>
+          </SidePanelHeaderActions>
+        </SidePanelHeader>
+        <SidePanelBody>
+          <Separator orientation="horizontal" verticalSpacing="space0" />
+          Side Panel content goes here.
+        </SidePanelBody>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+          <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  )`}
+/>
+
+### Internationalization
+
+To internationalize Side Panel, simply pass different text as children to the Side Panel components. The only exceptions are the close button in the SidePanelHeader and the SidePanelButton/SidePanelBadgeButton. To change the buttons' accessible label text, use the `i18nCloseSidePanelTitle` and `i18nOpenSidePanel` props on the `SidePanelContainer`.
+
+<StoryPreview
+  title="Internationalized Side Panel example"
+  storyID="components-side-panel--i-18-n"
+  code={`
+export const SidePanelExample = (): React.ReactNode => {
+  const [isOpen, setIsOpen] = React.useState(true);
+  const sidePanelId = useUID();
+  return (
+    <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen} i18nCloseSidePanelTitle="cerrar panel lateral" i18nOpenSidePanelTitle="abrir panel lateral">
+      <SidePanel>
+        <SidePanelHeader>
+          <Heading as="h3" variant="heading30">Título</Heading>
+        </SidePanelHeader>
+        <SidePanelBody>
+          ...
+        </SidePanelBody>
+      </SidePanel>
+      <SidePanelPushContentWrapper>
+        <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+          <SidePanelButton variant="secondary">Probar Panel Lateral</SidePanelButton>
+        </Box>
+      </SidePanelPushContentWrapper>
+    </SidePanelContainer>
+  )`}
+/>
+
+## Composition notes
+
+The Side Panel comes with some smaller components that can be used to compose a Side Panel to your application's needs. All of the following components should be used inside of a `SidePanelContainer`, with `SidePanel` and `SidePanelPushContentWrapper` being its direct children. The Side Panel Container controls the positioning of the Side Panel with relation to the page content.
+
+### Side Panel
+
+The Side Panel contains all the various elements of the component.
+
+#### Side Panel Header
+
+The Side Panel Header is a container for the descriptive title of the panel and sometimes an associated icon, in addition to any action buttons used in the panel. It also contains the close button.
+
+##### Side Panel Header Actions
+
+The Side Panel Header Actions component is a container for action buttons that are used in the Side Panel Header. Common actions include a `MoreIcon` for additional menu options.
+
+#### Side Panel Body
+
+The Side Panel Body is a container for the main content of the Side Panel. This is where the majority of the content will be placed.
+
+### Side Panel Push Content Wrapper
+
+The Side Panel Push Content Wrapper is a container for the main page content that is pushed to the side when the Side Panel is open. This wrapper is used to control the positioning of the main page content when the Side Panel is open. Ensuring that the content of this component is fully responsive is important to prevent the page from jumping or shifting when the Side Panel is opened or closed.
+
+#### Side Panel Button (or Side Panel Badge Button)
+
+In order to ensure accessibility, use one of the buttons exported from the Side Panel package as the trigger for the Side Panel. The Side Panel Button is a button that opens the Side Panel when clicked.
