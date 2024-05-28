@@ -1,5 +1,11 @@
 # @twilio-paste/side-modal
 
+## 4.1.2
+
+### Patch Changes
+
+- [`383658791`](https://github.com/twilio-labs/paste/commit/383658791c200aceae72135ef778e07b1d134c94) [#3886](https://github.com/twilio-labs/paste/pull/3886) Thanks [@TheSisb](https://github.com/TheSisb)! - [SideModal] fix position of SideModalContainer when using the state hook
+
 ## 4.1.1
 
 ### Patch Changes

@@ -4,15 +4,18 @@ import { ChevronDownIcon } from "@twilio-paste/icons/esm/ChevronDownIcon";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
+import { InputVariants } from "./Input";
+
 export interface DecrementButtonProps extends HTMLPasteProps<"button"> {
   i18nStepDownLabel?: string;
   element?: BoxProps["element"];
   // Button component restricts tabIndex values
   tabIndex?: ButtonProps["tabIndex"];
+  variant?: InputVariants;
 }
 
 export const DecrementButton = React.forwardRef<HTMLButtonElement, DecrementButtonProps>(
-  ({ i18nStepDownLabel = "step value down", element, ...props }, ref) => {
+  ({ i18nStepDownLabel = "step value down", element, variant, ...props }, ref) => {
     return (
       <Button
         {...props}
@@ -22,8 +25,11 @@ export const DecrementButton = React.forwardRef<HTMLButtonElement, DecrementButt
         size="reset"
         type="button"
         borderRadius="borderRadius20"
-        backgroundColor="colorBackground"
+        backgroundColor={variant === "inverse" ? "colorBackgroundInverseStrong" : "colorBackground"}
         marginRight="space30"
+        _focus={{
+          boxShadow: variant === "inverse" ? "shadowBorderInverseStrong" : "shadowBorderPrimary",
+        }}
       >
         <ChevronDownIcon
           decorative={false}

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- [`bb893822d`](https://github.com/twilio-labs/paste/commit/bb893822d9f1fbea00ebe97a0cb463a4392e369f) [#3827](https://github.com/twilio-labs/paste/pull/3827) Thanks [@nkrantz](https://github.com/nkrantz)! - [codemods] add new package: Side Panel
+
 ## 0.8.0
 
 ### Minor Changes
