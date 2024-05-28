@@ -100,6 +100,13 @@ Side Modal and non-modal dialogs follow these accessibility guidelines:
 - A Side Modal is a focus trap, and focus is placed inside it when it's shown.
 - A Side Modal must be triggered by an explicit user action, e.g. clicking a button.
 
+### Side Panel vs. Side Modal
+
+[Side Panel](/components/side-panel) and Side Modal are both used to display additional content on the side of the main page content. Side Panel is used for content that is not blocking and can be interacted with while the main page content is still visible. Side Panels are designed to remain open while the user completes other tasks in the main content of the page. Side Modals typically need to be closed before the user returns to their main task as the Modal overlays part of the page.
+
+Side Modals are a focus trap and can't be tabbed out of, while the content of Side Panels can be tabbed through and then tabbed out of to return to the main page content.
+
+
 ## Examples
 
 ### Basic Side Modal
