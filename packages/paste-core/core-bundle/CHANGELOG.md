@@ -1,5 +1,37 @@
 # Change Log
 
+## 20.13.0
+
+### Minor Changes
+
+- [`5bb1b010b`](https://github.com/twilio-labs/paste/commit/5bb1b010bb106e4133bb4f4c256e3e09ae925c4a) [#3903](https://github.com/twilio-labs/paste/pull/3903) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] add 8 new icons: CartIcon, CustomerCareIcon, PaymentIcon, RepeatPurchaseIcon, TransferIcon, UpsellIcon, WinbackIcon, and ProductAccountDashboardIcon, and modify 1 existing icon: ProductAdminAccountsIcon.
+
+* [`bb893822d`](https://github.com/twilio-labs/paste/commit/bb893822d9f1fbea00ebe97a0cb463a4392e369f) [#3827](https://github.com/twilio-labs/paste/pull/3827) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] add new Side Panel component. Side panel is a container that pushes the main page content when open.
+
+- [`dfb08d575`](https://github.com/twilio-labs/paste/commit/dfb08d575a097baa7ca95147cc95021ea4f56ffa) [#3884](https://github.com/twilio-labs/paste/pull/3884) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add 6 new icons: ProductConversationalInsightsIcon, DataArrayIcon, DataBooleanIcon, DataNumberIcon, DataObectIcon, and DataStringIcon.
+
+### Patch Changes
+
+- [`1177b8f06`](https://github.com/twilio-labs/paste/commit/1177b8f06b0e961a10c0ef7521ac713681ba889b) [#3878](https://github.com/twilio-labs/paste/pull/3878) Thanks [@cogwizzle](https://github.com/cogwizzle)! - Adding help text to the paste button component via JSDoc to ensure the design system guidance is accessible via the Language Server output. Minor updates to the syntax of the button component to modernize it.
+
+* [`d6c1b73ad`](https://github.com/twilio-labs/paste/commit/d6c1b73addd4589ee0153eee66efb553169e02a3) [#3805](https://github.com/twilio-labs/paste/pull/3805) Thanks [@nkrantz](https://github.com/nkrantz)! - [List] improve text alignment for OrderedDisplayList between the list item number and the corresponding heading.
+
+- [`7d5c312f7`](https://github.com/twilio-labs/paste/commit/7d5c312f79e11396e07ddcb25d8f02d94ae2a6d2) [#3846](https://github.com/twilio-labs/paste/pull/3846) Thanks [@TheSisb](https://github.com/TheSisb)! - [Modal] fix padding around ModalFooter for when the content overflows and scrolls.
+
+* [`825dc39a3`](https://github.com/twilio-labs/paste/commit/825dc39a36170a6975a7a150fe82665aa3c531af) [#3917](https://github.com/twilio-labs/paste/pull/3917) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Input] updated focus stylings on increment/decrement buttons for number input type on both default and inverse variants
+
+- [`a3b7520bf`](https://github.com/twilio-labs/paste/commit/a3b7520bf6907e017ff8bd4215c769c3acf61844) [#3904](https://github.com/twilio-labs/paste/pull/3904) Thanks [@nkrantz](https://github.com/nkrantz)! - [Side Panel] Fix positioning of close button when no header actions are being used by adding justifyContent="space-between"
+
+* [`383658791`](https://github.com/twilio-labs/paste/commit/383658791c200aceae72135ef778e07b1d134c94) [#3886](https://github.com/twilio-labs/paste/pull/3886) Thanks [@TheSisb](https://github.com/TheSisb)! - [SideModal] fix position of SideModalContainer when using the state hook
+
+* Updated dependencies [[`1177b8f06`](https://github.com/twilio-labs/paste/commit/1177b8f06b0e961a10c0ef7521ac713681ba889b), [`bb893822d`](https://github.com/twilio-labs/paste/commit/bb893822d9f1fbea00ebe97a0cb463a4392e369f), [`d6c1b73ad`](https://github.com/twilio-labs/paste/commit/d6c1b73addd4589ee0153eee66efb553169e02a3), [`7d5c312f7`](https://github.com/twilio-labs/paste/commit/7d5c312f79e11396e07ddcb25d8f02d94ae2a6d2), [`825dc39a3`](https://github.com/twilio-labs/paste/commit/825dc39a36170a6975a7a150fe82665aa3c531af), [`a3b7520bf`](https://github.com/twilio-labs/paste/commit/a3b7520bf6907e017ff8bd4215c769c3acf61844), [`383658791`](https://github.com/twilio-labs/paste/commit/383658791c200aceae72135ef778e07b1d134c94)]:
+  - @twilio-paste/button@14.1.1
+  - @twilio-paste/side-panel@1.0.0
+  - @twilio-paste/list@8.2.1
+  - @twilio-paste/modal@16.1.2
+  - @twilio-paste/input@9.1.3
+  - @twilio-paste/side-modal@4.1.2
+
 ## 20.12.0
 
 ### Minor Changes
