@@ -35,7 +35,7 @@ export const SidebarWithContent: React.FC<
         <SidebarHeaderLabel>Product name</SidebarHeaderLabel>
       </SidebarHeader>
       <SidebarBody>
-        <SidebarNavigation aria-label={id}>
+        <SidebarNavigation aria-label={id} hideItemsOnCollapse>
           <SidebarNavigationItem href="#" selected>
             Explore products
           </SidebarNavigationItem>
