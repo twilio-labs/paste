@@ -1,5 +1,11 @@
 # Change Log
 
+## 16.1.2
+
+### Patch Changes
+
+- [`7d5c312f7`](https://github.com/twilio-labs/paste/commit/7d5c312f79e11396e07ddcb25d8f02d94ae2a6d2) [#3846](https://github.com/twilio-labs/paste/pull/3846) Thanks [@TheSisb](https://github.com/TheSisb)! - [Modal] fix padding around ModalFooter for when the content overflows and scrolls.
+
 ## 16.1.1
 
 ### Patch Changes
