@@ -1,5 +1,11 @@
 # Change Log
 
+## 14.1.1
+
+### Patch Changes
+
+- [`1177b8f06`](https://github.com/twilio-labs/paste/commit/1177b8f06b0e961a10c0ef7521ac713681ba889b) [#3878](https://github.com/twilio-labs/paste/pull/3878) Thanks [@cogwizzle](https://github.com/cogwizzle)! - Adding help text to the paste button component via JSDoc to ensure the design system guidance is accessible via the Language Server output. Minor updates to the syntax of the button component to modernize it.
+
 ## 14.1.0
 
 ### Minor Changes
