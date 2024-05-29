@@ -1,25 +1,19 @@
+import { Anchor } from "@twilio-paste/anchor";
+import { Avatar } from "@twilio-paste/avatar";
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable import/no-extraneous-dependencies */
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import { ChatComposer } from "@twilio-paste/chat-composer";
+import { ChatBubble, ChatLog, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "@twilio-paste/chat-log";
 import { CustomizationProvider } from "@twilio-paste/customization";
+import { DetailText } from "@twilio-paste/detail-text";
 import { Heading } from "@twilio-paste/heading";
+import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { ChevronDoubleLeftIcon } from "@twilio-paste/icons/esm/ChevronDoubleLeftIcon";
 import { ChevronDoubleRightIcon } from "@twilio-paste/icons/esm/ChevronDoubleRightIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
-import { SidebarPushContentWrapper } from "@twilio-paste/sidebar";
-import { useTheme } from "@twilio-paste/theme";
-import { Topbar } from "@twilio-paste/topbar";
-import { useUID } from "@twilio-paste/uid-library";
-import * as React from "react";
-
-import { Anchor } from "@twilio-paste/anchor";
-import { Avatar } from "@twilio-paste/avatar";
-import { ChatComposer } from "@twilio-paste/chat-composer";
-import { ChatBubble, ChatLog, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "@twilio-paste/chat-log";
-import { DetailText } from "@twilio-paste/detail-text";
-import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { Separator } from "@twilio-paste/separator";
 import {
   SidePanel,
@@ -30,7 +24,13 @@ import {
   SidePanelHeader,
   SidePanelHeaderActions,
   SidePanelPushContentWrapper,
-} from "../src";
+} from "@twilio-paste/side-panel";
+import { SidebarPushContentWrapper } from "@twilio-paste/sidebar";
+import { useTheme } from "@twilio-paste/theme";
+import { Topbar } from "@twilio-paste/topbar";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
+
 import { MessagingInsightsContent } from "./components/MessagingInsightsContent";
 import { SidePanelWithContent } from "./components/SidePanelWithContent";
 import { SidebarWithContent } from "./components/SidebarWithContent";
@@ -65,8 +65,7 @@ Default.parameters = {
       rules: [
         {
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
-          // VRT tests below enable this rule
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
           enabled: false,
         },
       ],
@@ -103,8 +102,7 @@ Basic.parameters = {
       rules: [
         {
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
-          // VRT tests below enable this rule
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
           enabled: false,
         },
       ],
@@ -164,8 +162,7 @@ I18n.parameters = {
       rules: [
         {
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
-          // VRT tests below enable this rule
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
           enabled: false,
         },
       ],
@@ -244,8 +241,7 @@ ContentDemo.parameters = {
       rules: [
         {
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
-          // VRT tests below enable this rule
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
           enabled: false,
         },
       ],
@@ -284,8 +280,7 @@ Composed.parameters = {
       rules: [
         {
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
-          // VRT tests below enable this rule
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
           enabled: false,
         },
       ],
@@ -352,8 +347,7 @@ Customized.parameters = {
       rules: [
         {
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
-          // VRT tests below enable this rule
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
           enabled: false,
         },
       ],
