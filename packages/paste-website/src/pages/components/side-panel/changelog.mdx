@@ -1,0 +1,38 @@
+export const meta = {
+  title: 'Side Panel - Changelog',
+  package: '@twilio-paste/side-panel',
+  description:
+    'Side Panel is a container that pushes the main page content when open.',
+  slug: '/components/side-panel/changelog',
+};
+
+import Changelog from '@twilio-paste/side-panel/CHANGELOG.md';
+import packageJson from '@twilio-paste/side-panel/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('Side Panel');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/side-panel',
+        storybookUrl: '/?path=/story/components-side-panel--default',
+      },
+    },
+  };
+};
+
+<Changelog />

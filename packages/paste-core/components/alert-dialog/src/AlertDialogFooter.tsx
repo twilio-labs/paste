@@ -11,6 +11,8 @@ export interface AlertDialogFooterProps extends HTMLPasteProps<"div">, Pick<BoxP
   onConfirmLabel: string;
   onDismiss: () => void;
   onDismissLabel: string;
+  isConfirmDisabled?: boolean;
+  /** @deprecated This prop has been deprecated in favor of the `isConfirmDisabled` prop. */
   onConfirmDisabled?: boolean;
 }
 
@@ -23,7 +25,8 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
       onConfirmLabel,
       onDismiss,
       onDismissLabel,
-      onConfirmDisabled = false,
+      onConfirmDisabled,
+      isConfirmDisabled = onConfirmDisabled || false,
       ...props
     },
     ref,
@@ -47,7 +50,11 @@ export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFoo
           <Button variant="secondary" onClick={onDismiss}>
             {onDismissLabel}
           </Button>
-          <Button variant={primaryVariant} onClick={onConfirm} disabled={destructive && onConfirmDisabled}>
+          <Button
+            variant={primaryVariant}
+            onClick={onConfirm}
+            disabled={destructive && (isConfirmDisabled || onConfirmDisabled)}
+          >
             {onConfirmLabel}
           </Button>
         </Stack>

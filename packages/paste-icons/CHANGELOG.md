@@ -1,5 +1,13 @@
 # Change Log
 
+## 12.5.0
+
+### Minor Changes
+
+- [`5bb1b010b`](https://github.com/twilio-labs/paste/commit/5bb1b010bb106e4133bb4f4c256e3e09ae925c4a) [#3903](https://github.com/twilio-labs/paste/pull/3903) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] add 8 new icons: CartIcon, CustomerCareIcon, PaymentIcon, RepeatPurchaseIcon, TransferIcon, UpsellIcon, WinbackIcon, and ProductAccountDashboardIcon, and modify 1 existing icon: ProductAdminAccountsIcon.
+
+* [`dfb08d575`](https://github.com/twilio-labs/paste/commit/dfb08d575a097baa7ca95147cc95021ea4f56ffa) [#3884](https://github.com/twilio-labs/paste/pull/3884) Thanks [@nkrantz](https://github.com/nkrantz)! - [Icons] Add 6 new icons: ProductConversationalInsightsIcon, DataArrayIcon, DataBooleanIcon, DataNumberIcon, DataObectIcon, and DataStringIcon.
+
 ## 12.4.0
 
 ### Minor Changes

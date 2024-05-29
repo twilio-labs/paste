@@ -1,5 +1,11 @@
 # Change Log
 
+## 9.1.3
+
+### Patch Changes
+
+- [`825dc39a3`](https://github.com/twilio-labs/paste/commit/825dc39a36170a6975a7a150fe82665aa3c531af) [#3917](https://github.com/twilio-labs/paste/pull/3917) Thanks [@krisantrobus](https://github.com/krisantrobus)! - [Input] updated focus stylings on increment/decrement buttons for number input type on both default and inverse variants
+
 ## 9.1.2
 
 ### Patch Changes

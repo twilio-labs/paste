@@ -1,5 +1,11 @@
 # Change Log
 
+## 8.2.1
+
+### Patch Changes
+
+- [`d6c1b73ad`](https://github.com/twilio-labs/paste/commit/d6c1b73addd4589ee0153eee66efb553169e02a3) [#3805](https://github.com/twilio-labs/paste/pull/3805) Thanks [@nkrantz](https://github.com/nkrantz)! - [List] improve text alignment for OrderedDisplayList between the list item number and the corresponding heading.
+
 ## 8.2.0
 
 ### Minor Changes

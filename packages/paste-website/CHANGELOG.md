@@ -1,5 +1,17 @@
 # @twilio-paste/website
 
+## 2.23.45
+
+### Patch Changes
+
+- Updated dependencies [[`1177b8f06`](https://github.com/twilio-labs/paste/commit/1177b8f06b0e961a10c0ef7521ac713681ba889b), [`5bb1b010b`](https://github.com/twilio-labs/paste/commit/5bb1b010bb106e4133bb4f4c256e3e09ae925c4a), [`d6c1b73ad`](https://github.com/twilio-labs/paste/commit/d6c1b73addd4589ee0153eee66efb553169e02a3), [`7d5c312f7`](https://github.com/twilio-labs/paste/commit/7d5c312f79e11396e07ddcb25d8f02d94ae2a6d2), [`dfb08d575`](https://github.com/twilio-labs/paste/commit/dfb08d575a097baa7ca95147cc95021ea4f56ffa), [`825dc39a3`](https://github.com/twilio-labs/paste/commit/825dc39a36170a6975a7a150fe82665aa3c531af), [`383658791`](https://github.com/twilio-labs/paste/commit/383658791c200aceae72135ef778e07b1d134c94)]:
+  - @twilio-paste/button@14.1.1
+  - @twilio-paste/icons@12.5.0
+  - @twilio-paste/list@8.2.1
+  - @twilio-paste/modal@16.1.2
+  - @twilio-paste/input@9.1.3
+  - @twilio-paste/side-modal@4.1.2
+
 ## 2.23.44
 
 ### Patch Changes

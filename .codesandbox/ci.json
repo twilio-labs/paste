@@ -84,6 +84,7 @@
     "/packages/paste-core/components/separator",
     "/packages/paste-core/primitives/sibling-box",
     "/packages/paste-core/components/side-modal",
+    "/packages/paste-core/components/side-panel",
     "/packages/paste-core/components/sidebar",
     "/packages/paste-core/components/skeleton-loader",
     "/packages/paste-core/components/slider",

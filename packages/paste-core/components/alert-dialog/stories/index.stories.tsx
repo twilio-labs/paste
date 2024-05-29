@@ -129,7 +129,7 @@ export const DisabledButtonDestructiveAlertDialog = ({ dialogIsOpen = false }): 
         onDismiss={handleDismiss}
         onDismissLabel="Cancel"
         destructive
-        onConfirmDisabled={isDisabled}
+        isConfirmDisabled={isDisabled}
       >
         You&apos;re about to delete &ldquo;Toyota TCB Automobile (Gevelsberg)&ldquo; and all data associated with it.
         This regulatory bundle will be deleted immediately. You can&apos;t undo this action.
