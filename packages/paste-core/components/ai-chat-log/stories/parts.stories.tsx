@@ -4,8 +4,8 @@ import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
-import { InlineCode } from "@twilio-paste/inline-code";
 import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
+import { InlineCode } from "@twilio-paste/inline-code";
 import { useUID } from "@twilio-paste/uid-library";
 
 import { Text } from "@twilio-paste/text";
@@ -25,17 +25,18 @@ export default {
   component: AIChatLog,
 };
 
-
-
 export const MessageBody = (): React.ReactNode => {
   return (
     <AIChatLog>
-      <AIChatMessageBody variant="default">Use <InlineCode>variant="default"</InlineCode> when the AI Chat Log is inside a small container.</AIChatMessageBody>
-      <AIChatMessageBody variant="fullScreen">Use <InlineCode>variant="fullSCreen"</InlineCode> when the AI Chat Log is a full screen experience.</AIChatMessageBody>
+      <AIChatMessageBody variant="default">
+        Use <InlineCode>variant="default"</InlineCode> when the AI Chat Log is inside a small container.
+      </AIChatMessageBody>
+      <AIChatMessageBody variant="fullScreen">
+        Use <InlineCode>variant="fullScreen"</InlineCode> when the AI Chat Log is a full screen experience.
+      </AIChatMessageBody>
     </AIChatLog>
   );
 };
-
 
 export const MessageBodyWithParagraphs = (): React.ReactNode => {
   return (
@@ -52,11 +53,6 @@ export const MessageBodyWithParagraphs = (): React.ReactNode => {
     </AIChatLog>
   );
 };
-
-
-
-
-
 
 export const Loading = (): React.ReactNode => {
   return (
@@ -99,7 +95,13 @@ export const FeedbackCustomLabels = (): React.ReactNode => {
   /* eslint-disable no-alert */
   return (
     <AIChatMessageMeta aria-label="Feedback form">
-      <AIChatMessageFeedback label="Est-ce utile?" i18nDislikeLabel="pas aimer" i18nLikeLabel="aimer" onLike={() => alert("Like + 1")} onDislike={() => alert("Like - 1")} />
+      <AIChatMessageFeedback
+        label="Est-ce utile?"
+        i18nDislikeLabel="pas aimer"
+        i18nLikeLabel="aimer"
+        onLike={() => alert("Like + 1")}
+        onDislike={() => alert("Like - 1")}
+      />
     </AIChatMessageMeta>
   );
   /* eslint-enable no-alert */
