@@ -14,11 +14,19 @@ import { Topbar } from "@twilio-paste/topbar";
 import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
+import { Anchor } from "@twilio-paste/anchor";
+import { Avatar } from "@twilio-paste/avatar";
+import { ChatComposer } from "@twilio-paste/chat-composer";
+import { ChatBubble, ChatLog, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "@twilio-paste/chat-log";
+import { DetailText } from "@twilio-paste/detail-text";
+import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
+import { Separator } from "@twilio-paste/separator";
 import {
   SidePanel,
   SidePanelBody,
   SidePanelButton,
   SidePanelContainer,
+  SidePanelContext,
   SidePanelHeader,
   SidePanelHeaderActions,
   SidePanelPushContentWrapper,
@@ -52,6 +60,18 @@ export const Default = (): React.ReactNode => {
 };
 Default.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          id: "color-contrast",
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
+          // VRT tests below enable this rule
+          enabled: false,
+        },
+      ],
+    },
+  },
 };
 
 export const Basic = (): React.ReactNode => {
@@ -78,6 +98,18 @@ export const Basic = (): React.ReactNode => {
 };
 Basic.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          id: "color-contrast",
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
+          // VRT tests below enable this rule
+          enabled: false,
+        },
+      ],
+    },
+  },
 };
 
 export const I18n = (): React.ReactNode => {
@@ -127,6 +159,18 @@ export const I18n = (): React.ReactNode => {
 
 I18n.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          id: "color-contrast",
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
+          // VRT tests below enable this rule
+          enabled: false,
+        },
+      ],
+    },
+  },
 };
 
 export const ContentDemo = (): React.ReactNode => {
@@ -195,6 +239,18 @@ export const ContentDemo = (): React.ReactNode => {
 
 ContentDemo.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          id: "color-contrast",
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
+          // VRT tests below enable this rule
+          enabled: false,
+        },
+      ],
+    },
+  },
 };
 
 export const Composed = (): React.ReactNode => {
@@ -223,6 +279,18 @@ export const Composed = (): React.ReactNode => {
 
 Composed.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          id: "color-contrast",
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
+          // VRT tests below enable this rule
+          enabled: false,
+        },
+      ],
+    },
+  },
 };
 
 export const Customized = (): React.ReactNode => {
@@ -278,5 +346,105 @@ export const Customized = (): React.ReactNode => {
 };
 
 Customized.parameters = {
+  padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          id: "color-contrast",
+          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks
+          // VRT tests below enable this rule
+          enabled: false,
+        },
+      ],
+    },
+  },
+};
+
+export const DefaultVRT = (): React.ReactNode => {
+  const sidePanelId = useUID();
+
+  return (
+    <SidePanelContext.Provider
+      value={{
+        i18nCloseSidePanelTitle: "close the side panel",
+        i18nOpenSidePanelTitle: "open the side panel",
+        isOpen: true,
+        setIsOpen: () => {},
+        sidePanelId,
+      }}
+    >
+      {/* close button in header needs an element to control */}
+      <Box id={sidePanelId} />
+      <SidePanelHeader>
+        <ArtificialIntelligenceIcon decorative size="sizeIcon50" color="colorTextIcon" />
+        <Heading as="h3" variant="heading30" marginBottom="space0">
+          Assistant
+        </Heading>
+        <SidePanelHeaderActions>
+          <Button variant="secondary_icon" size="reset" onClick={() => {}}>
+            <MoreIcon decorative={false} title="open menu" size="sizeIcon50" />
+          </Button>
+        </SidePanelHeaderActions>
+      </SidePanelHeader>
+      <Separator orientation="horizontal" verticalSpacing="space0" />
+      <SidePanelBody>
+        <Box width="100%">
+          <ChatLog>
+            <ChatMessage variant="inbound">
+              <ChatBubble>Hello, what can I help you with?</ChatBubble>
+              <ChatMessageMeta aria-label="said by Gibby Radki at 3:35 PM">
+                <ChatMessageMetaItem>
+                  <Avatar name="Gibby Radki" size="sizeIcon20" />
+                  Gibby Radki ・ 3:35 PM
+                </ChatMessageMetaItem>
+              </ChatMessageMeta>
+            </ChatMessage>
+            <ChatMessage variant="outbound">
+              <ChatBubble>Hi! What is your return policy?</ChatBubble>
+              <ChatMessageMeta aria-label="said by you at 3:35 PM">
+                <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
+              </ChatMessageMeta>
+            </ChatMessage>
+            <ChatMessage variant="inbound">
+              <ChatBubble>Hello, what can I help you with?</ChatBubble>
+              <ChatMessageMeta aria-label="said by Gibby Radki at 3:35 PM">
+                <ChatMessageMetaItem>
+                  <Avatar name="Gibby Radki" size="sizeIcon20" />
+                  Gibby Radki ・ 3:35 PM
+                </ChatMessageMetaItem>
+              </ChatMessageMeta>
+            </ChatMessage>
+            <ChatMessage variant="outbound">
+              <ChatBubble>Hi! What is your return policy?</ChatBubble>
+              <ChatMessageMeta aria-label="said by you at 3:35 PM">
+                <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
+              </ChatMessageMeta>
+            </ChatMessage>
+          </ChatLog>
+          <ChatComposer
+            config={{
+              namespace: "customer-chat",
+              onError: (e) => {
+                throw e;
+              },
+            }}
+            initialValue="Are switch labels required in the context of a data grid? I'm exploring a UI that allows users to make the same configuration to every row in that data grid, and i'm wondering if there are any accessibility issues with having the column header in the top row with just the switch component in each of the row cells? the label gets pretty repetitive and we're expecting the table to have 20+ rows in this table, so trying to find ways to make it less visually crowded"
+            placeholder="Chat text"
+            ariaLabel="A basic chat composer"
+          />
+          <Box paddingX="space50" paddingTop="space30">
+            <DetailText>
+              This chatbot is powered by OpenAI. For more information, see the{" "}
+              <Anchor href="#">Customer AI Trust Principles</Anchor> and{" "}
+              <Anchor href="#">Twilio Privacy Notice.</Anchor>
+            </DetailText>
+          </Box>
+        </Box>
+      </SidePanelBody>
+    </SidePanelContext.Provider>
+  );
+};
+Default.parameters = {
   padding: false,
 };
