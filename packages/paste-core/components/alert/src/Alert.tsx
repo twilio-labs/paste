@@ -10,23 +10,28 @@ import { ScreenReaderOnly } from "@twilio-paste/screen-reader-only";
 import type { HTMLPasteProps, ValueOf } from "@twilio-paste/types";
 import * as React from "react";
 
+/** Alert component variants keys. */
 type AlertVariantKeys = "ERROR" | "NEUTRAL" | "WARNING";
 
+/** Alert component roles. */
 export const AlertRoles = {
   ERROR: "alert",
   NEUTRAL: "status",
   WARNING: "alert",
 } as const;
+/** Alert component variants. */
 export const AlertVariants = {
   ERROR: "error",
   NEUTRAL: "neutral",
   WARNING: "warning",
 } as const;
+/** Alert component background colors. */
 export const AlertBackgroundColors = {
   ERROR: "colorBackgroundErrorWeakest",
   NEUTRAL: "colorBackgroundNeutralWeakest",
   WARNING: "colorBackgroundWarningWeakest",
 } as const;
+/** Alert component text colors. */
 export const AlertTextColors = {
   ERROR: "colorTextError",
   NEUTRAL: "colorTextNeutral",
@@ -107,7 +112,16 @@ export interface AlertProps extends HTMLPasteProps<"div"> {
   element?: BoxProps["element"];
 }
 
-const renderAlertIcon = (variant: AlertVariants, element: string, title: string): React.ReactElement => {
+interface AlertIconProps {
+  variant: AlertVariants;
+  element: string;
+  title: string;
+}
+
+/**
+ * Component to display the appropriate alert icon.
+ */
+const AlertIcon: React.FC<AlertIconProps> = ({ variant, element, title }): React.ReactElement => {
   switch (variant) {
     case AlertVariants.ERROR:
       return (
@@ -142,7 +156,13 @@ const renderAlertIcon = (variant: AlertVariants, element: string, title: string)
       );
   }
 };
+AlertIcon.displayName = "AlertIcon";
 
+/**
+ * An Alert is a banner that notifies users to high-priority or time-sensitive information.
+ *
+ * @link [Alert](https://paste.twilio.design/components/alert)
+ */
 const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
   (
     {
@@ -180,7 +200,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
       >
         <MediaObject as="div">
           <MediaFigure as="div" spacing="space30">
-            {renderAlertIcon(variant, element, i18nLabelVariantMap[variant])}
+            <AlertIcon variant={variant} element={element} title={i18nLabelVariantMap[variant]} />
           </MediaFigure>
           <MediaBody as="div">
             <Box color={AlertTextColors[variant.toUpperCase() as AlertVariantKeys]}>{children}</Box>

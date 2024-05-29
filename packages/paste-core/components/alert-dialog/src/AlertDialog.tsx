@@ -1,6 +1,7 @@
+import type { SpringValue } from "@react-spring/web";
 import { useTransition } from "@twilio-paste/animation-library";
-import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxProps } from "@twilio-paste/box";
+import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import { ModalDialogOverlay } from "@twilio-paste/modal";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import { useUID } from "@twilio-paste/uid-library";
@@ -11,8 +12,10 @@ import { AlertDialogContent } from "./AlertDialogContent";
 import { AlertDialogFooter } from "./AlertDialogFooter";
 import { AlertDialogHeader } from "./AlertDialogHeader";
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getAnimationStates = (): any => ({
+/**
+ * Animation states for the Alert Dialog.
+ */
+const AnimationStates = {
   from: { opacity: 0, transform: `scale(0.675)` },
   enter: { opacity: 1, transform: `scale(1)` },
   leave: { opacity: 0, transform: `scale(0.675)` },
@@ -22,7 +25,7 @@ const getAnimationStates = (): any => ({
     tension: 370,
     friction: 26,
   },
-});
+};
 
 export interface AlertDialogProps extends HTMLPasteProps<"div"> {
   children: NonNullable<React.ReactNode>;
@@ -92,6 +95,35 @@ export interface AlertDialogProps extends HTMLPasteProps<"div"> {
   element?: BoxProps["element"];
 }
 
+interface NormalizeStylesArg {
+  opacity: SpringValue<number>;
+  transform: SpringValue<string>;
+}
+
+interface NormalizeStylesReturn {
+  opacity: number;
+  transform: string;
+}
+
+/**
+ * Normalize ReactSpring styles to be used in the AlertDialog.
+ *
+ * @param {NormalizeStylesArg} styles - ReactSpring styles
+ * @returns {NormalizeStylesReturn} - Normalized styles
+ */
+const normalizeStyles = (styles: NormalizeStylesArg): NormalizeStylesReturn => {
+  return {
+    ...styles,
+    opacity: styles.opacity.get(),
+    transform: styles.transform.get(),
+  };
+};
+
+/**
+ * An Alert Dialog is a page overlay that displays critical information, blocks interaction with the page, and only closes after an action is performed.
+ *
+ * @link [Alert Dialog](https://paste.twilio.design/components/alert-dialog)
+ */
 export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
   (
     {
@@ -109,48 +141,49 @@ export const AlertDialog = React.forwardRef<HTMLDivElement, AlertDialogProps>(
     },
     ref,
   ) => {
-    const transitions = useTransition(isOpen, getAnimationStates());
+    const transitions = useTransition(isOpen, AnimationStates);
     const headingID = useUID();
     const bodyID = useUID();
 
-    return (
-      <>
-        {transitions(
-          (styles, item) =>
-            item && (
-              <ModalDialogOverlay isOpen={isOpen} style={{ opacity: styles.opacity }}>
-                <Box
-                  // @ts-expect-error Render overlay as box for customization
-                  as={AlertDialogContent}
-                  {...safelySpreadBoxProps(props)}
-                  aria-labelledby={headingID}
-                  aria-describedby={bodyID}
-                  element={element}
-                  ref={ref}
-                  role="alertdialog"
-                  style={styles}
-                >
-                  <AlertDialogHeader headingID={headingID} element={`${element}_HEADER`}>
-                    {heading}
-                  </AlertDialogHeader>
-                  <AlertDialogBody bodyID={bodyID} element={`${element}_BODY`}>
-                    {children}
-                  </AlertDialogBody>
-                  <AlertDialogFooter
-                    destructive={destructive}
-                    element={`${element}_FOOTER`}
-                    onDismiss={onDismiss}
-                    onDismissLabel={onDismissLabel}
-                    onConfirm={onConfirm}
-                    onConfirmLabel={onConfirmLabel}
-                    onConfirmDisabled={onConfirmDisabled}
-                  />
-                </Box>
-              </ModalDialogOverlay>
-            ),
-        )}
-      </>
-    );
+    return transitions((rawStyles, item) => {
+      if (!item) {
+        return null;
+      }
+      // Normalizing ReactSpring styles.
+      const styles = normalizeStyles(rawStyles);
+
+      return (
+        <ModalDialogOverlay isOpen={isOpen} style={{ opacity: styles.opacity }}>
+          <Box
+            // @ts-expect-error Render overlay as box for customization
+            as={AlertDialogContent}
+            {...safelySpreadBoxProps(props)}
+            aria-labelledby={headingID}
+            aria-describedby={bodyID}
+            element={element}
+            ref={ref}
+            role="alertdialog"
+            style={styles}
+          >
+            <AlertDialogHeader headingID={headingID} element={`${element}_HEADER`}>
+              {heading}
+            </AlertDialogHeader>
+            <AlertDialogBody bodyID={bodyID} element={`${element}_BODY`}>
+              {children}
+            </AlertDialogBody>
+            <AlertDialogFooter
+              destructive={destructive}
+              element={`${element}_FOOTER`}
+              onDismiss={onDismiss}
+              onDismissLabel={onDismissLabel}
+              onConfirm={onConfirm}
+              onConfirmLabel={onConfirmLabel}
+              onConfirmDisabled={onConfirmDisabled}
+            />
+          </Box>
+        </ModalDialogOverlay>
+      );
+    });
   },
 );
 

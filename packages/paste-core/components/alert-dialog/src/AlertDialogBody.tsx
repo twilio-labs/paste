@@ -8,6 +8,11 @@ export interface AlertDialogBodyProps extends HTMLPasteProps<"div">, Pick<BoxPro
   children: NonNullable<React.ReactNode>;
 }
 
+/**
+ * Internal body component for the AlertDialog component.
+ *
+ * @private
+ */
 export const AlertDialogBody = React.forwardRef<HTMLDivElement, AlertDialogBodyProps>(
   ({ bodyID, children, element = "ALERT_DIALOG_BODY", ...props }, ref) => {
     return (

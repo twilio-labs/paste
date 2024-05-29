@@ -15,6 +15,11 @@ export interface AccountSwitcherItemProps extends MenuItemProps {
   element?: BoxProps["element"];
 }
 
+/**
+ * A menu item that can either perform an action or navigate to a new URL.
+ *
+ * @link [Account Switcher Item](https://paste.twilio.design/components/account-switcher#account-switcher-item)
+ */
 const AccountSwitcherItem = React.forwardRef<HTMLDivElement, AccountSwitcherItemProps>(
   ({ children, element = "ACCOUNT_SWITCHER_ITEM", ...props }, ref) => {
     return (

@@ -6,14 +6,25 @@ import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
 export interface AlertDialogFooterProps extends HTMLPasteProps<"div">, Pick<BoxProps, "element"> {
+  /** Determines if the Alert Dialog is destructive. _Only changes the button color of confirm button._ */
   destructive?: boolean;
+  /** Function to run on confirmation of the Alert Dialog. */
   onConfirm: () => void;
+  /** Text of the confirm button. */
   onConfirmLabel: string;
+  /** Function to run on dismiss of the Alert Dialog. */
   onDismiss: () => void;
+  /** Text of the dismiss button. */
   onDismissLabel: string;
+  /** Property to disable the confirm button. _Has no effect if destructive is not true._ */
   onConfirmDisabled?: boolean;
 }
 
+/**
+ * Alert Dialog footer component for the AlertDialog component.
+ *
+ * @private
+ */
 export const AlertDialogFooter = React.forwardRef<HTMLDivElement, AlertDialogFooterProps>(
   (
     {

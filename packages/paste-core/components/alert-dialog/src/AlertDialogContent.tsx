@@ -4,12 +4,15 @@ import { css, styled } from "@twilio-paste/styling-library";
 
 export type AlertDialogContentProps = ModalDialogContentProps;
 
-const AlertDialogContent = styled(ModalDialogContent)<AlertDialogContentProps>(() =>
+/**
+ * Content area for the AlertDialog component.
+ *
+ * @private
+ */
+export const AlertDialogContent = styled(ModalDialogContent)<AlertDialogContentProps>(() =>
   css({
     maxWidth: "size40",
   }),
 );
 
 AlertDialogContent.displayName = "AlertDialogContent";
-
-export { AlertDialogContent };

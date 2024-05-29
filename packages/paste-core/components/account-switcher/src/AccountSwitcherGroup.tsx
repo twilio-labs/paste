@@ -14,6 +14,11 @@ export interface AccountSwitcherGroupProps extends MenuGroupProps {
   element?: BoxProps["element"];
 }
 
+/**
+ * Used to group similar items together in the Account Switcher menu. An example of this might be a list of recent accounts.
+ *
+ * @link [Account Switcher Group](https://paste.twilio.design/components/account-switcher#account-switcher-group)
+ */
 const AccountSwitcherGroup = React.forwardRef<HTMLDivElement, AccountSwitcherGroupProps>(
   ({ children, element = "ACCOUNT_SWITCHER_GROUP", label, ...props }, ref) => {
     return (
