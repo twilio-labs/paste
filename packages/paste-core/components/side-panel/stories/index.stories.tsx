@@ -67,7 +67,7 @@ export const Basic = (): React.ReactNode => {
         <SidePanelContainer id={sidePanelId} isOpen={isOpen} setIsOpen={setIsOpen}>
           <SidePanelWithContent />
           <SidePanelPushContentWrapper>
-            <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+            <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40" id={mainContentSkipLinkID}>
               <SidePanelButton variant="secondary">Toggle Side Panel</SidePanelButton>
             </Box>
           </SidePanelPushContentWrapper>
@@ -99,7 +99,7 @@ export const I18n = (): React.ReactNode => {
           id={sidePanelId}
         >
           <SidePanelPushContentWrapper>
-            <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40">
+            <Box paddingTop="space40" paddingLeft="space40" paddingRight="space40" id={mainContentSkipLinkID}>
               <SidePanelButton variant="primary">Probar Panel Lateral</SidePanelButton>
             </Box>
           </SidePanelPushContentWrapper>
