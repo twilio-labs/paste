@@ -1,8 +1,8 @@
-import { Anchor } from "@twilio-paste/anchor";
-import { Avatar } from "@twilio-paste/avatar";
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable import/no-extraneous-dependencies */
+import { Anchor } from "@twilio-paste/anchor";
+import { Avatar } from "@twilio-paste/avatar";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { ChatComposer } from "@twilio-paste/chat-composer";
@@ -15,6 +15,12 @@ import { ChevronDoubleLeftIcon } from "@twilio-paste/icons/esm/ChevronDoubleLeft
 import { ChevronDoubleRightIcon } from "@twilio-paste/icons/esm/ChevronDoubleRightIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
 import { Separator } from "@twilio-paste/separator";
+import { SidebarPushContentWrapper } from "@twilio-paste/sidebar";
+import { useTheme } from "@twilio-paste/theme";
+import { Topbar } from "@twilio-paste/topbar";
+import { useUID } from "@twilio-paste/uid-library";
+import * as React from "react";
+
 import {
   SidePanel,
   SidePanelBody,
@@ -24,13 +30,7 @@ import {
   SidePanelHeader,
   SidePanelHeaderActions,
   SidePanelPushContentWrapper,
-} from "@twilio-paste/side-panel";
-import { SidebarPushContentWrapper } from "@twilio-paste/sidebar";
-import { useTheme } from "@twilio-paste/theme";
-import { Topbar } from "@twilio-paste/topbar";
-import { useUID } from "@twilio-paste/uid-library";
-import * as React from "react";
-
+} from "../src";
 import { MessagingInsightsContent } from "./components/MessagingInsightsContent";
 import { SidePanelWithContent } from "./components/SidePanelWithContent";
 import { SidebarWithContent } from "./components/SidebarWithContent";
