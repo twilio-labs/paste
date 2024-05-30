@@ -502,6 +502,13 @@
       "externalProp": true,
       "description": "Specify that a standard HTML element should behave like a defined custom built-in element"
     },
+    "isConfirmDisabled": {
+      "type": "boolean",
+      "defaultValue": false,
+      "required": false,
+      "externalProp": false,
+      "description": "Disable the confirm button"
+    },
     "itemID": {
       "type": "string",
       "defaultValue": null,
@@ -723,7 +730,7 @@
       "defaultValue": false,
       "required": false,
       "externalProp": false,
-      "description": "Disable the confirm button"
+      "description": "Disable the confirm button. Use isConfirmDisabled"
     },
     "onContextMenu": {
       "type": "MouseEventHandler<HTMLDivElement>",
