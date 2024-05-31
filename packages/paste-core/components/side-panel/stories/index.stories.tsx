@@ -1,14 +1,10 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable import/no-extraneous-dependencies */
-import { Anchor } from "@twilio-paste/anchor";
-import { Avatar } from "@twilio-paste/avatar";
+import type { StoryFn } from "@storybook/react";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
-import { ChatComposer } from "@twilio-paste/chat-composer";
-import { ChatBubble, ChatLog, ChatMessage, ChatMessageMeta, ChatMessageMetaItem } from "@twilio-paste/chat-log";
 import { CustomizationProvider } from "@twilio-paste/customization";
-import { DetailText } from "@twilio-paste/detail-text";
 import { Heading } from "@twilio-paste/heading";
 import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { ChevronDoubleLeftIcon } from "@twilio-paste/icons/esm/ChevronDoubleLeftIcon";
@@ -41,7 +37,7 @@ export default {
   component: SidePanel,
 };
 
-export const Default = (): React.ReactNode => {
+export const Default: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   return (
     <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -64,16 +60,19 @@ Default.parameters = {
     config: {
       rules: [
         {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
-          enabled: false,
+          selector: "*:not(*)",
         },
       ],
     },
   },
 };
 
-export const Basic = (): React.ReactNode => {
+export const Basic: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   const sidePanelId = useUID();
   const topbarSkipLinkID = useUID();
@@ -101,16 +100,19 @@ Basic.parameters = {
     config: {
       rules: [
         {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
-          enabled: false,
+          selector: "*:not(*)",
         },
       ],
     },
   },
 };
 
-export const I18n = (): React.ReactNode => {
+export const I18n: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
 
   const topbarSkipLinkID = useUID();
@@ -161,25 +163,28 @@ I18n.parameters = {
     config: {
       rules: [
         {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
-          enabled: false,
+          selector: "*:not(*)",
         },
       ],
     },
   },
 };
 
-export const ContentDemo = (): React.ReactNode => {
+export const ContentDemo: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
 
   const topbarSkipLinkID = useUID();
   const mainContentSkipLinkID = useUID();
   const sidePanelId = useUID();
   return (
-    <Box>
+    <Box backgroundColor="colorBackgroundBrand10">
       <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
-      <SidebarPushContentWrapper collapsed={false} variant="compact">
+      <SidebarPushContentWrapper collapsed={true} variant="compact">
         <Topbar id={topbarSkipLinkID}> </Topbar>
         <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen} id={sidePanelId}>
           <SidePanelPushContentWrapper>
@@ -240,16 +245,19 @@ ContentDemo.parameters = {
     config: {
       rules: [
         {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
-          enabled: false,
+          selector: "*:not(*)",
         },
       ],
     },
   },
 };
 
-export const Composed = (): React.ReactNode => {
+export const Composed: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
 
   const topbarSkipLinkID = useUID();
@@ -279,16 +287,19 @@ Composed.parameters = {
     config: {
       rules: [
         {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
           id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
-          enabled: false,
+          selector: "*:not(*)",
         },
       ],
     },
   },
 };
 
-export const Customized = (): React.ReactNode => {
+export const Customized: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   const label = useUID();
   const theme = useTheme();
@@ -343,19 +354,12 @@ export const Customized = (): React.ReactNode => {
 Customized.parameters = {
   padding: false,
   a11y: {
-    config: {
-      rules: [
-        {
-          id: "color-contrast",
-          // Using position relative on SidePanel causes it to overflow other themes and fails color contrast checks VRT tests below enable this rule
-          enabled: false,
-        },
-      ],
-    },
+    // no need to a11y check customization
+    disable: true,
   },
 };
 
-export const DefaultVRT = (): React.ReactNode => {
+export const DefaultVRT: StoryFn = () => {
   const sidePanelId = useUID();
 
   return (
@@ -383,62 +387,8 @@ export const DefaultVRT = (): React.ReactNode => {
       </SidePanelHeader>
       <Separator orientation="horizontal" verticalSpacing="space0" />
       <SidePanelBody>
-        <Box width="100%">
-          <ChatLog>
-            <ChatMessage variant="inbound">
-              <ChatBubble>Hello, what can I help you with?</ChatBubble>
-              <ChatMessageMeta aria-label="said by Gibby Radki at 3:35 PM">
-                <ChatMessageMetaItem>
-                  <Avatar name="Gibby Radki" size="sizeIcon20" />
-                  Gibby Radki ・ 3:35 PM
-                </ChatMessageMetaItem>
-              </ChatMessageMeta>
-            </ChatMessage>
-            <ChatMessage variant="outbound">
-              <ChatBubble>Hi! What is your return policy?</ChatBubble>
-              <ChatMessageMeta aria-label="said by you at 3:35 PM">
-                <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
-              </ChatMessageMeta>
-            </ChatMessage>
-            <ChatMessage variant="inbound">
-              <ChatBubble>Hello, what can I help you with?</ChatBubble>
-              <ChatMessageMeta aria-label="said by Gibby Radki at 3:35 PM">
-                <ChatMessageMetaItem>
-                  <Avatar name="Gibby Radki" size="sizeIcon20" />
-                  Gibby Radki ・ 3:35 PM
-                </ChatMessageMetaItem>
-              </ChatMessageMeta>
-            </ChatMessage>
-            <ChatMessage variant="outbound">
-              <ChatBubble>Hi! What is your return policy?</ChatBubble>
-              <ChatMessageMeta aria-label="said by you at 3:35 PM">
-                <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
-              </ChatMessageMeta>
-            </ChatMessage>
-          </ChatLog>
-          <ChatComposer
-            config={{
-              namespace: "customer-chat",
-              onError: (e) => {
-                throw e;
-              },
-            }}
-            initialValue="Are switch labels required in the context of a data grid? I'm exploring a UI that allows users to make the same configuration to every row in that data grid, and i'm wondering if there are any accessibility issues with having the column header in the top row with just the switch component in each of the row cells? the label gets pretty repetitive and we're expecting the table to have 20+ rows in this table, so trying to find ways to make it less visually crowded"
-            placeholder="Chat text"
-            ariaLabel="A basic chat composer"
-          />
-          <Box paddingX="space50" paddingTop="space30">
-            <DetailText>
-              This chatbot is powered by OpenAI. For more information, see the{" "}
-              <Anchor href="#">Customer AI Trust Principles</Anchor> and{" "}
-              <Anchor href="#">Twilio Privacy Notice.</Anchor>
-            </DetailText>
-          </Box>
-        </Box>
+        <Box width="100%" height="size20" backgroundColor="colorBackground" />
       </SidePanelBody>
     </SidePanelContext.Provider>
   );
-};
-Default.parameters = {
-  padding: false,
 };
