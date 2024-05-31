@@ -1,24 +1,18 @@
-import * as React from "react";
-
-import { Avatar } from "@twilio-paste/avatar";
+import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
-import { ButtonGroup } from "@twilio-paste/button-group";
-import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
+import { Heading } from "@twilio-paste/heading";
 import { InlineCode } from "@twilio-paste/inline-code";
-import { useUID } from "@twilio-paste/uid-library";
-
-import { Text } from "@twilio-paste/text";
+import * as React from "react";
 
 import {
   AIChatLog,
-  AIChatMessage,
   AIChatMessageBody,
+  AIChatMessageBodyTypeWriter,
   AIChatMessageFeedback,
   AIChatMessageLoading,
   AIChatMessageMeta,
 } from "../src";
-import { AIChatMessageBodyTypeWriter } from "../src/AIChatMessageBodyTypeWriter";
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -30,10 +24,10 @@ export const MessageBody = (): React.ReactNode => {
   return (
     <AIChatLog>
       <AIChatMessageBody variant="default">
-        Use <InlineCode>variant="default"</InlineCode> when the AI Chat Log is inside a small container.
+        Use <InlineCode>variant=&quot;default&quot;</InlineCode> when the AI Chat Log is inside a small container.
       </AIChatMessageBody>
       <AIChatMessageBody variant="fullScreen">
-        Use <InlineCode>variant="fullScreen"</InlineCode> when the AI Chat Log is a full screen experience.
+        Use <InlineCode>variant=&quot;fullScreen&quot;</InlineCode> when the AI Chat Log is a full screen experience.
       </AIChatMessageBody>
     </AIChatLog>
   );
@@ -110,11 +104,32 @@ export const FeedbackCustomLabels = (): React.ReactNode => {
 
 export const MessageBodyTypeWriter = (): React.ReactNode => {
   return (
-    <AIChatMessageBodyTypeWriter animated={true}>
-      <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Deserunt
-      delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex
-      fugiat quisquam itaque, earum sit <a href="https://google.com">nesciunt impedit repellat assumenda.</a>
-    </AIChatMessageBodyTypeWriter>
+    <Box>
+      <Heading as="h2" variant="heading20">
+        With enriched text
+      </Heading>
+      <Box marginBottom="space60">
+        <AIChatMessageBodyTypeWriter animated={true}>
+          <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Deserunt
+          delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat
+          quisquam itaque, earum sit <a href="https://google.com">nesciunt impedit repellat assumenda.</a> new text,{" "}
+          <Anchor showExternal href="https://google.com">
+            434324
+          </Anchor>
+          <Button variant="secondary">30007</Button>
+        </AIChatMessageBodyTypeWriter>
+      </Box>
+      <Heading as="h2" variant="heading20">
+        Without enriched text:
+      </Heading>
+
+      <Box>
+        <AIChatMessageBodyTypeWriter animated={true}>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendiiure
+          adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
+        </AIChatMessageBodyTypeWriter>
+      </Box>
+    </Box>
   );
 };
-LoadingStopLoading.storyName = "Message Body Type Writer";
+MessageBodyTypeWriter.storyName = "Message Body Type Writer";

@@ -55,9 +55,9 @@ export const UseChatLogger: StoryFn = () => {
         <AIChatMessage variant="bot">
           <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
           <AIChatMessageBody>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt
-            delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex
-            fugiat quisquam itaque, earum sit nesciunt impedit repellat assumenda.
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus
+            eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
+            nesciunt impedit repellat assumenda.
           </AIChatMessageBody>
           <AIChatMessageMeta aria-label="Quick actions available:">
             <ButtonGroup>
@@ -96,7 +96,7 @@ export const UseChatLogger: StoryFn = () => {
           <AIChatMessageAuthor aria-label={isBot ? "AI said" : "You said"}>
             {isBot ? "Good Bot" : "Gibby Radki"}
           </AIChatMessageAuthor>
-          <AIChatMessageBodyTypeWriter text={message}>{message}</AIChatMessageBodyTypeWriter>
+          <AIChatMessageBodyTypeWriter>{message}</AIChatMessageBodyTypeWriter>
         </AIChatMessage>
       ),
     };

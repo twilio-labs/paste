@@ -4,6 +4,8 @@ export { AIChatMessageMeta } from "./AIChatMessageMeta";
 export type { AIChatMessageMetaProps } from "./AIChatMessageMeta";
 export { AIChatMessageBody } from "./AIChatMessageBody";
 export type { AIChatMessageBodyProps } from "./AIChatMessageBody";
+export { AIChatMessageBodyTypeWriter } from "./AIChatMessageBodyTypeWriter";
+export type { AIChatMessageBodyTypeWriterProps } from "./AIChatMessageBodyTypeWriter";
 export { AIChatMessageAuthor } from "./AIChatMessageAuthor";
 export type { AIChatMessageAuthorProps } from "./AIChatMessageAuthor";
 export { AIChatMessageFeedback } from "./AIChatMessageFeedback";
