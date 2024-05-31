@@ -182,7 +182,7 @@ export const ContentDemo: StoryFn = () => {
   const mainContentSkipLinkID = useUID();
   const sidePanelId = useUID();
   return (
-    <Box backgroundColor="colorBackgroundBrand10">
+    <Box>
       <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
       <SidebarPushContentWrapper collapsed={true} variant="compact">
         <Topbar id={topbarSkipLinkID}> </Topbar>
@@ -227,6 +227,7 @@ export const ContentDemo: StoryFn = () => {
               <Box
                 width="100%"
                 height="100%"
+                backgroundColor="colorBackgroundDecorative10Weakest"
                 borderBottomLeftRadius="borderRadius50"
                 borderBottomRightRadius="borderRadius50"
               />
