@@ -13,11 +13,11 @@ export interface AIChatLoggerProps extends HTMLPasteProps<"div"> {
   /**
    * Array of AIs in the log. Use with useAIChatLogger()
    *
-   * @default 'AI_ATTACHMENT'
-   * @type {BoxProps['element']}
-   * @memberof AIAttachmentProps
+   * @default null
+   * @type {AIChat[]}
+   * @memberof AIChatLoggerProps
    */
-  AIs: AIChat[];
+  aiChats: AIChat[];
   children?: never;
 }
 
@@ -27,8 +27,8 @@ const buildTransitionX = (AIChat: AIChat): number => {
   return 0;
 };
 
-export const AIChatLogger = React.forwardRef<HTMLDivElement, AIChatLoggerProps>(({ AIs, ...props }, ref) => {
-  const transitions = useTransition(AIs, {
+export const AIChatLogger = React.forwardRef<HTMLDivElement, AIChatLoggerProps>(({ aiChats, ...props }, ref) => {
+  const transitions = useTransition(aiChats, {
     keys: (AIChat: AIChat) => AIChat.id,
     from: (AIChat: AIChat): StyleProps => ({ opacity: 0, x: buildTransitionX(AIChat) }),
     enter: { opacity: 1, x: 0 },
@@ -41,7 +41,7 @@ export const AIChatLogger = React.forwardRef<HTMLDivElement, AIChatLoggerProps>(
   });
 
   const animatedAIs = useReducedMotion()
-    ? AIs.map((AIChat) => React.cloneElement(AIChat.content, { key: AIChat.id }))
+    ? aiChats.map((AIChat) => React.cloneElement(AIChat.content, { key: AIChat.id }))
     : transitions((styles: StyleProps, AIChat: AIChat, { key }: { key: string }) => (
         <AnimatedAI as="div" style={styles} key={key}>
           {AIChat.content}

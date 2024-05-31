@@ -7,7 +7,7 @@ export interface AIChatLogProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
-   * @default '{constantCase component-name}'
+   * @default 'AI_CHAT_LOG'
    * @type {BoxProps['element']}
    * @memberof AIChatLogProps
    */

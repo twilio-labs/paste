@@ -11,9 +11,9 @@ export interface AIChatMessageFeedbackProps extends HTMLPasteProps<"div"> {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
-   * @default "CHAT_MESSAGE_META_ITEM"
+   * @default "AI_CHAT_MESSAGE_FEEDBACK"
    * @type {BoxProps["element"]}
-   * @memberof AIChatMessageMetaItemProps
+   * @memberof AIChatMessageFeedbackProps
    */
   element?: BoxElementProps["element"];
   label?: string;

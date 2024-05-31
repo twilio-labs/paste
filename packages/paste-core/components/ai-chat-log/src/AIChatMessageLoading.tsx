@@ -15,9 +15,9 @@ export interface AIChatMessageLoadingProps extends HTMLPasteProps<"div"> {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
-   * @default "CHAT_MESSAGE"
+   * @default "AI_CHAT_MESSAGE_LOADING"
    * @type {BoxProps["element"]}
-   * @memberof ChatMessageProps
+   * @memberof AIChatMessageLoadingProps
    */
   element?: BoxElementProps["element"];
   onStopLoading?: () => void;

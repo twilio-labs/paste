@@ -1,26 +1,26 @@
 import { uid } from "@twilio-paste/uid-library";
 import * as React from "react";
-import { MessageVariants } from "./MessageVariantContext";
+import { AIMessageVariants } from "./AIMessageVariantContext";
 
 export type AIChat = {
   id: string;
-  variant: MessageVariants;
+  variant: AIMessageVariants;
   content: React.ReactElement;
 };
 
-export type PartialIDChat = Omit<AIChat, "id"> & Partial<Pick<AIChat, "id">>;
+export type AIPartialIDChat = Omit<AIChat, "id"> & Partial<Pick<AIChat, "id">>;
 
-type PushAIChat = (chat: PartialIDChat) => void;
+type PushAIChat = (chat: AIPartialIDChat) => void;
 type PopAIChat = (id?: string) => void;
 
-export type UseAIChatLogger = (...initialChats: PartialIDChat[]) => {
+export type UseAIChatLogger = (...initialChats: AIPartialIDChat[]) => {
   aiChats: AIChat[];
   push: PushAIChat;
   pop: PopAIChat;
   clear: () => void;
 };
 
-const aiChatWithId = (chat: PartialIDChat): AIChat => ({ ...chat, id: chat.id || uid(chat.content) });
+const aiChatWithId = (chat: AIPartialIDChat): AIChat => ({ ...chat, id: chat.id || uid(chat.content) });
 
 export const useAIChatLogger: UseAIChatLogger = (...initialChats) => {
   const parsedInitialChats = React.useMemo(() => initialChats.map(aiChatWithId), [initialChats]);

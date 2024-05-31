@@ -120,11 +120,11 @@ export const MessageBodyTypeWriter = (): React.ReactNode => {
         </AIChatMessageBodyTypeWriter>
       </Box>
       <Heading as="h2" variant="heading20">
-        Without enriched text:
+        Without enriched text [fullscreen variant]:
       </Heading>
 
       <Box>
-        <AIChatMessageBodyTypeWriter animated={true}>
+        <AIChatMessageBodyTypeWriter animated={true} variant="fullScreen">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendiiure
           adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
         </AIChatMessageBodyTypeWriter>

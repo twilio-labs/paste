@@ -18,8 +18,8 @@ import {
   AIChatMessageFeedback,
   AIChatMessageLoading,
   AIChatMessageMeta,
-  MessageVariants,
-  PartialIdChatAI,
+  AIMessageVariants,
+  AIPartialIDChat,
   useAIChatLogger,
 } from "../src";
 import { AIChatMessageBodyTypeWriter } from "../src/AIChatMessageBodyTypeWriter";
@@ -85,11 +85,11 @@ export const UseChatLogger: StoryFn = () => {
     const form = e.currentTarget;
     const data = new FormData(form);
     const message = data.get("message") as string;
-    const variant = (data.get("variant") || "ai") as MessageVariants;
+    const variant = (data.get("variant") || "ai") as AIMessageVariants;
     const id = data.get("id");
     const isBot = variant === "bot";
 
-    const chat: PartialIdChatAI = {
+    const chat: AIPartialIDChat = {
       variant,
       content: (
         <AIChatMessage variant={variant}>
@@ -192,7 +192,7 @@ export const UseChatLogger: StoryFn = () => {
           ))}
         </OrderedList>
       </Box>
-      <AIChatLogger AIs={aiChats} />
+      <AIChatLogger aiChats={aiChats} />
     </Stack>
   );
 };
