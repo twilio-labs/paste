@@ -1,10 +1,10 @@
 import { Avatar } from "@twilio-paste/avatar";
 import type { BoxElementProps } from "@twilio-paste/box";
 import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
-import type { ThemeShape } from "@twilio-paste/theme";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 import { AIChatMessageMeta } from "./AIChatMessageMeta";
+import { MessageVariantContext } from "./MessageVariantContext";
 
 export interface AIChatMessageAuthorProps extends HTMLPasteProps<"div"> {
   /**
@@ -41,9 +41,11 @@ export interface AIChatMessageAuthorProps extends HTMLPasteProps<"div"> {
 
 export const AIChatMessageAuthor = React.forwardRef<HTMLDivElement, AIChatMessageAuthorProps>(
   ({ children, bot = false, element = "AI_CHAT_MESSAGE_AUTHOR", ...props }, ref) => {
+    const messageVariant = React.useContext(MessageVariantContext);
+
     return (
       <AIChatMessageMeta {...props} ref={ref} aria-label={props["aria-label"]} element={element}>
-        {bot ? (
+        {messageVariant === "bot" ? (
           <Avatar name={children} size="sizeIcon50" icon={ArtificialIntelligenceIcon} element={`${element}_AVATAR}`} />
         ) : (
           <Avatar name={children} size="sizeIcon50" color="decorative30" element={`${element}_AVATAR}`} />

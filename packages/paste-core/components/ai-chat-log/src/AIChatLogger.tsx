@@ -22,7 +22,7 @@ export interface AIChatLoggerProps extends HTMLPasteProps<"div"> {
 }
 
 const buildTransitionX = (AIChat: AIChat): number => {
-  if (AIChat.variant === "ai") return -100;
+  if (AIChat.variant === "bot") return -100;
   if (AIChat.variant === "user") return 100;
   return 0;
 };

@@ -1,8 +1,10 @@
 import { uid } from "@twilio-paste/uid-library";
 import * as React from "react";
+import { MessageVariants } from "./MessageVariantContext";
 
 export type AIChat = {
   id: string;
+  variant: MessageVariants;
   content: React.ReactElement;
 };
 
@@ -12,7 +14,7 @@ type PushAIChat = (chat: PartialIDChat) => void;
 type PopAIChat = (id?: string) => void;
 
 export type UseAIChatLogger = (...initialChats: PartialIDChat[]) => {
-  chats: AIChat[];
+  aiChats: AIChat[];
   push: PushAIChat;
   pop: PopAIChat;
   clear: () => void;
