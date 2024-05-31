@@ -1,13 +1,16 @@
 /* eslint-disable eslint-comments/disable-enable-pair */
 /* eslint-disable react/jsx-max-depth */
 /* eslint-disable import/no-extraneous-dependencies */
+import type { StoryFn } from "@storybook/react";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
 import { CustomizationProvider } from "@twilio-paste/customization";
 import { Heading } from "@twilio-paste/heading";
+import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import { ChevronDoubleLeftIcon } from "@twilio-paste/icons/esm/ChevronDoubleLeftIcon";
 import { ChevronDoubleRightIcon } from "@twilio-paste/icons/esm/ChevronDoubleRightIcon";
 import { MoreIcon } from "@twilio-paste/icons/esm/MoreIcon";
+import { Separator } from "@twilio-paste/separator";
 import { SidebarPushContentWrapper } from "@twilio-paste/sidebar";
 import { useTheme } from "@twilio-paste/theme";
 import { Topbar } from "@twilio-paste/topbar";
@@ -19,6 +22,7 @@ import {
   SidePanelBody,
   SidePanelButton,
   SidePanelContainer,
+  SidePanelContext,
   SidePanelHeader,
   SidePanelHeaderActions,
   SidePanelPushContentWrapper,
@@ -33,7 +37,7 @@ export default {
   component: SidePanel,
 };
 
-export const Default = (): React.ReactNode => {
+export const Default: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   return (
     <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen}>
@@ -52,9 +56,23 @@ export const Default = (): React.ReactNode => {
 };
 Default.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
 };
 
-export const Basic = (): React.ReactNode => {
+export const Basic: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   const sidePanelId = useUID();
   const topbarSkipLinkID = useUID();
@@ -78,9 +96,23 @@ export const Basic = (): React.ReactNode => {
 };
 Basic.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
 };
 
-export const I18n = (): React.ReactNode => {
+export const I18n: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
 
   const topbarSkipLinkID = useUID();
@@ -127,9 +159,23 @@ export const I18n = (): React.ReactNode => {
 
 I18n.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
 };
 
-export const ContentDemo = (): React.ReactNode => {
+export const ContentDemo: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
 
   const topbarSkipLinkID = useUID();
@@ -138,7 +184,7 @@ export const ContentDemo = (): React.ReactNode => {
   return (
     <Box>
       <SidebarWithContent topbarSkipLinkID={topbarSkipLinkID} mainContentSkipLinkID={mainContentSkipLinkID} />
-      <SidebarPushContentWrapper collapsed={false} variant="compact">
+      <SidebarPushContentWrapper collapsed={true} variant="compact">
         <Topbar id={topbarSkipLinkID}> </Topbar>
         <SidePanelContainer isOpen={isOpen} setIsOpen={setIsOpen} id={sidePanelId}>
           <SidePanelPushContentWrapper>
@@ -195,9 +241,23 @@ export const ContentDemo = (): React.ReactNode => {
 
 ContentDemo.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
 };
 
-export const Composed = (): React.ReactNode => {
+export const Composed: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
 
   const topbarSkipLinkID = useUID();
@@ -223,9 +283,23 @@ export const Composed = (): React.ReactNode => {
 
 Composed.parameters = {
   padding: false,
+  a11y: {
+    config: {
+      rules: [
+        {
+          /*
+           * Using position="relative" on SidePanel causes it to overflow other themes in stacked and side-by-side views, and therefore fail color contrast checks based on SidePanelBody's content.
+           * The DefaultVRT test below serves to test color contrast on the Side Panel component without this issue causing false failures.
+           */
+          id: "color-contrast",
+          selector: "*:not(*)",
+        },
+      ],
+    },
+  },
 };
 
-export const Customized = (): React.ReactNode => {
+export const Customized: StoryFn = () => {
   const [isOpen, setIsOpen] = React.useState(true);
   const label = useUID();
   const theme = useTheme();
@@ -279,4 +353,42 @@ export const Customized = (): React.ReactNode => {
 
 Customized.parameters = {
   padding: false,
+  a11y: {
+    // no need to a11y check customization
+    disable: true,
+  },
+};
+
+export const DefaultVRT: StoryFn = () => {
+  const sidePanelId = useUID();
+
+  return (
+    <SidePanelContext.Provider
+      value={{
+        i18nCloseSidePanelTitle: "close the side panel",
+        i18nOpenSidePanelTitle: "open the side panel",
+        isOpen: true,
+        setIsOpen: () => {},
+        sidePanelId,
+      }}
+    >
+      {/* close button in header needs an element to control */}
+      <Box id={sidePanelId} />
+      <SidePanelHeader>
+        <ArtificialIntelligenceIcon decorative size="sizeIcon50" color="colorTextIcon" />
+        <Heading as="h3" variant="heading30" marginBottom="space0">
+          Assistant
+        </Heading>
+        <SidePanelHeaderActions>
+          <Button variant="secondary_icon" size="reset" onClick={() => {}}>
+            <MoreIcon decorative={false} title="open menu" size="sizeIcon50" />
+          </Button>
+        </SidePanelHeaderActions>
+      </SidePanelHeader>
+      <Separator orientation="horizontal" verticalSpacing="space0" />
+      <SidePanelBody>
+        <Box width="100%" height="size20" backgroundColor="colorBackground" />
+      </SidePanelBody>
+    </SidePanelContext.Provider>
+  );
 };
