@@ -14,6 +14,8 @@ export type { AIChatMessageLoadingProps } from "./AIChatMessageLoading";
 export { AIChatLog } from "./AIChatLog";
 export type { AIChatLogProps } from "./AIChatLog";
 export { useAIChatLogger } from "./useAIChatLogger";
-export type { UseAIChatLogger } from "./useAIChatLogger";
+export type { UseAIChatLogger, PartialIDChat as PartialIdChatAI } from "./useAIChatLogger";
 export { AIChatLogger } from "./AIChatLogger";
 export type { AIChatLoggerProps } from "./AIChatLogger";
+
+export type { MessageVariants } from "./MessageVariantContext";
