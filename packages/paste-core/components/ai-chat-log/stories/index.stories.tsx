@@ -1,7 +1,6 @@
-import * as React from "react";
-
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
+import * as React from "react";
 
 import {
   AIChatLog,
