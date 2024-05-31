@@ -18,6 +18,7 @@ import {
   AIChatMessageLoading,
   AIChatMessageMeta,
 } from "../src";
+import { AIChatMessageBodyTypeWriter } from "../src/AIChatMessageBodyTypeWriter";
 
 // eslint-disable-next-line import/no-default-export
 export default {
@@ -106,3 +107,14 @@ export const FeedbackCustomLabels = (): React.ReactNode => {
   );
   /* eslint-enable no-alert */
 };
+
+export const MessageBodyTypeWriter = (): React.ReactNode => {
+  return (
+    <AIChatMessageBodyTypeWriter animated={true}>
+      <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Deserunt
+      delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex
+      fugiat quisquam itaque, earum sit <a href="https://google.com">nesciunt impedit repellat assumenda.</a>
+    </AIChatMessageBodyTypeWriter>
+  );
+};
+LoadingStopLoading.storyName = "Message Body Type Writer";
