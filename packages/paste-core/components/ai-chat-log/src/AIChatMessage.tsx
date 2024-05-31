@@ -2,7 +2,9 @@ import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
-import { AIMessageVariantContext, AIMessageVariants } from "./AIMessageVariantContext";
+
+import { AIMessageVariantContext } from "./AIMessageVariantContext";
+import type { AIMessageVariants } from "./AIMessageVariantContext";
 
 export interface AIChatMessageProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;

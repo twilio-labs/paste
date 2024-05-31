@@ -1,6 +1,7 @@
 import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
 import { Button } from "@twilio-paste/button";
+import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
 import { Heading } from "@twilio-paste/heading";
 import { InlineCode } from "@twilio-paste/inline-code";
 import * as React from "react";
@@ -109,22 +110,37 @@ export const MessageBodyTypeWriter = (): React.ReactNode => {
         With enriched text
       </Heading>
       <Box marginBottom="space60">
-        <AIChatMessageBodyTypeWriter animated={true}>
+        <AIChatMessageBodyTypeWriter>
           <span style={{ fontWeight: 600 }}>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</span> Deserunt
           delectus fuga, necessitatibus eligendiiure adipisci facilis exercitationem officiis dolorem laborum, ex fugiat
           quisquam itaque, earum sit <a href="https://google.com">nesciunt impedit repellat assumenda.</a> new text,{" "}
           <Anchor showExternal href="https://google.com">
             434324
           </Anchor>
-          <Button variant="secondary">30007</Button>
         </AIChatMessageBodyTypeWriter>
+        <br />
+        <AIChatMessageBody>
+          <Disclosure>
+            <DisclosureHeading as="h4" variant="heading40">
+              Between the World and Me by Ta-Nehisi Coates
+            </DisclosureHeading>
+            <DisclosureContent>
+              But race is the child of racism, not the father. And the process of naming “the people” has never been a
+              matter of genealogy and physiognomy so much as one of hierarchy. Difference in hue and hair is old. But
+              the belief in the preeminence of hue and hair, the notion that these factors can correctly organize a
+              society and that they signify deeper attributes, which are indelible—this is the new idea at the heart of
+              these new people who have been brought up hopelessly, tragically, deceitfully, to believe that they are
+              white.
+            </DisclosureContent>
+          </Disclosure>
+        </AIChatMessageBody>
       </Box>
       <Heading as="h2" variant="heading20">
         Without enriched text [fullscreen variant]:
       </Heading>
 
       <Box>
-        <AIChatMessageBodyTypeWriter animated={true} variant="fullScreen">
+        <AIChatMessageBodyTypeWriter variant="fullScreen">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendiiure
           adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit
         </AIChatMessageBodyTypeWriter>

@@ -2,8 +2,8 @@ import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps } from "@twilio-paste/box";
 import type { ThemeShape } from "@twilio-paste/theme";
 import type { HTMLPasteProps } from "@twilio-paste/types";
+import { uid } from "@twilio-paste/uid-library";
 import * as React from "react";
-import { uid } from "react-uid";
 
 const Variants = {
   default: {
@@ -50,28 +50,10 @@ export const AIChatMessageBodyTypeWriter = React.forwardRef<HTMLDivElement, AICh
     const [animatedChildren, setAnimatedChildren] = React.useState<React.ReactNode[]>([]);
     const [childrenText, setChildrenText] = React.useState<string[]>([]);
 
-    // Initially split all children from text and elements
-    React.useEffect(() => {
-      if (textLessChildren.length === 0 && childrenText.length === 0 && animated) {
-        React.Children.forEach(children, (child) => {
-          // Strings dn onot neet to copy props
-          if (typeof child === "string") {
-            setChildrenText((prevState) => [...prevState, child]);
-            setTextLessChildren((prevState) => [...prevState, ""]);
-          } else if (React.isValidElement(child)) {
-            setChildrenText((prevState) => [...prevState, findNestedElementText(child.props.children)]);
-            const { children, ...rest } = child.props;
-            // by using {...rest} we take all props except children (the text inside the element )
-            setTextLessChildren((prevState) => [...prevState, <child.type {...rest} />]);
-          }
-        });
-      }
-    }, []);
-
-    const findNestedElementText = (children: React.ReactNode): string => {
+    const findNestedElementText = (elementNode: React.ReactNode): string => {
       let text = "";
 
-      React.Children.forEach(children, (child) => {
+      React.Children.forEach(elementNode, (child) => {
         if (typeof child === "string") {
           text += child;
         } else if (React.isValidElement(child)) {
@@ -83,7 +65,25 @@ export const AIChatMessageBodyTypeWriter = React.forwardRef<HTMLDivElement, AICh
       return text;
     };
 
-    const handleAnimationChangeForChild = (index: number) => {
+    // Initially split all children from text and elements
+    React.useEffect(() => {
+      if (textLessChildren.length === 0 && childrenText.length === 0 && animated) {
+        React.Children.forEach(children, (child) => {
+          // Strings dn onot neet to copy props
+          if (typeof child === "string") {
+            setChildrenText((prevState) => [...prevState, child]);
+            setTextLessChildren((prevState) => [...prevState, ""]);
+          } else if (React.isValidElement(child)) {
+            setChildrenText((prevState) => [...prevState, findNestedElementText(child.props.children)]);
+            const { children: elementChildren, ...rest } = child.props;
+            // by using {...rest} we take all props except children (the text inside the element )
+            setTextLessChildren((prevState) => [...prevState, <child.type key={rest.key} {...rest} />]);
+          }
+        });
+      }
+    }, []);
+
+    const handleAnimationChangeForChild = (index: number): void => {
       const animationChild = animatedChildren[index];
       const textForChild = childrenText[index];
 
@@ -116,12 +116,17 @@ export const AIChatMessageBodyTypeWriter = React.forwardRef<HTMLDivElement, AICh
       }
     };
 
-    const handleAddNewAnimatedElWithFirstChar = (index: number) => {
+    const handleAddNewAnimatedElWithFirstChar = (index: number): void => {
       const textForChild = childrenText[index];
       const child = React.Children.toArray(children)[index];
 
       if (React.isValidElement(child)) {
-        setAnimatedChildren((prevState) => [...prevState, <child.type {...child.props}>{textForChild[0]}</child.type>]);
+        setAnimatedChildren((prevState) => [
+          ...prevState,
+          <child.type key={child.props.key} {...child.props}>
+            {textForChild[0]}
+          </child.type>,
+        ]);
       } else {
         setAnimatedChildren((prevState) => [...prevState, textForChild[0]]);
       }

@@ -3,6 +3,7 @@ import type { BoxElementProps } from "@twilio-paste/box";
 import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIntelligenceIcon";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
+
 import { AIChatMessageMeta } from "./AIChatMessageMeta";
 import { AIMessageVariantContext } from "./AIMessageVariantContext";
 
@@ -29,18 +30,10 @@ export interface AIChatMessageAuthorProps extends HTMLPasteProps<"div"> {
    * @memberof AIChatMessageAuthorProps
    */
   "aria-label": string;
-  /**
-   * Whether the author is a bot or not
-   *
-   * @default false
-   * @type {boolean}
-   * @memberof AIChatMessageAuthorProps
-   */
-  bot?: boolean;
 }
 
 export const AIChatMessageAuthor = React.forwardRef<HTMLDivElement, AIChatMessageAuthorProps>(
-  ({ children, bot = false, element = "AI_CHAT_MESSAGE_AUTHOR", ...props }, ref) => {
+  ({ children, element = "AI_CHAT_MESSAGE_AUTHOR", ...props }, ref) => {
     const messageVariant = React.useContext(AIMessageVariantContext);
 
     return (
