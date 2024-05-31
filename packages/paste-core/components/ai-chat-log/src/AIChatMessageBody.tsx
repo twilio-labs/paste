@@ -20,17 +20,17 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
-   * @default "CHAT_BUBBLE"
+   * @default "AI_CHAT_MESSAGE_BODY"
    * @type {BoxProps["element"]}
-   * @memberof AIChatBubbleProps
+   * @memberof AIChatMessageBodyProps
    */
   element?: BoxElementProps["element"];
   /**
    * Override the font size for full screen experiences.
    *
-   * @default "CHAT_BUBBLE"
+   * @default "default"
    * @type {"default" | "fullScreen"}
-   * @memberof AIChatBubbleProps
+   * @memberof AIChatMessageBodyProps
    */
   variant?: "default" | "fullScreen";
 }

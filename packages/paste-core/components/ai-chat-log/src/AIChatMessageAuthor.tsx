@@ -4,7 +4,7 @@ import { ArtificialIntelligenceIcon } from "@twilio-paste/icons/esm/ArtificialIn
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 import { AIChatMessageMeta } from "./AIChatMessageMeta";
-import { MessageVariantContext } from "./MessageVariantContext";
+import { AIMessageVariantContext } from "./AIMessageVariantContext";
 
 export interface AIChatMessageAuthorProps extends HTMLPasteProps<"div"> {
   /**
@@ -41,7 +41,7 @@ export interface AIChatMessageAuthorProps extends HTMLPasteProps<"div"> {
 
 export const AIChatMessageAuthor = React.forwardRef<HTMLDivElement, AIChatMessageAuthorProps>(
   ({ children, bot = false, element = "AI_CHAT_MESSAGE_AUTHOR", ...props }, ref) => {
-    const messageVariant = React.useContext(MessageVariantContext);
+    const messageVariant = React.useContext(AIMessageVariantContext);
 
     return (
       <AIChatMessageMeta {...props} ref={ref} aria-label={props["aria-label"]} element={element}>
