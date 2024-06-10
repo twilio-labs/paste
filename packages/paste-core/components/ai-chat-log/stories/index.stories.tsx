@@ -1,29 +1,34 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable import/no-extraneous-dependencies */
 import { Button } from "@twilio-paste/button";
 import { ButtonGroup } from "@twilio-paste/button-group";
+import { UserIcon } from "@twilio-paste/icons/esm/UserIcon";
 import * as React from "react";
 
 import {
   AIChatLog,
   AIChatMessage,
+  AIChatMessageActions,
   AIChatMessageAuthor,
   AIChatMessageBody,
   AIChatMessageFeedback,
   AIChatMessageLoading,
-  AIChatMessageMeta,
+  AIChatMessageRewrite,
 } from "../src";
 
-// eslint-disable-next-line import/no-default-export
 export default {
   title: "Components/AI Chat Log",
   component: AIChatLog,
 };
 
-export const StandardUsage = (): React.ReactNode => {
+export const ExampleAIChatLog = (): React.ReactNode => {
   return (
     <AIChatLog>
       <AIChatMessage variant="user">
-        <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
-        <AIChatMessageBody variant="default">
+        <AIChatMessageAuthor avatarName="Gibby Ridki" avatarIcon={UserIcon} aria-label="You said at 2:36pm">
+          You
+        </AIChatMessageAuthor>
+        <AIChatMessageBody size="default">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
           adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
           impedit repellat assumenda.
@@ -31,27 +36,28 @@ export const StandardUsage = (): React.ReactNode => {
       </AIChatMessage>
       <AIChatMessage variant="bot">
         <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
-        <AIChatMessageBody variant="default">
+        <AIChatMessageBody size="default">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
           adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
           impedit repellat assumenda.
         </AIChatMessageBody>
-        <AIChatMessageMeta aria-label="Quick actions available:">
+        <AIChatMessageActions aria-label="Quick actions available:">
           <ButtonGroup>
-            <Button variant="secondary" onClick={() => {}} size="small">
+            <Button variant="secondary" onClick={() => {}} size="rounded_small">
               30007
             </Button>
-            <Button variant="secondary" onClick={() => {}} size="small">
+            <Button variant="secondary" onClick={() => {}} size="rounded_small">
               30007
             </Button>
-            <Button variant="secondary" onClick={() => {}} size="small">
+            <Button variant="secondary" onClick={() => {}} size="rounded_small">
               30009
             </Button>
           </ButtonGroup>
-        </AIChatMessageMeta>
-        <AIChatMessageMeta aria-label="Feedback form">
+        </AIChatMessageActions>
+        <AIChatMessageActions aria-label="Feedback form">
           <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
-        </AIChatMessageMeta>
+          <AIChatMessageRewrite onRewrite={() => {}} />
+        </AIChatMessageActions>
       </AIChatMessage>
       <AIChatMessage variant="user">
         <AIChatMessageAuthor aria-label="You said">Gibby Radki</AIChatMessageAuthor>
@@ -62,9 +68,7 @@ export const StandardUsage = (): React.ReactNode => {
         </AIChatMessageBody>
       </AIChatMessage>
       <AIChatMessage variant="bot">
-        <AIChatMessageAuthor aria-label="AI said" bot>
-          Good Bot
-        </AIChatMessageAuthor>
+        <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
         <AIChatMessageBody>
           <AIChatMessageLoading onStopLoading={() => {}} />
         </AIChatMessageBody>

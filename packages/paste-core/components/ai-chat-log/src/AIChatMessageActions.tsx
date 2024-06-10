@@ -3,27 +3,27 @@ import type { BoxElementProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-export interface AIChatMessageMetaProps extends HTMLPasteProps<"div"> {
+export interface AIChatMessageActionsProps extends HTMLPasteProps<"div"> {
   /**
    *
    * @default null
    * @type {string}
-   * @memberof AIChatMessageMetaProps
+   * @memberof AIChatMessageActionsProps
    */
   "aria-label": string;
   children: NonNullable<React.ReactNode>;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
    *
-   * @default "AI_CHAT_MESSAGE_META"
+   * @default "AI_CHAT_MESSAGE_ACTIONS"
    * @type {BoxProps["element"]}
-   * @memberof AIChatMessageMetaProps
+   * @memberof AIChatMessageActionsProps
    */
   element?: BoxElementProps["element"];
 }
 
-export const AIChatMessageMeta = React.forwardRef<HTMLDivElement, AIChatMessageMetaProps>(
-  ({ children, element = "AI_CHAT_MESSAGE_META", ...props }, ref) => {
+export const AIChatMessageActions = React.forwardRef<HTMLDivElement, AIChatMessageActionsProps>(
+  ({ children, element = "AI_CHAT_MESSAGE_ACTIONS", ...props }, ref) => {
     return (
       <Box
         {...safelySpreadBoxProps(props)}
@@ -40,4 +40,4 @@ export const AIChatMessageMeta = React.forwardRef<HTMLDivElement, AIChatMessageM
   },
 );
 
-AIChatMessageMeta.displayName = "AIChatMessageMeta";
+AIChatMessageActions.displayName = "AIChatMessageActions";

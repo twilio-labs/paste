@@ -1,6 +1,7 @@
+// eslint-disable-next-line eslint-comments/disable-enable-pair
+/* eslint-disable import/no-extraneous-dependencies */
 import { Anchor } from "@twilio-paste/anchor";
 import { Box } from "@twilio-paste/box";
-import { Button } from "@twilio-paste/button";
 import { Disclosure, DisclosureContent, DisclosureHeading } from "@twilio-paste/disclosure";
 import { Heading } from "@twilio-paste/heading";
 import { InlineCode } from "@twilio-paste/inline-code";
@@ -8,11 +9,12 @@ import * as React from "react";
 
 import {
   AIChatLog,
+  AIChatMessageActions,
   AIChatMessageBody,
   AIChatMessageBodyTypeWriter,
   AIChatMessageFeedback,
   AIChatMessageLoading,
-  AIChatMessageMeta,
+  AIChatMessageRewrite,
 } from "../src";
 
 // eslint-disable-next-line import/no-default-export
@@ -21,36 +23,40 @@ export default {
   component: AIChatLog,
 };
 
-export const MessageBody = (): React.ReactNode => {
+export const AIMessageBody = (): React.ReactNode => {
   return (
     <AIChatLog>
-      <AIChatMessageBody variant="default">
-        Use <InlineCode>variant=&quot;default&quot;</InlineCode> when the AI Chat Log is inside a small container.
+      <AIChatMessageBody size="default">
+        Use <InlineCode>size=&quot;default&quot;</InlineCode> when the AI Chat Log is inside a small container.
       </AIChatMessageBody>
-      <AIChatMessageBody variant="fullScreen">
-        Use <InlineCode>variant=&quot;fullScreen&quot;</InlineCode> when the AI Chat Log is a full screen experience.
+      <AIChatMessageBody size="fullScreen">
+        Use <InlineCode>size=&quot;fullScreen&quot;</InlineCode> when the AI Chat Log is a full screen experience.
       </AIChatMessageBody>
     </AIChatLog>
   );
 };
 
-export const MessageBodyWithParagraphs = (): React.ReactNode => {
+export const AIMessageBodyWithParagraphs = (): React.ReactNode => {
   return (
     <AIChatLog>
-      <AIChatMessageBody variant="default">
-        <p>Test</p>
-        <p>Test</p>
+      <AIChatMessageBody size="default">
+        <p>
+          Use <InlineCode>size=&quot;default&quot;</InlineCode> when the AI Chat Log is inside a small container.
+        </p>
+        <p>Second paragraph within AI Chat Message Body.</p>
       </AIChatMessageBody>
 
-      <AIChatMessageBody variant="fullScreen">
-        <p>Test</p>
-        <p>Test</p>
+      <AIChatMessageBody size="fullScreen">
+        <p>
+          Use <InlineCode>size=&quot;fullScreen&quot;</InlineCode> when the AI Chat Log is a full screen experience.
+        </p>
+        <p>Second paragraph within AI Chat Message Body.</p>
       </AIChatMessageBody>
     </AIChatLog>
   );
 };
 
-export const Loading = (): React.ReactNode => {
+export const AIMessageLoading = (): React.ReactNode => {
   return (
     <div>
       <p>Pssst! The three rows have dynamic widths. Refresh to see it in action!</p>
@@ -58,8 +64,9 @@ export const Loading = (): React.ReactNode => {
     </div>
   );
 };
+AIMessageLoading.storyName = "AI Message (Loading)";
 
-export const LoadingStopLoading = (): React.ReactNode => {
+export const AIMessageLoadingStopLoading = (): React.ReactNode => {
   const [loading, setLoading] = React.useState(true);
   return (
     <div>
@@ -75,22 +82,22 @@ export const LoadingStopLoading = (): React.ReactNode => {
     </div>
   );
 };
-LoadingStopLoading.storyName = "Loading with stop button";
+AIMessageLoadingStopLoading.storyName = "AI Message (Loading - with Stop button)";
 
-export const Feedback = (): React.ReactNode => {
+export const AIMessageFeedback = (): React.ReactNode => {
   /* eslint-disable no-alert */
   return (
-    <AIChatMessageMeta aria-label="Feedback form">
+    <AIChatMessageActions aria-label="Feedback form">
       <AIChatMessageFeedback onLike={() => alert("Like + 1")} onDislike={() => alert("Like - 1")} />
-    </AIChatMessageMeta>
+    </AIChatMessageActions>
   );
   /* eslint-enable no-alert */
 };
 
-export const FeedbackCustomLabels = (): React.ReactNode => {
+export const AIMessageFeedbackI18nLabels = (): React.ReactNode => {
   /* eslint-disable no-alert */
   return (
-    <AIChatMessageMeta aria-label="Feedback form">
+    <AIChatMessageActions aria-label="Feedback form">
       <AIChatMessageFeedback
         label="Est-ce utile?"
         i18nDislikeLabel="pas aimer"
@@ -98,9 +105,18 @@ export const FeedbackCustomLabels = (): React.ReactNode => {
         onLike={() => alert("Like + 1")}
         onDislike={() => alert("Like - 1")}
       />
-    </AIChatMessageMeta>
+    </AIChatMessageActions>
   );
   /* eslint-enable no-alert */
+};
+AIMessageFeedbackI18nLabels.storyName = "AI Message Feedback (i18n)";
+
+export const AIMessageRewrite = (): React.ReactNode => {
+  return (
+    <AIChatMessageActions aria-label="message actions">
+      <AIChatMessageRewrite onRewrite={() => {}} />
+    </AIChatMessageActions>
+  );
 };
 
 export const MessageBodyTypeWriter = (): React.ReactNode => {
@@ -148,4 +164,3 @@ export const MessageBodyTypeWriter = (): React.ReactNode => {
     </Box>
   );
 };
-MessageBodyTypeWriter.storyName = "Message Body Type Writer";

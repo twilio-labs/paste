@@ -1,10 +1,11 @@
 import { Box, safelySpreadBoxProps } from "@twilio-paste/box";
 import type { BoxElementProps } from "@twilio-paste/box";
 import type { HTMLPasteProps } from "@twilio-paste/types";
+import { useUID } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { AIMessageVariantContext } from "./AIMessageVariantContext";
-import type { AIMessageVariants } from "./AIMessageVariantContext";
+import { AIMessageContext } from "./AIMessageContext";
+import type { AIMessageVariants } from "./AIMessageContext";
 
 export interface AIChatMessageProps extends HTMLPasteProps<"div"> {
   children?: React.ReactNode;
@@ -19,17 +20,25 @@ export interface AIChatMessageProps extends HTMLPasteProps<"div"> {
   /**
    * The variant of the message to distiguish between user and bot messages
    *
-   * @default null
    * @type {AIMessageVariants}
    * @memberof AIChatMessageProps
    */
   variant: AIMessageVariants;
+  /**
+   * Custom id for the message body
+   *
+   * @default unique ID
+   * @type {string}
+   * @memberof AIChatMessageProps
+   */
+  id?: string;
 }
 
 export const AIChatMessage = React.forwardRef<HTMLDivElement, AIChatMessageProps>(
-  ({ children, element = "AI_CHAT_MESSAGE", variant, ...props }, ref) => {
+  ({ children, element = "AI_CHAT_MESSAGE", variant, id, ...props }, ref) => {
+    const AIChatMessageId = id || useUID();
     return (
-      <AIMessageVariantContext.Provider value={variant}>
+      <AIMessageContext.Provider value={{ variant, id: AIChatMessageId }}>
         <Box
           role="listitem"
           display="flex"
@@ -41,7 +50,7 @@ export const AIChatMessage = React.forwardRef<HTMLDivElement, AIChatMessageProps
         >
           {children}
         </Box>
-      </AIMessageVariantContext.Provider>
+      </AIMessageContext.Provider>
     );
   },
 );
