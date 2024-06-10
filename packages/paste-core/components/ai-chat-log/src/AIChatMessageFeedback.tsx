@@ -16,10 +16,43 @@ export interface AIChatMessageFeedbackProps extends HTMLPasteProps<"div"> {
    * @memberof AIChatMessageFeedbackProps
    */
   element?: BoxElementProps["element"];
+  /**
+   * Custom label text for the message feedback component
+   *
+   * @default "Is this helpful?"
+   * @type {string}
+   * @memberof AIChatMessageFeedbackProps
+   */
   label?: string;
+  /**
+   * Custom accessible label for the "Like result" button for non-English languages
+   *
+   * @default "Like result"
+   * @type {string}
+   * @memberof AIChatMessageFeedbackProps
+   */
   i18nLikeLabel?: string;
+  /**
+   * Custom accessible label for the "Dislike result" button for non-English languages
+   *
+   * @default "Dislike result"
+   * @type {string}
+   * @memberof AIChatMessageFeedbackProps
+   */
   i18nDislikeLabel?: string;
+  /**
+   * Function to call on click of "Like result" button
+   *
+   * @type {() => void}
+   * @memberof AIChatMessageFeedbackProps
+   */
   onLike: () => void;
+  /**
+   * Function to call on click of "Disike result" button
+   *
+   * @type {() => void}
+   * @memberof AIChatMessageFeedbackProps
+   */
   onDislike: () => void;
 }
 
@@ -43,7 +76,6 @@ export const AIChatMessageFeedback = React.forwardRef<HTMLDivElement, AIChatMess
       display="inline-flex"
       alignItems="flex-start"
       columnGap="space30"
-      marginTop="space40"
       color="colorTextIcon"
       lineHeight="lineHeight20"
       fontSize="fontSize20"
@@ -53,11 +85,11 @@ export const AIChatMessageFeedback = React.forwardRef<HTMLDivElement, AIChatMess
       paddingX="space30"
       paddingY="space20"
     >
-      <span>{label}</span>
-      <Button variant="reset" size="reset" onClick={onLike}>
+      <Box as="span">{label}</Box>
+      <Button variant="reset" size="reset" onClick={onLike} element={`${element}_LIKE_BUTTON`}>
         <ThumbsUpIcon decorative={false} title={i18nLikeLabel} />
       </Button>
-      <Button variant="reset" size="reset" onClick={onDislike}>
+      <Button variant="reset" size="reset" onClick={onDislike} element={`${element}_DISLIKE_BUTTON`}>
         <ThumbsDownIcon decorative={false} title={i18nDislikeLabel} />
       </Button>
     </Box>

@@ -4,7 +4,9 @@ import type { ThemeShape } from "@twilio-paste/theme";
 import type { HTMLPasteProps } from "@twilio-paste/types";
 import * as React from "react";
 
-const Variants = {
+import { AIMessageContext } from "./AIMessageContext";
+
+const Sizes = {
   default: {
     fontSize: "fontSize30" as ThemeShape["fontSizes"],
     lineHeight: "lineHeight30" as ThemeShape["lineHeights"],
@@ -16,6 +18,7 @@ const Variants = {
 };
 
 export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
+  id?: never; // id is passed down through the context from AIChatMessage for a11y (aria-controls on the rewrite button)
   children?: React.ReactNode;
   /**
    * Overrides the default element name to apply unique styles with the Customization Provider
@@ -26,21 +29,23 @@ export interface AIChatMessageBodyProps extends HTMLPasteProps<"div"> {
    */
   element?: BoxElementProps["element"];
   /**
-   * Override the font size for full screen experiences.
+   * Use a larger font size and line height for fullscreen experiences.
    *
    * @default "default"
    * @type {"default" | "fullScreen"}
    * @memberof AIChatMessageBodyProps
    */
-  variant?: "default" | "fullScreen";
+  size?: "default" | "fullScreen";
 }
 
 export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageBodyProps>(
-  ({ children, variant = "default", element = "AI_CHAT_MESSAGE_BODY", ...props }, ref) => {
+  ({ children, size = "default", element = "AI_CHAT_MESSAGE_BODY", ...props }, ref) => {
+    const { id } = React.useContext(AIMessageContext);
+
     return (
       <Box
         {...safelySpreadBoxProps(props)}
-        {...Variants[variant]}
+        {...Sizes[size]}
         display="inline-block"
         color="colorText"
         wordWrap="break-word"
@@ -49,6 +54,7 @@ export const AIChatMessageBody = React.forwardRef<HTMLDivElement, AIChatMessageB
         element={element}
         ref={ref}
         whiteSpace="pre-wrap"
+        id={id}
       >
         {children}
       </Box>

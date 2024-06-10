@@ -1,7 +1,7 @@
 import { uid } from "@twilio-paste/uid-library";
 import * as React from "react";
 
-import { AIMessageVariants } from "./AIMessageVariantContext";
+import type { AIMessageVariants } from "./AIMessageContext";
 
 export type AIChat = {
   id: string;
