@@ -96,7 +96,8 @@ export const UseChatLogger: StoryFn = () => {
           <AIChatMessageAuthor aria-label={isBot ? "AI said" : "You said"}>
             {isBot ? "Good Bot" : "Gibby Radki"}
           </AIChatMessageAuthor>
-          <AIChatMessageBodyTypeWriter animated={isBot}>{message}</AIChatMessageBodyTypeWriter>
+          <AIChatMessageBody>{message}</AIChatMessageBody>
+          {/* <AIChatMessageBodyTypeWriter animated={isBot}>{message}</AIChatMessageBodyTypeWriter> */}
         </AIChatMessage>
       ),
     };
