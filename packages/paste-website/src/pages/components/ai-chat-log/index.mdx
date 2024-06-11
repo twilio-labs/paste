@@ -1,0 +1,343 @@
+export const meta = {
+  title: 'AI Chat Log - Components',
+  package: '@twilio-paste/ai-chat-log',
+  description: 'An AI Chat Log is a collection of Chat components for displaying conversations between a human and an AI bot',
+  slug: '/components/ai-chat-log/',
+};
+
+import {Anchor} from '@twilio-paste/anchor';
+import {Avatar} from '@twilio-paste/avatar';
+import {Box} from '@twilio-paste/box';
+import {
+  ChatAttachment,
+  ChatAttachmentDescription,
+  ChatAttachmentLink,
+  ChatBookend,
+  ChatBookendItem,
+  ChatBubble,
+  ChatEvent,
+  ChatLog,
+  ChatMessage,
+  ChatMessageMeta,
+  ChatMessageMetaItem,
+  useChatLogger,
+  ChatLogger,
+} from '@twilio-paste/chat-log';
+import Changelog from '@twilio-paste/ai-chat-log/CHANGELOG.md';
+import {DownloadIcon} from '@twilio-paste/icons/esm/DownloadIcon';
+import {HelpText} from '@twilio-paste/help-text';
+import {Callout, CalloutHeading, CalloutText} from '@twilio-paste/callout';
+import {Button} from '@twilio-paste/button';
+import {ButtonGroup} from '@twilio-paste/button-group';
+import {Stack} from '@twilio-paste/stack';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import {
+  basicInboundMessage,
+  basicOutboundMessage,
+  inboundMessageMeta,
+  outboundMessageMeta,
+  inboundMessageAttachment,
+  outboundMessageAttachment,
+  inboundComplexMessage,
+  outboundComplexMessage,
+  basicChatEvent,
+  basicChatBookend,
+  kitchenSink,
+  chatLoggerExample,
+} from '../../../component-examples/ChatLogExamples.ts';
+import packageJson from '@twilio-paste/chat-log/package.json';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('AI Chat Log');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/ai-chat-log',
+        storybookUrl: '/?path=/story/components-chatlog--example-chat-log',
+      },
+    },
+  };
+};
+
+<LivePreview scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, Avatar}} language="jsx">
+  {`<ChatLog>
+  <ChatMessage variant='inbound'>
+    <ChatBubble>
+      Hello, what can I help you with?
+    </ChatBubble>
+    <ChatMessageMeta aria-label="said by Gibby Radki at 3:35 PM">
+      <ChatMessageMetaItem>
+        <Avatar name="Gibby Radki" size="sizeIcon20" />
+        Gibby Radki ・ 3:35 PM
+      </ChatMessageMetaItem>
+    </ChatMessageMeta>
+  </ChatMessage>
+  <ChatMessage variant='outbound'>
+    <ChatBubble>
+      Hi! What is your return policy?
+    </ChatBubble>
+    <ChatMessageMeta aria-label="said by you at 3:35 PM">
+      <ChatMessageMetaItem>3:35 PM</ChatMessageMetaItem>
+    </ChatMessageMeta>
+  </ChatMessage>
+</ChatLog>`}
+</LivePreview>
+
+## Guidelines
+
+### About AI Chat Log
+
+A Chat Log is a way to display conversations between people and can include complex content like attachments. The chat can be between two or more people.
+
+The Chat Log package includes these main components:
+
+- ChatLog
+- ChatMessage
+- ChatBubble
+- ChatBookend
+- ChatEvent
+- ChatAttachment
+- ChatMessageMeta
+
+### Accessibility
+
+To ensure the chat is accessible, only use the Chat components within a ChatLog component and use ChatMessage to wrap ChatBubbles and ChatMessageMeta components together.
+
+The only other accessibility requirement is providing the ChatMessageMeta a descriptive label via the `aria-label` React prop.
+
+The ChatLog component has `role=”log”` which means that any new messages added to it are announced by assistive technology.
+
+## Examples
+
+### Basic Message
+
+A basic message is simply text sent from a chat participant and is built with the ChatMessage and ChatBubble components. It can either be inbound or outbound.
+
+#### Inbound
+
+<LivePreview scope={{ChatLog, ChatMessage, ChatBubble}} language="jsx" noInline>
+  {basicInboundMessage}
+</LivePreview>
+
+#### Outbound
+
+<LivePreview scope={{ChatLog, ChatMessage, ChatBubble}} language="jsx" noInline>
+  {basicOutboundMessage}
+</LivePreview>
+
+### Message with Message Meta
+
+Use Message Meta to append additional information to a message such as the name of the sender, the time, or a read receipt.
+
+ChatMessageMeta should be a child of ChatMessage so that the text and meta information are correctly grouped together for assistive technologies. It also needs a readable `aria-label` that summarizes what the meta information says.
+
+#### Inbound
+
+<LivePreview
+  scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem, Avatar}}
+  language="jsx"
+  noInline
+>
+  {inboundMessageMeta}
+</LivePreview>
+
+#### Outbound
+
+<LivePreview scope={{ChatLog, ChatMessage, ChatBubble, ChatMessageMeta, ChatMessageMetaItem}} language="jsx" noInline>
+  {outboundMessageMeta}
+</LivePreview>
+
+### Message with Attachment
+
+A message can include an attachment. If sent with additional text, the attachment should be in its own ChatBubble.
+
+#### Inbound
+
+<LivePreview
+  scope={{
+    ChatLog,
+    ChatMessage,
+    ChatBubble,
+    ChatAttachment,
+    ChatAttachmentDescription,
+    ChatAttachmentLink,
+    DownloadIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {inboundMessageAttachment}
+</LivePreview>
+
+#### Outbound
+
+<LivePreview
+  scope={{
+    ChatLog,
+    ChatMessage,
+    ChatBubble,
+    ChatAttachment,
+    ChatAttachmentDescription,
+    ChatAttachmentLink,
+    DownloadIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {outboundMessageAttachment}
+</LivePreview>
+
+### Complex Message
+
+ChatMessages can contain multiple ChatBubbles and ChatMessageMetas.
+
+#### Inbound
+
+<LivePreview
+  scope={{
+    ChatLog,
+    ChatAttachment,
+    ChatAttachmentDescription,
+    ChatAttachmentLink,
+    ChatBubble,
+    ChatMessage,
+    ChatMessageMeta,
+    ChatMessageMetaItem,
+    DownloadIcon,
+    Avatar,
+  }}
+  language="jsx"
+  noInline
+>
+  {inboundComplexMessage}
+</LivePreview>
+
+#### Outbound
+
+<LivePreview
+  scope={{
+    ChatLog,
+    ChatAttachment,
+    ChatAttachmentDescription,
+    ChatAttachmentLink,
+    ChatBubble,
+    ChatMessage,
+    ChatMessageMeta,
+    ChatMessageMetaItem,
+    DownloadIcon,
+  }}
+  language="jsx"
+  noInline
+>
+  {outboundComplexMessage}
+</LivePreview>
+
+### Chat Event
+
+Chat Events are for things that can happen during the chat, like someone joining or the chat transferring to a different agent.
+
+<LivePreview scope={{ChatLog, ChatEvent}} language="jsx" noInline>
+  {basicChatEvent}
+</LivePreview>
+
+### Chat Bookend
+
+Chat Bookends are for when the chat starts, ends, and the day when the chat spans multiple days.
+
+<LivePreview scope={{ChatLog, ChatBookend, ChatBookendItem}} language="jsx" noInline>
+  {basicChatBookend}
+</LivePreview>
+
+### Example Chat Log
+
+This example combines all the separate features displayed previously into one example. It shows how all the features work together harmoniously through composition.
+
+<LivePreview
+  scope={{
+    ChatAttachment,
+    ChatAttachmentDescription,
+    ChatAttachmentLink,
+    ChatBookend,
+    ChatBookendItem,
+    ChatBubble,
+    ChatEvent,
+    ChatLog,
+    ChatMessage,
+    ChatMessageMeta,
+    ChatMessageMetaItem,
+    Avatar,
+    DownloadIcon,
+    Box,
+  }}
+  language="jsx"
+  noInline
+>
+  {kitchenSink}
+</LivePreview>
+
+### useChatLogger hook
+
+The `useChatLogger` hook provides a hook based approach to managing chat state. It is best used with the `<ChatLogger />` component.
+
+`useChatLogger` returns 3 things:
+
+- An array of `chats`.
+- A `push` method used to add a chat, optionally with a custom ID
+- A `pop` method used to remove a chat, optionally via its ID.
+- A `clear` method used to remove all chats.
+
+##### ChatLogger component
+
+The `<ChatLogger />` component handles rendering the chats it is passed via props. It handles how chats enter and leave the UI.
+
+```
+const { chats }= useChatLogger();
+return <ChatLogger chats={chats} />;
+```
+
+##### Adding and removing a chat
+
+You can push or pop a chat based on an action or event. In this example it's based on a button click:
+
+<LivePreview
+  scope={{
+    useChatLogger,
+    ChatBubble,
+    ChatLogger,
+    ChatMessage,
+    ChatMessageMeta,
+    ChatMessageMetaItem,
+    Button,
+    ButtonGroup,
+    Stack,
+  }}
+  language="jsx"
+  noInline
+>
+  {chatLoggerExample}
+</LivePreview>
+
+## Composition Notes
+
+Keep content as concise as possible given the space constraints.
+
+### Error messages
+
+To convey an error related to whether a message was sent, use Help Text inside the Message Meta. Limit the message to a single sentence and focus on how the user can resolve the issue. Offer a [link-style retry button](/components/button#link-style-button) when applicable.
+
+To convey an error related to other actions taken in the Chat Log, like a file upload validation error, use a [Toast](/components/toast) at the top of the individual chat window.
+
+To convey an error that applies to the whole page, not just a particular Chat Log, use a page-level [Callout or Alert](/patterns/error-state#when-to-use-which-component).

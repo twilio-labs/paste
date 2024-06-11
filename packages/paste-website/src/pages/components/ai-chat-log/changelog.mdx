@@ -1,0 +1,37 @@
+export const meta = {
+  title: 'AI Chat Log - Components',
+  package: '@twilio-paste/ai-chat-log',
+  description: 'An AI Chat Log is a collection of Chat components for displaying conversations between a human and an AI bot.',
+  slug: '/components/ai-chat-log/changelog',
+};
+
+import Changelog from '@twilio-paste/ai-chat-log/CHANGELOG.md';
+import packageJson from '@twilio-paste/ai-chat-log/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('AI Chat Log');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      navigationData,
+      mdxHeadings,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/ai-chat-log',
+        storybookUrl: '/?path=/story/components-chatlog--example-chat-log',
+      },
+    },
+  };
+};
+
+<Changelog />

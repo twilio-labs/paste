@@ -1,0 +1,100 @@
+export const meta = {
+  title: 'AI Chat Log - API',
+  package: '@twilio-paste/ai-chat-log',
+  description: 'An AI Chat Log is a collection of Chat components for displaying conversations between a human and an AI bot',
+  slug: '/components/ai-chat-log/api',
+};
+
+import Changelog from '@twilio-paste/ai-chat-log/CHANGELOG.md'; // I don't know why this is needed but if you remove it the page fails to render
+import packageJson from '@twilio-paste/ai-chat-log/package.json';
+
+import {SidebarCategoryRoutes} from '../../../constants';
+import ComponentPageLayout from '../../../layouts/ComponentPageLayout';
+import {getFeature, getNavigationData, getComponentApi} from '../../../utils/api';
+
+export default ComponentPageLayout;
+
+export const getStaticProps = async () => {
+  const navigationData = await getNavigationData();
+  const feature = await getFeature('AI Chat Log');
+  const {componentApi, componentApiTocData} = getComponentApi('@twilio-paste/ai-chat-log');
+  return {
+    props: {
+      data: {
+        ...packageJson,
+        ...feature,
+      },
+      componentApi,
+      mdxHeadings: [...mdxHeadings, ...componentApiTocData],
+      navigationData,
+      pageHeaderData: {
+        categoryRoute: SidebarCategoryRoutes.COMPONENTS,
+        githubUrl: 'https://github.com/twilio-labs/paste/tree/main/packages/paste-core/components/ai-chat-log',
+        storybookUrl: '/?path=/story/components-chatlog--example-chat-log',
+      },
+    },
+  };
+};
+
+## Installation
+
+```bash
+yarn add @twilio-paste/ai-chat-log - or - yarn add @twilio-paste/core
+```
+
+## Usage
+
+```jsx
+import {
+  AIChatLog,
+  AIChatMessage,
+  AIChatMessageAuthor,
+  AIChatMessageBody,
+  AIChatMessageFeedback,
+  AIChatMessageLoading,
+  AIChatMessageMeta,
+} from '@twilio-paste/core/ai-chat-log';
+
+export const Basic = () => {
+  return (
+    <AIChatLog>
+      <AIChatMessage variant="user">
+        <AIChatMessageAuthor aria-label="You said at 2:36pm">Gibby Radki</AIChatMessageAuthor>
+        <AIChatMessageBody variant="default">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
+          adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
+          impedit repellat assumenda.
+        </AIChatMessageBody>
+      </AIChatMessage>
+      <AIChatMessage variant="bot">
+        <AIChatMessageAuthor aria-label="AI said">Good Bot</AIChatMessageAuthor>
+        <AIChatMessageBody variant="default">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt delectus fuga, necessitatibus eligendi iure
+          adipisci facilis exercitationem officiis dolorem laborum, ex fugiat quisquam itaque, earum sit nesciunt
+          impedit repellat assumenda.
+        </AIChatMessageBody>
+        <AIChatMessageMeta aria-label="Quick actions available:">
+          <ButtonGroup>
+            <Button variant="secondary" onClick={() => {}} size="small">
+              30007
+            </Button>
+            <Button variant="secondary" onClick={() => {}} size="small">
+              30007
+            </Button>
+            <Button variant="secondary" onClick={() => {}} size="small">
+              30009
+            </Button>
+          </ButtonGroup>
+        </AIChatMessageMeta>
+        <AIChatMessageMeta aria-label="Feedback form">
+          <AIChatMessageFeedback onLike={() => {}} onDislike={() => {}} />
+        </AIChatMessageMeta>
+      </AIChatMessage>
+    </AIChatLog>
+  );
+};
+```
+
+## Props
+
+<PropsTable componentApi={props.componentApi} />
