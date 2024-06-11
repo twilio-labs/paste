@@ -21,18 +21,12 @@ export interface AIChatLoggerProps extends HTMLPasteProps<"div"> {
   children?: never;
 }
 
-const buildTransitionX = (AIChat: AIChat): number => {
-  if (AIChat.variant === "bot") return -100;
-  if (AIChat.variant === "user") return 100;
-  return 0;
-};
-
 export const AIChatLogger = React.forwardRef<HTMLDivElement, AIChatLoggerProps>(({ aiChats, ...props }, ref) => {
   const transitions = useTransition(aiChats, {
     keys: (AIChat: AIChat) => AIChat.id,
-    from: (AIChat: AIChat): StyleProps => ({ opacity: 0, x: buildTransitionX(AIChat) }),
+    from: (): StyleProps => ({ opacity: 0, x: 0 }),
     enter: { opacity: 1, x: 0 },
-    leave: (AIChat: AIChat): StyleProps => ({ opacity: 0, x: buildTransitionX(AIChat) }),
+    leave: (): StyleProps => ({ opacity: 0, x: 0 }),
     config: {
       mass: 0.7,
       tension: 190,
