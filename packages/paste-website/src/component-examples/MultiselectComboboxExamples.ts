@@ -599,7 +599,6 @@ const MultiselectComboboxExample = () => {
         labelText="Choose a Paste Component"
         selectedItemsLabelText="Selected Paste components"
         helpText="Paste components are the building blocks of your product UI."
-        initialIsOpen
         optionTemplate={(item) => {
           return <div>{item.label}</div>;
         }}
